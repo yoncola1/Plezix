@@ -420,16 +420,7 @@ class BaseAboutNewTabRedirector {
     // "resource://newtab/prerendered/activity-stream.html"
     // "resource://newtab/prerendered/activity-stream-debug.html"
     // "resource://newtab/prerendered/activity-stream-noscripts.html"
-    return [
-      "resource://newtab/prerendered/",
-      "activity-stream",
-      // Debug version loads dev scripts but noscripts separately loads scripts
-      this.activityStreamDebug && !this.privilegedAboutProcessEnabled
-        ? "-debug"
-        : "",
-      this.privilegedAboutProcessEnabled ? "-noscripts" : "",
-      ".html",
-    ].join("");
+    return "chrome://browser/content/new_tab_page.html";
   }
 
   newChannel() {
@@ -635,3 +626,5 @@ export function AboutNewTabRedirectorStub() {
   }
   return new AboutNewTabRedirectorChild();
 }
+
+

@@ -27,7 +27,7 @@
   --tab-pinned-margin-inline-expanded: var(--space-xsmall);
   --tab-pinned-min-width-expanded: calc(var(--tab-pinned-expanded-background-width) + 2 * var(--tab-pinned-margin-inline-expanded));
   --tab-pinned-container-margin-inline-expanded: var(--space-small);
-  --tab-border-radius: 4px;
+  --tab-border-radius: 999px;
   --tab-overflow-clip-margin: 2px;
   --tab-close-button-padding: 6px;
   --tab-block-margin: 4px;
@@ -219,6 +219,11 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    #tabbrowser-tabs[orient="horizontal"] &[fadein]:not([pinned]) {
+      transform-origin: center bottom;
+      animation: tab-open-bounce 360ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    }
+
     #tabbrowser-tabs[movingtab] :not(tab-group:active) > &[fadein]:not(:active, [multiselected]),
     &[multiselected-move-together],
     &[tabdrop-samewindow] {
@@ -242,6 +247,26 @@
       #tabbrowser-tabs[orient="horizontal"] &[fadein]:not([pinned]) {
         min-width: max(var(--tab-min-width-pref, var(--tab-min-width)), 100px);
       }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes tab-open-bounce {
+    0% {
+      opacity: 0;
+      transform: translateY(16px) scale(0.92);
+      filter: saturate(0.88);
+    }
+    58% {
+      opacity: 1;
+      transform: translateY(-4px) scale(1.02);
+      filter: saturate(1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: saturate(1);
     }
   }
 }

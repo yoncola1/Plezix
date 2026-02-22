@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Plezix | Start Page</title>
-    <script src="chrome://browser/content/tailwind.js"></script>
     <style>
         :root {
             --glass: rgba(255, 255, 255, 0.03);
@@ -13,6 +13,8 @@
             --accent-glow: rgba(16, 185, 129, 0.3);
             --clock-scale: 1;
             --bg-gradient: radial-gradient(circle at center, #064e3b 0%, #000000 100%);
+            --search-width: 440px;
+            --search-opacity: 0.4;
         }
 
         body.theme-holiday {
@@ -31,12 +33,20 @@
             background: #000;
             color: white;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             height: 100vh;
             margin: 0;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: page-enter 0.35s ease-out both;
+        }
+        @keyframes page-enter {
+            from { opacity: 0; filter: blur(2px); }
+            to { opacity: 1; filter: blur(0); }
         }
 
         #holiday-decoration {
@@ -118,19 +128,29 @@
         .wallpaper-item.active { border-color: var(--accent); }
         .wallpaper-item.none-option { background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #64748b; }
 
-        .clock-container { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 12px; pointer-events: none; transition: left 0.5s, right 0.5s, top 0.5s, bottom 0.5s; z-index: 10; }
-        .time-block { font-size: calc(8rem * var(--clock-scale)); font-weight: 800; line-height: 0.8; background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .clock-container { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 12px; pointer-events: none; transition: left 0.5s, right 0.5s, top 0.5s, bottom 0.5s; z-index: 10; user-select: none; -moz-user-select: none; }
+        .time-block { font-size: calc(8rem * var(--clock-scale)); font-weight: 900; line-height: 0.8; letter-spacing: 0.02em; background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; }
         .time-divider { width: calc(45px * var(--clock-scale)); height: calc(4px * var(--clock-scale)); background: var(--accent); border-radius: 2px; box-shadow: 0 0 15px var(--accent); }
+        .time-sec { font-size: calc(1.15rem * var(--clock-scale)); color: #dbe3f0; letter-spacing: 0.08em; opacity: 0.95; font-variant-numeric: tabular-nums; }
 
         .search-container { position: absolute; width: 100%; display: flex; justify-content: center; transition: all 0.5s; z-index: 20; }
-        .search-wrapper { width: 440px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; }
-        .search-input { background: transparent; border: none; outline: none; color: white; width: 100%; padding: 16px 30px; text-align: center; }
+        .search-wrapper { width: var(--search-width); background: rgba(0, 0, 0, var(--search-opacity)); backdrop-filter: blur(20px); border: none; border-radius: 50px; box-shadow: none; }
+        .search-wrapper:focus-within { box-shadow: none; }
+        .search-input { background: transparent; border: none; outline: none; box-shadow: none; color: #f8fafc; width: 100%; padding: 16px 30px; text-align: center; font-weight: 600; letter-spacing: 0.01em; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+        .search-input::placeholder { color: rgba(226, 232, 240, 0.88); }
 
         .pos-left { left: 10%; transform: none; }
         .pos-center { left: 50%; transform: translateX(-50%); }
         .pos-right { right: 10%; transform: none; }
         .search-bottom { bottom: 15%; }
         .search-center { top: 55%; }
+
+        #clock,
+        #search,
+        #bg-container,
+        #wallpaper-layer {
+            will-change: transform, opacity;
+        }
 
         #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--accent); color: black; padding: 10px 20px; border-radius: 30px; font-weight: 700; transition: 0.5s; z-index: 2000; }
         #toast.show { transform: translateX(-50%) translateY(0); }
@@ -142,6 +162,33 @@
             cursor: pointer; transition: 0.3s;
         }
         .close-settings:hover { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+        /* Minimal utility classes to avoid Tailwind runtime on chrome:// pages */
+        .flex { display: flex; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .relative { position: relative; }
+        .hidden { display: none; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-auto { margin-top: auto; }
+        .p-2 { padding: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-[10px] { font-size: 10px; }
+        .uppercase { text-transform: uppercase; }
+        .font-bold { font-weight: 700; }
+        .text-emerald-500 { color: #10b981; }
+        .border { border-width: 1px; border-style: solid; }
+        .border-red-500 { border-color: #ef4444; }
+        .text-red-500 { color: #ef4444; }
+        .hover\:bg-red-500:hover { background-color: #ef4444; }
+        .hover\:text-white:hover { color: #fff; }
+        .transition { transition: all .2s ease; }
+        .m-0 { margin: 0; }
+        .w-5 { width: 1.25rem; }
+        .h-5 { height: 1.25rem; }
+        .accent-emerald-500 { accent-color: var(--accent); }
     </style>
 </head>
 <body onclick="document.getElementById('engine-options').classList.remove('open')">
@@ -201,6 +248,11 @@
         </div>
 
         <div class="setting-group">
+            <span class="label-text">Accent Color</span>
+            <input type="color" id="accent-color" class="custom-input" onchange="updateSettings()">
+        </div>
+
+        <div class="setting-group">
             <span class="label-text">Расположение</span>
             <select id="clock-pos" onchange="updateSettings()">
                 <option value="pos-left">Часы слева</option>
@@ -211,6 +263,26 @@
                 <option value="search-bottom">Поиск снизу</option>
                 <option value="search-center">Поиск в центре</option>
             </select>
+        </div>
+
+        <div class="setting-group">
+            <span class="label-text">Search Width</span>
+            <input type="range" id="search-width" min="320" max="760" step="10" onchange="updateSettings()">
+        </div>
+
+        <div class="setting-group">
+            <span class="label-text">Search Opacity</span>
+            <input type="range" id="search-opacity" min="0.15" max="0.9" step="0.05" onchange="updateSettings()">
+        </div>
+
+        <div class="setting-group flex items-center justify-between">
+            <span class="label-text m-0">12h Clock</span>
+            <input type="checkbox" id="clock-12h" onchange="updateSettings()" class="w-5 h-5 accent-emerald-500">
+        </div>
+
+        <div class="setting-group flex items-center justify-between">
+            <span class="label-text m-0">Show Seconds</span>
+            <input type="checkbox" id="show-seconds" onchange="updateSettings()" class="w-5 h-5 accent-emerald-500">
         </div>
 
         <div class="setting-group flex items-center justify-between">
@@ -225,18 +297,21 @@
         <div class="time-block" id="hour">00</div>
         <div class="time-divider"></div>
         <div class="time-block" id="min">00</div>
+        <div class="time-sec" id="sec">00</div>
     </div>
 
     <div id="search" class="search-container search-bottom">
         <div class="search-wrapper">
-            <form id="searchForm" class="w-full">
+            <form id="searchForm">
                 <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autofocus autocomplete="off">
             </form>
         </div>
     </div>
 
     <script>
-        const STORAGE_KEY = 'plezix_final_v5';
+        const STORAGE_KEY = "plezix_final_v6";
+        const SETTINGS_PREF = "browser.plezix.newtab.settings";
+        const SETTINGS_VERSION = 2;
         
         const builtInWallpapers = [
             "https://img2.akspic.ru/crops/8/4/4/3/6/163448/163448-les-priroda-drevesina-rastenie-naturalnyj_landshaft-3840x2160.jpg",
@@ -252,15 +327,22 @@
             "https://img1.akspic.ru/crops/4/4/7/8/7/178744/178744-kordilera_uajuash-ozero_karuakocha-gornyj_hrebet-gora-atmosfera-3840x2160.jpg"
         ];
 
-        let settings = {
+        const DEFAULT_SETTINGS = {
             bgData: '',
             clockSize: 1,
             clockPos: 'pos-left',
             searchPos: 'search-bottom',
+            accentColor: '#10b981',
+            searchWidth: 440,
+            searchOpacity: 0.4,
+            showSeconds: false,
+            use12h: false,
             shakeEnabled: true,
             engine: 'yandex',
             customUrl: ''
         };
+
+        let settings = { ...DEFAULT_SETTINGS };
 
         const engines = {
             yandex: "https://yandex.ru/search/?text={q}",
@@ -269,23 +351,47 @@
             duckduckgo: "https://duckduckgo.com/?q={q}"
         };
 
-        function checkSpecialDates() {
-            const now = new Date();
-            const month = now.getMonth();
-            const day = now.getDate();
+        const el = {};
+        let toastTimeoutId = 0;
+        let clockTimeoutId = 0;
+        let lastThemeKey = "";
+        let wallpaperRequestId = 0;
+
+        let pointerTargetX = 0;
+        let pointerTargetY = 0;
+        let pointerCurrentX = 0;
+        let pointerCurrentY = 0;
+        let parallaxRafId = 0;
+
+        function clamp(value, min, max) {
+            return Math.min(max, Math.max(min, value));
+        }
+
+        function maybeApplySpecialTheme(now) {
+            const date = now || new Date();
+            const key = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+            if (key === lastThemeKey) {
+                return;
+            }
+            lastThemeKey = key;
+
+            const month = date.getMonth();
+            const day = date.getDate();
             const body = document.body;
-            const decor = document.getElementById('holiday-decoration');
+            const decor = el.holidayDecoration || document.getElementById("holiday-decoration");
 
             if ((month === 11 && day === 31) || (month === 0 && day === 1)) {
-                body.classList.add('theme-holiday');
+                body.classList.add("theme-holiday");
+                body.classList.remove("theme-birthday");
                 decor.style.backgroundImage = "url('https://cdn.creazilla.com/cliparts/7927085/christmas-ribbon-clipart-xl.png')";
                 decor.style.display = "block";
             } else if (month === 1 && day === 21) {
-                body.classList.add('theme-birthday');
+                body.classList.add("theme-birthday");
+                body.classList.remove("theme-holiday");
                 decor.style.backgroundImage = "url('https://png.klev.club/uploads/posts/2024-05/png-klev-club-ncmk-p-prazdnichnie-flazhki-png-15.png')";
                 decor.style.display = "block";
             } else {
-                body.classList.remove('theme-holiday', 'theme-birthday');
+                body.classList.remove("theme-holiday", "theme-birthday");
                 decor.style.display = "none";
             }
         }
@@ -314,8 +420,9 @@
 
         function showToast() {
             const t = document.getElementById('toast');
+            clearTimeout(toastTimeoutId);
             t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 2000);
+            toastTimeoutId = setTimeout(() => t.classList.remove('show'), 1400);
         }
 
         function renderWallpapers() {
@@ -347,56 +454,318 @@
             }
         }
 
+        function getPrefsStorage() {
+            try {
+                if (typeof Services !== "undefined" && Services?.prefs) {
+                    return Services.prefs;
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        function readStoredSettings() {
+            // On chrome:// pages prefs are profile-global and more stable than localStorage.
+            // If moved to a WebExtension page, browser.storage.local should be the primary backend.
+            const prefs = getPrefsStorage();
+            if (prefs) {
+                try {
+                    const prefValue = prefs.getStringPref(SETTINGS_PREF, "");
+                    if (prefValue) {
+                        return prefValue;
+                    }
+                } catch (e) {}
+            }
+
+            try {
+                const value = localStorage.getItem(STORAGE_KEY);
+                if (value) {
+                    return value;
+                }
+            } catch (e) {}
+
+            return "";
+        }
+
+        function writeStoredSettings(value) {
+            try {
+                localStorage.setItem(STORAGE_KEY, value);
+            } catch (e) {}
+
+            try {
+                const prefs = getPrefsStorage();
+                if (prefs) {
+                    prefs.setStringPref(SETTINGS_PREF, value);
+                }
+            } catch (e) {}
+        }
+
+        function normalizeSettings(candidate) {
+            const incoming = candidate && typeof candidate === "object" ? candidate : {};
+            return {
+                bgData: typeof incoming.bgData === "string" ? incoming.bgData : DEFAULT_SETTINGS.bgData,
+                clockSize: clamp(Number(incoming.clockSize) || DEFAULT_SETTINGS.clockSize, 0.5, 1.5),
+                clockPos: ["pos-left", "pos-center", "pos-right"].includes(incoming.clockPos) ? incoming.clockPos : DEFAULT_SETTINGS.clockPos,
+                searchPos: ["search-bottom", "search-center"].includes(incoming.searchPos) ? incoming.searchPos : DEFAULT_SETTINGS.searchPos,
+                accentColor: /^#[0-9a-fA-F]{6}$/.test(String(incoming.accentColor || "")) ? String(incoming.accentColor) : DEFAULT_SETTINGS.accentColor,
+                searchWidth: clamp(Number(incoming.searchWidth) || DEFAULT_SETTINGS.searchWidth, 320, 760),
+                searchOpacity: clamp(Number(incoming.searchOpacity) || DEFAULT_SETTINGS.searchOpacity, 0.15, 0.9),
+                showSeconds: !!incoming.showSeconds,
+                use12h: !!incoming.use12h,
+                shakeEnabled: incoming.shakeEnabled === undefined ? DEFAULT_SETTINGS.shakeEnabled : !!incoming.shakeEnabled,
+                engine: ["yandex", "google", "bing", "duckduckgo", "custom"].includes(incoming.engine) ? incoming.engine : DEFAULT_SETTINGS.engine,
+                customUrl: typeof incoming.customUrl === "string" ? incoming.customUrl : DEFAULT_SETTINGS.customUrl,
+            };
+        }
+
+        function clearStoredSettings() {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+            } catch (e) {}
+            try {
+                const prefs = getPrefsStorage();
+                if (prefs && prefs.prefHasUserValue(SETTINGS_PREF)) {
+                    prefs.clearUserPref(SETTINGS_PREF);
+                }
+            } catch (e) {}
+        }
+
+        function loadSettings() {
+            const raw = readStoredSettings();
+            if (!raw) {
+                settings = { ...DEFAULT_SETTINGS };
+                return;
+            }
+            try {
+                const parsed = JSON.parse(raw);
+                const payload = parsed && typeof parsed === "object" && parsed.data ? parsed.data : parsed;
+                settings = normalizeSettings(payload);
+            } catch (e) {
+                settings = { ...DEFAULT_SETTINGS };
+            }
+        }
+
+        function persistSettings() {
+            const payload = JSON.stringify({
+                v: SETTINGS_VERSION,
+                ts: Date.now(),
+                data: settings,
+            });
+            writeStoredSettings(payload);
+        }
+
+        function asCssUrl(value) {
+            const safe = String(value || "").replace(/"/g, '\\"');
+            return `url("${safe}")`;
+        }
+
+        function animatePlacement(el) {
+            if (!el || typeof el.animate !== "function") {
+                return;
+            }
+            el.animate(
+                [
+                    { opacity: 0.6, filter: "blur(2px)" },
+                    { opacity: 1, filter: "blur(0px)" }
+                ],
+                { duration: 280, easing: "ease-out" }
+            );
+        }
+
+        function applyWallpaper(url) {
+            const wp = document.getElementById('wallpaper-layer');
+            if (!url) {
+                wp.style.opacity = '0';
+                return;
+            }
+
+            const requestId = ++wallpaperRequestId;
+            const isRemote = /^https?:\/\//i.test(url);
+            if (!isRemote) {
+                wp.style.backgroundImage = asCssUrl(url);
+                wp.style.opacity = '1';
+                return;
+            }
+
+            const probe = new Image();
+            probe.referrerPolicy = "no-referrer";
+            probe.onload = () => {
+                if (requestId !== wallpaperRequestId) {
+                    return;
+                }
+                wp.style.backgroundImage = asCssUrl(url);
+                wp.style.opacity = '1';
+            };
+            probe.onerror = () => {
+                if (requestId !== wallpaperRequestId) {
+                    return;
+                }
+                wp.style.opacity = '0';
+            };
+            probe.src = url;
+        }
+
+        function applyParallax() {
+            document.getElementById('bg-container').style.transform = `translate(${pointerCurrentX * -10}px, ${pointerCurrentY * -10}px)`;
+            document.getElementById('wallpaper-layer').style.transform = `translate(${pointerCurrentX * -8}px, ${pointerCurrentY * -8}px)`;
+            document.getElementById('clock').style.transform = `translate(${pointerCurrentX * 12}px, ${pointerCurrentY * 12}px)`;
+            document.getElementById('search').style.transform = `translate(${pointerCurrentX * 18}px, ${pointerCurrentY * 18}px)`;
+        }
+
+        function parallaxFrame() {
+            parallaxRafId = 0;
+            pointerCurrentX += (pointerTargetX - pointerCurrentX) * 0.16;
+            pointerCurrentY += (pointerTargetY - pointerCurrentY) * 0.16;
+            applyParallax();
+
+            const settled = Math.abs(pointerCurrentX - pointerTargetX) < 0.001 &&
+                Math.abs(pointerCurrentY - pointerTargetY) < 0.001;
+            if (!document.hidden && settings.shakeEnabled && !settled) {
+                parallaxRafId = requestAnimationFrame(parallaxFrame);
+            }
+        }
+
+        function ensureParallaxLoop() {
+            if (parallaxRafId || document.hidden || !settings.shakeEnabled) {
+                return;
+            }
+            parallaxRafId = requestAnimationFrame(parallaxFrame);
+        }
+
+        function onMouseMove(e) {
+            if (!settings.shakeEnabled) {
+                return;
+            }
+            pointerTargetX = (e.clientX / window.innerWidth) - 0.5;
+            pointerTargetY = (e.clientY / window.innerHeight) - 0.5;
+            ensureParallaxLoop();
+        }
+
+        function onMouseLeave() {
+            pointerTargetX = 0;
+            pointerTargetY = 0;
+            ensureParallaxLoop();
+        }
+
+        function updateParallaxState() {
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseleave', onMouseLeave);
+            if (settings.shakeEnabled && !document.hidden) {
+                window.addEventListener('mousemove', onMouseMove, { passive: true });
+                window.addEventListener('mouseleave', onMouseLeave, { passive: true });
+                return;
+            }
+            pointerTargetX = 0;
+            pointerTargetY = 0;
+            ensureParallaxLoop();
+        }
+
         function updateSettings() {
-            settings.clockSize = document.getElementById('clock-size').value;
+            settings.clockSize = clamp(Number(document.getElementById('clock-size').value) || 1, 0.5, 1.5);
             settings.clockPos = document.getElementById('clock-pos').value;
             settings.searchPos = document.getElementById('search-pos').value;
+            settings.accentColor = document.getElementById('accent-color').value;
+            settings.searchWidth = clamp(Number(document.getElementById('search-width').value) || 440, 320, 760);
+            settings.searchOpacity = clamp(Number(document.getElementById('search-opacity').value) || 0.4, 0.15, 0.9);
+            settings.use12h = document.getElementById('clock-12h').checked;
+            settings.showSeconds = document.getElementById('show-seconds').checked;
             settings.shakeEnabled = document.getElementById('shake-effect').checked;
             settings.customUrl = document.getElementById('custom-engine-url').value;
             
             applySettings();
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+            persistSettings();
+            scheduleClockTick();
+            updateTime();
             showToast();
         }
 
         function applySettings() {
-            const wp = document.getElementById('wallpaper-layer');
-            if (settings.bgData) {
-                wp.style.backgroundImage = `url(${settings.bgData})`;
-                wp.style.opacity = '1';
-            } else {
-                wp.style.opacity = '0';
-            }
+            const clock = document.getElementById('clock');
+            const search = document.getElementById('search');
+            applyWallpaper(settings.bgData);
             
+            document.documentElement.style.setProperty('--accent', settings.accentColor || '#10b981');
+            document.documentElement.style.setProperty('--search-width', `${settings.searchWidth || 440}px`);
+            document.documentElement.style.setProperty('--search-opacity', `${settings.searchOpacity || 0.4}`);
             document.documentElement.style.setProperty('--clock-scale', settings.clockSize);
-            document.getElementById('clock').className = `clock-container ${settings.clockPos}`;
-            document.getElementById('search').className = `search-container ${settings.searchPos}`;
+            const oldClockPos = clock.dataset.pos || 'pos-left';
+            const oldSearchPos = search.dataset.pos || 'search-bottom';
+            clock.className = `clock-container ${settings.clockPos}`;
+            search.className = `search-container ${settings.searchPos}`;
+            clock.dataset.pos = settings.clockPos;
+            search.dataset.pos = settings.searchPos;
+            document.getElementById('sec').style.display = settings.showSeconds ? 'block' : 'none';
+
+            if (oldClockPos !== settings.clockPos) {
+                animatePlacement(clock);
+            }
+            if (oldSearchPos !== settings.searchPos) {
+                animatePlacement(search);
+            }
             updateEngineUI();
+            updateParallaxState();
         }
 
         function resetAll() {
-            if(confirm("Сбросить всё?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
+            if (confirm("Сбросить всё?")) {
+                clearStoredSettings();
+                settings = { ...DEFAULT_SETTINGS };
+                syncUIFromSettings();
+                applySettings();
+                renderWallpapers();
+                updateTime();
+                scheduleClockTick();
+            }
         }
-
-        window.addEventListener('mousemove', (e) => {
-            if (!settings.shakeEnabled) return;
-            const x = (e.clientX / window.innerWidth - 0.5); 
-            const y = (e.clientY / window.innerHeight - 0.5);
-            // Покачивание работает для фона, часов и поиска
-            document.getElementById('bg-container').style.transform = `translate(${x * -10}px, ${y * -10}px)`;
-            document.getElementById('wallpaper-layer').style.transform = `translate(${x * -8}px, ${y * -8}px)`;
-            document.getElementById('clock').style.transform = `translate(${x * 12}px, ${y * 12}px)`;
-            document.getElementById('search').style.transform = `translate(${x * 18}px, ${y * 18}px)`;
-        });
 
         function updateTime() {
             const now = new Date();
-            document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
+            let hours = now.getHours();
+            if (settings.use12h) {
+                hours = hours % 12 || 12;
+            }
+            document.getElementById('hour').textContent = String(hours).padStart(2, '0');
             document.getElementById('min').textContent = String(now.getMinutes()).padStart(2, '0');
-            checkSpecialDates();
+            document.getElementById('sec').textContent = String(now.getSeconds()).padStart(2, '0');
+            maybeApplySpecialTheme(now);
         }
-        setInterval(updateTime, 1000);
 
+        function scheduleClockTick() {
+            clearTimeout(clockTimeoutId);
+            if (document.hidden) {
+                return;
+            }
+            const interval = settings.showSeconds ? 1000 : 60000;
+            const now = Date.now();
+            const delay = interval - (now % interval) + 5;
+            clockTimeoutId = setTimeout(() => {
+                updateTime();
+                scheduleClockTick();
+            }, delay);
+        }
+
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                clearTimeout(clockTimeoutId);
+                updateParallaxState();
+                return;
+            }
+            updateTime();
+            scheduleClockTick();
+            updateParallaxState();
+        }
+
+        function syncUIFromSettings() {
+            document.getElementById('clock-size').value = settings.clockSize || 1;
+            document.getElementById('clock-pos').value = settings.clockPos || 'pos-left';
+            document.getElementById('search-pos').value = settings.searchPos || 'search-bottom';
+            document.getElementById('accent-color').value = settings.accentColor || '#10b981';
+            document.getElementById('search-width').value = settings.searchWidth || 440;
+            document.getElementById('search-opacity').value = settings.searchOpacity || 0.4;
+            document.getElementById('clock-12h').checked = !!settings.use12h;
+            document.getElementById('show-seconds').checked = !!settings.showSeconds;
+            document.getElementById('shake-effect').checked = settings.shakeEnabled !== undefined ? settings.shakeEnabled : true;
+            document.getElementById('custom-engine-url').value = settings.customUrl || '';
+        }
         document.getElementById('searchForm').onsubmit = (e) => {
             e.preventDefault();
             const q = document.getElementById('searchInput').value.trim();
@@ -404,28 +773,19 @@
             let url = (settings.engine === 'custom' && settings.customUrl) 
                 ? settings.customUrl.replace('{q}', encodeURIComponent(q))
                 : (engines[settings.engine] || engines.yandex).replace('{q}', encodeURIComponent(q));
-            window.open(url, '_blank');
+            window.location.assign(url);
         };
 
-        window.onload = () => {
-            const saved = localStorage.getItem(STORAGE_KEY);
-            if (saved) {
-                try {
-                    settings = JSON.parse(saved);
-                } catch(e) {}
-            }
-            
-            // Синхронизация UI
-            document.getElementById('clock-size').value = settings.clockSize || 1;
-            document.getElementById('clock-pos').value = settings.clockPos || 'pos-left';
-            document.getElementById('search-pos').value = settings.searchPos || 'search-bottom';
-            document.getElementById('shake-effect').checked = settings.shakeEnabled !== undefined ? settings.shakeEnabled : true;
-            document.getElementById('custom-engine-url').value = settings.customUrl || '';
-            
+        document.addEventListener("DOMContentLoaded", () => {
+            loadSettings();
+            syncUIFromSettings();
             applySettings();
             renderWallpapers();
             updateTime();
-        };
+            scheduleClockTick();
+            persistSettings();
+            document.addEventListener("visibilitychange", handleVisibilityChange);
+        }, { once: true });
     </script>
 </body>
 </html>

@@ -315,8 +315,8 @@ pref("browser.shell.setDefaultGuidanceNotifications", true);
 
 // 0 = blank, 1 = home (browser.startup.homepage), 2 = last visited page, 3 = resume previous browser session
 // The behavior of option 3 is detailed at: http://wiki.mozilla.org/Session_Restore
-pref("browser.startup.page","about:myhome");
-pref("browser.startup.homepage",            "about:myhome");
+pref("browser.startup.page",                1);
+pref("browser.startup.homepage",            "about:newtab");
 
 pref("browser.startup.homepage.abouthome_cache.enabled", true);
 pref("browser.startup.homepage.abouthome_cache.loglevel", "Warn");
@@ -1320,12 +1320,13 @@ pref("browser.sessionstore.resuming_after_os_restart", false);
 pref("browser.sessionstore.closedTabsFromAllWindows", true);
 pref("browser.sessionstore.closedTabsFromClosedWindows", true);
 
+// Minimal interval between two save operations in milliseconds.
+pref("browser.sessionstore.interval", 10000); // 10s
 // Minimal interval between two save operations in milliseconds (while the user is idle).
-pref("browser.sessionstore.interval.idle", 3600000); // 1h
+pref("browser.sessionstore.interval.idle", 60000); // 1m
 
-// Time (seconds) before we assume that the user is idle and that we don't need to
-// collect/save the session quite as often.
-pref("browser.sessionstore.idleDelay", 180); // 3 minutes
+// Time (seconds) before we assume that the user is idle.
+pref("browser.sessionstore.idleDelay", 20);
 
 // Fine-grained default logging levels for each log appender
 pref("browser.sessionstore.log.appender.console", "Fatal");
@@ -1713,6 +1714,7 @@ pref("services.sync.prefs.dangerously_allow_arbitrary", false);
 // fetching these icons to show remote tabs may leak information about that
 // user's tabs and bookmarks. Note this pref is also synced.
 pref("services.sync.syncedTabs.showRemoteIcons", true);
+pref("services.sync.engine.tabs", true);
 
 // A preference (in milliseconds) controlling if we sync after a tab change and
 // how long to delay before we schedule the sync
@@ -1744,7 +1746,7 @@ pref("browser.partnerlink.attributionURL", "https://topsites.services.mozilla.co
 pref("browser.partnerlink.campaign.topsites", "amzn_2020_a1");
 
 // Activates preloading of the new tab url.
-pref("browser.newtab.preload", true);
+pref("browser.newtab.preload", false);
 
 // Do not enable the preonboarding experience on Linux
 #ifdef XP_LINUX
@@ -2538,13 +2540,13 @@ pref("browser.tabs.context.close-duplicate.enabled", true);
 
 // For speculatively warming up tabs to improve perceived
 // performance while using the async tab switcher.
-pref("browser.tabs.remote.warmup.enabled", true);
+pref("browser.tabs.remote.warmup.enabled", false);
 
 // Caches tab layers to improve perceived performance
 // of tab switches.
 pref("browser.tabs.remote.tabCacheSize", 0);
 
-pref("browser.tabs.remote.warmup.maxTabs", 3);
+pref("browser.tabs.remote.warmup.maxTabs", 1);
 pref("browser.tabs.remote.warmup.unloadDelayMs", 2000);
 
 // For the about:tabcrashed page
