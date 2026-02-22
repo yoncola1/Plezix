@@ -114,12 +114,6 @@
         .setting-group { margin-bottom: 24px; }
         .label-text { display: block; font-size: 0.65rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
         
-        .custom-select-trigger { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; cursor: pointer; }
-        .custom-options { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: #111; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; display: none; z-index: 50; }
-        .custom-options.open { display: block; }
-        .custom-option { padding: 12px 16px; cursor: pointer; transition: 0.2s; }
-        .custom-option:hover { background: var(--accent); color: black; }
-
         select, .custom-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; }
         .btn-custom { background: var(--accent); color: black; font-weight: 700; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; font-size: 0.8rem; display: block; width: 100%; }
         
@@ -134,7 +128,7 @@
         .time-sec { font-size: calc(1.15rem * var(--clock-scale)); color: #dbe3f0; letter-spacing: 0.08em; opacity: 0.95; font-variant-numeric: tabular-nums; }
 
         .search-container { position: absolute; width: 100%; display: flex; justify-content: center; transition: all 0.5s; z-index: 20; }
-        .search-wrapper { width: var(--search-width); background: rgba(0, 0, 0, var(--search-opacity)); backdrop-filter: blur(20px); border: none; border-radius: 50px; box-shadow: none; }
+        .search-wrapper { width: var(--search-width); max-width: calc(100vw - 32px); background: rgba(0, 0, 0, var(--search-opacity)); backdrop-filter: blur(20px); border: none; border-radius: 50px; box-shadow: none; }
         .search-wrapper:focus-within { box-shadow: none; }
         .search-input { background: transparent; border: none; outline: none; box-shadow: none; color: #f8fafc; width: 100%; padding: 16px 30px; text-align: center; font-weight: 600; letter-spacing: 0.01em; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
         .search-input::placeholder { color: rgba(226, 232, 240, 0.88); }
@@ -189,9 +183,24 @@
         .w-5 { width: 1.25rem; }
         .h-5 { height: 1.25rem; }
         .accent-emerald-500 { accent-color: var(--accent); }
+
+        @media (max-width: 900px) {
+            #settings-panel {
+                width: min(360px, 92vw);
+                right: -100vw;
+                padding: 20px;
+            }
+            #settings-btn {
+                top: 16px;
+                right: 16px;
+            }
+            .search-bottom {
+                bottom: 10%;
+            }
+        }
     </style>
 </head>
-<body onclick="document.getElementById('engine-options').classList.remove('open')">
+<body>
 
     <div id="holiday-decoration"></div>
     <div id="bg-container"></div>
@@ -209,25 +218,6 @@
             <div class="close-settings" onclick="toggleSettings(event)">✕</div>
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Поисковик</span>
-            <div class="relative">
-                <div class="custom-select-trigger" onclick="toggleEngineDropdown(event)">
-                    <span id="current-engine-name">Yandex</span>
-                    <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-                </div>
-                <div class="custom-options" id="engine-options">
-                    <div class="custom-option" onclick="selectEngine('yandex')">Yandex</div>
-                    <div class="custom-option" onclick="selectEngine('google')">Google</div>
-                    <div class="custom-option" onclick="selectEngine('bing')">Bing</div>
-                    <div class="custom-option" onclick="selectEngine('duckduckgo')">DuckDuckGo</div>
-                    <div class="custom-option" onclick="selectEngine('custom')">Своя ссылка</div>
-                </div>
-            </div>
-            <div id="custom-url-container" class="mt-2 hidden">
-                <input type="text" id="custom-engine-url" class="custom-input" placeholder="https://site.com/search?q={q}" onchange="updateSettings()">
-            </div>
-        </div>
 
         <div class="setting-group">
             <span class="label-text">Обои</span>
@@ -309,7 +299,7 @@
     </div>
 
     <script>
-        const STORAGE_KEY = "plezix_final_v6";
+        const STORAGE_KEY = "plezix_final_v7";
         const SETTINGS_PREF = "browser.plezix.newtab.settings";
         const SETTINGS_VERSION = 2;
         
@@ -337,19 +327,10 @@
             searchOpacity: 0.4,
             showSeconds: false,
             use12h: false,
-            shakeEnabled: true,
-            engine: 'yandex',
-            customUrl: ''
+            shakeEnabled: true
         };
 
         let settings = { ...DEFAULT_SETTINGS };
-
-        const engines = {
-            yandex: "https://yandex.ru/search/?text={q}",
-            google: "https://www.google.com/search?q={q}",
-            bing: "https://www.bing.com/search?q={q}",
-            duckduckgo: "https://duckduckgo.com/?q={q}"
-        };
 
         const el = {};
         let toastTimeoutId = 0;
@@ -401,21 +382,19 @@
             document.getElementById('settings-panel').classList.toggle('open');
         }
 
-        function toggleEngineDropdown(e) {
-            e.stopPropagation();
-            document.getElementById('engine-options').classList.toggle('open');
-        }
-
-        function selectEngine(id) {
-            settings.engine = id;
-            updateEngineUI();
-            updateSettings();
-        }
-
-        function updateEngineUI() {
-            const names = { yandex: "Yandex", google: "Google", bing: "Bing", duckduckgo: "DuckDuckGo", custom: "Своя ссылка" };
-            document.getElementById('current-engine-name').textContent = names[settings.engine];
-            document.getElementById('custom-url-container').classList.toggle('hidden', settings.engine !== 'custom');
+        function searchWithFirefox(query) {
+            if (!query) {
+                return;
+            }
+            try {
+                if (window.BrowserSearch && typeof window.BrowserSearch.loadSearch === "function") {
+                    window.BrowserSearch.loadSearch(query, false);
+                    return;
+                }
+            } catch (e) {
+                console.error("BrowserSearch failed, fallback:", e);
+            }
+            window.location.assign(`https://duckduckgo.com/?q=${encodeURIComponent(query)}`);
         }
 
         function showToast() {
@@ -512,8 +491,6 @@
                 showSeconds: !!incoming.showSeconds,
                 use12h: !!incoming.use12h,
                 shakeEnabled: incoming.shakeEnabled === undefined ? DEFAULT_SETTINGS.shakeEnabled : !!incoming.shakeEnabled,
-                engine: ["yandex", "google", "bing", "duckduckgo", "custom"].includes(incoming.engine) ? incoming.engine : DEFAULT_SETTINGS.engine,
-                customUrl: typeof incoming.customUrl === "string" ? incoming.customUrl : DEFAULT_SETTINGS.customUrl,
             };
         }
 
@@ -669,7 +646,6 @@
             settings.use12h = document.getElementById('clock-12h').checked;
             settings.showSeconds = document.getElementById('show-seconds').checked;
             settings.shakeEnabled = document.getElementById('shake-effect').checked;
-            settings.customUrl = document.getElementById('custom-engine-url').value;
             
             applySettings();
             persistSettings();
@@ -701,7 +677,6 @@
             if (oldSearchPos !== settings.searchPos) {
                 animatePlacement(search);
             }
-            updateEngineUI();
             updateParallaxState();
         }
 
@@ -764,16 +739,12 @@
             document.getElementById('clock-12h').checked = !!settings.use12h;
             document.getElementById('show-seconds').checked = !!settings.showSeconds;
             document.getElementById('shake-effect').checked = settings.shakeEnabled !== undefined ? settings.shakeEnabled : true;
-            document.getElementById('custom-engine-url').value = settings.customUrl || '';
         }
         document.getElementById('searchForm').onsubmit = (e) => {
             e.preventDefault();
             const q = document.getElementById('searchInput').value.trim();
             if (!q) return;
-            let url = (settings.engine === 'custom' && settings.customUrl) 
-                ? settings.customUrl.replace('{q}', encodeURIComponent(q))
-                : (engines[settings.engine] || engines.yandex).replace('{q}', encodeURIComponent(q));
-            window.location.assign(url);
+            searchWithFirefox(q);
         };
 
         document.addEventListener("DOMContentLoaded", () => {
