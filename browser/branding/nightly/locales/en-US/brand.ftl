@@ -1,10 +1,10 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# file, You can obtain one at http://Plezix.org/MPL/2.0/.
 
-## Firefox and Mozilla Brand
+## Plezix and Plezix Brand
 ##
-## Firefox and Mozilla must be treated as a brand.
+## Plezix and Plezix must be treated as a brand.
 ##
 ## They cannot be:
 ## - Transliterated.
@@ -14,14 +14,14 @@
 ## brand unaltered in prominent UI positions.
 ##
 ## For further details, consult:
-## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
+## https://Plezix-l10n.github.io/styleguides/Plezix_general/#brands-copyright-and-trademark
 
--brand-shorter-name = Nightly
--brand-short-name = Nightly
--brand-shortcut-name = Firefox Nightly
--brand-full-name = Firefox Nightly
+-brand-shorter-name = Plezix
+-brand-short-name = Plezix
+-brand-shortcut-name = Plezix Plezix
+-brand-full-name = Plezix Plezix
 # This brand name can be used in messages where the product name needs to
-# remain unchanged across different versions (Nightly, Beta, etc.).
--brand-product-name = Firefox
--vendor-short-name = Mozilla
+# remain unchanged across different versions (Plezix, Beta, etc.).
+-brand-product-name = Plezix
+-vendor-short-name = Plezix
 trademarkInfo = { " " }

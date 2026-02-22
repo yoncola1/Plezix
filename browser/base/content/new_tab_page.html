@@ -11,6 +11,10 @@
             --glass-border: rgba(255, 255, 255, 0.1);
             --accent: #10b981;
             --accent-glow: rgba(16, 185, 129, 0.3);
+            --panel-bg: rgba(8, 12, 14, 0.92);
+            --panel-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+            --control-bg: rgba(255, 255, 255, 0.06);
+            --control-bg-hover: rgba(255, 255, 255, 0.1);
             --clock-scale: 1;
             --bg-gradient: radial-gradient(circle at center, #064e3b 0%, #000000 100%);
             --search-width: 440px;
@@ -97,39 +101,51 @@
             display: flex; align-items: center; justify-content: center;
             border-radius: 14px; cursor: pointer; z-index: 100;
             backdrop-filter: blur(10px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
+        #settings-btn:hover { transform: translateY(-1px); background: var(--control-bg-hover); border-color: rgba(255, 255, 255, 0.22); }
+        #settings-btn:active { transform: translateY(0); }
 
         #settings-panel {
             position: fixed;
             top: 0; right: -380px; width: 360px; height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
+            background: var(--panel-bg);
             backdrop-filter: blur(35px);
             border-left: 1px solid var(--glass-border);
             z-index: 1000; padding: 25px;
             transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex; flex-direction: column; overflow-y: auto;
+            box-shadow: var(--panel-shadow);
         }
 
+        #settings-panel::-webkit-scrollbar { width: 10px; }
+        #settings-panel::-webkit-scrollbar-track { background: transparent; }
+        #settings-panel::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.35); border-radius: 999px; }
         #settings-panel.open { right: 0; }
         .setting-group { margin-bottom: 24px; }
         .label-text { display: block; font-size: 0.65rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
         
-        select, .custom-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; }
-        .btn-custom { background: var(--accent); color: black; font-weight: 700; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; font-size: 0.8rem; display: block; width: 100%; }
+        select, .custom-input { width: 100%; background: var(--control-bg); border: 1px solid rgba(255, 255, 255, 0.14); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+        select:hover, .custom-input:hover { background: var(--control-bg-hover); }
+        select:focus, .custom-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 24%, transparent); }
+        .btn-custom { background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 75%, #ffffff 25%) 100%); color: #042113; font-weight: 800; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; font-size: 0.8rem; display: block; width: 100%; transition: transform 0.2s ease, filter 0.2s ease; }
+        .btn-custom:hover { transform: translateY(-1px); filter: brightness(1.05); }
         
         .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .wallpaper-item { aspect-ratio: 16/9; border-radius: 8px; background-size: cover; background-position: center; cursor: pointer; border: 2px solid transparent; transition: 0.2s; position: relative; }
+        .wallpaper-item { aspect-ratio: 16/9; border-radius: 10px; background-size: cover; background-position: center; cursor: pointer; border: 2px solid transparent; transition: transform 0.2s ease, border-color 0.2s ease, filter 0.2s ease; position: relative; }
+        .wallpaper-item:hover { transform: translateY(-2px); filter: saturate(1.1); }
         .wallpaper-item.active { border-color: var(--accent); }
         .wallpaper-item.none-option { background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #64748b; }
 
         .clock-container { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 12px; pointer-events: none; transition: left 0.5s, right 0.5s, top 0.5s, bottom 0.5s; z-index: 10; user-select: none; -moz-user-select: none; }
-        .time-block { font-size: calc(8rem * var(--clock-scale)); font-weight: 900; line-height: 0.8; letter-spacing: 0.02em; background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; }
+        .time-block { font-size: calc(8rem * var(--clock-scale)); font-weight: 900; line-height: 0.8; letter-spacing: 0.02em; background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45); }
         .time-divider { width: calc(45px * var(--clock-scale)); height: calc(4px * var(--clock-scale)); background: var(--accent); border-radius: 2px; box-shadow: 0 0 15px var(--accent); }
         .time-sec { font-size: calc(1.15rem * var(--clock-scale)); color: #dbe3f0; letter-spacing: 0.08em; opacity: 0.95; font-variant-numeric: tabular-nums; }
 
         .search-container { position: absolute; width: 100%; display: flex; justify-content: center; transition: all 0.5s; z-index: 20; }
-        .search-wrapper { width: var(--search-width); max-width: calc(100vw - 32px); background: rgba(0, 0, 0, var(--search-opacity)); backdrop-filter: blur(20px); border: none; border-radius: 50px; box-shadow: none; }
-        .search-wrapper:focus-within { box-shadow: none; }
+        .search-wrapper { width: var(--search-width); max-width: calc(100vw - 32px); background: rgba(0, 0, 0, var(--search-opacity)); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 50px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
+        .search-wrapper:focus-within { border-color: rgba(255, 255, 255, 0.35); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42); transform: translateY(-1px); }
         .search-input { background: transparent; border: none; outline: none; box-shadow: none; color: #f8fafc; width: 100%; padding: 16px 30px; text-align: center; font-weight: 600; letter-spacing: 0.01em; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
         .search-input::placeholder { color: rgba(226, 232, 240, 0.88); }
 
@@ -183,6 +199,7 @@
         .w-5 { width: 1.25rem; }
         .h-5 { height: 1.25rem; }
         .accent-emerald-500 { accent-color: var(--accent); }
+        input[type="range"] { accent-color: var(--accent); }
 
         @media (max-width: 900px) {
             #settings-panel {
@@ -194,6 +211,7 @@
                 top: 16px;
                 right: 16px;
             }
+            .time-block { font-size: calc(5.8rem * var(--clock-scale)); }
             .search-bottom {
                 bottom: 10%;
             }
@@ -206,7 +224,7 @@
     <div id="bg-container"></div>
     <div id="wallpaper-layer"></div>
     <div class="snow"></div>
-    <div id="toast">Настройки сохранены</div>
+    <div id="toast">Settings saved</div>
 
     <button id="settings-btn" onclick="toggleSettings(event)">
         <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4a.488.488 0 0 0-.48.41l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64L4.57 11c-.04.34-.07.67-.07 1s.03.66.07 1l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.41.48.41h4c.24 0 .45-.17.48-.41l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65z"/></svg>
@@ -214,26 +232,26 @@
 
     <div id="settings-panel" onclick="event.stopPropagation()">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-lg font-bold text-emerald-500 uppercase">Настройки</h2>
-            <div class="close-settings" onclick="toggleSettings(event)">✕</div>
+            <h2 class="text-lg font-bold text-emerald-500 uppercase">Settings</h2>
+            <div class="close-settings" onclick="toggleSettings(event)">X</div>
         </div>
 
 
         <div class="setting-group">
-            <span class="label-text">Обои</span>
+            <span class="label-text">Wallpapers</span>
             <div class="wallpaper-grid" id="wallpaperGrid"></div>
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Свои обои</span>
+            <span class="label-text">Upload Wallpaper</span>
             <label class="btn-custom">
-                <span>Загрузить файл</span>
+                <span>Upload File</span>
                 <input type="file" id="bg-upload" hidden accept="image/*" onchange="handleFile(this)">
             </label>
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Размер часов</span>
+            <span class="label-text">Clock Size</span>
             <input type="range" id="clock-size" min="0.5" max="1.5" step="0.05" onchange="updateSettings()">
         </div>
 
@@ -243,15 +261,15 @@
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Расположение</span>
+            <span class="label-text">Layout</span>
             <select id="clock-pos" onchange="updateSettings()">
-                <option value="pos-left">Часы слева</option>
-                <option value="pos-center">Часы в центре</option>
-                <option value="pos-right">Часы справа</option>
+                <option value="pos-left">Clock Left</option>
+                <option value="pos-center">Clock Center</option>
+                <option value="pos-right">Clock Right</option>
             </select>
             <select id="search-pos" class="mt-2" onchange="updateSettings()">
-                <option value="search-bottom">Поиск снизу</option>
-                <option value="search-center">Поиск в центре</option>
+                <option value="search-bottom">Search Bottom</option>
+                <option value="search-center">Search Center</option>
             </select>
         </div>
 
@@ -276,11 +294,11 @@
         </div>
 
         <div class="setting-group flex items-center justify-between">
-            <span class="label-text m-0">Эффект покачивания</span>
+            <span class="label-text m-0">Parallax Effect</span>
             <input type="checkbox" id="shake-effect" onchange="updateSettings()" class="w-5 h-5 accent-emerald-500">
         </div>
 
-        <button onclick="resetAll()" class="mt-auto border border-red-500 text-red-500 p-2 rounded-xl text-[10px] uppercase font-bold hover:bg-red-500 hover:text-white transition">Сбросить всё</button>
+        <button onclick="resetAll()" class="mt-auto border border-red-500 text-red-500 p-2 rounded-xl text-[10px] uppercase font-bold hover:bg-red-500 hover:text-white transition">Reset All</button>
     </div>
 
     <div id="clock" class="clock-container pos-left">
@@ -293,13 +311,14 @@
     <div id="search" class="search-container search-bottom">
         <div class="search-wrapper">
             <form id="searchForm">
-                <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autofocus autocomplete="off">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search..." autofocus autocomplete="off">
             </form>
         </div>
     </div>
 
     <script>
         const STORAGE_KEY = "plezix_final_v7";
+        const LEGACY_STORAGE_KEYS = ["plezix_final_v6"];
         const SETTINGS_PREF = "browser.plezix.newtab.settings";
         const SETTINGS_VERSION = 2;
         
@@ -331,25 +350,12 @@
         };
 
         let settings = { ...DEFAULT_SETTINGS };
-
-        /* ========= Native Firefox Search ========= */
-
-        function searchWithFirefox(query) {
-            if (!query) return;
-
-            try {
-                // Это нативный API браузера
-                window.BrowserSearch.loadSearch(query, false);
-            } catch (e) {
-                console.error("BrowserSearch failed:", e);
-            }
-        }
-
         const el = {};
         let toastTimeoutId = 0;
         let clockTimeoutId = 0;
         let lastThemeKey = "";
         let wallpaperRequestId = 0;
+        let prefObserver = null;
 
         let pointerTargetX = 0;
         let pointerTargetY = 0;
@@ -421,10 +427,10 @@
             const grid = document.getElementById('wallpaperGrid');
             grid.innerHTML = '';
             
-            // Опция "Без обоев"
+            // "No wallpaper" option
             const noneItem = document.createElement('div');
             noneItem.className = `wallpaper-item none-option ${!settings.bgData ? 'active' : ''}`;
-            noneItem.innerHTML = '<span>БЕЗ ОБОЕВ</span>';
+            noneItem.innerHTML = '<span>NO WALLPAPER</span>';
             noneItem.onclick = () => { settings.bgData = ''; updateSettings(); renderWallpapers(); };
             grid.appendChild(noneItem);
 
@@ -473,6 +479,12 @@
                 if (value) {
                     return value;
                 }
+                for (const key of LEGACY_STORAGE_KEYS) {
+                    const legacyValue = localStorage.getItem(key);
+                    if (legacyValue) {
+                        return legacyValue;
+                    }
+                }
             } catch (e) {}
 
             return "";
@@ -481,6 +493,9 @@
         function writeStoredSettings(value) {
             try {
                 localStorage.setItem(STORAGE_KEY, value);
+                for (const key of LEGACY_STORAGE_KEYS) {
+                    localStorage.removeItem(key);
+                }
             } catch (e) {}
 
             try {
@@ -510,6 +525,9 @@
         function clearStoredSettings() {
             try {
                 localStorage.removeItem(STORAGE_KEY);
+                for (const key of LEGACY_STORAGE_KEYS) {
+                    localStorage.removeItem(key);
+                }
             } catch (e) {}
             try {
                 const prefs = getPrefsStorage();
@@ -532,6 +550,42 @@
             } catch (e) {
                 settings = { ...DEFAULT_SETTINGS };
             }
+        }
+
+        function refreshFromStoredSettings() {
+            loadSettings();
+            syncUIFromSettings();
+            applySettings();
+            renderWallpapers();
+            updateTime();
+            scheduleClockTick();
+        }
+
+        function setupSettingsSync() {
+            window.addEventListener("storage", (event) => {
+                if (!event.key || event.key === STORAGE_KEY || LEGACY_STORAGE_KEYS.includes(event.key)) {
+                    refreshFromStoredSettings();
+                }
+            });
+
+            try {
+                const prefs = getPrefsStorage();
+                if (prefs && !prefObserver) {
+                    prefObserver = {
+                        observe(subject, topic, data) {
+                            if (topic === "nsPref:changed" && data === SETTINGS_PREF) {
+                                refreshFromStoredSettings();
+                            }
+                        }
+                    };
+                    prefs.addObserver(SETTINGS_PREF, prefObserver);
+                    window.addEventListener("unload", () => {
+                        try {
+                            prefs.removeObserver(SETTINGS_PREF, prefObserver);
+                        } catch (e) {}
+                    }, { once: true });
+                }
+            } catch (e) {}
         }
 
         function persistSettings() {
@@ -694,7 +748,7 @@
         }
 
         function resetAll() {
-            if (confirm("Сбросить всё?")) {
+            if (confirm("Reset all settings?")) {
                 clearStoredSettings();
                 settings = { ...DEFAULT_SETTINGS };
                 syncUIFromSettings();
@@ -762,13 +816,9 @@
         };
 
         document.addEventListener("DOMContentLoaded", () => {
-            loadSettings();
-            syncUIFromSettings();
-            applySettings();
-            renderWallpapers();
-            updateTime();
-            scheduleClockTick();
+            refreshFromStoredSettings();
             persistSettings();
+            setupSettingsSync();
             document.addEventListener("visibilitychange", handleVisibilityChange);
         }, { once: true });
     </script>
