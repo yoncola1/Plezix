@@ -332,6 +332,22 @@
 
         let settings = { ...DEFAULT_SETTINGS };
 
+<<<<<<< HEAD
+        /* ========= Native Firefox Search ========= */
+
+        function searchWithFirefox(query) {
+            if (!query) return;
+
+            try {
+                // Это нативный API браузера
+                window.BrowserSearch.loadSearch(query, false);
+            } catch (e) {
+                console.error("BrowserSearch failed:", e);
+            }
+        }
+
+=======
+>>>>>>> 56b46468fc1206088d2538e0ddb63f5454d9931e
         const el = {};
         let toastTimeoutId = 0;
         let clockTimeoutId = 0;
@@ -742,6 +758,7 @@
         }
         document.getElementById('searchForm').onsubmit = (e) => {
             e.preventDefault();
+
             const q = document.getElementById('searchInput').value.trim();
             if (!q) return;
             searchWithFirefox(q);
