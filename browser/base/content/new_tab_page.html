@@ -12,19 +12,18 @@
             --accent: #10b981;
             --accent-glow: rgba(16, 185, 129, 0.3);
             --clock-scale: 1;
+            --search-width: 440px;
             --bg-gradient: radial-gradient(circle at center, #064e3b 0%, #000000 100%);
-        }
-
-        body.theme-holiday {
-            --accent: #ef4444;
-            --accent-glow: rgba(239, 68, 68, 0.4);
-            --bg-gradient: radial-gradient(circle at center, #7f1d1d 0%, #000000 100%);
-        }
-
-        body.theme-birthday {
-            --accent: #a855f7;
-            --accent-glow: rgba(168, 85, 247, 0.4);
-            --bg-gradient: radial-gradient(circle at center, #4c1d95 0%, #000000 100%);
+            
+            --clock-top: 50%;
+            --clock-left: 10%;
+            --clock-x: 0%;
+            --clock-y: -50%;
+            
+            --search-top: 85%;
+            --search-left: 50%;
+            --search-x: -50%;
+            --search-y: 0%;
         }
 
         body {
@@ -39,65 +38,71 @@
             justify-content: center;
         }
 
-        #holiday-decoration {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 140px;
-            z-index: 50; pointer-events: none;
-            background-repeat: repeat-x; background-position: top center; background-size: contain;
-            display: none;
-        }
-
         #bg-container {
             position: fixed;
-            top: -5%; left: -5%; width: 110%; height: 110%;
-            z-index: -2;
+            top: -10%; left: -10%; width: 120%; height: 120%;
+            z-index: -3;
             background: var(--bg-gradient);
             background-size: cover;
-            background-position: center center;
             transition: transform 0.1s ease-out;
         }
 
-        #wallpaper-layer {
+        .wp-layer {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
+            top: -10%; left: -10%; width: 120%; height: 120%;
+            z-index: -2;
             background-size: cover;
-            background-position: center center;
-            transition: opacity 0.5s ease-in-out;
-            opacity: 0;
+            background-position: center;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
         }
 
-        .snow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1; display: none;
-            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: snow-anim 10s linear infinite;
-        }
-        body.theme-holiday .snow { display: block; }
-        @keyframes snow-anim { from { background-position: 0 0; } to { background-position: 500px 1000px; } }
+        .wp-hidden { opacity: 0; pointer-events: none; }
+        .wp-visible { opacity: 1; }
 
         #settings-btn {
             position: fixed;
             top: 30px; right: 30px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            width: 44px; height: 44px;
+            width: 48px; height: 48px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 14px; cursor: pointer; z-index: 100;
-            backdrop-filter: blur(10px);
+            border-radius: 16px; cursor: pointer; z-index: 100;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #settings-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        #settings-btn svg {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+        }
+
+        #settings-btn:hover svg {
+            transform: rotate(180deg);
+            color: var(--accent);
         }
 
         #settings-panel {
             position: fixed;
-            top: 0; right: -380px; width: 360px; height: 100vh;
+            top: 0; right: -400px; 
+            width: 100%;
+            max-width: 380px; 
+            height: 100vh;
             background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(35px);
             border-left: 1px solid var(--glass-border);
             z-index: 1000; padding: 25px;
             transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; flex-direction: column; overflow-y: auto;
+            display: flex; flex-direction: column; 
+            overflow-y: auto;
+            box-sizing: border-box;
         }
 
         #settings-panel.open { right: 0; }
@@ -110,71 +115,137 @@
         .custom-option { padding: 12px 16px; cursor: pointer; transition: 0.2s; }
         .custom-option:hover { background: var(--accent); color: black; }
 
-        select, .custom-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; }
-        .btn-custom { background: var(--accent); color: black; font-weight: 700; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; font-size: 0.8rem; display: block; width: 100%; }
+        select, .custom-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; box-sizing: border-box; }
         
         .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .wallpaper-item { aspect-ratio: 16/9; border-radius: 8px; background-size: cover; background-position: center; cursor: pointer; border: 2px solid transparent; transition: 0.2s; position: relative; }
+        .wallpaper-item { aspect-ratio: 16/9; border-radius: 8px; background-size: cover; background-position: center; cursor: pointer; border: 2px solid transparent; transition: 0.2s; position: relative; overflow: hidden; }
         .wallpaper-item.active { border-color: var(--accent); }
-        .wallpaper-item.none-option { background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #64748b; }
+        .wallpaper-item.no-bg { background: var(--bg-gradient); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: rgba(255,255,255,0.5); }
 
-        .clock-container { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 12px; pointer-events: none; transition: left 0.5s, right 0.5s, top 0.5s, bottom 0.5s; z-index: 10; }
-        .time-block { font-size: calc(8rem * var(--clock-scale)); font-weight: 800; line-height: 0.8; background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .time-divider { width: calc(45px * var(--clock-scale)); height: calc(4px * var(--clock-scale)); background: var(--accent); border-radius: 2px; box-shadow: 0 0 15px var(--accent); }
-
-        .search-container { position: absolute; width: 100%; display: flex; justify-content: center; transition: all 0.5s; z-index: 20; }
-        .search-wrapper { width: 440px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; }
-        .search-input { background: transparent; border: none; outline: none; color: white; width: 100%; padding: 16px 30px; text-align: center; }
-
-        .pos-left { left: 10%; transform: none; }
-        .pos-center { left: 50%; transform: translateX(-50%); }
-        .pos-right { right: 10%; transform: none; }
-        .search-bottom { bottom: 15%; }
-        .search-center { top: 55%; }
-
-        #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--accent); color: black; padding: 10px 20px; border-radius: 30px; font-weight: 700; transition: 0.5s; z-index: 2000; }
-        #toast.show { transform: translateX(-50%) translateY(0); }
-
-        .close-settings {
-            width: 32px; height: 32px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; background: rgba(255,255,255,0.05);
-            cursor: pointer; transition: 0.3s;
+        .clock-container { 
+            position: absolute; 
+            top: var(--clock-top);
+            left: var(--clock-left);
+            transform: translate(var(--clock-x), var(--clock-y));
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 12px; 
+            pointer-events: none; 
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10; 
+            padding: 40px;
         }
-        .close-settings:hover { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .time-block { 
+            font-size: calc(8rem * var(--clock-scale)); 
+            font-weight: 800; 
+            line-height: 1.1;
+            background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            transition: font-size 0.3s ease;
+            display: inline-block;
+        }
+        .time-divider { 
+            width: calc(45px * var(--clock-scale)); 
+            height: calc(4px * var(--clock-scale)); 
+            background: var(--accent); 
+            border-radius: 2px; 
+            box-shadow: 0 0 15px var(--accent); 
+        }
+
+        .search-container { 
+            position: absolute; 
+            top: var(--search-top);
+            left: var(--search-left);
+            transform: translate(var(--search-x), var(--search-y));
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 24px;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 20; 
+            padding: 40px;
+        }
+        .search-wrapper { 
+            width: var(--search-width); 
+            max-width: 90vw;
+            background: rgba(0, 0, 0, 0.4); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid var(--glass-border); 
+            border-radius: 50px; 
+            transition: width 0.4s ease;
+        }
+        .search-input { 
+            background: transparent; 
+            border: none; 
+            outline: none; 
+            color: white; 
+            width: 100%; 
+            padding: 16px 30px; 
+            text-align: center; 
+        }
+
+        .recent-tabs {
+            display: flex;
+            gap: 16px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .recent-tabs:hover { opacity: 1; }
+        .tab-item {
+            width: 52px; height: 52px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .tab-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .tab-item img { width: 24px; height: 24px; pointer-events: none; }
     </style>
 </head>
 <body onclick="document.getElementById('engine-options').classList.remove('open')">
 
-    <div id="holiday-decoration"></div>
     <div id="bg-container"></div>
-    <div id="wallpaper-layer"></div>
-    <div class="snow"></div>
-    <div id="toast">Настройки сохранены</div>
+    <div id="wp-1" class="wp-layer wp-visible"></div>
+    <div id="wp-2" class="wp-layer wp-hidden"></div>
 
-    <button id="settings-btn" onclick="toggleSettings(event)">
-        <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4a.488.488 0 0 0-.48.41l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64L4.57 11c-.04.34-.07.67-.07 1s.03.66.07 1l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.41.48.41h4c.24 0 .45-.17.48-.41l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65z"/></svg>
+    <button id="settings-btn" onclick="toggleSettings(event)" title="Настройки">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4a.488.488 0 0 0-.48.41l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64L4.57 11c-.04.34-.07.67-.07 1s.03.66.07 1l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.41.48.41h4c.24 0 .45-.17.48-.41l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65z"/>
+        </svg>
     </button>
 
     <div id="settings-panel" onclick="event.stopPropagation()">
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-lg font-bold text-emerald-500 uppercase">Настройки</h2>
-            <div class="close-settings" onclick="toggleSettings(event)">✕</div>
+            <div class="cursor-pointer text-xl opacity-50 hover:opacity-100 transition" onclick="toggleSettings(event)">✕</div>
         </div>
 
         <div class="setting-group">
             <span class="label-text">Поисковик</span>
             <div class="relative">
                 <div class="custom-select-trigger" onclick="toggleEngineDropdown(event)">
-                    <span id="current-engine-name">Yandex</span>
+                    <span id="current-engine-name">DuckDuckGo</span>
                     <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
                 </div>
                 <div class="custom-options" id="engine-options">
-                    <div class="custom-option" onclick="selectEngine('yandex')">Yandex</div>
+                    <div class="custom-option" onclick="selectEngine('duckduckgo')">DuckDuckGo</div>
                     <div class="custom-option" onclick="selectEngine('google')">Google</div>
                     <div class="custom-option" onclick="selectEngine('bing')">Bing</div>
-                    <div class="custom-option" onclick="selectEngine('duckduckgo')">DuckDuckGo</div>
                     <div class="custom-option" onclick="selectEngine('custom')">Своя ссылка</div>
+                    <div class="custom-option" onclick="selectEngine('yandex')">Yandex</div>
                 </div>
             </div>
             <div id="custom-url-container" class="mt-2 hidden">
@@ -183,62 +254,93 @@
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Обои</span>
-            <div class="wallpaper-grid" id="wallpaperGrid"></div>
-        </div>
-
-        <div class="setting-group">
-            <span class="label-text">Свои обои</span>
-            <label class="btn-custom">
-                <span>Загрузить файл</span>
-                <input type="file" id="bg-upload" hidden accept="image/*" onchange="handleFile(this)">
-            </label>
+            <span class="label-text">Ширина поиска</span>
+            <input type="range" id="search-width-slider" min="300" max="850" step="10" oninput="updateSettings()" class="w-full accent-emerald-500">
         </div>
 
         <div class="setting-group">
             <span class="label-text">Размер часов</span>
-            <input type="range" id="clock-size" min="0.5" max="1.5" step="0.05" onchange="updateSettings()">
+            <input type="range" id="clock-size" min="0.5" max="1.5" step="0.05" oninput="updateSettings()" class="w-full accent-emerald-500">
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Расположение</span>
+            <span class="label-text">Расположение часов</span>
             <select id="clock-pos" onchange="updateSettings()">
-                <option value="pos-left">Часы слева</option>
-                <option value="pos-center">Часы в центре</option>
-                <option value="pos-right">Часы справа</option>
-            </select>
-            <select id="search-pos" class="mt-2" onchange="updateSettings()">
-                <option value="search-bottom">Поиск снизу</option>
-                <option value="search-center">Поиск в центре</option>
+                <optgroup label="Верх">
+                    <option value="top-left">Верхний левый угол</option>
+                    <option value="top-center">Верх по центру</option>
+                    <option value="top-right">Верхний правый угол</option>
+                </optgroup>
+                <optgroup label="Центр">
+                    <option value="center-left">Слева</option>
+                    <option value="center" selected>По центру</option>
+                    <option value="center-right">Справа</option>
+                </optgroup>
+                <optgroup label="Низ">
+                    <option value="bottom-left">Нижний левый угол</option>
+                    <option value="bottom-center">Низ по центру</option>
+                    <option value="bottom-right">Нижний правый угол</option>
+                </optgroup>
             </select>
         </div>
 
-        <div class="setting-group flex items-center justify-between">
+        <div class="setting-group">
+            <span class="label-text">Расположение поиска</span>
+            <select id="search-pos" onchange="updateSettings()">
+                <optgroup label="Верх">
+                    <option value="top-left">Верхний левый угол</option>
+                    <option value="top-center">Верх по центру</option>
+                    <option value="top-right">Верхний правый угол</option>
+                </optgroup>
+                <optgroup label="Центр">
+                    <option value="center-left">Слева</option>
+                    <option value="center">По центру</option>
+                    <option value="center-right">Справа</option>
+                </optgroup>
+                <optgroup label="Низ">
+                    <option value="bottom-left">Нижний левый угол</option>
+                    <option value="bottom-center" selected>Низ по центру</option>
+                    <option value="bottom-right">Нижний правый угол</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="setting-group">
+            <span class="label-text">Обои</span>
+            <div class="wallpaper-grid" id="wallpaperGrid"></div>
+        </div>
+
+        <div class="setting-group flex items-center justify-between pb-10">
             <span class="label-text m-0">Эффект покачивания</span>
             <input type="checkbox" id="shake-effect" onchange="updateSettings()" class="w-5 h-5 accent-emerald-500">
         </div>
 
-        <button onclick="resetAll()" class="mt-auto border border-red-500 text-red-500 p-2 rounded-xl text-[10px] uppercase font-bold hover:bg-red-500 hover:text-white transition">Сбросить всё</button>
+        <button onclick="resetAll()" class="mt-auto mb-4 border border-red-500 text-red-500 p-3 rounded-xl text-[10px] uppercase font-bold hover:bg-red-500 hover:text-white transition">Сбросить всё</button>
     </div>
 
-    <div id="clock" class="clock-container pos-left">
+    <div id="clock" class="clock-container">
         <div class="time-block" id="hour">00</div>
         <div class="time-divider"></div>
         <div class="time-block" id="min">00</div>
     </div>
 
-    <div id="search" class="search-container search-bottom">
+    <div id="search" class="search-container">
         <div class="search-wrapper">
             <form id="searchForm" class="w-full">
                 <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autofocus autocomplete="off">
             </form>
         </div>
+        <div id="recent-tabs-container" class="recent-tabs"></div>
     </div>
 
     <script>
-        const STORAGE_KEY = 'plezix_final_v5';
+        const STORAGE_KEY = 'plezix_v11_tabs';
         
         const builtInWallpapers = [
+            "./wallpapers/wallpaper_0.jpg",
+            "./wallpapers/wallpaper_1.jpg",
+            "./wallpapers/wallpaper_2.jpg",
+            "./wallpapers/wallpaper_3.jpg",
             "https://img2.akspic.ru/crops/8/4/4/3/6/163448/163448-les-priroda-drevesina-rastenie-naturalnyj_landshaft-3840x2160.jpg",
             "https://img2.akspic.ru/crops/1/8/5/1/8/181581/181581-sammit-sammit_v_kalifornii-neveroyatnyj-ezhednevnoe_molitvennoe-ispolzoval-3840x2160.jpg",
             "https://img2.akspic.ru/crops/1/6/5/1/8/181561/181561-obnazhenie-krasnye_skaly_na_obnazhenii_apteki-ukorochennyj_top_s_otkrytym_peredom-geologiya-futbolka-3840x2160.jpg",
@@ -255,39 +357,44 @@
         let settings = {
             bgData: '',
             clockSize: 1,
-            clockPos: 'pos-left',
-            searchPos: 'search-bottom',
+            clockPos: 'center',
+            searchPos: 'bottom-center',
+            searchWidth: 440,
             shakeEnabled: true,
-            engine: 'yandex',
-            customUrl: ''
+            engine: 'duckduckgo',
+            customUrl: '',
+            recentTabs: []
         };
 
         const engines = {
-            yandex: "https://yandex.ru/search/?text={q}",
+            duckduckgo: "https://duckduckgo.com/?q={q}",
             google: "https://www.google.com/search?q={q}",
             bing: "https://www.bing.com/search?q={q}",
-            duckduckgo: "https://duckduckgo.com/?q={q}"
+            yandex: "https://yandex.ru/search/?text={q}"
         };
 
-        function checkSpecialDates() {
-            const now = new Date();
-            const month = now.getMonth();
-            const day = now.getDate();
-            const body = document.body;
-            const decor = document.getElementById('holiday-decoration');
+        const posMap = {
+            // [top, left, x, y]
+            'top-left': ['0%', '0%', '0%', '0%'],
+            'top-center': ['0%', '50%', '-50%', '0%'],
+            'top-right': ['0%', '100%', '-100%', '0%'],
+            'center-left': ['50%', '0%', '0%', '-50%'],
+            'center': ['50%', '50%', '-50%', '-50%'],
+            'center-right': ['50%', '100%', '-100%', '-50%'],
+            'bottom-left': ['100%', '0%', '0%', '-100%'],
+            'bottom-center': ['100%', '50%', '-50%', '-100%'],
+            'bottom-right': ['100%', '100%', '-100%', '-100%']
+        };
 
-            if ((month === 11 && day === 31) || (month === 0 && day === 1)) {
-                body.classList.add('theme-holiday');
-                decor.style.backgroundImage = "url('https://cdn.creazilla.com/cliparts/7927085/christmas-ribbon-clipart-xl.png')";
-                decor.style.display = "block";
-            } else if (month === 1 && day === 21) {
-                body.classList.add('theme-birthday');
-                decor.style.backgroundImage = "url('https://png.klev.club/uploads/posts/2024-05/png-klev-club-ncmk-p-prazdnichnie-flazhki-png-15.png')";
-                decor.style.display = "block";
-            } else {
-                body.classList.remove('theme-holiday', 'theme-birthday');
-                decor.style.display = "none";
-            }
+        const searchPatterns = [
+            /duckduckgo\.com\/\?q=/i,
+            /google\.[a-z]+\/search\?q=/i,
+            /bing\.com\/search\?q=/i,
+            /yandex\.[a-z]+\/search/i
+        ];
+
+        function isSearchUrl(url) {
+            return searchPatterns.some(pattern => pattern.test(url));
         }
 
         function toggleSettings(e) {
@@ -308,92 +415,162 @@
 
         function updateEngineUI() {
             const names = { yandex: "Yandex", google: "Google", bing: "Bing", duckduckgo: "DuckDuckGo", custom: "Своя ссылка" };
-            document.getElementById('current-engine-name').textContent = names[settings.engine];
-            document.getElementById('custom-url-container').classList.toggle('hidden', settings.engine !== 'custom');
-        }
-
-        function showToast() {
-            const t = document.getElementById('toast');
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 2000);
+            const el = document.getElementById('current-engine-name');
+            if(el) el.textContent = names[settings.engine];
+            const container = document.getElementById('custom-url-container');
+            if(container) container.classList.toggle('hidden', settings.engine !== 'custom');
         }
 
         function renderWallpapers() {
             const grid = document.getElementById('wallpaperGrid');
+            if(!grid) return;
             grid.innerHTML = '';
             
-            // Опция "Без обоев"
-            const noneItem = document.createElement('div');
-            noneItem.className = `wallpaper-item none-option ${!settings.bgData ? 'active' : ''}`;
-            noneItem.innerHTML = '<span>БЕЗ ОБОЕВ</span>';
-            noneItem.onclick = () => { settings.bgData = ''; updateSettings(); renderWallpapers(); };
-            grid.appendChild(noneItem);
+            const noBg = document.createElement('div');
+            noBg.className = `wallpaper-item no-bg ${settings.bgData === '' ? 'active' : ''}`;
+            noBg.innerHTML = '<span class="uppercase">Без фона</span>';
+            noBg.onclick = () => { setBackground(''); renderWallpapers(); };
+            grid.appendChild(noBg);
 
-            builtInWallpapers.forEach(url => {
+            builtInWallpapers.forEach((url, index) => {
                 const item = document.createElement('div');
                 item.className = `wallpaper-item ${settings.bgData === url ? 'active' : ''}`;
                 item.style.backgroundImage = `url(${url})`;
-                item.onclick = () => { settings.bgData = url; updateSettings(); renderWallpapers(); };
+                item.onclick = () => { setBackground(url); renderWallpapers(); };
                 grid.appendChild(item);
             });
         }
 
-        function handleFile(input) {
-            const file = input.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => { settings.bgData = e.target.result; updateSettings(); renderWallpapers(); };
-                reader.readAsDataURL(file);
+        let currentLayer = 1;
+        function setBackground(url) {
+            if (settings.bgData === url) return;
+            settings.bgData = url;
+            
+            const nextLayer = currentLayer === 1 ? 2 : 1;
+            const elCurrent = document.getElementById(`wp-${currentLayer}`);
+            const elNext = document.getElementById(`wp-${nextLayer}`);
+            
+            if (url) {
+                elNext.style.backgroundImage = `url(${url})`;
+                elNext.classList.remove('wp-hidden');
+                elNext.classList.add('wp-visible');
+            } else {
+                elNext.classList.remove('wp-visible');
+                elNext.classList.add('wp-hidden');
+                elNext.style.backgroundImage = 'none';
             }
+            
+            elCurrent.classList.remove('wp-visible');
+            elCurrent.classList.add('wp-hidden');
+            
+            currentLayer = nextLayer;
+            updateSettings();
+        }
+
+        function removeTab(url, e) {
+            if(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            settings.recentTabs = settings.recentTabs.filter(t => t.url !== url);
+            updateRecentTabsUI();
+            updateSettings();
+            return false;
+        }
+
+        function updateRecentTabsUI() {
+            const container = document.getElementById('recent-tabs-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            settings.recentTabs.slice(0, 6).forEach(tab => {
+                const item = document.createElement('div');
+                item.className = 'tab-item';
+                item.title = tab.url + " (ПКМ для удаления)";
+                const domain = new URL(tab.url).hostname;
+                item.innerHTML = `<img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="ico">`;
+                
+                item.onclick = () => {
+                    window.open(tab.url, '_blank');
+                    addRecentTab(tab.url);
+                };
+
+                item.oncontextmenu = (e) => removeTab(tab.url, e);
+
+                container.appendChild(item);
+            });
+        }
+
+        function addRecentTab(url) {
+            if (!url.startsWith('http') || isSearchUrl(url)) return;
+            
+            let tabs = settings.recentTabs.filter(t => t.url !== url);
+            tabs.unshift({ url, timestamp: Date.now() });
+            settings.recentTabs = tabs.slice(0, 12);
+            updateRecentTabsUI();
+            updateSettings();
         }
 
         function updateSettings() {
             settings.clockSize = document.getElementById('clock-size').value;
             settings.clockPos = document.getElementById('clock-pos').value;
             settings.searchPos = document.getElementById('search-pos').value;
+            settings.searchWidth = document.getElementById('search-width-slider').value;
             settings.shakeEnabled = document.getElementById('shake-effect').checked;
             settings.customUrl = document.getElementById('custom-engine-url').value;
             
             applySettings();
             localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-            showToast();
         }
 
         function applySettings() {
-            const wp = document.getElementById('wallpaper-layer');
-            if (settings.bgData) {
-                wp.style.backgroundImage = `url(${settings.bgData})`;
-                wp.style.opacity = '1';
-            } else {
-                wp.style.opacity = '0';
-            }
+            const root = document.documentElement;
+            root.style.setProperty('--clock-scale', settings.clockSize);
+            root.style.setProperty('--search-width', settings.searchWidth + 'px');
             
-            document.documentElement.style.setProperty('--clock-scale', settings.clockSize);
-            document.getElementById('clock').className = `clock-container ${settings.clockPos}`;
-            document.getElementById('search').className = `search-container ${settings.searchPos}`;
-            updateEngineUI();
-        }
+            const cp = posMap[settings.clockPos] || posMap['center'];
+            root.style.setProperty('--clock-top', cp[0]);
+            root.style.setProperty('--clock-left', cp[1]);
+            root.style.setProperty('--clock-x', cp[2]);
+            root.style.setProperty('--clock-y', cp[3]);
 
-        function resetAll() {
-            if(confirm("Сбросить всё?")) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
+            const sp = posMap[settings.searchPos] || posMap['bottom-center'];
+            root.style.setProperty('--search-top', sp[0]);
+            root.style.setProperty('--search-left', sp[1]);
+            root.style.setProperty('--search-x', sp[2]);
+            root.style.setProperty('--search-y', sp[3]);
+            
+            updateEngineUI();
         }
 
         window.addEventListener('mousemove', (e) => {
             if (!settings.shakeEnabled) return;
             const x = (e.clientX / window.innerWidth - 0.5); 
             const y = (e.clientY / window.innerHeight - 0.5);
-            // Покачивание работает для фона, часов и поиска
-            document.getElementById('bg-container').style.transform = `translate(${x * -10}px, ${y * -10}px)`;
-            document.getElementById('wallpaper-layer').style.transform = `translate(${x * -8}px, ${y * -8}px)`;
-            document.getElementById('clock').style.transform = `translate(${x * 12}px, ${y * 12}px)`;
-            document.getElementById('search').style.transform = `translate(${x * 18}px, ${y * 18}px)`;
+            
+            document.getElementById('bg-container').style.transform = `translate(${x * -8}px, ${y * -8}px)`;
+            
+            const layers = document.querySelectorAll('.wp-layer');
+            layers.forEach(layer => {
+                layer.style.transform = `translate(${x * -12}px, ${y * -12}px)`;
+            });
+            
+            const clock = document.getElementById('clock');
+            const search = document.getElementById('search');
+            
+            const cx = getComputedStyle(document.documentElement).getPropertyValue('--clock-x');
+            const cy = getComputedStyle(document.documentElement).getPropertyValue('--clock-y');
+            clock.style.transform = `translate(calc(${cx} + ${x * 15}px), calc(${cy} + ${y * 15}px))`;
+            
+            const sx = getComputedStyle(document.documentElement).getPropertyValue('--search-x');
+            const sy = getComputedStyle(document.documentElement).getPropertyValue('--search-y');
+            search.style.transform = `translate(calc(${sx} + ${x * 10}px), calc(${sy} + ${y * 10}px))`;
         });
 
         function updateTime() {
             const now = new Date();
             document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
             document.getElementById('min').textContent = String(now.getMinutes()).padStart(2, '0');
-            checkSpecialDates();
         }
         setInterval(updateTime, 1000);
 
@@ -401,29 +578,56 @@
             e.preventDefault();
             const q = document.getElementById('searchInput').value.trim();
             if (!q) return;
-            let url = (settings.engine === 'custom' && settings.customUrl) 
-                ? settings.customUrl.replace('{q}', encodeURIComponent(q))
-                : (engines[settings.engine] || engines.yandex).replace('{q}', encodeURIComponent(q));
+            
+            let url;
+            if (q.startsWith('http')) {
+                url = q;
+            } else if (q.includes('.') && !q.includes(' ')) {
+                url = 'https://' + q;
+            } else {
+                url = (settings.engine === 'custom' && settings.customUrl) 
+                    ? settings.customUrl.replace('{q}', encodeURIComponent(q))
+                    : (engines[settings.engine] || engines.duckduckgo).replace('{q}', encodeURIComponent(q));
+            }
+            
+            if(!isSearchUrl(url)) {
+                addRecentTab(url);
+            }
+            
             window.open(url, '_blank');
         };
+
+        function resetAll() {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+        }
 
         window.onload = () => {
             const saved = localStorage.getItem(STORAGE_KEY);
             if (saved) {
                 try {
-                    settings = JSON.parse(saved);
+                    const parsed = JSON.parse(saved);
+                    settings = {...settings, ...parsed};
                 } catch(e) {}
             }
             
-            // Синхронизация UI
-            document.getElementById('clock-size').value = settings.clockSize || 1;
-            document.getElementById('clock-pos').value = settings.clockPos || 'pos-left';
-            document.getElementById('search-pos').value = settings.searchPos || 'search-bottom';
-            document.getElementById('shake-effect').checked = settings.shakeEnabled !== undefined ? settings.shakeEnabled : true;
+            document.getElementById('clock-size').value = settings.clockSize;
+            document.getElementById('clock-pos').value = settings.clockPos;
+            document.getElementById('search-pos').value = settings.searchPos;
+            document.getElementById('search-width-slider').value = settings.searchWidth;
+            document.getElementById('shake-effect').checked = settings.shakeEnabled;
             document.getElementById('custom-engine-url').value = settings.customUrl || '';
             
+            if (settings.bgData) {
+                document.getElementById('wp-1').style.backgroundImage = `url(${settings.bgData})`;
+                document.getElementById('wp-1').classList.add('wp-visible');
+            } else {
+                document.getElementById('wp-1').classList.add('wp-hidden');
+            }
+
             applySettings();
             renderWallpapers();
+            updateRecentTabsUI();
             updateTime();
         };
     </script>

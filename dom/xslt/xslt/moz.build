@@ -5,7 +5,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 EXPORTS.mozilla.dom += [
-    "txPlezixXSLTProcessor.h",
+    "txMozillaXSLTProcessor.h",
 ]
 
 XPIDL_MODULE = "dom_xslt"
@@ -24,10 +24,10 @@ UNIFIED_SOURCES += [
     "txGenerateIdFunctionCall.cpp",
     "txInstructions.cpp",
     "txKeyFunctionCall.cpp",
-    "txPlezixStylesheetCompiler.cpp",
-    "txPlezixTextOutput.cpp",
-    "txPlezixXMLOutput.cpp",
-    "txPlezixXSLTProcessor.cpp",
+    "txMozillaStylesheetCompiler.cpp",
+    "txMozillaTextOutput.cpp",
+    "txMozillaXMLOutput.cpp",
+    "txMozillaXSLTProcessor.cpp",
     "txNodeSorter.cpp",
     "txOutputFormat.cpp",
     "txPatternOptimizer.cpp",

@@ -42,7 +42,7 @@ SOURCES += [
     "TestNonTrivialTypeInFfi.cpp",
     "TestNoPrincipalGetUri.cpp",
     "TestNoRefcountedInsideLambdas.cpp",
-    "TestNoUsingNamespacePlezixJava.cpp",
+    "TestNoUsingNamespaceMozillaJava.cpp",
     "TestOverrideBaseCall.cpp",
     "TestOverrideBaseCallAnnotation.cpp",
     "TestParamTraitsEnum.cpp",

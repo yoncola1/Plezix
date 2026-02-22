@@ -50,6 +50,10 @@ def create_telemetry_from_environment(settings):
         return NoopTelemetry(False)
 
     is_enabled = is_telemetry_enabled(settings)
+    if not is_enabled:
+        # Avoid importing and initializing Glean when telemetry is disabled.
+        # This keeps mach usable on Python versions where the Glean stack may fail.
+        return NoopTelemetry(False)
 
     if importlib.util.find_spec("glean") is None:
         return NoopTelemetry(is_enabled)

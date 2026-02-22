@@ -21,7 +21,7 @@ TEST_HARNESS_FILES.testing.mochitest.tests.SimpleTest += [
     "LogController.js",
     "MemoryStats.js",
     "MockObjects.js",
-    "PlezixLogger.js",
+    "MozillaLogger.js",
     "NativeKeyCodes.js",
     "paint_listener.js",
     "setup.js",

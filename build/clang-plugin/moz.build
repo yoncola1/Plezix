@@ -37,7 +37,7 @@ HOST_SOURCES += [
     "NonParamInsideFunctionDeclChecker.cpp",
     "NonTrivialTypeInFfiChecker.cpp",
     "NoPrincipalGetURI.cpp",
-    "NoUsingNamespacePlezixJavaChecker.cpp",
+    "NoUsingNamespaceMozillaJavaChecker.cpp",
     "OverrideBaseCallChecker.cpp",
     "OverrideBaseCallUsageChecker.cpp",
     "ParamTraitsEnumChecker.cpp",

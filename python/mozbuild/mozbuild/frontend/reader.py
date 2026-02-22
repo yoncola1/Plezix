@@ -467,10 +467,14 @@ class TemplateFunction:
             def c(new_node):
                 return ast.copy_location(new_node, node)
 
+            slice_value = c(ast.Constant(value=node.id))
+            if hasattr(ast, "Index"):
+                slice_value = c(ast.Index(value=slice_value))
+
             return c(
                 ast.Subscript(
                     value=c(ast.Name(id=self._global_name, ctx=ast.Load())),
-                    slice=c(ast.Index(value=c(ast.Str(s=node.id)))),
+                    slice=slice_value,
                     ctx=node.ctx,
                 )
             )

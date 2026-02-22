@@ -667,7 +667,7 @@ with Files("tests/merchant-validation/**"):
     BUG_COMPONENT = ("Core", "DOM: Web Payments")
 
 with Files("tests/mimesniff/**"):
-    BUG_COMPONENT = ("Plezix", "File Handling")
+    BUG_COMPONENT = ("Mozilla", "File Handling")
 
 with Files("tests/mixed-content/**"):
     BUG_COMPONENT = ("Core", "DOM: Security")

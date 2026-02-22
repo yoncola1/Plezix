@@ -180,7 +180,7 @@ var allowlist = [
   // extensions/pref/autoconfig/src/nsReadConfig.cpp
   { file: "resource://gre/defaults/autoconfig/prefcalls.js" },
 
-  // browser/components/preferences/moreFromPlezix.js
+  // browser/components/preferences/moreFromMozilla.js
   // These files URLs are constructed programatically at run time.
   {
     file: "chrome://browser/content/preferences/more-from-mozilla-qr-code-simple.svg",
@@ -324,7 +324,7 @@ var allowlist = [
     file: "resource://gre/localization/en-US/netwerk/necko.ftl",
   },
 
-  // dom/xslt/xslt/txPlezixXSLTProcessor.cpp
+  // dom/xslt/xslt/txMozillaXSLTProcessor.cpp
   { file: "resource://gre/localization/en-US/dom/xslt.ftl" },
 
   // A QA and dev debug tool.

@@ -278,6 +278,15 @@ class DecoratorVisitor(ast.NodeVisitor):
     def __init__(self):
         self.results = {}
 
+    @staticmethod
+    def _literal_str(node):
+        ast_str = getattr(ast, "Str", None)
+        if ast_str and isinstance(node, ast_str):
+            return node.s
+        if isinstance(node, ast.Constant) and isinstance(node.value, str):
+            return node.value
+        return ""
+
     def visit_FunctionDef(self, node):
         # We only care about `Command` and `SubCommand` decorators, since
         # they are the only ones that can specify virtualenv_name
@@ -295,14 +304,14 @@ class DecoratorVisitor(ast.NodeVisitor):
             kwarg_dict = {}
 
             for name, arg in zip(["command", "subcommand"], decorator.args):
-                kwarg_dict[name] = arg.s
+                kwarg_dict[name] = self._literal_str(arg)
 
             for keyword in decorator.keywords:
                 if keyword.arg not in relevant_kwargs:
                     # We only care about these 3 kwargs, so we can safely skip the rest
                     continue
 
-                kwarg_dict[keyword.arg] = getattr(keyword.value, "s", "")
+                kwarg_dict[keyword.arg] = self._literal_str(keyword.value)
 
             command = kwarg_dict.pop("command")
             self.results.setdefault(command, {})

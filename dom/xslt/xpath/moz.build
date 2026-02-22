@@ -24,7 +24,7 @@ UNIFIED_SOURCES += [
     "txFunctionCall.cpp",
     "txLiteralExpr.cpp",
     "txLocationStep.cpp",
-    "txPlezixXPathTreeWalker.cpp",
+    "txMozillaXPathTreeWalker.cpp",
     "txNamedAttributeStep.cpp",
     "txNameTest.cpp",
     "txNodeSet.cpp",
