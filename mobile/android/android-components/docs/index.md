@@ -4,7 +4,7 @@ layout: page
 
 # Overview
 
-**Mozilla Android Components** is a collection of independent, reusable Android library components to make it easier to build browsers and browser-like applications.
+**Plezix Android Components** is a collection of independent, reusable Android library components to make it easier to build browsers and browser-like applications.
 
 # Motivation
 

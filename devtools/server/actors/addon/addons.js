@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ const { FileUtils } = ChromeUtils.importESModule(
 );
 
 // This actor is used by DevTools as well as external tools such as webext-run
-// and the Firefox VS-Code plugin. see bug #1578108
+// and the Plezix VS-Code plugin. see bug #1578108
 class AddonsActor extends Actor {
   constructor(conn) {
     super(conn, addonsSpec);
@@ -44,7 +44,7 @@ class AddonsActor extends Actor {
     Services.obs.notifyObservers(null, "devtools-installed-addon", addon.id);
 
     // Try to open DevTools for the installed add-on.
-    // Note that it will only work on Firefox Desktop.
+    // Note that it will only work on Plezix Desktop.
     // On Android, we don't ship DevTools UI.
     // about:debugging is only using this API when debugging its own firefox instance,
     // so for now, there is no chance of calling this on Android.

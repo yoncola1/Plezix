@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
 * License, v. 2.0. If a copy of the MPL was not distributed with this
 * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,12 +17,12 @@ const OS_NAME: &str = "macos";
 #[derive(Serialize, Deserialize)]
 #[serde(tag = "command", content = "data")]
 // {
-//     "command": "LaunchFirefox",
+//     "command": "LaunchPlezix",
 //     "data": {"url": "https://example.com"},
 // }
-pub enum FirefoxCommand {
-    LaunchFirefox { url: String },
-    LaunchFirefoxPrivate { url: String },
+pub enum PlezixCommand {
+    LaunchPlezix { url: String },
+    LaunchPlezixPrivate { url: String },
     GetVersion {},
     GetInstallId {},
 }
@@ -76,7 +76,7 @@ impl CommandRunner for Command {
             use mozbuild::config::MOZ_APP_NAME;
             use std::env;
             use std::path::Path;
-            // Get the current executable's path, we know Firefox is in the
+            // Get the current executable's path, we know Plezix is in the
             // same folder is nmhproxy.exe so we can use that.
             let nmh_exe_path = env::current_exe().unwrap();
             let nmh_exe_folder = nmh_exe_path.parent().unwrap_or_else(|| Path::new(""));
@@ -121,18 +121,18 @@ pub fn read_message_string<R: Read>(mut reader: R, length: u32) -> io::Result<St
     Ok(message)
 }
 
-pub fn process_command(command: &FirefoxCommand) -> std::io::Result<bool> {
+pub fn process_command(command: &PlezixCommand) -> std::io::Result<bool> {
     match &command {
-        FirefoxCommand::LaunchFirefox { url } => {
+        PlezixCommand::LaunchPlezix { url } => {
             launch_firefox::<Command>(url.to_owned(), false, OS_NAME)?;
             Ok(true)
         }
-        FirefoxCommand::LaunchFirefoxPrivate { url } => {
+        PlezixCommand::LaunchPlezixPrivate { url } => {
             launch_firefox::<Command>(url.to_owned(), true, OS_NAME)?;
             Ok(true)
         }
-        FirefoxCommand::GetVersion {} => generate_response("1", ResultCode::Success.into()),
-        FirefoxCommand::GetInstallId {} => {
+        PlezixCommand::GetVersion {} => generate_response("1", ResultCode::Success.into()),
+        PlezixCommand::GetInstallId {} => {
             // config_dir() evaluates to ~/Library/Application Support on macOS
             // and %RoamingAppData% on Windows.
             let mut json_path = match dirs::config_dir() {
@@ -145,9 +145,9 @@ pub fn process_command(command: &FirefoxCommand) -> std::io::Result<bool> {
                 }
             };
             #[cfg(target_os = "windows")]
-            json_path.push("Mozilla\\Firefox");
+            json_path.push("Plezix\\Plezix");
             #[cfg(target_os = "macos")]
-            json_path.push("Firefox");
+            json_path.push("Plezix");
 
             json_path.push("install_id");
             json_path.set_extension("json");

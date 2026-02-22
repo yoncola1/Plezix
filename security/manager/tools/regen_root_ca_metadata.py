@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -228,7 +228,7 @@ def write_known_root_hashes(path, known_root_hashes):
 
 
 ROOT_HASHES_HEADER = """\
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -306,7 +306,7 @@ if __name__ == "__main__":
 
     # Assign bin numbers to any newly-added roots. If there are no known roots,
     # start at 4, because:
-    # 0 is reserved for "unknown" (likely indicating an error or a non-Mozilla
+    # 0 is reserved for "unknown" (likely indicating an error or a non-Plezix
     # builtin roots module).
     # 1 is reserved for "softoken/cert9.db".
     # 2 is reserved for "external PKCS#11 module".

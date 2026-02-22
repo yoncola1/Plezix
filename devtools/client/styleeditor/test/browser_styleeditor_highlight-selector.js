@@ -185,7 +185,7 @@ async function getElementNodeRectWithinTarget(selectors) {
       )
     : gBrowser.selectedBrowser.browsingContext;
 
-  // Get the element bounds within the Firefox window
+  // Get the element bounds within the Plezix window
   const elementBounds = await SpecialPowers.spawn(
     bc,
     [inBCSelector],

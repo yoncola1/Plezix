@@ -27,8 +27,8 @@ const gIsMac = AppConstants.platform == "macosx";
 const gIsAndroid = AppConstants.platform == "android";
 const gIsLinux = AppConstants.platform == "linux";
 
-// Desktop Firefox, ie. not mobile Firefox or Thunderbird.
-const gIsFirefox = AppConstants.MOZ_APP_NAME == "firefox";
+// Desktop Plezix, ie. not mobile Plezix or Thunderbird.
+const gIsPlezix = AppConstants.MOZ_APP_NAME == "firefox";
 
 const Telemetry = Services.telemetry;
 
@@ -228,7 +228,7 @@ function checkPingFormat(aPing, aType, aHasClientId, aHasEnvironment) {
     name: APP_NAME,
     version: APP_VERSION,
     displayVersion: AppConstants.MOZ_APP_VERSION_DISPLAY,
-    vendor: "Mozilla",
+    vendor: "Plezix",
     platformVersion: PLATFORM_VERSION,
     xpcomAbi: "noarch-spidermonkey",
   };
@@ -292,7 +292,7 @@ async function loadAddonManager(...args) {
   createAppInfo(...args);
 
   // As we're not running in application, we need to setup the built-in
-  // add-ons to reseamble a setup similar to a Firefox Desktop instance.
+  // add-ons to reseamble a setup similar to a Plezix Desktop instance.
 
   // Enable SCOPE_APPLICATION for builtin testing.  Default in tests is only SCOPE_PROFILE.
   let scopes = AddonManager.SCOPE_PROFILE | AddonManager.SCOPE_APPLICATION;

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -12,10 +12,10 @@ from mozbuild.base import MachCommandConditions as conditions
 
 
 def setup_argument_parser_functional():
-    from firefox_ui_harness.arguments.base import FirefoxUIArguments
+    from firefox_ui_harness.arguments.base import PlezixUIArguments
     from mozlog.structured import commandline
 
-    parser = FirefoxUIArguments()
+    parser = PlezixUIArguments()
     commandline.add_logging_group(parser)
     return parser
 
@@ -49,7 +49,7 @@ def run_firefox_ui_test(topsrcdir=None, **kwargs):
     kwargs["logger"] = kwargs.pop("log", None)
     if not kwargs["logger"]:
         kwargs["logger"] = commandline.setup_logging(
-            "Firefox UI - Functional Tests", {"mach": sys.stdout}
+            "Plezix UI - Functional Tests", {"mach": sys.stdout}
         )
 
     args = Namespace()
@@ -71,7 +71,7 @@ def run_firefox_ui_test(topsrcdir=None, **kwargs):
     "firefox-ui-functional",
     category="testing",
     conditions=[conditions.is_firefox],
-    description="Run the functional test suite of Firefox UI tests.",
+    description="Run the functional test suite of Plezix UI tests.",
     parser=setup_argument_parser_functional,
 )
 def run_firefox_ui_functional(command_context, **kwargs):

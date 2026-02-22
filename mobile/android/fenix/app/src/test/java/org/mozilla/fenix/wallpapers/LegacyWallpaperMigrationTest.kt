@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -176,7 +176,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.CERULEAN, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicPlezixCollection, it.collection)
                 },
             )
         }
@@ -188,7 +188,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.SUNRISE, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicPlezixCollection, it.collection)
                 },
             )
         }
@@ -200,7 +200,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.AMETHYST, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicPlezixCollection, it.collection)
                 },
             )
         }

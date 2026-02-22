@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -16,7 +16,7 @@ from mozlint.pathutils import expand_exclusions
 CLANG_FORMAT_NOT_FOUND = """
 Could not find clang-format! It should've been installed automatically - \
 please report a bug here:
-https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20Build%20System&component=Lint%20and%20Formatting
+https://bugzilla.mozilla.org/enter_bug.cgi?product=Plezix%20Build%20System&component=Lint%20and%20Formatting
 """.strip()
 
 

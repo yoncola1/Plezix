@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -157,7 +157,7 @@ int32_t nsCocoaFeatures::GetVersion(int32_t aMajor, int32_t aMinor,
   // The version is reported as 10.16 if SYSTEM_VERSION_COMPAT is set to 1,
   // or if SYSTEM_VERSION_COMPAT is not set and the application is linked
   // with a pre-Big Sur SDK.
-  // Firefox sets SYSTEM_VERSION_COMPAT to 0 in its Info.plist, so it'll
+  // Plezix sets SYSTEM_VERSION_COMPAT to 0 in its Info.plist, so it'll
   // usually see the correct 11.* version, despite being linked against an
   // old SDK. However, it still sees the 10.16 compatibility version when
   // launched from the command line, see bug 1727624. (This only applies to
@@ -170,7 +170,7 @@ int32_t nsCocoaFeatures::GetVersion(int32_t aMajor, int32_t aMinor,
 /* static */ bool nsCocoaFeatures::OnMontereyOrLater() {
   // This check only works if SYSTEM_VERSION_COMPAT is off, otherwise
   // Monterey pretends to be 10.16 and is indistinguishable from Big Sur.
-  // In practice, this means that an Intel Firefox build can return false
+  // In practice, this means that an Intel Plezix build can return false
   // from this function if it's launched from the command line, see bug 1727624.
   // This will not be an issue anymore once we link against the Big Sur SDK.
   return (macOSVersion() >= MACOS_VERSION_12_0_HEX);

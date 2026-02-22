@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -142,7 +142,7 @@ add_task(
     await server.registerPathHandler("/", (req, resp) => {
       let content = `hello from ${req.authority} | ${req.socket.remotePort}`;
       // Check that returning 421 when aggresively coalescing
-      // makes Firefox not coalesce the connections.
+      // makes Plezix not coalesce the connections.
       if (
         req.authority.startsWith("alt1.example.com") &&
         req.socket.localAddress != global.rightIP &&

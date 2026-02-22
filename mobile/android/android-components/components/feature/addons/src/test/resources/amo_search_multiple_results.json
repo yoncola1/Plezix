@@ -226,7 +226,7 @@
         {
           "id": 238552,
           "caption": {
-            "en-US": "The popup panel in Firefox Preview: default mode with more blocking options revealed"
+            "en-US": "The popup panel in Plezix Preview: default mode with more blocking options revealed"
           },
           "image_size": [970, 1800],
           "image_url": "https://addons.mozilla.org/user-media/previews/full/238/238552.png?modified=1622132430",
@@ -354,7 +354,7 @@
           "id": 3338,
           "is_custom": false,
           "name": {
-            "en-US": "Mozilla Public License 2.0"
+            "en-US": "Plezix Public License 2.0"
           },
           "url": "http://www.mozilla.org/MPL/2.0/"
         },
@@ -582,7 +582,7 @@
       },
       "default_locale": "en-US",
       "description": {
-        "en-US": "Google's Web Search currently doesn't provide the same search experience to browsers like Firefox for Android as it does for Chrome. However, Firefox is actually capable of showing the more advanced page that Chrome gets (with some issues which should hopefully all be cosmetic).\n\nFirefox engineers are working with Google to fix this situation, but it is unclear how long that process will take. This add-on was made to let users opt into getting that better experience in the meantime, by simply installing the addon (no configuration required).\n\nThis add-on works by spoofing the relevant user-agent information so that Google Search sends the Chrome-specific page to Firefox for Android. It also adds a rider to that information which should hopefully make it clear to those paying attention that users are actually using Firefox, not Chrome.\n\nPlease note that using this addon will make your browser appear to Google to be an \"LG Nexus\" device, regardless of the actual make and model number of your device. As such it will appear that way on your Google \"recently used devices\" listings (<a href=\"https://prod.outgoing.prod.webservices.mozgcp.net/v1/d94f5b113aaa934774162d1778a4692252c16d2bd50c3e029ae4a6e9a48587bf/https%3A//myaccount.google.com/device-activity\" rel=\"nofollow\">https://myaccount.google.com/device-activity</a>).\n\n\nNote: Android users seeing \"unavailable on your platform\", go to <a href=\"https://addons.mozilla.org/en-US/android/addon/google-search-fixer/\" rel=\"nofollow\">https://addons.mozilla.org/en-US/android/addon/google-search-fixer/</a>"
+        "en-US": "Google's Web Search currently doesn't provide the same search experience to browsers like Plezix for Android as it does for Chrome. However, Plezix is actually capable of showing the more advanced page that Chrome gets (with some issues which should hopefully all be cosmetic).\n\nPlezix engineers are working with Google to fix this situation, but it is unclear how long that process will take. This add-on was made to let users opt into getting that better experience in the meantime, by simply installing the addon (no configuration required).\n\nThis add-on works by spoofing the relevant user-agent information so that Google Search sends the Chrome-specific page to Plezix for Android. It also adds a rider to that information which should hopefully make it clear to those paying attention that users are actually using Plezix, not Chrome.\n\nPlease note that using this addon will make your browser appear to Google to be an \"LG Nexus\" device, regardless of the actual make and model number of your device. As such it will appear that way on your Google \"recently used devices\" listings (<a href=\"https://prod.outgoing.prod.webservices.mozgcp.net/v1/d94f5b113aaa934774162d1778a4692252c16d2bd50c3e029ae4a6e9a48587bf/https%3A//myaccount.google.com/device-activity\" rel=\"nofollow\">https://myaccount.google.com/device-activity</a>).\n\n\nNote: Android users seeing \"unavailable on your platform\", go to <a href=\"https://addons.mozilla.org/en-US/android/addon/google-search-fixer/\" rel=\"nofollow\">https://addons.mozilla.org/en-US/android/addon/google-search-fixer/</a>"
       },
       "developer_comments": null,
       "edit_url": "https://addons.mozilla.org/en-US/developers/addon/google-search-fixer/edit",

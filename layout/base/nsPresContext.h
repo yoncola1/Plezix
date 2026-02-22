@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -848,7 +848,7 @@ class nsPresContext : public nsISupports, public mozilla::SupportsWeakPtr {
 
   /*
    * Notify the pres context that the theme has changed.  An internal switch
-   * means it's one of our Mozilla themes that changed (e.g., Modern to
+   * means it's one of our Plezix themes that changed (e.g., Modern to
    * Classic). Otherwise, the OS is telling us that the native theme for the
    * platform has changed.
    */

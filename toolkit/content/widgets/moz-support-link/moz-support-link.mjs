@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 window.MozXULElement?.insertFTLIfNeeded("toolkit/global/mozSupportLink.ftl");
 
 /**
- * An extension of the anchor element that helps create links to Mozilla's
+ * An extension of the anchor element that helps create links to Plezix's
  * support documentation. This should be used for SUMO links only - other "Learn
  * more" links can use the regular anchor element.
  *

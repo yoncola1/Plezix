@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.compose.base.modifier.debouncedClickable
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ClickableSubstringLink
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 /**
@@ -80,10 +80,10 @@ fun WallpaperSettings(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .background(color = FirefoxTheme.colors.layer1)
-            .padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+            .background(color = PlezixTheme.colors.layer1)
+            .padding(horizontal = PlezixTheme.layout.space.dynamic400),
     ) {
-        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
 
         wallpaperGroups.forEach { (collection, wallpapers) ->
             if (wallpapers.isNotEmpty()) {
@@ -92,7 +92,7 @@ fun WallpaperSettings(
                     onLearnMoreClick = onLearnMoreClick,
                 )
 
-                Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+                Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
 
                 WallpaperThumbnails(
                     wallpapers = wallpapers,
@@ -102,7 +102,7 @@ fun WallpaperSettings(
                     onSelectWallpaper = onSelectWallpaper,
                 )
 
-                Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+                Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
             }
         }
     }
@@ -122,8 +122,8 @@ private fun WallpaperGroupHeading(
     if (collection.name == Wallpaper.CLASSIC_FIREFOX_COLLECTION) {
         Text(
             text = stringResource(R.string.wallpaper_classic_title, stringResource(R.string.firefox)),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.subtitle2,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.subtitle2,
         )
     } else {
         val label = stringResource(id = R.string.a11y_action_label_wallpaper_collection_learn_more)
@@ -144,16 +144,16 @@ private fun WallpaperGroupHeading(
         ) {
             Text(
                 text = stringResource(R.string.wallpaper_artist_series_title),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.subtitle2,
+                color = PlezixTheme.colors.textSecondary,
+                style = PlezixTheme.typography.subtitle2,
             )
 
             if (collection.learnMoreUrl.isNullOrEmpty()) {
                 val text = stringResource(R.string.wallpaper_artist_series_description)
                 Text(
                     text = text,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.caption,
+                    color = PlezixTheme.colors.textSecondary,
+                    style = PlezixTheme.typography.caption,
                 )
             } else {
                 val link = stringResource(R.string.wallpaper_learn_more)
@@ -163,8 +163,8 @@ private fun WallpaperGroupHeading(
 
                 ClickableSubstringLink(
                     text = text,
-                    textColor = FirefoxTheme.colors.textSecondary,
-                    linkTextColor = FirefoxTheme.colors.textAccent,
+                    textColor = PlezixTheme.colors.textSecondary,
+                    linkTextColor = PlezixTheme.colors.textAccent,
                     linkTextDecoration = TextDecoration.Underline,
                     clickableStartIndex = linkStartIndex,
                     clickableEndIndex = linkEndIndex,
@@ -195,8 +195,8 @@ fun WallpaperThumbnails(
     onSelectWallpaper: (Wallpaper) -> Unit,
 ) {
     FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
-        verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+        horizontalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
+        verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
     ) {
         wallpapers.forEach { wallpaper ->
             WallpaperThumbnailItem(
@@ -239,9 +239,9 @@ private fun WallpaperThumbnailItem(
         bitmap = loadWallpaperResource(wallpaper)
     }
     val border = if (isSelected) {
-        BorderStroke(width = FirefoxTheme.layout.border.thick, color = FirefoxTheme.colors.borderAccent)
+        BorderStroke(width = PlezixTheme.layout.border.thick, color = PlezixTheme.colors.borderAccent)
     } else if (wallpaper.name == Wallpaper.DEFAULT) {
-        BorderStroke(width = FirefoxTheme.layout.border.thick, color = FirefoxTheme.colors.borderPrimary)
+        BorderStroke(width = PlezixTheme.layout.border.thick, color = PlezixTheme.colors.borderPrimary)
     } else {
         null
     }
@@ -265,19 +265,19 @@ private fun WallpaperThumbnailItem(
 
         Surface(
             modifier = Modifier
-                .width(width = FirefoxTheme.layout.size.static1200)
+                .width(width = PlezixTheme.layout.size.static1200)
                 .aspectRatio(aspectRatio)
                 .debouncedClickable { onSelect(wallpaper) }
                 .then(contentDescriptionModifier),
-            shape = RoundedCornerShape(size = FirefoxTheme.layout.corner.large),
+            shape = RoundedCornerShape(size = PlezixTheme.layout.corner.large),
             border = border,
-            shadowElevation = FirefoxTheme.layout.elevation.medium,
+            shadowElevation = PlezixTheme.layout.elevation.medium,
         ) {
             if (bitmap == null) {
                 Spacer(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(color = FirefoxTheme.colors.layer1),
+                        .background(color = PlezixTheme.colors.layer1),
                 )
             } else {
                 bitmap?.let {
@@ -297,8 +297,8 @@ private fun WallpaperThumbnailItem(
                     contentAlignment = Alignment.Center,
                 ) {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(FirefoxTheme.layout.size.circularIndicatorDiameter),
-                        color = FirefoxTheme.colors.borderAccent,
+                        modifier = Modifier.size(PlezixTheme.layout.size.circularIndicatorDiameter),
+                        color = PlezixTheme.colors.borderAccent,
                     )
                 }
             }
@@ -318,7 +318,7 @@ private fun WallpaperThumbnailsPreview() {
             cardColorDark = 0L,
             thumbnailFileState = Wallpaper.ImageFileState.Downloaded,
             assetsFileState = Wallpaper.ImageFileState.Downloaded,
-            collection = Wallpaper.ClassicFirefoxCollection,
+            collection = Wallpaper.ClassicPlezixCollection,
         )
     } + Wallpaper.Default
     val downloadingCollection: List<Wallpaper> = List(size = 5) { index ->
@@ -329,12 +329,12 @@ private fun WallpaperThumbnailsPreview() {
             cardColorDark = 0L,
             thumbnailFileState = Wallpaper.ImageFileState.Downloading,
             assetsFileState = Wallpaper.ImageFileState.Downloading,
-            collection = Wallpaper.ClassicFirefoxCollection,
+            collection = Wallpaper.ClassicPlezixCollection,
         )
     }
     var selectedWallpaper by remember { mutableStateOf(downloadedCollection[0]) }
 
-    FirefoxTheme {
+    PlezixTheme {
         WallpaperSettings(
             defaultWallpaper = Wallpaper.Default,
             loadWallpaperResource = { wallpaper ->
@@ -346,7 +346,7 @@ private fun WallpaperThumbnailsPreview() {
             },
             wallpaperGroups = mapOf(
                 Wallpaper.DefaultCollection to downloadedCollection,
-                Wallpaper.ClassicFirefoxCollection to downloadingCollection,
+                Wallpaper.ClassicPlezixCollection to downloadingCollection,
             ),
             selectedWallpaper = selectedWallpaper,
             onSelectWallpaper = { wallpaper ->

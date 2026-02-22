@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -290,7 +290,7 @@ class LocalSymbolicationServiceWithRemoteSymbolTableFallback {
       // Try to obtain the symbol table on the debuggee. We get into this
       // branch in the following cases:
       //  - Android system libraries
-      //  - Firefox binaries that have no matching equivalent on the host
+      //  - Plezix binaries that have no matching equivalent on the host
       //    machine, for example because the user didn't point us at the
       //    corresponding objdir, or if the build was compiled somewhere
       //    else, or if the build on the device is outdated.

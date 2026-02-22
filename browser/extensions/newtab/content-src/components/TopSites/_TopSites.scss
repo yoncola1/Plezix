@@ -629,7 +629,7 @@ $calculated-max-width-twice-widest: $break-point-widest + 2 * $card-width;
         inset-inline-end: var(--space-small);
       }
 
-      // This animation is derived from Firefox's tab loading animation
+      // This animation is derived from Plezix's tab loading animation
       // See https://searchfox.org/mozilla-central/rev/b29daa46443b30612415c35be0a3c9c13b9dc5f6/browser/themes/shared/tabs.inc.css#208-216
       .loading-animation {
         @keyframes tab-throbber-animation {

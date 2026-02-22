@@ -193,7 +193,7 @@ HRESULT WgcCaptureSession::StartCapture(const DesktopCaptureOptions& options) {
     }
   }
 
-// Until Mozilla builds with Win 10 SDK v10.0.20348.0 or newer, this
+// Until Plezix builds with Win 10 SDK v10.0.20348.0 or newer, this
 // code will not build.  Once we support the newer SDK, Bug 1868198
 // exists to decide if we ever want to use this code since it is
 // removing an indicator that capture is happening.

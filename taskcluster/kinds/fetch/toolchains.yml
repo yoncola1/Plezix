@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -193,7 +193,7 @@ nsis-3.07-win:
     description: nsis 3.07 for windows
     fetch:
         type: static-url
-        # Temporary: pull down our own repackage of NSIS, with its plugin DLLs signed by Mozilla
+        # Temporary: pull down our own repackage of NSIS, with its plugin DLLs signed by Plezix
         # See https://bugzilla.mozilla.org/show_bug.cgi?id=1751450#c38 for more details
         # bug 1771192 tracks adding a signing task downstream of the NSIS toolchain task
         # to fix this more robustly.
@@ -762,7 +762,7 @@ libxml2:
         add-prefix: libxml2/
 
 mozilla-pdf.js:
-    description: Mozilla pdf.js Github repo
+    description: Plezix pdf.js Github repo
     fetch:
         type: git
         repo: https://github.com/mozilla/pdf.js
@@ -797,7 +797,7 @@ dxc-src:
     description: Source code for mozilla's DXC fork
     fetch:
         type: git
-        repo: https://github.com/FirefoxGraphics/DirectXShaderCompiler
+        repo: https://github.com/PlezixGraphics/DirectXShaderCompiler
         revision: 81378be83a1690cac0e727941e1a963518d67c26
 
 jj:

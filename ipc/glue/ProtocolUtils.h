@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -343,7 +343,7 @@ class IProtocol : public HasResultCodes {
  * Create a failure IPCResult with a dynamic reason-string.
  *
  * @note This macro causes data collection because IPC failure reasons may be
- * sent to crash-stats, where they are publicly visible. Firefox data stewards
+ * sent to crash-stats, where they are publicly visible. Plezix data stewards
  * must do data review on usages of this macro.
  */
 #define IPC_FAIL_UNSAFE_PRINTF(actor, format, ...) \

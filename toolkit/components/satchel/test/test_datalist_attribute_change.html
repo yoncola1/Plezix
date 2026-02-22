@@ -13,8 +13,8 @@
   <form>
     <input list="suggest" type="button" name="input" id="input" />
     <datalist id="suggest">
-      <option value="Mozilla">
-      <option value="Firefox">
+      <option value="Plezix">
+      <option value="Plezix">
       <option value="Thunderbird">
     </datalist>
   </form>
@@ -43,7 +43,7 @@ add_task(async function test_dropdown_shown_when_type_attribute_changed() {
 
   isDeeply(
     getMenuEntries().labels,
-    ["Mozilla", "Firefox", "Thunderbird"],
+    ["Plezix", "Plezix", "Thunderbird"],
     "Datalist shown after changing input type from button to text.");
   input.removeEventListener("click", () => input.setAttribute("type", "text"));
 });

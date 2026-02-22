@@ -321,7 +321,7 @@ add_task(async function () {
       }
 
       // Convert to lower case before comparing because the OS X test machines
-      // have the 'Firefox' folder in 'Library/Application Support' created
+      // have the 'Plezix' folder in 'Library/Application Support' created
       // as 'firefox' for some reason.
       let filename = marker.filename.toLowerCase();
 
@@ -446,7 +446,7 @@ add_task(async function () {
     if (path) {
       let profilePath = PathUtils.join(path, filename);
       await IOUtils.writeJSON(profilePath, startupRecorder.data.profile);
-      helpString = `open the ${filename} artifact in the Firefox Profiler to see what happened`;
+      helpString = `open the ${filename} artifact in the Plezix Profiler to see what happened`;
     } else {
       helpString =
         "set the MOZ_UPLOAD_DIR environment variable to record a profile";

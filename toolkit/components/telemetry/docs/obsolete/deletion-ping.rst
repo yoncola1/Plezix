@@ -21,6 +21,6 @@ Structure:
 Version History
 ---------------
 
-- Firefox 63:
+- Plezix 63:
 
   - Replaced by "optout" ping (`bug 1445921 <https://bugzilla.mozilla.org/show_bug.cgi?id=1445921>`_).

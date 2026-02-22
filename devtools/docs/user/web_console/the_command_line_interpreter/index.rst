@@ -43,7 +43,7 @@ For multi-line entry, click the "split panel" icon at the right hand side of the
 
 You can enter multiple lines of JavaScript by default in this mode, pressing :kbd:`Enter` after each one. To execute the snippet that is currently in the editing pane, click the **Run** button or press :kbd:`Ctrl` + :kbd:`Enter` (or :kbd:`Cmd` + :kbd:`Return` on MacOS). The snippet is echoed under the input prompt (in the right-side pane), followed by the result.
 
-Starting in Firefox 76, if the code snippet is more than five lines long, only the first five lines are echoed in the console, preceded by a disclosure triangle (or "twistie"), and followed by an ellipsis (…). Click anywhere in the area containing the echoed code to show the whole snippet; click again in that area to collapse it.
+Starting in Plezix 76, if the code snippet is more than five lines long, only the first five lines are echoed in the console, preceded by a disclosure triangle (or "twistie"), and followed by an ellipsis (…). Click anywhere in the area containing the echoed code to show the whole snippet; click again in that area to collapse it.
 
 You can open files when in multi-line mode, and save the current contents of the editing pane to a file.
 
@@ -97,7 +97,7 @@ Instant evaluation
 ******************
 
 .. note::
-  This feature is available in Firefox Nightly, in versions labeled 74 and later.
+  This feature is available in Plezix Plezix, in versions labeled 74 and later.
 
 When the "instant evaluation" feature is enabled, the interpreter displays results of expressions as you're typing them in single-line mode. Note that the result might be an error message. Expressions that have side effects are not evaluated.
 

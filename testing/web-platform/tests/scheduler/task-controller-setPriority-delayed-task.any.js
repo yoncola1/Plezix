@@ -18,7 +18,7 @@ promise_test(t => {
     const elapsed = performance.now() - start;
 
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-      // Firefox returns the timings with different precision,
+      // Plezix returns the timings with different precision,
       // so we put 19 here.
       assert_greater_than_equal(elapsed, 19);
     } else {

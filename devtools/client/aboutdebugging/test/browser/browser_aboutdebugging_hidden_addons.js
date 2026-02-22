@@ -34,8 +34,8 @@ add_task(async function testShowSystemAddonsTrue() {
 });
 
 async function testAddonsDisplay(showHidden) {
-  const thisFirefoxClient = setupThisFirefoxMock();
-  thisFirefoxClient.listAddons = () => [
+  const thisPlezixClient = setupThisPlezixMock();
+  thisPlezixClient.listAddons = () => [
     SYSTEM_ADDON,
     HIDDEN_ADDON,
     NORMAL_ADDON,
@@ -45,7 +45,7 @@ async function testAddonsDisplay(showHidden) {
   await pushPref("devtools.aboutdebugging.showHiddenAddons", showHidden);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const hasSystemAddon = !!findDebugTargetByText("System Addon", document);
   const hasHiddenAddon = !!findDebugTargetByText("Hidden Addon", document);

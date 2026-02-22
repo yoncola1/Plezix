@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -68,7 +68,7 @@ data class Wallpaper(
          * safer to do comparison directly with the collection name.
          */
         const val CLASSIC_FIREFOX_COLLECTION = "classic-firefox"
-        val ClassicFirefoxCollection = Collection(
+        val ClassicPlezixCollection = Collection(
             name = CLASSIC_FIREFOX_COLLECTION,
             heading = null,
             description = null,

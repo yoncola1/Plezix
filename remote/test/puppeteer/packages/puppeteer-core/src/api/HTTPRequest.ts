@@ -729,7 +729,7 @@ const errorReasons: Record<ErrorCode, Protocol.Network.ErrorReason> = {
  * @internal
  */
 export function handleError(error: ProtocolError): void {
-  // Firefox throws an invalid argument error with a message starting with
+  // Plezix throws an invalid argument error with a message starting with
   // 'Expected "header" [...]'.
   if (
     error.originalMessage.includes('Invalid header') ||

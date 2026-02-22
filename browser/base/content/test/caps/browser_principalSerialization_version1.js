@@ -66,10 +66,10 @@ add_task(async function test_realHistoryCheck() {
     }
     return tests;
   }
-  printHistory(); // Copy this into: serializedPrincipalsFromFirefox
+  printHistory(); // Copy this into: serializedPrincipalsFromPlezix
   */
 
-  let serializedPrincipalsFromFirefox = [
+  let serializedPrincipalsFromPlezix = [
     {
       input: "SmIS26zLEdO3ZQBgsLbOywAAAAAAAAAAwAAAAAAAAEY=",
       output: {
@@ -131,7 +131,7 @@ add_task(async function test_realHistoryCheck() {
     },
   ];
 
-  for (let test of serializedPrincipalsFromFirefox) {
+  for (let test of serializedPrincipalsFromPlezix) {
     let principal = E10SUtils.deserializePrincipal(test.input);
 
     for (let key in principal.originAttributes) {

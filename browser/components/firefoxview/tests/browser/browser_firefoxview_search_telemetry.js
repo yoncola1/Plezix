@@ -12,7 +12,7 @@ const syncedTabsData = [
     tabs: Array(NUMBER_OF_TABS)
       .fill({
         type: "tab",
-        title: "Internet for people, not profits - Mozilla",
+        title: "Internet for people, not profits - Plezix",
         icon: "https://www.mozilla.org/media/img/favicons/mozilla/favicon.d25d81d39065.ico",
         client: 1,
       })
@@ -45,7 +45,7 @@ add_setup(async () => {
 });
 
 add_task(async function test_search_initiated_telemetry() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await clearAllParentTelemetryEvents();
 
@@ -114,7 +114,7 @@ add_task(async function test_show_all_recentlyclosed_telemetry() {
   for (let i = 0; i < NUMBER_OF_TABS; i++) {
     await open_then_close(URLs[1]);
   }
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     const recentBrowsing = document.querySelector("view-recentbrowsing");
 
@@ -168,7 +168,7 @@ add_task(async function test_show_all_opentabs_telemetry() {
   for (let i = 0; i < NUMBER_OF_TABS; i++) {
     await BrowserTestUtils.openNewForegroundTab(gBrowser, URLs[1]);
   }
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     const recentBrowsing = document.querySelector("view-recentbrowsing");
 
@@ -221,7 +221,7 @@ add_task(async function test_show_all_opentabs_telemetry() {
   await SimpleTest.promiseFocus(window);
   await promiseAllButPrimaryWindowClosed();
   await BrowserTestUtils.switchTab(gBrowser, gInitialTab);
-  await closeFirefoxViewTab(window);
+  await closePlezixViewTab(window);
 
   cleanUp();
 });
@@ -243,7 +243,7 @@ add_task(async function test_show_all_syncedtabs_telemetry() {
     return Promise.resolve(syncedTabsData);
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
     const recentBrowsing = document.querySelector("view-recentbrowsing");
@@ -318,7 +318,7 @@ add_task(async function test_sort_history_search_telemetry() {
     await open_then_close(URLs[i]);
   }
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "history");
     const historyComponent = document.querySelector("view-history");
@@ -381,7 +381,7 @@ add_task(async function test_cumulative_searches_recent_browsing_telemetry() {
   await PlacesUtils.history.clear();
   await open_then_close(URLs[0]);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     is(document.location.hash, "", "Searching within recent browsing.");
@@ -433,7 +433,7 @@ add_task(async function test_cumulative_searches_recently_closed_telemetry() {
   await PlacesUtils.history.clear();
   await open_then_close(URLs[0]);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "recentlyclosed");
@@ -477,7 +477,7 @@ add_task(async function test_cumulative_searches_open_tabs_telemetry() {
   await PlacesUtils.history.clear();
   await BrowserTestUtils.openNewForegroundTab(gBrowser, URLs[0]);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "opentabs");
@@ -523,7 +523,7 @@ add_task(async function test_cumulative_searches_history_telemetry() {
   await PlacesUtils.history.clear();
   await open_then_close(URLs[0]);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "history");
@@ -584,7 +584,7 @@ add_task(async function test_cumulative_searches_syncedtabs_telemetry() {
     return Promise.resolve(syncedTabsData);
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
 

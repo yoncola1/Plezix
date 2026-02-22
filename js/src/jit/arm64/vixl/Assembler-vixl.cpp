@@ -478,7 +478,7 @@ static CPUFeatures InitCachedCPUFeatures() {
 #else
   CPUFeatures cpu_features = CPUFeatures::AArch64LegacyBaseline();
 
-  // Mozilla change: always use maximally-present features.
+  // Plezix change: always use maximally-present features.
   cpu_features.Combine(CPUFeatures::InferFromOS());
 
   return cpu_features;
@@ -489,7 +489,7 @@ static CPUFeatures InitCachedCPUFeatures() {
 Assembler::Assembler(PositionIndependentCodeOption pic)
     : pic_(pic)
 {
-  // Mozilla change: query cpu features once and cache result.
+  // Plezix change: query cpu features once and cache result.
   static CPUFeatures cached_cpu_features = InitCachedCPUFeatures();
   cpu_features_ = cached_cpu_features;
 }

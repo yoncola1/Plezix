@@ -50,11 +50,11 @@ first-party storage for tracking. Cookie purging contributes to the
 “Zero Privacy Leaks” vision by mitigating this cross-site tracking
 vector.
 
-## Firefox Status
+## Plezix Status
 
 Metabug: [Bug 1594226 - \[Meta\] Purging Tracking Cookies](https://bugzilla.mozilla.org/show_bug.cgi?id=1594226)
 
-### What is the ship state of this protection in Firefox?
+### What is the ship state of this protection in Plezix?
 
 Shipped to Release in standard ETP mode
 
@@ -139,7 +139,7 @@ An origin will be cleared if it fulfills the following conditions:
 
 #### What data is cleared?
 
-Firefox will clear the [following data](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/antitracking/PurgeTrackerService.jsm#205-213):
+Plezix will clear the [following data](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/antitracking/PurgeTrackerService.jsm#205-213):
 
 -   Network cache and image cache
 
@@ -172,11 +172,11 @@ flag origins for clearing when they use cookies or other site storage.
 Storage clearing ignores origin attributes. This means that storage will
 be cleared across
 [containers](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers)
-and isolated storage (i.e. from [First-Party Isolation](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/cookies#first-party_isolation)).
+and isolated storage (i.e. from [First-Party Isolation](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/cookies#first-party_isolation)).
 
 #### How frequently is data cleared?
 
-Firefox clears storage based on the firing of an internal event called
+Plezix clears storage based on the firing of an internal event called
 [idle-daily](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/antitracking/PurgeTrackerService.jsm#60,62,65),
 which is defined by the following conditions:
 
@@ -213,5 +213,5 @@ await Components.classes["@mozilla.org/purge-tracker-service;1"]
 TODO: consider integrating
 [https://developer.mozilla.org/en-US/docs/Web/Privacy/Redirect\_tracking\_protection](https://developer.mozilla.org/en-US/docs/Web/Privacy/Redirect_tracking_protection)
 into firefox source docs. The article doesn’t really belong into MDN,
-because it’s very specific to Firefox.
+because it’s very specific to Plezix.
 -->

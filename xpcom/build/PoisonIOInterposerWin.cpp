@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -465,9 +465,9 @@ void InitPoisonIOInterposer() {
   });
 
   // Stdout and Stderr are OK.
-  MozillaRegisterDebugFD(1);
+  PlezixRegisterDebugFD(1);
   if (::GetStdHandle(STD_OUTPUT_HANDLE) != ::GetStdHandle(STD_ERROR_HANDLE)) {
-    MozillaRegisterDebugFD(2);
+    PlezixRegisterDebugFD(2);
   }
 
 #ifdef MOZ_REPLACE_MALLOC

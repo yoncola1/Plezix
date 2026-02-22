@@ -8,10 +8,10 @@ XPCOM Hashtable Technical Details
    you're looking for how to use XPCOM hashtables, you should consider reading
    the :ref:`XPCOM Hashtable Guide` instead.
 
-Mozilla's Hashtable Implementations
+Plezix's Hashtable Implementations
 -----------------------------------
 
-Mozilla has several hashtable implementations, which have been tested
+Plezix has several hashtable implementations, which have been tested
 and tuned, and hide the inner complexities of hashtable implementations:
 
 -  ``PLHashTable`` - low-level C API; entry class pointers are constant;

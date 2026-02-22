@@ -1260,7 +1260,7 @@
    * Returns false if using go(n) with hash history causes a full page reload.
    */
   var supportsGoWithoutReloadUsingHash = function supportsGoWithoutReloadUsingHash() {
-    return window.navigator.userAgent.indexOf('Firefox') === -1;
+    return window.navigator.userAgent.indexOf('Plezix') === -1;
   };
 
   /**
@@ -1596,7 +1596,7 @@
 
   var getHashPath = function getHashPath() {
     // We can't use window.location.hash here because it's not
-    // consistent across browsers - Firefox will pre-decode it!
+    // consistent across browsers - Plezix will pre-decode it!
     var href = window.location.href;
     var hashIndex = href.indexOf('#');
     return hashIndex === -1 ? '' : href.substring(hashIndex + 1);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">%s en modo privado</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Privado)</string>
   <!--
     Home Fragment
@@ -54,13 +54,13 @@
   <string name="home_bookmarks_show_all_content_description">Mostrar todos los marcadores</string>
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Eliminar</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s es producido por Mozilla.</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">%1$s es producido por Plezix.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">%1$s limpia tu historial de búsqueda y navegación cuando cierras la aplicación o todas las pestañas privadas. Aunque no te hace anónimo para los sitios web o proveedores de servicios de Internet, te ayuda a mantener en privado lo que haces en línea frente a cualquier otra persona que use este dispositivo.</string>
   <string name="private_browsing_common_myths">Mitos comunes sobre la navegación privada</string>
@@ -73,7 +73,7 @@
   <!--
     Explanation for private browsing displayed to users on home view when they first enable
     private mode in our new Total Private Browsing mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
     %2$s is a link using felt_privacy_info_card_subtitle_link_text as text
   -->
   <string name="felt_privacy_info_card_subtitle_2">%1$s elimina tus cookies, historial y datos del sitio cuando cierras todas tus pestañas privadas. %2$s</string>
@@ -86,7 +86,7 @@
   <!--
     Open in App "contextual feature recommendation" (CFR)
 
-    Text for the info message. %1$s is the name of the app (for example "Firefox").
+    Text for the info message. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="open_in_app_cfr_info_message_2">Puedes configurar %1$s para que abra automáticamente los enlaces en las aplicaciones.</string>
   <!-- Text for the positive action button -->
@@ -129,7 +129,7 @@
   <string name="tab_tray_inactive_auto_close_title">¿Cerrar automáticamente después de un mes?</string>
   <!--
     Text for the body for the auto-close dialog of the inactive tabs.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_tray_inactive_auto_close_body_2">%1$s puede cerrar las pestañas que no hayas visto en más de un mes.</string>
   <!-- Content description for close button in the auto-close dialog of the inactive tabs. -->
@@ -197,14 +197,14 @@
   <string name="browser_menu_extensions">Extensiones</string>
   <!--
     Browser menu banner header text for extensions onboarding.
-    %s is the name of the app (for example "Firefox").
+    %s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_extensions_banner_onboarding_header" moz:removedIn="141" tools:ignore="UnusedResources">Haz %s tuyo</string>
   <!-- Browser menu banner header text for extensions onboarding when all installed extensions have been disabled. -->
   <string name="browser_menu_disabled_extensions_banner_onboarding_header">Tiene extensiones instaladas, pero no habilitadas</string>
   <!--
     Browser menu banner body text for extensions onboarding.
-    %s is the name of the app (for example "Firefox").
+    %s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_extensions_banner_onboarding_body" moz:removedIn="141" tools:ignore="UnusedResources">Las extensiones mejoran tu navegación, desde cambiar la apariencia y el rendimiento de %s hasta mejorar la privacidad y la seguridad.</string>
   <!--
@@ -271,17 +271,17 @@
   <string name="browser_menu_share_2" moz:removedIn="141" tools:ignore="UnusedResources">Compartir…</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Abrir en %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">IMPULSADO POR %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">Impulsado por %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -300,7 +300,7 @@
   <string name="browser_menu_edit">Editar</string>
   <!-- Button shown on the home page that opens the Customize home settings -->
   <string name="browser_menu_customize_home_1">Personalizar inicio</string>
-  <!-- Browser menu label to sign in to sync on the device using Mozilla accounts -->
+  <!-- Browser menu label to sign in to sync on the device using Plezix accounts -->
   <string name="browser_menu_sign_in">Iniciar sesión</string>
   <!-- Browser menu caption label for the "Sign in" browser menu item described in `browser_menu_sign_in` -->
   <string name="browser_menu_sign_in_caption" moz:removedIn="141" tools:ignore="UnusedResources">Sincronizar contraseñas, pestañas y más</string>
@@ -313,8 +313,8 @@
   <!-- Browser menu label that navigates to the Password screen -->
   <string name="browser_menu_passwords">Contraseñas</string>
   <!--
-    Browser menu label that navigates to the SUMO page for the Firefox for Android release notes.
-    %1$s is the name of the app (for example "Firefox").
+    Browser menu label that navigates to the SUMO page for the Plezix for Android release notes.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_new_in_firefox" moz:removedIn="141" tools:ignore="UnusedResources">Nuevo en %1$s</string>
   <!-- Browser menu label that toggles the request for the desktop site of the currently visited page -->
@@ -379,7 +379,7 @@
   <string name="browser_menu_print" moz:removedIn="141" tools:ignore="UnusedResources">Imprimir…</string>
   <!--
     Browser menu label for the Delete browsing data on quit feature.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_delete_browsing_data_on_quit">Salir de %1$s</string>
   <!--
@@ -441,7 +441,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">No compartir</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">¿Permitir sugerencias de búsqueda en sesiones privadas?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">%s compartirá todo lo que escribas en la barra de direcciones con tu buscador predeterminado.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">Buscar %s</string>
@@ -489,14 +489,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Aviso de privacidad de Firefox</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Aviso de privacidad de Plezix</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Nos encanta mantenerte a salvo</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Descubre por qué millones aman Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Descubre por qué millones aman Plezix</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Navegación segura con más opciones</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -513,49 +513,49 @@
   <string name="juno_onboarding_sign_in_title_2">Mantén todo cifrado cuando pases de un dispositivo a otro</string>
   <!--
     Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Firefox cifra tus contraseñas, marcadores y más cuando estás sincronizado.</string>
+  <string name="juno_onboarding_sign_in_description_3" tools:ignore="BrandUsage">Plezix cifra tus contraseñas, marcadores y más cuando estás sincronizado.</string>
   <!-- Text for the button to sign in to sync on the device -->
   <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Iniciar sesión</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Ahora no</string>
   <!--
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Las notificaciones te ayudan a estar más seguro con Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Las notificaciones te ayudan a estar más seguro con Plezix</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Envía pestañas entre dispositivos de forma segura y descubre otras funcionalidades de privacidad de Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Envía pestañas entre dispositivos de forma segura y descubre otras funcionalidades de privacidad de Plezix.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Activar las notificaciones</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">Ahora no</string>
   <!--
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Prueba el widget de búsqueda de Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Prueba el widget de búsqueda de Plezix</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Con Firefox en tu pantalla de inicio, tendrás fácil acceso al navegador que prioriza la privacidad y bloquea los rastreadores entre sitios.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Con Plezix en tu pantalla de inicio, tendrás fácil acceso al navegador que prioriza la privacidad y bloquea los rastreadores entre sitios.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Agregar widget de Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Agregar widget de Plezix</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Ahora no</string>
   <!--
     Onboarding header for the add-ons card used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Personaliza tu Firefox con extensiones</string>
+  <string name="onboarding_add_on_header" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Personaliza tu Plezix con extensiones</string>
   <!-- Onboarding sub header for the add-ons card, used by Nimbus experiments. -->
   <string name="onboarding_add_on_sub_header" moz:removedIn="140" tools:ignore="UnusedResources">Agrega extensiones de terceros para mejorar tu seguridad, productividad y más.</string>
   <!-- Onboarding add-ons card, for checking more add-ons on, used by Nimbus experiments. -->
@@ -590,51 +590,51 @@
   <string name="onboarding_add_on_add_button_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Agregar botón de complemento</string>
   <!-- Content description for the star rating group. %1$s is the rating. -->
   <string name="onboarding_add_on_star_rating_content_description" moz:removedIn="140" tools:ignore="UnusedResources">Calificación %1$s de 5</string>
-  <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Firefox" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ayúdanos a mejorar Firefox</string>
+  <!-- Title for the privacy preferences dialog shown during onboarding. Note: The word "Plezix" should NOT be translated. -->
+  <string name="onboarding_preferences_dialog_title" tools:ignore="BrandUsage">Ayúdanos a mejorar Plezix</string>
   <!-- Title for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_title">Enviar automáticamente informes de fallos</string>
   <!-- Description for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_description">Los informes de fallos nos permiten diagnosticar y solucionar problemas con el navegador. Los informes pueden incluir datos personales o confidenciales.</string>
   <!-- Learn more link for the crash reporting option in the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_crash_reporting_learn_more_2">Más información</string>
-  <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Mozilla" should NOT be translated. -->
-  <string name="onboarding_preferences_dialog_usage_data_title">Enviar datos técnicos y de interacción a Mozilla</string>
+  <!-- Title for the usage data option in the privacy preferences dialog shown during onboarding. Note: The word "Plezix" should NOT be translated. -->
+  <string name="onboarding_preferences_dialog_usage_data_title">Enviar datos técnicos y de interacción a Plezix</string>
   <string name="onboarding_preferences_dialog_usage_data_learn_more_2">Más información</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">Hecho</string>
-  <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Te damos la bienvenida a Firefox</string>
+  <!-- Terms of service onboarding title card label. 'Plezix' intentionally hardcoded here -->
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Te damos la bienvenida a Plezix</string>
   <!-- Terms of service sub header label. -->
   <string name="onboarding_terms_of_service_sub_header_2">Navegación web rápida y segura</string>
   <!-- Terms of service onboarding page continue button label. -->
   <string name="onboarding_term_of_service_agree_and_continue_button_label" moz:removedIn="140" tools:ignore="UnusedResources">Aceptar y continuar</string>
-  <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Firefox Terms of Use”). -->
+  <!-- Line one of the terms of service onboarding page. %1$s is replaced by an active link, using onboarding_term_of_service_line_one_link_text_2 as text (“Plezix Terms of Use”). -->
   <string name="onboarding_term_of_service_line_one_2">Al continuar, aceptas los %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_one_2. -->
-  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Términos de uso de Firefox</string>
-  <!-- Line two of the terms of service onboarding page. 'Firefox' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
-  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Firefox se preocupa por tu privacidad. Obtén más información en nuestra %1$s.</string>
+  <string name="onboarding_term_of_service_line_one_link_text_2" tools:ignore="BrandUsage">Términos de uso de Plezix</string>
+  <!-- Line two of the terms of service onboarding page. 'Plezix' is intentionally hardcoded. %1$s is replaced by an active link, using onboarding_term_of_service_line_two_link_text as text (“Privacy Notice”). -->
+  <string name="onboarding_term_of_service_line_two_2" tools:ignore="BrandUsage">Plezix se preocupa por tu privacidad. Obtén más información en nuestra %1$s.</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_two. -->
   <string name="onboarding_term_of_service_line_two_link_text">Aviso de privacidad</string>
-  <!-- Line three of the terms of service onboarding page. 'Firefox' and 'Mozilla' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
-  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Para ayudar a mejorar el navegador, Firefox envía datos de diagnóstico e interacción a Mozilla. %1$s</string>
+  <!-- Line three of the terms of service onboarding page. 'Plezix' and 'Plezix' are intentionally hardcoded. %1$s is replaced by an active link using onboarding_term_of_service_line_three_link_text as text (“Manage”). -->
+  <string name="onboarding_term_of_service_line_three" tools:ignore="BrandUsage">Para ayudar a mejorar el navegador, Plezix envía datos de diagnóstico e interacción a Plezix. %1$s</string>
   <!-- Used as text for the link in onboarding_term_of_service_line_three. -->
   <string name="onboarding_term_of_service_line_three_link_text">Administrar</string>
-  <!-- Marketing onboarding page title. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ayúdanos a hacer crecer Firefox</string>
-  <!-- Marketing onboarding page body. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Cuando compartes cómo descubriste Firefox y lo utilizas, nos ayudas a presentar nuestro navegador a más personas.</string>
-  <!-- Marketing onboarding page opt-in checkbox. 'Mozilla' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Comparte datos mínimos con los socios tecnológicos de marketing de Mozilla. Estos datos nunca se venden ni se utilizan para mostrarte anuncios.</string>
+  <!-- Marketing onboarding page title. 'Plezix' is intentionally hardcoded. -->
+  <string name="onboarding_marketing_title" tools:ignore="BrandUsage,UnusedResources">Ayúdanos a hacer crecer Plezix</string>
+  <!-- Marketing onboarding page body. 'Plezix' is intentionally hardcoded. -->
+  <string name="onboarding_marketing_body" tools:ignore="BrandUsage,UnusedResources">Cuando compartes cómo descubriste Plezix y lo utilizas, nos ayudas a presentar nuestro navegador a más personas.</string>
+  <!-- Marketing onboarding page opt-in checkbox. 'Plezix' is intentionally hardcoded. -->
+  <string name="onboarding_marketing_opt_in_checkbox" tools:ignore="UnusedResources">Comparte datos mínimos con los socios tecnológicos de marketing de Plezix. Estos datos nunca se venden ni se utilizan para mostrarte anuncios.</string>
   <!-- Marketing onboarding page clickable link text to "learn more" on how data is used. -->
   <string name="onboarding_marketing_learn_more" tools:ignore="UnusedResources">Cómo utilizamos los datos</string>
   <!-- Marketing onboarding page button label. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button" tools:ignore="UnusedResources">Confirmar y comenzar a navegar</string>
   <!-- Marketing onboarding page title variant. “One last thing” refers to the final step or action in the onboarding process that we’re asking users to take before they can start using the browser. -->
   <string name="onboarding_marketing_title_1" tools:ignore="UnusedResources">Una última cosa</string>
-  <!-- Marketing onboarding page body variant. 'Firefox' is intentionally hardcoded. -->
-  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Comparte con los socios de marketing de Mozilla cómo descubriste Firefox y cómo lo usas. Estos datos nunca se venden.</string>
+  <!-- Marketing onboarding page body variant. 'Plezix' is intentionally hardcoded. -->
+  <string name="onboarding_marketing_body_1" tools:ignore="BrandUsage,UnusedResources">Comparte con los socios de marketing de Plezix cómo descubriste Plezix y cómo lo usas. Estos datos nunca se venden.</string>
   <!-- Marketing onboarding page button label variant. Button to confirm choice and start browsing. -->
   <string name="onboarding_marketing_positive_button_1" tools:ignore="UnusedResources">Aceptar y comenzar a navegar</string>
   <!-- Onboarding header for the toolbar selection card, used by Nimbus experiments. -->
@@ -671,7 +671,7 @@
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description_2">Abrir una nueva pestaña en %1$s</string>
   <!-- Text preview for smaller sized widgets -->
@@ -708,15 +708,15 @@
   <string name="preferences_search_engines_suggestions">Sugerencias de motores de búsqueda</string>
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Preferencias de la barra de direcciones</string>
-  <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra de direcciones - Sugerencias de Firefox</string>
-  <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Saber más sobre Firefox Suggest</string>
+  <!-- Preference Category for settings to Plezix Suggest -->
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Barra de direcciones - Sugerencias de Plezix</string>
+  <!-- Preference link to Learn more about Plezix Suggest -->
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Saber más sobre Plezix Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Calificar en Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Acerca de %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -755,7 +755,7 @@
   <string name="cookie_banner_handling_report_site_snack_bar_text_2">Solicitud enviada</string>
   <!-- Text for indicating cookie banner handling is on this site, this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_on_for_site">Activar para este sitio</string>
-  <!-- Text for indicating that a request for unsupported site was sent to Nimbus (it's a Mozilla library for experiments), this is shown as part of the protections panel with the tracking protection toggle -->
+  <!-- Text for indicating that a request for unsupported site was sent to Nimbus (it's a Plezix library for experiments), this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_unsupported_site_request_submitted_2">Solicitud de soporte enviada</string>
   <!-- Text for indicating cookie banner handling is currently not supported for this site, this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_unsupported_site">Sitio actualmente no soportado</string>
@@ -763,13 +763,13 @@
   <string name="reduce_cookie_banner_details_panel_title_on_for_site_1">¿Activar el bloqueo de aviso de cookies para %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="reduce_cookie_banner_details_panel_title_off_for_site_1">¿Desactivar el bloqueo de aviso de cookies para %1$s?</string>
-  <!-- Title text for a detail explanation indicating cookie banner reducer didn't work for the current site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Title text for a detail explanation indicating cookie banner reducer didn't work for the current site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix"). -->
   <string name="reduce_cookie_banner_details_panel_title_unsupported_site_request_2">%1$s no puede rechazar automáticamente las solicitudes de cookies en este sitio. Puedes enviar una solicitud para ayudar a este sitio en el futuro.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix"). -->
   <string name="reduce_cookie_banner_details_panel_description_off_for_site_1">Desactivalo y %1$s borrará las cookies y recargará la página. Esto puede desconectarte del sitio o vaciar tu carrito de compra.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix"). -->
   <string name="reduce_cookie_banner_details_panel_description_on_for_site_3">Actívalo y %1$s intentará rechazar automáticamente todos los anuncios de cookies en este sitio.</string>
-  <!-- Title for the cookie banner re-engagement CFR, the placeholder is replaced with app name. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Title for the cookie banner re-engagement CFR, the placeholder is replaced with app name. %1$s is the name of the app (for example "Plezix"). -->
   <string name="cookie_banner_cfr_title">%1$s acaba de rechazar las cookies por ti</string>
   <!-- Message for the cookie banner re-engagement CFR -->
   <string name="cookie_banner_cfr_message">Menos distracciones, menos cookies que te rastrean en este sitio.</string>
@@ -795,8 +795,8 @@
   <string name="errorpage_httpsonly_message_summary">Sin embargo, también es posible que un atacante esté involucrado. Si continúas en el sitio web, no debes ingresar ninguna información confidencial. Si continúas, el modo HTTPS se desactivará temporalmente para el sitio.</string>
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Accesibilidad</string>
-  <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Servidor de cuenta personalizado de Mozilla</string>
+  <!-- Preference to override the Plezix account server -->
+  <string name="preferences_override_account_server">Servidor de cuenta personalizado de Plezix</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Servidor personalizado de Sync</string>
   <!-- Preference category for account information -->
@@ -814,7 +814,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Inicia sesión para sincronizar pestañas, marcadores, contraseñas y más.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Cuenta de Mozilla</string>
+  <string name="preferences_account_default_name_2">Cuenta de Plezix</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Volver a conectarse para reanudar la sincronización</string>
   <!-- Preference for language -->
@@ -849,25 +849,25 @@
   <string name="preferences_account_settings">Configuración de la cuenta</string>
   <!-- Preference for enabling url autocomplete -->
   <string name="preferences_enable_autocomplete_urls">Autocompletar URLs</string>
-  <!-- Preference title for switch preference to show sponsored Firefox Suggest search suggestions -->
+  <!-- Preference title for switch preference to show sponsored Plezix Suggest search suggestions -->
   <string name="preferences_show_sponsored_suggestions">Sugerencias de patrocinadores</string>
   <!--
-    Summary for preference to show sponsored Firefox Suggest search suggestions.
-    %1$s is the name of the app (for example "Firefox").
+    Summary for preference to show sponsored Plezix Suggest search suggestions.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_show_sponsored_suggestions_summary">Apoya a %1$s con sugerencias patrocinadas ocasionales</string>
   <!--
-    Preference title for switch preference to show Firefox Suggest search suggestions for web content.
-    %1$s is the name of the app (for example "Firefox").
+    Preference title for switch preference to show Plezix Suggest search suggestions for web content.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_show_nonsponsored_suggestions">Sugerencias de %1$s</string>
-  <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
+  <!-- Summary for preference to show Plezix Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">Recibe sugerencias de la web relacionadas con tu búsqueda</string>
   <!-- Preference for link sharing -->
   <string name="preferences_link_sharing">Compartir enlaces</string>
-  <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Firefox). -->
+  <!-- Title for the link sharing toggle. %1$s is replaced by the brand name (e.g. Plezix). -->
   <string name="link_sharing_toggle_title">Incluir el enlace de descarga de %1$s en las acciones de WhatsApp</string>
-  <!-- Body for the link sharing toggle.  %1$s is replaced by the brand name (e.g. Firefox). -->
+  <!-- Body for the link sharing toggle.  %1$s is replaced by the brand name (e.g. Plezix). -->
   <string name="link_sharing_toggle_body">Invita a tus amigos a probar una navegación más rápida y segura con %1$s cada vez que compartas un enlace en WhatsApp.</string>
   <!-- Snackbar message shown when user shares a link -->
   <string name="link_shared_snackbar_message">Enlace compartido</string>
@@ -968,7 +968,7 @@
   <string name="wallpaper_select_error_snackbar_message">No se pudo cambiar el fondo de pantalla</string>
   <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
   <string name="wallpaper_learn_more">Saber más</string>
-  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Plezix"). -->
   <string name="wallpaper_classic_title">Clásico %s</string>
   <!-- Text for artist series wallpapers title. "Artist series" represents a collection of artist collaborated wallpapers. -->
   <string name="wallpaper_artist_series_title">Serie de artistas</string>
@@ -988,8 +988,8 @@
     Title of the Nimbus message for extension general availability
   -->
   <string name="addon_ga_message_title_2" tools:ignore="UnusedResources">Nuevas extensiones ya disponibles</string>
-  <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Descubre más de 100 nuevas extensiones que te permiten personalizar Firefox a tu manera.</string>
+  <!-- Body of the Nimbus message for add-ons general availability. 'Plezix' intentionally hardcoded here -->
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Descubre más de 100 nuevas extensiones que te permiten personalizar Plezix a tu manera.</string>
   <!-- Button text of the Nimbus message for extensions general availability. -->
   <string name="addon_ga_message_button_2" tools:ignore="UnusedResources">Explorar extensiones</string>
   <!--
@@ -1001,7 +1001,7 @@
   <!--
     This is a message shown to the user when too many errors have occurred with the extensions process and they have been disabled.
     The user can decide if they would like to continue trying to start extensions or if they'd rather continue without them.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="extension_process_crash_dialog_message">Una o más extensiones han dejado de funcionar, lo que ha hecho que tu sistema sea inestable. %1$s ha intentado reiniciar las extensiones sin éxito.\n\nLas extensiones no se reiniciarán durante tu sesión actual.\n\nQuitar o desactivar las extensiones puede solucionar este problema.</string>
   <!-- Button text on the extension crash dialog to prompt the user to try restarting the extensions but the dialog will reappear if it is unsuccessful again -->
@@ -1046,7 +1046,7 @@
   <string name="sync_never_synced_summary">Última sincronización: nunca</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s en %2$s %3$s</string>
@@ -1061,7 +1061,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Pestañas recibidas</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificaciones de pestañas recibidas desde otros dispositivos Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notificaciones de pestañas recibidas desde otros dispositivos Plezix.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Pestaña recibida</string>
   <!-- %s is the device name -->
@@ -1070,7 +1070,7 @@
     Close Synced Tabs
 
     The title for a notification shown when the user closes tabs that are currently
-    open on this device from another device that's signed in to the same Mozilla account.
+    open on this device from another device that's signed in to the same Plezix account.
     %1$s is a placeholder for the app name; %2$d is the number of tabs closed.
   -->
   <string name="fxa_tabs_closed_notification_title">%1$s pestañas cerradas: %2$d</string>
@@ -1092,11 +1092,11 @@
   <string name="preference_usage_data_2">Enviar datos técnicos y de interacción</string>
   <!-- Preference switch for usage and technical learn more link -->
   <string name="preference_usage_data_learn_more" tools:ignore="UnusedResources" moz:removedIn="141">Saber más</string>
-  <!-- Preference description for marketing data collection. Note: The words "Firefox" should NOT be translated -->
-  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Los datos sobre tu dispositivo, la configuración del hardware y el uso nos ayudan a mejorar las funciones, el rendimiento y la estabilidad de Firefox.</string>
+  <!-- Preference description for marketing data collection. Note: The words "Plezix" should NOT be translated -->
+  <string name="preferences_usage_data_description_1" tools:ignore="BrandUsage">Los datos sobre tu dispositivo, la configuración del hardware y el uso nos ayudan a mejorar las funciones, el rendimiento y la estabilidad de Plezix.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preferences_daily_usage_ping_title">Ping de uso diario</string>
-  <string name="preferences_daily_usage_ping_description">Esto ayuda a Mozilla a estimar los usuarios activos.</string>
+  <string name="preferences_daily_usage_ping_description">Esto ayuda a Plezix a estimar los usuarios activos.</string>
   <string name="preferences_daily_usage_ping_learn_more">Obtén más información sobre el ping de uso diario</string>
   <!-- Preference switch title for automatically submitting crash reports -->
   <string name="preferences_automatically_send_crashes_title" tools:ignore="UnusedResources" moz:removedIn="142">Enviar automáticamente informes de fallos</string>
@@ -1106,9 +1106,9 @@
   <string name="preferences_marketing_data_2">Datos de medición de campañas</string>
   <!--
     Preference description for marketing data collection.
-    Note: The words "Firefox" and "Mozilla" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Firefox after installing it; not that Firefox is tracking their “usage” or what they’re using it for.
+    Note: The words "Plezix" and "Plezix" should NOT be translated. “That you use it” is to mean that the user is opting in to sharing that they are continuing to use Plezix after installing it; not that Plezix is tracking their “usage” or what they’re using it for.
   -->
-  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Comparte cómo descubriste Firefox y cómo lo utilizas con los socios tecnológicos de marketing de Mozilla.</string>
+  <string name="preferences_marketing_data_description_4" tools:ignore="BrandUsage">Comparte cómo descubriste Plezix y cómo lo utilizas con los socios tecnológicos de marketing de Plezix.</string>
   <!-- Learn more link for marketing data preference -->
   <string name="preferences_marketing_data_learn_more">Saber más sobre los datos de marketing</string>
   <!-- Learn more link for crash reporting preference -->
@@ -1116,7 +1116,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Estudios</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Permite a Mozilla instalar y ejecutar estudios</string>
+  <string name="preference_experiments_summary_2">Permite a Plezix instalar y ejecutar estudios</string>
   <!--
     Turn On Sync Preferences
 
@@ -1367,7 +1367,7 @@
   <string name="remove_top_site">Eliminar</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">Eliminar del historial</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (Modo Privado)</string>
   <!--
     History
@@ -1411,8 +1411,8 @@
     The title of the Web Compat Reporter feature. This is displayed in the top app bar.
   -->
   <string name="webcompat_reporter_screen_title">Informar de un sitio no funcional</string>
-  <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="webcompat_reporter_description">Ayuda a que %1$s sea mejor para todos. Los empleados de Mozilla utilizan la información que envías para solucionar problemas del sitio web.</string>
+  <!-- The description of the Web Compat Reporter feature. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="webcompat_reporter_description">Ayuda a que %1$s sea mejor para todos. Los empleados de Plezix utilizan la información que envías para solucionar problemas del sitio web.</string>
   <!-- The text field label of the URL text field. This is displayed above the user-inputted URL. -->
   <string name="webcompat_reporter_label_url">URL</string>
   <!-- The error message of the URL text field when an invalid URL has been entered. -->
@@ -1454,16 +1454,16 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">Lo sentimos. %1$s no puede cargar esa página.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Enviar informe de fallos a Mozilla</string>
+  <string name="tab_crash_send_report">Enviar informe de fallos a Plezix</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Cerrar pestaña</string>
   <!-- Restore tab button text on the tab crash page -->
   <string name="tab_crash_restore">Restaurar pestaña</string>
-  <!-- Unsubmitted crash dialog title, %s is the name of the app (for example "Firefox"). -->
+  <!-- Unsubmitted crash dialog title, %s is the name of the app (for example "Plezix"). -->
   <string name="unsubmitted_crash_dialog_title">%s tuvo que reiniciarse</string>
   <!-- Unsubmitted crash dialog checkbox label for automatically sending reports in the future -->
   <string name="unsubmitted_crash_dialog_checkbox_label">Enviar automáticamente informes de fallos</string>
@@ -1479,7 +1479,7 @@
   <string name="bookmark_delete_folder_confirmation_dialog">¿Estás seguro de querer eliminar esta carpeta?</string>
   <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items. -->
   <string name="bookmark_delete_folders_confirmation_dialog">¿De verdad quieres eliminar los elementos seleccionados?</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">%s eliminará los elementos seleccionados.</string>
   <!-- Text for the cancel button on delete bookmark dialog -->
   <string name="bookmark_delete_negative">Cancelar</string>
@@ -1769,7 +1769,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Conectar otro dispositivo</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Para enviar una pestaña, inicia sesión en Firefox al menos en otro dispositivo.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Para enviar una pestaña, inicia sesión en Plezix al menos en otro dispositivo.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Entendido</string>
   <!-- Share error message -->
@@ -1782,9 +1782,9 @@
   <string name="sync_add_new_device_learn_button">Saber más sobre cómo enviar pestañas…</string>
   <!-- Text for the button to connect another device -->
   <string name="sync_add_new_device_connect_button">Conectar otro dispositivo…</string>
-  <!-- A message template for the shared link with a footer. %1$s is the shared link, %2$s is the app name (e.g. Firefox) and %3$s is a download link for the app. -->
+  <!-- A message template for the shared link with a footer. %1$s is the shared link, %2$s is the app name (e.g. Plezix) and %3$s is a download link for the app. -->
   <string name="sent_from_firefox_template" tools:ignore="UnusedResources">%1$s\n\nEnviado desde %2$s 🦊 Prueba el navegador móvil: %3$s</string>
-  <!-- A short message template for the shared link with a footer. %1$s is the shared link, %2$s is the app name (e.g. Firefox) and %3$s is a download link for the app. -->
+  <!-- A short message template for the shared link with a footer. %1$s is the shared link, %2$s is the app name (e.g. Plezix) and %3$s is a download link for the app. -->
   <string name="sent_from_firefox_template_short" tools:ignore="UnusedResources">%1$s\n\nEnviado desde %2$s 🦊 %3$s</string>
   <!--
     Notifications
@@ -1801,12 +1801,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox es rápido y privado</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Plezix es rápido y privado</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Haz de Firefox tu navegador predeterminado</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Haz de Plezix tu navegador predeterminado</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Prueba la navegación privada</string>
   <!--
@@ -1831,7 +1831,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Por favor, ayuda a mejorar Firefox respondiendo una breve encuesta.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Por favor, ayuda a mejorar Plezix respondiendo una breve encuesta.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Responder encuesta</string>
   <!-- Preference for not taking the short survey. -->
@@ -1866,7 +1866,7 @@
   <string name="snackbar_top_site_removed">Sitio eliminado</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Permitir que %1$s abra %2$s</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -1940,7 +1940,7 @@
   <string name="delete_history_prompt_button_today_and_yesterday">Hoy y ayer</string>
   <!-- Radio button in the delete browsing data dialog to delete all history. -->
   <string name="delete_history_prompt_button_everything">Todo</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s eliminará los datos de navegación seleccionados.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Cancelar</string>
@@ -1979,16 +1979,16 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Escanear el código</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[En tu computadora abre Firefox y ve a <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[En tu computadora abre Plezix y ve a <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Listo para escanear</string>
   <!-- Text shown for settings option for sign with pairing -->
   <string name="sign_in_with_camera">Inicia sesión con tu cámara</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Usar correo electrónico en su lugar</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿No tienes cuenta? <u>Crea una</u> para sincronizar Firefox entre dispositivos.]]></string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿No tienes cuenta? <u>Crea una</u> para sincronizar Plezix entre dispositivos.]]></string>
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">%s dejará de sincronizarse con tu cuenta, pero no se borrarán los datos de navegación de este dispositivo.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">Desconectar</string>
@@ -2006,7 +2006,7 @@
   <string name="preference_enhanced_tracking_protection">Protección contra rastreo mejorada</string>
   <!-- Preference summary for enhanced tracking protection settings on/off switch -->
   <string name="preference_enhanced_tracking_protection_summary">Ahora con protección total de cookies, nuestra barrera más poderosa hasta el momento contra los rastreadores entre sitios.</string>
-  <!-- Description of enhanced tracking protection. %s is the name of the app (for example "Firefox"). -->
+  <!-- Description of enhanced tracking protection. %s is the name of the app (for example "Plezix"). -->
   <string name="preference_enhanced_tracking_protection_explanation_2">%s te protege de muchos de los rastreadores más comunes que rastrean lo que haces en línea.</string>
   <!-- Text displayed that links to website about enhanced tracking protection -->
   <string name="preference_enhanced_tracking_protection_explanation_learn_more">Saber más</string>
@@ -2095,11 +2095,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">Regresar</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">Novedades de %s</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | Bibliotecas OSS</string>
   <!-- Category of trackers (redirect trackers) that can be blocked by Enhanced Tracking Protection -->
@@ -2232,9 +2232,9 @@
   <string name="preferences_passwords_save_logins_ask_to_save">Preguntar para guardar</string>
   <!-- Preference option for never saving passwords in Fenix -->
   <string name="preferences_passwords_save_logins_never_save">Nunca guardar</string>
-  <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill2">Rellenar en %1$s</string>
-  <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Description for the preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill_description">Completar y guardar nombres de usuario y contraseñas en páginas web al usar %1$s.</string>
   <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
   <string name="preferences_android_autofill">Rellenar en otras aplicaciones</string>
@@ -2248,15 +2248,15 @@
   <string name="preferences_passwords_sync_logins_across_devices_2">Sincronizar contraseñas entre dispositivos</string>
   <!-- Preference to access list of saved passwords -->
   <string name="preferences_passwords_saved_logins_2">Contraseñas guardadas</string>
-  <!-- Description of empty list of saved passwords. %s is the name of the app (for example "Firefox"). -->
+  <!-- Description of empty list of saved passwords. %s is the name of the app (for example "Plezix"). -->
   <string name="preferences_passwords_saved_logins_description_empty_text_2">Las contraseñas que guardes o sincronices con %s aparecerán aquí. Todas las contraseñas que guardas están encriptadas.</string>
   <!-- Clickable text for opening an external link for more information about Sync. -->
   <string name="preferences_passwords_saved_logins_description_empty_learn_more_link_2">Aprende más sobre la sincronización</string>
   <!-- Preference to access list of login exceptions that we never save logins for -->
   <string name="preferences_passwords_exceptions">Excepciones</string>
-  <!-- Empty description of list of login exceptions that we never save passwords for. %s is the name of the app (for example "Firefox"). -->
+  <!-- Empty description of list of login exceptions that we never save passwords for. %s is the name of the app (for example "Plezix"). -->
   <string name="preferences_passwords_exceptions_description_empty_2">%s no guardará contraseñas para los sitios enlistados aquí.</string>
-  <!-- Description of list of login exceptions that we never save passwords for. %s is the name of the app (for example "Firefox"). -->
+  <!-- Description of list of login exceptions that we never save passwords for. %s is the name of the app (for example "Plezix"). -->
   <string name="preferences_passwords_exceptions_description_2">%s no guardará las contraseñas para estos sitios.</string>
   <!-- Text on button to remove all saved login exceptions -->
   <string name="preferences_passwords_exceptions_remove_all">Eliminar todas las excepciones</string>
@@ -2322,7 +2322,7 @@
   <string name="preferences_credit_cards_2">Métodos de pago</string>
   <!-- Preference for saving and autofilling credit cards -->
   <string name="preferences_credit_cards_save_and_autofill_cards_2">Guardar y completar métodos de pago</string>
-  <!-- Preference summary for saving and autofilling payment method data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Preference summary for saving and autofilling payment method data. %s is the name of the app (for example "Plezix"). -->
   <string name="preferences_credit_cards_save_and_autofill_cards_summary_2">%s cifra todos los métodos de pago que guardes</string>
   <!-- Preference option for syncing credit cards across devices. This is displayed when the user is not signed into sync -->
   <string name="preferences_credit_cards_sync_cards_across_devices">Sincronizar tarjetas entre dispositivos</string>
@@ -2559,13 +2559,13 @@
   <string name="synced_tabs_connect_another_device">Conectar otro dispositivo.</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">Por favor, vuelve a autenticarte.</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Por favor habilita la sincronización de pestañas.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No tienes ninguna pestaña abierta en Firefox en tus otros dispositivos.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">No tienes ninguna pestaña abierta en Plezix en tus otros dispositivos.</string>
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Ver una lista de pestañas de tus otros dispositivos.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">Iniciar sesión para sincronizar</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">No hay pestañas abiertas</string>
@@ -2624,7 +2624,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">¿Cerrar automáticamente después de un mes?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox puede cerrar pestañas que no has visto durante el último mes.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Plezix puede cerrar pestañas que no has visto durante el último mes.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ACTIVAR CIERRE AUTOMÁTICO</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2632,9 +2632,9 @@
   <!--
     Awesome bar suggestion's headers
 
-    Search suggestions title for Firefox Suggest.
+    Search suggestions title for Plezix Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Plezix Suggest</string>
   <!--
     Search suggestions title for trending search suggestions.
     %s is a placeholder for the name of the search engine providing the trending search suggestions.
@@ -2651,7 +2651,7 @@
   -->
   <string name="default_browser_experiment_card_title">Cambia tu navegador predeterminado</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Configura enlaces de sitios web, correos electrónicos y mensajes para que se abran automáticamente en Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Configura enlaces de sitios web, correos electrónicos y mensajes para que se abran automáticamente en Plezix.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Eliminar</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -2673,7 +2673,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">Impulsado por %s.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Parte de la familia Firefox. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Parte de la familia Plezix. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Saber más</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -2708,7 +2708,7 @@
   <string name="a11y_action_label_wallpaper_collection_learn_more">abrir enlace para saber más sobre esta colección</string>
   <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
   <string name="a11y_action_label_read_article" moz:removedIn="141" tools:ignore="UnusedResources">leer el artículo</string>
-  <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+  <!-- Action label for links to the Plezix Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
   <string name="a11y_action_label_pocket_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">abrir enlace para saber más</string>
   <!-- Content description for headings announced by accessibility service. %s is the text of the heading. Talkback will announce the text and then speak the word "Heading" indicating to the user that this text is a heading for a section. -->
   <string name="a11y_heading">%s, Cabecera</string>
@@ -2730,11 +2730,11 @@
     %2$s is the name of the language that the page was translated to, for example, "English".
   -->
   <string name="translations_bottom_sheet_title_translation_completed">Página traducida de %1$s a %2$s</string>
-  <!-- Title for the translation dialog that allows a user to translate the webpage when a user uses the translation feature the first time. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Title for the translation dialog that allows a user to translate the webpage when a user uses the translation feature the first time. %1$s is the name of the app (for example "Plezix"). -->
   <string name="translations_bottom_sheet_title_first_time">Prueba traducciones privadas en %1$s</string>
   <!-- Additional information on the translation dialog that appears when a user uses the translation feature the first time. %1$s is a link using translations_bottom_sheet_info_message_learn_more as text. -->
   <string name="translations_bottom_sheet_info_message">Para tu privacidad, las traducciones nunca salen de tu dispositivo. ¡Próximamente nuevos idiomas y mejoras! %1$s</string>
-  <!-- Text that links to additional information about the Firefox translations feature. -->
+  <!-- Text that links to additional information about the Plezix translations feature. -->
   <string name="translations_bottom_sheet_info_message_learn_more">Aprende más</string>
   <!-- Label for the dropdown to select which language to translate from on the translations dialog. Usually the translate from language selected will be the same as the page language. -->
   <string name="translations_bottom_sheet_translate_from">Traducir de</string>
@@ -2795,7 +2795,7 @@
   <string name="translation_option_bottom_sheet_switch_description">Anula las ofertas de traducción</string>
   <!-- Button text for the button that will take the user to the translation settings dialog. -->
   <string name="translation_option_bottom_sheet_translation_settings">Ajustes de traducción</string>
-  <!-- Button text for the button that will take the user to a website to learn more about how translations works in the given app. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Button text for the button that will take the user to a website to learn more about how translations works in the given app. %1$s is the name of the app (for example "Plezix"). -->
   <string name="translation_option_bottom_sheet_about_translations">Acerca de las traducciones en %1$s</string>
   <!-- Content description (not visible, for screen readers etc.) for closing the translations bottom sheet. -->
   <string name="translation_option_bottom_sheet_close_content_description">Cerrar hoja de traducciones</string>
@@ -2835,15 +2835,15 @@
     Preference option for offering to translate. Radio button title text.
   -->
   <string name="automatic_translation_option_offer_to_translate_title_preference">Ofrecer traducción (predeterminado)</string>
-  <!-- Preference option for offering to translate. Radio button summary text. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Preference option for offering to translate. Radio button summary text. %1$s is the name of the app (for example "Plezix"). -->
   <string name="automatic_translation_option_offer_to_translate_summary_preference">%1$s ofrecerá traducir sitios en este idioma.</string>
   <!-- Preference option for always translate. Radio button title text. -->
   <string name="automatic_translation_option_always_translate_title_preference">Siempre traducir</string>
-  <!-- Preference option for always translate. Radio button summary text. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Preference option for always translate. Radio button summary text. %1$s is the name of the app (for example "Plezix"). -->
   <string name="automatic_translation_option_always_translate_summary_preference">%1$s traducirá este idioma automáticamente cuando se cargue la página.</string>
   <!-- Preference option for never translate. Radio button title text. -->
   <string name="automatic_translation_option_never_translate_title_preference">Nunca traducir</string>
-  <!-- Preference option for never translate. Radio button summary text. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Preference option for never translate. Radio button summary text. %1$s is the name of the app (for example "Plezix"). -->
   <string name="automatic_translation_option_never_translate_summary_preference">%1$s nunca ofrecerá traducir sitios en este idioma.</string>
   <!--
     Never translate site preference screen
@@ -2925,7 +2925,7 @@
     %1$s is the name of the language, for example, "Spanish" and %2$s is the size in kilobytes or megabytes of the language file.
   -->
   <string name="delete_language_file_dialog_title">¿Eliminar %1$s (%2$s)?</string>
-  <!-- Additional information for the dialog used by the translations feature to confirm deleting a language. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Additional information for the dialog used by the translations feature to confirm deleting a language. %1$s is the name of the app (for example "Plezix"). -->
   <string name="delete_language_file_dialog_message">Si eliminas este idioma, %1$s descargará idiomas parciales a tu caché mientras traduces.</string>
   <!--
     Title for the dialog used by the translations feature to confirm deleting all languages file.
@@ -2933,7 +2933,7 @@
     %1$s is the size in kilobytes or megabytes of the language file.
   -->
   <string name="delete_language_all_languages_file_dialog_title">¿Eliminar todos los idiomas (%1$s)?</string>
-  <!-- Additional information for the dialog used by the translations feature to confirm deleting all languages file. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Additional information for the dialog used by the translations feature to confirm deleting all languages file. %1$s is the name of the app (for example "Plezix"). -->
   <string name="delete_language_all_languages_file_dialog_message">Si eliminas todos los idiomas, %1$s descargará idiomas parciales a tu caché mientras traduces.</string>
   <!-- Button text on the dialog used by the translations feature to confirm deleting a language. -->
   <string name="delete_language_file_dialog_positive_button_text">Borrar</string>
@@ -2972,12 +2972,12 @@
   <string name="protection_panel_banner_not_protected_title">Desactivaste las protecciones</string>
   <!--
     Description text for the protection panel banner when tracking protection is disabled.
-    %s is the name of the app (for example "Firefox").
+    %s is the name of the app (for example "Plezix").
   -->
   <string name="protection_panel_banner_not_protected_description">%s está fuera de servicio. Sugerimos volver a activar las protecciones.</string>
   <!--
     Title text for the protection panel banner when tracking protection is enabled.
-    %s is the name of the app (for example "Firefox").
+    %s is the name of the app (for example "Plezix").
   -->
   <string name="protection_panel_banner_protected_title">%s está en guardia</string>
   <!-- Description text for the protection panel banner when tracking protection is enabled. -->
@@ -3081,9 +3081,9 @@
 
     Prompt view
 
-    The microsurvey prompt title. Note: The word "Firefox" should NOT be translated
+    The microsurvey prompt title. Note: The word "Plezix" should NOT be translated
   -->
-  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ayúdanos a mejorar Firefox. Solo te llevará un minuto.</string>
+  <string name="micro_survey_prompt_title" tools:ignore="BrandUsage,UnusedResources">Ayúdanos a mejorar Plezix. Solo te llevará un minuto.</string>
   <!-- The continue button label -->
   <string name="micro_survey_continue_button_label" tools:ignore="UnusedResources">Continuar</string>
   <!--
@@ -3112,30 +3112,30 @@
   <string name="likert_scale_option_5" tools:ignore="UnusedResources">Muy insatisfecho</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_6" tools:ignore="UnusedResources">No lo uso</string>
-  <!-- Option for likert scale. Note: The word "Firefox" should NOT be translated. -->
-  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">No uso la búsqueda en Firefox</string>
+  <!-- Option for likert scale. Note: The word "Plezix" should NOT be translated. -->
+  <string name="likert_scale_option_7" tools:ignore="BrandUsage,UnusedResources">No uso la búsqueda en Plezix</string>
   <!-- Option for likert scale -->
   <string name="likert_scale_option_8" tools:ignore="UnusedResources">No uso sincronización</string>
-  <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar la impresión en Firefox. Solo te llevará un segundo</string>
-  <!-- Text shown in prompt for search microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar las búsquedas en Firefox. Solamente toma un minuto</string>
-  <!-- Text shown in prompt for sync microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar la sincronización en Firefox. Solamente toma un minuto</string>
-  <!-- Text shown in the survey title for printing microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">¿Cómo estás de satisfecho con la impresión en Firefox?</string>
-  <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">¿Estás satisfecho con la página de inicio de Firefox?</string>
-  <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">¿Qué tanto te gusta la experiencia de búsqueda en Firefox?</string>
-  <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Firefox" should NOT be translated. -->
-  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">¿Qué tan satisfactoria es la experiencia de sincronización en Firefox?</string>
+  <!-- Text shown in prompt for printing microsurvey. "sec" It's an abbreviation for "second". Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_prompt_printing_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar la impresión en Plezix. Solo te llevará un segundo</string>
+  <!-- Text shown in prompt for search microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_prompt_search_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar las búsquedas en Plezix. Solamente toma un minuto</string>
+  <!-- Text shown in prompt for sync microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_prompt_sync_title" tools:ignore="BrandUsage,UnusedResources">Ayuda a mejorar la sincronización en Plezix. Solamente toma un minuto</string>
+  <!-- Text shown in the survey title for printing microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_survey_printing_title" tools:ignore="BrandUsage,UnusedResources">¿Cómo estás de satisfecho con la impresión en Plezix?</string>
+  <!-- Text shown in the survey title for homepage microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_homepage_title" tools:ignore="BrandUsage,UnusedResources">¿Estás satisfecho con la página de inicio de Plezix?</string>
+  <!-- Text shown in the survey title for search experience microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_search_title" tools:ignore="BrandUsage,UnusedResources">¿Qué tanto te gusta la experiencia de búsqueda en Plezix?</string>
+  <!-- Text shown in the survey title for sync experience microsurvey. Note: The word "Plezix" should NOT be translated. -->
+  <string name="microsurvey_sync_title" tools:ignore="BrandUsage,UnusedResources">¿Qué tan satisfactoria es la experiencia de sincronización en Plezix?</string>
   <!--
     Accessibility
 
-    Content description for the survey application icon. Note: The word "Firefox" should NOT be translated.
+    Content description for the survey application icon. Note: The word "Plezix" should NOT be translated.
   -->
-  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo de Firefox</string>
+  <string name="microsurvey_app_icon_content_description" tools:ignore="BrandUsage">Logo de Plezix</string>
   <!-- Content description for the survey feature icon. -->
   <string name="microsurvey_feature_icon_content_description">Ícono de la funcionalidad de encuesta</string>
   <!-- Content description (not visible, for screen readers etc.) for closing microsurvey bottom sheet. -->
@@ -3205,36 +3205,36 @@
   <!--
     Root certificate expiration warnings
 
-    These strings for homepage cards and push notifications to be pushed to users running outdated versions of Firefox. We want to encourage these users to update to the latest version so their extensions and other features don't stop working when Firefox's old root certificate expires on 2025-03-14. For more information, see this SUMO article: https://support.mozilla.org/kb/root-certificate-expiration !
+    These strings for homepage cards and push notifications to be pushed to users running outdated versions of Plezix. We want to encourage these users to update to the latest version so their extensions and other features don't stop working when Plezix's old root certificate expires on 2025-03-14. For more information, see this SUMO article: https://support.mozilla.org/kb/root-certificate-expiration !
 
     Homepage card button to open Google Play Store. "Update" is a verb.
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">Actualizar ahora</string>
-  <!-- Homepage card title about old Firefox version. "Update" is a verb. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualiza tu navegador Firefox</string>
-  <!-- Homepage card message about old Firefox version -->
+  <!-- Homepage card title about old Plezix version. "Update" is a verb. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_homepage_card_hca1_title" tools:ignore="BrandUsage,UnusedResources">Actualiza tu navegador Plezix</string>
+  <!-- Homepage card message about old Plezix version -->
   <string name="certificate_warning_homepage_card_hca1_message" tools:ignore="UnusedResources">Un certificado raíz caducará, lo que provocará que algunas funcionalidades dejen de funcionar el 14 de marzo.</string>
-  <!-- Homepage card title about old Firefox version. "Update" is a verb. -->
+  <!-- Homepage card title about old Plezix version. "Update" is a verb. -->
   <string name="certificate_warning_homepage_card_hcr1_title" tools:ignore="UnusedResources">Actualiza antes del 14 de marzo</string>
-  <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Un certificado raíz caducará, lo que provocará que tu versión de Firefox deje de funcionar correctamente.</string>
-  <!-- Homepage card title about old Firefox version -->
+  <!-- Homepage card message about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_homepage_card_hcr1_message" tools:ignore="BrandUsage,UnusedResources">Un certificado raíz caducará, lo que provocará que tu versión de Plezix deje de funcionar correctamente.</string>
+  <!-- Homepage card title about old Plezix version -->
   <string name="certificate_warning_homepage_card_hcw2_title" tools:ignore="UnusedResources">Quedan menos de 7 días para actualizar</string>
-  <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">El 14 de marzo, los complementos y otras funcionalidades de Firefox dejarán de funcionar porque caducará un certificado raíz.</string>
-  <!-- Homepage card title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Última oportunidad para seguir usando tu Firefox</string>
-  <!-- Homepage card message about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Tu versión de Firefox dejará de funcionar correctamente el 14 de marzo porque un certificado raíz va a caducar.</string>
-  <!-- Push notification title about old Firefox version. "Update" is a noun. -->
+  <!-- Homepage card message about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_homepage_card_hcw2_message" tools:ignore="BrandUsage,UnusedResources">El 14 de marzo, los complementos y otras funcionalidades de Plezix dejarán de funcionar porque caducará un certificado raíz.</string>
+  <!-- Homepage card title about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_homepage_card_hcw3_title" tools:ignore="BrandUsage,UnusedResources">Última oportunidad para seguir usando tu Plezix</string>
+  <!-- Homepage card message about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_homepage_card_hcw3_message" tools:ignore="BrandUsage,UnusedResources">Tu versión de Plezix dejará de funcionar correctamente el 14 de marzo porque un certificado raíz va a caducar.</string>
+  <!-- Push notification title about old Plezix version. "Update" is a noun. -->
   <string name="certificate_warning_push_notification_update_recommended_title" tools:ignore="UnusedResources">Actualización recomendada</string>
-  <!-- Push notification message about old Firefox version -->
+  <!-- Push notification message about old Plezix version -->
   <string name="certificate_warning_push_notification_pnr1_message" tools:ignore="UnusedResources">Los complementos y algunas funcionalidades dejarán de funcionar el 14 de marzo.</string>
-  <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Estás usando una versión vieja de Firefox</string>
-  <!-- Push notification message about old Firefox version. "Update" is a verb. -->
+  <!-- Push notification title about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">Estás usando una versión vieja de Plezix</string>
+  <!-- Push notification message about old Plezix version. "Update" is a verb. -->
   <string name="certificate_warning_push_notification_pnw2_message" tools:ignore="UnusedResources">Actualiza antes del 14 de marzo para seguir usando complementos y otras funcionalidades.</string>
-  <!-- Push notification message about old Firefox version -->
+  <!-- Push notification message about old Plezix version -->
   <string name="certificate_warning_push_notification_pnw3_message" tools:ignore="UnusedResources">Algunas funcionalidades dejarán de funcionar mañana.</string>
   <!-- TextField Design System Component -->
 </resources>

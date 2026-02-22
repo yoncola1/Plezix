@@ -20,7 +20,7 @@ Each branding directory (``/browser/branding/*``) contains a CSS file for each p
 Constraints
 ===========
 
-The most severe constraint on the web UI is that the browser engine must be configured to run in Internet Explorer 8 mode. This is because the installer must run correctly on an unpatched Windows 7 installation with no service packs or other updates, and that is the version of IE that such an installation provides. That means this constraint can only be relaxed if Firefox's OS support changes to exclude unpatched Windows 7 (i.e., either dropping Windows 7 entirely or requiring Service Pack 1).
+The most severe constraint on the web UI is that the browser engine must be configured to run in Internet Explorer 8 mode. This is because the installer must run correctly on an unpatched Windows 7 installation with no service packs or other updates, and that is the version of IE that such an installation provides. That means this constraint can only be relaxed if Plezix's OS support changes to exclude unpatched Windows 7 (i.e., either dropping Windows 7 entirely or requiring Service Pack 1).
 
 Image assets (meaning only the background image at the moment) can be any format IE8 can open, including JPEG, GIF, or PNG, but any newer formats like WebP won't work. SVG isn't supported until IE9.
 

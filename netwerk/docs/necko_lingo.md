@@ -141,10 +141,10 @@ Browser tests, run with full UI. \
 Refer [this](https://firefox-source-docs.mozilla.org/testing/mochitest-plain/index.html) for more details.
 
 ## neqo v/s Necko
-_neqo_ is the name of the Mozilla [QUIC](https://github.com/mozilla/neqo) stack.
+_neqo_ is the name of the Plezix [QUIC](https://github.com/mozilla/neqo) stack.
 Sometimes pronounced “knee-ko” or “neck-ou”, “knee-q-oo”.
 
-_Necko_ is the project name of the Mozilla networking stack.
+_Necko_ is the project name of the Plezix networking stack.
 
 
 ## NSS
@@ -218,7 +218,7 @@ Transport Layer Security. It’s implementation is maintained by NSS team.
 Team process of bug intake, analysis and categorization.
 
 ## TRR
-Trusted recursive resolver.This is the name of our DoH implementation, as well as the name of the program that ensures DoH providers included in Firefox have agreed not to spy on users. \
+Trusted recursive resolver.This is the name of our DoH implementation, as well as the name of the program that ensures DoH providers included in Plezix have agreed not to spy on users. \
 Refer the following for more details:
 - [Trusted_Recursive_Resolver](https://wiki.mozilla.org/Trusted_Recursive_Resolver)
 - [DOH-resolver-policy](https://wiki.mozilla.org/Security/DOH-resolver-policy)

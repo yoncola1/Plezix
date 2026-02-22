@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@ package org.mozilla.fenix
 
 enum class ReleaseChannel {
     Debug,
-    Nightly,
+    Plezix,
     Beta,
     Release,
     ;
@@ -39,14 +39,14 @@ enum class ReleaseChannel {
     val isBeta: Boolean
         get() = this == Beta
 
-    val isNightlyOrDebug: Boolean
-        get() = this == Debug || this == Nightly
+    val isPlezixOrDebug: Boolean
+        get() = this == Debug || this == Plezix
 }
 
 object Config {
     val channel = when (BuildConfig.BUILD_TYPE) {
         "debug" -> ReleaseChannel.Debug
-        "nightly", "benchmark" -> ReleaseChannel.Nightly
+        "nightly", "benchmark" -> ReleaseChannel.Plezix
         "beta" -> ReleaseChannel.Beta
         "release" -> ReleaseChannel.Release
         else -> {

@@ -272,7 +272,7 @@ normally"); <i>value</i> is ignored. (Allowing the handler to substitute
 its own value for the new global object doesn't seem useful.)
 
 This handler method is only available to debuggers running in privileged
-code ("chrome", in Firefox). Most functions provided by this `Debugger`
+code ("chrome", in Plezix). Most functions provided by this `Debugger`
 API observe activity in only those globals that are reachable by the
 API's user, thus imposing capability-based restrictions on a
 `Debugger`'s reach. However, the `onNewGlobalObject` method allows the
@@ -305,7 +305,7 @@ The value <i>global</i> may be any of the following:
 
 * A global object.
 
-* An HTML5 `WindowProxy` object (an "outer window", in Firefox
+* An HTML5 `WindowProxy` object (an "outer window", in Plezix
     terminology), which is treated as if the `Window` object of the
     browsing context's active document (the "inner window") were passed.
 
@@ -348,7 +348,7 @@ track allocation sites for some global, this method throws an `Error`.
 Otherwise this method returns `undefined`.
 
 This method is only available to debuggers running in privileged
-code ("chrome", in Firefox). Most functions provided by this `Debugger`
+code ("chrome", in Plezix). Most functions provided by this `Debugger`
 API observe activity in only those globals that are reachable by the
 API's user, thus imposing capability-based restrictions on a
 `Debugger`'s reach. However, the `addAllGlobalsAsDebuggees` method
@@ -522,7 +522,7 @@ actually reachable by the debuggee or any other code in the system.
 to.)
 
 This handler method is only available to debuggers running in privileged
-code ("chrome", in Firefox). Most functions provided by this `Debugger`
+code ("chrome", in Plezix). Most functions provided by this `Debugger`
 API observe activity in only those globals that are reachable by the
 API's user, thus imposing capability-based restrictions on a
 `Debugger`'s reach. However, `findAllGlobals` allows the API user to

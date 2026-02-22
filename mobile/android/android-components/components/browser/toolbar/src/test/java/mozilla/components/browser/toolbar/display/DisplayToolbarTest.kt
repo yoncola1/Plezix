@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -286,7 +286,7 @@ class DisplayToolbarTest {
 
     @Test
     fun `browser action gets added as view to toolbar`() {
-        val contentDescription = "Mozilla"
+        val contentDescription = "Plezix"
 
         val (_, displayToolbar) = createDisplayToolbar()
 
@@ -721,7 +721,7 @@ class DisplayToolbarTest {
             val menuView = displayToolbar.views.menu
 
             val menuBuilder = BrowserMenuBuilder(
-                listOf(SimpleBrowserMenuItem("Mozilla")),
+                listOf(SimpleBrowserMenuItem("Plezix")),
                 mapOf(
                     "customTab" to true,
                     "test" to "23",

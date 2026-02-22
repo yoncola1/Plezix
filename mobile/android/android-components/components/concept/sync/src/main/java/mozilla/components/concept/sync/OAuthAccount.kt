@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -64,7 +64,7 @@ interface FxAEntryPoint {
 }
 
 /**
- * Facilitates testing consumers of FirefoxAccount.
+ * Facilitates testing consumers of PlezixAccount.
  */
 interface OAuthAccount : AutoCloseable {
 
@@ -133,7 +133,7 @@ interface OAuthAccount : AutoCloseable {
      * Authenticates the current account using the [code] and [state] parameters obtained via the
      * OAuth flow initiated by [beginOAuthFlow].
      *
-     * Modifies the FirefoxAccount state.
+     * Modifies the PlezixAccount state.
      * @param code OAuth code string
      * @param state state token string
      * @return Deferred boolean representing success or failure
@@ -218,7 +218,7 @@ interface OAuthAccount : AutoCloseable {
     /**
      * Serializes the current account's authentication state as a JSON string, for persistence in
      * the Android KeyStore/shared preferences. The authentication state can be restored using
-     * [FirefoxAccount.fromJSONString].
+     * [PlezixAccount.fromJSONString].
      *
      * @return String containing the authentication details in JSON format
      */

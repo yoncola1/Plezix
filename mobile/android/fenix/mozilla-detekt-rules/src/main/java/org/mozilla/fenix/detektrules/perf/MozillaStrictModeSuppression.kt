@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,9 +20,9 @@ private const val VIOLATION_MSG = "Please use `components.strictMode.resetAfter`
 /**
  * A check to prevent us from working around mechanisms we implemented to prevent suppressing StrictMode.
  */
-class MozillaStrictModeSuppression(config: Config) : Rule(config) {
+class PlezixStrictModeSuppression(config: Config) : Rule(config) {
     override val issue = Issue(
-        "MozillaStrictModeSuppression",
+        "PlezixStrictModeSuppression",
         Severity.Performance,
         "Prevents us from working around mechanisms we implemented to prevent suppressing StrictMode",
         Debt.TEN_MINS,

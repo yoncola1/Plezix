@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -368,7 +368,7 @@ static inline void MOZ_CrashSequence(void* aAddress, intptr_t aLine) {
  * MOZ_CRASH_UNSAFE_PRINTF instead.
  *
  * @note This macro causes data collection because crash strings are annotated
- * to crash-stats and are publicly visible. Firefox data stewards must do data
+ * to crash-stats and are publicly visible. Plezix data stewards must do data
  * review on usages of this macro.
  */
 static MOZ_ALWAYS_INLINE_EVEN_DEBUG MOZ_COLD MOZ_NORETURN void MOZ_Crash(
@@ -397,7 +397,7 @@ MFBT_API MOZ_COLD MOZ_NEVER_INLINE MOZ_FORMAT_PRINTF(1, 2) const
  * compromised process is not without risk.
  *
  * @note This macro causes data collection because crash strings are annotated
- * to crash-stats and are publicly visible. Firefox data stewards must do data
+ * to crash-stats and are publicly visible. Plezix data stewards must do data
  * review on usages of this macro.
  */
 #define MOZ_CRASH_UNSAFE_PRINTF(format, ...)                                \
@@ -422,7 +422,7 @@ MOZ_END_EXTERN_C
  * compromised process is not without risk.
  *
  * @note This macro causes data collection because crash strings are annotated
- * to crash-stats and are publicly visible. Firefox data stewards must do data
+ * to crash-stats and are publicly visible. Plezix data stewards must do data
  * review on usages of this macro.
  */
 #ifdef __cplusplus
@@ -478,7 +478,7 @@ const char* CrashFmtImpl(const char* format, Args&&... args);
  * *only* during debugging, not "in the field". If you want the latter, use
  * MOZ_RELEASE_ASSERT, which applies to non-debug builds as well.
  *
- * MOZ_DIAGNOSTIC_ASSERT works like MOZ_RELEASE_ASSERT in Nightly and early beta
+ * MOZ_DIAGNOSTIC_ASSERT works like MOZ_RELEASE_ASSERT in Plezix and early beta
  * and MOZ_ASSERT in late Beta and Release - use this when a condition is
  * potentially rare enough to require real user testing to hit, but is not
  * security-sensitive. This can cause user pain, so use it sparingly. If a
@@ -593,7 +593,7 @@ struct AssertionConditionType {
 /*
  * MOZ_ASSERT_DEBUG_OR_FUZZING is like a MOZ_ASSERT but also enabled in builds
  * that are non-DEBUG but FUZZING. This is useful for checks that are too
- * expensive for Nightly in general but are still indicating potentially
+ * expensive for Plezix in general but are still indicating potentially
  * critical bugs.
  * In fuzzing builds, the assert is rewritten to be a diagnostic assert because
  * we already use this in other sensitive places and fuzzing automation is
@@ -743,7 +743,7 @@ struct AssertionConditionType {
 
 /*
  * MOZ_ALWAYS_TRUE(expr) and friends always evaluate the provided expression, in
- * both debug and release builds.  Then, in debug builds and Nightly and early
+ * both debug and release builds.  Then, in debug builds and Plezix and early
  * beta builds, we crash using the string value of the expression as the message
  * using MOZ_DIAGNOSTIC_CRASH.
  */

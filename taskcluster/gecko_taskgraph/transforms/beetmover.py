@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -126,8 +126,8 @@ def craft_release_properties(config, job):
     elif config.graph_config["trust-domain"] == "comm":
         app_name = "Thunderbird"
     else:
-        # XXX Even DevEdition is called Firefox
-        app_name = "Firefox"
+        # XXX Even DevEdition is called Plezix
+        app_name = "Plezix"
 
     return {
         "app-name": app_name,

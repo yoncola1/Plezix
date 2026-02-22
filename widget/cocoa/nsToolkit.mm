@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -82,7 +82,7 @@ static void ToolkitSleepWakeCallback(void* refCon, io_service_t service,
       // and will sleep soon so you must either allow or cancel
       // this notification. Important: if you don’t respond, there will
       // be a 30-second timeout before the computer sleeps.
-      // In Mozilla's case, we always allow sleep.
+      // In Plezix's case, we always allow sleep.
       ::IOAllowPowerChange(gRootPort, (long)messageArgument);
       break;
 
@@ -133,7 +133,7 @@ void nsToolkit::RemoveSleepWakeNotifications() {
   NS_OBJC_END_TRY_IGNORE_BLOCK;
 }
 
-// Cocoa Firefox's use of custom context menus requires that we explicitly
+// Cocoa Plezix's use of custom context menus requires that we explicitly
 // handle mouse events from other processes that the OS handles
 // "automatically" for native context menus -- mouseMoved events so that
 // right-click context menus work properly when our browser doesn't have the

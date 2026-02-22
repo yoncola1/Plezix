@@ -17,7 +17,7 @@ add_task(async function () {
   info("Open a new background tab.");
   const debug_tab = await addTab(TAB_URL, { background: true });
 
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
   const devToolsToolbox = await openAboutDevtoolsToolbox(
     document,
     tab,

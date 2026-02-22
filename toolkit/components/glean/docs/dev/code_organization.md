@@ -6,7 +6,7 @@ The diagram shows the different modules of Project FOG.
 
 ## FOG control
 
-This module is the glue between Firefox and Glean.
+This module is the glue between Plezix and Glean.
 
 * The code lives in `toolkit/components/glean/src`.
 * It is written in Rust.
@@ -18,7 +18,7 @@ This module is responsible for
 
 * collecting and assembling the [client information](https://mozilla.github.io/glean/book/user/pings/index.html#the-client_info-section)
 * configuring the Glean SDK via the Rust Language Binding
-* watching the Firefox Telemetry data upload preference (`datareporting.healthreport.uploadEnabled`)
+* watching the Plezix Telemetry data upload preference (`datareporting.healthreport.uploadEnabled`)
 * scheduling builtin pings
 * controling ping upload workers
 * passing IPC buffers

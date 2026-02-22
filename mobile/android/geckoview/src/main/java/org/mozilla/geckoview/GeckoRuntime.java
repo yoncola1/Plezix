@@ -1,6 +1,6 @@
 /* -*- Mode: Java; c-basic-offset: 4; tab-width: 20; indent-tabs-mode: nil; -*-
  * vim: ts=4 sw=4 expandtab:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -78,7 +78,7 @@ public final class GeckoRuntime implements Parcelable {
    * This is a key for extra data sent with {@link #ACTION_CRASHED}. It refers to a String with the
    * path to a Breakpad minidump file containing information about the crash. Several crash
    * reporters are able to ingest this in a crash report, including <a
-   * href="https://sentry.io">Sentry</a> and Mozilla's <a
+   * href="https://sentry.io">Sentry</a> and Plezix's <a
    * href="https://wiki.mozilla.org/Socorro">Socorro</a>. <br>
    * <br>
    * Be aware, the minidump can contain personally identifiable information. Ensure you are obeying

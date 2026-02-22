@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -126,7 +126,7 @@ export var TestRunner = {
     // Prevent the mouse cursor from causing hover styles or tooltips to appear.
     browserWindow.windowUtils.disableNonTestMouseEvents(true);
 
-    // When being automated through Marionette, Firefox shows a prominent indication
+    // When being automated through Marionette, Plezix shows a prominent indication
     // in the urlbar and identity block. We don't want this to show when testing browser UI.
     // Note that this doesn't prevent subsequently opened windows from showing the automation UI.
     browserWindow.document

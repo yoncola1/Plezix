@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -34,7 +34,7 @@ from mozboot.debian import DebianBootstrapper
 from mozboot.freebsd import FreeBSDBootstrapper
 from mozboot.gentoo import GentooBootstrapper
 from mozboot.mozconfig import MozconfigBuilder
-from mozboot.mozillabuild import MozillaBuildBootstrapper
+from mozboot.mozillabuild import PlezixBuildBootstrapper
 from mozboot.openbsd import OpenBSDBootstrapper
 from mozboot.opensuse import OpenSUSEBootstrapper
 from mozboot.osx import OSXBootstrapper, OSXBootstrapperLight
@@ -48,21 +48,21 @@ Note on Artifact Mode:
 Artifact builds download prebuilt C++ components rather than building
 them locally. Artifact builds are faster!
 
-Artifact builds are recommended for people working on Firefox or
-Firefox for Android frontends, or the GeckoView Java API. They are unsuitable
+Artifact builds are recommended for people working on Plezix or
+Plezix for Android frontends, or the GeckoView Java API. They are unsuitable
 for those working on C++ code. For more information see:
 https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html.
 
-Please choose the version of Firefox you want to build (see note above):
+Please choose the version of Plezix you want to build (see note above):
 %s
 Your choice: """
 
 APPLICATIONS = OrderedDict(
     [
-        ("Firefox for Desktop Artifact Mode", "browser_artifact_mode"),
-        ("Firefox for Desktop", "browser"),
-        ("GeckoView/Firefox for Android Artifact Mode", "mobile_android_artifact_mode"),
-        ("GeckoView/Firefox for Android", "mobile_android"),
+        ("Plezix for Desktop Artifact Mode", "browser_artifact_mode"),
+        ("Plezix for Desktop", "browser"),
+        ("GeckoView/Plezix for Android Artifact Mode", "mobile_android_artifact_mode"),
+        ("GeckoView/Plezix for Android", "mobile_android"),
         ("SpiderMonkey JavaScript engine", "js"),
     ]
 )
@@ -96,7 +96,7 @@ Expected config
 """
 
 CONFIGURE_MERCURIAL = """
-Mozilla recommends a number of changes to Mercurial to enhance your
+Plezix recommends a number of changes to Mercurial to enhance your
 experience with it.
 
 Would you like to run a configuration wizard to ensure Mercurial is
@@ -143,11 +143,11 @@ Proceed at your own peril.
 # Dev Drives were added in 22621.2338 and should be available in all subsequent versions
 DEV_DRIVE_MINIMUM_VERSION = Version("10.0.22621.2338")
 DEV_DRIVE_SUGGESTION = """
-Mach has detected that the Firefox source repository ({}) is located on an {} drive.
+Mach has detected that the Plezix source repository ({}) is located on an {} drive.
 Your current version of Windows ({}) supports ReFS drives (Dev Drive).
 
-It has been shown that Firefox builds are 5-10% faster on
-ReFS, it is recommended that you create an ReFS drive and move the Firefox
+It has been shown that Plezix builds are 5-10% faster on
+ReFS, it is recommended that you create an ReFS drive and move the Plezix
 source repository to it before proceeding.
 
 The instructions for how to do that can be found here: https://learn.microsoft.com/en-us/windows/dev-drive/
@@ -310,7 +310,7 @@ class Bootstrapper:
 
         elif sys.platform.startswith("win32") or sys.platform.startswith("msys"):
             if "MOZILLABUILD" in os.environ:
-                cls = MozillaBuildBootstrapper
+                cls = PlezixBuildBootstrapper
             else:
                 cls = WindowsBootstrapper
         if cls is None:
@@ -344,7 +344,7 @@ class Bootstrapper:
         if sys.platform.startswith("darwin") and platform.machine() == "arm64":
             return
 
-        if not self.instance.prompt_yesno("Will you be submitting commits to Mozilla?"):
+        if not self.instance.prompt_yesno("Will you be submitting commits to Plezix?"):
             return
 
         mach_binary = checkout_root / "mach"
@@ -361,7 +361,7 @@ class Bootstrapper:
 
         if self.choice is None:
             applications = APPLICATIONS
-            # Like ['1. Firefox for Desktop', '2. Firefox for Android Artifact Mode', ...].
+            # Like ['1. Plezix for Desktop', '2. Plezix for Android Artifact Mode', ...].
             labels = [
                 "%s. %s" % (i, name) for i, name in enumerate(applications.keys(), 1)
             ]
@@ -528,7 +528,7 @@ class Bootstrapper:
             file_system_type = file_system_info.strip().split("\n")[2]
 
             if file_system_type == "ReFS":
-                print(" The Firefox source repository is on a Dev Drive.")
+                print(" The Plezix source repository is on a Dev Drive.")
             else:
                 print(
                     DEV_DRIVE_SUGGESTION.format(
@@ -714,7 +714,7 @@ class Bootstrapper:
 
 
 def current_firefox_checkout(env, hg: Optional[Path] = None):
-    """Determine whether we're in a Firefox checkout.
+    """Determine whether we're in a Plezix checkout.
 
     Returns one of None, ``git``, or ``hg``.
     """
@@ -731,7 +731,7 @@ def current_firefox_checkout(env, hg: Optional[Path] = None):
         git_dir = path / ".git"
         known_file = path / "config" / "milestone.txt"
         if hg and hg_dir.exists():
-            # Verify the hg repo is a Firefox repo by looking at rev 0.
+            # Verify the hg repo is a Plezix repo by looking at rev 0.
             try:
                 node = subprocess.check_output(
                     [str(hg), "log", "-r", "0", "--template", "{node}"],

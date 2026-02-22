@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -411,7 +411,7 @@ data class Addon(
         /**
          * Takes a list of [permissions] and returns a list of id resources per each item.
          * @param permissions The list of permissions to be localized. Valid permissions can be found in
-         * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
+         * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
          */
         fun localizePermissions(permissions: List<String>, context: Context): List<String> {
             var localizedUrlAccessPermissions = emptyList<String>()

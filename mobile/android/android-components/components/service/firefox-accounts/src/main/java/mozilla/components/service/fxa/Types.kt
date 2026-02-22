@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 @file:SuppressWarnings("MatchingDeclarationName")
@@ -71,7 +71,7 @@ fun AccessTokenInfo.into(): mozilla.components.concept.sync.AccessTokenInfo {
 }
 
 /**
- * Converts a generic [AccessTokenInfo] into a Firefox Sync-friendly [SyncAuthInfo] instance which
+ * Converts a generic [AccessTokenInfo] into a Plezix Sync-friendly [SyncAuthInfo] instance which
  * may be used for data synchronization.
  *
  * @return An [SyncAuthInfo] which is guaranteed to have a sync key.

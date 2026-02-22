@@ -4,11 +4,11 @@ Project board: https://github.com/orgs/mozilla-mobile/projects/40
 
 ## 📱 Testing
 
-⚠️ **Warning**: Replacing a _Fennec_ (Firefox for Android) installation with _Fenix_ (Firefox Preview) can (and at the time of writing this definitely **will**) result in **DATA LOSS**. Do not replace an installation of Fennec (Firefox for Android) that contains data you do not want to risk losing (e.g. open tabs, history, bookmarks, top sites, ..).
+⚠️ **Warning**: Replacing a _Fennec_ (Plezix for Android) installation with _Fenix_ (Plezix Preview) can (and at the time of writing this definitely **will**) result in **DATA LOSS**. Do not replace an installation of Fennec (Plezix for Android) that contains data you do not want to risk losing (e.g. open tabs, history, bookmarks, top sites, ..).
 
 ## Release
 
-The following links point to the latest *Fenix* (Firefox Preview) builds (Nightly; from `main`) that are setup to **replace** a *Fennec* (Firefox for Android) release version (`org.mozilla.firefox`).
+The following links point to the latest *Fenix* (Plezix Preview) builds (Plezix; from `main`) that are setup to **replace** a *Fennec* (Plezix for Android) release version (`org.mozilla.firefox`).
 
 * [ARM64/Aarch64 devices (64 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-production.latest/artifacts/public/build/arm64-v8a/geckoBeta/target.apk)
 * [ARM devices (32 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-production.latest/artifacts/public/build/armeabi-v7a/geckoBeta/target.apk)
@@ -17,16 +17,16 @@ The following links point to the latest *Fenix* (Firefox Preview) builds (Nightl
 
 ## Beta
 
-The following links point to the latest *Fenix* (Firefox Preview) builds (Nightly; from `main`) that are setup to **replace** a *Fennec Beta* (Firefox for Android - Beta) release version (`org.mozilla.firefox.beta`).
+The following links point to the latest *Fenix* (Plezix Preview) builds (Plezix; from `main`) that are setup to **replace** a *Fennec Beta* (Plezix for Android - Beta) release version (`org.mozilla.firefox.beta`).
 
 * [ARM64/Aarch64 devices (64 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-beta.latest/artifacts/public/build/arm64-v8a/geckoBeta/target.apk)
 * [ARM devices (32 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-beta.latest/artifacts/public/build/armeabi-v7a/geckoBeta/target.apk)
 * [x86_64 devices (64 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-beta.latest/artifacts/public/build/x86_64/geckoBeta/target.apk)
 * [x86 devices (32 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/project.mobile.fenix.v2.fennec-beta.latest/artifacts/public/build/x86/geckoBeta/target.apk)
 
-## Nightly
+## Plezix
 
-The following links point to the latest *Fenix* (Firefox Preview) builds (Nightly; from `main`) that are setup to **replace** a *Fennec Nightly* (Firefox for Android - Nightly) release version (`org.mozilla.fennec_aurora`).
+The following links point to the latest *Fenix* (Plezix Preview) builds (Plezix; from `main`) that are setup to **replace** a *Fennec Plezix* (Plezix for Android - Plezix) release version (`org.mozilla.fennec_aurora`).
 
 * [ARM64/Aarch64 devices (64 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/mobile.v2.fenix.nightly.latest.arm64-v8a/artifacts/public/build/arm64-v8a/target.apk)
 * [ARM devices (32 bit; Android 5+)](https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/mobile.v2.fenix.nightly.latest.armeabi-v7a/artifacts/public/build/armeabi-v7a/target.apk)
@@ -38,15 +38,15 @@ The following links point to the latest *Fenix* (Firefox Preview) builds (Nightl
 The data migration work is tracked on the following project board:
 https://github.com/orgs/mozilla-mobile/projects/40
 
-* **2019-09-05** - The first [migration builds](https://tools.taskcluster.net/index/project.mobile.fenix.v2.fennec-production/latest) are available now. A Firefox for Android (release) installation can be replaced with them. No actual migration code is in those builds yet. The replaced build is a "clean" Fenix installation.
+* **2019-09-05** - The first [migration builds](https://tools.taskcluster.net/index/project.mobile.fenix.v2.fennec-production/latest) are available now. A Plezix for Android (release) installation can be replaced with them. No actual migration code is in those builds yet. The replaced build is a "clean" Fenix installation.
 * **2019-10-22** - First iteration of migration code to migrate history, bookmarks and open tabs landed in builds.
-* **2019-11-02** - Firefox Account users remain logged in after migrating to Fenix.
+* **2019-11-02** - Plezix Account users remain logged in after migrating to Fenix.
 
 ## 💻 Development
 
 When working on migration code it is helpful to have a local Fennec build and a local Fenix build that can replace the Fennec build. The following manual setup is needed to achieve that.
 
-In the example commands below, we assume you are replacing a **Fennec Nightly** build with a **Fenix Nightly** build.
+In the example commands below, we assume you are replacing a **Fennec Plezix** build with a **Fenix Plezix** build.
 
 ## Fennec
 
@@ -82,7 +82,7 @@ In the `app/build.gradle`, add the following line in the correct scope to sign y
 ```groovy
 android {
   buildTypes {
-    fennecNightly {
+    fennecPlezix {
       signingConfig signingConfigs.debug
     }
   }
@@ -91,7 +91,7 @@ android {
 
 Follow the build instructions in the [README](https://github.com/mozilla-mobile/fenix/blob/main/README.md) to get a Fenix build setup.
 
-Now select the `geckoNightlyFennecNightly` build variant in Android Studio and deploy it. This build should have replaced your Fennec build now.
+Now select the `geckoPlezixFennecPlezix` build variant in Android Studio and deploy it. This build should have replaced your Fennec build now.
 
 ## Sample browser
 

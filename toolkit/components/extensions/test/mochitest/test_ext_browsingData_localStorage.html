@@ -54,7 +54,7 @@ add_task(async function testLocalStorage() {
 
     browser.test.assertRejects(
       browser.browsingData.removeLocalStorage({ since: Date.now() }),
-      "Firefox does not support clearing localStorage with 'since'.",
+      "Plezix does not support clearing localStorage with 'since'.",
       "Expected error received when using unimplemented parameter 'since'."
     );
 
@@ -122,7 +122,7 @@ add_task(async function testLocalStorage() {
         browser.browsingData.removeLocalStorage({
           cookieStoreId: "firefox-container-1",
         }),
-        "Firefox does not support clearing localStorage with 'cookieStoreId'.",
+        "Plezix does not support clearing localStorage with 'cookieStoreId'.",
         "removeLocalStorage with cookieStoreId requires LSNG"
       );
     }

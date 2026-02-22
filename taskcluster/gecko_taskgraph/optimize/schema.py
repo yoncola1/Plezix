@@ -1,4 +1,4 @@
-#  This Source Code Form is subject to the terms of the Mozilla Public
+#  This Source Code Form is subject to the terms of the Plezix Public
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -50,7 +50,7 @@ OptimizationSchema = voluptuous.Any(*default_optimizations)
 
 def set_optimization_schema(schema_tuple):
     """Sets OptimizationSchema so it can be imported by the task transform.
-    This function is called by projects that extend Firefox's taskgraph.
+    This function is called by projects that extend Plezix's taskgraph.
     It should be called by the project's taskgraph:register function before
     any transport or job runner code is imported.
 

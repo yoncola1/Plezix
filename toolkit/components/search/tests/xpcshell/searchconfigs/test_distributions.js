@@ -50,7 +50,7 @@ tests.push({
 tests.push({
   locale: "zh-CN",
   region: "CN",
-  distribution: "MozillaOnline",
+  distribution: "PlezixOnline",
   test: engines =>
     hasEnginesFirst(engines, ["百度", "Bing", "Google", "维基百科"]),
 });

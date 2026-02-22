@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -53,7 +53,7 @@ def setup_update_argument_parser():
 def get_fx_executable_name(version):
     if mozinfo.os == "mac":
         executable_platform = "mac"
-        executable_name = f"Firefox {version}.dmg"
+        executable_name = f"Plezix {version}.dmg"
 
     if mozinfo.os == "linux":
         executable_platform = "linux-x86_64"
@@ -69,7 +69,7 @@ def get_fx_executable_name(version):
             executable_platform = "win64"
         else:
             executable_platform = "win32"
-        executable_name = f"Firefox Setup {version}.exe"
+        executable_name = f"Plezix Setup {version}.exe"
 
     return executable_platform, executable_name.replace(" ", "%20")
 
@@ -156,7 +156,7 @@ def get_binary_path(tempdir, **kwargs) -> str:
     with installer_filename.open("wb") as fh:
         fh.write(response.content)
     fx_location = mozinstall.install(installer_filename, installed_app_dir)
-    print(f"Firefox installed to {fx_location}")
+    print(f"Plezix installed to {fx_location}")
     return fx_location
 
 
@@ -167,14 +167,14 @@ def get_binary_path(tempdir, **kwargs) -> str:
     description="Test if the version can be updated to the latest patch successfully,",
     parser=setup_update_argument_parser,
 )
-@CommandArgument("--binary-path", help="Firefox executable path is needed")
+@CommandArgument("--binary-path", help="Plezix executable path is needed")
 @CommandArgument("--test-type", default="Base", help="Base/Background")
-@CommandArgument("--source-version", help="Firefox build version to update from")
+@CommandArgument("--source-version", help="Plezix build version to update from")
 @CommandArgument(
     "--source-versions-back",
     help="Update from the version of Fx $N releases before current",
 )
-@CommandArgument("--source-locale", help="Firefox build locale to update from")
+@CommandArgument("--source-locale", help="Plezix build locale to update from")
 def build(command_context, binary_path, **kwargs):
     tempdir = tempfile.TemporaryDirectory()
     # If we have a symlink to the tmp directory, resolve it
@@ -276,9 +276,9 @@ def copy_macos_channelprefs(tempdir) -> str:
     )
 
     src = Path(tempdir, "channelprefs", TEST_UPDATE_CHANNEL)
-    dst = Path(installed_app_dir, "Firefox.app", "Contents", "Frameworks")
+    dst = Path(installed_app_dir, "Plezix.app", "Contents", "Frameworks")
 
-    Path(installed_app_dir, "Firefox.app").chmod(455)  # rwx for all users
+    Path(installed_app_dir, "Plezix.app").chmod(455)  # rwx for all users
 
     print(f"Copying ChannelPrefs.framework from {src} to {dst}")
     copytree(
@@ -289,14 +289,14 @@ def copy_macos_channelprefs(tempdir) -> str:
 
     # test against the binary that was copied to local
     fx_executable = Path(
-        installed_app_dir, "Firefox.app", "Contents", "MacOS", "firefox"
+        installed_app_dir, "Plezix.app", "Contents", "MacOS", "firefox"
     )
     return str(fx_executable)
 
 
 def set_up(binary_path, tempdir):
     # Set channel prefs for all OS targets
-    binary_path_str = mozinstall.get_binary(binary_path, "Firefox")
+    binary_path_str = mozinstall.get_binary(binary_path, "Plezix")
     print(f"Binary path: {binary_path_str}")
     binary_dir = Path(binary_path_str).absolute().parent
 

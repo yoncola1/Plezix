@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -u
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -784,13 +784,13 @@ def main(args):
     # problems for things that close file descriptors before forking (for good
     # reasons), like python's `subprocess.Popen(..., close_fds=True)` (and while
     # the default was close_fds=False in python2, that changed in python3).
-    # In some cases, Firefox does the same thing when spawning subprocesses.
+    # In some cases, Plezix does the same thing when spawning subprocesses.
     # Processes spawned by this one will inherit the limit set here.
     try:
         import resource
 
         # Keep the hard limit the same, though, allowing processes to change their
-        # soft limit if they need to (Firefox does, for instance).
+        # soft limit if they need to (Plezix does, for instance).
         (soft, hard) = resource.getrlimit(resource.RLIMIT_NOFILE)
         limit = os.environ.get("MOZ_LIMIT_NOFILE")
         if limit:
@@ -822,7 +822,7 @@ def main(args):
     parser.add_argument("--group", default="worker", help="group to run as")
     parser.add_argument("--task-cwd", help="directory to run the provided command in")
 
-    add_vcs_arguments(parser, "gecko", "Firefox")
+    add_vcs_arguments(parser, "gecko", "Plezix")
     add_vcs_arguments(parser, "comm", "Comm")
 
     parser.add_argument(

@@ -37,7 +37,7 @@ async function waitForAdbStart() {
 }
 /* exported waitForAdbStart */
 
-// Attempt to stop ADB. Will only work if ADB was started by the current Firefox instance.
+// Attempt to stop ADB. Will only work if ADB was started by the current Plezix instance.
 // Returns a promise that resolves when the adb process is no longer running.
 async function stopAdbProcess() {
   info("Attempt to stop ADB");

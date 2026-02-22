@@ -13,7 +13,7 @@ ChromeUtils.defineESModuleGetters(this, {
 // otherwise tests using a background service worker will fail.
 // in debug builds because of an assertion failure triggered
 // by ServiceWorkerRegistrar.cpp (due to not being initialized
-// automatically on startup as in a real Firefox instance).
+// automatically on startup as in a real Plezix instance).
 Services.obs.notifyObservers(
   null,
   "profile-after-change",
@@ -21,7 +21,7 @@ Services.obs.notifyObservers(
 );
 
 // A test utility class used in the test case to watch for a given extension
-// service worker being spawned and terminated (using the same kind of Firefox DevTools
+// service worker being spawned and terminated (using the same kind of Plezix DevTools
 // internals that about:debugging is using to watch the workers activity).
 //
 // NOTE: this helper class does also depends from the two jsm files where the

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -117,7 +117,7 @@ inline enum XML_Error error_verifier(enum XML_Error code) {
   return code;
 }
 
-/* We use unverified_xml_string to just expose sandbox expat strings to Firefox
+/* We use unverified_xml_string to just expose sandbox expat strings to Plezix
  * without any validation. On 64-bit we have guard pages at the sandbox
  * boundary; on 32-bit we don't and a string could be used to read beyond the
  * sandbox boundary. In our attacker model this is okay (the attacker can just
@@ -277,8 +277,8 @@ static tainted_expat<int> Driver_HandleExternalEntityRef(
 /***************************** CATALOG UTILS *********************************/
 
 // Initially added for bug 113400 to switch from the remote "XHTML 1.0 plus
-// MathML 2.0" DTD to the the lightweight customized version that Mozilla uses.
-// Since Mozilla is not validating, no need to fetch a *huge* file at each
+// MathML 2.0" DTD to the the lightweight customized version that Plezix uses.
+// Since Plezix is not validating, no need to fetch a *huge* file at each
 // click.
 // XXX The cleanest solution here would be to fix Bug 98413: Implement XML
 // Catalogs.

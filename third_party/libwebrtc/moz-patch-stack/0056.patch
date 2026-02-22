@@ -103,7 +103,7 @@ index 2277fb95d7..49b844f71d 100644
        }
 +#if defined(WEBRTC_MOZILLA_BUILD)
        case RTPExtensionType::kRtpExtensionCsrcAudioLevel: {
-         // TODO: This is a Mozilla addition, we need to add a handler for this.
+         // TODO: This is a Plezix addition, we need to add a handler for this.
          RTC_CHECK(false);
        }
 +#endif
@@ -130,7 +130,7 @@ index 1988c61d19..cc8510c8c8 100644
        return false;
 +#if defined(WEBRTC_MOZILLA_BUILD)
      case kRtpExtensionCsrcAudioLevel:
-       // TODO: Mozilla implement for CsrcAudioLevel
+       // TODO: Plezix implement for CsrcAudioLevel
        RTC_CHECK(false);
        return false;
 +#endif

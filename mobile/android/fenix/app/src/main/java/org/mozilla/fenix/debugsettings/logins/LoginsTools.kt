@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ import mozilla.components.support.ktx.kotlin.tryGetHostFromUrl
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.debugsettings.ui.DebugDrawer
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import java.util.UUID
 
 /**
@@ -108,12 +108,12 @@ private fun LoginsContent(
     Column(modifier = Modifier.padding(16.dp)) {
         Text(
             text = stringResource(R.string.debug_drawer_logins_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline5,
         )
 
         Text(
-            color = FirefoxTheme.colors.textSecondary,
+            color = PlezixTheme.colors.textSecondary,
             text = stringResource(
                 R.string.debug_drawer_logins_current_domain_label,
                 origin ?: "",
@@ -147,9 +147,9 @@ private fun LoginsContent(
 @Composable
 @PreviewLightDark
 private fun LoginsScreenPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer1),
         ) {
             val selectedTab = createTab("https://example.com")
             LoginsTools(

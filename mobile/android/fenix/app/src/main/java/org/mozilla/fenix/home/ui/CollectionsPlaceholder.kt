@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import org.mozilla.fenix.compose.PlaceholderCard
 import org.mozilla.fenix.home.collections.CollectionColors
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 @Composable
 internal fun CollectionsPlaceholder(
@@ -70,7 +70,7 @@ internal fun CollectionsPlaceholder(
                 Text(
                     text = stringResource(R.string.collections_header),
                     color = titleTextColor,
-                    style = FirefoxTheme.typography.headline7,
+                    style = PlezixTheme.typography.headline7,
                 )
 
                 IconButton(
@@ -91,7 +91,7 @@ internal fun CollectionsPlaceholder(
             Text(
                 text = stringResource(R.string.no_collections_description2),
                 color = descriptionTextColor,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
 
             if (showAddTabsToCollection) {
@@ -116,8 +116,8 @@ internal fun CollectionsPlaceholder(
 @PreviewLightDark
 @Composable
 private fun CollectionsPlaceholderPreview() {
-    FirefoxTheme {
-        Surface(color = FirefoxTheme.colors.layer1) {
+    PlezixTheme {
+        Surface(color = PlezixTheme.colors.layer1) {
             Column(modifier = Modifier.padding(16.dp)) {
                 CollectionsPlaceholder(
                     interactor = FakeHomepagePreview.collectionInteractor,

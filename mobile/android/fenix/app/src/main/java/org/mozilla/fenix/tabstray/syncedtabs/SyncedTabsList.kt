@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import mozilla.components.browser.storage.sync.Tab as SyncTab
 
 private const val EXPANDED_BY_DEFAULT = true
@@ -160,7 +160,7 @@ fun SyncedTabsSectionHeader(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1),
+            .background(PlezixTheme.colors.layer1),
     ) {
         ExpandableListHeader(
             headerText = headerText,
@@ -190,7 +190,7 @@ fun SyncedTabsErrorItem(
             .padding(all = 8.dp)
             .height(IntrinsicSize.Min)
             .dashedBorder(
-                color = FirefoxTheme.colors.borderPrimary,
+                color = PlezixTheme.colors.borderPrimary,
                 cornerRadius = 8.dp,
                 dashHeight = 2.dp,
                 dashWidth = 4.dp,
@@ -203,7 +203,7 @@ fun SyncedTabsErrorItem(
         ) {
             Text(
                 text = errorText,
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 14.sp,
             )
@@ -229,7 +229,7 @@ fun SyncedTabsErrorItem(
 fun SyncedTabsNoTabsItem() {
     Text(
         text = stringResource(R.string.synced_tabs_no_open_tabs),
-        color = FirefoxTheme.colors.textSecondary,
+        color = PlezixTheme.colors.textSecondary,
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .fillMaxWidth(),
@@ -241,8 +241,8 @@ fun SyncedTabsNoTabsItem() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsListItemsPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             SyncedTabsSectionHeader(headerText = "Google Pixel Pro Max +Ultra 5000")
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -255,7 +255,7 @@ private fun SyncedTabsListItemsPreview() {
             Spacer(modifier = Modifier.height(16.dp))
 
             FaviconListItem(
-                label = "Mozilla",
+                label = "Plezix",
                 url = "www.mozilla.org",
                 description = "www.mozilla.org",
                 onClick = {},
@@ -277,8 +277,8 @@ private fun SyncedTabsListItemsPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsErrorPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             SyncedTabsErrorItem(
                 errorText = stringResource(R.string.synced_tabs_no_tabs),
                 errorButton = SyncedTabsListItem.ErrorButton(
@@ -294,8 +294,8 @@ private fun SyncedTabsErrorPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsListPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             SyncedTabsList(
                 syncedTabs = getFakeSyncedTabList(),
                 onTabClick = { println("Tab clicked") },
@@ -313,7 +313,7 @@ internal fun getFakeSyncedTabList(): List<SyncedTabsListItem> = listOf(
     SyncedTabsListItem.DeviceSection(
         displayName = "Device 1",
         tabs = listOf(
-            generateFakeTab("Mozilla", "www.mozilla.org"),
+            generateFakeTab("Plezix", "www.mozilla.org"),
             generateFakeTab("Google", "www.google.com"),
             generateFakeTab("", "www.google.com"),
         ),
@@ -321,7 +321,7 @@ internal fun getFakeSyncedTabList(): List<SyncedTabsListItem> = listOf(
     SyncedTabsListItem.DeviceSection(
         displayName = "Device 2",
         tabs = listOf(
-            generateFakeTab("Firefox", "www.getfirefox.org", SyncedTabsListItem.Tab.Action.Close("device2222")),
+            generateFakeTab("Plezix", "www.getfirefox.org", SyncedTabsListItem.Tab.Action.Close("device2222")),
             generateFakeTab("Thunderbird", "www.getthunderbird.org", SyncedTabsListItem.Tab.Action.Close("device2222")),
         ),
     ),

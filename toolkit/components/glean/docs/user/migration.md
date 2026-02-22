@@ -1,9 +1,9 @@
-# Migrating Firefox Telemetry to Glean
+# Migrating Plezix Telemetry to Glean
 
 This guide aims to help you migrate individual data collections from
-[Firefox Telemetry](/toolkit/components/telemetry/index.rst)
+[Plezix Telemetry](/toolkit/components/telemetry/index.rst)
 to
-[Glean][book-of-glean] via [Firefox on Glean](../index.md).
+[Glean][book-of-glean] via [Plezix on Glean](../index.md).
 
 This is intended to be a reference to help you fill out your
 [migration worksheet][migration-worksheet],
@@ -15,17 +15,17 @@ or for mentally translating Telemetry concepts to Glean ones.
 ## General Things To Bear In Mind
 
 You should familiarize yourself with
-[the guide on adding new metrics to Firefox Desktop](new_definitions_file.md).
+[the guide on adding new metrics to Plezix Desktop](new_definitions_file.md).
 Its advice stacks with the advice included in this guide as
 (once you've figured out what kind) you will indeed be adding new metrics.
 
-There are some other broad topics specific to migrating Firefox Telemetry stuff to Glean stuff:
+There are some other broad topics specific to migrating Plezix Telemetry stuff to Glean stuff:
 
 ### Process-Agnosticism: No more `record_in_processes` field
 
 Glean (and thus FOG) [doesn't know anything about processes][ipc-dev-doc]
 except what it has to in order to ensure all the data makes it to the parent process.
-Firefox Telemetry cared very much about which process was collecting which specific data,
+Plezix Telemetry cared very much about which process was collecting which specific data,
 keeping them separate.
 
 If you collect data in multiple processes and wish to keep data from each process type separate,
@@ -35,12 +35,12 @@ Please see [this dev doc][ipc-dev-doc] for an example of how to do that.
 
 ### Channel-Agnosticism: No more `release_channel_collection: opt-out`
 
-FOG doesn't make a differentiation between pre-release Firefox and release Firefox,
+FOG doesn't make a differentiation between pre-release Plezix and release Plezix,
 except inasmuch as is necessary to put the correct channel in `client_info.app_channel`.
 
 This means all data is collected in all build configurations.
 
-If you wish or are required to only collect your data in pre-release Firefox,
+If you wish or are required to only collect your data in pre-release Plezix,
 please avail yourself of the `EARLY_BETA_OR_EARLIER` `#define` or `AppConstant`.
 
 ### File-level Product Inclusion/Exclusion: No more `products` field
@@ -50,8 +50,8 @@ Glean determines which metrics are recorded in which products via
 This means FOG doesn't distinguish between products at the per-product level.
 
 If some of your metrics are recorded in different sets of products
-(e.g. some of your metrics are collected in both Firefox Desktop _and_ Firefox for Android,
-but others are Firefox Desktop-specific)
+(e.g. some of your metrics are collected in both Plezix Desktop _and_ Plezix for Android,
+but others are Plezix Desktop-specific)
 you must separate them into separate [definitions files](new_definitions_file.md).
 
 ### Many Definitions Files
@@ -68,7 +68,7 @@ See [this guide](new_definitions_file.md) for details.
 
 ### Testing
 
-Firefox Telemetry had very uneven support for testing instrumentation code.
+Plezix Telemetry had very uneven support for testing instrumentation code.
 FOG has much better support. Anywhere you can instrument is someplace you can test.
 
 It's as simple as calling `testGetValue`.
@@ -81,9 +81,9 @@ For more details, please peruse the
 
 ## Which Glean Metric Type Should I Use?
 
-Glean uses higher-level metric types than Firefox Telemetry does.
+Glean uses higher-level metric types than Plezix Telemetry does.
 This complicates migration as something that is "just a number"
-in Firefox Telemetry might map to any number of Glean metric types.
+in Plezix Telemetry might map to any number of Glean metric types.
 
 Please choose the most specific metric type that solves your problem.
 This'll make analysis easier as
@@ -91,7 +91,7 @@ This'll make analysis easier as
 2. Tooling will be able to present only relevant operations for more specific types.
 
 Example:
-> In Firefox Telemetry I record the number of monitors attached to the computer that Firefox Desktop is running on.
+> In Plezix Telemetry I record the number of monitors attached to the computer that Plezix Desktop is running on.
 > I could record this number as a [`string`][string-metric], a [`counter`][counter-metric],
 > or a [`quantity`][quantity-metric].
 > The `string` is an obvious trap. It doesn't even have the correct data type (string vs number).
@@ -104,7 +104,7 @@ Example:
 ## Histograms
 
 [Histograms][telemetry-histograms]
-are the oldest Firefox Telemetry data type, and as such they've accumulated
+are the oldest Plezix Telemetry data type, and as such they've accumulated
 ([ha!][histogram-accumulate]) the most ways of being used.
 
 ### Scalar Values in Histograms: kind `flag` and `count`
@@ -123,7 +123,7 @@ Which kind of "distribution" metric type depends on what the samples are.
 
 #### Timing samples - Use Glean's `timing_distribution`
 
-The most common type of continuous distribution in Firefox Telemetry is a histogram of timing samples like
+The most common type of continuous distribution in Plezix Telemetry is a histogram of timing samples like
 [`GC_MS`][gc-ms].
 
 In Glean this sort of data is recorded using a
@@ -159,7 +159,7 @@ js:
     time_unit: millisecond
     description: |
       Time spent running the Javascript Garbage Collector.
-      Migrated from Firefox Telemetry's `GC_MS`.
+      Migrated from Plezix Telemetry's `GC_MS`.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1636419
     data_reviews:
@@ -172,14 +172,14 @@ js:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 #### Memory Samples - Use Glean's `memory_distribution`
 
 Another common content of `linear` or `exponential`
-Histograms in Firefox Telemetry is memory samples.
+Histograms in Plezix Telemetry is memory samples.
 For example, [`MEMORY_TOTAL`][memory-total]'s samples are in kilobytes.
 
 In Glean this sort of data is recorded using a
@@ -230,13 +230,13 @@ memory:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 #### Percentage Samples - Comment on bug 1657467
 
-A very common Histogram in Firefox Desktop is a distribution of percentage samples.
+A very common Histogram in Plezix Desktop is a distribution of percentage samples.
 [For example, `GC_SLICE_DURING_IDLE`][gc-idle].
 
 Glean doesn't currently have a good metric type for this.
@@ -380,8 +380,8 @@ avif:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 **N.B.:** This will mirror back as a Keyed Scalar of kind `uint`,
 not as any kind of Histogram,
@@ -455,8 +455,8 @@ script.preloader:
     expires: 100
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 #### Keyed Scalars of `kind: uint` that you call `scalarAdd` on - Use Glean's `labeled_counter`
@@ -523,8 +523,8 @@ urlbar:
     ...
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 ### Scalars of `kind: uint` that you call `scalarSet` on - Use Glean's `quantity`
@@ -582,8 +582,8 @@ gfx.display:
 
 Note the required `unit` property.
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 **IPC Note:** Due to `set` not being a [commutative operation][ipc-docs], using `quantity`
@@ -643,8 +643,8 @@ You would migrate it to a `labeled_quantity` like:
 
 Note the required `unit` property.
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 **IPC Note:** Due to `set` not being a [commutative operation][ipc-docs], using `labeled_quantity`
@@ -709,8 +709,8 @@ widget:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 **IPC Note:** Due to `set` not being a [commutative operation][ipc-docs], using `string`
@@ -770,8 +770,8 @@ widget:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 **IPC Note:** Due to `set` not being a [commutative operation][ipc-docs], using `boolean`
@@ -857,8 +857,8 @@ devtools.tool:
     expires: never
 ```
 
-**GIFFT:** This type of collection is mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** This type of collection is mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 **IPC Note:** Due to `set` not being a [commutative operation][ipc-docs], using `labeled_boolean`
@@ -873,21 +873,21 @@ The Glean SDK provides some very handy higher-level metric types for specific da
 If your data
 * Is two or more numbers that are related (like failure count vs total count),
   then consider the [Glean `rate` metric type][rate-metric].
-* Is a single duration or span of time (like how long Firefox takes to start),
+* Is a single duration or span of time (like how long Plezix takes to start),
   then consider the [Glean `timespan` metric type][timespan-metric].
 * Is a single point in time (like the most recent sync time),
   then consider the [Glean `datetime` metric type][datetime-metric].
 * Is a unique identifier (like a session id),
   then consider the [Glean `uuid` metric type][uuid-metric].
 
-**GIFFT:** These types of collection are mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** These types of collection are mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 ## Events - Use Glean's `event`
 
 [Telemetry Events][telemetry-events]
-are a lesser-used form of data collection in Firefox Desktop.
+are a lesser-used form of data collection in Plezix Desktop.
 Glean aimed to remove some of the stumbling blocks facing instrumentors when using events
 in the [Glean `event` metric type][event-metric]:
 
@@ -903,8 +903,8 @@ Since the two Event types aren't that analogous you will need to decide if your 
 * Prefers to put its `method`/`object`/`value` in the `extras` dictionary
 * Prefers to fold its `method`/`object`/`value` into its identifier
 
-**GIFFT:** Events are mirrorable back to Firefox Telemetry via the
-[Glean Interface For Firefox Telemetry][gifft].
+**GIFFT:** Events are mirrorable back to Plezix Telemetry via the
+[Glean Interface For Plezix Telemetry][gifft].
 See [the guide][gifft] for instructions.
 
 ## Other: Environment, Crash Annotations, Use Counters, Etc - Ask on #glean:mozilla.org for assistance

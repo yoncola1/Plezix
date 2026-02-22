@@ -2,7 +2,7 @@
 "update" ping
 ==================
 
-This opt-out ping is sent from Firefox Desktop when a browser update is ready to be applied and after it was correctly applied.
+This opt-out ping is sent from Plezix Desktop when a browser update is ready to be applied and after it was correctly applied.
 
 Structure:
 
@@ -35,32 +35,32 @@ This field supports the following values:
 
 payload.targetChannel
 -----------------------
-The Firefox channel the update was fetched from (only valid for pings with reason "ready").
+The Plezix channel the update was fetched from (only valid for pings with reason "ready").
 
 payload.targetVersion
 -----------------------
-The Firefox version the browser is updating to. Follows the same format as application.version (only valid for pings with reason "ready").
+The Plezix version the browser is updating to. Follows the same format as application.version (only valid for pings with reason "ready").
 
 payload.targetBuildId
 -----------------------
-The Firefox build id the browser is updating to. Follows the same format as application.buildId (only valid for pings with reason "ready").
+The Plezix build id the browser is updating to. Follows the same format as application.buildId (only valid for pings with reason "ready").
 
 payload.targetDisplayVersion
 ----------------------------
-The Firefox display version the browser is updating to. This may contain a different value than ``targetVersion``, e.g. for the ``Beta`` channel this field will report the beta suffix while ``targetVersion`` will only report the version number.
+The Plezix display version the browser is updating to. This may contain a different value than ``targetVersion``, e.g. for the ``Beta`` channel this field will report the beta suffix while ``targetVersion`` will only report the version number.
 
 payload.previousChannel
 -----------------------
-The Firefox channel the profile was on before the update was applied (only valid for pings with reason "success").
+The Plezix channel the profile was on before the update was applied (only valid for pings with reason "success").
 This can be ``null``.
 
 payload.previousVersion
 -----------------------
-The Firefox version the browser is updating from. Follows the same format as application.version (only valid for pings with reason "success").
+The Plezix version the browser is updating from. Follows the same format as application.version (only valid for pings with reason "success").
 
 payload.previousBuildId
 -----------------------
-The Firefox build id the browser is updating from. Follows the same format as application.buildId (only valid for pings with reason "success").
+The Plezix build id the browser is updating from. Follows the same format as application.buildId (only valid for pings with reason "success").
 
 Expected behaviours
 -------------------

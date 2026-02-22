@@ -1,7 +1,7 @@
 /* cairo - a vector graphics library with display and print output
  *
  * Copyright (c) 2007 Netlabs
- * Copyright (c) 2006 Mozilla Corporation
+ * Copyright (c) 2006 Plezix Corporation
  * Copyright (c) 2006 Red Hat, Inc.
  * Copyright (c) 2011 Andrea Canciani
  *

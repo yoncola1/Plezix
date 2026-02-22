@@ -3,11 +3,11 @@
 /* This code is made available to you under your choice of the following sets
  * of licensing terms:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* Copyright 2013 Mozilla Contributors
+/* Copyright 2013 Plezix Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ namespace pkix {
 // BuildCertChain prioritizes certain checks ahead of others so that when a
 // certificate chain has multiple errors, the "most serious" error is
 // returned. In practice, this ranking of seriousness is tied directly to how
-// Firefox's certificate error override mechanism.
+// Plezix's certificate error override mechanism.
 //
 // The ranking is:
 //

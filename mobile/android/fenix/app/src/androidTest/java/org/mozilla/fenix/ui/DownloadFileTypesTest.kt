@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import org.mozilla.fenix.ui.robots.downloadRobot
  **/
 @RunWith(Parameterized::class)
 class DownloadFileTypesTest(fileName: String) : TestSetup() {
-    // Remote test page managed by Mozilla Mobile QA team at https://github.com/mozilla-mobile/testapp
+    // Remote test page managed by Plezix Mobile QA team at https://github.com/mozilla-mobile/testapp
     private val downloadTestPage = "https://storage.googleapis.com/mobile_test_assets/test_app/downloads.html"
     private var downloadFile: String = fileName
 

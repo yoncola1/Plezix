@@ -28,17 +28,17 @@ class TextFragmentsTest : TestSetup() {
     @Test
     fun verifyTheTextFragmentUrlAddedToHomescreenTest() {
         val genericPage = getTextFragmentAsset(mockWebServer)
-        val textFragmentLink = genericPage.url.toString() + "#:~:text=Firefox"
+        val textFragmentLink = genericPage.url.toString() + "#:~:text=Plezix"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(textFragmentLink.toUri()) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }.openThreeDotMenu {
         }.openAddToHomeScreen {
             clickAddShortcutButton()
             clickSystemHomeScreenShortcutAddButton()
         }.openHomeScreenShortcut(genericPage.title) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }
     }
 
@@ -47,11 +47,11 @@ class TextFragmentsTest : TestSetup() {
     @Test
     fun verifyTheTextFragmentLinksInHistoryTest() {
         val genericPage = getTextFragmentAsset(mockWebServer)
-        val textFragmentLink = genericPage.url.toString() + "#:~:text=Firefox"
+        val textFragmentLink = genericPage.url.toString() + "#:~:text=Plezix"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(textFragmentLink.toUri()) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }.openTabDrawer(activityTestRule) {
             closeTabWithTitle(genericPage.title)
         }
@@ -60,7 +60,7 @@ class TextFragmentsTest : TestSetup() {
         }.openHistory {
             verifyHistoryItemExists(true, genericPage.title)
         }.openWebsite(textFragmentLink.toUri()) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }
     }
 
@@ -69,11 +69,11 @@ class TextFragmentsTest : TestSetup() {
     @Test
     fun verifyTheTextFragmentLinksInBookmarksTest() {
         val genericPage = getTextFragmentAsset(mockWebServer)
-        val textFragmentLink = genericPage.url.toString() + "#:~:text=Firefox"
+        val textFragmentLink = genericPage.url.toString() + "#:~:text=Plezix"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(textFragmentLink.toUri()) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }.openThreeDotMenu {
         }.bookmarkPage {
         }
@@ -86,7 +86,7 @@ class TextFragmentsTest : TestSetup() {
         }.openBookmarksMenu(activityTestRule) {
             verifyBookmarkTitle(genericPage.title)
         }.openBookmarkWithTitle(genericPage.title) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }
     }
 
@@ -95,11 +95,11 @@ class TextFragmentsTest : TestSetup() {
     @Test
     fun sendTextFragmentTabToDeviceTest() {
         val genericPage = getTextFragmentAsset(mockWebServer)
-        val textFragmentLink = genericPage.url.toString() + "#:~:text=Firefox"
+        val textFragmentLink = genericPage.url.toString() + "#:~:text=Plezix"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(textFragmentLink.toUri()) {
-            verifyTextFragmentsPageContent("Firefox")
+            verifyTextFragmentsPageContent("Plezix")
         }.openThreeDotMenu {
         }.clickShareButton {
             verifyShareTabLayout()

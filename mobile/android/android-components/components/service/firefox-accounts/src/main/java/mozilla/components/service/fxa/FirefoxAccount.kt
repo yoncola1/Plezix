@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,16 +23,16 @@ import mozilla.components.support.base.log.logger.Logger
 typealias PersistCallback = mozilla.appservices.fxaclient.FxaClient.PersistCallback
 
 /**
- * FirefoxAccount represents the authentication state of a client.
+ * PlezixAccount represents the authentication state of a client.
  */
-class FirefoxAccount internal constructor(
+class PlezixAccount internal constructor(
     private val inner: FxaClient,
     crashReporter: CrashReporting? = null,
 ) : OAuthAccount {
     private val job = SupervisorJob()
     private val scope = CoroutineScope(Dispatchers.IO) + job
 
-    private val logger = Logger("FirefoxAccount")
+    private val logger = Logger("PlezixAccount")
 
     /**
      * Why this exists: in the `init` block below you'll notice that we register a persistence callback
@@ -73,7 +73,7 @@ class FirefoxAccount internal constructor(
     }
 
     /**
-     * Construct a FirefoxAccount from a [Config], a clientId, and a redirectUri.
+     * Construct a PlezixAccount from a [Config], a clientId, and a redirectUri.
      *
      * @param crashReporter A crash reporter instance.
      *
@@ -244,26 +244,26 @@ class FirefoxAccount internal constructor(
     companion object {
         /**
          * Restores the account's authentication state from a JSON string produced by
-         * [FirefoxAccount.toJSONString].
+         * [PlezixAccount.toJSONString].
          *
          * @param crashReporter object used for logging caught exceptions
          *
-         * @param persistCallback This callback will be called every time the [FirefoxAccount]
+         * @param persistCallback This callback will be called every time the [PlezixAccount]
          * internal state has mutated.
-         * The FirefoxAccount instance can be later restored using the
-         * [FirefoxAccount.fromJSONString]` class method.
+         * The PlezixAccount instance can be later restored using the
+         * [PlezixAccount.fromJSONString]` class method.
          * It is the responsibility of the consumer to ensure the persisted data
          * is saved in a secure location, as it can contain Sync Keys and
          * OAuth tokens.
          *
-         * @return [FirefoxAccount] representing the authentication state
+         * @return [PlezixAccount] representing the authentication state
          */
         fun fromJSONString(
             json: String,
             crashReporter: CrashReporting?,
             persistCallback: PersistCallback? = null,
-        ): FirefoxAccount {
-            return FirefoxAccount(FxaClient.fromJSONString(json, persistCallback), crashReporter)
+        ): PlezixAccount {
+            return PlezixAccount(FxaClient.fromJSONString(json, persistCallback), crashReporter)
         }
     }
 }

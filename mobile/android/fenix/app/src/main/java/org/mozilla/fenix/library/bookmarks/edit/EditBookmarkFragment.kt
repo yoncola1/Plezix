@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -79,7 +79,7 @@ import org.mozilla.fenix.library.bookmarks.ui.BookmarksStore
 import org.mozilla.fenix.library.bookmarks.ui.LifecycleHolder
 import org.mozilla.fenix.search.SearchFragmentState
 import org.mozilla.fenix.search.SearchFragmentStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.lastSavedFolderCache
 
 /**
@@ -186,7 +186,7 @@ class EditBookmarkFragment : Fragment(R.layout.fragment_edit_bookmark), MenuProv
                     store
                 }
                 setContent {
-                    FirefoxTheme {
+                    PlezixTheme {
                         BookmarksScreen(
                             buildStore = buildStore,
                             startDestination = BookmarksDestinations.EDIT_BOOKMARK,

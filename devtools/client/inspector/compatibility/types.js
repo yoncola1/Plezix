@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ const browser = {
   // https://github.com/mdn/browser-compat-data/tree/master/browsers
   id: PropTypes.string.isRequired,
   // The browser name.
-  // e.g. "Firefox", "Firefox Android".
+  // e.g. "Plezix", "Plezix Android".
   name: PropTypes.string.isRequired,
   // The status of the browser.
   // This should be one of "release", "beta", "nightly", "esr" or undefined.

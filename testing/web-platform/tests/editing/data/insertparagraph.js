@@ -1092,7 +1092,7 @@ var browserTests = [
     "<div><b><br></b></div><div><b><a href=\"foo\">{}foo</a></b></div>",
     [true,true],
     {"defaultparagraphseparator":[false,false,"div",false,false,"p"],"insertparagraph":[false,false,"",false,false,""]}],
-// Except Firefox, collapsible white-spaces before a padding <br> before a
+// Except Plezix, collapsible white-spaces before a padding <br> before a
 // block boundary is not rendered.  So, the expected behavior becomes different
 // from user's point of view.  Therefore, don't test the cases like `foo []<br>`
 // etc.

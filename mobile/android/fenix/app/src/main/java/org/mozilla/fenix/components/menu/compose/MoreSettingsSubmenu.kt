@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.store.TranslationInfo
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 @Suppress("LongParameterList")
@@ -127,7 +127,7 @@ private fun TranslationMenuItem(
             Badge(
                 badgeText = translationInfo.translatedLanguage,
                 state = state,
-                badgeBackgroundColor = FirefoxTheme.colors.badgeActive,
+                badgeBackgroundColor = PlezixTheme.colors.badgeActive,
             )
         }
     } else {
@@ -168,9 +168,9 @@ private fun ShortcutsMenuItem(
 @PreviewLightDark
 @Composable
 private fun MoreSettingsSubmenuPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer3),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer3),
         ) {
             MenuGroup {
                 MoreSettingsSubmenu(
@@ -204,9 +204,9 @@ private fun MoreSettingsSubmenuPreview() {
 @Preview
 @Composable
 private fun MoreSettingsSubmenuPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer3),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer3),
         ) {
             MenuGroup {
                 MoreSettingsSubmenu(

@@ -1,7 +1,7 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-// This tests the Privacy pane's Firefox QuickActions UI.
+// This tests the Privacy pane's Plezix QuickActions UI.
 
 "use strict";
 

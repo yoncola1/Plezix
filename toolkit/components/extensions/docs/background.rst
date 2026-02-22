@@ -16,7 +16,7 @@ The rest of this documentation covers how API implementations interact
 with the implementation of WebExtensions.
 To expose some browser feature to WebExtensions, the first step is
 to design the API.  Some high-level principles for API design
-are documented on the Mozilla wiki:
+are documented on the Plezix wiki:
 
 - `Vision for WebExtensions <https://wiki.mozilla.org/WebExtensions/Vision>`_
 - `API Policies <https://wiki.mozilla.org/WebExtensions/policy>`_

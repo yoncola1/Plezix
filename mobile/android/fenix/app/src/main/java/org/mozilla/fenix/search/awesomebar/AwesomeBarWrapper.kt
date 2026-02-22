@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import org.mozilla.fenix.GleanMetrics.BookmarksManagement
 import org.mozilla.fenix.GleanMetrics.History
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * This wrapper wraps the `AwesomeBar()` composable and exposes it as a `View` and `concept-awesomebar`
@@ -50,17 +50,17 @@ class AwesomeBarWrapper @JvmOverloads constructor(
             AwesomeBarOrientation.TOP
         }
 
-        FirefoxTheme {
+        PlezixTheme {
             AwesomeBar(
                 text = text.value,
                 providers = providers.value,
                 orientation = orientation,
                 colors = AwesomeBarDefaults.colors(
                     background = Color.Transparent,
-                    title = FirefoxTheme.colors.textPrimary,
-                    description = FirefoxTheme.colors.textSecondary,
-                    autocompleteIcon = FirefoxTheme.colors.textSecondary,
-                    groupTitle = FirefoxTheme.colors.textSecondary,
+                    title = PlezixTheme.colors.textPrimary,
+                    description = PlezixTheme.colors.textSecondary,
+                    autocompleteIcon = PlezixTheme.colors.textSecondary,
+                    groupTitle = PlezixTheme.colors.textSecondary,
                 ),
                 onSuggestionClicked = { suggestion ->
                     context.components.core.store.dispatch(AwesomeBarAction.SuggestionClicked(suggestion))

@@ -170,19 +170,19 @@ class MessageLoop : public base::MessagePump::Delegate {
   //   MessageLoopForIO.
   //
   // TYPE_MOZILLA_CHILD
-  //   This type of ML is used in Mozilla child processes which initialize
+  //   This type of ML is used in Plezix child processes which initialize
   //   XPCOM and use the gecko event loop.
   //
   // TYPE_MOZILLA_PARENT
-  //   This type of ML is used in Mozilla parent processes which initialize
+  //   This type of ML is used in Plezix parent processes which initialize
   //   XPCOM and use the gecko event loop.
   //
   // TYPE_MOZILLA_NONMAINTHREAD
-  //   This type of ML is used in Mozilla parent processes which initialize
+  //   This type of ML is used in Plezix parent processes which initialize
   //   XPCOM and use the nsThread event loop.
   //
   // TYPE_MOZILLA_NONMAINUITHREAD
-  //   This type of ML is used in Mozilla processes which initialize XPCOM
+  //   This type of ML is used in Plezix processes which initialize XPCOM
   //   and use TYPE_UI loop logic.
   //
   enum Type {

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -14,7 +14,7 @@ ysod:
   shown_ysod:
     type: event
     description: >
-      This event is recorded only for Firefox UI documents (chrome).
+      This event is recorded only for Plezix UI documents (chrome).
       Recorded when a Yellow Screen of Death is shown. The `value` is a
       url on which the error happened. Yellow Screen of Death happens when
       XML or XHTML document encounters a parsing error. It is commonly a
@@ -35,7 +35,7 @@ ysod:
     extra_keys:
       value:
         description: >
-          The url of the Firefox UI (chrome) document that showed the YSOD.
+          The url of the Plezix UI (chrome) document that showed the YSOD.
         type: string
       error_code:
         description: >

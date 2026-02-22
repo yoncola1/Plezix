@@ -6,7 +6,7 @@
 /**
  * This test case tests the scenario of clicking the settings menu item
  * that leads to the translations section of the about:preferences settings
- * page in Firefox.
+ * page in Plezix.
  */
 add_task(async function test_select_translations_panel_open_settings_page() {
   const { cleanup, runInPage, resolveDownloads } = await loadTestPage({

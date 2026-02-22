@@ -659,7 +659,7 @@ class IDB extends BaseAdapter {
     async execute(callback, options = { preload: [] }) {
         // Transactions in IndexedDB are autocommited when a callback does not
         // perform any additional operation.
-        // The way Promises are implemented in Firefox (see https://bugzilla.mozilla.org/show_bug.cgi?id=1193394)
+        // The way Promises are implemented in Plezix (see https://bugzilla.mozilla.org/show_bug.cgi?id=1193394)
         // prevents using within an opened transaction.
         // To avoid managing asynchronocity in the specified `callback`, we preload
         // a list of record in order to execute the `callback` synchronously.

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -487,7 +487,7 @@ nsDocLoader::OnStartRequest(nsIRequest* request) {
                "mDocumentRequest MUST be set for the duration of a page load!");
 
   // This is the only way to catch document request start event after a redirect
-  // has occurred without changing inherited Firefox behaviour significantly.
+  // has occurred without changing inherited Plezix behaviour significantly.
   // Problem description:
   // The combination of |STATE_START + STATE_IS_DOCUMENT| is only sent for
   // initial request (see |doStartDocumentLoad| call above).

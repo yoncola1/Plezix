@@ -1,7 +1,7 @@
 Permission Manager
 ==================
 
-The Firefox permission manager offers a simple way to store user preferences
+The Plezix permission manager offers a simple way to store user preferences
 (“permissions” or “exceptions”) on a per-origin basis. On the most basic level,
 a permission consists of the following:
 

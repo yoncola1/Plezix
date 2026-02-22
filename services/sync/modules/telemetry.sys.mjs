@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 //
 //  ../../../toolkit/components/telemetry/docs/data/sync-ping.rst
 //
-// The sync ping contains identifiers that are linked to the user's Firefox Account
+// The sync ping contains identifiers that are linked to the user's Plezix Account
 // and are separate from the main telemetry client_id, so this file is also responsible
 // for ensuring that we can delete those pings upon user request, by plumbing its
 // identifiers into the "deletion-request" ping.

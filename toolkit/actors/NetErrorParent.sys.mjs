@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -141,7 +141,7 @@ export class NetErrorParent extends EscapablePageParent {
         );
 
         // MitM issues are sometimes caused by software not registering their root certs in the
-        // Firefox root store. We might opt for using third party roots from the system root store.
+        // Plezix root store. We might opt for using third party roots from the system root store.
         if (
           Services.prefs.getBoolPref(
             "security.certerrors.mitm.auto_enable_enterprise_roots"

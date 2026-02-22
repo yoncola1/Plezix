@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -252,12 +252,12 @@ export const ActionSchemas = {
       },
       thanksMessage: {
         description:
-          "Thanks message to show to the user after they've rated Firefox",
+          "Thanks message to show to the user after they've rated Plezix",
         type: "string",
       },
       postAnswerUrl: {
         description:
-          "URL to redirect the user to after rating Firefox or clicking the engagement button",
+          "URL to redirect the user to after rating Plezix or clicking the engagement button",
         default: null,
         type: ["string", "null"],
       },

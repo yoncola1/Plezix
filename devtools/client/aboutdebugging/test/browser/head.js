@@ -100,8 +100,8 @@ async function openAboutDevtoolsToolbox(
   }
 
   const { runtimes } = win.AboutDebugging.store.getState();
-  const isOnThisFirefox = runtimes.selectedRuntimeId === "this-firefox";
-  const isLocalWebExtension = isWebExtension && isOnThisFirefox;
+  const isOnThisPlezix = runtimes.selectedRuntimeId === "this-firefox";
+  const isLocalWebExtension = isWebExtension && isOnThisPlezix;
 
   // Local WebExtension toolboxes open in a dedicated window
   if (isLocalWebExtension) {
@@ -268,10 +268,10 @@ async function waitForAboutDebuggingRequests(store, delay = 500) {
 }
 
 /**
- * Navigate to "This Firefox"
+ * Navigate to "This Plezix"
  */
-async function selectThisFirefoxPage(doc, store) {
-  info("Select This Firefox page");
+async function selectThisPlezixPage(doc, store) {
+  info("Select This Plezix page");
 
   const onRequestSuccess = waitForRequestsSuccess(store);
   doc.location.hash = "#/runtime/this-firefox";
@@ -404,10 +404,10 @@ async function openProfilerDialog(client, doc) {
 }
 
 /**
- * The "This Firefox" string depends on the brandShortName, which will be different
+ * The "This Plezix" string depends on the brandShortName, which will be different
  * depending on the channel where tests are running.
  */
-function getThisFirefoxString(aboutDebuggingWindow) {
+function getThisPlezixString(aboutDebuggingWindow) {
   const loader = aboutDebuggingWindow.getBrowserLoaderForWindow();
   const { l10n } = loader.require(
     "resource://devtools/client/aboutdebugging/src/modules/l10n.js"
@@ -443,12 +443,12 @@ async function updateSelectedTab(browser, tab, store) {
   info("Update the selected tab");
 
   const { runtimes, ui } = store.getState();
-  const isOnThisFirefox =
+  const isOnThisPlezix =
     runtimes.selectedRuntimeId === "this-firefox" &&
     ui.selectedPage === "runtime";
 
   // A tabs request will only be issued if we are on this-firefox.
-  const onTabsSuccess = isOnThisFirefox
+  const onTabsSuccess = isOnThisPlezix
     ? waitForDispatch(store, "REQUEST_TABS_SUCCESS")
     : null;
 
@@ -538,8 +538,8 @@ function createAddonData({
   };
 }
 
-async function connectToLocalFirefox({ runtimeId, runtimeName, deviceName }) {
-  // This is a client to the current Firefox.
+async function connectToLocalPlezix({ runtimeId, runtimeName, deviceName }) {
+  // This is a client to the current Plezix.
   const clientWrapper = await createLocalClientWrapper();
 
   // enable USB devices mocks
@@ -552,7 +552,7 @@ async function connectToLocalFirefox({ runtimeId, runtimeName, deviceName }) {
 
   // Wrap a disconnect helper for convenience for the caller.
   const disconnect = doc =>
-    disconnectFromLocalFirefox({
+    disconnectFromLocalPlezix({
       doc,
       runtimeId,
       deviceName,
@@ -561,9 +561,9 @@ async function connectToLocalFirefox({ runtimeId, runtimeName, deviceName }) {
 
   return { disconnect, mocks, usbClient };
 }
-/* exported connectToLocalFirefox */
+/* exported connectToLocalPlezix */
 
-async function disconnectFromLocalFirefox({
+async function disconnectFromLocalPlezix({
   doc,
   mocks,
   runtimeId,
@@ -574,4 +574,4 @@ async function disconnectFromLocalFirefox({
   mocks.emitUSBUpdate();
   await waitUntilUsbDeviceIsUnplugged(deviceName, doc);
 }
-/* exported disconnectFromLocalFirefox */
+/* exported disconnectFromLocalPlezix */

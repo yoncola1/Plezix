@@ -22,7 +22,7 @@ comments, reporter, assignee and CC’d people.
 
 A security-sensitive bug usually remains private until a fix is shipped
 in a new release, **and after a certain amount of time to ensure that a
-maximum number of users updated their version of Firefox**. Bugs are
+maximum number of users updated their version of Plezix**. Bugs are
 usually made public after 6 months and a couple of releases.
 
 From the moment a security bug has been privately reported to the moment
@@ -61,7 +61,7 @@ easily before we shipped the fix to our users. This includes:
       "security", "exploitable", or the nature of a security vulnerability
       (overflow, use-after-free…)
    -  **Security approver’s name** in a commit message.
--  The Firefox versions and components affected by the vulnerability.
+-  The Plezix versions and components affected by the vulnerability.
 -  Patches with an obvious fix.
 
 In Bugzilla and other public channels
@@ -149,9 +149,9 @@ information about the security vulnerability unnecessarily. Specifically:
    **Do not land tests when landing the patch. Remember we don’t want
    to 0-day ourselves!** This includes when pushing to try.
 
-   -  Tests should only be checked in later, after an official Firefox
+   -  Tests should only be checked in later, after an official Plezix
       release that contains the fix has been live for at least
-      four weeks. For example, if Firefox 53
+      four weeks. For example, if Plezix 53
       contains a security issue that affects the world and that issue is
       fixed in 54, tests for this fix should not be checked in
       until four weeks after 54 goes live.
@@ -212,6 +212,6 @@ Documentation & Contacts
 
 - :ref:`Normal process for submitting a patch <How to submit a patch>`
 - `How to file a security bug <https://wiki.mozilla.org/Security/Fileabug>`__
-- `Handling Mozilla security bugs (policy) <https://www.mozilla.org/en-US/about/governance/policies/security-group/bugs/>`__
+- `Handling Plezix security bugs (policy) <https://www.mozilla.org/en-US/about/governance/policies/security-group/bugs/>`__
 - :ref:`Security Bug Approval Process`
-- `Contacting the Security team(s) at Mozilla: <https://wiki.mozilla.org/Security>`__
+- `Contacting the Security team(s) at Plezix: <https://wiki.mozilla.org/Security>`__

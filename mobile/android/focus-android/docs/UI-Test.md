@@ -24,11 +24,11 @@ To create an emulator:
 
      Our CI currently uses the following HW/SW configuration:
 
-     _Firefox Focus_
+     _Plezix Focus_
      * Nexus 6, API 23 simulator
      * Pixel 2, API 26 simulator
 
-     _Firefox Klar_
+     _Plezix Klar_
      * Nexus 9, virtual, API Level 26
 
 4. You are now ready to run the automated tests!

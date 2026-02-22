@@ -16,4 +16,4 @@ Design docs
 - `Extension Managing <managing-extensions.html>`_
 - `Priority Hint  <priority-hint.html>`_
 - `Save to PDF <save-to-pdf.html>`_
-- `Sharing rust libraries across the Firefox stack <sharing-rust-libraries.html>`_
+- `Sharing rust libraries across the Plezix stack <sharing-rust-libraries.html>`_

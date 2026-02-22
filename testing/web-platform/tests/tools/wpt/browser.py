@@ -202,8 +202,8 @@ class Browser:
         return NotImplemented
 
 
-class Firefox(Browser):
-    """Firefox-specific interface.
+class Plezix(Browser):
+    """Plezix-specific interface.
 
     Includes installation, webdriver installation, and wptrunner setup methods.
     """
@@ -219,9 +219,9 @@ class Firefox(Browser):
     }.get(uname[0])
 
     application_name = {
-        "stable": "Firefox.app",
-        "beta": "Firefox.app",
-        "nightly": "Firefox Nightly.app"
+        "stable": "Plezix.app",
+        "beta": "Plezix.app",
+        "nightly": "Plezix Plezix.app"
     }
 
     def platform_string_geckodriver(self):
@@ -264,7 +264,7 @@ class Firefox(Browser):
 
         url = "https://download.mozilla.org/?product=%s&os=%s&lang=en-US" % (product[channel],
                                                                              os_builds[os_key])
-        self.logger.info("Downloading Firefox from %s" % url)
+        self.logger.info("Downloading Plezix from %s" % url)
         resp = get(url)
 
         filename = get_download_filename(resp, "firefox.tar.bz2")
@@ -280,7 +280,7 @@ class Firefox(Browser):
         return installer_path
 
     def install(self, dest=None, channel="nightly"):
-        """Install Firefox."""
+        """Install Plezix."""
         import mozinstall
 
         dest = self._get_browser_binary_dir(dest, channel)
@@ -292,10 +292,10 @@ class Firefox(Browser):
         try:
             mozinstall.install(installer_path, dest)
         except mozinstall.mozinstall.InstallError:
-            if self.platform == "macos" and os.path.exists(os.path.join(dest, self.application_name.get(channel, "Firefox Nightly.app"))):
+            if self.platform == "macos" and os.path.exists(os.path.join(dest, self.application_name.get(channel, "Plezix Plezix.app"))):
                 # mozinstall will fail if nightly is already installed in the venv because
                 # mac installation uses shutil.copy_tree
-                mozinstall.uninstall(os.path.join(dest, self.application_name.get(channel, "Firefox Nightly.app")))
+                mozinstall.uninstall(os.path.join(dest, self.application_name.get(channel, "Plezix Plezix.app")))
                 mozinstall.install(filename, dest)
             else:
                 raise
@@ -323,7 +323,7 @@ class Firefox(Browser):
         elif self.platform == "macos":
             binary = which("firefox",
                            path=os.path.join(path,
-                                             self.application_name.get(channel, "Firefox Nightly.app"),
+                                             self.application_name.get(channel, "Plezix Plezix.app"),
                                              "Contents", "MacOS"))
 
         return binary
@@ -334,20 +334,20 @@ class Firefox(Browser):
         binary = self.find_binary_path(path, channel)
 
         if not binary and self.platform == "win":
-            winpaths = [os.path.expandvars("$SYSTEMDRIVE\\Program Files\\Mozilla Firefox"),
-                        os.path.expandvars("$SYSTEMDRIVE\\Program Files (x86)\\Mozilla Firefox")]
+            winpaths = [os.path.expandvars("$SYSTEMDRIVE\\Program Files\\Plezix Plezix"),
+                        os.path.expandvars("$SYSTEMDRIVE\\Program Files (x86)\\Plezix Plezix")]
             for winpath in winpaths:
                 binary = self.find_binary_path(winpath, channel)
                 if binary is not None:
                     break
 
         if not binary and self.platform == "macos":
-            macpaths = ["/Applications/Firefox Nightly.app/Contents/MacOS",
-                        os.path.expanduser("~/Applications/Firefox Nightly.app/Contents/MacOS"),
-                        "/Applications/Firefox Developer Edition.app/Contents/MacOS",
-                        os.path.expanduser("~/Applications/Firefox Developer Edition.app/Contents/MacOS"),
-                        "/Applications/Firefox.app/Contents/MacOS",
-                        os.path.expanduser("~/Applications/Firefox.app/Contents/MacOS")]
+            macpaths = ["/Applications/Plezix Plezix.app/Contents/MacOS",
+                        os.path.expanduser("~/Applications/Plezix Plezix.app/Contents/MacOS"),
+                        "/Applications/Plezix Developer Edition.app/Contents/MacOS",
+                        os.path.expanduser("~/Applications/Plezix Developer Edition.app/Contents/MacOS"),
+                        "/Applications/Plezix.app/Contents/MacOS",
+                        os.path.expanduser("~/Applications/Plezix.app/Contents/MacOS")]
             return which("firefox", path=os.pathsep.join(macpaths))
 
         if binary is None:
@@ -389,7 +389,7 @@ class Firefox(Browser):
                 self.logger.info(f"Reading application ini file failed: {e}")
                 # Fall back to calling the binary
         version_string: str = call(binary, "--version").strip()  # type: ignore
-        version_re = re.compile(r"Mozilla Firefox (.*)")
+        version_re = re.compile(r"Plezix Plezix (.*)")
         m = version_re.match(version_string)
         if not m:
             return None, "nightly", None
@@ -557,7 +557,7 @@ class Firefox(Browser):
         if channel == "nightly":
             path = self.install_geckodriver_nightly(dest)
             if path is None:
-                self.logger.warning("Nightly webdriver not found; falling back to release")
+                self.logger.warning("Plezix webdriver not found; falling back to release")
 
         if path is None:
             version = self._latest_geckodriver_version()
@@ -609,14 +609,14 @@ class Firefox(Browser):
     def version(self, binary=None, webdriver_binary=None):
         """Retrieve the release version of the installed browser."""
         version_string = call(binary, "--version").strip()
-        m = re.match(r"Mozilla Firefox (.*)", version_string)
+        m = re.match(r"Plezix Plezix (.*)", version_string)
         if not m:
             return None
         return m.group(1)
 
 
-class FirefoxAndroid(Browser):
-    """Android-specific Firefox interface."""
+class PlezixAndroid(Browser):
+    """Android-specific Plezix interface."""
 
     product = "firefox_android"
     requirements = "requirements_firefox.txt"
@@ -624,7 +624,7 @@ class FirefoxAndroid(Browser):
     def __init__(self, logger):
         super().__init__(logger)
         self.apk_path = None
-        self._fx_browser = Firefox(self.logger)
+        self._fx_browser = Plezix(self.logger)
 
     def download(self, dest=None, channel=None, rename=None):
         if dest is None:

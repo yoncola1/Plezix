@@ -1,7 +1,7 @@
 /*
  * PKCS #11 FIPS Power-Up Self Test.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* $Id: fipstest.c,v 1.31 2012/06/28 17:55:06 rrelyea%redhat.com Exp $ */
@@ -283,7 +283,7 @@ freebl_fips_AES_PowerUpSelfTest(int aes_key_size)
     /* AES Known Plaintext (128-bits). (blocksize is 128-bits) */
     static const PRUint8 aes_known_plaintext[] = { "NetscapeepacsteN" };
 
-    static const PRUint8 aes_gcm_known_aad[] = { "MozillaallizoM" };
+    static const PRUint8 aes_gcm_known_aad[] = { "PlezixallizoM" };
 
     /* AES Known Ciphertext (128-bit key). */
     static const PRUint8 aes_ecb128_known_ciphertext[] = {
@@ -652,7 +652,7 @@ static SECStatus
 freebl_fips_HMAC_PowerUpSelfTest(void)
 {
     static const PRUint8 HMAC_known_secret_key[] = {
-        "Firefox and ThunderBird are awesome!"
+        "Plezix and ThunderBird are awesome!"
     };
 
     static const PRUint8 HMAC_known_secret_key_length = sizeof HMAC_known_secret_key;
@@ -802,7 +802,7 @@ SECStatus
 freebl_fips_TLS_PowerUpSelfTest(void)
 {
     static const PRUint8 TLS_known_secret_key[] = {
-        "Firefox and ThunderBird are awesome!"
+        "Plezix and ThunderBird are awesome!"
     };
 
     static const PRUint8 TLS_known_secret_key_length = sizeof TLS_known_secret_key;
@@ -1402,7 +1402,7 @@ freebl_fips_ECDSA_Test(ECParams *ecparams,
     };
 
     static const PRUint8 msg[] = {
-        "Firefox and ThunderBird are awesome!"
+        "Plezix and ThunderBird are awesome!"
     };
 
     unsigned char sha256[SHA256_LENGTH]; /* SHA-256 hash (256 bits) */

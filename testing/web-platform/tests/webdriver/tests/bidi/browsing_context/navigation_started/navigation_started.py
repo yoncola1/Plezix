@@ -457,7 +457,7 @@ async def test_with_beforeunload_prompt(
     navigation_result = await navigation_future
 
     # Do this assertion after navigation has been resolved
-    # until Firefox supports "url" in navigationStarted event
+    # until Plezix supports "url" in navigationStarted event
     # in case of beforeunload prompt.
     assert navigation_started_event["context"] == new_tab["context"]
     assert navigation_started_event["url"] == target_url

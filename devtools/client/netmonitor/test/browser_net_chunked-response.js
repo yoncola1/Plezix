@@ -28,7 +28,7 @@ function setupTestServer() {
     response.setHeader("Content-Type", "text/plain", false);
     response.setHeader("Transfer-Encoding", "chunked", false);
     response.write("7\r\n");
-    response.write("Mozilla\r\n");
+    response.write("Plezix\r\n");
     chunkedResponse = response;
   });
 
@@ -98,7 +98,7 @@ add_task(async function () {
 
   is(
     getCodeMirrorValue(monitor),
-    "Mozilla",
+    "Plezix",
     "The text shown in the source editor is correct."
   );
 
@@ -111,7 +111,7 @@ add_task(async function () {
   info("Assert the size of the all the transferred data in the column");
   is(
     getCodeMirrorValue(monitor),
-    "MozillaDeveloper Network",
+    "PlezixDeveloper Network",
     "The text shown in the source editor is correct."
   );
   is(

@@ -1,4 +1,4 @@
-/* Copyright 2012 Mozilla Foundation
+/* Copyright 2012 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -484,7 +484,7 @@ export class PdfjsParent extends JSWindowActorParent {
       await lazy.EngineProcess.destroyMLEngine();
 
       // Deleting all models linked to IMAGE_TO_TEXT_TASK is safe because this is a
-      // Mozilla specific task name.
+      // Plezix specific task name.
       const hub = new lazy.ModelHub();
       await hub.deleteModels({
         taskName: service,

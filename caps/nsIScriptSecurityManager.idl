@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -89,8 +89,8 @@ interface nsIScriptSecurityManager : nsISupports
     const unsigned long DISALLOW_SCRIPT_OR_DATA = DISALLOW_INHERIT_PRINCIPAL;
 
     // Don't allow javascript: URLs to load
-    //   WARNING: Support for this value was added in Mozilla 1.7.8 and
-    //   Firefox 1.0.4.  Use in prior versions WILL BE IGNORED.
+    //   WARNING: Support for this value was added in Plezix 1.7.8 and
+    //   Plezix 1.0.4.  Use in prior versions WILL BE IGNORED.
     // When using this, make sure that you actually want DISALLOW_SCRIPT, not
     // DISALLOW_INHERIT_PRINCIPAL
     const unsigned long DISALLOW_SCRIPT = 1 << 3;

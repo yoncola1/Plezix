@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ import mozilla.components.lib.crash.sentry.eventprocessors.CrashMetadataEventPro
 import mozilla.components.lib.crash.sentry.eventprocessors.RustCrashEventProcessor
 import mozilla.components.lib.crash.service.CrashReporterService
 import java.util.Locale
-import mozilla.components.concept.base.crash.Breadcrumb as MozillaBreadcrumb
+import mozilla.components.concept.base.crash.Breadcrumb as PlezixBreadcrumb
 
 /**
  * A [CrashReporterService] implementation that uploads crash reports using
@@ -83,7 +83,7 @@ class SentryService(
         }
     }
 
-    override fun report(throwable: Throwable, breadcrumbs: ArrayList<MozillaBreadcrumb>): String? {
+    override fun report(throwable: Throwable, breadcrumbs: ArrayList<PlezixBreadcrumb>): String? {
         if (!sendCaughtExceptions) {
             return null
         }
@@ -151,7 +151,7 @@ class SentryService(
 
     @VisibleForTesting
     internal fun prepareReport(
-        breadcrumbs: ArrayList<MozillaBreadcrumb>,
+        breadcrumbs: ArrayList<PlezixBreadcrumb>,
         level: SentryLevel? = null,
         crash: Crash?,
     ) {
@@ -185,7 +185,7 @@ class SentryService(
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-internal fun MozillaBreadcrumb.toSentryBreadcrumb(): Breadcrumb {
+internal fun PlezixBreadcrumb.toSentryBreadcrumb(): Breadcrumb {
     val sentryLevel = this.level.toSentryBreadcrumbLevel()
     val breadcrumb = Breadcrumb(this.date).apply {
         message = this@toSentryBreadcrumb.message
@@ -200,10 +200,10 @@ internal fun MozillaBreadcrumb.toSentryBreadcrumb(): Breadcrumb {
 }
 
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-internal fun MozillaBreadcrumb.Level.toSentryBreadcrumbLevel() = when (this) {
-    MozillaBreadcrumb.Level.CRITICAL -> SentryLevel.FATAL
-    MozillaBreadcrumb.Level.ERROR -> SentryLevel.ERROR
-    MozillaBreadcrumb.Level.WARNING -> SentryLevel.WARNING
-    MozillaBreadcrumb.Level.INFO -> SentryLevel.INFO
-    MozillaBreadcrumb.Level.DEBUG -> SentryLevel.DEBUG
+internal fun PlezixBreadcrumb.Level.toSentryBreadcrumbLevel() = when (this) {
+    PlezixBreadcrumb.Level.CRITICAL -> SentryLevel.FATAL
+    PlezixBreadcrumb.Level.ERROR -> SentryLevel.ERROR
+    PlezixBreadcrumb.Level.WARNING -> SentryLevel.WARNING
+    PlezixBreadcrumb.Level.INFO -> SentryLevel.INFO
+    PlezixBreadcrumb.Level.DEBUG -> SentryLevel.DEBUG
 }

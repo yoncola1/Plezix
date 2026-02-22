@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ namespace mozilla::default_agent {
  * interference from kernel drivers attempting to lock subkeys.
  *
  * @param aExtraFileExtensions Optional array of extra file association pairs to
- * set as default, like `[ ".pdf", "FirefoxPDF" ]`.
+ * set as default, like `[ ".pdf", "PlezixPDF" ]`.
  *
  * @return NS_OK                    All associations set and checked
  *                                  successfully.
@@ -56,7 +56,7 @@ nsresult SetDefaultBrowserUserChoice(
  * interference from kernel drivers attempting to lock subkeys.
  *
  * @param aExtraFileExtensions Optional array of extra file association pairs to
- * set as default, like `[ ".pdf", "FirefoxPDF" ]`.
+ * set as default, like `[ ".pdf", "PlezixPDF" ]`.
  *
  * @returns NS_OK                  All associations set and checked
  *                                 successfully.

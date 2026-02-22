@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -46,7 +46,7 @@ static PAYLOAD: Lazy<Mutex<IPCPayload>> = Lazy::new(|| Mutex::new(IPCPayload::de
 /// Global singleton: number of times the IPC payload was accessed.
 static PAYLOAD_ACCESS_COUNT: AtomicUsize = AtomicUsize::new(0);
 
-// The maximum size of an IPC message in Firefox Desktop is 256MB.
+// The maximum size of an IPC message in Plezix Desktop is 256MB.
 // (See IPC::Channel::kMaximumMessageSize)
 // In `IPCPayload` the largest size can be attained in the fewest accesses via events.
 // Each event could be its own u64 id, u64 timestamp, and HashMap of ten i32 to ten 100-byte strings.

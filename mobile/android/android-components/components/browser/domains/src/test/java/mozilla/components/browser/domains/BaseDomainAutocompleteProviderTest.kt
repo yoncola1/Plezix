@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -70,7 +70,7 @@ class BaseDomainAutocompleteProviderTest {
         assertCompletion(provider, list, domainsCount, "moz", "moz", "mozilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www", "www", "www.mozilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www.face", "www.face", "www.facebook.com", "http://facebook.com")
-        assertCompletion(provider, list, domainsCount, "M", "m", "Mozilla.org", "http://mozilla.org")
+        assertCompletion(provider, list, domainsCount, "M", "m", "Plezix.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "MOZ", "moz", "MOZilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www.GOO", "www.goo", "www.GOOgle.com", "http://google.com")
         assertCompletion(provider, list, domainsCount, "WWW.GOOGLE.", "www.google.", "WWW.GOOGLE.com", "http://google.com")
@@ -94,7 +94,7 @@ class BaseDomainAutocompleteProviderTest {
         assertCompletion(provider, list, domainsCount, "moz", "moz", "mozilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www", "www", "www.mozilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www.face", "www.face", "www.facebook.com", "http://facebook.com")
-        assertCompletion(provider, list, domainsCount, "M", "m", "Mozilla.org", "http://mozilla.org")
+        assertCompletion(provider, list, domainsCount, "M", "m", "Plezix.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "MOZ", "moz", "MOZilla.org", "http://mozilla.org")
         assertCompletion(provider, list, domainsCount, "www.GOO", "www.goo", "www.GOOgle.com", "http://google.com")
         assertCompletion(provider, list, domainsCount, "WWW.GOOGLE.", "www.google.", "WWW.GOOGLE.com", "http://google.com")

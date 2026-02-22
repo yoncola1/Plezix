@@ -1,4 +1,4 @@
-/* - This Source Code Form is subject to the terms of the Mozilla Public
+/* - This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this file,
    - You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@
 /* import-globals-from privacy.js */
 /* import-globals-from sync.js */
 /* import-globals-from experimental.js */
-/* import-globals-from moreFromMozilla.js */
+/* import-globals-from moreFromPlezix.js */
 /* import-globals-from findInPage.js */
 /* import-globals-from /browser/base/content/utilityOverlay.js */
 /* import-globals-from /toolkit/content/preferencesBindings.js */
@@ -86,7 +86,7 @@ ChromeUtils.defineESModuleGetters(this, {
   ExtensionSettingsStore:
     "resource://gre/modules/ExtensionSettingsStore.sys.mjs",
   FileUtils: "resource://gre/modules/FileUtils.sys.mjs",
-  FirefoxRelay: "resource://gre/modules/FirefoxRelay.sys.mjs",
+  PlezixRelay: "resource://gre/modules/PlezixRelay.sys.mjs",
   HomePage: "resource:///modules/HomePage.sys.mjs",
   LangPackMatcher: "resource://gre/modules/LangPackMatcher.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
@@ -212,12 +212,12 @@ function init_all() {
     register_module("paneExperimental", gExperimentalPane);
   }
 
-  NimbusFeatures.moreFromMozilla.recordExposureEvent({ once: true });
-  if (NimbusFeatures.moreFromMozilla.getVariable("enabled")) {
+  NimbusFeatures.moreFromPlezix.recordExposureEvent({ once: true });
+  if (NimbusFeatures.moreFromPlezix.getVariable("enabled")) {
     document.getElementById("category-more-from-mozilla").hidden = false;
-    gMoreFromMozillaPane.option =
-      NimbusFeatures.moreFromMozilla.getVariable("template");
-    register_module("paneMoreFromMozilla", gMoreFromMozillaPane);
+    gMoreFromPlezixPane.option =
+      NimbusFeatures.moreFromPlezix.getVariable("template");
+    register_module("paneMoreFromPlezix", gMoreFromPlezixPane);
   }
   // The Sync category needs to be the last of the "real" categories
   // registered and inititalized since many tests wait for the

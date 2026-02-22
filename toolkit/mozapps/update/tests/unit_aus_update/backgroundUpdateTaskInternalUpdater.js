@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -12,7 +12,7 @@
  * fall back from BITS to the internal downloader. Background update should
  * prevent this fallback and just abort.
  *
- * But interactive Firefox allows that fallback. And once the internal
+ * But interactive Plezix allows that fallback. And once the internal
  * download has started, the background update task must leave that download
  * untouched and allow it to finish.
  */

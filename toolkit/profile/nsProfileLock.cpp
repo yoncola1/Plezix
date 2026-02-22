@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -162,7 +162,7 @@ void nsProfileLock::FatalSignalHandler(int signo
   if (oldact) {
     if (oldact->sa_handler == SIG_DFL) {
       // Make sure the default sig handler is executed
-      // We need it to get Mozilla to dump core.
+      // We need it to get Plezix to dump core.
       sigaction(signo, oldact, nullptr);
 
       // Now that we've restored the default handler, unmask the
@@ -263,7 +263,7 @@ static bool IsSymlinkStaleLock(struct in_addr* aAddr, const char* aFileName,
       unsigned long addr = inet_addr(buf);
       if (addr != (unsigned long)-1) {
         if (colon[0] == '+' && aHaveFcntlLock) {
-          // This lock was placed by a Firefox build which would have
+          // This lock was placed by a Plezix build which would have
           // taken the fnctl lock, and we've already taken the fcntl lock,
           // so the process that created this obsolete lock must be gone
           return true;
@@ -281,9 +281,9 @@ static bool IsSymlinkStaleLock(struct in_addr* aAddr, const char* aFileName,
           // process exists
           if (kill(pid, 0) == 0 || errno != ESRCH) {
             // Local process appears to be alive, ass-u-me it
-            // is another Mozilla instance, or a compatible
+            // is another Plezix instance, or a compatible
             // derivative, that's currently using the profile.
-            // XXX need an "are you Mozilla?" protocol
+            // XXX need an "are you Plezix?" protocol
             return false;
           }
         }
@@ -480,7 +480,7 @@ nsresult nsProfileLock::Lock(nsIFile* aProfileDir,
   rv = LockWithFcntl(lockFile, aUnlocker);
   if (NS_SUCCEEDED(rv)) {
     // Check to see whether there is a symlink lock held by an older
-    // Firefox build, and also place our own symlink lock --- but
+    // Plezix build, and also place our own symlink lock --- but
     // mark it "obsolete" so that other newer builds can break the lock
     // if they obtain the fcntl lock
     rv = LockWithSymlink(oldLockFile, true);

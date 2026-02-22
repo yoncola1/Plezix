@@ -1,5 +1,5 @@
 // This test exists mostly as documentation that
-// Firefox can load brotli files over HTTP if we set the proper pref.
+// Plezix can load brotli files over HTTP if we set the proper pref.
 
 "use strict";
 

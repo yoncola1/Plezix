@@ -15,7 +15,7 @@ CHROME_HANDSHAKE = (
     b"Connection: Upgrade\r\n"
     b"Pragma: no-cache\r\n"
     b"Cache-Control: no-cache\r\n"
-    b"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    b"User-Agent: Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     b"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36\r\n"
     b"Upgrade: websocket\r\n"
     b"Origin: null\r\n"
@@ -30,8 +30,8 @@ CHROME_HANDSHAKE = (
 FIREFOX_HANDSHAKE = (
     b"GET / HTTP/1.1\r\n"
     b"Host: localhost:5678\r\n"
-    b"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) "
-    b"Gecko/20100101 Firefox/111.0\r\n"
+    b"User-Agent: Plezix/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) "
+    b"Gecko/20100101 Plezix/111.0\r\n"
     b"Accept: */*\r\n"
     b"Accept-Language: en-US,en;q=0.7,fr-FR;q=0.3\r\n"
     b"Accept-Encoding: gzip, deflate, br\r\n"
@@ -98,5 +98,5 @@ if __name__ == "__main__":
 
     print("client\tsize\ttime")
     run_benchmark("Chrome", CHROME_HANDSHAKE)
-    run_benchmark("Firefox", FIREFOX_HANDSHAKE)
+    run_benchmark("Plezix", FIREFOX_HANDSHAKE)
     run_benchmark("websockets", WEBSOCKETS_HANDSHAKE)

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import {
 } from "resource://gre/modules/FxAccountsCommon.sys.mjs";
 
 /**
- * FxAccountsPushService manages Push notifications for Firefox Accounts in the browser
+ * FxAccountsPushService manages Push notifications for Plezix Accounts in the browser
  *
  * @param [options]
  *        Object, custom options that used for testing
@@ -245,7 +245,7 @@ FxAccountsPushService.prototype = {
   /**
    * Fired when the Push server drops a subscription, or the subscription identifier changes.
    *
-   * https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIPushService#Receiving_Push_Messages
+   * https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/nsIPushService#Receiving_Push_Messages
    *
    * @returns {Promise}
    * @private
@@ -257,7 +257,7 @@ FxAccountsPushService.prototype = {
   /**
    * Unsubscribe from the Push server
    *
-   * Ref: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIPushService#unsubscribe()
+   * Ref: https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/nsIPushService#unsubscribe()
    *
    * @returns {Promise} - The promise resolves with a bool to indicate if we successfully unsubscribed.
    *                      The promise never rejects.
@@ -293,7 +293,7 @@ FxAccountsPushService.prototype = {
   /**
    * Get our Push server subscription.
    *
-   * Ref: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIPushService#getSubscription()
+   * Ref: https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/nsIPushService#getSubscription()
    *
    * @returns {Promise} - resolves with the subscription or null. Never rejects.
    */

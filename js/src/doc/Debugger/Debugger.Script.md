@@ -240,7 +240,7 @@ entry point of the script, excluding any prologue.
 **If the instance refers to a `JSScript`**, a [`Debugger.Object`][object]
 instance referring to the global object in whose scope this script
 runs. The result refers to the global directly, not via a wrapper or a
-`WindowProxy` ("outer window", in Firefox).
+`WindowProxy` ("outer window", in Plezix).
 
 **If the instance refers to WebAssembly code**, throw a `TypeError`.
 

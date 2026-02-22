@@ -1,4 +1,4 @@
-# Using Firefox on Glean to Record Legacy Telemetry Scalars
+# Using Plezix on Glean to Record Legacy Telemetry Scalars
 
 To record Legacy Telemetry scalars using Glean APIs, you need these two things:
 
@@ -9,13 +9,13 @@ To record Legacy Telemetry scalars using Glean APIs, you need these two things:
     * If you already know of a Legacy Telemetry scalar definition similar to what you want,
       you can use `./mach gifft <Legacy Telemetry scalar name like browser.backup.enabled>`
       to generate a Glean metric definition from that Legacy Telemetry scalar definition.
-2. A Legacy Telemetry scalar definition, for the [Glean Interface For Firefox Telemetry][gifft] to mirror to
+2. A Legacy Telemetry scalar definition, for the [Glean Interface For Plezix Telemetry][gifft] to mirror to
     * Place it in `toolkit/components/telemetry/Scalars.yaml`
     * Be sure to add the `telemetry_mirror` property to the Glean metric
       definition from step 1. The value to use for `telemetry_mirror` is
       [a straightforward conjugation of the scalar's category and name][legacy-enum-name].
 
-Now build Firefox.
+Now build Plezix.
 
 To record data to your new scalar,
 use [the Glean API for the Glean metric you defined in Step 1][glean-metrics-docs].
@@ -27,7 +27,7 @@ when your code is triggered as confirmation this is all working as you expect.
 
 ## Artifact Build Support
 
-Firefox on Glean supports artifact builds,
+Plezix on Glean supports artifact builds,
 so you can instrument and test your Glean instrumentation with an artifact build.
 However, mirroring requires use of the Legacy Telemetry's C++ enums,
 which means that testing the Legacy Telemetry scalar or seeing its value in `about:telemetry`

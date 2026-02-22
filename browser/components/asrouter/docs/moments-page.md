@@ -1,7 +1,7 @@
 # Moments Page
 
 ## What are Moments pages?
-Moments Page is a web page URL that’s loaded for existing Firefox Desktop users on subsequent startup for user profiles meeting the targeting specified in moments message config.
+Moments Page is a web page URL that’s loaded for existing Plezix Desktop users on subsequent startup for user profiles meeting the targeting specified in moments message config.
 
 Moments Pages are different from WNP (What’s New Page) that shows up when users update to a new major version based on configurations built into the executable for that channel/build. Moments are shown outside of an upgrade on regular restarts and are remotely configurable via Messaging System.
 

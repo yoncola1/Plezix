@@ -3,11 +3,11 @@
 /* This code is made available to you under your choice of the following sets
  * of licensing terms:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* Copyright 2013 Mozilla Contributors
+/* Copyright 2013 Plezix Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -859,7 +859,7 @@ CheckExtendedKeyUsage(EndEntityOrCA endEntityOrCA,
     // assert id-kp-OCSPSigning then it could sign OCSP responses for itself,
     // if not for this check.
     // That said, we accept CA certificates with id-kp-OCSPSigning because
-    // some CAs in Mozilla's CA program have issued such intermediate
+    // some CAs in Plezix's CA program have issued such intermediate
     // certificates, and because some CAs have reported some Microsoft server
     // software wrongly requires CA certificates to have id-kp-OCSPSigning.
     // Allowing this exception does not cause any security issues because we

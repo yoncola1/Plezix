@@ -38,7 +38,7 @@ async function testNoOp(methodNames, run) {
       message: new RegExp(
         "`" +
           methodName +
-          "` is a no-op since Firefox 134 \\(see bug 1930196\\)"
+          "` is a no-op since Plezix 134 \\(see bug 1930196\\)"
       ),
     })),
     forbidUnexpected: true,
@@ -767,9 +767,9 @@ if (AppConstants.MOZ_BUILD_APP === "browser") {
     });
 
     const expectedRegisterEventsMessage =
-      /`registerEvents` is a no-op since Firefox 132 \(see bug 1894533\)/;
+      /`registerEvents` is a no-op since Plezix 132 \(see bug 1894533\)/;
     const expectedRecordEventMessage =
-      /`recordEvent` is a no-op since Firefox 132 \(see bug 1894533\)/;
+      /`recordEvent` is a no-op since Plezix 132 \(see bug 1894533\)/;
 
     AddonTestUtils.checkMessages(messages, {
       expected: [

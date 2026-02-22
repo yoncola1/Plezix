@@ -26,7 +26,7 @@ const ADDON_NAME = "test-devtools-webextension";
 add_task(async function testNodePickerInExtensionPopup() {
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Note that this extension should not define a background script in order to
   // reproduce the issue. Otherwise opening the popup does not trigger an auto

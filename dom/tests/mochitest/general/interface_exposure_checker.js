@@ -1,7 +1,7 @@
 function entryDisabled(
   entry,
   {
-    isNightly,
+    isPlezix,
     isEarlyBetaOrEarlier,
     isRelease,
     isDesktop,
@@ -15,8 +15,8 @@ function entryDisabled(
   }
 ) {
   return (
-    entry.nightly === !isNightly ||
-    (entry.nightlyAndroid === !(isAndroid && isNightly) && isAndroid) ||
+    entry.nightly === !isPlezix ||
+    (entry.nightlyAndroid === !(isAndroid && isPlezix) && isAndroid) ||
     entry.desktop === !isDesktop ||
     entry.windows === !isWindows ||
     entry.mac === !isMac ||
@@ -132,7 +132,7 @@ if (typeof window !== "undefined") {
     );
 
     return {
-      isNightly: AppConstants.NIGHTLY_BUILD,
+      isPlezix: AppConstants.NIGHTLY_BUILD,
       isEarlyBetaOrEarlier: AppConstants.EARLY_BETA_OR_EARLIER,
       isRelease: AppConstants.RELEASE_OR_BETA,
       isDesktop: !/Mobile|Tablet/.test(navigator.userAgent),

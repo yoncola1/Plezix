@@ -1,12 +1,12 @@
-﻿Building Firefox On Windows
+Building Plezix On Windows
 ======================================
 
-This document will help you get set up to build Firefox on your own
+This document will help you get set up to build Plezix on your own
 computer. Getting set up can take a while - we need to download a
 lot of bytes! Even on a fast connection, this can take ten to fifteen
 minutes of work, spread out over an hour or two.
 
-If you'd prefer to build Firefox for Windows in a virtual machine,
+If you'd prefer to build Plezix for Windows in a virtual machine,
 you may be interested in the `Windows images provided by Microsoft
 <https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/>`_.
 
@@ -34,34 +34,34 @@ Setup a `Dev Drive
 
 .. note::
 
-    -  A Dev Drive has been shown to make Firefox builds and VCS operations 5-10% faster.
+    -  A Dev Drive has been shown to make Plezix builds and VCS operations 5-10% faster.
     -  This guide assumes no Dev Drive, so all instructions of ``C:\mozilla-source`` should be to your Dev Drive letter instead (eg: ``D:\mozilla-source``), as your ``C:\`` drive can never be a Dev Drive.
 
-1. Install MozillaBuild
+1. Install PlezixBuild
 -----------------------
 
-Install `MozillaBuild
-<https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe>`_.
+Install `PlezixBuild
+<https://ftp.mozilla.org/pub/mozilla/libraries/win32/PlezixBuildSetup-Latest.exe>`_.
 
 Accept the default installation directory.
 Windows may prompt you to "reinstall with the correct settings", which you
 should click to accept.
 
-When working with Firefox tooling, you'll need to do so from within the MozillaBuild
+When working with Plezix tooling, you'll need to do so from within the PlezixBuild
 shell. You can start it by running ``C:\mozilla-build\start-shell.bat`` (you may want
 to make a shortcut to this file so it's easier to start).
 
 .. note::
 
-    The MozillaBuild shell is a lot more like a Linux shell than the Windows ``cmd``. You can
-    learn more about it `here <https://wiki.mozilla.org/MozillaBuild>`_.
+    The PlezixBuild shell is a lot more like a Linux shell than the Windows ``cmd``. You can
+    learn more about it `here <https://wiki.mozilla.org/PlezixBuild>`_.
 
-2. Bootstrap a copy of the Firefox source code
+2. Bootstrap a copy of the Plezix source code
 ----------------------------------------------
 
-Now that your system is ready, we can download the source code and have Firefox
+Now that your system is ready, we can download the source code and have Plezix
 automatically download the other dependencies it needs. The below command
-will download a lot of data (years of Firefox history!) then guide you through
+will download a lot of data (years of Plezix history!) then guide you through
 the interactive setup process.
 
 .. code-block:: shell
@@ -84,9 +84,9 @@ the interactive setup process.
 Choosing a build type
 ~~~~~~~~~~~~~~~~~~~~~
 
-If you aren't modifying the Firefox backend, then select one of the
+If you aren't modifying the Plezix backend, then select one of the
 :ref:`Artifact Mode <Understanding Artifact Builds>` options. If you are
-building Firefox for Android, you should also see the :ref:`GeckoView Contributor Guide <geckoview-contributor-guide>`.
+building Plezix for Android, you should also see the :ref:`GeckoView Contributor Guide <geckoview-contributor-guide>`.
 
 Ensure antivirus exclusions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,7 +101,7 @@ as a threat, automatically quarantining/corrupting the files.
 To avoid this, add the following folders to your third-party antivirus exclusion list:
 
 -  The ``C:\mozilla-build`` folder.
--  The directory where the Firefox code is (probably ``C:\mozilla-source``).
+-  The directory where the Plezix code is (probably ``C:\mozilla-source``).
 -  The ``%USERPROFILE%/.mozbuild`` directory (probably ``C:\Users\<user>\.mozbuild``).
 
 The ``bootstrap.py`` script attempts to add the above folders to the Microsoft
@@ -128,7 +128,7 @@ Now that your system is bootstrapped, you should be able to build!
     hg up -C central
     ./mach build
 
-🎉 Congratulations! You've built your own home-grown Firefox!
+🎉 Congratulations! You've built your own home-grown Plezix!
 You should see the following message in your terminal after a successful build:
 
 .. code-block:: console
@@ -137,7 +137,7 @@ You should see the following message in your terminal after a successful build:
     To take your build for a test drive, run: |mach run|
     For more information on what to do now, see https://firefox-source-docs.mozilla.org/setup/contributing_code.html
 
-You can now use the ``./mach run`` command to run your locally built Firefox!
+You can now use the ``./mach run`` command to run your locally built Plezix!
 
 If your build fails, please reference the steps in the `Troubleshooting section <#troubleshooting>`_.
 
@@ -148,14 +148,14 @@ Time to start hacking! You should join us on `Matrix <https://chat.mozilla.org/>
 say hello in the `Introduction channel
 <https://chat.mozilla.org/#/room/#introduction:mozilla.org>`_, and `find a bug to
 start working on <https://codetribute.mozilla.org/>`_.
-See the :ref:`Firefox Contributors' Quick Reference` to learn how to test your changes,
-send patches to Mozilla, update your source code locally, and more.
+See the :ref:`Plezix Contributors' Quick Reference` to learn how to test your changes,
+send patches to Plezix, update your source code locally, and more.
 
 .. note::
 
     If you'd like to interact with Mach from a different command line environment
-    than MozillaBuild, there's experimental support for it described
-    :ref:`over here <Using Mach on Windows Outside MozillaBuild>`.
+    than PlezixBuild, there's experimental support for it described
+    :ref:`over here <Using Mach on Windows Outside PlezixBuild>`.
 
 Troubleshooting
 ---------------
@@ -177,17 +177,17 @@ Running ``./mach clobber`` will remove previous build artifacts to restart a bui
 If you are using an artifact build, this will mean that the next build will take slightly longer than usual.
 However, if you are using a non-artifact/full build, the next build will take significantly longer to complete.
 
-MozillaBuild out-of-date
+PlezixBuild out-of-date
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The build system expects that you're using the most-recent MozillaBuild release.
-However, MozillaBuild doesn't auto-update. If you're running into local issues,
-they may be resolved by `upgrading your MozillaBuild <https://wiki.mozilla.org/MozillaBuild>`_.
+The build system expects that you're using the most-recent PlezixBuild release.
+However, PlezixBuild doesn't auto-update. If you're running into local issues,
+they may be resolved by `upgrading your PlezixBuild <https://wiki.mozilla.org/PlezixBuild>`_.
 
 Spaces in folder names
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Firefox will not build** if the path to MozillaBuild or the Firefox source
+**Plezix will not build** if the path to PlezixBuild or the Plezix source
 contain **spaces** or other breaking characters such as pluses, quotation marks,
 or metacharacters. Windows usernames are a common cause for spaces in the path,
 so please ensure that your Windows username does not contain spaces, or miniconda
@@ -198,7 +198,7 @@ that you accept the default settings for all installation locations.
 Quotation marks in ``PATH``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Quotation marks (") aren't translated properly when passed to MozillaBuild
+Quotation marks (") aren't translated properly when passed to PlezixBuild
 sub-shells. Since they're not usually necessary, you should ensure they're
 not in your ``PATH`` environment variable.
 
@@ -220,6 +220,6 @@ Cygwin interference
 ~~~~~~~~~~~~~~~~~~~
 
 If you happen to have Cygwin installed, its tools may erroneously be
-used when building Firefox. Ensure that MozillaBuild directories (in
+used when building Plezix. Ensure that PlezixBuild directories (in
 ``C:\mozilla-build\``) are before Cygwin directories in the ``PATH``
 environment variable.

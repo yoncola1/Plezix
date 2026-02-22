@@ -54,7 +54,7 @@ const address2 = [
     "given-name": "John",
     "additional-name": "R.",
     "family-name": "Smith",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address":
       "Geb\u00E4ude 3, 4. Obergeschoss\nSchlesische Stra\u00DFe 27",
     "address-level2": "Berlin",

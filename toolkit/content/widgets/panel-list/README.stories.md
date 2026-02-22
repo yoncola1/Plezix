@@ -51,7 +51,7 @@ be brought up to our design systems standards.
 
 The source for `panel-list` can be found under
 [toolkit/content/widgets/panel-list/panel-list.js](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/panel-list/panel-list.js).
-You can find an examples of `panel-list` in use in the Firefox codebase in both
+You can find an examples of `panel-list` in use in the Plezix codebase in both
 [about:addons](https://searchfox.org/mozilla-central/rev/6f4bc07bd9eb07ed34774841ecf3b1f3678791e8/toolkit/mozapps/extensions/content/aboutaddons.html#209,252,280)
 and the
 [migration-wizard](https://searchfox.org/mozilla-central/rev/6f4bc07bd9eb07ed34774841ecf3b1f3678791e8/browser/components/migration/content/migration-wizard.mjs#443).
@@ -270,4 +270,4 @@ grow larger than its containing window if needed.
 </panel-list>
 ```
 
-As of February 2024 submenus are only in use in Firefox View and support for nesting beyond one submenu may be limited.
+As of February 2024 submenus are only in use in Plezix View and support for nesting beyond one submenu may be limited.

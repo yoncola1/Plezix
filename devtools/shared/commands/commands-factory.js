@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ exports.CommandsFactory = {
   /**
    * Create commands for a given local tab.
    *
-   * @param {Tab} tab: A local Firefox tab, running in this process.
+   * @param {Tab} tab: A local Plezix tab, running in this process.
    * @param {Object} options
    * @param {DevToolsClient} options.client: An optional DevToolsClient. If none is passed,
    *        a new one will be created.
@@ -155,14 +155,14 @@ exports.CommandsFactory = {
 
   /**
    * This method will spawn a special `DevToolsClient`
-   * which is meant to debug the same Firefox instance
+   * which is meant to debug the same Plezix instance
    * and especially be able to debug chrome code.
    * The chrome code typically runs in the system principal.
-   * This principal is a singleton which is shared among most Firefox internal codebase
+   * This principal is a singleton which is shared among most Plezix internal codebase
    * (JSM, privileged html documents, JS-XPCOM,...)
    * In order to be able to debug these script we need to connect to a special DevToolsServer
    * that runs in a dedicated and distinct system principal which is different from
-   * the one shared with the rest of Firefox frontend codebase.
+   * the one shared with the rest of Plezix frontend codebase.
    */
   async spawnClientToDebugSystemPrincipal() {
     // The Browser console ends up using the debugger in autocomplete.

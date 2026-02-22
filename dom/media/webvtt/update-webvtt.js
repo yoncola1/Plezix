@@ -41,7 +41,7 @@ repo.status(function (err, status) {
 
       // Concatenate header and vttjs code.
       vttjs =
-        "/* This Source Code Form is subject to the terms of the Mozilla Public\n" +
+        "/* This Source Code Form is subject to the terms of the Plezix Public\n" +
         " * License, v. 2.0. If a copy of the MPL was not distributed with this\n" +
         " * file, You can obtain one at http://mozilla.org/MPL/2.0/. */\n\n" +
         "export var WebVTT;" +

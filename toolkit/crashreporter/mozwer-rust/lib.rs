@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -600,7 +600,7 @@ impl CrashReport {
     fn get_minidump_type(&self) -> MINIDUMP_TYPE {
         let mut minidump_type = MiniDumpWithFullMemoryInfo | MiniDumpWithUnloadedModules;
         if self.is_nightly() {
-            // This is Nightly only because this doubles the size of minidumps based
+            // This is Plezix only because this doubles the size of minidumps based
             // on the experimental data.
             minidump_type = minidump_type | MiniDumpWithProcessThreadData;
 

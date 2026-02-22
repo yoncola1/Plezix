@@ -9,7 +9,7 @@
   - Bump `once_cell` to 1.21
 
 ## fluent-fallback 0.7.1 (March 16, 2024)
-  - This is a 'safe harbor' release prior to bringing on non-Mozilla community maintainers
+  - This is a 'safe harbor' release prior to bringing on non-Plezix community maintainers
   - Migrate to `pin_cell` crate
   - Workspace: Update to Rust 2021
   - Workspace: Add various missing documentation and fix typos and links

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -50,7 +50,7 @@ import org.mozilla.fenix.theme.ThemeManager
  * Builds the toolbar object used with the 3-dot menu in the browser fragment.
  * @param context a [Context] for accessing system resources.
  * @param store reference to the application's [BrowserStore].
- * @param hasAccountProblem If true, there was a problem signing into the Firefox account.
+ * @param hasAccountProblem If true, there was a problem signing into the Plezix account.
  * @param onItemTapped Called when a menu item is tapped.
  * @param lifecycleOwner View lifecycle owner used to determine when to cancel UI jobs.
  * @param bookmarksStorage Used to check if a page is bookmarked.
@@ -178,8 +178,8 @@ open class DefaultToolbarMenu(
      */
     @VisibleForTesting(otherwise = PRIVATE)
     fun shouldShowOpenInRegularTab(): Boolean = selectedSession?.let { session ->
-        // This feature is gated behind Nightly for the time being.
-        Config.channel.isNightlyOrDebug &&
+        // This feature is gated behind Plezix for the time being.
+        Config.channel.isPlezixOrDebug &&
             // This feature is explicitly for users opening links in private tabs.
             context.settings().openLinksInAPrivateTab &&
             // and is only visible in private tabs.

@@ -33,7 +33,7 @@ const PROFILE = {
 };
 
 const IMPORTED_ADDON_1 = {
-  name: "A Firefox extension",
+  name: "A Plezix extension",
   version: "1.0",
   browser_specific_settings: { gecko: { id: "some-ff@extension" } },
 };
@@ -68,7 +68,7 @@ const mockAddonRepository = ({ addons = [] } = {}) => {
 add_setup(async function setup() {
   await AddonTestUtils.promiseStartupManager();
 
-  // Create a Firefox XPI that we can use during the import.
+  // Create a Plezix XPI that we can use during the import.
   const xpi = AddonTestUtils.createTempWebExtensionFile({
     manifest: IMPORTED_ADDON_1,
   });

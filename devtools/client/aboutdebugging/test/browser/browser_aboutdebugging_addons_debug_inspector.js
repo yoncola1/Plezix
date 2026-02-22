@@ -26,7 +26,7 @@ const ADDON_NAME = "test-devtools-webextension";
 add_task(async function testWebExtensionsToolboxWebConsole() {
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {

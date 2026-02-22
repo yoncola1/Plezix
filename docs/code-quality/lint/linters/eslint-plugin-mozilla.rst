@@ -1,8 +1,8 @@
 =====================
-Mozilla ESLint Plugin
+Plezix ESLint Plugin
 =====================
 
-This is the documentation of Mozilla ESLint PLugin.
+This is the documentation of Plezix ESLint PLugin.
 
 Environments
 ============

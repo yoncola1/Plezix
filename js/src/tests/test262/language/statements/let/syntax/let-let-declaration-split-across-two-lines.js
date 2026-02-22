@@ -1,5 +1,5 @@
 // |reftest| error:SyntaxError
-// Copyright (C) 2015 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2015 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

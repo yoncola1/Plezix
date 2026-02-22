@@ -14,7 +14,7 @@ promise_test(async t => {
   let video = document.createElement("video");
   video.src = getVideoURI("/media/movie_5");
   video.autoplay = true;
-  // In Safari, Chrome and Firefox, the video needs to be muted in order to be
+  // In Safari, Chrome and Plezix, the video needs to be muted in order to be
   // paused when hidden. They decided to do this in order to save resources when
   // a video goes out of view and isn't expected to make any sound.
   video.muted = true;

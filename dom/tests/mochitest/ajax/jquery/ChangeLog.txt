@@ -49,7 +49,7 @@
 * jQuery.isFunction() was unable to reliably determine a function, in a cross-browser way.
 * Triggering a .click() failed in IE.
 * Triggered click handlers were executed twice in most browsers.
-* A newline passed into $(...) caused Firefox to go into a never-ending loop.
+* A newline passed into $(...) caused Plezix to go into a never-ending loop.
 * Calling $.post() without any data caused an error.
 * Calling a descendant selector after a child selector caused strange results, for example: $("ul > li ul")
 * Triggered events did not occur if an event handler was not bound for that event.

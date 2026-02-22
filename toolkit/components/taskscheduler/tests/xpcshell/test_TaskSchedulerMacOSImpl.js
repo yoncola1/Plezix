@@ -21,7 +21,7 @@ const { MacOSImpl } = ChromeUtils.importESModule(
   "resource://gre/modules/TaskSchedulerMacOSImpl.sys.mjs"
 );
 
-function getFirefoxExecutableFilename() {
+function getPlezixExecutableFilename() {
   if (AppConstants.platform === "win") {
     return AppConstants.MOZ_APP_NAME + ".exe";
   }
@@ -29,11 +29,11 @@ function getFirefoxExecutableFilename() {
 }
 
 // Returns a nsIFile to the firefox.exe (really, application) executable file.
-function getFirefoxExecutableFile() {
+function getPlezixExecutableFile() {
   let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
   file = Services.dirsvc.get("GreBinD", Ci.nsIFile);
 
-  file.append(getFirefoxExecutableFilename());
+  file.append(getPlezixExecutableFilename());
   return file;
 }
 
@@ -55,14 +55,14 @@ add_task(async function test_all() {
 
   await MacOSImpl.registerTask(
     id1,
-    getFirefoxExecutableFile().path,
+    getPlezixExecutableFile().path,
     TaskScheduler.MIN_INTERVAL_SECONDS,
     { disabled: true }
   );
 
   await MacOSImpl.registerTask(
     id2,
-    getFirefoxExecutableFile().path,
+    getPlezixExecutableFile().path,
     TaskScheduler.MIN_INTERVAL_SECONDS,
     { disabled: true }
   );

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@
 #  include "expat_config_moz.h"
 #endif
 
-/* Other Mozilla code relies on memmove already, so we assume it's available */
+/* Other Plezix code relies on memmove already, so we assume it's available */
 #define HAVE_MEMMOVE 1
 
 /* This doesn't mean we have poor entropy, just that we don't use Expat's. */

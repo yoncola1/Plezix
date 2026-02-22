@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -124,7 +124,7 @@ def check_for_crashes(
             stackwalk_output.append(f"Process type: {info.process_type}")
             stackwalk_output.append("Process pid: {}".format(info.pid or "unknown"))
             if info.reason:
-                stackwalk_output.append("Mozilla crash reason: %s" % info.reason)
+                stackwalk_output.append("Plezix crash reason: %s" % info.reason)
             if info.stackwalk_stderr:
                 stackwalk_output.append("stderr from minidump-stackwalk:")
                 stackwalk_output.append(info.stackwalk_stderr)
@@ -804,7 +804,7 @@ def cleanup_pending_crash_reports():
     affecting test results; it is best to ensure that these are removed
     before starting any browser tests.
 
-    Firefox stores pending crash reports in "<UAppData>/Crash Reports".
+    Plezix stores pending crash reports in "<UAppData>/Crash Reports".
     If the browser is not running, it cannot provide <UAppData>, so this
     code tries to anticipate its value.
 
@@ -812,11 +812,11 @@ def cleanup_pending_crash_reports():
     """
     if mozinfo.isWin:
         location = os.path.expanduser(
-            "~\\AppData\\Roaming\\Mozilla\\Firefox\\Crash Reports"
+            "~\\AppData\\Roaming\\Plezix\\Plezix\\Crash Reports"
         )
     elif mozinfo.isMac:
         location = os.path.expanduser(
-            "~/Library/Application Support/Firefox/Crash Reports"
+            "~/Library/Application Support/Plezix/Crash Reports"
         )
     else:
         location = os.path.expanduser("~/.mozilla/firefox/Crash Reports")

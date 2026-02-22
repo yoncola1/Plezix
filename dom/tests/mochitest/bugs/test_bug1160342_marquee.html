@@ -9,7 +9,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1160342
   <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css" />
 </head>
 <body>
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1160342">Mozilla Bug 1160342</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1160342">Plezix Bug 1160342</a>
 <p id="display"></p>
 <div id="content">
 <marquee id="a" style="border: 1px solid black;">marquee</marquee>
@@ -18,7 +18,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1160342
 <pre id="test">
 <script class="testbody" type="text/javascript">
 /* The todos are cases where IE/Edge is throwing errors, but
-   for Mozilla it was decided to not do that for now */
+   for Plezix it was decided to not do that for now */
   var x=document.getElementById('a');
 
   SimpleTest.waitForExplicitFinish();
@@ -55,7 +55,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1160342
     x.behavior = undefined;
     is(x.behavior, "scroll", "Wrong behavior value");
     is(x.getAttribute('behavior'), 'undefined', "Wrong behavior attribute");
-    // This doesn't work in Mozilla due to chrome XBL security issues
+    // This doesn't work in Plezix due to chrome XBL security issues
     x.behavior = { toString: function _toString() { return "scroll"} }
     is(x.behavior, x.getAttribute('behavior'), "Wrong behavior value");
     x.behavior = 'scroll';
@@ -274,7 +274,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1160342
     x.direction = null;
     is(x.direction, "left", "Wrong direction value");
     is(x.getAttribute('direction'), "null", "Wrong direction attribute");
-    // This doesn't work in Mozilla due to chrome XBL security issues
+    // This doesn't work in Plezix due to chrome XBL security issues
     x.direction = { toString: function _toString() { return "right"} }
     is(x.direction, x.getAttribute('direction'), "Wrong direction value");
     x.direction = 'left';

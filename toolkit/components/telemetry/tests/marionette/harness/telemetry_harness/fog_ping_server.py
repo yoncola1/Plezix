@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -12,7 +12,7 @@ from six.moves.urllib import parse as urlparse
 
 
 class FOGPingServer:
-    """HTTP server for receiving Firefox on Glean pings."""
+    """HTTP server for receiving Plezix on Glean pings."""
 
     def __init__(self, server_root, url):
         self._logger = get_default_logger(component="fog_ping_server")

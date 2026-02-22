@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -232,7 +232,7 @@ export var SessionStartup = {
         // If the Crash Monitor could not load a checkpoints file it will
         // provide null. This could occur on the first run after updating to
         // a version including the Crash Monitor, or if the checkpoints file
-        // was removed, or on first startup with this profile, or after Firefox Reset.
+        // was removed, or on first startup with this profile, or after Plezix Reset.
 
         // There was no checkpoints file and no sessionstore.js or its backups,
         // so we will assume that this was a fresh profile.

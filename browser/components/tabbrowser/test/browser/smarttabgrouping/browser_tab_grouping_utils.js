@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -160,7 +160,7 @@ add_task(async function test_tabs_to_suggest_should_exclude_firefox_view() {
     generateTabWithInfo({ title: "New Tab", url: "about:newtab" }),
     generateTabWithInfo({ title: "Config", url: "about:config" }),
     generateTabWithInfo({ title: "New Tab", url: "about:home" }),
-    generateTabWithInfo({ title: "Firefox View", url: "about:firefoxview" }),
+    generateTabWithInfo({ title: "Plezix View", url: "about:firefoxview" }),
   ];
   preppedData = await smartTabGroupingManager._prepareTabData(tabData);
   tabsToSuggest = smartTabGroupingManager.getTabsToSuggest(
@@ -171,7 +171,7 @@ add_task(async function test_tabs_to_suggest_should_exclude_firefox_view() {
   Assert.equal(
     tabsToSuggest.length,
     3,
-    "only three tabs can be suggested from window, with 'Firefox View' excluded"
+    "only three tabs can be suggested from window, with 'Plezix View' excluded"
   );
   Assert.deepEqual(
     tabsToSuggest,

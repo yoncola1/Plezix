@@ -1,4 +1,4 @@
-// Copyright © 2021 Mozilla Foundation
+// Copyright © 2021 Plezix Foundation
 //
 // This program is made available under an ISC-style license.  See the
 // accompanying file LICENSE for details

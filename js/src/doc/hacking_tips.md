@@ -1,6 +1,6 @@
 # Hacking Tips
 
-**These tips were archived from [MDN](https://mdn-archive.mossop.dev/en-US/docs/Mozilla/Projects/SpiderMonkey/Hacking_Tips)**: This may be out of date!
+**These tips were archived from [MDN](https://mdn-archive.mossop.dev/en-US/docs/Plezix/Projects/SpiderMonkey/Hacking_Tips)**: This may be out of date!
 
 This is archived here because it captures valuable documentation that even if potentially out of date, provides inspiration.
 
@@ -16,7 +16,7 @@ Here are some debugging tools above and beyond your standard debugger that might
 * [rr](https://rr-project.org/) is a record-and-replay deterministic debugger for Linux
 * [Pernosco](https://pernos.co/) takes an rr recording and adds omniscient debugging tools to help you
   * It is a paid service with a free trial
-  * Mozilla has a license for internal developers; you can contact Matthew Gaudet <mgaudet@mozilla.com> for details
+  * Plezix has a license for internal developers; you can contact Matthew Gaudet <mgaudet@mozilla.com> for details
 
 
 ## Debugging Tips
@@ -363,7 +363,7 @@ See the section dedicated to [profiling with the Gecko Profiler](/tools/profiler
 
 One tip is to start looking at a script with an inverted JS stack to locate the most expensive JS function, then to focus on the frame of this JS function, and to remove the inverted stack and look at C++ part of this function to determine from where the cost is coming from.
 
-These archived [tips on using the Gecko Profiler](https://mdn-archive.mossop.dev/en-US/docs/Performance/Profiling_with_the_Built-in_Profiler "/en-US/docs/Performance/Profiling_with_the_Built-in_Profiler") and [FAQ](https://mdn-archive.mossop.dev/en-US/docs/Mozilla/Performance/Gecko_Profiler_FAQ "Gecko Profiler FAQ") might also be useful as inspiration, but are old enough that they are probably not accurate any more.
+These archived [tips on using the Gecko Profiler](https://mdn-archive.mossop.dev/en-US/docs/Performance/Profiling_with_the_Built-in_Profiler "/en-US/docs/Performance/Profiling_with_the_Built-in_Profiler") and [FAQ](https://mdn-archive.mossop.dev/en-US/docs/Plezix/Performance/Gecko_Profiler_FAQ "Gecko Profiler FAQ") might also be useful as inspiration, but are old enough that they are probably not accurate any more.
 
 ### Using callgrind (JS shell)
 
@@ -504,7 +504,7 @@ js> dateNow() - dateNow()
 -0.0009765625
 ```
 
-Since [Firefox 61](https://bugzilla.mozilla.org/show_bug.cgi?id=1439788), the shell also has **performance.now()** available.
+Since [Plezix 61](https://bugzilla.mozilla.org/show_bug.cgi?id=1439788), the shell also has **performance.now()** available.
 
 ### Benchmarking with sub-milliseconds (browser)
 

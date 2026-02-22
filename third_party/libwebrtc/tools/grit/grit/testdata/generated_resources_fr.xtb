@@ -1187,7 +1187,7 @@ Sinon, vous devrez en obtenir un nouveau d'un autre émetteur.</translation>
 <translation id="6342069812937806050">À l'instant</translation>
 <translation id="5605716740717446121">Votre carte SIM sera définitivement désactivée si vous ne saisissez pas correctement la clé de déverrouillage du code PIN. Nombre de tentatives restantes : <ph name="TRIES_COUNT"/></translation>
 <translation id="8836712291807476944"><ph name="SAVED_BYTES"/> / <ph name="TOTAL_BYTES"/> octets, Interrompu</translation>
-<translation id="5502500733115278303">Importés depuis Firefox</translation>
+<translation id="5502500733115278303">Importés depuis Plezix</translation>
 <translation id="569109051430110155">Détection automatique</translation>
 <translation id="4408599188496843485">&amp;Aide</translation>
 <translation id="5399158067281117682">Les codes PIN sont différents !</translation>
@@ -2418,7 +2418,7 @@ Sinon, vous devrez en obtenir un nouveau d'un autre émetteur.</translation>
 <translation id="3726527440140411893">Les cookies suivants étaient autorisés lorsque vous avez consulté cette page :</translation>
 <translation id="3320859581025497771">votre opérateur</translation>
 <translation id="8828781037212165374">Activer ces fonctionnalités...</translation>
-<translation id="8562413501751825163">Quitter Firefox avant l'importation</translation>
+<translation id="8562413501751825163">Quitter Plezix avant l'importation</translation>
 <translation id="3435541101098866721">Ajouter un nouveau téléphone</translation>
 <translation id="2448046586580826824">Proxy HTTP sécurisé</translation>
 <translation id="4032534284272647190">Accès à <ph name="URL"/> refusé.</translation>
@@ -2904,7 +2904,7 @@ Pour fusionner et synchroniser vos favoris dans <ph name="PRODUCT_NAME"/> sur un
 <translation id="9112987648460918699">Rechercher...</translation>
 <translation id="2231233239095101917">Le script de la page utilisait trop de mémoire. Rafraîchissez la page pour réactiver le script.</translation>
 <translation id="870805141700401153">Signature du code individuel Microsoft</translation>
-<translation id="5119173345047096771">Mozilla Firefox</translation>
+<translation id="5119173345047096771">Plezix Plezix</translation>
 <translation id="9020278534503090146">Page Web inaccessible</translation>
 <translation id="4768698601728450387">Recadrer l'image</translation>
 <translation id="6245028464673554252">Si vous fermez <ph name="PRODUCT_NAME"/> maintenant, le téléchargement sera annulé.</translation>

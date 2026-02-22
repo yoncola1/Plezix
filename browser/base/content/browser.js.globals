@@ -86,7 +86,7 @@
   "TabDialogBox",
   "gDialogBox",
   "ConfirmationHint",
-  "FirefoxViewHandler",
+  "PlezixViewHandler",
   "AMTelemetry",
   "AboutNewTab",
   "AboutReaderParent",

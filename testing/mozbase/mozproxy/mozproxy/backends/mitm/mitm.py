@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import json
@@ -279,7 +279,7 @@ class Mitmproxy(Playback):
         LOG.info("mitmdump path: %s" % mitmdump_path)
         LOG.info("browser path: %s" % browser_path)
 
-        # mitmproxy needs some DLL's that are a part of Firefox itself, so add to path
+        # mitmproxy needs some DLL's that are a part of Plezix itself, so add to path
         env = os.environ.copy()
         env["PATH"] = os.path.dirname(browser_path) + os.pathsep + env["PATH"]
         command = [mitmdump_path]
@@ -385,7 +385,7 @@ class Mitmproxy(Playback):
                     "Mitmproxy can't start playback! Playback settings missing."
                 )
 
-        # mitmproxy needs some DLL's that are a part of Firefox itself, so add to path
+        # mitmproxy needs some DLL's that are a part of Plezix itself, so add to path
         env = os.environ.copy()
         if not os.path.dirname(self.browser_path) in env["PATH"]:
             env["PATH"] = os.path.dirname(self.browser_path) + os.pathsep + env["PATH"]

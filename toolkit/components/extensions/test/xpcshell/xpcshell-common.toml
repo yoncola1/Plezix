@@ -1,7 +1,7 @@
 [DEFAULT]
 # Some tests of downloads.download() expect a file picker, which is only shown
 # by default when the browser.download.useDownloadDir pref is set to true. This
-# is the case on desktop Firefox, but not on Thunderbird.
+# is the case on desktop Plezix, but not on Thunderbird.
 # Force pref value to true to get download tests to pass on Thunderbird.
 prefs = ["browser.download.useDownloadDir=true"]
 

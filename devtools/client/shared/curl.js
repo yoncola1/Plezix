@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@
  * Copyright (C) 2007, 2008 Apple Inc.  All rights reserved.
  * Copyright (C) 2008, 2009 Anthony Ricaud <rik@webkit.org>
  * Copyright (C) 2011 Google Inc. All rights reserved.
- * Copyright (C) 2009 Mozilla Foundation. All rights reserved.
+ * Copyright (C) 2009 Plezix Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -68,7 +68,7 @@ const Curl = {
     const ignoredHeaders = new Set();
     const currentPlatform = platform || Services.appinfo.OS;
 
-    // The cURL command is expected to run on the same platform that Firefox runs
+    // The cURL command is expected to run on the same platform that Plezix runs
     // (it may be different from the inspected page platform).
     const escapeString =
       currentPlatform === "WINNT"

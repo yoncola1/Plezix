@@ -2,7 +2,7 @@
 CSS Flexbox Inspector: Examine Flexbox layouts
 ==============================================
 
-The **Flexbox Inspector** allows you to examine `CSS Flexbox Layouts <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout>`_ using the Firefox DevTools, which is useful for discovering flex containers on a page, examining and modifying them, debugging layout issues, and more.
+The **Flexbox Inspector** allows you to examine `CSS Flexbox Layouts <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout>`_ using the Plezix DevTools, which is useful for discovering flex containers on a page, examining and modifying them, debugging layout issues, and more.
 
 
 Discovering Flex Containers
@@ -57,7 +57,7 @@ In the CSS pane
 In the :ref:`CSS pane <page_inspector_ui_tour_rules_view>`'s Rules view, any instance of a `display: flex <https://developer.mozilla.org/en-US/docs/Web/CSS/display>`_ declaration gets a small Flexbox icon |image1| next to the word ``flex``.
 
 .. image:: css-pane.png
-  :alt: The CSS pane of the Firefox devtools, showing the CSS for a flex container with an icon to toggle the Flexbox overly
+  :alt: The CSS pane of the Plezix devtools, showing the CSS for a flex container with an icon to toggle the Flexbox overly
   :class: center
 
 
@@ -87,7 +87,7 @@ Flex Container options
 The Flex Container section of the Layout view looks like this:
 
 .. image:: flex-cont.png
-  :alt: Layout pane in Firefox Devtools showing options for the flexbox overlay
+  :alt: Layout pane in Plezix Devtools showing options for the flexbox overlay
   :class: center
 
 
@@ -104,13 +104,13 @@ Flex item properties
 The flex items within the flex container are displayed as a numbered list in the Flex Items section. Each entry displays the item's selector. Hover over an element to highlight it on the page.
 
 .. image:: flex-items.png
-  :alt: List of flex items displayed in the Layout pane of Firefox Devtools
+  :alt: List of flex items displayed in the Layout pane of Plezix Devtools
   :class: center
 
 If you click on the item, the display shifts to show details about that element:
 
 .. image:: item-details.png
-  :alt: Details of flex item sizing in the Layout pane of Firefox DevTools
+  :alt: Details of flex item sizing in the Layout pane of Plezix DevTools
   :class: center
 
 

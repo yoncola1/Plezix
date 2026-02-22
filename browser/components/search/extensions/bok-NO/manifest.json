@@ -13,7 +13,7 @@
     "search_provider": {
       "name": "Ordbok",
       "search_url": "https://ordbok.uib.no/perl/ordbok.cgi",
-      "search_url_get_params": "OPP={searchTerms}&sourceid=Mozilla-search"
+      "search_url_get_params": "OPP={searchTerms}&sourceid=Plezix-search"
     }
   }
 }

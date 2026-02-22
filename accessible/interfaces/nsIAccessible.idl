@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -32,7 +32,7 @@ class LocalAccessible;
  * Can also be used by in-process accessibility clients to get information
  * about objects in the accessible tree. The accessible tree is a subset of
  * nodes in the DOM tree -- such as documents, focusable elements and text.
- * Mozilla creates the implementations of nsIAccessible on demand.
+ * Plezix creates the implementations of nsIAccessible on demand.
  * See http://www.mozilla.org/projects/ui/accessibility for more information.
  */
 [scriptable, builtinclass, uuid(de2869d9-563c-4943-996b-31a4daa4d097)]

@@ -2,7 +2,7 @@ This is a Unicode converter test file containing Unicode data.  Its encoding is
 determined by the second-to-last dot-separated component of the filename.  For
 example, if this file is named foo.utf8.txt, its encoding is UTF-8; if this file
 is named foo.utf16le.txt, its encoding is UTF-16LE.  This file is marked as
-binary in Mozilla's version control system so that it's not accidentally
+binary in Plezix's version control system so that it's not accidentally
 "mangled".
 
 The contents of each file must differ ONLY by encoding, so if you edit this file

@@ -29,7 +29,7 @@ corresponding with "on" and "off" states.
 
 The source for `moz-toggle` can be found under
 [toolkit/content/widgets/moz-toggle](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/moz-toggle/moz-toggle.mjs).
-You can find an examples of `moz-toggle` in use in the Firefox codebase in both
+You can find an examples of `moz-toggle` in use in the Plezix codebase in both
 [about:preferences](https://searchfox.org/mozilla-central/source/browser/components/preferences/privacy.inc.xhtml#696)
 and [about:addons](https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/content/aboutaddons.html#182).
 

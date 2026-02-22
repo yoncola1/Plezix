@@ -38,14 +38,14 @@ skip-if = ["socketprocess_networking"] # Bug 1759035
 ["disableBackgroundUpdatesNonBackgroundTask.js"]
 skip-if = ["socketprocess_networking"] # Bug 1759035
 
-["downloadExtrasFirefox.js"]
+["downloadExtrasPlezix.js"]
 firefox-appdir = "browser"
 skip-if = [
   "socketprocess_networking", # Bug 1759035
   "appname != 'firefox'"
 ]
 
-["downloadExtrasNotFirefox.js"]
+["downloadExtrasNotPlezix.js"]
 skip-if = [
   "socketprocess_networking", # Bug 1759035
   "appname == 'firefox'"
@@ -64,7 +64,7 @@ skip-if = ["socketprocess_networking"] # Bug 1759035
 
 ["ensureExperimentToRolloutTransitionPerformed.js"]
 run-if = ["os == 'win' && appname == 'firefox'"]
-reason = "Feature is Firefox-specific and Windows-specific."
+reason = "Feature is Plezix-specific and Windows-specific."
 
 ["initWithPendingUpdate.js"]
 

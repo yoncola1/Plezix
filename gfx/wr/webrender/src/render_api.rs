@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -125,7 +125,7 @@ pub enum GenerateFrame {
         /// If false, (a subset of) the frame will be rendered, but nothing will
         /// be presented on the window.
         present: bool,
-        /// This flag is used by Firefox to differentiate between frames that
+        /// This flag is used by Plezix to differentiate between frames that
         /// participate or not in the frame throttling mechanism.
         tracked: bool,
     },

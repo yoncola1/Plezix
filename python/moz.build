@@ -1,39 +1,39 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # Default extra components to build config
 with Files("**"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("devtools/**"):
     BUG_COMPONENT = ("DevTools", "General")
 
 with Files("gdbpp/**"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("lldbutils/**"):
     BUG_COMPONENT = ("Core", "General")
 
 with Files("mach/**"):
-    BUG_COMPONENT = ("Firefox Build System", "Mach Core")
+    BUG_COMPONENT = ("Plezix Build System", "Mach Core")
 
 with Files("mozboot/**"):
-    BUG_COMPONENT = ("Firefox Build System", "Bootstrap Configuration")
+    BUG_COMPONENT = ("Plezix Build System", "Bootstrap Configuration")
 
 with Files("mozbuild/**"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("mozlint/**"):
     BUG_COMPONENT = ("Developer Infrastructure", "Lint and Formatting")
 
 with Files("mozversioncontrol/**"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("l10n/**"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("mozrelease/**"):
     BUG_COMPONENT = ("Release Engineering", "General")
@@ -45,7 +45,7 @@ with Files("mozperftest/**"):
     BUG_COMPONENT = ("Testing", "mozperftest")
 
 with Files("sites/**"):
-    BUG_COMPONENT = ("Firefox Build System", "Mach Core")
+    BUG_COMPONENT = ("Plezix Build System", "Mach Core")
 
 
 SPHINX_PYTHON_PACKAGE_DIRS += [

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ class HyperTextAccessible;
  * the currently focused control.
  *
  * On Windows this class is used to move an invisible system caret that
- * shadows the Mozilla caret. Windows will also automatically map this to
+ * shadows the Plezix caret. Windows will also automatically map this to
  * the MSAA caret accessible object (via OBJID_CARET) (as opposed to the root
  * accessible tree for a window which is retrieved with OBJID_CLIENT).
  *

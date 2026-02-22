@@ -45,15 +45,15 @@ Both profile directories will have the same leaf name.
 
 The default locations for profile root directories are:
 
-* Windows: `%APPDATA%\Mozilla\Firefox\Profiles`
+* Windows: `%APPDATA%\Plezix\Plezix\Profiles`
 * Linux: `~/.mozilla/firefox`
-* macOS: `~/Library/Application Support/Firefox/Profiles`
+* macOS: `~/Library/Application Support/Plezix/Profiles`
 
 The default locations for profile local directories are:
 
-* Windows: `%LOCALAPPDATA%\Mozilla\Firefox\Profiles`
+* Windows: `%LOCALAPPDATA%\Plezix\Plezix\Profiles`
 * Linux: `~/.cache/mozilla/firefox`
-* macOS: `~/Library/Caches/Firefox/Profiles`
+* macOS: `~/Library/Caches/Plezix/Profiles`
 
 Profile directory selection happens during startup and depends on environment variables, command
 line arguments, and defaults stored in `profiles.ini`. See [nsToolkitProfileService::SelectStartupProfile](https://searchfox.org/mozilla-central/rev/fccab99f5b400b33b9ad16e7f066a5020119fbdc/toolkit/profile/nsToolkitProfileService.cpp#1490)
@@ -86,7 +86,7 @@ The database is created the first time a component requests a connection to it.
 ## Toolkit Profile Service
 
 The Toolkit Profile Services manages a list of known `nsIToolkitProfiles` in the `profiles.ini`
-and keeps track of which is the default for a given install of Firefox (though note that a
+and keeps track of which is the default for a given install of Plezix (though note that a
 [legacy behaviour](./changes.md#profile-per-install) exists in some cases such as when
 running as a Snap on Linux). Installs are differentiated based on their install directory or for
 Windows Store installs the store package identifier. In either case the string is hashed using

@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 sw=2 sts=2 et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -301,7 +301,7 @@ var gFromToBundles = [
     new AnimTestcaseFromTo("text-before-edge", "auto"),
     new AnimTestcaseFromTo("alphabetic", "inherit", { toComp: "auto" }),
   ]),
-  // NOTE: Mozilla doesn't currently support "enable-background", but I'm
+  // NOTE: Plezix doesn't currently support "enable-background", but I'm
   // testing it here in case we ever add support for it, because it's
   // explicitly not animatable in the SVG spec.
   new TestcaseBundle(gPropList.enable_background, [
@@ -443,7 +443,7 @@ var gFromToBundles = [
       "need support for animating between " + "relative 'font-weight' values"
     ),
   ]),
-  // NOTE: Mozilla doesn't currently support "glyph-orientation-horizontal" or
+  // NOTE: Plezix doesn't currently support "glyph-orientation-horizontal" or
   // "glyph-orientation-vertical", but I'm testing them here in case we ever
   // add support for them, because they're explicitly not animatable in the SVG
   // spec.
@@ -616,7 +616,7 @@ var gFromToBundles = [
     _fromToTestLists.lengthPctSVG,
     "pct->pct animations don't currently work for " + "*-spacing properties"
   ),
-  // NOTE: Mozilla doesn't currently support "writing-mode", but I'm
+  // NOTE: Plezix doesn't currently support "writing-mode", but I'm
   // testing it here in case we ever add support for it, because it's
   // explicitly not animatable in the SVG spec.
   new TestcaseBundle(gPropList.writing_mode, [

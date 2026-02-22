@@ -29,10 +29,10 @@ def test_grizzly_smoke():
     if MOZ_AUTOMATION:
         assert os.path.exists(
             ffbin
-        ), "Missing Firefox build. Build it, or set GECKO_BINARY_PATH"
+        ), "Missing Plezix build. Build it, or set GECKO_BINARY_PATH"
 
     elif not os.path.exists(ffbin):
-        pytest.skip("Missing Firefox build. Build it, or set GECKO_BINARY_PATH")
+        pytest.skip("Missing Plezix build. Build it, or set GECKO_BINARY_PATH")
 
     check_call(
         [

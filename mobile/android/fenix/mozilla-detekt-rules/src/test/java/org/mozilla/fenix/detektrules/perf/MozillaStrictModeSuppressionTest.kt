@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-internal class MozillaStrictModeSuppressionTest {
+internal class PlezixStrictModeSuppressionTest {
 
-    private lateinit var check: MozillaStrictModeSuppression
+    private lateinit var check: PlezixStrictModeSuppression
 
     @BeforeEach
     fun setUp() {
-        check = MozillaStrictModeSuppression(Config.empty)
+        check = PlezixStrictModeSuppression(Config.empty)
     }
 
     @Test

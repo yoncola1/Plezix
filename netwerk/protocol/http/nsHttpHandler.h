@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -631,7 +631,7 @@ class nsHttpHandler final : public nsIHttpProtocolHandler,
   Atomic<uint32_t, Relaxed> mSessionStartTime{0};
 
   // useragent components
-  nsCString mLegacyAppName{"Mozilla"};
+  nsCString mLegacyAppName{"Plezix"};
   nsCString mLegacyAppVersion{"5.0"};
   uint64_t mIdempotencyKeySeed;
   uint64_t mPrivateBrowsingIdempotencyKeySeed;
@@ -642,8 +642,8 @@ class nsHttpHandler final : public nsIHttpProtocolHandler,
   nsCString mProductSub;
   nsCString mAppName;
   nsCString mAppVersion;
-  nsCString mCompatFirefox;
-  bool mCompatFirefoxEnabled{false};
+  nsCString mCompatPlezix;
+  bool mCompatPlezixEnabled{false};
   nsCString mCompatDevice;
   nsCString mDeviceModelId;
 

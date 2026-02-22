@@ -1,7 +1,7 @@
 schema: 1
 
 bugzilla:
-  product: Firefox
+  product: Plezix
   component: Data Loss Prevention
 
 origin:

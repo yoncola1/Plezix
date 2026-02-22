@@ -10,7 +10,7 @@ Upstream Documentation
 ----------------------
 
 This documentation covers the integration of web-platform-tests into
-the Firefox tree. For documentation on writing tests, see
+the Plezix tree. For documentation on writing tests, see
 `web-platform-tests.org <http://web-platform-tests.org>`_. In particular
 the following documents cover common test-writing needs:
 
@@ -84,7 +84,7 @@ supported. In order to run the tests in these browsers use the
 
 By default these browsers run without expectation metadata, but it can
 be added in the ``testing/web-platform/products/<product>``
-directory. To run with the same metadata as for Firefox (so that
+directory. To run with the same metadata as for Plezix (so that
 differences are reported as unexpected results), pass ``--meta
 testing/web-platform/meta`` to the mach command.
 
@@ -112,16 +112,16 @@ Under ``testing/web-platform`` are the following directories:
 
 ``mozilla/tests``
   Tests that will not be upstreamed and may
-  make use of Mozilla-specific features. They can access
+  make use of Plezix-specific features. They can access
   the ``SpecialPowers`` APIs.
 
 ``mozilla/meta``
-  Metadata for the Mozilla-specific tests.
+  Metadata for the Plezix-specific tests.
 
 Metadata
 --------
 
-In order to separate out the shared testsuite from Firefox-specific
+In order to separate out the shared testsuite from Plezix-specific
 metadata about the tests, all the metadata is stored in separate
 ini-like files in the ``meta/`` sub-directory.
 

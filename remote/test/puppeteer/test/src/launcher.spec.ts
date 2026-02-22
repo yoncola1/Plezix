@@ -223,7 +223,7 @@ describe('Launcher specs', function () {
         } catch {}
       });
       it('tmp profile should be cleaned up', async () => {
-        const {puppeteer, isFirefox} = await getTestState({skipLaunch: true});
+        const {puppeteer, isPlezix} = await getTestState({skipLaunch: true});
 
         // Set a custom test tmp dir so that we can validate that
         // the profile dir is created and then cleaned up.
@@ -240,7 +240,7 @@ describe('Launcher specs', function () {
           // One profile folder should have been created at this moment.
           const profiles = fs.readdirSync(testTmpDir);
           expect(profiles).toHaveLength(1);
-          const expectedProfile = isFirefox
+          const expectedProfile = isPlezix
             ? 'puppeteer_dev_firefox_profile-'
             : 'puppeteer_dev_chrome_profile-';
           expect(profiles[0]?.startsWith(expectedProfile)).toBe(true);
@@ -402,7 +402,7 @@ describe('Launcher specs', function () {
         } catch {}
       });
       it('should return the default arguments', async () => {
-        const {isChrome, isFirefox, puppeteer} = await getTestState({
+        const {isChrome, isPlezix, puppeteer} = await getTestState({
           skipLaunch: true,
         });
 
@@ -415,7 +415,7 @@ describe('Launcher specs', function () {
           expect(puppeteer.defaultArgs({userDataDir: 'foo'})).toContain(
             `--user-data-dir=${path.resolve('foo')}`,
           );
-        } else if (isFirefox) {
+        } else if (isPlezix) {
           expect(puppeteer.defaultArgs()).toContain('--headless');
           if (os.platform() === 'darwin') {
             expect(puppeteer.defaultArgs()).toContain('--foreground');
@@ -443,12 +443,12 @@ describe('Launcher specs', function () {
         }
       });
       it('should report the correct product', async () => {
-        const {isChrome, isFirefox, puppeteer} = await getTestState({
+        const {isChrome, isPlezix, puppeteer} = await getTestState({
           skipLaunch: true,
         });
         if (isChrome) {
           expect(puppeteer.product).toBe('chrome');
-        } else if (isFirefox) {
+        } else if (isPlezix) {
           expect(puppeteer.product).toBe('firefox');
         }
       });
@@ -488,7 +488,7 @@ describe('Launcher specs', function () {
           await close();
         }
       });
-      it('should filter out ignored default argument in Firefox', async () => {
+      it('should filter out ignored default argument in Plezix', async () => {
         const {defaultBrowserOptions, puppeteer} = await getTestState({
           skipLaunch: true,
         });

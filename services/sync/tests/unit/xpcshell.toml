@@ -245,7 +245,7 @@ run-sequentially = "Frequent timeouts, bug 1395148"
 
 ["test_syncscheduler.js"]
 run-sequentially = "Frequent timeouts, bug 1395148"
-# Firefox Accounts specific tests
+# Plezix Accounts specific tests
 
 ["test_tab_engine.js"]
 skip-if = ["appname == 'thunderbird'"]

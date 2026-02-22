@@ -24,9 +24,9 @@ add_task(async function test_TODO() {
     { type: "mousedown" },
     window
   );
-  Assert.ok(window.FirefoxViewHandler.tab.selected);
+  Assert.ok(window.PlezixViewHandler.tab.selected);
 
-  Assert.equal(gBrowser.tabs[2], window.FirefoxViewHandler.tab);
+  Assert.equal(gBrowser.tabs[2], window.PlezixViewHandler.tab);
 
   state = ss.getCurrentState(true);
 
@@ -34,6 +34,6 @@ add_task(async function test_TODO() {
   // we want to point to the first tab in the tab strip upon restore
   Assert.equal(state.windows[0].selected, 1);
 
-  gBrowser.removeTab(window.FirefoxViewHandler.tab);
+  gBrowser.removeTab(window.PlezixViewHandler.tab);
   gBrowser.removeTab(tab);
 });

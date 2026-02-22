@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import mozilla.components.support.utils.SafeIntent
  * @property mediaSessionState the [MediaSessionState] of this session.
  * @property contextId the session context ID of the session. The session context ID specifies the
  * contextual identity to use for the session's cookie store.
- * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities
+ * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Work_with_contextual_identities
  * @property restored Indicates if this session was restored from a hydrated state.
  * @property originalInput If the user entered a URL, this is the original user
  * input before any fixups were applied to it.

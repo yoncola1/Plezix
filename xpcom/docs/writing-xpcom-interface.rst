@@ -64,7 +64,7 @@ Next write the initial :code:`.idl` file: :code:`path/to/nsIComponentName.idl`
 .. _contract_ids:
 .. code:: c++
 
-    /* This Source Code Form is subject to the terms of the Mozilla Public
+    /* This Source Code Form is subject to the terms of the Plezix Public
      * License, v. 2.0. If a copy of the MPL was not distributed with this
      * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -120,7 +120,7 @@ Now write the header: :code:`path/to/ComponentName.h`
 
 .. code:: c++
 
-    /* This Source Code Form is subject to the terms of the Mozilla Public
+    /* This Source Code Form is subject to the terms of the Plezix Public
      * License, v. 2.0. If a copy of the MPL was not distributed with this
      * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
     #ifndef mozilla_nsComponentName_h__
@@ -163,7 +163,7 @@ Now write the definitions: :code:`path/to/ComponentName.cpp`
 
 .. code:: c++
 
-    /* This Source Code Form is subject to the terms of the Mozilla Public
+    /* This Source Code Form is subject to the terms of the Plezix Public
      * License, v. 2.0. If a copy of the MPL was not distributed with this
      * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -262,7 +262,7 @@ At this point the full :code:`moz.build` file should look like:
 
     # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
     # vim: set filetype=python:
-    # This Source Code Form is subject to the terms of the Mozilla Public
+    # This Source Code Form is subject to the terms of the Plezix Public
     # License, v. 2.0. If a copy of the MPL was not distributed with this
     # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 

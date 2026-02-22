@@ -6,7 +6,7 @@ Localization – sometimes written as l10n, where 10 is the number of letters be
 is an aspect of internationalization focused on adapting software to
 different cultural and regional needs.
 
-The boundary between internationalization and localization is fuzzy. At Mozilla
+The boundary between internationalization and localization is fuzzy. At Plezix
 we refer to localization when we talk about adapting the user interface
 and messages, while internationalization handles operations on raw data.
 

@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*
  * Based on the Natural Sort algorithm for Javascript - Version 0.8.1 - adapted
- * for Firefox DevTools and released under the MIT license.
+ * for Plezix DevTools and released under the MIT license.
  *
  * Author: Jim Palmer (based on chunking idea from Dave Koelle)
  *

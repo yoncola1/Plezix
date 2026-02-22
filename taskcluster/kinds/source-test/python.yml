@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -57,7 +57,7 @@ firefox-ci:
             - 'tools/tryselect/selectors/auto.py'
 
 fog:
-    description: Python unit tests for Firefox on Glean
+    description: Python unit tests for Plezix on Glean
     platform:
         - linux2404-64/opt
         - macosx1470-64/opt

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ class ClearSiteDataViewTest {
     fun `clear site`() {
         val state = WebsiteInfoState(
             websiteUrl = "https://developers.mozilla.org",
-            websiteTitle = "Mozilla",
+            websiteTitle = "Plezix",
             websiteInfoUiValues = WebsiteInfoUiValues.SECURE,
             certificateName = "Certificate",
         )

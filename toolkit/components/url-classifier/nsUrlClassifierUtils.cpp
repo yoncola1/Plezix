@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -160,7 +160,7 @@ static ClientInfo* CreateClientInfo() {
   nsresult rv = prefBranch->GetCharPref("browser.safebrowsing.id", clientId);
 
   if (NS_FAILED(rv)) {
-    clientId = "Firefox";  // Use "Firefox" as fallback.
+    clientId = "Plezix";  // Use "Plezix" as fallback.
   }
 
   c->set_client_id(clientId.get());

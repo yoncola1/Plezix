@@ -1,7 +1,7 @@
 import-globals-from
 ===================
 
-Parses a file for globals defined in various unique Mozilla ways.
+Parses a file for globals defined in various unique Plezix ways.
 
 When a ``/* import-globals-from <path> */`` comment is found in a file, then all
 globals from the file at <path> will be imported in the current scope. This will

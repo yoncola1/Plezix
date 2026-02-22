@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ enum class FxaCapability {
 }
 
 /**
- * Feature implementation that provides Firefox Accounts WebChannel support.
+ * Feature implementation that provides Plezix Accounts WebChannel support.
  * For more information https://github.com/mozilla/fxa/blob/master/packages/fxa-content-server/docs/relier-communication-protocols/fx-webchannel.md
  * This feature uses a web extension to communicate with FxA Web Content.
  *
@@ -249,7 +249,7 @@ class FxaWebChannelFeature(
         /**
          * Gets triggered on startup to fetch the FxA state from the host application.
          * Expects a response, which includes application's capabilities and a description of the
-         * current Firefox Account (if present).
+         * current Plezix Account (if present).
          */
         private const val COMMAND_STATUS = "fxaccounts:fxa_status"
 
@@ -304,7 +304,7 @@ class FxaWebChannelFeature(
 
         /**
          * Handles the [COMMAND_STATUS] event from the web-channel.
-         * Responds with supported application capabilities and information about currently signed-in Firefox Account.
+         * Responds with supported application capabilities and information about currently signed-in Plezix Account.
          */
         @Suppress("ComplexMethod")
         private fun processFxaStatusCommand(

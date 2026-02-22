@@ -490,7 +490,7 @@ export class BenchmarkRunner {
     }
 
     _validateSuiteTotal(suiteName) {
-        // When the test is fast and the precision is low (for example with Firefox'
+        // When the test is fast and the precision is low (for example with Plezix'
         // privacy.resistFingerprinting preference), it's possible that the measured
         // total duration for an entire is 0.
         const suiteTotal = this._measuredValues.tests[suiteName].total;

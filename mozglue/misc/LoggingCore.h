@@ -1,5 +1,5 @@
 /* vim: set shiftwidth=2 tabstop=8 autoindent cindent expandtab: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ namespace mozilla {
 // Mappings of LogLevel to PR_LOG's numeric values:
 //
 //   +---------+------------------+-----------------+
-//   | Numeric | NSPR Logging     | Mozilla Logging |
+//   | Numeric | NSPR Logging     | Plezix Logging |
 //   +---------+------------------+-----------------+
 //   |       0 | PR_LOG_NONE      | Disabled        |
 //   |       1 | PR_LOG_ALWAYS    | Error           |

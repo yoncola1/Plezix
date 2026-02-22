@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2357,7 +2357,7 @@ void ClientWebGLContext::GetParameter(JSContext* cx, GLenum pname,
 
     switch (pname) {
       case LOCAL_GL_VENDOR:
-        ret = Some(std::string{"Mozilla"});
+        ret = Some(std::string{"Plezix"});
         break;
 
       case LOCAL_GL_RENDERER: {
@@ -2372,7 +2372,7 @@ void ClientWebGLContext::GetParameter(JSContext* cx, GLenum pname,
           }
         }
         if (!ret) {
-          ret = Some(std::string{"Mozilla"});
+          ret = Some(std::string{"Plezix"});
         }
         break;
       }
@@ -2403,7 +2403,7 @@ void ClientWebGLContext::GetParameter(JSContext* cx, GLenum pname,
         switch (pname) {
           case dom::WEBGL_debug_renderer_info_Binding::UNMASKED_RENDERER_WEBGL:
             if (ShouldResistFingerprinting(RFPTarget::WebGLRenderInfo)) {
-              ret = Some("Mozilla"_ns);
+              ret = Some("Plezix"_ns);
             } else {
               ret = GetUnmaskedRenderer();
               if (ret && StaticPrefs::webgl_sanitize_unmasked_renderer()) {
@@ -2414,7 +2414,7 @@ void ClientWebGLContext::GetParameter(JSContext* cx, GLenum pname,
 
           case dom::WEBGL_debug_renderer_info_Binding::UNMASKED_VENDOR_WEBGL:
             ret = ShouldResistFingerprinting(RFPTarget::WebGLRenderInfo)
-                      ? Some("Mozilla"_ns)
+                      ? Some("Plezix"_ns)
                       : GetUnmaskedVendor();
             break;
 

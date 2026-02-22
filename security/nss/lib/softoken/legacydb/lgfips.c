@@ -1,7 +1,7 @@
 /*
  * PKCS #11 FIPS Power-Up Self Test.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* $Id: fipstest.c,v 1.31 2012/06/28 17:55:06 rrelyea%redhat.com Exp $ */

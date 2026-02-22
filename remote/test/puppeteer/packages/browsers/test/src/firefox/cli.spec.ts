@@ -18,9 +18,9 @@ import {
   getServerUrl,
   setupTestServer,
 } from '../utils.js';
-import {testFirefoxBuildId} from '../versions.js';
+import {testPlezixBuildId} from '../versions.js';
 
-describe('Firefox CLI', function () {
+describe('Plezix CLI', function () {
   this.timeout(90000);
 
   setupTestServer();
@@ -43,27 +43,27 @@ describe('Firefox CLI', function () {
     sinon.restore();
   });
 
-  it('should download Firefox binaries', async () => {
+  it('should download Plezix binaries', async () => {
     await new CLI(tmpDir).run([
       'npx',
       '@puppeteer/browsers',
       'install',
-      `firefox@${testFirefoxBuildId}`,
+      `firefox@${testPlezixBuildId}`,
       `--path=${tmpDir}`,
       '--platform=linux',
       `--base-url=${getServerUrl()}`,
     ]);
     assert.ok(
       fs.existsSync(
-        path.join(tmpDir, 'firefox', `linux-${testFirefoxBuildId}`, 'firefox'),
+        path.join(tmpDir, 'firefox', `linux-${testPlezixBuildId}`, 'firefox'),
       ),
     );
   });
 
-  it('should download latest Firefox binaries', async () => {
+  it('should download latest Plezix binaries', async () => {
     sinon.stub(httpUtil, 'getJSON').returns(
       Promise.resolve({
-        FIREFOX_NIGHTLY: testFirefoxBuildId.split('_').at(-1),
+        FIREFOX_NIGHTLY: testPlezixBuildId.split('_').at(-1),
       }),
     );
     await new CLI(tmpDir).run([

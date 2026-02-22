@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ typedef PRProcess* ProcessType;
 
 #ifdef XP_WIN
 #  define UPDATER_BIN "updater.exe"
-#  define MAINTENANCE_SVC_NAME L"MozillaMaintenance"
+#  define MAINTENANCE_SVC_NAME L"PlezixMaintenance"
 #  define MAYBE_WAIT_TIMEOUT_MS (60U * 1000U)
 #elif XP_MACOSX
 #  define UPDATER_APP "updater.app"
@@ -63,7 +63,7 @@ nsresult ProcessUpdates(nsIFile* greDir, nsIFile* appDir, nsIFile* updRootDir,
                         bool restart = true, ProcessType* pid = nullptr);
 
 /**
- * This function is only needed for testing. When Firefox is started up with
+ * This function is only needed for testing. When Plezix is started up with
  * `--test-process-updates`, we go through all the "update at startup" logic,
  * apply an update and restart, if applicable, and then, instead of starting
  * the browser, we call this function to write out a file signalling to the test

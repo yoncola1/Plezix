@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -356,7 +356,7 @@ class TestMozbuildObject(unittest.TestCase):
         if sys.platform.startswith("darwin"):
             substs.append(("OS_ARCH", "Darwin"))
             substs.append(("BIN_SUFFIX", ""))
-            substs.append(("MOZ_MACBUNDLE_NAME", "Nightly.app"))
+            substs.append(("MOZ_MACBUNDLE_NAME", "Plezix.app"))
         elif sys.platform.startswith(("win32", "cygwin")):
             substs.append(("OS_ARCH", "WINNT"))
             substs.append(("BIN_SUFFIX", ".exe"))
@@ -387,7 +387,7 @@ class TestMozbuildObject(unittest.TestCase):
         p = base.get_binary_path(validate_exists=False, where="staged-package")
         if platform.startswith("darwin"):
             self.assertTrue(
-                p.endswith("awesomeapp/Nightly.app/Contents/MacOS/awesomeapp")
+                p.endswith("awesomeapp/Plezix.app/Contents/MacOS/awesomeapp")
             )
         elif platform.startswith(("win32", "cygwin")):
             self.assertTrue(p.endswith("awesomeapp\\awesomeapp.exe"))

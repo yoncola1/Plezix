@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
 /*
- * Copyright 2025 Mozilla Foundation
+ * Copyright 2025 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
  */
 #pragma once
 // This is a trampoline header meant to redirect from where libwebrtc code
-// expects third_party headers to where those headers exist in the Mozilla
-// Firefox repository.
+// expects third_party headers to where those headers exist in the Plezix
+// Plezix repository.
 #include "dav1d/data.h"
 

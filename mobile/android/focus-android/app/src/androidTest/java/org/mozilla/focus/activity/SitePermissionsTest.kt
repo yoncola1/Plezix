@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ class SitePermissionsTest : TestSetup() {
     private lateinit var webServer: MockWebServer
     private val featureSettingsHelper = FeatureSettingsHelper()
 
-    // Test page created and handled by the Mozilla mobile test-eng team
+    // Test page created and handled by the Plezix mobile test-eng team
     private val permissionsPage = "https://mozilla-mobile.github.io/testapp/permissions"
     private val permissionsPageHost = "mozilla-mobile.github.io"
     private val cameraManager = getTargetContext.getSystemService(Context.CAMERA_SERVICE) as CameraManager

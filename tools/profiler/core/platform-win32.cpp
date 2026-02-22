@@ -325,7 +325,7 @@ SamplerThread::SamplerThread(PSLockRef aLock, uint32_t aActivityGeneration,
     // By default the timer resolution (which tends to be 1/64Hz, around 16ms)
     // is not changed. However, if the requested interval is sufficiently low,
     // the resolution will be adjusted to match. Note that this affects all
-    // timers in Firefox, and could therefore hide issues while profiling. This
+    // timers in Plezix, and could therefore hide issues while profiling. This
     // change may be prevented with the "notimerresolutionchange" feature.
     ::timeBeginPeriod(mIntervalMicroseconds / 1000);
   }
@@ -398,7 +398,7 @@ SamplerThread::~SamplerThread() {
 void SamplerThread::RunUnregisteredThreadSpy() {
   // TODO: Consider registering this thread.
   // Pros: Remove from list of unregistered threads; Not useful to profiling
-  //       Firefox itself.
+  //       Plezix itself.
   // Cons: Doesn't appear in the profile, so users may miss the expensive CPU
   //       cost of this work on Windows.
   PR_SetCurrentThreadName("UnregisteredThreadSpy");

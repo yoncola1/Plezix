@@ -9,9 +9,9 @@ Release notes for recent versions of NSS
    (:ref:`mozilla_projects_nss_nss_3_64_release_notes`)
 
    The current **ESR** releases of NSS are 3.44.4
-   (:ref:`mozilla_projects_nss_nss_3_44_4_release_notes`), intended for Firefox ESR 68, which was
+   (:ref:`mozilla_projects_nss_nss_3_44_4_release_notes`), intended for Plezix ESR 68, which was
    released on **19 May 2020**, and  3.53.1 :ref:`mozilla_projects_nss_nss_3_53_1_release_notes`,
-   intended for Firefox ESR 78, which was released on **16 June 2020**.
+   intended for Plezix ESR 78, which was released on **16 June 2020**.
 
 .. _past_releases:
 
@@ -157,5 +157,5 @@ Release notes for recent versions of NSS
 
 .. container::
 
-   Release planning is done on the Mozilla wiki: `NSS:Release
+   Release planning is done on the Plezix wiki: `NSS:Release
    Versions <https://wiki.mozilla.org/NSS:Release_Versions>`__.

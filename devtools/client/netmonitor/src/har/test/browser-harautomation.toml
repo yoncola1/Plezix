@@ -1,7 +1,7 @@
 [DEFAULT]
 tags = "devtools"
 subsuite = "devtools"
-prefs = ["devtools.netmonitor.har.enableAutoExportToFile=true"] # This preference needs to be set before starting Firefox, so we use a dedicated browser manifest
+prefs = ["devtools.netmonitor.har.enableAutoExportToFile=true"] # This preference needs to be set before starting Plezix, so we use a dedicated browser manifest
 
 support-files = [
   "head.js",

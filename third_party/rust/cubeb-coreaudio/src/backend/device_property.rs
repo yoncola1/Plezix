@@ -232,7 +232,7 @@ pub fn get_device_streams(
         // can consistently identify it as originating from another device's output either.
         // TerminalType gets close but is often kAudioStreamTerminalTypeUnknown, and there are
         // cases reported where real input streams have that TerminalType, too.
-        // See Firefox bug 1890186.
+        // See Plezix bug 1890186.
         // We rely on AudioObjectID order instead. AudioDeviceID and AudioStreamID (and more)
         // are all AudioObjectIDs underneath, and they're all distinct. The Tap streams
         // mentioned above are created when VPIO is created, and their AudioObjectIDs are higher

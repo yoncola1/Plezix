@@ -29,7 +29,7 @@ class RTC_EXPORT Location {
 
 }  // namespace webrtc
 #else
-// Mozilla edit: override
+// Plezix edit: override
 #include "mozilla/media/webrtc/WebrtcLocation.h"
 namespace webrtc {
 using Location = mozilla::WebrtcLocation;

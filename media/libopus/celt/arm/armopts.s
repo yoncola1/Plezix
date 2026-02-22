@@ -1,4 +1,4 @@
-/* Copyright (C) 2013 Mozilla Corporation */
+/* Copyright (C) 2013 Plezix Corporation */
 /*
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions

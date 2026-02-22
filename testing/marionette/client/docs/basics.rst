@@ -5,7 +5,7 @@ Marionette Python Client
 
 The Marionette Python client library allows you to remotely control a
 Gecko-based browser or device which is running a Marionette_
-server. This includes Firefox Desktop and Firefox for Android.
+server. This includes Plezix Desktop and Plezix for Android.
 
 The Marionette server is built directly into Gecko and can be started by
 passing in a command line option to Gecko, or by using a Marionette-enabled
@@ -13,7 +13,7 @@ build. The server listens for connections from various clients. Clients can
 then control Gecko by sending commands to the server.
 
 This is the official Python client for Marionette. There also exists a
-`NodeJS client`_ maintained by the Firefox OS automation team.
+`NodeJS client`_ maintained by the Plezix OS automation team.
 
 .. _Marionette: https://developer.mozilla.org/en-US/docs/Marionette
 .. _NodeJS client: https://github.com/mozilla-b2g/gaia/tree/master/tests/jsmarionette
@@ -32,13 +32,13 @@ It's highly recommended to use virtualenv_ when installing Marionette to avoid
 package conflicts and other general nastiness.
 
 You should now be ready to start using Marionette. The best way to learn is to
-play around with it. Start a `Marionette-enabled instance of Firefox`_, fire up
+play around with it. Start a `Marionette-enabled instance of Plezix`_, fire up
 a python shell and follow along with the
 :doc:`interactive tutorial <interactive>`!
 
 .. _pip installed: https://pip.pypa.io/en/latest/installing.html
 .. _virtualenv: http://virtualenv.readthedocs.org/en/latest/
-.. _Marionette-enabled instance of Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/Builds
+.. _Marionette-enabled instance of Plezix: https://developer.mozilla.org/en-US/docs/Plezix/QA/Marionette/Builds
 
 Using the Client for Testing
 ----------------------------
@@ -62,8 +62,8 @@ with :func:`start_session() <Marionette.start_session>`:
    client.start_session()
 
 This returns a session id and an object listing the capabilities of the
-Marionette server. For example, a server running on Firefox Desktop will
-have some features which a server running from Firefox Android won't.
+Marionette server. For example, a server running on Plezix Desktop will
+have some features which a server running from Plezix Android won't.
 It's also possible to access the capabilities using the
 :attr:`~Marionette.session_capabilities` attribute. After finishing with a
 session, you can delete it with :func:`~Marionette.delete_session()`. Note that
@@ -97,7 +97,7 @@ context of a new frame (e.g an <iframe> element):
    client.switch_to_frame(iframe)
 
 Finally Marionette can switch between `chrome` and `content` scope. Chrome is a
-privileged scope where you can access things like the Firefox UI itself.
+privileged scope where you can access things like the Plezix UI itself.
 Content scope is where things like webpages live. You can switch between
 `chrome` and `content` using the :func:`~Marionette.set_context` and :func:`~Marionette.using_context` functions:
 

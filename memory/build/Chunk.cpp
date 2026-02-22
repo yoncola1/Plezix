@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -396,7 +396,7 @@ static bool pages_purge(void* addr, size_t length, bool force_zero) {
 }
 
 // pages_trim, chunk_alloc_mmap_slow and chunk_alloc_mmap were cherry-picked
-// from upstream jemalloc 3.4.1 to fix Mozilla bug 956501.
+// from upstream jemalloc 3.4.1 to fix Plezix bug 956501.
 
 static void* pages_trim(void* addr, size_t alloc_size, size_t leadsize,
                         size_t size) {

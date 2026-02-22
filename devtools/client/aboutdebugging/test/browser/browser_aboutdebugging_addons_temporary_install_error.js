@@ -22,7 +22,7 @@ const EXTENSION_NAME = "test-temporary-extension";
 // error message is displayed
 add_task(async function testInvalidJsonExtension() {
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const installError = await installBadExtension(
     INVALID_JSON_EXTENSION_PATH,
@@ -53,7 +53,7 @@ add_task(async function testInvalidJsonExtension() {
 // a detailed error message coming from the Addon Manager.
 add_task(async function testInvalidPropertyExtension() {
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const installError = await installBadExtension(
     INVALID_PROP_EXTENSION_PATH,

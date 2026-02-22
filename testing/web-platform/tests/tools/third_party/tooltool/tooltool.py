@@ -1666,7 +1666,7 @@ Supported commands are:
         dest="base_url",
         action="append",
         help="RelengAPI URL ending with /tooltool/; default "
-        "is appropriate for Mozilla",
+        "is appropriate for Plezix",
     )
     parser.add_option(
         "-c", "--cache-folder", dest="cache_folder", help="Local cache folder"

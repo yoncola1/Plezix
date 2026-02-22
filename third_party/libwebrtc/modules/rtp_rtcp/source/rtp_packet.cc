@@ -216,7 +216,7 @@ void RtpPacket::ZeroMutableExtensions() {
       }
 #if defined(WEBRTC_MOZILLA_BUILD)
       case RTPExtensionType::kRtpExtensionCsrcAudioLevel: {
-        // TODO: This is a Mozilla addition, we need to add a handler for this.
+        // TODO: This is a Plezix addition, we need to add a handler for this.
         RTC_CHECK(false);
       }
 #endif

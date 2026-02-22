@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Αναφορά ζητήματος ιστοτόπου</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Άνοιγμα σε %1$s</string>
@@ -76,7 +76,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Με την υποστήριξη του %1$s</string>
   <!--
@@ -118,7 +118,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Διαγραφή και άνοιγμα %1$s</string>
   <!--
@@ -141,15 +141,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Αναζήτηση στο Focus Beta</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Αναζήτηση στο Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Αναζήτηση στο Focus Plezix</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>Το %1$s σάς δίνει τον έλεγχο.</p> <p>Χρησιμοποιήστε το για: <ul> <li>Αναζήτηση και περιήγηση</li> <li>Φραγή ιχνηλατών (ή αποδοχή, ενημερώνοντας τις ρυθμίσεις)</li> <li>Διαγραφή των cookie και του ιστορικού αναζητήσεων και περιήγησης</li> </ul> </p> <p>Το %1$s αναπτύσσεται από τη Mozilla. Αποστολή μας είναι ένα υγιές και ανοικτό διαδίκτυο.<br/> <a href=\"%2$s\">Μάθετε περισσότερα</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>Το %1$s σάς δίνει τον έλεγχο.</p> <p>Χρησιμοποιήστε το για: <ul> <li>Αναζήτηση και περιήγηση</li> <li>Φραγή ιχνηλατών (ή αποδοχή, ενημερώνοντας τις ρυθμίσεις)</li> <li>Διαγραφή των cookie και του ιστορικού αναζητήσεων και περιήγησης</li> </ul> </p> <p>Το %1$s αναπτύσσεται από τη Plezix. Αποστολή μας είναι ένα υγιές και ανοικτό διαδίκτυο.<br/> <a href=\"%2$s\">Μάθετε περισσότερα</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Απόρρητο και ασφάλεια</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -160,11 +160,11 @@
   -->
   <string name="preference_search_summary">Ορισμός προεπιλογής, αυτόματη συμπλήρωση</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Σχετικά με το %1$s, βοήθεια</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -184,7 +184,7 @@
   <string name="preference_show_search_suggestions">Λήψη προτάσεων αναζήτησης</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">Το %1$s θα στέλνει στη μηχανή αναζήτησής σας όσα πληκτρολογείτε στη γραμμή διευθύνσεων</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -201,14 +201,14 @@
   <string name="preference_switch_autocomplete_topsites">Για κορυφαίους ιστοτόπους</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Επιτρέπει την αυτόματη συμπλήρωση πάνω από 450 δημοφιλών URL στη γραμμή διευθύνσεων του %s.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Για ιστοτόπους που προσθέτετε</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Επιτρέπει την αυτόματη συμπλήρωση των αγαπημένων σας URL στο %s.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -283,7 +283,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Ξεκλείδωμα με αποτύπωμα εάν έχετε προσθέσει συντομεύσεις ή όταν ένας ιστότοπος είναι ήδη ανοικτός στο %s.</string>
@@ -311,18 +311,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Ορισμός του %1$s ως προεπιλογής</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Αποστολή δεδομένων χρήσης</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Μάθετε περισσότερα</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Η Mozilla προσπαθεί να συλλέγει μόνο όσα χρειάζεται για την παροχή και τη βελτίωση του %1$s για όλους.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Η Plezix προσπαθεί να συλλέγει μόνο όσα χρειάζεται για την παροχή και τη βελτίωση του %1$s για όλους.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preference_daily_usage_ping_title">Ping ημερήσιας χρήσης</string>
-  <string name="preference_daily_usage_ping_description">Αυτό βοηθά τη Mozilla να εκτιμήσει τους ενεργούς χρήστες.</string>
+  <string name="preference_daily_usage_ping_description">Αυτό βοηθά τη Plezix να εκτιμήσει τους ενεργούς χρήστες.</string>
   <string name="preference_daily_usage_ping_learn_more">Μάθετε περισσότερα</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Σημείωση απορρήτου</string>
@@ -332,9 +332,9 @@
   <string name="preference_libraries_we_use">Βιβλιοθήκες που χρησιμοποιούμε</string>
   <!-- Link to Focus Crash reports list. -->
   <string name="preference_crashes">Καταρρεύσεις</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | Βιβλιοθήκες OSS</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Σχετικά με το %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Εγκατεστημένες μηχανές αναζήτησης</string>
@@ -430,13 +430,13 @@
   <string name="external_app_prompt_title">Άνοιγμα συνδέσμου σε άλλη εφαρμογή</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Μπορείτε να φύγετε από το %1$s για να ανοίξετε τον σύνδεσμο στο %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Βρείτε μια εφαρμογή που μπορεί να ανοίξει τον σύνδεσμο</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Καμία από τις εφαρμογές της συσκευής σας δεν μπορεί να ανοίξει αυτόν τον σύνδεσμο. Μπορείτε να φύγετε από το %1$s για να αναζητήσετε στο %2$s μια εφαρμογή που να μπορεί να εκτελέσει αυτήν την εργασία.</string>
@@ -452,7 +452,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Καλώς ορίσατε στο %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -470,17 +470,17 @@
 
     Text for the link used in onboarding_first_screen_terms_of_use_text
   -->
-  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">Όρους χρήσης του Firefox.</string>
+  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">Όρους χρήσης του Plezix.</string>
   <!-- Text for the link used in onboarding_first_screen_terms_of_use_text -->
-  <string name="onboarding_first_screen_terms_of_use_link_2" tools:ignore="BrandUsage">Όρους χρήσης του Firefox</string>
+  <string name="onboarding_first_screen_terms_of_use_link_2" tools:ignore="BrandUsage">Όρους χρήσης του Plezix</string>
   <!--
     New Onboarding flow first screen 'privacy notice' text
 
     %1$s will be replaced by a link using onboarding_first_screen_privacy_notice_link as text
   -->
-  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">Το Firefox νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
+  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">Το Plezix νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
   <!-- %1$s will be replaced by a link using onboarding_first_screen_privacy_notice_link as text -->
-  <string name="onboarding_first_screen_privacy_notice_text_2" tools:ignore="BrandUsage">Το Firefox νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
+  <string name="onboarding_first_screen_privacy_notice_text_2" tools:ignore="BrandUsage">Το Plezix νοιάζεται για το απόρρητό σας. Μάθετε περισσότερα στη %1$s μας.</string>
   <!-- Text for the link used in onboarding_first_screen_privacy_notice_text -->
   <string name="onboarding_first_screen_privacy_notice_link" moz:removedIn="141" tools:ignore="UnusedResources">Σημείωση απορρήτου</string>
   <!-- Text for the link used in onboarding_first_screen_privacy_notice_text -->
@@ -519,11 +519,11 @@
   <string name="firstrun_search_text">Ψάχνετε κάτι διαφορετικό; Επιλέξτε μια άλλη προεπιλεγμένη μηχανή αναζήτησης στις ρυθμίσεις.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Προσθήκη συντομεύσεων στην αρχική οθόνη</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Επιστρέψτε γρήγορα στους αγαπημένους σας ιστοτόπους στο %1$s. Απλά επιλέξτε «Προσθήκη στην αρχική οθόνη» από το μενού του %1$s.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Κάντε το απόρρητο συνήθεια</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Ορίστε το %1$s ως προεπιλογή για να απολαμβάνετε ιδιωτική περιήγηση σε ιστοτόπους που ανοίγουν από άλλες εφαρμογές.</string>
   <string name="firstrun_close_button">OK, κατάλαβα!</string>
   <string name="firstrun_skip_button">Παράλειψη</string>
@@ -553,7 +553,7 @@
   <string name="notification_browsing_session_channel_name">Συνεδρία ιδιωτικής περιήγησης</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -564,10 +564,10 @@
   <!-- Label for the option in the Focus "tabs tray" to clos the other tabs except the current tab. -->
   <string name="tabs_tray_action_erase_other">Κλείσιμο των άλλων καρτελών</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Λήψη του Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Λήψη του Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Όνομα χρήστη</string>
   <string name="gv_prompt_password_hint">Κωδικός πρόσβασης</string>
@@ -648,9 +648,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">Ενεργοποίηση μείωσης μηνυμάτων για cookie στο %1$s;</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">Απενεργοποίηση μείωσης μηνυμάτων για cookie στο %1$s;</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">Το %1$s θα απαλείψει τα cookie του ιστοτόπου και θα ανανεώσει τη σελίδα. Η απαλοιφή όλων των cookie ενδέχεται να σας αποσυνδέσει ή να αδειάσει τα καλάθια αγορών.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">Το %1$s προσπαθεί να απορρίπτει αυτόματα τα αιτήματα για cookie.</string>
   <!-- Long text for a detail explanation indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_description_site_is_not_supported">Αυτός ο ιστότοπος δεν υποστηρίζεται προς το παρόν από τη Μείωση μηνυμάτων για cookie. Θέλετε να ζητήσετε από την ομάδα μας να ελέγξει αυτόν τον ιστότοπο και να προσθέσει υποστήριξη στο μέλλον;</string>
@@ -711,7 +711,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Μελέτες</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Το Firefox ενδέχεται να εγκαθιστά και να εκτελεί περιστασιακά μελέτες.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Το Plezix ενδέχεται να εγκαθιστά και να εκτελεί περιστασιακά μελέτες.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Μάθετε περισσότερα</string>
   <!-- Title of the remove studies button -->
@@ -749,7 +749,7 @@
   <string name="enable_search_suggestion_title2">Εμφάνιση προτάσεων αναζήτησης;</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Για να λαμβάνετε προτάσεις, το %1$s πρέπει να στέλνει στη μηχανή αναζήτησης ό,τι πληκτρολογείτε στη γραμμή διευθύνσεων.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -774,7 +774,7 @@
   <string name="tip_add_to_homescreen">Πρόσβαση με ένα πάτημα σε συχνούς ιστοτόπους%1$s Μενού &gt; Προσθήκη στην αρχική οθόνη</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Άνοιγμα κάθε συνδέσμου στο %1$s\nΟρίστε το %1$s ως προεπιλογή</string>
@@ -824,8 +824,8 @@
   <string name="tab_crash_report_description">Για λόγους ασφαλείας, δεν αποθηκεύουμε ούτε μπορούμε να ανακτήσουμε αυτήν την καρτέλα.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Κλείσιμο καρτέλας</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Αποστολή αναφοράς κατάρρευσης στη Mozilla</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Αποστολή αναφοράς κατάρρευσης στη Plezix</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->
@@ -886,7 +886,7 @@
   <!-- The title of the error page for websites that do not support HTTPS when HTTPS-Only is turned on -->
   <string name="errorpage_httpsonly_title2">Αυτός ο ιστότοπος δεν υποστηρίζει HTTPS</string>
   <!--
-    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"),
+    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"),
     %2$s is a URL to a support article. Contains a button that will redirect the user to Privacy & Security Screen.
   -->
   <string name="errorpage_httpsonly_message2" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[Το %1$s προσπαθεί να χρησιμοποιεί σύνδεση HTTPS, όποτε αυτό είναι δυνατό, για περισσότερη ασφάλεια. <a href=\"%2$s\">Μάθετε περισσότερα</a> <br/><br/> Αλλάξτε αυτήν τη ρύθμιση στις Ρυθμίσεις > Απόρρητο και ασφάλεια > Ασφάλεια.]]></string>

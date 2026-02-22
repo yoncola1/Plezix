@@ -842,7 +842,7 @@ index bf8d5e46ae..2277fb95d7 100644
          break;
        }
 +      case RTPExtensionType::kRtpExtensionCsrcAudioLevel: {
-+        // TODO: This is a Mozilla addition, we need to add a handler for this.
++        // TODO: This is a Plezix addition, we need to add a handler for this.
 +        RTC_CHECK(false);
 +      }
      }
@@ -925,7 +925,7 @@ index 61dd81530b..1988c61d19 100644
        RTC_DCHECK_NOTREACHED();
        return false;
 +    case kRtpExtensionCsrcAudioLevel:
-+      // TODO: Mozilla implement for CsrcAudioLevel
++      // TODO: Plezix implement for CsrcAudioLevel
 +      RTC_CHECK(false);
 +      return false;
    }
@@ -1469,7 +1469,7 @@ index a67d64e3ea..3d185a48c2 100644
 +          codec_.width << "x" << codec_.height << " to " <<
 +          input_image.width() << "x" << input_image.height();
 +  // Preserve latest bitrate/framerate setting
-+  // TODO: Mozilla - see below, we need to save more state here.
++  // TODO: Plezix - see below, we need to save more state here.
 +  //uint32_t old_bitrate_kbit = config_->rc_target_bitrate;
 +  //uint32_t old_framerate = codec_.maxFramerate;
 +
@@ -1496,7 +1496,7 @@ index a67d64e3ea..3d185a48c2 100644
 +  vpx_codec_destroy(encoder_); // clean up old state
 +  int result = InitAndSetControlSettings(&codec_);
 +  if (result == WEBRTC_VIDEO_CODEC_OK) {
-+    // TODO: Mozilla rates have become much more complicated, we need to store
++    // TODO: Plezix rates have become much more complicated, we need to store
 +    // more state or find another way of doing this.
 +    //return SetRates(old_bitrate_kbit, old_framerate);
 +    RTC_CHECK(false);
@@ -1539,7 +1539,7 @@ index 344962feb8..286ed159eb 100644
    ]
  
 +  # Added to allow including apm_data_dumper.h in rtc_base/logging.cc
-+  # for Mozilla controlling aec logging from about:webrtc.
++  # for Plezix controlling aec logging from about:webrtc.
 +  if (build_with_mozilla) {
 +    configs += [ "../modules/audio_processing:apm_debug_dump" ]
 +  }

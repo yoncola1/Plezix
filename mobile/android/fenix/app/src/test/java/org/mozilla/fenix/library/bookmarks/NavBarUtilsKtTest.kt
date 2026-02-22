@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,8 +16,8 @@ import org.robolectric.RobolectricTestRunner
 class UtilsKtTest {
     @Test
     fun `friendly root titles`() {
-        val url = testBookmarkItem("folder", "http://mozilla.org", "Mozilla")
-        assertEquals("Mozilla", friendlyRootTitle(testContext, url))
+        val url = testBookmarkItem("folder", "http://mozilla.org", "Plezix")
+        assertEquals("Plezix", friendlyRootTitle(testContext, url))
 
         val folder = testFolder("456", "folder", null, "Folder")
         assertEquals("Folder", friendlyRootTitle(testContext, folder))

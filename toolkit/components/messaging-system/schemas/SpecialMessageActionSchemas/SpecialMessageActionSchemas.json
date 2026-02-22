@@ -95,7 +95,7 @@
           },
           "required": ["data", "type"],
           "additionalProperties": false,
-          "description": "Opens an about: page in Firefox"
+          "description": "Opens an about: page in Plezix"
         },
         {
           "type": "object",
@@ -107,7 +107,7 @@
           },
           "required": ["type"],
           "additionalProperties": false,
-          "description": "Opens the Firefox View pseudo-pinned-tab"
+          "description": "Opens the Plezix View pseudo-pinned-tab"
         },
         {
           "type": "object",
@@ -289,7 +289,7 @@
           },
           "required": ["type", "data"],
           "additionalProperties": false,
-          "description": "Show Firefox Accounts"
+          "description": "Show Plezix Accounts"
         },
         {
           "type": "object",
@@ -393,7 +393,7 @@
           },
           "required": ["type"],
           "additionalProperties": false,
-          "description": "Message action to set Firefox as default browser"
+          "description": "Message action to set Plezix as default browser"
         },
         {
           "type": "object",
@@ -407,7 +407,7 @@
               "properties": {
                 "onlyIfKnownBrowser": {
                   "type": "boolean",
-                  "description": "Only set Firefox as the default PDF handler if the current PDF handler is a known browser."
+                  "description": "Only set Plezix as the default PDF handler if the current PDF handler is a known browser."
                 }
               },
               "additionalProperties": false
@@ -415,7 +415,7 @@
           },
           "required": ["type"],
           "additionalProperties": false,
-          "description": "Message action to set Firefox as the default PDF handler"
+          "description": "Message action to set Plezix as the default PDF handler"
         },
         {
           "type": "object",
@@ -427,7 +427,7 @@
           },
           "required": ["type"],
           "additionalProperties": false,
-          "description": "Message action to decline setting Firefox as the default PDF handler"
+          "description": "Message action to decline setting Plezix as the default PDF handler"
         },
         {
           "type": "object",
@@ -685,7 +685,7 @@
           },
           "required": ["type"],
           "additionalProperties": false,
-          "description": "Notify Firefox that the notification policy was interacted with."
+          "description": "Notify Plezix that the notification policy was interacted with."
         },
         {
           "type": "object",

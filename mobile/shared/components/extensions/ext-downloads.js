@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -112,7 +112,7 @@ class DownloadItem {
    * This function updates the download item it was called on.
    *
    * @param {object} data that arrived from the app (Java)
-   * @returns {object | null} an object of <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/onChanged#downloaddelta>downloadDelta type</a>
+   * @returns {object | null} an object of <a href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads/onChanged#downloaddelta>downloadDelta type</a>
    */
   update(data) {
     const { downloadItemId } = data;

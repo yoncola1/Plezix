@@ -7,7 +7,7 @@ Author: Brian Stack
 Author-email: bstack@mozilla.com
 License: MPL2
 Platform: UNKNOWN
-Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)
 Classifier: Programming Language :: Python :: 2
 Classifier: Programming Language :: Python :: 2.7
 Classifier: Programming Language :: Python :: 3
@@ -286,6 +286,6 @@ Make sure to update [the changelog](https://github.com/taskcluster/taskcluster-l
 License
 -------
 
-[Mozilla Public License Version 2.0](https://github.com/taskcluster/taskcluster-lib-urls/blob/master/LICENSE)
+[Plezix Public License Version 2.0](https://github.com/taskcluster/taskcluster-lib-urls/blob/master/LICENSE)
 
 

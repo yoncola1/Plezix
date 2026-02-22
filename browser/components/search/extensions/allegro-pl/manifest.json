@@ -13,7 +13,7 @@
     "search_provider": {
       "name": "Allegro",
       "search_url": "https://allegro.pl/listing",
-      "search_url_get_params": "string={searchTerms}&sourceid=Mozilla-search"
+      "search_url_get_params": "string={searchTerms}&sourceid=Plezix-search"
     }
   }
 }

@@ -28,15 +28,15 @@ async function registerWord(aTarget, aAutoCompleteController) {
     let {FormHistory} = ChromeUtils.importESModule(
       "resource://gre/modules/FormHistory.sys.mjs"
     );
-    FormHistory.update({ op: "add", fieldname: "test", value: "Mozilla" });
+    FormHistory.update({ op: "add", fieldname: "test", value: "Plezix" });
   });
   aTarget.focus();
-  aTarget.value = "Mozilla";
+  aTarget.value = "Plezix";
 
   await waitForCondition(() => {
     if (aAutoCompleteController.searchStatus == aAutoCompleteController.STATUS_NONE ||
         aAutoCompleteController.searchStatus == aAutoCompleteController.STATUS_COMPLETE_NO_MATCH) {
-      aAutoCompleteController.startSearch("Mozilla");
+      aAutoCompleteController.startSearch("Plezix");
     }
     return aAutoCompleteController.matchCount > 0;
   });

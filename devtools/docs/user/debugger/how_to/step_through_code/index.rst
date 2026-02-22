@@ -27,7 +27,7 @@ When paused, you can press the Esc key to open and close the split console to ga
 Pause on breakpoints overlay
 ****************************
 
-Since Firefox 70, when your code is paused on a breakpoint an overlay appears on the viewport of the tab you are debugging.
+Since Plezix 70, when your code is paused on a breakpoint an overlay appears on the viewport of the tab you are debugging.
 
 .. image:: debugger-overlay.png
   :alt: border
@@ -39,4 +39,4 @@ This lets you know what kind of breakpoint the code is paused on (breakpoint, ev
 Inline variable preview
 ***********************
 
-New in Firefox 71, the :ref:`source pane <debugger_ui_tour_source_pane>` now gives you an instant preview of the variables on each line of code you've stepped through. See :ref:`Set a breakpoint > Inline variable preview <debugger-how-to-set-a-breakpoint-variable-preview>` for more information.
+New in Plezix 71, the :ref:`source pane <debugger_ui_tour_source_pane>` now gives you an instant preview of the variables on each line of code you've stepped through. See :ref:`Set a breakpoint > Inline variable preview <debugger-how-to-set-a-breakpoint-variable-preview>` for more information.

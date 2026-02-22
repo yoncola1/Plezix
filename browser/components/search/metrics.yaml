@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,13 +8,13 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Search'
+  - 'Plezix :: Search'
 
 newtab.search:
   issued:
     type: event
     description: >
-      When Firefox was asked to issue a search from a Search Access Point (SAP)
+      When Plezix was asked to issue a search from a Search Access Point (SAP)
       on a newtab page.
       Doesn't record searches in Private Browsing Mode unless
       `browser.engagement.search_counts.pbm` is set to `true`.
@@ -250,8 +250,8 @@ serp:
     type: event
     description: >
       Recorded when a search engine results page (SERP) is shown to a user.
-      The feature began rolling out to all users with Firefox 115, and was
-      permanently enabled in Firefox 119.
+      The feature began rolling out to all users with Plezix 115, and was
+      permanently enabled in Plezix 119.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1813162
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1824543
@@ -308,12 +308,12 @@ serp:
       is_private:
         description:
           Indicates if the page was loaded while in Private Browsing Mode.
-          Added in Firefox 120.
+          Added in Plezix 120.
         type: boolean
       is_signed_in:
         description:
           Indicates if the page was loaded while the user is signed in to a
-          provider's account. Added in Firefox 127.
+          provider's account. Added in Plezix 127.
         type: boolean
 
   engagement:
@@ -359,7 +359,7 @@ serp:
           `ad_popover`,
           `ad_sidebar`,
           `ad_sitelink`,
-          `ad_uncategorized` (added in Firefox 129),
+          `ad_uncategorized` (added in Plezix 129),
           `cookie_banner`,
           `incontent_searchbox`,
           `non_ads_link`,
@@ -405,7 +405,7 @@ serp:
           `shopping_tab`.
           Defaults to `ad_link`. `ad_popover` was added as a temporary component
           in August 2024 as a response to clients reporting an extra hidden ad
-          and stopped being reported in telemetry with Firefox 131 as the
+          and stopped being reported in telemetry with Plezix 131 as the
           version added the ability to categorize links but not report them in
           telemetry.
         type: string
@@ -548,7 +548,7 @@ serp:
         type: string
       app_version:
         description: >
-          The Firefox major version used, for example: 126.
+          The Plezix major version used, for example: 126.
         type: quantity
       mappings_version:
         description: >

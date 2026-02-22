@@ -232,7 +232,7 @@ enum Condition {
   hs = cs,  // C set            Unsigned higher or same.
   lo = cc,  // C clear          Unsigned lower.
 
-  // Mozilla expanded aliases.
+  // Plezix expanded aliases.
   Equal = 0, Zero = 0,
   NotEqual = 1, NonZero = 1,
   AboveOrEqual = 2, CarrySet = 2,

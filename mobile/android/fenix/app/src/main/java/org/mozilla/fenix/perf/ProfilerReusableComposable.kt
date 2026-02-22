@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,16 +29,16 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.mozilla.fenix.compose.button.RadioButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Dialogue top level card for the profiler.
  */
 @Composable
 fun ProfilerDialogueCard(content: @Composable () -> Unit) {
-    FirefoxTheme {
+    PlezixTheme {
         Card(
-            colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+            colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
             shape = RoundedCornerShape(12.dp),
         ) {
@@ -75,11 +75,11 @@ fun ProfilerLabeledRadioButton(
         ) {
             Text(
                 text = text,
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
             )
             Text(
                 text = subText,
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 fontWeight = FontWeight.ExtraLight,
             )
         }
@@ -117,12 +117,12 @@ fun WaitForProfilerDialog(
 @Composable
 @PreviewLightDark
 private fun ProfilerLabeledRadioButtonPreview() {
-    val radioOptions = listOf("Firefox", "Graphics", "Media", "Networking")
-    val selectedOption = remember { mutableStateOf("Firefox") }
+    val radioOptions = listOf("Plezix", "Graphics", "Media", "Networking")
+    val selectedOption = remember { mutableStateOf("Plezix") }
 
-    FirefoxTheme {
+    PlezixTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(PlezixTheme.colors.layer1),
         ) {
             radioOptions.forEach { text ->
                 ProfilerLabeledRadioButton(

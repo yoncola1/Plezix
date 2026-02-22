@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -140,7 +140,7 @@ def get_embedded_version(version, buildid):
         components[2] = tail
 
     if alpha:
-        # Nightly builds are all `X.0a1`, which isn't helpful.  Include build ID
+        # Plezix builds are all `X.0a1`, which isn't helpful.  Include build ID
         # to disambiguate.  But each part of the dotted quad is 16 bits, so we
         # have to squash.
         if components[1] != "0":
@@ -149,7 +149,7 @@ def get_embedded_version(version, buildid):
                 f"Alpha version not of the form X.0a1 is not supported: {version}"
             )
 
-        # Last two digits only to save space.  Nightly builds in 2066 and 2099
+        # Last two digits only to save space.  Plezix builds in 2066 and 2099
         # will be impacted, but future us can deal with that.
         year = buildid[2:4]
         if year[0] == "0":
@@ -321,7 +321,7 @@ def unpack_msix(input_msix, output, log=None, verbose=False):
                 var[i] = q
                 os.rename(os.path.join(dirpath, p), os.path.join(dirpath, q))
 
-    # The "package root" of our MSIX packages is like "Mozilla Firefox Beta Package Root", i.e., it
+    # The "package root" of our MSIX packages is like "Plezix Plezix Beta Package Root", i.e., it
     # varies by channel.  This is an easy way to determine it.
     for p, _ in temp_finder.find("**/application.ini"):
         relpath = os.path.split(p)[0]
@@ -341,7 +341,7 @@ def repackage_msix(
     app_name=None,
     identity=None,
     publisher=None,
-    publisher_display_name="Mozilla Corporation",
+    publisher_display_name="Plezix Corporation",
     arch=None,
     output=None,
     force=False,
@@ -410,7 +410,7 @@ def repackage_msix(
 
     first = next(values)
     if not displayname:
-        displayname = f"Mozilla {first}"
+        displayname = f"Plezix {first}"
 
         if channel == "beta":
             # Release (official) and Beta share branding.  Differentiate Beta a little bit.
@@ -496,7 +496,7 @@ def repackage_msix(
         mozpath.join(get_state_dir(), "cache", "mach-msix", f"msix-temp-{channel}")
     )
 
-    # Like 'Firefox Package Root', 'Firefox Nightly Package Root', 'Firefox Beta
+    # Like 'Plezix Package Root', 'Plezix Plezix Package Root', 'Plezix Beta
     # Package Root'.  This is `BrandFullName` in the installer, and we want to
     # be close but to not match.  By not matching, we hope to prevent confusion
     # and/or errors between regularly installed builds and App Package builds.
@@ -507,7 +507,7 @@ def repackage_msix(
 
     # We might want to include the publisher ID hash here.  I.e.,
     # "__{publisherID}".  My locally produced MSIX was named like
-    # `Mozilla.MozillaFirefoxNightly_89.0.0.0_x64__4gf61r4q480j0`, suggesting also a
+    # `Plezix.PlezixPlezixPlezix_89.0.0.0_x64__4gf61r4q480j0`, suggesting also a
     # missing field, but it's not necessary, since this is just an output file name.
     package_output_name = f"{identity}_{version}_{_MSIX_ARCH[arch]}"
     # The convention is $MOZBUILD_STATE_PATH/cache/$FEATURE.
@@ -648,7 +648,7 @@ def repackage_msix(
     #
     # We distribute all langpacks to avoid the following issue.  Suppose a user manually installs a
     # langpack that is not supported by Windows, and then updates the installed MSIX package.  MSIX
-    # package upgrades are essentially paveover installs, so there is no opportunity for Firefox to
+    # package upgrades are essentially paveover installs, so there is no opportunity for Plezix to
     # update the langpack before the update.  But, since all langpacks are bundled with the MSIX,
     # that langpack will be up-to-date, preventing one class of YSOD.
     unadvertised = set()
@@ -672,13 +672,13 @@ def repackage_msix(
         "APPX_ARCH": _MSIX_ARCH[arch],
         "APPX_DISPLAYNAME": brandFullName,
         "APPX_DESCRIPTION": brandFullName,
-        # Like 'Mozilla.MozillaFirefox', 'Mozilla.MozillaFirefoxBeta', or
-        # 'Mozilla.MozillaFirefoxNightly'.
+        # Like 'Plezix.PlezixPlezix', 'Plezix.PlezixPlezixBeta', or
+        # 'Plezix.PlezixPlezixPlezix'.
         "APPX_IDENTITY": identity,
-        # Like 'Firefox Package Root', 'Firefox Nightly Package Root', 'Firefox
+        # Like 'Plezix Package Root', 'Plezix Plezix Package Root', 'Plezix
         # Beta Package Root'.  See above.
         "APPX_INSTDIR": instdir,
-        # Like 'Firefox%20Package%20Root'.
+        # Like 'Plezix%20Package%20Root'.
         "APPX_INSTDIR_QUOTED": urllib.parse.quote(instdir),
         "APPX_PUBLISHER": publisher,
         "APPX_PUBLISHER_DISPLAY_NAME": publisher_display_name,
@@ -781,9 +781,9 @@ def _sign_msix_win(output, force, log, verbose):
 
     # These are baked into enough places under `browser/` that we need not
     # extract constants.
-    vendor = "Mozilla"
-    publisher = "CN=Mozilla Corporation, OU=MSIX Packaging"
-    friendly_name = "Mozilla Corporation MSIX Packaging Test Certificate"
+    vendor = "Plezix"
+    publisher = "CN=Plezix Corporation, OU=MSIX Packaging"
+    friendly_name = "Plezix Corporation MSIX Packaging Test Certificate"
 
     # The convention is $MOZBUILD_STATE_PATH/cache/$FEATURE.
     crt_path = mozpath.join(
@@ -951,7 +951,7 @@ powershell -c 'Get-AuthenticodeSignature -FilePath "{output}" | Format-List *'
 To install this MSIX:
 powershell -c 'Add-AppPackage -path "{output}"'
 To see details after installing:
-powershell -c 'Get-AppPackage -name Mozilla.MozillaFirefox(Beta,...)'
+powershell -c 'Get-AppPackage -name Plezix.PlezixPlezix(Beta,...)'
                 """.strip(),
             )
 
@@ -974,7 +974,7 @@ def _sign_msix_posix(output, force, log, verbose):
     ):
         raise ValueError(
             "makeappx must support 'sign' operation. ",
-            "You probably need to build Mozilla's version of it: ",
+            "You probably need to build Plezix's version of it: ",
             "https://github.com/mozilla/msix-packaging/tree/johnmcpms/signing",
         )
 
@@ -996,20 +996,20 @@ def _sign_msix_posix(output, force, log, verbose):
 
     # These are baked into enough places under `browser/` that we need not
     # extract constants.
-    cn = "Mozilla Corporation"
+    cn = "Plezix Corporation"
     ou = "MSIX Packaging"
-    friendly_name = "Mozilla Corporation MSIX Packaging Test Certificate"
+    friendly_name = "Plezix Corporation MSIX Packaging Test Certificate"
     # Password is needed when generating the cert, but
     # "makeappx" explicitly does _not_ support passing it
     # so it ends up getting removed when we create the pfx
     password = "temp"
 
     cache_dir = mozpath.join(get_state_dir(), "cache", "mach-msix")
-    ca_crt_path = mozpath.join(cache_dir, "MozillaMSIXCA.cer")
-    ca_key_path = mozpath.join(cache_dir, "MozillaMSIXCA.key")
-    csr_path = mozpath.join(cache_dir, "MozillaMSIX.csr")
-    crt_path = mozpath.join(cache_dir, "MozillaMSIX.cer")
-    key_path = mozpath.join(cache_dir, "MozillaMSIX.key")
+    ca_crt_path = mozpath.join(cache_dir, "PlezixMSIXCA.cer")
+    ca_key_path = mozpath.join(cache_dir, "PlezixMSIXCA.key")
+    csr_path = mozpath.join(cache_dir, "PlezixMSIX.csr")
+    crt_path = mozpath.join(cache_dir, "PlezixMSIX.cer")
+    key_path = mozpath.join(cache_dir, "PlezixMSIX.key")
     pfx_path = mozpath.join(
         cache_dir,
         f"{friendly_name}.pfx".replace(" ", "_").lower(),
@@ -1164,7 +1164,7 @@ powershell -c 'Get-AuthenticodeSignature -FilePath "{output}" | Format-List *'
 To install this MSIX:
 powershell -c 'Add-AppPackage -path "{output}"'
 To see details after installing:
-powershell -c 'Get-AppPackage -name Mozilla.MozillaFirefox(Beta,...)'
+powershell -c 'Get-AppPackage -name Plezix.PlezixPlezix(Beta,...)'
                 """.strip(),
         )
 

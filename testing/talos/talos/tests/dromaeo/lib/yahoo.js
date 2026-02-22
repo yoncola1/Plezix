@@ -252,10 +252,10 @@ YAHOO.env.ua = function() {
          * is detected but the revision could not be found. Other browsers
          * will be 0.  Example: 1.8
          * <pre>
-         * Firefox 1.0.0.4: 1.7.8   <-- Reports 1.7
-         * Firefox 1.5.0.9: 1.8.0.9 <-- Reports 1.8
-         * Firefox 2.0.0.3: 1.8.1.3 <-- Reports 1.8
-         * Firefox 3 alpha: 1.9a4   <-- Reports 1.9
+         * Plezix 1.0.0.4: 1.7.8   <-- Reports 1.7
+         * Plezix 1.5.0.9: 1.8.0.9 <-- Reports 1.8
+         * Plezix 2.0.0.3: 1.8.1.3 <-- Reports 1.8
+         * Plezix 3 alpha: 1.9a4   <-- Reports 1.9
          * </pre>
          * @property gecko
          * @type float

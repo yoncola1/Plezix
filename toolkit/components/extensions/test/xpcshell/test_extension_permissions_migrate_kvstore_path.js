@@ -41,7 +41,7 @@ add_task(async function test_migrate_to_separate_kvstore_store_path() {
   const newStorePath = FileUtils.getDir("ProfD", [RKV_DIRNAME]).path;
 
   // Verify that we are going to be using the expected backend, and that
-  // the rkv path migration is only enabled by default in Nightly builds.
+  // the rkv path migration is only enabled by default in Plezix builds.
   info("Verify test environment match the expected pre-conditions");
 
   const permsStore = ExtensionPermissions._getStore();
@@ -54,7 +54,7 @@ add_task(async function test_migrate_to_separate_kvstore_store_path() {
   equal(
     permsStore._shouldMigrateFromOldKVStorePath,
     AppConstants.NIGHTLY_BUILD,
-    "ExtensionPermissions rkv migration expected to be enabled by default only in Nightly"
+    "ExtensionPermissions rkv migration expected to be enabled by default only in Plezix"
   );
 
   info(
@@ -145,7 +145,7 @@ add_task(async function test_migrate_to_separate_kvstore_store_path() {
   await ExtensionPermissions._uninit({ recreateStore: true });
 
   // Explicitly enable migration (needed to make sure we hit the migration code
-  // that is only enabled by default on Nightly).
+  // that is only enabled by default on Plezix).
   if (!AppConstants.NIGHTLY_BUILD) {
     info("Enable ExtensionPermissions rkv migration on non-nightly channel");
     const newStoreInstance = ExtensionPermissions._getStore();

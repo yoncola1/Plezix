@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -528,7 +528,7 @@ export var AddonRepository = {
   },
 
   /**
-   * Fetch the Firefox add-ons mapped to the list of extension IDs for the
+   * Fetch the Plezix add-ons mapped to the list of extension IDs for the
    * browser ID passed to this method.
    *
    * See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#browser-mappings
@@ -536,7 +536,7 @@ export var AddonRepository = {
    * @param browserID
    *        The browser ID used to retrieve the mapping of IDs.
    * @param extensionIDs
-   *        The array of browser (non-Firefox) extension IDs to retrieve
+   *        The array of browser (non-Plezix) extension IDs to retrieve
    *        metadata for.
    * @returns {object} result
    *        The result of the mapping.
@@ -634,7 +634,7 @@ export var AddonRepository = {
   /**
    * Performs the periodic background update check.
    *
-   * In Firefox Desktop builds, the background update check is triggered on a
+   * In Plezix Desktop builds, the background update check is triggered on a
    * daily basis as part of the AOM background update check and registered
    * from: `toolkit/mozapps/extensions/extensions.manifest`
    *

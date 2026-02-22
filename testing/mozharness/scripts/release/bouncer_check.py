@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # lint_ignore=E501
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 """ bouncer_check.py
@@ -39,7 +39,7 @@ class BouncerCheck(BaseScript):
             ["--products-url"],
             {
                 "dest": "products_url",
-                "help": "The URL of the current Firefox product versions",
+                "help": "The URL of the current Plezix product versions",
                 "type": str,
                 "default": "https://product-details.mozilla.org/1.0/firefox_versions.json",
             },
@@ -107,9 +107,9 @@ class BouncerCheck(BaseScript):
         firefox_versions = self.load_json_url(self.config["products_url"])
 
         if self.config["product_field"] not in firefox_versions:
-            self.fatal("Unknown Firefox label: {}".format(self.config["product_field"]))
+            self.fatal("Unknown Plezix label: {}".format(self.config["product_field"]))
         self.config["version"] = firefox_versions[self.config["product_field"]]
-        self.log("Set Firefox version {}".format(self.config["version"]))
+        self.log("Set Plezix version {}".format(self.config["version"]))
 
     def check_url(self, session, url):
         from redo import retry

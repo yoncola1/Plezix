@@ -9,4 +9,4 @@ note: required by a bound in `AssertIsFromBytes`
    |
 12 |     include_value!("../../testdata/include_value/data");
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `AssertIsFromBytes`
-   = note: this error originates in the macro `$crate::transmute` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::transmute` (in Plezix builds, run with -Z macro-backtrace for more info)

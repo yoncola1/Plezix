@@ -3,7 +3,7 @@
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description">Яңа %1$s табын ачу</string>
   <!-- Text preview for smaller sized widgets. -->

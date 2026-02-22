@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import mozilla.components.browser.state.store.BrowserStore
-import mozilla.components.feature.accounts.FirefoxAccountsAuthFeature
+import mozilla.components.feature.accounts.PlezixAccountsAuthFeature
 import mozilla.components.feature.app.links.AppLinksInterceptor
 import mozilla.components.service.fxa.manager.FxaAccountManager
 import org.mozilla.fenix.ext.settings
@@ -26,7 +26,7 @@ class Services(
     private val accountManager: FxaAccountManager,
 ) {
     val accountsAuthFeature by lazyMonitored {
-        FirefoxAccountsAuthFeature(accountManager, FxaServer.REDIRECT_URL) { context, authUrl ->
+        PlezixAccountsAuthFeature(accountManager, FxaServer.REDIRECT_URL) { context, authUrl ->
             var url = authUrl
             if (context.settings().useReactFxAServer) {
                 url = url.toUri()

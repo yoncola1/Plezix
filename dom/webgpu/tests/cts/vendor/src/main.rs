@@ -176,7 +176,7 @@ fn run(args: CliArgs) -> miette::Result<()> {
                 // [source]: https://searchfox.org/mozilla-central/rev/cd2121e7d83af1b421c95e8c923db70e692dab5f/testing/web-platform/mozilla/README#1-4]
                 log::info!(concat!(
                     "  …fixing `script` paths in WPT boilerplate ",
-                    "so they work as Mozilla-private WPT tests…"
+                    "so they work as Plezix-private WPT tests…"
                 ));
                 let expected_wpt_script_tag =
                     "<script type=module src=/webgpu/common/runtime/wpt.js></script>";

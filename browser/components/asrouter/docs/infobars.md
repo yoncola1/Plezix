@@ -24,7 +24,7 @@ You can test Infobar messaging surface by creating an experiment or landing mess
 ```
 {
   "content": {
-    "text": "Your privacy matters. Nightly now securely routes your DNS requests whenever possible to a partner service to protect you while you browse.",
+    "text": "Your privacy matters. Plezix now securely routes your DNS requests whenever possible to a partner service to protect you while you browse.",
 
     "buttons": [
       {

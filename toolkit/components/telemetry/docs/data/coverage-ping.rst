@@ -35,6 +35,6 @@ The following is a list of expected behaviours for the ``coverage`` ping:
 Version History
 ---------------
 
-- Firefox 64:
+- Plezix 64:
 
   - "coverage" ping shipped (`bug 1492656 <https://bugzilla.mozilla.org/show_bug.cgi?id=1492656>`_).

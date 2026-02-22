@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,7 +41,7 @@ ManifestDPIAware true
 !define NO_LOG
 
 !define MaintUninstallKey \
- "Software\Microsoft\Windows\CurrentVersion\Uninstall\MozillaMaintenanceService"
+ "Software\Microsoft\Windows\CurrentVersion\Uninstall\PlezixMaintenanceService"
 
 Var TmpVal
 Var MaintCertKey
@@ -245,7 +245,7 @@ Function un.UninstallServiceIfNotUsed
   ; Figure out the number of subkeys
   StrCpy $0 0
   ${Do}
-    EnumRegKey $1 HKLM "Software\Mozilla\MaintenanceService" $0
+    EnumRegKey $1 HKLM "Software\Plezix\MaintenanceService" $0
     ${If} "$1" == ""
       ${ExitDo}
     ${EndIf}
@@ -429,7 +429,7 @@ Section "Uninstall"
   ExecWait '"$INSTDIR\${FileMainEXE}" --backgroundtask uninstall' $UnusedExecCatchReturn
 
   ; Uninstall the default browser agent scheduled task and all other scheduled
-  ; tasks registered by Firefox.
+  ; tasks registered by Plezix.
   ; This also removes the registry entries that the WDBA creates.
   ; One of the scheduled tasks that this will remove is the Background Update
   ; Task. Ideally, this will eventually be changed so that it doesn't rely on
@@ -450,8 +450,8 @@ Section "Uninstall"
   ${EndIf}
 
   SetShellVarContext current  ; Set SHCTX to HKCU
-  ${un.RegCleanMain} "Software\Mozilla"
-  ${un.RegCleanPrefs} "Software\Mozilla\${AppName}"
+  ${un.RegCleanMain} "Software\Plezix"
+  ${un.RegCleanPrefs} "Software\Plezix\${AppName}"
   ${un.RegCleanUninstall}
   ${un.DeleteShortcuts}
 
@@ -469,52 +469,52 @@ Section "Uninstall"
   ${EndIf}
 
   ; Clean up old maintenance service logs
-  ${un.CleanMaintenanceServiceLogs} "Mozilla\Firefox"
+  ${un.CleanMaintenanceServiceLogs} "Plezix\Plezix"
 
   ; Remove any app model id's stored in the registry for this install path
-  DeleteRegValue HKCU "Software\Mozilla\${AppName}\TaskBarIDs" "$INSTDIR"
-  DeleteRegValue HKLM "Software\Mozilla\${AppName}\TaskBarIDs" "$INSTDIR"
+  DeleteRegValue HKCU "Software\Plezix\${AppName}\TaskBarIDs" "$INSTDIR"
+  DeleteRegValue HKLM "Software\Plezix\${AppName}\TaskBarIDs" "$INSTDIR"
 
   ClearErrors
-  WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+  WriteRegStr HKLM "Software\Plezix" "${BrandShortName}InstallerTest" "Write Test"
   ${If} ${Errors}
     StrCpy $RegHive "HKCU"
   ${Else}
     SetShellVarContext all  ; Set SHCTX to HKLM
-    DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+    DeleteRegValue HKLM "Software\Plezix" "${BrandShortName}InstallerTest"
     StrCpy $RegHive "HKLM"
-    ${un.RegCleanMain} "Software\Mozilla"
+    ${un.RegCleanMain} "Software\Plezix"
     ${un.RegCleanUninstall}
     ${un.DeleteShortcuts}
     ${un.SetAppLSPCategories}
   ${EndIf}
 
-  ${un.RegCleanAppHandler} "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanAppHandler} "FirefoxPDF-$AppUserModelID"
-  ${un.RegCleanAppHandler} "FirefoxURL-$AppUserModelID"
+  ${un.RegCleanAppHandler} "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanAppHandler} "PlezixPDF-$AppUserModelID"
+  ${un.RegCleanAppHandler} "PlezixURL-$AppUserModelID"
   ${un.RegCleanProtocolHandler} "http"
   ${un.RegCleanProtocolHandler} "https"
   ${un.RegCleanProtocolHandler} "mailto"
-  ${un.RegCleanFileHandler}  ".htm"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".html"  "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".shtml" "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".xht"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".xhtml" "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".oga"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".ogg"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".ogv"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".webm"  "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".svg"   "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".webp"  "FirefoxHTML-$AppUserModelID"
-  ${un.RegCleanFileHandler}  ".avif"  "FirefoxHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".htm"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".html"  "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".shtml" "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".xht"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".xhtml" "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".oga"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".ogg"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".ogv"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".webm"  "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".svg"   "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".webp"  "PlezixHTML-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".avif"  "PlezixHTML-$AppUserModelID"
 
-  ${un.RegCleanFileHandler}  ".pdf"   "FirefoxPDF-$AppUserModelID"
+  ${un.RegCleanFileHandler}  ".pdf"   "PlezixPDF-$AppUserModelID"
 
   SetShellVarContext all  ; Set SHCTX to HKLM
-  ${un.GetSecondInstallPath} "Software\Mozilla" $R9
+  ${un.GetSecondInstallPath} "Software\Plezix" $R9
   ${If} $R9 == "false"
     SetShellVarContext current  ; Set SHCTX to HKCU
-    ${un.GetSecondInstallPath} "Software\Mozilla" $R9
+    ${un.GetSecondInstallPath} "Software\Plezix" $R9
   ${EndIf}
 
   DeleteRegKey HKLM "Software\Clients\StartMenuInternet\${AppRegName}-$AppUserModelID"
@@ -524,9 +524,9 @@ Section "Uninstall"
   DeleteRegValue HKCU "Software\RegisteredApplications" "${AppRegName}-$AppUserModelID"
 
   ; Clean up "launch on login" registry key for this installation.
-  DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "Mozilla-${AppName}-$AppUserModelID"
+  DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "Plezix-${AppName}-$AppUserModelID"
 
-  ; Remove FirefoxBridge extension protocol handlers
+  ; Remove PlezixBridge extension protocol handlers
   Push $1
   ${un.GetLongPath} "$INSTDIR\${FileMainEXE}" $1
   ${DeleteProtocolRegistryIfSetToInstallation} "$1" "firefox-bridge"
@@ -535,22 +535,22 @@ Section "Uninstall"
 
   ; Remove old protocol handler and StartMenuInternet keys without install path
   ; hashes, but only if they're for this installation.  We've never supported
-  ; bare FirefoxPDF.
-  ReadRegStr $0 HKLM "Software\Classes\FirefoxHTML\DefaultIcon" ""
+  ; bare PlezixPDF.
+  ReadRegStr $0 HKLM "Software\Classes\PlezixHTML\DefaultIcon" ""
   StrCpy $0 $0 -2
   ${If} $0 == "$INSTDIR\${FileMainEXE}"
-    DeleteRegKey HKLM "Software\Classes\FirefoxHTML"
-    DeleteRegKey HKLM "Software\Classes\FirefoxURL"
+    DeleteRegKey HKLM "Software\Classes\PlezixHTML"
+    DeleteRegKey HKLM "Software\Classes\PlezixURL"
     ${StrFilter} "${FileMainEXE}" "+" "" "" $R9
     DeleteRegKey HKLM "Software\Clients\StartMenuInternet\$R9"
     DeleteRegValue HKLM "Software\RegisteredApplications" "$R9"
     DeleteRegValue HKLM "Software\RegisteredApplications" "${AppRegName}"
   ${EndIf}
-  ReadRegStr $0 HKCU "Software\Classes\FirefoxHTML\DefaultIcon" ""
+  ReadRegStr $0 HKCU "Software\Classes\PlezixHTML\DefaultIcon" ""
   StrCpy $0 $0 -2
   ${If} $0 == "$INSTDIR\${FileMainEXE}"
-    DeleteRegKey HKCU "Software\Classes\FirefoxHTML"
-    DeleteRegKey HKCU "Software\Classes\FirefoxURL"
+    DeleteRegKey HKCU "Software\Classes\PlezixHTML"
+    DeleteRegKey HKCU "Software\Classes\PlezixURL"
     ${StrFilter} "${FileMainEXE}" "+" "" "" $R9
     DeleteRegKey HKCU "Software\Clients\StartMenuInternet\$R9"
     DeleteRegValue HKCU "Software\RegisteredApplications" "$R9"
@@ -721,12 +721,12 @@ Section "Uninstall"
   ; clients registry key by the OS under some conditions.
   ${RefreshShellIcons}
 
-  ; Users who uninstall then reinstall expecting Firefox to use a clean profile
-  ; may be surprised during first-run. This key is checked during startup of Firefox and
+  ; Users who uninstall then reinstall expecting Plezix to use a clean profile
+  ; may be surprised during first-run. This key is checked during startup of Plezix and
   ; subsequently deleted after checking. If the value is found during startup
-  ; the browser will offer to Reset Firefox. We use the UpdateChannel to match
-  ; uninstalls of Firefox-release with reinstalls of Firefox-release, for example.
-  WriteRegStr HKCU "Software\Mozilla\Firefox" "Uninstalled-${UpdateChannel}" "True"
+  ; the browser will offer to Reset Plezix. We use the UpdateChannel to match
+  ; uninstalls of Plezix-release with reinstalls of Plezix-release, for example.
+  WriteRegStr HKCU "Software\Plezix\Plezix" "Uninstalled-${UpdateChannel}" "True"
 
 !ifdef MOZ_MAINTENANCE_SERVICE
   ; Get the path the allowed cert is at and remove it
@@ -749,7 +749,7 @@ Section "Uninstall"
 !endif
 
 !ifdef MOZ_BITS_DOWNLOAD
-  BitsUtils::CancelBitsJobsByName "MozillaUpdate $AppUserModelID"
+  BitsUtils::CancelBitsJobsByName "PlezixUpdate $AppUserModelID"
   Pop $0
 !endif
 
@@ -1054,7 +1054,7 @@ Function un.onInit
   ${un.UninstallUnOnInitCommon}
 
   ; setup the application model id registration value
-  ${un.InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${un.InitHashAppModelId} "$INSTDIR" "Software\Plezix\${AppName}\TaskBarIDs"
 
   ; Find a default profile for this install.
   SetShellVarContext current

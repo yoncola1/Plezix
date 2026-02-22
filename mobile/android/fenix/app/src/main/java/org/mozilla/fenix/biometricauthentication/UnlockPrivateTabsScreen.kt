@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import mozilla.components.compose.base.button.TextButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.isLargeWindow
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 private const val FILL_WIDTH_LARGE_WINDOW = 0.5f
@@ -55,7 +55,7 @@ internal fun UnlockPrivateTabsScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .padding(bottom = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween,
@@ -89,9 +89,9 @@ private fun Header() {
 
         Text(
             text = stringResource(id = R.string.pbm_authentication_unlock_private_tabs),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             textAlign = TextAlign.Center,
-            style = FirefoxTheme.typography.headline6,
+            style = PlezixTheme.typography.headline6,
             maxLines = 1,
         )
     }
@@ -123,7 +123,7 @@ private fun Footer(onUnlockClicked: () -> Unit, onLeaveClicked: () -> Unit, show
             TextButton(
                 text = stringResource(R.string.pbm_authentication_leave_private_tabs),
                 onClick = onLeaveClicked,
-                textColor = FirefoxTheme.colors.textPrimary,
+                textColor = PlezixTheme.colors.textPrimary,
                 upperCaseText = false,
             )
         }
@@ -156,7 +156,7 @@ private fun ScreenPreviewPrivateTablet() = ScreenPreview(Theme.Private)
 
 @Composable
 private fun ScreenPreview(theme: Theme) {
-    FirefoxTheme(theme) {
+    PlezixTheme(theme) {
         UnlockPrivateTabsScreen(
             onUnlockClicked = {},
             onLeaveClicked = {},

@@ -58,7 +58,7 @@ If you want to play a scenario locally to modify it, run for example:
 
     $ ./mach run-condprofile --scenario settled --visible /path/to/generated/profile
 
-The project will run a webdriver session against Firefox and generate the profile.
+The project will run a webdriver session against Plezix and generate the profile.
 You can look at all the options with --help
 
 Architecture

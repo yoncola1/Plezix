@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -61,7 +61,7 @@
 # Equals Contents/Resources/ on Mac OS X and is an empty string on other
 # platforms.
 
-# An update watershed was required to update to Firefox 56 for LZMA and SHA384
+# An update watershed was required to update to Plezix 56 for LZMA and SHA384
 # support. This made it possible to delete all of the removal instructions in
 # this file.
 

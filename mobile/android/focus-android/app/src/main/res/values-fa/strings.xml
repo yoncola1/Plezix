@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">گزارش مشکل در پایگاه</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">بازکردن در %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">نیرو گرفته توسط %1$s</string>
   <!--
@@ -111,7 +111,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">پاک کردن و باز کردن %1$s</string>
   <!--
@@ -128,12 +128,12 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">جستجو در فوکوس بتا</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">جستجو در Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">جستجو در Focus Plezix</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
   <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s شما را تحت کنترل قرار می‌دهد.</p> <p>از این به عنوان یک مرورگر خصوصی استفاده کنید: <ul> <li>مستقیما در برنامه جست‌وجو و مرور کنید</li> <li>ردیاب‌ها را مسدود کنید (یا تنظیمات را برای اجازه دادن به ردیاب‌ها تغییر دهید)</li> <li>کوکی‌ها را مانند جست‌وجو و تاریخچه مرور پاک یا حذف کنید</li> </ul> </p> <p>%1$s توسط موزیلا ساخته شده است. ماموریت ما تا رواج یک اینترنت سالم و باز است.<br/> <a href=\"%2$s\">بیشتر بدانید</a></p>]]></string>
@@ -147,11 +147,11 @@
   -->
   <string name="preference_search_summary">تنظیم پیش‌فرض، تکمیل خودکار</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">دربارهٔ %1$s، راهنما</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -171,7 +171,7 @@
   <string name="preference_show_search_suggestions">دریافت پیشنهادات جست‌وجو</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s چیزی که شما در نوار آدرس وارد می‌کنید را برای موتور جست‌وجو شما ارسال خواهد کرد</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -188,14 +188,14 @@
   <string name="preference_switch_autocomplete_topsites">برای سایت‌های برتر</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">فعال کردن %s برای تکمیل خودکار بیش از ۴۵۰ URL محبوب در نوار آدرس.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">برای سایت‌هایی که شما اضافه می‌کنید</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">فعال کردن %s برای تکمیل خودکار URLهای محبوب شما.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -270,7 +270,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">بازکردن قفل به وسیله اثر انگشت اگر این میانبر را اضافه کرده‌ اید یا پایگاه اینترنتی در حال حاضر در %s باز است.</string>
@@ -298,18 +298,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">تبدیل %1$s به مرورگر پیش‌فرض</string>
   <string name="preference_category_mozilla">موزیلا</string>
   <string name="preference_mozilla_telemetry2">ارسال اطلاعات استفاده</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">اطلاعات بیشتر</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="preference_mozilla_telemetry_summary2">موزیلا تلاش می‌کند تنها اطلاعاتی که برای بهینه‌سازی %1$s برای همه به آنها نیاز دارد را جمع‌آوری کند.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">نکات حریم‌خصوصی</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">درباره %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">موتورهای جست‌وجو نصب شده</string>
@@ -405,13 +405,13 @@
   <string name="external_app_prompt_title">باز کردن پیوند در برنامه‌ای دیگر</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">می‌توانید از %1$s خارج شوید تا پیوند را در %2$s باز کنید.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">برنامه‌ای برای باز کردن پیوند پیدا کنید</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">هیچکدام از برنامه‌های روی دستگاه شما امکان باز کردن این پیوند را ندارند. می‌توانید از %1$s خارج شوید تا در %2$s برای برنامه‌ای که بتواند اینکار را انجام دهد جست‌وجو کنید.</string>
@@ -425,7 +425,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">به %1$s خوش‌ آمدید</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -448,11 +448,11 @@
   <string name="firstrun_search_text">به دنبال چیز متفاوتی هستید؟ موتور جستجوی پیش‌فرض دیگری را در تنظیمات انتخاب کنید.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">میان‌برها را به صفحه خانگی خود اضافه کنید</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">در %1$s به سرعت به سایت‌های محبوب خود برگردید. فقط «افزودن به صفحه خانگی» را از منوی %1$s انتخاب کنید.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">حفظ حریم خصوصی را به یک عادت تبدیل کنید</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">%1$s را به عنوان مرورگر پیش‌فرض خود انتخاب کنید و وقتی از اپ‌های دیگر صفحه‌های وب را باز می‌کنید از مزایای مرور خصوصی بهره‌مند شوید.</string>
   <string name="firstrun_close_button">باشه، گرفتم!</string>
   <string name="firstrun_skip_button">رد کردن</string>
@@ -482,7 +482,7 @@
   <string name="notification_browsing_session_channel_name">نشستِ مرور ناشناس</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -491,7 +491,7 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">پاک کردن تاریخچهٔ مرور</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
   <string name="download_firefox" tools:ignore="BrandUsage">دریافت فایرفاکس</string>
@@ -580,7 +580,7 @@
   <string name="enable_search_suggestion_title2">پیشنهادهای جست‌وجو نمایش داده شوند؟</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">برای دریافت پیشنهادات، %1$s نیاز دارد تا چیزی که در نوار آدرس می‌نویسید را به موتور جست‌وجو ارسال کند.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -605,7 +605,7 @@
   <string name="tip_add_to_homescreen">با اشاره یک انگشت به سایت های پربازدید خود دسترسی داشته باشید%1$s فهرست&gt; اضافه کردن به صفحه خانگی</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">بازکردن هر پیوندی در %1$s\nتنظیم%1$s به عنوان مرورگر پیش فرض</string>
@@ -653,7 +653,7 @@
   <string name="tab_crash_report_description">به عنوان یک مرورگر خصوصی نمی توانیم این زبانه را ذخیره و بازیابی کنیم.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">بستن زبانه</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
   <string name="crash_report_send_crash_label">ارسال گزارش خرابی ها به موزیلا</string>
   <!-- Tracking protection bottom sheet -->
 

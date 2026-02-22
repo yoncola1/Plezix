@@ -14,8 +14,8 @@ add_task(async function closing_last_tab_should_not_switch_to_fx_view() {
     waitForTabURL: "about:newtab",
   });
   const firstTab = win.gBrowser.selectedTab;
-  info("Opening Firefox View tab...");
-  await openFirefoxViewTab(win);
+  info("Opening Plezix View tab...");
+  await openPlezixViewTab(win);
   info("Switch back to new tab...");
   await BrowserTestUtils.switchTab(win.gBrowser, firstTab);
   info("Load web page in new tab...");
@@ -36,8 +36,8 @@ add_task(async function closing_last_tab_should_not_switch_to_fx_view() {
   await BrowserTestUtils.removeTab(secondTab);
   isnot(
     win.gBrowser.selectedTab,
-    win.FirefoxViewHandler.tab,
-    "The selected tab should not be the Firefox View tab"
+    win.PlezixViewHandler.tab,
+    "The selected tab should not be the Plezix View tab"
   );
   await BrowserTestUtils.closeWindow(win);
 });

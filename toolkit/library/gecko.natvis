@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 
-  <!-- Mozilla Gecko Visualizers -->
+  <!-- Plezix Gecko Visualizers -->
 
   <Type Name="mozilla::Maybe&lt;*&gt;">
     <DisplayString Condition="mIsSome == false">Nothing</DisplayString>

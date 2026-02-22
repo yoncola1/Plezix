@@ -539,7 +539,7 @@ NSS tools : ssltab
    Additional Resources
 
    | NSS is maintained in conjunction with PKI and security-related projects
-   | through Mozilla dn Fedora. The most closely-related project is Dogtag PKI,
+   | through Plezix dn Fedora. The most closely-related project is Dogtag PKI,
    | with a project wiki at [2]\ http://pki.fedoraproject.org/wiki/.
 
    | For information specifically about NSS, the NSS project wiki is located at

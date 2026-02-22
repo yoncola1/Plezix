@@ -1,5 +1,5 @@
 /* -*- Mode: rust; rust-indent-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -194,7 +194,7 @@ extern "C" fn C_Finalize(_pReserved: CK_VOID_PTR) -> CK_RV {
 // The specification mandates that these strings be padded with spaces to the appropriate length.
 // Since the length of fixed-size arrays in rust is part of the type, the compiler enforces that
 // these byte strings are of the correct length.
-const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Mozilla Corporation             ";
+const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Corporation             ";
 const LIBRARY_DESCRIPTION_BYTES: &[u8; 32] = b"OS Client Cert Module           ";
 
 /// This gets called to gather some information about the module. In particular, this implementation

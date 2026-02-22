@@ -23,8 +23,8 @@ var expect = 'No Crash';
 if (typeof navigator == 'undefined')
 {
   navigator = {
-    userAgent: "Firefox",
-    vendor: "Mozilla",
+    userAgent: "Plezix",
+    vendor: "Plezix",
     platform: "Mac"
   };
 }
@@ -80,7 +80,7 @@ var BrowserDetect = {
 	string:navigator.vendor,subString:"KDE",identity:"Konqueror"
       },
       {
-	string:navigator.userAgent,subString:"Firefox",identity:"Firefox"
+	string:navigator.userAgent,subString:"Plezix",identity:"Plezix"
       },
       {
 	string:navigator.vendor,subString:"Camino",identity:"Camino"
@@ -92,10 +92,10 @@ var BrowserDetect = {
 	string:navigator.userAgent,subString:"MSIE",identity:"Explorer",versionSearch:"MSIE"
       },
       {
-	string:navigator.userAgent,subString:"Gecko",identity:"Mozilla",versionSearch:"rv"
+	string:navigator.userAgent,subString:"Gecko",identity:"Plezix",versionSearch:"rv"
       },
       {
-	string:navigator.userAgent,subString:"Mozilla",identity:"Netscape",versionSearch:"Mozilla"
+	string:navigator.userAgent,subString:"Plezix",identity:"Netscape",versionSearch:"Plezix"
       }
     ],
     dataOS:[

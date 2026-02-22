@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
 /**
- * This tests the multiple update downloads per Firefox session feature.
+ * This tests the multiple update downloads per Plezix session feature.
  *
  * This test does some unusual things, compared to the other files in this
  * directory. We want to start the updates with aus.checkForBackgroundUpdates()

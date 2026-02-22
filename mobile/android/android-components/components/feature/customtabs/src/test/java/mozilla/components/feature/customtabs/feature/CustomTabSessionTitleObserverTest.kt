@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ class CustomTabSessionTitleObserverTest {
         val toolbar: Toolbar = mock()
         val observer = CustomTabSessionTitleObserver(toolbar)
         val url = "https://www.mozilla.org"
-        val title = "Internet for people, not profit - Mozilla"
+        val title = "Internet for people, not profit - Plezix"
 
         observer.onTab(createCustomTab(url, title = ""))
         verify(toolbar, never()).title = ""
@@ -44,13 +44,13 @@ class CustomTabSessionTitleObserverTest {
         observer.onTab(tab)
         assertEquals("", toolbar.title)
 
-        tab = tab.withTitle("Firefox - Protect your life online with privacy-first products")
+        tab = tab.withTitle("Plezix - Protect your life online with privacy-first products")
         observer.onTab(tab)
-        assertEquals("Firefox - Protect your life online with privacy-first products", toolbar.title)
+        assertEquals("Plezix - Protect your life online with privacy-first products", toolbar.title)
 
         tab = tab.withUrl("https://github.com/mozilla-mobile/android-components")
         observer.onTab(tab)
-        assertEquals("Firefox - Protect your life online with privacy-first products", toolbar.title)
+        assertEquals("Plezix - Protect your life online with privacy-first products", toolbar.title)
 
         tab = tab.withTitle("")
         observer.onTab(tab)

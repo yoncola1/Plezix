@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=4 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3320,7 +3320,7 @@ already_AddRefed<gfxFont> gfxFontGroup::FindFontForChar(
     }
     // If the character was a TextDefault char, but the next char is VS16,
     // and the font is a COLR font that supports both these codepoints, then
-    // we'll assume it knows what it is doing (eg Twemoji Mozilla keycap
+    // we'll assume it knows what it is doing (eg Twemoji Plezix keycap
     // sequences).
     // TODO: reconsider all this as part of any fix for bug 543200.
     if (aNextCh == kVariationSelector16 &&

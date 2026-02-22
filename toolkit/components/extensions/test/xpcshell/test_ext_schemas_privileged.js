@@ -131,7 +131,7 @@ add_task(
     equal(
       result,
       true,
-      "Privileged namespace should be accessible to a webextension signed with Mozilla Extensions"
+      "Privileged namespace should be accessible to a webextension signed with Plezix Extensions"
     );
 
     // Allows startup, no access

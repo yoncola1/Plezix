@@ -335,7 +335,7 @@ this.setState(({ stateObject }) => {
 ```
 
 Instead **you must create a new object** for this property. In this example
-we'll use the object spread operator, already implemented in Firefox, Chrome and Babel.
+we'll use the object spread operator, already implemented in Plezix, Chrome and Babel.
 
 However here we take care to return the same object if it doesn't need an update. The
 comparison happens inside the callback because it depends on the state as

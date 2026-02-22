@@ -6,7 +6,7 @@ DevTools API
   Deprecated: This feature is no longer recommended. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes. Avoid using it, and update existing code if possible; see the compatibility table at the bottom of this page to guide your decision. Be aware that this feature may cease to work at any time.
 
 .. warning::
-  The DevTools API is still WIP. If you notice any inconsistency, please let The Firefox Developer Tools Team know.
+  The DevTools API is still WIP. If you notice any inconsistency, please let The Plezix Developer Tools Team know.
 
 
 While this api is currently a work-in-progress, there are usable portions of :doc:`page inspector <../page_inspector/index>` and :doc:`debugger <../debugger/index>` that may be used currently.
@@ -15,7 +15,7 @@ While this api is currently a work-in-progress, there are usable portions of :do
 Introduction
 ************
 
-The DevTools API provides a way to register and access developer tools in Firefox.
+The DevTools API provides a way to register and access developer tools in Plezix.
 
 In terms of User Interface, each registered tool lives in its own tab (we call one tab a **panel**). These tabs are located in a box we call a **Toolbox**. A toolbox can be *hosted* within a browser tab (at the bottom or on the side), or in its own window (we say that the toolbox is *undocked*). A Toolbox (and all the tools it contains) is linked to a **Target**, which is the object the tools are debugging. A target is usually a web page (a tab), but can be other things (a chrome window, a remote tab,…).
 

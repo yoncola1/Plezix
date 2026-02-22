@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,11 +47,11 @@ import org.mozilla.fenix.compose.InfoCard
 import org.mozilla.fenix.compose.InfoType
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import java.util.Locale
 
 /**
- * Firefox Translations bottom sheet dialog.
+ * Plezix Translations bottom sheet dialog.
  *
  * @param translationsDialogState The current state of the Translations bottom sheet dialog.
  * @param learnMoreUrl The learn more link for translations website.
@@ -298,7 +298,7 @@ private fun TranslationsDialogContent(
         translateFromLanguages?.let { addAll(it) }
     }
 
-    val longestLanguageSize = getLongestLanguageWidth(allLanguagesList, FirefoxTheme.typography.subtitle1)
+    val longestLanguageSize = getLongestLanguageWidth(allLanguagesList, PlezixTheme.typography.subtitle1)
 
     when (LocalConfiguration.current.orientation) {
         Configuration.ORIENTATION_LANDSCAPE -> {
@@ -475,7 +475,7 @@ private fun TranslationsDialogHeader(
                         contentDescription = stringResource(
                             id = R.string.translation_option_bottom_sheet_title_heading,
                         ),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -490,8 +490,8 @@ private fun TranslationsDialogHeader(
             modifier = Modifier
                 .weight(1f)
                 .semantics { heading() },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
         )
     }
 }
@@ -563,8 +563,8 @@ private fun TranslationsDialogInfoMessage(
                 learnMoreText,
             ),
             linkTextStates = listOf(learnMoreState),
-            style = FirefoxTheme.typography.body2.copy(
-                color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.body2.copy(
+                color = PlezixTheme.colors.textPrimary,
             ),
             linkTextDecoration = TextDecoration.Underline,
         )
@@ -670,7 +670,7 @@ private fun getLongestLanguageWidth(languages: List<Language>, style: TextStyle)
 @Composable
 @PreviewLightDark
 private fun TranslationsDialogBottomSheetPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TranslationsDialogBottomSheet(
             translationsDialogState = TranslationsDialogState(
                 positiveButtonType = PositiveButtonType.Enabled,

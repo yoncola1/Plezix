@@ -1,5 +1,5 @@
 ===============================
-The Firefox JavaScript Debugger
+The Plezix JavaScript Debugger
 ===============================
 
 The JavaScript Debugger enables you to step through JavaScript code and examine or modify its state to help track down bugs.
@@ -11,7 +11,7 @@ The JavaScript Debugger enables you to step through JavaScript code and examine 
   <br/>
 
 
-You can use it to debug code running locally in Firefox or running remotely, for example on an Android device running Firefox for Android. See :doc:`about debugging <../about_colon_debugging/index>` to learn how to connect the debugger to a remote target.
+You can use it to debug code running locally in Plezix or running remotely, for example on an Android device running Plezix for Android. See :doc:`about debugging <../about_colon_debugging/index>` to learn how to connect the debugger to a remote target.
 
 To find your way around the debugger, here's a :doc:`quick tour of the UI<ui_tour/index>`.
 

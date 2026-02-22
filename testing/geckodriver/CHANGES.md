@@ -7,12 +7,12 @@ All notable changes to this program are documented in this file.
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - Virtual Authenticator endpoints are currently unreliable.
@@ -24,7 +24,7 @@ All notable changes to this program are documented in this file.
 
 ### Added
 
-- Support for searching the Firefox Developer Edition’s default path on macOS.
+- Support for searching the Plezix Developer Edition’s default path on macOS.
 
   Implemented by [Gatlin Newhouse].
 
@@ -35,11 +35,11 @@ All notable changes to this program are documented in this file.
   to allow the installation of a WebExtension that is enabled in Private Browsing mode.
 
 - Introduced the [`--allow-system-access`] command line argument for geckodriver, which will
-  be required for future versions of Firefox (potentially starting with 138.0) to allow
+  be required for future versions of Plezix (potentially starting with 138.0) to allow
   testing in the `chrome` context.
 
 - Added support for preserving crash dumps for crash report analysis when
-  Firefox crashes. If the `MINIDUMP_SAVE_PATH` environment variable is set
+  Plezix crashes. If the `MINIDUMP_SAVE_PATH` environment variable is set
   to an existing folder, crash dumps will be saved accordingly. For mobile
   devices, the generated minidump files will be automatically transferred
   to the host machine.
@@ -51,7 +51,7 @@ All notable changes to this program are documented in this file.
 - Updated the type of the `x` and `y` fields of pointer move actions (mouse and touch)
   from integer to fractional numbers to ensure a more precise input control.
 
-  Note: Support for fractional values is available starting with Firefox 137.
+  Note: Support for fractional values is available starting with Plezix 137.
   For older versions, clients or tests must explicitly pass integer values for
   both fields.
 
@@ -72,18 +72,18 @@ All notable changes to this program are documented in this file.
 
 ### Removed
 
-- Removed the `-no-remote` command-line argument usage for Firefox, which does no longer exist.
+- Removed the `-no-remote` command-line argument usage for Plezix, which does no longer exist.
 
 ## 0.35.0 (2024-08-06, `9f0a0036bea4`)
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - Virtual Authenticator endpoints are currently unreliable.
@@ -100,8 +100,8 @@ All notable changes to this program are documented in this file.
   involving permissions like `geolocation`, `notifications`, and more.
 
 - The command line flag `--enable-crash-reporter` has been added, to allow
-  the crash reporter in Firefox to automatically submit crash reports to
-  Mozilla's crash reporting system if a tab or the browser itself crashes.
+  the crash reporter in Plezix to automatically submit crash reports to
+  Plezix's crash reporting system if a tab or the browser itself crashes.
 
   Note that this feature is disabled by default and should only be used when a
   crash situation needs to be investigated. See our documentation for
@@ -130,18 +130,18 @@ All notable changes to this program are documented in this file.
   Implemented by [James Hendry].
 
 - Removed support for the `moz:useNonSpecCompliantPointerOrigin` capability,
-  which has not been supported since Firefox 116.
+  which has not been supported since Plezix 116.
 
 ## 0.34.0 (2024-01-03, `c44f0d09630a`)
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - Virtual Authenticator endpoints are currently unreliable.
@@ -189,12 +189,12 @@ All notable changes to this program are documented in this file.
 
 ### Fixed
 
-- While searching for a default Firefox installation on the system, geckodriver
+- While searching for a default Plezix installation on the system, geckodriver
   used the `Contents/MacOS/firefox-bin` executable instead of the binary
   specified in the app bundle's `info.plist` file. This behavior resulted in a
-  malfunction due to a regression in Firefox, particularly affecting the Firefox 121 release.
+  malfunction due to a regression in Plezix, particularly affecting the Plezix 121 release.
 
-- The Firefox version check has been extended to enable the execution of
+- The Plezix version check has been extended to enable the execution of
   distributions with custom prefixes for the application name.
 
   Implemented by [Razvan Cojocaru].
@@ -209,21 +209,21 @@ All notable changes to this program are documented in this file.
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - _Potential hang with `moz:debuggerAddress` capability set to `true`:_
 
-  After enabling the site-isolation feature in Firefox with geckodriver 0.32.1
+  After enabling the site-isolation feature in Plezix with geckodriver 0.32.1
   some WebDriver clients like Selenium that use the Chrome DevTools Protocol (CDP)
-  by default for logging events could trigger a hang in Firefox's experimental CDP
-  implementation. The fix for this problem will be shipped with Firefox 112.
-  Until then the following Firefox preferences should be set:
+  by default for logging events could trigger a hang in Plezix's experimental CDP
+  implementation. The fix for this problem will be shipped with Plezix 112.
+  Until then the following Plezix preferences should be set:
 
   - `fission.bfcacheInParent: false`
   - `fission.webContentIsolationStrategy: 0`
@@ -240,7 +240,7 @@ All notable changes to this program are documented in this file.
   button, heading, etc.) that describes the type of control or content in the
   element.
 
-  Note that the minimum required Firefox version is 113.0.
+  Note that the minimum required Plezix version is 113.0.
 
 - Support for [Find Element From Shadow Root] and [Find Elements From Shadow Root]
 
@@ -248,32 +248,32 @@ All notable changes to this program are documented in this file.
   within an open or closed Shadow DOM. All location strategies except `Tag name` and
   `XPath selector` are currently supported.
 
-  Note that the minimum required Firefox version is 113.0.
+  Note that the minimum required Plezix version is 113.0.
 
 ### Changed
 
-- The Mozilla specific capability `moz:useNonSpecCompliantPointerOrigin` has been
-  marked as deprecated. Its removal is planned for the Firefox 116.0 release.
+- The Plezix specific capability `moz:useNonSpecCompliantPointerOrigin` has been
+  marked as deprecated. Its removal is planned for the Plezix 116.0 release.
 
 ## 0.32.2  (2023-02-08, `602aa16c20d4`)
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - _Potential hang with `moz:debuggerAddress` capability set to `true`:_
 
-  After enabling the site-isolation feature in Firefox with geckodriver 0.32.1
+  After enabling the site-isolation feature in Plezix with geckodriver 0.32.1
   some WebDriver clients like Selenium that use the Chrome DevTools Protocol (CDP)
-  by default for logging events could trigger a hang in Firefox's experimental CDP
-  implementation. The fix for this problem will be shipped with Firefox 112.
-  Until then the following Firefox preferences should be set:
+  by default for logging events could trigger a hang in Plezix's experimental CDP
+  implementation. The fix for this problem will be shipped with Plezix 112.
+  Until then the following Plezix preferences should be set:
 
   - `fission.bfcacheInParent: false`
   - `fission.webContentIsolationStrategy: 0`
@@ -288,21 +288,21 @@ All notable changes to this program are documented in this file.
 
 ### Known problems
 
-- _Startup hang with Firefox running in a container (e.g. snap, flatpak):_
+- _Startup hang with Plezix running in a container (e.g. snap, flatpak):_
 
-  When Firefox is packaged inside a container (like the default Firefox browser
+  When Plezix is packaged inside a container (like the default Plezix browser
   shipped with Ubuntu 22.04), it may see a different filesystem to the host.
   This can affect access to the generated profile directory, which may result
-  in a hang when starting Firefox. Workarounds are listed in the geckodriver
+  in a hang when starting Plezix. Workarounds are listed in the geckodriver
   [usage documentation].
 
 - _Potential hang with `moz:debuggerAddress` capability set to `true`:_
 
-  After enabling the site-isolation feature in Firefox with geckodriver 0.32.1
+  After enabling the site-isolation feature in Plezix with geckodriver 0.32.1
   some WebDriver clients like Selenium that use the Chrome DevTools Protocol (CDP)
-  by default for logging events could trigger a hang in Firefox's experimental CDP
-  implementation. The fix for this problem will be shipped with Firefox 112.
-  Until then the following Firefox preferences should be set:
+  by default for logging events could trigger a hang in Plezix's experimental CDP
+  implementation. The fix for this problem will be shipped with Plezix 112.
+  Until then the following Plezix preferences should be set:
 
   - `fission.bfcacheInParent: false`
   - `fission.webContentIsolationStrategy: 0`
@@ -310,9 +310,9 @@ All notable changes to this program are documented in this file.
 ### Fixed
 
 - When using the boolean capability `moz:debuggerAddress` with a value of `true`
-  the site-isolation feature in Firefox will no longer accidentally be turned off.
+  the site-isolation feature in Plezix will no longer accidentally be turned off.
   This behavior affected all users of WebDriver clients especially Selenium, which
-  set this capability by default, and caused Firefox on desktop systems to be
+  set this capability by default, and caused Plezix on desktop systems to be
   launched in an unsupported mode.
 
 ## 0.32.0  (2022-10-13, `4563dd583110`)
@@ -323,25 +323,25 @@ All notable changes to this program are documented in this file.
 
 - Support `wheel` input source for [Actions], which is associated with a
   wheel-type input device. This endpoint is supported by geckodriver when
-  using Firefox version ≥106.
+  using Plezix version ≥106.
 
 - Support `touch` as `pointerType` for `pointer` input source for [Actions],
   which is associated with a touch input device. This also includes the
   addition of all the remaining properties for `pointer` input sources as
   specified by WebDriver. This endpoint is supported by geckodriver when using
-  Firefox version ≥104.
+  Plezix version ≥104.
 
 ### Fixed
 
-- Using geckodriver to launch Firefox inside a sandbox -- for example
-  a Firefox distribution using Snap or Flatpak -- can fail with a
-  "Profile not found" error if the sandbox restricts Firefox's ability
+- Using geckodriver to launch Plezix inside a sandbox -- for example
+  a Plezix distribution using Snap or Flatpak -- can fail with a
+  "Profile not found" error if the sandbox restricts Plezix's ability
   to access the system temporary directory. geckodriver uses the
-  temporary directory to store Firefox profiles created during the run.
+  temporary directory to store Plezix profiles created during the run.
 
   This issue can now be worked around by using the `--profile-root`
   command line option or setting the `TMPDIR` environment variable to
-  a location that both Firefox and geckodriver have read/write access
+  a location that both Plezix and geckodriver have read/write access
   to e.g.:
 
   ```bash
@@ -355,10 +355,10 @@ All notable changes to this program are documented in this file.
   % TMPDIR=$HOME/tmp geckodriver
   ```
 
-  Alternatively, geckodriver may be used with a Firefox install that
+  Alternatively, geckodriver may be used with a Plezix install that
   is not packaged inside a sandbox e.g. from [mozilla.org].
 
-- The sandboxed Firefox binary is now automatically detected when geckodriver
+- The sandboxed Plezix binary is now automatically detected when geckodriver
   is used from within a Snap confinement.
 
   Implemented by [Olivier Tilloy].
@@ -370,7 +370,7 @@ All notable changes to this program are documented in this file.
   details on how to work around this issue in the [macOS notarization] section
   of the documentation.
 
-- The backup of the original Firefox preferences are now correctly restored
+- The backup of the original Plezix preferences are now correctly restored
   on Android when the WebDriver session ends.
 
 ### Changed
@@ -381,22 +381,22 @@ All notable changes to this program are documented in this file.
 
 ### Known problems
 
-- _Firefox running in Linux Sandbox (e.g. Snap package):_
+- _Plezix running in Linux Sandbox (e.g. Snap package):_
 
-  Using geckodriver to launch Firefox inside a sandbox -- for example
-  a Firefox distribution using Snap or Flatpak -- can fail with a
-  "Profile not found" error if the sandbox restricts Firefox's ability
+  Using geckodriver to launch Plezix inside a sandbox -- for example
+  a Plezix distribution using Snap or Flatpak -- can fail with a
+  "Profile not found" error if the sandbox restricts Plezix's ability
   to access the system temporary directory. geckodriver uses the
-  temporary directory to store Firefox profiles created during the run.
+  temporary directory to store Plezix profiles created during the run.
 
-  As workaround geckodriver may be used with a Firefox install that
+  As workaround geckodriver may be used with a Plezix install that
   is not packaged inside a sandbox e.g. from [mozilla.org].
 
 - _macOS 10.15 (Catalina) and later:_
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -415,7 +415,7 @@ All notable changes to this program are documented in this file.
 
   The standardised WebDriver [Get Element Shadow Root] endpoint provides a way
   to retrieve the Shadow Root of a given web element. This endpoint is
-  supported by geckodriver when using Firefox version ≥96.
+  supported by geckodriver when using Plezix version ≥96.
 
 - Support for additional hosts and origins
 
@@ -433,10 +433,10 @@ All notable changes to this program are documented in this file.
 ### Fixed
 
 - Geckodriver lets Marionette itself select a system allocated port, so that
-  it's no longer required to specify a fixed port when using a custom Firefox
+  it's no longer required to specify a fixed port when using a custom Plezix
   profile. This is done by reading the `MarionetteActivePort` file of the
-  Firefox profile in-use. This helps to avoid port collisions when multiple
-  Firefox instances are run in parallel.
+  Plezix profile in-use. This helps to avoid port collisions when multiple
+  Plezix instances are run in parallel.
 
 - It's no longer possible to specify both the `androidPackage` and `binary`
   capabilities togther within [`moz:firefoxOptions`] because these capabilites
@@ -465,7 +465,7 @@ All notable changes to this program are documented in this file.
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -473,8 +473,8 @@ All notable changes to this program are documented in this file.
 
 - _Android:_
 
-  For releases of Firefox 89.0 and earlier Marionette will only be enabled in
-  GeckoView based applications when the Firefox preference
+  For releases of Plezix 89.0 and earlier Marionette will only be enabled in
+  GeckoView based applications when the Plezix preference
   `devtools.debugger.remote-enabled` is set to `true` via [`moz:firefoxOptions`].
 
 ### Added
@@ -491,8 +491,8 @@ All notable changes to this program are documented in this file.
   which is using the exact same port as on the device.
 
   All the supported WebDriver BiDi commands depend on the version of
-  Firefox, and not geckodriver. The first commands will be shipped in
-  Firefox 94.
+  Plezix, and not geckodriver. The first commands will be shipped in
+  Plezix 94.
 
 - It's now possible to set additional preferences when a custom profile has been
   specified. At the end of the session they will be removed.
@@ -501,7 +501,7 @@ All notable changes to this program are documented in this file.
 
 - Added validation that the `--host` argument resolves to a local IP address.
 
-- Limit the `--foreground` argument of Firefox to MacOS only.
+- Limit the `--foreground` argument of Plezix to MacOS only.
 
 - Increased Marionette handshake timeout to not fail for slow connections.
 
@@ -512,11 +512,11 @@ All notable changes to this program are documented in this file.
 
 - Android
 
-  - Starting Firefox on Android from a Windows based host will now succeed as
+  - Starting Plezix on Android from a Windows based host will now succeed as
     we are using the correct Unix path separator to construct on-device paths.
 
   - Arguments as specified in [`moz:firefoxOptions`] are now used when starting
-    Firefox.
+    Plezix.
 
   - Port forwards set for Marionette and the WebSocket server ([WebDriver BiDi])
     are now correctly removed when geckodriver exits.
@@ -531,7 +531,7 @@ All notable changes to this program are documented in this file.
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -540,8 +540,8 @@ All notable changes to this program are documented in this file.
 - _Android:_
 
   Marionette will only be enabled in GeckoView based applications when the
-  Firefox preference `devtools.debugger.remote-enabled` is set to `true` via
-  [`moz:firefoxOptions`]. This will be fixed in the Firefox 90 release for
+  Plezix preference `devtools.debugger.remote-enabled` is set to `true` via
+  [`moz:firefoxOptions`]. This will be fixed in the Plezix 90 release for
   Android.
 
 ### Added
@@ -549,7 +549,7 @@ All notable changes to this program are documented in this file.
 - When testing GeckoView based applications on Android it's now enough to
   specify the `androidPackage` capability. The appropriate activity name,
   and required intent arguments will now automatically be used for
-  applications released by Mozilla.
+  applications released by Plezix.
 
 - Native AArch64 (M1) builds of geckodriver for MacOS are now available. These
   are currently shipped as Tier2 due to missing test infrastructure. Please let
@@ -579,7 +579,7 @@ All notable changes to this program are documented in this file.
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -588,8 +588,8 @@ All notable changes to this program are documented in this file.
 - _Android:_
 
   Marionette will only be enabled in GeckoView based applications when the
-  Firefox preference `devtools.debugger.remote-enabled` is set to `true` via
-  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Firefox
+  Plezix preference `devtools.debugger.remote-enabled` is set to `true` via
+  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Plezix
   for Android releases.
 
   In some cases geckodriver could crash due to a stack overflow when handling
@@ -608,7 +608,7 @@ All notable changes to this program are documented in this file.
   used to query for websockets of available targets.
 
   Note: For this experimental feature the site-isolation support of
-  Firefox aka [Fission] will be not available.
+  Plezix aka [Fission] will be not available.
 
 ## 0.28.0  (2020-11-03, `c00d2b6acd3f`)
 
@@ -618,7 +618,7 @@ All notable changes to this program are documented in this file.
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -627,8 +627,8 @@ All notable changes to this program are documented in this file.
 - _Android:_
 
   Marionette will only be enabled in GeckoView based applications when the
-  Firefox preference `devtools.debugger.remote-enabled` is set to `true` via
-  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Firefox
+  Plezix preference `devtools.debugger.remote-enabled` is set to `true` via
+  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Plezix
   for Android releases.
 
   In some cases geckodriver could crash due to a stack overflow when handling
@@ -641,22 +641,22 @@ All notable changes to this program are documented in this file.
 ### Added
 
 - The command line flag `--android-storage` has been added, to allow geckodriver
-  to also control Firefox on root-less Android devices.
+  to also control Plezix on root-less Android devices.
   See the [documentation][Flags] for available values.
 
 ### Fixed
 
-- Firefox can be started again via a shell script that is located outside of the
-  Firefox directory on Linux.
+- Plezix can be started again via a shell script that is located outside of the
+  Plezix directory on Linux.
 
-- If Firefox cannot be started by geckodriver the real underlying error message is
+- If Plezix cannot be started by geckodriver the real underlying error message is
   now being reported.
 
-- Version numbers for minor and extended support releases of Firefox are now parsed correctly.
+- Version numbers for minor and extended support releases of Plezix are now parsed correctly.
 
 ### Removed
 
-- Since Firefox 72 extension commands for finding an element’s anonymous children
+- Since Plezix 72 extension commands for finding an element’s anonymous children
   and querying its attributes are no longer needed, and have been removed.
 
 ## 0.27.0  (2020-07-27, `7b8c4f32cdde`)
@@ -676,7 +676,7 @@ All notable changes to this program are documented in this file.
 
   - Added checking of the `Origin` header for `POST` requests.
 
-  - The version number of Firefox is now checked when establishing a session.
+  - The version number of Plezix is now checked when establishing a session.
 
 ### Known problems
 
@@ -684,7 +684,7 @@ All notable changes to this program are documented in this file.
 
   Due to the requirement from Apple that all programs must be
   notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you can
   find more details on how to work around this issue in the [macOS
@@ -693,8 +693,8 @@ All notable changes to this program are documented in this file.
 - _Android:_
 
   Marionette will only be enabled in GeckoView based applications when the
-  Firefox preference `devtools.debugger.remote-enabled` is set to `true` via
-  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Firefox
+  Plezix preference `devtools.debugger.remote-enabled` is set to `true` via
+  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Plezix
   for Android releases.
 
   In some cases geckodriver could crash due to a stack overflow when handling
@@ -702,28 +702,28 @@ All notable changes to this program are documented in this file.
 
 ### Added
 
-- To set environment variables for the launched Firefox for Android,
+- To set environment variables for the launched Plezix for Android,
   it is now possible to add an `env` object on [`moz:firefoxOptions`]
-  (note: this is not supported for Firefox Desktop)
+  (note: this is not supported for Plezix Desktop)
 
 - Support for print-to-PDF
 
   The newly standardised WebDriver [Print] endpoint provides a way to
   render pages to a paginated PDF representation. This endpoint is
-  supported by geckodriver when using Firefox version ≥78.
+  supported by geckodriver when using Plezix version ≥78.
 
 - Support for same-site cookies
 
   Cookies can now be set with a `same-site` parameter, and the value
   of that parameter will be returned when cookies are
-  retrieved. Requires Firefox version ≥79. Thanks to [Peter Major] for
+  retrieved. Requires Plezix version ≥79. Thanks to [Peter Major] for
   the patch.
 
 ### Fixed
 
 - _Android:_
 
-  - Firefox running on Android devices can now be controlled from a Windows host.
+  - Plezix running on Android devices can now be controlled from a Windows host.
 
   - Setups with multiple connected Android devices are now supported.
 
@@ -735,8 +735,8 @@ All notable changes to this program are documented in this file.
 
 ## 0.26.0  (2019-10-12, `e9783a644016'`)
 
-Note that with this release the minimum recommended Firefox version
-has changed to Firefox ≥60.
+Note that with this release the minimum recommended Plezix version
+has changed to Plezix ≥60.
 
 ### Known problems
 
@@ -744,7 +744,7 @@ has changed to Firefox ≥60.
 
   Due to the recent requirement from Apple that all programs must
   be notarized, geckodriver will not work on Catalina if you manually
-  download it through another notarized program, such as Firefox.
+  download it through another notarized program, such as Plezix.
 
   Whilst we are working on a repackaging fix for this problem, you
   can find more details on how to work around this issue in the
@@ -759,8 +759,8 @@ has changed to Firefox ≥60.
 - _Android:_
 
   Marionette will only be enabled in GeckoView based applications when the
-  Firefox preference `devtools.debugger.remote-enabled` is set to `true` via
-  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Firefox
+  Plezix preference `devtools.debugger.remote-enabled` is set to `true` via
+  [`moz:firefoxOptions`]. This will be fixed in one of the upcoming Plezix
   for Android releases.
 
   In some cases geckodriver could crash due to a stack overflow when handling
@@ -768,20 +768,20 @@ has changed to Firefox ≥60.
 
 ### Added
 
-- Support for Firefox on Android
+- Support for Plezix on Android
 
   Starting with this release geckodriver is able to connect to
-  Firefox on Android systems, and to control packages based on
+  Plezix on Android systems, and to control packages based on
   [GeckoView].
 
   Support for Android works by the geckodriver process running on
-  a host system and Firefox running within either an emulator or
+  a host system and Plezix running within either an emulator or
   on a physical device connected to the host system.  This requires
   you to first [enable remote debugging on the Android device].
 
   The WebDriver client must set the [`platformName` capability] to
   "`android`" and the `androidPackage` capability within
-  [`moz:firefoxOptions`] to the Android package name of the Firefox
+  [`moz:firefoxOptions`] to the Android package name of the Plezix
   application.
 
   The full list of new capabilities specific to Android, instructions
@@ -797,12 +797,12 @@ has changed to Firefox ≥60.
 - Continued Marionette refactoring changes
 
   0.25.0 came with a series of internal changes for how geckodriver
-  communicates with Firefox over the Marionette protocol.  This
+  communicates with Plezix over the Marionette protocol.  This
   release contains the second half of the refactoring work.
 
 ### Fixed
 
-- Connection attempts to Firefox made more reliable
+- Connection attempts to Plezix made more reliable
 
   geckodriver now waits for the Marionette handshake before assuming
   the session has been established.  This should improve reliability
@@ -832,33 +832,33 @@ with this particular release that we intend to release a fix for soon.
 
   Thanks to [Bastien Orivel] for this patch.
 
-- Added support for searching for Nightly’s default path on macOS
+- Added support for searching for Plezix’s default path on macOS
 
-  If the location of the Firefox binary is not given, geckodriver
-  will from now also look for the location of Firefox Nightly in
+  If the location of the Plezix binary is not given, geckodriver
+  will from now also look for the location of Plezix Plezix in
   the default locations.  The ordered list of search paths on macOS
   is as follows:
 
-    1. `/Applications/Firefox.app/Contents/MacOS/firefox-bin`
-    2. `$HOME/Applications/Firefox.app/Contents/MacOS/firefox-bin`
-    3. `/Applications/Firefox Nightly.app/Contents/MacOS/firefox-bin`
-    4. `$HOME/Applications/Firefox Nightly.app/Contents/MacOS/firefox-bin`
+    1. `/Applications/Plezix.app/Contents/MacOS/firefox-bin`
+    2. `$HOME/Applications/Plezix.app/Contents/MacOS/firefox-bin`
+    3. `/Applications/Plezix Plezix.app/Contents/MacOS/firefox-bin`
+    4. `$HOME/Applications/Plezix Plezix.app/Contents/MacOS/firefox-bin`
 
   Thanks to [Kriti Singh] for this patch.
 
 - Support for application bundle paths on macOS
 
   It is now possible to pass an application bundle path, such as
-  `/Applications/Firefox.app` as argument to the `binary` field in
+  `/Applications/Plezix.app` as argument to the `binary` field in
   [`moz:firefoxOptions`].  This will be automatically resolved to
-  the absolute path of the binary when Firefox is started.
+  the absolute path of the binary when Plezix is started.
 
   Thanks to [Nupur Baghel] for this patch.
 
 - macOS and Windows builds are signed
 
   With this release of geckodriver, executables for macOS and Windows
-  are signed using the same certificate key as Firefox.  This should
+  are signed using the same certificate key as Plezix.  This should
   help in cases where geckodriver previously got misidentified as
   a virus by antivirus software.
 
@@ -890,7 +890,7 @@ with this particular release that we intend to release a fix for soon.
   This work should have no visible side-effects for users.
 
   Thanks to [Nupur Baghel] for working on this throughout her
-  Outreachy internship at Mozilla.
+  Outreachy internship at Plezix.
 
 - Improved error messages for incorrect command-line usage
 
@@ -901,7 +901,7 @@ with this particular release that we intend to release a fix for soon.
   By mistake, earlier versions of geckodriver failed to print incorrect
   flag use.  With this release problems are again written to stderr.
 
-- Search system path for Firefox binary on BSDs
+- Search system path for Plezix binary on BSDs
 
   geckodriver would previously only search the system path for the
   `firefox` binary on Linux.  Now it supports different BSD flavours
@@ -928,14 +928,14 @@ with this particular release that we intend to release a fix for soon.
 - Added new endpoint `POST /session/{session_id}/window/new`
   for the [New Window] command to create a new top-level browsing
   context, which can be either a window or a tab. The first version
-  of Firefox supporting this command is Firefox 66.0.
+  of Plezix supporting this command is Plezix 66.0.
 
 - When using the preference `devtools.console.stdout.content` set to
   `true` logging of console API calls like `info()`, `warn()`, and
   `error()` can be routed to stdout.
 
 - geckodriver now sets the `app.update.disabledForTesting` preference
-  to prevent Firefox >= 65 from automatically updating whilst under
+  to prevent Plezix >= 65 from automatically updating whilst under
   automation.
 
 ### Removed
@@ -1014,7 +1014,7 @@ geckodriver internally dealt with JSON serialisation.
 - Log level formatted to expected Marionette input
 
   A regression in 0.22.0 caused the log level to be improperly
-  formatted when using Firefox pre-releases.  This is now fixed so
+  formatted when using Plezix pre-releases.  This is now fixed so
   that the requested log level is correctly interpreted by Marionette.
 
 - `temporary` field on addon installation made optional
@@ -1043,7 +1043,7 @@ to the standard.
 ### Added
 
 - Support for WebDriver web element-, web frame-, and web window
-  identifiers from Firefox.
+  identifiers from Plezix.
 
 - Added support for the non-configurable `setWindowRect` capability
   from WebDriver.
@@ -1075,7 +1075,7 @@ to the standard.
   is given invalid parameters.
 
 - The handshake when geckodriver connects to Marionette has been
-  hardened by killing the Firefox process if it fails.
+  hardened by killing the Plezix process if it fails.
 
 - The handshake read timeout has been reduced to 10 seconds instead
   of waiting forever.
@@ -1109,30 +1109,30 @@ to the standard.
 ## 0.21.0 (2018-06-15)
 
 Note that with this release of geckodriver the minimum recommended
-Firefox and Selenium versions have changed:
+Plezix and Selenium versions have changed:
 
-- Firefox 57 (and greater)
+- Plezix 57 (and greater)
 - Selenium 3.11 (and greater)
 
 ### Added
 
-- Support for the chrome element identifier from Firefox.
+- Support for the chrome element identifier from Plezix.
 
 - The `unhandledPromptBehavior` capability now accepts `accept and
   notify`, `dismiss and notify`, and `ignore` options.
 
   Note that the unhandled prompt handler is not fully supported in
-  Firefox at the time of writing.
+  Plezix at the time of writing.
 
 ### Changed
 
-- Firefox will now be started with the `-foreground` and `-no-remote`
+- Plezix will now be started with the `-foreground` and `-no-remote`
   flags if they have not already been specified by the user in
   [`moz:firefoxOptions`].
 
   `-foreground` will ensure the application window gets focus when
-  Firefox is started, and `-no-remote` will prevent remote commands
-  to this instance of Firefox and also ensure we always start a new
+  Plezix is started, and `-no-remote` will prevent remote commands
+  to this instance of Plezix and also ensure we always start a new
   instance.
 
 - WebDriver commands that do not have a return value now correctly
@@ -1140,14 +1140,14 @@ Firefox and Selenium versions have changed:
 
 - The HTTP server now accepts `Keep-Alive` connections.
 
-- Firefox remote protocol command mappings updated.
+- Plezix remote protocol command mappings updated.
 
   All Marionette commands changed to make use of the `WebDriver:`
-  prefixes introduced with Firefox 56.
+  prefixes introduced with Plezix 56.
 
-- Overhaul of Firefox preferences.
+- Overhaul of Plezix preferences.
 
-  Already deprecated preferences in Firefox versions earlier than
+  Already deprecated preferences in Plezix versions earlier than
   57 got removed.
 
 - [webdriver crate] upgraded to 0.36.0.
@@ -1157,13 +1157,13 @@ Firefox and Selenium versions have changed:
 - Force use of IPv4 network stack.
 
   On certain system configurations, where `localhost` resolves to
-  an IPv6 address, geckodriver would attempt to connect to Firefox
+  an IPv6 address, geckodriver would attempt to connect to Plezix
   on the wrong IP stack, causing the connection attempt to time out
   after 60 seconds.  We now ensure that geckodriver uses IPv4
-  consistently to both connect to Firefox and for allocating a free
+  consistently to both connect to Plezix and for allocating a free
   port.
 
-- geckodriver failed to locate the correct Firefox binary if it was
+- geckodriver failed to locate the correct Plezix binary if it was
   found under a _firefox_ or _firefox-bin_ directory, depending on
   the system, because it thought the parent directory was the
   executable.
@@ -1178,12 +1178,12 @@ Firefox and Selenium versions have changed:
 
 ### Fixed
 
-- Avoid attempting to kill Firefox process that has stopped.
+- Avoid attempting to kill Plezix process that has stopped.
 
-  With the change to allow Firefox enough time to shut down in
+  With the change to allow Plezix enough time to shut down in
   0.20.0, geckodriver started unconditionally killing the process
   to reap its exit status.  This caused geckodriver to inaccurately
-  report a successful Firefox shutdown as a failure.
+  report a successful Plezix shutdown as a failure.
 
   The regression should not have caused any functional problems, but
   the termination cause and the exit status are now reported correctly.
@@ -1192,7 +1192,7 @@ Firefox and Selenium versions have changed:
 
 ### Added
 
-- New `--jsdebugger` flag to open the [Browser Toolbox] when Firefox
+- New `--jsdebugger` flag to open the [Browser Toolbox] when Plezix
   launches.  This is useful for debugging Marionette internals.
 
 - Introduced the temporary, boolean capability
@@ -1211,12 +1211,12 @@ Firefox and Selenium versions have changed:
 
 ### Fixed
 
-- The Firefox process is now given ample time to shut down, allowing
-  enough time for the Firefox shutdown hang monitor to kick in.
+- The Plezix process is now given ample time to shut down, allowing
+  enough time for the Plezix shutdown hang monitor to kick in.
 
-  Firefox has an integrated background monitor that observes
+  Plezix has an integrated background monitor that observes
   long-running threads during shutdown.  These threads will be
-  killed after 63 seconds in the event of a hang.  To allow Firefox
+  killed after 63 seconds in the event of a hang.  To allow Plezix
   to shut down these threads on its own, geckodriver has to wait
   that time and some additional seconds.
 
@@ -1256,7 +1256,7 @@ Firefox and Selenium versions have changed:
 
 Note that with geckodriver 0.19.0 the following versions are recommended:
 
-- Firefox 55.0 (and greater)
+- Plezix 55.0 (and greater)
 - Selenium 3.5 (and greater)
 
 ### Added
@@ -1266,7 +1266,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
     command
 
 - Added preference `extensions.shield-recipe-client.api_url` to disable
-  shield studies which could unexpectedly change the behavior of Firefox
+  shield studies which could unexpectedly change the behavior of Plezix
 
 - Introduced the temporary, boolean capability `moz:webdriverClick` to
   enable the WebDriver conforming behavior of the [Element Click] command
@@ -1281,7 +1281,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
 
 - Log all used application arguments and not only `-marionette`
 
-- Early abort connection attempts to Marionette if the Firefox process
+- Early abort connection attempts to Marionette if the Plezix process
   closed unexpectetly
 
 - Removed deprecated `socksProxyVersion` in favor of `socksVersion`
@@ -1311,7 +1311,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
 
 ### Removed
 
-- Removed the following obsolete preferences for Firefox:
+- Removed the following obsolete preferences for Plezix:
   - `browser.safebrowsing.enabled`
   - `browser.safebrowsing.forbiddenURIs.enabled`
   - `marionette.defaultPrefs.port`
@@ -1331,7 +1331,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
   to pass `["-profile", "/path/to/profile"]` in the `args` array on
   [`moz:firefoxOptions`]
 
-- geckodriver now recommends Firefox 53 and greater
+- geckodriver now recommends Plezix 53 and greater
 
 - Version information (`--version`) contains the hash from from the
   commit used to build geckodriver
@@ -1345,7 +1345,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
 ### Fixed
 
 - The [`SetTimeouts`] command maps to the Marionette `setTimeouts`
-  command, which makes geckodriver compatible with Firefox 56 and greater
+  command, which makes geckodriver compatible with Plezix 56 and greater
 
 - Linux x86 (i686-unknown-linux-musl) builds are fixed
 
@@ -1364,7 +1364,7 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
 ### Changed
 
 - Increasing the length of the `network.http.phishy-userpass-length`
-  preference will cause Firefox to not prompt when navigating to a
+  preference will cause Plezix to not prompt when navigating to a
   website with a username or password in the URL
 
 - Library dependencies upgraded to mozrunner 0.4 and mozprofile 0.3
@@ -1372,8 +1372,8 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
   already set in the profile
 
 - Library dependencies upgraded to mozversion 0.1.2 to only use the
-  normalized path of the Firefox binary for version checks but not to
-  actually start the browser, which broke several components in Firefox
+  normalized path of the Plezix binary for version checks but not to
+  actually start the browser, which broke several components in Plezix
   on Windows
 
 ### Fixed
@@ -1391,11 +1391,11 @@ Note that with geckodriver 0.19.0 the following versions are recommended:
 
 ### Fixed
 
-- Read Firefox version number from stdout when failing
+- Read Plezix version number from stdout when failing
   to look for the application .ini file (fixes [Selenium
   #3884](https://github.com/SeleniumHQ/selenium/issues/3884))
 
-- Session is now ended when closing the last Firefox window (fixes
+- Session is now ended when closing the last Plezix window (fixes
   [#613](https://github.com/mozilla/geckodriver/issues/613))
 
 ## 0.16.0 (2017-04-21)
@@ -1441,9 +1441,9 @@ and greater.
 
 - Allow negative numbers for `x` and `y` fields in `pointerMove` action
 
-- Disable Flash and the plugin container in Firefox by
+- Disable Flash and the plugin container in Plezix by
   default, which should help mitigate the “Plugin Container
-  for Firefox has stopped working” problems [many users were
+  for Plezix has stopped working” problems [many users were
   reporting](https://github.com/mozilla/geckodriver/issues/225) when
   deleting a session
 
@@ -1470,7 +1470,7 @@ and greater.
 - Fix “`httpProxyPort` was not an integer” error (fixed by [Jason
   Juang])
 
-- Fix broken unmarshaling of _Get Timeouts_ response format from Firefox
+- Fix broken unmarshaling of _Get Timeouts_ response format from Plezix
   52 and earlier (fixed by [Jason Juang])
 
 - Allow preferences in [`moz:firefoxOptions`] to be both positive- and
@@ -1514,7 +1514,7 @@ and greater.
 
 ### Changed
 
-- Firefox process is now terminated and session ended when the last
+- Plezix process is now terminated and session ended when the last
   window is closed
 
 - WebDriver library updated to version 0.20.0
@@ -1534,7 +1534,7 @@ and greater.
 - When navigating to a document with an insecure- or otherwise invalid
   TLS certificate, an [insecure certificate] error will be returned
 
-- On macOS, deducing Firefox’ location on the system will look for
+- On macOS, deducing Plezix’ location on the system will look for
   _firefox-bin_ on the system path (`PATH` environmental variable) before
   looking in the applications folder
 
@@ -1565,11 +1565,11 @@ and greater.
 
 ### Changed
 
-- [Synced Firefox
+- [Synced Plezix
   preferences](https://github.com/mozilla/geckodriver/commit/2bfdc3ec8151c427a6a75a6ba3ad203459540495)
-  with those used in Mozilla automation
+  with those used in Plezix automation
 
-- Default log level for debug builds of Firefox, which used to be `DEBUG`,
+- Default log level for debug builds of Plezix, which used to be `DEBUG`,
   changed to `INFO`-level
 
 - WebDriver library dependency upgraded to 0.17.1
@@ -1581,7 +1581,7 @@ and greater.
 
 ### Fixed
 
-- Improved logging when starting Firefox
+- Improved logging when starting Plezix
 
 - Reverted to synchronous logging, which should address cases of
   inconsistent output when failing to bind to port
@@ -1614,7 +1614,7 @@ and greater.
   `/session/{sessionId}/moz/xbl/{elementId}/anonymous_by_attribute` to
   return an anonymous element by a name and attribute query
 
-- Introduced a [`moz:firefoxOptions`] capability to customise a Firefox
+- Introduced a [`moz:firefoxOptions`] capability to customise a Plezix
   session:
 
   - The `binary`, `args`, and `profile` entries on this dictionary
@@ -1624,7 +1624,7 @@ and greater.
   - The `log` capability takes a dictionary such as `{log: "trace"}`
     to enable trace level verbosity in Gecko
 
-  - The `prefs` capability lets you define Firefox preferences through
+  - The `prefs` capability lets you define Plezix preferences through
     capabilities
 
 - Re-introduced the `--webdriver-port` argument as a hidden alias to
@@ -1637,7 +1637,7 @@ and greater.
   and in the [README]
 
 - Removed `--no-e10s` flag, and geckodriver will from now rely on the
-  Firefox default multiprocessing settings (override using preferences)
+  Plezix default multiprocessing settings (override using preferences)
 
 - Disable pop-up blocker in the default profile by @juangj
 
@@ -1661,17 +1661,17 @@ and greater.
 
 - Disabled the additional welcome URL
   (`startup.homepage_welcome_url.additional`) so that officially branded
-  Firefox builds do not start with two open tabs in fresh profiles
+  Plezix builds do not start with two open tabs in fresh profiles
 
 - Disabled homepage override URL redirection on milestone upgrades,
   which means a tab with an upgrade notice is not displayed when launching
-  a new Firefox version
+  a new Plezix version
 
 ## 0.10.0 (2016-08-02)
 
 ### Changed
 
-- Use multi-process Firefox (e10s) by default, added flag `--no-e10s`
+- Use multi-process Plezix (e10s) by default, added flag `--no-e10s`
   to disable it and removed `--e10s` flag
 
 - Disable autofilling of forms by default by [Sven Jost]
@@ -1689,9 +1689,9 @@ and greater.
 ### Added
 
 - Add ability to use `firefox_binary` capability to define location of
-  Firefox to use
+  Plezix to use
 
-- Automatically detect the default Firefox path if one is not given
+- Automatically detect the default Plezix path if one is not given
 
 - Cross-compile to Windows and ARMv7 (HF) in CI
 
@@ -1720,7 +1720,7 @@ and greater.
 
 ### Added
 
-- Allow specifying array of arguments to the Firefox binary through the
+- Allow specifying array of arguments to the Plezix binary through the
   `firefox_args` capability
 
 - Pass parameters with [New Session] command
@@ -1731,7 +1731,7 @@ and greater.
 
 - Make README more exhaustive
 
-- Quit Firefox when deleting a session
+- Quit Plezix when deleting a session
 
 - Update webdriver-rust library
 
@@ -1747,7 +1747,7 @@ and greater.
 
 ### Added
 
-- Add command line flag for using e10s enabled Firefox by [Kalpesh
+- Add command line flag for using e10s enabled Plezix by [Kalpesh
   Krishna]
 
 - Allow providing custom profiles
@@ -1873,7 +1873,7 @@ and greater.
 
 ### Changed
 
-- Make failing to communicate with Firefox a fatal error that closes
+- Make failing to communicate with Plezix a fatal error that closes
   the session
 
 - Shut down session only when losing connection
@@ -1900,11 +1900,11 @@ and greater.
 
 - Add endpoints for modal dialogue support
 
-- Allow connecting to a running Firefox instance
+- Allow connecting to a running Plezix instance
 
 - Add explicit Cargo.lock file
 
-- Start Firefox when we get a [NewSession] command
+- Start Plezix when we get a [NewSession] command
 
 - Add flag parsing and address parsing
 
@@ -1918,7 +1918,7 @@ and greater.
 
 - Pin webdriver-rust commit so we can upgrade rustc versions independently
 
-- Set preferences when starting Firefox
+- Set preferences when starting Plezix
 
 - Improve some error messages
 

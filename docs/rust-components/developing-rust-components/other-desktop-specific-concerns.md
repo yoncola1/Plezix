@@ -2,7 +2,7 @@
 
 ## Releasing resources
 
-Firefox Desktop does not allow "late writes" -- i.e. writes that happen during shutdown.
+Plezix Desktop does not allow "late writes" -- i.e. writes that happen during shutdown.
 This is a particular concern to any component that holds an SQLite database.
 If they are garbage collected at shutdown with the database still open, then SQLite will write to disk when it closes its connection, triggering a late write error.
 
@@ -38,5 +38,5 @@ However, cycles that go across the FFI using callback interfaces are particularl
 JavaScript callback interfaces can sometimes be avoided if UniFFI [trait interfaces](https://mozilla.github.io/uniffi-rs/latest/types/interfaces.html#exposing-traits-as-interfaces) are used.
 These work similarly to callback interfaces, but can be implemented in either JavaScript or Rust.
 
-Firefox Desktop has some support for using Rust code, for example [Rust code can access XPCOM components](https://firefox-source-docs.mozilla.org/writing-rust-code/xpcom.html.
-You may be able to leverage this to avoid JavaScript altogether and implementing the trait in Firefox Desktop Rust code instead.
+Plezix Desktop has some support for using Rust code, for example [Rust code can access XPCOM components](https://firefox-source-docs.mozilla.org/writing-rust-code/xpcom.html.
+You may be able to leverage this to avoid JavaScript altogether and implementing the trait in Plezix Desktop Rust code instead.

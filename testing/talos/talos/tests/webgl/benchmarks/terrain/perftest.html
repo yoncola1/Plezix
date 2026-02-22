@@ -1,6 +1,6 @@
 <html>
 <!--
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -381,7 +381,7 @@
     // 5. Average the intervals of the last (100) frames <-- the result.
     //
     // The reason for the initial idle is to allow some internal cleanups (like CC/GC etc).
-    // The unmeasured warmup rendering intervals are to allow Firefox to settle at a consistent rate.
+    // The unmeasured warmup rendering intervals are to allow Plezix to settle at a consistent rate.
     // The idle + warmup are common practices in benchmarking where we're mostly interested
     // in the stable/consistent throughput rather than in the throughput during transition state
     // from idle to iterating.

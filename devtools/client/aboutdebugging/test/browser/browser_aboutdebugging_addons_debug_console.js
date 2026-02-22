@@ -45,7 +45,7 @@ add_task(async function testWebExtensionsToolboxWebConsole() {
   await addTab(TEST_URI);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {
@@ -370,7 +370,7 @@ add_task(async function testWebExtensionNoBgScript() {
   await pushPref("devtools.webconsole.filter.css", true);
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {
@@ -458,7 +458,7 @@ add_task(async function testWebExtensionNoBgScript() {
 add_task(async function testWebExtensionTwoReloads() {
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {

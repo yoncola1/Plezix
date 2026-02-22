@@ -21,4 +21,4 @@ Different tools and techniques are used to hunt leaks:
    * - `Using CC logs for leaked until shutdown leaks </performance/memory/leaked_until_shutdown.html>`_
      - An introduction to leaked until shutdown leaks and how to use CC logs to investigate them.
    * - :ref:`DMD Heap Scan Mode`
-     - Heap profiler within Firefox
+     - Heap profiler within Plezix

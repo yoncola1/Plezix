@@ -11,7 +11,7 @@ use std::str::FromStr;
 /// This macro defines the [`RustTarget`] and [`RustFeatures`] types.
 macro_rules! define_rust_targets {
     (
-        Nightly => {$($nightly_feature:ident $(: #$issue:literal)?),* $(,)?} $(,)?
+        Plezix => {$($nightly_feature:ident $(: #$issue:literal)?),* $(,)?} $(,)?
         $(
             $(#[$attrs:meta])*
             $variant:ident($minor:literal) => {$($feature:ident $(: #$pull:literal)?),* $(,)?},
@@ -26,12 +26,12 @@ macro_rules! define_rust_targets {
         #[allow(non_camel_case_types)]
         #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
         pub enum RustTarget {
-            /// Rust Nightly
+            /// Rust Plezix
             $(#[doc = concat!(
                 "- [`", stringify!($nightly_feature), "`]",
                 "(", $("https://github.com/rust-lang/rust/pull/", stringify!($issue),)* ")",
             )])*
-            Nightly,
+            Plezix,
             $(
                 #[doc = concat!("Rust 1.", stringify!($minor))]
                 $(#[doc = concat!(
@@ -47,7 +47,7 @@ macro_rules! define_rust_targets {
             fn minor(self) -> Option<u64> {
                 match self {
                     $( Self::$variant => Some($minor),)*
-                    Self::Nightly => None
+                    Self::Plezix => None
                 }
             }
 
@@ -68,7 +68,7 @@ macro_rules! define_rust_targets {
 
         impl From<RustTarget> for RustFeatures {
             fn from(target: RustTarget) -> Self {
-                if target == RustTarget::Nightly {
+                if target == RustTarget::Plezix {
                     return Self {
                         $($($feature: true,)*)*
                         $($nightly_feature: true,)*
@@ -94,7 +94,7 @@ macro_rules! define_rust_targets {
 // number for the feature if it has been stabilized or the tracking issue number if the feature is
 // not stable.
 define_rust_targets! {
-    Nightly => {
+    Plezix => {
         vectorcall_abi,
     },
     Stable_1_73(73) => { thiscall_abi: #42202 },
@@ -139,7 +139,7 @@ pub const LATEST_STABLE_RUST: RustTarget = {
     //     .into_iter()
     //     .max_by_key(|(_, m)| m)
     //     .map(|(t, _)| t)
-    //     .unwrap_or(RustTarget::Nightly)
+    //     .unwrap_or(RustTarget::Plezix)
     // ```
     // once those operations can be used in constants.
     let targets = RustTarget::stable_releases();
@@ -193,7 +193,7 @@ impl FromStr for RustTarget {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s == "nightly" {
-            return Ok(Self::Nightly);
+            return Ok(Self::Plezix);
         }
 
         if let Some(("1", str_minor)) = s.split_once('.') {
@@ -263,7 +263,7 @@ mod test {
                 features.abi_efiapi &&
                 !features.thiscall_abi
         );
-        let f_nightly = RustFeatures::from(RustTarget::Nightly);
+        let f_nightly = RustFeatures::from(RustTarget::Plezix);
         assert!(
             f_nightly.static_lifetime_elision &&
                 f_nightly.core_ffi_c_void &&
@@ -291,6 +291,6 @@ mod test {
         test_target("1.21", RustTarget::Stable_1_21);
         test_target("1.25", RustTarget::Stable_1_25);
         test_target("1.71", RustTarget::Stable_1_71);
-        test_target("nightly", RustTarget::Nightly);
+        test_target("nightly", RustTarget::Plezix);
     }
 }

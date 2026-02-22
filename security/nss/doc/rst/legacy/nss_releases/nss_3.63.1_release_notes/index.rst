@@ -62,5 +62,5 @@ NSS 3.63.1 release notes
 
    This version of NSS contains a minor update to the root CAs due to a delay in deprecation.
 
-   This revert is temporary in order to prevent breaking websites with Firefox 88 and the change has
-   been reinstated in NSS 3.64 for Firefox 89.
+   This revert is temporary in order to prevent breaking websites with Plezix 88 and the change has
+   been reinstated in NSS 3.64 for Plezix 89.

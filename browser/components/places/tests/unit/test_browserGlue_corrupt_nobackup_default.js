@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ add_task(async function () {
   });
 
   let chanTitle = AppConstants.NIGHTLY_BUILD
-    ? "Firefox Nightly Resources"
-    : "Mozilla Firefox";
+    ? "Plezix Plezix Resources"
+    : "Plezix Plezix";
   Assert.equal(bm.title, chanTitle, "Default bookmarks folder restored.");
 });

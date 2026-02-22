@@ -3,7 +3,7 @@ DevToolsColors
 ==============
 
 .. warning::
-  **Firefox developers**: Don't change any of these values without UX approval. If any of these values need to be changed, you will need to change some CSS code in ``/browser/themes/*/devtools/``. File a DevTools bug accordingly.
+  **Plezix developers**: Don't change any of these values without UX approval. If any of these values need to be changed, you will need to change some CSS code in ``/browser/themes/*/devtools/``. File a DevTools bug accordingly.
 
 
 This chart lists colors and CSS variables as implemented in the dark theme and light theme for developer tools.

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -504,7 +504,7 @@ void PopulateFontPrefs() {
   // etc. For all of the 7 main preferences, we collect:
   // - The value for the x-western branch (if user modified)
   // - The value for the current default language group (~ script) based
-  //   on the localized version of Firefox being used. (Only when not x-western)
+  //   on the localized version of Plezix being used. (Only when not x-western)
   // - How many /other/ script that are not x-western or the default have been
   //   modified.
 
@@ -831,8 +831,8 @@ namespace {
 // A helper function to get the current version from the pref. The current
 // version value is decided by both the default value and the user value. We use
 // the one with a greater number as the current version. The reason is that the
-// current value pref could be modified by either Nimbus or Firefox pref change.
-// Nimbus changes the user value and the Firefox pref change controls the
+// current value pref could be modified by either Nimbus or Plezix pref change.
+// Nimbus changes the user value and the Plezix pref change controls the
 // default value. To ensure changing the pref can successfully alter the current
 // version, we only consider the one with a larger version number as the current
 // version.

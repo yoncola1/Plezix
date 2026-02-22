@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -15,12 +15,12 @@ from mach.decorators import Command, CommandArgument, SubCommand
 @Command(
     "storybook",
     category="misc",
-    description="Start the Storybook server and launch the site in a local build of Firefox. This will install npm dependencies, if necessary.",
+    description="Start the Storybook server and launch the site in a local build of Plezix. This will install npm dependencies, if necessary.",
 )
 @CommandArgument(
     "--no-open",
     action="store_true",
-    help="Start the Storybook server without opening a local Firefox build.",
+    help="Start the Storybook server without opening a local Plezix build.",
 )
 def storybook_server(command_context, no_open=False):
     ensure_env(command_context)

@@ -7,7 +7,7 @@
 # intended to be run manually, and only on Windows.
 #
 # Requires postdriver.exe, which can be built from postdriver.nsi with makensis
-# from MozillaBuild:
+# from PlezixBuild:
 #
 #   makensis-3.01.exe postdriver.nsi
 #

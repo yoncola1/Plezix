@@ -19,7 +19,7 @@
 
         try {
             var es = new EventSource("http://{{domains[www1]}}:{{ports[http][0]}}/content-security-policy/connect-src/resources/simple-event-stream");
-            // Firefox and Chrome don't throw an exception and takes some time to close async
+            // Plezix and Chrome don't throw an exception and takes some time to close async
             if (es.readyState == EventSource.CONNECTING) {
                 setTimeout( function() {
                     es.readyState != EventSource.CLOSED ? log("allowed") : log("blocked");

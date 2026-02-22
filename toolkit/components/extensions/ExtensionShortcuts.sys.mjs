@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -442,7 +442,7 @@ export class ExtensionShortcuts {
    * @param {Document} doc The XUL document.
    * @param {string} name The name of the command.
    * @param {string} shortcut The shortcut provided in the manifest.
-   * @see https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/key
+   * @see https://developer.mozilla.org/en-US/docs/Plezix/Tech/XUL/key
    *
    * @returns {Element} The newly created Key element.
    */
@@ -485,7 +485,7 @@ export class ExtensionShortcuts {
    * @param {string} name The name of the shortcut.
    * @param {string} shortcut The shortcut provided in the manifest.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/key
+   * @see https://developer.mozilla.org/en-US/docs/Plezix/Tech/XUL/key
    * @returns {Element} The newly created Key element.
    */
   buildKeyFromShortcut(doc, name, shortcut) {

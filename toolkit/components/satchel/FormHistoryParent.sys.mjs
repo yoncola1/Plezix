@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@ import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 const lazy = {};
 
 ChromeUtils.defineESModuleGetters(lazy, {
-  FirefoxRelay: "resource://gre/modules/FirefoxRelay.sys.mjs",
+  PlezixRelay: "resource://gre/modules/PlezixRelay.sys.mjs",
   FormHistory: "resource://gre/modules/FormHistory.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
 });
@@ -82,7 +82,7 @@ export class FormHistoryParent extends JSWindowActorParent {
       );
     }
 
-    const relayPromise = lazy.FirefoxRelay.autocompleteItemsAsync({
+    const relayPromise = lazy.PlezixRelay.autocompleteItemsAsync({
       origin: this.formOrigin,
       scenarioName,
       hasInput: !!searchString.length,

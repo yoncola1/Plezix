@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,7 +14,7 @@ object FeatureFlags {
      * This feature does not only depend on this flag. It requires the AMO collection override to
      * be enabled which is behind the Secret Settings.
      * */
-    val customExtensionCollectionFeature = Config.channel.isNightlyOrDebug || Config.channel.isBeta
+    val customExtensionCollectionFeature = Config.channel.isPlezixOrDebug || Config.channel.isBeta
 
     /**
      * Pull-to-refresh allows you to pull the web content down far enough to have the page to
@@ -34,7 +34,7 @@ object FeatureFlags {
     const val UNIFIED_SEARCH_SETTINGS = true
 
     /**
-     * Allows users to enable Firefox Suggest.
+     * Allows users to enable Plezix Suggest.
      */
     const val FX_SUGGEST = true
 
@@ -59,5 +59,5 @@ object FeatureFlags {
     /**
      * Determines whether to show live downloads in progress in the UI.
      */
-    val showLiveDownloads = Config.channel.isNightlyOrDebug
+    val showLiveDownloads = Config.channel.isPlezixOrDebug
 }

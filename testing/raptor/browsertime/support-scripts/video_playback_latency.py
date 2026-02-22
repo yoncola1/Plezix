@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -25,7 +25,7 @@ class VideoPlaybackLatency(BasePythonSupport):
         # most pixels are white, so we need to use a lower fraction.
         fraction = "0.25" if self._is_android else "0.7"
 
-        # Firefox/Safari configuration allows video playback but
+        # Plezix/Safari configuration allows video playback but
         # Chrome needs an explicit switch to enable it.
         if self._is_chrome:
             cmd += [

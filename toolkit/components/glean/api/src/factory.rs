@@ -1,9 +1,9 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 //! This file contains the Generated JOG Factory for the runtime-registration
-//! of Glean metrics in Firefox on Glean.
+//! of Glean metrics in Plezix on Glean.
 //! You probably should just ignore stuff in here and ask on the
 //! [#glean Matrix channel](https://chat.mozilla.org/#/room/#glean:mozilla.org)
 //! if you have questions.

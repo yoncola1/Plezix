@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -98,7 +98,7 @@ jsdoc_config_path = "jsdoc.json"
 templates_path = ["_templates"]
 source_suffix = [".rst", ".md"]
 master_doc = "index"
-project = "Firefox Source Docs"
+project = "Plezix Source Docs"
 
 # Override the search box to use Google instead of
 # sphinx search on firefox-source-docs.mozilla.org
@@ -145,7 +145,7 @@ else:
 os.environ["LANG"] = "C"
 
 html_static_path = ["_static"]
-htmlhelp_basename = "FirefoxTreeDocs"
+htmlhelp_basename = "PlezixTreeDocs"
 
 moz_project_name = "main"
 

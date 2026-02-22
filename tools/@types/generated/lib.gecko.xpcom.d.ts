@@ -13076,7 +13076,7 @@ namespace nsIGfxInfo {
 interface nsIGfxInfo extends nsISupports, Enums<typeof nsIGfxInfo_FontVisibilityDeviceDetermination> {
   readonly D2DEnabled: boolean;
   readonly DWriteEnabled: boolean;
-  readonly EmbeddedInFirefoxReality: boolean;
+  readonly EmbeddedInPlezixReality: boolean;
   readonly AzureCanvasBackend: string;
   readonly AzureContentBackend: string;
   readonly usingGPUProcess: boolean;

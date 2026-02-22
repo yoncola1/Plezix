@@ -255,7 +255,7 @@ add_task(function teardown() {
   Services.console.unregisterListener(consoleListener);
 });
 
-// We are in xpcshell, so we can't have a real DOM Window as in Firefox
+// We are in xpcshell, so we can't have a real DOM Window as in Plezix
 // but let's try to have a fake one.
 function createContentWindow() {
   const principal =

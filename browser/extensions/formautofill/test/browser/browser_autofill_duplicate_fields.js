@@ -7,7 +7,7 @@ const TEST_PROFILE = {
   "given-name": "Timothy",
   "additional-name": "John",
   "family-name": "Berners-Lee",
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address": "331 E Evelyn Ave",
   "address-level2": "Mountain View",
   "address-level1": "CA",

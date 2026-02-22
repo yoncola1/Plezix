@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ class AddonsManagerAdapterTest {
 
     // We must pass these variables to `bindAddon()` because looking up the version name
     // requires package info that we do not have in the test context.
-    private val appName = "Firefox"
+    private val appName = "Plezix"
     private val appVersion = "1.2.3"
 
     @Before
@@ -629,7 +629,7 @@ class AddonsManagerAdapterTest {
         verify(messageBarWarningView).isVisible = false
         verify(messageBarErrorView).isVisible = true
         verify(messageTextView).text =
-            "This extension is blocked for violating Mozilla’s policies and has been disabled."
+            "This extension is blocked for violating Plezix’s policies and has been disabled."
 
         // Since we link to a non-SUMO page, we should update the text for this link.
         assertEquals(learnMoreTextView.text, "See details")
@@ -836,7 +836,7 @@ class AddonsManagerAdapterTest {
         val addon = makeDisabledAddon(Addon.DisabledReason.SOFT_BLOCKED)
         whenever(addon.isEnabled()).thenReturn(false)
         val expectedMessage =
-            "This extension is restricted for violating Mozilla’s policies and has been disabled. You can enable it, but this may be risky."
+            "This extension is restricted for violating Plezix’s policies and has been disabled. You can enable it, but this may be risky."
 
         bindSoftBlockedAddon(addon, expectedMessage)
     }
@@ -845,7 +845,7 @@ class AddonsManagerAdapterTest {
     fun `bind soft-blocked add-on that has been re-enabled by user`() {
         val addon = makeDisabledAddon(Addon.DisabledReason.SOFT_BLOCKED)
         whenever(addon.isEnabled()).thenReturn(true)
-        val expectedMessage = "This extension violates Mozilla’s policies. Using it may be risky."
+        val expectedMessage = "This extension violates Plezix’s policies. Using it may be risky."
 
         bindSoftBlockedAddon(addon, expectedMessage)
     }

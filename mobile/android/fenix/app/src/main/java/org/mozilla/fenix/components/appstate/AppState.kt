@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ import org.mozilla.fenix.wallpapers.WallpaperState
  * @property firstFrameDrawn Flag indicating whether the first frame of the homescreen has been drawn.
  * @property isSearchActive Flag indicating whether the user is currently performing a search.
  * @property selectedSearchEngine New search engine to use for the current in-progress browser search.
- * @property openInFirefoxRequested Flag indicating whether a custom tab should be opened in the browser.
+ * @property openInPlezixRequested Flag indicating whether a custom tab should be opened in the browser.
  * @property nonFatalCrashes List of non-fatal crashes that allow the app to continue being used.
  * @property collections The list of [TabCollection] to display in the [HomeFragment].
  * @property expandedCollections A set containing the ids of the [TabCollection] that are expanded
@@ -77,7 +77,7 @@ data class AppState(
     val firstFrameDrawn: Boolean = false,
     val isSearchActive: Boolean = false,
     val selectedSearchEngine: SelectedSearchEngine? = null,
-    val openInFirefoxRequested: Boolean = false,
+    val openInPlezixRequested: Boolean = false,
     val nonFatalCrashes: List<NativeCodeCrash> = emptyList(),
     val collections: List<TabCollection> = emptyList(),
     val expandedCollections: Set<Long> = emptySet(),

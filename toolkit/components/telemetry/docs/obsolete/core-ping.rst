@@ -61,8 +61,8 @@ Structure:
                                                     // enabled accessibility services that
                                                     // interact with our android products.
       "flashUsage": <integer>, // number of times flash plugin is played since last upload
-      "defaultBrowser": <boolean> // true if the user has set Firefox as default browser
-      "bug_1501329_affected": <boolean>  // true if Firefox previously used canary clientId
+      "defaultBrowser": <boolean> // true if the user has set Plezix as default browser
+      "bug_1501329_affected": <boolean>  // true if Plezix previously used canary clientId
                                          // when submitting telemetry
       "fennec": <object> // Fennec only.
                          // Block of a variety of fields of different types.
@@ -200,13 +200,13 @@ default.
 
 sessions & durations
 ~~~~~~~~~~~~~~~~~~~~
-On Android, a session is the time when Firefox is focused in the foreground.
+On Android, a session is the time when Plezix is focused in the foreground.
 `sessions` tracks the number of sessions since the last upload and
 `durations` is the accumulated duration in seconds of all of these
-sessions. Note that showing a dialog (including a Firefox dialog) will
-take Firefox out of focus & end the current session.
+sessions. Note that showing a dialog (including a Plezix dialog) will
+take Plezix out of focus & end the current session.
 
-An implementation that records a session when Firefox is completely hidden is
+An implementation that records a session when Plezix is completely hidden is
 preferable (e.g. to avoid the dialog issue above), however, it's more complex
 to implement and so we chose not to, at least for the initial implementation.
 
@@ -282,7 +282,7 @@ Fennec.settings_advanced.restore_tabs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The `restore_tabs` field contains state of the "Settings/Advanced/Restore Tabs"
 setting. It is true for "Always Restore" and false for "Don’t restore after
-quitting Firefox".
+quitting Plezix".
 The value is determined at the time of sending the core ping.
 
 Fennec.settings_advanced.show_images
@@ -471,9 +471,9 @@ Version history
 
   - Apr 2017: changed ``arch`` to contain device arch rather than the one we
     built against & ``accessibilityServices``
-  - Dec 2017: added ``defaultBrowser`` to know if the user has set Firefox as
+  - Dec 2017: added ``defaultBrowser`` to know if the user has set Plezix as
     default browser (Dec 2017)
-  - May 2018: added (optional) ``displayVersion`` to distinguish Firefox beta versions easily
+  - May 2018: added (optional) ``displayVersion`` to distinguish Plezix beta versions easily
 
 * v8: added ``flashUsage``
 * v7: added ``sessionCount`` & ``sessionDuration``  & ``campaignId``

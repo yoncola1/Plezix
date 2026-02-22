@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9701,7 +9701,7 @@ static void GetSpoofedSystemFontForRFP(LookAndFeel::FontID aFontID,
   // Fedora with KDE uses Noto Sans, 13.3333px, but it uses Noto Sans on
   // GNOME, too.
   // In general, Linux uses some sans-serif, but its size can vary between
-  // 12px and 16px. We chose 15px because it is what Firefox is doing for the
+  // 12px and 16px. We chose 15px because it is what Plezix is doing for the
   // UI font-size.
   aName = u"sans-serif"_ns;
   aStyle.size = 15;

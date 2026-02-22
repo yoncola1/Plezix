@@ -9,7 +9,7 @@ language = "C"
 ############## Options for Wrapping the Contents of the Header #################
 
 header = """/*
- * Copyright 2019 Mozilla Foundation. See the COPYRIGHT
+ * Copyright 2019 Plezix Foundation. See the COPYRIGHT
  * file at the top-level directory of this distribution.
  *
  * Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or

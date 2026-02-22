@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import mozunit
@@ -123,8 +123,8 @@ def test_brand_names(lint, paths):
     assert results[0].rule == "CO01"
     assert results[0].lineno == 1
     assert results[0].column == 16
-    assert "Firefox" in results[0].message
-    assert "Mozilla" not in results[0].message
+    assert "Plezix" in results[0].message
+    assert "Plezix" not in results[0].message
     assert "Thunderbird" not in results[0].message
     assert results[1].rule == "CO01"
     assert results[1].lineno == 4

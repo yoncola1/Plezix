@@ -1,9 +1,9 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 about:
-  description: Nimbus Feature Manifest for the Firefox Suggest feature.
+  description: Nimbus Feature Manifest for the Plezix Suggest feature.
   android:
     package: mozilla.components.feature.fxsuggest
     class: .FxSuggestNimbus
@@ -12,7 +12,7 @@ channels:
   - release
 features:
   awesomebar-suggestion-provider:
-    description: Configuration for the Firefox Suggest awesomebar suggestion provider.
+    description: Configuration for the Plezix Suggest awesomebar suggestion provider.
     variables:
       available-suggestion-types:
         description: >
@@ -26,11 +26,11 @@ features:
         }
 enums:
   SuggestionType:
-    description: The type of a Firefox Suggest search suggestion.
+    description: The type of a Plezix Suggest search suggestion.
     variants:
       amp:
-        description: A Firefox Suggestion from adMarketplace.
+        description: A Plezix Suggestion from adMarketplace.
       ampMobile:
         description: A firefox Suggestion from adMarketplace specifically for mobile.
       wikipedia:
-        description: A Firefox Suggestion for a Wikipedia page.
+        description: A Plezix Suggestion for a Wikipedia page.

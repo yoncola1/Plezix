@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -228,7 +228,7 @@ class Sidebar extends PureComponent {
               PAGE_TYPES.RUNTIME === selectedPage &&
               selectedRuntimeId === RUNTIMES.THIS_FIREFOX,
             key: RUNTIMES.THIS_FIREFOX,
-            name: "This Firefox",
+            name: "This Plezix",
             to: `/runtime/${RUNTIMES.THIS_FIREFOX}`,
           })
         ),

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.settings.address.ext.getAddressLabel
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A list of addresses.
@@ -59,14 +59,14 @@ fun AddressList(
 @Preview
 @Composable
 private fun AddressListPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer2)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer2)) {
             AddressList(
                 addresses = listOf(
                     Address(
                         guid = "1",
                         name = "Banana Apple",
-                        organization = "Mozilla",
+                        organization = "Plezix",
                         streetAddress = "123 Sesame Street",
                         addressLevel3 = "",
                         addressLevel2 = "",

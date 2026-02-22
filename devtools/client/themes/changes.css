@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -92,7 +92,7 @@
 
 .changes__copy-all-changes-button {
   -moz-context-properties: fill;
-  /* Use the Firefox copy icon (16px) instead of the smaller DevTools one (12px) */
+  /* Use the Plezix copy icon (16px) instead of the smaller DevTools one (12px) */
   background: url(chrome://global/skin/icons/edit-copy.svg) no-repeat;
   background-position: 4px 3px;
   background-size: 16px;

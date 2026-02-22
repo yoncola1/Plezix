@@ -1866,18 +1866,18 @@
 06-02 16:38:11.681 D/RustNativeSupport( 8940): lib configured: megazord
 06-02 16:38:11.681 D/RustNativeSupport( 8940): lib version configured: 0.59.0
 06-02 16:38:11.681 D/RustNativeSupport( 8940): settled on megazord
-06-02 16:38:11.682 I/FirefoxAccountStateMachine( 8940): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@b024ebc, mozilla.components.service.fxa.SyncEngine$Bookmarks@560fe45, mozilla.components.service.fxa.SyncEngine$Passwords@623799a], syncPeriodInMinutes=240)
+06-02 16:38:11.682 I/PlezixAccountStateMachine( 8940): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@b024ebc, mozilla.components.service.fxa.SyncEngine$Bookmarks@560fe45, mozilla.components.service.fxa.SyncEngine$Passwords@623799a], syncPeriodInMinutes=240)
 06-02 16:38:11.683 D/places_ffi( 8940): places_api_new
 06-02 16:38:11.684 I/BgSyncManager( 8940): Periodic syncing enabled at a 240 interval
-06-02 16:38:11.684 I/FirefoxAccountStateMachine( 8940): Sync is enabled
+06-02 16:38:11.684 I/PlezixAccountStateMachine( 8940): Sync is enabled
 06-02 16:38:11.688 I/FenixApplication( 8940): 'Kicking-off account manager' took 10 ms
-06-02 16:38:11.688 I/FirefoxAccountStateMachine( 8940): Processing event Init for state Start. Next state is Start
+06-02 16:38:11.688 I/PlezixAccountStateMachine( 8940): Processing event Init for state Start. Next state is Start
 06-02 16:38:11.701 D/places::db::schema( 8940): Creating schema
 06-02 16:38:11.701 I/keystore( 1734): del USRPKEY_org.mozilla.fenix.debug 10099
 06-02 16:38:11.702 I/keystore( 1734): del USRCERT_org.mozilla.fenix.debug 10099
 06-02 16:38:11.702 I/keystore( 1734): del CACERT_org.mozilla.fenix.debug 10099
-06-02 16:38:11.726 I/FirefoxAccountStateMachine( 8940): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
-06-02 16:38:11.727 I/FirefoxAccountStateMachine( 8940): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
+06-02 16:38:11.726 I/PlezixAccountStateMachine( 8940): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
+06-02 16:38:11.727 I/PlezixAccountStateMachine( 8940): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
 06-02 16:38:11.728 D/sql_support::conn_ext( 8940): Transaction commited after 27.615273ms
 06-02 16:38:11.729 D/places_ffi( 8940): places_connection_new
 06-02 16:38:11.731 D/RustNativeSupport( 8940): findMegazordLibraryName(fxaclient, 0.59.0
@@ -1887,7 +1887,7 @@
 06-02 16:38:11.731 D/RustNativeSupport( 8940): settled on megazord
 06-02 16:38:11.732 D/places_ffi( 8940): places_connection_new
 06-02 16:38:11.732 D/fxaclient_ffi( 8940): fxa_new
-06-02 16:38:11.734 W/FirefoxAccountStateMachine( 8940): Got invalid event Init for state NotAuthenticated.
+06-02 16:38:11.734 W/PlezixAccountStateMachine( 8940): Got invalid event Init for state NotAuthenticated.
 06-02 16:38:11.735 I/PlacesHistoryStorage( 8940): 'Warming up places storage' took 56 ms
 06-02 16:38:11.736 I/PlacesBookmarksStorage( 8940): Warming up places storage...
 06-02 16:38:11.736 D/places_ffi( 8940): places_connection_new
@@ -3658,25 +3658,25 @@
 06-02 16:38:30.027 D/RustNativeSupport( 9156): lib configured: megazord
 06-02 16:38:30.027 D/RustNativeSupport( 9156): lib version configured: 0.59.0
 06-02 16:38:30.027 D/RustNativeSupport( 9156): settled on megazord
-06-02 16:38:30.028 I/FirefoxAccountStateMachine( 9156): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@623799a, mozilla.components.service.fxa.SyncEngine$Bookmarks@343e2cb, mozilla.components.service.fxa.SyncEngine$Passwords@7039aa8], syncPeriodInMinutes=240)
+06-02 16:38:30.028 I/PlezixAccountStateMachine( 9156): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@623799a, mozilla.components.service.fxa.SyncEngine$Bookmarks@343e2cb, mozilla.components.service.fxa.SyncEngine$Passwords@7039aa8], syncPeriodInMinutes=240)
 06-02 16:38:30.029 D/places_ffi( 9156): places_api_new
 06-02 16:38:30.029 I/BgSyncManager( 9156): Periodic syncing enabled at a 240 interval
-06-02 16:38:30.030 I/FirefoxAccountStateMachine( 9156): Sync is enabled
+06-02 16:38:30.030 I/PlezixAccountStateMachine( 9156): Sync is enabled
 06-02 16:38:30.032 I/FenixApplication( 9156): 'Kicking-off account manager' took 10 ms
-06-02 16:38:30.033 I/FirefoxAccountStateMachine( 9156): Processing event Init for state Start. Next state is Start
+06-02 16:38:30.033 I/PlezixAccountStateMachine( 9156): Processing event Init for state Start. Next state is Start
 06-02 16:38:30.060 I/keystore( 1734): del USRPKEY_org.mozilla.fenix.debug 10099
 06-02 16:38:30.061 I/keystore( 1734): del USRCERT_org.mozilla.fenix.debug 10099
 06-02 16:38:30.061 I/keystore( 1734): del CACERT_org.mozilla.fenix.debug 10099
 06-02 16:38:30.085 D/places::db::schema( 9156): Creating schema
-06-02 16:38:30.085 I/FirefoxAccountStateMachine( 9156): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
-06-02 16:38:30.085 I/FirefoxAccountStateMachine( 9156): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
+06-02 16:38:30.085 I/PlezixAccountStateMachine( 9156): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
+06-02 16:38:30.085 I/PlezixAccountStateMachine( 9156): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
 06-02 16:38:30.089 D/RustNativeSupport( 9156): findMegazordLibraryName(fxaclient, 0.59.0
 06-02 16:38:30.089 D/RustNativeSupport( 9156): lib in use: none
 06-02 16:38:30.089 D/RustNativeSupport( 9156): lib configured: megazord
 06-02 16:38:30.089 D/RustNativeSupport( 9156): lib version configured: 0.59.0
 06-02 16:38:30.089 D/RustNativeSupport( 9156): settled on megazord
 06-02 16:38:30.090 D/fxaclient_ffi( 9156): fxa_new
-06-02 16:38:30.092 W/FirefoxAccountStateMachine( 9156): Got invalid event Init for state NotAuthenticated.
+06-02 16:38:30.092 W/PlezixAccountStateMachine( 9156): Got invalid event Init for state NotAuthenticated.
 06-02 16:38:30.112 D/sql_support::conn_ext( 9156): Transaction commited after 27.875555ms
 06-02 16:38:30.112 D/places_ffi( 9156): places_connection_new
 06-02 16:38:30.116 D/places_ffi( 9156): places_connection_new
@@ -5461,25 +5461,25 @@
 06-02 16:38:50.344 D/RustNativeSupport( 9365): lib configured: megazord
 06-02 16:38:50.344 D/RustNativeSupport( 9365): lib version configured: 0.59.0
 06-02 16:38:50.344 D/RustNativeSupport( 9365): settled on megazord
-06-02 16:38:50.344 I/FirefoxAccountStateMachine( 9365): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@49c28e, mozilla.components.service.fxa.SyncEngine$Bookmarks@834aaf, mozilla.components.service.fxa.SyncEngine$Passwords@b024ebc], syncPeriodInMinutes=240)
+06-02 16:38:50.344 I/PlezixAccountStateMachine( 9365): Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@49c28e, mozilla.components.service.fxa.SyncEngine$Bookmarks@834aaf, mozilla.components.service.fxa.SyncEngine$Passwords@b024ebc], syncPeriodInMinutes=240)
 06-02 16:38:50.346 I/BgSyncManager( 9365): Periodic syncing enabled at a 240 interval
 06-02 16:38:50.346 D/places_ffi( 9365): places_api_new
-06-02 16:38:50.346 I/FirefoxAccountStateMachine( 9365): Sync is enabled
+06-02 16:38:50.346 I/PlezixAccountStateMachine( 9365): Sync is enabled
 06-02 16:38:50.348 I/FenixApplication( 9365): 'Kicking-off account manager' took 10 ms
-06-02 16:38:50.349 I/FirefoxAccountStateMachine( 9365): Processing event Init for state Start. Next state is Start
+06-02 16:38:50.349 I/PlezixAccountStateMachine( 9365): Processing event Init for state Start. Next state is Start
 06-02 16:38:50.363 I/keystore( 1734): del USRPKEY_org.mozilla.fenix.debug 10099
 06-02 16:38:50.364 I/keystore( 1734): del USRCERT_org.mozilla.fenix.debug 10099
 06-02 16:38:50.364 I/keystore( 1734): del CACERT_org.mozilla.fenix.debug 10099
 06-02 16:38:50.367 D/places::db::schema( 9365): Creating schema
-06-02 16:38:50.382 I/FirefoxAccountStateMachine( 9365): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
-06-02 16:38:50.382 I/FirefoxAccountStateMachine( 9365): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
+06-02 16:38:50.382 I/PlezixAccountStateMachine( 9365): Ran 'Init' side-effects for state Start, got successive event AccountNotFound
+06-02 16:38:50.382 I/PlezixAccountStateMachine( 9365): Processing event AccountNotFound for state Start. Next state is NotAuthenticated
 06-02 16:38:50.387 D/RustNativeSupport( 9365): findMegazordLibraryName(fxaclient, 0.59.0
 06-02 16:38:50.387 D/RustNativeSupport( 9365): lib in use: none
 06-02 16:38:50.387 D/RustNativeSupport( 9365): lib configured: megazord
 06-02 16:38:50.387 D/RustNativeSupport( 9365): lib version configured: 0.59.0
 06-02 16:38:50.387 D/RustNativeSupport( 9365): settled on megazord
 06-02 16:38:50.389 D/fxaclient_ffi( 9365): fxa_new
-06-02 16:38:50.391 W/FirefoxAccountStateMachine( 9365): Got invalid event Init for state NotAuthenticated.
+06-02 16:38:50.391 W/PlezixAccountStateMachine( 9365): Got invalid event Init for state NotAuthenticated.
 06-02 16:38:50.415 D/sql_support::conn_ext( 9365): Transaction commited after 48.284882ms
 06-02 16:38:50.415 D/places_ffi( 9365): places_connection_new
 06-02 16:38:50.421 D/places_ffi( 9365): places_connection_new

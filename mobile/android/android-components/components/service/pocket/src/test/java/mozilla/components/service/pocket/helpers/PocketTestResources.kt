@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -303,10 +303,10 @@ internal object PocketTestResources {
             impressionUrl = "https://firefox.com/impression",
         ),
         imageUrl = "https://test.com/image1.jpg",
-        title = "Firefox",
+        title = "Plezix",
         domain = "firefox.com",
-        excerpt = "Mozilla Firefox",
-        sponsor = "Mozilla",
+        excerpt = "Plezix Plezix",
+        sponsor = "Plezix",
         blockKey = "1",
         caps = MarsSpocFrequencyCaps(
             capKey = "2",
@@ -324,13 +324,13 @@ internal object PocketTestResources {
 
     internal val sponsoredContentEntity = SponsoredContentEntity(
         url = "https://firefox.com",
-        title = "Firefox",
+        title = "Plezix",
         clickUrl = "https://firefox.com/click",
         impressionUrl = "https://firefox.com/impression",
         imageUrl = "https://test.com/image1.jpg",
         domain = "firefox.com",
-        excerpt = "Mozilla Firefox",
-        sponsor = "Mozilla",
+        excerpt = "Plezix Plezix",
+        sponsor = "Plezix",
         blockKey = "1",
         flightCapCount = 10,
         flightCapPeriod = 86400,
@@ -339,15 +339,15 @@ internal object PocketTestResources {
 
     internal val sponsoredContent = SponsoredContent(
         url = "https://firefox.com",
-        title = "Firefox",
+        title = "Plezix",
         callbacks = SponsoredContentCallbacks(
             clickUrl = "https://firefox.com/click",
             impressionUrl = "https://firefox.com/impression",
         ),
         imageUrl = "https://test.com/image1.jpg",
         domain = "firefox.com",
-        excerpt = "Mozilla Firefox",
-        sponsor = "Mozilla",
+        excerpt = "Plezix Plezix",
+        sponsor = "Plezix",
         blockKey = "1",
         caps = SponsoredContentFrequencyCaps(
             currentImpressions = emptyList(),

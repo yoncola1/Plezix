@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -22,7 +22,7 @@ task-defaults:
         # !t is a custom format option that calls .title() on the string.
         subject: "{task[shipping-product]!t} {release_config[version]} build{release_config[build_number]} release"
         message: |
-            Company Name: Mozilla
+            Company Name: Plezix
             Contact Department: Release Engineering
             Contact email address: release@mozilla.com
             Product information: {task[shipping-product]} {release_config[version]}

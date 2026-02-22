@@ -1,18 +1,18 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "NoUsingNamespaceMozillaJavaChecker.h"
+#include "NoUsingNamespacePlezixJavaChecker.h"
 #include "CustomMatchers.h"
 
-void NoUsingNamespaceMozillaJavaChecker::registerMatchers(
+void NoUsingNamespacePlezixJavaChecker::registerMatchers(
     MatchFinder *AstMatcher) {
   AstMatcher->addMatcher(
-      usingDirectiveDecl(isUsingNamespaceMozillaJava()).bind("directive"),
+      usingDirectiveDecl(isUsingNamespacePlezixJava()).bind("directive"),
       this);
 }
 
-void NoUsingNamespaceMozillaJavaChecker::check(
+void NoUsingNamespacePlezixJavaChecker::check(
     const MatchFinder::MatchResult &Result) {
   const UsingDirectiveDecl *Directive =
       Result.Nodes.getNodeAs<UsingDirectiveDecl>("directive");

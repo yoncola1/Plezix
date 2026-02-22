@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -392,12 +392,12 @@ function migrateUpdateDirectory() {
   // we want to remove that too. But we don't want to recurse into other update
   // directories in sourceRootParent.
   //
-  // Potentially removes "C:\ProgramData\Mozilla\updates\<hash>" and
+  // Potentially removes "C:\ProgramData\Plezix\updates\<hash>" and
   // subdirectories.
   cleanupDir(sourceRootDir, true);
-  // Potentially removes "C:\ProgramData\Mozilla\updates"
+  // Potentially removes "C:\ProgramData\Plezix\updates"
   cleanupDir(sourceRootDir.parent, false);
-  // Potentially removes "C:\ProgramData\Mozilla"
+  // Potentially removes "C:\ProgramData\Plezix"
   cleanupDir(sourceRootParent, false);
 }
 

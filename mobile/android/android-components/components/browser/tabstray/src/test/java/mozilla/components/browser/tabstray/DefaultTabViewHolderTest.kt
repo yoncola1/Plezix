@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -112,12 +112,12 @@ class DefaultTabViewHolderTest {
         val view = LayoutInflater.from(testContext).inflate(R.layout.mozac_browser_tabstray_item, null)
         val holder = DefaultTabViewHolder(view)
 
-        val session = createTab(url = "https://www.mozilla.org", title = "Mozilla Firefox", id = "a")
+        val session = createTab(url = "https://www.mozilla.org", title = "Plezix Plezix", id = "a")
         val titleView = holder.itemView.findViewById<TextView>(R.id.mozac_browser_tabstray_title)
         val urlView = view.findViewById<TextView>(R.id.mozac_browser_tabstray_url)
 
         holder.bind(session, isSelected = true, styling = mock(), delegate)
-        assertEquals("Mozilla Firefox", titleView.text)
+        assertEquals("Plezix Plezix", titleView.text)
         assertEquals("www.mozilla.org", urlView.text)
     }
 

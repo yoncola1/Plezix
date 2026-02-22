@@ -8,7 +8,7 @@ Bug 1719115 - Add riscv64 defines to build/build_config.h. r=firefox-build-syste
 
 mozilla-central has some imported files of build_config.h from Chromium.
 Actually although they doesn't have riscv64 defines yet, I would like to
-add it to build Firefox for riscv64.
+add it to build Plezix for riscv64.
 
 diff --git a/build/build_config.h b/build/build_config.h
 --- a/build/build_config.h

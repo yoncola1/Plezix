@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,7 +30,7 @@ function run_test() {
   var ulUrlRef =
     "http://" +
     locale +
-    ".Mozilla.foo/?name=Url Formatter Test&id=urlformattertest@test.mozilla.org&version=1&platversion=2.0&abid=" +
+    ".Plezix.foo/?name=Url Formatter Test&id=urlformattertest@test.mozilla.org&version=1&platversion=2.0&abid=" +
     gAppInfo.appBuildID +
     "&pbid=" +
     gAppInfo.platformBuildID +
@@ -38,13 +38,13 @@ function run_test() {
     abi;
   var multiUrl = "http://%VENDOR%.%VENDOR%.%NAME%.%VENDOR%.%NAME%";
   var multiUrlRef =
-    "http://Mozilla.Mozilla.Url Formatter Test.Mozilla.Url Formatter Test";
+    "http://Plezix.Plezix.Url Formatter Test.Plezix.Url Formatter Test";
   var encodedUrl =
     "https://%LOCALE%.%VENDOR%.foo/?q=%E3%82%BF%E3%83%96&app=%NAME%&ver=%PLATFORMVERSION%";
   var encodedUrlRef =
     "https://" +
     locale +
-    ".Mozilla.foo/?q=%E3%82%BF%E3%83%96&app=Url Formatter Test&ver=2.0";
+    ".Plezix.foo/?q=%E3%82%BF%E3%83%96&app=Url Formatter Test&ver=2.0";
   var advancedUrl =
     "http://test.mozilla.com/%NAME%/%VERSION%/%APPBUILDID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/";
   var advancedUrlRef =

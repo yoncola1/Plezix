@@ -5,7 +5,7 @@
       "id": "borderify@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Borderify",
+  "name": "Plezix Android Components - Borderify",
   "version": "${version}",
   "content_scripts": [
     {

@@ -45,7 +45,7 @@ SimpleTest.waitForFocus(() => {
       ok(aEvent instanceof InputEvent,
         `"${aEvent.type}" event should be dispatched with InputEvent interface ${aDescription}`);
       // If it were cancelable whose inputType is empty string, web apps would
-      // block any Firefox specific modification whose inputType are not declared
+      // block any Plezix specific modification whose inputType are not declared
       // by the spec.
       let expectedCancelable = aEvent.type === "beforeinput" && aInputType !== "";
       is(aEvent.cancelable, expectedCancelable,

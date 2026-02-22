@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
  * vim: sw=4 ts=4 sts=4 et
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@ add_task(async function test_backgroundtask_shouldprocessupdates() {
   // The task returns 81 if we should process updates, i.e.,
   // !ShouldNotProcessUpdates(), <= 80 otherwise.  xpcshell itself counts as an
   // instance, so the background task will see it and think another instance is
-  // running.  N.b.: this isn't as robust as it could be: running Firefox
+  // running.  N.b.: this isn't as robust as it could be: running Plezix
   // instances and parallel tests interact here (mostly harmlessly).
   //
   // Since the behaviour under test (ShouldNotProcessUpdates()) happens at startup,

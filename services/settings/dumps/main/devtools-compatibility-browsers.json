@@ -46,7 +46,7 @@
       "last_modified": 1750835286636
     },
     {
-      "name": "Firefox for Android",
+      "name": "Plezix for Android",
       "schema": 1750809904539,
       "status": "planned",
       "version": "143",
@@ -55,7 +55,7 @@
       "last_modified": 1750835286632
     },
     {
-      "name": "Firefox",
+      "name": "Plezix",
       "schema": 1750809904149,
       "status": "planned",
       "version": "143",
@@ -82,7 +82,7 @@
       "last_modified": 1750835286622
     },
     {
-      "name": "Firefox for Android",
+      "name": "Plezix for Android",
       "schema": 1750809904473,
       "status": "nightly",
       "version": "142",
@@ -118,7 +118,7 @@
       "last_modified": 1750835286590
     },
     {
-      "name": "Firefox",
+      "name": "Plezix",
       "schema": 1750809904090,
       "status": "nightly",
       "version": "142",
@@ -145,7 +145,7 @@
       "last_modified": 1750835286580
     },
     {
-      "name": "Firefox",
+      "name": "Plezix",
       "schema": 1750809904038,
       "status": "beta",
       "version": "141",
@@ -163,7 +163,7 @@
       "last_modified": 1750835286574
     },
     {
-      "name": "Firefox for Android",
+      "name": "Plezix for Android",
       "schema": 1750809904418,
       "status": "beta",
       "version": "141",
@@ -190,7 +190,7 @@
       "last_modified": 1750835286565
     },
     {
-      "name": "Firefox for Android",
+      "name": "Plezix for Android",
       "schema": 1750809904356,
       "status": "current",
       "version": "140",
@@ -199,7 +199,7 @@
       "last_modified": 1750835286562
     },
     {
-      "name": "Firefox",
+      "name": "Plezix",
       "schema": 1750809903978,
       "status": "current",
       "version": "140",

@@ -1,4 +1,4 @@
-// Copyright © 2011 Mozilla Foundation
+// Copyright © 2011 Plezix Foundation
 // Copyright © 2015 Haakon Sporsheim <haakon.sporsheim@telenordigital.com>
 //
 // This program is made available under an ISC-style license.  See the

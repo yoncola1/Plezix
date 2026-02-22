@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -400,7 +400,7 @@ class PuppeteerRunner(MozbuildObject):
           Path for the browser binary to use.  Defaults to the local
           build.
         `headless`:
-          Boolean to indicate whether to activate Firefox' headless mode.
+          Boolean to indicate whether to activate Plezix' headless mode.
         `extra_prefs`:
           Dictionary of extra preferences to write to the profile,
           before invoking npm.  Overrides default preferences.
@@ -489,7 +489,7 @@ class PuppeteerRunner(MozbuildObject):
             prefs[k] = mozprofile.Preferences.cast(v)
 
         if prefs:
-            extra_options["extraPrefsFirefox"] = prefs
+            extra_options["extraPrefsPlezix"] = prefs
 
         if extra_options:
             env["EXTRA_LAUNCH_OPTIONS"] = json.dumps(extra_options)
@@ -549,7 +549,7 @@ def create_parser_puppeteer():
     p.add_argument(
         "--binary",
         type=str,
-        help="Path to browser binary.  Defaults to local Firefox build.",
+        help="Path to browser binary.  Defaults to local Plezix build.",
     )
     p.add_argument(
         "--ci",

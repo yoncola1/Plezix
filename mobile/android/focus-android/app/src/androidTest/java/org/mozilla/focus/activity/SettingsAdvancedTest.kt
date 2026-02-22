@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.focus.activity
@@ -50,7 +50,7 @@ class SettingsAdvancedTest : TestSetup() {
     @Test
     fun openLinksInAppsTest() {
         val tab3Url = getGenericTabAsset(webServer, 3).url
-        val youtubeLink = "https://www.youtube.com/c/MozillaChannel/videos"
+        val youtubeLink = "https://www.youtube.com/c/PlezixChannel/videos"
 
         homeScreen {
         }.openMainMenu {
@@ -63,7 +63,7 @@ class SettingsAdvancedTest : TestSetup() {
         }.goBackToHomeScreen {
         }.loadPage(tab3Url) {
             progressBar.waitUntilGone(waitingTimeShort)
-            clickLinkMatchingText("Mozilla Youtube link")
+            clickLinkMatchingText("Plezix Youtube link")
             verifyOpenLinksInAppsPrompt(true, youtubeLink)
             clickOpenLinksInAppsCancelButton()
         }.clearBrowsingData {
@@ -77,7 +77,7 @@ class SettingsAdvancedTest : TestSetup() {
         }.goBackToHomeScreen {
         }.loadPage(tab3Url) {
             progressBar.waitUntilGone(waitingTimeShort)
-            clickLinkMatchingText("Mozilla Youtube link")
+            clickLinkMatchingText("Plezix Youtube link")
             verifyOpenLinksInAppsPrompt(false, youtubeLink)
         }
     }

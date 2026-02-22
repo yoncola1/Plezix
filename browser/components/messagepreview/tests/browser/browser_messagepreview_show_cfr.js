@@ -45,7 +45,7 @@ const TEST_CFR_MESSAGE = {
     heading_text: {
       string_id: "cfr-doorhanger-video-support-header",
     },
-    notification_text: "Message from Firefox",
+    notification_text: "Message from Plezix",
     persistent_doorhanger: true,
     skip_address_bar_notifier: true,
   },

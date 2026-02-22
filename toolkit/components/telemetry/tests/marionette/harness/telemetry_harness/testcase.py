@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -44,14 +44,14 @@ class TelemetryTestCase(WindowManagerMixin, MarionetteTestCase):
             self.marionette.navigate("about:about")
 
     def disable_telemetry(self):
-        """Disable the Firefox Data Collection and Use in the current browser."""
+        """Disable the Plezix Data Collection and Use in the current browser."""
         self.marionette.instance.profile.set_persistent_preferences(
             {"datareporting.healthreport.uploadEnabled": False}
         )
         self.marionette.set_pref("datareporting.healthreport.uploadEnabled", False)
 
     def enable_telemetry(self):
-        """Enable the Firefox Data Collection and Use in the current browser."""
+        """Enable the Plezix Data Collection and Use in the current browser."""
         self.marionette.instance.profile.set_persistent_preferences(
             {"datareporting.healthreport.uploadEnabled": True}
         )

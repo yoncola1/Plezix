@@ -3,7 +3,7 @@
 Refcount tracing and balancing are advanced techniques for tracking down
 leak of refcounted objects found with
 [BloatView](bloatview.md). The first step
-is to run Firefox with refcount tracing enabled, which produces one or
+is to run Plezix with refcount tracing enabled, which produces one or
 more log files. Refcount tracing logs calls to `Addref` and `Release`,
 preferably for a particular set of classes, including call-stacks in
 symbolic form (on platforms that support this). Refcount balancing is a

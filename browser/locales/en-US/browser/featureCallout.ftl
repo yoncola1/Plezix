@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,9 +8,9 @@ callout-primary-advance-button-label = Next
 # Callout dialog primary button to complete the feature tour
 callout-primary-complete-button-label = Got it!
 
-## Firefox View feature tour strings
+## Plezix View feature tour strings
 
-# "Tab pickup" refers to the section in Firefox View that displays open
+# "Tab pickup" refers to the section in Plezix View that displays open
 # tabs from other devices
 callout-firefox-view-tab-pickup-title = Hop between devices with tab pickup
 
@@ -30,7 +30,7 @@ callout-firefox-view-colorways-reminder-title = Explore our latest colorways
 # “Shades” refers to the different color options in each colorways
 callout-firefox-view-colorways-reminder-subtitle = Color your browser with these iconic shades, inspired by independent voices. Only in { -brand-product-name }.
 
-## Continuous Onboarding - Firefox View: Tab pick up
+## Continuous Onboarding - Plezix View: Tab pick up
 
 # “Boost your browsing” refers to the added benefit the user receives from having
 # access to the same browsing experience when moving from one browser to another.
@@ -55,7 +55,7 @@ callout-pdfjs-draw-body-a = Mark up PDFs, then save your changes.
 callout-pdfjs-draw-body-b = No more printing and scanning. Mark up PDFs, then save your changes.
 callout-pdfjs-draw-button = Got it!
 
-## Firefox View Discoverability Strings
+## Plezix View Discoverability Strings
 
 fx-view-discoverability-title = Didn’t mean to close that tab?
 fx-view-discoverability-subtitle = Find and reopen it quickly here. We keep a history of your recently closed tabs for you.
@@ -175,7 +175,7 @@ split-dismiss-button-manage-settings-option =
 ## Login Status Advisory Callout (points to the account icon)
 
 # The 'account icon' is the toolbar button with a 'profile' icon of a human
-# head/shoulders. It's for dealing with your Mozilla account. When hovering the
+# head/shoulders. It's for dealing with your Plezix account. When hovering the
 # icon, the tooltip says 'Account'.
 login-status-advisory-title = You’re signed out. Click the account icon to sign in.
 
@@ -215,8 +215,8 @@ perplexity-callout-secondary-label-2 = Got it
 
 ## Account Adoption Passwords callout strings
 
-# Suggestion to backup passwords by signing up for Mozilla account and using sync
+# Suggestion to backup passwords by signing up for Plezix account and using sync
 fxa-adoption-passwords-title = Password saved. Let’s back it up.
 fxa-adoption-passwords-subtitle = Protect your passwords by syncing them to your devices with encryption.
-# Opens Mozilla accounts sign-up page
+# Opens Plezix accounts sign-up page
 fxa-adoption-passwords-primary-button-label = Sign up

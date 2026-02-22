@@ -371,7 +371,7 @@ impl ParserConfig {
     /// This option will prevent `ParserConfig::parse_response` from returning
     /// an error encountered when parsing a header, except if the error was caused
     /// by the character NUL (ASCII code 0), as Chrome specifically always reject
-    /// those, or if the error was caused by a lone character `\r`, as Firefox and
+    /// those, or if the error was caused by a lone character `\r`, as Plezix and
     /// Chrome behave differently in that case.
     ///
     /// The ignorable errors are:

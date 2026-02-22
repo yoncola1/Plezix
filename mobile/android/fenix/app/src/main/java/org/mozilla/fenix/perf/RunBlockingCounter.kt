@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // This class implements the alternative ways to invoke runBlocking with some
 // monitoring by wrapping the raw methods. This lint check tells us not to use the raw
 // methods so we suppress the check.
-@file:Suppress("MozillaRunBlockingCheck")
+@file:Suppress("PlezixRunBlockingCheck")
 
 package org.mozilla.fenix.perf
 

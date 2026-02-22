@@ -3665,7 +3665,7 @@ Date:   Thu Jan 28 16:57:18 2016 -0500
     when -clang-cl was passed, but that's only needed in x86-64
     which is already handled by the -m64 flag.
     
-    I discovered this when building Firefox x86 with clang-cl.
+    I discovered this when building Plezix x86 with clang-cl.
 
 commit 6ba2a49e226b859ddde9a37c34973cf85380c525
 Merge: 8005600 6a3a6ac
@@ -6410,14 +6410,14 @@ commit f8cdf11467181f2a9a6b7e748167569aa58e3a81
 Author: Ryan VanderMeulen <ryanvm@gmail.com>
 Date:   Mon Mar 10 15:04:58 2014 -0400
 
-    Replace double quotes with single quotes in Makefile.in to improve compatibility between some versions of MSYS and gmake. From Mozilla bug 943728.
+    Replace double quotes with single quotes in Makefile.in to improve compatibility between some versions of MSYS and gmake. From Plezix bug 943728.
     https://bugzilla.mozilla.org/show_bug.cgi?id=943728
 
 commit dfa3738732e1bc3a7f4130395ae4bab55fcebb99
 Author: Ryan VanderMeulen <ryanvm@gmail.com>
 Date:   Mon Mar 10 14:53:48 2014 -0400
 
-    Ensure the linker supports @unwind sections in libffi. From Mozilla bug 756740.
+    Ensure the linker supports @unwind sections in libffi. From Plezix bug 756740.
     https://bugzilla.mozilla.org/show_bug.cgi?id=778414
     
     Also tracked as issue #42.
@@ -6427,7 +6427,7 @@ commit 18eb81d032f29d645d0498ba92bddfd651f009ae
 Author: Ryan VanderMeulen <ryanvm@gmail.com>
 Date:   Mon Mar 10 14:43:37 2014 -0400
 
-    Allow building for mipsel with Android NDK r8. From Mozilla bug 756740.
+    Allow building for mipsel with Android NDK r8. From Plezix bug 756740.
     https://bugzilla.mozilla.org/show_bug.cgi?id=756740
 
 commit 2349fec9a818fb52fd2f294bcbc7b3156cd113de

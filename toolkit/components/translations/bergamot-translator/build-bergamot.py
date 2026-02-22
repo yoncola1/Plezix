@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 #
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 """
-Builds the Bergamot translations engine for integration with Firefox.
+Builds the Bergamot translations engine for integration with Plezix.
 
 If you wish to test the Bergamot engine locally, then uncomment the .wasm line in
 the toolkit/components/translations/jar.mn after building the file. Just make sure

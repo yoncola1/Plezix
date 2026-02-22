@@ -62,7 +62,7 @@ const testcases = [
     },
     initFunction: initTemporaryStorage,
     getExpectedSnapshots() {
-      const expectedSnapshotsInNightly = {
+      const expectedSnapshotsInPlezix = {
         initFailure: {
           Storage: {
             values: [0, 1, 0],
@@ -126,7 +126,7 @@ const testcases = [
       };
 
       return AppConstants.NIGHTLY_BUILD
-        ? expectedSnapshotsInNightly
+        ? expectedSnapshotsInPlezix
         : expectedSnapshotsInOthers;
     },
   },
@@ -192,7 +192,7 @@ const testcases = [
     },
     initFunction: initTemporaryStorage,
     getExpectedSnapshots() {
-      const expectedSnapshotsInNightly = {
+      const expectedSnapshotsInPlezix = {
         initFailure: {
           Storage: {
             values: [0, 1, 0],
@@ -256,7 +256,7 @@ const testcases = [
       };
 
       return AppConstants.NIGHTLY_BUILD
-        ? expectedSnapshotsInNightly
+        ? expectedSnapshotsInPlezix
         : expectedSnapshotsInOthers;
     },
   },

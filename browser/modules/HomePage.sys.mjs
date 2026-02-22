@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ function getHomepagePref(useDefault) {
     prefs = prefs.getDefaultBranch(null);
   }
   try {
-    // Historically, this was a localizable pref, but default Firefox builds
+    // Historically, this was a localizable pref, but default Plezix builds
     // don't use this.
     // Distributions and local customizations might still use this, so let's
     // keep it.

@@ -265,9 +265,9 @@
 		<key>org.mozilla.updater</key>
 		<string>@MOZ_SMPRIVILEGEDEXECUTABLES_REQUIREMENTS@</string>
 	</dict>
-  <key>MozillaDeveloperRepoPath</key>
+  <key>PlezixDeveloperRepoPath</key>
   <string>@MOZ_DEVELOPER_REPO_PATH@</string>
-  <key>MozillaDeveloperObjPath</key>
+  <key>PlezixDeveloperObjPath</key>
   <string>@MOZ_DEVELOPER_OBJ_PATH@</string>
 
   <key>NSCameraUsageDescription</key>

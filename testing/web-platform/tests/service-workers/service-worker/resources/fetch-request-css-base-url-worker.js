@@ -33,7 +33,7 @@ self.addEventListener('fetch', event => {
   // result back to the test page.
   else if (url.pathname.indexOf('sample.png') != -1) {
     // For some reason |source| is undefined here when running the test manually
-    // in Firefox. The test author experimented with both using Client
+    // in Plezix. The test author experimented with both using Client
     // (event.source) and MessagePort to try to get the test to pass, but
     // failed.
     source.postMessage({

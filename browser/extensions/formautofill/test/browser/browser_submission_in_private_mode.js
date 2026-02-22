@@ -23,7 +23,7 @@ add_task(async function test_add_address() {
       await focusUpdateSubmitForm(privateBrowser, {
         focusSelector: "#organization",
         newValues: {
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "331 E. Evelyn Avenue",
           "#tel": "1-650-903-0800",
         },

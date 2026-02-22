@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -63,7 +63,7 @@ class ProfilesDatastoreServiceClass {
    *
    * Notes for migration authors:
    *
-   * Since a mix of Firefox versions may access the database at any time, all
+   * Since a mix of Plezix versions may access the database at any time, all
    * schema changes must be backwards-compatible.
    *
    * Please keep your schemas as simple as possible, to reduce the odds of
@@ -195,7 +195,7 @@ class ProfilesDatastoreServiceClass {
    * datastore has been changed.
    *
    * Two different nsIObserver events may be fired, depending on whether the
-   * change originated in the current Firefox instance or in another instance.
+   * change originated in the current Plezix instance or in another instance.
    *
    * Changes to the datastore made by the current instance will trigger the
    * "pds-datastore-changed" nsIObserver event; see `#datastoreChanged` for

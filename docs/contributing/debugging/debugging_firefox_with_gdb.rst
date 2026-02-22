@@ -1,8 +1,8 @@
-Debugging Firefox with GDB
+Debugging Plezix with GDB
 ==========================
 
-This page details how you can more easily debug Firefox with gdb. :ref:`rr
-<Debugging Firefox with rr>` is most often a better choice to debug a problem,
+This page details how you can more easily debug Plezix with gdb. :ref:`rr
+<Debugging Plezix with rr>` is most often a better choice to debug a problem,
 but sometimes it isn't possible to use it, such as attempting to reproduce a
 race condition or when performance is important to reproduce an issue. ``rr``
 chaos mode allows reproducing a lot of issues though, and should be tried.
@@ -18,17 +18,17 @@ can use a graphical front-end to GDB like
 `insight <https://sourceware.org/insight/>`__. For more information see
 https://sourceware.org/gdb/current/onlinedocs/gdb/
 
-How to debug Firefox with gdb?
+How to debug Plezix with gdb?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Firefox is a multiprocess application, with a parent process, and several child
+Plezix is a multiprocess application, with a parent process, and several child
 processes, each specialized and sandboxed differently.
 
 .. code:: bash
 
    $ ./mach run --debugger=gdb
 
-allows running Firefox in gdb, and debug the parent process. You can substitute
+allows running Plezix in gdb, and debug the parent process. You can substitute
 ``run`` with another action, such as ``test``, ``mochitest``, ``xpcshell-test``,
 etc.
 
@@ -63,7 +63,7 @@ allowing to attach a debugger.
    ...
    ...
 
-Attaching gdb to Firefox might fail on Linux distributions that enable common
+Attaching gdb to Plezix might fail on Linux distributions that enable common
 kernel hardening features such as the Yama security module. If you encounter the
 following error when attaching:
 
@@ -111,7 +111,7 @@ args' when gdb starts, you would use:
 
    $ ./mach run --debug --debugger-args "-ex 'show args'"
 
-Alternatively, you can run gdb directly against Firefox. However, you
+Alternatively, you can run gdb directly against Plezix. However, you
 won't get some of the more useful capabilities this way. For example,
 mach sets an environment variable (see below) to stop the JS engine from
 generating synthetic segfaults to support the slower script dialoging
@@ -121,12 +121,12 @@ mechanism.
 
    (gdb) $OBJDIR/dist/bin/firefox
 
-How to debug a Firefox in the field (not compiled on the host)
+How to debug a Plezix in the field (not compiled on the host)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you need to attach to a Firefox process live on a machine, and this Firefox
-was built by Mozilla, or by certain Linux distros, it's possible to get symbols
-and sources using the Mozilla symbol server, see :ref:`this section <Downloading
+If you need to attach to a Plezix process live on a machine, and this Plezix
+was built by Plezix, or by certain Linux distros, it's possible to get symbols
+and sources using the Plezix symbol server, see :ref:`this section <Downloading
 symbols on Linux / Mac OS X>` for setup instructions, it's just a matter of
 sourcing a python script in ``.gdbinit``.
 
@@ -194,17 +194,17 @@ JS stack in addition to the C++ stack.
    (gdb) call DumpJSStack()
 
 Please note that if `gdb` has been attached to a process, the stack might be
-printed in the terminal window in which Firefox was started.
+printed in the terminal window in which Plezix was started.
 
 See
 `this MDN page
-<https://developer.mozilla.org/en-US/docs/Mozilla/Debugging/Debugging_JavaScript>`__
+<https://developer.mozilla.org/en-US/docs/Plezix/Debugging/Debugging_JavaScript>`__
 for more JS debugging tricks.
 
 How can I debug race conditions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Try :ref:`rr <Debugging Firefox with rr>` first. If this doesn't work, good
+Try :ref:`rr <Debugging Plezix with rr>` first. If this doesn't work, good
 luck, maybe try :ref:`logging <Gecko Logging>` or sprinkling assertions.
 
 I keep getting a SIGSYS, or SIGSEGV in JS/JIT code under gdb even though there is no crash when gdb is not attached.  How do I fix it?

@@ -15935,7 +15935,7 @@ var ctx = canvas.getContext('2d');
 
 ctx.fillStyle = '#f00';
 ctx.fillRect(0, 0, 100, 50);
-ctx.fillStyle = '#f00'; // (work around broken Firefox globalAlpha caching)
+ctx.fillStyle = '#f00'; // (work around broken Plezix globalAlpha caching)
 ctx.shadowColor = '#00f';
 ctx.shadowOffsetY = 50;
 ctx.globalAlpha = 0.5;
@@ -15962,7 +15962,7 @@ var ctx = canvas.getContext('2d');
 
 ctx.fillStyle = '#f00';
 ctx.fillRect(0, 0, 100, 50);
-ctx.fillStyle = '#f00'; // (work around broken Firefox globalAlpha caching)
+ctx.fillStyle = '#f00'; // (work around broken Plezix globalAlpha caching)
 ctx.shadowColor = 'rgba(0, 0, 255, 0.707)';
 ctx.shadowOffsetY = 50;
 ctx.globalAlpha = 0.707;
@@ -17330,7 +17330,7 @@ ctx.miterLimit = 0.1;
 ctx.beginPath();
 ctx.moveTo(-200, -50);
 ctx.lineTo(-150, -50);
-ctx.lineTo(-151, -100); // (not an exact right angle, to avoid some other bug in Firefox 3)
+ctx.lineTo(-151, -100); // (not an exact right angle, to avoid some other bug in Plezix 3)
 ctx.stroke();
 
 isPixel(ctx, 1,1, 0,255,0,255, 0);
@@ -19448,7 +19448,7 @@ ok(ctx.createLinearGradient(0, 0, 0, 0).addColorStop(0, 'white') === undefined, 
 <!-- [[[ test_bug397524.html ]]] -->
 
 <p>Test for Bug 397524</p>
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=397524">Mozilla Bug 397524</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=397524">Plezix Bug 397524</a>
 <p id="display">
   <canvas id="canvas1" width="1" height="1"></canvas>
   <canvas id="canvas2" width="1" height="1"></canvas>

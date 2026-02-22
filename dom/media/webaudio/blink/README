@@ -17,8 +17,8 @@ The process of borrowing code from Blink is as follows:
 * Never add headers as exported headers.  All headers should be included
   using the following convention: #include "blink/Header.h".
 * Leave the imported code in the WebCore namespace, and import the needed
-  names into the Mozilla code via `using'.
+  names into the Plezix code via `using'.
 * Cherry-pick upsteam fixes manually when needed.  In case you fix a problem
-  that is not Mozilla specific locally, try to upstream your changes into
+  that is not Plezix specific locally, try to upstream your changes into
   Blink.
 * Ping ehsan for any questions.

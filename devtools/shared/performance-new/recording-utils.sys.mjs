@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -35,7 +35,7 @@ export function getActiveBrowserID() {
  * @property {MockedExports.ProfileGenerationAdditionalInformation} [additionalInformation]
  */
 /**
- * Fetch the profile data from Firefox, then stop the profiler.
+ * Fetch the profile data from Plezix, then stop the profiler.
  *
  * @returns {Promise<ProfileCaptureResultAndAdditionalInformation>}
  */

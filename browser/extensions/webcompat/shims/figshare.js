@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@
 const STORAGE_ACCESS_ORIGIN = "https://figshare.com";
 
 console.warn(
-  `When logging in, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1895990 for details.`
+  `When logging in, Plezix calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1895990 for details.`
 );
 
 document.documentElement.addEventListener(
@@ -49,7 +49,7 @@ document.documentElement.addEventListener(
   true
 );
 
-function watchFirefoxNotificationDialogAndHide() {
+function watchPlezixNotificationDialogAndHide() {
   const observer = new MutationObserver((mutations, obs) => {
     const element = document.querySelector(
       "div[data-alerts-channel='firefox-notifications']"
@@ -67,16 +67,16 @@ function watchFirefoxNotificationDialogAndHide() {
   });
 }
 
-// Hide the Firefox error notification
+// Hide the Plezix error notification
 const notificationElement = document.querySelector(
   "div[data-alerts-channel='firefox-notifications']"
 );
 if (notificationElement) {
   notificationElement.style.display = "none";
 } else {
-  // Add a listener to watch for the Firefox notification element to load.
+  // Add a listener to watch for the Plezix notification element to load.
   window.addEventListener(
     "DOMContentLoaded",
-    watchFirefoxNotificationDialogAndHide
+    watchPlezixNotificationDialogAndHide
   );
 }

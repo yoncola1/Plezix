@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -139,7 +139,7 @@ const PREF_URLBAR_DEFAULTS = new Map([
   // for Fakespot suggestions.
   ["fakespot.showLessFrequentlyCount", 0],
 
-  // The index of Fakespot results within the Firefox Suggest section. A
+  // The index of Fakespot results within the Plezix Suggest section. A
   // negative index is relative to the end of the section.
   ["fakespot.suggestedIndex", -1],
 
@@ -153,7 +153,7 @@ const PREF_URLBAR_DEFAULTS = new Map([
   // Applies URL highlighting and other styling to the text in the urlbar input.
   ["formatting.enabled", true],
 
-  // Whether Firefox Suggest group labels are shown in the urlbar view in en-*
+  // Whether Plezix Suggest group labels are shown in the urlbar view in en-*
   // locales. Labels are not shown in other locales but likely will be in the
   // future.
   ["groupLabels.enabled", true],
@@ -234,37 +234,37 @@ const PREF_URLBAR_DEFAULTS = new Map([
   // pick.
   ["quicksuggest.ampTopPickCharThreshold", 5],
 
-  // Whether the Firefox Suggest data collection opt-in result is enabled.
+  // Whether the Plezix Suggest data collection opt-in result is enabled.
   ["quicksuggest.contextualOptIn", false],
 
-  // The last time (as seconds) the user dismissed the Firefox Suggest contextual
+  // The last time (as seconds) the user dismissed the Plezix Suggest contextual
   // opt-in result.
   ["quicksuggest.contextualOptIn.lastDismissedTime", 0],
 
-  // Number that the user dismissed the Firefox Suggest contextual opt-in result.
+  // Number that the user dismissed the Plezix Suggest contextual opt-in result.
   ["quicksuggest.contextualOptIn.dismissedCount", 0],
 
-  // Period until reshow the Firefox Suggest contextual opt-in result when first dismissed.
+  // Period until reshow the Plezix Suggest contextual opt-in result when first dismissed.
   ["quicksuggest.contextualOptIn.firstReshowAfterPeriodDays", 7],
 
-  // Period until reshow the Firefox Suggest contextual opt-in result when second dismissed.
+  // Period until reshow the Plezix Suggest contextual opt-in result when second dismissed.
   ["quicksuggest.contextualOptIn.secondReshowAfterPeriodDays", 14],
 
-  // Period until reshow the Firefox Suggest contextual opt-in result when third dismissed.
+  // Period until reshow the Plezix Suggest contextual opt-in result when third dismissed.
   ["quicksuggest.contextualOptIn.thirdReshowAfterPeriodDays", 60],
 
-  // Number of impression for the Firefox Suggest contextual opt-in result.
+  // Number of impression for the Plezix Suggest contextual opt-in result.
   ["quicksuggest.contextualOptIn.impressionCount", 0],
 
-  // Limit for impression to dismiss the Firefox Suggest contextual opt-in
+  // Limit for impression to dismiss the Plezix Suggest contextual opt-in
   // result.
   ["quicksuggest.contextualOptIn.impressionLimit", 20],
 
-  // The first impression time (seconds) for the Firefox Suggest contextual
+  // The first impression time (seconds) for the Plezix Suggest contextual
   // opt-in result.
   ["quicksuggest.contextualOptIn.firstImpressionTime", 0],
 
-  // Days until dismiss the Firefox Suggest contextual opt-in result after first
+  // Days until dismiss the Plezix Suggest contextual opt-in result after first
   // impression.
   ["quicksuggest.contextualOptIn.impressionDaysLimit", 5],
 
@@ -314,7 +314,7 @@ const PREF_URLBAR_DEFAULTS = new Map([
   // Whether Suggest will use the ML backend in addition to Rust.
   ["quicksuggest.mlEnabled", false],
 
-  // Whether Firefox Suggest will use the new Rust backend instead of the
+  // Whether Plezix Suggest will use the new Rust backend instead of the
   // original JS backend.
   ["quicksuggest.rustEnabled", true],
 

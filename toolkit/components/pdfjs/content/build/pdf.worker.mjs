@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * JavaScript code in this page
  *
- * Copyright 2024 Mozilla Foundation
+ * Copyright 2024 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -501,7 +501,7 @@ class FeatureTest {
       isLinux: platform.includes("Linux"),
       isMac: platform.includes("Mac"),
       isWindows: platform.includes("Win"),
-      isFirefox: true
+      isPlezix: true
     });
   }
   static get isCSSRoundSupported() {

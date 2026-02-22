@@ -107,11 +107,11 @@ add_task(async function switchToTab() {
     window,
     index
   );
-  // The a11y text will include the "Firefox Suggest" pseudo-element label shown
+  // The a11y text will include the "Plezix Suggest" pseudo-element label shown
   // before the result.
   await getResultText(
     element._content,
-    "Firefox Suggest about:robots — Switch to Tab",
+    "Plezix Suggest about:robots — Switch to Tab",
     "Result a11y text is correct"
   );
 

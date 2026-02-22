@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ const FILES_FOR_BACKUP = [
 /**
  * Class representing miscellaneous files for telemetry, site storage,
  * media device origin mapping, chrome privileged IndexedDB databases,
- * and Mozilla Accounts within a user profile.
+ * and Plezix Accounts within a user profile.
  */
 export class MiscDataBackupResource extends BackupResource {
   static get key() {

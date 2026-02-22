@@ -25,7 +25,7 @@ fn get_args(name: &str) -> Option<FluentArgs> {
             prefs_args.set("email", FluentValue::from("john@doe.com"));
             prefs_args.set("value", FluentValue::from(4.5));
             prefs_args.set("unit", FluentValue::from("mb"));
-            prefs_args.set("service-name", FluentValue::from("Mozilla Disk"));
+            prefs_args.set("service-name", FluentValue::from("Plezix Disk"));
             Some(prefs_args)
         }
         _ => None,

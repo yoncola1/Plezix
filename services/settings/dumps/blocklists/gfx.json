@@ -692,7 +692,7 @@
       "blockID": "g200",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:35:32Z"
@@ -758,7 +758,7 @@
       "blockID": "g202",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:37:07Z"
@@ -777,7 +777,7 @@
       "blockID": "g208",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:42:34Z"
@@ -885,7 +885,7 @@
       "blockID": "g234",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=815437",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing (AMD)",
         "created": "2012-11-30T12:50:57Z"
@@ -904,7 +904,7 @@
       "blockID": "g230",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=815437",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing (AMD)",
         "created": "2012-11-30T12:48:55Z"
@@ -944,7 +944,7 @@
       "blockID": "g198",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:34:32Z"
@@ -963,7 +963,7 @@
       "blockID": "g511",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=951422",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Stability.",
         "name": "Intel driver < 6.14.10.5216 for DIRECT3D_9_LAYERS on XP",
         "created": "2013-12-18T14:29:36Z"
@@ -1075,7 +1075,7 @@
       "blockID": "g280",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=840161",
-        "who": "All Firefox user who use this driver.",
+        "who": "All Plezix user who use this driver.",
         "why": "Crashes.",
         "name": "AMD Radeon HD 6290/6300/6310/6320 for Direct3D 9",
         "created": "2013-02-13T14:52:05Z"
@@ -1149,8 +1149,8 @@
       "blockID": "g148",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=793869",
-        "who": "All Firefox users who have these drivers installed.",
-        "why": "Some features in these drivers are causing frequent crashes in Firefox.",
+        "who": "All Plezix users who have these drivers installed.",
+        "why": "Some features in these drivers are causing frequent crashes in Plezix.",
         "name": "ATI/AMD driver 8.982.0.0 (Direct3D)",
         "created": "2012-09-25T14:31:35Z"
       },
@@ -1170,7 +1170,7 @@
       "blockID": "g192",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=806991",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Crashes.",
         "name": "AMD DIRECT2D on Windows 8, [0x1002]",
         "created": "2012-11-02T16:33:13Z"
@@ -1240,8 +1240,8 @@
       "blockID": "g150",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=793869",
-        "who": "All Firefox users who have these drivers installed.",
-        "why": "Some features in these drivers are causing frequent crashes in Firefox.",
+        "who": "All Plezix users who have these drivers installed.",
+        "why": "Some features in these drivers are causing frequent crashes in Plezix.",
         "name": "ATI/AMD driver 8.982.0.0 (Direct3D)",
         "created": "2012-09-25T14:33:17Z"
       },
@@ -1261,8 +1261,8 @@
       "blockID": "g144",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=792480",
-        "who": "All Firefox users who have these drivers installed.",
-        "why": "Some features in these drivers are causing frequent crashes in Firefox.",
+        "who": "All Plezix users who have these drivers installed.",
+        "why": "Some features in these drivers are causing frequent crashes in Plezix.",
         "name": "ATI/AMD driver 8.982.0.0",
         "created": "2012-09-24T08:23:25Z"
       },
@@ -1306,7 +1306,7 @@
       "blockID": "g206",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:39:32Z"
@@ -1393,8 +1393,8 @@
       "blockID": "g146",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=792480",
-        "who": "All Firefox users who have these drivers installed.",
-        "why": "Some features in these drivers are causing frequent crashes in Firefox.",
+        "who": "All Plezix users who have these drivers installed.",
+        "why": "Some features in these drivers are causing frequent crashes in Plezix.",
         "name": "ATI/AMD driver 8.982.0.0",
         "created": "2012-09-24T08:23:33Z"
       },
@@ -1456,7 +1456,7 @@
       "blockID": "g232",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing (AMD)",
         "created": "2012-11-30T12:49:56Z"
@@ -1496,7 +1496,7 @@
       "blockID": "g204",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=809550",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Security problems.",
         "name": "Mac OS X WebGL anti-aliasing",
         "created": "2012-11-12T10:38:32Z"
@@ -1515,7 +1515,7 @@
       "blockID": "g278",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=840161",
-        "who": "All Firefox users using these drivers.",
+        "who": "All Plezix users using these drivers.",
         "why": "Crashes",
         "name": "AMD Radeon HD 6290/6300/6310/6320 for Direct2D",
         "created": "2013-02-13T14:50:33Z"
@@ -1568,7 +1568,7 @@
       "blockID": "g194",
       "details": {
         "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=806991",
-        "who": "All Firefox users.",
+        "who": "All Plezix users.",
         "why": "Crashes.",
         "name": "AMD DIRECT2D on Windows 8, [0x1022]",
         "created": "2012-11-02T16:35:37Z"

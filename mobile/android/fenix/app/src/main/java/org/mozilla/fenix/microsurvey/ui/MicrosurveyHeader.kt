@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The header UI used for microsurvey.
@@ -62,15 +62,15 @@ fun MicrosurveyHeader(
             Spacer(modifier = Modifier.width(8.dp))
             Text(
                 text = title,
-                style = FirefoxTheme.typography.headline6,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
             )
         }
         IconButton(onClick = onCloseButtonClick) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_close),
                 contentDescription = stringResource(id = R.string.microsurvey_close_button_content_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
                 modifier = Modifier.size(20.dp),
             )
         }
@@ -85,9 +85,9 @@ fun MicrosurveyHeader(
 )
 @Composable
 private fun MicrosurveyHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer1),
         ) {
             MicrosurveyHeader(stringResource(R.string.micro_survey_survey_header_2)) {}
         }

@@ -7,17 +7,17 @@ add_task(async function test_usermessaging() {
   await setupPolicyEngineWithJson({
     policies: {
       UserMessaging: {
-        MoreFromMozilla: false,
-        FirefoxLabs: false,
+        MoreFromPlezix: false,
+        PlezixLabs: false,
       },
     },
   });
 
   await BrowserTestUtils.withNewTab("about:preferences", async browser => {
-    let moreFromMozillaCategory = browser.contentDocument.getElementById(
+    let moreFromPlezixCategory = browser.contentDocument.getElementById(
       "category-more-from-mozilla"
     );
-    ok(moreFromMozillaCategory.hidden, "The more category is hidden");
+    ok(moreFromPlezixCategory.hidden, "The more category is hidden");
     let firefoxLabsCategory = browser.contentDocument.getElementById(
       "category-experimental"
     );

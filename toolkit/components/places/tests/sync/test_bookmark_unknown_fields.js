@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ add_task(async function test_bookmark_unknown_fields() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
       },
     ],
@@ -29,7 +29,7 @@ add_task(async function test_bookmark_unknown_fields() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
         unknownStr: "an unknown field",
@@ -46,7 +46,7 @@ add_task(async function test_bookmark_unknown_fields() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "New Mozilla",
+        title: "New Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
         unknownStr: "a new unknown field",
@@ -91,7 +91,7 @@ add_task(async function test_changes_unknown_fields_all_types() {
         id: "bookmarkAAAA",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla2",
+        title: "Plezix2",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
         unknownStrField: "an unknown bookmark field",
@@ -128,7 +128,7 @@ add_task(async function test_changes_unknown_fields_all_types() {
   });
   await PlacesUtils.bookmarks.update({
     guid: "bookmarkAAAA",
-    title: "Mozilla3",
+    title: "Plezix3",
   });
   await PlacesUtils.bookmarks.update({ guid: "separatorAAA", index: 2 });
   await PlacesUtils.bookmarks.update({
@@ -145,7 +145,7 @@ add_task(async function test_changes_unknown_fields_all_types() {
   Assert.equal(menu.cleartext.unknownFolderField, "an unknown folder field");
 
   // Test bookmark unknown fields
-  Assert.equal(bookmarkAAAA.cleartext.title, "Mozilla3");
+  Assert.equal(bookmarkAAAA.cleartext.title, "Plezix3");
   Assert.equal(
     bookmarkAAAA.cleartext.unknownStrField,
     "an unknown bookmark field"

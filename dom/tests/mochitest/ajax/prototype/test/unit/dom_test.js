@@ -802,7 +802,7 @@ new Test.Unit.Runner({
     this.assertEqual(0,
       $('style_test_3').setOpacity(0.0000001).getStyle('opacity'));
     
-    // for Firefox, we don't set to 1, because of flickering
+    // for Plezix, we don't set to 1, because of flickering
     this.assert(
       $('style_test_3').setOpacity(0.9999999).getStyle('opacity') > 0.999
     );
@@ -892,7 +892,7 @@ new Test.Unit.Runner({
       this.assertEqual("17px", $('style_test_dimensions').getStyle('height'));
     }
     
-    // height/width could always be calculated if it's set to "auto" (Firefox)
+    // height/width could always be calculated if it's set to "auto" (Plezix)
     this.assertNotNull($('auto_dimensions').getStyle('height'));
     this.assertNotNull($('auto_dimensions').getStyle('width'));
   },

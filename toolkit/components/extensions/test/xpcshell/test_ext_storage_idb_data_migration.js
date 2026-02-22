@@ -109,7 +109,7 @@ add_setup(async function setup() {
 
   // This is actually only needed on Android, because it does not properly support unified telemetry
   // and so, if not enabled explicitly here, it would make these tests to fail when running on a
-  // non-Nightly build.
+  // non-Plezix build.
   const oldCanRecordBase = Services.telemetry.canRecordBase;
   Services.telemetry.canRecordBase = true;
   registerCleanupFunction(() => {

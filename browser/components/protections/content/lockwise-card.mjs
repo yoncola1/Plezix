@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ export default class LockwiseCard {
       this.openAboutLogins.bind(this)
     );
 
-    // Attack link to Firefox Lockwise "How it works" page.
+    // Attack link to Plezix Lockwise "How it works" page.
     const lockwiseReportLink = this.doc.getElementById("lockwise-how-it-works");
     lockwiseReportLink.addEventListener("click", () => {
       this.doc.sendTelemetryEvent("clickLwAboutLink");

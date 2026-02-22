@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -53,7 +53,7 @@ ExistingBackup.args = {
     },
     scheduledBackupsEnabled: true,
     lastBackupDate: 1719625747,
-    lastBackupFileName: "FirefoxBackup_default_123123123.html",
+    lastBackupFileName: "PlezixBackup_default_123123123.html",
   },
 };
 
@@ -68,6 +68,6 @@ EncryptionEnabled.args = {
     scheduledBackupsEnabled: true,
     encryptionEnabled: true,
     lastBackupDate: 1719625747,
-    lastBackupFileName: "FirefoxBackup_default_123123123.html",
+    lastBackupFileName: "PlezixBackup_default_123123123.html",
   },
 };

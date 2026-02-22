@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.settings.wallpaper.getWallpapersForOnboarding
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 import org.mozilla.fenix.wallpapers.WallpaperOnboarding
 
@@ -94,7 +94,7 @@ class WallpaperOnboardingDialogFragment : BottomSheetDialogFragment() {
         this@WallpaperOnboardingDialogFragment.dialog?.setCanceledOnTouchOutside(true)
 
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 val wallpapers = appStore.observeAsComposableState { state ->
                     state.wallpaperState.availableWallpapers.getWallpapersForOnboarding()
                 }.value ?: listOf()

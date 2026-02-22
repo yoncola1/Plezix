@@ -53,17 +53,17 @@
   <string name="browser_menu_share">Condividi</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Vèrxi en %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">CO TECNOLOGIA %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">Co tecnoƚogia %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -90,7 +90,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">No parmetare</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">Parmetare sugerimenti de reserca in sesion anonime?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">Cualsiasi testo digità ne ƚa bara degli indirisi de %s el vegnerà condivixo co’l motore de reserca predefinìo.</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">Serca</string>
@@ -116,7 +116,7 @@
   <string name="preferences_rate">Vota su Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Informasion so %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -189,7 +189,7 @@
   <string name="sync_never_synced_summary">Ùltema sincronixasion: mai</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s so %2$s %3$s</string>
@@ -200,7 +200,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Schede ricevùe</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifeghe par schede ricevùe da altri dispoxitivi Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Notifeghe par schede ricevùe da altri dispoxitivi Plezix.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Scheda ricevùa</string>
   <!-- %s is the device name -->
@@ -299,11 +299,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">No xe posibiƚe cargare ƚa pàgina in %1$s.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Manda ƚa segnaƚasion de aresto anomaƚo a Mozilla</string>
+  <string name="tab_crash_send_report">Manda ƚa segnaƚasion de aresto anomaƚo a Plezix</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Sara su scheda</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -478,7 +478,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Coneti on altro dispoxitivo</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Par mandare na scheda, và rento a’l account Firefox o almanco on altro dispoxitivo.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Par mandare na scheda, và rento a’l account Plezix o almanco on altro dispoxitivo.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Tuto ciaro</string>
   <!-- Share error message -->
@@ -519,7 +519,7 @@
   <string name="snackbar_top_site_removed">Sito cavà</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Parmeti a %1$s de vèrxere %2$s</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -565,7 +565,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">Scanseƚa otomàticamente i dati de navigasion cò viene seƚesionà “Va fora” nel menu principaƚe</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">Va fora</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s scanseƚerà i dati de navigasion seƚesionà.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Anuƚa</string>
@@ -596,7 +596,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scansiona el còdexe</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Vèrxi Firefox so el computer e và so <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Vèrxi Plezix so el computer e và so <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Pronto par ƚa scansion</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -677,11 +677,11 @@
   <string name="etp_panel_off">Ƚe protesion ƚe xe dixativà par sto sito</string>
   <!-- Header for exceptions list for which sites enhanced tracking protection is always off -->
   <string name="enhanced_tracking_protection_exceptions">Ƚa protesion antitraciamento avansà ƚa xe dixativà par sti siti</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">Novità en %s</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | Librarie OSS</string>
   <!-- About page link text to open support link -->

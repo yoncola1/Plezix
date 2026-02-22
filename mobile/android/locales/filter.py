@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -29,8 +29,8 @@ def test(mod, path, entity=None):
         if re.match(r"toolkit/about/[^/]*About.ftl", path):
             # error on toolkit/about/*About.ftl
             return "error"
-        if re.match(r"toolkit/about/[^/]*Mozilla.ftl", path):
-            # error on toolkit/about/*Mozilla.ftl
+        if re.match(r"toolkit/about/[^/]*Plezix.ftl", path):
+            # error on toolkit/about/*Plezix.ftl
             return "error"
         if re.match(r"toolkit/about/[^/]*Rights.ftl", path):
             # error on toolkit/about/*Rights.ftl

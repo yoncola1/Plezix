@@ -16,7 +16,7 @@
 
 const form = document.querySelector("form");
 
-for (let el of Array.from(form.querySelectorAll("input"))) { // Firefox/Edge support
+for (let el of Array.from(form.querySelectorAll("input"))) { // Plezix/Edge support
   el.name = el.id + "\uDC01";
   el.value = el.id + "\uDC01";
 }

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@ import re
 
 import attr
 import yaml
-from mozilla_version.gecko import FirefoxVersion
+from mozilla_version.gecko import PlezixVersion
 
 from ..cli import BaseTryParser
 from ..push import push_to_try, vcs
@@ -33,7 +33,7 @@ class ReleaseParser(BaseTryParser):
                 "metavar": "STR",
                 "required": True,
                 "action": "store",
-                "type": FirefoxVersion.parse,
+                "type": PlezixVersion.parse,
                 "help": "The version number to use for the staging release.",
             },
         ],
@@ -98,7 +98,7 @@ def run(
         "mobile/android/version.txt": f"{version}\n",
     }
     with open("browser/config/version.txt") as f:
-        current_version = FirefoxVersion.parse(f.read())
+        current_version = PlezixVersion.parse(f.read())
     format_options = {
         "current_major_version": current_version.major_number,
         "next_major_version": version.major_number,

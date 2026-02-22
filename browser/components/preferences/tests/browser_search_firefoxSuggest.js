@@ -1,7 +1,7 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-// This tests the Search pane's Firefox Suggest UI.
+// This tests the Search pane's Plezix Suggest UI.
 
 "use strict";
 
@@ -63,7 +63,7 @@ add_setup(async function () {
   await QuickSuggestTestUtils.ensureQuickSuggestInit();
 });
 
-// The following tasks check the initial visibility of the Firefox Suggest UI
+// The following tasks check the initial visibility of the Plezix Suggest UI
 // and the visibility after installing a Nimbus experiment.
 
 add_task(async function initiallyDisabled_disable() {

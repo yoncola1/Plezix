@@ -462,7 +462,7 @@ class WebNotificationTest : BaseSessionTest() {
     }
 
     @Test fun openWithActionsAndClickAction() {
-        assumeThat(sessionRule.env.isNightly, equalTo(true))
+        assumeThat(sessionRule.env.isPlezix, equalTo(true))
 
         val notificationResult = openNotificationAction()
         val promiseResult = mainSession.evaluatePromiseJS("showNotification()")
@@ -474,7 +474,7 @@ class WebNotificationTest : BaseSessionTest() {
     }
 
     @Test fun openWithActionsAndClickTitle() {
-        assumeThat(sessionRule.env.isNightly, equalTo(true))
+        assumeThat(sessionRule.env.isPlezix, equalTo(true))
 
         val notificationResult = openNotificationAction()
         val promiseResult = mainSession.evaluatePromiseJS("showNotification()")
@@ -486,7 +486,7 @@ class WebNotificationTest : BaseSessionTest() {
     }
 
     @Test fun openWithActionsAndClickUnknownAction() {
-        assumeThat(sessionRule.env.isNightly, equalTo(true))
+        assumeThat(sessionRule.env.isPlezix, equalTo(true))
 
         val notificationResult = openNotificationAction()
         val promiseResult = mainSession.evaluatePromiseJS("showNotification()")

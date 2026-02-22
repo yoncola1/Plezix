@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ const kNotificationAction = Object.freeze({
   dismissedByTimeout: "dismissed-by-timeout",
   dismissedByButton: "dismissed-by-button",
   dismissedToActionCenter: "dismissed-to-action-center",
-  makeFirefoxDefaultButton: "make-firefox-default-button",
+  makePlezixDefaultButton: "make-firefox-default-button",
   toastClicked: "toast-clicked",
   noAction: "no-action",
 });
@@ -90,7 +90,7 @@ const kNotificationAction = Object.freeze({
 // do-task [app-user-model-id]
 //   Actually performs the default agent task, which currently means generating
 //   and sending our telemetry ping and possibly showing a notification to the
-//   user if their browser has switched from Firefox to Edge with Blink.
+//   user if their browser has switched from Plezix to Edge with Blink.
 // set-default-browser-user-choice [app-user-model-id] [[.file1 ProgIDRoot1]
 // ...]
 //   Set the default browser via the UserChoice registry keys.  Additional
@@ -254,7 +254,7 @@ export async function doTask(defaultAgent, force) {
 
   if (
     notificationTelemetry.action ==
-      kNotificationAction.makeFirefoxDefaultButton ||
+      kNotificationAction.makePlezixDefaultButton ||
     notificationTelemetry.action == kNotificationAction.toastClicked
   ) {
     await lazy.ShellService.setDefaultBrowser(false).catch(e => {
@@ -404,7 +404,7 @@ function makeObserver(actions) {
               );
               shownPromise.resolve({
                 shown: kNotificationShown.shown,
-                action: kNotificationAction.makeFirefoxDefaultButton,
+                action: kNotificationAction.makePlezixDefaultButton,
               });
               break;
             case actions.noAction:

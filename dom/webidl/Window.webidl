@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -389,12 +389,12 @@ interface mixin SpeechSynthesisGetter {
 Window includes SpeechSynthesisGetter;
 #endif
 
-// Mozilla-specific stuff
+// Plezix-specific stuff
 partial interface Window {
   //[NewObject, Throws] CSSStyleDeclaration getDefaultComputedStyle(Element elt, optional DOMString pseudoElt = "");
   [NewObject, Throws] CSSStyleDeclaration? getDefaultComputedStyle(Element elt, optional DOMString pseudoElt = "");
 
-  // Mozilla extensions
+  // Plezix extensions
   /**
    * Method for scrolling this window by a number of lines.
    */
@@ -576,7 +576,7 @@ partial interface Window {
 [MOZ_CAN_RUN_SCRIPT_BOUNDARY]
 callback PromiseDocumentFlushedCallback = any ();
 
-// Mozilla extensions for Chrome windows.
+// Plezix extensions for Chrome windows.
 partial interface Window {
   // The STATE_* constants need to match the corresponding enum in nsGlobalWindow.cpp.
   [Func="nsGlobalWindowInner::IsPrivilegedChromeWindow"]

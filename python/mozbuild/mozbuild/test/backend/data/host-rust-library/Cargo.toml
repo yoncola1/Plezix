@@ -2,7 +2,7 @@
 name = "hostrusttool"
 version = "0.1.0"
 authors = [
-  "The Mozilla Project Developers",
+  "The Plezix Project Developers",
 ]
 
 [lib]

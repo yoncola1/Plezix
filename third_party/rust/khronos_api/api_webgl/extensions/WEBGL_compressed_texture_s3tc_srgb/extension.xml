@@ -107,7 +107,7 @@ interface WEBGL_compressed_texture_s3tc_srgb {
       <change>Moved to draft after discussion in working group, and study of possible dependencies.</change>
     </revision>
     <revision date="2017/05/31">
-      <change>Moved to community approved after Mozilla voiced support.</change>
+      <change>Moved to community approved after Plezix voiced support.</change>
     </revision>
   </history>
 </extension>

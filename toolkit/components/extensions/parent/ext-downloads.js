@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -852,7 +852,7 @@ this.downloads = class extends ExtensionAPIPersistent {
             } else {
               // If options.saveAs was not specified, only show the file chooser
               // if |browser.download.useDownloadDir == false|. That is to say,
-              // only show the file chooser if Firefox normally shows it when
+              // only show the file chooser if Plezix normally shows it when
               // a file is downloaded.
               saveAs = !Services.prefs.getBoolPref(
                 PROMPTLESS_DOWNLOAD_PREF,

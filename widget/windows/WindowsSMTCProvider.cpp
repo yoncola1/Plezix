@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -104,14 +104,14 @@ WindowsSMTCProvider::WindowsSMTCProvider() {
   // dynamically from an invisible window. This leads to the following
   // boilerplate code.
   WNDCLASS wnd{};
-  wnd.lpszClassName = L"Firefox-MediaKeys";
+  wnd.lpszClassName = L"Plezix-MediaKeys";
   wnd.hInstance = nullptr;
   wnd.lpfnWndProc = DefWindowProc;
   GetLastError();  // Clear the error
   RegisterClass(&wnd);
   MOZ_ASSERT(!GetLastError());
 
-  mWindow = CreateWindowExW(0, L"Firefox-MediaKeys", L"Firefox Media Keys", 0,
+  mWindow = CreateWindowExW(0, L"Plezix-MediaKeys", L"Plezix Media Keys", 0,
                             CW_USEDEFAULT, CW_USEDEFAULT, 0, 0, nullptr,
                             nullptr, nullptr, nullptr);
   MOZ_ASSERT(mWindow);
@@ -124,7 +124,7 @@ WindowsSMTCProvider::~WindowsSMTCProvider() {
   if (!DestroyWindow(mWindow)) {
     LOG("Failed to destroy the hidden window. Error Code: %lu", GetLastError());
   }
-  if (!UnregisterClass(L"Firefox-MediaKeys", nullptr)) {
+  if (!UnregisterClass(L"Plezix-MediaKeys", nullptr)) {
     // Note that this is logged when the class wasn't even registered.
     LOG("Failed to unregister the class. Error Code: %lu", GetLastError());
   }

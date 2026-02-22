@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- This Source Code Form is subject to the terms of the Mozilla Public
+<!-- This Source Code Form is subject to the terms of the Plezix Public
   - License, v. 2.0. If a copy of the MPL was not distributed with this
   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <html>
@@ -21,11 +21,11 @@
       id="favicon"
       href="chrome://branding/content/icon32.png"
     />
-    <title>Secure connection failed and Firefox did not connect</title>
+    <title>Secure connection failed and Plezix did not connect</title>
   </head>
   <body>
     <div id="offlineSupportContainer">
-      <h1>Secure connection failed and Firefox did not connect</h1>
+      <h1>Secure connection failed and Plezix did not connect</h1>
       <p>
         This article explains why you may see a
         <em>Secure Connection Failed</em> or a
@@ -104,15 +104,15 @@
       </h1>
       <p>
         When a website that requires a secure (<strong>https</strong>)
-        connection tries to secure communication with your computer, Firefox
+        connection tries to secure communication with your computer, Plezix
         cross-checks this attempt to make sure that the website certificate and
-        the connection method are actually secure. If Firefox cannot establish a
+        the connection method are actually secure. If Plezix cannot establish a
         secure connection, it will display an error page.
       </p>
       <h2 id="w_secure-connection-failed">Secure Connection Failed</h2>
       <p>
         A <em>Secure Connection Failed</em> error page will include a
-        description of the error, an option to report the error to Mozilla and a
+        description of the error, an option to report the error to Plezix and a
         <span class="button">Try Again</span> button. There is no option to add
         a security exception to bypass this type of error.
       </p>
@@ -142,7 +142,7 @@
       <p></p>
       <p>
         The error page will include a description of the potential security
-        threat, an option to report the error to Mozilla and an
+        threat, an option to report the error to Plezix and an
         <span class="button">Advanced…</span> button to view the error code and
         other technical details. There is no option to add a security exception
         to visit the website.
@@ -152,25 +152,25 @@
       <p>
         Some websites try using outdated (no longer secure) Transport Layer
         Security(<em>TLS</em>) mechanisms in an attempt to secure your
-        connection. Firefox protects you by preventing navigation to such sites
+        connection. Plezix protects you by preventing navigation to such sites
         if there is a problem in securely establishing a connection. Contact the
         owners of the website and ask them to update their TLS version to a
         version that is still current and still secure.
       </p>
       <p>
-        Starting in Firefox version 74, the minimum TLS version allowed by
+        Starting in Plezix version 74, the minimum TLS version allowed by
         default is TLS 1.2. Websites that don't support TLS version 1.2 or
         higher will display a <em>Secure Connection Failed</em> error page with
         Error code: SSL_ERROR_UNSUPPORTED_VERSION and a message that
         <em
           >This website might not support the TLS 1.2 protocol, which is the
-          minimum version supported by Firefox.</em
+          minimum version supported by Plezix.</em
         >
         The error page may also include a button,
         <span class="button">Enable TLS 1.0 and 1.1</span> that will allow you
-        to override the minimum TLS requirement; however, Mozilla plans to
+        to override the minimum TLS requirement; however, Plezix plans to
         remove this option and permanently disable TLS 1.0 and 1.1 in a future
-        version of Firefox.
+        version of Plezix.
       </p>
       <h2 id="w_hsts-required">HSTS required</h2>
       <p>
@@ -194,9 +194,9 @@
       <p></p>
       <h1 id="w_incorrect-system-clock">Incorrect system clock</h1>
       <p>
-        Firefox uses certificates on secure websites to ensure that your
+        Plezix uses certificates on secure websites to ensure that your
         information is being sent to the intended recipient and can't be read by
-        eavesdroppers. An incorrect system date can cause Firefox to detect that
+        eavesdroppers. An incorrect system date can cause Plezix to detect that
         the website's security certificate is expired or invalid. Make sure your
         computer is set to the correct date, time and time zone.
       </p>

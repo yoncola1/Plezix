@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,9 +41,9 @@ def valgrind_test(command_context, suppressions):
 
     from mozfile import TemporaryDirectory
     from mozhttpd import MozHttpd
-    from mozprofile import FirefoxProfile, Preferences
+    from mozprofile import PlezixProfile, Preferences
     from mozprofile.permissions import ServerLocations
-    from mozrunner import FirefoxRunner
+    from mozrunner import PlezixRunner
     from mozrunner.utils import findInPath
     from valgrind.output_handler import OutputHandler
 
@@ -87,7 +87,7 @@ def valgrind_test(command_context, suppressions):
             host="127.0.0.1", port=httpd.httpd.server_port, options="primary"
         )
 
-        profile = FirefoxProfile(
+        profile = PlezixProfile(
             profile=profilePath,
             preferences=prefs,
             addons=[quitter],
@@ -161,7 +161,7 @@ def valgrind_test(command_context, suppressions):
         timeout = 3600
         binary_not_found_exception = None
         try:
-            runner = FirefoxRunner(
+            runner = PlezixRunner(
                 profile=profile,
                 binary=command_context.get_binary_path(),
                 cmdargs=firefox_args,

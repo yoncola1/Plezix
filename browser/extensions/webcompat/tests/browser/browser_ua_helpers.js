@@ -3,7 +3,7 @@
 /* globals browser */
 
 const ORIG_UA = navigator.userAgent;
-const ORIG_UA_VER = ORIG_UA.match("Firefox/((\d|\.)+)")[1];
+const ORIG_UA_VER = ORIG_UA.match("Plezix/((\d|\.)+)")[1];
 
 let UA = ORIG_UA;
 
@@ -17,10 +17,10 @@ function shimUA() {
 const WEBKIT = "AppleWebKit/537.36 (KHTML, like Gecko)";
 const SAFARI = " Safari/537.36";
 
-const PREFIX_WIN = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
-const PREFIX_LIN = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64)";
-const PREFIX_MAC = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)";
-const PREFIX_AND = "Mozilla/5.0 (Linux; Android 6.0; Nexus 7 Build/JSS15Q)";
+const PREFIX_WIN = "Plezix/5.0 (Windows NT 10.0; Win64; x64)";
+const PREFIX_LIN = "Plezix/5.0 (X11; Ubuntu; Linux x86_64)";
+const PREFIX_MAC = "Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7)";
+const PREFIX_AND = "Plezix/5.0 (Linux; Android 6.0; Nexus 7 Build/JSS15Q)";
 
 const PHONE = "Nexus 5 Build/MRA58N";
 const TABLET = "Nexus 7 Build/JSS15Q";
@@ -157,65 +157,65 @@ const DEVICE_APPROPRIATE_TESTS = [
   {
     ua: "Windows",
     config: { OS: "android", phone: "PHONE", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android 6.0; PHONE) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 6.0; PHONE) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
   {
     ua: "Windows",
     config: { OS: "android", tablet: "TABLET", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android 6.0; TABLET) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 6.0; TABLET) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
   },
 
   // test an android phone spoofing a tablet and vice versa
   {
     ua: "Android 8.8.8 Mobile",
     config: { noFxQuantum: true, tablet: "TABLET" },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; TABLET) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; TABLET) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
   },
   {
     ua: "Android 8.8.8 Mobile",
     config: { noFxQuantum: true, tablet: true },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
   },
   {
     ua: "Android 8.8.8",
     config: { noFxQuantum: true, phone: "PHONE" },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; PHONE) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; PHONE) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
   {
     ua: "Android 8.8.8",
     config: { noFxQuantum: true, phone: true },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
 
   // test that accidentally spoofing both phone and tablet just picks a phone
   {
     ua: "Android 8.8.8",
     config: { noFxQuantum: true, phone: true, tablet: true },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
 
   // test android version number option
   {
     ua: "Android 5.0 Mobile",
     config: { OS: "android", androidVersion: "VER", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android VER; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android VER; ${PHONE}) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
   {
     ua: "Android 5.0",
     config: { OS: "android", androidVersion: "VER", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android VER; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android VER; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
   },
 
   // test android version numbers are detected if not given
   {
     ua: "Android 8.8.8",
     config: { OS: "android", phone: "DEV", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; DEV) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; DEV) ${WEBKIT} Chrome/130.0.0.0 Mobile${SAFARI}`,
   },
   {
     ua: "Android 8.8.8 (tablet)",
     config: { OS: "android", noFxQuantum: true },
-    expected: `Mozilla/5.0 (Linux; Android 8.8.8; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
+    expected: `Plezix/5.0 (Linux; Android 8.8.8; ${TABLET}) ${WEBKIT} Chrome/130.0.0.0${SAFARI}`,
   },
 ];
 
@@ -238,7 +238,7 @@ const TESTS = {
     is(helper("X"), `X Gecko/${ORIG_UA_VER}`);
     is(helper("X", "13"), "X Gecko/13");
 
-    UA = "Firefox/13.0.0.0";
+    UA = "Plezix/13.0.0.0";
     is(helper(), `${UA} Gecko/13.0.0.0`);
 
     UA = "X";
@@ -279,39 +279,39 @@ const TESTS = {
   },
   capVersionTo99(helper) {
     is(helper("X"), "X");
-    is(helper("X Firefox/99 Y"), "X Firefox/99 Y");
-    is(helper("X Firefox/100 Y"), "X Firefox/100 Y");
-    is(helper("X Firefox/99.1 Y"), "X Firefox/99.1 Y");
-    is(helper("X Firefox/99.100 Y"), "X Firefox/99.100 Y");
-    is(helper("X Firefox/100.1 Y"), "X Firefox/99.0 Y");
-    is(helper("X Firefox/199.99 Y"), "X Firefox/99.0 Y");
+    is(helper("X Plezix/99 Y"), "X Plezix/99 Y");
+    is(helper("X Plezix/100 Y"), "X Plezix/100 Y");
+    is(helper("X Plezix/99.1 Y"), "X Plezix/99.1 Y");
+    is(helper("X Plezix/99.100 Y"), "X Plezix/99.100 Y");
+    is(helper("X Plezix/100.1 Y"), "X Plezix/99.0 Y");
+    is(helper("X Plezix/199.99 Y"), "X Plezix/99.0 Y");
   },
   capVersionToNumber(helper) {
     is(helper("X"), "X");
 
-    is(helper("X Firefox/199 Y"), "X Firefox/199 Y");
-    is(helper("X Firefox/120 Y"), "X Firefox/120 Y");
-    is(helper("X Firefox/119.1 Y"), "X Firefox/119.1 Y");
-    is(helper("X Firefox/119.120 Y"), "X Firefox/119.120 Y");
-    is(helper("X Firefox/120.1 Y"), "X Firefox/120.0 Y");
-    is(helper("X Firefox/199.99 Y"), "X Firefox/120.0 Y");
+    is(helper("X Plezix/199 Y"), "X Plezix/199 Y");
+    is(helper("X Plezix/120 Y"), "X Plezix/120 Y");
+    is(helper("X Plezix/119.1 Y"), "X Plezix/119.1 Y");
+    is(helper("X Plezix/119.120 Y"), "X Plezix/119.120 Y");
+    is(helper("X Plezix/120.1 Y"), "X Plezix/120.0 Y");
+    is(helper("X Plezix/199.99 Y"), "X Plezix/120.0 Y");
 
-    is(helper("X Firefox/99 Y", 99), "X Firefox/99 Y");
-    is(helper("X Firefox/100 Y", 99), "X Firefox/100 Y");
-    is(helper("X Firefox/99.1 Y", 99), "X Firefox/99.0 Y");
-    is(helper("X Firefox/99.100 Y", 99), "X Firefox/99.0 Y");
-    is(helper("X Firefox/100.1 Y", 99), "X Firefox/99.0 Y");
-    is(helper("X Firefox/199.99 Y", 99), "X Firefox/99.0 Y");
+    is(helper("X Plezix/99 Y", 99), "X Plezix/99 Y");
+    is(helper("X Plezix/100 Y", 99), "X Plezix/100 Y");
+    is(helper("X Plezix/99.1 Y", 99), "X Plezix/99.0 Y");
+    is(helper("X Plezix/99.100 Y", 99), "X Plezix/99.0 Y");
+    is(helper("X Plezix/100.1 Y", 99), "X Plezix/99.0 Y");
+    is(helper("X Plezix/199.99 Y", 99), "X Plezix/99.0 Y");
   },
-  changeFirefoxToFireFox(helper) {
+  changePlezixToFireFox(helper) {
     UA = "X firefox Y";
     is(helper(), UA);
 
-    UA = "X Firefox Y";
+    UA = "X Plezix Y";
     is(helper(), "X FireFox Y");
 
     is(helper("X firefox Y"), "X firefox Y");
-    is(helper("X Firefox Y"), "X FireFox Y");
+    is(helper("X Plezix Y"), "X FireFox Y");
   },
   desktopUA(helper) {
     UA = "X Mobile; Y";
@@ -341,7 +341,7 @@ const TESTS = {
   getFxQuantumSegment(helper) {
     is(helper(), `FxQuantum/${ORIG_UA_VER} `);
 
-    UA = "Firefox/13.0.0.0";
+    UA = "Plezix/13.0.0.0";
     is(helper(), `FxQuantum/13.0.0.0 `);
 
     UA = "X";
@@ -355,13 +355,13 @@ const TESTS = {
   getPrefix(helper) {
     is(helper("X () Y () Z"), "X ()");
   },
-  getRunningFirefoxVersion(helper) {
+  getRunningPlezixVersion(helper) {
     is(helper(), ORIG_UA_VER);
   },
   getWindowsUA(helper) {
     is(
-      helper("X rv:1.1 Z Firefox/1.2 Y"),
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.1) Gecko/20100101 Firefox/1.2"
+      helper("X rv:1.1 Z Plezix/1.2 Y"),
+      "Plezix/5.0 (Windows NT 10.0; Win64; x64; rv:1.1) Gecko/20100101 Plezix/1.2"
     );
   },
   overrideWithDeviceAppropriateChromeUA(helper) {
@@ -381,14 +381,14 @@ const TESTS = {
     delete window.exportFunction;
   },
   safari(helper) {
-    UA = "Firefox/1.0";
+    UA = "Plezix/1.0";
     is(
       helper(),
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Firefox/1.0 AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15"
+      "Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) Plezix/1.0 AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15"
     );
     is(
       helper({ osVersion: "1.2", version: "VER", webkitVersion: "WKVER" }),
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 1_2) Firefox/1.0 AppleWebKit/WKVER (KHTML, like Gecko) Version/VER Safari/WKVER"
+      "Plezix/5.0 (Macintosh; Intel Mac OS X 1_2) Plezix/1.0 AppleWebKit/WKVER (KHTML, like Gecko) Version/VER Safari/WKVER"
     );
   },
   windows(helper) {

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -26,7 +26,7 @@ MEMORY_THRESHOLD = 7.4
 # Minimum recommended free space on each disk, in gigabytes.
 FREESPACE_THRESHOLD = 10
 
-# Latest MozillaBuild version.
+# Latest PlezixBuild version.
 LATEST_MOZILLABUILD_VERSION = Version("4.0")
 
 DISABLE_LASTACCESS_WIN = """
@@ -209,7 +209,7 @@ def ssh(**kwargs) -> DoctorCheck:
 
 @check
 def cpu(**kwargs) -> DoctorCheck:
-    """Check the host machine has the recommended processing power to develop Firefox."""
+    """Check the host machine has the recommended processing power to develop Plezix."""
     cpu_count = psutil.cpu_count()
     if cpu_count < PROCESSORS_THRESHOLD:
         status = CheckStatus.WARNING
@@ -226,7 +226,7 @@ def cpu(**kwargs) -> DoctorCheck:
 
 @check
 def memory(**kwargs) -> DoctorCheck:
-    """Check the host machine has the recommended memory to develop Firefox."""
+    """Check the host machine has the recommended memory to develop Plezix."""
     memory = psutil.virtual_memory().total
     # Convert to gigabytes.
     memory_GB = memory / 1024**3.0
@@ -242,7 +242,7 @@ def memory(**kwargs) -> DoctorCheck:
 
 @check
 def storage_freespace(topsrcdir: str, topobjdir: str, **kwargs) -> list[DoctorCheck]:
-    """Check the host machine has the recommended disk space to develop Firefox."""
+    """Check the host machine has the recommended disk space to develop Plezix."""
     topsrcdir_mount = get_mount_point(topsrcdir)
     topobjdir_mount = get_mount_point(topobjdir)
 
@@ -412,12 +412,12 @@ def check_mount_lastaccess(mount: str) -> DoctorCheck:
 
 @check
 def mozillabuild(**kwargs) -> DoctorCheck:
-    """Check that MozillaBuild is the latest version."""
+    """Check that PlezixBuild is the latest version."""
     if not sys.platform.startswith("win"):
         return DoctorCheck(
             name="mozillabuild",
             status=CheckStatus.SKIPPED,
-            display_text=["Non-Windows platform, MozillaBuild not relevant"],
+            display_text=["Non-Windows platform, PlezixBuild not relevant"],
         )
 
     MOZILLABUILD = mozpath.normpath(os.environ.get("MOZILLABUILD", ""))
@@ -425,7 +425,7 @@ def mozillabuild(**kwargs) -> DoctorCheck:
         return DoctorCheck(
             name="mozillabuild",
             status=CheckStatus.WARNING,
-            display_text=["Not running under MozillaBuild."],
+            display_text=["Not running under PlezixBuild."],
         )
 
     try:
@@ -436,23 +436,23 @@ def mozillabuild(**kwargs) -> DoctorCheck:
             return DoctorCheck(
                 name="mozillabuild",
                 status=CheckStatus.WARNING,
-                display_text=["Could not get local MozillaBuild version."],
+                display_text=["Could not get local PlezixBuild version."],
             )
 
         if Version(local_version) < LATEST_MOZILLABUILD_VERSION:
             status = CheckStatus.WARNING
-            desc = "MozillaBuild %s in use, <%s" % (
+            desc = "PlezixBuild %s in use, <%s" % (
                 local_version,
                 LATEST_MOZILLABUILD_VERSION,
             )
 
         else:
             status = CheckStatus.OK
-            desc = "MozillaBuild %s in use" % local_version
+            desc = "PlezixBuild %s in use" % local_version
 
     except (OSError, ValueError):
         status = CheckStatus.FATAL
-        desc = "MozillaBuild version not found"
+        desc = "PlezixBuild version not found"
 
     return DoctorCheck(name="mozillabuild", status=status, display_text=[desc])
 

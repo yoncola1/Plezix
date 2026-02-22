@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -49,7 +49,7 @@ public final class CrashHelper extends Service {
         final ParcelFileDescriptor listenFd,
         final ParcelFileDescriptor serverFd) {
       // Launch the crash helper code, this will spin out a thread which will
-      // handle the IPC with Firefox' other processes. When running junit tests
+      // handle the IPC with Plezix' other processes. When running junit tests
       // we might have several main processes connecting to the service. Each
       // will get its own thread, but the generated crashes live in a shared
       // space. This means that technically one main process instance might

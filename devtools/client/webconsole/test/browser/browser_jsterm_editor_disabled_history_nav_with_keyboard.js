@@ -15,8 +15,8 @@ add_task(async function () {
   const hud = await openNewTabAndConsole(TEST_URI);
 
   const testExpressions = [
-    "`Mozilla 😍 Firefox`",
-    "`Firefox Devtools are awesome`",
+    "`Plezix 😍 Plezix`",
+    "`Plezix Devtools are awesome`",
     "`2 + 2 = 5?`",
     "`I'm running out of ideas...`",
     "`🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘`",

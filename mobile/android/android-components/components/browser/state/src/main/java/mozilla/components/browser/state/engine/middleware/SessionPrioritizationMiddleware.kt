@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import mozilla.components.concept.engine.EngineSession.SessionPriority.HIGH
 import mozilla.components.lib.state.Middleware
 import mozilla.components.lib.state.MiddlewareContext
 import mozilla.components.support.base.log.logger.Logger
-import mozilla.components.support.base.coroutines.Dispatchers as MozillaDispatchers
+import mozilla.components.support.base.coroutines.Dispatchers as PlezixDispatchers
 
 /**
  * [Middleware] implementation responsible for updating the priority of the selected [EngineSession]
@@ -36,7 +36,7 @@ class SessionPrioritizationMiddleware(
     // Allow a tab to stay high priority for 3 minutes, an estimate for how long a user may take to return to a tab
     private val updatePriorityAfterMillis: Long = 180000,
     private val mainScope: CoroutineScope = CoroutineScope(Dispatchers.Main),
-    private val waitScope: CoroutineScope = CoroutineScope(MozillaDispatchers.Cached),
+    private val waitScope: CoroutineScope = CoroutineScope(PlezixDispatchers.Cached),
 ) : Middleware<BrowserState, BrowserAction> {
     private val logger = Logger("SessionPrioritizationMiddleware")
     private var updatePriorityToDefaultJobs = mutableMapOf<String, Job>()

@@ -3841,7 +3841,7 @@ macro_rules! transmute {
 ///   |
 ///   = note: source type: `AlignOf<[u8; 2]>` (8 bits)
 ///   = note: target type: `MaxAlignsOf<[u8; 2], u16>` (16 bits)
-///   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+///   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 /// ```
 ///
 /// This is saying that `max(align_of::<T>(), align_of::<U>()) !=
@@ -3951,7 +3951,7 @@ macro_rules! transmute_ref {
 ///   |
 ///   = note: source type: `AlignOf<[u8; 2]>` (8 bits)
 ///   = note: target type: `MaxAlignsOf<[u8; 2], u16>` (16 bits)
-///   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_mut` (in Nightly builds, run with -Z macro-backtrace for more info)
+///   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_mut` (in Plezix builds, run with -Z macro-backtrace for more info)
 /// ```
 ///
 /// This is saying that `max(align_of::<T>(), align_of::<U>()) !=

@@ -32,13 +32,13 @@ add_task(async function testDefaultUIWithoutTemplatePref() {
   let doc = gBrowser.contentDocument;
   let tab = gBrowser.selectedTab;
 
-  let moreFromMozillaCategory = doc.getElementById(
+  let moreFromPlezixCategory = doc.getElementById(
     "category-more-from-mozilla"
   );
-  ok(moreFromMozillaCategory, "The category exists");
-  ok(!moreFromMozillaCategory.hidden, "The category is not hidden");
+  ok(moreFromPlezixCategory, "The category exists");
+  ok(!moreFromPlezixCategory.hidden, "The category is not hidden");
 
-  moreFromMozillaCategory.click();
+  moreFromPlezixCategory.click();
 
   let productCards = doc.querySelectorAll(".mozilla-product-item.simple");
   Assert.ok(productCards, "Default UI uses simple template");
@@ -99,10 +99,10 @@ add_task(async function testDefaulEmailClick() {
   let doc = gBrowser.contentDocument;
   let tab = gBrowser.selectedTab;
 
-  let moreFromMozillaCategory = doc.getElementById(
+  let moreFromPlezixCategory = doc.getElementById(
     "category-more-from-mozilla"
   );
-  moreFromMozillaCategory.click();
+  moreFromPlezixCategory.click();
 
   const expectedUrl = "https://www.mozilla.org/firefox/mobile/get-app/?v=mfm";
   let sendEmailLink = doc.getElementById("default-qr-code-send-email");
@@ -118,11 +118,11 @@ add_task(async function testDefaulEmailClick() {
 });
 
 /**
- * Test that we don't show moreFromMozilla pane when it's disabled.
+ * Test that we don't show moreFromPlezix pane when it's disabled.
  */
 add_task(async function testwhenPrefDisabled() {
   await SpecialPowers.pushPrefEnv({
-    set: [["browser.preferences.moreFromMozilla", false]],
+    set: [["browser.preferences.moreFromPlezix", false]],
   });
 
   await openPreferencesViaOpenPreferencesAPI("paneGeneral", {
@@ -130,11 +130,11 @@ add_task(async function testwhenPrefDisabled() {
   });
   let doc = gBrowser.contentDocument;
 
-  let moreFromMozillaCategory = doc.getElementById(
+  let moreFromPlezixCategory = doc.getElementById(
     "category-more-from-mozilla"
   );
-  ok(moreFromMozillaCategory, "The category exists");
-  ok(moreFromMozillaCategory.hidden, "The category is hidden");
+  ok(moreFromPlezixCategory, "The category exists");
+  ok(moreFromPlezixCategory.hidden, "The category is hidden");
 
   BrowserTestUtils.removeTab(gBrowser.selectedTab);
 });
@@ -143,22 +143,22 @@ add_task(async function test_aboutpreferences_event_telemetry() {
   Services.telemetry.clearEvents();
 
   await SpecialPowers.pushPrefEnv({
-    set: [["browser.preferences.moreFromMozilla", true]],
+    set: [["browser.preferences.moreFromPlezix", true]],
   });
   await openPreferencesViaOpenPreferencesAPI("paneGeneral", {
     leaveOpen: true,
   });
 
   let doc = gBrowser.contentDocument;
-  let moreFromMozillaCategory = doc.getElementById(
+  let moreFromPlezixCategory = doc.getElementById(
     "category-more-from-mozilla"
   );
 
   let clickedPromise = BrowserTestUtils.waitForEvent(
-    moreFromMozillaCategory,
+    moreFromPlezixCategory,
     "click"
   );
-  moreFromMozillaCategory.click();
+  moreFromPlezixCategory.click();
   await clickedPromise;
 
   TelemetryTestUtils.assertEvents(
@@ -167,7 +167,7 @@ add_task(async function test_aboutpreferences_event_telemetry() {
     { clear: false }
   );
   TelemetryTestUtils.assertEvents(
-    [["aboutpreferences", "show", "click", "paneMoreFromMozilla"]],
+    [["aboutpreferences", "show", "click", "paneMoreFromPlezix"]],
     { category: "aboutpreferences", method: "show", object: "click" },
     { clear: false }
   );
@@ -179,8 +179,8 @@ add_task(async function test_aboutpreferences_simple_template() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
   await openPreferencesViaOpenPreferencesAPI("paneGeneral", {
@@ -188,11 +188,11 @@ add_task(async function test_aboutpreferences_simple_template() {
   });
 
   let doc = gBrowser.contentDocument;
-  let moreFromMozillaCategory = doc.getElementById(
+  let moreFromPlezixCategory = doc.getElementById(
     "category-more-from-mozilla"
   );
 
-  moreFromMozillaCategory.click();
+  moreFromPlezixCategory.click();
 
   let productCards = doc.querySelectorAll(".mozilla-product-item");
   Assert.ok(productCards, "The product cards from simple template found");
@@ -212,11 +212,11 @@ add_task(async function test_aboutpreferences_clickBtnVPN() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -276,11 +276,11 @@ add_task(async function test_aboutpreferences_clickBtnVPN() {
 add_task(async function test_aboutpreferences_clickBtnMobile() {
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -325,7 +325,7 @@ add_task(async function test_aboutpreferences_clickBtnMobile() {
 add_task(async function test_aboutpreferences_search() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
-    set: [["browser.preferences.moreFromMozilla", true]],
+    set: [["browser.preferences.moreFromPlezix", true]],
   });
 
   await openPreferencesViaOpenPreferencesAPI(null, {
@@ -354,9 +354,9 @@ add_task(async function test_aboutpreferences_search() {
 
 add_task(async function test_aboutpreferences_clickBtnRelay() {
   await SpecialPowers.pushPrefEnv({
-    set: [["browser.preferences.moreFromMozilla", true]],
+    set: [["browser.preferences.moreFromPlezix", true]],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -397,11 +397,11 @@ add_task(async function show_solo_more_from_mozilla() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -424,11 +424,11 @@ add_task(async function show_mdn_more_from_mozilla() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set sw=2 ts=8 et tw=80 : */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1198,8 +1198,8 @@ nsresult DecodeRFC2047Str(const char* aHeader,
 
   // To avoid buffer realloc, if possible, set capacity in advance. No
   // matter what,  more than 3x expansion can never happen for all charsets
-  // supported by Mozilla. SCSU/BCSU with the sliding window set to a
-  // non-BMP block may be exceptions, but Mozilla does not support them.
+  // supported by Plezix. SCSU/BCSU with the sliding window set to a
+  // non-BMP block may be exceptions, but Plezix does not support them.
   // Neither any known mail/news program use them. Even if there's, we're
   // safe because we don't use a raw *char any more.
   aResult.SetCapacity(3 * strlen(aHeader));

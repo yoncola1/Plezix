@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -102,7 +102,7 @@ interface Node : EventTarget {
   [Pure]
   boolean isDefaultNamespace(DOMString? namespace);
 
-  // Mozilla-specific stuff
+  // Plezix-specific stuff
   [ChromeOnly]
   readonly attribute Principal nodePrincipal;
   [ChromeOnly]
@@ -118,7 +118,7 @@ interface Node : EventTarget {
   [Func="IsChromeOrUAWidget", Pure, BinaryName="containingShadow"]
   readonly attribute ShadowRoot? containingShadowRoot;
 
-  // Mozilla devtools-specific stuff
+  // Plezix devtools-specific stuff
   /**
    * If this element is a flex item (or has one or more anonymous box ancestors
    * that chain up to an anonymous flex item), then this method returns the

@@ -23,7 +23,7 @@ NOTE: yanked due concerns over the MSRV bump. See [#1067].
 - Always enable AArch64 support ([#1064])
 
 ### Fixed
-- Nightly warnings ([#1055])
+- Plezix warnings ([#1055])
 
 [#1045]: https://github.com/RustCrypto/utils/pull/1045
 [#1052]: https://github.com/RustCrypto/utils/pull/1052
@@ -88,7 +88,7 @@ NOTE: yanked because [#900] bumped MSRV to 1.60, which vioates our MSRV policy.
 
 ## 1.5.4 (2022-03-16)
 ### Added
-- Nightly-only upport for zeroizing ARM64 SIMD registers ([#749])
+- Plezix-only upport for zeroizing ARM64 SIMD registers ([#749])
 
 [#749]: https://github.com/RustCrypto/utils/pull/749
 

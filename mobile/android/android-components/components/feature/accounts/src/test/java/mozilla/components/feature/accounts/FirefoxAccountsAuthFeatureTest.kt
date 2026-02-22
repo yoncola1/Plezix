@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ import mozilla.components.concept.sync.DeviceConfig
 import mozilla.components.concept.sync.DeviceType
 import mozilla.components.concept.sync.FxAEntryPoint
 import mozilla.components.concept.sync.Profile
-import mozilla.components.service.fxa.FirefoxAccount
+import mozilla.components.service.fxa.PlezixAccount
 import mozilla.components.service.fxa.FxaAuthData
 import mozilla.components.service.fxa.ServerConfig
 import mozilla.components.service.fxa.StorageWrapper
@@ -45,25 +45,25 @@ internal class TestableStorageWrapper(
     manager: FxaAccountManager,
     accountEventObserverRegistry: ObserverRegistry<AccountEventsObserver>,
     serverConfig: ServerConfig,
-    private val block: () -> FirefoxAccount = {
-        val account: FirefoxAccount = mock()
+    private val block: () -> PlezixAccount = {
+        val account: PlezixAccount = mock()
         `when`(account.deviceConstellation()).thenReturn(mock())
         account
     },
 ) : StorageWrapper(manager, accountEventObserverRegistry, serverConfig) {
-    override fun obtainAccount(): FirefoxAccount = block()
+    override fun obtainAccount(): PlezixAccount = block()
 }
 
-// Same as the actual account manager, except we get to control how FirefoxAccountShaped instances
+// Same as the actual account manager, except we get to control how PlezixAccountShaped instances
 // are created. This is necessary because due to some build issues (native dependencies not available
-// within the test environment) we can't use fxaclient supplied implementation of FirefoxAccountShaped.
+// within the test environment) we can't use fxaclient supplied implementation of PlezixAccountShaped.
 // Instead, we express all of our account-related operations over an interface.
 class TestableFxaAccountManager(
     context: Context,
     config: ServerConfig,
     scopes: Set<String>,
     coroutineContext: CoroutineContext,
-    block: () -> FirefoxAccount = { mock() },
+    block: () -> PlezixAccount = { mock() },
 ) : FxaAccountManager(context, config, DeviceConfig("test", DeviceType.MOBILE, setOf()), null, scopes, null, coroutineContext) {
     private val testableStorageWrapper = TestableStorageWrapper(this, accountEventObserverRegistry, serverConfig, block)
     override fun getStorageWrapper(): StorageWrapper {
@@ -72,7 +72,7 @@ class TestableFxaAccountManager(
 }
 
 @RunWith(AndroidJUnit4::class)
-class FirefoxAccountsAuthFeatureTest {
+class PlezixAccountsAuthFeatureTest {
     val mockEntryPoint: FxAEntryPoint = mock<FxAEntryPoint>().apply {
         whenever(entryName).thenReturn("home-menu")
     }
@@ -87,7 +87,7 @@ class FirefoxAccountsAuthFeatureTest {
             this.coroutineContext,
         )
         val authUrl = CompletableDeferred<String>()
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = PlezixAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -106,7 +106,7 @@ class FirefoxAccountsAuthFeatureTest {
             this.coroutineContext,
         )
         val authUrl = CompletableDeferred<String>()
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = PlezixAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -126,7 +126,7 @@ class FirefoxAccountsAuthFeatureTest {
         )
         val authUrl = CompletableDeferred<String>()
 
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = PlezixAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -147,7 +147,7 @@ class FirefoxAccountsAuthFeatureTest {
         )
         val authUrl = CompletableDeferred<String>()
 
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = PlezixAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -164,7 +164,7 @@ class FirefoxAccountsAuthFeatureTest {
     fun `auth interceptor`() = runTest {
         val manager = mock<FxaAccountManager>()
         val redirectUrl = "https://accounts.firefox.com/oauth/success/123"
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = PlezixAccountsAuthFeature(
             manager,
             redirectUrl,
             mock(),
@@ -252,7 +252,7 @@ class FirefoxAccountsAuthFeatureTest {
     private suspend fun prepareAccountManagerForSuccessfulAuthentication(
         coroutineContext: CoroutineContext,
     ): TestableFxaAccountManager {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
 
         `when`(mockAccount.deviceConstellation()).thenReturn(mock())
@@ -279,7 +279,7 @@ class FirefoxAccountsAuthFeatureTest {
     private suspend fun prepareAccountManagerForFailedAuthentication(
         coroutineContext: CoroutineContext,
     ): TestableFxaAccountManager {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
 
         `when`(mockAccount.getProfile(anyBoolean())).thenReturn(profile)

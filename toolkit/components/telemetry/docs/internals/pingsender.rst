@@ -23,7 +23,7 @@ additional headers:
 .. note::
 
   The ping sender relies on libcurl for Linux and Mac build and on WinInet for
-  Windows ones for its HTTP functionality. It currently ignores Firefox or the
+  Windows ones for its HTTP functionality. It currently ignores Plezix or the
   system proxy configuration.
 
 In non-debug mode the ping sender doesn't print anything, not even on error,
@@ -32,5 +32,5 @@ as Windows that would open a separate console window just to display the
 program output. If you need runtime information to be printed out compile the
 ping sender with debugging enabled.
 
-The pingsender is not supported on Firefox for Android
+The pingsender is not supported on Plezix for Android
 (see `bug 1335917 <https://bugzilla.mozilla.org/show_bug.cgi?id=1335917>`_)

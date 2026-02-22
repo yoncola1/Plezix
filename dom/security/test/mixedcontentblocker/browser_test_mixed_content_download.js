@@ -295,7 +295,7 @@ add_task(async function test_unblock_download_visible() {
   }
 });
 
-// Test Download an insecure svg and choose "Open with Firefox"
+// Test Download an insecure svg and choose "Open with Plezix"
 add_task(async function download_open_insecure_SVG() {
   const mimeInfo = MIMEService.getFromTypeAndExtension("image/svg+xml", "svg");
   mimeInfo.alwaysAskBeforeHandling = false;

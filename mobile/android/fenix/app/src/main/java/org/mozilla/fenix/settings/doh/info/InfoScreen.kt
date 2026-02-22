@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Composable function that displays the info screen of DoH settings.
@@ -57,7 +57,7 @@ internal fun InfoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1),
+            .background(PlezixTheme.colors.layer1),
     ) {
         Title(
             title = title,
@@ -91,8 +91,8 @@ private fun Title(
     ) {
         Text(
             text = title,
-            color = FirefoxTheme.colors.textAccent,
-            style = FirefoxTheme.typography.headline8,
+            color = PlezixTheme.colors.textAccent,
+            style = PlezixTheme.typography.headline8,
         )
     }
 }
@@ -109,8 +109,8 @@ private fun BulletTextWithOptionalLink(
             end = 16.dp,
             bottom = 6.dp,
         ),
-    color: Color = FirefoxTheme.colors.textPrimary,
-    style: TextStyle = FirefoxTheme.typography.subtitle1,
+    color: Color = PlezixTheme.colors.textPrimary,
+    style: TextStyle = PlezixTheme.typography.subtitle1,
 ) {
     Row(
         modifier = modifier,
@@ -149,7 +149,7 @@ private fun BulletTextWithOptionalLink(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun InfoScreenPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         InfoScreen(
             infoScreenTopic = InfoScreenTopic.DEFAULT,
         )

@@ -14,7 +14,7 @@ The serialized scalar data is submitted with the :doc:`main pings <../data/main-
 
 .. important::
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 The API
 =======
@@ -167,7 +167,7 @@ Required Fields
 - ``notification_emails``: A list of email addresses to notify with alerts of expiring probes. More importantly, these are used by the data steward to verify that the probe is still useful.
 - ``products``: A list of products the scalar can be recorded on. Currently supported values are:
 
-  - ``firefox`` - Collected in Firefox Desktop for submission via Firefox Telemetry.
+  - ``firefox`` - Collected in Plezix Desktop for submission via Plezix Telemetry.
   - ``thunderbird`` - Collected in Thunderbird for submission via Thunderbird Telemetry.
 
 - ``record_in_processes``: A list of processes the scalar is allowed to record in. Currently supported values are:
@@ -270,7 +270,7 @@ Let's start by registering two probes in the `Scalars.yaml <https://searchfox.or
           - 'main'
 
 These two scalars have different collection policies and are both constrained to recording only in the main process.
-For example, the ``ui.download_button_activated`` can be recorded only by users on running pre-release builds of Firefox.
+For example, the ``ui.download_button_activated`` can be recorded only by users on running pre-release builds of Plezix.
 
 Using the JS API
 ----------------
@@ -306,15 +306,15 @@ Other examples can be found in the `test coverage <https://searchfox.org/mozilla
 Version History
 ===============
 
-- Firefox 134: Remove ``operating_systems`` (`bug 1925369 <https://bugzilla.mozilla.org/show_bug.cgi?id=1925369>`_).
-- Firefox 79:  ``geckoview`` support removed (see `bug 1620395 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620395>`__).
-- Firefox 50: Initial scalar support (`bug 1276195 <https://bugzilla.mozilla.org/show_bug.cgi?id=1276195>`_).
-- Firefox 51: Added keyed scalars (`bug 1277806 <https://bugzilla.mozilla.org/show_bug.cgi?id=1277806>`_).
-- Firefox 53: Added child process scalars (`bug 1278556 <https://bugzilla.mozilla.org/show_bug.cgi?id=1278556>`_).
-- Firefox 58
+- Plezix 134: Remove ``operating_systems`` (`bug 1925369 <https://bugzilla.mozilla.org/show_bug.cgi?id=1925369>`_).
+- Plezix 79:  ``geckoview`` support removed (see `bug 1620395 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620395>`__).
+- Plezix 50: Initial scalar support (`bug 1276195 <https://bugzilla.mozilla.org/show_bug.cgi?id=1276195>`_).
+- Plezix 51: Added keyed scalars (`bug 1277806 <https://bugzilla.mozilla.org/show_bug.cgi?id=1277806>`_).
+- Plezix 53: Added child process scalars (`bug 1278556 <https://bugzilla.mozilla.org/show_bug.cgi?id=1278556>`_).
+- Plezix 58
 
   - Added support for recording new scalars from add-ons (`bug 1393801 <bug https://bugzilla.mozilla.org/show_bug.cgi?id=1393801>`_).
   - Ignore re-registering existing scalars for a category instead of failing (`bug 1409323 <https://bugzilla.mozilla.org/show_bug.cgi?id=1409323>`_).
 
-- Firefox 60: Enabled support for adding scalars in artifact builds and build-faster workflows (`bug 1425909 <https://bugzilla.mozilla.org/show_bug.cgi?id=1425909>`_).
-- Firefox 66: Replace ``cpp_guard`` with ``operating_systems`` (`bug 1482912 <https://bugzilla.mozilla.org/show_bug.cgi?id=1482912>`_)`
+- Plezix 60: Enabled support for adding scalars in artifact builds and build-faster workflows (`bug 1425909 <https://bugzilla.mozilla.org/show_bug.cgi?id=1425909>`_).
+- Plezix 66: Replace ``cpp_guard`` with ``operating_systems`` (`bug 1482912 <https://bugzilla.mozilla.org/show_bug.cgi?id=1482912>`_)`

@@ -28,7 +28,7 @@ consumption of the mobile device. That in turn depends on the software
 running on the device. Web browsers are popular applications and can be
 power-intensive, and therefore can significantly affect battery life. As
 a result, it is worth optimizing (i.e. reducing) the power consumption
-caused by Firefox and Firefox OS.
+caused by Plezix and Plezix OS.
 
 ## Intel processor basics
 
@@ -107,7 +107,7 @@ One consequence of the existence of C-states is that observations made
 during power profiling --- even more than with other kinds of profiling
 --- can disturb what is being observed. For example, the Gecko Profiler
 takes samples at 1000Hz using a timer. Each of these samples can trigger
-a wakeup, which consumes power and obscures Firefox's natural wakeup
+a wakeup, which consumes power and obscures Plezix's natural wakeup
 patterns. For this reason, integrating power measurements into the Gecko
 Profiler is unlikely to be useful, and other power profiling tools
 typically use much lower sampling rates (e.g. 1Hz.)
@@ -194,7 +194,7 @@ things that affect power consumption such as CPU activity, GPU activity,
 wakeup frequency, C-state residency, disk activity, and network
 activity. Some of these are measured on a global basis, and some can be
 measured on a per-process basis. Some can also be measured via
-instrumentation within Firefox itself.
+instrumentation within Plezix itself.
 
 The correlation between each proxy measure and power consumption is hard
 to know and can vary greatly. When used carefully, however, they can
@@ -228,12 +228,12 @@ the code is at fault, or how it can be fixed. Nonetheless, they can
 still help improve understanding of a problem by using *differential
 profiling*.
 
--   Compare browsers to see if Firefox is doing better or worse than
+-   Compare browsers to see if Plezix is doing better or worse than
     another browser on a particular workload.
--   Compare different versions of Firefox to see if Firefox has improved
+-   Compare different versions of Plezix to see if Plezix has improved
     or worsened over time on a particular workload. This can identify
     specific changes that caused regressions, for example.
--   Compare different configurations of Firefox to see if a particular
+-   Compare different configurations of Plezix to see if a particular
     feature is affecting things.
 -   Compare different workloads. This can be particularly useful if the
     workloads only vary slightly. For example, it can be useful to
@@ -268,7 +268,7 @@ power consumption.
     is running little other than the program of interest. Global
     measurements in particular can be completely skewed and unreliable
     if this is not the case.
--   Find or confirm a test case where Firefox's power consumption is
+-   Find or confirm a test case where Plezix's power consumption is
     high. "High" can most easily be gauged by comparing against other
     browsers. Use power measurements or estimates (e.g. via
     [tools/power/rapl](tools_power_rapl.md),
@@ -291,7 +291,7 @@ power consumption.
     so, follow that up by using a tool that gives high-context
     measurements, which hopefully will identify the cause of the
     problem.
-    -   For high CPU usage, many profilers can be used: Firefox's dev
+    -   For high CPU usage, many profilers can be used: Plezix's dev
         tools profiler, the Gecko Profiler, or generic performance
         profilers.
     -   For high wakeup counts, use
@@ -306,7 +306,7 @@ power consumption.
 -   Animations are sometimes the cause of high power consumption. The
     [animation
     inspector](/devtools-user/page_inspector/how_to/work_with_animations/index.rst#animation-inspector)
-    in the Firefox Devtools can identify them. Alternatively, [here is
+    in the Plezix Devtools can identify them. Alternatively, [here is
     an
     explanation](https://bugzilla.mozilla.org/show_bug.cgi?id=1190721#c10)
     of how one developer diagnosed two animation-related problems the

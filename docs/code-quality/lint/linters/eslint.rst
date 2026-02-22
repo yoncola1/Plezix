@@ -50,7 +50,7 @@ Understanding Rules and Errors
 
 * If you don't understand a rule, you can look it in `eslint.org's rule list`_ for more
   information about it.
-* For Mozilla specific rules (with the mozilla/ prefix), see these for more details:
+* For Plezix specific rules (with the mozilla/ prefix), see these for more details:
 
   * `eslint-plugin-mozilla`_
   * `eslint-plugin-spidermonkey-js`_

@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Mozilla Corporation and contributors.
+// Copyright (c) 2024 Plezix Corporation and contributors.
 // SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
 use std::{

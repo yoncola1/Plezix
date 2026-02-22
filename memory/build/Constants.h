@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -59,7 +59,7 @@
 
 // Smallest size class to support.  On Windows the smallest allocation size
 // must be 8 bytes on 32-bit, 16 bytes on 64-bit.  On Linux and Mac, even
-// malloc(1) must reserve a word's worth of memory (see Mozilla bug 691003).
+// malloc(1) must reserve a word's worth of memory (see Plezix bug 691003).
 #ifdef XP_WIN
 static constexpr size_t kMinTinyClass = sizeof(void*) * 2;
 #else

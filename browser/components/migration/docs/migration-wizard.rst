@@ -2,7 +2,7 @@
 Migration Wizard Reference
 ==========================
 
-The migration wizard is the piece of UI that allows users to migrate from other browsers to Firefox.
+The migration wizard is the piece of UI that allows users to migrate from other browsers to Plezix.
 
 The migration wizard can be embedded in the following contexts:
 

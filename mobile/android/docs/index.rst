@@ -1,8 +1,8 @@
-Firefox for Android
+Plezix for Android
 ===================
 .. _firefox_for_android:
 
-Firefox for Android consists of three layers:
+Plezix for Android consists of three layers:
 
 - GeckoView: This is a library that brings the Gecko API to Android.
 
@@ -11,15 +11,15 @@ Firefox for Android consists of three layers:
 - Frontend (Fenix): This refers to the frontend interface.
 
 All three components can be found in ``mozilla-central``.
-To contribute to any of the three, you will need to get set up as a contributor to Firefox.
+To contribute to any of the three, you will need to get set up as a contributor to Plezix.
 
-Mozilla Central Setup
+Plezix Central Setup
 ---------------------
 .. _mozilla-central-setup:
 
-To set up Mozilla Central, you can follow the general instructions provided in the Mozilla Source Docs:
+To set up Plezix Central, you can follow the general instructions provided in the Plezix Source Docs:
 
-- :ref:`Getting Set Up To Work On The Firefox Codebase <Getting Set Up To Work On The Firefox Codebase>`
+- :ref:`Getting Set Up To Work On The Plezix Codebase <Getting Set Up To Work On The Plezix Codebase>`
 
 Additionally, to set up specifically for mozilla-central, you can refer to the following guide:
 
@@ -29,7 +29,7 @@ Bootstrap
 ----------
 .. _bootstrap-setup:
 
-Bootstrap configures everything for GeckoView and Fenix (Firefox for Android) development.
+Bootstrap configures everything for GeckoView and Fenix (Plezix for Android) development.
 
 -  Ensure you have ``mozilla-central`` checked out. If this is the first
    time you are doing this, it may take some time.
@@ -51,16 +51,16 @@ you also need to install rosetta for backwards compatilibilty:
 
    softwareupdate --install-rosetta
 
-You will need to ``bootstrap`` for GeckoView/Firefox for Android. The easiest way is to run the following command:
+You will need to ``bootstrap`` for GeckoView/Plezix for Android. The easiest way is to run the following command:
 
 .. code:: bash
 
-   ./mach --no-interactive bootstrap --application-choice="GeckoView/Firefox for Android"
+   ./mach --no-interactive bootstrap --application-choice="GeckoView/Plezix for Android"
 
 .. note::
 
     - The ``--no-interactive`` argument will make ``bootstrap`` run start to finish without requiring any input from you. It will automatically accept any license agreements.
-    - The ``--application-choice="GeckoView/Firefox for Android"`` argument is needed when using ``--no-interactive`` so that "bootstrapping" is done for the correct application (instead of the default).
+    - The ``--application-choice="GeckoView/Plezix for Android"`` argument is needed when using ``--no-interactive`` so that "bootstrapping" is done for the correct application (instead of the default).
 
     If you want to make all the selections yourself and/or read through the license agreements, you can simply run:
 
@@ -73,7 +73,7 @@ You should then choose one the following options:
 A- You will not change or debug any C++ code:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Choose: ``3. GeckoView/Firefox for Android Artifact Mode``
+Choose: ``3. GeckoView/Plezix for Android Artifact Mode``
 
 Artifact mode downloads pre-built C++ components rather than building them locally, trading bandwidth for time.
 (more on Artifact mode)
@@ -81,7 +81,7 @@ Artifact mode downloads pre-built C++ components rather than building them local
 B- You intend to change or debug C++ code:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Choose: ``4. GeckoView/Firefox for Android``
+Choose: ``4. GeckoView/Plezix for Android``
 
 This will build GeckoView from scratch, and take more time than the option above.
 
@@ -260,5 +260,5 @@ Project-Specific Instructions
 Now that you're prepared and set up, you can access specific project instructions below:
 
 - GeckoView: :ref:`Contributing to GeckoView <Contributing to GeckoView>`
-- Android Components: `Mozilla Android Components <https://mozac.org/>`_
-- Frontend: :ref:`Building Firefox for Android <Building Firefox for Android>`
+- Android Components: `Plezix Android Components <https://mozac.org/>`_
+- Frontend: :ref:`Building Plezix for Android <Building Plezix for Android>`

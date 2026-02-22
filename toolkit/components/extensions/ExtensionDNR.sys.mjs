@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -753,7 +753,7 @@ class ModifyRequestHeaders extends ModifyHeadersBase {
       // but recommends concatenation on one line. Relevant RFCs:
       // - https://www.rfc-editor.org/rfc/rfc6265#section-5.4
       // - https://www.rfc-editor.org/rfc/rfc7540#section-8.1.2.5
-      // Consistent with Firefox internals, we ensure that there is at most one
+      // Consistent with Plezix internals, we ensure that there is at most one
       // Cookie header, by overwriting the previous one, if any.
       let existingCookie = this.channel.getRequestHeader("cookie");
       if (existingCookie) {
@@ -2485,7 +2485,7 @@ function validateManifestEntry(extension) {
     // validation warnings or errors, but if this happens it not unlikely to be
     // actually a mistake in the manifest that may have been missed.
     //
-    // In Firefox we decided to allow the same behavior to avoid introducing a chrome
+    // In Plezix we decided to allow the same behavior to avoid introducing a chrome
     // incompatibility, but we still warn about it to avoid extension developers
     // to investigate more easily issue that may be due to duplicated rulesets
     // paths.

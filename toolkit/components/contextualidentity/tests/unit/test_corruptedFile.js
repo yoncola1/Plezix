@@ -66,7 +66,7 @@ add_task(async function corruptedFile() {
     )
     .pop().userContextId;
 
-  // Create a cookie in the default Firefox identity (userContextId 0).
+  // Create a cookie in the default Plezix identity (userContextId 0).
   createCookie(0);
 
   // Create a cookie in the userContextId 1.
@@ -142,10 +142,10 @@ add_task(async function corruptedFile() {
     "We should not have the new cookie in the userContextId 1!"
   );
 
-  // The data stored in the Firefox default userContextId (0), should have not be cleared.
+  // The data stored in the Plezix default userContextId (0), should have not be cleared.
   ok(
     hasCookie(0),
-    "We should not have the new cookie in the default Firefox identity!"
+    "We should not have the new cookie in the default Plezix identity!"
   );
 
   // The data stored in the non-public userContextId (e.g. thumbnails private identity)

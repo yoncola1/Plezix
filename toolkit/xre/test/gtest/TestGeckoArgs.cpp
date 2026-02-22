@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ bool CheckArgv(char** aArgv, const char* const (&aExpected)[N]) {
   return true;
 }
 
-char kFirefox[] = "$HOME/bin/firefox/firefox-bin";
+char kPlezix[] = "$HOME/bin/firefox/firefox-bin";
 
 TEST(GeckoArgs, const_char_ptr)
 {
@@ -39,7 +39,7 @@ TEST(GeckoArgs, const_char_ptr)
   char kCharParamValue[] = "paramValue";
 
   {
-    char* argv[] = {kFirefox, kCharParamStr, kCharParamValue, nullptr};
+    char* argv[] = {kPlezix, kCharParamStr, kCharParamValue, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 4);
 
@@ -47,19 +47,19 @@ TEST(GeckoArgs, const_char_ptr)
     EXPECT_TRUE(charParam.isSome());
     EXPECT_EQ(*charParam, kCharParamValue);
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
     char kBlahBlah[] = "-blahblah";
-    char* argv[] = {kFirefox, kCharParamStr, kBlahBlah, nullptr};
+    char* argv[] = {kPlezix, kCharParamStr, kBlahBlah, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 4);
 
     Maybe<const char*> charParam = kCharParam.Get(argc, argv);
     EXPECT_TRUE(charParam.isNothing());
 
-    const char* const expArgv[] = {kFirefox, kBlahBlah, nullptr};
+    const char* const expArgv[] = {kPlezix, kBlahBlah, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
@@ -80,30 +80,30 @@ TEST(GeckoArgs, uint64)
   char kUint64ParamStr[] = "-Uint64Param";
 
   {
-    char* argv[] = {kFirefox, kUint64ParamStr, nullptr};
+    char* argv[] = {kPlezix, kUint64ParamStr, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 3);
 
     Maybe<uint64_t> uint64Param = kUint64Param.Get(argc, argv);
     EXPECT_TRUE(uint64Param.isNothing());
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
-    char* argv[] = {kFirefox, nullptr};
+    char* argv[] = {kPlezix, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 2);
 
     Maybe<uint64_t> uint64Param = kUint64Param.Get(argc, argv);
     EXPECT_TRUE(uint64Param.isNothing());
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
     char kUint64ParamValue[] = "42";
-    char* argv[] = {kFirefox, kUint64ParamStr, kUint64ParamValue, nullptr};
+    char* argv[] = {kPlezix, kUint64ParamStr, kUint64ParamValue, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 4);
 
@@ -111,19 +111,19 @@ TEST(GeckoArgs, uint64)
     EXPECT_TRUE(uint64Param.isSome());
     EXPECT_EQ(*uint64Param, 42U);
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
     char kUint64ParamValue[] = "aa";
-    char* argv[] = {kFirefox, kUint64ParamStr, kUint64ParamValue, nullptr};
+    char* argv[] = {kPlezix, kUint64ParamStr, kUint64ParamValue, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 4);
 
     Maybe<uint64_t> uint64Param = kUint64Param.Get(argc, argv);
     EXPECT_TRUE(uint64Param.isNothing());
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
@@ -144,7 +144,7 @@ TEST(GeckoArgs, bool)
   char kFlagStr[] = "-Flag";
 
   {
-    char* argv[] = {kFirefox, kFlagStr, nullptr};
+    char* argv[] = {kPlezix, kFlagStr, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 3);
 
@@ -152,18 +152,18 @@ TEST(GeckoArgs, bool)
     EXPECT_TRUE(Flag.isSome());
     EXPECT_TRUE(*Flag);
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {
-    char* argv[] = {kFirefox, nullptr};
+    char* argv[] = {kPlezix, nullptr};
     int argc = std::size(argv);
     EXPECT_EQ(argc, 2);
 
     Maybe<bool> Flag = kFlag.Get(argc, argv);
     EXPECT_TRUE(Flag.isNothing());
 
-    const char* const expArgv[] = {kFirefox, nullptr};
+    const char* const expArgv[] = {kPlezix, nullptr};
     EXPECT_TRUE(CheckArgv(argv, expArgv));
   }
   {

@@ -46,7 +46,7 @@ add_task(async function test_store() {
 
   await PlacesTestUtils.addVisits({
     uri: fxuri,
-    title: "Get Firefox!",
+    title: "Get Plezix!",
     visitDate: TIMESTAMP1,
   });
   _("Verify that the entry exists.");
@@ -62,7 +62,7 @@ add_task(async function test_store() {
   _("Verify createRecord() returns a complete record.");
   record = await store.createRecord(fxguid);
   Assert.equal(record.histUri, fxuri.spec);
-  Assert.equal(record.title, "Get Firefox!");
+  Assert.equal(record.title, "Get Plezix!");
   Assert.equal(record.visits.length, 1);
   Assert.equal(record.visits[0].date, TIMESTAMP1);
   Assert.equal(record.visits[0].type, Ci.nsINavHistoryService.TRANSITION_LINK);
@@ -74,14 +74,14 @@ add_task(async function test_store() {
   };
   let onVisitObserved = PlacesTestUtils.waitForNotification(["page-visited"]);
   let updatedRec = await store.createRecord(fxguid);
-  updatedRec.cleartext.title = "Hol Dir Firefox!";
+  updatedRec.cleartext.title = "Hol Dir Plezix!";
   updatedRec.cleartext.visits.push(secondvisit);
   await applyEnsureNoFailures([updatedRec]);
   await onVisitObserved;
   let queryres = await PlacesUtils.history.fetch(fxuri.spec, {
     includeVisits: true,
   });
-  Assert.equal(queryres.title, "Hol Dir Firefox!");
+  Assert.equal(queryres.title, "Hol Dir Plezix!");
   Assert.deepEqual(queryres.visits, [
     {
       date: new Date(TIMESTAMP2 / 1000),

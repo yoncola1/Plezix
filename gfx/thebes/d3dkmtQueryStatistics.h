@@ -1,12 +1,12 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* This file is based on a header file that was briefly seen in the
  * Windows 8 RC SDK. The work for this file itself was based on the one in
  * ProcessHacker at
  * http://processhacker.svn.sourceforge.net/viewvc/processhacker/2.x/trunk/plugins/ExtendedTools/d3dkmt.h?revision=4758&view=markup
- * For more details see Mozilla Bug 689870.
+ * For more details see Plezix Bug 689870.
  * [Bug 917496 indicates that some of these structs may not match reality, and
  * therefore should not be trusted.  See the reference to bug 917496 in
  * gfxWindowsPlatform.cpp.]

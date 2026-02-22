@@ -1,6 +1,6 @@
 # Automated performance testing and sheriffing
 
-We have several test harnesses that test Firefox for various performance
+We have several test harnesses that test Plezix for various performance
 characteristics (page load time, startup time, etc.). We also generate
 some metrics as part of the build process (like installer size) that are
 interesting to track over time. Currently we aggregate this information

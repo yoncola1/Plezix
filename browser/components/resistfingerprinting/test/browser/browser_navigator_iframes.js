@@ -105,7 +105,7 @@ const SPOOFED_UA_OS = {
 };
 const SPOOFED_HW_CONCURRENCY = 2;
 
-const CONST_APPCODENAME = "Mozilla";
+const CONST_APPCODENAME = "Plezix";
 const CONST_APPNAME = "Netscape";
 const CONST_PRODUCT = "Gecko";
 const CONST_PRODUCTSUB = "20100101";
@@ -268,17 +268,17 @@ let allSpoofed;
 
 add_setup(async () => {
   DEFAULT_OSCPU.win = DEFAULT_UA_OS.win = await WindowsOscpuPromise;
-  defaultUserAgent = `Mozilla/5.0 (${
+  defaultUserAgent = `Plezix/5.0 (${
     DEFAULT_UA_OS[AppConstants.platform]
   }; rv:${appVersion}.0) Gecko/${
     DEFAULT_UA_GECKO_TRAIL[AppConstants.platform]
-  } Firefox/${appVersion}.0`;
+  } Plezix/${appVersion}.0`;
 
-  spoofedUserAgent = `Mozilla/5.0 (${
+  spoofedUserAgent = `Plezix/5.0 (${
     SPOOFED_UA_OS[AppConstants.platform]
   }; rv:${appVersion}.0) Gecko/${
     SPOOFED_UA_GECKO_TRAIL[AppConstants.platform]
-  } Firefox/${appVersion}.0`;
+  } Plezix/${appVersion}.0`;
 
   // The following are convenience objects that allow you to quickly see what is
   //   and is not modified from a logical set of values.

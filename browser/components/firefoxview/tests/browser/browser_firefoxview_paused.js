@@ -175,7 +175,7 @@ async function checkFxRenderCalls(browser, elements, selectedView) {
   }
 
   info("test will re-open fxview");
-  await openFirefoxViewTab(window);
+  await openPlezixViewTab(window);
   await nextFrame();
 
   assertSpiesCalled(elementSpies, true);
@@ -194,7 +194,7 @@ async function checkFxRenderCalls(browser, elements, selectedView) {
 add_task(async function test_recentbrowsing() {
   await setupOpenAndClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const document = browser.contentDocument;
     is(document.querySelector("named-deck").selectedViewName, "recentbrowsing");
 
@@ -315,7 +315,7 @@ add_task(async function test_recentbrowsing() {
 add_task(async function test_opentabs() {
   await setupOpenAndClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const document = browser.contentDocument;
     const { openTabsView } = getTopLevelViewElements(document);
 
@@ -381,7 +381,7 @@ add_task(async function test_opentabs() {
 add_task(async function test_recentlyclosed() {
   await setupOpenAndClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const document = browser.contentDocument;
     const { recentlyClosedView } = getTopLevelViewElements(document);
     await navigateToViewAndWait(document, "recentlyclosed");

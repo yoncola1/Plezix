@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -90,9 +90,9 @@ manifest-loaded-ok = Manifest loaded.
 # load the manifest
 manifest-loaded-error = There was an error while loading the manifest:
 
-# Text displayed as an error when there has been a Firefox DevTools error while
+# Text displayed as an error when there has been a Plezix DevTools error while
 # trying to load the manifest
-manifest-loaded-devtools-error = Firefox DevTools error
+manifest-loaded-devtools-error = Plezix DevTools error
 
 # Text displayed when the page has no manifest available
 manifest-non-existing = No manifest found to inspect.

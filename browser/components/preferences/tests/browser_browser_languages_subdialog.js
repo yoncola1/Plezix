@@ -45,7 +45,7 @@ function getManifestData(locale, version = "2.0") {
         base_path: "browser/",
       },
     },
-    author: "Mozilla",
+    author: "Plezix",
   };
 }
 
@@ -55,7 +55,7 @@ let testLangpacks;
 function createLangpack(locale, version) {
   return AddonTestUtils.createTempXPIFile({
     "manifest.json": getManifestData(locale, version),
-    [`browser/${locale}/branding/brand.ftl`]: "-brand-short-name = Firefox",
+    [`browser/${locale}/branding/brand.ftl`]: "-brand-short-name = Plezix",
   });
 }
 

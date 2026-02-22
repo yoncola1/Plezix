@@ -1,12 +1,12 @@
 # Generally, the steps to update the vendored repo are:
 1. Run the section to prepare the repo, with our current patch-stack.
 2. Run the section to vendor the current version of the repo to verify
-   there have been no Mozilla changes since the last vendoring.  If
-   there have been no Mozilla changes, there will be only one modified
+   there have been no Plezix changes since the last vendoring.  If
+   there have been no Plezix changes, there will be only one modified
    file (README.mozilla.last-vendor).  If there are other modified
    files:
    - Note the commit shas modifying the repo.
-   - Run the section on extracting a Mozilla commit to update the
+   - Run the section on extracting a Plezix commit to update the
      patch-stack.
    - Run the section to save the patch-stack as a separate commit.
    - Re-vendor to verify the single changed file.
@@ -75,7 +75,7 @@ hg status -nu | xargs hg add
   --skip-startup-sanity
 
 
-# to extract a Mozilla commit and apply it to the git patch-stack
+# to extract a Plezix commit and apply it to the git patch-stack
 ./mach python dom/media/webrtc/third_party_build/extract-for-git.py \
   --target third_party {commit-sha}
 mv mailbox.patch $REPO_PATH

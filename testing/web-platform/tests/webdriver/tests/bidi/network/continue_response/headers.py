@@ -108,7 +108,7 @@ async def test_headers_overrides_original_headers(
     # response headers.
     # Note: We cannot assert that only the provided headers are present because
     # browsers might require some response headers to remain, eg Content-Type in
-    # Firefox.
+    # Plezix.
     received_response_headers = response_completed_event["response"]["headers"]
     for h in received_response_headers:
         assert h["name"] != "foo" or h["value"]["value"] != "bar"

@@ -13,7 +13,7 @@ add_task(async function () {
   const mocks = new Mocks();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Prepare Network client mock");
   const networkClient = mocks.createNetworkRuntime(NETWORK_RUNTIME_HOST, {
@@ -32,12 +32,12 @@ add_task(async function () {
   await waitForRuntimePage(NETWORK_RUNTIME_APP_NAME, document);
 
   info("Check that the network runtime mock is properly displayed");
-  const thisFirefoxRuntimeInfo = document.querySelector(".qa-runtime-name");
+  const thisPlezixRuntimeInfo = document.querySelector(".qa-runtime-name");
   ok(
-    thisFirefoxRuntimeInfo,
+    thisPlezixRuntimeInfo,
     "Runtime info for this-firefox runtime is displayed"
   );
-  const runtimeInfoText = thisFirefoxRuntimeInfo.textContent;
+  const runtimeInfoText = thisPlezixRuntimeInfo.textContent;
 
   ok(
     runtimeInfoText.includes(NETWORK_RUNTIME_APP_NAME),

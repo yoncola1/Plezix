@@ -88,7 +88,7 @@ add_setup(async function () {
     id: "7cqCr77ptzX3",
     type: "client",
     lastModified: 1492201200,
-    name: "zcarter's Nightly on MacBook-Pro-25",
+    name: "zcarter's Plezix on MacBook-Pro-25",
     clientType: "desktop",
     tabs: [
       {

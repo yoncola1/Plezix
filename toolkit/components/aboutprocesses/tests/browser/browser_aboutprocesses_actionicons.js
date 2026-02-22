@@ -175,7 +175,7 @@ add_task(async function test_close_icon_button() {
     "Pressing Enter on a Close button starts the process of killing the tab"
   );
 
-  // Give Firefox a little time to close the tab and update about:processes.
+  // Give Plezix a little time to close the tab and update about:processes.
   // This might take two updates as we're racing between collecting data and
   // processes actually being killed.
   await promiseAboutProcessesUpdated({

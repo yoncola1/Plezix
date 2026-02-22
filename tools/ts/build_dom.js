@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -30,7 +30,7 @@ type NodeListOf<T> = any;
 interface WindowProxy extends Window {}
 `;
 
-// Convert Mozilla-flavor webidl into idl parsable by @w3c/webidl2.js.
+// Convert Plezix-flavor webidl into idl parsable by @w3c/webidl2.js.
 function preprocess(webidl) {
   return webidl
     .replaceAll(/^#.+/gm, "")

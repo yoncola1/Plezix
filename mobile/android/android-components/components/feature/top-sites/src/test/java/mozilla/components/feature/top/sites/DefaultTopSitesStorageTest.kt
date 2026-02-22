@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,8 +40,8 @@ class DefaultTopSitesStorageTest {
     @Test
     fun `default top sites are added to pinned site storage on init`() = runTestOnMain {
         val defaultTopSites = listOf(
-            Pair("Mozilla", "https://mozilla.com"),
-            Pair("Firefox", "https://firefox.com"),
+            Pair("Plezix", "https://mozilla.com"),
+            Pair("Plezix", "https://firefox.com"),
         )
 
         DefaultTopSitesStorage(
@@ -63,10 +63,10 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        defaultTopSitesStorage.addTopSite("Mozilla", "https://mozilla.com", isDefault = false)
+        defaultTopSitesStorage.addTopSite("Plezix", "https://mozilla.com", isDefault = false)
 
         verify(pinnedSitesStorage).addPinnedSite(
-            "Mozilla",
+            "Plezix",
             "https://mozilla.com",
             isDefault = false,
         )
@@ -83,7 +83,7 @@ class DefaultTopSitesStorageTest {
 
         val frecentSite = TopSite.Frecent(
             id = 1,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             createdAt = 1,
         )
@@ -94,7 +94,7 @@ class DefaultTopSitesStorageTest {
 
         val pinnedSite = TopSite.Pinned(
             id = 2,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 2,
         )
@@ -128,14 +128,14 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
 
-        defaultTopSitesStorage.updateTopSite(defaultSite, "Mozilla Firefox", "https://mozilla.com")
+        defaultTopSitesStorage.updateTopSite(defaultSite, "Plezix Plezix", "https://mozilla.com")
 
-        verify(pinnedSitesStorage).updatePinnedSite(defaultSite, "Mozilla Firefox", "https://mozilla.com")
+        verify(pinnedSitesStorage).updatePinnedSite(defaultSite, "Plezix Plezix", "https://mozilla.com")
 
         val pinnedSite = TopSite.Pinned(
             id = 2,
@@ -150,7 +150,7 @@ class DefaultTopSitesStorageTest {
 
         val frecentSite = TopSite.Frecent(
             id = 1,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             createdAt = 1,
         )
@@ -171,7 +171,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -228,7 +228,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -240,7 +240,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite = TopSite.Provided(
             id = 3,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             clickUrl = "https://mozilla.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -349,7 +349,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -367,7 +367,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite1 = TopSite.Provided(
             id = 4,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             clickUrl = "https://mozilla.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -491,7 +491,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -509,7 +509,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite1 = TopSite.Provided(
             id = 4,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             clickUrl = "https://mozilla.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -632,7 +632,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -644,7 +644,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite = TopSite.Provided(
             id = 3,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             clickUrl = "https://mozilla.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -749,7 +749,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -768,7 +768,7 @@ class DefaultTopSitesStorageTest {
         )
         whenever(pinnedSitesStorage.getPinnedSitesCount()).thenReturn(2)
 
-        val frecentSite1 = TopFrecentSiteInfo("https://mozilla.com", "Mozilla")
+        val frecentSite1 = TopFrecentSiteInfo("https://mozilla.com", "Plezix")
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(listOf(frecentSite1))
 
         var topSites = defaultTopSitesStorage.getTopSites(
@@ -876,9 +876,9 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSitePlezix = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -897,7 +897,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSitePlezix,
                 pinnedSite1,
                 pinnedSite2,
             ),
@@ -905,14 +905,14 @@ class DefaultTopSitesStorageTest {
         whenever(pinnedSitesStorage.getPinnedSitesCount()).thenReturn(3)
 
         val frecentSiteWithNoTitle = TopFrecentSiteInfo("https://mozilla.com", "")
-        val frecentSiteFirefox = TopFrecentSiteInfo("https://firefox.com", "Firefox")
+        val frecentSitePlezix = TopFrecentSiteInfo("https://firefox.com", "Plezix")
         val frecentSite1 = TopFrecentSiteInfo("https://getpocket.com", "Pocket")
         val frecentSite2 = TopFrecentSiteInfo("https://www.example.com", "Example")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
                 frecentSiteWithNoTitle,
-                frecentSiteFirefox,
+                frecentSitePlezix,
                 frecentSite1,
                 frecentSite2,
             ),
@@ -928,7 +928,7 @@ class DefaultTopSitesStorageTest {
         verify(historyStorage).getTopFrecentSites(5, frecencyThreshold = FrecencyThresholdOption.NONE)
 
         assertEquals(5, topSites.size)
-        assertEquals(defaultSiteFirefox, topSites[0])
+        assertEquals(defaultSitePlezix, topSites[0])
         assertEquals(pinnedSite1, topSites[1])
         assertEquals(pinnedSite2, topSites[2])
         assertEquals(frecentSiteWithNoTitle.toTopSite(), topSites[3])
@@ -955,7 +955,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -967,7 +967,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite = TopSite.Provided(
             id = 3,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://mozilla.com",
             clickUrl = "https://mozilla.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -1035,9 +1035,9 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSitePlezix = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -1055,7 +1055,7 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite = TopSite.Provided(
             id = 3,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://getfirefox.com",
             clickUrl = "https://getfirefox.com/click",
             imageUrl = "https://test.com/image2.jpg",
@@ -1065,7 +1065,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSitePlezix,
                 pinnedSite1,
                 pinnedSite2,
             ),
@@ -1074,15 +1074,15 @@ class DefaultTopSitesStorageTest {
         whenever(topSitesProvider.getTopSites()).thenReturn(listOf(providedSite))
 
         val frecentSiteWithNoTitle = TopFrecentSiteInfo("https://mozilla.com", "")
-        val frecentSiteFirefox = TopFrecentSiteInfo("https://firefox.com", "Firefox")
+        val frecentSitePlezix = TopFrecentSiteInfo("https://firefox.com", "Plezix")
         val frecentSite1 = TopFrecentSiteInfo("https://getpocket.com", "Pocket")
         val frecentSite2 = TopFrecentSiteInfo("https://www.example.com", "Example")
-        val frecentSite3 = TopFrecentSiteInfo("https://www.getfirefox.com", "Firefox")
+        val frecentSite3 = TopFrecentSiteInfo("https://www.getfirefox.com", "Plezix")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
                 frecentSiteWithNoTitle,
-                frecentSiteFirefox,
+                frecentSitePlezix,
                 frecentSite1,
                 frecentSite2,
                 frecentSite3,
@@ -1103,7 +1103,7 @@ class DefaultTopSitesStorageTest {
 
         assertEquals(6, topSites.size)
         assertEquals(providedSite, topSites[0])
-        assertEquals(defaultSiteFirefox, topSites[1])
+        assertEquals(defaultSitePlezix, topSites[1])
         assertEquals(pinnedSite1, topSites[2])
         assertEquals(pinnedSite2, topSites[3])
         assertEquals(frecentSiteWithNoTitle.toTopSite(), topSites[4])
@@ -1139,7 +1139,7 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -1221,9 +1221,9 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSitePlezix = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -1254,7 +1254,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSitePlezix,
                 pinnedSite1,
             ),
         )
@@ -1271,7 +1271,7 @@ class DefaultTopSitesStorageTest {
         val frecentSite3 = TopFrecentSiteInfo("https://www.underarmour.com", "UnderArmour")
         val frecentSite4 = TopFrecentSiteInfo("https://www.underarmour.com/en-us/p/curry_brand_shoes_and_gear/mens_curry_sour_then_sweet_crewneck/195253758836.html", "UnderArmour")
         val frecentSite5 = TopFrecentSiteInfo("https://www.example.com", "Example")
-        val frecentSite6 = TopFrecentSiteInfo("https://www.getfirefox.com", "Firefox")
+        val frecentSite6 = TopFrecentSiteInfo("https://www.getfirefox.com", "Plezix")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
@@ -1303,7 +1303,7 @@ class DefaultTopSitesStorageTest {
         assertFalse(topSites.contains(frecentSite2.toTopSite()))
         assertFalse(topSites.contains(frecentSite3.toTopSite()))
         assertFalse(topSites.contains(frecentSite4.toTopSite()))
-        assertEquals(defaultSiteFirefox, topSites[2])
+        assertEquals(defaultSitePlezix, topSites[2])
         assertEquals(pinnedSite1, topSites[3])
         assertEquals(defaultTopSitesStorage.cachedTopSites, topSites)
     }

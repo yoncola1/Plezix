@@ -73,7 +73,7 @@ Technical metrics are values obtained directly from the browser. This includes m
 Visual Metrics
 ==============
 
-Visual metrics can be obtained by running Raptor Browsertime with ``--browsertime-visualmetrics``, it will record a video of the page being loaded and then process this video to build the metrics. The video is either produced using FFMPEG (with ``--browsertime-no-ffwindowrecorder``) or the Firefox Window Recorder (default).
+Visual metrics can be obtained by running Raptor Browsertime with ``--browsertime-visualmetrics``, it will record a video of the page being loaded and then process this video to build the metrics. The video is either produced using FFMPEG (with ``--browsertime-no-ffwindowrecorder``) or the Plezix Window Recorder (default).
 
 
 Benchmarks

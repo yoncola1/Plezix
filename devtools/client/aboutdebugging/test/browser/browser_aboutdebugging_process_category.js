@@ -15,7 +15,7 @@ add_task(async function () {
   const mocks = new Mocks();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const usbRuntime = mocks.createUSBRuntime(RUNTIME_ID, {
     deviceName: RUNTIME_DEVICE_NAME,

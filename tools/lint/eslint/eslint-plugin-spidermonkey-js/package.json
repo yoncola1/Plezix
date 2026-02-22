@@ -1,5 +1,5 @@
 {
-  "description": "A collection of rules that help enforce JavaScript coding standard in the Mozilla SpiderMonkey project.",
+  "description": "A collection of rules that help enforce JavaScript coding standard in the Plezix SpiderMonkey project.",
   "keywords": [
     "eslint",
     "eslintplugin",
@@ -15,7 +15,7 @@
     "type": "hg",
     "url": "https://hg.mozilla.org/mozilla-central/"
   },
-  "author": "Mozilla",
+  "author": "Plezix",
   "main": "lib/index.js",
   "dependencies": {},
   "devDependencies": {},

@@ -21,14 +21,14 @@ from .firefox import (get_timeout_multiplier,  # noqa: F401
                       run_info_extras as fx_run_info_extras,
                       update_properties,  # noqa: F401
                       executor_kwargs as fx_executor_kwargs,  # noqa: F401
-                      FirefoxWdSpecBrowser,
-                      ProfileCreator as FirefoxProfileCreator)
+                      PlezixWdSpecBrowser,
+                      ProfileCreator as PlezixProfileCreator)
 
 
 __wptrunner__ = {"product": "firefox_android",
                  "check_args": "check_args",
-                 "browser": {None: "FirefoxAndroidBrowser",
-                             "wdspec": "FirefoxAndroidWdSpecBrowser"},
+                 "browser": {None: "PlezixAndroidBrowser",
+                             "wdspec": "PlezixAndroidWdSpecBrowser"},
                  "executor": {"testharness": "MarionetteTestharnessExecutor",
                               "reftest": "MarionetteRefTestExecutor",
                               "crashtest": "MarionetteCrashtestExecutor",
@@ -116,7 +116,7 @@ def run_info_extras(logger, **kwargs):
 
 def get_package_browser_version(logger, adb_binary, package_name):
     if adb_binary is None:
-        logger.warning("Couldn't run adb to get Firefox Android version number")
+        logger.warning("Couldn't run adb to get Plezix Android version number")
         return None
     try:
         completed = subprocess.run([adb_binary, "shell", "dumpsys", "package", package_name],
@@ -154,7 +154,7 @@ def get_environ(chaos_mode_flags, env_extras=None):
     return env
 
 
-class ProfileCreator(FirefoxProfileCreator):
+class ProfileCreator(PlezixProfileCreator):
     def __init__(self, logger, prefs_root, config, test_type, extra_prefs,
                  disable_fission, debug_test, browser_channel, binary,
                  package_name, certutil_binary, ca_certificate_path,
@@ -209,7 +209,7 @@ class ProfileCreator(FirefoxProfileCreator):
             profile.set_preferences({"fission.autostart": False})
 
 
-class FirefoxAndroidBrowser(Browser):
+class PlezixAndroidBrowser(Browser):
     init_timeout = 300
     shutdown_timeout = 60
 
@@ -384,7 +384,7 @@ class FirefoxAndroidBrowser(Browser):
             return False
 
 
-class FirefoxAndroidWdSpecBrowser(FirefoxWdSpecBrowser):
+class PlezixAndroidWdSpecBrowser(PlezixWdSpecBrowser):
     def __init__(self, logger, config=None, device_serial=None, adb_binary=None, **kwargs):
 
         if "profile_creator_cls" not in kwargs:

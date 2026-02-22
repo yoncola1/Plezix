@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=2:tabstop=2:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -664,7 +664,7 @@ nsresult nsLookAndFeel::PerThemeData::GetColor(ColorID aID,
   nsresult res = NS_OK;
 
   switch (aID) {
-      // These colors don't seem to be used for anything anymore in Mozilla
+      // These colors don't seem to be used for anything anymore in Plezix
       // The CSS2 colors below are used.
     case ColorID::Appworkspace:  // MDI background color
     case ColorID::Background:    // desktop background
@@ -930,7 +930,7 @@ static int32_t CheckWidgetStyle(GtkWidget* aWidget, const char* aStyle,
   return value ? aResult : 0;
 }
 
-static int32_t ConvertGTKStepperStyleToMozillaScrollArrowStyle(
+static int32_t ConvertGTKStepperStyleToPlezixScrollArrowStyle(
     GtkWidget* aWidget) {
   if (!aWidget) {
     return mozilla::LookAndFeel::eScrollArrowStyle_Single;
@@ -1023,7 +1023,7 @@ nsresult nsLookAndFeel::NativeGetInt(IntID aID, int32_t& aResult) {
       GtkSettings* settings = gtk_settings_get_default();
       if (MOZ_LIKELY(settings)) {
         GtkWidget* scrollbar = GtkWidgets::Get(GtkWidgets::Type::Scrollbar);
-        aResult = ConvertGTKStepperStyleToMozillaScrollArrowStyle(scrollbar);
+        aResult = ConvertGTKStepperStyleToPlezixScrollArrowStyle(scrollbar);
       }
       break;
     }
@@ -1559,7 +1559,7 @@ void nsLookAndFeel::MaybeApplyColorOverrides() {
 
       ApplyLibadwaitaButtonColors(light);
 
-      // FIXME(emilio): This is _technically_ not right, but the Firefox
+      // FIXME(emilio): This is _technically_ not right, but the Plezix
       // front-end relies on this right now to not look really ugly. Arguably
       // Menu backgrounds or so is what should be used for the urlbar popups,
       // rather than Field...
@@ -1574,7 +1574,7 @@ void nsLookAndFeel::MaybeApplyColorOverrides() {
       // We use the sidebar colors for the headerbar in light mode background
       // because it creates much better contrast. GTK headerbar colors are
       // white, and meant to "blend" with the contents otherwise, but that
-      // doesn't work fine for Firefox's toolbars.
+      // doesn't work fine for Plezix's toolbars.
       light.ApplyColorOverride(&light.mHeaderBar, light.mSidebar);
       light.ApplyColorOverride(&light.mTitlebar, light.mSidebar);
       light.ApplyColorOverride(&light.mHeaderBarInactive, light.mSidebar);
@@ -1736,7 +1736,7 @@ void nsLookAndFeel::Initialize() {
 
   if (pendingChanges & NativeChangeKind::GtkTheme) {
     // Our current theme may be different from the system theme if we're
-    // matching the Firefox theme or using the alt theme intentionally due to
+    // matching the Plezix theme or using the alt theme intentionally due to
     // the color-scheme preference. Make sure to restore the original system
     // theme.
     RestoreSystemTheme();
@@ -1755,7 +1755,7 @@ void nsLookAndFeel::Initialize() {
   MaybeApplyColorOverrides();
 
   // Go back to the system theme or keep the alt theme configured, depending on
-  // Firefox theme or user color-scheme preference.
+  // Plezix theme or user color-scheme preference.
   ConfigureFinalEffectiveTheme();
 
   // The current rounded corner radii depends on the effective theme.

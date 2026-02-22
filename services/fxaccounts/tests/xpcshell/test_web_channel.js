@@ -62,7 +62,7 @@ add_test(function () {
 
 add_task(async function test_rejection_reporting() {
   Services.prefs.setBoolPref(
-    "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+    "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
     false
   );
 
@@ -168,7 +168,7 @@ add_test(function test_error_message_remove_profile_path() {
     windows: {
       err: new Error(
         "Win error 183 during operation rename on file C:\\Users\\Some Computer\\AppData\\Roaming\\" +
-          "Mozilla\\Firefox\\Profiles\\dbzjmzxa.default\\signedInUser.json (Cannot create a file)"
+          "Plezix\\Plezix\\Profiles\\dbzjmzxa.default\\signedInUser.json (Cannot create a file)"
       ),
       expected:
         "Error: Win error 183 during operation rename on file C:[REDACTED]signedInUser.json (Cannot create a file)",
@@ -176,15 +176,15 @@ add_test(function test_error_message_remove_profile_path() {
     unix: {
       err: new Error(
         "Unix error 28 during operation write on file /Users/someuser/Library/Application Support/" +
-          "Firefox/Profiles/dbzjmzxa.default-release-7/signedInUser.json (No space left on device)"
+          "Plezix/Profiles/dbzjmzxa.default-release-7/signedInUser.json (No space left on device)"
       ),
       expected:
         "Error: Unix error 28 during operation write on file [REDACTED]signedInUser.json (No space left on device)",
     },
     netpath: {
       err: new Error(
-        "Win error 32 during operation rename on file \\\\SVC.LOC\\HOMEDIRS$\\USERNAME\\Mozilla\\" +
-          "Firefox\\Profiles\\dbzjmzxa.default-release-7\\signedInUser.json (No space left on device)"
+        "Win error 32 during operation rename on file \\\\SVC.LOC\\HOMEDIRS$\\USERNAME\\Plezix\\" +
+          "Plezix\\Profiles\\dbzjmzxa.default-release-7\\signedInUser.json (No space left on device)"
       ),
       expected:
         "Error: Win error 32 during operation rename on file [REDACTED]signedInUser.json (No space left on device)",
@@ -192,7 +192,7 @@ add_test(function test_error_message_remove_profile_path() {
     mount: {
       err: new Error(
         "Win error 649 during operation rename on file C:\\SnapVolumes\\MountPoints\\" +
-          "{9e399ec5-0000-0000-0000-100000000000}\\SVROOT\\Users\\username\\AppData\\Roaming\\Mozilla\\Firefox\\" +
+          "{9e399ec5-0000-0000-0000-100000000000}\\SVROOT\\Users\\username\\AppData\\Roaming\\Plezix\\Plezix\\" +
           "Profiles\\dbzjmzxa.default-release\\signedInUser.json (The create operation failed)"
       ),
       expected:

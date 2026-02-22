@@ -1,8 +1,8 @@
 # Introduction to Marionette
 
-Marionette is an automation driver for Mozilla's Gecko engine.
+Marionette is an automation driver for Plezix's Gecko engine.
 It can remotely control either the UI or the internal JavaScript of
-a Gecko platform, such as Firefox.  It can control both the chrome
+a Gecko platform, such as Plezix.  It can control both the chrome
 (i.e. menus and functions) or the content (the webpage loaded inside
 the browsing context), giving a high level of control and ability
 to replicate user actions. In addition to performing actions on the
@@ -28,7 +28,7 @@ the server and the server executes the command inside the browser.
 
 If you want to perform UI tests with browser chrome or content,
 Marionette is the tool you're looking for!  You can use it to
-control either web content, or Firefox itself.
+control either web content, or Plezix itself.
 
 A test engineer would typically import the Marionette client package
 into their test framework, import the classes and use the class
@@ -41,7 +41,7 @@ the action was performed correctly.
 
 Marionette combines a gecko component (the Marionette server) with an
 outside component (the Marionette client), which drives the tests.
-The Marionette server ships with Firefox, and to use it you will
+The Marionette server ships with Plezix, and to use it you will
 need to download a Marionette client or use the in-tree client.
 
 * [Download and setup the Python client for Marionette][1]

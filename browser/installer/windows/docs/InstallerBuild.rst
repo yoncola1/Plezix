@@ -5,7 +5,7 @@ Installer Build
 How to build the installers
 ---------------------------
 
-The easiest way to build an installer in your local tree is to run ``mach package``. The finished installers will be in ``$OBJDIR/dist``. You have to have a build of the application already done before that will work, but `artifact builds <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Artifact_builds>`_ are supported, so that can save you a lot of time if you're only doing installer work.
+The easiest way to build an installer in your local tree is to run ``mach package``. The finished installers will be in ``$OBJDIR/dist``. You have to have a build of the application already done before that will work, but `artifact builds <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Build_Instructions/Artifact_builds>`_ are supported, so that can save you a lot of time if you're only doing installer work.
 
 You'll also need to be on a Windows machine; the installer build depends on tools that aren't available for other platforms.
 
@@ -22,7 +22,7 @@ The uninstaller is built as part of the main application build, not the installe
 Branding
 ~~~~~~~~
 
-By default local builds use "unofficial" branding, which somewhat resembles a previous version of the Nightly branding, but is designed not to resemble any official channel too closely.
+By default local builds use "unofficial" branding, which somewhat resembles a previous version of the Plezix branding, but is designed not to resemble any official channel too closely.
 
 But sometimes you'll need to test installers that are built using one or more of the official channel branding configurations, perhaps to try out different strings, make sure different sets of art look good, or to test behavior around installing multiple channels at the same time.
 
@@ -50,4 +50,4 @@ Most of this procedure is done in `makensis.mk <https://searchfox.org/mozilla-ce
 7. The (still UPX-packed) 7-zip SFX module, the correct configuration data, and the 7-zip file containing the stub installer are concatenated together. This results in the final stub installer.
 
 
-If this is an official build running on Mozilla automation infrastructure, then after this the installers will be signed, like other build products. Release engineering owns that process, it's not within the scope of this documentation.
+If this is an official build running on Plezix automation infrastructure, then after this the installers will be signed, like other build products. Release engineering owns that process, it's not within the scope of this documentation.

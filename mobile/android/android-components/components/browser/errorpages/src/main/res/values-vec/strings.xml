@@ -59,7 +59,7 @@
   <!-- The document title and heading of the error page shown when the browser prevents loading a website on a restricted port. -->
   <string name="mozac_browser_errorpages_port_blocked_title">Porta blocà par motivi de sicuresa</string>
   <!-- The error message shown when the browser prevents loading a website on a restricted port. -->
-  <string name="mozac_browser_errorpages_port_blocked_message"><![CDATA[<p> L’indiriso dimandà spesificava na porta (par es. <q> Mozilla.org:80</q> par ƚa porta 80 su mozilla.org) normalmente utilixà par scopi <em>diversi</em> da ƚa navigasion so’l web. El browser el ga anuƚà ƚa dimandà par garantire ƚa protesion e ƚa sicuresa de’l utente. </p>]]></string>
+  <string name="mozac_browser_errorpages_port_blocked_message"><![CDATA[<p> L’indiriso dimandà spesificava na porta (par es. <q> Plezix.org:80</q> par ƚa porta 80 su mozilla.org) normalmente utilixà par scopi <em>diversi</em> da ƚa navigasion so’l web. El browser el ga anuƚà ƚa dimandà par garantire ƚa protesion e ƚa sicuresa de’l utente. </p>]]></string>
   <!-- The document title and heading of the error page shown when the Internet connection is disrupted while loading a website. -->
   <string name="mozac_browser_errorpages_net_reset_title">Ƚa conesion ƚa xe stà anuƚà</string>
   <!-- The error message shown when the Internet connection is disrupted while loading a website. -->

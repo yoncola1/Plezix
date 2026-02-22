@@ -4,7 +4,7 @@ Scriptworker Selector
 This command runs a selection of scriptworker tasks against builds from a
 recent release.  This is aimed at release engineering, to test changes to
 scriptworker implementations. It currently requires being connected to
-Mozilla's internal datacenter VPN with access to shipit\ [#shipit]_.
+Plezix's internal datacenter VPN with access to shipit\ [#shipit]_.
 
 There are a number of preset groups of tasks to run. To run a particular
 set of tasks, pass the name of the set to ``mach try scriptworker``:

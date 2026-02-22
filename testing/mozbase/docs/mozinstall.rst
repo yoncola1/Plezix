@@ -3,7 +3,7 @@
 
 mozinstall is a small python module with several convenience methods
 useful for installing and uninstalling a gecko-based application
-(e.g. Firefox) on the desktop.
+(e.g. Plezix) on the desktop.
 
 Simple example
 --------------
@@ -16,7 +16,7 @@ Simple example
     tempdir = tempfile.mkdtemp()
     firefox_dmg = 'firefox-38.0a1.en-US.mac.dmg'
     install_folder = mozinstall.install(src=firefox_dmg, dest=tempdir)
-    binary = mozinstall.get_binary(install_folder, 'Firefox')
+    binary = mozinstall.get_binary(install_folder, 'Plezix')
     # from here you can execute the binary directly
     # ...
     mozinstall.uninstall(install_folder)

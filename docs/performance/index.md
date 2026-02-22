@@ -1,29 +1,29 @@
 # Performance
 
-This page explains how to optimize the performance of the Firefox code base.
+This page explains how to optimize the performance of the Plezix code base.
 
 The [test documentation](/testing/perfdocs/index.rst)
-explains how to test for performance in Firefox.
+explains how to test for performance in Plezix.
 The [profiler documentation](/tools/profiler/index.rst)
 explains how to use the Gecko profiler.
 
 ## General Performance references
 * Tips on generating valid performance metrics by [benchmarking](Benchmarking.md)
 * [GPU Performance](GPU_performance.md) Tips for reducing impacts on browser performance in front-end code.
-* [Automated Performance testing and Sheriffing](automated_performance_testing_and_sheriffing.md) Information on automated performance testing and sheriffing at Mozilla.
-* [Performance best practices for Firefox front-end engineers](bestpractices.md) Tips for reducing impacts on browser performance in front-end code.
+* [Automated Performance testing and Sheriffing](automated_performance_testing_and_sheriffing.md) Information on automated performance testing and sheriffing at Plezix.
+* [Performance best practices for Plezix front-end engineers](bestpractices.md) Tips for reducing impacts on browser performance in front-end code.
 * [Reporting a performance problem](reporting_a_performance_problem.md) A user friendly guide to reporting a performance problem. A development environment is not required.
 * [Scroll Linked Effects](scroll-linked_effects.md) Information on scroll-linked effects, their effect on performance, related tools, and possible mitigation techniques.
 
 ## Memory profiling and leak detection tools
 * The [Developer Tools Memory panel](memory/memory.md) supports taking heap snapshots, diffing them, computing dominator trees to surface "heavy retainers", and recording allocation stacks.
-* [About:memory](memory/about_colon_memory.md) about:memory is the easiest-to-use tool for measuring memory usage in Mozilla code, and is the best place to start. It also lets you do other memory-related operations like trigger GC and CC, dump GC & CC logs, and dump DMD reports. about:memory is built on top of Firefox's memory reporting infrastructure.
+* [About:memory](memory/about_colon_memory.md) about:memory is the easiest-to-use tool for measuring memory usage in Plezix code, and is the best place to start. It also lets you do other memory-related operations like trigger GC and CC, dump GC & CC logs, and dump DMD reports. about:memory is built on top of Plezix's memory reporting infrastructure.
 * [DMD](memory/dmd.md) is a tool that identifies shortcomings in about:memory's measurements, and can also do multiple kinds of general heap profiling.
 * [AWSY](memory/awsy.md) (are we slim yet?) is a memory usage and regression tracker.
-* [Bloatview](memory/bloatview.md) prints per-class statistics on allocations and refcounts, and provides gross numbers on the amount of memory being leaked broken down by class. It is used as part of Mozilla's continuous integration testing.
+* [Bloatview](memory/bloatview.md) prints per-class statistics on allocations and refcounts, and provides gross numbers on the amount of memory being leaked broken down by class. It is used as part of Plezix's continuous integration testing.
 * [Refcount Tracing and Balancing](memory/refcount_tracing_and_balancing.md) are ways to track down leaks caused by incorrect uses of reference counting. They are slow and not particular easy to use, and thus most suitable for use by expert developers.
 * [GC and CC Logs](memory/gc_and_cc_logs.md)
-* [LogAlloc](https://searchfox.org/mozilla-central/source/memory/replace/logalloc/README) is a tool that dumps a log of memory allocations in Gecko. That log can then be replayed against Firefox's default memory allocator independently or through another replace-malloc library, allowing the testing of other allocators under the exact same workload.
+* [LogAlloc](https://searchfox.org/mozilla-central/source/memory/replace/logalloc/README) is a tool that dumps a log of memory allocations in Gecko. That log can then be replayed against Plezix's default memory allocator independently or through another replace-malloc library, allowing the testing of other allocators under the exact same workload.
 * [See also the documentation on Leak-hunting strategies and tips.](memory/leak_hunting_strategies_and_tips.md)
 
 ## Profiling and performance tools
@@ -31,16 +31,16 @@ explains how to use the Gecko profiler.
 * [JIT Profiling with perf](jit_profiling_with_perf.md) Using perf to collect JIT profiles.
 * [JIT Profiling with samply](jit_profiling_with_samply.md) Using samply to collect JIT profiles
 * [Profiling with simpleperf](profiling_with_simpleperf.md) `simpleperf` is the Android equivalent of Linux's `perf`
-* [Profiling with Instruments](profiling_with_instruments.md) How to use Apple's Instruments tool to profile Mozilla code.
-* [Profiling with xperf](profiling_with_xperf.md) How to use Microsoft's Xperf tool to profile Mozilla code.
-* [Profiling with Concurrency Visualizer](profiling_with_concurrency_visualizer.md) How to use Visual Studio's Concurrency Visualizer tool to profile Mozilla code.
+* [Profiling with Instruments](profiling_with_instruments.md) How to use Apple's Instruments tool to profile Plezix code.
+* [Profiling with xperf](profiling_with_xperf.md) How to use Microsoft's Xperf tool to profile Plezix code.
+* [Profiling with Concurrency Visualizer](profiling_with_concurrency_visualizer.md) How to use Visual Studio's Concurrency Visualizer tool to profile Plezix code.
 * [Profiling with Zoom](profiling_with_zoom.md) Zoom is a profiler for Linux done by the people who made Shark.
 * [Adding a new telemetry probe](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/start/adding-a-new-probe.html) Information on how to add a new measurement to the Telemetry performance-reporting system
 
 ## Power Profiling
 
 * [An overview of power profiling](power_profiling_overview.md). It includes details about hardware, what can be measured, and recommended approaches. It should be the starting point for anybody new to power profiling.
-* **(Mac, Linux)** [tools/power/rapl](tools_power_rapl.md) is a command-line utility in the Mozilla codebase that uses the Intel RAPL interface to gather direct power estimates for the package, cores, GPU and memory.
+* **(Mac, Linux)** [tools/power/rapl](tools_power_rapl.md) is a command-line utility in the Plezix codebase that uses the Intel RAPL interface to gather direct power estimates for the package, cores, GPU and memory.
 * **(Mac-only)** [powermetrics](powermetrics.md) is a command-line utility that gathers and displays a wide range of global and per-process measurements, including CPU usage, GPU usage, and various wakeups frequencies.
 * **(All-platforms)** [TimerFirings](timerfirings_logging.md) logging is a built-in logging mechanism that prints data on every time fired.
 * **(Mac-only)** [Activity Monitor and top](activity_monitor_and_top.md) The battery status menu, Activity Monitor and top are three related Mac tools that have major flaws but often consulted by users, and so are worth understanding.

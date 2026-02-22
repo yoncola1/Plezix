@@ -17,7 +17,7 @@ function init(scope) {
   testScope = scope;
 }
 
-function getFirefoxViewURL() {
+function getPlezixViewURL() {
   return "about:firefoxview";
 }
 
@@ -35,37 +35,37 @@ async function switchToWindow(win) {
   testScope.info("switchToWindow, done");
 }
 
-function assertFirefoxViewTab(win) {
-  Assert.ok(win.FirefoxViewHandler.tab, "Firefox View tab exists");
-  Assert.ok(win.FirefoxViewHandler.tab?.hidden, "Firefox View tab is hidden");
+function assertPlezixViewTab(win) {
+  Assert.ok(win.PlezixViewHandler.tab, "Plezix View tab exists");
+  Assert.ok(win.PlezixViewHandler.tab?.hidden, "Plezix View tab is hidden");
   Assert.equal(
-    win.gBrowser.visibleTabs.indexOf(win.FirefoxViewHandler.tab),
+    win.gBrowser.visibleTabs.indexOf(win.PlezixViewHandler.tab),
     -1,
-    "Firefox View tab is not in the list of visible tabs"
+    "Plezix View tab is not in the list of visible tabs"
   );
 }
 
-async function assertFirefoxViewTabSelected(win) {
-  assertFirefoxViewTab(win);
+async function assertPlezixViewTabSelected(win) {
+  assertPlezixViewTab(win);
   Assert.ok(
-    win.FirefoxViewHandler.tab.selected,
-    "Firefox View tab is selected"
+    win.PlezixViewHandler.tab.selected,
+    "Plezix View tab is selected"
   );
   await BrowserTestUtils.browserLoaded(
-    win.FirefoxViewHandler.tab.linkedBrowser
+    win.PlezixViewHandler.tab.linkedBrowser
   );
 }
 
-async function openFirefoxViewTab(win) {
+async function openPlezixViewTab(win) {
   if (!testScope?.SimpleTest) {
     throw new Error(
-      "Must initialize FirefoxViewTestUtils with a test scope which has a SimpleTest property"
+      "Must initialize PlezixViewTestUtils with a test scope which has a SimpleTest property"
     );
   }
   await switchToWindow(win);
-  let fxviewTab = win.FirefoxViewHandler.tab;
+  let fxviewTab = win.PlezixViewHandler.tab;
   let alreadyLoaded =
-    fxviewTab?.linkedBrowser.currentURI.spec.includes(getFirefoxViewURL()) &&
+    fxviewTab?.linkedBrowser.currentURI.spec.includes(getPlezixViewURL()) &&
     fxviewTab?.linkedBrowser?.contentDocument?.readyState == "complete";
   let enteredPromise = alreadyLoaded
     ? Promise.resolve()
@@ -80,15 +80,15 @@ async function openFirefoxViewTab(win) {
     await TestUtils.waitForTick();
   }
 
-  fxviewTab = win.FirefoxViewHandler.tab;
-  assertFirefoxViewTab(win);
+  fxviewTab = win.PlezixViewHandler.tab;
+  assertPlezixViewTab(win);
   Assert.ok(
-    win.FirefoxViewHandler.tab.selected,
-    "Firefox View tab is selected"
+    win.PlezixViewHandler.tab.selected,
+    "Plezix View tab is selected"
   );
 
   testScope.info(
-    "openFirefoxViewTab, waiting for complete readyState, visible and firefoxview-entered"
+    "openPlezixViewTab, waiting for complete readyState, visible and firefoxview-entered"
   );
   await Promise.all([
     TestUtils.waitForCondition(() => {
@@ -100,22 +100,22 @@ async function openFirefoxViewTab(win) {
     }),
     enteredPromise,
   ]);
-  testScope.info("openFirefoxViewTab, ready resolved");
+  testScope.info("openPlezixViewTab, ready resolved");
   return fxviewTab;
 }
 
-function closeFirefoxViewTab(win) {
-  if (win.FirefoxViewHandler.tab) {
-    win.gBrowser.removeTab(win.FirefoxViewHandler.tab);
+function closePlezixViewTab(win) {
+  if (win.PlezixViewHandler.tab) {
+    win.gBrowser.removeTab(win.PlezixViewHandler.tab);
   }
   Assert.ok(
-    !win.FirefoxViewHandler.tab,
-    "Reference to Firefox View tab got removed when closing the tab"
+    !win.PlezixViewHandler.tab,
+    "Reference to Plezix View tab got removed when closing the tab"
   );
 }
 
 /**
- * Run a task with Firefox View open.
+ * Run a task with Plezix View open.
  *
  * @param {object} options
  *   Options object.
@@ -132,7 +132,7 @@ function closeFirefoxViewTab(win) {
  * @returns {any}
  *   The value returned by the task.
  */
-async function withFirefoxView(
+async function withPlezixView(
   { openNewWindow = false, resetFlowManager = true, win = null },
   taskFn
 ) {
@@ -152,7 +152,7 @@ async function withFirefoxView(
   await win.SpecialPowers.pushPrefEnv({
     set: [["accessibility.tabfocus", 7]],
   });
-  let tab = await openFirefoxViewTab(win);
+  let tab = await openPlezixViewTab(win);
   let originalWindow = tab.ownerGlobal;
   let result = await taskFn(tab.linkedBrowser);
   let finalWindow = tab.ownerGlobal;
@@ -164,7 +164,7 @@ async function withFirefoxView(
     BrowserTestUtils.removeTab(tab);
   } else {
     Services.console.logStringMessage(
-      "withFirefoxView: Tab was already closed before " +
+      "withPlezixView: Tab was already closed before " +
         "removeTab would have been called"
     );
   }
@@ -175,18 +175,18 @@ async function withFirefoxView(
   return result;
 }
 
-function isFirefoxViewTabSelectedInWindow(win) {
-  return win.gBrowser.selectedBrowser.currentURI.spec == getFirefoxViewURL();
+function isPlezixViewTabSelectedInWindow(win) {
+  return win.gBrowser.selectedBrowser.currentURI.spec == getPlezixViewURL();
 }
 
 export {
   init,
   switchToWindow,
-  withFirefoxView,
-  assertFirefoxViewTab,
-  assertFirefoxViewTabSelected,
-  openFirefoxViewTab,
-  closeFirefoxViewTab,
-  isFirefoxViewTabSelectedInWindow,
-  getFirefoxViewURL,
+  withPlezixView,
+  assertPlezixViewTab,
+  assertPlezixViewTabSelected,
+  openPlezixViewTab,
+  closePlezixViewTab,
+  isPlezixViewTabSelectedInWindow,
+  getPlezixViewURL,
 };

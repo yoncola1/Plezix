@@ -19,7 +19,7 @@
           ":path": "/"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -56,7 +56,7 @@
           ":path": "/wiki/Main_Page"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -92,7 +92,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/css,*/*;q=0.1"
@@ -131,7 +131,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/css,*/*;q=0.1"
@@ -170,7 +170,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -209,7 +209,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -248,7 +248,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -287,7 +287,7 @@
           ":path": "/wikipedia/en/c/ca/Kanthirava_cropped.png"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -329,7 +329,7 @@
           ":path": "/wikipedia/commons/thumb/d/d2/Dancing_girl_ajanta_%28cropped%29.jpg/72px-Dancing_girl_ajanta_%28cropped%29.jpg"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -371,7 +371,7 @@
           ":path": "/en.wikipedia.org/load.php"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"

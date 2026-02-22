@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -58,31 +58,31 @@ class StrictVersion:
             return 1
 
 
-class MozillaVersionCompareMixin:
+class PlezixVersionCompareMixin:
     def __cmp__(self, other):
         # We expect this function to never be called.
         raise AssertionError()
 
     def _cmp(self, other):
         has_esr = set()
-        if isinstance(other, LooseModernMozillaVersion) and str(other).endswith("esr"):
-            # If other version ends with esr, coerce through MozillaVersion ending up with
+        if isinstance(other, LooseModernPlezixVersion) and str(other).endswith("esr"):
+            # If other version ends with esr, coerce through PlezixVersion ending up with
             # a StrictVersion if possible
             has_esr.add("other")
-            other = MozillaVersion(str(other)[:-3])  # strip ESR from end of string
-        if isinstance(self, LooseModernMozillaVersion) and str(self).endswith("esr"):
-            # If our version ends with esr, coerce through MozillaVersion ending up with
+            other = PlezixVersion(str(other)[:-3])  # strip ESR from end of string
+        if isinstance(self, LooseModernPlezixVersion) and str(self).endswith("esr"):
+            # If our version ends with esr, coerce through PlezixVersion ending up with
             # a StrictVersion if possible
             has_esr.add("self")
-            self = MozillaVersion(str(self)[:-3])  # strip ESR from end of string
-        if isinstance(other, LooseModernMozillaVersion) or isinstance(
-            self, LooseModernMozillaVersion
+            self = PlezixVersion(str(self)[:-3])  # strip ESR from end of string
+        if isinstance(other, LooseModernPlezixVersion) or isinstance(
+            self, LooseModernPlezixVersion
         ):
             # If we're still LooseVersion for self or other, run LooseVersion compare
             # Being sure to pass through Loose Version type first
             val = LooseVersion._cmp(
-                LooseModernMozillaVersion(str(self)),
-                LooseModernMozillaVersion(str(other)),
+                LooseModernPlezixVersion(str(self)),
+                LooseModernPlezixVersion(str(other)),
             )
         else:
             # No versions are loose, therefore we can use StrictVersion
@@ -101,7 +101,7 @@ class MozillaVersionCompareMixin:
         return 1  # non esr is greater than esr
 
 
-class ModernMozillaVersion(MozillaVersionCompareMixin, StrictVersion):
+class ModernPlezixVersion(PlezixVersionCompareMixin, StrictVersion):
     """A version class that is slightly less restrictive than StrictVersion.
     Instead of just allowing "a" or "b" as prerelease tags, it allows any
     alpha. This allows us to support the once-shipped "3.6.3plugin1" and
@@ -114,7 +114,7 @@ class ModernMozillaVersion(MozillaVersionCompareMixin, StrictVersion):
     )
 
 
-class AncientMozillaVersion(MozillaVersionCompareMixin, StrictVersion):
+class AncientPlezixVersion(PlezixVersionCompareMixin, StrictVersion):
     """A version class that is slightly less restrictive than StrictVersion.
     Instead of just allowing "a" or "b" as prerelease tags, it allows any
     alpha. This allows us to support the once-shipped "3.6.3plugin1" and
@@ -129,7 +129,7 @@ class AncientMozillaVersion(MozillaVersionCompareMixin, StrictVersion):
     )
 
 
-class LooseModernMozillaVersion(MozillaVersionCompareMixin, LooseVersion):
+class LooseModernPlezixVersion(PlezixVersionCompareMixin, LooseVersion):
     """A version class that is more restrictive than LooseVersion.
     This class reduces the valid strings to "esr", "a", "b" and "rc" in order
     to support esr. StrictVersion requires a trailing number after all strings."""
@@ -137,21 +137,21 @@ class LooseModernMozillaVersion(MozillaVersionCompareMixin, LooseVersion):
     component_re = re.compile(r"(\d+ | a | b | rc | esr | \.)", re.VERBOSE)
 
     def __repr__(self):
-        return "LooseModernMozillaVersion ('%s')" % str(self)
+        return "LooseModernPlezixVersion ('%s')" % str(self)
 
 
-def MozillaVersion(version):
+def PlezixVersion(version):
     try:
-        return ModernMozillaVersion(version)
+        return ModernPlezixVersion(version)
     except InvalidVersion:
         pass
     try:
         if version.count(".") == 3:
-            return AncientMozillaVersion(version)
+            return AncientPlezixVersion(version)
     except InvalidVersion:
         pass
     try:
-        return LooseModernMozillaVersion(version)
+        return LooseModernPlezixVersion(version)
     except ValueError:
         pass
     raise ValueError("Version number %s is invalid." % version)

@@ -22,7 +22,7 @@ Version history
 
 ### 3.3.2 (2016-01-11) ###
 
-* Fix an incompatibility with Firefox (issue 167)
+* Fix an incompatibility with Plezix (issue 167)
 
 ### 3.3.1 (2016-01-11) ###
 

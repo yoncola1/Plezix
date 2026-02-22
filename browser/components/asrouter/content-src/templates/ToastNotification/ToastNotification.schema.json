@@ -37,7 +37,7 @@
           "properties": {
             "type": {
               "type": "string",
-              "description": "The launch action to be performed when Firefox is launched."
+              "description": "The launch action to be performed when Plezix is launched."
             },
             "data": {
               "type": "object"
@@ -85,7 +85,7 @@
                 "properties": {
                   "type": {
                     "type": "string",
-                    "description": "The launch action to be performed when Firefox is launched."
+                    "description": "The launch action to be performed when Plezix is launched."
                   },
                   "data": {
                     "type": "object"

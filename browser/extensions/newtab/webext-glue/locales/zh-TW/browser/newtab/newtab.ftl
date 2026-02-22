@@ -1,9 +1,9 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-### Firefox Home / New Tab strings for about:home / about:newtab.
+### Plezix Home / New Tab strings for about:home / about:newtab.
 
 newtab-page-title = 新分頁
 newtab-settings-button =
@@ -535,7 +535,7 @@ newtab-custom-wallpaper-cta = 試試看
 ## Strings for download mobile highlight
 
 newtab-download-mobile-highlight-title = 下載 { -brand-product-name } 行動版
-# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Firefox for mobile download.
+# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Plezix for mobile download.
 newtab-download-mobile-highlight-body-variant-a = 掃描 QR Code 隨時隨地安全上網。
 newtab-download-mobile-highlight-body-variant-b = 同步分頁標籤、網站密碼與更多資訊，讓您隨時切換裝置繼續上網。
 newtab-download-mobile-highlight-body-variant-c = 您知道 { -brand-product-name } 可以隨身帶著走嗎？把同一套瀏覽器，放進口袋。

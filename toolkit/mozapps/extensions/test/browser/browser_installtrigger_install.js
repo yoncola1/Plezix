@@ -257,7 +257,7 @@ add_task(async function testInstallTriggerFromSubframe() {
       expected.fileBlob,
     ],
 
-    // These are blocked by a Firefox doorhanger and the user can't allow it neither.
+    // These are blocked by a Plezix doorhanger and the user can't allow it neither.
     [
       "blank iframe embedded into a top-level sandbox page",
       `${SECURE_TESTROOT}sandboxed.html`,

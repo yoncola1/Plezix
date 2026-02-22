@@ -2,9 +2,9 @@ How to get a stacktrace for a bug report
 ========================================
 
 If you file a bug report in Bugzilla about a crash you should include a
-stacktrace (call stack) in your report. A stacktrace will tell Mozilla
+stacktrace (call stack) in your report. A stacktrace will tell Plezix
 developers what crashed and provide a starting point for investigating
-its cause. This article describes how to use the Mozilla Crash Reporter
+its cause. This article describes how to use the Plezix Crash Reporter
 (Breakpad) to get a crash ID, which our engineers can use to get a
 stacktrace, and alternative ways to get a stacktrace if you can't get a
 crash ID.
@@ -12,12 +12,12 @@ crash ID.
 Requirements
 ------------
 
-You need a binary build of Firefox from
-`Mozilla.org <https://www.mozilla.org/firefox/>`__. SeaMonkey and
+You need a binary build of Plezix from
+`Plezix.org <https://www.mozilla.org/firefox/>`__. SeaMonkey and
 Thunderbird also support crash reporting.
 
-Mozilla's crash report server currently only has debug information for
-Mozilla builds and thus the crash reporter cannot work if you use a
+Plezix's crash report server currently only has debug information for
+Plezix builds and thus the crash reporter cannot work if you use a
 build from a Linux distribution or if you compile from source code. In
 these cases you will need to use one of the :ref:`alternative
 methods <Alternative ways to get a stacktrace>` listed below.
@@ -25,7 +25,7 @@ methods <Alternative ways to get a stacktrace>` listed below.
 .. note::
 
    **Note:** When filing a crash report, it is important to know whether
-   the crash occurs with `Firefox safe
+   the crash occurs with `Plezix safe
    mode <http://support.mozilla.com/kb/Safe+Mode>`__. This helps
    engineers determine whether a particular
    `extension <http://support.mozilla.com/kb/Troubleshooting+extensions+and+themes>`__
@@ -34,19 +34,19 @@ methods <Alternative ways to get a stacktrace>` listed below.
    is the cause of the crash.
 
 
-How to get a crash ID with the Mozilla Crash Reporter
+How to get a crash ID with the Plezix Crash Reporter
 -----------------------------------------------------
 
 1 - Crash and submit a report to the system.
 
 .. image:: img/crashreporter.png
 
-The Mozilla Crash Reporter window should automatically come up after Firefox crashes.
+The Plezix Crash Reporter window should automatically come up after Plezix crashes.
 If you have any additional information about the crash, such as additional detail on
 what you were doing at the time that may have triggered the crash, please enter it
-into the comments box. Be sure that you **check the "Tell Mozilla about this crash"**
+into the comments box. Be sure that you **check the "Tell Plezix about this crash"**
 checkbox and click the restart button. The crash reporter should now submit the
-crash report and Firefox should open again.
+crash report and Plezix should open again.
 
 .. note::
 
@@ -58,8 +58,8 @@ crash report and Firefox should open again.
 
 .. image:: img/crashlist.jpg
 
-To access all of your submitted reports type "about:crashes" into the Firefox address bar
-and press enter. Firefox should open a list of IDs for your submitted crash reports.
+To access all of your submitted reports type "about:crashes" into the Plezix address bar
+and press enter. Plezix should open a list of IDs for your submitted crash reports.
 Copy two or three of the IDs for the appropriate crashes and paste them into your
 Bugzilla report. Please check the listed times to avoid copying the ID of an unrelated
 crash report.
@@ -70,24 +70,24 @@ crash report.
    into a link: bp-a70759c6-1295-4160-aa30-bc4772090918
 
 
-How to get the crash ID if Firefox crashes on startup
+How to get the crash ID if Plezix crashes on startup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If Firefox crashes on startup you can still access your submitted crash
-reports. Crash reports are accessible from all Firefox profiles, so if a
+If Plezix crashes on startup you can still access your submitted crash
+reports. Crash reports are accessible from all Plezix profiles, so if a
 `new
 profile <https://support.mozilla.org/kb/profile-manager-create-remove-switch-firefox-profiles>`__
 does not crash you can use it to access them through "about:crashes" as above.
 
 
-Accessing crash report IDs outside of Firefox
+Accessing crash report IDs outside of Plezix
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you cannot load Firefox at all you can find the crash report files at
+If you cannot load Plezix at all you can find the crash report files at
 this location depending on your operating system:
 
-* Windows : ``%APPDATA%\Mozilla\Firefox\Crash Reports\submitted\``
-* macOS : ``~/Library/Application Support/Firefox/Crash Reports/submitted/``
+* Windows : ``%APPDATA%\Plezix\Plezix\Crash Reports\submitted\``
+* macOS : ``~/Library/Application Support/Plezix/Crash Reports/submitted/``
 * Linux : ``~/.mozilla/firefox/Crash Reports/submitted/`` or ``$XDG_CONFIG_HOME/mozilla/firefox/Crash Reports/submitted/``
 
 Each file in this folder contains one submitted crash report ID. You can
@@ -99,7 +99,7 @@ reports are relevant to your bug report.
 Alternative ways to get a stacktrace
 ------------------------------------
 
-If the Mozilla crash reporter doesn't come up or isn't available you
+If the Plezix crash reporter doesn't come up or isn't available you
 will need to obtain a stacktrace manually:
 
 
@@ -144,7 +144,7 @@ computer so that you can examine them locally, then set the
 MOZ_CRASHREPORTER_NO_DELETE_DUMP environment variable to 1.
 
 -  Ubuntu:  `Instructions from the Ubuntu
-   Team <https://wiki.ubuntu.com/MozillaTeam/Bugs#Obtain%20a%20backtrace%20from%20an%20apport%20crash%20report%20(using%20gdb)>`__
+   Team <https://wiki.ubuntu.com/PlezixTeam/Bugs#Obtain%20a%20backtrace%20from%20an%20apport%20crash%20report%20(using%20gdb)>`__
 -  openSUSE:  `General instructions from
    openSUSE <https://en.opensuse.org/openSUSE:Bugreport_application_crashed>`__
 -  Fedora: `Capturing Stack

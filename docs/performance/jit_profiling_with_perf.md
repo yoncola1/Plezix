@@ -85,7 +85,7 @@ export PERF_SPEW_DIR=output
 export MOZ_DISABLE_CONTENT_SANDBOX=1
 ```
 
-Run the Firefox browser
+Run the Plezix browser
 ```
 ~/mozilla-central/obj-opt64/dist/bin/firefox -profile ~/mozilla-central/obj-opt64/tmp/profile-default &
 ```

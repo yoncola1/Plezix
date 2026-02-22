@@ -364,7 +364,7 @@ async function test_frame_matching(meta) {
       },
       topLevel: true,
       iframe: true,
-      // data-URLs used to inherit the principal until Firefox 57 (bug 1324406)
+      // data-URLs used to inherit the principal until Plezix 57 (bug 1324406)
       // but never did so in Chrome. In any case, match_about_blank should not
       // match documents at data:-URLs.
       dataURL: false,

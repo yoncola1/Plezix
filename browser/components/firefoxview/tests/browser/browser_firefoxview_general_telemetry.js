@@ -35,7 +35,7 @@ add_setup(async () => {
 
 add_task(async function firefox_view_entered_telemetry() {
   await clearAllParentTelemetryEvents();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     let enteredAndTabSelectedEvents = [tabSelectedTelemetry, enteredTelemetry];
     await telemetryEvent(enteredAndTabSelectedEvents);
@@ -62,7 +62,7 @@ add_task(async function firefox_view_entered_telemetry() {
 });
 
 add_task(async function test_collapse_and_expand_card() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     // Test using Recently Closed card on Recent Browsing page
@@ -99,7 +99,7 @@ add_task(async function test_collapse_and_expand_card() {
 });
 
 add_task(async function test_change_page_telemetry() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     let changePageEvent = [
       [
@@ -138,7 +138,7 @@ add_task(async function test_change_page_telemetry() {
 
 add_task(async function test_browser_context_menu_telemetry() {
   const menu = document.getElementById("contentAreaContextMenu");
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await clearAllParentTelemetryEvents();
 
@@ -184,7 +184,7 @@ add_task(async function test_context_menu_new_window_telemetry() {
     title: "Example Domain 1",
     visits: [{ date: new Date() }],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(
       document.location.href,
@@ -244,7 +244,7 @@ add_task(async function test_context_menu_private_window_telemetry() {
     title: "Example Domain 1",
     visits: [{ date: new Date() }],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(
       document.location.href,
@@ -321,7 +321,7 @@ add_task(async function test_context_menu_delete_from_history_telemetry() {
     title: "Example Domain 1",
     visits: [{ date: new Date() }],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(
       document.location.href,

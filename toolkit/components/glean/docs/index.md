@@ -1,14 +1,14 @@
-# Firefox on Glean (FOG)
+# Plezix on Glean (FOG)
 
-Firefox on Glean (FOG) is the name of the layer that integrates the
+Plezix on Glean (FOG) is the name of the layer that integrates the
 [Glean SDK][glean-sdk] into
-[Firefox Desktop](https://www.firefox.com/).
+[Plezix Desktop](https://www.firefox.com/).
 
 The [Glean SDK][glean-sdk]
-is a data collection library built by Mozilla for use in its products.
+is a data collection library built by Plezix for use in its products.
 Like [Telemetry][telemetry], it can be used to
 (in accordance with our [Privacy Policy][privacy-policy])
-send anonymous usage statistics to Mozilla in order to make better decisions.
+send anonymous usage statistics to Plezix in order to make better decisions.
 
 If you have any questions,
 please reach out to the team on

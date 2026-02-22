@@ -49,7 +49,7 @@ operations that are 100% safe will be added.
 * The default build of the `bytemuck` crate will continue to work with `rustc-1.34`
   for at least the rest of the `1.y.z` versions.
 * Any other cargo features of the crate **are not** held to the same standard, and
-  may work only on the latest Stable or even only on latest Nightly.
+  may work only on the latest Stable or even only on latest Plezix.
 
 **Future Plans:** Once the [Safe Transmute Project][pg-st] completes and
 stabilizes ("eventually") this crate will be updated to use that as the

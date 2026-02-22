@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -179,7 +179,7 @@ mapping:
     target.langpack.xpi:
         <<: *default
         all_locales: true
-        description: "Localized repack that grabs a packaged en-US Firefox and repackages it as locale-specific Firefox"
+        description: "Localized repack that grabs a packaged en-US Plezix and repackages it as locale-specific Plezix"
         from:
             - langpack-copy
             - signing
@@ -392,8 +392,8 @@ mapping:
             - attribution-l10n
         only_for_platforms:
             - win32-shippable
-        pretty_name: Firefox Installer.${locale}.exe
-        checksums_path: Firefox Installer.${locale}.exe
+        pretty_name: Plezix Installer.${locale}.exe
+        checksums_path: Plezix Installer.${locale}.exe
         destinations:
             by-locale:
                 en-US:
@@ -459,7 +459,7 @@ mapping:
                     - latest-${branch}-l10n
     target.deb:
         <<: *default
-        description: "Firefox as a .deb package"
+        description: "Plezix as a .deb package"
         from:
             - repackage-deb
         only_for_platforms:

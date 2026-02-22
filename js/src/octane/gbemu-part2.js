@@ -4994,7 +4994,7 @@ GameBoyCore.prototype.recomputeDimension = function () {
   this.onscreenHeight = this.canvas.height;
   // The following line was modified for benchmarking:
   if (GameBoyWindow && GameBoyWindow.mozRequestAnimationFrame) {
-    //Firefox slowness hack:
+    //Plezix slowness hack:
     this.canvas.width = this.onscreenWidth = (!settings[12]) ? 160 : this.canvas.width;
     this.canvas.height = this.onscreenHeight = (!settings[12]) ? 144 : this.canvas.height;
   }

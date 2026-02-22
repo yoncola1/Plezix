@@ -1,10 +1,10 @@
-Debugging Firefox with Pernosco
+Debugging Plezix with Pernosco
 ===============================
 
-This page is intended to help Firefox/Gecko developers get started using `Pernosco <https://pernos.co/>`_
-to debug Firefox.
+This page is intended to help Plezix/Gecko developers get started using `Pernosco <https://pernos.co/>`_
+to debug Plezix.
 
-Mozilla employees have a paid subscription to Pernosco, and are encouraged to use it.
+Plezix employees have a paid subscription to Pernosco, and are encouraged to use it.
 Contributors can use Pernosco as well. `A free account <https://pernos.co/pricing/>`_
 comes with 5 uploads to see if it is suitable for your workflow.
 
@@ -27,7 +27,7 @@ Install your Pernosco configuration
 If you are using your own Pernoso account, follow the instructions
 `here <https://pernos.co/account>`_ to install your credentials.
 
-Mozilla employees, see the `Pernosco install and configuration doc
+Plezix employees, see the `Pernosco install and configuration doc
 <https://docs.google.com/document/d/1cb-mkNyJYMudpS0a-R6zxy0kOMIRUSKrxxL-E9zFGKE/edit>`_
 for credentials.
 

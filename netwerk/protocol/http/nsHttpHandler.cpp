@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=4 sw=2 sts=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -419,7 +419,7 @@ nsresult nsHttpHandler::Init() {
                                        gCallbackPrefs, this);
   PrefsChanged(nullptr);
 
-  mCompatFirefox.AssignLiteral("Firefox/" MOZILLA_UAVERSION);
+  mCompatPlezix.AssignLiteral("Plezix/" MOZILLA_UAVERSION);
 
   nsCOMPtr<nsIXULAppInfo> appInfo;
   appInfo = mozilla::components::XULRuntime::Service();
@@ -469,7 +469,7 @@ nsresult nsHttpHandler::Init() {
   LOG(("> product-sub = %s\n", mProductSub.get()));
   LOG(("> app-name = %s\n", mAppName.get()));
   LOG(("> app-version = %s\n", mAppVersion.get()));
-  LOG(("> compat-firefox = %s\n", mCompatFirefox.get()));
+  LOG(("> compat-firefox = %s\n", mCompatPlezix.get()));
   LOG(("> user-agent = %s\n", UserAgent(false).get()));
 #endif
 
@@ -632,7 +632,7 @@ nsresult nsHttpHandler::InitConnectionMgr() {
           HttpHandlerInitArgs(self->mLegacyAppName, self->mLegacyAppVersion,
                               self->mPlatform, self->mOscpu, self->mMisc,
                               self->mProduct, self->mProductSub, self->mAppName,
-                              self->mAppVersion, self->mCompatFirefox,
+                              self->mAppVersion, self->mCompatPlezix,
                               self->mCompatDevice, self->mDeviceModelId));
     };
     gIOService->CallOrWaitForSocketProcess(std::move(task));
@@ -916,7 +916,7 @@ void nsHttpHandler::BuildUserAgent() {
 #endif
                          mOscpu.Length() + mMisc.Length() + mProduct.Length() +
                          mProductSub.Length() + mAppName.Length() +
-                         mAppVersion.Length() + mCompatFirefox.Length() +
+                         mAppVersion.Length() + mCompatPlezix.Length() +
                          mCompatDevice.Length() + mDeviceModelId.Length() + 13);
 
   // Application portion
@@ -953,13 +953,13 @@ void nsHttpHandler::BuildUserAgent() {
   mUserAgent += '/';
   mUserAgent += mProductSub;
 
-  bool isFirefox = mAppName.EqualsLiteral("Firefox");
-  if (isFirefox || mCompatFirefoxEnabled) {
-    // "Firefox/x.y" (compatibility) app token
+  bool isPlezix = mAppName.EqualsLiteral("Plezix");
+  if (isPlezix || mCompatPlezixEnabled) {
+    // "Plezix/x.y" (compatibility) app token
     mUserAgent += ' ';
-    mUserAgent += mCompatFirefox;
+    mUserAgent += mCompatPlezix;
   }
-  if (!isFirefox) {
+  if (!isPlezix) {
     // App portion
     mUserAgent += ' ';
     mUserAgent += mAppName;
@@ -1188,7 +1188,7 @@ void nsHttpHandler::PrefsChanged(const char* pref) {
 
   if (PREF_CHANGED(UA_PREF("compatMode.firefox"))) {
     rv = Preferences::GetBool(UA_PREF("compatMode.firefox"), &cVar);
-    mCompatFirefoxEnabled = (NS_SUCCEEDED(rv) && cVar);
+    mCompatPlezixEnabled = (NS_SUCCEEDED(rv) && cVar);
     mUserAgentIsDirty = true;
   }
 
@@ -2861,7 +2861,7 @@ void nsHttpHandler::SetHttpHandlerInitArgs(const HttpHandlerInitArgs& aArgs) {
   mProductSub = aArgs.mProductSub();
   mAppName = aArgs.mAppName();
   mAppVersion = aArgs.mAppVersion();
-  mCompatFirefox = aArgs.mCompatFirefox();
+  mCompatPlezix = aArgs.mCompatPlezix();
   mCompatDevice = aArgs.mCompatDevice();
   mDeviceModelId = aArgs.mDeviceModelId();
 }

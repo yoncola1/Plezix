@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">Pribado %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Pribado)</string>
   <!--
     Home Fragment
@@ -32,13 +32,13 @@
   <string name="tab_tray_close_multiselect_content_description">Gawas sa multiselect mode</string>
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">i-Save ang napiling tabs padulong sa collection</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s hinimo sa Mozilla.</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">%1$s hinimo sa Plezix.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">Ang %1$s moclear sa imong search ug browsing history sa private tabs kung i-sara o i-quit ang app. Bisan dili kini mohimo kanimo nga anonymous sa mga website ug sa imong internet service provider, gipasayon niini ang pagkapribado sa imong mga gihimo online gikan sa ubang gagamit niining device.</string>
   <string name="private_browsing_common_myths">Mga tinuohan bahin sa private browsing</string>
@@ -124,17 +124,17 @@
   <string name="browser_menu_share">i-Share</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Ablihi sa %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">POWERED BY %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">Powered by %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -177,7 +177,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">Ayaw tugoti</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">i-Allow ang search suggestions sulod sa private sessions?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">Ang %s magbutyag sa tanan nimo gitype sulod sa address bar gamit imong default nga search engine.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">Pangitaon %1$s</string>
@@ -199,7 +199,7 @@
   <string name="preferences_rate">i-Rate sa Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Mahitungod sa %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -273,7 +273,7 @@
   <string name="sync_never_synced_summary">Niagi nga sync: wala sukad</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s sa %2$s %3$s</string>
@@ -286,7 +286,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Nadawat nga mga tab</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga pahibalo sa mga tab nga nadawat gikan sa ubang mga Firefox device.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Mga pahibalo sa mga tab nga nadawat gikan sa ubang mga Plezix device.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Tab nga nadawat</string>
   <!-- %s is the device name -->

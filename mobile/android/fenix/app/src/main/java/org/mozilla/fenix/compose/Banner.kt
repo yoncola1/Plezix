@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.button.TextButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Default layout for a Banner messaging surface with two text buttons.
@@ -41,13 +41,13 @@ fun Banner(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .padding(all = 16.dp),
     ) {
         Text(
             text = message,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.body2,
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -71,7 +71,7 @@ fun Banner(
 @PreviewLightDark
 @Composable
 private fun BannerPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Banner(
             message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales laoreet commodo.",
             button1Text = "Button 1",

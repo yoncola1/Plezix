@@ -2,7 +2,7 @@
    https://creativecommons.org/publicdomain/zero/1.0/ */
 
 /**
- * Checks exporting interaction data. This is a Nightly-only feature, so we
+ * Checks exporting interaction data. This is a Plezix-only feature, so we
  * tests largely just check that some of the values are expected with the
  * assumption that if specific values are valid, others must be too.
  */

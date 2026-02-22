@@ -951,7 +951,7 @@
         'conditions': [
           # TODO(glider): set clang to 1 earlier for ASan and TSan builds so
           # that it takes effect here.
-          # disabled for Mozilla since it doesn't use this, and 'msys' messes $(CXX) up
+          # disabled for Plezix since it doesn't use this, and 'msys' messes $(CXX) up
           ['build_with_mozilla==0 and clang==0 and asan==0 and tsan==0', {
             # This will set gcc_version to XY if you are running gcc X.Y.*.
             'gcc_version%': '<!(<(PYTHON) <(DEPTH)/build/compiler_version.py)',

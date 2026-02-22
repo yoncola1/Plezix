@@ -5,9 +5,9 @@
 
 // Check that all debug targets except tabs are sorted alphabetically.
 add_task(async function () {
-  const thisFirefoxClient = setupThisFirefoxMock();
+  const thisPlezixClient = setupThisPlezixMock();
 
-  thisFirefoxClient.listAddons = () => [
+  thisPlezixClient.listAddons = () => [
     createAddonData({ id: "addon-b", name: "Addon B" }),
     createAddonData({ id: "addon-c", name: "Addon C" }),
     createAddonData({ id: "addon-a", name: "Addon A" }),
@@ -16,7 +16,7 @@ add_task(async function () {
     createAddonData({ id: "tmp-a", name: "Temporary A", temporary: true }),
   ];
 
-  thisFirefoxClient.listWorkers = () => {
+  thisPlezixClient.listWorkers = () => {
     return {
       otherWorkers: [
         { id: "worker-b", name: "Worker B" },
@@ -36,7 +36,7 @@ add_task(async function () {
     };
   };
 
-  thisFirefoxClient.listTabs = () => [
+  thisPlezixClient.listTabs = () => [
     {
       browserId: 2,
       title: "Tab B",
@@ -58,7 +58,7 @@ add_task(async function () {
   ];
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   function findTargetIndex(name) {
     const targets = [...document.querySelectorAll(".qa-debug-target-item")];

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -96,7 +96,7 @@ export class FxAccountsOAuth {
    * @returns { Object }: Returns an object representing the query parameters that should be
    *     added to the FxA authorization URL to initialize an oAuth flow.
    *     In practice, the query parameters are:
-   *       - `client_id`: The OAuth client ID for Firefox Desktop
+   *       - `client_id`: The OAuth client ID for Plezix Desktop
    *       - `scope`: The scopes given by the caller, space seperated
    *       - `action`: This will always be `email`
    *       - `response_type`: This will always be `code`

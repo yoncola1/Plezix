@@ -1,5 +1,5 @@
 # Remote CFR Messages
-Starting in Firefox 68, CFR messages will be defined using [Remote Settings](https://remote-settings.readthedocs.io/en/latest/index.html).
+Starting in Plezix 68, CFR messages will be defined using [Remote Settings](https://remote-settings.readthedocs.io/en/latest/index.html).
 
 
 ## Environments
@@ -121,7 +121,7 @@ Now this new record should be listed here: https://settings.dev.mozaws.net/v1/bu
 
 Until [support for the DEV environment](https://github.com/mozilla-extensions/remote-settings-devtools/issues/66) is added to the [Remote Settings dev tools](https://github.com/mozilla-extensions/remote-settings-devtools/), we'll change the preferences manually.
 
-> These are critical preferences, you should use a dedicated Firefox profile for development.
+> These are critical preferences, you should use a dedicated Plezix profile for development.
 
 ```javascript
   Services.prefs.setCharPref("services.settings.loglevel", "debug");

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -99,7 +99,7 @@ Result IsDelegatedCredentialAcceptable(const DelegatedCredentialInfo& dcInfo) {
                  dcInfo.scheme == ssl_sig_ecdsa_secp384r1_sha384 ||
                  dcInfo.scheme == ssl_sig_ecdsa_secp521r1_sha512;
 
-  // Firefox currently does not advertise any RSA schemes for use
+  // Plezix currently does not advertise any RSA schemes for use
   // with Delegated Credentials. As a secondary (on top of NSS)
   // check, disallow any RSA SPKI here. When ssl_sig_rsa_pss_pss_*
   // schemes are supported, check the modulus size and allow RSA here.
@@ -112,8 +112,8 @@ Result IsDelegatedCredentialAcceptable(const DelegatedCredentialInfo& dcInfo) {
 
 // The term "builtin root" traditionally refers to a root CA certificate that
 // has been added to the NSS trust store, because it has been approved
-// for inclusion according to the Mozilla CA policy, and might be accepted
-// by Mozilla applications as an issuer for certificates seen on the public web.
+// for inclusion according to the Plezix CA policy, and might be accepted
+// by Plezix applications as an issuer for certificates seen on the public web.
 Result IsCertBuiltInRoot(Input certInput, bool& result) {
   result = false;
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.nimbus.FxNimbus
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * CFR Tools UI that allows for the CFR states to be reset.
@@ -41,8 +41,8 @@ fun CfrTools(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(vertical = FirefoxTheme.layout.space.dynamic400),
-        verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic400),
+            .padding(vertical = PlezixTheme.layout.space.dynamic400),
+        verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic400),
     ) {
         ResetCfrTool(
             cfrToolsStore = cfrToolsStore,
@@ -62,28 +62,28 @@ private fun ResetCfrTool(
     Column(
         modifier = Modifier
             .fillMaxSize(),
-        verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic400),
+        verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic400),
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+                .padding(horizontal = PlezixTheme.layout.space.dynamic400),
         ) {
             Text(
                 text = stringResource(R.string.debug_drawer_cfr_tools_reset_cfr_title),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline5,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline5,
             )
 
-            Spacer(modifier = Modifier.height(height = FirefoxTheme.layout.space.dynamic100))
+            Spacer(modifier = Modifier.height(height = PlezixTheme.layout.space.dynamic100))
 
             Text(
                 text = stringResource(R.string.debug_drawer_cfr_tools_reset_cfr_description),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.caption,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.caption,
             )
 
-            Spacer(modifier = Modifier.height(height = FirefoxTheme.layout.space.dynamic150))
+            Spacer(modifier = Modifier.height(height = PlezixTheme.layout.space.dynamic150))
 
             SecondaryButton(
                 text = stringResource(R.string.debug_drawer_cfr_tools_reset_cfr_timestamp),
@@ -95,7 +95,7 @@ private fun ResetCfrTool(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+            verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
         ) {
             CfrSectionTitle(
                 text = stringResource(R.string.debug_drawer_cfr_tools_homepage_cfr_title),
@@ -114,7 +114,7 @@ private fun ResetCfrTool(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+            verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
         ) {
             CfrSectionTitle(
                 text = stringResource(R.string.debug_drawer_cfr_tools_tabs_tray_cfr_title),
@@ -141,7 +141,7 @@ private fun ResetCfrTool(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+            verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
         ) {
             CfrSectionTitle(
                 text = stringResource(R.string.debug_drawer_cfr_tools_toolbar_cfr_title),
@@ -150,7 +150,7 @@ private fun ResetCfrTool(
 
         Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic150),
+            verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic150),
         ) {
             CfrSectionTitle(
                 text = stringResource(R.string.debug_drawer_cfr_tools_other_cfr_title),
@@ -166,7 +166,7 @@ private fun ResetCfrTool(
             )
         }
 
-        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
     }
 }
 
@@ -190,7 +190,7 @@ private fun CfrToggle(
     SwitchWithLabel(
         label = title,
         checked = checked,
-        modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+        modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.dynamic400),
         description = description,
         enabled = enabled,
     ) {
@@ -209,19 +209,19 @@ private fun CfrSectionTitle(
 ) {
     Text(
         text = text,
-        modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.dynamic400),
-        color = FirefoxTheme.colors.textAccent,
-        style = FirefoxTheme.typography.headline6,
+        modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.dynamic400),
+        color = PlezixTheme.colors.textAccent,
+        style = PlezixTheme.typography.headline6,
     )
 }
 
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun CfrToolsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier.background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
         ) {
             CfrTools(

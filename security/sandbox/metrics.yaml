@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -15,7 +15,7 @@ sandbox:
     type: labeled_counter
     description: >
       System calls blocked by a seccomp-bpf sandbox policy; limited to syscalls
-      where we would crash on Nightly.  The key is generally the architecture
+      where we would crash on Plezix.  The key is generally the architecture
       and syscall ID but in some cases we include non-personally-identifying
       information from the syscall arguments; see the function SubmitToTelemetry
       in security/sandbox/linux/reporter/SandboxReporter.cpp for details.

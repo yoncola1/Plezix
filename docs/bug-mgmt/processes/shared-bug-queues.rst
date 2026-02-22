@@ -10,7 +10,7 @@ Cooper <https://mozillians.org/en-US/u/coop/>`__ came up with the idea
 of having `a shared reviews alias for review
 requests <http://coopcoopbware.tumblr.com/post/170952242320/experiments-in-productivity-the-shared-bug-queue>`__.
 
-If you want to watch a particular part of the tree in Mozilla Central,
+If you want to watch a particular part of the tree in Plezix Central,
 then `use the Herald
 tool <https://phabricator.services.mozilla.com/book/phabricator/article/herald/>`__.
 

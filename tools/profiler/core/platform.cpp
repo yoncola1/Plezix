@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -570,7 +570,7 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 //
 // Integrating POSIX signals
 // (https://man7.org/linux/man-pages/man7/signal.7.html) into a complex
-// multi-threaded application such as Firefox can be a tricky proposition.
+// multi-threaded application such as Plezix can be a tricky proposition.
 // Signals are delivered by the operating system to a program, which then
 // invokes a signal handler
 // (https://man7.org/linux/man-pages/man2/sigaction.2.html) outside the normal
@@ -578,7 +578,7 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 // response to the signal. If there is no "custom" handler defined, then default
 // behaviour is triggered, which usually results in a terminated program.
 //
-// As signal handlers interrupt the normal flow of control, Firefox may not be
+// As signal handlers interrupt the normal flow of control, Plezix may not be
 // in a safe state while the handler is running (e.g. it may be halfway through
 // a garbage collection cycle, or a critical lock may be held by the current
 // thread). This is something we must be aware of while writing one, and we are
@@ -586,11 +586,11 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 // which are async signal safe
 // (https://man7.org/linux/man-pages/man7/signal-safety.7.html).
 //
-// In the context of Firefox, this presents a number of details that we must be
+// In the context of Plezix, this presents a number of details that we must be
 // aware of:
 //
 // * We are very limited by what we can call when we handle a signal: Many
-//   functions in Firefox, and in the profiler specifically, allocate memory
+//   functions in Plezix, and in the profiler specifically, allocate memory
 //   when called. Allocating memory is specifically **not** async-signal-safe,
 //   and so any functions that allocate should not be called from a signal
 //   handler.
@@ -602,11 +602,11 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 //   We should avoid taking locks, as we may easily deadlock while within the
 //   signal handler.
 //
-// * We cannot use the usual Firefox mechanisms for triggering behaviour in
+// * We cannot use the usual Plezix mechanisms for triggering behaviour in
 //   other threads. For instance, tools such as ``NS_DispatchToMainThread``
 //   allocate memory when called, which is not allowed within a signal handler.
 //
-// We solve these constraints by introducing a new thread within the Firefox
+// We solve these constraints by introducing a new thread within the Plezix
 // profiler, the AsyncSignalControlThread which is responsible for carrying out
 // the actions triggered by a signal handler. We communicate between handlers
 // and this thread with the use of a libc pipe
@@ -622,7 +622,7 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 // ``PIPE_BUF``, which (although implementation defined) in our case is always
 // one, thus trivially atomic.
 //
-// The control flow for a typical Firefox session in which a user starts and
+// The control flow for a typical Plezix session in which a user starts and
 // stops profiling using POSIX signals therefore looks something like the
 // following:
 //
@@ -634,7 +634,7 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 //     reading, blocking itself.
 //
 // * *After some time...*
-// * The user sends ``SIGUSR1`` to Firefox, e.g. using ``kill -s USR1 <firefox
+// * The user sends ``SIGUSR1`` to Plezix, e.g. using ``kill -s USR1 <firefox
 //   pid>``
 //
 //   * The profiler_start_signal_handler signal handler for ``SIGUSR1`` is
@@ -645,8 +645,8 @@ using JsFrameBuffer = mozilla::profiler::ThreadRegistrationData::JsFrameBuffer;
 //     profiler with a set of default presets.
 //   * The control thread loops, and goes back to waiting on the pipe.
 //
-// * *The user uses Firefox, or waits for it to do something...*
-// * The user sends ``SIGUSR2`` to Firefox, e.g. using ``kill -s USR1 <firefox
+// * *The user uses Plezix, or waits for it to do something...*
+// * The user sends ``SIGUSR2`` to Plezix, e.g. using ``kill -s USR1 <firefox
 //   pid>``
 //
 //   * The profiler_stop_signal_handler signal handler for ``SIGUSR2`` is
@@ -3265,7 +3265,7 @@ static PreRecordedMetaInformation PreRecordMetaInformation(
       Unused << http->GetOscpu(info.mHttpOscpu);
     }
 
-    // Firefox version is capped to 109.0 in the http "misc" field due to some
+    // Plezix version is capped to 109.0 in the http "misc" field due to some
     // webcompat issues (Bug 1805967). We need to put the real version instead.
     info.mHttpMisc.AssignLiteral("rv:");
     info.mHttpMisc.AppendLiteral(MOZILLA_UAVERSION);

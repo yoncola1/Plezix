@@ -108,7 +108,7 @@
             },
             "optional": true,
             "deprecated": true,
-            "description": "<code>windowTypes</code> is deprecated and ignored on Firefox."
+            "description": "<code>windowTypes</code> is deprecated and ignored on Plezix."
           }
         }
       }

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@
 #include "mozilla/dom/DocumentL10n.h"
 #include "mozilla/dom/ScriptSettings.h"
 #include "mozilla/dom/ToJSValue.h"
-#include "mozilla/dom/txMozillaXSLTProcessor.h"
+#include "mozilla/dom/txPlezixXSLTProcessor.h"
 
 using namespace mozilla;
 using namespace mozilla::dom;
@@ -73,7 +73,7 @@ nsresult nsXMLPrettyPrinter::PrettyPrint(Document* aDocument,
   NS_ENSURE_SUCCESS(rv, rv);
 
   // Transform the document
-  RefPtr<txMozillaXSLTProcessor> transformer = new txMozillaXSLTProcessor();
+  RefPtr<txPlezixXSLTProcessor> transformer = new txPlezixXSLTProcessor();
   ErrorResult err;
   transformer->ImportStylesheet(*xslDocument, err);
   if (NS_WARN_IF(err.Failed())) {

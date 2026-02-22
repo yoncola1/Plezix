@@ -298,7 +298,7 @@ int LibaomAv1Encoder::InitEncode(const VideoCodec* codec_settings,
   } else {
     SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_ENABLE_PALETTE, 0);
   }
-#if !defined(WEBRTC_MOZILLA_BUILD) // Mozilla: Need to update AV1 to enable this
+#if !defined(WEBRTC_MOZILLA_BUILD) // Plezix: Need to update AV1 to enable this
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_AUTO_TILES, 1);
 #endif
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_ROW_MT, 1);
@@ -331,7 +331,7 @@ int LibaomAv1Encoder::InitEncode(const VideoCodec* codec_settings,
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_ENABLE_SMOOTH_INTERINTRA, 0);
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_ENABLE_TX64, 0);
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_MAX_REFERENCE_FRAMES, 3);
-#if !defined(WEBRTC_MOZILLA_BUILD) // Mozilla: Need to update AV1 to enable this
+#if !defined(WEBRTC_MOZILLA_BUILD) // Plezix: Need to update AV1 to enable this
   SET_ENCODER_PARAM_OR_RETURN_ERROR(AV1E_SET_MAX_CONSEC_FRAME_DROP_MS_CBR, 250);
 #endif
 

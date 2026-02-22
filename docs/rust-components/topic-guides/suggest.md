@@ -1,6 +1,6 @@
 # Suggest
 
-The API for the `SuggestStore` can be found in the [MozillaComponents Kotlin documentation](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.suggest/-suggest-store/index.html).
+The API for the `SuggestStore` can be found in the [PlezixComponents Kotlin documentation](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.suggest/-suggest-store/index.html).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ import mozilla.appservices.suggest.SuggestionQuery
 ```
 
 ```swift
-import MozillaAppServices
+import PlezixAppServices
 ```
 
 ```js

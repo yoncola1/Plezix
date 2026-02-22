@@ -82,7 +82,7 @@ NSS 3.12.9 release notes
       -  `Bug 610843 <https://bugzilla.mozilla.org/show_bug.cgi?id=610843>`__: Need way to recover
          softoken in child after fork()
       -  `Bug 617492 <https://bugzilla.mozilla.org/show_bug.cgi?id=617492>`__: Add
-         PK11_KeyGenWithTemplate function to pk11wrap (for Firefox Sync)
+         PK11_KeyGenWithTemplate function to pk11wrap (for Plezix Sync)
       -  `Bug 610162 <https://bugzilla.mozilla.org/show_bug.cgi?id=610162>`__: SHA-512 and SHA-384
          hashes are incorrect for inputs of 512MB or larger when running under Windows and other
          32-bit platforms (Fx 3.6.12 and 4.0b6)

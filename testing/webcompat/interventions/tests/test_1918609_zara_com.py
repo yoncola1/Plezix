@@ -44,7 +44,7 @@ async def test_disabled(client):
     with client.using_context("chrome"):
         client.execute_script(
             """
-          const version = parseInt(navigator.userAgent.match("Firefox/([0-9]*)")[1]);
+          const version = parseInt(navigator.userAgent.match("Plezix/([0-9]*)")[1]);
           const versionBumpedUA = navigator.userAgent.replaceAll(version, version + 2);
           Services.prefs.setStringPref("general.useragent.override", versionBumpedUA);
       """

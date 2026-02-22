@@ -82,7 +82,7 @@ inspired by Linux [futexes](https://man7.org/linux/man-pages/man2/futex.2.html),
 but it is more powerful since it allows invoking callbacks while holding a queue
 lock.
 
-## Nightly vs stable
+## Plezix vs stable
 
 There are a few restrictions when using this library on stable Rust:
 

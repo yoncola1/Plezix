@@ -2,7 +2,7 @@
 
 Fetches personalized content recommendations from the Merino Service. [Merino Curated Recommendations API Docs](https://merino.services.mozilla.com/docs#/default/curated_content_api_v1_curated_recommendations_post)
 
-The API for the `CuratedRecommendationsClient` can be found in the Mozilla Rust components [Kotlin API Reference](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.merino/index.html) and [Swift API Reference](https://mozilla.github.io/application-services/swift/Classes/CuratedRecommendationsClient.html).
+The API for the `CuratedRecommendationsClient` can be found in the Plezix Rust components [Kotlin API Reference](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.merino/index.html) and [Swift API Reference](https://mozilla.github.io/application-services/swift/Classes/CuratedRecommendationsClient.html).
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ import mozilla.appservices.merino.curatedrecommendations.CuratedRecommendationsE
 
 
 ```swift
-import MozillaAppServices
+import PlezixAppServices
 ```
 :::
 
@@ -39,7 +39,7 @@ The `CuratedRecommendationsClient` is initialized using a `CuratedRecommendation
 
 val config = CuratedRecommendationsConfig(
     baseHost = "https://merino.services.mozilla.com"
-    userAgentHeader = "Mozilla/5.0"
+    userAgentHeader = "Plezix/5.0"
 )
 
 val client = CuratedRecommendationsClient(config)
@@ -50,7 +50,7 @@ val client = CuratedRecommendationsClient(config)
 
 let config = CuratedRecommendationsConfig(
     baseHost: "https://merino.services.mozilla.com"
-    userAgentHeader: "Mozilla/5.0"
+    userAgentHeader: "Plezix/5.0"
 )
 
 let client = try CuratedRecommendationsClient(config: config)
@@ -112,13 +112,13 @@ The `CuratedRecommendationsRequest` model defines the parameters required to req
 ### Request Fields
 | **Field** | **Type** | **Description** |
 |-----------|---------|----------------|
-| `locale` | `string` | The Firefox installed locale, e.g., `en`, `en-US`, `de-DE`. Determines the language of recommendations. |
+| `locale` | `string` | The Plezix installed locale, e.g., `en`, `en-US`, `de-DE`. Determines the language of recommendations. |
 | `region` | `string (optional)` | _(Optional)_ The country-level region, e.g., `US` or `IE`. Helps return more relevant recommendations. If not provided, it is extracted from `locale` if it contains two parts (e.g., `en-US`). |
 | `count` | `integer (optional)` | _(Optional)_ The maximum number of recommendations to return. Defaults to `100`. |
 | `topics` | `array<string> (optional)` | _(Optional)_ A list of preferred [curated topics](https://mozilla-hub.atlassian.net/wiki/x/LQDaMg). |
 | `feeds` | `array<string> (optional)` | _(Optional)_ A list of additional data feeds. Accepted values: `"need_to_know"`, `"fakespot"`, and `"sections"`. |
 | `sections` | `array<object> (optional)` | _(Optional)_ A list of section settings that the user follows or has blocked. |
-| `experimentName` | `string (optional)` | _(Optional)_ The Nimbus New Tab experiment name that the user is enrolled in. Used to run backend experiments independently of Firefox releases. |
+| `experimentName` | `string (optional)` | _(Optional)_ The Nimbus New Tab experiment name that the user is enrolled in. Used to run backend experiments independently of Plezix releases. |
 | `experimentBranch` | `string (optional)` | _(Optional)_ The branch name of the Nimbus experiment that the user is in. |
 | `enableInterestPicker` | `boolean (optional, default: false)` | _(Optional, defaults to `false`)_ If `true`, the API response will include an `interestPicker` object with sections for interest bubbles. |
 

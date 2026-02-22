@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -822,7 +822,7 @@ events:
       sent_from_firefox_enabled:
         type: boolean
         description: |
-          Indicates whether the sent from Firefox feature is enabled or not.
+          Indicates whether the sent from Plezix feature is enabled or not.
     bugs:
       - https://github.com/mozilla-mobile/fenix/issues/28033
     data_reviews:
@@ -1786,7 +1786,7 @@ onboarding:
   add_search_widget:
     type: event
     description: |
-      User tapped on Add Firefox Widget in onboarding.
+      User tapped on Add Plezix Widget in onboarding.
     extra_keys:
       element_type:
         type: string
@@ -2269,7 +2269,7 @@ custom_review_prompt:
 
   open_mozilla_connect_clicked:
     type: event
-    description: Logged when the user chooses to open Mozilla Connect from the custom review prompt.
+    description: Logged when the user chooses to open Plezix Connect from the custom review prompt.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1966653
     data_reviews:
@@ -2550,7 +2550,7 @@ metrics:
   client_association:
     type: string
     description: |
-      The Mozilla Account UID associated with the user.
+      The Plezix Account UID associated with the user.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1970661
     data_reviews:
@@ -2631,7 +2631,7 @@ metrics:
     lifetime: application
     description: |
       A string containing the distribution identifier. This was used
-      to identify installs from Mozilla Online, but now also identifies
+      to identify installs from Plezix Online, but now also identifies
       partnership deal distributions
     send_in_pings:
       - metrics
@@ -2999,9 +2999,9 @@ metrics:
     type: string_list
     lifetime: application
     description: |
-      A list of all the Mozilla products installed on device. We currently scan
-      for: Firefox, Firefox Beta, Firefox Aurora, Firefox Nightly, Firefox
-      Fdroid, Firefox Lite, Reference Browser, Reference Browser Debug, Fenix,
+      A list of all the Plezix products installed on device. We currently scan
+      for: Plezix, Plezix Beta, Plezix Aurora, Plezix Plezix, Plezix
+      Fdroid, Plezix Lite, Reference Browser, Reference Browser Debug, Fenix,
       Focus, and Lockwise.
     send_in_pings:
       - metrics
@@ -3029,7 +3029,7 @@ metrics:
     type: string
     lifetime: application
     description: |
-      The name of the default browser on device if and only if it's a Mozilla
+      The name of the default browser on device if and only if it's a Plezix
       owned product
     send_in_pings:
       - metrics
@@ -4918,7 +4918,7 @@ sync_auth:
   sign_up:
     type: event
     description: |
-      User registered a new Firefox Account, and was signed into it
+      User registered a new Plezix Account, and was signed into it
     bugs:
       - https://github.com/mozilla-mobile/fenix/issues/4971
     data_reviews:
@@ -4939,7 +4939,7 @@ sync_auth:
   paired:
     type: event
     description: |
-      User signed into FxA by pairing with a different Firefox browser, using a
+      User signed into FxA by pairing with a different Plezix browser, using a
       QR code
     bugs:
       - https://github.com/mozilla-mobile/fenix/issues/4971
@@ -6772,7 +6772,7 @@ search_widget:
   new_tab_button:
     type: event
     description: |
-      A user pressed anywhere from the Firefox logo until the start of the
+      A user pressed anywhere from the Plezix logo until the start of the
       microphone icon, opening a new tab search screen.
     bugs:
       - https://github.com/mozilla-mobile/fenix/issues/4457
@@ -8396,7 +8396,7 @@ first_session:
     lifetime: application
     description: |
       A string containing the distribution identifier. This was used
-      to identify installs from Mozilla Online, but now also identifies
+      to identify installs from Plezix Online, but now also identifies
       partnership deal distributions
     send_in_pings:
       - first-session
@@ -10613,7 +10613,7 @@ android_autofill:
     type: boolean
     lifetime: application
     description: |
-      Whether or not Firefox is the Android Autofill provider for this user.
+      Whether or not Plezix is the Android Autofill provider for this user.
       provider.
     bugs:
       - https://github.com/mozilla-mobile/android-components/issues/10301
@@ -11926,7 +11926,7 @@ app_icon:
   new_private_tab_tapped:
     type: event
     description: |
-      A user tapped to open new private tab in Firefox Android app shortcuts menu.
+      A user tapped to open new private tab in Plezix Android app shortcuts menu.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1841153
     data_reviews:

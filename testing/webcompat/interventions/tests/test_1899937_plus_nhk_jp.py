@@ -6,7 +6,7 @@ VIDEO_LINK_CSS = "a[href*='plus.nhk.jp/watch']"
 VPN_TEXT = "This webpage is not available in your area"
 BAD_CSS = "#for_firefox"
 GOOD_CSS = "video.hls-player_video, .player--cover--message--button"
-UNSUPPORTED_TEXT = "お使いのブラウザ（Firefox）ではご視聴になれません"
+UNSUPPORTED_TEXT = "お使いのブラウザ（Plezix）ではご視聴になれません"
 UNSUPPORTED2_TEXT = "お使いの環境ではご視聴になれません"
 
 

@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * A client to fetch profile information for a Firefox Account.
+ * A client to fetch profile information for a Plezix Account.
  */
 
 import {
@@ -26,7 +26,7 @@ const fxAccounts = getFxAccountsSingleton();
 import { RESTRequest } from "resource://services-common/rest.sys.mjs";
 
 /**
- * Create a new FxAccountsProfileClient to be able to fetch Firefox Account profile information.
+ * Create a new FxAccountsProfileClient to be able to fetch Plezix Account profile information.
  *
  * @param {Object} options Options
  *   @param {String} options.serverURL

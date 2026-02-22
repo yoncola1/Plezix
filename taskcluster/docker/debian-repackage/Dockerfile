@@ -1,10 +1,10 @@
 FROM $DOCKER_IMAGE_PARENT
-MAINTAINER Mozilla Releng <release@mozilla.com>
+MAINTAINER Plezix Releng <release@mozilla.com>
 
 VOLUME /builds/worker/workspace
 
-# At the moment the Firefox build sysroot for i386 and amd64 use jessie and arm64 uses buster.
-# To generate Firefox Debian packages we bootstrap jessie and buster sysroots.
+# At the moment the Plezix build sysroot for i386 and amd64 use jessie and arm64 uses buster.
+# To generate Plezix Debian packages we bootstrap jessie and buster sysroots.
 # We use these sysroots to generate shared library dependencies for
 # i386 (jessie), amd64 (jessie), and arm64 (buster) packages.
 # To keep the build and repackage enviroments consistent the Debian distributions used by the sysroots

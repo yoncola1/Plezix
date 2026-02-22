@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* import-globals-from preferences.js */
 
-var gMoreFromMozillaPane = {
+var gMoreFromPlezixPane = {
   initialized: false,
 
   /**
@@ -182,7 +182,7 @@ var gMoreFromMozillaPane = {
     });
 
     this._productsContainer = document.getElementById(
-      "moreFromMozillaCategory"
+      "moreFromPlezixCategory"
     );
     let frag = document.createDocumentFragment();
     this._template = document.getElementById(this.getTemplateName());
@@ -224,10 +224,10 @@ var gMoreFromMozillaPane = {
           actionElement.addEventListener("click", function () {
             let mainWindow = window.windowRoot.ownerGlobal;
             mainWindow.openTrustedLinkIn(
-              gMoreFromMozillaPane.getURL(
+              gMoreFromPlezixPane.getURL(
                 product.button.actionURL,
                 product.region,
-                gMoreFromMozillaPane.option
+                gMoreFromPlezixPane.option
               ),
               "tab"
             );
@@ -298,10 +298,10 @@ var gMoreFromMozillaPane = {
     }
     this.initialized = true;
     document
-      .getElementById("moreFromMozillaCategory")
+      .getElementById("moreFromPlezixCategory")
       .removeAttribute("data-hidden-from-search");
     document
-      .getElementById("moreFromMozillaCategory-header")
+      .getElementById("moreFromPlezixCategory-header")
       .removeAttribute("data-hidden-from-search");
 
     this.renderProducts();

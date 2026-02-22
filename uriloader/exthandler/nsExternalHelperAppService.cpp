@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim:expandtab:shiftwidth=2:tabstop=2:cin:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2924,7 +2924,7 @@ NS_IMETHODIMP nsExternalHelperAppService::GetFromTypeAndExtension(
   }
 
   // Overwrite with a generic description if the primary extension for the
-  // type is in our list; these are file formats supported by Firefox and
+  // type is in our list; these are file formats supported by Plezix and
   // we don't want other brands positioning themselves as the sole viewer
   // for a system.
   if (!primaryExtension.IsEmpty()) {

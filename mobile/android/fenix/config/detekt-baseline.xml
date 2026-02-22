@@ -202,8 +202,8 @@
     <ID>UndocumentedPublicClass:FenixTabCounterMenu.kt$FenixTabCounterMenu : TabCounterMenu</ID>
     <ID>UndocumentedPublicClass:FennecBookmarkShortcutsIntentProcessor.kt$FennecBookmarkShortcutsIntentProcessor$Companion</ID>
     <ID>UndocumentedPublicClass:FennecWebAppIntentProcessor.kt$FennecWebAppIntentProcessor$Companion</ID>
-    <ID>UndocumentedPublicClass:FirefoxTheme.kt$FirefoxTheme</ID>
-    <ID>UndocumentedPublicClass:FirefoxTheme.kt$Theme$Companion</ID>
+    <ID>UndocumentedPublicClass:PlezixTheme.kt$PlezixTheme</ID>
+    <ID>UndocumentedPublicClass:PlezixTheme.kt$Theme$Companion</ID>
     <ID>UndocumentedPublicClass:FirstSessionPing.kt$FirstSessionPing</ID>
     <ID>UndocumentedPublicClass:FontEnumerationWorker.kt$FontEnumerationWorker$Companion</ID>
     <ID>UndocumentedPublicClass:GeckoProvider.kt$GeckoProvider</ID>
@@ -311,8 +311,8 @@
     <ID>UndocumentedPublicClass:MetricsService.kt$MetricServiceType</ID>
     <ID>UndocumentedPublicClass:MetricsService.kt$MetricsService</ID>
     <ID>UndocumentedPublicClass:MetricsUtils.kt$MetricsUtils</ID>
-    <ID>UndocumentedPublicClass:MozillaProductDetector.kt$MozillaProductDetector</ID>
-    <ID>UndocumentedPublicClass:MozillaProductDetector.kt$MozillaProductDetector$MozillaProducts</ID>
+    <ID>UndocumentedPublicClass:PlezixProductDetector.kt$PlezixProductDetector</ID>
+    <ID>UndocumentedPublicClass:PlezixProductDetector.kt$PlezixProductDetector$PlezixProducts</ID>
     <ID>UndocumentedPublicClass:NewTabShortcutIntentProcessor.kt$NewTabShortcutIntentProcessor : IntentProcessor</ID>
     <ID>UndocumentedPublicClass:NewTabShortcutIntentProcessor.kt$NewTabShortcutIntentProcessor$Companion</ID>
     <ID>UndocumentedPublicClass:NoCollectionsMessageViewHolder.kt$NoCollectionsMessageViewHolder : ViewHolder</ID>
@@ -493,7 +493,7 @@
     <ID>UndocumentedPublicClass:StudiesInteractor.kt$StudiesInteractor</ID>
     <ID>UndocumentedPublicClass:StudiesView.kt$StudiesView : StudiesAdapterDelegate</ID>
     <ID>UndocumentedPublicClass:SupportUtils.kt$SupportUtils</ID>
-    <ID>UndocumentedPublicClass:SupportUtils.kt$SupportUtils$MozillaPage</ID>
+    <ID>UndocumentedPublicClass:SupportUtils.kt$SupportUtils$PlezixPage</ID>
     <ID>UndocumentedPublicClass:SupportUtils.kt$SupportUtils$SumoTopic</ID>
     <ID>UndocumentedPublicClass:SwipeToDismissBox.kt$SwipeToDismissAnchor$Companion</ID>
     <ID>UndocumentedPublicClass:SyncedTabsPageViewHolder.kt$SyncedTabsPageViewHolder$Companion</ID>
@@ -789,8 +789,8 @@
     <ID>UndocumentedPublicFunction:MetricsService.kt$MetricsService$fun start()</ID>
     <ID>UndocumentedPublicFunction:MetricsService.kt$MetricsService$fun stop()</ID>
     <ID>UndocumentedPublicFunction:MetricsService.kt$MetricsService$fun track(event: Event)</ID>
-    <ID>UndocumentedPublicFunction:MozillaProductDetector.kt$MozillaProductDetector$fun getInstalledMozillaProducts(context: Context): List&lt;String&gt;</ID>
-    <ID>UndocumentedPublicFunction:MozillaProductDetector.kt$MozillaProductDetector$fun packageIsInstalled(context: Context, packageName: String): Boolean</ID>
+    <ID>UndocumentedPublicFunction:PlezixProductDetector.kt$PlezixProductDetector$fun getInstalledPlezixProducts(context: Context): List&lt;String&gt;</ID>
+    <ID>UndocumentedPublicFunction:PlezixProductDetector.kt$PlezixProductDetector$fun packageIsInstalled(context: Context, packageName: String): Boolean</ID>
     <ID>UndocumentedPublicFunction:NavController.kt$fun NavController.alreadyOnDestination(@IdRes destId: Int?): Boolean</ID>
     <ID>UndocumentedPublicFunction:NavController.kt$fun NavController.navigateSafe( @IdRes resId: Int, directions: NavDirections, )</ID>
     <ID>UndocumentedPublicFunction:NimbusBranchesView.kt$NimbusBranchesView$fun update(state: NimbusBranchesState)</ID>
@@ -932,8 +932,8 @@
     <ID>UndocumentedPublicFunction:StudiesView.kt$StudiesView$@Suppress("TooGenericExceptionCaught", "ApplySharedPref") fun bind()</ID>
     <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun createAuthCustomTabIntent(context: Context, url: String): Intent</ID>
     <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun createCustomTabIntent(context: Context, url: String): Intent</ID>
-    <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun getFirefoxAccountSumoUrl(): String</ID>
-    <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String</ID>
+    <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun getPlezixAccountSumoUrl(): String</ID>
+    <ID>UndocumentedPublicFunction:SupportUtils.kt$SupportUtils$fun getPlezixPageUrl(page: PlezixPage, locale: Locale = Locale.getDefault()): String</ID>
     <ID>UndocumentedPublicFunction:SwipeGestureLayout.kt$SwipeGestureLayout$fun addGestureListener(listener: SwipeGestureListener)</ID>
     <ID>UndocumentedPublicFunction:SyncedTabsIntegration.kt$SyncedTabsIntegration$fun launch()</ID>
     <ID>UndocumentedPublicFunction:SyncedTabsPageViewHolder.kt$SyncedTabsPageViewHolder$fun bind()</ID>

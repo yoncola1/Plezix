@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.RadioButtonListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val shape = RoundedCornerShape(8.dp)
 
@@ -54,12 +54,12 @@ fun MicrosurveyContent(
     question: String,
     answers: List<String>,
     @DrawableRes icon: Int = R.drawable.ic_print,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     selectedAnswer: String? = null,
     onSelectionChange: (String) -> Unit,
 ) {
     Card(
-        border = BorderStroke(1.dp, FirefoxTheme.colors.borderPrimary),
+        border = BorderStroke(1.dp, PlezixTheme.colors.borderPrimary),
         shape = shape,
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
         modifier = Modifier
@@ -107,8 +107,8 @@ private fun Header(icon: Int, question: String) {
 
         Text(
             text = question,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
         )
     }
 }
@@ -120,9 +120,9 @@ private fun Header(icon: Int, question: String) {
 @PreviewLightDark
 @Composable
 fun MicrosurveyContentPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MicrosurveyContent(
-            question = "How satisfied are you with printing in Firefox?",
+            question = "How satisfied are you with printing in Plezix?",
             icon = R.drawable.ic_print,
             answers = listOf(
                 stringResource(id = R.string.likert_scale_option_1),

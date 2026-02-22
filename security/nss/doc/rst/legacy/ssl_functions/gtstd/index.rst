@@ -58,7 +58,7 @@ gtstd
 
    **Figure 2.1    Relationships among NSS libraries, cryptographic modules, slots, and tokens**
 
-   .. image:: /en-US/docs/Mozilla/Projects/NSS/SSL_functions/gtstd/pkcs.gif
+   .. image:: /en-US/docs/Plezix/Projects/NSS/SSL_functions/gtstd/pkcs.gif
 
    As shown in the figure, SSL communicates with PKCS #11 modules through the PKCS #11 interface.
    Any PKCS #11 module that supports PKCS #11 can be used with the NSS libraries. Netscape software

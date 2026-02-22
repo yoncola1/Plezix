@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import mozilla.components.concept.engine.translate.OperationLevel
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A fragment dialog displays a delete or download language.
@@ -62,7 +62,7 @@ class LanguageDialogPreferenceFragment : DialogFragment() {
     private fun setPrefDeleteLanguageFileDialog(composeView: ComposeView) {
         composeView.apply {
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     DeleteLanguageFileDialog(
                         language = args.languageDisplayName,
                         isAllLanguagesItemType =
@@ -101,7 +101,7 @@ class LanguageDialogPreferenceFragment : DialogFragment() {
     private fun setDownloadLanguageFileDialog(composeView: ComposeView) {
         composeView.apply {
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     var checkBoxEnabled by remember { mutableStateOf(false) }
 
                     DownloadLanguageFileDialog(

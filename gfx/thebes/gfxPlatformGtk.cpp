@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -391,7 +391,7 @@ static const char kFontDejaVuSerif[] = "DejaVu Serif";
 static const char kFontFreeSans[] = "FreeSans";
 static const char kFontFreeSerif[] = "FreeSerif";
 static const char kFontTakaoPGothic[] = "TakaoPGothic";
-static const char kFontTwemojiMozilla[] = "Twemoji Mozilla";
+static const char kFontTwemojiPlezix[] = "Twemoji Plezix";
 static const char kFontDroidSansFallback[] = "Droid Sans Fallback";
 static const char kFontWenQuanYiMicroHei[] = "WenQuanYi Micro Hei";
 static const char kFontNanumGothic[] = "NanumGothic";
@@ -403,7 +403,7 @@ void gfxPlatformGtk::GetCommonFallbackFonts(uint32_t aCh, Script aRunScript,
                                             FontPresentation aPresentation,
                                             nsTArray<const char*>& aFontList) {
   if (PrefersColor(aPresentation)) {
-    aFontList.AppendElement(kFontTwemojiMozilla);
+    aFontList.AppendElement(kFontTwemojiPlezix);
   }
 
   aFontList.AppendElement(kFontDejaVuSerif);

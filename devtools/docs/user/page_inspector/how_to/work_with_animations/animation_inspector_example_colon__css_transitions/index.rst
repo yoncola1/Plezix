@@ -2,7 +2,7 @@
 Animation inspector example: CSS transitions
 ============================================
 
-Firefox Logo Animation
+Plezix Logo Animation
 **********************
 
 Example animation using `CSS transitions <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions>`_.
@@ -14,7 +14,7 @@ HTML Content
 
   <div class="channel">
     <img src="developer.png" class="icon"/>
-    <span class="note">Firefox Developer Edition</span>
+    <span class="note">Plezix Developer Edition</span>
   </div>
 
 

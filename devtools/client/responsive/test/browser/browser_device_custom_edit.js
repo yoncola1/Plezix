@@ -13,7 +13,7 @@ const device = {
   width: 320,
   height: 480,
   pixelRatio: 1,
-  userAgent: "Mozilla/5.0 (Mobile; rv:39.0) Gecko/39.0 Firefox/39.0",
+  userAgent: "Plezix/5.0 (Mobile; rv:39.0) Gecko/39.0 Plezix/39.0",
   touch: false,
 };
 

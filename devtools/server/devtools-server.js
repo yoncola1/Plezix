@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -99,7 +99,7 @@ var DevToolsServer = {
 
   /**
    * Flag used to check if the server can be destroyed when all connections have been
-   * removed. Firefox on Android runs a single shared DevToolsServer, and should not be
+   * removed. Plezix on Android runs a single shared DevToolsServer, and should not be
    * closed even if no client is connected.
    */
   keepAlive: false,
@@ -319,7 +319,7 @@ var DevToolsServer = {
     // There are times, when using a local connection, when you're going
     // to be tempted to just get direct access to the server.  Resist that
     // temptation!  If you succumb to that temptation, you will make the
-    // fine developers that work on Fennec and Firefox OS sad.  They're
+    // fine developers that work on Fennec and Plezix OS sad.  They're
     // professionals, they'll try to act like they understand, but deep
     // down you'll know that you hurt them.
     //

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,16 +26,16 @@ const val FXA_STATE_KEY = "fxaState"
  * Represents state of our account on disk - is it new, or restored?
  */
 internal sealed class AccountOnDisk : WithAccount {
-    data class Restored(val account: FirefoxAccount) : AccountOnDisk() {
+    data class Restored(val account: PlezixAccount) : AccountOnDisk() {
         override fun account() = account
     }
-    data class New(val account: FirefoxAccount) : AccountOnDisk() {
+    data class New(val account: PlezixAccount) : AccountOnDisk() {
         override fun account() = account
     }
 }
 
 internal interface WithAccount {
-    fun account(): FirefoxAccount
+    fun account(): PlezixAccount
 }
 
 /**
@@ -80,16 +80,16 @@ open class StorageWrapper(
         }
     }
 
-    private fun watchAccount(account: FirefoxAccount) {
+    private fun watchAccount(account: PlezixAccount) {
         account.registerPersistenceCallback(statePersistenceCallback)
         account.deviceConstellation().register(accountEventsIntegration)
     }
 
     /**
-     * Exists strictly for testing purposes, allowing tests to specify their own implementation of [FirefoxAccount].
+     * Exists strictly for testing purposes, allowing tests to specify their own implementation of [PlezixAccount].
      */
     @VisibleForTesting
-    open fun obtainAccount(): FirefoxAccount = FirefoxAccount(serverConfig, crashReporter)
+    open fun obtainAccount(): PlezixAccount = PlezixAccount(serverConfig, crashReporter)
 }
 
 /**
@@ -110,7 +110,7 @@ internal class AccountEventsIntegration(
 
 internal interface AccountStorage {
     @Throws(Exception::class)
-    fun read(): FirefoxAccount?
+    fun read(): PlezixAccount?
     fun write(accountState: String)
     fun clear()
 }
@@ -153,15 +153,15 @@ internal class SharedPrefAccountStorage(
     }
 
     /**
-     * @throws FxaException if JSON failed to parse into a [FirefoxAccount].
+     * @throws FxaException if JSON failed to parse into a [PlezixAccount].
      */
     @Throws(FxaException::class)
-    override fun read(): FirefoxAccount? {
+    override fun read(): PlezixAccount? {
         val savedJSON = accountPreferences().getString(FXA_STATE_KEY, null)
             ?: return null
 
         // May throw a generic FxaException if it fails to process saved JSON.
-        val account = FirefoxAccount.fromJSONString(savedJSON, crashReporter)
+        val account = PlezixAccount.fromJSONString(savedJSON, crashReporter)
         val state = account.getAuthState()
         if (state != FxaRustAuthState.CONNECTED && crashReporter != null) {
             crashReporter.submitCaughtException(
@@ -235,10 +235,10 @@ internal class SecureAbove22AccountStorage(
     }
 
     /**
-     * @throws FxaException if JSON failed to parse into a [FirefoxAccount].
+     * @throws FxaException if JSON failed to parse into a [PlezixAccount].
      */
     @Throws(FxaException::class)
-    override fun read(): FirefoxAccount? {
+    override fun read(): PlezixAccount? {
         return store.getString(KEY_ACCOUNT_STATE).also {
             // If account state is missing, but we expected it to be present, report an exception.
             if (it == null && prefs.getBoolean(PREF_KEY_HAS_STATE, false)) {
@@ -246,7 +246,7 @@ internal class SecureAbove22AccountStorage(
                 // Clear prefs to make sure we only submit this exception once.
                 prefs.edit { clear() }
             }
-        }?.let { FirefoxAccount.fromJSONString(it, crashReporter) }
+        }?.let { PlezixAccount.fromJSONString(it, crashReporter) }
     }
 
     override fun write(accountState: String) {

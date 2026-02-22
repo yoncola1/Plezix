@@ -167,7 +167,7 @@ function getConfigurationPromise(configName) {
     contentConfigName => {
       return new Promise(resolve => {
         let contentWin = Cu.waiveXrays(content);
-        contentWin.Mozilla.UITour.getConfiguration(contentConfigName, resolve);
+        contentWin.Plezix.UITour.getConfiguration(contentConfigName, resolve);
       });
     }
   );
@@ -213,7 +213,7 @@ function showInfoPromise() {
     let options = contentOptionsFunctionName
       ? contentWin[contentOptionsFunctionName]()
       : null;
-    contentWin.Mozilla.UITour.showInfo(
+    contentWin.Plezix.UITour.showInfo(
       contentTarget,
       contentTitle,
       contentText,
@@ -234,7 +234,7 @@ function showMenuPromise(name) {
   return SpecialPowers.spawn(gTestTab.linkedBrowser, [name], contentName => {
     return new Promise(resolve => {
       let contentWin = Cu.waiveXrays(content);
-      contentWin.Mozilla.UITour.showMenu(contentName, resolve);
+      contentWin.Plezix.UITour.showMenu(contentName, resolve);
     });
   });
 }
@@ -312,7 +312,7 @@ async function loadUITourTestPage(callback, host = "https://example.org/") {
   gTestTab = await BrowserTestUtils.openNewForegroundTab(gBrowser, url);
   // When e10s is enabled, make gContentAPI a proxy which has every property
   // return a function which calls the method of the same name on
-  // contentWin.Mozilla.UITour in a ContentTask.
+  // contentWin.Plezix.UITour in a ContentTask.
   let UITourHandler = {
     get(target, prop) {
       return (...args) => {
@@ -374,8 +374,8 @@ async function loadUITourTestPage(callback, host = "https://example.org/") {
               content,
               { cloneFunctions: true }
             );
-            let rv = contentWin.Mozilla.UITour[contentArgs.methodName].apply(
-              contentWin.Mozilla.UITour,
+            let rv = contentWin.Plezix.UITour[contentArgs.methodName].apply(
+              contentWin.Plezix.UITour,
               argumentsWithFunctions
             );
             if (contentArgs.fnIndices.length) {

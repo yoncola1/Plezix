@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -492,7 +492,7 @@ ExtensionsPartialSuccess.args = {
       [MigrationWizardConstants.DISPLAYED_RESOURCE_TYPES.EXTENSIONS]: {
         value: MigrationWizardConstants.PROGRESS_VALUE.INFO,
         message: "5 of 10 extensions",
-        linkText: "Learn how Firefox matches extensions",
+        linkText: "Learn how Plezix matches extensions",
         linkURL:
           "https://support.mozilla.org/kb/import-data-another-browser#w_import-extensions-from-chrome/",
       },
@@ -530,7 +530,7 @@ ExtensionsImportFailure.args = {
       [MigrationWizardConstants.DISPLAYED_RESOURCE_TYPES.EXTENSIONS]: {
         value: MigrationWizardConstants.PROGRESS_VALUE.WARNING,
         message: "No matching extensions",
-        linkText: "Browse extensions for Firefox",
+        linkText: "Browse extensions for Plezix",
         linkURL: "https://addons.mozilla.org/",
       },
       [MigrationWizardConstants.DISPLAYED_RESOURCE_TYPES.FORMDATA]: {

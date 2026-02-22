@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Root popup action dropdown menu.
@@ -83,7 +83,7 @@ private fun Menu(
             offset = offset,
             scrollState = ScrollState(with(localDensity) { columnHeightDp.toPx() * selectedItemIndex }.toInt()),
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2)
+                .background(color = PlezixTheme.colors.layer2)
                 .then(modifier),
         ) {
             val hasCheckedItems = menuItems.any { it.isChecked }
@@ -109,7 +109,7 @@ private fun Menu(
                                 modifier = Modifier
                                     .size(24.dp),
                                 contentDescription = null,
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
                 } else {
@@ -120,9 +120,9 @@ private fun Menu(
                     text = {
                         Text(
                             text = item.title,
-                            color = item.color ?: FirefoxTheme.colors.textPrimary,
+                            color = item.color ?: PlezixTheme.colors.textPrimary,
                             maxLines = 1,
-                            style = FirefoxTheme.typography.subtitle1,
+                            style = PlezixTheme.typography.subtitle1,
                         )
                     },
                     modifier = Modifier
@@ -205,7 +205,7 @@ data class MenuItem(
 @Suppress("Deprecation")
 private fun ContextualMenuPreview() {
     var showMenu by remember { mutableStateOf(false) }
-    FirefoxTheme {
+    PlezixTheme {
         Box(modifier = Modifier.size(400.dp)) {
             PrimaryButton(
                 text = "Show menu",

@@ -8,7 +8,7 @@ Key Concepts and Terminology
 Security Principal (nsIPrincipal)
 ---------------------------------
 
-A Security Principal represents the security context for a piece of code or data. Firefox uses four types of principals:
+A Security Principal represents the security context for a piece of code or data. Plezix uses four types of principals:
 
 - **ContentPrincipal**: Used for typical web pages and can be serialized to an origin URL, e.g., https://example.com/.
 - **NullPrincipal**: Used for pages that are never same-origin with anything else, such as iframes with the sandbox attribute or documents loaded with a data: URI. This is also known as an opaque origin.
@@ -51,14 +51,14 @@ Attributes:
 - `securityFlags`: Indicate the type of security checks required.
 - `contentPolicyType`: Specifies the type of content being loaded, used for security checks like Content Security Policy.
 
-Loading Lifecycle in Firefox
+Loading Lifecycle in Plezix
 ============================
 
 From Request to Response
 ------------------------
 
 1. **Request Initiation**: A web page initiates a request.
-2. **nsIChannel Creation**: Firefox creates an `nsIChannel` object, representing the request.
+2. **nsIChannel Creation**: Plezix creates an `nsIChannel` object, representing the request.
 3. **nsILoadInfo Attachment**: An `nsILoadInfo` object is required for the creation of an `nsIChannel` and holds security-related information.
 4. **Security Checks**: Security checks are performed using the `ContentSecurityManager`.
 5. **Request Execution**: If all checks pass, the request proceeds.

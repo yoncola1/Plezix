@@ -266,11 +266,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">有新的附加元件可以使用</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">有新的附加元件可以使用</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">將 %1$s 安裝到 %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">將 %1$s 與 %2$s 安裝到 %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">將它們安裝到 %1$s</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">我們還在開發初版的附加元件推薦功能，請稍後再回來。</string>
@@ -297,11 +297,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">因為與 %2$s %3$s 不相容，無法安裝 %1$s。</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s 違反了 Mozilla 的政策規定，無法安裝至 %2$s。</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s 違反了 Plezix 的政策規定，無法安裝至 %2$s。</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">由於 %1$s 僅可透過本平台不支援的企業原則進行安裝，無法安裝此附加元件。</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s 違反了 Mozilla 的政策規定，無法安裝至 %2$s。</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s 違反了 Plezix 的政策規定，無法安裝至 %2$s。</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">%1$s 啟用成功</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -318,7 +318,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s 移除成功</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s 移除失敗</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">此附加元件是從舊版 %1$s 轉移而來</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 套擴充套件</string>
@@ -349,11 +349,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">檢視詳細資訊</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">此擴充套件違反 Mozilla 的政策規定，已被停用。</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">此擴充套件違反 Plezix 的政策規定，已被停用。</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">此擴充套件違反了 Mozilla 的政策規定，已被停用。您還是可以開啟，但可能會有風險。</string>
+  <string name="mozac_feature_addons_status_softblocked_1">此擴充套件違反了 Plezix 的政策規定，已被停用。您還是可以開啟，但可能會有風險。</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">此擴充套件違反了 Mozilla 的政策規定，繼續使用可能會有風險。</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">此擴充套件違反了 Plezix 的政策規定，繼續使用可能會有風險。</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">無法確認 %1$s 安全，已被停用。</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

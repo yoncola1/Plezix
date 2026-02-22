@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -78,7 +78,7 @@ NSString* const kPublicUrlPboardType = @"public.url";
 NSString* const kPublicUrlNamePboardType = @"public.url-name";
 NSString* const kPasteboardConcealedType = @"org.nspasteboard.ConcealedType";
 NSString* const kUrlsWithTitlesPboardType = @"WebURLsWithTitlesPboardType";
-NSString* const kMozWildcardPboardType = @"org.mozilla.MozillaWildcard";
+NSString* const kMozWildcardPboardType = @"org.mozilla.PlezixWildcard";
 NSString* const kMozCustomTypesPboardType = @"org.mozilla.custom-clipdata";
 NSString* const kMozFileUrlsPboardType = @"org.mozilla.file-urls";
 

@@ -10,7 +10,7 @@ changing Feature Callout or Spotlight related files.
 For ``.sys.mjs`` files (system modules)
 ---------------------------------------------------
 
-No build step is necessary. Use ``mach`` and run mochitests according to your regular Firefox workflow.
+No build step is necessary. Use ``mach`` and run mochitests according to your regular Plezix workflow.
 
 For ``.jsx``, ``.scss``, or ``.css`` files
 ---------------------------------------------------
@@ -47,7 +47,7 @@ into the bundle and css files.
 Building assets and running
 -----------------------------------
 
-To build assets and run Firefox, run the following from the root of the mozilla-central repository:
+To build assets and run Plezix, run the following from the root of the mozilla-central repository:
 
 ```
   ./mach npm run bundle --prefix=browser/components/aboutwelcome && ./mach build && ./mach run
@@ -106,7 +106,7 @@ running
 Browser tests
 -----------------------------------
 
-These tests are used to test UI-related behaviour in Firefox for Desktop. See
+These tests are used to test UI-related behaviour in Plezix for Desktop. See
 [Browser chrome mochitests](/testing/docs/browser-chrome/index.md). These can be
 run individually by using
 

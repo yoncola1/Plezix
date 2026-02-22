@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-mozilla",
   "version": "4.2.1",
-  "description": "A collection of rules that help enforce JavaScript coding standard in the Mozilla project.",
+  "description": "A collection of rules that help enforce JavaScript coding standard in the Plezix project.",
   "keywords": [
     "eslint",
     "eslintplugin",

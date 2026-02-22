@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ const NSTouchBarItemIdentifier kTouchBarBaseIdentifier =
 /**
  * Our TouchBar is its own delegate. This is adequate for our purposes,
  * since the current implementation only defines Touch Bar buttons for the
- * main Firefox window. If modals and other windows were to have custom
+ * main Plezix window. If modals and other windows were to have custom
  * Touch Bar views, each window would have to be a NSTouchBarDelegate so
  * they could define their own custom sets of buttons.
  */

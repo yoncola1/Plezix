@@ -110,11 +110,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">Yeni əlavə mövcuddur</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">Yeni əlavələr mövcuddur</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s əlavəsini %2$s səyyahına əlavə et</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s və %2$s əlavələrini %3$s səyyahına əlavə et</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Onları %1$s səyyahına əlavə et</string>
   <!-- Text shown after successfully installed an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_installed">%1$s uğurla quraşdırıldı</string>

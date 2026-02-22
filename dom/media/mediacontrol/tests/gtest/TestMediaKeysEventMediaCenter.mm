@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #import <MediaPlayer/MediaPlayer.h>
@@ -236,8 +236,8 @@ TEST(MediaHardwareKeysEventSourceMacMediaCenter, TestSetMetadata)
 
   MediaMetadataBase metadata;
   metadata.mTitle = u"MediaPlayback";
-  metadata.mArtist = u"Firefox";
-  metadata.mAlbum = u"Mozilla";
+  metadata.mArtist = u"Plezix";
+  metadata.mAlbum = u"Plezix";
   source->SetMediaMetadata(metadata);
 
   // The update procedure of nowPlayingInfo is async, so wait for a second
@@ -247,9 +247,9 @@ TEST(MediaHardwareKeysEventSourceMacMediaCenter, TestSetMetadata)
   ASSERT_TRUE([center.nowPlayingInfo[MPMediaItemPropertyTitle]
       isEqualToString:@"MediaPlayback"]);
   ASSERT_TRUE([center.nowPlayingInfo[MPMediaItemPropertyArtist]
-      isEqualToString:@"Firefox"]);
+      isEqualToString:@"Plezix"]);
   ASSERT_TRUE([center.nowPlayingInfo[MPMediaItemPropertyAlbumTitle]
-      isEqualToString:@"Mozilla"]);
+      isEqualToString:@"Plezix"]);
 
   source->Close();
   PR_Sleep(PR_SecondsToInterval(1));

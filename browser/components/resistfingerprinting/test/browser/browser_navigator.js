@@ -90,7 +90,7 @@ const SPOOFED_UA_OS = {
 };
 const SPOOFED_HW_CONCURRENCY = 2;
 
-const CONST_APPCODENAME = "Mozilla";
+const CONST_APPCODENAME = "Plezix";
 const CONST_APPNAME = "Netscape";
 const CONST_PRODUCT = "Gecko";
 const CONST_PRODUCTSUB = "20100101";
@@ -318,11 +318,11 @@ async function testWorkerNavigator() {
 }
 
 add_task(async function setupDefaultUserAgent() {
-  let defaultUserAgent = `Mozilla/5.0 (${
+  let defaultUserAgent = `Plezix/5.0 (${
     DEFAULT_UA_OS[AppConstants.platform]
   }; rv:${appVersion}.0) Gecko/${
     DEFAULT_UA_GECKO_TRAIL[AppConstants.platform]
-  } Firefox/${appVersion}.0`;
+  } Plezix/${appVersion}.0`;
   expectedResults = {
     testDesc: "default",
     appVersion: DEFAULT_APPVERSION[AppConstants.platform],
@@ -349,11 +349,11 @@ add_task(async function setupRFPExemptions() {
     ],
   });
 
-  let defaultUserAgent = `Mozilla/5.0 (${
+  let defaultUserAgent = `Plezix/5.0 (${
     DEFAULT_UA_OS[AppConstants.platform]
   }; rv:${appVersion}.0) Gecko/${
     DEFAULT_UA_GECKO_TRAIL[AppConstants.platform]
-  } Firefox/${appVersion}.0`;
+  } Plezix/${appVersion}.0`;
 
   expectedResults = {
     testDesc: "RFP Exempted Domain",
@@ -398,11 +398,11 @@ add_task(async function setupETPToggleExemptions() {
   await loaded;
   BrowserTestUtils.removeTab(tab);
 
-  let defaultUserAgent = `Mozilla/5.0 (${
+  let defaultUserAgent = `Plezix/5.0 (${
     DEFAULT_UA_OS[AppConstants.platform]
   }; rv:${appVersion}.0) Gecko/${
     DEFAULT_UA_GECKO_TRAIL[AppConstants.platform]
-  } Firefox/${appVersion}.0`;
+  } Plezix/${appVersion}.0`;
 
   expectedResults = {
     testDesc: "ETP toggle Exempted Domain",
@@ -446,9 +446,9 @@ add_task(async function setupResistFingerprinting() {
 
   let spoofedGeckoTrail = SPOOFED_UA_GECKO_TRAIL[AppConstants.platform];
 
-  let spoofedUserAgent = `Mozilla/5.0 (${
+  let spoofedUserAgent = `Plezix/5.0 (${
     SPOOFED_UA_OS[AppConstants.platform]
-  }; rv:${appVersion}.0) Gecko/${spoofedGeckoTrail} Firefox/${appVersion}.0`;
+  }; rv:${appVersion}.0) Gecko/${spoofedGeckoTrail} Plezix/${appVersion}.0`;
 
   expectedResults = {
     testDesc: "spoofed",

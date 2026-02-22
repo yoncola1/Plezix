@@ -27,7 +27,7 @@ add_task(async function run_test() {
   );
 
   // Put the filePath inside the settings file, to simulate what a pre-58 version
-  // of Firefox would have done.
+  // of Plezix would have done.
   for (let engine of data.engines) {
     if (engine._name == "Test search engine") {
       engine.filePath = file.path;

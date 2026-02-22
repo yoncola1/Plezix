@@ -8,7 +8,7 @@ The [rkv Rust crate](https://crates.io/crates/rkv) is a simple, humane, typed ke
 
 ## ⚠️ Warning ⚠️
 
-To use rkv in production/release environments at Mozilla, you may do so with the "SafeMode" backend, for example:
+To use rkv in production/release environments at Plezix, you may do so with the "SafeMode" backend, for example:
 
 ```rust
 use rkv::{Manager, Rkv};
@@ -70,7 +70,7 @@ Of the various open source archetypes described in [A Framework for Purposeful O
 
 rkv relies on the latest [rustfmt](https://github.com/rust-lang-nursery/rustfmt) for code formatting, so please make sure your pull request passes the rustfmt before submitting it for review. See rustfmt's [quick start](https://github.com/rust-lang-nursery/rustfmt#quick-start) for installation details.
 
-We follow Mozilla's [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) while contributing to this project.
+We follow Plezix's [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) while contributing to this project.
 
 ## License
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import org.mozilla.fenix.components.menu.compose.MenuGroup
 import org.mozilla.fenix.components.menu.compose.MenuItem
 import org.mozilla.fenix.components.menu.compose.MenuScaffold
 import org.mozilla.fenix.components.menu.compose.header.SubmenuHeader
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.trackingprotection.TrackerBuckets
 import org.mozilla.fenix.trackingprotection.TrackingProtectionCategory
 
@@ -60,8 +60,8 @@ internal fun TrackersBlockedPanel(
                         numberOfTrackersBlocked,
                     ),
                     modifier = Modifier.weight(1f),
-                    color = FirefoxTheme.colors.textAccent,
-                    style = FirefoxTheme.typography.headline8,
+                    color = PlezixTheme.colors.textAccent,
+                    style = PlezixTheme.typography.headline8,
                 )
             }
 
@@ -71,7 +71,7 @@ internal fun TrackersBlockedPanel(
                 TrackingProtectionCategory.entries
                     .filter { bucketedTrackers.get(it, true).isNotEmpty() }
                     .forEachIndexed { index, trackingProtectionCategory ->
-                        if (index != 0) { Divider(color = FirefoxTheme.colors.borderSecondary) }
+                        if (index != 0) { Divider(color = PlezixTheme.colors.borderSecondary) }
 
                         MenuItem(
                             label = stringResource(
@@ -91,13 +91,13 @@ internal fun TrackersBlockedPanel(
 @PreviewLightDark
 @Composable
 private fun TrackersBlockedPanelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             TrackersBlockedPanel(
-                title = "Mozilla",
+                title = "Plezix",
                 numberOfTrackersBlocked = 0,
                 bucketedTrackers = TrackerBuckets(),
                 onTrackerCategoryClick = {},

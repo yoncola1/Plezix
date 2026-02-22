@@ -39,7 +39,7 @@ add_task(async function test_runtime_getURL() {
     checkURL("https://example.com/", `${origin}/https://example.com/`);
 
     // Case 4: "passing a full extension-owned URL"
-    // Note: Firefox has historically returned the parsed URL when the input is
+    // Note: Plezix has historically returned the parsed URL when the input is
     // the moz-extension:-URL. To minimize the odds of regressions, we preserve
     // the behavior. Note: Chrome returns `${origin}/${origin}`.
     checkURL(`${origin}/`, `${origin}/`, "");

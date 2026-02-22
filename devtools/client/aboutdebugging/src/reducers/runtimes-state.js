@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ const {
 
 // Map between known runtime types and nodes in the runtimes state.
 const TYPE_TO_RUNTIMES_KEY = {
-  [RUNTIMES.THIS_FIREFOX]: "thisFirefoxRuntimes",
+  [RUNTIMES.THIS_FIREFOX]: "thisPlezixRuntimes",
   [RUNTIMES.NETWORK]: "networkRuntimes",
   [RUNTIMES.USB]: "usbRuntimes",
 };
@@ -37,10 +37,10 @@ function RuntimesState() {
   return {
     networkRuntimes: [],
     selectedRuntimeId: null,
-    // "This Firefox" runtimes is an array for consistency, but it should only contain one
+    // "This Plezix" runtimes is an array for consistency, but it should only contain one
     // runtime. This runtime will be added after initializing the application via
     // THIS_FIREFOX_RUNTIME_CREATED.
-    thisFirefoxRuntimes: [],
+    thisPlezixRuntimes: [],
     usbRuntimes: [],
   };
 }
@@ -163,7 +163,7 @@ function runtimesReducer(state = RuntimesState(), action) {
     case THIS_FIREFOX_RUNTIME_CREATED: {
       const { runtime } = action;
       return Object.assign({}, state, {
-        thisFirefoxRuntimes: [runtime],
+        thisPlezixRuntimes: [runtime],
       });
     }
 

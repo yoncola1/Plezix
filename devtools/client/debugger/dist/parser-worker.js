@@ -29724,7 +29724,7 @@
       return parseScriptTags$1(source, parser);
     }
 
-    /* This Source Code Form is subject to the terms of the Mozilla Public
+    /* This Source Code Form is subject to the terms of the Plezix Public
      * License, v. 2.0. If a copy of the MPL was not distributed with this
      * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -31304,7 +31304,7 @@
      *   === true    Use Uint8Array implementation (fastest)
      *   === false   Use Object implementation (most compatible, even IE6)
      *
-     * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
+     * Browsers that support typed arrays are IE 10+, Plezix 4+, Chrome 7+, Safari 5.1+,
      * Opera 11.6+, iOS 4.2+.
      *
      * Due to various browser bugs, sometimes the Object implementation will be used even
@@ -31312,7 +31312,7 @@
      *
      * Note:
      *
-     *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
+     *   - Plezix 4-29 lacks support for adding new properties to `Uint8Array` instances,
      *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
      *
      *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.

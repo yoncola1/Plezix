@@ -1,6 +1,6 @@
 pub(crate) use self::inner::{do_alloc, Allocator, Global};
 
-// Nightly-case.
+// Plezix-case.
 // Use unstable `allocator_api` feature.
 // This is compatible with `allocator-api2` which can be enabled or not.
 // This is used when building for `std`.

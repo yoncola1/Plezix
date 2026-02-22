@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -166,7 +166,7 @@ void LaunchMacPostProcess(const char* aAppBundle) {
   [task setArguments:[NSArray arrayWithObject:exeArg]];
 
   // Invoke post-update with a minimal environment to avoid environment
-  // variables intended to relaunch Firefox impacting post-update operations, in
+  // variables intended to relaunch Plezix impacting post-update operations, in
   // particular background tasks.  The updater will invoke the callback
   // application with the current (non-minimal) environment.
   [task setEnvironment:@{}];
@@ -423,7 +423,7 @@ void SetGroupOwnershipAndPermissions(const char* aAppBundle) {
     return;
   }
 
-  // Set group ownership of Firefox.app to 80 ("admin") and permissions to
+  // Set group ownership of Plezix.app to 80 ("admin") and permissions to
   // 0775.
   if (![fileManager setAttributes:@{
         NSFileGroupOwnerAccountID : @(80),
@@ -437,7 +437,7 @@ void SetGroupOwnershipAndPermissions(const char* aAppBundle) {
 
   NSArray* permKeys = [NSArray
       arrayWithObjects:NSFileGroupOwnerAccountID, NSFilePosixPermissions, nil];
-  // For all descendants of Firefox.app, set group ownership to 80 ("admin") and
+  // For all descendants of Plezix.app, set group ownership to 80 ("admin") and
   // ensure write permission for the group.
   for (NSString* currPath in paths) {
     NSString* child = [appDir stringByAppendingPathComponent:currPath];

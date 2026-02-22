@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ interface nsINativeMessagingPortal : nsISupports
    *
    * @param aApplication The name of the native application which the portal is
    *                     being requested to talk to. See
-   *                     https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#native_messaging_manifests.
+   *                     https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_manifests#native_messaging_manifests.
    *
    * @returns Promise that resolves with a string that represents the
               session handle (a D-Bus object path of the form

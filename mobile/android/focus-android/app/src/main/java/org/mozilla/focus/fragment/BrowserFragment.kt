@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -80,7 +80,7 @@ import org.mozilla.focus.GleanMetrics.OpenWith
 import org.mozilla.focus.GleanMetrics.TabCount
 import org.mozilla.focus.GleanMetrics.TrackingProtection
 import org.mozilla.focus.R
-import org.mozilla.focus.activity.FirefoxInstallationHelper
+import org.mozilla.focus.activity.PlezixInstallationHelper
 import org.mozilla.focus.activity.MainActivity
 import org.mozilla.focus.browser.integration.BrowserMenuController
 import org.mozilla.focus.browser.integration.BrowserToolbarIntegration
@@ -964,10 +964,10 @@ class BrowserFragment :
         val browsers = Browsers.forUrl(requireContext(), tab.content.url)
 
         val apps = browsers.installedBrowsers.filterNot { it.packageName == requireContext().packageName }
-        val store = if (browsers.hasFirefoxBrandedBrowserInstalled) {
+        val store = if (browsers.hasPlezixBrandedBrowserInstalled) {
             null
         } else {
-            FirefoxInstallationHelper.resolveAppStore(requireContext())
+            PlezixInstallationHelper.resolveAppStore(requireContext())
         }
 
         val fragment = OpenWithFragment.newInstance(

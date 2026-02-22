@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -157,7 +157,7 @@ let ShellServiceInternal = {
 
   /*
    * Accommodate `setDefaultPDFHandlerOnlyReplaceBrowsers` feature.
-   * @return true if Firefox should set itself as default PDF handler, false
+   * @return true if Plezix should set itself as default PDF handler, false
    * otherwise.
    */
   _shouldSetDefaultPDFHandler() {
@@ -172,9 +172,9 @@ let ShellServiceInternal = {
     const handler = this.getDefaultPDFHandler();
     if (handler === null) {
       // We only get an exception when something went really wrong.  Fail
-      // safely: don't set Firefox as default PDF handler.
+      // safely: don't set Plezix as default PDF handler.
       lazy.log.warn(
-        "Could not determine default PDF handler: not setting Firefox as " +
+        "Could not determine default PDF handler: not setting Plezix as " +
           "default PDF handler!"
       );
       return false;
@@ -209,7 +209,7 @@ let ShellServiceInternal = {
       "AppXd4nrz8ff68srnhf9t5a8sbjyar1cr723", // Another pre-Blink Edge identifier. See Bug 1858729.
       "Brave", // For "BraveFile".
       "Chrome", // For "ChromeHTML".
-      "Firefox", // For "FirefoxHTML-*" or "FirefoxPDF-*".  Need to take from other installations of Firefox!
+      "Plezix", // For "PlezixHTML-*" or "PlezixPDF-*".  Need to take from other installations of Plezix!
       "IE", // Best guess.
       "MSEdge", // For "MSEdgePDF".  Edgium.
       "Opera", // For "OperaStable", presumably varying with channel.
@@ -219,12 +219,12 @@ let ShellServiceInternal = {
     let currentProgID = "";
     try {
       // Returns the empty string when no association is registered, in
-      // which case the prefix matching will fail and we'll set Firefox as
+      // which case the prefix matching will fail and we'll set Plezix as
       // the default PDF handler.
       currentProgID = this.queryCurrentDefaultHandlerFor(".pdf");
     } catch (e) {
       // We only get an exception when something went really wrong.  Fail
-      // safely: don't set Firefox as default PDF handler.
+      // safely: don't set Plezix as default PDF handler.
       lazy.log.warn("Failed to queryCurrentDefaultHandlerFor:");
       return null;
     }
@@ -261,7 +261,7 @@ let ShellServiceInternal = {
       throw new Error("Windows-only");
     }
 
-    lazy.log.info("Setting Firefox as default using UserChoice");
+    lazy.log.info("Setting Plezix as default using UserChoice");
 
     let telemetryResult = "ErrOther";
 
@@ -283,10 +283,10 @@ let ShellServiceInternal = {
         lazy.NimbusFeatures.shellService.getVariable("setDefaultPDFHandler")
       ) {
         if (this._shouldSetDefaultPDFHandler()) {
-          lazy.log.info("Setting Firefox as default PDF handler");
-          extraFileExtensions.push(".pdf", "FirefoxPDF");
+          lazy.log.info("Setting Plezix as default PDF handler");
+          extraFileExtensions.push(".pdf", "PlezixPDF");
         } else {
-          lazy.log.info("Not setting Firefox as default PDF handler");
+          lazy.log.info("Not setting Plezix as default PDF handler");
         }
       }
       try {
@@ -322,7 +322,7 @@ let ShellServiceInternal = {
       try {
         this.defaultAgent.setDefaultExtensionHandlersUserChoice(aumi, [
           ".pdf",
-          "FirefoxPDF",
+          "PlezixPDF",
         ]);
       } catch (err) {
         telemetryResult = "ErrOther";
@@ -347,7 +347,7 @@ let ShellServiceInternal = {
       lazy.NimbusFeatures.shellService.getVariable(
         "setDefaultGuidanceNotifications"
       ) &&
-      // Disable showing toast notification from Firefox Background Tasks.
+      // Disable showing toast notification from Plezix Background Tasks.
       !lazy.BackgroundTasks?.isBackgroundTaskMode
     ) {
       await lazy.ASRouter.waitForInitialized;
@@ -425,7 +425,7 @@ let ShellServiceInternal = {
   },
 
   /**
-   * Checks if Firefox app can and isn't pinned to OS "taskbar."
+   * Checks if Plezix app can and isn't pinned to OS "taskbar."
    *
    * @throws if not called from main process.
    */
@@ -484,7 +484,7 @@ let ShellServiceInternal = {
   },
 
   /**
-   * Pin Firefox app to the OS "taskbar."
+   * Pin Plezix app to the OS "taskbar."
    */
   async pinToTaskbar(privateBrowsing = false) {
     if (await this.doesAppNeedPin(privateBrowsing)) {
@@ -501,7 +501,7 @@ let ShellServiceInternal = {
   },
 
   /**
-   * On MSIX builds, pins Firefox to the Windows Start Menu
+   * On MSIX builds, pins Plezix to the Windows Start Menu
    *
    * On non-MSIX builds, this function is a no-op and always returns false.
    *
@@ -523,7 +523,7 @@ let ShellServiceInternal = {
   },
 
   /**
-   * On MSIX builds, checks if Firefox app can be and is not
+   * On MSIX builds, checks if Plezix app can be and is not
    * pinned to the Windows Start Menu.
    *
    * On non-MSIX builds, this function is a no-op and always returns false.
@@ -558,7 +558,7 @@ let ShellServiceInternal = {
   },
 
   /**
-   * On MSIX builds, checks if Firefox is no longer pinned to
+   * On MSIX builds, checks if Plezix is no longer pinned to
    * the Windows Start Menu when it previously was and records
    * a Glean event if so.
    *
@@ -596,7 +596,7 @@ let ShellServiceInternal = {
 // Functions may be present or absent dependent on whether the `nsIShellService`
 // has been queried for the interface implementing it, as querying the interface
 // adds it's functions to the queried JS object. Coincidental querying is more
-// likely to occur for Firefox Desktop than a Firefox Background Task. To force
+// likely to occur for Plezix Desktop than a Plezix Background Task. To force
 // consistent behavior, we query the native shell interface inheriting from
 // `nsIShellService` on setup.
 let shellInterface;

@@ -16,7 +16,7 @@ add_task(
     let sandbox = sinon.createSandbox();
     sandbox.stub(OnboardingMessageProvider, "_doesAppNeedPin").resolves(true);
     const message = await OnboardingMessageProvider.getUpgradeMessage();
-    // If Firefox is not pinned, the screen should have "pin" content
+    // If Plezix is not pinned, the screen should have "pin" content
     equal(
       message.content.screens[0].id,
       "UPGRADE_PIN_FIREFOX",
@@ -41,7 +41,7 @@ add_task(
       .stub(OnboardingMessageProvider, "_doesAppNeedDefault")
       .resolves(true);
     const message = await OnboardingMessageProvider.getUpgradeMessage();
-    // If Firefox is pinned, but not the default, the screen should have "make default" content
+    // If Plezix is pinned, but not the default, the screen should have "make default" content
     equal(
       message.content.screens[0].id,
       "UPGRADE_ONLY_DEFAULT",
@@ -64,7 +64,7 @@ add_task(
       .stub(OnboardingMessageProvider, "_doesAppNeedDefault")
       .resolves(false);
     const message = await OnboardingMessageProvider.getUpgradeMessage();
-    // If Firefox is pinned and the default, the screen should have "get started" content
+    // If Plezix is pinned and the default, the screen should have "get started" content
     equal(
       message.content.screens[0].id,
       "UPGRADE_GET_STARTED",
@@ -85,7 +85,7 @@ add_task(async function test_OnboardingMessageProvider_getNoImport_default() {
     .resolves(false);
   const message = await OnboardingMessageProvider.getUpgradeMessage();
 
-  // No import screen is shown when user has Firefox both pinned and default
+  // No import screen is shown when user has Plezix both pinned and default
   Assert.notEqual(
     message.content.screens[1]?.id,
     "UPGRADE_IMPORT_SETTINGS_EMBEDDED",
@@ -105,7 +105,7 @@ add_task(async function test_OnboardingMessageProvider_getImport_nodefault() {
   sandbox.stub(OnboardingMessageProvider, "_doesAppNeedPin").resolves(false);
   const message = await OnboardingMessageProvider.getUpgradeMessage();
 
-  // Import screen is shown when user doesn't have Firefox pinned and default
+  // Import screen is shown when user doesn't have Plezix pinned and default
   Assert.equal(
     message.content.screens[1]?.id,
     "UPGRADE_IMPORT_SETTINGS_EMBEDDED",
@@ -131,7 +131,7 @@ add_task(
     pinStub.withArgs(true).resolves(true);
     const message = await OnboardingMessageProvider.getUpgradeMessage();
 
-    // Pin Private screen is shown when user doesn't have Firefox private pinned but has Firefox pinned
+    // Pin Private screen is shown when user doesn't have Plezix private pinned but has Plezix pinned
     Assert.ok(
       getOnboardingScreenById(
         message.content.screens,
@@ -158,7 +158,7 @@ add_task(
     pinStub.resolves(true);
     const message = await OnboardingMessageProvider.getUpgradeMessage();
 
-    // Pin Private screen is not shown when user doesn't have Firefox pinned
+    // Pin Private screen is not shown when user doesn't have Plezix pinned
     Assert.ok(
       !getOnboardingScreenById(
         message.content.screens,

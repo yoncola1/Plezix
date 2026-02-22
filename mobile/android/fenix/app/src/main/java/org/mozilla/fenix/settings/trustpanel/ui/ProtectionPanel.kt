@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -56,7 +56,7 @@ import org.mozilla.fenix.settings.PhoneFeature
 import org.mozilla.fenix.settings.trustpanel.store.AutoplayValue
 import org.mozilla.fenix.settings.trustpanel.store.WebsiteInfoState
 import org.mozilla.fenix.settings.trustpanel.store.WebsitePermission
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val BANNER_ROUNDED_CORNER_SHAPE = RoundedCornerShape(
     topStart = 28.dp, topEnd = 28.dp, bottomStart = 4.dp, bottomEnd = 4.dp,
@@ -170,7 +170,7 @@ internal fun ProtectionPanel(
                     onClick = { onPrivacySecuritySettingsClick() },
                 ),
             ),
-            linkTextColor = FirefoxTheme.colors.textAccent,
+            linkTextColor = PlezixTheme.colors.textAccent,
             linkTextDecoration = TextDecoration.Underline,
         )
     }
@@ -181,7 +181,7 @@ private fun ProtectionPanelBanner(
     isSecured: Boolean,
     isTrackingProtectionEnabled: Boolean,
 ) {
-    var backgroundColor: Color = FirefoxTheme.colors.layer3
+    var backgroundColor: Color = PlezixTheme.colors.layer3
     val imageId: Int
     val title: String
     val description: String
@@ -191,7 +191,7 @@ private fun ProtectionPanelBanner(
         title = stringResource(id = R.string.protection_panel_banner_not_secure_title)
         description = stringResource(id = R.string.protection_panel_banner_not_secure_description)
     } else if (!isTrackingProtectionEnabled) {
-        backgroundColor = FirefoxTheme.colors.layerSearch
+        backgroundColor = PlezixTheme.colors.layerSearch
         imageId = R.drawable.protection_panel_not_protected
         title = stringResource(id = R.string.protection_panel_banner_not_protected_title)
         description = stringResource(
@@ -228,14 +228,14 @@ private fun ProtectionPanelBanner(
             ) {
                 Text(
                     text = title,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline7,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.headline7,
                 )
 
                 Text(
                     text = description,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
                 )
             }
         }
@@ -255,8 +255,8 @@ private fun WebsitePermissionsMenuGroup(
         ) {
             Text(
                 text = stringResource(id = R.string.protection_panel_permissions_title),
-                color = FirefoxTheme.colors.textAccent,
-                style = FirefoxTheme.typography.headline8,
+                color = PlezixTheme.colors.textAccent,
+                style = PlezixTheme.typography.headline8,
             )
         }
 
@@ -305,8 +305,8 @@ private fun WebsitePermissionToggle(
     ) {
         Text(
             text = toggleLabel,
-            color = FirefoxTheme.colors.textAccent,
-            style = FirefoxTheme.typography.body1,
+            color = PlezixTheme.colors.textAccent,
+            style = PlezixTheme.typography.body1,
         )
     }
 }
@@ -340,8 +340,8 @@ private fun AutoplayDropdownMenu(
         ) {
             Text(
                 text = placeholderText,
-                color = FirefoxTheme.colors.textAccent,
-                style = FirefoxTheme.typography.body1,
+                color = PlezixTheme.colors.textAccent,
+                style = PlezixTheme.typography.body1,
             )
 
             Spacer(modifier = Modifier.width(4.dp))
@@ -350,7 +350,7 @@ private fun AutoplayDropdownMenu(
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_dropdown_arrow),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconAccentViolet,
+                    tint = PlezixTheme.colors.iconAccentViolet,
                 )
 
                 if (expanded) {
@@ -374,17 +374,17 @@ private fun AutoplayDropdownMenu(
 @PreviewLightDark
 @Composable
 private fun ProtectionPanelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1),
+                .background(color = PlezixTheme.colors.layer1),
         ) {
             ProtectionPanel(
                 icon = null,
                 websiteInfoState = WebsiteInfoState(
                     isSecured = true,
                     websiteUrl = "https://www.mozilla.org",
-                    websiteTitle = "Mozilla",
+                    websiteTitle = "Plezix",
                     certificateName = "",
                 ),
                 isTrackingProtectionEnabled = true,

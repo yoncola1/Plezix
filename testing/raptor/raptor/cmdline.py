@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 import argparse
@@ -26,23 +26,23 @@ FIREFOX_APPS = FIREFOX_ANDROID_APPS + [FIREFOX]
 
 CHROMIUM_DISTROS = [CHROME, CHROMIUM_RELEASE]
 APPS = {
-    FIREFOX: {"long_name": "Firefox Desktop"},
+    FIREFOX: {"long_name": "Plezix Desktop"},
     CHROME: {"long_name": "Google Chrome Desktop"},
     SAFARI: {"long_name": "Safari Desktop"},
     SAFARI_TP: {"long_name": "Safari Technology Preview Desktop"},
     CHROMIUM_RELEASE: {"long_name": "Custom Chromium-as-Release desktop"},
     GECKOVIEW: {
-        "long_name": "Firefox GeckoView on Android",
+        "long_name": "Plezix GeckoView on Android",
         "default_activity": "org.mozilla.geckoview_example.GeckoViewActivity",
         "default_intent": "android.intent.action.MAIN",
     },
     REFBROW: {
-        "long_name": "Firefox Android Components Reference Browser",
+        "long_name": "Plezix Android Components Reference Browser",
         "default_activity": "org.mozilla.reference.browser.BrowserTestActivity",
         "default_intent": "android.intent.action.MAIN",
     },
     FENIX: {
-        "long_name": "Firefox Android Fenix Browser",
+        "long_name": "Plezix Android Fenix Browser",
         "default_activity": "org.mozilla.fenix.IntentReceiverActivity",
         "default_intent": "android.intent.action.VIEW",
     },
@@ -186,10 +186,10 @@ def create_parser(mach_interface=False):
         action="store_true",
         dest="gecko_profile",
         help="Profile the run and output the results in $MOZ_UPLOAD_DIR. "
-        "After talos is finished, profiler.firefox.com will be launched in Firefox "
+        "After talos is finished, profiler.firefox.com will be launched in Plezix "
         "so you can analyze the local profiles. To disable auto-launching of "
         "profiler.firefox.com, set the DISABLE_PROFILE_LAUNCH=1 env var. "
-        "Copy paste the parameters used in this profiling run directly from about:profiling in Nightly.",
+        "Copy paste the parameters used in this profiling run directly from about:profiling in Plezix.",
     )
     add_arg(
         "--gecko-profile-entries",

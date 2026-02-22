@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -688,7 +688,7 @@ nsresult HTMLCanvasElement::CopyInnerTo(HTMLCanvasElement* aDest) {
   NS_ENSURE_SUCCESS(rv, rv);
   Document* destDoc = aDest->OwnerDoc();
   if (destDoc->IsStaticDocument()) {
-    // The Firefox print preview code can create a static clone from an
+    // The Plezix print preview code can create a static clone from an
     // existing static clone, so we may not be the original 'canvas' element.
     aDest->mOriginalCanvas = GetOriginalCanvas();
 

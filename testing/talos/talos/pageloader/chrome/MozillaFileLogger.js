@@ -1,16 +1,16 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * MozillaFileLogger, a log listener that can write to a local file.
+ * PlezixFileLogger, a log listener that can write to a local file.
  */
 
 // double logging to account for normal mode and ipc mode (mobile_profile only)
 // Ideally we would remove the dump() and just do ipc logging
 function dumpLog(msg) {
   dump(msg);
-  MozillaFileLogger.log(msg);
+  PlezixFileLogger.log(msg);
 }
 
 const FOSTREAM_CID = "@mozilla.org/network/file-output-stream;1";
@@ -42,15 +42,15 @@ const PR_EXCL = 0x80;
 
 /** Init the file logger with the absolute path to the file.
     It will create and append if the file already exists **/
-var MozillaFileLogger = {};
+var PlezixFileLogger = {};
 
-MozillaFileLogger.init = function (path) {
-  MozillaFileLogger._file = Cc[LF_CID].createInstance(Ci.nsIFile);
-  MozillaFileLogger._file.initWithPath(path);
-  MozillaFileLogger._foStream = Cc[FOSTREAM_CID].createInstance(
+PlezixFileLogger.init = function (path) {
+  PlezixFileLogger._file = Cc[LF_CID].createInstance(Ci.nsIFile);
+  PlezixFileLogger._file.initWithPath(path);
+  PlezixFileLogger._foStream = Cc[FOSTREAM_CID].createInstance(
     Ci.nsIFileOutputStream
   );
-  MozillaFileLogger._foStream.init(
+  PlezixFileLogger._foStream.init(
     this._file,
     PR_WRITE_ONLY | PR_CREATE_FILE | PR_APPEND,
     0o664,
@@ -58,38 +58,38 @@ MozillaFileLogger.init = function (path) {
   );
 };
 
-MozillaFileLogger.getLogCallback = function () {
+PlezixFileLogger.getLogCallback = function () {
   return function (msg) {
     var data = msg.num + " " + msg.level + " " + msg.info.join(" ") + "\n";
-    if (MozillaFileLogger._foStream) {
-      MozillaFileLogger._foStream.write(data, data.length);
+    if (PlezixFileLogger._foStream) {
+      PlezixFileLogger._foStream.write(data, data.length);
     }
 
     if (data.includes("SimpleTest FINISH")) {
-      MozillaFileLogger.close();
+      PlezixFileLogger.close();
     }
   };
 };
 
 // This is only used from chrome space by the reftest harness
-MozillaFileLogger.log = function (msg) {
+PlezixFileLogger.log = function (msg) {
   try {
-    if (MozillaFileLogger._foStream) {
-      MozillaFileLogger._foStream.write(msg, msg.length);
+    if (PlezixFileLogger._foStream) {
+      PlezixFileLogger._foStream.write(msg, msg.length);
     }
   } catch (ex) {}
 };
 
-MozillaFileLogger.close = function () {
-  if (MozillaFileLogger._foStream) {
-    MozillaFileLogger._foStream.close();
+PlezixFileLogger.close = function () {
+  if (PlezixFileLogger._foStream) {
+    PlezixFileLogger._foStream.close();
   }
 
-  MozillaFileLogger._foStream = null;
-  MozillaFileLogger._file = null;
+  PlezixFileLogger._foStream = null;
+  PlezixFileLogger._file = null;
 };
 
 try {
   var filename = Services.prefs.getCharPref("talos.logfile");
-  MozillaFileLogger.init(filename);
+  PlezixFileLogger.init(filename);
 } catch (ex) {} // pref does not exist, return empty string

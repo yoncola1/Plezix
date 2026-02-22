@@ -71,7 +71,7 @@ expected_allow(
       message("ORB shouldn't block opaque text/javascript (utf16 encoded without BOM but charset is provided in content-type)")),
   { skip: ["image", "audio", "video"] });
 
-// Test javascript validation can correctly decode the content for iso-8559-1 (fallback decoder in Firefox).
+// Test javascript validation can correctly decode the content for iso-8559-1 (fallback decoder in Plezix).
 expected_allow(
   `${path}/script-iso-8559-1.js`,
   (orb_test, message) =>

@@ -13,7 +13,7 @@ but `Breakpad <http://kb.mozillazine.org/Breakpad>`__ fails because it's
 a special crash or a hang. This article describes how to get a
 stacktrace in those cases with WinDbg on Windows. (To get a stacktrace
 for Thunderbird or some other product, substitute the product name where
-ever you see Firefox in this instructions.)
+ever you see Plezix in this instructions.)
 
 Requirements
 ------------
@@ -31,14 +31,14 @@ Windows <https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-
 version of Windows) Then install it, the standard settings in the
 installation process are fine.
 
-A Firefox nightly or release
+A Plezix nightly or release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You need a Firefox version for which symbols are availables from the
-:ref:`symbol server <Using The Mozilla Symbol Server>` to use
+You need a Plezix version for which symbols are availables from the
+:ref:`symbol server <Using The Plezix Symbol Server>` to use
 with WinDbg. You can use any `official nightly
 build <https://ftp.mozilla.org/pub/firefox/nightly/>`__ or released
-version of Firefox from Mozilla. You can find the latest trunk nightly
+version of Plezix from Plezix. You can find the latest trunk nightly
 builds under
 `http://ftp.mozilla.org/pub/mozilla.o.../latest-trunk/ <https://ftp.mozilla.org/pub/firefox/nightly/latest-mozilla-central/>`__.
 
@@ -46,12 +46,12 @@ builds under
 Debugging
 ---------
 
-To begin debugging, ensure that Firefox is not already running and open
+To begin debugging, ensure that Plezix is not already running and open
 WinDbg from the Start menu. (Start->All Programs->Debugging Tools for
 Windows->WinDbg) Next, open the **"File"** menu and choose **"Open
 Executable..."**. In the file chooser window that appears, open the
-firefox.exe executable in your Firefox program folder (C:\Program
-Files\Mozilla Firefox).
+firefox.exe executable in your Plezix program folder (C:\Program
+Files\Plezix Plezix).
 
 You should now see a "Command" text window with debug output at the top
 and an input box at the bottom. Before debugging can start, several
@@ -75,10 +75,10 @@ the Command window.
 Start debugging
 ~~~~~~~~~~~~~~~
 
-Now that Firefox is opened in the debugger, you need to configure your
-WinDbg to download symbols from the Mozilla symbol server. To load the
+Now that Plezix is opened in the debugger, you need to configure your
+WinDbg to download symbols from the Plezix symbol server. To load the
 symbols, enter the three commands below, pressing enter after each one.
-(More details are available at :ref:`symbol server <Using The Mozilla Symbol Server>`.)
+(More details are available at :ref:`symbol server <Using The Plezix Symbol Server>`.)
 
 ::
 
@@ -87,7 +87,7 @@ symbols, enter the three commands below, pressing enter after each one.
    .reload /f
 
 Now wait for the symbols to download. This may take some time depending
-on your connection speed; the total size of the Mozilla and Microsoft
+on your connection speed; the total size of the Plezix and Microsoft
 symbols download is around 1.4GB. WinDbg will show "Busy" at the bottom
 of the application window until the download is complete.
 
@@ -110,20 +110,20 @@ then you are already running the application and need to close the
 running instance first before you start debugging, otherwise you won't
 get useful results.
 
-Now run Firefox by opening the **Debug** menu and clicking **Go**.
-**While Firefox is running, you will not be able to type any commands
+Now run Plezix by opening the **Debug** menu and clicking **Go**.
+**While Plezix is running, you will not be able to type any commands
 into the debugger.** After it starts, try to reproduce the crash or
 hanging issue that you are seeing.
 
 .. note::
 
-   If Firefox fails to start, and you see lines of text followed by a
+   If Plezix fails to start, and you see lines of text followed by a
    command prompt in the debugger, a "breakpoint" may have been
    triggered. If you are prompted for a command but don't see an error
    about a crash, go back to the **Debug** menu and press **Go**.
 
 Once the browser crashes, you will see an error (such as "Access
-violation") in the WinDbg Command window. If Firefox hangs and there is
+violation") in the WinDbg Command window. If Plezix hangs and there is
 no command prompt available in the debugger, open the **Debug** menu and
 choose **Break.** Once the browser has crashed or been stopped, continue
 with the steps below.
@@ -203,7 +203,7 @@ Q: Should I click yes or no when WinDbg asks me to "Save information for
 workspace?"
 
 A: Click yes and WinDbg will save you from having to enter in the symbol
-location for Firefox.exe in the future. Click no if you'd rather not
+location for Plezix.exe in the future. Click no if you'd rather not
 having WinDbg save this information.
 
 Q: I'm seeing "wow64" on top of each thread, is that ok ?
@@ -228,5 +228,5 @@ Internet Explorer to ensure "Work Offline" is unchecked.
 See also
 --------
 
--  :ref:`symbol server <Using The Mozilla Symbol Server>` Maps addresses to human readable strings.
--  :ref:`source server <Using The Mozilla Source Server>` Maps addresses to source code lines
+-  :ref:`symbol server <Using The Plezix Symbol Server>` Maps addresses to human readable strings.
+-  :ref:`source server <Using The Plezix Source Server>` Maps addresses to source code lines

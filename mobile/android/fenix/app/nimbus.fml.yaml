@@ -1,6 +1,6 @@
 ---
 about:
-  description: Nimbus Feature Manifest for Fenix (Firefox Android)
+  description: Nimbus Feature Manifest for Fenix (Plezix Android)
   kotlin:
     package: org.mozilla.fenix
     class: .nimbus.FxNimbus
@@ -366,15 +366,15 @@ features:
         default: {}
 
   fx-suggest:
-    description: A feature that provides Firefox Suggest search suggestions.
+    description: A feature that provides Plezix Suggest search suggestions.
     variables:
       enabled:
         description: >
-          Whether the feature is enabled. When Firefox Suggest is enabled,
-          Firefox will download and store new search suggestions in the
+          Whether the feature is enabled. When Plezix Suggest is enabled,
+          Plezix will download and store new search suggestions in the
           background, and show additional Search settings to control which
-          suggestions appear in the awesomebar. When Firefox Suggest is
-          disabled, Firefox will not download new suggestions, and hide the
+          suggestions appear in the awesomebar. When Plezix Suggest is
+          disabled, Plezix will not download new suggestions, and hide the
           additional Search settings.
         type: Boolean
         default: false
@@ -474,7 +474,7 @@ features:
   remote-tab-management:
     description: >
       Features that let users manage tabs on other devices that are
-      connected to the same Mozilla account.
+      connected to the same Plezix account.
     variables:
       close-tabs-enabled:
         description: >
@@ -785,7 +785,7 @@ features:
     description: "Networking (Necko) Banned Ports"
     variables:
       bannedPortList:
-        description: A comma-separated list of ports that Firefox will refuse to connect to. These ports will be appended to nsIOService gBadPortList
+        description: A comma-separated list of ports that Plezix will refuse to connect to. These ports will be appended to nsIOService gBadPortList
         type: String
         default: ""
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -158,7 +158,7 @@ import org.mozilla.fenix.snackbar.SnackbarBinding
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
 import org.mozilla.fenix.tabstray.Page
 import org.mozilla.fenix.tabstray.TabsTrayAccessPoint
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.wallpapers.Wallpaper
 import org.mozilla.fenix.GleanMetrics.TabStrip as TabStripMetrics
@@ -646,11 +646,11 @@ class HomeFragment : Fragment() {
                 homeScreenPopupManager.get()?.onSearchBarCFRDismissed()
             },
             text = {
-                FirefoxTheme {
+                PlezixTheme {
                     Text(
                         text = FxNimbus.features.encourageSearchCfr.value().cfrText,
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = PlezixTheme.colors.textOnColorPrimary,
+                        style = PlezixTheme.typography.body2,
                     )
                 }
             },
@@ -685,7 +685,7 @@ class HomeFragment : Fragment() {
             context = context,
             parent = binding.homeLayout,
             content = {
-                FirefoxTheme {
+                PlezixTheme {
                     Column {
                         val activity = requireActivity() as HomeActivity
                         val shouldShowMicrosurveyPrompt = !activity.isMicrosurveyPromptDismissed.value
@@ -981,7 +981,7 @@ class HomeFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     val settings = LocalContext.current.settings()
                     val appState = with(components.appStore) {
                         remember {
@@ -1047,7 +1047,7 @@ class HomeFragment : Fragment() {
 
     @Composable
     private fun TabStrip() {
-        FirefoxTheme {
+        PlezixTheme {
             TabStrip(
                 onHome = true,
                 onAddTabClick = {

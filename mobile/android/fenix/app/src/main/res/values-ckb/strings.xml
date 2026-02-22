@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">تایبەت %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (تایبەت)</string>
   <!--
     Home Fragment
@@ -32,7 +32,7 @@
   <string name="tab_tray_close_multiselect_content_description">لە دۆخی دیاریکردنی چەندیی دەربچۆ</string>
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">بازدەرە دیاریکراوەکان هەڵبگرە لە کۆمەڵەکە</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
   <string name="about_content">%1$s بەرهەم هێنراوە لە لایەن مۆزیلاوە.</string>
   <string name="private_browsing_common_myths">چەند ئەفسانەییەک دەربارەی گەڕانی تایبەتیی</string>
   <!-- Text for the positive action button -->
@@ -91,17 +91,17 @@
   <string name="browser_menu_share">بڵاوکردنەوە</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">کردنەوە لە %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">پشتگیریکراوە لە لایەن %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">پشتگیریکراوە لە لایەن %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -164,7 +164,7 @@
   <string name="preferences_rate">هەڵسەنگاندن لە گووگڵ پلەی</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">دەربارەی %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -263,7 +263,7 @@
   <string name="sync_never_synced_summary">کۆتا هاوکاتگەری: هەرگیز</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s لە %2$s%3$s</string>
@@ -457,7 +457,7 @@
   <string name="remove_top_site">بیسڕەوە</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">سڕینەوە لە مێژووی کار</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (دۆخی تایبەت)</string>
   <!-- Text for the button to clear all history -->
   <string name="history_delete_all">مێژووی کار بسڕەوە</string>
@@ -492,7 +492,7 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">ببورە. %1$s ناتوانێت ئەو پەڕەیە باربکات.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
@@ -507,7 +507,7 @@
     Confirmation message for a dialog confirming if the user wants to delete the selected folder
   -->
   <string name="bookmark_delete_folder_confirmation_dialog">ئایا تۆ دڵنیایت دەتەوێت ئەم بوخچەیە بسریتەوە؟</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">%s برگە دیاریکراوەکان دەسڕێتەوە.</string>
   <!-- Screen title for adding a bookmarks folder -->
   <string name="bookmark_add_folder">بوخچە زیادبکە</string>
@@ -746,7 +746,7 @@
   <string name="snackbar_top_site_removed">ماڵپەڕ سڕایەوە</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">ڕێگەبدە %1$s کە %2$s بکاتەوە</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -798,7 +798,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">خۆکارانەوە زانیارییەکانی گەڕان دەسڕێتەوە کاتێک دەردەچیت لە پێڕستی سەرەکیەوە</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">وازهێنان</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s زانیاری گەڕانی دیاریکراو دەسڕێتەوە.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">پاشگەزبوونەوە</string>
@@ -836,7 +836,7 @@
   <string name="sign_in_with_camera">بچۆ ژوورەوە لەرێگەی کامێراکەتەوە</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">دەتوانیت پۆستی ئەلیکترۆنی بەکارببەیت</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
   <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[هەژمارت نیە؟ <u> دانەیەک درووست بکە</u> بۆ هاوکاتگەری پێکردن لەنێوان ئامێرەکان.]]></string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">دەرچوون</string>
@@ -911,11 +911,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">بچۆ دواوە</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">چی نوێ هەیە لە %s</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | کتێبخانەی سەرچاوە کراوە</string>
   <!-- Category of trackers (redirect trackers) that can be blocked by Enhanced Tracking Protection -->
@@ -1077,13 +1077,13 @@
   <string name="synced_tabs_connect_another_device">ئامێریکی تر ببەستەوە</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">تکایە دووبارە ڕێپێدان ئەنجام بدەرەوە</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">تکایە هاوکاتگەری بازدەر پێبکە.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
   <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">هیچ بازدەرێکی کراوەت نیە لە ئامێرەکانی تری فایەرفۆکس.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">لیستەی بازدەرەکان پیشان بدە لە ئامێرەکانی ترەوە.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">بۆ هاوکاتکردن بچۆژوورەوە</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">بازدەری کراوە نیە</string>

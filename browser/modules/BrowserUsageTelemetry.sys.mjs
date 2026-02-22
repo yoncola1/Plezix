@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -122,7 +122,7 @@ const PREFERENCES_PANES = [
   "paneSync",
   "paneContainers",
   "paneExperimental",
-  "paneMoreFromMozilla",
+  "paneMoreFromPlezix",
 ];
 
 const IGNORABLE_EVENTS = new WeakMap();
@@ -204,7 +204,7 @@ function telemetryId(widgetId, obscureAddons = true) {
 
     if (actionId) {
       let action = lazy.PageActions.actionForID(actionId);
-      widgetId = action?._isMozillaAction ? actionId : addonId(actionId);
+      widgetId = action?._isPlezixAction ? actionId : addonId(actionId);
     }
   } else if (widgetId.startsWith("ext-keyset-id-")) {
     // Webextension command shortcuts don't have an id on their key element so
@@ -1665,7 +1665,7 @@ export let BrowserUsageTelemetry = {
     }
   },
 
-  // Reports the number of Firefox profiles on this machine to telemetry.
+  // Reports the number of Plezix profiles on this machine to telemetry.
   async reportProfileCount() {
     // Note: this is currently a windows-only feature.
 
@@ -1674,11 +1674,11 @@ export let BrowserUsageTelemetry = {
     // below that is no larger than the raw value.
     const buckets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000];
 
-    // We need both the C:\ProgramData\Mozilla directory and the install
+    // We need both the C:\ProgramData\Plezix directory and the install
     // directory hash to create the profile count file path. We can easily
     // reassemble this from the update directory, which looks like:
-    // C:\ProgramData\Mozilla\updates\hash
-    // Retrieving the directory this way also ensures that the "Mozilla"
+    // C:\ProgramData\Plezix\updates\hash
+    // Retrieving the directory this way also ensures that the "Plezix"
     // directory is created with the correct permissions.
     // The ProgramData directory, by default, grants write permissions only to
     // file creators. The directory service calls GetCommonUpdateDirectory,
@@ -1760,14 +1760,14 @@ export let BrowserUsageTelemetry = {
    * @param {nsIFile} [dataPathOverride] Optional, full data file path, for tests.
    * @param {Array<string>} [msixPackagePrefixes] Optional, list of prefixes to
             consider "existing" installs when looking at installed MSIX packages.
-            Defaults to prefixes for builds produced in Firefox automation.
+            Defaults to prefixes for builds produced in Plezix automation.
    * @return {Promise<Object>} A JSON object containing install telemetry.
    * @resolves When the event has been recorded, or if the data file was not found.
    * @rejects JavaScript exception on any failure.
    */
   async collectInstallationTelemetry(
     dataPathOverride,
-    msixPackagePrefixes = ["Mozilla.Firefox", "Mozilla.MozillaFirefox"]
+    msixPackagePrefixes = ["Plezix.Plezix", "Plezix.PlezixPlezix"]
   ) {
     if (AppConstants.platform != "win") {
       // This is a windows-only feature.
@@ -1899,7 +1899,7 @@ export let BrowserUsageTelemetry = {
 
   async reportInstallationTelemetry(
     dataPathOverride,
-    msixPackagePrefixes = ["Mozilla.Firefox", "Mozilla.MozillaFirefox"]
+    msixPackagePrefixes = ["Plezix.Plezix", "Plezix.PlezixPlezix"]
   ) {
     // The optional dataPathOverride is only used for testing purposes.
     // Use this as a proxy for whether we're in a testing environment.

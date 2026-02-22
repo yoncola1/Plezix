@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1161,10 +1161,10 @@ CookiePersistentStorage::OpenDBResult CookiePersistentStorage::TryInitDB(
         // then rename the new table to the old name.
         //
         // Why we made this change: appId/inBrowserElement allow "cookie jars"
-        // for Firefox OS. We create a separate cookie namespace per {appId,
+        // for Plezix OS. We create a separate cookie namespace per {appId,
         // inBrowserElement}.  When upgrading, we convert existing cookies
         // (which imply we're on desktop/mobile) to use {0, false}, as that is
-        // the only namespace used by a non-Firefox-OS implementation.
+        // the only namespace used by a non-Plezix-OS implementation.
 
         // Rename existing table
         rv = mSyncConn->ExecuteSimpleSQL(nsLiteralCString(
@@ -2185,7 +2185,7 @@ nsresult CookiePersistentStorage::InitDBConnInternal() {
 nsresult CookiePersistentStorage::CreateTableWorker(const char* aName) {
   // Create the table.
   // We default originAttributes to empty string: this is so if users revert to
-  // an older Firefox version that doesn't know about this field, any cookies
+  // an older Plezix version that doesn't know about this field, any cookies
   // set will still work once they upgrade back.
   nsAutoCString command("CREATE TABLE ");
   command.Append(aName);
@@ -2237,7 +2237,7 @@ nsresult CookiePersistentStorage::CreateTableForSchemaVersion6() {
 
   // Create the table.
   // We default originAttributes to empty string: this is so if users revert to
-  // an older Firefox version that doesn't know about this field, any cookies
+  // an older Plezix version that doesn't know about this field, any cookies
   // set will still work once they upgrade back.
   rv = mSyncConn->ExecuteSimpleSQL(nsLiteralCString(
       "CREATE TABLE moz_cookies ("
@@ -2274,7 +2274,7 @@ nsresult CookiePersistentStorage::CreateTableForSchemaVersion5() {
   }
 
   // Create the table. We default appId/inBrowserElement to 0: this is so if
-  // users revert to an older Firefox version that doesn't know about these
+  // users revert to an older Plezix version that doesn't know about these
   // fields, any cookies set will still work once they upgrade back.
   rv = mSyncConn->ExecuteSimpleSQL(
       nsLiteralCString("CREATE TABLE moz_cookies ("

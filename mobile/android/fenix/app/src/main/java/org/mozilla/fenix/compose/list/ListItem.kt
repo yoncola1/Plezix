@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -58,7 +58,7 @@ import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.Favicon
 import org.mozilla.fenix.compose.button.RadioButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val LIST_ITEM_HEIGHT = 56.dp
 private val ICON_SIZE = 24.dp
@@ -137,7 +137,7 @@ fun TextListItem(
     onLongClick: (() -> Unit)? = null,
     iconPainter: Painter? = null,
     iconDescription: String? = null,
-    iconTint: Color = FirefoxTheme.colors.iconPrimary,
+    iconTint: Color = PlezixTheme.colors.iconPrimary,
     onIconClick: (() -> Unit)? = null,
 ) {
     ListItem(
@@ -193,7 +193,7 @@ fun TextListItem(
  * @param onLongClick Called when the user long clicks on the item.
  * @param showDivider Whether or not to display a vertical divider line before the [IconButton]
  * at the end.
- * @param dividerColor [Color] to be applied to the divider. Default is [FirefoxTheme.colors.borderSecondary].
+ * @param dividerColor [Color] to be applied to the divider. Default is [PlezixTheme.colors.borderSecondary].
  * @param iconPainter [Painter] used to display an [IconButton] after the list item.
  * @param iconButtonModifier [Modifier] to be applied to the icon button.
  * @param iconDescription Content description of the icon.
@@ -210,7 +210,7 @@ fun FaviconListItem(
     onClick: (() -> Unit)? = null,
     onLongClick: (() -> Unit)? = null,
     showDivider: Boolean = false,
-    dividerColor: Color = FirefoxTheme.colors.borderSecondary,
+    dividerColor: Color = PlezixTheme.colors.borderSecondary,
     iconPainter: Painter? = null,
     iconButtonModifier: Modifier = Modifier,
     iconDescription: String? = null,
@@ -268,7 +268,7 @@ fun FaviconListItem(
                 Icon(
                     painter = iconPainter,
                     contentDescription = iconDescription,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -308,8 +308,8 @@ fun IconListItem(
     label: String,
     modifier: Modifier = Modifier,
     labelModifier: Modifier = Modifier,
-    labelTextColor: Color = FirefoxTheme.colors.textPrimary,
-    descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
+    labelTextColor: Color = PlezixTheme.colors.textPrimary,
+    descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
     maxLabelLines: Int = 1,
     description: String? = null,
     enabled: Boolean = true,
@@ -318,11 +318,11 @@ fun IconListItem(
     onLongClick: (() -> Unit)? = null,
     beforeIconPainter: Painter,
     beforeIconDescription: String? = null,
-    beforeIconTint: Color = FirefoxTheme.colors.iconPrimary,
+    beforeIconTint: Color = PlezixTheme.colors.iconPrimary,
     showDivider: Boolean = false,
     afterIconPainter: Painter? = null,
     afterIconDescription: String? = null,
-    afterIconTint: Color = FirefoxTheme.colors.iconPrimary,
+    afterIconTint: Color = PlezixTheme.colors.iconPrimary,
     onAfterIconClick: (() -> Unit)? = null,
     afterListAction: (@Composable RowScope.() -> Unit)? = null,
 ) {
@@ -342,7 +342,7 @@ fun IconListItem(
             Icon(
                 painter = beforeIconPainter,
                 contentDescription = beforeIconDescription,
-                tint = if (enabled) beforeIconTint else FirefoxTheme.colors.iconDisabled,
+                tint = if (enabled) beforeIconTint else PlezixTheme.colors.iconDisabled,
             )
 
             Spacer(modifier = Modifier.width(16.dp))
@@ -357,7 +357,7 @@ fun IconListItem(
                 return@ListItem
             }
 
-            val tint = if (enabled) afterIconTint else FirefoxTheme.colors.iconDisabled
+            val tint = if (enabled) afterIconTint else PlezixTheme.colors.iconDisabled
 
             if (showDivider) {
                 Spacer(modifier = Modifier.width(8.dp))
@@ -367,7 +367,7 @@ fun IconListItem(
                         .padding(vertical = DIVIDER_VERTICAL_PADDING)
                         .fillMaxHeight()
                         .width(1.dp),
-                    color = FirefoxTheme.colors.borderSecondary,
+                    color = PlezixTheme.colors.borderSecondary,
                 )
             }
 
@@ -522,7 +522,7 @@ fun SelectableFaviconListItem(
                         .padding(vertical = DIVIDER_VERTICAL_PADDING)
                         .fillMaxHeight()
                         .width(1.dp),
-                    color = FirefoxTheme.colors.borderSecondary,
+                    color = PlezixTheme.colors.borderSecondary,
                 )
             }
 
@@ -537,7 +537,7 @@ fun SelectableFaviconListItem(
                         Icon(
                             painter = iconPainter,
                             contentDescription = iconDescription,
-                            tint = FirefoxTheme.colors.iconPrimary,
+                            tint = PlezixTheme.colors.iconPrimary,
                         )
                     }
                 }
@@ -581,8 +581,8 @@ fun SelectableIconListItem(
     label: String,
     isSelected: Boolean,
     modifier: Modifier = Modifier,
-    labelTextColor: Color = FirefoxTheme.colors.textPrimary,
-    descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
+    labelTextColor: Color = PlezixTheme.colors.textPrimary,
+    descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
     maxLabelLines: Int = 1,
     description: String? = null,
     enabled: Boolean = true,
@@ -591,11 +591,11 @@ fun SelectableIconListItem(
     onLongClick: (() -> Unit)? = null,
     beforeIconPainter: Painter,
     beforeIconDescription: String? = null,
-    beforeIconTint: Color = FirefoxTheme.colors.iconPrimary,
+    beforeIconTint: Color = PlezixTheme.colors.iconPrimary,
     showDivider: Boolean = false,
     afterIconPainter: Painter? = null,
     afterIconDescription: String? = null,
-    afterIconTint: Color = FirefoxTheme.colors.iconPrimary,
+    afterIconTint: Color = PlezixTheme.colors.iconPrimary,
     onAfterIconClick: (() -> Unit)? = null,
     iconSlot: (@Composable () -> Unit)? = null,
 ) {
@@ -617,7 +617,7 @@ fun SelectableIconListItem(
                     Icon(
                         painter = beforeIconPainter,
                         contentDescription = beforeIconDescription,
-                        tint = if (enabled) beforeIconTint else FirefoxTheme.colors.iconDisabled,
+                        tint = if (enabled) beforeIconTint else PlezixTheme.colors.iconDisabled,
                     )
                 },
             )
@@ -629,7 +629,7 @@ fun SelectableIconListItem(
                 return@ListItem
             }
 
-            val tint = if (enabled) afterIconTint else FirefoxTheme.colors.iconDisabled
+            val tint = if (enabled) afterIconTint else PlezixTheme.colors.iconDisabled
 
             if (showDivider) {
                 Spacer(modifier = Modifier.width(8.dp))
@@ -639,7 +639,7 @@ fun SelectableIconListItem(
                         .padding(vertical = DIVIDER_VERTICAL_PADDING)
                         .fillMaxHeight()
                         .width(1.dp),
-                    color = FirefoxTheme.colors.borderSecondary,
+                    color = PlezixTheme.colors.borderSecondary,
                 )
             }
 
@@ -694,8 +694,8 @@ fun SelectableListItem(
     @DrawableRes icon: Int,
     isSelected: Boolean,
     modifier: Modifier = Modifier,
-    descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
-    iconTint: Color = FirefoxTheme.colors.iconPrimary,
+    descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
+    iconTint: Color = PlezixTheme.colors.iconPrimary,
     afterListItemAction: @Composable RowScope.() -> Unit,
     belowListItemContent: @Composable ColumnScope.() -> Unit = {},
 ) {
@@ -738,7 +738,7 @@ private fun SelectableItemIcon(
         Box(
             modifier = Modifier
                 .background(
-                    color = FirefoxTheme.colors.layerAccent,
+                    color = PlezixTheme.colors.layerAccent,
                     shape = CircleShape,
                 )
                 .size(24.dp),
@@ -783,8 +783,8 @@ private fun ListItem(
     label: String,
     modifier: Modifier = Modifier,
     labelModifier: Modifier = Modifier,
-    labelTextColor: Color = FirefoxTheme.colors.textPrimary,
-    descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
+    labelTextColor: Color = PlezixTheme.colors.textPrimary,
+    descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
     maxLabelLines: Int = 1,
     description: String? = null,
     maxDescriptionLines: Int = 1,
@@ -840,8 +840,8 @@ private fun ListItemContent(
     label: String,
     modifier: Modifier = Modifier,
     labelModifier: Modifier = Modifier,
-    labelTextColor: Color = FirefoxTheme.colors.textPrimary,
-    descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
+    labelTextColor: Color = PlezixTheme.colors.textPrimary,
+    descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
     maxLabelLines: Int = 1,
     description: String? = null,
     maxDescriptionLines: Int = 1,
@@ -854,9 +854,9 @@ private fun ListItemContent(
         Text(
             text = label,
             modifier = labelModifier,
-            color = if (enabled) labelTextColor else FirefoxTheme.colors.textDisabled,
+            color = if (enabled) labelTextColor else PlezixTheme.colors.textDisabled,
             overflow = TextOverflow.Ellipsis,
-            style = FirefoxTheme.typography.subtitle1.merge(
+            style = PlezixTheme.typography.subtitle1.merge(
                 platformStyle = PlatformTextStyle(includeFontPadding = true),
             ),
             maxLines = maxLabelLines,
@@ -865,10 +865,10 @@ private fun ListItemContent(
         description?.let {
             Text(
                 text = description,
-                color = if (enabled) descriptionTextColor else FirefoxTheme.colors.textDisabled,
+                color = if (enabled) descriptionTextColor else PlezixTheme.colors.textDisabled,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = maxDescriptionLines,
-                style = FirefoxTheme.typography.body2
+                style = PlezixTheme.typography.body2
                     .merge(
                         // Bug 1915867 - We must force the text direction to correctly truncate a LTR
                         // description that is too long when the app in RTL mode - at least until this
@@ -888,8 +888,8 @@ private fun ListItemContent(
 @Composable
 @Preview(name = "TextListItem", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             TextListItem(label = "Label only")
         }
     }
@@ -898,8 +898,8 @@ private fun TextListItemPreview() {
 @Composable
 @Preview(name = "TextListItem with a description", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemWithDescriptionPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             TextListItem(
                 label = "Label + description",
                 description = "Description text",
@@ -911,8 +911,8 @@ private fun TextListItemWithDescriptionPreview() {
 @Composable
 @Preview(name = "TextListItem with a right icon", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemWithIconPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             val context = LocalContext.current
             TextListItem(
                 label = "Label + right icon button",
@@ -935,8 +935,8 @@ private fun TextListItemWithIconPreview() {
 @Composable
 @Preview(name = "IconListItem", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun IconListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             IconListItem(
                 label = "Left icon list item",
                 onClick = {},
@@ -946,11 +946,11 @@ private fun IconListItemPreview() {
 
             IconListItem(
                 label = "Left icon list item",
-                labelTextColor = FirefoxTheme.colors.textAccent,
+                labelTextColor = PlezixTheme.colors.textAccent,
                 onClick = {},
                 beforeIconPainter = painterResource(R.drawable.mozac_ic_folder_24),
                 beforeIconDescription = "click me",
-                beforeIconTint = FirefoxTheme.colors.iconAccentViolet,
+                beforeIconTint = PlezixTheme.colors.iconAccentViolet,
             )
 
             IconListItem(
@@ -981,8 +981,8 @@ private fun IconListItemPreview() {
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 private fun IconListItemWithAfterListActionPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             val context = LocalContext.current
             IconListItem(
                 label = "IconListItem + right icon + clicks",
@@ -1012,8 +1012,8 @@ private fun IconListItemWithAfterListActionPreview() {
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 private fun FaviconListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             val context = LocalContext.current
             FaviconListItem(
                 label = "Favicon + right icon + clicks",
@@ -1048,8 +1048,8 @@ private fun FaviconListItemPreview() {
 @Composable
 @PreviewLightDark
 private fun ImageListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             ImageListItem(
                 label = "label",
                 iconPainter = painterResource(R.drawable.mozac_ic_web_extension_default_icon),
@@ -1059,7 +1059,7 @@ private fun ImageListItemPreview() {
                     Text(
                         text = "afterListItemText",
                         color = Color.White,
-                        style = FirefoxTheme.typography.subtitle1,
+                        style = PlezixTheme.typography.subtitle1,
                         maxLines = 1,
                     )
                 },
@@ -1074,8 +1074,8 @@ private fun RadioButtonListItemPreview() {
     val radioOptions =
         listOf("Radio button first item", "Radio button second item", "Radio button third item")
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             radioOptions.forEach { text ->
                 RadioButtonListItem(
                     label = text,
@@ -1091,8 +1091,8 @@ private fun RadioButtonListItemPreview() {
 @Composable
 @PreviewLightDark
 private fun SelectableFaviconListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             SelectableFaviconListItem(
                 label = "Favicon + right icon",
                 url = "",
@@ -1166,8 +1166,8 @@ private fun SelectableFaviconListItemPreview() {
 @Preview(name = "SelectableIconListItem", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Suppress("LongMethod")
 private fun SelectableIconListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             SelectableIconListItem(
                 label = "Left icon list item",
                 isSelected = false,
@@ -1187,21 +1187,21 @@ private fun SelectableIconListItemPreview() {
             SelectableIconListItem(
                 label = "Left icon list item",
                 isSelected = false,
-                labelTextColor = FirefoxTheme.colors.textAccent,
+                labelTextColor = PlezixTheme.colors.textAccent,
                 onClick = {},
                 beforeIconPainter = painterResource(R.drawable.mozac_ic_folder_24),
                 beforeIconDescription = "click me",
-                beforeIconTint = FirefoxTheme.colors.iconAccentViolet,
+                beforeIconTint = PlezixTheme.colors.iconAccentViolet,
             )
 
             SelectableIconListItem(
                 label = "Selected left icon list item",
                 isSelected = true,
-                labelTextColor = FirefoxTheme.colors.textAccent,
+                labelTextColor = PlezixTheme.colors.textAccent,
                 onClick = {},
                 beforeIconPainter = painterResource(R.drawable.mozac_ic_folder_24),
                 beforeIconDescription = "click me",
-                beforeIconTint = FirefoxTheme.colors.iconAccentViolet,
+                beforeIconTint = PlezixTheme.colors.iconAccentViolet,
             )
 
             SelectableIconListItem(
@@ -1252,8 +1252,8 @@ private fun SelectableIconListItemPreview() {
 @Composable
 @PreviewLightDark
 private fun SelectableListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(Modifier.background(PlezixTheme.colors.layer1)) {
             SelectableListItem(
                 label = "Selected item",
                 description = "Description text",
@@ -1282,7 +1282,7 @@ private fun SelectableListItemPreview() {
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
-                            tint = FirefoxTheme.colors.iconPrimary,
+                            tint = PlezixTheme.colors.iconPrimary,
                             contentDescription = null,
                         )
                     }

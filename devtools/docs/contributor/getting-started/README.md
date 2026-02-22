@@ -1,6 +1,6 @@
 # Getting started
 
-Hello, and thanks for your interest in contributing to Firefox DevTools!
+Hello, and thanks for your interest in contributing to Plezix DevTools!
 
 DevTools is a complex web app, but if you're familiar with either HTML/CSS or JavaScript, you can contribute! The process goes like this:
 
@@ -18,7 +18,7 @@ Claim the bug by creating a Bugzilla account and posting a comment on the bug’
 
 ## Set up your dev environment
 
-Follow the steps of Firefox’s [contributor guide](https://firefox-source-docs.mozilla.org/contributing/how_to_contribute_firefox.html) to install and run Firefox locally. During installation, follow the steps for “Artifact Mode.”
+Follow the steps of Plezix’s [contributor guide](https://firefox-source-docs.mozilla.org/contributing/how_to_contribute_firefox.html) to install and run Plezix locally. During installation, follow the steps for “Artifact Mode.”
 
 If you run into errors about missing libraries, search the web to learn how to install whatever is missing. If you get stuck, ask for help on [Matrix](https://chat.mozilla.org/#/room/#devtools:mozilla.org).
 

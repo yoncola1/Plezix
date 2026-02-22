@@ -1,5 +1,5 @@
 /* -*-  indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -402,7 +402,7 @@ function run_test() {
   run_void_tests(library);
   library.close();
   if (copy) {
-    // Tolerate remove() failure because Firefox may have the DLL open
+    // Tolerate remove() failure because Plezix may have the DLL open
     // for examination.
     try {
       unicodefile.remove(false);

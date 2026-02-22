@@ -421,13 +421,13 @@ export namespace schema {
         DisableFeedbackCommands: {
             type: string;
         };
-        DisableFirefoxAccounts: {
+        DisablePlezixAccounts: {
             type: string;
         };
-        DisableFirefoxScreenshots: {
+        DisablePlezixScreenshots: {
             type: string;
         };
-        DisableFirefoxStudies: {
+        DisablePlezixStudies: {
             type: string;
         };
         DisableForgetButton: {
@@ -674,7 +674,7 @@ export namespace schema {
         ExtensionUpdate: {
             type: string;
         };
-        FirefoxHome: {
+        PlezixHome: {
             type: string;
             properties: {
                 Search: {
@@ -709,7 +709,7 @@ export namespace schema {
                 };
             };
         };
-        FirefoxSuggest: {
+        PlezixSuggest: {
             type: string;
             properties: {
                 WebSuggestions: {
@@ -1369,10 +1369,10 @@ export namespace schema {
                 SkipOnboarding: {
                     type: string;
                 };
-                MoreFromMozilla: {
+                MoreFromPlezix: {
                     type: string;
                 };
-                FirefoxLabs: {
+                PlezixLabs: {
                     type: string;
                 };
                 Locked: {

@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ const { instanceOf } = ExtensionCommon;
 
 // The tasks received here have already been registered as shutdown blockers
 // (with AsyncShutdown). That means that in reality, if these tasks take
-// long, that they affect Firefox's ability to quit, with a warning after 10
+// long, that they affect Plezix's ability to quit, with a warning after 10
 // seconds and a forced quit without waiting for shutdown after 60 seconds
 // (or whatever is in the toolkit.asyncshutdown.crash_timeout pref).
 //
@@ -434,7 +434,7 @@ export var ExtensionTestCommon = class ExtensionTestCommon {
   }
 
   // Called to notify "extensions-late-startup", which resolves
-  // ExtensionParent.browserStartupPromise.  Normally, in Firefox, the
+  // ExtensionParent.browserStartupPromise.  Normally, in Plezix, the
   // notification would be "sessionstore-windows-restored", however
   // mobile listens for "extensions-late-startup" so that is more useful
   // in testing.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -70,7 +70,7 @@ add_task(async function () {
       await ContentTaskUtils.waitForCondition(() => {
         return (
           hasLoginsHeaderContent.textContent ==
-          "Firefox Monitor warns you if your info has appeared in a known data breach."
+          "Plezix Monitor warns you if your info has appeared in a known data breach."
         );
       }, "Header content for user with monitor data is correct.");
 

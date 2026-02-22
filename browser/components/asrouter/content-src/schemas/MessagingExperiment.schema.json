@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "chrome://browser/content/asrouter/schemas/MessagingExperiment.schema.json",
   "title": "Messaging Experiment",
-  "description": "A Firefox Messaging System message.",
+  "description": "A Plezix Messaging System message.",
   "if": {
     "type": "object",
     "properties": {
@@ -97,7 +97,7 @@
             },
             "notification_text": {
               "$ref": "chrome://browser/content/asrouter/schemas/MessagingExperiment.schema.json#/$defs/localizableText",
-              "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Firefox or just a plain string."
+              "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Plezix or just a plain string."
             },
             "active_color": {
               "type": "string",
@@ -200,7 +200,7 @@
             },
             "notification_text": {
               "$ref": "chrome://browser/content/asrouter/schemas/MessagingExperiment.schema.json#/$defs/localizableText",
-              "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Firefox or just a plain string."
+              "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Plezix or just a plain string."
             },
             "info_icon": {
               "type": "object",
@@ -253,7 +253,7 @@
             },
             "heading_text": {
               "$ref": "chrome://browser/content/asrouter/schemas/MessagingExperiment.schema.json#/$defs/localizableText",
-              "description": "The larger heading text displayed in the pop-over. This can be a reference to a localized string in Firefox or just a plain string."
+              "description": "The larger heading text displayed in the pop-over. This can be a reference to a localized string in Plezix or just a plain string."
             },
             "icon": {
               "$ref": "file:///ExtensionDoorhanger.schema.json#/$defs/linkUrl",
@@ -309,7 +309,7 @@
             },
             "text": {
               "$ref": "chrome://browser/content/asrouter/schemas/MessagingExperiment.schema.json#/$defs/localizableText",
-              "description": "The body text displayed in the pop-over. This can be a reference to a localized string in Firefox or just a plain string."
+              "description": "The body text displayed in the pop-over. This can be a reference to a localized string in Plezix or just a plain string."
             },
             "descriptionDetails": {
               "description": "Additional information and steps on how to use",
@@ -1212,7 +1212,7 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The launch action to be performed when Firefox is launched."
+                  "description": "The launch action to be performed when Plezix is launched."
                 },
                 "data": {
                   "type": "object"
@@ -1262,7 +1262,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "description": "The launch action to be performed when Firefox is launched."
+                        "description": "The launch action to be performed when Plezix is launched."
                       },
                       "data": {
                         "type": "object"

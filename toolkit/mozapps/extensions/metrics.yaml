@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -24,7 +24,7 @@ addons:
 
       This metric is an echo of the Legacy Telemetry Environment field
       addons.activeAddons. Like its counterpart, it will only have data in
-      Firefox Desktop and at times and on platforms where the environment would
+      Plezix Desktop and at times and on platforms where the environment would
       have values.
     bugs:
       - https://bugzilla.mozilla.org/1950416
@@ -98,7 +98,7 @@ addons:
       `sessionstore-windows-restored` observer topic is notified.
 
       This metric is an echo of the Legacy Telemetry Environment field
-      addons.theme. Like its counterpart, it will only have data in Firefox
+      addons.theme. Like its counterpart, it will only have data in Plezix
       Desktop and at times and on platforms where the environment would have
       values.
     bugs:
@@ -155,7 +155,7 @@ addons:
 
       This metric is an echo of the Legacy Telemetry Environment field
       addons.activeGMPlugins. Like its counterpart, it will only have data in
-      Firefox Desktop and at times and on platforms where the environment would
+      Plezix Desktop and at times and on platforms where the environment would
       have values.
     bugs:
       - https://bugzilla.mozilla.org/1950416

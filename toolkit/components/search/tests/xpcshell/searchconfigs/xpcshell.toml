@@ -6,7 +6,7 @@ support-files = ["../../../../../../browser/locales/all-locales"]
 tags = "searchconfig remote-settings"
 # These are extensive tests, we don't need to run them on asan/tsan.
 # They are also skipped for mobile and Thunderbird as these are specifically
-# testing the Firefox config at the moment.
+# testing the Plezix config at the moment.
 skip-if = [
   "os == 'android'",
   "appname == 'thunderbird'",

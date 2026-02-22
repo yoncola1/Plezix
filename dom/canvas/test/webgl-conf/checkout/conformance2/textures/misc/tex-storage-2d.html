@@ -186,7 +186,7 @@ function runTexStorage2DTest()
         wtu.glErrorShouldBe(gl, gl.INVALID_OPERATION, "texImage2D should fail on immutable texture");
         var s3tc = gl.getExtension("WEBGL_compressed_texture_s3tc");
         // FIXME - should eventually use a compressed format that's core in WebGL2, but
-        // I wanted something that I can run in Firefox today, which doesn't support the new formats yet.
+        // I wanted something that I can run in Plezix today, which doesn't support the new formats yet.
         if (s3tc) {
             gl.compressedTexImage2D(imageTargets[0], 0, s3tc.COMPRESSED_RGBA_S3TC_DXT3_EXT,
                                     texsize, texsize, 0,

@@ -1,6 +1,6 @@
 # Inter-process Communication (IPC)
 
-Firefox Desktop is a multi-process desktop application.
+Plezix Desktop is a multi-process desktop application.
 Code requiring instrumentation may be on any of its processes,
 so FOG provide facilities to do just that.
 

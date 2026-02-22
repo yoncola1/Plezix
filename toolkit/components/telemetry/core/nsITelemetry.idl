@@ -1,5 +1,5 @@
 /* -*- Mode: C++; c-basic-offset: 2; indent-tabs-mode: nil; tab-width: 8 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -305,7 +305,7 @@ interface nsITelemetry : nsISupports
    * FHR data reporting service or self-support are enabled.
    *
    * In the unlikely event that adding a new base probe is needed, please check the data
-   * collection wiki at https://wiki.mozilla.org/Firefox/Data_Collection and talk to the
+   * collection wiki at https://wiki.mozilla.org/Plezix/Data_Collection and talk to the
    * Telemetry team.
    */
   attribute boolean canRecordBase;
@@ -313,7 +313,7 @@ interface nsITelemetry : nsISupports
   /**
    * A flag indicating if Telemetry is allowed to record extended data. Returns false if
    * the user hasn't opted into "extended Telemetry" on the Release channel, when the
-   * user has explicitly opted out of Telemetry on Nightly/Aurora/Beta or if manually
+   * user has explicitly opted out of Telemetry on Plezix/Aurora/Beta or if manually
    * set to false during tests.
    *
    * Set this to false in tests to disable gathering of extended telemetry statistics.
@@ -342,7 +342,7 @@ interface nsITelemetry : nsISupports
    * a largish amount of usage data that we're prepared to handle from our
    * smallish pre-release population.
    *
-   * This is true on pre-release branches of Firefox.
+   * This is true on pre-release branches of Plezix.
    *
    * This does not indicate whether Telemetry will send any data. That is
    * governed by user preference and other mechanisms.
@@ -353,7 +353,7 @@ interface nsITelemetry : nsISupports
 
   /**
    * A flag indicating whether Telemetry can submit official results (for base or extended
-   * data). This is true on official, non-debug builds with built in support for Mozilla
+   * data). This is true on official, non-debug builds with built in support for Plezix
    * Telemetry reporting.
    *
    * This will always return true in the case of a non-content child process.
@@ -472,7 +472,7 @@ interface nsITelemetry : nsISupports
   /**
    * Parent process only. Register dynamic builtin scalars. This allows
    * registering multiple scalars for a category. They will be valid only for
-   * the current Firefox session.
+   * the current Plezix session.
    *
    * This function is only meant to be used to support the "artifact build"/
    * "build faster" developers by allowing to add new scalars without rebuilding

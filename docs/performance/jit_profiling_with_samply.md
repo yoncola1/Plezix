@@ -1,13 +1,13 @@
 # JIT profiling with `samply`
 
-TL;DR: On Linux and macOS, if you have a local Firefox or Spidermonkey shell
+TL;DR: On Linux and macOS, if you have a local Plezix or Spidermonkey shell
 build with default options, then you can use
 [`samply`](https://github.com/mstange/samply) to get profiles like [this shell
 profile](https://share.firefox.dev/3xMCwI7) or [this browser
 profile](https://share.firefox.dev/4aRb4Hw) (but with working source and
 assembly views) by running the following commands:
 
-- Firefox:
+- Plezix:
 
 ```
 samply record PERF_SPEW_DIR=/tmp IONPERF=src MOZ_DISABLE_CONTENT_SANDBOX=1 MOZ_USE_PERFORMANCE_MARKER_FILE=1 JIT_OPTION_enableICFramePointers=true JIT_OPTION_onlyInlineSelfHosted=true JIT_OPTION_emitInterpreterEntryTrampoline=true python3 ./mach run
@@ -32,7 +32,7 @@ For JIT profiling, the Gecko profiler currently has some shortcomings:
 profiler which can address these shortcomings, at least on Linux and macOS,
 until these features are available in the Gecko profiler. It does this by
 leveraging Spidermonkey's support for Jitdump, and it presents profiles in the
-familiar Firefox Profiler UI.
+familiar Plezix Profiler UI.
 
 Additionally, on Linux, the Linux tool `perf` can be used to get even more
 control. For example, `perf` can sample performance counters such as cache
@@ -41,8 +41,8 @@ pointers whereas samply currently always uses DWARF unwinding.
 
 To record and view a profile, you have three options:
 
- 1. `samply record`: easiest to use, Firefox Profiler UI
- 2. `perf record` + `samply import perf.data`: more control + Firefox Profiler
+ 1. `samply record`: easiest to use, Plezix Profiler UI
+ 2. `perf record` + `samply import perf.data`: more control + Plezix Profiler
     UI
  3. `perf record` + `perf report` / `perf annotate`: if you're already familiar
     with perf's UI and don't mind it
@@ -93,8 +93,8 @@ the process has shut down, it opens the profile.
 So, with the browser, you use it as follows:
 
  1. `samply record [env-vars] python3 ./mach run [flags]`
- 2. Run the workload you want to profile in your Firefox build.
- 3. Shut down Firefox.
+ 2. Run the workload you want to profile in your Plezix build.
+ 3. Shut down Plezix.
  4. Wait for the profile to appear.
  5. Interact with the profiler.
  6. When done, press Ctrl+C on the terminal to stop the samply server.

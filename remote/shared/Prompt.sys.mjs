@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ modal.findPrompt = function (context) {
   // If no modal dialog has been found yet, also check for tab and content modal
   // dialogs for the current tab.
   //
-  // TODO: Find an adequate implementation for Firefox on Android (bug 1708105)
+  // TODO: Find an adequate implementation for Plezix on Android (bug 1708105)
   if (contentBrowser?.tabDialogBox) {
     let dialogs = contentBrowser.tabDialogBox.getTabDialogManager().dialogs;
     if (dialogs.length) {

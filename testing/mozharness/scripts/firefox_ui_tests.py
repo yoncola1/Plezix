@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -20,7 +20,7 @@ from mozharness.mozilla.testing.codecoverage import (
 from mozharness.mozilla.testing.testbase import TestingMixin, testing_config_options
 from mozharness.mozilla.vcstools import VCSToolsScript
 
-# General command line arguments for Firefox ui tests
+# General command line arguments for Plezix ui tests
 firefox_ui_tests_config_options = (
     [
         [
@@ -82,7 +82,7 @@ firefox_ui_tests_config_options = (
 )
 
 
-class FirefoxUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
+class PlezixUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
     def __init__(
         self,
         config_options=None,
@@ -101,7 +101,7 @@ class FirefoxUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
             "uninstall",
         ]
 
-        super(FirefoxUIFunctionalTests, self).__init__(
+        super(PlezixUIFunctionalTests, self).__init__(
             config_options=config_options,
             all_actions=all_actions or actions,
             default_actions=default_actions or actions,
@@ -141,7 +141,7 @@ class FirefoxUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
             "mozpack/*",
             "mozbuild/*",
         ]
-        super(FirefoxUIFunctionalTests, self).download_and_extract(
+        super(PlezixUIFunctionalTests, self).download_and_extract(
             extract_dirs=extract_dirs
         )
 
@@ -149,7 +149,7 @@ class FirefoxUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
         if self.abs_dirs:
             return self.abs_dirs
 
-        abs_dirs = super(FirefoxUIFunctionalTests, self).query_abs_dirs()
+        abs_dirs = super(PlezixUIFunctionalTests, self).query_abs_dirs()
         abs_tests_install_dir = os.path.join(abs_dirs["abs_work_dir"], "tests")
 
         dirs = {
@@ -293,5 +293,5 @@ class FirefoxUIFunctionalTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
 
 
 if __name__ == "__main__":
-    myScript = FirefoxUIFunctionalTests()
+    myScript = PlezixUIFunctionalTests()
     myScript.run_and_exit()

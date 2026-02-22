@@ -28,7 +28,7 @@ add_task(async function testOpenDebuggerReload() {
   await pushPref("devtools.debugger.remote-enabled", false);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {
@@ -115,7 +115,7 @@ add_task(async function testAddAndRemoveBreakpoint() {
   await enableExtensionDebugging();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {

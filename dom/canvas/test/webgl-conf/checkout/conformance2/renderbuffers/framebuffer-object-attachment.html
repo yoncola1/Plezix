@@ -566,7 +566,7 @@ wtu.glErrorShouldBe(gl, gl.INVALID_VALUE, "Mip level attachment impossibly high.
 gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 10);
 wtu.glErrorShouldBe(gl, 0, "Mip level attachment within acceptable range.");
 
-// Firefox bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1636517 :
+// Plezix bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1636517 :
 gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, null, 1000);
 wtu.glErrorShouldBe(gl, 0, "Mip level detachment can be impossibly high.");
 shouldBe("gl.getFramebufferAttachmentParameter(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE)", "0");

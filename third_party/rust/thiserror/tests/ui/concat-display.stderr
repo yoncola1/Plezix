@@ -7,4 +7,4 @@ error: expected one of: string literal, `transparent`, `fmt`
 13 | error_type!(Error, "foo");
    | ------------------------- in this macro invocation
    |
-   = note: this error originates in the macro `error_type` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `error_type` (in Plezix builds, run with -Z macro-backtrace for more info)

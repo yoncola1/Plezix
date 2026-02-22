@@ -1566,8 +1566,8 @@ add_task(
 //   params are being stored in the startupData and then all primed on the next
 //   startup
 // - verifies behaviors expected when startupData stored from an older
-//   Firefox version (one that didn't include Bug 1795801 changes) is
-//   loaded from a new Firefox version
+//   Plezix version (one that didn't include Bug 1795801 changes) is
+//   loaded from a new Plezix version
 // - a small smoke test to also verify the behaviors when startupData stored
 //   by a newer version is being loaded by an older one (where Bug 1795801
 //   changes have not been introduced yet).
@@ -1660,7 +1660,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
 
     // Force the data to be stored on disk (by requesting AddonTestUtils to flush
     // the XPIStates after having tampered them to make sure they are in the
-    // format we expect from older Firefox versions).
+    // format we expect from older Plezix versions).
     testExtensionWrapper.extension.saveStartupData();
     await AddonTestUtils.loadAddonsList(/* flush */ true);
     const { XPIExports } = ChromeUtils.importESModule(
@@ -1697,7 +1697,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
   });
 
   info(
-    "Manually tampering startupData.persistentListeners to match the format older Firefox format"
+    "Manually tampering startupData.persistentListeners to match the format older Plezix format"
   );
   const xpiStatesFilePath = await tamperStartupData(extension);
   await AddonTestUtils.promiseShutdownManager();
@@ -1720,7 +1720,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
       // Old format of startupData.persistentListeners did not have a listenersCount
       // property and so only two primed listeners are expected on the first startup
       // after the addon startupData have been tampered to match the format expected
-      // by an older Firefox version.
+      // by an older Plezix version.
       primedListenersCount: 2,
     });
 
@@ -1814,7 +1814,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
   await AddonTestUtils.promiseShutdownManager();
 
   // The additional assertions below are meant to provide a smoke test covering
-  // the behavior we would expect if an older Firefox versions (one that would
+  // the behavior we would expect if an older Plezix versions (one that would
   // expect the old format) is loading persistentListeners from startupData
   // using the new format.
   info("Verify backward compatibility with old format");
@@ -1825,7 +1825,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
   const { DefaultMap } = ExtensionUtils;
   const loadedListeners = new DefaultMap(() => new DefaultMap(() => new Map()));
 
-  // Logic from older Firefox versions expecting the old format
+  // Logic from older Plezix versions expecting the old format
   // (https://searchfox.org/mozilla-central/rev/cd2121e7d8/toolkit/components/extensions/ExtensionCommon.jsm#2360-2371)
   let found = false;
   for (let [module, entry] of Object.entries(
@@ -1845,9 +1845,9 @@ add_task(async function test_migrate_startupData_to_new_format() {
     "Expect persistentListeners to have been found from the old loading logic"
   );
 
-  // We expect the older Firefox version to don't choke on loading
+  // We expect the older Plezix version to don't choke on loading
   // the new format, a primed listener is still expected to be
-  // found because the old Firefox version will be overriding a single
+  // found because the old Plezix version will be overriding a single
   // entry in the inmemory Map with the multiple entries from the
   // ondisk format listing the same extra params for multiple listeners,
   // Bug 1795801 would still be hit, but no other change in behavior is
@@ -1857,7 +1857,7 @@ add_task(async function test_migrate_startupData_to_new_format() {
       .get("nonStartupBlocking")
       .get("onEvent3")
       .has(uneval([{ fromCustomParam1: "value1" }, ["fromCustomParam2"]])),
-    "Expect the listener params key to be found in older Firefox versions"
+    "Expect the listener params key to be found in older Plezix versions"
   );
 });
 

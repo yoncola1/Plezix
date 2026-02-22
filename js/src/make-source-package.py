@@ -1,5 +1,5 @@
 #!/usr/bin/env -S python3 -B
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -270,7 +270,7 @@ mk_add_options MOZ_OBJDIR=obj-opt
 README_CONTENT = f"""\
 This directory contains SpiderMonkey {major_version}.
 
-This release is based on a revision of Mozilla {major_version}:
+This release is based on a revision of Plezix {major_version}:
   https://hg.mozilla.org/releases/
 The changes in the patches/ directory were applied.
 

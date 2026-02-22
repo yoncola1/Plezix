@@ -27,7 +27,7 @@ registerCleanupFunction(async () => {
 add_task(async function () {
   let defaultHorizontalAllTabsPlacement =
     CustomizableUI.getPlacementOfWidget("alltabs-button");
-  let defaultHorizontalFirefoxViewPlacement =
+  let defaultHorizontalPlezixViewPlacement =
     CustomizableUI.getPlacementOfWidget("firefox-view-button");
   is(
     defaultHorizontalAllTabsPlacement.area,
@@ -35,7 +35,7 @@ add_task(async function () {
     `alltabs-button is in the ${tabsToolbar}`
   );
   is(
-    defaultHorizontalFirefoxViewPlacement.area,
+    defaultHorizontalPlezixViewPlacement.area,
     tabsToolbar,
     `firefox-view-button is in the ${tabsToolbar}`
   );
@@ -43,7 +43,7 @@ add_task(async function () {
     `alltabs-button is in its original default position ${defaultHorizontalAllTabsPlacement.position} for horizontal tabs mode`
   );
   info(
-    `firefox-view-button is in its original default position ${defaultHorizontalFirefoxViewPlacement.position} for horizontal tabs mode`
+    `firefox-view-button is in its original default position ${defaultHorizontalPlezixViewPlacement.position} for horizontal tabs mode`
   );
 
   await SpecialPowers.pushPrefEnv({
@@ -63,7 +63,7 @@ add_task(async function () {
 
   let defaultVerticalAllTabsPlacement =
     CustomizableUI.getPlacementOfWidget("alltabs-button");
-  let defaultVerticalFirefoxViewPlacement = CustomizableUI.getPlacementOfWidget(
+  let defaultVerticalPlezixViewPlacement = CustomizableUI.getPlacementOfWidget(
     "firefox-view-button"
   );
   is(
@@ -72,7 +72,7 @@ add_task(async function () {
     `alltabs-button is in the ${navBar}`
   );
   is(
-    defaultVerticalFirefoxViewPlacement.area,
+    defaultVerticalPlezixViewPlacement.area,
     navBar,
     `firefox-view-button is in the ${navBar}`
   );
@@ -80,15 +80,15 @@ add_task(async function () {
     `alltabs-button is in its original default position ${defaultVerticalAllTabsPlacement.position} for vertical tabs mode`
   );
   info(
-    `firefox-view-button is in its original default position ${defaultVerticalFirefoxViewPlacement.position} for vertical tabs mode`
+    `firefox-view-button is in its original default position ${defaultVerticalPlezixViewPlacement.position} for vertical tabs mode`
   );
 
   let customAllTabsPosition = 1;
-  let customFirefoxViewPosition = 2;
+  let customPlezixViewPosition = 2;
   CustomizableUI.moveWidgetWithinArea("alltabs-button", customAllTabsPosition);
   CustomizableUI.moveWidgetWithinArea(
     "firefox-view-button",
-    customFirefoxViewPosition
+    customPlezixViewPosition
   );
 
   await BrowserTestUtils.switchTab(gBrowser, nonCustomizingTab);
@@ -110,7 +110,7 @@ add_task(async function () {
     "alltabs-button has been moved from its default position"
   );
   isnot(
-    defaultVerticalFirefoxViewPlacement.position,
+    defaultVerticalPlezixViewPlacement.position,
     firefoxViewPlacement.position,
     "firefox-view-button has been moved from its default position"
   );
@@ -121,7 +121,7 @@ add_task(async function () {
   );
   is(
     firefoxViewPlacement.position,
-    customFirefoxViewPosition,
+    customPlezixViewPosition,
     "firefox-view-button is in its new custom position"
   );
 
@@ -131,7 +131,7 @@ add_task(async function () {
 
   let horizontalAlltabsPlacement =
     CustomizableUI.getPlacementOfWidget("alltabs-button");
-  let horizontalFirefoxViewPlacement = CustomizableUI.getPlacementOfWidget(
+  let horizontalPlezixViewPlacement = CustomizableUI.getPlacementOfWidget(
     "firefox-view-button"
   );
   is(
@@ -140,7 +140,7 @@ add_task(async function () {
     `alltabs-button is in the ${tabsToolbar}`
   );
   is(
-    horizontalFirefoxViewPlacement.area,
+    horizontalPlezixViewPlacement.area,
     tabsToolbar,
     `firefox-view-button is in the ${tabsToolbar}`
   );
@@ -150,8 +150,8 @@ add_task(async function () {
     "alltabs-button is in its default horizontal mode position"
   );
   is(
-    horizontalFirefoxViewPlacement.position,
-    defaultHorizontalFirefoxViewPlacement.position,
+    horizontalPlezixViewPlacement.position,
+    defaultHorizontalPlezixViewPlacement.position,
     "firefox-view-button is in its default horizontal mode position"
   );
 
@@ -162,12 +162,12 @@ add_task(async function () {
 
   let newAlltabsPlacement =
     CustomizableUI.getPlacementOfWidget("alltabs-button");
-  let newFirefoxViewPlacement = CustomizableUI.getPlacementOfWidget(
+  let newPlezixViewPlacement = CustomizableUI.getPlacementOfWidget(
     "firefox-view-button"
   );
   is(newAlltabsPlacement.area, navBar, `alltabs-button is in the ${navBar}`);
   is(
-    newFirefoxViewPlacement.area,
+    newPlezixViewPlacement.area,
     navBar,
     `firefox-view-button is in the ${navBar}`
   );
@@ -177,8 +177,8 @@ add_task(async function () {
     "alltabs-button is in its new custom position"
   );
   is(
-    newFirefoxViewPlacement.position,
-    customFirefoxViewPosition,
+    newPlezixViewPlacement.position,
+    customPlezixViewPosition,
     "firefox-view-button is in its new custom position"
   );
 });

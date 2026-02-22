@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ import org.mozilla.fenix.ext.runIfFragmentIsAttached
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguageFileDialog
 import org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguageFileDialogType
 import org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguagesFeature
@@ -62,7 +62,7 @@ enum class TranslationsDialogAccessPoint {
 }
 
 /**
- * A bottom sheet fragment displaying the Firefox Translation dialog.
+ * A bottom sheet fragment displaying the Plezix Translation dialog.
  */
 class TranslationsDialogFragment : BottomSheetDialogFragment() {
 
@@ -114,7 +114,7 @@ class TranslationsDialogFragment : BottomSheetDialogFragment() {
         )
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 var translationsVisibility by remember {
                     mutableStateOf(
                         args.translationsDialogAccessPoint == TranslationsDialogAccessPoint.Translations,

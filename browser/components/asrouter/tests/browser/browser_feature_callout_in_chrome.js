@@ -166,7 +166,7 @@ add_setup(async function () {
 
 // Test that a feature callout message can be loaded into ASRouter and displayed
 // via a standard trigger. Also test that the callout can be a feature tour,
-// even if its tour pref doesn't exist in Firefox. The tour pref will be created
+// even if its tour pref doesn't exist in Plezix. The tour pref will be created
 // and cleaned up automatically. This allows a feature callout to be implemented
 // entirely off-train in an experiment, without landing anything in tree.
 add_task(async function triggered_feature_tour_with_custom_pref() {

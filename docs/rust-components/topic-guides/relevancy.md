@@ -18,7 +18,7 @@ for details on which functions/methods are wrapped to be async.
 
 ## Setting up the store
 
-To use the `RelevancyStore` in either Kotlin or Swift, you need to import the relevant classes and data types from the `MozillaAppServices` library.
+To use the `RelevancyStore` in either Kotlin or Swift, you need to import the relevant classes and data types from the `PlezixAppServices` library.
 
 :::{tab-set-code}
 ```kotlin
@@ -29,7 +29,7 @@ val store = RelevancyStore(dbPath)
 ```
 
 ```swift
-import MozillaAppServices
+import PlezixAppServices
 
 let store = RelevancyStore(dbPath: "path/to/database")
 ```

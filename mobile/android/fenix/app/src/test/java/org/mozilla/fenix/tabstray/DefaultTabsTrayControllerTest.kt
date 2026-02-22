@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -678,7 +678,7 @@ class DefaultTabsTrayControllerTest {
         )
 
         val tab = Tab(
-            history = listOf(TabEntry(title = "Get Firefox", url = "https://getfirefox.com", iconUrl = null)),
+            history = listOf(TabEntry(title = "Get Plezix", url = "https://getfirefox.com", iconUrl = null)),
             active = 0,
             lastUsed = 0,
             inactive = false,

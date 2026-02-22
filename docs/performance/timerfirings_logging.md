@@ -58,7 +58,7 @@ the following sample shows.
 
 These JS timers are annotated with `[content]` and show the JavaScript
 source location where they were created. They can come from chrome code
-within Firefox, or from web content.
+within Plezix, or from web content.
 
 The informative labels are only present on function timers that have had
 their creation site annotated. For unannotated function timers, there

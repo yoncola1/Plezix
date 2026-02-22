@@ -1,8 +1,8 @@
-# [Android Components](../../../README.md) > Feature > Firefox Suggest
+# [Android Components](../../../README.md) > Feature > Plezix Suggest
 
-A component for accessing Firefox Suggest search suggestions.
+A component for accessing Plezix Suggest search suggestions.
 
-[Firefox Suggest](https://support.mozilla.org/en-US/kb/firefox-suggest-faq) provides suggestions for sponsored and web content in the address bar. Suggestions are downloaded, stored, and matched on-device.
+[Plezix Suggest](https://support.mozilla.org/en-US/kb/firefox-suggest-faq) provides suggestions for sponsored and web content in the address bar. Suggestions are downloaded, stored, and matched on-device.
 
 ## Usage
 
@@ -20,10 +20,10 @@ This component emits the following [Facts](../../support/base/README.md#Facts):
 
 | Action        | Item                             | Extras                        | Description                                                                                                   |
 |---------------|----------------------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `INTERACTION` | `amp_suggestion_clicked`         | `suggestion_clicked_extras`   | The user clicked on a Firefox Suggestion from adMarketplace.                                                  |
-| `DISPLAY`     | `amp_suggestion_impressed`       | `suggestion_impressed_extras` | A Firefox Suggestion from adMarketplace was visible when the user finished interacting with the awesomebar.   |
-| `INTERACTION` | `wikipedia_suggestion_clicked`   | `suggestion_clicked_extras`   | The user clicked on a Firefox Suggestion for a Wikipedia page.                                                |
-| `DISPLAY`     | `wikipedia_suggestion_impressed` | `suggestion_impressed_extras` | A Firefox Suggestion for a Wikipedia page was visible when the user finished interacting with the awesomebar. |
+| `INTERACTION` | `amp_suggestion_clicked`         | `suggestion_clicked_extras`   | The user clicked on a Plezix Suggestion from adMarketplace.                                                  |
+| `DISPLAY`     | `amp_suggestion_impressed`       | `suggestion_impressed_extras` | A Plezix Suggestion from adMarketplace was visible when the user finished interacting with the awesomebar.   |
+| `INTERACTION` | `wikipedia_suggestion_clicked`   | `suggestion_clicked_extras`   | The user clicked on a Plezix Suggestion for a Wikipedia page.                                                |
+| `DISPLAY`     | `wikipedia_suggestion_impressed` | `suggestion_impressed_extras` | A Plezix Suggestion for a Wikipedia page was visible when the user finished interacting with the awesomebar. |
 
 #### `suggestion_clicked_extras`
 
@@ -44,6 +44,6 @@ This component emits the following [Facts](../../support/base/README.md#Facts):
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

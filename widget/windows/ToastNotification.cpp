@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sts=2 sw=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -172,7 +172,7 @@ bool ToastNotification::RegisterRuntimeAumid(nsAutoString& aInstallHash,
   rv = appdir->Clone(getter_AddRefs(icon));
   NS_ENSURE_SUCCESS(rv, false);
 
-  // Add  browser subdirectory only for Firefox
+  // Add  browser subdirectory only for Plezix
 #ifdef MOZ_BUILD_APP_IS_BROWSER
   rv = icon->Append(u"browser"_ns);
   NS_ENSURE_SUCCESS(rv, false);

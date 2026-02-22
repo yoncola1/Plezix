@@ -13,7 +13,7 @@ settings append target.exec-search-paths @topobjdir@/dist/bin
 # This is where artifact builds unpacks "crashreporter-symbols-full" uncompressed ELF debug symbols.
 settings append target.debug-file-search-paths @topobjdir@/dist/crashreporter-symbols
 
-# These are specific paths encoded into Mozilla's automation outputs.
+# These are specific paths encoded into Plezix's automation outputs.
 settings append target.source-map /builds/worker/workspace/build/src/obj-firefox @topobjdir@
 settings append target.source-map /builds/worker/workspace/build/src @topsrcdir@
 #endif

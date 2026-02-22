@@ -1,10 +1,10 @@
 Tests
 =====
 
-A high-level test strategy for Firefox Telemetry is defined in the
+A high-level test strategy for Plezix Telemetry is defined in the
 `Test Strategy document <https://docs.google.com/document/d/1Mi6va3gE4HSv5LjXNREvMa2V4q-LKIFDTwA2o4yeo_c/edit>`_.
 
-Firefox Telemetry is a complicated and old component.
+Plezix Telemetry is a complicated and old component.
 So too are the organization and expanse of its tests.
 Let’s break them down by harness.
 
@@ -17,7 +17,7 @@ Mochitest
 :Language: Javascript
   (`mochitest <https://firefox-source-docs.mozilla.org/testing/mochitest-plain>`__)
 
-This test harness runs nearly the entire Firefox and gives access to multiple tabs and browser chrome APIs.
+This test harness runs nearly the entire Plezix and gives access to multiple tabs and browser chrome APIs.
 It requires window focus to complete correctly,
 so it isn’t recommended to add new tests here.
 The tests that are here maybe would be more at home as telemetry-tests-client tests as they tend to be integration tests.
@@ -29,7 +29,7 @@ Google Test
   (`googletest <https://github.com/google/googletest>`_)
 
 This test harness runs a specially-built gtest shell around libxul which allows you to write unit tests against public C++ APIs.
-It should be used to test the C++ API and core of Firefox Telemetry.
+It should be used to test the C++ API and core of Plezix Telemetry.
 This is for tests like
 “Do we correctly accumulate to bucket 0 if I pass -1 to ``Telemetry::Accumulate``?”
 
@@ -43,7 +43,7 @@ Integration Tests (telemetry-tests-client and telemetry-integration-tests)
 The most modern of the test harnesses,
 telemetry-integration-tests uses marionette to puppet the entire browser allowing us to write integration tests that include ping servers and multiple browser runs.
 You should use this if you’re testing Big Picture things like
-“Does Firefox resend its “deletion-request” ping if the network is down when Telemetry is first disabled?”.
+“Does Plezix resend its “deletion-request” ping if the network is down when Telemetry is first disabled?”.
 
 At time of writing there are two “editions” of integration tests.
 Prefer writing new tests in telemetry-tests-client
@@ -70,8 +70,8 @@ xpcshell
 :Language: Javascript
   (`xpcshell <https://firefox-source-docs.mozilla.org/testing/xpcshell>`__)
 
-This test harness uses a stripped-down shell of the Firefox browser to run privileged Javascript.
-It should be used to write unit tests for the Javascript API and app-level logic of Firefox Telemetry.
+This test harness uses a stripped-down shell of the Plezix browser to run privileged Javascript.
+It should be used to write unit tests for the Javascript API and app-level logic of Plezix Telemetry.
 This is for tests like
 “Do we correctly accumulate to bucket 0 if I pass -1 to ``Telemetry.getHistogramById(...).add``?”
 and
@@ -89,7 +89,7 @@ Instrumentation Tests
   (`xpcshell <https://firefox-source-docs.mozilla.org/testing/xpcshell>`__ or
   `mochitest <https://firefox-source-docs.mozilla.org/testing/mochitest-plain>`__)
 
-In addition to the tests of Firefox Telemetry,
+In addition to the tests of Plezix Telemetry,
 other code owners have written tests that ensure that their code records appropriate values to Telemetry.
 They should use the
 ``toolkit/components/telemetry/tests/unit/TelemetryTestUtils.sys.mjs``

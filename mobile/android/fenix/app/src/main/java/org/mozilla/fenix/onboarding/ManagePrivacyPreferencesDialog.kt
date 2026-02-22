@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.onboarding.store.PrivacyPreferencesAction
 import org.mozilla.fenix.onboarding.store.PrivacyPreferencesStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Dialog to manage privacy preferences during onboarding.
@@ -52,7 +52,7 @@ fun ManagePrivacyPreferencesDialog(
         properties = DialogProperties(dismissOnClickOutside = false),
     ) {
         Card(
-            colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+            colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
             shape = RoundedCornerShape(8.dp),
         ) {
             Column(Modifier.padding(16.dp)) {
@@ -82,8 +82,8 @@ fun ManagePrivacyPreferencesDialog(
 private fun Title() {
     Text(
         text = stringResource(R.string.onboarding_preferences_dialog_title),
-        color = FirefoxTheme.colors.textPrimary,
-        style = FirefoxTheme.typography.headline7,
+        color = PlezixTheme.colors.textPrimary,
+        style = PlezixTheme.typography.headline7,
         maxLines = 1,
     )
 }
@@ -103,15 +103,15 @@ private fun CrashReportingPreference(
             )
         },
         modifier = Modifier.wrapContentWidth(),
-        labelStyle = FirefoxTheme.typography.body2,
+        labelStyle = PlezixTheme.typography.body2,
     )
 
     Spacer(modifier = Modifier.height(8.dp))
 
     Text(
         text = stringResource(R.string.onboarding_preferences_dialog_crash_reporting_description),
-        color = FirefoxTheme.colors.textPrimary,
-        style = FirefoxTheme.typography.caption,
+        color = PlezixTheme.colors.textPrimary,
+        style = PlezixTheme.typography.caption,
     )
 
     Spacer(modifier = Modifier.height(16.dp))
@@ -125,7 +125,7 @@ private fun CrashReportingPreference(
                 onClick = { onLinkClick() },
             ),
         ),
-        style = FirefoxTheme.typography.caption.copy(color = FirefoxTheme.colors.textPrimary),
+        style = PlezixTheme.typography.caption.copy(color = PlezixTheme.colors.textPrimary),
     )
 }
 
@@ -144,15 +144,15 @@ private fun UsageDataPreference(
             )
         },
         modifier = Modifier.wrapContentWidth(),
-        labelStyle = FirefoxTheme.typography.body2,
+        labelStyle = PlezixTheme.typography.body2,
     )
 
     Spacer(modifier = Modifier.height(8.dp))
 
     Text(
         text = stringResource(R.string.onboarding_preferences_dialog_usage_data_description_2),
-        color = FirefoxTheme.colors.textPrimary,
-        style = FirefoxTheme.typography.caption,
+        color = PlezixTheme.colors.textPrimary,
+        style = PlezixTheme.typography.caption,
     )
 
     Spacer(modifier = Modifier.height(16.dp))
@@ -166,7 +166,7 @@ private fun UsageDataPreference(
                 onClick = { onLinkClick() },
             ),
         ),
-        style = FirefoxTheme.typography.caption.copy(color = FirefoxTheme.colors.textPrimary),
+        style = PlezixTheme.typography.caption.copy(color = PlezixTheme.colors.textPrimary),
     )
 }
 
@@ -190,8 +190,8 @@ private fun DialogButton(text: String, onClick: () -> Unit) {
     TextButton(onClick = onClick) {
         Text(
             text.uppercase(),
-            color = FirefoxTheme.colors.textAccent,
-            style = FirefoxTheme.typography.button,
+            color = PlezixTheme.colors.textAccent,
+            style = PlezixTheme.typography.button,
             maxLines = 1,
         )
     }
@@ -200,7 +200,7 @@ private fun DialogButton(text: String, onClick: () -> Unit) {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun ManagePrivacyPreferencesDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ManagePrivacyPreferencesDialog(PrivacyPreferencesStore(), {}, {}, {})
     }
 }

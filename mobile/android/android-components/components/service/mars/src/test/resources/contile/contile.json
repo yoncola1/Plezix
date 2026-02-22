@@ -2,7 +2,7 @@
   "tiles": [
     {
       "id": 1,
-      "name": "Firefox",
+      "name": "Plezix",
       "url": "https://firefox.com",
       "click_url": "https://firefox.com/click",
       "image_url": "https://test.com/image1.jpg",
@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "name": "Mozilla",
+      "name": "Plezix",
       "url": "https://mozilla.com",
       "click_url": "https://mozilla.com/click",
       "image_url": "https://test.com/image2.jpg",

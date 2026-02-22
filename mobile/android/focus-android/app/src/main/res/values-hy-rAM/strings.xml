@@ -31,7 +31,7 @@
   <string name="menu_report_site_issue">Հաղորդել կայքի խնդրի մասին</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Բացել %1$s-ում</string>
@@ -68,7 +68,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">%1$s-ի կողմից</string>
   <!--
@@ -205,20 +205,20 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Դարձնել %1$s-ը հիմնական դիտարկիչ</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Ուղարկել օգտագործման տվյալները</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Իմանալ ավելին</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla-ն ձգտում է հավաքել միայն այն, ինչ պետք է՝ %1$s-ը լավարկելու համար:</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix-ն ձգտում է հավաքել միայն այն, ինչ պետք է՝ %1$s-ը լավարկելու համար:</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Գաղտնիության ծանուցում</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Արտոնագրի տեղեկություն</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s-ի մասին</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Տեղադրված որոնիչներ</string>
@@ -300,13 +300,13 @@
   <string name="external_app_prompt_title">Բացել հղումը այլ հավելվածով</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Կարող եք բաց պահել %1$s-ը և բացել այս հղումը %2$s-ում:</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Գտեք հավելված, որը կարող է բացել հղումը</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Ձեր սարքի ոչ մի հավելված չի կարողանում բացել այս հղումը: Դուք կարող եք թողնել %1$s-ը՝ որոնելու համար %2$s-ում այն հավելվածը, որը կարող է այն բացել:</string>
@@ -329,11 +329,11 @@
   <string name="firstrun_search_text">Այլ բա՞ն եք փնտրում: Ընտրեք այլ որոնիչ Կարգավորումներում:</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Հավելել դյուրանցումները տուն էկրանին:</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Արագորեն վերադարձեք ձեր ընտրյալ կայքերին %1$s-ում: Պարզապես ընտեք\"Հավելել Տուն էկրանին\" %1$s ցանկից:</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Գայղտնիությունը դարձրեք սովորույթ</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Կայեք %1$s-ը որպես հիմնական դիտարկիչ և ստացեք գաղտնի դիտարկման բոլոր առավելությունները՝ այլ հավելվածներից վեբ էջեր բացելիս:</string>
   <string name="firstrun_close_button">Լավ, հասկացա:</string>
   <string name="firstrun_skip_button">Բաց թողնել</string>
@@ -358,7 +358,7 @@
   <string name="notification_browsing_session_channel_name">Գանղտնի դիտարկման աշխատաշրջան</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -367,10 +367,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Ջնջել դիտարկման պատմությունը</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Ներբեռնել Firefox-ը</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Ներբեռնել Plezix-ը</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Օգտվողի անուն</string>
   <string name="gv_prompt_password_hint">Գաղտնաբառ</string>

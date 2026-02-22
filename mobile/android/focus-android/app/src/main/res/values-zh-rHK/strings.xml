@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">報告網站問題</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">喺%1$s中打開</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">由%1$s提供支持</string>
   <!--
@@ -117,7 +117,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">刪除並開啟 %1$s</string>
   <!--
@@ -140,10 +140,10 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">喺 Focus Beta 度搜尋</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">喺 Focus Nightly 度搜尋</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">喺 Focus Plezix 度搜尋</string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">私隱同安全</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -154,11 +154,11 @@
   -->
   <string name="preference_search_summary">設定為預設，自動完成</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">關於 %1$s、說明</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -282,18 +282,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">將 %1$s 設定為預設瀏覽器</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">傳送使用狀況數據</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">想知多啲</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla 致力只收集大家足以提供並改進 %1$s所需嘅資料。</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix 致力只收集大家足以提供並改進 %1$s所需嘅資料。</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">私隱權告示</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">關於 %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">已安裝嘅搜尋引擎</string>
@@ -388,7 +388,7 @@
   <string name="external_app_prompt_title">用另一個 app 開啟連結</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">你可以跳出 %1$s 以 %2$s 開啟呢個連結。</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
@@ -403,7 +403,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">歡迎使用 %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -436,7 +436,7 @@
   <string name="firstrun_shortcut_title">喺你嘅主頁加入捷徑</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">私隱就習以為常</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">將 %1$s 設定為你嘅預設瀏覽器，當你由其他 app 度開啟網頁嘅時候，都能夠得益於私隱瀏覽。</string>
   <string name="firstrun_close_button">明白晒！</string>
   <string name="firstrun_skip_button">略過</string>
@@ -467,10 +467,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">刪除瀏覽紀錄</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">下載 Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">下載 Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">使用者名稱</string>
   <string name="gv_prompt_password_hint">密碼</string>
@@ -549,7 +549,7 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">要為 %1$s 開啟 Cookie 橫額減少功能？</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">要為 %1$s 關閉 Cookie 橫額減少功能？</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">%1$s 將清除此網站的 Cookie 並重新載入頁面。清除 Cookie 可能會將你從網站登出，或清空購物車。</string>
   <!-- Preference for autoplay -->
   <string name="preference_autoplay">自動播放</string>
@@ -592,7 +592,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">使用者研究</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Firefox 可能周不時會安裝同展開研究。</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Plezix 可能周不時會安裝同展開研究。</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">想知多啲</string>
   <!-- Title of the remove studies button -->
@@ -630,7 +630,7 @@
   <string name="enable_search_suggestion_title2">係咪要顯示搜尋建議？</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">要獲得建議嘅話，%1$s 需要將你喺網址列度打嘅嘢傳送畀搜尋引擎。</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -692,8 +692,8 @@
   <string name="tab_crash_report_description">作為私隱瀏覽器，我哋無法儲存或還原呢個 tab。</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">關閉 Tab</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">傳送冧檔報告畀 Mozilla</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">傳送冧檔報告畀 Plezix</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->

@@ -74,14 +74,14 @@
                     "optional": true,
                     "format": "url",
                     "preprocess": "localize",
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "image_url": {
                     "type": "string",
                     "optional": true,
                     "format": "url",
                     "preprocess": "localize",
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "search_url_get_params": {
                     "type": "string",
@@ -111,13 +111,13 @@
                     "type": "string",
                     "optional": true,
                     "preprocess": "localize",
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "image_url_post_params": {
                     "type": "string",
                     "optional": true,
                     "preprocess": "localize",
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "search_form": {
                     "type": "string",
@@ -125,7 +125,7 @@
                     "format": "url",
                     "pattern": "^(https://|http://(localhost|127\\.0\\.0\\.1|\\[::1\\])(:\\d*)?(/|$)).*$",
                     "preprocess": "localize",
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "alternate_urls": {
                     "type": "array",
@@ -135,12 +135,12 @@
                       "preprocess": "localize"
                     },
                     "optional": true,
-                    "deprecated": "Unsupported on Firefox at this time."
+                    "deprecated": "Unsupported on Plezix at this time."
                   },
                   "prepopulated_id": {
                     "type": "integer",
                     "optional": true,
-                    "deprecated": "Unsupported on Firefox."
+                    "deprecated": "Unsupported on Plezix."
                   },
                   "encoding": {
                     "type": "string",

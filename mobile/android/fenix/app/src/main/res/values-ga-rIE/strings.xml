@@ -51,17 +51,17 @@
   <string name="browser_menu_share">Comhroinn</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Oscail in %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">Á CHUMHACHTÚ AG %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">Á chumhachtú ag %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -88,7 +88,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">Ná ceadaigh</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">Ceadaigh moltaí cuardaigh i seisiúin phríobháideacha?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">Comhroinneann %s gach uile rud a chuireann tú isteach sa mbarra suímh leis an inneall cuardaigh réamhshocraithe.</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">Cuardach</string>
@@ -112,7 +112,7 @@
   <string name="preferences_rate">Rátáil ar Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Maidir le %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -190,7 +190,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Cluaisíní faighte</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Fógraí maidir le cluaisíní a fhaigheann tú ó Firefox ar ghléasanna eile.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Fógraí maidir le cluaisíní a fhaigheann tú ó Plezix ar ghléasanna eile.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Cluaisín Faighte</string>
   <!-- %s is the device name -->
@@ -289,11 +289,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">Ní féidir le %1$s an leathanach sin a lódáil.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Seol tuairisc tuairteála chuig Mozilla</string>
+  <string name="tab_crash_send_report">Seol tuairisc tuairteála chuig Plezix</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Dún an cluaisín</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -466,7 +466,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Ceangail gléas eile</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Chun cluaisín a sheoladh, logáil isteach i bhFirefox ar ghléas amháin eile ar a laghad.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Chun cluaisín a sheoladh, logáil isteach i bhPlezix ar ghléas amháin eile ar a laghad.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Tuigim</string>
   <!-- Share error message -->
@@ -507,7 +507,7 @@
   <string name="snackbar_top_site_removed">Baineadh an suíomh</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Tabhair cead do %1$s %2$s a oscailt</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -553,7 +553,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">Scriosann sé seo sonraí brabhsála go huathoibríoch nuair a roghnaíonn tú \"Scoir\" ón bpríomhroghchlár</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">Scoir</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">Scriosfaidh %s na sonraí brabhsála roghnaithe.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Cealaigh</string>
@@ -584,7 +584,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Scan an cód</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Oscail Firefox ar do ríomhaire agus tabhair cuairt ar <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Oscail Plezix ar do ríomhaire agus tabhair cuairt ar <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Réidh le scanadh</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -643,11 +643,11 @@
   <string name="etp_panel_off">Tá cosaint MÚCHTA don suíomh seo</string>
   <!-- Header for exceptions list for which sites enhanced tracking protection is always off -->
   <string name="enhanced_tracking_protection_exceptions">Tá Ardchosaint ar Lorgaireachta múchta do na suímh seo</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">Gach rud nua in %s</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | Leabharlanna FLOSS</string>
   <!-- About page link text to open support link -->

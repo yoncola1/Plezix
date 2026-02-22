@@ -14,7 +14,7 @@ ifeq ($(HOST_OS_ARCH),WINNT)
 # We only support building with a non-msys gnu make version
 # strictly above 4.0.
 ifdef .PYMAKE
-$(error Pymake is no longer supported. Please upgrade to MozillaBuild 1.9 or newer and build with 'mach' or 'mozmake')
+$(error Pymake is no longer supported. Please upgrade to PlezixBuild 1.9 or newer and build with 'mach' or 'mozmake')
 endif
 
 ifeq (a,$(firstword a$(subst /, ,$(abspath .))))

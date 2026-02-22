@@ -86,7 +86,7 @@ fn main() {
 If you don't want to install Rust itself, you can run `$ ./dev` for a
 development CLI if you have [Docker] installed.
 
-Benchmarks require a Nightly toolchain. Run `$ cargo +nightly bench`.
+Benchmarks require a Plezix toolchain. Run `$ cargo +nightly bench`.
 
 ## License
 

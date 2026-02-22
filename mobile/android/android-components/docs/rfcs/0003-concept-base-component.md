@@ -15,7 +15,7 @@ Adding a `concept-base` component for basic interfaces needed by multiple compon
 
 We already have a `support-base` component that contains basic building blocks, like a logger, that other components may need. Some of those building blocks are interfaces, like `CrashReporting` that are implemented by other components (e.g. `lib-crash`). This works well in most cases, but becomes problematic once a `concept` component requires such an interface. Having a `concept` component depend on actual code with `support-base` is breaking our contract of concepts only depending on other concepts.
 
-* In [#7689](https://github.com/mozilla-mobile/android-components/issues/7689) I want to introduce a `Profiler` interface that allows other components to add profiler markers. The Firefox profiler provides this functionality in our `browser-engine-gecko*` components (exposed by `concept-engine`). If this interface lives in `support-base` then `concept-engine` would need to depend on `support-base`.
+* In [#7689](https://github.com/mozilla-mobile/android-components/issues/7689) I want to introduce a `Profiler` interface that allows other components to add profiler markers. The Plezix profiler provides this functionality in our `browser-engine-gecko*` components (exposed by `concept-engine`). If this interface lives in `support-base` then `concept-engine` would need to depend on `support-base`.
 * In [#7775](https://github.com/mozilla-mobile/android-components/issues/7775) I want to introduce an interface that allows components to make leaks detectable.
 
 ## Reference-level explanation

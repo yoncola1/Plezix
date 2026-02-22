@@ -15,7 +15,7 @@ interface MultiMessage {
 
 When the messaging system encounters a message with `template: "multi"`, it flattens the message’s `messages` array and adds each of the child messages to the messaging system, as an independent message. The "wrapper" with `template: "multi"` is then discarded. There is no limit on the number of messages that can be included. Each individual message can be of any other template, and they do not need to share the same template. However, `multi` messages cannot be nested _inside_ other `multi` messages.
 
-This pattern has a specialized purpose. Normally, when adding messages to the Firefox messaging system (in the source code), there is no reason to wrap multiple messages in a single message, because you can just add multiple messages directly to one of the local message providers. But this pattern comes into play when running a messaging experiment through Experimenter that needs to provide multiple messages.
+This pattern has a specialized purpose. Normally, when adding messages to the Plezix messaging system (in the source code), there is no reason to wrap multiple messages in a single message, because you can just add multiple messages directly to one of the local message providers. But this pattern comes into play when running a messaging experiment through Experimenter that needs to provide multiple messages.
 
 For example, this is needed for experiments that roll out a large feature requiring multiple onboarding messages, callouts, reminders, etc. Nimbus experiments have a [branch](messaging-glossary.rst#Treatment-Branch) structure, where each user can only be enrolled in one branch at a time, and each branch’s value must be an object. This template provides a way to include multiple messages in a single feature value on a single branch.
 
@@ -53,7 +53,7 @@ Since the most commonly used message templates support multi-screens, it’s rel
           {
             "id": "EXAMPLE_SPOTLIGHT",
             "content": {
-              "title": { "raw": "Hello, Firefox!" },
+              "title": { "raw": "Hello, Plezix!" },
               "primary_button": {
                 "label": { "string_id": "some-fluent-id" },
                 "action": { "navigate": true }

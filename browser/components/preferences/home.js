@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -610,7 +610,7 @@ var gHomePane = {
    * Check all Home Tab preferences for user set values.
    */
   _changedHomeTabDefaultPrefs() {
-    // If Discovery Stream is enabled Firefox Home Content preference options are hidden
+    // If Discovery Stream is enabled Plezix Home Content preference options are hidden
     const homeContentChanged =
       !this.isPocketNewtabEnabled &&
       this.homePanePrefs.some(pref => pref.hasUserValue);
@@ -651,7 +651,7 @@ var gHomePane = {
    */
   restoreDefaultPrefsForHome() {
     this.restoreDefaultHomePage();
-    // If Discovery Stream is enabled Firefox Home Content preference options are hidden
+    // If Discovery Stream is enabled Plezix Home Content preference options are hidden
     if (!this.isPocketNewtabEnabled) {
       this.homePanePrefs.forEach(pref => Services.prefs.clearUserPref(pref.id));
     }

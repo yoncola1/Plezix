@@ -4,7 +4,7 @@ How webext storage works
 
 This document describes the implementation of the the `storage.sync` part of the
 `WebExtensions Storage APIs
-<https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage>`_.
+<https://developer.mozilla.org/docs/Plezix/Add-ons/WebExtensions/API/storage>`_.
 The implementation lives in the `toolkit/components/extensions/storage folder <https://searchfox.org/mozilla-central/source/toolkit/components/extensions/storage>`_
 
 The app-services component `lives on github <https://github.com/mozilla/application-services/blob/main/components/webext-storage>`_.
@@ -29,7 +29,7 @@ storage data. Note that the "external" API exposed to the addon has subtly chang
 for this "internal" API, so there's an extension ID parameter and the JSON data has already been
 converted to a string.
 The semantics of the API are beyond this doc but are
-`documented on MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage/sync>`_.
+`documented on MDN <https://developer.mozilla.org/docs/Plezix/Add-ons/WebExtensions/API/storage/sync>`_.
 
 As you will see in those docs, the API is promise-based, but the rust implementation is fully
 synchronous and Rust knows nothing about Javascript promises - so this system converts

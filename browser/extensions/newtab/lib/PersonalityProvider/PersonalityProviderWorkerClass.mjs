@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ async function _getFileHash(filepath) {
 
 /**
  * V2 provider builds and ranks an interest profile (also called an “interest vector”) off the browse history.
- * This allows Firefox to classify pages into topics, by examining the text found on the page.
+ * This allows Plezix to classify pages into topics, by examining the text found on the page.
  * It does this by looking at the history text content, title, and description.
  */
 export class PersonalityProviderWorker {

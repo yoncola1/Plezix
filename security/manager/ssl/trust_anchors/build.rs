@@ -1,5 +1,5 @@
 /* -*- Mode: rust; rust-indent-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -355,7 +355,7 @@ fn main() -> std::io::Result<()> {
     let mut input =
         std::fs::read_to_string(testlib_certdata).expect("Unable to read certdata.txt.");
 
-    // Otherwise, use the official certdata.txt for the Mozilla root store.
+    // Otherwise, use the official certdata.txt for the Plezix root store.
     #[cfg(not(feature = "testlib"))]
     let mut input =
         std::fs::read_to_string(mozilla_certdata).expect("Unable to read certdata.txt.");

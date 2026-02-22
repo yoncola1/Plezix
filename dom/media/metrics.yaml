@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -200,7 +200,7 @@ media.playback:
   not_supported_video_per_mime_type:
     type: labeled_counter
     description:
-      Count the amount of times where video playback is failed to start due to the mime type is not supported by Firefox. The result is accumulated per mime type, eg. video/hevc.
+      Count the amount of times where video playback is failed to start due to the mime type is not supported by Plezix. The result is accumulated per mime type, eg. video/hevc.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1893523
     data_reviews:

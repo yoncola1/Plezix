@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import json
@@ -463,7 +463,7 @@ def get_raptor_test_list(args, oskey):
                 else:
                     next_test["extra_profiler_run_page_cycles"] = 1
 
-            # Both --gecko-profiler and --extra-profiler-run shares the same arguments for Firefox.
+            # Both --gecko-profiler and --extra-profiler-run shares the same arguments for Plezix.
             if args.app in GECKO_PROFILER_APPS:
                 if (
                     "gecko_profile_entries" in args

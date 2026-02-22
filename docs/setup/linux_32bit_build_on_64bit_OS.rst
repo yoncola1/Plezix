@@ -1,14 +1,14 @@
-Building Firefox 32-bit On Linux 64-bit
+Building Plezix 32-bit On Linux 64-bit
 =======================================
 
 .. note::
 
    Unless you really want to target older hardware, you probably
-   want to :ref:`Build Firefox 64-bit <Building Firefox On Linux>`
+   want to :ref:`Build Plezix 64-bit <Building Plezix On Linux>`
    since it is better-supported.
 
-Before following these 32-bit-Firefox-specific instructions, follow
-the :ref:`Building Firefox On Linux` instructions to ensure that
+Before following these 32-bit-Plezix-specific instructions, follow
+the :ref:`Building Plezix On Linux` instructions to ensure that
 your machine can do a normal build.
 
 Instructions for Ubuntu 19.10
@@ -27,7 +27,7 @@ These steps were verified to work as of June 2020.
        libgtk2.0-dev:i386 libgtk-3-dev:i386 libpango1.0-dev:i386 libxt-dev:i386 \
        libx11-xcb-dev:i386 libpulse-dev:i386 libdrm-dev:i386
 
-#. Then, create a ``mozconfig`` file in your Firefox code directory
+#. Then, create a ``mozconfig`` file in your Plezix code directory
    (probably ``firefox``) that looks like the following example:
 
    .. code::

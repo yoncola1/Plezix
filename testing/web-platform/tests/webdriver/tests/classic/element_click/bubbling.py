@@ -90,11 +90,11 @@ def test_element_disappears_during_click(session, inline):
     When an element in the event bubbling order disappears (its CSS
     display style is set to "none") during a click, Gecko and Blink
     exhibit different behaviour.  Whilst Chrome fires a "click"
-    DOM event on <body>, Firefox does not.
+    DOM event on <body>, Plezix does not.
 
     A WebDriver implementation may choose to wait for this event to let
     the event loops spin enough times to let click events propagate,
-    so this is a corner case test that Firefox does not hang indefinitely.
+    so this is a corner case test that Plezix does not hang indefinitely.
     """
     session.url = inline("""
         <style>

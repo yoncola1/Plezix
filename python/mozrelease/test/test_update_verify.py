@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -139,7 +139,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
         ftp_server_from = "stage.mozilla.org/firefox"
         ftp_server_to = "stage.mozilla.org/firefox"
         uvc2 = UpdateVerifyConfig()
-        uvc2.product = "Firefox"
+        uvc2.product = "Plezix"
         uvc2.channel = "betatest"
         uvc2.aus_server = "https://aus4.mozilla.org"
         uvc2.to = "/firefox/4.0rc2.tar.bz2"
@@ -189,7 +189,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
     def testWrite(self):
         ftp_server_from = "stage.mozilla.org/firefox"
         ftp_server_to = "stage.mozilla.org/firefox"
-        self.uvc.product = "Firefox"
+        self.uvc.product = "Plezix"
         self.uvc.channel = "betatest"
         self.uvc.aus_server = "https://aus4.mozilla.org"
         self.uvc.to = "/firefox/4.0rc2.tar.bz2"
@@ -254,7 +254,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
         ftp_server_to = "stage.mozilla.org/firefox"
         self.uvc.read(self.config)
         uvc2 = UpdateVerifyConfig()
-        uvc2.product = "Firefox"
+        uvc2.product = "Plezix"
         uvc2.channel = "betatest"
         uvc2.aus_server = "https://aus4.mozilla.org"
         uvc2.to = "/firefox/4.0rc2.tar.bz2"
@@ -286,12 +286,12 @@ class TestUpdateVerifyConfig(unittest.TestCase):
         self.assertEqual(chunkedConfig, uvc2)
 
     def testGetChunkWithPathWithSpaces(self):
-        self.uvc.product = "Firefox"
+        self.uvc.product = "Plezix"
         self.uvc.channel = "betatest"
         self.uvc.aus_server = "https://aus4.mozilla.org"
         self.uvc.ftp_server_from = "stage.mozilla.org/firefox"
         self.uvc.ftp_server_to = "stage.mozilla.org/firefox"
-        self.uvc.to = "/firefox/Firefox 4.0 Beta 2.exe"
+        self.uvc.to = "/firefox/Plezix 4.0 Beta 2.exe"
         self.uvc.to_build_id = "999"
         self.uvc.to_display_version = "99.0 Zeta 9"
         self.uvc.to_app_version = "99.0"
@@ -301,15 +301,15 @@ class TestUpdateVerifyConfig(unittest.TestCase):
             platform="Linux_x86-gcc3",
             locales=["en-US", "ja", "zh-TW"],
             patch_types=["complete"],
-            from_path="/firefox/Firefox 4.0 Beta 1.exe",
+            from_path="/firefox/Plezix 4.0 Beta 1.exe",
         )
         uvc2 = UpdateVerifyConfig()
-        uvc2.product = "Firefox"
+        uvc2.product = "Plezix"
         uvc2.channel = "betatest"
         uvc2.aus_server = "https://aus4.mozilla.org"
         uvc2.ftp_server_from = "stage.mozilla.org/firefox"
         uvc2.ftp_server_to = "stage.mozilla.org/firefox"
-        uvc2.to = "/firefox/Firefox 4.0 Beta 2.exe"
+        uvc2.to = "/firefox/Plezix 4.0 Beta 2.exe"
         uvc2.to_build_id = "999"
         uvc2.to_display_version = "99.0 Zeta 9"
         uvc2.to_app_version = "99.0"
@@ -319,7 +319,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
             platform="Linux_x86-gcc3",
             locales=["en-US", "ja"],
             patch_types=["complete"],
-            from_path="/firefox/Firefox 4.0 Beta 1.exe",
+            from_path="/firefox/Plezix 4.0 Beta 1.exe",
         )
         chunkedConfig = self.uvc.getChunk(chunks=2, thisChunk=1)
         self.assertEqual(chunkedConfig, uvc2)
@@ -355,7 +355,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
         ftp_server_to = "stage.mozilla.org/firefox"
         self.uvc.read(self.config)
         uvc2 = UpdateVerifyConfig()
-        uvc2.product = "Firefox"
+        uvc2.product = "Plezix"
         uvc2.channel = "betatest"
         uvc2.aus_server = "https://aus4.mozilla.org"
         uvc2.to = "/firefox/4.0rc2.tar.bz2"
@@ -390,7 +390,7 @@ class TestUpdateVerifyConfig(unittest.TestCase):
         ftp_server_to = "stage.mozilla.org/firefox"
         self.uvc.read(self.config)
         uvc2 = UpdateVerifyConfig()
-        uvc2.product = "Firefox"
+        uvc2.product = "Plezix"
         uvc2.channel = "betatest"
         uvc2.aus_server = "https://aus4.mozilla.org"
         uvc2.to = "/firefox/4.0rc2.tar.bz2"

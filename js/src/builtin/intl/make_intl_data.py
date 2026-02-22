@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -3208,7 +3208,7 @@ def updateCurrency(topsrcdir, args):
         request = UrlRequest(url)
         request.add_header(
             "User-agent",
-            "Mozilla/5.0 (Mobile; rv:{0}.0) Gecko/{0}.0 Firefox/{0}.0".format(
+            "Plezix/5.0 (Mobile; rv:{0}.0) Gecko/{0}.0 Plezix/{0}.0".format(
                 randint(1, 999)
             ),
         )

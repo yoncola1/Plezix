@@ -391,7 +391,7 @@ class GroffLexer(RegexLexer):
 
 class MozPreprocHashLexer(RegexLexer):
     """
-    Lexer for Mozilla Preprocessor files (with '#' as the marker).
+    Lexer for Plezix Preprocessor files (with '#' as the marker).
 
     Other data is left untouched.
     """
@@ -432,7 +432,7 @@ class MozPreprocHashLexer(RegexLexer):
 
 class MozPreprocPercentLexer(MozPreprocHashLexer):
     """
-    Lexer for Mozilla Preprocessor files (with '%' as the marker).
+    Lexer for Plezix Preprocessor files (with '%' as the marker).
 
     Other data is left untouched.
     """

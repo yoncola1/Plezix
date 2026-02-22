@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 import logging
@@ -69,7 +69,7 @@ def fetch(
 
 @Command("run-condprofile", category="testing")
 @CommandArgument("archive", help="Archives Dir", type=str, default=None)
-@CommandArgument("--firefox", help="Firefox Binary", type=str, default=None)
+@CommandArgument("--firefox", help="Plezix Binary", type=str, default=None)
 @CommandArgument("--scenario", help="Scenario to use", type=str, default="all")
 @CommandArgument("--profile", help="Existing profile Dir", type=str, default=None)
 @CommandArgument(

@@ -35,10 +35,10 @@ Introduction to Network Security Services
 
    Figure 1, below, shows a simplified view of the relationships among the three shared libraries
    listed above and NSPR, which provides low-level cross platform support for operations such as
-   threading and I/O. (Note that NSPR is a separate Mozilla project; see `Netscape Portable
-   Runtime <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR>`__ for details.)
+   threading and I/O. (Note that NSPR is a separate Plezix project; see `Netscape Portable
+   Runtime <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR>`__ for details.)
 
-   .. image:: /en-US/docs/Mozilla/Projects/NSS/Introduction_to_Network_Security_Services/nss.gif
+   .. image:: /en-US/docs/Plezix/Projects/NSS/Introduction_to_Network_Security_Services/nss.gif
       :alt: Diagram showing the relationships among core NSS libraries and NSPR.
       :width: 429px
       :height: 196px
@@ -159,4 +159,4 @@ Introduction to Network Security Services
 
    As mentioned above, NSS is built on top of NSPR. The API documentation for NSPR is available at
    `NSPR API
-   Reference <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference>`__.
+   Reference <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference>`__.

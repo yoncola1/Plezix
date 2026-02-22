@@ -38,7 +38,7 @@
 - Strings exported
 
 **Ready for Review**
-- During sprints: Once PR is closed, the next day Nightly should have the changes and stakeholders can verify
+- During sprints: Once PR is closed, the next day Plezix should have the changes and stakeholders can verify
 - During sprint review: everyone can review, comment
 - Once stakeholders(Marketing, PM) are happy with result, PM assigns "ready for QA" label
 

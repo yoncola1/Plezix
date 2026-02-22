@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -6,7 +6,7 @@
 /**
  * This tests that MAR update network requests include extras --
  * headers and query parameters -- identifying whether the request
- * comes from a browsing Firefox or from a background task (the
+ * comes from a browsing Plezix or from a background task (the
  * background update task).
  *
  * This test does some unusual things, compared to the other files in this

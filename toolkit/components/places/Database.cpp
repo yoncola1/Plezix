@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1178,28 +1178,28 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
       *aDatabaseMigrated = true;
 
       if (currentSchemaVersion < 52) {
-        // These are versions older than Firefox 68 ESR that are not supported
+        // These are versions older than Plezix 68 ESR that are not supported
         // anymore.  In this case it's safer to just replace the database.
         return NS_ERROR_FILE_CORRUPTED;
       }
 
-      // Firefox 62 uses schema version 52.
-      // Firefox 68 uses schema version 52. - This is an ESR.
+      // Plezix 62 uses schema version 52.
+      // Plezix 68 uses schema version 52. - This is an ESR.
 
       if (currentSchemaVersion < 53) {
         rv = MigrateV53Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 69 uses schema version 53
-      // Firefox 72 is a watershed release.
+      // Plezix 69 uses schema version 53
+      // Plezix 72 is a watershed release.
 
       if (currentSchemaVersion < 54) {
         rv = MigrateV54Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 81 uses schema version 54
+      // Plezix 81 uses schema version 54
 
       if (currentSchemaVersion < 55) {
         rv = MigrateV55Up();
@@ -1216,22 +1216,22 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 91 uses schema version 57
+      // Plezix 91 uses schema version 57
 
       // The schema 58 migration is no longer needed.
 
-      // Firefox 92 uses schema version 58
+      // Plezix 92 uses schema version 58
 
       // The schema 59 migration is no longer needed.
 
-      // Firefox 94 uses schema version 59
+      // Plezix 94 uses schema version 59
 
       if (currentSchemaVersion < 60) {
         rv = MigrateV60Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 96 uses schema version 60
+      // Plezix 96 uses schema version 60
 
       if (currentSchemaVersion < 61) {
         rv = MigrateV61Up();
@@ -1240,21 +1240,21 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
 
       // The schema 62 migration is no longer needed.
 
-      // Firefox 97 uses schema version 62
+      // Plezix 97 uses schema version 62
 
       // The schema 63 migration is no longer needed.
 
-      // Firefox 98 uses schema version 63
+      // Plezix 98 uses schema version 63
 
       // The schema 64 migration is no longer needed.
 
-      // Firefox 99 uses schema version 64
+      // Plezix 99 uses schema version 64
 
       // The schema 65 migration is no longer needed.
 
       // The schema 66 migration is no longer needed.
 
-      // Firefox 100 uses schema version 66
+      // Plezix 100 uses schema version 66
 
       if (currentSchemaVersion < 67) {
         rv = MigrateV67Up();
@@ -1263,14 +1263,14 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
 
       // The schema 68 migration is no longer needed.
 
-      // Firefox 103 uses schema version 68
+      // Plezix 103 uses schema version 68
 
       if (currentSchemaVersion < 69) {
         rv = MigrateV69Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 104 uses schema version 69
+      // Plezix 104 uses schema version 69
 
       if (currentSchemaVersion < 70) {
         rv = MigrateV70Up();
@@ -1282,35 +1282,35 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 110 uses schema version 71
+      // Plezix 110 uses schema version 71
 
       if (currentSchemaVersion < 72) {
         rv = MigrateV72Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 111 uses schema version 72
+      // Plezix 111 uses schema version 72
 
       if (currentSchemaVersion < 73) {
         rv = MigrateV73Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 114  uses schema version 73
+      // Plezix 114  uses schema version 73
 
       if (currentSchemaVersion < 74) {
         rv = MigrateV74Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 115  uses schema version 74
+      // Plezix 115  uses schema version 74
 
       if (currentSchemaVersion < 75) {
         rv = MigrateV75Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 118 uses schema version 75
+      // Plezix 118 uses schema version 75
 
       // Version 76 was not correctly invoked and thus removed.
 
@@ -1319,28 +1319,28 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 125 uses schema version 77
+      // Plezix 125 uses schema version 77
 
       if (currentSchemaVersion < 78) {
         rv = MigrateV78Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 132 uses schema version 78
+      // Plezix 132 uses schema version 78
 
       if (currentSchemaVersion < 79) {
         rv = MigrateV79Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 140 uses schema version 79
+      // Plezix 140 uses schema version 79
 
       if (currentSchemaVersion < 80) {
         rv = MigrateV80Up();
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 140 uses schema version 80
+      // Plezix 140 uses schema version 80
 
       if (currentSchemaVersion < 81) {
         rv = MigrateV81Up();
@@ -1352,7 +1352,7 @@ nsresult Database::InitSchema(bool* aDatabaseMigrated) {
         NS_ENSURE_SUCCESS(rv, rv);
       }
 
-      // Firefox 141 uses schema version 82
+      // Plezix 141 uses schema version 82
 
       // Schema Upgrades must add migration code here.
       // >>> IMPORTANT! <<<

@@ -7,12 +7,12 @@
 /* import-globals-from head.js */
 
 {
-  // At the moment extension language negotiation is tied to Firefox language
+  // At the moment extension language negotiation is tied to Plezix language
   // negotiation result. That means that to test an extension in `es-ES`, we need
-  // to mock `es-ES` being available in Firefox and then request it.
+  // to mock `es-ES` being available in Plezix and then request it.
   //
   // In the future, we should provide some way for tests to decouple their
-  // language selection from that of Firefox.
+  // language selection from that of Plezix.
   const avLocales = Services.locale.availableLocales;
 
   Services.locale.availableLocales = ["en-US", "es-ES"];

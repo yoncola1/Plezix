@@ -2,7 +2,7 @@
 name = "swgl"
 version = "0.1.0"
 license = "MPL-2.0"
-authors = ["The Mozilla Project Developers"]
+authors = ["The Plezix Project Developers"]
 build = "build.rs"
 description = "Software OpenGL implementation for WebRender."
 

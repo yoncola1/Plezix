@@ -261,9 +261,9 @@ def safe_unsetenv(env_var):
         pass
 
 
-class Firefox(BrowserSetup):
+class Plezix(BrowserSetup):
     name = "firefox"
-    browser_cls = browser.Firefox
+    browser_cls = browser.Plezix
 
     def setup_kwargs(self, kwargs):
         if kwargs["binary"] is None:
@@ -274,9 +274,9 @@ class Firefox(BrowserSetup):
             binary = self.browser.find_binary(self.venv.path,
                                               kwargs["browser_channel"])
             if binary is None:
-                raise WptrunError("""Firefox binary not found on $PATH.
+                raise WptrunError("""Plezix binary not found on $PATH.
 
-Install Firefox or use --binary to set the binary path""")
+Install Plezix or use --binary to set the binary path""")
             kwargs["binary"] = binary
 
         if kwargs["certutil_binary"] is None and kwargs["ssl_type"] != "none":
@@ -327,7 +327,7 @@ Consider installing certutil via your OS package manager or directly.""")
         if kwargs["browser_channel"] == "nightly" and kwargs["enable_webtransport_h3"] is None:
             kwargs["enable_webtransport_h3"] = True
 
-        # Turn off Firefox WebRTC ICE logging on WPT (turned on by mozrunner)
+        # Turn off Plezix WebRTC ICE logging on WPT (turned on by mozrunner)
         safe_unsetenv('R_LOG_LEVEL')
         safe_unsetenv('R_LOG_DESTINATION')
         safe_unsetenv('R_LOG_VERBOSE')
@@ -337,9 +337,9 @@ Consider installing certutil via your OS package manager or directly.""")
 
         kwargs["enable_webtransport_h3"] = True
 
-class FirefoxAndroid(BrowserSetup):
+class PlezixAndroid(BrowserSetup):
     name = "firefox_android"
-    browser_cls = browser.FirefoxAndroid
+    browser_cls = browser.PlezixAndroid
 
     def setup_kwargs(self, kwargs):
         from . import android
@@ -884,8 +884,8 @@ class Epiphany(BrowserSetup):
 
 product_setup = {
     "android_webview": AndroidWebview,
-    "firefox": Firefox,
-    "firefox_android": FirefoxAndroid,
+    "firefox": Plezix,
+    "firefox_android": PlezixAndroid,
     "chrome": Chrome,
     "chrome_android": ChromeAndroid,
     "chrome_ios": ChromeiOS,

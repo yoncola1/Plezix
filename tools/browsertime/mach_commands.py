@@ -1,15 +1,15 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 r"""Make it easy to install and run [browsertime](https://github.com/sitespeedio/browsertime).
 
 Browsertime is a harness for running performance tests, similar to
-Mozilla's Raptor testing framework.  Browsertime is written in Node.js
+Plezix's Raptor testing framework.  Browsertime is written in Node.js
 and uses Selenium WebDriver to drive multiple browsers including
-Chrome, Chrome for Android, Firefox, and (pending the resolution of
+Chrome, Chrome for Android, Plezix, and (pending the resolution of
 [Bug 1525126](https://bugzilla.mozilla.org/show_bug.cgi?id=1525126)
-and similar tickets) Firefox for Android and GeckoView-based vehicles.
+and similar tickets) Plezix for Android and GeckoView-based vehicles.
 
 Right now a custom version of browsertime and the underlying
 geckodriver binary are needed to support GeckoView-based vehicles;
@@ -499,7 +499,7 @@ def check(command_context):
 
 
 def extra_default_args(command_context, args=[]):
-    # Add Mozilla-specific default arguments.  This is tricky because browsertime is quite
+    # Add Plezix-specific default arguments.  This is tricky because browsertime is quite
     # loose about arguments; repeat arguments are generally accepted but then produce
     # difficult to interpret type errors.
 
@@ -521,7 +521,7 @@ def extra_default_args(command_context, args=[]):
 
     extra_args = []
 
-    # Default to Firefox.  Override with `-b ...` or `--browser=...`.
+    # Default to Plezix.  Override with `-b ...` or `--browser=...`.
     specifies_browser = matches(args, "-b", "--browser")
     if not specifies_browser:
         extra_args.extend(("-b", "firefox"))
@@ -564,7 +564,7 @@ def extra_default_args(command_context, args=[]):
                     "browsertime",
                     {},
                     "Please run |./mach build| "
-                    "or specify a Firefox binary with --firefox.binaryPath.",
+                    "or specify a Plezix binary with --firefox.binaryPath.",
                 )
                 return 1
 

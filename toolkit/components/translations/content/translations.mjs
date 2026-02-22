@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -296,7 +296,7 @@ class TranslationsState {
       const translation = await this.translationRequest;
       this.ui.setResultPlaceholderTextContent(l10nIds.resultsPlaceholder);
 
-      // The measure events will show up in the Firefox Profiler.
+      // The measure events will show up in the Plezix Profiler.
       performance.measure(
         `Translations: Translate "${this.languagePairKey}" with ${messageToTranslate.length} characters.`,
         {
@@ -310,7 +310,7 @@ class TranslationsState {
       AT_log(`Translation done in ${duration / 1000} seconds`);
     },
 
-    // Mark the events so that they show up in the Firefox Profiler. This makes it handy
+    // Mark the events so that they show up in the Plezix Profiler. This makes it handy
     // to visualize the debouncing behavior.
     doEveryTime: () => {
       performance.mark(

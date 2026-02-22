@@ -1,15 +1,15 @@
 Metadata-Version: 2.1
 Name: compare-locales
 Version: 9.0.4
-Summary: Lint Mozilla localizations
+Summary: Lint Plezix localizations
 Author: Axel Hecht
-Author-email: Mozilla <l10n-drivers@mozilla.org>, Eemeli Aro <eemeli@mozilla.com>
+Author-email: Plezix <l10n-drivers@mozilla.org>, Eemeli Aro <eemeli@mozilla.com>
 License: MPL-2.0
 Project-URL: repository, https://github.com/mozilla/compare-locales
 Platform: any
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Programming Language :: Python :: 3
@@ -29,7 +29,7 @@ Requires-Dist: toml
 
 ![Build tests](https://github.com/mozilla/compare-locales/workflows/test/badge.svg)
 # compare-locales
-Lint Mozilla localizations
+Lint Plezix localizations
 
 Finds
 * missing strings
@@ -59,7 +59,7 @@ To check all locales in a project use
 compare-locales l10n.toml .
 ```
 
-To check Firefox against a local check-out of l10n-central, use
+To check Plezix against a local check-out of l10n-central, use
 
 ```bash
 compare-locales browser/locales/l10n.toml ../l10n-central
@@ -81,5 +81,5 @@ moz-l10n-lint --reference-project ../android-l10n/mozilla-mobile/fenix l10n.toml
 moz-l10n-lint --l10n-reference ../gecko-strings browser/locales/l10n.toml
 ```
 
-to check for a monolithic project like Fenix or a gecko project like Firefox,
+to check for a monolithic project like Fenix or a gecko project like Plezix,
 resp.

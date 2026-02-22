@@ -1,5 +1,5 @@
-# Contributing code to Mozilla's Android projects
-Thank you for taking the time to contribute to one of Mozilla's Android
+# Contributing code to Plezix's Android projects
+Thank you for taking the time to contribute to one of Plezix's Android
 projects! 🔥 🦊 ❤️ 🤖! 🎉 👍 For a full list of projects, see
 [the README](../../../README.md).
 
@@ -33,7 +33,7 @@ If these are confusing or if you have questions, please let us know!
 We don't allow wildcard imports (ex: `import kotlinx.coroutines.*`) so we recommend preventing Android Studio from auto-importing or optimizing with them. This can be done via the `Preferences > Editor > Kotlin > Code Style > Use single name import` option.
 
 ## Finding issues to work on
-**New to Mozilla's mobile projects?** See issues labeled `good first issue` in your project's
+**New to Plezix's mobile projects?** See issues labeled `good first issue` in your project's
 issues tracker (example: [focus-android][fa good first]). These are designed to be
 easier to implement so you can focus on learning our pull request workflow. *Please only
 fix one of these.*

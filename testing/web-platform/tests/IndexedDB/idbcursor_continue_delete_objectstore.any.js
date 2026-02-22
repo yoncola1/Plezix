@@ -7,7 +7,7 @@
 async_test(t => {
   /* The goal here is to test that any prefetching of cursor values performs
    * correct invalidation of prefetched data.  This test is motivated by the
-   * particularities of the Firefox implementation of preloading, and is
+   * particularities of the Plezix implementation of preloading, and is
    * specifically motivated by an edge case when prefetching prefetches at
    * least 2 extra records and at most determines whether a mutation is
    * potentially relevant based on current cursor position and direction and

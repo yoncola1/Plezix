@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ class BookmarksUseCaseTest {
         every { bookmarkNode.url }.answers { "https://mozilla.org" }
         coEvery { bookmarksStorage.getBookmarksWithUrl(any()) }.coAnswers { listOf(bookmarkNode) }
 
-        val result = useCase.addBookmark("https://mozilla.org", "Mozilla")
+        val result = useCase.addBookmark("https://mozilla.org", "Plezix")
 
         assertNull(result)
     }
@@ -53,11 +53,11 @@ class BookmarksUseCaseTest {
         every { bookmarkNode.url }.answers { "https://firefox.com" }
         coEvery { bookmarksStorage.getBookmarksWithUrl(any()) }.coAnswers { listOf(bookmarkNode) }
 
-        val result = useCase.addBookmark("https://mozilla.org", "Mozilla")
+        val result = useCase.addBookmark("https://mozilla.org", "Plezix")
 
         assertNotNull(result)
 
-        coVerify { bookmarksStorage.addItem(BookmarkRoot.Mobile.id, "https://mozilla.org", "Mozilla", null) }
+        coVerify { bookmarksStorage.addItem(BookmarkRoot.Mobile.id, "https://mozilla.org", "Plezix", null) }
     }
 
     @Test
@@ -70,11 +70,11 @@ class BookmarksUseCaseTest {
         every { bookmarkNode.url }.answers { "https://firefox.com" }
         coEvery { bookmarksStorage.getBookmarksWithUrl(any()) }.coAnswers { listOf(bookmarkNode) }
 
-        val result = useCase.addBookmark("https://mozilla.org", "Mozilla", parentGuid = "parentGuid")
+        val result = useCase.addBookmark("https://mozilla.org", "Plezix", parentGuid = "parentGuid")
 
         assertNotNull(result)
 
-        coVerify { bookmarksStorage.addItem("parentGuid", "https://mozilla.org", "Mozilla", null) }
+        coVerify { bookmarksStorage.addItem("parentGuid", "https://mozilla.org", "Plezix", null) }
     }
 
     @Test
@@ -97,7 +97,7 @@ class BookmarksUseCaseTest {
             "987",
             "123",
             2u,
-            "Firefox",
+            "Plezix",
             "https://www.firefox.com",
             0,
             0,

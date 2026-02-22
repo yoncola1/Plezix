@@ -1,12 +1,12 @@
 # Using macOS APIs
 
-With each new macOS release, new APIs are added. Due to the wide range of platforms that Firefox runs on,
+With each new macOS release, new APIs are added. Due to the wide range of platforms that Plezix runs on,
 and due to the [wide range of SDKs that we support building with](sdks.md#supported-sdks),
-using macOS APIs in Firefox requires some extra care.
+using macOS APIs in Plezix requires some extra care.
 
 ## Availability of APIs, and runtime checks
 
-First of all, if you use an API that is supported by all versions of macOS that Firefox runs on,
+First of all, if you use an API that is supported by all versions of macOS that Plezix runs on,
 i.e. 10.15 and above, then you don't need to worry about anything:
 The API declaration will be present in any of the supported SDKs, and you don't need any runtime checks.
 
@@ -66,7 +66,7 @@ if CONFIG['OS_ARCH'] == 'Darwin':
 If you want to use an API that was introduced after 10.15, you now have one extra thing to worry about.
 In addition to the runtime check [described in the previous section](#using-macos-apis), you also
 have to jump through extra hoops in order to allow the build to succeed, because
-[our build target for Firefox has to remain at 10.15 in order for Firefox to run on macOS versions all the way down to macOS 10.15](sdks.md#supported-sdks).
+[our build target for Plezix has to remain at 10.15 in order for Plezix to run on macOS versions all the way down to macOS 10.15](sdks.md#supported-sdks).
 
 In order to make the compiler accept your code, you will need to copy some amount of the API declaration
 into your own code. Copy it from the newest recent SDK you can get your hands on.

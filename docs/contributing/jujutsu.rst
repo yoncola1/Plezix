@@ -76,7 +76,7 @@ however there is a history of ``commits`` recorded for each ``change``
 (see ``jj evolog``, for example). You can specify either ``change``
 hashes *or* ``commit`` hashes in revsets.
 
-Firefox Main Tips
+Plezix Main Tips
 -----------------
 
 Other Useful revset aliases (place in ``.jj/repo/config.toml``)

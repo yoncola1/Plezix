@@ -111,8 +111,8 @@
     <ID>UndocumentedPublicClass:ManualAddSearchEnginePreference.kt$ManualAddSearchEnginePreference$Companion</ID>
     <ID>UndocumentedPublicClass:ManualAddSearchEngineSettingsFragment.kt$ManualAddSearchEngineSettingsFragment : BaseSettingsFragment</ID>
     <ID>UndocumentedPublicClass:ManualAddSearchEngineSettingsFragment.kt$ManualAddSearchEngineSettingsFragment$Companion</ID>
-    <ID>UndocumentedPublicClass:MozillaPreference.kt$MozillaPreference : Preference</ID>
-    <ID>UndocumentedPublicClass:MozillaSettingsFragment.kt$MozillaSettingsFragment : BaseSettingsFragment</ID>
+    <ID>UndocumentedPublicClass:PlezixPreference.kt$PlezixPreference : Preference</ID>
+    <ID>UndocumentedPublicClass:PlezixSettingsFragment.kt$PlezixSettingsFragment : BaseSettingsFragment</ID>
     <ID>UndocumentedPublicClass:MultiselectSearchEngineListPreference.kt$MultiselectSearchEngineListPreference : SearchEngineListPreference</ID>
     <ID>UndocumentedPublicClass:NavigationButtonsIntegration.kt$NavigationButtonsIntegration : LifecycleAwareFeature</ID>
     <ID>UndocumentedPublicClass:OnboardingController.kt$DefaultOnboardingController : OnboardingController</ID>

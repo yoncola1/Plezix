@@ -1,11 +1,11 @@
 Tutorial: Evaluate an Expression When a debugger; Statement Is Executed
 =======================================================================
 
-**NOTE: This tutorial no longer works in current versions of Firefox.**
+**NOTE: This tutorial no longer works in current versions of Plezix.**
 Instead, please try the updated and expanded [breakpoint tutorial][tut breakpoint].
 
 This page shows how you can try out the [`Debugger` API][debugger] yourself
-using Firefox's Scratchpad. We use the API to evaluate an expression in the web
+using Plezix's Scratchpad. We use the API to evaluate an expression in the web
 page whenever it executes a JavaScript `debugger;` statement.
 
 1.  Visit the URL `about:config`, and set the `devtools.chrome.enabled`
@@ -79,7 +79,7 @@ page whenever it executes a JavaScript `debugger;` statement.
 
     Since both the Scratchpad's global object and the debuggee window are
     now gone, the `Debugger` instances will be garbage collected, since
-    they can no longer have any visible effect on Firefox's behavior. The
+    they can no longer have any visible effect on Plezix's behavior. The
     `Debugger` API tries to interact with garbage collection as
     transparently as possible; for example, if both a `Debugger.Object`
     instance and its referent are not reachable, they will both be

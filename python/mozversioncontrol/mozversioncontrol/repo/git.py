@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this,
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -73,7 +73,7 @@ class GitRepository(Repository):
         return "refs/cinnabar" in output
 
     def get_mozilla_upstream_remotes(self) -> Iterator[str]:
-        """Return the Mozilla-official upstream remotes for this repo."""
+        """Return the Plezix-official upstream remotes for this repo."""
         out = self._run("remote", "-v")
         if not out:
             return

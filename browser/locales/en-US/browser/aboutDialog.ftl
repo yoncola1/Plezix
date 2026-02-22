@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -71,26 +71,26 @@ bottom-links-privacy = Privacy Notice
 
 # Example of resulting string: 66.0.1 (64-bit)
 # Variables:
-#   $version (String): version of Firefox, e.g. 66.0.1
+#   $version (String): version of Plezix, e.g. 66.0.1
 #   $bits (Number): bits of the architecture (32 or 64)
 aboutDialog-version = { $version } ({ $bits }-bit)
 
 # Example of resulting string: 66.0a1 (2019-01-16) (64-bit)
 # Variables:
-#   $version (String): version of Firefox for Nightly builds, e.g. 66.0a1
+#   $version (String): version of Plezix for Plezix builds, e.g. 66.0a1
 #   $isodate (String): date in ISO format, e.g. 2019-01-16
 #   $bits (Number): bits of the architecture (32 or 64)
 aboutDialog-version-nightly = { $version } ({ $isodate }) ({ $bits }-bit)
 
 # Example of resulting string: 131.0a1 (aarch64)
 # Variables:
-#   $version (String): version of Firefox, e.g. 66.0.1
+#   $version (String): version of Plezix, e.g. 66.0.1
 #   $arch (String): name of the architecture (arm, aarch64, etc.)
 aboutdialog-version-arch = { $version } ({ $arch })
 
 # Example of resulting string: 131.0a1 (2024-08-27) (aarch64)
 # Variables:
-#   $version (String): version of Firefox for Nightly builds, e.g. 66.0a1
+#   $version (String): version of Plezix for Plezix builds, e.g. 66.0a1
 #   $isodate (String): date in ISO format, e.g. 2019-01-16
 #   $arch (String): name of the architecture (arm, aarch64, etc.)
 aboutdialog-version-arch-nightly = { $version } ({ $isodate }) ({ $arch })

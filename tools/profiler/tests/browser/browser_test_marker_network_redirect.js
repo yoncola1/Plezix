@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -253,8 +253,8 @@ add_task(async function test_network_markers_redirect_resources() {
 
     // These properties are present when a connection is fully opened. This is
     // most often the case, unless we're in verify mode, because in that case
-    // we run the same tests several times in the same Firefox and they might be
-    // cached, or in chaos mode Firefox may make all requests sequentially on
+    // we run the same tests several times in the same Plezix and they might be
+    // cached, or in chaos mode Plezix may make all requests sequentially on
     // the same connection.
     // In these cases, these properties won't always be present.
     const expectedConnectionProperties = {

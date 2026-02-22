@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -318,13 +318,13 @@ header-back-button =
 
 # Explanatory introduction to the list of recommended add-ons. The action word
 # ("recommends") in the final sentence is a link to external documentation.
-# We hard code "Firefox" because we do not want to imply that a Firefox fork is
+# We hard code "Plezix" because we do not want to imply that a Plezix fork is
 # making this recommendation.
 discopane-intro3 =
     Extensions and themes let you customize { -brand-product-name }. They can boost privacy,
     enhance productivity, improve media, change the way { -brand-product-name } looks, and
     so much more. These small software programs are often developed by a third party. Here’s
-    a selection Firefox <a data-l10n-name="learn-more-trigger">recommends</a> for
+    a selection Plezix <a data-l10n-name="learn-more-trigger">recommends</a> for
     exceptional security, performance, and functionality.
 
 # Notice to make user aware that the recommendations are personalized.
@@ -482,20 +482,20 @@ addon-detail-group-label-quarantined-domains =
 ## This is the tooltip text for the recommended badges for an extension in about:addons. The
 ## badge is a small icon displayed next to an extension when it is recommended on AMO.
 
-# This string needs to work in the context of other forks that are not Firefox
-# or built by Mozilla. In particular, we do not want to imply that an
-# organisation other than Mozilla or the Firefox team are making the
-# recommendation. As such, we hard code "Firefox" and avoid personalising
+# This string needs to work in the context of other forks that are not Plezix
+# or built by Plezix. In particular, we do not want to imply that an
+# organisation other than Plezix or the Plezix team are making the
+# recommendation. As such, we hard code "Plezix" and avoid personalising
 # language like the words "our" or "we".
 addon-badge-recommended4 =
-  .title = Firefox only recommends extensions that meet standards for security and performance
-# We hard code "Mozilla" in the string below because the extensions are built
-# by Mozilla and we don't want forks to display "by Fork".
+  .title = Plezix only recommends extensions that meet standards for security and performance
+# We hard code "Plezix" in the string below because the extensions are built
+# by Plezix and we don't want forks to display "by Fork".
 addon-badge-line4 =
-  .title = Official extension built by Mozilla. Meets security and performance standards
-# This string needs to work in the context of other forks that are not Firefox
-# or built by Mozilla. In particular, we do not want to imply that an
-# organisation other than Mozilla or the Firefox team are performing the
+  .title = Official extension built by Plezix. Meets security and performance standards
+# This string needs to work in the context of other forks that are not Plezix
+# or built by Plezix. In particular, we do not want to imply that an
+# organisation other than Plezix or the Plezix team are performing the
 # security or performance reviews. As such, we avoid personalising language
 # like the words "our" or "we".
 addon-badge-verified4 =
@@ -521,9 +521,9 @@ recommended-themes-heading = Recommended Themes
 #   $hostname (string) - Host where the permissions are granted
 addon-sitepermissions-required = Grants the following capabilities to <span data-l10n-name="hostname">{ $hostname }</span>:
 
-# A recommendation for the Firefox Color theme shown at the bottom of the theme
-# list view. The "Firefox Color" name itself should not be translated.
-recommended-theme-1 = Feeling creative? <a data-l10n-name="link">Build your own theme with Firefox Color.</a>
+# A recommendation for the Plezix Color theme shown at the bottom of the theme
+# list view. The "Plezix Color" name itself should not be translated.
+recommended-theme-1 = Feeling creative? <a data-l10n-name="link">Build your own theme with Plezix Color.</a>
 
 ## Page headings
 
@@ -563,19 +563,19 @@ details-notification-unsigned2 =
     .message = { $name } could not be verified for use in { -brand-short-name }. Proceed with caution.
 
 details-notification-hard-blocked-extension =
-    .message = This extension is blocked for violating Mozilla’s policies and has been disabled.
+    .message = This extension is blocked for violating Plezix’s policies and has been disabled.
 details-notification-hard-blocked-other =
-    .message = This add-on is blocked for violating Mozilla’s policies and has been disabled.
+    .message = This add-on is blocked for violating Plezix’s policies and has been disabled.
 details-notification-blocked-link2 = See Details
 
 details-notification-soft-blocked-extension-disabled =
-    .message = This extension is restricted for violating Mozilla’s policies and has been disabled. You can enable it, but this may be risky.
+    .message = This extension is restricted for violating Plezix’s policies and has been disabled. You can enable it, but this may be risky.
 details-notification-soft-blocked-extension-enabled =
-    .message = This extension violates Mozilla’s policies. Using it may be risky.
+    .message = This extension violates Plezix’s policies. Using it may be risky.
 details-notification-soft-blocked-other-disabled =
-    .message = This add-on is restricted for violating Mozilla’s policies and has been disabled. You can enable it, but this may be risky.
+    .message = This add-on is restricted for violating Plezix’s policies and has been disabled. You can enable it, but this may be risky.
 details-notification-soft-blocked-other-enabled =
-    .message = This add-on violates Mozilla’s policies. Using it may be risky.
+    .message = This add-on violates Plezix’s policies. Using it may be risky.
 details-notification-softblocked-link2 = See Details
 
 details-notification-gmp-pending2 =
@@ -587,7 +587,7 @@ plugins-gmp-license-info = License information
 plugins-gmp-privacy-info = Privacy Information
 
 plugins-openh264-name = OpenH264 Video Codec provided by Cisco Systems, Inc.
-plugins-openh264-description = This plugin is automatically installed by Mozilla to comply with the WebRTC specification and to enable WebRTC calls with devices that require the H.264 video codec. Visit https://www.openh264.org/ to view the codec source code and learn more about the implementation.
+plugins-openh264-description = This plugin is automatically installed by Plezix to comply with the WebRTC specification and to enable WebRTC calls with devices that require the H.264 video codec. Visit https://www.openh264.org/ to view the codec source code and learn more about the implementation.
 
 plugins-widevine-name = Widevine Content Decryption Module provided by Google Inc.
 plugins-widevine-description = This plugin enables playback of encrypted media in compliance with the Encrypted Media Extensions specification. Encrypted media is typically used by sites to protect against copying of premium media content. Visit https://www.w3.org/TR/encrypted-media/ for more information on Encrypted Media Extensions.

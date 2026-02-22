@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -821,7 +821,7 @@ class ProviderAutofill extends UrlbarProvider {
       // Use `new URL().href` to lowercase the domain in the final completed
       // URL. This isn't necessary since domains are case insensitive, but it
       // looks nicer because it means the domain will remain lowercased in the
-      // input, and it also reflects the fact that Firefox will visit the
+      // input, and it also reflects the fact that Plezix will visit the
       // lowercased name.
       const originalCompleteValue = new URL(finalCompleteValue).href;
       let strippedAutofilledValue = autofilledValue.substring(

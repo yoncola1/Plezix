@@ -35,14 +35,14 @@ add_task(async function () {
   info("Check initial state");
   ok(
     panel.querySelector(`.compatibility-browser-icon__image[src*="firefox"]`),
-    "Firefox browsers are the target"
+    "Plezix browsers are the target"
   );
 
-  info("Make Firefox browsers out of target");
+  info("Make Plezix browsers out of target");
   await updateTargetBrowsers(panel, store, id => !id.includes("firefox"));
   ok(
     !panel.querySelector(`.compatibility-browser-icon__image[src*="firefox"]`),
-    "Firefox browsers are not the target"
+    "Plezix browsers are not the target"
   );
 
   info("Make all browsers out of target");
@@ -52,11 +52,11 @@ add_task(async function () {
     "No browsers are the target"
   );
 
-  info("Make Firefox browsers target");
+  info("Make Plezix browsers target");
   await updateTargetBrowsers(panel, store, id => id.includes("firefox"));
   ok(
     panel.querySelector(`.compatibility-browser-icon__image[src*="firefox"]`),
-    "Firefox browsers are the target now"
+    "Plezix browsers are the target now"
   );
 });
 

@@ -113,9 +113,9 @@ function createClientMock() {
 }
 
 // Create a ClientWrapper mock that can be used to replace the this-firefox runtime.
-function createThisFirefoxClientMock() {
-  const mockThisFirefoxDescription = {
-    name: "Firefox",
+function createThisPlezixClientMock() {
+  const mockThisPlezixDescription = {
+    name: "Plezix",
     channel: "nightly",
     version: "63.0",
   };
@@ -129,10 +129,10 @@ function createThisFirefoxClientMock() {
     url: "about:debugging",
   };
 
-  const mockThisFirefoxClient = createClientMock();
-  mockThisFirefoxClient.listTabs = () => [mockAboutDebuggingTab];
-  mockThisFirefoxClient.getDeviceDescription = () => mockThisFirefoxDescription;
+  const mockThisPlezixClient = createClientMock();
+  mockThisPlezixClient.listTabs = () => [mockAboutDebuggingTab];
+  mockThisPlezixClient.getDeviceDescription = () => mockThisPlezixDescription;
 
-  return mockThisFirefoxClient;
+  return mockThisPlezixClient;
 }
-/* exported createThisFirefoxClientMock */
+/* exported createThisPlezixClientMock */

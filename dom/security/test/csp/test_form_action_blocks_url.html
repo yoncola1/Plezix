@@ -58,7 +58,7 @@ function submitForm() {
   testframe.addEventListener("load", logFormSubmittedError);
 
   // Part 3: Since blocking the form does not throw any kind of error;
-  // Firefox just logs the CSP error to the console we have to register
+  // Plezix just logs the CSP error to the console we have to register
   // this timeOut function which then verifies that the form didn't
   // get submitted.
   timeOutId = setTimeout(verifyFormNotSubmitted, 300);

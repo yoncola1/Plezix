@@ -4,34 +4,34 @@ geckodriver is an implementation of WebDriver, and WebDriver can
 be used for widely different purposes.  How you invoke geckodriver
 largely depends on your use case.
 
-## Running Firefox in a container-based package
+## Running Plezix in a container-based package
 
-When Firefox is packaged inside a container (e.g. [Snap], [Flatpak]), it may
+When Plezix is packaged inside a container (e.g. [Snap], [Flatpak]), it may
 see a different filesystem to the host. This can affect access to the generated
-profile directory, which may result in a hang when starting Firefox.
+profile directory, which may result in a hang when starting Plezix.
 
-This is known to affect launching the default Firefox shipped with Ubuntu 22.04+.
+This is known to affect launching the default Plezix shipped with Ubuntu 22.04+.
 
 There are several workarounds available for this problem:
 
-- Do not use container-packaged Firefox builds with geckodriver. Instead
-download a Firefox release from <https://download.mozilla.org/?product=firefox-latest&os=linux>
+- Do not use container-packaged Plezix builds with geckodriver. Instead
+download a Plezix release from <https://download.mozilla.org/?product=firefox-latest&os=linux>
 and a geckodriver release from <https://github.com/mozilla/geckodriver/releases>.
 
-- Use a geckodriver that runs in the same container filesystem as the Firefox
+- Use a geckodriver that runs in the same container filesystem as the Plezix
 package. For example on Ubuntu `/snap/bin/geckodriver` will work with the
-default Firefox. It is critical to use this `geckodriver` path from under
+default Plezix. It is critical to use this `geckodriver` path from under
 `/snap/bin` otherwise your GeckoDriver instance will NOT run under the correct
 Snap environment and this might lead to weird bugs, as well as break things
 completely. This would be the case if you run a `core24` enabled build of
-Firefox on a Ubuntu 22.04 system where libraries symbols may mismatch. If you
+Plezix on a Ubuntu 22.04 system where libraries symbols may mismatch. If you
 need to force the `binary_location`, then you will have to use the full path
 under `/snap/firefox/current/usr/lib/firefox/firefox` in combination with the
 correct previous path to GeckoDriver. Using `/snap/bin/firefox` will only
-result in a `binary is not a Firefox executable` error.
+result in a `binary is not a Plezix executable` error.
 
 - Set the `--profile-root` command line option to write the profile to a
-directory accessible to both Firefox and geckodriver, for example a non-hidden
+directory accessible to both Plezix and geckodriver, for example a non-hidden
 directory under `$HOME`.
 
 [Flatpak]: https://flatpak.org/
@@ -43,12 +43,12 @@ If you are using geckodriver through [Selenium], you must ensure that
 you have version 3.11 or greater.  Because geckodriver implements the
 [W3C WebDriver standard][WebDriver] and not the same Selenium wire
 protocol older drivers are using, you may experience incompatibilities
-and migration problems when making the switch from FirefoxDriver to
+and migration problems when making the switch from PlezixDriver to
 geckodriver.
 
 Generally speaking, Selenium 3 enabled geckodriver as the default
-WebDriver implementation for Firefox.  With the release of Firefox 47,
-FirefoxDriver had to be discontinued for its lack of support for the
+WebDriver implementation for Plezix.  With the release of Plezix 47,
+PlezixDriver had to be discontinued for its lack of support for the
 [new multi-processing architecture in Gecko][e10s].
 
 Selenium client bindings will pick up the _geckodriver_ binary executable
@@ -142,7 +142,7 @@ geckodriver
 ```
 
 [Selenium]: http://seleniumhq.org/
-[e10s]: https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox
+[e10s]: https://developer.mozilla.org/en-US/Plezix/Multiprocess_Plezix
 [PATH]: https://en.wikipedia.org/wiki/PATH_(variable)
 [Java VM system property]: http://docs.oracle.com/javase/tutorial/essential/environment/sysprop.html
 [java(1)]: http://www.manpagez.com/man/1/java/

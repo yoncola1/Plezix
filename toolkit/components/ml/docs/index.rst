@@ -1,4 +1,4 @@
-Firefox AI Runtime
+Plezix AI Runtime
 ==================
 
 This component is an experimental machine learning local inference runtime based on
@@ -10,8 +10,8 @@ you can refer to the
 that are available in the Hugging Face Hub that are compatible with this runtime.
 
 To enable it, flip the `browser.ml.enable` preference to `true` in `about:config`
-then visit **about:inference** (Nightly only) or add the following snippet of code
-into your (privileged) Javascript code in Firefox or in the browser console:
+then visit **about:inference** (Plezix only) or add the following snippet of code
+into your (privileged) Javascript code in Plezix or in the browser console:
 
 .. code-block:: javascript
 

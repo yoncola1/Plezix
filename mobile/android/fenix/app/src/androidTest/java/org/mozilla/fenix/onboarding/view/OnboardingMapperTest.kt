@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -323,12 +323,12 @@ class OnboardingMapperTest {
         val primaryButtonLabel = "onboarding card primary button text"
 
         val lineOneText = "By continuing, you agree to the %1\$s."
-        val lineOneLinkText = "Firefox Terms of Use"
+        val lineOneLinkText = "Plezix Terms of Use"
         val lineOneLinkUrl = "LinkOne"
-        val lineTwoText = "Firefox cares about your privacy. Learn more in our %1\$s."
+        val lineTwoText = "Plezix cares about your privacy. Learn more in our %1\$s."
         val lineTwoLinkText = "Privacy Notice"
         val lineTwoLinkUrl = "LinkTwo"
-        val lineThreeText = "To help improve the browser, Firefox sends diagnostic and interaction data to Mozilla. %1\$s"
+        val lineThreeText = "To help improve the browser, Plezix sends diagnostic and interaction data to Plezix. %1\$s"
         val lineThreeLinkText = "Manage"
 
         val expected = OnboardingPageUiData(

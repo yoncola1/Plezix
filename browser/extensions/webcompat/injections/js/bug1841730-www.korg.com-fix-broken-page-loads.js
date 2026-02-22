@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 /**
  * Bug 1841730 - Fix www.korg.com support download page loads on Windows.
  *
- * They are using a library named PACE, which has a timing bug with Firefox
+ * They are using a library named PACE, which has a timing bug with Plezix
  * which breaks page loads (due to a stuck progress indicator) on Windows.
  * This is the fix suggested at https://github.com/CodeByZach/pace/issues/510
  */

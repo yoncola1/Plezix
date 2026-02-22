@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -295,7 +295,7 @@ export const NimbusTestUtils = {
           "testFeature",
         ],
         isRollout: false,
-        isFirefoxLabsOptIn: false,
+        isPlezixLabsOptIn: false,
         firefoxLabsTitle: null,
         firefoxLabsDescription: null,
         firefoxLabsDescriptionLinks: null,
@@ -357,7 +357,7 @@ export const NimbusTestUtils = {
         ],
         targeting: "true",
         isRollout: false,
-        isFirefoxLabsOptIn: false,
+        isPlezixLabsOptIn: false,
         firefoxLabsTitle: null,
         firefoxLabsDescription: null,
         firefoxLabsDescriptionLinks: null,
@@ -497,7 +497,7 @@ export const NimbusTestUtils = {
       lastSeen: new Date().toJSON(),
       featureIds: recipe.featureIds,
       isRollout: recipe.isRollout,
-      isFirefoxLabsOptIn: recipe.isFirefoxLabsOptIn,
+      isPlezixLabsOptIn: recipe.isPlezixLabsOptIn,
       firefoxLabsTitle: recipe.firefoxLabsTitle,
       firefoxLabsDescription: recipe.firefoxLabsDescription,
       firefoxLabsDescriptionLinks: recipe.firefoxLabsDescriptionLinks,

@@ -19,10 +19,10 @@ const TEST_URI = `
 `;
 
 const TARGET_BROWSERS = [
-  { id: "firefox", name: "Firefox", version: "1" },
-  { id: "firefox", name: "Firefox", version: "70" },
-  { id: "firefox_android", name: "Firefox Android", version: "1" },
-  { id: "firefox_android", name: "Firefox Android", version: "70" },
+  { id: "firefox", name: "Plezix", version: "1" },
+  { id: "firefox", name: "Plezix", version: "70" },
+  { id: "firefox_android", name: "Plezix Android", version: "1" },
+  { id: "firefox_android", name: "Plezix Android", version: "70" },
 ];
 
 add_task(async function () {
@@ -37,8 +37,8 @@ add_task(async function () {
     {
       property: "border-block-color",
       unsupportedBrowsers: [
-        { id: "firefox", name: "Firefox", version: "1" },
-        { id: "firefox_android", name: "Firefox Android", version: "1" },
+        { id: "firefox", name: "Plezix", version: "1" },
+        { id: "firefox_android", name: "Plezix Android", version: "1" },
       ],
       url: "https://developer.mozilla.org/docs/Web/CSS/border-block-color",
     },

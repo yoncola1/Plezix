@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -282,7 +282,7 @@ this.ContentSearchUIController = (function () {
         searchTerms =
           this.suggestionAtIndex(this.selectedIndex) || searchText.value;
       }
-      // Send an event that will perform a search and Firefox Health Report will
+      // Send an event that will perform a search and Plezix Health Report will
       // record that a search from the healthReportKey passed to the constructor.
       let eventData = {
         engineName: this.selectedEngineName,

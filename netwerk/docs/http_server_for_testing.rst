@@ -181,7 +181,7 @@ want. For example:
                     "generated at " + new Date().toUTCString());
    }
 
-Further examples may be found `in the Mozilla source
+Further examples may be found `in the Plezix source
 tree <https://searchfox.org/mozilla-central/search?q=&path=.sjs>`__
 in existing tests. The request object is an instance of
 ``nsIHttpRequest`` and the response is a ``nsIHttpResponse``.

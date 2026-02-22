@@ -16,7 +16,7 @@ add_task(async function test_queueOrder() {
     {
       date: Date.now(),
       url: "http://www.mozilla.org/1",
-      siteName: "Mozilla",
+      siteName: "Plezix",
       data: {},
     },
     {

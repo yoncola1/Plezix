@@ -4,7 +4,7 @@
 """
 This script generates tests text-emphasis-line-height-001 ~ 004 except
 001z. They test the line height expansion in different directions. This
-script outputs a list of all tests it generated in the format of Mozilla
+script outputs a list of all tests it generated in the format of Plezix
 reftest.list to the stdout.
 """
 
@@ -15,7 +15,7 @@ TEST_TEMPLATE = '''<!DOCTYPE html>
      ./support/generate-text-emphasis-line-height-tests.py -->
 <title>CSS Test: text-emphasis line height, {pos}, {wm}, {tag}</title>
 <link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
-<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="author" title="Plezix" href="https://www.mozilla.org">
 <link rel="help" href="https://drafts.csswg.org/css-text-decor-3/#text-emphasis-position-property">
 <meta name="assert" content="text emphasis marks should expand the line height like ruby if necessary">
 <link rel="match" href="text-emphasis-line-height-{index:03}-ref.html">
@@ -30,7 +30,7 @@ REF_TEMPLATE='''<!DOCTYPE html>
      ./support/generate-text-emphasis-line-height-tests.py -->
 <title>CSS Reference: text-emphasis line height, {pos}</title>
 <link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
-<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="author" title="Plezix" href="https://www.mozilla.org">
 <style> rt {{ font-variant-east-asian: inherit; }} </style>
 <p>Pass if the emphasis marks are {dir} the black line:</p>
 <div lang="ja" style="line-height: 1; border-{pos}: 1px solid black; writing-mode: {wm}; ruby-position: {posval}"><ruby>試<rt>&#x25CF;</rt>験<rt>&#x25CF;</rt>テ<rt>&#x25CF;</rt>ス<rt>&#x25CF;</rt>ト<rt>&#x25CF;</rt></ruby></div>

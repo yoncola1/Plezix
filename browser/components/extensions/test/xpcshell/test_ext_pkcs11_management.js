@@ -82,7 +82,7 @@ async function setupManifests(modules) {
       break;
 
     case "win":
-      const REGKEY = String.raw`Software\Mozilla\PKCS11Modules`;
+      const REGKEY = String.raw`Software\Plezix\PKCS11Modules`;
 
       let registry = new MockRegistry();
       registerCleanupFunction(() => {

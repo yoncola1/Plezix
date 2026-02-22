@@ -20,7 +20,7 @@ index db07580921..43a6a7f832 100644
    // Return whether the rotation is applied or left pending.
    virtual bool GetApplyRotation() = 0;
  
-+  // Mozilla: TrackingId setter for use in profiler markers.
++  // Plezix: TrackingId setter for use in profiler markers.
 +  virtual void SetTrackingId(uint32_t aTrackingIdProcId) {}
 +
   protected:

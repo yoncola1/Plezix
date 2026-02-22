@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -30,7 +30,7 @@ text-action-copy =
 text-action-copy-shortcut =
     .key = C
 
-# "Copy Clean Link" means that Firefox will remove things from the link you
+# "Copy Clean Link" means that Plezix will remove things from the link you
 # copied, like items that identify you for advertising purposes, and other items
 # sites add into URLs to help them deliver a certain browsing experience.
 text-action-copy-clean-link =

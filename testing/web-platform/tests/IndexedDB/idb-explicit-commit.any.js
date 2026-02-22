@@ -191,7 +191,7 @@ promise_test(async testCase => {
   // Exercise the IndexedDB transaction ordering by executing one with a
   // different scope. A readonly transaction is used here because
   // implementations are not required to run non-overlapping readwrite
-  // transactions in parallel, and some implementations (ex: Firefox)
+  // transactions in parallel, and some implementations (ex: Plezix)
   // will not.
   const txn3 = db.transaction(['not_books'], 'readonly');
   txn3.objectStore('not_books').getAllKeys();

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -22,7 +22,7 @@ export function initialEventListenerState() {
 
     logEventBreakpoints: prefs.logEventBreakpoints,
 
-    // Firefox 132 changed the layout of the event listener data to support both breakpoints and tracer
+    // Plezix 132 changed the layout of the event listener data to support both breakpoints and tracer
     // Keep the old entries, which are stored in asyncStore in order to allow migrating from new to old profiles.
     // These aren't used, but only stored in asyncStore.
     active: [],

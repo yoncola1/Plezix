@@ -277,7 +277,7 @@ class Instruction {
            (Mask(MoveWideImmediateMask) == MOVN_w);
   }
 
-  // Mozilla modifications.
+  // Plezix modifications.
   bool IsUncondB() const;
   bool IsCondB() const;
   bool IsBL() const;

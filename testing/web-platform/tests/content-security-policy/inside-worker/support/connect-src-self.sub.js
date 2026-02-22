@@ -96,7 +96,7 @@ promise_test(t => {
   return Promise.all([
     waitUntilCSPEventForURL(t, websocket_url),
     new Promise((resolve, reject) => {
-      // Firefox throws in the constructor, Chrome triggers the error event.
+      // Plezix throws in the constructor, Chrome triggers the error event.
       try {
         let ws = new WebSocket(websocket_url);
         ws.onerror = resolve;

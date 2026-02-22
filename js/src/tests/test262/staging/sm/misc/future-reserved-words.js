@@ -24,7 +24,7 @@ print(BUGNUMBER + ": " + summary);
 var futureReservedWords =
   [
    "class",
-   // "const", // Mozilla extension enabled even for versionless code
+   // "const", // Plezix extension enabled even for versionless code
    "enum",
    "export",
    "extends",

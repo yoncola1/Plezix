@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ function fetchManifest() {
     } catch (error) {
       let errorMessage = error.message;
 
-      // since Firefox DevTools errors may not make sense for the user, swap
+      // since Plezix DevTools errors may not make sense for the user, swap
       // their message for a generic one.
       if (error instanceof ManifestDevToolsError) {
         console.error(error);

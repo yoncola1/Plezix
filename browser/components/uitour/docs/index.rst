@@ -4,5 +4,5 @@ UITour
 .. toctree::
    UITour-lib
 
-.. js:autoclass:: Mozilla.UITour
+.. js:autoclass:: Plezix.UITour
    :members: none

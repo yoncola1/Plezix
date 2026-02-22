@@ -5,7 +5,7 @@ http://creativecommons.org/publicdomain/zero/1.0/ */
 
 const TEST_PROFILE_CA = {
   email: "address_ca@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   country: "CA",
   "street-address": "160 Main St\nApartment 306",
   "postal-code": "M5V 1R9",
@@ -13,14 +13,14 @@ const TEST_PROFILE_CA = {
 
 const TEST_PROFILE_DE = {
   email: "address_de@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   country: "DE",
   "street-address": "Schlesische Str 999",
 };
 
 const TEST_PROFILE_DE2 = {
   email: "address_de@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   country: "DE",
   "address-level2": "Berlin",
   "street-address": "Schlesische Str 999\nApt 216",
@@ -29,7 +29,7 @@ const TEST_PROFILE_DE2 = {
 
 const TEST_PROFILE_ES = {
   email: "address_es@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   country: "ES",
   "street-address": "Calle de Montalbán, 1\n1er piso",
   "postal-code": "28014",

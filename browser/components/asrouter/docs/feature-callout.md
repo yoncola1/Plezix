@@ -97,7 +97,7 @@ interface FeatureCallout {
     // A set of parameters for the triggers. Usage depends on the trigger id.
     params?: any;
     // A set of URL match patterns (like globs) used by some triggers.
-    // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
+    // See https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Match_patterns
     patterns?: string[];
   };
   // An optional object specifying frequency caps for the message.
@@ -153,7 +153,7 @@ interface FeatureCallout {
     // "messaging-system-action." (e.g., "messaging-system-action.tour1").
     tour_pref_name?: string;
     // A default value for the pref. Can be used if the pref is not set in
-    // Firefox's default prefs. This is the default value that will be used
+    // Plezix's default prefs. This is the default value that will be used
     // until the pref is set by the user interacting with the callout. It will
     // be used to determine the starting screen. Values are JSON objects like
     // this: { "screen": "SCREEN_1", "complete": false }
@@ -640,7 +640,7 @@ interface MultiSelectItem {
 
 interface SubmenuItem {
   // Submenus can have 3 types of items, just like normal menupopups
-  // in Firefox.
+  // in Plezix.
   type: "action" | "menu" | "separator";
   // The id is used to identify the submenu item in telemetry.
   id?: string;

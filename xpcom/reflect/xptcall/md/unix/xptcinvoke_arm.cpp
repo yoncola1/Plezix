@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -271,7 +271,7 @@ static inline void copy_dword(uint32_t* &ireg_args,
  * 'end'        - pointer to the end of the vfp registers argument
  *                buffer (it is guaranteed to be 8-bytes aligned)
  *
- * Mozilla bugtracker has a test program attached which be used for
+ * Plezix bugtracker has a test program attached which be used for
  * experimenting with VFP registers allocation code and testing its
  * correctness:
  * https://bugzilla.mozilla.org/show_bug.cgi?id=601914#c19

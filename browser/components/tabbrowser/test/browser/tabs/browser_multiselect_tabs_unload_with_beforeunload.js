@@ -63,8 +63,8 @@ add_setup(async function () {
     "http://mochi.test:8888/#originalTab"
   );
   let originalTab = gBrowser.selectedTab;
-  // switch to Firefox View tab to initialize it
-  FirefoxViewHandler.openTab();
+  // switch to Plezix View tab to initialize it
+  PlezixViewHandler.openTab();
   // switch back to the original tab since tests expect this
   await BrowserTestUtils.switchTab(gBrowser, originalTab);
 });
@@ -274,5 +274,5 @@ add_task(async function test_unload_multiple_and_allow() {
 });
 
 add_task(async function test_cleanup() {
-  await BrowserTestUtils.removeTab(FirefoxViewHandler.tab);
+  await BrowserTestUtils.removeTab(PlezixViewHandler.tab);
 });

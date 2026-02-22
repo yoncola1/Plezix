@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -15,7 +15,7 @@ browser.jar:
    content/browser/preferences/translations.js
    content/browser/preferences/sync.js
    content/browser/preferences/experimental.js
-   content/browser/preferences/moreFromMozilla.js
+   content/browser/preferences/moreFromPlezix.js
    content/browser/preferences/fxaPairDevice.xhtml
    content/browser/preferences/fxaPairDevice.js
    content/browser/preferences/findInPage.js

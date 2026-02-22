@@ -47,7 +47,7 @@ requestLongerTimeout(250);
 add_task(async function test_ml_smart_tab_topic() {
   const options = new PipelineOptions({
     taskName: "text2text-generation",
-    modelId: "Mozilla/smart-tab-topic",
+    modelId: "Plezix/smart-tab-topic",
     modelHubUrlTemplate: "{model}/{revision}",
     modelRevision: "main",
     dtype: "q8",
@@ -90,7 +90,7 @@ add_task(async function test_ml_smart_tab_topic() {
 async function testEmbedding(trackPeakMemory = false) {
   const options = new PipelineOptions({
     taskName: "feature-extraction",
-    modelId: "Mozilla/smart-tab-embedding",
+    modelId: "Plezix/smart-tab-embedding",
     modelHubUrlTemplate: "{model}/{revision}",
     modelRevision: "main",
     dtype: "q8",

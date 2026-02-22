@@ -1,4 +1,4 @@
-/* - This Source Code Form is subject to the terms of the Mozilla Public
+/* - This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this file,
    - You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -751,7 +751,7 @@ html|dialog,
   border-color: #ff9500;
 }
 
-#useFirefoxSync {
+#usePlezixSync {
   font-size: 90%;
   margin-inline-end: 8px !important;
 }
@@ -1236,20 +1236,20 @@ richlistitem .text-link:hover {
   margin-inline-start: 6px;
 }
 
-#moreFromMozillaCategory-header .subtitle {
+#moreFromPlezixCategory-header .subtitle {
   margin-block-end: var(--space-xlarge);
 }
 
-#moreFromMozillaCategory:not([hidden]) {
+#moreFromPlezixCategory:not([hidden]) {
   display: flex;
   flex-direction: column;
 }
 
-#moreFromMozillaCategory .mozilla-product-item {
+#moreFromPlezixCategory .mozilla-product-item {
   margin-top: 30px;
 }
 
-#moreFromMozillaCategory .product-title {
+#moreFromPlezixCategory .product-title {
   margin: 4px 0 3px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1258,20 +1258,20 @@ richlistitem .text-link:hover {
   fill: currentColor;
 }
 
-#moreFromMozillaCategory .product-title:-moz-locale-dir(rtl) {
+#moreFromPlezixCategory .product-title:-moz-locale-dir(rtl) {
   background-position-x: right;
 }
 
-#moreFromMozillaCategory .product-description-box {
+#moreFromPlezixCategory .product-description-box {
   padding-inline-start: 30px;
   margin: 2px 0;
 }
 
-#moreFromMozillaCategory .description {
+#moreFromPlezixCategory .description {
   display: inline;
 }
 
-#moreFromMozillaCategory .small-button {
+#moreFromPlezixCategory .small-button {
   margin-block: 14px 2px;
   margin-inline: 30px 0;
 }
@@ -1372,7 +1372,7 @@ richlistitem .text-link:hover {
   padding: 10px;
 }
 
-#moreFromMozillaCategory .qr-code-link {
+#moreFromPlezixCategory .qr-code-link {
   font-size: 0.87em;
 }
 

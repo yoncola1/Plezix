@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.browser.state.state.TabSessionState
 import mozilla.components.browser.state.state.createTab
 import mozilla.components.concept.base.images.ImageLoadRequest
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val FALLBACK_ICON_SIZE = 36
 
@@ -44,7 +44,7 @@ fun TabThumbnail(
     tab: TabSessionState,
     size: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.FillWidth,
     alignment: Alignment = Alignment.TopCenter,
@@ -92,9 +92,9 @@ fun TabThumbnail(
 @Preview
 @Composable
 private fun ThumbnailCardPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabThumbnail(
-            tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
+            tab = createTab(url = "www.mozilla.com", title = "Plezix"),
             size = 108,
             modifier = Modifier
                 .size(108.dp, 80.dp)

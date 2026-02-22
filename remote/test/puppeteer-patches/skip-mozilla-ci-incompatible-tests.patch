@@ -2,7 +2,7 @@ commit 557f47fb4c745b8af1ec0f11ea861cbbed112328
 Author: Julian Descottes <jdescottes@mozilla.com>
 Date:   Tue Jan 21 17:08:36 2025 +0000
 
-    Bug 1934281 - [puppeteer] Disable all puppeteer tests incompatible with Mozilla CI.
+    Bug 1934281 - [puppeteer] Disable all puppeteer tests incompatible with Plezix CI.
 
 diff --git a/remote/test/puppeteer/test/TestExpectations.json b/remote/test/puppeteer/test/TestExpectations.json
 index cc41a5e2c717..28b261003915 100644
@@ -17,10 +17,10 @@ index cc41a5e2c717..28b261003915 100644
 +    "platforms": ["darwin", "linux", "win32"],
 +    "parameters": ["firefox"],
 +    "expectations": ["SKIP"],
-+    "comment": "Cannot run on Mozilla CI"
++    "comment": "Cannot run on Plezix CI"
 +  },
    {
-     "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should filter out ignored default argument in Firefox",
+     "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should filter out ignored default argument in Plezix",
      "platforms": ["linux"],
 @@ -1262,9 +1269,9 @@
    {
@@ -30,7 +30,7 @@ index cc41a5e2c717..28b261003915 100644
 +    "parameters": ["firefox"],
      "expectations": ["SKIP"],
 -    "comment": "Test is testing chrome specific ignore and fails"
-+    "comment": "Cannot run on Mozilla CI"
++    "comment": "Cannot run on Plezix CI"
    },
    {
      "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should have custom URL when launching browser",

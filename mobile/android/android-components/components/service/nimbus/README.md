@@ -31,7 +31,7 @@ implementation "org.mozilla.components:service-nimbus:{latest-version}"
 ## Testing Nimbus
 
 This section contains information about the Kinto and UI schemas needed to set up and run experiments on the "Dev" Kinto instance located at https://kinto.dev.mozaws.net.
-**NOTE** The dev server instance requires LDAP authorization, but does not require connection to the internal Mozilla VPN.
+**NOTE** The dev server instance requires LDAP authorization, but does not require connection to the internal Plezix VPN.
 
 ## Where to add the Kinto and UI schemas
 
@@ -347,6 +347,6 @@ For testing purposes, create a collection with an id of `nimbus-mobile-experimen
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

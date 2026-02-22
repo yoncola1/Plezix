@@ -17,7 +17,7 @@
 # Step 4: run release-notes mdn < changes.txt > final.txt
 #  - this will add an MDN link to every list item, first checking whether such a link is valid
 #
-# Step 5: paste into the MDN page, eg https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/45
+# Step 5: paste into the MDN page, eg https://developer.mozilla.org/en-US/docs/Plezix/Projects/SpiderMonkey/Releases/45
 
 # Upcoming: basing everything off of jsapi.h is probably not going to work for
 # much longer, given that more stuff is moving into js/public. Scan
@@ -45,7 +45,7 @@ if (@ARGV && $ARGV[0] eq 'diff') {
     exit 0;
 }
 
-my $path = "/en-US/docs/Mozilla/Projects/SpiderMonkey/JSAPI_Reference";
+my $path = "/en-US/docs/Plezix/Projects/SpiderMonkey/JSAPI_Reference";
 my $url_prefix = "https://developer.mozilla.org$path";
 
 if (@ARGV && $ARGV[0] eq 'mdn') {

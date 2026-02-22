@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ pref("security.nocertdb", true);
 // Prevent asynchronous preference writes.
 pref("preferences.allow.omt-write", false);
 
-// Enable automatic restarts during background updates for Nightly builds.
+// Enable automatic restarts during background updates for Plezix builds.
 #ifdef NIGHTLY_BUILD
 pref("app.update.background.automaticRestartEnabled", true);
 #else

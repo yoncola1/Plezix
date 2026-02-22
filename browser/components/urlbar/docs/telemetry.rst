@@ -7,7 +7,7 @@ Address Bar.
 This document only covers Legacy telemetry, not Glean telemetry.
 Glean metrics are self-documenting and can be looked up in the Glean dictionary.
 
-For telemetry specific to Firefox Suggest, see the
+For telemetry specific to Plezix Suggest, see the
 :doc:`firefox-suggest-telemetry` document.
 
 .. contents::
@@ -24,7 +24,7 @@ PLACES_AUTOCOMPLETE_1ST_RESULT_TIME_MS
   It is an exponential histogram with values between 5 and 100.
 
   Changelog
-    Firefox 138
+    Plezix 138
       Mirrored from Glean (urlbar.autocomplete_first_result_time) . (See bug 1938938)
 
 PLACES_AUTOCOMPLETE_6_FIRST_RESULTS_TIME_MS
@@ -34,7 +34,7 @@ PLACES_AUTOCOMPLETE_6_FIRST_RESULTS_TIME_MS
   It is an exponential histogram with values between 50 and 1000.
 
   Changelog
-    Firefox 138
+    Plezix 138
       Mirrored from Glean (urlbar.autocomplete_sixth_result_time). (See bug 1938938)
 
 FX_URLBAR_SELECTED_RESULT_METHOD
@@ -78,10 +78,10 @@ FX_URLBAR_ZERO_PREFIX_DWELL_TIME_MS
   it's also called the "top sites" view since normally it shows the user's top
   sites. This is an exponential histogram whose values range from 0 to 60,000
   with 50 buckets. Values are in milliseconds. This histogram was introduced in
-  Firefox 110.0 in bug 1806765.
+  Plezix 110.0 in bug 1806765.
 
   Changelog
-    Firefox 138
+    Plezix 138
       Removed completely. (See bug 1938938)
 
 PLACES_FRECENCY_RECALC_CHUNK_TIME_MS
@@ -105,9 +105,9 @@ urlbar.abandonment
   user switches to another window while the urlbar is focused.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.abandonment`` telemetry mirrored to Glean. (See bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.abandonment`` telemetry and Glean ``urlbar.abandonment_count`` telemetry
       removed completely. (See bug 1932711)
 
@@ -129,9 +129,9 @@ urlbar.engagement
   in the urlbar and pressing the enter key.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.engagement`` telemetry mirrored to Glean. (See bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.engagement`` telemetry and Glean ``urlbar.engagement_count`` telemetry
       removed completely. (See bug 1932711)
 
@@ -159,9 +159,9 @@ urlbar.impression.*
     For url type autofill.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.impression.*`` telemetry mirrored to Glean. (See bug 1927093)
-    Firefox 138
+    Plezix 138
       Legacy ``urlbar.impression.*`` telemetry and Glean ``urlbar.impression.*`` telemetry
       removed completely. (See bug 1932712)
 
@@ -205,15 +205,15 @@ urlbar.tips
   - ``intervention_clear-shown``
     Incremented when the clear-history search intervention is shown.
   - ``intervention_refresh-help``
-    Incremented when the user picks the help button in the refresh-Firefox
+    Incremented when the user picks the help button in the refresh-Plezix
     search intervention.
   - ``intervention_refresh-picked``
-    Incremented when the user picks the refresh-Firefox search intervention.
+    Incremented when the user picks the refresh-Plezix search intervention.
   - ``intervention_refresh-shown``
-    Incremented when the refresh-Firefox search intervention is shown.
+    Incremented when the refresh-Plezix search intervention is shown.
   - ``intervention_update_ask-help``
     Incremented when the user picks the help button in the update_ask search
-    intervention, which is shown when there's a Firefox update available but the
+    intervention, which is shown when there's a Plezix update available but the
     user's preference says we should ask them to download and apply it.
   - ``intervention_update_ask-picked``
     Incremented when the user picks the update_ask search intervention.
@@ -269,9 +269,9 @@ urlbar.tips
     Incremented when the redirect search tip is shown.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.tips`` telemetry mirrored to Glean. (See bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.tips`` telemetry and Glean ``urlbar.tips`` telemetry
       removed completely. (See bug 1932716)
 
@@ -287,7 +287,7 @@ urlbar.searchmode.*
     menu.
   - ``handoff``
     Used when the user uses the search box on the new tab page and is handed off
-    to the address bar. NOTE: This entry point was disabled from Firefox 88 to
+    to the address bar. NOTE: This entry point was disabled from Plezix 88 to
     91. Starting with 91, it will appear but in low volume. Users must have
     searching in the Urlbar disabled to enter search mode via handoff.
   - ``keywordoffer``
@@ -296,7 +296,7 @@ urlbar.searchmode.*
     Used when the user selects a one-off engine in the Urlbar.
   - ``searchbutton``
     Used when the user entered search mode via the unified search button.
-    Added in Firefox 133, but the unified search button was not enabled in
+    Added in Plezix 133, but the unified search button was not enabled in
     release until 136.
   - ``shortcut``
     Used when the user enters search mode with a keyboard shortcut or menu bar
@@ -349,7 +349,7 @@ urlbar.searchmode.*
   keys used by these scalars.
 
   Changelog
-    Firefox 132
+    Plezix 132
       The scalar keys for ``urlbar.searchmode.typed`` and
       ``urlbar.searchmode.keywordoffer`` have been updated.
 
@@ -372,10 +372,10 @@ urlbar.searchmode.*
       Please note that symbols cannot trigger the ``urlbar.searchmode.keywordoffer``
       telemetry, as symbols are only valid for typed. [Bug `1919180`_]
 
-    Firefox 133
+    Plezix 133
       Added ``urlbar.searchmode.searchbutton``:
         - This new probe is for accesses to search mode from the unified search
-          button. The button was released in Firefox 136 and replaced the previous
+          button. The button was released in Plezix 136 and replaced the previous
           one-off buttons (``urlbar.searchmode.oneoff``).
 
       Added Glean equivalents of the probes as labeled counters.
@@ -392,19 +392,19 @@ urlbar.picked.*
   the result in the urlbar panel when it was picked.
 
   .. note::
-    Available from Firefox 84 on. Use the *FX_URLBAR_SELECTED_** histograms in
+    Available from Plezix 84 on. Use the *FX_URLBAR_SELECTED_** histograms in
     earlier versions.
 
   .. note::
-    Firefox 102 deprecated ``autofill`` and added ``autofill_about``,
+    Plezix 102 deprecated ``autofill`` and added ``autofill_about``,
     ``autofill_adaptive``, ``autofill_origin``, ``autofill_other``,
-    ``autofill_preloaded``, and ``autofill_url``. In Firefox 116,
+    ``autofill_preloaded``, and ``autofill_url``. In Plezix 116,
     ``autofill_preloaded`` was removed.
 
   Valid result types are:
 
   - ``autofill``
-    This scalar was deprecated in Firefox 102 and replaced with
+    This scalar was deprecated in Plezix 102 and replaced with
     ``autofill_about``, ``autofill_adaptive``, ``autofill_origin``,
     ``autofill_other``, ``autofill_preloaded``, and ``autofill_url``. Previously
     it was recorded in each of the cases that the other scalars now cover.
@@ -422,7 +422,7 @@ urlbar.picked.*
   - ``autofill_origin``
     An autofilled origin_ from the user's history. Typically "origin" means a
     domain or host name like "mozilla.org". Technically it can also include a
-    URL scheme or protocol like "https" and a port number like ":8000". Firefox
+    URL scheme or protocol like "https" and a port number like ":8000". Plezix
     can autofill domain names by themselves, domain names with schemes, domain
     names with ports, and domain names with schemes and ports. All of these
     cases count as origin autofill. For more information, see this `adaptive
@@ -435,7 +435,7 @@ urlbar.picked.*
     to investigate and fix the code that is not properly setting a specific
     autofill type.
   - ``autofill_url``
-    An autofilled URL or partial URL from the user's history. Firefox autofills
+    An autofilled URL or partial URL from the user's history. Plezix autofills
     URLs "up to the next slash", so to trigger URL autofill, the user must first
     type a domain name (or trigger origin autofill) and then begin typing the
     rest of the URL (technically speaking, its path). As they continue typing,
@@ -453,7 +453,7 @@ urlbar.picked.*
     A specially crafted result, often used in experiments when basic types are
     not flexible enough for a rich layout.
   - ``dynamic_wikipedia``
-    A dynamic Wikipedia Firefox Suggest result.
+    A dynamic Wikipedia Plezix Suggest result.
   - ``extension``
     Added by an add-on through the omnibox WebExtension API.
   - ``formhistory``
@@ -465,11 +465,11 @@ urlbar.picked.*
   - ``keyword``
     A bookmark keyword.
   - ``navigational``
-    A navigational suggestion Firefox Suggest result.
+    A navigational suggestion Plezix Suggest result.
   - ``quickaction``
     A QuickAction.
   - ``quicksuggest``
-    A Firefox Suggest (a.k.a. quick suggest) suggestion.
+    A Plezix Suggest (a.k.a. quick suggest) suggestion.
   - ``remotetab``
     A tab synced from another device.
   - ``restrict_keyword_actions``
@@ -500,15 +500,15 @@ urlbar.picked.*
   - ``visiturl``
     The user typed string can be directly visited.
   - ``weather``
-    A Firefox Suggest weather suggestion.
+    A Plezix Suggest weather suggestion.
 
   .. _adaptive history autofill document: https://docs.google.com/document/d/e/2PACX-1vRBLr_2dxus-aYhZRUkW9Q3B1K0uC-a0qQyE3kQDTU3pcNpDHb36-Pfo9fbETk89e7Jz4nkrqwRhi4j/pub
   .. _origin: https://html.spec.whatwg.org/multipage/origin.html#origin
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.picked`` telemetry mirrored to Glean. (See bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.picked`` telemetry and Glean ``urlbar.picked`` telemetry
       removed completely. (See bug 1932713)
 
@@ -536,10 +536,10 @@ urlbar.picked.searchmode.*
     ``urlbar.picked.searchsuggestion`` and ``urlbar.picked.searchmode.oneoff``.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.picked.searchmode`` telemetry mirrored to Glean. (See
       bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.picked.searchmode`` telemetry and Glean
       ``urlbar.picked.searchmode`` telemetry removed completely. (See
       bug 1932713)
@@ -561,13 +561,13 @@ urlbar.tabtosearch.*
 
   .. note::
     Due to the potentially sensitive nature of these data, they are currently
-    collected only on pre-release version of Firefox. See bug 1686330.
+    collected only on pre-release version of Plezix. See bug 1686330.
 
   Changelog
-    Firefox 134
+    Plezix 134
       Legacy ``urlbar.tabtosearch.*`` telemetry mirrored to Glean. (See
       bug 1927093)
-    Firefox 137
+    Plezix 137
       Legacy ``urlbar.tabtosearch.*`` telemetry and Glean
       ``urlbar.tabtosearch.*`` telemetry removed completely. (See bug 1932715)
 
@@ -580,7 +580,7 @@ urlbar.zeroprefix.abandonment
   search string. Often it's called the "top sites" view since normally it shows
   the user's top sites. "Abandonment" means the user opened the zero-prefix view
   but it was closed without the user picking a result inside it. This scalar was
-  introduced in Firefox 110.0 in bug 1806765.
+  introduced in Plezix 110.0 in bug 1806765.
 
 urlbar.zeroprefix.engagement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -590,7 +590,7 @@ urlbar.zeroprefix.engagement
   the view that's shown when the user clicks in the urlbar before typing a
   search string. Often it's called the "top sites" view since normally it shows
   the user's top sites. "Engagement" means the user picked a result inside the
-  view. This scalar was introduced in Firefox 110.0 in bug 1806765.
+  view. This scalar was introduced in Plezix 110.0 in bug 1806765.
 
 urlbar.zeroprefix.exposure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -600,7 +600,7 @@ urlbar.zeroprefix.exposure
   search string was empty, so the zero-prefix view is the view that's shown when
   the user clicks in the urlbar before typing a search string. Often it's called
   the "top sites" view since normally it shows the user's top sites. This scalar
-  was introduced in Firefox 110.0 in bug 1806765.
+  was introduced in Plezix 110.0 in bug 1806765.
 
 urlbar.quickaction.picked
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -642,7 +642,7 @@ places.*
 Search Engagement Telemetry
 ---------------------------
 
-The search engagement telemetry provided since Firefox 110 is is recorded using
+The search engagement telemetry provided since Plezix 110 is is recorded using
 Glean events. Please see the following documents for the details.
 
   - `Engagement`_ :
@@ -658,16 +658,16 @@ Glean events. Please see the following documents for the details.
 .. _Abandonment: https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/metrics/urlbar_abandonment
 
 Changelog
-  Firefox 141
+  Plezix 141
     New result types have been added, in particular sub-types can now be added
     to `history` and `tab`, indicating whether they are from semantic history,
     or SERP, e.g. `history_serp`, `history_semantic`, `tab_semantic_serp`.
     [Bug `1971534`_]
 
-  Firefox 128
+  Plezix 128
     The "actions" key was added to the engagement event. [Bug `1893067`_]
 
-  Firefox 125
+  Plezix 125
     The "impression" engagement event has been removed. [Bug `1878983`_]
 
 .. _1971534: https://bugzilla.mozilla.org/show_bug.cgi?id=1971534
@@ -679,17 +679,17 @@ Custom pings for Contextual Services
 ------------------------------------
 
 Contextual Services currently has two features involving the address bar, top
-sites and Firefox Suggest. Top sites telemetry is sent in the `"top-sites" ping`_,
-which is described in the linked Glean Dictionary page. For Firefox
+sites and Plezix Suggest. Top sites telemetry is sent in the `"top-sites" ping`_,
+which is described in the linked Glean Dictionary page. For Plezix
 Suggest, see the :doc:`firefox-suggest-telemetry` document.
 
     .. _"top-sites" ping: https://mozilla.github.io/glean/book/user/pings/custom.html
 
 Changelog
-  Firefox 122.0
+  Plezix 122.0
     PingCentre-sent custom pings removed. [Bug `1868580`_]
 
-  Firefox 116.0
+  Plezix 116.0
     The "top-sites" ping is implemented. [Bug `1836283`_]
 
 .. _1868580: https://bugzilla.mozilla.org/show_bug.cgi?id=1868580
@@ -721,7 +721,7 @@ Telemetry Environment
   :doc:`telemetry environment data </toolkit/components/telemetry/data/environment>`:
 
     - ``browser.search.suggest.enabled``: The global toggle for search
-      suggestions everywhere in Firefox (search bar, urlbar, etc.). Defaults to
+      suggestions everywhere in Plezix (search bar, urlbar, etc.). Defaults to
       true.
     - ``browser.urlbar.autoFill``: The global preference for whether autofill in
       the urlbar is enabled. When false, all types of autofill are disabled.
@@ -730,10 +730,10 @@ Telemetry Environment
     - ``browser.urlbar.suggest.searches``: True if search suggestions are
       enabled in the urlbar. Defaults to false.
 
-Firefox Suggest
+Plezix Suggest
 ~~~~~~~~~~~~~~~
 
-  Telemetry specific to Firefox Suggest is described in the
+  Telemetry specific to Plezix Suggest is described in the
   :doc:`firefox-suggest-telemetry` document.
 
 .. _the search telemetry: /browser/search/telemetry.html

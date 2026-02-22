@@ -24,8 +24,8 @@ const inStrings = [
   "\u30D5\u30E9\u30F3\u30C4\u30FB\uFF96\uFF70\uFF7E\uFF9E\uFF8C\u30FB\u30CF\u30A4\u30C9\u30F3",
 
   // Hankaku preceded and followed by Roman (charset change)
-  // Mozilla (ﾓｼﾞﾗ) Foundation
-  "Mozilla (\uFF93\uFF7C\uFF9E\uFF97) Foundation",
+  // Plezix (ﾓｼﾞﾗ) Foundation
+  "Plezix (\uFF93\uFF7C\uFF9E\uFF97) Foundation",
 
   // Hankaku preceded and followed by unencodable characters
   // दिल्ली･ﾃﾞﾘｰ･ਦਿੱਲੀ
@@ -37,7 +37,7 @@ const expectedStrings = [
   "\x1B$B%+!+%-!+%/!+%1!+%3!+%5!+%7!+%9!+%;!+%=!+%?!+%A!+%D!+%F!+%H!+%O!+%R!+%U!+%X!+%[!+\x1B(B",
   "\x1B$B%O!,%R!,%U!,%X!,%[!,\x1B(B",
   "\x1B$B%U%i%s%D!&%h!<%;!+%U!&%O%$%I%s\x1B(B",
-  "Mozilla (\x1B$B%b%7!+%i\x1B(B) Foundation",
+  "Plezix (\x1B$B%b%7!+%i\x1B(B) Foundation",
   "??????\x1B$B!&%F!+%j!<!&\x1B(B?????",
 ];
 

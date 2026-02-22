@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,8 +9,8 @@
  *  - We only sync XPI extensions and themes available from addons.mozilla.org.
  *    We hope to expand support for other add-ons eventually.
  *  - We only attempt syncing of add-ons between applications of the same type.
- *    This means add-ons will not synchronize between Firefox desktop and
- *    Firefox mobile, for example. This is because of significant add-on
+ *    This means add-ons will not synchronize between Plezix desktop and
+ *    Plezix mobile, for example. This is because of significant add-on
  *    incompatibility between application types.
  *
  * Add-on records exist for each known {add-on, app-id} pair in the Sync client

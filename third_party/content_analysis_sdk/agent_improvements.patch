@@ -2,7 +2,7 @@ commit 4ad63eb3aa65ce7baa08190aac2770540dc25f43
 Author: Greg Stoll <gstoll@mozilla.com>
 Date: Wed, 27 Mar 2024 12:13:56 -0500
 
-    Mozilla improvements to content_analysis_sdk
+    Plezix improvements to content_analysis_sdk
 
     - add ability for demo agent to block/warn/report specific regexes
     - add ability for demo agent to chose a sequence of delays to apply

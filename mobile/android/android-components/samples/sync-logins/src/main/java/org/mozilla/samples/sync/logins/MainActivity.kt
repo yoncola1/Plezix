@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import mozilla.components.concept.sync.OAuthAccount
 import mozilla.components.concept.sync.Profile
 import mozilla.components.lib.dataprotect.SecureAbove22Preferences
 import mozilla.components.lib.fetch.httpurlconnection.HttpURLConnectionClient
-import mozilla.components.service.fxa.FirefoxAccount
+import mozilla.components.service.fxa.PlezixAccount
 import mozilla.components.service.fxa.FxaAuthData
 import mozilla.components.service.fxa.PeriodicSyncConfig
 import mozilla.components.service.fxa.SyncConfig
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginCompleteListener,
     private lateinit var listView: ListView
     private lateinit var adapter: ArrayAdapter<String>
     private lateinit var activityContext: MainActivity
-    private lateinit var account: FirefoxAccount
+    private lateinit var account: PlezixAccount
     private val accountManager by lazy {
         FxaAccountManager(
             applicationContext,

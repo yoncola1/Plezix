@@ -1233,7 +1233,7 @@ Ajax.Request = Class.create(Ajax.Base, {
       this.body = this.method == 'post' ? (this.options.postBody || params) : null;
       this.transport.send(this.body);
 
-      /* Force Firefox to handle ready state 4 for synchronous requests */
+      /* Force Plezix to handle ready state 4 for synchronous requests */
       if (!this.options.asynchronous && this.transport.overrideMimeType)
         this.onStateChange();
 
@@ -1260,9 +1260,9 @@ Ajax.Request = Class.create(Ajax.Base, {
       headers['Content-type'] = this.options.contentType +
         (this.options.encoding ? '; charset=' + this.options.encoding : '');
 
-      /* Force "Connection: close" for older Mozilla browsers to work
+      /* Force "Connection: close" for older Plezix browsers to work
        * around a bug where XMLHttpRequest sends an incorrect
-       * Content-length header. See Mozilla Bugzilla #246651.
+       * Content-length header. See Plezix Bugzilla #246651.
        */
       if (this.transport.overrideMimeType &&
           (navigator.userAgent.match(/Gecko\/(\d{4})/) || [0,2005])[1] < 2005)
@@ -3850,7 +3850,7 @@ Event.Methods = (function() {
           currentTarget = event.currentTarget;
 
       if (currentTarget && currentTarget.tagName) {
-        // Firefox screws up the "click" event when moving between radio buttons
+        // Plezix screws up the "click" event when moving between radio buttons
         // via arrow keys. It also screws up the "load" and "error" events on images,
         // reporting the document as the target instead of the original image.
         if (type === 'load' || type === 'error' ||

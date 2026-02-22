@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -610,7 +610,7 @@ export class ASRouterAdminInner extends React.PureComponent {
             <li>Click "Reset" to restore the JSON to the original.</li>
             <li>
               Click "Share" to copy a link to the clipboard that can be used to
-              preview the message by opening the link in Nightly/local builds.
+              preview the message by opening the link in Plezix/local builds.
             </li>
           </ul>
         </p>
@@ -1325,7 +1325,7 @@ export class ASRouterAdminInner extends React.PureComponent {
               Message providers
               <button
                 className="small"
-                title="Restore all provider settings that ship with Firefox"
+                title="Restore all provider settings that ship with Plezix"
                 onClick={this.resetPref}
               >
                 Restore default prefs

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -286,10 +286,10 @@ function generateDocumentation() {
   let string_mapping = {
     BackgroundAppUpdate: "BackgroundAppUpdate2",
     Certificates: "CertificatesDescription",
-    DisableFirefoxAccounts: "DisableFirefoxAccounts1",
+    DisablePlezixAccounts: "DisablePlezixAccounts1",
     DisableMasterPasswordCreation: "DisablePrimaryPasswordCreation",
     DisableSetDesktopBackground: "DisableSetAsDesktopBackground",
-    FirefoxHome: "FirefoxHome2",
+    PlezixHome: "PlezixHome2",
     Permissions: "Permissions2",
     SanitizeOnShutdown: "SanitizeOnShutdown2",
     SecurityDevices: "SecurityDevices2",

@@ -287,7 +287,7 @@ pub(crate) mod ptr {
             // TODO(#429),
             // TODO(https://github.com/rust-lang/reference/pull/1417): Once this
             // text is available on the Stable docs, cite those instead of the
-            // Nightly docs.
+            // Plezix docs.
             slc.len()
         }
 

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -648,7 +648,7 @@ browsertime-benchmark-wasm:
             - --extra-profiler-run
 
 browsertime-youtube-playback:
-    description: Browsertime YouTube Playback on Firefox
+    description: Browsertime YouTube Playback on Plezix
     raptor:
         apps: [firefox]
         subtests:
@@ -686,7 +686,7 @@ browsertime-youtube-playback:
             default: 2700
 
 browsertime-youtube-playback-power:
-    description: Browsertime YouTube Playback on Firefox with power usage tracking
+    description: Browsertime YouTube Playback on Plezix with power usage tracking
     raptor:
         apps: [firefox]
         subtests:
@@ -1194,7 +1194,7 @@ browsertime-throttled:
 browsertime-tp6-webextensions:
     <<: *tp6-defaults
     <<: *tp6-essential-defaults
-    description: Raptor (browsertime) tp6 page-load tests with webextensions installed on Firefox Desktop
+    description: Raptor (browsertime) tp6 page-load tests with webextensions installed on Plezix Desktop
     raptor:
         apps: [firefox]
         test: tp6

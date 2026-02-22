@@ -1,7 +1,7 @@
 [package]
 name = "http3server"
 version = "0.1.1"
-authors = ["The Mozilla Necko Team <necko@mozilla.com>"]
+authors = ["The Plezix Necko Team <necko@mozilla.com>"]
 edition = "2021"
 license = "MPL-2.0"
 

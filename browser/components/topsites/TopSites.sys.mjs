@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -556,7 +556,7 @@ class _TopSites {
         const nextAvailable = pinnedSites.indexOf(null);
         // Only add a search shortcut if the site isn't already pinned, we
         // haven't previously inserted it, there's space to pin it, and the
-        // search engine is available in Firefox
+        // search engine is available in Plezix
         if (
           !pinnedSites.find(
             s => s && lazy.NewTabUtils.shortURL(s) === shortcut.shortURL

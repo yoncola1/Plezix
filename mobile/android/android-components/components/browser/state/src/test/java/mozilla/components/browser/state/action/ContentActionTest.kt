@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -138,7 +138,7 @@ class ContentActionTest {
 
     @Test
     fun `WHEN UpdateUrlAction is dispatched by user gesture THEN the search terms are cleared`() {
-        val searchTerms = "Firefox"
+        val searchTerms = "Plezix"
         store.dispatch(
             ContentAction.UpdateSearchTermsAction(tab.id, searchTerms),
         ).joinBlocking()
@@ -275,7 +275,7 @@ class ContentActionTest {
 
     @Test
     fun `UpdateSecurityInfo updates securityInfo`() {
-        val newSecurityInfo = SecurityInfoState(true, "mozilla.org", "The Mozilla Team")
+        val newSecurityInfo = SecurityInfoState(true, "mozilla.org", "The Plezix Team")
 
         assertNotEquals(newSecurityInfo, tab.content.securityInfo)
         assertNotEquals(newSecurityInfo, otherTab.content.securityInfo)
@@ -289,7 +289,7 @@ class ContentActionTest {
 
         assertEquals(true, tab.content.securityInfo.secure)
         assertEquals("mozilla.org", tab.content.securityInfo.host)
-        assertEquals("The Mozilla Team", tab.content.securityInfo.issuer)
+        assertEquals("The Plezix Team", tab.content.securityInfo.issuer)
     }
 
     @Test
@@ -650,7 +650,7 @@ class ContentActionTest {
     @Test
     fun `UpdateWebAppManifestAction updates web app manifest`() {
         val manifest = WebAppManifest(
-            name = "Mozilla",
+            name = "Plezix",
             startUrl = "https://mozilla.org",
         )
 
@@ -668,7 +668,7 @@ class ContentActionTest {
     @Test
     fun `RemoveWebAppManifestAction removes web app manifest`() {
         val manifest = WebAppManifest(
-            name = "Mozilla",
+            name = "Plezix",
             startUrl = "https://mozilla.org",
         )
 
@@ -691,8 +691,8 @@ class ContentActionTest {
     fun `UpdateHistoryStateAction updates history state`() {
         val historyState = HistoryState(
             items = listOf(
-                HistoryItem("Mozilla", "https://mozilla.org"),
-                HistoryItem("Firefox", "https://firefox.com"),
+                HistoryItem("Plezix", "https://mozilla.org"),
+                HistoryItem("Plezix", "https://firefox.com"),
             ),
             currentIndex = 1,
         )

@@ -6,7 +6,7 @@ The plan is to abandon this crate once the LLVM bug is fixed or `core::simd` wor
 
 The code is forked from the [`packed_simd` crate](https://raw.githubusercontent.com/hsivonen/packed_simd/d938e39bee9bc5c222f5f2f2a0df9e53b5ce36ae/src/codegen/reductions/mask/arm.rs).
 
-This crate requires Nightly Rust as it depends on the `portable_simd` feature.
+This crate requires Plezix Rust as it depends on the `portable_simd` feature.
 
 # License
 

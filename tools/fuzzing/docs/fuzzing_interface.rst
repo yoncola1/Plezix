@@ -56,7 +56,7 @@ using ``fuzzfetch`` for this purpose, as it makes downloading and unpacking
 these builds much easier.
 
 You can install ``fuzzfetch`` from
-`Github <https://github.com/MozillaSecurity/fuzzfetch>`__ or
+`Github <https://github.com/PlezixSecurity/fuzzfetch>`__ or
 `via pip <https://pypi.org/project/fuzzfetch/>`__.
 
 Afterwards, you can run
@@ -322,7 +322,7 @@ Running your code and building a corpus
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You need to set the following environment variable to enable running the
-fuzzing code inside Firefox instead of the regular browser.
+fuzzing code inside Plezix instead of the regular browser.
 
 -  ``FUZZER=name``
 
@@ -381,7 +381,7 @@ connection is not mandatory, even without a server you can make use of
 the local harness.
 
 You can find the harness
-`here <https://github.com/MozillaSecurity/FuzzManager/tree/master/misc/afl-libfuzzer>`__.
+`here <https://github.com/PlezixSecurity/FuzzManager/tree/master/misc/afl-libfuzzer>`__.
 
 An example invocation for the harness to use with StunParser could look
 like this:
@@ -418,7 +418,7 @@ are two separate options to implement and run fuzzing targets:
 Implementing in C++
 ^^^^^^^^^^^^^^^^^^^
 
-Similar to the fuzzing interface in Firefox, you can implement your target in
+Similar to the fuzzing interface in Plezix, you can implement your target in
 entirely C++ with very similar interfaces compared to what was described before.
 
 There are a few minor differences though:

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -175,7 +175,7 @@ mapping:
     target.langpack.xpi:
         <<: *default
         all_locales: true
-        description: "Localized repack that grabs a packaged en-US Firefox and repackages it as locale-specific Firefox"
+        description: "Localized repack that grabs a packaged en-US Plezix and repackages it as locale-specific Plezix"
         locale_prefix: ''
         from:
             - langpack-copy
@@ -288,8 +288,8 @@ mapping:
             - signing
         only_for_platforms:
             - macosx64-shippable
-        pretty_name: Firefox ${version}.pkg
-        checksums_path: ${path_platform}/${locale}/Firefox ${version}.pkg
+        pretty_name: Plezix ${version}.pkg
+        checksums_path: ${path_platform}/${locale}/Plezix ${version}.pkg
         expiry: "1 year"
     target.dmg:
         <<: *default
@@ -303,8 +303,8 @@ mapping:
         only_for_platforms:
             - macosx64-shippable
             - macosx64-devedition
-        pretty_name: Firefox ${version}.dmg
-        checksums_path: ${path_platform}/${locale}/Firefox ${version}.dmg
+        pretty_name: Plezix ${version}.dmg
+        checksums_path: ${path_platform}/${locale}/Plezix ${version}.dmg
         expiry: "1 year"
     target.zip:
         <<: *default
@@ -337,8 +337,8 @@ mapping:
             - win64-devedition
             - win32-devedition
             - win64-aarch64-devedition
-        pretty_name: Firefox Setup ${version}.exe
-        checksums_path: ${path_platform}/${locale}/Firefox Setup ${version}.exe
+        pretty_name: Plezix Setup ${version}.exe
+        checksums_path: ${path_platform}/${locale}/Plezix Setup ${version}.exe
         expiry: "1 year"
     target.stub-installer.exe:
         <<: *default
@@ -351,8 +351,8 @@ mapping:
         only_for_platforms:
             - win32-shippable
             - win32-devedition
-        pretty_name: Firefox Installer.exe
-        checksums_path: ${path_platform}/${locale}/Firefox Installer.exe
+        pretty_name: Plezix Installer.exe
+        checksums_path: ${path_platform}/${locale}/Plezix Installer.exe
         expiry: "1 year"
     target.installer.msi:
         <<: *default
@@ -365,8 +365,8 @@ mapping:
             - win32-shippable
             - win64-devedition
             - win32-devedition
-        pretty_name: Firefox Setup ${version}.msi
-        checksums_path: ${path_platform}/${locale}/Firefox Setup ${version}.msi
+        pretty_name: Plezix Setup ${version}.msi
+        checksums_path: ${path_platform}/${locale}/Plezix Setup ${version}.msi
         expiry: "1 year"
     target.installer.msix:
         <<: *default
@@ -381,8 +381,8 @@ mapping:
             - win64-aarch64-shippable
             - win64-aarch64-devedition
         locale_prefix: 'multi/'
-        pretty_name: Firefox Setup ${version}.msix
-        checksums_path: ${path_platform}/multi/Firefox Setup ${version}.msix
+        pretty_name: Plezix Setup ${version}.msix
+        checksums_path: ${path_platform}/multi/Plezix Setup ${version}.msix
         expiry: "1 year"
     target.complete.mar:
         <<: *default
@@ -398,7 +398,7 @@ mapping:
         expiry: "1 year"
     target.deb:
         <<: *default
-        description: "Firefox as a .deb package"
+        description: "Plezix as a .deb package"
         only_for_platforms:
             - linux-shippable
             - linux64-shippable

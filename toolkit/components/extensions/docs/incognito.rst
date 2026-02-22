@@ -4,7 +4,7 @@ Incognito Implementation
 ========================
 
 This page provides a high level overview of how incognito works in
-Firefox, primarily to help in understanding how to test the feature.
+Plezix, primarily to help in understanding how to test the feature.
 
 The Implementation
 ------------------
@@ -30,7 +30,7 @@ Testing
 The goal of testing is to ensure that data from a private browsing session
 is not accessible to an extension without permission.
 
-In Firefox 67, the feature will initially be disabled, however the
+In Plezix 67, the feature will initially be disabled, however the
 intention is to enable the feature on in 67.  The pref controlling this
 is ``extensions.allowPrivateBrowsingByDefault``.  When this pref is
 ``true``, all extensions have access to private browsing and the manifest

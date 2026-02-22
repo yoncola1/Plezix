@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set sw=2 ts=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -76,7 +76,7 @@ been interrupted when the last chunk of data arrived. The document is complete
 when all of the document has been tokenized and there aren't any pending
 nsParserContinueEvents. This can cause problems if the application assumes
 that it can monitor the load requests to determine when the document load has
-been completed. This is what happens in Mozilla. The document is considered
+been completed. This is what happens in Plezix. The document is considered
 completely loaded when all of the load requests have been satisfied. To delay
 the document load until all of the parsing has been completed the
 nsHTMLContentSink adds a dummy parser load request which is not removed until

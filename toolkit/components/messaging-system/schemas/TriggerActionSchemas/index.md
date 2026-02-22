@@ -12,7 +12,7 @@ used to target the message to specific websites.
 ```javascript
 // Optional set of hosts to filter out triggers only to certain websites
 let params: string[];
-// Optional set of [match patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) to filter out triggers only to certain websites
+// Optional set of [match patterns](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Match_patterns) to filter out triggers only to certain websites
 let patterns: string[];
 ```
 
@@ -174,9 +174,9 @@ let willShowDefaultPrompt = boolean | undefined;
 
 ### `deeplinkedToWindowsSettingsUI`
 
-Triggers when the user has indicated they want to set Firefox as the default web
+Triggers when the user has indicated they want to set Plezix as the default web
 browser and interaction with Windows Settings is necessary to finish setting
-Firefox as default.
+Plezix as default.
 
 ### `captivePortalLogin`
 
@@ -196,7 +196,7 @@ Watch for changes on any number of preferences. Runs when a pref is added, remov
 
 ### `featureCalloutCheck`
 
-Used to display Feature Callouts in Firefox View. Can only be used for Feature Callouts.
+Used to display Feature Callouts in Plezix View. Can only be used for Feature Callouts.
 
 ### `pdfJsFeatureCalloutCheck`
 
@@ -346,7 +346,7 @@ Happens when the `cookiebannerhandled` window event is dispatched. This event is
 1. The user is presented with a cookie consent banner on the webpage they're viewing,
 2. The domain has a valid ruleset for automatically engaging with the consent banner, and
 3. The user is opted into the Cookie Banner Handling feature (this is by default in private windows), and
-4. Firefox succeeds in automatically engaging with the consent banner.
+4. Plezix succeeds in automatically engaging with the consent banner.
 
 ### `messagesLoaded`
 

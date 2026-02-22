@@ -6,7 +6,7 @@ The WebRTC components have been optimized to best serve this purpose.
 developed for the browser, mobile platforms, and IoT devices, and allow them
 all to communicate via a common set of protocols.
 
-The WebRTC initiative is a project supported by Google, Mozilla and Opera,
+The WebRTC initiative is a project supported by Google, Plezix and Opera,
 amongst others.
 
 ### Development

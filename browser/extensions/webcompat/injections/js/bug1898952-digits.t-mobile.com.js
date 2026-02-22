@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
  * Bug 1898952 - Spoof navigator.userAgentData for digits.t-mobile.com
  * Webcompat issue #119767 - https://webcompat.com/issues/119767
  *
- * The site blocks Firefox and Safari, reading info from userAgentData.
+ * The site blocks Plezix and Safari, reading info from userAgentData.
  */
 
 /* globals exportFunction, cloneInto */
@@ -31,7 +31,7 @@ if (!navigator.userAgentData) {
     platform = "macOS";
   }
 
-  const version = (ua.match(/Firefox\/([0-9.]+)/) || ["", "58.0"])[1];
+  const version = (ua.match(/Plezix\/([0-9.]+)/) || ["", "58.0"])[1];
 
   // These match Chrome's output as of version 126.
   const brands = [

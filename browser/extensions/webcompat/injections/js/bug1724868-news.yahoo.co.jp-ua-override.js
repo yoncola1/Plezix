@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
  * Bug 1724868 - news.yahoo.co.jp - Override UA on Android and Linux
  * WebCompat issue #82605 - https://webcompat.com/issues/82605
  *
- * Yahoo Japan news doesn't allow playing video in Firefox on Android or Linux
+ * Yahoo Japan news doesn't allow playing video in Plezix on Android or Linux
  * as those are not in their support matrix. They check UA override twice
  * and display different UI with the same error. Changing the UA to Chrome via
  * content script allows playing the videos.

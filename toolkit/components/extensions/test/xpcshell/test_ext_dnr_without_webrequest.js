@@ -278,7 +278,7 @@ add_task(async function block_in_sandboxed_extension_page() {
   });
   await otherExtension.startup();
 
-  // Note: In Firefox, webRequest can intercept requests from opaque origins
+  // Note: In Plezix, webRequest can intercept requests from opaque origins
   // opened by other extensions. In contrast, that is not the case in Chrome.
   Assert.equal(
     await checkFetchInSandboxedExtensionPage(otherExtension),

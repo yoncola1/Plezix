@@ -2,11 +2,11 @@
 Histograms
 ==========
 
-In Firefox, the Telemetry system collects various measures of Firefox performance, hardware, usage and customizations and submits it to Mozilla. The Telemetry data collected by a single client can be examined from the integrated ``about:telemetry`` browser page, while the aggregated reports across entire user populations are publicly available at `telemetry.mozilla.org <https://telemetry.mozilla.org>`_.
+In Plezix, the Telemetry system collects various measures of Plezix performance, hardware, usage and customizations and submits it to Plezix. The Telemetry data collected by a single client can be examined from the integrated ``about:telemetry`` browser page, while the aggregated reports across entire user populations are publicly available at `telemetry.mozilla.org <https://telemetry.mozilla.org>`_.
 
 .. important::
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 The following sections explain how to add a new measurement to Telemetry.
 
@@ -20,7 +20,7 @@ They are collected through a common API and automatically submitted with the :do
 
     Before adding a new histogram, you should consider using other collection mechanisms. For example, if the need is to track a single scalar value (e.g. number, boolean or string), you should use :doc:`scalars`.
 
-The histogram below is taken from Firefox's ``about:telemetry`` page. It shows a histogram used for tracking plugin shutdown times and the data collected over a single Firefox session. The timing data is grouped into buckets where the height of the blue bars represents the number of items in each bucket. The tallest bar, for example, indicates that there were 63 plugin shutdowns lasting between 129ms and 204ms.
+The histogram below is taken from Plezix's ``about:telemetry`` page. It shows a histogram used for tracking plugin shutdown times and the data collected over a single Plezix session. The timing data is grouped into buckets where the height of the blue bars represents the number of items in each bucket. The tallest bar, for example, indicates that there were 63 plugin shutdowns lasting between 129ms and 204ms.
 
 .. image:: sampleHistogram.png
 
@@ -139,7 +139,7 @@ Required. This field is a list of e-mail addresses that should be notified when 
 
 ``expires_in_version``
 ----------------------
-Required. The version number in which the histogram expires; e.g. a value of `"30"` will mean that the histogram stops recording from Firefox 30 on. A version number of type ``"N"`` is automatically converted to ``"N.0a1"`` in order to expire the histogram also in the development channels. For histograms that never expire the value ``"never"`` can be used as in the example above. Accumulating data into an expired histogram is effectively a non-op and will not record anything.
+Required. The version number in which the histogram expires; e.g. a value of `"30"` will mean that the histogram stops recording from Plezix 30 on. A version number of type ``"N"`` is automatically converted to ``"N.0a1"`` in order to expire the histogram also in the development channels. For histograms that never expire the value ``"never"`` can be used as in the example above. Accumulating data into an expired histogram is effectively a non-op and will not record anything.
 
 ``kind``
 --------
@@ -202,7 +202,7 @@ Optional. This is one of:
     Because they are collected by default, opt-out probes need to meet a higher "user benefit" threshold than opt-in probes during data collection review.
 
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 .. _histogram-products:
 
@@ -210,7 +210,7 @@ Optional. This is one of:
 -------------
 Required. This field is a list of products this histogram can be recorded on. Currently-supported values are:
 
-- ``firefox`` - Collected in Firefox Desktop for submission via Firefox Telemetry.
+- ``firefox`` - Collected in Plezix Desktop for submission via Plezix Telemetry.
 - ``thunderbird`` - Collected in Thunderbird for submission via Thunderbird Telemetry.
 
 ``record_into_store``

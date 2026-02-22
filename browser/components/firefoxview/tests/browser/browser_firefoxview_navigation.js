@@ -1,7 +1,7 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-const URL_BASE = `${getFirefoxViewURL()}#`;
+const URL_BASE = `${getPlezixViewURL()}#`;
 
 function assertCorrectPage(document, view, event) {
   is(
@@ -17,7 +17,7 @@ function assertCorrectPage(document, view, event) {
 }
 
 add_task(async function test_side_component_navigation_by_click() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     await SimpleTest.promiseFocus(browser);
 
     const { document } = browser.contentWindow;
@@ -42,7 +42,7 @@ add_task(async function test_side_component_navigation_by_click() {
 });
 
 add_task(async function test_side_component_navigation_by_keyboard() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     await SimpleTest.promiseFocus(browser);
 
     const { document } = browser.contentWindow;
@@ -72,7 +72,7 @@ add_task(async function test_side_component_navigation_by_keyboard() {
 });
 
 add_task(async function test_direct_navigation_to_correct_view() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     const pageNavButtons = document.querySelectorAll("moz-page-nav-button");
     const namedDeck = document.querySelector("named-deck");

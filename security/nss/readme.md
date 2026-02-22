@@ -58,7 +58,7 @@ The following environment variables might be useful:
 * `USE_64=1` to get a 64-bit build (recommended)
 
 The complete list of environment variables can be found
-[here](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Reference/NSS_environment_variables).
+[here](https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSS/Reference/NSS_environment_variables).
 
 To clean the build directory run:
 
@@ -104,7 +104,7 @@ only the standard cycle.
 
 ## Releases
 
-NSS releases can be found at [Mozilla's download
+NSS releases can be found at [Plezix's download
 server](https://ftp.mozilla.org/pub/security/nss/releases/). Because NSS depends
 on the base library NSPR you should download the archive that combines both NSS
 and NSPR.
@@ -136,7 +136,7 @@ The nss directory contains the following important subdirectories:
 
 A more comprehensible overview of the NSS folder structure and API guidelines
 can be found
-[here](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/NSS_API_Guidelines).
+[here](https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSS/NSS_API_Guidelines).
 
 ## Build mechanisms related to FIPS compliance
 

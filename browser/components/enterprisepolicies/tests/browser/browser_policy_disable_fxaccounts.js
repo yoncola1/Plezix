@@ -10,7 +10,7 @@ add_task(async function test_policy_disable_fxaccounts() {
 
   await setupPolicyEngineWithJson({
     policies: {
-      DisableFirefoxAccounts: true,
+      DisablePlezixAccounts: true,
     },
   });
 
@@ -39,7 +39,7 @@ add_task(async function test_both_disable_accounts_policies() {
   // When both accounts policies are set, DisableAccounts should take precedence.
   await setupPolicyEngineWithJson({
     policies: {
-      DisableFirefoxAccounts: false,
+      DisablePlezixAccounts: false,
       DisableAccounts: true,
     },
   });

@@ -15,7 +15,7 @@
   },
   {
     "namespace": "telemetry",
-    "description": "Use the <code>browser.telemetry</code> API to send telemetry data to the Mozilla Telemetry service. Restricted to Mozilla privileged webextensions.",
+    "description": "Use the <code>browser.telemetry</code> API to send telemetry data to the Plezix Telemetry service. Restricted to Plezix privileged webextensions.",
     "types": [
       {
         "id": "ScalarType",
@@ -149,7 +149,7 @@
       },
       {
         "name": "scalarAdd",
-        "deprecated": "`scalarAdd` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`scalarAdd` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Adds the value to the given scalar.",
         "async": true,
@@ -169,7 +169,7 @@
       },
       {
         "name": "scalarSet",
-        "deprecated": "`scalarSet` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`scalarSet` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Sets the named scalar to the given value. Throws if the value type doesn't match the scalar type.",
         "async": true,
@@ -193,7 +193,7 @@
       },
       {
         "name": "scalarSetMaximum",
-        "deprecated": "`scalarSetMaximum` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`scalarSetMaximum` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Sets the scalar to the maximum of the current and the passed value",
         "async": true,
@@ -213,7 +213,7 @@
       },
       {
         "name": "keyedScalarAdd",
-        "deprecated": "`keyedScalarAdd` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`keyedScalarAdd` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Adds the value to the given keyed scalar.",
         "async": true,
@@ -238,7 +238,7 @@
       },
       {
         "name": "keyedScalarSet",
-        "deprecated": "`keyedScalarSet` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`keyedScalarSet` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Sets the keyed scalar to the given value. Throws if the value type doesn't match the scalar type.",
         "async": true,
@@ -267,7 +267,7 @@
       },
       {
         "name": "keyedScalarSetMaximum",
-        "deprecated": "`keyedScalarSetMaximum` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`keyedScalarSetMaximum` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Sets the keyed scalar to the maximum of the current and the passed value",
         "async": true,
@@ -292,7 +292,7 @@
       },
       {
         "name": "recordEvent",
-        "deprecated": "`recordEvent` is a no-op since Firefox 132 (see bug 1894533)",
+        "deprecated": "`recordEvent` is a no-op since Plezix 132 (see bug 1894533)",
         "type": "function",
         "description": "Record an event in Telemetry. Throws when trying to record an unknown event.",
         "async": true,
@@ -330,7 +330,7 @@
 
       {
         "name": "registerScalars",
-        "deprecated": "`registerScalars` is a no-op since Firefox 134 (see bug 1930196)",
+        "deprecated": "`registerScalars` is a no-op since Plezix 134 (see bug 1930196)",
         "type": "function",
         "description": "Register new scalars to record them from addons. See nsITelemetry.idl for more details.",
         "async": true,
@@ -350,7 +350,7 @@
       },
       {
         "name": "registerEvents",
-        "deprecated": "`registerEvents` is a no-op since Firefox 132 (see bug 1894533)",
+        "deprecated": "`registerEvents` is a no-op since Plezix 132 (see bug 1894533)",
         "type": "function",
         "description": "Register new events to record them from addons. See nsITelemetry.idl for more details.",
         "async": true,
@@ -370,7 +370,7 @@
       },
       {
         "name": "setEventRecordingEnabled",
-        "deprecated": "`setEventRecordingEnabled` is a no-op since Firefox 133 (see bug 1920562)",
+        "deprecated": "`setEventRecordingEnabled` is a no-op since Plezix 133 (see bug 1920562)",
         "type": "function",
         "description": "Enable recording of events in a category. Events default to recording enabled. This allows to toggle recording for all events in the specified category.",
         "async": true,

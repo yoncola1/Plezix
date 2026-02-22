@@ -1,6 +1,6 @@
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2014 Mozilla Foundation and contributors
+ * Copyright 2014 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */

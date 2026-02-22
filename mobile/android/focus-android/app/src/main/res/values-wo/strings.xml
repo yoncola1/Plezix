@@ -133,18 +133,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Def %1$s muy sa joowukaay bu njëkk</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Yónneey njoxe ci njëfandikoo gi</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Gën ce xam</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla li mu soxla rekk, te manul ñàkk, lay jéem a dajale ngir man a gënal %1$s ngir nun ñépp.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix li mu soxla rekk, te manul ñàkk, lay jéem a dajale ngir man a gënal %1$s ngir nun ñépp.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Sàrti Sutura</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Ñeel %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Seetukaay yiñ fi sàmp</string>
@@ -223,13 +223,13 @@
   <string name="external_app_prompt_title">Ubbil lëkkalekaay bi ci beneen jëfekaay</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Man ngaa génn %1$s ngir ubbi bii lëkkalekaay ci %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Seet ab jëfekaay bu man a ubbu lëkkalekaay bi</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Amul benn jëfekaay ci sa jumtukaay bu man a ubbi bii lëkkalekaay. Man ngaa génn %1$s ngir seet ci %2$s ab jëfekaay bu ko man.</string>
@@ -250,11 +250,11 @@
   <string name="firstrun_search_text">Leneen ngay seet? Tànnal beneen seetukaay ci jekk-jekkal yi.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Yokki lëkkalekaay ci njëlbeenu sa xoolu</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Dellu ci say dal yi nga taamu ci %1$s ci lu gaaw. Doy na nga bës ci \"Yokk ci njëlbeenu xoolu bi\" ci njëlu %1$s.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Def joow ci sutura doon jikko</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Def %1$s sa joowukaay bu njëkk te jariñoo mbaaxi njoow ci sutura sooy ubbi xëti web ci yeneen jëfekaay.</string>
   <string name="firstrun_close_button">OK, Dégg naa la!</string>
   <string name="firstrun_skip_button">Tëb</string>
@@ -275,7 +275,7 @@
   <string name="notification_browsing_session_channel_name">Ubbig njoow ci sutura</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -284,10 +284,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Far jaar-jaaru njoow gi</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Yebbi Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Yebbi Plezix</string>
   <!-- Tips displayed on the home view -->
 
   <!-- Tracking protection bottom sheet -->

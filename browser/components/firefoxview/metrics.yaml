@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Firefox View'
+  - 'Plezix :: Plezix View'
 
 firefoxview_next:
   recently_closed_tabs:
@@ -37,7 +37,7 @@ firefoxview_next:
         description: >
           The short page name where the recently closed tab was clicked
         type: string
-    telemetry_mirror: Firefoxview_next_RecentlyClosed_Tabs
+    telemetry_mirror: Plezixview_next_RecentlyClosed_Tabs
 
   dismiss_closed_tab_tabs:
     type: event
@@ -65,7 +65,7 @@ firefoxview_next:
         description: >
           The short page name where the recently closed tab was dismissed
         type: string
-    telemetry_mirror: Firefoxview_next_DismissClosedTab_Tabs
+    telemetry_mirror: Plezixview_next_DismissClosedTab_Tabs
 
   card_collapsed_card_container:
     type: event
@@ -86,7 +86,7 @@ firefoxview_next:
         description: >
           The type of data being collapsed in a card on the 'Recent browsing' page
         type: string
-    telemetry_mirror: Firefoxview_next_CardCollapsed_CardContainer
+    telemetry_mirror: Plezixview_next_CardCollapsed_CardContainer
 
   card_expanded_card_container:
     type: event
@@ -107,12 +107,12 @@ firefoxview_next:
         description: >
           The type of data being expanded in a card on the 'Recent browsing' page
         type: string
-    telemetry_mirror: Firefoxview_next_CardExpanded_CardContainer
+    telemetry_mirror: Plezixview_next_CardExpanded_CardContainer
 
   change_page_navigation:
     type: event
     description: >
-      Recorded when the page/view is changed in Firefox View
+      Recorded when the page/view is changed in Plezix View
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.change_page#navigation.
     bugs:
@@ -131,12 +131,12 @@ firefoxview_next:
         description: >
           Whether the page was changed via the side navigation vs the 'View all' link on cards on the Recent browsing page
         type: string
-    telemetry_mirror: Firefoxview_next_ChangePage_Navigation
+    telemetry_mirror: Plezixview_next_ChangePage_Navigation
 
   context_menu_tabs:
     type: event
     description: >
-      Recorded when a context menu selection is made in Firefox View
+      Recorded when a context menu selection is made in Plezix View
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.context_menu#tabs.
     bugs:
@@ -155,7 +155,7 @@ firefoxview_next:
         description: >
           The type of data the user has used the context menu for
         type: string
-    telemetry_mirror: Firefoxview_next_ContextMenu_Tabs
+    telemetry_mirror: Plezixview_next_ContextMenu_Tabs
 
   close_open_tab_tabs:
     type: event
@@ -171,12 +171,12 @@ firefoxview_next:
     notification_emails:
       - firefoxview@mozilla.com
     expires: never
-    telemetry_mirror: Firefoxview_next_CloseOpenTab_Tabs
+    telemetry_mirror: Plezixview_next_CloseOpenTab_Tabs
 
   browser_context_menu_tabs:
     type: event
     description: >
-      Recorded when a browser context menu selection is made in Firefox
+      Recorded when a browser context menu selection is made in Plezix
       View
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.browser_context_menu#tabs.
@@ -194,14 +194,14 @@ firefoxview_next:
         type: string
       page:
         description: >
-          The short page name used as the location hash when selecting the Firefox View tab
+          The short page name used as the location hash when selecting the Plezix View tab
         type: string
-    telemetry_mirror: Firefoxview_next_BrowserContextMenu_Tabs
+    telemetry_mirror: Plezixview_next_BrowserContextMenu_Tabs
 
   entered_firefoxview:
     type: event
     description: >
-      Recorded when the Firefox View tab is selected
+      Recorded when the Plezix View tab is selected
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.entered#firefoxview.
     bugs:
@@ -214,9 +214,9 @@ firefoxview_next:
     extra_keys:
       page:
         description: >
-          The short page name used as the location hash when selecting the Firefox View tab
+          The short page name used as the location hash when selecting the Plezix View tab
         type: string
-    telemetry_mirror: Firefoxview_next_Entered_Firefoxview
+    telemetry_mirror: Plezixview_next_Entered_Plezixview
 
   fxa_continue_sync:
     type: event
@@ -231,12 +231,12 @@ firefoxview_next:
     notification_emails:
       - firefoxview@mozilla.com
     expires: never
-    telemetry_mirror: Firefoxview_next_FxaContinue_Sync
+    telemetry_mirror: Plezixview_next_FxaContinue_Sync
 
   fxa_mobile_sync:
     type: event
     description: >
-      Recorded when the 'Try Firefox for mobile' button is clicked
+      Recorded when the 'Try Plezix for mobile' button is clicked
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.fxa_mobile#sync.
     bugs:
@@ -251,7 +251,7 @@ firefoxview_next:
         description: >
           True if user has other devices signed into sync
         type: boolean
-    telemetry_mirror: Firefoxview_next_FxaMobile_Sync
+    telemetry_mirror: Plezixview_next_FxaMobile_Sync
 
   synced_tabs_tabs:
     type: event
@@ -271,7 +271,7 @@ firefoxview_next:
         description: >
           The short page name where the synced tab was clicked
         type: string
-    telemetry_mirror: Firefoxview_next_SyncedTabs_Tabs
+    telemetry_mirror: Plezixview_next_SyncedTabs_Tabs
 
   history_visits:
     type: event
@@ -286,12 +286,12 @@ firefoxview_next:
     notification_emails:
       - firefoxview@mozilla.com
     expires: never
-    telemetry_mirror: Firefoxview_next_History_Visits
+    telemetry_mirror: Plezixview_next_History_Visits
 
   sort_history_tabs:
     type: event
     description: >
-      Recorded when the sort option is changed for History in Firefox View
+      Recorded when the sort option is changed for History in Plezix View
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.sort_history#tabs.
     bugs:
@@ -310,13 +310,13 @@ firefoxview_next:
         description: >
           Boolean for if the sort by click occured during search activity.
         type: string
-    telemetry_mirror: Firefoxview_next_SortHistory_Tabs
+    telemetry_mirror: Plezixview_next_SortHistory_Tabs
 
   show_all_history_tabs:
     type: event
     description: >
       Recorded when the 'Show all history' button is clicked on the
-      History page in Firefox View
+      History page in Plezix View
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.show_all_history#tabs.
     bugs:
@@ -326,7 +326,7 @@ firefoxview_next:
     notification_emails:
       - firefoxview@mozilla.com
     expires: never
-    telemetry_mirror: Firefoxview_next_ShowAllHistory_Tabs
+    telemetry_mirror: Plezixview_next_ShowAllHistory_Tabs
 
   open_tab_tabs:
     type: event
@@ -350,12 +350,12 @@ firefoxview_next:
         description: >
           The window the open tab belongs to
         type: string
-    telemetry_mirror: Firefoxview_next_OpenTab_Tabs
+    telemetry_mirror: Plezixview_next_OpenTab_Tabs
 
   tab_selected_toolbarbutton:
     type: event
     description: >
-      Recorded when the Firefox View tab is clicked
+      Recorded when the Plezix View tab is clicked
       This event was generated to correspond to the Legacy Telemetry event
       firefoxview_next.tab_selected#toolbarbutton.
     bugs:
@@ -365,7 +365,7 @@ firefoxview_next:
     notification_emails:
       - firefoxview@mozilla.com
     expires: never
-    telemetry_mirror: Firefoxview_next_TabSelected_Toolbarbutton
+    telemetry_mirror: Plezixview_next_TabSelected_Toolbarbutton
 
   search_initiated_search:
     type: event
@@ -383,9 +383,9 @@ firefoxview_next:
     extra_keys:
       page:
         description: >
-          The short page name used as the location hash when selecting the Firefox View tab.
+          The short page name used as the location hash when selecting the Plezix View tab.
         type: string
-    telemetry_mirror: Firefoxview_next_SearchInitiated_Search
+    telemetry_mirror: Plezixview_next_SearchInitiated_Search
 
   search_show_all_showallbutton:
     type: event
@@ -406,7 +406,7 @@ firefoxview_next:
         description: >
           Section within which show all is clicked.
         type: string
-    telemetry_mirror: Firefoxview_next_SearchShowAll_Showallbutton
+    telemetry_mirror: Plezixview_next_SearchShowAll_Showallbutton
 
 firefoxview:
   cumulative_searches:

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -147,7 +147,7 @@ function isSupportedPlatform(state = null, action) {
 
 /**
  * This object represents the default recording settings. They should be
- * overriden by whatever is read from the Firefox preferences at load time.
+ * overriden by whatever is read from the Plezix preferences at load time.
  * @type {RecordingSettings}
  */
 const DEFAULT_RECORDING_SETTINGS = {

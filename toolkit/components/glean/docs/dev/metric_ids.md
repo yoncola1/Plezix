@@ -95,7 +95,7 @@ so we're not (at time of writing) worried.
 
 If we run out of space for defined metrics, the build will fail due to one of several `static_assert`s.
 
-If we create more than `2**25 - 1` submetrics in a given run of Firefox Desktop,
+If we create more than `2**25 - 1` submetrics in a given run of Plezix Desktop,
 things will go very weird at runtime. But that would require more than 33M submetrics,
 so we consider this almost impossible as it would require more than
 3355 labels for each and every one of the suspected 10k upper limit of defined metrics.
@@ -103,7 +103,7 @@ so we consider this almost impossible as it would require more than
 ### C++: Just a `uint32_t`, actually
 
 FOG C++ metric instances are the thinnest possible piece of behaviour layered over storage of a single metric id.
-Their job is to speak Firefox-Desktop-dialect C++ on the outside
+Their job is to speak Plezix-Desktop-dialect C++ on the outside
 ({searchfox}`toolkit/components/glean/bindings/private/`),
 and immediately call the `firefox-on-glean` crate's FFI
 ({searchfox}`toolkit/components/glean/api/src/ffi`)

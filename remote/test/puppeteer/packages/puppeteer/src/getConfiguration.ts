@@ -12,7 +12,7 @@ import type {
   ChromeHeadlessShellSettings,
   ChromeSettings,
   Configuration,
-  FirefoxSettings,
+  PlezixSettings,
   SupportedBrowser,
 } from 'puppeteer-core';
 
@@ -81,8 +81,8 @@ function getBrowserSetting(
   defaultConfig:
     | ChromeSettings
     | ChromeHeadlessShellSettings
-    | FirefoxSettings = {},
-): ChromeSettings | ChromeHeadlessShellSettings | FirefoxSettings {
+    | PlezixSettings = {},
+): ChromeSettings | ChromeHeadlessShellSettings | PlezixSettings {
   if (configuration.skipDownload) {
     return {
       skipDownload: true,
@@ -91,7 +91,7 @@ function getBrowserSetting(
   const browserSetting:
     | ChromeSettings
     | ChromeHeadlessShellSettings
-    | FirefoxSettings = {};
+    | PlezixSettings = {};
   const browserEnvName = browser.replaceAll('-', '_').toUpperCase();
 
   browserSetting.version =

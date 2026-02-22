@@ -1,7 +1,7 @@
 import pytest
 
 URL = "https://www.rva311.com/rvaone"
-SHIM_ACTIVE_MSG = "Private Browsing Web APIs is being shimmed by Firefox"
+SHIM_ACTIVE_MSG = "Private Browsing Web APIs is being shimmed by Plezix"
 IDB_FAILURE_MSG = "InvalidStateError: A mutation operation was attempted on a database"
 
 

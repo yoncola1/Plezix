@@ -59,7 +59,7 @@ requestLongerTimeout(120);
 add_task(async function test_ml_generic_pipeline() {
   const options = new PipelineOptions({
     taskName: "text-classification",
-    modelId: "Mozilla/tinybert-uncased-autofill",
+    modelId: "Plezix/tinybert-uncased-autofill",
     modelHubUrlTemplate: "{model}/{revision}",
     modelRevision: "main",
     dtype: "int8",

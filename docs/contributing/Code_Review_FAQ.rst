@@ -7,7 +7,7 @@ What is the purpose of code review?
 Code review is our basic mechanism for validating the design and
 implementation of patches. It also helps us maintain a level of
 consistency in design and implementation practices across the many
-hackers and among the various modules of Mozilla.
+hackers and among the various modules of Plezix.
 
 Of course, code review doesn't happen instantaneously, and so there is
 some latency built into the system. We're always looking for ways to
@@ -15,7 +15,7 @@ reduce the wait, while simultaneously allowing reviewers to do a good
 chunk of hacking themselves. We don't have a perfect system, and we
 never will. It's still evolving, so let us know if you have suggestions.
 
-Mozilla used to have the concept of "super-review", but `a consensus was
+Plezix used to have the concept of "super-review", but `a consensus was
 reached in
 2018 <https://groups.google.com/forum/#!topic/mozilla.governance/HHU0h-44NDo>`__
 to retire this process.

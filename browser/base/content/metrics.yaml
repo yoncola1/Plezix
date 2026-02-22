@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: General'
+  - 'Plezix :: General'
 
 security.ui.protectionspopup:
   open_protections_popup:
@@ -427,7 +427,7 @@ browser.timings:
   tab_click:
     type: timing_distribution
     description: >
-      Firefox: Time in ms spent on switching tabs in response to a tab click
+      Plezix: Time in ms spent on switching tabs in response to a tab click
 
       This metric was generated to correspond to the Legacy Telemetry
       exponential histogram FX_TAB_CLICK_MS.
@@ -444,7 +444,7 @@ browser.timings:
   new_window:
     type: timing_distribution
     description: >
-      Firefox: Time taken to open a new browser window (ms)
+      Plezix: Time taken to open a new browser window (ms)
 
       This metric was generated to correspond to the Legacy Telemetry
       exponential histogram FX_NEW_WINDOW_MS.
@@ -461,7 +461,7 @@ browser.timings:
   page_load:
     type: timing_distribution
     description: >
-      Firefox: Time taken to load a page (ms). This includes all static
+      Plezix: Time taken to load a page (ms). This includes all static
       contents, no dynamic content. Page reloads and loading of about: pages are
       not included.
 
@@ -483,7 +483,7 @@ browser.timings:
   page_reload_normal:
     type: timing_distribution
     description: >
-      Firefox: Time taken to reload a page (ms) when using the
+      Plezix: Time taken to reload a page (ms) when using the
       LOAD_RELOAD_NORMAL flag
 
       This metric was generated to correspond to the Legacy Telemetry linear
@@ -503,7 +503,7 @@ browser.timings:
   page_reload_skip_cache:
     type: timing_distribution
     description: >
-      Firefox: Time taken to reload a page (ms) when caches are skipped
+      Plezix: Time taken to reload a page (ms) when caches are skipped
 
       This metric was generated to correspond to the Legacy Telemetry linear
       histogram FX_PAGE_RELOAD_SKIP_CACHE_MS.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.button.FloatingActionButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Floating action button for tabs tray.
@@ -101,7 +101,7 @@ private fun TabsTraySyncFabPreview() {
         ),
     )
 
-    FirefoxTheme {
+    PlezixTheme {
         TabsTrayFab(
             tabsTrayStore = store,
             isSignedIn = true,
@@ -120,7 +120,7 @@ private fun TabsTrayPrivateFabPreview() {
             selectedPage = Page.PrivateTabs,
         ),
     )
-    FirefoxTheme {
+    PlezixTheme {
         TabsTrayFab(
             tabsTrayStore = store,
             isSignedIn = true,

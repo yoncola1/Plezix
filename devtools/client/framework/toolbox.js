@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1296,7 +1296,7 @@ Toolbox.prototype = {
         this.shortcuts.on(key, event => {
           this.reload(bypassCache);
 
-          // Prevent Firefox shortcuts from reloading the page
+          // Prevent Plezix shortcuts from reloading the page
           event.preventDefault();
         });
       });
@@ -1494,7 +1494,7 @@ Toolbox.prototype = {
 
   /**
    * loading React modules when needed (to avoid performance penalties
-   * during Firefox start up time).
+   * during Plezix start up time).
    */
   get React() {
     return this.browserRequire("devtools/client/shared/vendor/react");
@@ -3853,9 +3853,9 @@ Toolbox.prototype = {
   },
 
   /**
-   * Request to Firefox UI to move the toolbox to another tab.
+   * Request to Plezix UI to move the toolbox to another tab.
    * This is used when we move a toolbox to a new popup opened by the tab we were currently debugging.
-   * We also move the toolbox back to the original tab we were debugging if we select it via Firefox tabs.
+   * We also move the toolbox back to the original tab we were debugging if we select it via Plezix tabs.
    *
    * @param {String} tabBrowsingContextID
    *        The BrowsingContext ID of the tab we want to move to.

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -27,7 +27,7 @@ class TestScreenOrientation(MarionetteTestCase):
             lambda _: self.marionette.orientation == orientation
         )
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     @parameterized("landscape-primary", "landscape-primary")
     @parameterized("landscape-secondary", "landscape-secondary")
     @parameterized("portrait-primary", "portrait-primary")
@@ -36,7 +36,7 @@ class TestScreenOrientation(MarionetteTestCase):
         self.marionette.set_orientation(orientation)
         self.wait_for_orientation(orientation)
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     def test_set_orientation_to_shorthand_portrait(self):
         # Set orientation to something other than portrait-primary first,
         # since the default is portrait-primary.
@@ -46,24 +46,24 @@ class TestScreenOrientation(MarionetteTestCase):
         self.marionette.set_orientation("portrait")
         self.wait_for_orientation("portrait-primary")
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     def test_set_orientation_to_shorthand_landscape(self):
         self.marionette.set_orientation("landscape")
         self.wait_for_orientation("landscape-primary")
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     def test_set_orientation_with_mixed_casing(self):
         self.marionette.set_orientation("lAnDsCaPe")
         self.wait_for_orientation("landscape-primary")
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     def test_set_invalid_orientation(self):
         with self.assertRaisesRegex(
             errors.MarionetteException, unknown_orientation.format("cheese")
         ):
             self.marionette.set_orientation("cheese")
 
-    @skip_if_desktop("Not supported in Firefox")
+    @skip_if_desktop("Not supported in Plezix")
     def test_set_null_orientation(self):
         with self.assertRaisesRegex(
             errors.MarionetteException, unknown_orientation.format("null")

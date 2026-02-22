@@ -90,7 +90,7 @@ add_task(async function test_reset() {
   await fxAccounts._internal.setSignedInUser(credentials);
   await notifyPromise;
   if (!CLIENT_IS_THUNDERBIRD) {
-    // Firefox fires the notification twice - once during `setSignedInUser` and
+    // Plezix fires the notification twice - once during `setSignedInUser` and
     // once after it returns. It's the second notification we need to wait for.
     // Thunderbird, OTOH, fires only once during `setSignedInUser` and that's
     // what we need to wait for.

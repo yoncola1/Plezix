@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -378,7 +378,7 @@ var gPrivacyPane = {
   _pane: null,
 
   /**
-   * Whether the prompt to restart Firefox should appear when changing the autostart pref.
+   * Whether the prompt to restart Plezix should appear when changing the autostart pref.
    */
   _shouldPromptForRestart: true,
 
@@ -1157,9 +1157,9 @@ var gPrivacyPane = {
       }
     }
 
-    let onNimbus = () => this._updateFirefoxSuggestToggle();
+    let onNimbus = () => this._updatePlezixSuggestToggle();
     NimbusFeatures.urlbar.onUpdate(onNimbus);
-    this._updateFirefoxSuggestToggle();
+    this._updatePlezixSuggestToggle();
     window.addEventListener("unload", () => {
       NimbusFeatures.urlbar.offUpdate(onNimbus);
     });
@@ -2648,10 +2648,10 @@ var gPrivacyPane = {
   },
 
   /**
-   * Updates the visibility of the Firefox Suggest Privacy Container
+   * Updates the visibility of the Plezix Suggest Privacy Container
    * based on the user's Quick Suggest settings.
    */
-  _updateFirefoxSuggestToggle() {
+  _updatePlezixSuggestToggle() {
     document.getElementById(
       "firefoxSuggestDataCollectionPrivacyToggle"
     ).hidden =
@@ -2991,25 +2991,25 @@ var gPrivacyPane = {
   toggleRelayIntegration() {
     const checkbox = document.getElementById("relayIntegration");
     if (checkbox.checked) {
-      FirefoxRelay.markAsAvailable();
+      PlezixRelay.markAsAvailable();
       Glean.relayIntegration.enabledPrefChange.record();
     } else {
-      FirefoxRelay.markAsDisabled();
+      PlezixRelay.markAsDisabled();
       Glean.relayIntegration.disabledPrefChange.record();
     }
   },
 
   _updateRelayIntegrationUI() {
     document.getElementById("relayIntegrationBox").hidden =
-      !FirefoxRelay.isAvailable;
+      !PlezixRelay.isAvailable;
     document.getElementById("relayIntegration").checked =
-      FirefoxRelay.isAvailable && !FirefoxRelay.isDisabled;
+      PlezixRelay.isAvailable && !PlezixRelay.isDisabled;
   },
 
   _initRelayIntegrationUI() {
     document
       .getElementById("relayIntegrationLearnMoreLink")
-      .setAttribute("href", FirefoxRelay.learnMoreUrl);
+      .setAttribute("href", PlezixRelay.learnMoreUrl);
 
     setEventListener(
       "relayIntegration",

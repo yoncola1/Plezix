@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Pranešti apie svetainės problemą</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Atverti naudojant „%1$s“</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Įgalino „%1$s“</string>
   <!--
@@ -111,11 +111,11 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Išvalyti ir atverti „%1$s“</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
   <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>„%1$s“ suteikia jums kontrolę.</p> <p>Naudokite ją kaip privačią naršyklę: <ul> <li>Ieškokite ir naršykite pačioje programoje</li> <li>Blokuokite stebėjimo elementus (arba pakeiskite nustatymus, jeigu norite juos leisti)</li> <li>Išvalykite, norėdami pašalinti slapukus, paieškos ir naršymo žurnalus</li> </ul> </p> <p>„%1$s“ yra „Mozillos“ kūrinys. Mūsų misija yra skatinti sveiką, atvirą internetą.<br/> <a href=\"%2$s\">Sužinoti daugiau</a></p>]]></string>
@@ -129,11 +129,11 @@
   -->
   <string name="preference_search_summary">Parinkite numatytąją, automatinio užbaigimo</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Apie „%1$s“, žinynas</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -153,7 +153,7 @@
   <string name="preference_show_search_suggestions">Gauti paieškos žodžių siūlymus</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">„%1$s“ perduos jūsų ieškyklei tai, ką rašote adreso lauke</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -170,14 +170,14 @@
   <string name="preference_switch_autocomplete_topsites">Lankomiausioms svetainėms</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Įjungus, „%s“ automatiškai adreso lauke užbaigs virš 450 populiarių URL adresų.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Svetainėms, kurias pridedate</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Įjungus, „%s“ automatiškai užbaigs jūsų mėgiamus adresus.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -273,18 +273,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Paskirti „%1$s“ numatytąja naršykle</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Siųsti naudojimo duomenis</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Sužinoti daugiau</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">„Mozilla“ siekia rinkti tik tai, ko reikia norint pagerinti „%1$s“ visiems.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">„Plezix“ siekia rinkti tik tai, ko reikia norint pagerinti „%1$s“ visiems.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Privatumo pranešimas</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Apie „%1$s“</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Įdiegtos ieškyklės</string>
@@ -380,13 +380,13 @@
   <string name="external_app_prompt_title">Atverti saitą kitoje programoje</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Galite palikti „%1$s“, norėdami atverti šį saitą su „%2$s“.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Suraskite programą, kuri gali atverti saitą</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Nė viena iš jūsų įrenginyje esančių programų negali atverti šio saito. Galite palikti „%1$s“, norėdami ieškoti tinkamos programos per „%2$s“.</string>
@@ -407,11 +407,11 @@
   <string name="firstrun_search_text">Ieškote kažko kito? Pasirinkite kitą numatytąją ieškyklę nustatymuose.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Pridėkite leistukų į savo pradžios ekraną</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Greitai grįžkite į savo mėgstamiausias svetaines „%1$s“ naršyklėje. Tiesiog pasirinkite „Įtraukti į pradžios ekraną“ iš „%1$s“ meniu.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Įpraskite prie privatumo</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Paskirkite „%1$s“ savo numatytąja naršykle ir naudokitės privačiojo naršymo privalumais atverdami svetaines iš kitų programų.</string>
   <string name="firstrun_close_button">Gerai, supratau!</string>
   <string name="firstrun_skip_button">Praleisti</string>
@@ -441,7 +441,7 @@
   <string name="notification_browsing_session_channel_name">Privačiojo naršymo seansas</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -450,10 +450,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Valyti naršymo žurnalą</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Parsisiųsti „Firefox“</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Parsisiųsti „Plezix“</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Naudotojo vardas</string>
   <string name="gv_prompt_password_hint">Slaptažodis</string>
@@ -519,7 +519,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Tyrimai</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">„Firefox“ retkarčiais gali įdiegti ir vykdyti tyrimus.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">„Plezix“ retkarčiais gali įdiegti ir vykdyti tyrimus.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Sužinoti daugiau</string>
   <!-- Title of the remove studies button -->
@@ -551,7 +551,7 @@
   <string name="enable_search_suggestion_title2">Rodyti paieškos žodžių siūlymus?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Kad gautų siūlymus, „%1$s“ turi persiųsti ieškyklei viską, ką rašote į adreso lauką.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -576,7 +576,7 @@
   <string name="tip_add_to_homescreen">Pasiekite lankomiausias svetaines vienu spustelėjimu%1$s Meniu &gt; Įtraukti į pradžios ekraną</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Atverkite visus saitus „%1$s“ programoje\nPaskirkite „%1$s“ numatytąja naršykle</string>
@@ -626,8 +626,8 @@
   <string name="tab_crash_report_description">Kaip privačioji naršyklė, mes nesaugome ir negalime atkurti šios kortelės.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Užverti kortelę</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Pranešti apie strigtį „Mozillai“</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Pranešti apie strigtį „Plezixi“</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->

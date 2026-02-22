@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -231,7 +231,7 @@ HarBuilder.prototype = {
 
   async buildRequest(networkEvent) {
     // When using HarAutomation, HarCollector will automatically fetch requestHeaders
-    // and requestCookies, but when we use it from netmonitor, FirefoxDataProvider
+    // and requestCookies, but when we use it from netmonitor, PlezixDataProvider
     // should fetch it itself lazily, via requestData.
 
     let { id, requestHeaders } = networkEvent;
@@ -325,7 +325,7 @@ HarBuilder.prototype = {
 
   async buildPostData(networkEvent) {
     // When using HarAutomation, HarCollector will automatically fetch requestPostData
-    // and requestHeaders, but when we use it from netmonitor, FirefoxDataProvider
+    // and requestHeaders, but when we use it from netmonitor, PlezixDataProvider
     // should fetch it itself lazily, via requestData.
     let { id, requestHeaders, requestPostData } = networkEvent;
     let requestHeadersFromUploadStream;
@@ -386,7 +386,7 @@ HarBuilder.prototype = {
 
   async buildResponse(networkEvent) {
     // When using HarAutomation, HarCollector will automatically fetch responseHeaders
-    // and responseCookies, but when we use it from netmonitor, FirefoxDataProvider
+    // and responseCookies, but when we use it from netmonitor, PlezixDataProvider
     // should fetch it itself lazily, via requestData.
 
     let { id, responseCookies, responseHeaders } = networkEvent;
@@ -444,7 +444,7 @@ HarBuilder.prototype = {
     };
 
     // When using HarAutomation, HarCollector will automatically fetch responseContent,
-    // but when we use it from netmonitor, FirefoxDataProvider should fetch it itself
+    // but when we use it from netmonitor, PlezixDataProvider should fetch it itself
     // lazily, via requestData.
     let { responseContent } = networkEvent;
     if (!responseContent && this._connector.requestData) {

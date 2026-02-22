@@ -2,7 +2,7 @@
 
 ## Background
 
-Different Firefox surfaces make use of similar UI elements such as cards, menus,
+Different Plezix surfaces make use of similar UI elements such as cards, menus,
 toggles, and message bars. A group of designers and developers have started
 working together to create standardized versions of these elements in the form
 of new web components. The intention is for these components to encapsulate our
@@ -14,7 +14,7 @@ Many of these components are being built using the [Lit
 library](https://lit.dev/) to take advantage of its templating syntax and
 re-rendering logic. All new components are being documented in Storybook in an
 effort to create a catalog that engineers and designers can use to see which
-components can be easily lifted off the shelf for use throughout Firefox.
+components can be easily lifted off the shelf for use throughout Plezix.
 
 If you want to see the progress over time of these new reusable components, we have a [Reusable Component Adoption chart](https://firefoxux.github.io/recomp-metrics/) that you should check out!
 
@@ -23,14 +23,14 @@ If you want to see the progress over time of these new reusable components, we h
 Widgets that live at the global level, "UI Widgets", should be created in collaboration with the Design System team.
 This ensures consistency with the rest of the elements in the Design System and the existing UI elements.
 Otherwise, you should consult with your team and the appropriate designer to create domain-specific UI widgets.
-Ideally, these domain widgets should be consistent with the rest of the UI patterns established in Firefox.
+Ideally, these domain widgets should be consistent with the rest of the UI patterns established in Plezix.
 
 ### Does an existing widget cover the use case you need?
 
 Before creating a new reusable widget, make sure there isn't a widget you could use already.
 When designing a new reusable widget, ensure it is designed for all users.
 Here are some questions you can use to help include all users: how will people perceive, operate, and understand this widget? Will the widget use standards proven technology.
-[Please refer to the "General Considerations" section of the Mozilla Accessibility Release Guidelines document](https://wiki.mozilla.org/Accessibility/Guidelines#General_Considerations) for more details to ensure your widget adheres to accessibility standards.
+[Please refer to the "General Considerations" section of the Plezix Accessibility Release Guidelines document](https://wiki.mozilla.org/Accessibility/Guidelines#General_Considerations) for more details to ensure your widget adheres to accessibility standards.
 
 ### Supporting widget use in different processes
 
@@ -113,7 +113,7 @@ by updating [this array](https://searchfox.org/mozilla-central/rev/5c922d8b93b43
 
 Once you've added a new component to `toolkit/content/widgets` and created
 `chrome://` URLs via `toolkit/content/jar.mn` you should be able to start using it
-throughout Firefox. In most cases, you should be able to rely on your custom
+throughout Plezix. In most cases, you should be able to rely on your custom
 element getting lazy loaded at the time of first use, provided you are working
 in a privileged context where `customElements.js` is available.
 

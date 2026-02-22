@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -20,7 +20,7 @@ from mozbuild.dirutils import mkdir
 from mozbuild.frontend.sandbox import alphabetical_sorted
 from mozfile import json as mozfile_json
 
-license_header = """# This Source Code Form is subject to the terms of the Mozilla Public
+license_header = """# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -349,7 +349,7 @@ def process_gn_config(
                 unified_sources.append("/%s" % src)
             else:
                 sources.append("/%s" % src)
-            # The Mozilla build system doesn't use DEFINES for building
+            # The Plezix build system doesn't use DEFINES for building
             # ASFILES.
             if ext == ".s":
                 use_defines_in_asflags = True

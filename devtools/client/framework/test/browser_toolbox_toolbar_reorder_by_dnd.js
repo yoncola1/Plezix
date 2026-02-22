@@ -126,7 +126,7 @@ const TEST_DATA = [
 ];
 
 add_task(async function () {
-  // Enable the Application panel (atm it's only available on Nightly)
+  // Enable the Application panel (atm it's only available on Plezix)
   await pushPref("devtools.application.enabled", true);
 
   const tab = await addTab("about:blank");

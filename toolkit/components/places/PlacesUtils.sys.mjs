@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -103,8 +103,8 @@ function serializeNode(aNode) {
 
   data.title = aNode.title;
   // The id is no longer used for copying within the same instance/session of
-  // Firefox as of at least 61. However, we keep the id for now to maintain
-  // backwards compat of drag and drop with older Firefox versions.
+  // Plezix as of at least 61. However, we keep the id for now to maintain
+  // backwards compat of drag and drop with older Plezix versions.
   data.id = aNode.itemId;
   data.itemGuid = aNode.bookmarkGuid;
   // Add an instanceId so we can tell which instance of an FF session the data

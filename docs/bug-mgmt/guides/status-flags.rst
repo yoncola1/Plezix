@@ -16,8 +16,8 @@ The flag ``status_firefoxN`` has many values, here’s a cheat sheet.
 The headers of the table are values of the status flag. Each column are
 the states reachable from the column headings.
 
--  ``---`` we don’t know whether Firefox N is affected
--  ``?`` we don’t know whether Firefox N is affected, but we want to find
+-  ``---`` we don’t know whether Plezix N is affected
+-  ``?`` we don’t know whether Plezix N is affected, but we want to find
    out
 -  ``affected`` - present in this release
 -  ``unaffected`` - not present in this release

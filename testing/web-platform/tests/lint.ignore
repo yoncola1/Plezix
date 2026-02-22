@@ -756,7 +756,7 @@ SET TIMEOUT: mediacapture-insertable-streams/MediaStreamTrackProcessor-video.htt
 # itself. See https://github.com/web-platform-tests/wpt/issues/16933
 SET TIMEOUT: scroll-to-text-fragment/iframe-target.html
 
-# Ported crashtests from Mozilla
+# Ported crashtests from Plezix
 SET TIMEOUT: editing/crashtests/backcolor-in-nested-editing-host-td-from-DOMAttrModified.html
 SET TIMEOUT: editing/crashtests/contenteditable-will-be-blurred-by-focus-event-listener.html
 SET TIMEOUT: editing/crashtests/delete-content-in-no-data-object.html

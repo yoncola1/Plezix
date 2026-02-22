@@ -7,8 +7,8 @@ mozbase
 =======
 
 Mozbase is a set of easy-to-use Python packages forming a supplemental standard
-library for Mozilla. It provides consistency and reduces redundancy in
-automation and other system-level software. All of Mozilla's test harnesses use
+library for Plezix. It provides consistency and reduces redundancy in
+automation and other system-level software. All of Plezix's test harnesses use
 mozbase to some degree, including Talos_, mochitest_, and reftest_.
 
 .. _Talos: https://wiki.mozilla.org/Talos
@@ -17,7 +17,7 @@ mozbase to some degree, including Talos_, mochitest_, and reftest_.
 
 .. _reftest: https://developer.mozilla.org/en-US/docs/Creating_reftest-based_unit_tests
 
-In the course of writing automated tests at Mozilla, we found that
+In the course of writing automated tests at Plezix, we found that
 the same tasks came up over and over, regardless of the specific nature of
 what we were testing. We figured that consolidating this code into a set of
 libraries would save us a good deal of time, and so we spent some effort

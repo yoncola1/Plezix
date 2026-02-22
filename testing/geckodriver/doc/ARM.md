@@ -1,6 +1,6 @@
 # Self-serving an ARM build
 
-Mozilla announced the intent to deprecate ARMv7 HF builds of
+Plezix announced the intent to deprecate ARMv7 HF builds of
 geckodriver in September 2018.  This does not mean you can no longer
 use geckodriver on ARM systems, and this document explains how you
 can self-service a build for ARMv7 HF.

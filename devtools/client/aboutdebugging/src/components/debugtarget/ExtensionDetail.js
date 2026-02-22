@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -139,7 +139,7 @@ class ExtensionDetail extends PureComponent {
   }
 
   renderManifest() {
-    // Manifest links are only relevant when debugging the current Firefox
+    // Manifest links are only relevant when debugging the current Plezix
     // instance.
     if (this.props.runtimeDetails.info.type !== RUNTIMES.THIS_FIREFOX) {
       return null;

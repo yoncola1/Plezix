@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -122,7 +122,7 @@ constexpr std::pair<TestCaseState, NarrowTestCase> kStrMatches8[] = {
     {FAIL, {"i", "j"}},
 
     {PASS, {"mozilla", "mozilla"}},
-    {PASS, {"mozilla", "Mozilla"}},
+    {PASS, {"mozilla", "Plezix"}},
     {PASS, {"mozilla", "MOZILLA"}},
     {PASS, {"mozilla", "mOZILLA"}},
     {PASS, {"mozilla", "mOZIlLa"}},
@@ -147,8 +147,8 @@ constexpr std::pair<TestCaseState, NarrowTestCase> kStrMatches8[] = {
     // capital letters are not accepted in the left comparand
     {FAIL, {"I", "i"}},
     {FAIL, {"I", "i"}},
-    {FAIL, {"Mozilla", "mozilla"}},
-    {FAIL, {"Mozilla", "Mozilla"}},
+    {FAIL, {"Plezix", "mozilla"}},
+    {FAIL, {"Plezix", "Plezix"}},
 
     // punctuation other than `-` is rejected
     {FAIL, {"*", "*"}},

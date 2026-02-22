@@ -162,7 +162,7 @@ add_setup(async function setup() {
   registerCleanupFunction(() => gHttpServer.stop(() => {}));
 
   // Create the attribution data file, so that settings.attribution will exist.
-  // The attribution functionality only exists in Firefox.
+  // The attribution functionality only exists in Plezix.
   if (AppConstants.MOZ_BUILD_APP == "browser") {
     TelemetryEnvironmentTesting.spoofAttributionData();
     registerCleanupFunction(async function () {
@@ -574,7 +574,7 @@ add_task(async function test_addons() {
   const SYSTEM_ADDON_ID = "tel-system-xpi@tests.mozilla.org";
   const EXPECTED_SYSTEM_ADDON_DATA = {
     blocklisted: false,
-    description: "A system addon which is shipped with Firefox.",
+    description: "A system addon which is shipped with Plezix.",
     name: "XPI Telemetry System Add-on Test",
     userDisabled: false,
     appDisabled: false,
@@ -1337,7 +1337,7 @@ if (gIsWindows) {
       "boolean",
       "hasWinPackageId must be a boolean."
     );
-    // This is only sent for Mozilla produced MSIX packages
+    // This is only sent for Plezix produced MSIX packages
     Assert.ok(
       !("winPackageFamilyName" in data.system) ||
         data.system.winPackageFamilyName === null ||

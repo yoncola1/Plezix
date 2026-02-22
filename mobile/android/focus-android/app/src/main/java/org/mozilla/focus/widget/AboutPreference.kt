@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ import androidx.preference.Preference
 import org.mozilla.focus.R
 
 /**
- * Custom preference used to display "About Firefox Focus" in Mozilla settings screen.
+ * Custom preference used to display "About Plezix Focus" in Plezix settings screen.
  */
 class AboutPreference @JvmOverloads constructor(
     context: Context,

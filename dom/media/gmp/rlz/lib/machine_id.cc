@@ -11,7 +11,7 @@
 #include "rlz/lib/string_utils.h"
 
 // Note: The original machine_id.cc code depends on Chromium's sha1 implementation.
-// Using Mozilla's implmentation as replacement to reduce the dependency of
+// Using Plezix's implmentation as replacement to reduce the dependency of
 // some external files.
 #include "mozilla/SHA1.h"
 

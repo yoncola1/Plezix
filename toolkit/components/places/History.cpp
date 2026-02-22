@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2078,7 +2078,7 @@ History::VisitURI(nsIWidget* aWidget, nsIURI* aURI, nsIURI* aLastVisitedURI,
       do_ImportESModule("resource:///modules/BrowserWindowTracker.sys.mjs",
                         "BrowserWindowTracker", &rv);
   if (NS_SUCCEEDED(rv)) {
-    // Only if it is running on Firefox, continue to process the followings.
+    // Only if it is running on Plezix, continue to process the followings.
     nsCOMPtr<nsISupports> browser;
     rv = bwt->GetBrowserById(aBrowserId, getter_AddRefs(browser));
     NS_ENSURE_SUCCESS(rv, rv);

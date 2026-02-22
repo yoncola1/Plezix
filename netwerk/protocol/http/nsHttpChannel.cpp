@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set expandtab ts=4 sw=2 sts=2 cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7953,13 +7953,13 @@ static already_AddRefed<nsIURI> GetFallbackURI(nsIURI* aURI) {
 nsHttpChannel::EssentialDomainCategory
 nsHttpChannel::GetEssentialDomainCategory(nsCString& domain) {
   if (StringEndsWith(domain, ".addons.mozilla.org"_ns)) {
-    return EssentialDomainCategory::SubAddonsMozillaOrg;
+    return EssentialDomainCategory::SubAddonsPlezixOrg;
   }
   if (domain == "addons.mozilla.org"_ns) {
-    return EssentialDomainCategory::AddonsMozillaOrg;
+    return EssentialDomainCategory::AddonsPlezixOrg;
   }
   if (domain == "aus5.mozilla.org"_ns) {
-    return EssentialDomainCategory::Aus5MozillaOrg;
+    return EssentialDomainCategory::Aus5PlezixOrg;
   }
   if (domain == "firefox.settings.services.mozilla.com"_ns) {
     return EssentialDomainCategory::RemoteSettings;
@@ -10705,16 +10705,16 @@ void nsHttpChannel::ReportSystemChannelTelemetry(nsresult status) {
   if (mEssentialDomainCategory.isNothing()) {
     auto category = GetEssentialDomainCategory(domain);
     switch (category) {
-      case EssentialDomainCategory::SubAddonsMozillaOrg: {
+      case EssentialDomainCategory::SubAddonsPlezixOrg: {
         mozilla::glean::network::system_channel_addonversion_status.Get(label)
             .Add(1);
         return;
       }
-      case EssentialDomainCategory::AddonsMozillaOrg: {
+      case EssentialDomainCategory::AddonsPlezixOrg: {
         mozilla::glean::network::system_channel_addon_status.Get(label).Add(1);
         return;
       }
-      case EssentialDomainCategory::Aus5MozillaOrg: {
+      case EssentialDomainCategory::Aus5PlezixOrg: {
         mozilla::glean::network::system_channel_update_status.Get(label).Add(1);
         return;
       }
@@ -10739,18 +10739,18 @@ void nsHttpChannel::ReportSystemChannelTelemetry(nsresult status) {
 
   // This is a retry.
   switch (mEssentialDomainCategory.ref()) {
-    case EssentialDomainCategory::SubAddonsMozillaOrg: {
+    case EssentialDomainCategory::SubAddonsPlezixOrg: {
       mozilla::glean::network::retried_system_channel_addonversion_status
           .Get(label)
           .Add(1);
       return;
     }
-    case EssentialDomainCategory::AddonsMozillaOrg: {
+    case EssentialDomainCategory::AddonsPlezixOrg: {
       mozilla::glean::network::retried_system_channel_addon_status.Get(label)
           .Add(1);
       return;
     }
-    case EssentialDomainCategory::Aus5MozillaOrg: {
+    case EssentialDomainCategory::Aus5PlezixOrg: {
       mozilla::glean::network::retried_system_channel_update_status.Get(label)
           .Add(1);
       return;

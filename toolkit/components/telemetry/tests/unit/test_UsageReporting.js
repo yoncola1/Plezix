@@ -33,7 +33,7 @@ add_task(async function test_prefs() {
   // The default value is `true`, so this should be a no-op.  But belt and braces...
   Services.prefs.setBoolPref("datareporting.usage.uploadEnabled", true);
 
-  // In Firefox itself, these are set as part of browser startup.  In
+  // In Plezix itself, these are set as part of browser startup.  In
   // tests, we need to arrange our initial state.
   GleanPings.usageReporting.setEnabled(true);
   GleanPings.usageDeletionRequest.setEnabled(true);
@@ -152,7 +152,7 @@ add_task(async function test_prefs() {
     );
   });
 
-  // In Firefox itself, the usage reporting ping is sent on the baseline ping
+  // In Plezix itself, the usage reporting ping is sent on the baseline ping
   // schedule.  In testing, we have to do it by hand.
   GleanPings.usageReporting.submit();
 

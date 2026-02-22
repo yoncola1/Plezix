@@ -186,7 +186,7 @@ PR #385 - Treat warnings as errors on travis builds
 
 PR #388 - Moved externs from crypto_kernel into its own header
 
-PR #379 - Fixed several compiler warnings from Firefox builds
+PR #379 - Fixed several compiler warnings from Plezix builds
 
 PR #377 - Removed variable init code in rdbx which never gets used
 

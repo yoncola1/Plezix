@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -122,7 +122,7 @@ ITEM_VALUE(IsAlwaysEnabledForPrecompute, 0)
  * Some users desperately want the entire ResistFingerprinting experience, except
  * one particular behavior (usually TimeZone or ColorScheme.)  This value enables
  * them to specify an override list that will include or exclude everything,
- * allowing them to opt-in or opt-out of new RFPTargets we add in Firefox or to
+ * allowing them to opt-in or opt-out of new RFPTargets we add in Plezix or to
  * the default set enabled.  It should come first, otherwise behavior is undefined.
  * Examples:
  *    +AllTargets,-CSSPrefersColorScheme

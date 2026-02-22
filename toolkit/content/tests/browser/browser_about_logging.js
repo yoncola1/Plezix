@@ -400,7 +400,7 @@ add_task(async function testProfilerStacks() {
   clearLoggingPrefs();
 });
 
-// Here we test that starting and stopping log collection to the Firefox
+// Here we test that starting and stopping log collection to the Plezix
 // Profiler opens a new tab. We don't actually check the content of the profile.
 add_task(async function testProfilerOpens() {
   await BrowserTestUtils.withNewTab(PAGE, async browser => {
@@ -522,7 +522,7 @@ add_task(async function testAndroidUI() {
     EventUtils.synthesizeMouseAtCenter(
       await getElementFromDocumentByText(
         document,
-        "Logging to the Firefox Profiler"
+        "Logging to the Plezix Profiler"
       ),
       {},
       window

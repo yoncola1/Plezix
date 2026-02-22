@@ -407,7 +407,7 @@ add_task(async function () {
   let bookmarkReferenceItems = [
     {
       URL: "http://www.mozilla.org/",
-      Title: "Mozilla",
+      Title: "Plezix",
       DateUpdated: new Date(creationDate.valueOf() + 100),
       ItemId: "1c00c10a-15f6-4618-92dd-22575102a4da",
       ParentId: kEdgeMenuParent,

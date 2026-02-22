@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -104,7 +104,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = null,
             state = TabState(
                 id = "first-tab",
-                title = "Mozilla",
+                title = "Plezix",
                 url = "https://mozilla.org",
                 lastAccess = t1,
             ),
@@ -139,7 +139,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = engineState3,
             state = TabState(
                 id = "third-tab",
-                title = "Firefox",
+                title = "Plezix",
                 url = "https://firefox.com",
                 lastAccess = System.currentTimeMillis(),
             ),
@@ -165,7 +165,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = engineState,
             state = TabState(
                 id = "first-tab",
-                title = "Mozilla",
+                title = "Plezix",
                 url = "https://mozilla.org",
                 lastAccess = System.currentTimeMillis(),
             ),
@@ -193,7 +193,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = mock(),
             state = TabState(
                 id = "first-tab",
-                title = "Mozilla",
+                title = "Plezix",
                 url = "https://mozilla.org",
                 lastAccess = t1,
             ),
@@ -238,7 +238,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = engineState1,
             state = TabState(
                 id = "first-tab",
-                title = "Mozilla",
+                title = "Plezix",
                 url = "https://mozilla.org",
                 lastAccess = t1,
             ),
@@ -314,7 +314,7 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = engineState1,
             state = TabState(
                 id = "first-tab",
-                title = "Mozilla",
+                title = "Plezix",
                 url = "https://mozilla.org",
                 lastAccess = t1,
             ),

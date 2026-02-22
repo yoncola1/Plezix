@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,7 +13,7 @@ import mozilla.components.support.base.log.logger.Logger
 import java.io.IOException
 
 /**
- * Use cases for handling the Mozilla Ad Routing Service (MARS) API click and impression callbacks.
+ * Use cases for handling the Plezix Ad Routing Service (MARS) API click and impression callbacks.
  * The use cases performs a request for the provided click or impression callback URL.
  *
  * @param client [Client] used for making HTTP API calls.

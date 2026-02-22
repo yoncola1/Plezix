@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ function initAboutInfo() {
   document.getElementById("eFxrVersion").textContent = "version 0.9";
   document.getElementById("eFxrDate").textContent = "(2019-12-17)";
   document.getElementById("eFxVersion").textContent =
-    "Firefox version " + Services.appinfo.version;
+    "Plezix version " + Services.appinfo.version;
 }
 
 function initClearAllData() {

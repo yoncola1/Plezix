@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ KeychainSecret::KeychainSecret() {}
 
 KeychainSecret::~KeychainSecret() {}
 
-ScopedCFType<CFStringRef> MozillaStringToCFString(const nsACString& stringIn) {
+ScopedCFType<CFStringRef> PlezixStringToCFString(const nsACString& stringIn) {
   // https://developer.apple.com/documentation/corefoundation/1543419-cfstringcreatewithbytes
   ScopedCFType<CFStringRef> stringOut(CFStringCreateWithBytes(
       nullptr, reinterpret_cast<const UInt8*>(stringIn.BeginReading()),
@@ -36,7 +36,7 @@ nsresult KeychainSecret::StoreSecret(const nsACString& aSecret,
   //   account: the given label,
   //   value: the given secret }
   // "account" is the way we differentiate different secrets.
-  // By default, secrets stored by the application (Firefox) in this way are not
+  // By default, secrets stored by the application (Plezix) in this way are not
   // accessible to other applications, so we shouldn't need to worry about
   // unauthorized access or namespace collisions. This will be the case as long
   // as we never set the kSecAttrAccessGroup attribute on the CFDictionary. The
@@ -54,10 +54,10 @@ nsresult KeychainSecret::StoreSecret(const nsACString& aSecret,
     return rv;
   }
   const CFStringRef keys[] = {kSecClass, kSecAttrAccount, kSecValueData};
-  ScopedCFType<CFStringRef> label(MozillaStringToCFString(aLabel));
+  ScopedCFType<CFStringRef> label(PlezixStringToCFString(aLabel));
   if (!label) {
     MOZ_LOG(gKeychainSecretLog, LogLevel::Debug,
-            ("MozillaStringToCFString failed"));
+            ("PlezixStringToCFString failed"));
     return NS_ERROR_FAILURE;
   }
   ScopedCFType<CFDataRef> secret(CFDataCreate(
@@ -89,10 +89,10 @@ nsresult KeychainSecret::DeleteSecret(const nsACString& aLabel) {
   //   account: the given label }
   // and then call SecItemDelete.
   const CFStringRef keys[] = {kSecClass, kSecAttrAccount};
-  ScopedCFType<CFStringRef> label(MozillaStringToCFString(aLabel));
+  ScopedCFType<CFStringRef> label(PlezixStringToCFString(aLabel));
   if (!label) {
     MOZ_LOG(gKeychainSecretLog, LogLevel::Debug,
-            ("MozillaStringToCFString failed"));
+            ("PlezixStringToCFString failed"));
     return NS_ERROR_FAILURE;
   }
   const void* values[] = {kSecClassGenericPassword, label.get()};
@@ -124,10 +124,10 @@ nsresult KeychainSecret::RetrieveSecret(const nsACString& aLabel,
   // return it.
   const CFStringRef keys[] = {kSecClass, kSecAttrAccount, kSecMatchLimit,
                               kSecReturnAttributes, kSecReturnData};
-  ScopedCFType<CFStringRef> label(MozillaStringToCFString(aLabel));
+  ScopedCFType<CFStringRef> label(PlezixStringToCFString(aLabel));
   if (!label) {
     MOZ_LOG(gKeychainSecretLog, LogLevel::Debug,
-            ("MozillaStringToCFString failed"));
+            ("PlezixStringToCFString failed"));
     return NS_ERROR_FAILURE;
   }
   const void* values[] = {kSecClassGenericPassword, label.get(),

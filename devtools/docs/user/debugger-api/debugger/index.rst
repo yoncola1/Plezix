@@ -140,7 +140,7 @@ Handler functions run in the same thread in which the event occurred. They run i
 
   This handler method should return a resumption value specifying how the debuggee’s execution should proceed. However, note that a ``{ return: value }`` resumption value is treated like ``undefined`` (“continue normally”); *value* is ignored. (Allowing the handler to substitute its own value for the new global object doesn’t seem useful.)
 
-  This handler method is only available to debuggers running in privileged code (“chrome”, in Firefox). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, the ``onNewGlobalObject`` method allows the API user to monitor all global object creation that occurs anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``onNewGlobalObject`` is only available to privileged code.
+  This handler method is only available to debuggers running in privileged code (“chrome”, in Plezix). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, the ``onNewGlobalObject`` method allows the API user to monitor all global object creation that occurs anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``onNewGlobalObject`` is only available to privileged code.
 
 
 Function Properties of the Debugger Prototype Object
@@ -158,7 +158,7 @@ The functions described below may only be called with a ``this`` value referring
 
   - A global object.
 
-  - An HTML5 ``WindowProxy`` object (an “outer window”, in Firefox terminology), which is treated as if the ``Window`` object of the browsing context’s active document (the “inner window”) were passed.
+  - An HTML5 ``WindowProxy`` object (an “outer window”, in Plezix terminology), which is treated as if the ``Window`` object of the browsing context’s active document (the “inner window”) were passed.
 
   - A cross-compartment wrapper of an object; we apply the prior rules to the wrapped object.
 
@@ -181,7 +181,7 @@ The functions described below may only be called with a ``this`` value referring
 
   If this debugger is :ref:`tracking allocation sites <debugger-api-debugger-memory-tracking-allocation-sites>` and cannot track allocation sites for some global, this method throws an ``Error``. Otherwise this method returns ``undefined``.
 
-  This method is only available to debuggers running in privileged code (“chrome”, in Firefox). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, the ``addAllGlobalsAsDebuggees`` method allows the API user to monitor all global object creation that occurs anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``addAllGlobalsAsDebuggees`` is only available to privileged code.
+  This method is only available to debuggers running in privileged code (“chrome”, in Plezix). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, the ``addAllGlobalsAsDebuggees`` method allows the API user to monitor all global object creation that occurs anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``addAllGlobalsAsDebuggees`` is only available to privileged code.
 
 ``removeDebuggee(global)``
 
@@ -277,7 +277,7 @@ The functions described below may only be called with a ``this`` value referring
 
   The results of this call can be affected in non-deterministic ways by the details of the JavaScript implementation. The array may include :doc:`Debugger.Object <../debugger.object/index>` instances referring to global objects that are not actually reachable by the debuggee or any other code in the system. (Naturally, once the function has returned, the array’s :doc:`Debugger.Object <../debugger.object/index>` instances strongly reference the globals they refer to.)
 
-  This handler method is only available to debuggers running in privileged code (“chrome”, in Firefox). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, ``findAllGlobals`` allows the API user to find all global objects anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``findAllGlobals`` is only available to privileged code.
+  This handler method is only available to debuggers running in privileged code (“chrome”, in Plezix). Most functions provided by this ``Debugger`` API observe activity in only those globals that are reachable by the API’s user, thus imposing capability-based restrictions on a ``Debugger``’s reach. However, ``findAllGlobals`` allows the API user to find all global objects anywhere within the JavaScript system (the “JSRuntime”, in SpiderMonkey terms), thereby escaping the capability-based limits. For this reason, ``findAllGlobals`` is only available to privileged code.
 
 ``makeGlobalObjectReference(global)``
 

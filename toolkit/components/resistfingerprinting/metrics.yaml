@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -74,7 +74,7 @@ characteristics:
     unit: Fingers
     description: >
       The number of touch points we will report to the web. On Android, this is
-      based on Android's FEATURE_TOUCHSCREEN* constants - Mozilla caps this at 5
+      based on Android's FEATURE_TOUCHSCREEN* constants - Plezix caps this at 5
       as Android stops distinguishing between numbers greater than 5.  On
       Windows this comes from the SM_MAXIMUMTOUCHES System Metric.
     lifetime: application
@@ -1080,7 +1080,7 @@ characteristics:
   canvasdata9:
     type: string
     description: >
-      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Firefox rendered normally.
+      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Plezix rendered normally.
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -1098,7 +1098,7 @@ characteristics:
   canvasdata10:
     type: string
     description: >
-      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Firefox rendered with italics, rotation, and shadow-blur.
+      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Plezix rendered with italics, rotation, and shadow-blur.
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -1314,7 +1314,7 @@ characteristics:
   canvasdata9software:
     type: string
     description: >
-      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Firefox rendered normally.
+      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Plezix rendered normally.
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -1332,7 +1332,7 @@ characteristics:
   canvasdata10software:
     type: string
     description: >
-      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Firefox rendered with italics, rotation, and shadow-blur.
+      The sha1 hash of an image rendered on a canvas. The image is a font shipped with Plezix rendered with italics, rotation, and shadow-blur.
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -3759,7 +3759,7 @@ characteristics:
   version:
     type: string
     description: >
-      Firefox build version
+      Plezix build version
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -3776,7 +3776,7 @@ characteristics:
   channel:
     type: string
     description: >
-      Firefox build channel
+      Plezix build channel
     lifetime: application
     send_in_pings:
       - user-characteristics
@@ -3794,7 +3794,7 @@ characteristics:
     type: quantity
     unit: int
     description: >
-      Firefox build's build date in unix time
+      Plezix build's build date in unix time
     lifetime: application
     send_in_pings:
       - user-characteristics

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -295,10 +295,10 @@ class HighlighterEnvironment extends EventEmitter {
   /**
    * Get the right target for listening to events on the page.
    * - If the environment was initialized from a WindowGlobalTargetActor
-   *   *and* if we're in the Browser Toolbox (to inspect Firefox Desktop): the
+   *   *and* if we're in the Browser Toolbox (to inspect Plezix Desktop): the
    *   targetActor is the RootActor, in which case, the window property can be
    *   used to listen to events.
-   * - With Firefox Desktop, the targetActor is a WindowGlobalTargetActor, and we use
+   * - With Plezix Desktop, the targetActor is a WindowGlobalTargetActor, and we use
    *   the chromeEventHandler which gives us a target we can use to listen to
    *   events, even from nested iframes.
    * - If the environment was initialized from a window, we also use the

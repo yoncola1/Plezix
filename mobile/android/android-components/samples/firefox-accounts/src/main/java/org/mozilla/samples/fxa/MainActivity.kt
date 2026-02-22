@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import mozilla.appservices.fxaclient.FxaServer
 import mozilla.components.concept.sync.Profile
 import mozilla.components.feature.qr.QrFeature
 import mozilla.components.lib.fetch.httpurlconnection.HttpURLConnectionClient
-import mozilla.components.service.fxa.FirefoxAccount
+import mozilla.components.service.fxa.PlezixAccount
 import mozilla.components.service.fxa.FxaException
 import mozilla.components.support.base.log.Log
 import mozilla.components.support.base.log.sink.AndroidLogSink
@@ -33,7 +33,7 @@ import mozilla.components.support.rustlog.RustLog
 import kotlin.coroutines.CoroutineContext
 
 open class MainActivity : AppCompatActivity(), LoginFragment.OnLoginCompleteListener, CoroutineScope {
-    private lateinit var account: FirefoxAccount
+    private lateinit var account: PlezixAccount
     private var scopesWithoutKeys: Set<String> = setOf("profile")
     private var scopesWithKeys: Set<String> = setOf("profile", "https://identity.mozilla.com/apps/oldsync")
     private var scopes: Set<String> = scopesWithoutKeys
@@ -123,7 +123,7 @@ open class MainActivity : AppCompatActivity(), LoginFragment.OnLoginCompleteList
         }
     }
 
-    private fun initAccount(): FirefoxAccount {
+    private fun initAccount(): PlezixAccount {
         getAuthenticatedAccount()?.let {
             launch {
                 it.getProfile(true)?.let { profile ->
@@ -134,7 +134,7 @@ open class MainActivity : AppCompatActivity(), LoginFragment.OnLoginCompleteList
         }
 
         val config = FxaConfig(FxaServer.Custom(CONFIG_URL), CLIENT_ID, REDIRECT_URL)
-        return FirefoxAccount(config)
+        return PlezixAccount(config)
     }
 
     override fun onDestroy() {
@@ -161,11 +161,11 @@ open class MainActivity : AppCompatActivity(), LoginFragment.OnLoginCompleteList
         supportFragmentManager.popBackStack()
     }
 
-    private fun getAuthenticatedAccount(): FirefoxAccount? {
+    private fun getAuthenticatedAccount(): PlezixAccount? {
         val savedJSON = getSharedPreferences(FXA_STATE_PREFS_KEY, Context.MODE_PRIVATE).getString(FXA_STATE_KEY, "")
         return savedJSON?.let {
             try {
-                FirefoxAccount.fromJSONString(it, null)
+                PlezixAccount.fromJSONString(it, null)
             } catch (e: FxaException) {
                 null
             }

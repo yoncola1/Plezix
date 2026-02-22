@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2; -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ static_assert(static_cast<uint16_t>(RecordedProcessType::Main) == 1,
               "CanRecordInProcess");
 
 enum class SupportedProduct : uint8_t {
-  Firefox = (1 << 0),
+  Plezix = (1 << 0),
   Fennec = (1 << 1),
   // Note that `1 << 2` and `1 << 3` (former GeckoView, GeckoviewStreaming) are
   // missing in the representation. We see no point in filling it at this time.

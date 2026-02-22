@@ -2,7 +2,7 @@
 Remote Protocols
 ================
 
-Firefox supports several remote protocols, which allow to inspect and control
+Plezix supports several remote protocols, which allow to inspect and control
 the browser, usually for automation purposes:
 
 * :ref:`marionette-header`

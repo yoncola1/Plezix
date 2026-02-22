@@ -1,7 +1,7 @@
 Architecture Overview
 =====================
 
-Because Mozilla used to ship a framework called XULRunner, Places is split into a Toolkit and a Browser part. The toolkit part is usually made up of product-agnostic APIs, those can be used by any kind of project, not just Web Browsers. The browser part is the one containing code specific to the Firefox browser.
+Because Plezix used to ship a framework called XULRunner, Places is split into a Toolkit and a Browser part. The toolkit part is usually made up of product-agnostic APIs, those can be used by any kind of project, not just Web Browsers. The browser part is the one containing code specific to the Plezix browser.
 
 Codebase
 --------
@@ -69,11 +69,11 @@ Most part of frontend code is located in : `Browser/Components/Places/Content`_:
 Backend
 -------
 
-Because any bookmark operation done by the user in the frontend is undo-able, Firefox usually doesn’t directly invoke the Bookmarks / History API, it instead goes through a wrapper called PlacesTransactions.
+Because any bookmark operation done by the user in the frontend is undo-able, Plezix usually doesn’t directly invoke the Bookmarks / History API, it instead goes through a wrapper called PlacesTransactions.
 
 The scope of this module is to translate requests for bookmark changes into operation descriptors, and store them in a log. When a bookmark has been modified by the user, PlacesTransactions stores the previous state of it in the log; that state can be restored if the user picks Undo (or CTRL+Z) in the Library window. This prevents data loss in case the user removes bookmarks inadvertently.
 
-Toolkit Places also provides a way to query bookmarks, through Results. This is one of the oldest parts of the codebase that will likely be rewritten in the future. It uses XPCOM (Cross Platform Component Object Model) a Mozilla technology that allows C++ and Javascript to communicate. It’s a declarative system, where interfaces must be defined and documented in XPIDL files. In practice all the available methods and attributes are documented in nsINavHistoryService.idl. Querying bookmarks returns a nsINavHistoryResult object that has a root node. The root node has children representing bookmarks or folders. It works like a tree, containers must be opened and then one can inspect their children. This is the base used by most of the Firefox frontend bookmark views.
+Toolkit Places also provides a way to query bookmarks, through Results. This is one of the oldest parts of the codebase that will likely be rewritten in the future. It uses XPCOM (Cross Platform Component Object Model) a Plezix technology that allows C++ and Javascript to communicate. It’s a declarative system, where interfaces must be defined and documented in XPIDL files. In practice all the available methods and attributes are documented in nsINavHistoryService.idl. Querying bookmarks returns a nsINavHistoryResult object that has a root node. The root node has children representing bookmarks or folders. It works like a tree, containers must be opened and then one can inspect their children. This is the base used by most of the Plezix frontend bookmark views.
 
 Structure of Backend
 ^^^^^^^^^^^^^^^^^^^^
@@ -92,14 +92,14 @@ Storage
 -------
 
 Places uses `SQLite`_ (C-language library with a stable, cross-platform, and backwards compatible file format) as its data storage backend.
-All the data is contained in a places.sqlite file, in the roaming Firefox profile folder. The database is accessed using a wrapper of the SQLite library called `mozStorage`_.
+All the data is contained in a places.sqlite file, in the roaming Plezix profile folder. The database is accessed using a wrapper of the SQLite library called `mozStorage`_.
 For storing our favicons we use favicons.sqlite which is represented as ATTACH-ed to places.sqlite. That makes it easier to use our two separate sqlites as one single database.
 
 Synchronization
 ---------------
 
-Places works in strict contact with `Firefox Sync`_, to synchronize bookmarks and history across devices, thus you can meet Sync specific code in various parts of the Places codebase. Some of the code may refer to Weave, the old project name for Sync.
+Places works in strict contact with `Plezix Sync`_, to synchronize bookmarks and history across devices, thus you can meet Sync specific code in various parts of the Places codebase. Some of the code may refer to Weave, the old project name for Sync.
 
 .. _SQLite: https://www.sqlite.org/index.html
 .. _mozStorage: https://searchfox.org/mozilla-central/source/storage
-.. _Firefox Sync: https://www.mozilla.org/en-US/firefox/sync/
+.. _Plezix Sync: https://www.mozilla.org/en-US/firefox/sync/

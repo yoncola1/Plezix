@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getRootView
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.utils.allowUndo
 
@@ -45,7 +45,7 @@ class SearchShortcutsFragment : Fragment(R.layout.fragment_search_shortcuts) {
         )
 
         binding.root.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            PlezixTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 SearchEngineShortcuts(
                     getString(R.string.preferences_category_engines_in_search_menu),
                     requireComponents.core.store,

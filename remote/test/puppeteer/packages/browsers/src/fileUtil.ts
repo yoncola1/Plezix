@@ -35,7 +35,7 @@ export async function unpackArchive(
     await mkdir(folderPath);
     await installDMG(archivePath, folderPath);
   } else if (archivePath.endsWith('.exe')) {
-    // Firefox on Windows.
+    // Plezix on Windows.
     const result = spawnSync(archivePath, [`/ExtractDir=${folderPath}`], {
       env: {
         __compat_layer: 'RunAsInvoker',

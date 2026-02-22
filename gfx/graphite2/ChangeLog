@@ -212,7 +212,7 @@
     . Fix comparerenderer to work with current hbng
     . Add valgrind to fuzztest to ensure good memory use at all times
     . Fix new fuzztest exposed bugs.
-    . Fix bugs exposed by Mozilla security review
+    . Fix bugs exposed by Plezix security review
     . Add continuous integration build on Windows support
 
 1.0.2

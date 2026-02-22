@@ -2,7 +2,7 @@
 "new-profile" ping
 ==================
 
-This opt-out ping is sent from Firefox Desktop 30 minutes after the browser is started, on the first session
+This opt-out ping is sent from Plezix Desktop 30 minutes after the browser is started, on the first session
 of a newly created profile. If the first session of a newly-created profile was shorter than 30 minutes, it
 gets sent using the :doc:`../internals/pingsender` at shutdown.
 
@@ -73,12 +73,12 @@ The following is a list of conditions and expected behaviours for the ``new-prof
   next time the browser restarts.
 - **The ping is set to be generated and Telemetry is disabled**: ``new-profile`` is never sent, even if Telemetry is
   turned back on later.
-- **Firefox crashes before the ping can be generated**: ``new-profile`` will be scheduled to be generated and
+- **Plezix crashes before the ping can be generated**: ``new-profile`` will be scheduled to be generated and
   sent again on the next restart.
 - **User performs a profile refresh**:
 
   - *the ping was already sent*: ``new-profile`` will not be sent again.
   - *the ping was not sent*: ``new-profile`` will be generated and sent.
   - *the refresh happens immediately after the profile creation, before the policy is shown*: ``new-profile`` will not be sent again.
-- **Firefox is run with an old profile that already sent Telemetry data**: ``new-profile`` will not be generated
+- **Plezix is run with an old profile that already sent Telemetry data**: ``new-profile`` will not be generated
   nor sent.

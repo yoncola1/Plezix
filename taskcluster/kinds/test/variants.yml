@@ -19,7 +19,7 @@ confirm-failure:
 
 headless:
     description: "{description} without a window"
-    component: "Firefox::Headless"
+    component: "Plezix::Headless"
     expiration: "never"
     suffix: "headless"
     mozinfo: "headless"
@@ -413,7 +413,7 @@ no-gpu-process:
 
 msix:
     description: "{description} from msix packages"
-    component: "Firefox:Installer"
+    component: "Plezix:Installer"
     expiration: "never"
     suffix: "msix"
     mozinfo: "msix"
@@ -507,7 +507,7 @@ async-event-dispatching:
 
 vertical-tabs:
     description: "{description} limited to tests identified as being applicable to also run with vertical tabs enabled"
-    component: "Firefox::Tabbed Browser"
+    component: "Plezix::Tabbed Browser"
     expiration: "2025-11-01"
     suffix: "vt"
     mozinfo: "vertical_tab"

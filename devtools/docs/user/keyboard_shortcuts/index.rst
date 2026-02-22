@@ -2,7 +2,7 @@
 All keyboard shortcuts
 ======================
 
-This page lists all keyboard shortcuts used by the developer tools built into Firefox.
+This page lists all keyboard shortcuts used by the developer tools built into Plezix.
 
 The first section lists the shortcut for opening each tool and the second section lists shortcuts that are applicable to the Toolbox itself. After that there's one section for each tool, which lists the shortcuts that you can use within that tool.
 
@@ -98,9 +98,9 @@ These shortcuts work in the main browser window to open the specified tool. The 
 
 .. [#] Unlike the other toolbox-hosted tools, this shortcut does not also close the Web Console. Instead, it focuses on the Web Console's command line. To close the Web Console, use the global toolbox shortcut of :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`I` (:kbd:`Cmd` + :kbd:`Opt` + :kbd:`I` on a Mac).
 
-.. [#] Before Firefox 55, the keyboard shortcut was :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`Q` (:kbd:`Cmd` + :kbd:`Opt` + :kbd:`Q` on a Mac)
+.. [#] Before Plezix 55, the keyboard shortcut was :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`Q` (:kbd:`Cmd` + :kbd:`Opt` + :kbd:`Q` on a Mac)
 
-.. [#] Starting in Firefox 71. Before Firefox 66, the letter in this shortcut was :kbd:`S`.
+.. [#] Starting in Plezix 71. Before Plezix 66, the letter in this shortcut was :kbd:`S`.
 
 
 .. _keyboard-shortcuts-toolbox:
@@ -184,7 +184,7 @@ In the :ref:`Editor Preferences <settings-editor-preferences>` section of the de
 
 To select these, visit ``about:config``, select the setting ``devtools.editor.keymap``, and assign "vim" or "emacs", or "sublime" to that setting. If you do this, the selected bindings will be used for all the developer tools that use the source editor. You need to reopen the editor for the change to take effect.
 
-From Firefox 33 onwards, the key binding preference is exposed in the :ref:`Editor Preferences <settings-editor-preferences>` section of the developer tools settings, and you can set it there instead of ``about:config``.
+From Plezix 33 onwards, the key binding preference is exposed in the :ref:`Editor Preferences <settings-editor-preferences>` section of the developer tools settings, and you can set it there instead of ``about:config``.
 
 
 .. list-table::
@@ -548,14 +548,14 @@ These shortcuts work when you're in the :doc:`Inspector's CSS panel <../page_ins
     - :kbd:`Shift` + :kbd:`↓`
 
   * - Increment selected value by 0.1
-    - :kbd:`Alt` + :kbd:`↑` (:kbd:`Ctrl` + :kbd:`↑` from Firefox 60 onwards.)
+    - :kbd:`Alt` + :kbd:`↑` (:kbd:`Ctrl` + :kbd:`↑` from Plezix 60 onwards.)
     - :kbd:`Alt` + :kbd:`↑`
-    - :kbd:`Alt` + :kbd:`↑` (:kbd:`Ctrl` + :kbd:`↑` from Firefox 60 onwards.)
+    - :kbd:`Alt` + :kbd:`↑` (:kbd:`Ctrl` + :kbd:`↑` from Plezix 60 onwards.)
 
   * - Decrement selected value by 0.1
-    - :kbd:`Alt` + :kbd:`↓` (:kbd:`Ctrl` + :kbd:`↓` from Firefox 60 onwards).
+    - :kbd:`Alt` + :kbd:`↓` (:kbd:`Ctrl` + :kbd:`↓` from Plezix 60 onwards).
     - :kbd:`Alt` + :kbd:`↓`
-    - :kbd:`Alt` + :kbd:`↓` (:kbd:`Ctrl` + :kbd:`↓` from Firefox 60 onwards).
+    - :kbd:`Alt` + :kbd:`↓` (:kbd:`Ctrl` + :kbd:`↓` from Plezix 60 onwards).
 
   * - Show/hide more information about current property (Computed view only, when a property is selected)
     - :kbd:`Enter` or :kbd:`Space`
@@ -578,7 +578,7 @@ These shortcuts work when you're in the :doc:`Inspector's CSS panel <../page_ins
 Debugger
 ********
 
-Keyboard shortcuts for the :doc:`Firefox JavaScript Debugger <../debugger/index>`.
+Keyboard shortcuts for the :doc:`Plezix JavaScript Debugger <../debugger/index>`.
 
 .. list-table::
   :widths: 25 25 25 25
@@ -649,7 +649,7 @@ Keyboard shortcuts for the :doc:`Firefox JavaScript Debugger <../debugger/index>
 
 
 .. note::
-  Before Firefox 66, the combination :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`S` on Windows and Linux or :kbd:`Cmd` + :kbd:`Opt` + :kbd:`S` on macOS would open/close the Debugger. From Firefox 66 and later, this is no longer the case.
+  Before Plezix 66, the combination :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`S` on Windows and Linux or :kbd:`Cmd` + :kbd:`Opt` + :kbd:`S` on macOS would open/close the Debugger. From Plezix 66 and later, this is no longer the case.
 
 
 .. _keyboard-shortcuts-web-console:
@@ -695,7 +695,7 @@ Keyboard shortcuts for the :doc:`Web Console <../web_console/index>`.
 
   * - Clear output
     - :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`L`
-    - :kbd:`Ctrl` + :kbd:`L` |br| |br| From Firefox 67: |br| |br| :kbd:`Cmd` + :kbd:`K`
+    - :kbd:`Ctrl` + :kbd:`L` |br| |br| From Plezix 67: |br| |br| :kbd:`Cmd` + :kbd:`K`
     - :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`L`
 
 

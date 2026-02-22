@@ -4,7 +4,7 @@
 "use strict";
 
 /**
- * If the user has set Firefox itself as a helper app,
+ * If the user has set Plezix itself as a helper app,
  * we should force prompting what to do, rather than ending up
  * in an infinite loop.
  * In an ideal world, we'd also test the case where we are the OS

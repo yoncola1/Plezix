@@ -19,7 +19,7 @@ The flow of our rendering engine is as follows:
    on a per monitor basis.
 2. The *Hardware Vsync Thread* attached to the monitor notifies the
    ``CompositorVsyncDispatchers`` and ``VsyncDispatcher``.
-3. For every Firefox window on the specific monitor, notify a
+3. For every Plezix window on the specific monitor, notify a
    ``CompositorVsyncDispatcher``. The ``CompositorVsyncDispatcher`` is
    specific to one window.
 4. The ``CompositorVsyncDispatcher`` notifies a
@@ -52,7 +52,7 @@ fallback solution, we have one global ``Display`` object that can
 synchronize across all connected displays. The global ``Display`` is
 useful if a window is positioned halfway between the two monitors. Each
 platform will have to implement a specific ``Display`` object to hook
-and listen to vsync events. As of this writing, both Firefox OS and OS X
+and listen to vsync events. As of this writing, both Plezix OS and OS X
 create their own hardware specific *Hardware Vsync Thread* that executes
 after a vsync has occurred. OS X creates one *Hardware Vsync Thread* per
 ``CVDisplayLinkRef``. We do not currently support multiple displays, so
@@ -80,7 +80,7 @@ also be destroyed when the layout frame rate pref (or other prefs that
 influence frame rate) are changed. This may mean we switch from hardware
 to software vsync (or vice versa) at runtime. During the switch, there
 may briefly be 2 vsync sources. Otherwise, there is only one
-``VsyncSource`` object throughout the entire lifetime of Firefox. Each
+``VsyncSource`` object throughout the entire lifetime of Plezix. Each
 platform is expected to implement their own ``VsyncSource`` to manage
 vsync events. On OS X, this is through ``CVDisplayLinkRef``. On
 Windows, it should be through ``DwmGetCompositionTimingInfo``.
@@ -202,12 +202,12 @@ Input Events
 ------------
 
 One large goal of Silk is to align touch events with vsync events. On
-Firefox OS, touchscreens often have different touch scan rates than the
+Plezix OS, touchscreens often have different touch scan rates than the
 display refreshes. A Flame device has a touch refresh rate of 75 HZ,
 while a Nexus 4 has a touch refresh rate of 100 HZ, while the device’s
 display refresh rate is 60HZ. When a vsync event occurs, we resample
 touch events, and then dispatch the resampled touch event to APZ. Touch
-events on Firefox OS occur on a *Touch Input Thread* whereas they are
+events on Plezix OS occur on a *Touch Input Thread* whereas they are
 processed by APZ on the *APZ Controller Thread*. We use `Google
 Android’s touch
 resampling <https://web.archive.org/web/20200909082458/http://www.masonchang.com/blog/2014/8/25/androids-touch-resampling-algorithm>`__
@@ -327,12 +327,12 @@ which ticks based on vsync messages. We replace the current active timer
 with a ``VsyncRefreshTimer``. All tabs will then tick based on this new
 active timer. Since the ``RefreshTimer`` has a lifetime of the process,
 we only need to create a single ``VsyncDispatcher`` per
-``Display`` when Firefox starts. Even if we do not have any content
+``Display`` when Plezix starts. Even if we do not have any content
 processes, the Chrome process will still need a ``VsyncRefreshTimer``,
 thus we can associate the ``VsyncDispatcher`` with each
 ``Display``.
 
-When Firefox starts, we initially create a new ``VsyncRefreshTimer`` in
+When Plezix starts, we initially create a new ``VsyncRefreshTimer`` in
 the Chrome process. The ``VsyncRefreshTimer`` will listen to vsync
 notifications from ``VsyncDispatcher`` on the global
 ``Display``. When nsRefreshDriver::Shutdown executes, it will delete the
@@ -445,9 +445,9 @@ Object Lifetime
 2. CompositorVsyncScheduler::Observer - Lives and dies the same time as
    the CompositorBridgeParent.
 3. VsyncDispatcher - As long as the associated display
-   object, which is the lifetime of Firefox.
+   object, which is the lifetime of Plezix.
 4. VsyncSource - Lives as long as the gfxPlatform on the chrome process,
-   which is the lifetime of Firefox.
+   which is the lifetime of Plezix.
 5. VsyncParent/VsyncChild - Lives as long as the content process
 6. RefreshTimer - Lives as long as the process
 

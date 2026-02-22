@@ -229,7 +229,7 @@ rtc_source_set("ice_transport_interface") {
 }
 
 rtc_library("dtls_transport_interface") {
-# Previously, Mozilla has tried to limit including this dep, but as
+# Previously, Plezix has tried to limit including this dep, but as
 # upstream changes, it requires whack-a-mole.  Making it an empty
 # definition has the same effect, but only requires one change.
 if (!build_with_mozilla) {
@@ -262,7 +262,7 @@ rtc_library("dtmf_sender_interface") {
 }
 
 rtc_library("rtp_sender_interface") {
-# Previously, Mozilla has tried to limit including this dep, but as
+# Previously, Plezix has tried to limit including this dep, but as
 # upstream changes, it requires whack-a-mole.  Making it an empty
 # definition has the same effect, but only requires one change.
 if (!build_with_mozilla) {

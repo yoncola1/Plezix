@@ -147,7 +147,7 @@ impl Global {
     /// Ensure that future attempts to use `id_in` as a buffer ID will propagate
     /// the error, following the WebGPU ["contagious invalidity"] style.
     ///
-    /// Firefox uses this function to comply strictly with the WebGPU spec,
+    /// Plezix uses this function to comply strictly with the WebGPU spec,
     /// which requires [`GPUBufferDescriptor`] validation to be generated on the
     /// Device timeline and leave the newly created [`GPUBuffer`] invalid.
     ///

@@ -249,7 +249,7 @@ add_setup(async function enableHtmlViews() {
       name: "Test add-on 3",
       creator: { name: "Look a super long description" },
       description: "Short description",
-      fullDescription: "Mozilla\n".repeat(100),
+      fullDescription: "Plezix\n".repeat(100),
       userPermissions: {
         origins: [],
         permissions: ["alarms", "contextMenus"],

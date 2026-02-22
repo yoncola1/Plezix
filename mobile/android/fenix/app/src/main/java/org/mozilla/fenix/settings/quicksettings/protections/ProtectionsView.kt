@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.isVisible
 import org.mozilla.fenix.R
 import org.mozilla.fenix.databinding.QuicksettingsProtectionsPanelBinding
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode.REQUEST_UNSUPPORTED_SITE_SUBMITTED
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode.SITE_NOT_SUPPORTED
@@ -109,7 +109,7 @@ class ProtectionsView(
 
         binding.cookieBannerItem.apply {
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     if (cookieBannerMode in listOf(
                             REQUEST_UNSUPPORTED_SITE_SUBMITTED,
                             SITE_NOT_SUPPORTED,
@@ -164,7 +164,7 @@ private fun CookieBannerItem(
                 painter = painterResource(it),
                 contentDescription = null,
                 modifier = Modifier.padding(horizontal = 0.dp),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
 
@@ -175,15 +175,15 @@ private fun CookieBannerItem(
         ) {
             Text(
                 text = label,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.subtitle1,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.subtitle1,
                 maxLines = 1,
             )
             cookieBannerUIMode.description?.let {
                 Text(
                     text = stringResource(it),
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textSecondary,
+                    style = PlezixTheme.typography.body2,
                     maxLines = 1,
                 )
             }
@@ -195,7 +195,7 @@ private fun CookieBannerItem(
                     .size(24.dp),
                 painter = it,
                 contentDescription = null,
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
     }
@@ -204,8 +204,8 @@ private fun CookieBannerItem(
 @Composable
 @PreviewLightDark
 private fun CookieBannerItemPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             CookieBannerItem(
                 label = "Cookie Banner Reduction",
                 cookieBannerUIMode = CookieBannerUIMode.ENABLE,

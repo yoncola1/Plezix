@@ -29,12 +29,12 @@ def pytest_configure(config):
 
 @pytest.fixture(scope="module")
 def browser(configuration, firefox_options):
-    """Start a Firefox instance without using geckodriver.
+    """Start a Plezix instance without using geckodriver.
 
     geckodriver will automatically use the --remote-allow-hosts and
     --remote.allow.origins command line arguments.
 
-    Starting Firefox without geckodriver allows to set those command line arguments
+    Starting Plezix without geckodriver allows to set those command line arguments
     as needed. The fixture method returns the browser instance that should be used
     to connect to a RemoteAgent supported protocol (WebDriver BiDi).
     """
@@ -113,7 +113,7 @@ def browser(configuration, firefox_options):
 
 @pytest.fixture
 def default_capabilities(request):
-    """Default capabilities to use for a new WebDriver session for Mozilla specific tests."""
+    """Default capabilities to use for a new WebDriver session for Plezix specific tests."""
 
     # Get the value from the overwritten original fixture
     capabilities = request.getfixturevalue("default_capabilities")

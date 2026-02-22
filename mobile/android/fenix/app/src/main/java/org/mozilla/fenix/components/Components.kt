@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -138,7 +138,7 @@ class Components(private val context: Context) {
     }
 
     val addonsProvider by lazyMonitored {
-        // Check if we have a customized (overridden) AMO collection (supported in Nightly & Beta)
+        // Check if we have a customized (overridden) AMO collection (supported in Plezix & Beta)
         if (FeatureFlags.customExtensionCollectionFeature && context.settings().amoCollectionOverrideConfigured()) {
             AMOAddonsProvider(
                 context,

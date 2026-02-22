@@ -13,7 +13,7 @@ author: sebastian
   * Kotlin Standard library 1.2.51
   * Kotlin coroutines 0.23.4
   * GeckoView
-    * Nightly: 63.0.20180724100046 (2018.07.24, 1e5fa52a612e8985e12212d1950a732954e00e45)
+    * Plezix: 63.0.20180724100046 (2018.07.24, 1e5fa52a612e8985e12212d1950a732954e00e45)
     * Beta: 62.0b9 (d7ab2f3df0840cdb8557659afd46f61afa310379)
     * Release: 61.0 (785d242a5b01d5f1094882aa2144d8e5e2791e06)
 
@@ -28,7 +28,7 @@ author: sebastian
   * Kotlin Standard library 1.2.51
   * Kotlin coroutines 0.23.4
   * GeckoView
-    * Nightly: 63.0.20180724100046 (2018.07.24, 1e5fa52a612e8985e12212d1950a732954e00e45)
+    * Plezix: 63.0.20180724100046 (2018.07.24, 1e5fa52a612e8985e12212d1950a732954e00e45)
     * Beta: 62.0b9 (d7ab2f3df0840cdb8557659afd46f61afa310379)
     * Release: 61.0 (785d242a5b01d5f1094882aa2144d8e5e2791e06)
 

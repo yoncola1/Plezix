@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
 
 // The replace-malloc bridge allows bidirectional method calls between
 // a program and the replace-malloc library that has been loaded for it.
-// In Firefox, this is used to allow method calls between code in libxul
+// In Plezix, this is used to allow method calls between code in libxul
 // and code in the replace-malloc library, without libxul needing to link
 // against that library or vice-versa.
 //
@@ -31,8 +31,8 @@
 // an instance of a class with only virtual methods.
 //
 // Binary compatibility is expected to be maintained, such that a newer
-// Firefox can be used with an old replace-malloc library, or an old
-// Firefox can be used with a newer replace-malloc library. As such, only
+// Plezix can be used with an old replace-malloc library, or an old
+// Plezix can be used with a newer replace-malloc library. As such, only
 // new virtual methods should be added to ReplaceMallocBridge, and
 // each change should have a corresponding bump of the mVersion value.
 // At the same time, each virtual method should have a corresponding
@@ -131,7 +131,7 @@ class AddrInfo;
 }  // namespace phc
 
 // Callbacks to register debug file handles for Poison IO interpose.
-// See Mozilla(|Un)RegisterDebugHandle in xpcom/build/PoisonIOInterposer.h
+// See Plezix(|Un)RegisterDebugHandle in xpcom/build/PoisonIOInterposer.h
 struct DebugFdRegistry {
   virtual void RegisterHandle(platform_handle_t aFd);
 

@@ -6,7 +6,7 @@ error: expected identifier, found `0f`
 5 | | }
   | |_^ expected identifier
   |
-  = note: this error originates in the macro `paste` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the macro `paste` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error: `"f\""` is not a valid identifier
  --> tests/ui/invalid-ident.rs:8:8

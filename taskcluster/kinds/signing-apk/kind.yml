@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -60,12 +60,12 @@ tasks:
                     by-level:
                         '3':
                             email:
-                                content: The Mozilla Online Fenix {version} APKs are now available
+                                content: The Plezix Online Fenix {version} APKs are now available
                                 link:
                                     text: Taskcluster Task
                                     href: 'https://firefox-ci-tc.services.mozilla.com/tasks/${status.taskId}'
                                 on-reasons: [completed]
-                                subject: Mozilla Online Fenix {version} APKs are now available
+                                subject: Plezix Online Fenix {version} APKs are now available
                                 to-addresses: [mozillaonline-fenix@mozilla.com]
                         default: {}
                 default: {}

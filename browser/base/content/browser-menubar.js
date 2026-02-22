@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -62,8 +62,8 @@ document.addEventListener(
         case "sync-reauthitem":
           gSync.openSignInAgainPage("menubar");
           break;
-        case "menu_openFirefoxView":
-          FirefoxViewHandler.openTab();
+        case "menu_openPlezixView":
+          PlezixViewHandler.openTab();
           break;
         case "hiddenUndoCloseWindow":
           SessionWindowUI.undoCloseWindow(0);

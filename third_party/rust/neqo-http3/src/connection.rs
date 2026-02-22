@@ -901,7 +901,7 @@ impl Http3Connection {
             )),
         );
 
-        // Call immediately send so that at least headers get sent. This will make Firefox faster,
+        // Call immediately send so that at least headers get sent. This will make Plezix faster,
         // since it can send request body immediately in most cases and does not need to do
         // a complete process loop.
         self.send_streams

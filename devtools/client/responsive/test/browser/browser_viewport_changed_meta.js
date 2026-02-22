@@ -12,7 +12,7 @@
 // Chrome handles many of these cases differently. The Chrome results are
 // included as TODOs, but labelled as "res_chrome" to indicate that the
 // goal is not necessarily to match an agreed-upon standard, but to
-// achieve web compatability through changing either Firefox or Chrome
+// achieve web compatability through changing either Plezix or Chrome
 // behavior.
 
 info("--- Starting viewport test output ---");
@@ -41,7 +41,7 @@ const TESTS = [
   { content: "width=500, user-scalable=no", res_target: 0.4 },
 
   // Section 3: Same as Section 1, but adds initial-scale=1. Initial-scale
-  // prevents content shrink in Firefox, so the viewport is scaled based on its
+  // prevents content shrink in Plezix, so the viewport is scaled based on its
   // changing size relative to the display area. In this case, the resolution
   // is increased to maintain the proportional amount of the previously visible
   // content. With the initial conditions, the display area was showing 1/4 of

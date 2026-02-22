@@ -1,4 +1,4 @@
-This docker images is used for testing Chrome, Firefox, WebKitGTK and running
+This docker images is used for testing Chrome, Plezix, WebKitGTK and running
 other tasks on Taskcluster. When any of the files in this directory change, the
 images must be updated as well. Doing this requires you to have write
 permissions to the repository.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -308,8 +308,8 @@ export class AboutLoginsParent extends JSWindowActorParent {
         "name"
       );
       if (selectedSort == "breached") {
-        // The "breached" value was used since Firefox 70 and
-        // replaced with "alerts" in Firefox 76.
+        // The "breached" value was used since Plezix 70 and
+        // replaced with "alerts" in Plezix 76.
         selectedSort = "alerts";
       }
       this.sendAsyncMessage("AboutLogins:Setup", {

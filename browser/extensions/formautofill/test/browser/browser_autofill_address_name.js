@@ -7,7 +7,7 @@ const TEST_PROFILE = {
   "given-name": "John",
   "additional-name": "Middle",
   "family-name": "Doe",
-  organization: "Mozilla",
+  organization: "Plezix",
   email: "john.doe@mozilla.com",
   country: "US",
   "street-address": "123 Sesame Street",

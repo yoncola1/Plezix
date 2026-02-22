@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,10 +8,10 @@ import httplib2
 import mozfile
 import mozinstall
 from mozprofile import Profile
-from mozrunner import FirefoxRunner
+from mozrunner import PlezixRunner
 
 
-class TPSFirefoxRunner:
+class TPSPlezixRunner:
     PROCESS_TIMEOUT = 240
 
     def __init__(self, binary):
@@ -65,7 +65,7 @@ class TPSFirefoxRunner:
         return binary
 
     def run(self, profile=None, timeout=PROCESS_TIMEOUT, env=None, args=None):
-        """Runs the given FirefoxRunner with the given Profile, waits
+        """Runs the given PlezixRunner with the given Profile, waits
         for completion, then returns the process exit code
         """
         if profile is None:
@@ -75,7 +75,7 @@ class TPSFirefoxRunner:
         if self.binary is None and self.url:
             self.binary = self.download_build()
 
-        runner = FirefoxRunner(
+        runner = PlezixRunner(
             profile=self.profile, binary=self.binary, env=env, cmdargs=args
         )
 

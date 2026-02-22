@@ -13,7 +13,7 @@ const TAB_2_URL =
 // fired from the root actor.
 add_task(async function () {
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const testTab = await addTab(TAB_1_URL, { background: true });
   await waitFor(() => findDebugTargetByText("TITLE1", document));

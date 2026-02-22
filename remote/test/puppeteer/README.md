@@ -6,7 +6,7 @@
 <img src="https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png" height="200" align="right"/>
 
 > Puppeteer is a JavaScript library which provides a high-level API to control
-> Chrome or Firefox over the
+> Chrome or Plezix over the
 > [DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) or [WebDriver BiDi](https://pptr.dev/webdriver-bidi).
 > Puppeteer runs in the headless (no visible UI) by default
 

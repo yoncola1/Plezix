@@ -1,7 +1,7 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-// Tests the configurable indexes of sponsored and non-sponsored ("Firefox
+// Tests the configurable indexes of sponsored and non-sponsored ("Plezix
 // Suggest") quick suggest results.
 
 "use strict";

@@ -19,5 +19,5 @@ index 3d185a48c2..9bf9b015f7 100644
 -  int result = InitAndSetControlSettings(&codec_);
 +  int result = InitAndSetControlSettings();
    if (result == WEBRTC_VIDEO_CODEC_OK) {
-     // TODO: Mozilla rates have become much more complicated, we need to store
+     // TODO: Plezix rates have become much more complicated, we need to store
      // more state or find another way of doing this.

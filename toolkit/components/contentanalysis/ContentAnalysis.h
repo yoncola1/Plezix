@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef mozilla_contentanalysis_h
@@ -587,7 +587,7 @@ class ContentAnalysisResponse final : public nsIContentAnalysisResponse,
   // so any dialogs (for block/warn) should not be shown.
   bool mIsCachedResponse = false;
 
-  // Whether this is a synthesizic response from Firefox (as opposed to a
+  // Whether this is a synthesizic response from Plezix (as opposed to a
   // response from a DLP agent).
   // Synthetic responses ignore browser.contentanalysis.show_blocked_result and
   // always show a blocked result for blocked content, since there is no agent

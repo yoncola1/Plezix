@@ -1,6 +1,6 @@
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -90,7 +90,7 @@ var gViewSourceUtils = {
 
   /**
    * Displays view source in the provided <browser>.  This allows for non-window
-   * display methods, such as a tab from Firefox.
+   * display methods, such as a tab from Plezix.
    *
    * @param aArgs
    *        An object with the following properties:
@@ -147,7 +147,7 @@ var gViewSourceUtils = {
   /**
    * Displays view source for a selection from some document in the provided
    * <browser>.  This allows for non-window display methods, such as a tab from
-   * Firefox.
+   * Plezix.
    *
    * @param aBrowsingContext:
    *        The child browsing context containing the document to view the source of.

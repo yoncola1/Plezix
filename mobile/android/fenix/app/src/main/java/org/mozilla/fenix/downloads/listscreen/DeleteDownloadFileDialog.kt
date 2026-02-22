@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.compose.base.button.TextButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
 * This dialog is used to prompt the user to confirm if they want to delete
@@ -32,8 +32,8 @@ fun DeleteDownloadFileDialog(
                 text = stringResource(
                     R.string.download_delete_multi_select_dialog_confirmation,
                 ),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2,
             )
         },
         confirmButton = {
@@ -54,7 +54,7 @@ fun DeleteDownloadFileDialog(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun DeleteDownloadFileDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DeleteDownloadFileDialog(
             onConfirmDelete = {},
             onCancel = {},

@@ -2,7 +2,7 @@ The Lifecycle of a HTTP Request
 ===============================
 
 
-HTTP requests in Firefox go through several steps.  Each piece of the request message and response message become available at certain points.  Extracting that information is a challenge, though.
+HTTP requests in Plezix go through several steps.  Each piece of the request message and response message become available at certain points.  Extracting that information is a challenge, though.
 
 What is Available When
 ----------------------
@@ -31,7 +31,7 @@ What is Available When
 The Request: http-on-modify-request
 -----------------------------------
 
-Firefox fires a "http-on-modify-request" observer notification before sending the HTTP request, and this blocks the sending of the request until all observers exit.  This is generally the point at which you can modify the HTTP request headers (hence the name).
+Plezix fires a "http-on-modify-request" observer notification before sending the HTTP request, and this blocks the sending of the request until all observers exit.  This is generally the point at which you can modify the HTTP request headers (hence the name).
 
 Attaching a listener for a request is pretty simple::
 
@@ -82,7 +82,7 @@ Most HTTP requests don't have a body, as they are GET requests.  POST requests o
 The Response: http-on-examine-response
 --------------------------------------
 
-Firefox fires a "http-on-examine-response" observer notification after parsing the HTTP response status and headers, but **before** reading the response body.  Attaching a listener for this phase is also very easy::
+Plezix fires a "http-on-examine-response" observer notification after parsing the HTTP response status and headers, but **before** reading the response body.  Attaching a listener for this phase is also very easy::
 
   Services.obs.addObserver(observer, "http-on-examine-response", false);
 

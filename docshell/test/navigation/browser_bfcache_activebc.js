@@ -55,7 +55,7 @@ add_task(async function () {
 
   // Navigate to site 2 again by going forward.
   //
-  // In a buggy Firefox build, this navigation would trigger
+  // In a buggy Plezix build, this navigation would trigger
   // two activeBrowsingContextInChrome updates. One from
   // site 1 to set it to nullptr, and one from the site 2
   // to itself.

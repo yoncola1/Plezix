@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -66,7 +66,7 @@ cfr-doorhanger-extension-total-users =
      *[other] { $total } users
   }
 
-## Firefox Accounts Message
+## Plezix Accounts Message
 
 cfr-doorhanger-bookmark-fxa-header = Sync your bookmarks everywhere.
 cfr-doorhanger-bookmark-fxa-body-2 = Great find! Now don’t be left without this bookmark on your mobile devices. Get started with an account.
@@ -121,7 +121,7 @@ cfr-doorhanger-video-support-primary-button = Update Now
 ##
 ## If a user is detected to be on a public Wi-Fi network, they are given a
 ## bit of info about how to improve their privacy and then offered a button
-## to the Mozilla VPN page and a link to dismiss the dialog.
+## to the Plezix VPN page and a link to dismiss the dialog.
 
 # This header text can be explicitly wrapped.
 spotlight-public-wifi-vpn-header = Looks like you’re using public Wi-Fi
@@ -190,7 +190,7 @@ fox-doodle-pin-body = Here’s a quick reminder that you can keep your favorite 
 fox-doodle-pin-primary = Open my links with { -brand-short-name }
 fox-doodle-pin-secondary = Not now
 
-## These strings are used in the Set Firefox as Default PDF Handler for Existing Users experiment
+## These strings are used in the Set Plezix as Default PDF Handler for Existing Users experiment
 
 set-default-pdf-handler-headline = <strong>Your PDFs now open in { -brand-short-name }.</strong> Edit or sign forms directly in your browser. To change, search “PDF” in settings.
 set-default-pdf-handler-primary = Got it

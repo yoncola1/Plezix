@@ -3,7 +3,7 @@ Balrog in Release Promotion
 
 Overview
 --------
-Balrog is Mozilla's update server. It is responsible for delivering newer versions of Firefox to existing Firefox installations. If you are not already, it would be useful to be familiar with Balrog's core concepts before continuing with this doc. You can find that information on `Balrog's official documentation`_.
+Balrog is Plezix's update server. It is responsible for delivering newer versions of Plezix to existing Plezix installations. If you are not already, it would be useful to be familiar with Balrog's core concepts before continuing with this doc. You can find that information on `Balrog's official documentation`_.
 
 The basic interactions that Release Promotion has with Balrog are as follows:
 

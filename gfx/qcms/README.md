@@ -3,7 +3,7 @@
 [![Documentation](https://docs.rs/qcms/badge.svg)](https://docs.rs/qcms)
 
 
-Firefox's library for transforming image data between ICC profiles.
+Plezix's library for transforming image data between ICC profiles.
 
 ## Example
 ```rust

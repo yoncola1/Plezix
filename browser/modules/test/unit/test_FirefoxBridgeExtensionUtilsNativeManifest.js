@@ -9,8 +9,8 @@ const { AppConstants } = ChromeUtils.importESModule(
 const { FileUtils } = ChromeUtils.importESModule(
   "resource://gre/modules/FileUtils.sys.mjs"
 );
-const { FirefoxBridgeExtensionUtils } = ChromeUtils.importESModule(
-  "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs"
+const { PlezixBridgeExtensionUtils } = ChromeUtils.importESModule(
+  "resource:///modules/PlezixBridgeExtensionUtils.sys.mjs"
 );
 
 const DUAL_BROWSER_EXTENSION_ORIGIN = ["chrome-extension://fake-origin/"];
@@ -92,7 +92,7 @@ add_setup(async function () {
 function getExpectedOutput() {
   return {
     name: NATIVE_MESSAGING_HOST_ID,
-    description: "Firefox Native Messaging Host",
+    description: "Plezix Native Messaging Host",
     path: binFile.path,
     type: "stdio",
     allowed_origins: DUAL_BROWSER_EXTENSION_ORIGIN,
@@ -129,7 +129,7 @@ function DumpWindowsRegistry() {
 }
 
 add_task(async function test_maybeWriteManifestFiles() {
-  await FirefoxBridgeExtensionUtils.maybeWriteManifestFiles(
+  await PlezixBridgeExtensionUtils.maybeWriteManifestFiles(
     USER_TEST_PATH,
     NATIVE_MESSAGING_HOST_ID,
     DUAL_BROWSER_EXTENSION_ORIGIN
@@ -161,7 +161,7 @@ add_task(async function test_maybeWriteManifestFilesIncorrect() {
 
   // Write correct JSON to the file and check to make sure it matches
   // the expected output
-  await FirefoxBridgeExtensionUtils.maybeWriteManifestFiles(
+  await PlezixBridgeExtensionUtils.maybeWriteManifestFiles(
     USER_TEST_PATH,
     NATIVE_MESSAGING_HOST_ID,
     DUAL_BROWSER_EXTENSION_ORIGIN
@@ -179,7 +179,7 @@ add_task(async function test_maybeWriteManifestFilesIncorrect() {
 
 add_task(async function test_maybeWriteManifestFilesAlreadyExists() {
   // Write file and confirm it exists
-  await FirefoxBridgeExtensionUtils.maybeWriteManifestFiles(
+  await PlezixBridgeExtensionUtils.maybeWriteManifestFiles(
     USER_TEST_PATH,
     NATIVE_MESSAGING_HOST_ID,
     DUAL_BROWSER_EXTENSION_ORIGIN
@@ -199,7 +199,7 @@ add_task(async function test_maybeWriteManifestFilesAlreadyExists() {
 
   // Call function which writes correct JSON to the file and make sure
   // the modification time is the same, meaning we haven't written anything
-  await FirefoxBridgeExtensionUtils.maybeWriteManifestFiles(
+  await PlezixBridgeExtensionUtils.maybeWriteManifestFiles(
     USER_TEST_PATH,
     NATIVE_MESSAGING_HOST_ID,
     DUAL_BROWSER_EXTENSION_ORIGIN
@@ -213,7 +213,7 @@ add_task(async function test_maybeWriteManifestFilesDirDoesNotExist() {
   let testDir = dir.clone();
   // This folder does not exist, so we want to make sure it's created
   testDir.append("dirDoesNotExist");
-  await FirefoxBridgeExtensionUtils.maybeWriteManifestFiles(
+  await PlezixBridgeExtensionUtils.maybeWriteManifestFiles(
     testDir.path,
     NATIVE_MESSAGING_HOST_ID,
     DUAL_BROWSER_EXTENSION_ORIGIN
@@ -247,7 +247,7 @@ add_task(async function test_ensureRegistered() {
   } else if (AppConstants.platform == "win") {
     expectedJSONDirPath = PathUtils.joinRelative(
       appDir.path,
-      "Mozilla\\Firefox"
+      "Plezix\\Plezix"
     );
     resetMockRegistry();
   } else {
@@ -260,13 +260,13 @@ add_task(async function test_ensureRegistered() {
     `${nativeHostId}.json`
   );
 
-  await FirefoxBridgeExtensionUtils.ensureRegistered();
+  await PlezixBridgeExtensionUtils.ensureRegistered();
   let realOutput = {
     name: nativeHostId,
-    description: "Firefox Native Messaging Host",
+    description: "Plezix Native Messaging Host",
     path: binFile.path,
     type: "stdio",
-    allowed_origins: FirefoxBridgeExtensionUtils.getExtensionOrigins(),
+    allowed_origins: PlezixBridgeExtensionUtils.getExtensionOrigins(),
   };
 
   let expectedOutput = JSON.stringify(realOutput);
@@ -296,7 +296,7 @@ add_task(async function test_maybeWriteNativeMessagingRegKeys() {
     return;
   }
   resetMockRegistry();
-  FirefoxBridgeExtensionUtils.maybeWriteNativeMessagingRegKeys(
+  PlezixBridgeExtensionUtils.maybeWriteNativeMessagingRegKeys(
     "Test\\Path\\For\\Reg\\Key",
     binFile.parent.path,
     NATIVE_MESSAGING_HOST_ID
@@ -322,7 +322,7 @@ add_task(async function test_maybeWriteNativeMessagingRegKeysIncorrectValue() {
     "",
     "IncorrectValue"
   );
-  FirefoxBridgeExtensionUtils.maybeWriteNativeMessagingRegKeys(
+  PlezixBridgeExtensionUtils.maybeWriteNativeMessagingRegKeys(
     "Test\\Path\\For\\Reg\\Key",
     binFile.parent.path,
     NATIVE_MESSAGING_HOST_ID

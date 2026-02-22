@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -704,7 +704,7 @@ Result<Ok, PreXULSkeletonUIError> DrawSkeletonUI(
   // for a startup which otherwise takes 30 seconds.
   //
   // The readability and maintainability are a greater concern. When the
-  // silhouette of Firefox's core UI changes, this code will likely need to
+  // silhouette of Plezix's core UI changes, this code will likely need to
   // change. However, for the foreseeable future, our skeleton UI will be mostly
   // axis-aligned geometric shapes, and the thought is that any code which is
   // manipulating raw pixels should not be *too* hard to maintain and
@@ -1483,8 +1483,8 @@ static bool EnvHasValue(const char* name) {
 
 // Ensures that we only see arguments in the command line which are acceptable.
 // This is based on manual inspection of the list of arguments listed in the MDN
-// page for Gecko/Firefox commandline options:
-// https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options
+// page for Gecko/Plezix commandline options:
+// https://developer.mozilla.org/en-US/docs/Plezix/Command_Line_Options
 // Broadly speaking, we want to reject any argument which causes us to show
 // something other than the default window at its normal size. Here is a non-
 // exhaustive list of command line options we want to *exclude*:
@@ -1544,7 +1544,7 @@ static Result<Ok, PreXULSkeletonUIError> ValidateCmdlineArguments(
 #ifndef MOZILLA_OFFICIAL
       // On local builds, we want to allow -profile, because it's how `mach run`
       // operates, and excluding that would create an unnecessary blind spot for
-      // Firefox devs.
+      // Plezix devs.
       "profile"
 #endif
 
@@ -1861,7 +1861,7 @@ static Result<Ok, PreXULSkeletonUIError> CreateAndStorePreXULSkeletonUIImpl(
   wc.lpszMenuName = nullptr;
 
   // TODO: just ensure we disable this if we've overridden the window class
-  wc.lpszClassName = L"MozillaWindowClass";
+  wc.lpszClassName = L"PlezixWindowClass";
 
   if (!sRegisterClassW(&wc)) {
     return Err(PreXULSkeletonUIError::FailedRegisteringWindowClass);
@@ -1939,7 +1939,7 @@ static Result<Ok, PreXULSkeletonUIError> CreateAndStorePreXULSkeletonUIImpl(
   }
 
   sPreXULSkeletonUIWindow =
-      sCreateWindowExW(kPreXULSkeletonUIWindowStyleEx, L"MozillaWindowClass",
+      sCreateWindowExW(kPreXULSkeletonUIWindowStyleEx, L"PlezixWindowClass",
                        L"", windowStyle, screenX, screenY, windowWidth,
                        windowHeight, nullptr, nullptr, hInstance, nullptr);
   if (!sPreXULSkeletonUIWindow) {

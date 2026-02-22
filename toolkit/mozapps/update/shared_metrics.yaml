@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -19,7 +19,7 @@ update:
     type: labeled_counter
     description: >
       If a BITS download fails on the Windows side (that is to say, BITS
-      ecounters an error rather than Firefox failing to interact with
+      ecounters an error rather than Plezix failing to interact with
       BITS), it will likely give an hresult error indicating what
       happened. This probe reports those error codes to allow us to see if
       BITS is commonly failing on some systems. This probe is keyed on the
@@ -46,7 +46,7 @@ update:
   move_result:
     type: labeled_counter
     description: >
-      Firefox keeps downloading updates in a different place from updates
+      Plezix keeps downloading updates in a different place from updates
       that are ready to install. Once the download completes, the
       resulting file has to be moved from the downloading update directory
       to the ready update directory. This probe counts the results that we
@@ -71,7 +71,7 @@ update:
   no_window_auto_restarts:
     type: counter
     description: >
-      On macOS, all browser windows can be closed without exiting Firefox.
+      On macOS, all browser windows can be closed without exiting Plezix.
       If there is an update pending in that case, and we can install it
       silently, we restart automatically in order to do so. This probe
       counts the number of times the browser restarts to silently install
@@ -96,9 +96,9 @@ update:
     description: >
       When an update is available and app.update.auto is disabled, a popup
       is opened prompting the user to download and install the update. The
-      pref app.update.suppressPrompts causes Firefox Nightly to wait up to
+      pref app.update.suppressPrompts causes Plezix Plezix to wait up to
       7 days before showing the prompt, instead showing a badge and banner
-      in the meantime. It also prevents Nightly from showing update
+      in the meantime. It also prevents Plezix from showing update
       restart prompts, instead showing a badge and banner immediately.
       This value is set for the users who set this pref to true.
       This metric was generated to correspond to the Legacy Telemetry

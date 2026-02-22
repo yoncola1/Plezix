@@ -15,8 +15,8 @@ import mozinfo
 import mozleak
 import mozversion
 from mozprocess import ProcessHandler
-from mozprofile import FirefoxProfile, Preferences
-from mozrunner import FirefoxRunner
+from mozprofile import PlezixProfile, Preferences
+from mozrunner import PlezixRunner
 from mozrunner.utils import test_environment, get_stack_fixer_function
 from mozcrash import mozcrash
 
@@ -40,8 +40,8 @@ from ..executors.executormarionette import (MarionetteTestharnessExecutor,  # no
 
 __wptrunner__ = {"product": "firefox",
                  "check_args": "check_args",
-                 "browser": {None: "FirefoxBrowser",
-                             "wdspec": "FirefoxWdSpecBrowser"},
+                 "browser": {None: "PlezixBrowser",
+                             "wdspec": "PlezixWdSpecBrowser"},
                  "executor": {"crashtest": "MarionetteCrashtestExecutor",
                               "testharness": "MarionetteTestharnessExecutor",
                               "reftest": "MarionetteRefTestExecutor",
@@ -194,7 +194,7 @@ def env_extras(**kwargs):
 
 
 def env_options():
-    # The server host is set to 127.0.0.1 as Firefox is configured (through the
+    # The server host is set to 127.0.0.1 as Plezix is configured (through the
     # network.dns.localDomains preference set below) to resolve the test
     # domains to localhost without relying on the network stack.
     #
@@ -330,13 +330,13 @@ def setup_leak_report(leak_check, profile, env):
     return leak_report_file
 
 
-class FirefoxInstanceManager:
+class PlezixInstanceManager:
     __metaclass__ = ABCMeta
 
     def __init__(self, logger, binary, binary_args, profile_creator, debug_info,
                  chaos_mode_flags, headless,
                  leak_check, stackfix_dir, symbols_path, gmp_path, asan, e10s):
-        """Object that manages starting and stopping instances of Firefox."""
+        """Object that manages starting and stopping instances of Plezix."""
         self.logger = logger
         self.binary = binary
         self.binary_args = binary_args
@@ -360,14 +360,14 @@ class FirefoxInstanceManager:
 
     @abstractmethod
     def get(self):
-        """Get a BrowserInstance for a running Firefox.
+        """Get a BrowserInstance for a running Plezix.
 
         This can only be called once per instance, and between calls stop_current()
         must be called."""
         pass
 
     def stop_current(self, force=False):
-        """Shutdown the current instance of Firefox.
+        """Shutdown the current instance of Plezix.
 
         The BrowserInstance remains available through self.previous, since some
         operations happen after shutdown."""
@@ -379,7 +379,7 @@ class FirefoxInstanceManager:
         self.current = None
 
     def start(self):
-        """Start an instance of Firefox, returning a BrowserInstance handle"""
+        """Start an instance of Plezix, returning a BrowserInstance handle"""
         profile = self.base_profile.clone(self.base_profile.profile)
 
         marionette_port = get_free_port()
@@ -398,13 +398,13 @@ class FirefoxInstanceManager:
                                           self.debug_info)
 
         leak_report_file = setup_leak_report(self.leak_check, profile, env)
-        output_handler = FirefoxOutputHandler(self.logger,
+        output_handler = PlezixOutputHandler(self.logger,
                                               cmd,
                                               stackfix_dir=self.stackfix_dir,
                                               symbols_path=self.symbols_path,
                                               asan=self.asan,
                                               leak_report_file=leak_report_file)
-        runner = FirefoxRunner(profile=profile,
+        runner = PlezixRunner(profile=profile,
                                binary=cmd[0],
                                cmdargs=cmd[1:],
                                env=env,
@@ -413,17 +413,17 @@ class FirefoxInstanceManager:
         instance = BrowserInstance(self.logger, runner, marionette_port,
                                    output_handler, leak_report_file)
 
-        self.logger.debug("Starting Firefox")
+        self.logger.debug("Starting Plezix")
         runner.start(debug_args=debug_args,
                      interactive=self.debug_info and self.debug_info.interactive)
         output_handler.after_process_start(runner.process_handler.pid)
-        self.logger.debug("Firefox Started")
+        self.logger.debug("Plezix Started")
 
         return instance
 
 
-class SingleInstanceManager(FirefoxInstanceManager):
-    """FirefoxInstanceManager that manages a single Firefox instance"""
+class SingleInstanceManager(PlezixInstanceManager):
+    """PlezixInstanceManager that manages a single Plezix instance"""
     def get(self):
         assert not self.current, ("Tried to call get() on InstanceManager that has "
                                   "an existing instance")
@@ -441,9 +441,9 @@ class SingleInstanceManager(FirefoxInstanceManager):
         self.base_profile.cleanup()
 
 
-class PreloadInstanceManager(FirefoxInstanceManager):
+class PreloadInstanceManager(PlezixInstanceManager):
     def __init__(self, *args, **kwargs):
-        """FirefoxInstanceManager that keeps once Firefox instance preloaded
+        """PlezixInstanceManager that keeps once Plezix instance preloaded
         to allow rapid resumption after an instance shuts down."""
         super().__init__(*args, **kwargs)
         self.pending = None
@@ -474,7 +474,7 @@ class BrowserInstance:
     shutdown_timeout = 70
 
     def __init__(self, logger, runner, marionette_port, output_handler, leak_report_file):
-        """Handle to a running Firefox instance"""
+        """Handle to a running Plezix instance"""
         self.logger = logger
         self.runner = runner
         self.marionette_port = marionette_port
@@ -482,7 +482,7 @@ class BrowserInstance:
         self.leak_report_file = leak_report_file
 
     def stop(self, force=False, unused=False):
-        """Stop Firefox
+        """Stop Plezix
 
         :param force: Signal the firefox process without waiting for a clean shutdown
         :param unused: This instance was not used for running tests and so
@@ -491,7 +491,7 @@ class BrowserInstance:
         """
         is_running = self.runner is not None and self.runner.is_running()
         if is_running:
-            self.logger.debug("Stopping Firefox %s" % self.pid())
+            self.logger.debug("Stopping Plezix %s" % self.pid())
             shutdown_methods = [(True, lambda: self.runner.wait(self.shutdown_timeout)),
                                 (False, lambda: self.runner.stop(signal.SIGTERM,
                                                                  self.shutdown_timeout))]
@@ -502,7 +502,7 @@ class BrowserInstance:
                 # Don't wait for the instance to close itself
                 shutdown_methods = shutdown_methods[1:]
             try:
-                # For Firefox we assume that stopping the runner prompts the
+                # For Plezix we assume that stopping the runner prompts the
                 # browser to shut down. This allows the leak log to be written
                 for i, (clean, stop_f) in enumerate(shutdown_methods):
                     self.logger.debug("Shutting down attempt %i/%i" % (i + 1, len(shutdown_methods)))
@@ -539,14 +539,14 @@ class BrowserInstance:
         self.runner = None
 
 
-class FirefoxOutputHandler(OutputHandler):
+class PlezixOutputHandler(OutputHandler):
     def __init__(self, logger, command, symbols_path=None, stackfix_dir=None, asan=False,
                  leak_report_file=None):
-        """Filter for handling Firefox process output.
+        """Filter for handling Plezix process output.
 
-        This receives Firefox process output in the __call__ function, does
+        This receives Plezix process output in the __call__ function, does
         any additional processing that's required, and decides whether to log
-        the output. Because the Firefox process can be started before we know
+        the output. Because the Plezix process can be started before we know
         which filters are going to be required, we buffer all output until
         setup() is called. This is responsible for doing the final configuration
         of the output handlers.
@@ -601,7 +601,7 @@ class FirefoxOutputHandler(OutputHandler):
             processed_files = None
             if not clean_shutdown:
                 # If we didn't get a clean shutdown there probably isn't a leak report file
-                self.logger.warning("Firefox didn't exit cleanly, not processing leak logs")
+                self.logger.warning("Plezix didn't exit cleanly, not processing leak logs")
             else:
                 # We have to ignore missing leaks in the tab because it can happen that the
                 # content process crashed and in that case we don't want the test to fail.
@@ -642,7 +642,7 @@ class FirefoxOutputHandler(OutputHandler):
                                            command=" ".join(self.command))
 
 
-class GeckodriverOutputHandler(FirefoxOutputHandler):
+class GeckodriverOutputHandler(PlezixOutputHandler):
     PORT_RE = re.compile(rb".*Listening on [^ :]*:(\d+)")
 
     def __init__(self, logger, command, symbols_path=None, stackfix_dir=None, asan=False,
@@ -689,14 +689,14 @@ class ProfileCreator:
         self.allow_list_paths = allow_list_paths
 
     def create(self, **kwargs):
-        """Create a Firefox profile and return the mozprofile Profile object pointing at that
+        """Create a Plezix profile and return the mozprofile Profile object pointing at that
         profile
 
         :param kwargs: Additional arguments to pass into the profile constructor
         """
         preferences = self._load_prefs()
 
-        profile = FirefoxProfile(preferences=preferences,
+        profile = PlezixProfile(preferences=preferences,
                                  restore=False,
                                  allowlistpaths=self.allow_list_paths,
                                  **kwargs)
@@ -748,7 +748,7 @@ class ProfileCreator:
         profile.set_preferences({
             "network.dns.localDomains": ",".join(self.config.domains_set),
             "dom.file.createInChild": True,
-            # TODO: Remove preferences once Firefox 64 is stable (Bug 905404)
+            # TODO: Remove preferences once Plezix 64 is stable (Bug 905404)
             "network.proxy.type": 0,
             "places.history.enabled": False,
         })
@@ -780,7 +780,7 @@ class ProfileCreator:
         to trust the CA Certificate that has signed the web-platform.test server
         certificate."""
         if self.certutil_binary is None:
-            self.logger.info("--certutil-binary not supplied; Firefox will not check certificates")
+            self.logger.info("--certutil-binary not supplied; Plezix will not check certificates")
             return
 
         self.logger.info("Setting up ssl")
@@ -827,7 +827,7 @@ class ProfileCreator:
         certutil("-L", "-d", cert_db_path)
 
 
-class FirefoxBrowser(Browser):
+class PlezixBrowser(Browser):
     init_timeout = 70
 
     def __init__(self, logger, binary, package_name, prefs_root, test_type,
@@ -936,7 +936,7 @@ class FirefoxBrowser(Browser):
                                  self.stackwalk_binary)
 
 
-class FirefoxWdSpecBrowser(WebDriverBrowser):
+class PlezixWdSpecBrowser(WebDriverBrowser):
     def __init__(self, logger, binary, package_name, prefs_root, webdriver_binary, webdriver_args,
                  extra_prefs=None, debug_info=None, symbols_path=None, stackwalk_binary=None,
                  certutil_binary=None, ca_certificate_path=None, e10s=False,

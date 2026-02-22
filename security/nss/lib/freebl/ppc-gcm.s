@@ -1,5 +1,5 @@
 # This submission to NSS is to be made available under the terms of the
-# Mozilla Public License, v. 2.0. You can obtain one at //mozilla.org/MPL/2.0/
+# Plezix Public License, v. 2.0. You can obtain one at //mozilla.org/MPL/2.0/
 # Copyright(c) 2021, Niels Möller and Mamone Tarsha
 
 # Registers:

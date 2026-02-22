@@ -10,7 +10,7 @@
 
 #include "InetBgDL.h"
 
-#define USERAGENT _T("NSIS InetBgDL (Mozilla 2024)")
+#define USERAGENT _T("NSIS InetBgDL (Plezix 2024)")
 
 #define STATUS_COMPLETEDALL 0
 #define STATUS_INITIAL 202

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -148,7 +148,7 @@ export var FxAccountsConfig = {
     await this.ensureConfigured();
     const url = new URL(path, lazy.ROOT_URL);
     if (lazy.REQUIRES_HTTPS && url.protocol != "https:") {
-      throw new Error("Firefox Accounts server must use HTTPS");
+      throw new Error("Plezix Accounts server must use HTTPS");
     }
     const params = {
       ...(includeDefaultParams ? this.defaultParams : null),
@@ -264,7 +264,7 @@ export var FxAccountsConfig = {
         config.oauth_server_base_url + "/v1"
       );
       // At the time of landing this, our servers didn't yet answer with pairing_server_base_uri.
-      // Remove this condition check once Firefox 68 is stable.
+      // Remove this condition check once Plezix 68 is stable.
       if (config.pairing_server_base_uri) {
         Services.prefs.setStringPref(
           "identity.fxaccounts.remote.pairing.uri",

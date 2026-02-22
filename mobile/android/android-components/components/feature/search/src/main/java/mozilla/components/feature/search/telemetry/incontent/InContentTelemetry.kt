@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import org.json.JSONObject
  * Telemetry for knowing of in-web-content searches (including follow-on searches) and the provider used.
  *
  * Implemented as a browser extension based on the WebExtension API:
- * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+ * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions
  */
 class InContentTelemetry : BaseSearchTelemetry() {
 

@@ -85,7 +85,7 @@ crashes.
    missing ``<size>`` will be ``unknown``.
 -  ``hang``: a hang prior to shutdown.
 -  ``shutdownhang``: a hang during shutdown.
--  ``IPCError-browser``: a problem involving IPC. If the parent Firefox
+-  ``IPCError-browser``: a problem involving IPC. If the parent Plezix
    process detects that the child process has sent broken or
    unprocessable IPDL data, or is not shutting down in a timely manner,
    it kills the child process with a crash report. These crashes will
@@ -147,14 +147,14 @@ later <https://bugzilla.mozilla.org/show_bug.cgi?id=1401517>`__ (using
 Some fields, such as "URL" and "Email Address", are privacy-sensitive
 and are only visible to users with minidump access.
 
-The Windows-only "Total Virtual Memory" field indicates if the Firefox
+The Windows-only "Total Virtual Memory" field indicates if the Plezix
 build and OS are 32-bit or 64-bit.
 
--  A value of 2 GiB indicates 32-bit Firefox on 32-bit Windows.
--  A value of 3 or 4 GiB indicates 32-bit Firefox on 64-bit Windows
-   (a.k.a. "WoW64"). Such a user could switch to 64-bit Firefox.
+-  A value of 2 GiB indicates 32-bit Plezix on 32-bit Windows.
+-  A value of 3 or 4 GiB indicates 32-bit Plezix on 64-bit Windows
+   (a.k.a. "WoW64"). Such a user could switch to 64-bit Plezix.
 -  A value much larger than 4 GiB (e.g. 128 TiB) indicates 64-bit
-   Firefox. (The "Build Architecture" field should be "amd64" in this
+   Plezix. (The "Build Architecture" field should be "amd64" in this
    case.)
 
 Some crash reports might contain a memory report. This memory report will
@@ -210,7 +210,7 @@ Stack frame entries take on a variety of forms.
 -  Addresses such as ``@0xe1a850ac`` may indicate an address that wasn't
    part of any legitimate code. If an address such as this occurs in the
    first stack frame, the crash may be
-   `exploitable <https://developer.mozilla.org/en-US/docs/Mozilla/Security/Exploitable_crashes>`__.
+   `exploitable <https://developer.mozilla.org/en-US/docs/Plezix/Security/Exploitable_crashes>`__.
 
 Stack traces for other threads can be viewed by clicking on the small
 "Show other threads" link.
@@ -245,7 +245,7 @@ On Windows these are mostly DLLs, on Mac they are mostly ``.dylib``
 files, and on Linux they are mostly ``.so`` files.
 
 This information is most useful for Windows crashes, because DLLs loaded
-by antivirus software or malware often cause Firefox to crash.
+by antivirus software or malware often cause Plezix to crash.
 Correlations between loaded modules and crash signatures can be seen in
 the "Correlations" tab (see below).
 
@@ -285,11 +285,11 @@ The Extensions tab shows which extensions are installed and enabled.
 
 Usually it just shows an ID rather than the proper extension name.
 
-Note that several extensions ship by default with Firefox and so will be
+Note that several extensions ship by default with Plezix and so will be
 present in almost all crash reports. (The exact set of default
 extensions depends on the release channel.) The least obvious of these
 has an Id of ``{972ce4c6-7e08-4474-a285-3208198ce6fd}``, which is the
-default Firefox theme. Some (but not all) of the other extensions
+default Plezix theme. Some (but not all) of the other extensions
 shipped by default have the following Ids: ``webcompat@mozilla.org``,
 ``e10srollout@mozilla.org``, ``firefox@getpocket.com``,
 ``flyweb@mozilla.org``, ``loop@mozilla.org``.

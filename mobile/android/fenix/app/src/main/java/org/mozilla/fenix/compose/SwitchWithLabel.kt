@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import androidx.compose.material3.Switch as MaterialSwitch
 
 private const val DISABLED_ALPHA = 0.5f
@@ -53,7 +53,7 @@ fun SwitchWithLabel(
     modifier: Modifier = Modifier,
     description: String? = null,
     enabled: Boolean = true,
-    labelStyle: TextStyle = FirefoxTheme.typography.subtitle1,
+    labelStyle: TextStyle = PlezixTheme.typography.subtitle1,
     onCheckedChange: ((Boolean) -> Unit),
 ) {
     Row(
@@ -79,9 +79,9 @@ fun SwitchWithLabel(
                     .defaultMinSize(minHeight = 24.dp)
                     .wrapContentHeight(),
                 color = if (enabled) {
-                    FirefoxTheme.colors.textPrimary
+                    PlezixTheme.colors.textPrimary
                 } else {
-                    FirefoxTheme.colors.textDisabled
+                    PlezixTheme.colors.textDisabled
                 },
                 style = labelStyle,
             )
@@ -93,11 +93,11 @@ fun SwitchWithLabel(
                         .defaultMinSize(minHeight = 20.dp)
                         .wrapContentHeight(),
                     color = if (enabled) {
-                        FirefoxTheme.colors.textSecondary
+                        PlezixTheme.colors.textSecondary
                     } else {
-                        FirefoxTheme.colors.textDisabled
+                        PlezixTheme.colors.textDisabled
                     },
-                    style = FirefoxTheme.typography.body2,
+                    style = PlezixTheme.typography.body2,
                 )
             }
         }
@@ -133,18 +133,18 @@ private fun Switch(
         modifier = modifier,
         enabled = enabled,
         colors = SwitchDefaults.colors(
-            uncheckedThumbColor = FirefoxTheme.colors.formOff,
-            uncheckedTrackColor = FirefoxTheme.colors.formSurface,
-            checkedThumbColor = FirefoxTheme.colors.formOn,
-            checkedTrackColor = FirefoxTheme.colors.formSurface,
-            disabledUncheckedThumbColor = FirefoxTheme.colors.formOff
+            uncheckedThumbColor = PlezixTheme.colors.formOff,
+            uncheckedTrackColor = PlezixTheme.colors.formSurface,
+            checkedThumbColor = PlezixTheme.colors.formOn,
+            checkedTrackColor = PlezixTheme.colors.formSurface,
+            disabledUncheckedThumbColor = PlezixTheme.colors.formOff
                 .copy(alpha = DISABLED_ALPHA)
-                .compositeOver(FirefoxTheme.colors.formSurface),
-            disabledUncheckedTrackColor = FirefoxTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
-            disabledCheckedThumbColor = FirefoxTheme.colors.formOn
+                .compositeOver(PlezixTheme.colors.formSurface),
+            disabledUncheckedTrackColor = PlezixTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
+            disabledCheckedThumbColor = PlezixTheme.colors.formOn
                 .copy(alpha = DISABLED_ALPHA)
-                .compositeOver(FirefoxTheme.colors.formSurface),
-            disabledCheckedTrackColor = FirefoxTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
+                .compositeOver(PlezixTheme.colors.formSurface),
+            disabledCheckedTrackColor = PlezixTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
         ),
     )
 }
@@ -152,17 +152,17 @@ private fun Switch(
 @PreviewLightDark
 @Composable
 private fun SwitchWithLabelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
                 text = "Enabled",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))
@@ -176,8 +176,8 @@ private fun SwitchWithLabelPreview() {
 
             Text(
                 text = "Disabled",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))
@@ -198,8 +198,8 @@ private fun SwitchWithLabelPreview() {
 
             Text(
                 text = "Nested",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))

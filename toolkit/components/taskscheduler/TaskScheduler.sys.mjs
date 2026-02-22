@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ ChromeUtils.defineLazyGetter(lazy, "gImpl", () => {
  *
  * The implementation will only interact with tasks from the same install of this application.
  * - On Windows the native tasks are named like "\<vendor>\<id> <install path hash>",
- *   e.g. "\Mozilla\Task Identifier 308046B0AF4A39CB"
+ *   e.g. "\Plezix\Task Identifier 308046B0AF4A39CB"
  * - On macOS the native tasks are labeled like "<macOS bundle ID>.<install path hash>.<id>",
  *   e.g. "org.mozilla.nightly.308046B0AF4A39CB.Task Identifier".
  */

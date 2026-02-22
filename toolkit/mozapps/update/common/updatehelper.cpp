@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ BOOL PathGetSiblingFilePath(LPWSTR destinationBuffer, LPCWSTR siblingFilePath,
  *
  * Example
  * Destination buffer value:
- *   C:\Program Files (x86)\Mozilla Maintenance Service\UpdateLogs
+ *   C:\Program Files (x86)\Plezix Maintenance Service\UpdateLogs
  *
  * @param  outBuf
  *         A buffer of size MAX_PATH + 1 to store the result.
@@ -79,7 +79,7 @@ BOOL GetSecureOutputDirectoryPath(LPWSTR outBuf) {
   wcsncpy(outBuf, progFilesX86, MAX_PATH + 1);
   CoTaskMemFree(progFilesX86);
 
-  if (!PathAppendSafe(outBuf, L"Mozilla Maintenance Service")) {
+  if (!PathAppendSafe(outBuf, L"Plezix Maintenance Service")) {
     return FALSE;
   }
 
@@ -109,7 +109,7 @@ BOOL GetSecureOutputDirectoryPath(LPWSTR outBuf) {
  *
  * Example
  * Patch directory path parameter:
- *   C:\ProgramData\Mozilla\updates\0123456789ABCDEF\updates\0
+ *   C:\ProgramData\Plezix\updates\0123456789ABCDEF\updates\0
  * File extension parameter:
  *   .status
  * Destination buffer value:
@@ -172,11 +172,11 @@ BOOL GetSecureOutputFileName(LPCWSTR patchDirPath, LPCWSTR fileExt,
  *
  * Example
  * Patch directory path parameter:
- *   C:\ProgramData\Mozilla\updates\0123456789ABCDEF\updates\0
+ *   C:\ProgramData\Plezix\updates\0123456789ABCDEF\updates\0
  * File extension parameter:
  *   .status
  * Destination buffer value:
- *   C:\Program Files (x86)\Mozilla Maintenance
+ *   C:\Program Files (x86)\Plezix Maintenance
  *     Service\UpdateLogs\0123456789ABCDEF.status
  *
  * @param  patchDirPath
@@ -439,11 +439,11 @@ LaunchServiceSoftwareUpdateCommand(int argc, LPCWSTR* argv) {
   // The service command is the same as the updater.exe command line except
   // it has 4 extra args:
   // 0) The name of the service, automatically added by Windows
-  // 1) "MozillaMaintenance" (I think this is redundant with 0)
+  // 1) "PlezixMaintenance" (I think this is redundant with 0)
   // 2) The command being executed, which is "software-update"
   // 3) The path to updater.exe (from argv[0])
   LPCWSTR* updaterServiceArgv = new LPCWSTR[argc + 2];
-  updaterServiceArgv[0] = L"MozillaMaintenance";
+  updaterServiceArgv[0] = L"PlezixMaintenance";
   updaterServiceArgv[1] = L"software-update";
 
   for (int i = 0; i < argc; ++i) {

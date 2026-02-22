@@ -1,5 +1,5 @@
 /* -*- Mode: Groovy; c-basic-offset: 4; tab-width: 20; indent-tabs-mode: nil; -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -61,7 +61,7 @@ try {
 }
 
 if (json.substs.MOZ_BUILD_APP != 'mobile/android') {
-    throw new GradleException("Building with Gradle is only supported for Firefox for Android, i.e., MOZ_BUILD_APP == 'mobile/android'.")
+    throw new GradleException("Building with Gradle is only supported for Plezix for Android, i.e., MOZ_BUILD_APP == 'mobile/android'.")
 }
 
 // The Gradle instance is shared between settings.gradle and all the

@@ -30,7 +30,7 @@ class Clock;
 
 class FlexfecReceiver {
  public:
-  /* Mozilla: Avoid this since it could use GetRealTimeClock().
+  /* Plezix: Avoid this since it could use GetRealTimeClock().
   FlexfecReceiver(uint32_t ssrc,
                   uint32_t protected_media_ssrc,
                   RecoveredPacketReceiver* recovered_packet_receiver);

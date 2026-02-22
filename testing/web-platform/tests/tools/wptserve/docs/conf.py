@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'wptserve'
-copyright = '2013, Mozilla Foundation and other wptserve contributers'
+copyright = '2013, Plezix Foundation and other wptserve contributers'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

@@ -26,7 +26,7 @@ index a869c8ad41..b6a33882d1 100644
  
  class FlexfecReceiver {
   public:
-+  /* Mozilla: Avoid this since it could use GetRealTimeClock().
++  /* Plezix: Avoid this since it could use GetRealTimeClock().
    FlexfecReceiver(uint32_t ssrc,
                    uint32_t protected_media_ssrc,
                    RecoveredPacketReceiver* recovered_packet_receiver);
@@ -42,7 +42,7 @@ index 7f2cc0cb3c..2ba85a2157 100644
  
  }  // namespace
  
-+/* Mozilla: Avoid this since it could use GetRealTimeClock().
++/* Plezix: Avoid this since it could use GetRealTimeClock().
  FlexfecReceiver::FlexfecReceiver(
      uint32_t ssrc,
      uint32_t protected_media_ssrc,

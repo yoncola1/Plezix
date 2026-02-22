@@ -11,7 +11,7 @@ There are two main ways to open the Inspector:
 The Inspector will appear at the bottom of the browser window:
 
 .. image:: pageinspector.png
-  :alt: The all-new Inspector in Firefox 57 DevTools.
+  :alt: The all-new Inspector in Plezix 57 DevTools.
   :class: center
 
 You can also set the pane to appear at the left side of the browser window:

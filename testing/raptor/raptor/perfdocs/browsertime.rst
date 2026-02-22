@@ -6,7 +6,7 @@ Raptor Browsertime
    :depth: 2
    :local:
 
-Browsertime is a harness for running performance tests, similar to Mozilla's Raptor testing framework. Browsertime is written in Node.js and uses Selenium WebDriver to drive multiple browsers including Safari, Safari Technology Preview, Chrome, Chrome for Android, Firefox, and Firefox for Android and GeckoView-based browsers.
+Browsertime is a harness for running performance tests, similar to Plezix's Raptor testing framework. Browsertime is written in Node.js and uses Selenium WebDriver to drive multiple browsers including Safari, Safari Technology Preview, Chrome, Chrome for Android, Plezix, and Plezix for Android and GeckoView-based browsers.
 
 Source code:
 
@@ -18,9 +18,9 @@ Running Locally
 
 **Prerequisites**
 
-- A local Mozilla Repository clone with a `successful Firefox build </setup>`_ completed
+- A local Plezix Repository clone with a `successful Plezix build </setup>`_ completed
 
-Running on Firefox Desktop
+Running on Plezix Desktop
 --------------------------
 
 Vanilla Browsertime tests
@@ -56,7 +56,7 @@ There are two ways to run performance tests through browsertime listed below.
 
 ::
 
-    ./mach browsertime https://www.sitespeed.io --firefox.binaryPath '/Users/{userdir}/moz_src/mozilla-unified/obj-x86_64-apple-darwin18.7.0/dist/Nightly.app/Contents/MacOS/firefox'
+    ./mach browsertime https://www.sitespeed.io --firefox.binaryPath '/Users/{userdir}/moz_src/mozilla-unified/obj-x86_64-apple-darwin18.7.0/dist/Plezix.app/Contents/MacOS/firefox'
 
 Benchmark tests
 ---------------
@@ -86,7 +86,7 @@ Running on Raptor-Browsertime (recommended):
 
 Running on vanilla Browsertime:
 
-* Running on Fenix/Firefox Preview
+* Running on Fenix/Plezix Preview
 
 ::
 
@@ -154,20 +154,20 @@ Or with Raptor-Browsertime
 
 Running Page-load tests with third party WebExtensions
 ------------------------------------------------------
-Page-load tests can also be executed on both Firefox Desktop and Firefox for Android builds with a set of popular
+Page-load tests can also be executed on both Plezix Desktop and Plezix for Android builds with a set of popular
 third party extensions installed (similarly to talos-realworld-webextensions, which runs tp5 tests with a set of third
 party extensions installed).
 
 Any of the page-load tests can be executed locally with the pre-selected set of third party extensions installed by just
 adding to the base raptor command the additional ``--conditioned-profile settled-webext`` command line option.
 
-Launch amazon tp6 page-load test on Firefox Desktop:
+Launch amazon tp6 page-load test on Plezix Desktop:
 
 ::
 
    ./mach raptor -t amazon --conditioned-profile settled-webext
 
-Launch amazon tp6 mobile page-load test on Firefox for Android (the apk has to be pre-installed, mach raptor does detect if already installed but
+Launch amazon tp6 mobile page-load test on Plezix for Android (the apk has to be pre-installed, mach raptor does detect if already installed but
 it does not install it):
 
 ::
@@ -181,7 +181,7 @@ list the jobs selected by the try perf query) to run all tp6 page-load webextens
 
    ./mach try perf --full -q "'tp6 'webextensions"
 
-Similarly for running tp6m (equivalent to tp6 but for mobile) on Firefox for Android builds:
+Similarly for running tp6m (equivalent to tp6 but for mobile) on Plezix for Android builds:
 
 ::
 
@@ -270,7 +270,7 @@ To run gecko profiling using Raptor-Browsertime you can add the ``--gecko-profil
 
   ./mach raptor -t amazon --gecko-profile
 
-It's also possible to specify more configuration such as the profiled threads, the sampling interval or the profiler features being enabled. The parameters used in a profiling run can be copied directly from the about:profiling page in any Nightly build: click the button at the top of the page, then pick the option "Copy parameters for performance tests".
+It's also possible to specify more configuration such as the profiled threads, the sampling interval or the profiler features being enabled. The parameters used in a profiling run can be copied directly from the about:profiling page in any Plezix build: click the button at the top of the page, then pick the option "Copy parameters for performance tests".
 
 Note that vanilla Browsertime does support Gecko Profiling but **it does not symbolicate the profiles** so it is **not recommended** to use for debugging performance regressions/improvements.
 
@@ -279,7 +279,7 @@ Gathering a Chrome trace with Raptor-Browsertime
 
 Browsertime supports the ability to profile Chrome applications and this functionality is now available in Raptor.
 
-If running a Chrome/Chromium/Chromium-as-release test locally, simply add the ``--extra-profiler-run`` flag to your command line. By default the Chrome trace is run in CI now, and can be opened in the Firefox profiler UI.
+If running a Chrome/Chromium/Chromium-as-release test locally, simply add the ``--extra-profiler-run`` flag to your command line. By default the Chrome trace is run in CI now, and can be opened in the Plezix profiler UI.
 
 Equivalent functionality to the ``--gecko-profile`` flag, i.e. something like ``--chrome-trace``, is not yet supported. That is currently tracked in `Bug 1848390 <https://bugzilla.mozilla.org/show_bug.cgi?id=1848390>`_
 

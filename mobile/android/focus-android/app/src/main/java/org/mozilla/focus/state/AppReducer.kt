@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -311,7 +311,7 @@ private fun navigateUp(state: AppState, action: AppAction.NavigateUp): AppState 
         Screen.Settings.Page.Privacy -> Screen.Settings(page = Screen.Settings.Page.Start)
         Screen.Settings.Page.Search -> Screen.Settings(page = Screen.Settings.Page.Start)
         Screen.Settings.Page.Advanced -> Screen.Settings(page = Screen.Settings.Page.Start)
-        Screen.Settings.Page.Mozilla -> Screen.Settings(page = Screen.Settings.Page.Start)
+        Screen.Settings.Page.Plezix -> Screen.Settings(page = Screen.Settings.Page.Start)
 
         Screen.Settings.Page.PrivacyExceptions -> Screen.Settings(page = Screen.Settings.Page.Privacy)
         Screen.Settings.Page.PrivacyExceptionsRemove -> Screen.Settings(page = Screen.Settings.Page.PrivacyExceptions)
@@ -330,11 +330,11 @@ private fun navigateUp(state: AppState, action: AppAction.NavigateUp): AppState 
         Screen.Settings.Page.SearchAutocompleteRemove -> Screen.Settings(
             page = Screen.Settings.Page.SearchAutocompleteList,
         )
-        Screen.Settings.Page.About -> Screen.Settings(page = Screen.Settings.Page.Mozilla)
-        Screen.Settings.Page.Licenses -> Screen.Settings(page = Screen.Settings.Page.Mozilla)
+        Screen.Settings.Page.About -> Screen.Settings(page = Screen.Settings.Page.Plezix)
+        Screen.Settings.Page.Licenses -> Screen.Settings(page = Screen.Settings.Page.Plezix)
         Screen.Settings.Page.Locale -> Screen.Settings(page = Screen.Settings.Page.General)
         Screen.Settings.Page.CookieBanner -> Screen.Settings(page = Screen.Settings.Page.Privacy)
-        Screen.Settings.Page.CrashList -> Screen.Settings(page = Screen.Settings.Page.Mozilla)
+        Screen.Settings.Page.CrashList -> Screen.Settings(page = Screen.Settings.Page.Plezix)
     }
 
     return state.copy(screen = screen)

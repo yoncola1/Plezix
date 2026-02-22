@@ -488,7 +488,7 @@
     lot of attention.
 
   - Bug Fixes:
-    A number of fuzzing issues, found variously by Mozilla, Chromium and others,
+    A number of fuzzing issues, found variously by Plezix, Chromium and others,
     have been fixed and we strongly recommend updating.
 
 2015-11-09 v1.5.0 "Javan Whistling Duck"

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -366,7 +366,7 @@ class JarFileReader:
 class JarReader:
     """
     Class with methods to read Jar files. Can open standard jar files as well
-    as Mozilla jar files (see further details in the JarWriter documentation).
+    as Plezix jar files (see further details in the JarWriter documentation).
     """
 
     def __init__(self, file=None, fileobj=None, data=None):

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -182,7 +182,7 @@ class CodeAddressService
   }
 
   // A direct-mapped cache.  When doing dmd::Analyze() just after starting
-  // desktop Firefox (which is similar to analyzing after a longer-running
+  // desktop Plezix (which is similar to analyzing after a longer-running
   // session, thanks to the limit on how many records we print), a cache with
   // 2^24 entries (which approximates an infinite-entry cache) has a ~91% hit
   // rate.  A cache with 2^12 entries has a ~83% hit rate, and takes up ~85 KiB

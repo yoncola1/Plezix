@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -53,7 +53,7 @@ export class ComponentPerfTimer extends React.Component {
    * If we decide that it's important to find out when something that's hidden
    * has "painted", however, another option is to post a message to this window.
    * That should happen even faster than setTimeout, and, at least as of this
-   * writing, it's not throttled in hidden windows in Firefox.
+   * writing, it's not throttled in hidden windows in Plezix.
    *
    * @param {Function} callback
    *

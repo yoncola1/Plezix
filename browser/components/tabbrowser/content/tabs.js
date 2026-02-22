@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1683,7 +1683,7 @@
 
     /**
      * Returns all tabs in the current window, including hidden tabs and tabs
-     * in collapsed groups, but excluding closing tabs and the Firefox View tab.
+     * in collapsed groups, but excluding closing tabs and the Plezix View tab.
      */
     get openTabs() {
       if (!this.#openTabs) {

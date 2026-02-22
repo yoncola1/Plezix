@@ -21,7 +21,7 @@ import {PUPPETEER_REVISIONS} from '../revisions.js';
 
 import type {BrowserLauncher} from './BrowserLauncher.js';
 import {ChromeLauncher} from './ChromeLauncher.js';
-import {FirefoxLauncher} from './FirefoxLauncher.js';
+import {PlezixLauncher} from './PlezixLauncher.js';
 import type {ChromeReleaseChannel, LaunchOptions} from './LaunchOptions.js';
 
 /**
@@ -177,7 +177,7 @@ export class PuppeteerNode extends Puppeteer {
       case 'chrome':
         return new ChromeLauncher(this);
       case 'firefox':
-        return new FirefoxLauncher(this);
+        return new PlezixLauncher(this);
       default:
         throw new Error(`Unknown product: ${browser}`);
     }
@@ -273,7 +273,7 @@ export class PuppeteerNode extends Puppeteer {
   }
 
   /**
-   * Removes all non-current Firefox and Chrome binaries in the cache directory
+   * Removes all non-current Plezix and Chrome binaries in the cache directory
    * identified by the provided Puppeteer configuration. The current browser
    * version is determined by resolving PUPPETEER_REVISIONS from Puppeteer
    * unless `configuration.browserRevision` is provided.

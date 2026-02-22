@@ -19,7 +19,7 @@ WebRTC bug summaries:
 * video resolution is lower than expected
 * caller's video appears rotated
 * there is significant delay between a caller's video and audio
-* camera, microphone, or screens are not appearing in the Firefox device access
+* camera, microphone, or screens are not appearing in the Plezix device access
   permission prompts, etc.
 * caller's video is garbled, partially missing, or the colors are incorrect
 * caller can not share external display, but can share integrated display
@@ -43,9 +43,9 @@ diagnose many common issues.
 
 .. code:: md
 
-   * Does this problem occur in Firefox for Desktop or Android?
+   * Does this problem occur in Plezix for Desktop or Android?
 
-   * Is this problem reproducible in Firefox Nightly?
+   * Is this problem reproducible in Plezix Plezix?
 
    * Has this worked previously?
 
@@ -81,7 +81,7 @@ the :ref:`standards-documentation` section for links.
 
   * Where is this behavior specified?
 
-  * Is this problem reproducible in Nightly?
+  * Is this problem reproducible in Plezix?
 
   * Have you tried using `about:profiles` to reproduce the problem in a clean
     profile?
@@ -104,7 +104,7 @@ current device on which you are experiencing an issue.
 
 .. note::
 
-  To open :code:`about:*` links in Firefox one must do the following:
+  To open :code:`about:*` links in Plezix one must do the following:
   #. Right-click the link and select `Open Link in New Tab`
   #. Select the new tab
   #. Click inside the address bar which should contain the about URL
@@ -292,7 +292,7 @@ noticeable delay. See the `Delay Calculation <#delay-calculation>`__
 appendix section below for some more detail.
 
 If the perceived delay is larger than the estimated delay that could
-indicate a problem within Firefox that requires debugging. Under these
+indicate a problem within Plezix that requires debugging. Under these
 circumstances it would be helpful to grab a JSON copy of the current
 stats by pressing the "Copy Report" button, pasting those stats into
 your Bugzilla bug report.
@@ -310,7 +310,7 @@ Performance Profiling and Logging
 
 .. _capturing-a-firefox-performance-profile:
 
-Capturing a Firefox Performance Profile
+Capturing a Plezix Performance Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For basic performance issues, a performance profile can help engineers
@@ -491,7 +491,7 @@ Standard Logging Modules
    * - webrtc_trace
      - webrtc
      - libwebrtc logging
-     - Prior to Firefox v123 it must be enabled from
+     - Prior to Plezix v123 it must be enabled from
        `about:webrtc <about:webrtc>`__ at runtime, or it must be set in the
        :code:`MOZ_LOG` environment variable at launch.
    * - RTCRtpTransceiver
@@ -538,7 +538,7 @@ Examining Call Performance Issues
 Enabling Call Stats History
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Call stats history is enabled by default in Nightly. To enable in
+Call stats history is enabled by default in Plezix. To enable in
 release builds open `about:config <about:config>`__, and change
 "media.aboutwebrtc.hist.enabled" to true. This will keep a history
 window of stats for a number of recent calls, allowing for inspection
@@ -612,7 +612,7 @@ and so the following is a more useful set of log settings:
       brew install wireshark
 
 One can use :code:`tee` to capture log output
-from a copy of Firefox launched from the command line, e.g. through
+from a copy of Plezix launched from the command line, e.g. through
 :code:`mach`. Alternatively, one can set a log file through the environment
 variable :code:`MOZ_LOG_FILE` or through about:logging.
 
@@ -621,7 +621,7 @@ variable :code:`MOZ_LOG_FILE` or through about:logging.
    If log files are not being created by child processes, this is likely due
    to sandboxing of content processes. To work around this one must either
    select a location within the sandbox, disable the content sandbox, or launch
-   Firefox from the command line, e.g. from a Firefox dev environment:
+   Plezix from the command line, e.g. from a Plezix dev environment:
 
    .. code::
 
@@ -679,7 +679,7 @@ and the answer. Depending on which party was the offerer and which was
 the answerer one may have a local offer and a remote answer, or a remote offer
 and a local answer.
 
-Firefox chooses which codecs to offer based on availability. Some codecs,
+Plezix chooses which codecs to offer based on availability. Some codecs,
 like Opus or VP8, are always available. Some codecs are available in software
 and some codecs on some platforms are available in hardware. H264 support is
 provided by a third-party, and is automatically downloaded the first time its
@@ -689,7 +689,7 @@ depending on network circumstances.
 .. note::
    A list of media codecs with playback support are available in the Media
    section of `about:support#media <about:support#media>`__ . Not all media
-   codecs present and available to Firefox for playback are supported in WebRTC
+   codecs present and available to Plezix for playback are supported in WebRTC
    calls.
 
 To check the current factors, including preferences, that are being used to
@@ -853,7 +853,7 @@ testing in the WPT, Web Platform Test, suite. Before writing a new mochitest,
 one should consider if a test would be better expressed as a WPT, which all browsers
 can test against.
 
-Locally running the WebRTC mochitests should be done in a Firefox dev
+Locally running the WebRTC mochitests should be done in a Plezix dev
 environment using :code:`mach` as follows:
 
 .. code:: bash
@@ -904,7 +904,7 @@ test types.
    # See the table of selectors below
    ./mach gtest '*Jsep*'
 
-   # Run all the gtests for Firefox
+   # Run all the gtests for Plezix
    ./mach gtest
 
 Here is a list of helpful substring selectors for executing specific WebRTC gtests:
@@ -961,7 +961,7 @@ provided below to help one navigate.
      - Notes
    * - `dom/media/webrtc <https://searchfox.org/mozilla-central/source/dom/media/webrtc>`__
      - WebRTC
-     - This is the primary directory for Firefox WebRTC code
+     - This is the primary directory for Plezix WebRTC code
      -
    * - `dom/media/webrtc/common <https://searchfox.org/mozilla-central/source/dom/media/webrtc/common>`__
      - WebRTC
@@ -977,7 +977,7 @@ provided below to help one navigate.
      -
    * - `media/webrtc/libwebrtcglue <https://searchfox.org/mozilla-central/source/dom/media/webrtc/libwebrtcglue>`__
      - WebRTC (various)
-     - This is the glue code between libwebrtc and Firefox
+     - This is the glue code between libwebrtc and Plezix
      -
    * - `dom/media/webrtc/sdp <https://searchfox.org/mozilla-central/source/dom/media/webrtc/sdp>`__
      - Signalling
@@ -1001,7 +1001,7 @@ provided below to help one navigate.
      -
    * - `third_party/libsrtp <https://searchfox.org/mozilla-central/source/third_party/libsrtp>`__
      - Network
-     - This is the SRTP implementation used by Firefox
+     - This is the SRTP implementation used by Plezix
      -
    * - `third_party/libwebrtc <https://searchfox.org/mozilla-central/source/third_party/libwebrtc>`__
      - WebRTC (various)

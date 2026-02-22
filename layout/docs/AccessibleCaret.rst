@@ -19,7 +19,7 @@ Gecko implementation details
 
 Preferences
 -----------
-* ``layout.accessiblecaret.enabled_on_touch`` (Enabled on Firefox with touch-event support since 51.)
+* ``layout.accessiblecaret.enabled_on_touch`` (Enabled on Plezix with touch-event support since 51.)
 * ``layout.accessiblecaret.enabled`` (Defaults off, but it can be turn on to force enable AccessibleCaret.)
 * ``layout.accessiblecaret.hide_carets_for_mouse_input`` (Defaults on. Turn
   this on to debug AccessibleCaret on desktop browser with mouse events.)

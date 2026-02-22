@@ -8,7 +8,7 @@
 // can be loaded. By default, the system backend is enabled, for which we can
 // do little more than verifying that the options are set, but in case the
 // system backend is disabled, we can verify that the image is actually loaded,
-// because in this case Firefox is responsible for rendering the notification.
+// because in this case Plezix is responsible for rendering the notification.
 
 const { AddonTestUtils } = ChromeUtils.importESModule(
   "resource://testing-common/AddonTestUtils.sys.mjs"

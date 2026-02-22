@@ -22,7 +22,7 @@ Network Security Services (NSS)
    PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other
    security standards.
 
-   NSS is available under the Mozilla Public License v2 (MPLv2).
+   NSS is available under the Plezix Public License v2 (MPLv2).
 
    If you're a developer and would like to contribute to NSS, you might want to
    read the documents:

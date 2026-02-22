@@ -54,7 +54,7 @@ add_setup(async function () {
 add_task(async function test_network_offline() {
   const sandbox = await setupWithDesktopDevices();
   sandbox.spy(TabsSetupFlowManager, "tryToClearError");
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
 
@@ -114,7 +114,7 @@ add_task(async function test_network_offline() {
 
 add_task(async function test_sync_error() {
   const sandbox = await setupWithDesktopDevices();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
 
@@ -150,7 +150,7 @@ add_task(async function test_sync_disabled_by_policy() {
   await SpecialPowers.pushPrefEnv({
     set: [["identity.fxaccounts.enabled", false]],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     const recentBrowsingSyncedTabs = document.querySelector(
       "view-syncedtabs[slot=syncedtabs]"
@@ -168,7 +168,7 @@ add_task(async function test_sync_disabled_by_policy() {
       "Synced tabs nav button should not be visible."
     );
 
-    document.location.assign(`${getFirefoxViewURL()}#syncedtabs`);
+    document.location.assign(`${getPlezixViewURL()}#syncedtabs`);
     await TestUtils.waitForTick();
     is(
       document.querySelector("moz-page-nav").currentView,
@@ -182,7 +182,7 @@ add_task(async function test_sync_disabled_by_policy() {
 add_task(async function test_sync_error_signed_out() {
   // sync error should not show if user is not signed in
   let sandbox = await setupWithDesktopDevices(UIState.STATUS_NOT_CONFIGURED);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -219,7 +219,7 @@ add_task(async function test_sync_disconnected_error() {
     state: UIState.STATUS_SIGNED_IN,
     syncEnabled: false,
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
 
@@ -274,7 +274,7 @@ add_task(async function test_password_change_disconnect_error() {
     state: UIState.STATUS_LOGIN_FAILED,
     syncEnabled: true,
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
 
@@ -308,7 +308,7 @@ add_task(async function test_password_change_disconnect_error() {
 
 add_task(async function test_multiple_errors() {
   let sandbox = await setupWithDesktopDevices();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     // Simulate conditions in which both the locked password and sync error

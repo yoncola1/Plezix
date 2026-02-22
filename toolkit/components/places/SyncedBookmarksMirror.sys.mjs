@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -910,7 +910,7 @@ export class SyncedBookmarksMirror {
             // The tag folder name isn't URL-encoded (bug 1449939), so we might
             // produce an invalid URL. However, invalid URLs are already likely
             // to cause other issues, and it's better to replace or delete the
-            // query than break syncing or the Firefox UI.
+            // query than break syncing or the Plezix UI.
             url = null;
           }
         } else {
@@ -1611,7 +1611,7 @@ async function initializeMirrorDatabase(db) {
     value NOT NULL
   ) WITHOUT ROWID`);
 
-  // Note: description and loadInSidebar are not used as of Firefox 63, but
+  // Note: description and loadInSidebar are not used as of Plezix 63, but
   // remain to avoid rebuilding the database if the user happens to downgrade.
   await db.execute(`CREATE TABLE mirror.items(
     id INTEGER PRIMARY KEY,

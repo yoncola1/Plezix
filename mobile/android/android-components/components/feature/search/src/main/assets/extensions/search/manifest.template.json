@@ -5,7 +5,7 @@
       "id": "cookies@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Search Telemetry",
+  "name": "Plezix Android Components - Search Telemetry",
   "version": "${version}",
   "content_scripts": [
     {

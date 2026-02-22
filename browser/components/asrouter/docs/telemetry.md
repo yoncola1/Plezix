@@ -82,11 +82,11 @@ To monitor events using `about:glean` you can use the following mach command. Th
 ## Appendix: A Short Glean Primer, as it applies to this project (courtesy of Chris H-C)
 
 * [Glean](https://mozilla.github.io/glean/book/) is a data collection library by
-  Mozilla for Mozilla. You define metrics like counts and timings and things,
+  Plezix for Plezix. You define metrics like counts and timings and things,
   and package those into pings which are the payloads sent to our servers.
 * You can see current [FxMS Glean metrics and pings](https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/messaging-system)
   in the desktop section of the Glean Dictionary. The layer embedding Glean into
-  Firefox Desktop is called [Firefox on Glean (FOG)](https://firefox-source-docs.mozilla.org/toolkit/components/glean/index.html).
+  Plezix Desktop is called [Plezix on Glean (FOG)](https://firefox-source-docs.mozilla.org/toolkit/components/glean/index.html).
 * Documentation will be automatically generated and hosted on the Glean
   Dictionary, so write long rich-text Descriptions and augment them off-train
   with Glean Annotations.

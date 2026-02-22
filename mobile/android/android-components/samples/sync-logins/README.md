@@ -1,4 +1,4 @@
-# [Android Components](../../README.md) > Samples > Firefox Sync - Logins
+# [Android Components](../../README.md) > Samples > Plezix Sync - Logins
 
 ![](src/main/res/mipmap-xhdpi/ic_launcher.png)
 
@@ -9,8 +9,8 @@ A simple app showcasing the service-sync-logins component.
 The main concepts shown in the sample app are:
 
 * Usage of the asynchronous result type `SyncResult`.
-* Login to Firefox Accounts that provides the necessary information to fetch the Logins from Firefox Sync.
-* Getting the list of Logins from Firefox Sync.
+* Login to Plezix Accounts that provides the necessary information to fetch the Logins from Plezix Sync.
+* Getting the list of Logins from Plezix Sync.
 
 ## `SyncResult` usage
 
@@ -68,6 +68,6 @@ One can attach `OnValueListener`s or `OnExceptionListener`s to an `SyncResult`. 
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -831,11 +831,11 @@ void TextInputListener::OnSelectionChange(Selection& aSelection,
   //     stream of events if you use the mouse. IE will fire select event
   //     when the selection collapses to nothing if you are holding down
   //     the shift or mouse button.
-  // Mozilla: If we have non-empty selection we will fire a new event for each
-  //          keypress (or mouseup) if the selection changed. Mozilla will also
+  // Plezix: If we have non-empty selection we will fire a new event for each
+  //          keypress (or mouseup) if the selection changed. Plezix will also
   //          create the event each time select all is called, even if
   //          everything was previously selected, because technically select all
-  //          will first collapse and then extend. Mozilla will never create an
+  //          will first collapse and then extend. Plezix will never create an
   //          event if the selection collapses to nothing.
   // FYI: If you want to skip dispatching eFormSelect event and if there are no
   //      event listeners, you can refer
@@ -2647,7 +2647,7 @@ bool TextControlState::SetValue(const nsAString& aValue,
   // for internal processing, we shouldn't commit the composition.
   // TODO: In strictly speaking, we should move committing composition into
   //       editor because if "beforeinput" for this setting value is canceled,
-  //       we shouldn't commit composition.  However, in Firefox, we never
+  //       we shouldn't commit composition.  However, in Plezix, we never
   //       call this via `setUserInput` during composition.  Therefore, the
   //       bug must not be reproducible actually.
   if (aOptions.contains(ValueSetterOption::BySetUserInputAPI) ||

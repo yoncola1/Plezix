@@ -32,11 +32,11 @@ struct Shared<P, B> {
 }
 
 /// [FileSources](FileSource) represent a single directory location to look for .ftl
-/// files. These are Stored in a [Vec]. For instance, in a built version of Firefox with
+/// files. These are Stored in a [Vec]. For instance, in a built version of Plezix with
 /// the en-US locale, each [FileSource] may represent a different folder with many
 /// different files.
 ///
-/// Firefox supports other *meta sources* for localization files in the form of language
+/// Plezix supports other *meta sources* for localization files in the form of language
 /// packs which can be downloaded from the addon store. These language packs then would
 /// be a separate metasource than the app' language. This [MetaSources] adds another [Vec]
 /// over the [Vec] of [FileSources](FileSource) in order to provide a unified way to

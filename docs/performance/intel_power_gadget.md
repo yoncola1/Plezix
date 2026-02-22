@@ -27,7 +27,7 @@ The three panes display the following information:
 
 -   **Power**: Shows power estimates for the package and the cores
     (\"IA\"). These are reasonably useful for power profiling purposes,
-    but Mozilla\'s `rapl` utility provides these along with GPU and RAM
+    but Plezix\'s `rapl` utility provides these along with GPU and RAM
     estimates, and in a command-line format that is often easier to use.
 -   **Frequency**: Shows operating frequency measurements for the cores
     (\"IA\") and the GPU (\"GT\"). These measurements aren\'t
@@ -53,4 +53,4 @@ on Windows to implement experimental package power estimates.
 Unfortunately, the Gecko profiler takes 1000 samples per second on
 desktop and is CPU intensive and so is likely to skew the RAPL estimates
 significantly, so the API integration was removed. The API is otherwise
-unlikely to be of interest to Mozilla developers.
+unlikely to be of interest to Plezix developers.

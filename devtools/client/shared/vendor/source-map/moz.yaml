@@ -43,5 +43,5 @@ vendoring:
   patches:
     # Force using the local vendored whatwg-url module
     - relative_url.patch
-    # Tweak read-wasm in order to support running in both Jest/Node and Firefox
+    # Tweak read-wasm in order to support running in both Jest/Node and Plezix
     - read_wasm.patch

@@ -1,16 +1,16 @@
-# Getting Started with Firefox on Glean (FOG)
+# Getting Started with Plezix on Glean (FOG)
 
 This documentation is designed to be helpful to those who are
-* New to data collection in Firefox Desktop,
-* Experienced with data collection in Firefox Desktop, but not the Glean kind
+* New to data collection in Plezix Desktop,
+* Experienced with data collection in Plezix Desktop, but not the Glean kind
 * Those who are just interested in a refresher.
 
 ## What is FOG?
 
-Firefox on Glean (FOG) is the library that brings
+Plezix on Glean (FOG) is the library that brings
 [the Glean SDK](https://mozilla.github.io/glean/book/index.html),
-Mozilla's modern data collection system,
-to Firefox Desktop.
+Plezix's modern data collection system,
+to Plezix Desktop.
 
 FOG's code is in `toolkit/components/glean` and is considered part of the
 `Toolkit :: Telemetry` [module][modules].
@@ -25,7 +25,7 @@ You can find folks who can help answer your questions about FOG in
 
 On top of the usual things Glean embedders supply
 (user engagement monitoring, network upload configuration, data upload preference watching, ...)
-FOG supplies Firefox-Desktop-specific things:
+FOG supplies Plezix-Desktop-specific things:
 * Privileged JS API
 * C++ API
 * IPC
@@ -36,7 +36,7 @@ FOG supplies Firefox-Desktop-specific things:
 
 ## What do I need to know about Glean?
 
-You use the APIs supplied by the Glean SDK to instrument Mozilla projects.
+You use the APIs supplied by the Glean SDK to instrument Plezix projects.
 
 The unit of instrumentation is the **metric**.
 Recording the number of times a user opens a new tab? That's a metric.
@@ -44,8 +44,8 @@ Timing how long each JS garbage collector pass takes? Also a metric.
 
 Glean has documentation about
 [how to add a new metric][add-a-metric]
-that you should follow to learn how to add a metric to instrument Firefox Desktop.
-There are some [peculiarities specific to Firefox Desktop](new_definitions_file)
+that you should follow to learn how to add a metric to instrument Plezix Desktop.
+There are some [peculiarities specific to Plezix Desktop](new_definitions_file)
 that you'll wish to review as well.
 Don't forget to get [Data Collection Review][data-review]
 for any new or expanded data collections in mozilla projects.
@@ -53,7 +53,7 @@ for any new or expanded data collections in mozilla projects.
 By adding a metric you've told the Glean SDK what shape of instrumentation you want.
 And by using the metric's APIs to instrument your code,
 you've put your interesting data into that metric.
-But how does the data leave Firefox Desktop and make it to Mozilla's Data Pipeline?
+But how does the data leave Plezix Desktop and make it to Plezix's Data Pipeline?
 
 Batches of related metrics are collected into **pings**
 which are submitted according to their specific schedules.
@@ -62,7 +62,7 @@ If you don't say otherwise, any non-`event`-metric will be sent in the
 (`event` metrics are sent in [the "events" ping][events-ping]
 more frequently than that).
 
-With data being sent to Mozilla's Data Pipeline, how do you analyse it?
+With data being sent to Plezix's Data Pipeline, how do you analyse it?
 
 That's an impossible question to answer completely without knowing a _lot_ about what questions you want to answer.
 However, in general, if you want to see what data is being collected by your instrumentation,

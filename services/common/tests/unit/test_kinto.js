@@ -4,7 +4,7 @@
 const { Kinto } = ChromeUtils.importESModule(
   "resource://services-common/kinto-offline-client.sys.mjs"
 );
-const { FirefoxAdapter } = ChromeUtils.importESModule(
+const { PlezixAdapter } = ChromeUtils.importESModule(
   "resource://services-common/kinto-storage-adapter.sys.mjs"
 );
 
@@ -14,14 +14,14 @@ var server;
 const kintoFilename = "kinto.sqlite";
 
 function do_get_kinto_sqliteHandle() {
-  return FirefoxAdapter.openConnection({ path: kintoFilename });
+  return PlezixAdapter.openConnection({ path: kintoFilename });
 }
 
 function do_get_kinto_collection(sqliteHandle, collection = "test_collection") {
   let config = {
     remote: `http://localhost:${server.identity.primaryPort}/v1/`,
     headers: { Authorization: "Basic " + btoa("user:pass") },
-    adapter: FirefoxAdapter,
+    adapter: PlezixAdapter,
     adapterOptions: { sqliteHandle },
   };
   return new Kinto(config).collection(collection);

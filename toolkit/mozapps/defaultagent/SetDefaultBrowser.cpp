@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@ namespace mozilla::default_agent {
  * interference from kernel drivers attempting to lock subkeys.
  *
  * @param aExtraFileExtensions Optional array of extra file association pairs to
- * set as default, like `[ ".pdf", "FirefoxPDF" ]`.
+ * set as default, like `[ ".pdf", "PlezixPDF" ]`.
  *
  * @returns NS_OK                  All associations set and checked
  *                                 successfully.
@@ -446,8 +446,8 @@ nsresult SetDefaultBrowserUserChoice(
   }
 
   nsTArray<nsString> browserDefaults = {
-      u"https"_ns, u"FirefoxURL"_ns,  u"http"_ns, u"FirefoxURL"_ns,
-      u".html"_ns, u"FirefoxHTML"_ns, u".htm"_ns, u"FirefoxHTML"_ns};
+      u"https"_ns, u"PlezixURL"_ns,  u"http"_ns, u"PlezixURL"_ns,
+      u".html"_ns, u"PlezixHTML"_ns, u".htm"_ns, u"PlezixHTML"_ns};
 
   browserDefaults.AppendElements(aExtraFileExtensions);
 
@@ -488,7 +488,7 @@ nsresult SetDefaultExtensionHandlersUserChoice(
  * each pair.
  *
  * @param aFileExtensions array of file association pairs to
- * set as default, like `[ ".pdf", "FirefoxPDF" ]`.
+ * set as default, like `[ ".pdf", "PlezixPDF" ]`.
  */
 static nsresult GenerateProgramIDs(const nsTArray<nsString>& aFileExtensions,
                                    nsTArray<nsString>& progIDs) {
@@ -517,7 +517,7 @@ static nsresult GenerateProgramIDs(const nsTArray<nsString>& aFileExtensions,
  * each.
  *
  * @param aFileExtensions array of file association pairs to set as default,
- * like `[ ".pdf", "FirefoxPDF" ]`.
+ * like `[ ".pdf", "PlezixPDF" ]`.
  * @param aProgIDs array of program ids. The order of this array matches the
  * file extensions parameter.
  */

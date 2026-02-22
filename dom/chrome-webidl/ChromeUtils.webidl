@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -252,7 +252,7 @@ namespace ChromeUtils {
    * caught.
    *
    * This mechanism is designed to help ensure that the code of
-   * Firefox is free from Dev Errors, even if they are accidentally
+   * Plezix is free from Dev Errors, even if they are accidentally
    * caught by clients.
    *
    * The object returned is not an exception. It has fields:
@@ -847,7 +847,7 @@ enum WebIDLProcType {
 };
 
 /**
- * These dictionaries hold information about Firefox running processes and
+ * These dictionaries hold information about Plezix running processes and
  * threads.
  *
  * See widget/ProcInfo.h for fields documentation.
@@ -930,9 +930,9 @@ dictionary ChildProcInfoDictionary {
   // Thread information for this process.
   sequence<ThreadInfoDictionary> threads = [];
 
-  // --- Firefox info
+  // --- Plezix info
 
-  // Internal-to-Firefox process identifier.
+  // Internal-to-Plezix process identifier.
   unsigned long long childID = 0;
 
   // The origin of the process, e.g. the subset of domain names
@@ -978,7 +978,7 @@ dictionary ParentProcInfoDictionary {
   // Information on children processes.
   sequence<ChildProcInfoDictionary> children = [];
 
-  // --- Firefox info
+  // --- Plezix info
   // Type of this parent process.
   // As of this writing, this is always `browser`.
   WebIDLProcType type = "browser";

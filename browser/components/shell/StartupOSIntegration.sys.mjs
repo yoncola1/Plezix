@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,8 +23,8 @@ XPCOMUtils.defineLazyServiceGetters(lazy, {
 });
 
 ChromeUtils.defineESModuleGetters(lazy, {
-  FirefoxBridgeExtensionUtils:
-    "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs",
+  PlezixBridgeExtensionUtils:
+    "resource:///modules/PlezixBridgeExtensionUtils.sys.mjs",
   PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.sys.mjs",
   ShellService: "resource:///modules/ShellService.sys.mjs",
   WindowsLaunchOnLogin: "resource://gre/modules/WindowsLaunchOnLogin.sys.mjs",
@@ -49,7 +49,7 @@ ChromeUtils.defineLazyGetter(lazy, "log", () => {
 function WindowsRegPoliciesGetter(wrk, root, regLocation) {
   wrk.open(root, regLocation, wrk.ACCESS_READ);
   let policies;
-  if (wrk.hasChild("Mozilla\\" + Services.appinfo.name)) {
+  if (wrk.hasChild("Plezix\\" + Services.appinfo.name)) {
     policies = lazy.WindowsGPOParser.readPolicies(wrk, policies);
   }
   wrk.close();
@@ -158,7 +158,7 @@ export let StartupOSIntegration = {
     // these individual calls are independent and can run without
     // waiting for each other.
 
-    // Currently we only support Firefox bridge on Windows and macOS.
+    // Currently we only support Plezix bridge on Windows and macOS.
     safeCall(() => this.ensureBridgeRegistered());
 
     if (AppConstants.platform == "win") {
@@ -175,17 +175,17 @@ export let StartupOSIntegration = {
     }
     let { defaultProfile, currentProfile } = lazy.profileService;
     if (defaultProfile && currentProfile == defaultProfile) {
-      await lazy.FirefoxBridgeExtensionUtils.ensureRegistered();
+      await lazy.PlezixBridgeExtensionUtils.ensureRegistered();
     } else {
       lazy.log.debug(
-        "FirefoxBridgeExtensionUtils failed to register due to non-default current profile."
+        "PlezixBridgeExtensionUtils failed to register due to non-default current profile."
       );
     }
   },
 
-  // Silently pin Firefox to the start menu on first run when using MSIX on a
+  // Silently pin Plezix to the start menu on first run when using MSIX on a
   // new profile.
-  // If not first run, check if Firefox is no longer pinned to the Start Menu
+  // If not first run, check if Plezix is no longer pinned to the Start Menu
   // when it previously was and send telemetry.
   async maybePinMSIXToStartMenu() {
     if (!Services.sysinfo.getProperty("hasWinPackageId")) {
@@ -206,7 +206,7 @@ export let StartupOSIntegration = {
   // mode icon to the Taskbar (eg: the "Pin to Taskbar" context menu item).
   // This is also created by the installer, but it's possible that a user
   // has removed it, or is running out of a zip build. The consequences of not
-  // having a Shortcut for this are that regular Firefox will be pinned instead
+  // having a Shortcut for this are that regular Plezix will be pinned instead
   // of the Private Browsing version -- so it's quite important we do our best
   // to make sure one is available.
   // See https://bugzilla.mozilla.org/show_bug.cgi?id=1762994 for additional

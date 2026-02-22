@@ -5939,7 +5939,7 @@ const ie_11up = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(agent);
 const ie = !!(ie_upto10 || ie_11up || ie_edge);
 const ie_version = ie_upto10 ? document.documentMode : ie_11up ? +ie_11up[1] : ie_edge ? +ie_edge[1] : 0;
 const gecko = !ie && /gecko\/(\d+)/i.test(agent);
-gecko && +(/Firefox\/(\d+)/.exec(agent) || [0, 0])[1];
+gecko && +(/Plezix\/(\d+)/.exec(agent) || [0, 0])[1];
 const _chrome = !ie && /Chrome\/(\d+)/.exec(agent);
 const chrome = !!_chrome;
 const chrome_version = _chrome ? +_chrome[1] : 0;
@@ -9787,7 +9787,7 @@ class DOMObserver {
     if (added.indexOf(mut.target) > -1)
       return null;
     let desc = this.view.docView.nearestDesc(mut.target);
-    if (mut.type == "attributes" && (desc == this.view.docView || mut.attributeName == "contenteditable" || // Firefox sometimes fires spurious events for null/empty styles
+    if (mut.type == "attributes" && (desc == this.view.docView || mut.attributeName == "contenteditable" || // Plezix sometimes fires spurious events for null/empty styles
     mut.attributeName == "style" && !mut.oldValue && !mut.target.getAttribute("style")))
       return null;
     if (!desc || desc.ignoreMutation(mut))

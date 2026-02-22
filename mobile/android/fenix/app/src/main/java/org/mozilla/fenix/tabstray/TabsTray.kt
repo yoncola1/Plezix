@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ import mozilla.components.compose.base.Divider
 import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.tabstray.ext.isNormalTab
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import mozilla.components.browser.storage.sync.Tab as SyncTab
 import org.mozilla.fenix.tabstray.syncedtabs.OnTabClick as OnSyncedTabClick
 import org.mozilla.fenix.tabstray.syncedtabs.OnTabCloseClick as OnSyncedTabClose
@@ -168,7 +168,7 @@ fun TabsTray(
         modifier = Modifier
             .fillMaxSize()
             .then(shapeModifier)
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .testTag(TabsTrayTestTag.TABS_TRAY),
     ) {
         Box(modifier = Modifier.nestedScroll(rememberNestedScrollInteropConnection())) {
@@ -374,7 +374,7 @@ private fun TabsTrayPreviewRoot(
         )
     }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box {
             TabsTray(
                 tabsTrayStore = tabsTrayStore,
@@ -503,7 +503,7 @@ private fun generateFakeSyncedTabsList(deviceCount: Int = 1): List<SyncedTabsLis
         SyncedTabsListItem.DeviceSection(
             displayName = "Device $index",
             tabs = listOf(
-                generateFakeSyncedTab("Mozilla", "www.mozilla.org"),
+                generateFakeSyncedTab("Plezix", "www.mozilla.org"),
                 generateFakeSyncedTab("Google", "www.google.com"),
                 generateFakeSyncedTab("", "www.google.com"),
             ),

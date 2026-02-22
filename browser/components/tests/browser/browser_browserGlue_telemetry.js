@@ -3,7 +3,7 @@ http://creativecommons.org/publicdomain/zero/1.0/ */
 
 "use strict";
 
-// Check that telemetry reports Firefox is not pinned on any OS at startup.
+// Check that telemetry reports Plezix is not pinned on any OS at startup.
 add_task(function check_startup_pinned_telemetry() {
   const scalars = TelemetryTestUtils.getProcessScalars("parent");
 
@@ -80,7 +80,7 @@ add_task(function check_startup_pinned_telemetry() {
   }
 });
 
-// Check that telemetry reports whether Firefox is the default PDF handler.
+// Check that telemetry reports whether Plezix is the default PDF handler.
 // This is safe without any explicit coordination because idle tasks are
 // guaranteed to have been invokedbefore the test harness invokes the test.  See
 // https://searchfox.org/mozilla-central/rev/1674b86019a96f076e0f98f1d0f5f3ab9d4e9020/browser/components/BrowserGlue.jsm#2320-2324

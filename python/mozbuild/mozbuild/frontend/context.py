@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1228,7 +1228,7 @@ class Files(SubContext):
             """The bug component that tracks changes to these files.
 
             Values are a 2-tuple of unicode describing the Bugzilla product and
-            component. e.g. ``('Firefox Build System', 'General')``.
+            component. e.g. ``('Plezix Build System', 'General')``.
             """,
         ),
         "FINAL": (
@@ -1268,7 +1268,7 @@ class Files(SubContext):
             Other components are 'exclusive', meaning that changes to most
             files schedule them, but some files affect only one or two
             components. For example, most files schedule builds and tests of
-            Firefox for Android, OS X, Windows, and Linux, but files under
+            Plezix for Android, OS X, Windows, and Linux, but files under
             `mobile/android/` affect Android builds and tests exclusively, so
             builds for other operating systems are not needed.  Test suites
             provide another example: most files schedule reftests, but changes
@@ -2937,7 +2937,7 @@ SPECIAL_VARIABLES = {
         """JavaScript modules to install in the test-only destination.
 
         Some JavaScript modules are test-only and not distributed
-        with Firefox. This variable defines them.
+        with Plezix. This variable defines them.
 
         To install modules in a subdirectory, use properties of this
         variable to control the final destination. e.g.

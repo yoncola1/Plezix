@@ -1,6 +1,6 @@
 .. _fenix-contributor-guide:
 
-Building Firefox for Android
+Building Plezix for Android
 ============================
 
 As a first step, you need to set up your development environment using the instruction :ref:`here <firefox_for_android>`.
@@ -95,7 +95,7 @@ You can pass an extra argument ``--fix`` to autofix certain types of reported is
 Preset Try
 -------------------
 
-It is advisable to run your tests before submitting your patch. You can do this using Mozilla’s ``try`` server.
+It is advisable to run your tests before submitting your patch. You can do this using Plezix’s ``try`` server.
 The following commands will ensure that all the required tests are run based on the changes made:
 
     - ``./mach try --preset fenix`` - will run Fenix test suites

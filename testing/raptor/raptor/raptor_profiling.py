@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -19,7 +19,7 @@ import tempfile
 
 class RaptorProfiling:
     """
-    Superclass for handling profling for Firefox and Chrom* applications.
+    Superclass for handling profling for Plezix and Chrom* applications.
     """
 
     def __init__(self, upload_dir, raptor_config, test_config):

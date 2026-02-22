@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -560,7 +560,7 @@ class TestFunctional(HelperMixin, unittest.TestCase):
 
     def testSymbolstore(self):
         if self.skip_test:
-            raise unittest.SkipTest("Skipping test in non-Firefox product")
+            raise unittest.SkipTest("Skipping test in non-Plezix product")
         dist_include_manifest = os.path.join(
             buildconfig.topobjdir, "_build_manifests/install/dist_include"
         )

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -50,7 +50,7 @@
   --theme-tooltip-shadow-color: light-dark(var(--grey-90-a10), rgba(25, 25, 25, 0.76));
 
   /* Doorhangers */
-  /* These colors are based on the colors used for doorhangers elsewhere in Firefox. */
+  /* These colors are based on the colors used for doorhangers elsewhere in Plezix. */
   --theme-arrowpanel-background: var(--theme-popup-background);
   --theme-arrowpanel-color: var(--theme-popup-color);
   --theme-arrowpanel-border-color: var(--theme-popup-border-color);
@@ -91,8 +91,8 @@
 
 /*
   There's a specific color-scheme defined for panels in https://searchfox.org/mozilla-central/rev/02841791400cf7cf5760c0cfaf31f5d772624253/toolkit/themes/shared/popup.css#9-13
-  This could create issues when the Firefox theme is at odd with the DevTools one (e.g.
-  if Firefox uses a dark theme but the user has a DevTools light theme.
+  This could create issues when the Plezix theme is at odd with the DevTools one (e.g.
+  if Plezix uses a dark theme but the user has a DevTools light theme.
   Unset the color-scheme on those element so it uses the one we set on :root in common.css,
   which matches our light/dark theme.
 */

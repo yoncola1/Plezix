@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ static const PCWSTR kXmlDescription =
         <Effect>
             <!-- System Properties -->
             <Property name='DisplayName' type='string' value='ConicGradientEffect'/>
-            <Property name='Author' type='string' value='Mozilla'/>
+            <Property name='Author' type='string' value='Plezix'/>
             <Property name='Category' type='string' value='Pattern effects'/>
             <Property name='Description' type='string' value='This effect is used to render CSS conic gradients.'/>
             <Inputs>

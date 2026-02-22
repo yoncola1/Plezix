@@ -623,7 +623,7 @@ async function test_default_search_on_updating_addons_installed_before_bug175776
     }.`
   );
 
-  // Mock an update from settings stored as in an older Firefox version where Bug 1757760 was not landed yet.
+  // Mock an update from settings stored as in an older Plezix version where Bug 1757760 was not landed yet.
   info(
     "Setup preconditions (inject mock extension-settings.json data and assert on the expected setting and levelOfControl)"
   );
@@ -650,7 +650,7 @@ async function test_default_search_on_updating_addons_installed_before_bug175776
             value:
               extensionInfo2.manifest.chrome_settings_overrides.search_provider
                 .name,
-            // When an addon with a default search engine override is installed in Firefox versions
+            // When an addon with a default search engine override is installed in Plezix versions
             // without the changes landed from Bug 1757760, `enabled` will be set to true in all cases
             // (Prompt never answered, or when No or Yes is selected by the user).
             enabled: true,

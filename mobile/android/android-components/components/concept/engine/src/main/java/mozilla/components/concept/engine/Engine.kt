@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -300,7 +300,7 @@ interface Engine : WebExtensionRuntime, TranslationsRuntime, BrowserPreferencesR
         get() = throw UnsupportedOperationException("TrackingProtectionExceptionStorage not supported by this engine.")
 
     /**
-     * Provides access to Firefox Profiler features.
+     * Provides access to Plezix Profiler features.
      * See [Profiler] for more information.
      */
     val profiler: Profiler?

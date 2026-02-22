@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ import org.mozilla.fenix.components.menu.compose.MenuScaffold
 import org.mozilla.fenix.components.menu.compose.MenuTextItem
 import org.mozilla.fenix.components.menu.compose.header.SubmenuHeader
 import org.mozilla.fenix.settings.trustpanel.store.WebsiteInfoState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 @Composable
 internal fun ConnectionSecurityPanel(
@@ -50,7 +50,7 @@ internal fun ConnectionSecurityPanel(
                 )
 
                 if (websiteInfoState.certificateName.isNotEmpty()) {
-                    Divider(color = FirefoxTheme.colors.borderSecondary)
+                    Divider(color = PlezixTheme.colors.borderSecondary)
 
                     MenuTextItem(
                         label = stringResource(
@@ -67,16 +67,16 @@ internal fun ConnectionSecurityPanel(
 @PreviewLightDark
 @Composable
 private fun TrackersBlockedPanelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             ConnectionSecurityPanel(
                 websiteInfoState = WebsiteInfoState(
                     isSecured = true,
                     websiteUrl = "https://www.mozilla.org",
-                    websiteTitle = "Mozilla",
+                    websiteTitle = "Plezix",
                     certificateName = "Let's Encrypt",
                 ),
                 onBackButtonClick = {},

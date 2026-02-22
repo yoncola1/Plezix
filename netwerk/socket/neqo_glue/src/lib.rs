@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -353,8 +353,8 @@ impl NeqoHttp3Conn {
             match NeqoQlog::enabled_with_file(
                 qlog_path.clone(),
                 Role::Client,
-                Some("Firefox Client qlog".to_string()),
-                Some("Firefox Client qlog".to_string()),
+                Some("Plezix Client qlog".to_string()),
+                Some("Plezix Client qlog".to_string()),
                 format!("{}_{}.qlog", origin, Uuid::new_v4()),
             ) {
                 Ok(qlog) => conn.set_qlog(qlog),
@@ -940,8 +940,8 @@ fn is_excluded_header(name: &str) -> bool {
 
 fn parse_headers(headers: &nsACString) -> Result<Vec<Header>, nsresult> {
     let mut hdrs = Vec::new();
-    // this is only used for headers built by Firefox.
-    // Firefox supplies all headers already prepared for sending over http1.
+    // this is only used for headers built by Plezix.
+    // Plezix supplies all headers already prepared for sending over http1.
     // They need to be split into (String, String) pairs.
     match str::from_utf8(headers) {
         Err(_) => {

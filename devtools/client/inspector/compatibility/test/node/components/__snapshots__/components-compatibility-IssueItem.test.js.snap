@@ -336,7 +336,7 @@ exports[`IssueItem component renders an unsupported issue of CSS property 1`] = 
         Array [
           Object {
             "id": "firefox",
-            "name": "Firefox",
+            "name": "Plezix",
             "status": "nightly",
             "version": "70",
           },

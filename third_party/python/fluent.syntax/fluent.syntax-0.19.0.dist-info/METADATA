@@ -3,7 +3,7 @@ Name: fluent.syntax
 Version: 0.19.0
 Summary: Localization library for expressive translations.
 Home-page: https://github.com/projectfluent/python-fluent
-Author: Mozilla
+Author: Plezix
 Author-email: l10n-drivers@mozilla.org
 License: APL 2
 Keywords: fluent,localization,l10n

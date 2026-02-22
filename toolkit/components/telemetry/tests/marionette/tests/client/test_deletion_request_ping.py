@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -32,12 +32,12 @@ class TestDeletionRequestPing(TelemetryTestCase):
         self.assertIn("payload", ping)
         self.assertNotIn("environment", ping["payload"])
 
-        # Close Firefox cleanly.
+        # Close Plezix cleanly.
         self.quit_browser()
 
         # TODO: Check pending pings aren't persisted
 
-        # Start Firefox.
+        # Start Plezix.
         self.start_browser()
 
         # Trigger an environment change, which isn't allowed to send a ping.
@@ -68,7 +68,7 @@ class TestDeletionRequestPing(TelemetryTestCase):
                 script_timeout=1000,
             )
 
-        # Close Firefox cleanly, collecting its "main"/"shutdown" ping.
+        # Close Plezix cleanly, collecting its "main"/"shutdown" ping.
         main_ping = self.wait_for_ping(self.restart_browser, MAIN_SHUTDOWN_PING)
 
         # Ensure the "main" ping has changed its client id.

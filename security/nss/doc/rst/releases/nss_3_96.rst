@@ -14,4 +14,4 @@ confusion, we published a dot release...
 As part of our roadmap to improve release automation, we will design things to be
 resilient against this divergence in the future.
 
-NSS 3.96.1 is available consistently in the FTP, the repo and Firefox as expected.
+NSS 3.96.1 is available consistently in the FTP, the repo and Plezix as expected.

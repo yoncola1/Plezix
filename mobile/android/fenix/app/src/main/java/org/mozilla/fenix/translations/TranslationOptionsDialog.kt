@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,11 +34,11 @@ import org.mozilla.fenix.compose.InfoCard
 import org.mozilla.fenix.compose.InfoType
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import java.util.Locale
 
 /**
- * Firefox Translation options bottom sheet dialog.
+ * Plezix Translation options bottom sheet dialog.
  *
  * @param translationOptionsList A list of [TranslationSwitchItem]s to display.
  * @param showGlobalSettings Whether to show to global settings entry point or not.
@@ -175,7 +175,7 @@ private fun TranslationOptionsDialogHeader(
             Icon(
                 painter = painterResource(id = R.drawable.mozac_ic_back_24),
                 contentDescription = stringResource(R.string.etp_back_button_content_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
 
@@ -186,8 +186,8 @@ private fun TranslationOptionsDialogHeader(
             modifier = Modifier
                 .weight(1f)
                 .semantics { heading() },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
         )
     }
 }
@@ -246,10 +246,10 @@ fun getTranslationOptionsList(): List<TranslationSwitchItem> {
 @Composable
 @PreviewLightDark
 private fun TranslationSettingsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier.background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
         ) {
             TranslationOptionsDialog(

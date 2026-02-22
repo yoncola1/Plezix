@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1062,9 +1062,9 @@ function getFrameDepth(frame) {
 /**
  * Generate a magic string that will be rendered in smart terminals as a URL
  * for the given Frame object. This URL is special as it includes a line and column.
- * This URL can be clicked and Firefox will automatically open the source matching
+ * This URL can be clicked and Plezix will automatically open the source matching
  * the frame's URL in the currently opened Debugger.
- * Firefox will interpret differently the URLs ending with `/:?\d*:\d+/`.
+ * Plezix will interpret differently the URLs ending with `/:?\d*:\d+/`.
  *
  * @param {Debugger.Frame} frame
  *        The frame being traced.
@@ -1075,7 +1075,7 @@ function getTerminalHyperLink(frame) {
   const { script } = frame;
   const { lineNumber, columnNumber } = script.getOffsetMetadata(frame.offset);
 
-  // Use a special URL, including line and column numbers which Firefox
+  // Use a special URL, including line and column numbers which Plezix
   // interprets as to be opened in the already opened DevTool's debugger
   const href = `${script.source.url}:${lineNumber}:${columnNumber}`;
 

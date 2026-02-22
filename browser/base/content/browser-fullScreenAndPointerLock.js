@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -306,7 +306,7 @@ var FullScreen = {
     );
     notificationExitButton.addEventListener("click", this.exitDomFullScreen);
 
-    // Called when the Firefox window go into fullscreen.
+    // Called when the Plezix window go into fullscreen.
     addEventListener("fullscreen", this, true);
 
     // Called only when fullscreen is requested

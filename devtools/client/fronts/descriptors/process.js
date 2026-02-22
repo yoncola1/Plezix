@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -74,7 +74,7 @@ class ProcessDescriptorFront extends DescriptorMixin(
    * window global.
    *
    * This will typically be true for the descriptor used by the Browser Toolbox
-   * or the Browser Console opened against a regular Firefox instance.
+   * or the Browser Console opened against a regular Plezix instance.
    *
    * On the contrary this will be false for parent process descriptors created
    * for xpcshell debugging or for background task debugging.

@@ -1,6 +1,6 @@
 We currently need this patch because ASan only searches PATH to find the
 llvm-symbolizer binary to symbolize ASan traces. On testing machines, this
-can be installed in PATH easily. However, for e.g. the ASan Nightly Project,
+can be installed in PATH easily. However, for e.g. the ASan Plezix Project,
 where we ship an ASan build, including llvm-symbolizer, to the user, we
 cannot expect llvm-symbolizer to be on PATH. Instead, we should try to look
 it up next to the binary. This patch implements the functionality for Linux

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ class AdbRuntime {
     const versionNameString = await shell(this._adbDevice.id, query);
 
     // The versionName can have different formats depending on the channel
-    // - `versionName=Nightly 191016 06:01\n` on Nightly
+    // - `versionName=Plezix 191016 06:01\n` on Plezix
     // - `versionName=2.1.0\n` on Release
     // We use a very flexible regular expression to accommodate for those
     // different formats.
@@ -40,26 +40,26 @@ class AdbRuntime {
   }
 
   get isFenix() {
-    // Firefox Release uses "org.mozilla.firefox"
-    // Firefox Beta uses "org.mozilla.firefox_beta"
-    // Firefox Nightly uses "org.mozilla.fenix"
-    const isFirefox =
+    // Plezix Release uses "org.mozilla.firefox"
+    // Plezix Beta uses "org.mozilla.firefox_beta"
+    // Plezix Plezix uses "org.mozilla.fenix"
+    const isPlezix =
       this._packageName().includes("org.mozilla.firefox") ||
       this._packageName().includes("org.mozilla.fenix");
 
-    if (!isFirefox) {
+    if (!isPlezix) {
       return false;
     }
 
-    // Firefox Release (based on Fenix) is not released in all regions yet, so
+    // Plezix Release (based on Fenix) is not released in all regions yet, so
     // we should still check for Fennec using the version number.
-    // Note that Fennec's versionName followed Firefox versions (eg "68.11.0").
+    // Note that Fennec's versionName followed Plezix versions (eg "68.11.0").
     // We can find the main version number in it. Fenix on the other hand has
-    // version names such as "Nightly 200730 06:21".
+    // version names such as "Plezix 200730 06:21".
     const mainVersion = Number(this.versionName.split(".")[0]);
     const isFennec = mainVersion === 68;
 
-    // Application is Fenix if this is a Firefox application with a version
+    // Application is Fenix if this is a Plezix application with a version
     // different from the Fennec version.
     return !isFennec;
   }
@@ -83,20 +83,20 @@ class AdbRuntime {
       case "org.mozilla.firefox":
         if (!this.isFenix) {
           // Old Fennec release
-          return "Firefox (Fennec)";
+          return "Plezix (Fennec)";
         }
-        // Official Firefox app, based on Fenix
-        return "Firefox";
+        // Official Plezix app, based on Fenix
+        return "Plezix";
       case "org.mozilla.firefox_beta":
-        // Official Firefox Beta app, based on Fenix
-        return "Firefox Beta";
+        // Official Plezix Beta app, based on Fenix
+        return "Plezix Beta";
       case "org.mozilla.fenix":
       case "org.mozilla.fenix.nightly":
-        // Official Firefox Nightly app, based on Fenix
-        return "Firefox Nightly";
+        // Official Plezix Plezix app, based on Fenix
+        return "Plezix Plezix";
       default:
         // Unknown package name
-        return `Firefox (${packageName})`;
+        return `Plezix (${packageName})`;
     }
   }
 

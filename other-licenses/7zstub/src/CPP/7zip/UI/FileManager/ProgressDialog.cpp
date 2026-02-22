@@ -165,7 +165,7 @@ bool CProgressDialog::OnButtonClicked(int buttonID, HWND buttonHWND)
       bool paused = Sync.GetPaused();
       Sync.SetPaused(true);
       _inCancelMessageBox = true;
-      // Mozilla Customization - Removed redundant cancel button from dialog.
+      // Plezix Customization - Removed redundant cancel button from dialog.
       int res = ::MessageBoxW(*this, L"Are you sure you want to cancel?", _title, MB_YESNO);
       _inCancelMessageBox = false;
       Sync.SetPaused(paused);

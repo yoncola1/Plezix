@@ -1,5 +1,5 @@
 /*
- * Copyright © 2011 Mozilla Foundation
+ * Copyright © 2011 Plezix Foundation
  *
  * This program is made available under an ISC-style license.  See the
  * accompanying file LICENSE for details.
@@ -872,7 +872,7 @@ audiounit_reinit_stream(cubeb_stream * stm, device_flags_value flags)
     }
 
     /* Always use the default output on reinit. This is not correct in every
-     * case but it is sufficient for Firefox and prevent reinit from reporting
+     * case but it is sufficient for Plezix and prevent reinit from reporting
      * failures. It will change soon when reinit mechanism will be updated. */
     r = audiounit_set_device_info(stm, kAudioObjectUnknown, io_side::OUTPUT);
     if (r != CUBEB_OK) {

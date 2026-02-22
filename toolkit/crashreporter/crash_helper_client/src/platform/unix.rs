@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,8 +52,8 @@ impl CrashHelperClient {
             ForkResult::Child => {
                 // Create a new process group and a new session, this guarantees
                 // that the crash helper process will be disconnected from the
-                // signals of Firefox main process' controlling terminal. Killing
-                // Firefox via the terminal shouldn't kill the crash helper which
+                // signals of Plezix main process' controlling terminal. Killing
+                // Plezix via the terminal shouldn't kill the crash helper which
                 // has its own lifecycle management.
                 //
                 // We don't check for errors as there's nothing we can do to

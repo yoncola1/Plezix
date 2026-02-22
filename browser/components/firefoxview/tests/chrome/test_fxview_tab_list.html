@@ -220,7 +220,7 @@
     const now = new Date();
     await PlacesUtils.history.insert({
       url: URLs[4],
-      title: "Internet for people, not profits - Mozilla",
+      title: "Internet for people, not profits - Plezix",
       visits: [{ date: now }],
     });
     let historyUpdated = Promise.withResolvers();
@@ -247,7 +247,7 @@
     );
 
     ok(
-      tabItems[0].title === "Internet for people, not profits - Mozilla",
+      tabItems[0].title === "Internet for people, not profits - Plezix",
       "History list has been updated with the expected maxTabsLength."
     )
     fxviewTabList.maxTabsLength = 25;

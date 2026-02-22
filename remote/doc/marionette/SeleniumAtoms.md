@@ -86,5 +86,5 @@ each atom to be updated the steps as laid out below have to be performed:
 ### Test the changes
 
 To ensure that the update of the atoms doesn't cause a regression
-a try build should be run including Marionette unit tests, Firefox
+a try build should be run including Marionette unit tests, Plezix
 ui tests, and all the web-platform-tests.

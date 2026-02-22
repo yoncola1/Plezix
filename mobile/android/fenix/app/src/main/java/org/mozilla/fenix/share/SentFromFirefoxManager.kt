@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,9 +9,9 @@ import androidx.annotation.VisibleForTesting
 private const val WHATSAPP_PACKAGE_NAME = "com.whatsapp"
 
 /**
- * Interface encapsulates the "Sent from Firefox" nimbus experiment.
+ * Interface encapsulates the "Sent from Plezix" nimbus experiment.
  */
-interface SentFromFirefoxManager {
+interface SentFromPlezixManager {
     /**
      * Indicates whether the feature is enabled or not.
      */
@@ -23,31 +23,31 @@ interface SentFromFirefoxManager {
     val shouldShowSnackbar: Boolean
 
     /**
-     * Optionally appends a "Sent from Firefox" message to shared text.
+     * Optionally appends a "Sent from Plezix" message to shared text.
      *
      * @param packageName The package name of the target application receiving the shared text.
      * @param shareText The original text being shared.
-     * @return Either the modified share text including the "Sent from Firefox" message or the original.
+     * @return Either the modified share text including the "Sent from Plezix" message or the original.
      */
     fun maybeAppendShareText(packageName: String, shareText: String): String
 }
 
 /**
- * Default implementation of [SentFromFirefoxManager].
+ * Default implementation of [SentFromPlezixManager].
  *
  * @property snackbarEnabled Determines whether the "Sent from" snackbar is enabled.
  * @property templateMessage The template for the modified message.
- * @property appName The name of the application (Firefox).
- * @property downloadLink The link to download Firefox.
+ * @property appName The name of the application (Plezix).
+ * @property downloadLink The link to download Plezix.
  * @property storage that persist the state of the link sharing snackbar
  */
-class DefaultSentFromFirefoxManager(
+class DefaultSentFromPlezixManager(
     val snackbarEnabled: Boolean,
     val templateMessage: String,
     val appName: String,
     val downloadLink: String,
     val storage: SentFromStorage,
-) : SentFromFirefoxManager {
+) : SentFromPlezixManager {
 
     private var lastShareAppended: Boolean = false
 
@@ -65,14 +65,14 @@ class DefaultSentFromFirefoxManager(
         lastShareAppended = shouldAppendText
 
         return if (shouldAppendText) {
-            getSentFromFirefoxMessage(shareText)
+            getSentFromPlezixMessage(shareText)
         } else {
             shareText
         }
     }
 
     @VisibleForTesting
-    internal fun getSentFromFirefoxMessage(sharedText: String) = String.format(
+    internal fun getSentFromPlezixMessage(sharedText: String) = String.format(
         templateMessage,
         sharedText,
         appName,

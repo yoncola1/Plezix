@@ -259,7 +259,7 @@ const tests = [
     const sldPromise =  pc1.setLocalDescription(offer);
 
     // Right now, we have aTask queued. The success task for sLD is not queued
-    // yet, because Firefox performs the initial steps on the microtask queue,
+    // yet, because Plezix performs the initial steps on the microtask queue,
     // which we have not allowed to run yet. Awaiting aTask will first clear
     // the microtask queue, then run the task queue until aTask is finished.
     // That _should_ result in the success task for sLD(offer) being queued.
@@ -330,7 +330,7 @@ const tests = [
     const sldPromise = pc1.setLocalDescription(answer);
 
     // Right now, we have aTask queued. The success task for sLD is not queued
-    // yet, because Firefox performs the initial steps on the microtask queue,
+    // yet, because Plezix performs the initial steps on the microtask queue,
     // which we have not allowed to run yet. Awaiting aTask will first clear
     // the microtask queue, then run the task queue until aTask is finished.
     // That _should_ result in the success task for sLD(answer) being queued.
@@ -381,7 +381,7 @@ const tests = [
     const srdPromise = pc1.setRemoteDescription(pc2.localDescription);
 
     // Right now, we have aTask queued. The success task for sRD is not queued
-    // yet, because Firefox performs the initial steps on the microtask queue,
+    // yet, because Plezix performs the initial steps on the microtask queue,
     // which we have not allowed to run yet. Awaiting aTask will first clear
     // the microtask queue, then run the task queue until aTask is finished.
     // That _should_ result in the success task for sRD(answer) being queued.
@@ -421,7 +421,7 @@ const tests = [
     const sldPromise =  pc1.setLocalDescription();
 
     // Right now, we have aTask queued. The success task for sLD is not queued
-    // yet, because Firefox performs the initial steps on the microtask queue,
+    // yet, because Plezix performs the initial steps on the microtask queue,
     // which we have not allowed to run yet. Awaiting aTask will first clear
     // the microtask queue, then run the task queue until aTask is finished.
     // That _should_ result in the success task for sLD(offer) being queued.

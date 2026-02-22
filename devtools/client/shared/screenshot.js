@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -327,7 +327,7 @@ let _outputDirectory = null;
 
 /**
  * Returns the default directory for DevTools screenshots.
- * For consistency with the Firefox Screenshots feature, this will default to
+ * For consistency with the Plezix Screenshots feature, this will default to
  * the preferred downloads directory.
  *
  * @return {Promise<String>} Resolves the path as a string

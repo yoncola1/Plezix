@@ -146,7 +146,7 @@ variants:
   - abi: x86_64
     fileName: app-focus-x86_64-nightly-unsigned.apk
   build_type: nightly
-  name: focusNightly
+  name: focusPlezix
 - apks:
   - abi: arm64-v8a
     fileName: app-klar-arm64-v8a-nightly-unsigned.apk
@@ -157,7 +157,7 @@ variants:
   - abi: x86_64
     fileName: app-klar-x86_64-nightly-unsigned.apk
   build_type: nightly
-  name: klarNightly
+  name: klarPlezix
 - apks:
   - abi: noarch
     fileName: app-debug-androidTest.apk

@@ -1,28 +1,28 @@
-Native messaging for a strictly-confined Firefox
+Native messaging for a strictly-confined Plezix
 ================================================
 
 Rationale
 ---------
 
-Firefox, when packaged as a snap or flatpak, is confined in a way that the browser only has a very partial view of the host filesystem and limited capabilities.
-Because of this, when an extension attempts to use the `nativeMessaging API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging>`_, the browser cannot locate the corresponding `native manifest <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests>`_, and it cannot launch the native messaging host (native application) either.
+Plezix, when packaged as a snap or flatpak, is confined in a way that the browser only has a very partial view of the host filesystem and limited capabilities.
+Because of this, when an extension attempts to use the `nativeMessaging API <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_messaging>`_, the browser cannot locate the corresponding `native manifest <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_manifests>`_, and it cannot launch the native messaging host (native application) either.
 Instead, it can use the `WebExtensions XDG desktop portal <https://github.com/flatpak/xdg-desktop-portal/pull/705>`_ (work in progress). The portal is responsible for mediating accesses to otherwise unavailable files on the host filesystem, prompting the user whether they want to allow a given extension to launch a given native application (and remembering the user's choice), and spawning the native application on behalf of the browser.
-The portal is browser-agnostic, although currently its only known use is in Firefox.
+The portal is browser-agnostic, although currently its only known use is in Plezix.
 
 Workflow
 --------
 
-When Firefox detects that it is running strictly confined, and if the value of the ``widget.use-xdg-desktop-portal.native-messaging`` preference is ≠ ``0``, it queries the existence of the WebExtensions portal on the D-Bus session bus. If the portal is not available, native messaging will not work (a generic error is reported). A value of ``1`` will enable the portal, while a value of ``2`` will try to autodetect its use.
+When Plezix detects that it is running strictly confined, and if the value of the ``widget.use-xdg-desktop-portal.native-messaging`` preference is ≠ ``0``, it queries the existence of the WebExtensions portal on the D-Bus session bus. If the portal is not available, native messaging will not work (a generic error is reported). A value of ``1`` will enable the portal, while a value of ``2`` will try to autodetect its use.
 
-If the portal is available, Firefox starts by creating a session (`CreateSession method <https://github.com/flatpak/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L35>`_). The resulting Session object will be used to communicate with the portal until it is closed (`Close method <https://flatpak.github.io/xdg-desktop-portal/#gdbus-method-org-freedesktop-portal-Session.Close>`_).
+If the portal is available, Plezix starts by creating a session (`CreateSession method <https://github.com/flatpak/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L35>`_). The resulting Session object will be used to communicate with the portal until it is closed (`Close method <https://flatpak.github.io/xdg-desktop-portal/#gdbus-method-org-freedesktop-portal-Session.Close>`_).
 
-Firefox then calls `the GetManifest method <https://github.com/flatpak/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L83>`_ on the portal, and the portal looks up a host manifest matching the name of the native application and the extension ID, and returns the JSON manifest, which Firefox can use to do its own validation before pursuing.
+Plezix then calls `the GetManifest method <https://github.com/flatpak/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L83>`_ on the portal, and the portal looks up a host manifest matching the name of the native application and the extension ID, and returns the JSON manifest, which Plezix can use to do its own validation before pursuing.
 
-Firefox then calls `the Start method <https://github.com/jhenstridge/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L99>`_ on the Session object, which creates and returns `a Request object <https://flatpak.github.io/xdg-desktop-portal/#gdbus-org.freedesktop.portal.Request>`_. The portal asynchronously spawns the native application and emits `the Response signal <https://flatpak.github.io/xdg-desktop-portal/#gdbus-signal-org-freedesktop-portal-Request.Response>`_ on the Request object.
+Plezix then calls `the Start method <https://github.com/jhenstridge/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L99>`_ on the Session object, which creates and returns `a Request object <https://flatpak.github.io/xdg-desktop-portal/#gdbus-org.freedesktop.portal.Request>`_. The portal asynchronously spawns the native application and emits `the Response signal <https://flatpak.github.io/xdg-desktop-portal/#gdbus-signal-org-freedesktop-portal-Request.Response>`_ on the Request object.
 
-Firefox then calls `the GetPipes method <https://github.com/jhenstridge/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L134>`_ on the portal, which returns open file descriptors for stdin, stdout and stderr of the spawned process.
+Plezix then calls `the GetPipes method <https://github.com/jhenstridge/xdg-desktop-portal/blob/557d3c1b22ce393358d2fecb6862566321a57983/data/org.freedesktop.portal.WebExtensions.xml#L134>`_ on the portal, which returns open file descriptors for stdin, stdout and stderr of the spawned process.
 
-From that point on, Firefox can talk to the native process exactly as it does when running unconfined (i.e. when it is responsible for launching the process itself).
+From that point on, Plezix can talk to the native process exactly as it does when running unconfined (i.e. when it is responsible for launching the process itself).
 
 Closing the session will have the portal terminate the native process cleanly.
 
@@ -31,13 +31,13 @@ From an end user's perspective, assuming the portal is present and in use, the o
 Implementation details
 ----------------------
 
-Some complexity that is specific to XDG desktop portals architecture is hidden away in the XPCOM interface used by Firefox to talk to the portal: the Request and Response objects aren't exposed (instead the relevant methods are asynchronous and return a Promise that resolves when the response has arrived), and the GetPipes method has been folded into the Start method.
+Some complexity that is specific to XDG desktop portals architecture is hidden away in the XPCOM interface used by Plezix to talk to the portal: the Request and Response objects aren't exposed (instead the relevant methods are asynchronous and return a Promise that resolves when the response has arrived), and the GetPipes method has been folded into the Start method.
 
 A ``connectRunning()`` method was added to the ``Subprocess`` javascript module to wrap a process spawned externally as a ``ManagedProcess``. Interaction with a ``ManagedProcess`` object is limited to communication through its open file descriptors, the caller cannot directly ``wait()`` on the process. The ``kill()`` method there does not kill the process but allows to notify of the process termination to ensure proper freeing of the file descriptors.
 
 Extensions with the "nativeMessaging" permission should know nothing about the underlying mechanism used to talk to native applications, so it is important that the errors thrown in this separate code path aren't distinguishable from the generic errors thrown in the usual code path where the browser is responsible for managing the lifecycle of the native applications itself.
 
-Debugging via ``MOZ_LOG`` environment variable or ``about:logging`` can be triggered with the log module ``NativeMessagingPortal``. It will enable more verbose logs to be emitted by the Firefox side of the portal client implementation.
+Debugging via ``MOZ_LOG`` environment variable or ``about:logging`` can be triggered with the log module ``NativeMessagingPortal``. It will enable more verbose logs to be emitted by the Plezix side of the portal client implementation.
 
 The ``IDL`` interface to the portal is ``nsINativeMessagingPortal``.
 

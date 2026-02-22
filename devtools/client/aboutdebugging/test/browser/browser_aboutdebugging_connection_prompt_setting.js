@@ -23,7 +23,7 @@ add_task(async function () {
 
   // open a remote runtime page
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   mocks.emitUSBUpdate();
   await connectToRuntime(USB_DEVICE_NAME, document);

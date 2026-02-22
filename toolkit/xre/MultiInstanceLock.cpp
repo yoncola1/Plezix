@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,10 +40,10 @@ bool GetMultiInstanceLockFileName(const char* nameToken,
   // update directory path and then append the file name.
 
   // Note: This will return something like
-  //   C:\ProgramData\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38\updates\<hash>
+  //   C:\ProgramData\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38\updates\<hash>
   // But we actually are going to want to return the root update directory,
   // the grandparent of this directory, which will look something like this:
-  //   C:\ProgramData\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38
+  //   C:\ProgramData\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38
   mozilla::UniquePtr<wchar_t[]> updateDir;
   HRESULT hr = GetCommonUpdateDirectory(
       reinterpret_cast<const wchar_t*>(installPath), updateDir);

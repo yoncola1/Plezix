@@ -210,18 +210,18 @@ var gTests = [
     },
   },
   {
-    desc: "fxa web channel - firefox_view messages should call the openFirefoxView helper",
+    desc: "fxa web channel - firefox_view messages should call the openPlezixView helper",
     async run() {
       let wasCalled = false;
       let promiseMessageHandled = new Promise(resolve => {
-        let openFirefoxView = browser => {
+        let openPlezixView = browser => {
           wasCalled = true;
           Assert.ok(
             !!browser.ownerGlobal,
-            "openFirefoxView called with a browser argument"
+            "openPlezixView called with a browser argument"
           );
           Assert.equal(
-            typeof browser.ownerGlobal.FirefoxViewHandler.openTab,
+            typeof browser.ownerGlobal.PlezixViewHandler.openTab,
             "function",
             "We can reach the openTab method"
           );
@@ -231,7 +231,7 @@ var gTests = [
           content_uri: TEST_HTTP_PATH,
           channel_id: TEST_CHANNEL_ID,
           helpers: {
-            openFirefoxView,
+            openPlezixView,
           },
         });
 
@@ -251,7 +251,7 @@ var gTests = [
           await promiseMessageHandled;
         }
       );
-      Assert.ok(wasCalled, "openFirefoxView did get called");
+      Assert.ok(wasCalled, "openPlezixView did get called");
     },
   },
 ]; // gTests
@@ -274,14 +274,14 @@ function makeObserver(aObserveTopic, aObserveFunc) {
 
 registerCleanupFunction(function () {
   Services.prefs.clearUserPref(
-    "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess"
+    "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess"
   );
 });
 
 function test() {
   waitForExplicitFinish();
   Services.prefs.setBoolPref(
-    "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+    "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
     false
   );
 

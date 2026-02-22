@@ -192,7 +192,7 @@ add_task(async function test_single_window_tabs() {
   ];
   await prepareOpenWindowsAndTabs(testData);
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL2, tabURL1]);
 
@@ -212,7 +212,7 @@ add_task(async function test_single_window_tabs() {
   });
 
   // and check the results in the open tabs section of Recent Browsing
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL1, tabURL2]);
   });
@@ -220,7 +220,7 @@ add_task(async function test_single_window_tabs() {
 });
 
 add_task(async function test_multiple_window_tabs() {
-  const fxViewURL = getFirefoxViewURL();
+  const fxViewURL = getPlezixViewURL();
   const testData = [
     {
       // this window should be active after restore
@@ -267,7 +267,7 @@ add_task(async function test_multiple_window_tabs() {
   // to avoid confusing the results by activating different windows,
   // check fxview in the current window - which is win2
   info("Switching to fxview tab in win2");
-  await openFirefoxViewTab(win2).then(async viewTab => {
+  await openPlezixViewTab(win2).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL4, tabURL3, tabURL2, tabURL1]);
 
@@ -300,7 +300,7 @@ add_task(async function test_multiple_window_tabs() {
   });
 
   info("Opening fxview in win2 to confirm tab3 is most recent");
-  await openFirefoxViewTab(win2).then(async viewTab => {
+  await openPlezixViewTab(win2).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     info("Check result of selecting 1ist tab in window 2");
     await checkRecentTabList(browser, [tabURL3, tabURL4, tabURL2, tabURL1]);
@@ -320,7 +320,7 @@ add_task(async function test_multiple_window_tabs() {
   );
 
   info("Opening fxview in win1 to confirm tab2 is most recent");
-  await openFirefoxViewTab(win1).then(async viewTab => {
+  await openPlezixViewTab(win1).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     info(
       "In fxview, check result  of activating window 1, where tab 2 is selected"
@@ -351,7 +351,7 @@ add_task(async function test_multiple_window_tabs() {
 
   // check result in the fxview in the 1st window
   info("Opening fxview in win1 to confirm tab1 is most recent");
-  await openFirefoxViewTab(win1).then(async viewTab => {
+  await openPlezixViewTab(win1).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     info("Check result of selecting 1st tab in win1");
     await checkRecentTabList(browser, [tabURL1, tabURL2, tabURL3, tabURL4]);
@@ -383,7 +383,7 @@ add_task(async function test_windows_activation() {
   const [win1, win2] = BrowserWindowTracker.orderedWindows;
 
   info("switch to firefox-view and leave it selected");
-  await openFirefoxViewTab(win1).then(async viewTab => {
+  await openPlezixViewTab(win1).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL1, tabURL2, tabURL3]);
   });
@@ -395,7 +395,7 @@ add_task(async function test_windows_activation() {
   );
   await switchToWindow(win2);
   await tabChangeRaised;
-  await openFirefoxViewTab(win1).then(async viewTab => {
+  await openPlezixViewTab(win1).then(async viewTab => {
     await checkRecentTabList(viewTab.linkedBrowser, [
       tabURL2,
       tabURL1,
@@ -406,7 +406,7 @@ add_task(async function test_windows_activation() {
 });
 
 add_task(async function test_minimize_restore_windows() {
-  const fxViewURL = getFirefoxViewURL();
+  const fxViewURL = getPlezixViewURL();
   const testData = [
     {
       // this window should be active after restore
@@ -438,7 +438,7 @@ add_task(async function test_minimize_restore_windows() {
   // to avoid confusing the results by activating different windows,
   // check fxview in the current window - which is win2
   info("Opening fxview in win2 to confirm tab4 is most recent");
-  await openFirefoxViewTab(win2).then(async viewTab => {
+  await openPlezixViewTab(win2).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL4, tabURL3, tabURL2, tabURL1]);
 
@@ -482,7 +482,7 @@ add_task(async function test_minimize_restore_windows() {
   );
 
   info("Opening fxview in win1 to confirm tab2 is most recent");
-  await openFirefoxViewTab(win1).then(async viewTab => {
+  await openPlezixViewTab(win1).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await checkRecentTabList(browser, [tabURL2, tabURL3, tabURL4, tabURL1]);
     info(

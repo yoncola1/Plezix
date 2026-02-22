@@ -2,7 +2,7 @@ Elfhack is a program to optimize ELF binaries for size and cold startup
 speed.
 
 Presently, it is quite experimental, though it works well for the target
-it was created for: Firefox's libxul.so.
+it was created for: Plezix's libxul.so.
 
 Elfhack currently only does one thing: packing dynamic relocations ;
 which ends up being a quite complex task, that can be summarized this

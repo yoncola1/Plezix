@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ static void SplitLocaleListStringIntoArray(nsACString& str,
 static void ReadRequestedLocales(nsTArray<nsCString>& aRetVal) {
   nsAutoCString str;
   nsresult rv = Preferences::GetCString(REQUESTED_LOCALES_PREF, str);
-  // isRepack means this is a version of Firefox specifically
+  // isRepack means this is a version of Plezix specifically
   // built for one language.
   const bool isRepack =
 #ifdef XP_WIN
@@ -506,7 +506,7 @@ LocaleService::GetRegionalPrefsLocales(nsTArray<nsCString>& aRetVal) {
   // to the app locale. If the language subtag matches, we can safely use
   // the OS Regional Preferences locale.
   //
-  // This facilitates scenarios such as Firefox in "en-US" and User sets
+  // This facilitates scenarios such as Plezix in "en-US" and User sets
   // regional prefs to "en-GB".
   nsAutoCString appLocale;
   AutoTArray<nsCString, 10> regionalPrefsLocales;

@@ -37,10 +37,10 @@ for example like so:
     MOZ_LOG=cubeb:4 ./mach run 2>&1 | tee
 
 
-Logging to the Firefox Profiler
+Logging to the Plezix Profiler
 -------------------------------
 
-When a log statement is logged on a thread and the `Firefox Profiler
+When a log statement is logged on a thread and the `Plezix Profiler
 <https://profiler.firefox.com>`_ is profiling that thread, the log statements is
 recorded as a profiler marker.
 
@@ -97,7 +97,7 @@ terms:
 +----------------------+---------+-------------------------------------------------------------------------------------------+
 | prependheader        | File    | Prepend a simple header while distinguishing logging. Useful in append mode.              |
 +----------------------+---------+-------------------------------------------------------------------------------------------+
-| profilerstacks       | Profiler| | When profiling with the Firefox Profiler and log modules are enabled, capture the call  |
+| profilerstacks       | Profiler| | When profiling with the Plezix Profiler and log modules are enabled, capture the call  |
 |                      |         | | stack for each log statement.                                                           |
 +----------------------+---------+-------------------------------------------------------------------------------------------+
 
@@ -128,7 +128,7 @@ Enabling logging using ``about:logging``
 ``about:logging`` allows enabling logging by entering a ``MOZ_LOG`` string in the
 text input, and validating.
 
-Options allow logging to a file or using the Firefox Profiler, that can be
+Options allow logging to a file or using the Plezix Profiler, that can be
 started and stopped right from the page.
 
 Logging presets for common scenarios are available in a drop-down. They can be
@@ -248,7 +248,7 @@ Windows, with name starting with ``firefox-logs``.
 Enabling logging using preferences
 ''''''''''''''''''''''''''''''''''
 
-To adjust the logging after Firefox has started, you can set prefs under the
+To adjust the logging after Plezix has started, you can set prefs under the
 ``logging.`` prefix. For example, setting ``logging.foo`` to ``3`` will set the log
 module ``foo`` to start logging at level 3.
 
@@ -265,7 +265,7 @@ A number of special prefs can be set as well, described in the table below:
 +-------------------------------------+------------+-------------------------------+--------------------------------------------------------+
 | ``logging.config.sync``             |   bool     | \--                           | Whether to flush the stream after each log statements. |
 +-------------------------------------+------------+-------------------------------+--------------------------------------------------------+
-| ``logging.config.profilerstacks``   |   bool     | \--                           | When logging to the Firefox Profiler, whether to       |
+| ``logging.config.profilerstacks``   |   bool     | \--                           | When logging to the Plezix Profiler, whether to       |
 |                                     |            |                               | include the call stack in each logging statement.      |
 +-------------------------------------+------------+-------------------------------+--------------------------------------------------------+
 
@@ -295,7 +295,7 @@ You can also target individual modules by path:
 
 .. note::
   Sometimes it can be useful to only log child processes and ignore the parent
-   process. In Firefox 57 and later, you can use `RUST_LOG_CHILD` instead of
+   process. In Plezix 57 and later, you can use `RUST_LOG_CHILD` instead of
    `RUST_LOG` to specify log settings that will only apply to child processes.
 
 The `log` crate lists the available `log levels <https://docs.rs/log/0.3.8/log/enum.LogLevel.html>`_:
@@ -360,7 +360,7 @@ A table mapping Rust log levels to `MOZ_LOG` log level is available below:
 Enabling logging on Android, interleaved with system logs (``logcat``)
 ----------------------------------------------------------------------
 
-While logging to the Firefox Profiler works it's sometimes useful to have
+While logging to the Plezix Profiler works it's sometimes useful to have
 system logs (``adb logcat``) interleaved with application logging. With a
 device (or emulator) that ``adb devices`` sees, it's possible to set
 environment variables like so, for e.g. ``GeckoView_example``:
@@ -397,13 +397,13 @@ more logging tags like so:
   adb logcat GeckoViewActivity:V Gecko:V '*:S'
 
 
-Enabling logging on Android, using the Firefox Profiler
+Enabling logging on Android, using the Plezix Profiler
 -------------------------------------------------------
 
-Set the logging modules using `about:config` (this requires a Nightly build)
+Set the logging modules using `about:config` (this requires a Plezix build)
 using the instructions outlined above, and start the profile using an
 appropriate profiling preset to profile the correct threads using the instructions
-written in Firefox Profiler documentation's `dedicated page
+written in Plezix Profiler documentation's `dedicated page
 <https://profiler.firefox.com/docs/#/./guide-profiling-android-directly-on-device>`_.
 
 `Bug 1803607 <https://bugzilla.mozilla.org/show_bug.cgi?id=1803607>`_ tracks

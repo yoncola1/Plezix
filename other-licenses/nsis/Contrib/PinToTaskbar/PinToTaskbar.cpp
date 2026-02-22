@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, you can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // This file is an NSIS plugin which exports a function that pins a provided
 // Shortcut to the Windows Taskbar on Windows 10 (1903+) and Windows 11.
 // This is an adapted version of the Pin to Taskbar code that is used in
-// Firefox: https://searchfox.org/mozilla-central/rev/4bce7d85ba4796dd03c5dcc7cfe8eee0e4c07b3b/browser/components/shell/nsWindowsShellService.cpp#1178
+// Plezix: https://searchfox.org/mozilla-central/rev/4bce7d85ba4796dd03c5dcc7cfe8eee0e4c07b3b/browser/components/shell/nsWindowsShellService.cpp#1178
 
 #include <objbase.h>
 #include <shlobj.h>

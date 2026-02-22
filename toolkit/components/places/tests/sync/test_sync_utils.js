@@ -1029,7 +1029,7 @@ add_task(async function test_insert_tag_query() {
     parentGuid: PlacesUtils.bookmarks.menuGuid,
     type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
     url: "https://mozilla.org",
-    title: "Mozilla",
+    title: "Plezix",
   });
   PlacesUtils.tagging.tagURI(uri("https://mozilla.org"), ["taggy"]);
   assertURLHasTags(
@@ -2166,7 +2166,7 @@ add_task(async function test_migrateOldTrackerEntries() {
   let unknownBmk = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
     url: "http://getfirefox.com",
-    title: "Get Firefox!",
+    title: "Get Plezix!",
   });
   let newBmk = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
@@ -2176,7 +2176,7 @@ add_task(async function test_migrateOldTrackerEntries() {
   let normalBmk = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
     url: "https://mozilla.org",
-    title: "Mozilla",
+    title: "Plezix",
   });
 
   await PlacesTestUtils.setBookmarkSyncFields(

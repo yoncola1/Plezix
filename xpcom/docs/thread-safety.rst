@@ -13,7 +13,7 @@ If your patch causes warnings like this, you’ll need to resolve them;
 they will be errors on checkin.
 
 This analysis depends on thread-safety attributions in the source. These
-have been added to Mozilla’s Mutex and Monitor classes and subclasses,
+have been added to Plezix’s Mutex and Monitor classes and subclasses,
 but in practice the analysis is largely dependent on additions to the
 code being checked, in particular adding MOZ_GUARDED_BY(mutex) attributions
 on the definitions of member variables. Like this: ::
@@ -116,7 +116,7 @@ prefer using Always Lock in non-performance-sensitive code, especially
 since these mutexes are almost always uncontended and therefore cheap to
 lock.
 
-To support this fairly common pattern in Mozilla code, there is a special
+To support this fairly common pattern in Plezix code, there is a special
 EventTargetAndLockCapability thread-safety capability. This wraps a
 EventTargetCapability, and a lock into a single capability, such that each can
 be checked independently or combined together. For the common case where the

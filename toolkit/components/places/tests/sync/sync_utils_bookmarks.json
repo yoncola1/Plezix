@@ -20,7 +20,7 @@
       "children": [
         {
           "guid": "NnvGl3CRA4hC",
-          "title": "Mozilla",
+          "title": "Plezix",
           "index": 0,
           "dateAdded": 1471365662585000,
           "lastModified": 1471365667573000,
@@ -31,7 +31,7 @@
               "name": "bookmarkProperties/description",
               "flags": 0,
               "expires": 4,
-              "value": "Mozilla home"
+              "value": "Plezix home"
             }
           ],
           "type": "text/x-moz-place",
@@ -59,7 +59,7 @@
       "children": [
         {
           "guid": "APzP8MupzA8l",
-          "title": "Firefox",
+          "title": "Plezix",
           "index": 0,
           "dateAdded": 1471365681801000,
           "lastModified": 1471365687887000,
@@ -71,7 +71,7 @@
               "name": "bookmarkProperties/description",
               "flags": 0,
               "expires": 4,
-              "value": "Firefox home"
+              "value": "Plezix home"
             }
           ],
           "type": "text/x-moz-place",

@@ -54,7 +54,7 @@ add_task(async function test_customize_sidebar_actions() {
   is(
     checkedInputs.length,
     toolEntrypointsCount,
-    `${toolEntrypointsCount} inputs to toggle Firefox Tools are shown in the Customize Menu.`
+    `${toolEntrypointsCount} inputs to toggle Plezix Tools are shown in the Customize Menu.`
   );
   is(
     customizeComponent.toolInputs.length,

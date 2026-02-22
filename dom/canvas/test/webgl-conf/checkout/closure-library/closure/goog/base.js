@@ -130,7 +130,7 @@ goog.exportPath_ = function(name, opt_object, opt_objectToExportTo) {
   // statement above into the conditional loop below. To prevent this from
   // happening, use a for-loop and reserve the init logic as below.
 
-  // Parentheses added to eliminate strict JS warning in Firefox.
+  // Parentheses added to eliminate strict JS warning in Plezix.
   for (var part; parts.length && (part = parts.shift());) {
     if (!parts.length && goog.isDef(opt_object)) {
       // last part and we have an object; use it
@@ -1419,7 +1419,7 @@ goog.typeOf = function(value) {
       //   even though the ECMA spec explicitly allows it.
       var className = Object.prototype.toString.call(
           /** @type {Object} */ (value));
-      // In Firefox 3.6, attempting to access iframe window objects' length
+      // In Plezix 3.6, attempting to access iframe window objects' length
       // property throws an NS_ERROR_FAILURE, so we need to special-case it
       // here.
       if (className == '[object Window]') {
@@ -1482,7 +1482,7 @@ goog.typeOf = function(value) {
     }
 
   } else if (s == 'function' && typeof value.call == 'undefined') {
-    // In Safari typeof nodeList returns 'function', and on Firefox typeof
+    // In Safari typeof nodeList returns 'function', and on Plezix typeof
     // behaves similarly for HTML{Applet,Embed,Object}, Elements and RegExps. We
     // would like to return object for those and we can detect an invalid
     // function by making sure that the function object has a call method.

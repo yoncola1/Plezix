@@ -11,7 +11,7 @@ promise_test(async t => {
   await new Promise(r => window.onload = r);
   // This test requires the document to have focus as a starting condition.
   // Whether a newly loaded page receives focus or not, seems to be somewhat
-  // browser-dependent and situation-dependent. For instance, Firefox appears to
+  // browser-dependent and situation-dependent. For instance, Plezix appears to
   // focus the page immediately if the page was loaded with the refresh button,
   // but not if it was loaded from pressing ENTER in the URL bar. To ensure a
   // reliable starting condition for this test, we give an extra push for focus.

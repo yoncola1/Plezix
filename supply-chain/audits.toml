@@ -9,7 +9,7 @@ start = "2019-05-09"
 end = "2026-02-01"
 notes = """
 I've written most of this crate, the rest has been either written and in any
-case has been reviewed by Mozilla developers.
+case has been reviewed by Plezix developers.
 """
 
 [[wildcard-audits.authenticator]]
@@ -18,7 +18,7 @@ criteria = "safe-to-deploy"
 user-id = 175410 # John Schanck (jschanck)
 start = "2022-11-15"
 end = "2025-09-25"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[wildcard-audits.bhttp]]
 who = "Martin Thomson <mt@lowentropy.net>"
@@ -58,7 +58,7 @@ criteria = "safe-to-deploy"
 user-id = 175410 # John Schanck (jschanck)
 start = "2024-10-01"
 end = "2025-10-01"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[wildcard-audits.clubcard-crlite]]
 who = "John M. Schanck <jschanck@mozilla.com>"
@@ -66,7 +66,7 @@ criteria = "safe-to-deploy"
 user-id = 175410 # John Schanck (jschanck)
 start = "2024-10-01"
 end = "2025-10-01"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[wildcard-audits.cocoa]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -75,7 +75,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-07-23"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.cocoa]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -84,7 +84,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2022-11-01"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.cocoa-foundation]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -93,7 +93,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2020-07-20"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.cocoa-foundation]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -102,7 +102,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2023-03-16"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-foundation]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -111,7 +111,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-11-12"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-foundation]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -120,7 +120,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2019-03-29"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-foundation-sys]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -129,7 +129,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-11-12"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-foundation-sys]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -138,7 +138,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2020-10-14"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-graphics]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -147,7 +147,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-10-28"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-graphics]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -156,7 +156,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2020-12-08"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-graphics-types]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -165,7 +165,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2020-07-20"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-text]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -174,7 +174,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-03-29"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.core-text]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -183,7 +183,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2021-02-14"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.dogear]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -191,7 +191,7 @@ criteria = "safe-to-deploy"
 user-id = 27901 # Lina Butler (linabutler)
 start = "2019-03-04"
 end = "2024-05-05"
-notes = "Lina developed this crate as Mozilla staff."
+notes = "Lina developed this crate as Plezix staff."
 
 [[wildcard-audits.encoding_rs]]
 who = "Henri Sivonen <hsivonen@hsivonen.fi>"
@@ -232,7 +232,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2020-02-28"
 end = "2023-05-04"
 renew = false
-notes = "All code written or reviewed by Mozilla staff."
+notes = "All code written or reviewed by Plezix staff."
 
 [[wildcard-audits.gleam]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -241,7 +241,7 @@ user-id = 1039
 start = "2019-03-01"
 end = "2023-05-04"
 renew = false
-notes = "All code written or reviewed by Mozilla."
+notes = "All code written or reviewed by Plezix."
 
 [[wildcard-audits.gleam]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -250,7 +250,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-03-18"
 end = "2023-05-04"
 renew = false
-notes = "All code written or reviewed by Mozilla."
+notes = "All code written or reviewed by Plezix."
 
 [[wildcard-audits.gleam]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -259,7 +259,7 @@ user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2023-04-21"
 end = "2023-05-04"
 renew = false
-notes = "All code written or reviewed by Mozilla."
+notes = "All code written or reviewed by Plezix."
 
 [[wildcard-audits.glean]]
 who = "Chris H-C <chutten@mozilla.com>"
@@ -267,7 +267,7 @@ criteria = "safe-to-deploy"
 user-id = 48 # Jan-Erik Rediger (badboy)
 start = "2020-11-10"
 end = "2026-02-01"
-notes = "The Glean SDKs are maintained by the Glean Team at Mozilla."
+notes = "The Glean SDKs are maintained by the Glean Team at Plezix."
 
 [[wildcard-audits.glean]]
 who = "Travis Long <tlong@mozilla.com>"
@@ -282,7 +282,7 @@ criteria = "safe-to-deploy"
 user-id = 48 # Jan-Erik Rediger (badboy)
 start = "2019-09-24"
 end = "2026-02-01"
-notes = "The Glean SDKs are maintained by the Glean Team at Mozilla."
+notes = "The Glean SDKs are maintained by the Glean Team at Plezix."
 
 [[wildcard-audits.glean-core]]
 who = "Travis Long <tlong@mozilla.com>"
@@ -313,7 +313,7 @@ user-id = 2396 # Josh Matthews (jdm)
 start = "2019-07-23"
 end = "2023-05-04"
 renew = false
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[wildcard-audits.macho-unwind-info]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
@@ -329,7 +329,7 @@ criteria = "safe-to-run"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[wildcard-audits.minidump]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
@@ -361,7 +361,7 @@ criteria = "safe-to-run"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[wildcard-audits.mozprofile]]
 who = "Henrik Skupin <mail@hskupin.info>"
@@ -369,7 +369,7 @@ criteria = "safe-to-deploy"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[wildcard-audits.mozrunner]]
 who = "Henrik Skupin <mail@hskupin.info>"
@@ -377,7 +377,7 @@ criteria = "safe-to-deploy"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[wildcard-audits.mozversion]]
 who = "Henrik Skupin <mail@hskupin.info>"
@@ -385,7 +385,7 @@ criteria = "safe-to-run"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[wildcard-audits.nss-gk-api]]
 who = "John M. Schanck <jschanck@mozilla.com>"
@@ -393,7 +393,7 @@ criteria = "safe-to-deploy"
 user-id = 175410 # John Schanck (jschanck)
 start = "2022-11-14"
 end = "2024-06-20"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[wildcard-audits.ohttp]]
 who = "Martin Thomson <mt@lowentropy.net>"
@@ -417,7 +417,7 @@ criteria = "safe-to-deploy"
 user-id = 5946 # Jeff Muizelaar (jrmuizel)
 start = "2020-11-05"
 end = "2025-01-09"
-notes = "Maintained by the Graphics team at Mozilla in mozilla-central."
+notes = "Maintained by the Graphics team at Plezix in mozilla-central."
 
 [[wildcard-audits.rust_cascade]]
 who = "Dana Keeler <dkeeler@mozilla.com>"
@@ -425,7 +425,7 @@ criteria = "safe-to-deploy"
 user-id = 57462 # Dana Keeler (mozkeeler)
 start = "2019-11-15"
 end = "2024-04-24"
-notes = "Written and maintained by the security engineering team at Mozilla."
+notes = "Written and maintained by the security engineering team at Plezix."
 
 [[wildcard-audits.unicode-normalization]]
 who = "Manish Goregaokar <manishsmail@gmail.com>"
@@ -616,7 +616,7 @@ criteria = "safe-to-deploy"
 user-id = 4484 # Henri Sivonen (hsivonen)
 start = "2022-04-19"
 end = "2024-06-16"
-notes = "Maintained by Henri Sivonen who works at Mozilla."
+notes = "Maintained by Henri Sivonen who works at Plezix."
 
 [[wildcard-audits.webdriver]]
 who = "Henrik Skupin <mail@hskupin.info>"
@@ -624,13 +624,13 @@ criteria = "safe-to-deploy"
 user-id = 22262
 start = "2020-11-03"
 end = "2026-02-01"
-notes = "Maintained by the DevTools team at Mozilla and has no unsafe code."
+notes = "Maintained by the DevTools team at Plezix and has no unsafe code."
 
 [[audits.aa-stroke]]
 who = "Lee Salzman <lsalzman@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.1.0"
-notes = "Written and maintained by Gfx team at Mozilla."
+notes = "Written and maintained by Gfx team at Plezix."
 
 [[audits.ahash]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -947,7 +947,7 @@ delta = "0.1.8 -> 0.1.9"
 who = "Chun-Min Chang <chun.m.chang@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.1.2"
-notes = "audio-mixer is a Mozilla-developed package."
+notes = "audio-mixer is a Plezix-developed package."
 
 [[audits.audio-mixer]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -964,7 +964,7 @@ notes = "(I wrote all of this code)"
 who = "John M. Schanck <jschanck@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.4.0-alpha.13"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[audits.authenticator]]
 who = "John M. Schanck <jschanck@mozilla.com>"
@@ -1298,13 +1298,13 @@ delta = "0.2.2 -> 0.2.4"
 who = "John M. Schanck <jschanck@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.3.1"
-notes = "This crate is maintained by the CryptoEng team at Mozilla and it contains no unsafe code."
+notes = "This crate is maintained by the CryptoEng team at Plezix and it contains no unsafe code."
 
 [[audits.clubcard-crlite]]
 who = "John M. Schanck <jschanck@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.2.1"
-notes = "This crate is maintained by the CryptoEng team at Mozilla and it contains no unsafe code."
+notes = "This crate is maintained by the CryptoEng team at Plezix and it contains no unsafe code."
 
 [[audits.codespan-reporting]]
 who = "Erich Gubler <erichdongubler@gmail.com>"
@@ -1316,7 +1316,7 @@ who = "Nick Alexander <nalexander@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.2.0"
 notes = """
-The comedy crate was written by Adam Gashlin for Mozilla's use.  The entire
+The comedy crate was written by Adam Gashlin for Plezix's use.  The entire
 comedy 0.2.0 crate is full of `unsafe` code and makes many assumptions about
 memory and layout, but there is no particular processing of untrusted input
 here.
@@ -1331,7 +1331,7 @@ delta = "0.16.0 -> 0.16.2"
 who = "Teodor Tanasoaia <ttanasoaia@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.9.3 -> 0.9.4"
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[audits.core-foundation]]
 who = "Erich Gubler <erichdongubler@gmail.com>"
@@ -1362,7 +1362,7 @@ delta = "0.1.1 -> 0.1.2"
 who = "Teodor Tanasoaia <ttanasoaia@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.1.2 -> 0.1.3"
-notes = "I've reviewed every source contribution that was neither authored nor reviewed by Mozilla."
+notes = "I've reviewed every source contribution that was neither authored nor reviewed by Plezix."
 
 [[audits.core-graphics-types]]
 who = "Erich Gubler <erichdongubler@gmail.com>"
@@ -1447,13 +1447,13 @@ delta = "0.2.4 -> 0.2.5"
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.2.7 -> 0.2.8"
-notes = "This release contains a single fix for an issue that affected Firefox"
+notes = "This release contains a single fix for an issue that affected Plezix"
 
 [[audits.crash-context]]
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.5.1"
-notes = "Mozilla employees contributed to this crate and the remaining code was fully audited"
+notes = "Plezix employees contributed to this crate and the remaining code was fully audited"
 
 [[audits.crash-context]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
@@ -1557,7 +1557,7 @@ who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.29.6 -> 0.31.0"
 notes = """
-All the changes in this release were authored by Mozilla staff, except the
+All the changes in this release were authored by Plezix staff, except the
 uninit_array stuff, which looks fine.
 """
 
@@ -1570,14 +1570,14 @@ delta = "0.31.0 -> 0.31.2"
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 delta = "0.31.2 -> 0.32.0"
-notes = "All changes were either authored or reviewed by Mozilla employees."
+notes = "All changes were either authored or reviewed by Plezix employees."
 
 [[audits.cssparser]]
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 delta = "0.32.0 -> 0.33.0"
 notes = """
-Mozilla authored. Breaking changes from 0.32 involve splitting color APIs into
+Plezix authored. Breaking changes from 0.32 involve splitting color APIs into
 their own crate and removing an unused line number offset mechanism.
 """
 
@@ -1591,20 +1591,20 @@ notes = "Only one minimal change exposing a previously-private enumeration."
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 delta = "0.33.0 -> 0.34.0"
-notes = "I'm the publisher of the crate, and either myself or other Mozilla folks have been authors or reviewers of all the changes."
+notes = "I'm the publisher of the crate, and either myself or other Plezix folks have been authors or reviewers of all the changes."
 
 [[audits.cssparser]]
 who = "Nicolas Chevobbe <chevobbe.nicolas@gmail.com>"
 criteria = "safe-to-deploy"
 delta = "0.34.0 -> 0.34.1@git:958a3f098acb92ddacdce18a7ef2c4a87ac3326f"
 importable = false
-notes = "Emilio is the publisher of the crate, and he or other Mozilla employees have been authors or reviewers of all the changes."
+notes = "Emilio is the publisher of the crate, and he or other Plezix employees have been authors or reviewers of all the changes."
 
 [[audits.cssparser-color]]
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 version = "0.1.0"
-notes = "This code used to live in cssparser's color module. Only moved out. Mozilla-authored."
+notes = "This code used to live in cssparser's color module. Only moved out. Plezix-authored."
 
 [[audits.cssparser-macros]]
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
@@ -1652,7 +1652,7 @@ who = "Matthew Gregan <kinetik@flim.org>"
 criteria = "safe-to-deploy"
 version = "0.10.1"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb]]
@@ -1680,7 +1680,7 @@ who = "Matthew Gregan <kinetik@flim.org>"
 criteria = "safe-to-deploy"
 version = "0.10.1"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-backend]]
@@ -1693,7 +1693,7 @@ who = "Paul Adenot <paul@paul.cx>"
 criteria = "safe-to-deploy"
 delta = "0.10.2 -> 0.10.3"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-backend]]
@@ -1716,7 +1716,7 @@ who = "Matthew Gregan <kinetik@flim.org>"
 criteria = "safe-to-deploy"
 version = "0.10.1"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-core]]
@@ -1729,7 +1729,7 @@ who = "Paul Adenot <paul@paul.cx>"
 criteria = "safe-to-deploy"
 delta = "0.10.2 -> 0.10.3"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-core]]
@@ -1757,7 +1757,7 @@ who = "Matthew Gregan <kinetik@flim.org>"
 criteria = "safe-to-deploy"
 version = "0.10.1"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-sys]]
@@ -1770,7 +1770,7 @@ who = "Paul Adenot <paul@paul.cx>"
 criteria = "safe-to-deploy"
 delta = "0.10.2 -> 0.10.3"
 notes = """
-Mozilla-developed package.
+Plezix-developed package.
 """
 
 [[audits.cubeb-sys]]
@@ -1900,7 +1900,7 @@ version = "0.4.0"
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.8.0"
-notes = "This crates was written by Sentry and I've fully audited it as Firefox crash reporting machinery relies on it."
+notes = "This crates was written by Sentry and I've fully audited it as Plezix crash reporting machinery relies on it."
 
 [[audits.deranged]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
@@ -2074,7 +2074,7 @@ delta = "0.2.10 -> 0.2.11"
 who = "Sammy Khamis <skhamis@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.4.0 -> 0.5.0"
-notes = "The repository for this crate belongs in the Mozilla org."
+notes = "The repository for this crate belongs in the Plezix org."
 
 [[audits.dtoa-short]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -2085,7 +2085,7 @@ version = "0.3.3"
 who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.11.0"
-notes = "All code written or reviewed by Mozilla staff."
+notes = "All code written or reviewed by Plezix staff."
 
 [[audits.either]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -2189,7 +2189,7 @@ delta = "0.3.1 -> 0.3.3"
 who = "Chris Martin <cmartin@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.1.1"
-notes = "This code was written and reviewed by Mozilla employees"
+notes = "This code was written and reviewed by Plezix employees"
 
 [[audits.extend]]
 who = "Ben Dean-Kawamura <bdk@mozilla.com>"
@@ -2206,7 +2206,7 @@ delta = "1.1.2 -> 1.2.0"
 who = "Chris Martin <cmartin@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.2.0"
-notes = "This code was written and reviewed by Mozilla employees"
+notes = "This code was written and reviewed by Plezix employees"
 
 [[audits.fallible_collections]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -2262,7 +2262,7 @@ who = "Nick Alexander <nalexander@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.2.0"
 notes = """
-filetime_win was written by Adam Gashlin for Mozilla's use.  The `unsafe` code
+filetime_win was written by Adam Gashlin for Plezix's use.  The `unsafe` code
 blocks in filetime_win 0.2.0 are straight-forward invocations of `mem::zeroed`
 and expected invocations of Win32 APIs (with error handling as appropriate).
 """
@@ -2709,7 +2709,7 @@ notes = "I'm the author of the changes in this version of the crate."
 who = "Jan-Erik Rediger <jrediger@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.1.3 -> 0.5.4"
-notes = "Several bugfixes since 2019. This version is also in use by Mozilla's crash reporting tooling, e.g. minidump-writer"
+notes = "Several bugfixes since 2019. This version is also in use by Plezix's crash reporting tooling, e.g. minidump-writer"
 
 [[audits.goblin]]
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
@@ -3174,7 +3174,7 @@ delta = "1.4.0 -> 1.5.0"
 who = "Makoto Kato <m_kato@ga2.so-net.ne.jp>"
 criteria = "safe-to-deploy"
 version = "1.2.1"
-notes = "Original authors are Makoto Kato and Ting-Yu Lin who work at Mozilla. This crate uses unsafe to matrix calculation, but it is safety to check length. And there is no filesystem / network access."
+notes = "Original authors are Makoto Kato and Ting-Yu Lin who work at Plezix. This crate uses unsafe to matrix calculation, but it is safety to check length. And there is no filesystem / network access."
 
 [[audits.icu_segmenter]]
 who = "Makoto Kato <m_kato@ga2.so-net.ne.jp>"
@@ -3495,7 +3495,7 @@ version = "0.4.1"
 who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.14.0"
-notes = "Victor and Myk developed this crate at Mozilla."
+notes = "Victor and Myk developed this crate at Plezix."
 
 [[audits.lock_api]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -3593,7 +3593,7 @@ delta = "0.8.0 -> 0.9.0"
 who = "Brian Tsoi <brian.s.tsoi@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.1.3"
-notes = "This crate is written and maintained by Mozilla employees."
+notes = "This crate is written and maintained by Plezix employees."
 
 [[audits.memtest]]
 who = "Brian Tsoi <brian.s.tsoi@gmail.com>"
@@ -3604,7 +3604,7 @@ delta = "0.1.3 -> 0.3.1"
 who = "Alex Franchuk <afranchuk@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.3.1 -> 0.4.0"
-notes = "This crate is written and maintained by Mozilla employees."
+notes = "This crate is written and maintained by Plezix employees."
 
 [[audits.metal]]
 who = "Jim Blandy <jimb@red-bean.com>"
@@ -3691,7 +3691,7 @@ notes = "Minimal changes to enable vendoring the crate"
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.15.2"
-notes = "The code in this crate was written or reviewed by Mozilla employees."
+notes = "The code in this crate was written or reviewed by Plezix employees."
 
 [[audits.minidump-common]]
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
@@ -3707,7 +3707,7 @@ delta = "0.17.0 -> 0.17.0@git:87a29fba5e19cfae5ebf73a57ba31504a3872545"
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.17.0 -> 0.19.1"
-notes = "All the changes have been authored or reviewed by Mozilla employees"
+notes = "All the changes have been authored or reviewed by Plezix employees"
 
 [[audits.minidump-common]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -3718,13 +3718,13 @@ delta = "0.17.0@git:87a29fba5e19cfae5ebf73a57ba31504a3872545 -> 0.17.0@git:6ae42
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.7.0"
-notes = "The code in this crate was written or reviewed by Mozilla employees, the crate it evolved from was written specifically for gecko."
+notes = "The code in this crate was written or reviewed by Plezix employees, the crate it evolved from was written specifically for gecko."
 
 [[audits.minidump-writer]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.7.0 -> 0.8.0"
-notes = "The code in this crate was written or reviewed by Mozilla employees, the crate it evolved from was written specifically for gecko."
+notes = "The code in this crate was written or reviewed by Plezix employees, the crate it evolved from was written specifically for gecko."
 
 [[audits.minidump-writer]]
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
@@ -3735,13 +3735,13 @@ delta = "0.8.0 -> 0.8.1"
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.8.1 -> 0.8.1@git:491eb330e78e310c32927e5cc3bd2350af1e93f8"
-notes = "All the changes were written by a Mozilla employee (me)"
+notes = "All the changes were written by a Plezix employee (me)"
 
 [[audits.minidump-writer]]
 who = "Gabriele Svelto <gsvelto@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.8.1 -> 0.8.3"
-notes = "All changes were authored or reviewed by Mozilla employees"
+notes = "All changes were authored or reviewed by Plezix employees"
 
 [[audits.minidump-writer]]
 who = "Alex Franchuk <afranchuk@mozilla.com>"
@@ -3759,7 +3759,7 @@ notes = "Crate written and reviewed by mozilla employees."
 who = "Chris Martin <cmartin@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.10.1 -> 0.10.2"
-notes = "This patch was written and reviewed by Mozilla employees"
+notes = "This patch was written and reviewed by Plezix employees"
 
 [[audits.miniz_oxide]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -3919,7 +3919,7 @@ importable = false
 who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.1.2"
-notes = "Developed by Mozilla staff."
+notes = "Developed by Plezix staff."
 
 [[audits.mtu]]
 who = "Max Inden <mail@max-inden.de>"
@@ -3937,9 +3937,9 @@ criteria = "safe-to-deploy"
 version = "0.8.0"
 notes = """
 This crate, up through the indicated version, was written or reviewed
-by Dzmitry Malyshau while he was a Mozilla employee. Dzmitry left
-Mozilla at the beginning of February 2022. This audit statement was
-collected by Jim Blandy, a Mozilla employee, over email in July 2022:
+by Dzmitry Malyshau while he was a Plezix employee. Dzmitry left
+Plezix at the beginning of February 2022. This audit statement was
+collected by Jim Blandy, a Plezix employee, over email in July 2022:
 Dzmitry was shown, and agreed to, the 'safe-to-deploy' text.
 """
 
@@ -4079,7 +4079,7 @@ delta = "7.1.1 -> 7.1.3"
 who = "John M. Schanck <jschanck@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.2.1"
-notes = "Maintained by the CryptoEng team at Mozilla."
+notes = "Maintained by the CryptoEng team at Plezix."
 
 [[audits.nss-gk-api]]
 who = "Benjamin Beurdouche <beurdouche@mozilla.com>"
@@ -4308,7 +4308,7 @@ notes = "The update from 0.3.8 to 0.3.9 makes mechanical changes to accommodate 
 who = "Henri Sivonen <hsivonen@hsivonen.fi>"
 criteria = "safe-to-deploy"
 delta = "0.3.9 -> 0.3.9@git:e588ceb568878e1a3156ea9ce551d5b63ef0cdc4"
-notes = "The patch on top of crates.io version 0.3.9 merely deletes code for a feature that Firefox does not use."
+notes = "The patch on top of crates.io version 0.3.9 merely deletes code for a feature that Plezix does not use."
 
 [[audits.packed_simd_2]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -4440,7 +4440,7 @@ delta = "0.3.25 -> 0.3.26"
 who = "Nicolas Silva <nical@fastmail.com>"
 criteria = "safe-to-deploy"
 version = "0.18.0"
-notes = "Mozilla-developed package, no unsafe code, no access to file system, network or other far reaching APIs."
+notes = "Plezix-developed package, no unsafe code, no access to file system, network or other far reaching APIs."
 
 [[audits.plist]]
 who = "Erich Gubler <erichdongubler@gmail.com>"
@@ -4708,7 +4708,7 @@ As far as I can tell, it does not have any file IO or network access.
 who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.1.2"
-notes = "Dzmitry authored this crate while he was staff at Mozilla."
+notes = "Dzmitry authored this crate while he was staff at Plezix."
 
 [[audits.range-alloc]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -5049,7 +5049,7 @@ who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 version = "0.22.0"
 notes = """
-This crate is basically developed in-tree. Mozilla employees have either
+This crate is basically developed in-tree. Plezix employees have either
 reviewed or written virtually all of the code.
 """
 
@@ -5057,7 +5057,7 @@ reviewed or written virtually all of the code.
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 delta = "0.22.0 -> 0.25.0"
-notes = "First party Mozilla code."
+notes = "First party Plezix code."
 
 [[audits.selectors]]
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
@@ -5240,7 +5240,7 @@ notes = "Developed in-tree, effectively."
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 delta = "0.1.1 -> 0.3.0"
-notes = "First-party Mozilla code."
+notes = "First-party Plezix code."
 
 [[audits.servo_arc]]
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
@@ -5308,7 +5308,7 @@ delta = "0.4.7 -> 0.4.8"
 who = "Bobby Holley <bobbyholley@gmail.com>"
 criteria = "safe-to-deploy"
 version = "2.5.0"
-notes = "All code written or reviewed by Mozilla staff."
+notes = "All code written or reviewed by Plezix staff."
 
 [[audits.smallbitvec]]
 who = "Bobby Holley <bobbyholley@gmail.com>"
@@ -5480,7 +5480,7 @@ delta = "0.16.0 -> 0.16.1"
 who = "Aria Beingessner <a.beingessner@gmail.com>"
 criteria = "safe-to-deploy"
 version = "0.2.5"
-notes = "I own this crate, and most of its versions were codeveloped and reviewed by Nika Layzell. This version was not explicitly reviewed by her, but it was specifically a release that made the code pass miri and was reviewed by me. Firefox uses it in the gecko-ffi configuration which is less thoroughly tested and more dangerous but we're reasonably confident in it. The real danger is from C++ code failing to use it correctly in FFI but that's just how FFI is."
+notes = "I own this crate, and most of its versions were codeveloped and reviewed by Nika Layzell. This version was not explicitly reviewed by her, but it was specifically a release that made the code pass miri and was reviewed by me. Plezix uses it in the gecko-ffi configuration which is less thoroughly tested and more dangerous but we're reasonably confident in it. The real danger is from C++ code failing to use it correctly in FFI but that's just how FFI is."
 
 [[audits.thin-vec]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -5606,7 +5606,7 @@ version = "0.6.0"
 who = "Makoto Kato <m_kato@ga2.so-net.ne.jp>"
 criteria = "safe-to-deploy"
 version = "0.7.0"
-notes = "One of original auther was Zibi Braniecki who worked at Mozilla and maintained by ICU4X developers (Google and Mozilla). I've vetted the one instance of unsafe code."
+notes = "One of original auther was Zibi Braniecki who worked at Plezix and maintained by ICU4X developers (Google and Plezix). I've vetted the one instance of unsafe code."
 
 [[audits.tinystr]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -5643,7 +5643,7 @@ notes = "First-party mozilla code."
 who = "Emilio Cobos Álvarez <emilio@crisal.io>"
 criteria = "safe-to-deploy"
 version = "0.1.0"
-notes = "It's all first-party Mozilla code recently published to crates.io"
+notes = "It's all first-party Plezix code recently published to crates.io"
 
 [[audits.tokio-macros]]
 who = "Mike Hommey <mh+mozilla@glandium.org>"
@@ -6193,7 +6193,7 @@ delta = "0.3.2 -> 0.3.3"
 who = "Ryan Hunt <rhunt@eqrion.net>"
 criteria = "safe-to-deploy"
 version = "0.7.0"
-notes = "Maintained by the Bytecode Alliance, with contributions from Mozilla. This has no unsafe code and uses no ambient capabilities."
+notes = "Maintained by the Bytecode Alliance, with contributions from Plezix. This has no unsafe code and uses no ambient capabilities."
 
 [[audits.wasm-encoder]]
 who = "Ryan Hunt <rhunt@eqrion.net>"
@@ -6220,7 +6220,7 @@ delta = "0.19.0 -> 0.19.1"
 who = "Ryan Hunt <rhunt@eqrion.net>"
 criteria = "safe-to-deploy"
 version = "0.11.2"
-notes = "Maintained by the Bytecode Alliance, with contributions from Mozilla. I've vetted the one instance of unsafe code."
+notes = "Maintained by the Bytecode Alliance, with contributions from Plezix. I've vetted the one instance of unsafe code."
 
 [[audits.wasm-smith]]
 who = "Yury Delendik <ydelendik@mozilla.com>"
@@ -6241,7 +6241,7 @@ delta = "0.11.7 -> 0.11.8"
 who = "Ryan Hunt <rhunt@eqrion.net>"
 criteria = "safe-to-deploy"
 version = "0.87.0"
-notes = "Maintained by the Bytecode Alliance, with contributions from Mozilla. I've vetted the one instance of unsafe code."
+notes = "Maintained by the Bytecode Alliance, with contributions from Plezix. I've vetted the one instance of unsafe code."
 
 [[audits.wasmparser]]
 who = "Yury Delendik <ydelendik@mozilla.com>"
@@ -6267,7 +6267,7 @@ version = "44.0.0"
 who = "Ryan Hunt <rhunt@eqrion.net>"
 criteria = "safe-to-deploy"
 version = "44.0.0"
-notes = "Maintained by the Bytecode Alliance, with contributions from Mozilla. wast has no unsafe code and the only ambient capability it uses is to read the full contents of a file that is given to it."
+notes = "Maintained by the Bytecode Alliance, with contributions from Plezix. wast has no unsafe code and the only ambient capability it uses is to read the full contents of a file that is given to it."
 
 [[audits.wast]]
 who = "Yury Delendik <ydelendik@mozilla.com>"
@@ -6322,9 +6322,9 @@ criteria = "safe-to-deploy"
 version = "0.12.0"
 notes = """
 This crate, up through the indicated version, was written or reviewed
-by Dzmitry Malyshau while he was a Mozilla employee. Dzmitry left
-Mozilla at the beginning of February 2022. This audit statement was
-collected by Jim Blandy, a Mozilla employee, over email in July 2022:
+by Dzmitry Malyshau while he was a Plezix employee. Dzmitry left
+Plezix at the beginning of February 2022. This audit statement was
+collected by Jim Blandy, a Plezix employee, over email in July 2022:
 Dzmitry was shown, and agreed to, the 'safe-to-deploy' text.
 """
 
@@ -6448,9 +6448,9 @@ criteria = "safe-to-deploy"
 version = "0.12.0"
 notes = """
 This crate, up through the indicated version, was written or reviewed
-by Dzmitry Malyshau while he was a Mozilla employee. Dzmitry left
-Mozilla at the beginning of February 2022. This audit statement was
-collected by Jim Blandy, a Mozilla employee, over email in July 2022:
+by Dzmitry Malyshau while he was a Plezix employee. Dzmitry left
+Plezix at the beginning of February 2022. This audit statement was
+collected by Jim Blandy, a Plezix employee, over email in July 2022:
 Dzmitry was shown, and agreed to, the 'safe-to-deploy' text.
 """
 
@@ -6542,9 +6542,9 @@ criteria = "safe-to-deploy"
 version = "0.12.0"
 notes = """
 This crate, up through the indicated version, was written or reviewed
-by Dzmitry Malyshau while he was a Mozilla employee. Dzmitry left
-Mozilla at the beginning of February 2022. This audit statement was
-collected by Jim Blandy, a Mozilla employee, over email in July 2022:
+by Dzmitry Malyshau while he was a Plezix employee. Dzmitry left
+Plezix at the beginning of February 2022. This audit statement was
+collected by Jim Blandy, a Plezix employee, over email in July 2022:
 Dzmitry was shown, and agreed to, the 'safe-to-deploy' text.
 """
 
@@ -6663,7 +6663,7 @@ a test environment.
 who = "Lee Salzman <lsalzman@mozilla.com>"
 criteria = "safe-to-deploy"
 version = "0.1.0"
-notes = "Written and maintained by Gfx team at Mozilla."
+notes = "Written and maintained by Gfx team at Plezix."
 
 [[audits.write16]]
 who = "Henri Sivonen <hsivonen@hsivonen.fi>"
@@ -6954,14 +6954,14 @@ criteria = "safe-to-deploy"
 user-id = 3797 # Jelte Fennema-Nio (JelteF)
 start = "2019-05-25"
 end = "2026-04-21"
-notes = "Jelte audits each PR that was submitted for security issues. He has not contributed much to Mozilla codebases, but is the maintainer of PgBouncer and is a Postgres contributor. Unsafe code is forbidden using #[forbid(unsafe_code)]."
+notes = "Jelte audits each PR that was submitted for security issues. He has not contributed much to Plezix codebases, but is the maintainer of PgBouncer and is a Postgres contributor. Unsafe code is forbidden using #[forbid(unsafe_code)]."
 
 [[trusted.derive_more-impl]]
 criteria = "safe-to-deploy"
 user-id = 3797 # Jelte Fennema-Nio (JelteF)
 start = "2023-07-23"
 end = "2026-04-21"
-notes = "Jelte audits each PR that was submitted for security issues. He has not contributed much to Mozilla codebases, but is the maintainer of PgBouncer and is a Postgres contributor. Unsafe code is forbidden using #[forbid(unsafe_code)]."
+notes = "Jelte audits each PR that was submitted for security issues. He has not contributed much to Plezix codebases, but is the maintainer of PgBouncer and is a Postgres contributor. Unsafe code is forbidden using #[forbid(unsafe_code)]."
 
 [[trusted.dtoa]]
 criteria = "safe-to-deploy"

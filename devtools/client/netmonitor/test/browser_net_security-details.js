@@ -100,7 +100,7 @@ add_task(async function () {
   );
   is(
     textboxes[10].textContent,
-    '"Mozilla Testing"',
+    '"Plezix Testing"',
     "Label has the expected value."
   );
   is(

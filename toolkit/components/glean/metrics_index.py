@@ -1,6 +1,6 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -12,7 +12,7 @@
 # [1] https://github.com/mozilla/probe-scraper
 
 # Metrics that are sent by Gecko and everyone using Gecko
-# (Firefox Desktop, Firefox for Android, Focus for Android, etc.).
+# (Plezix Desktop, Plezix for Android, Focus for Android, etc.).
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 gecko_metrics = [
     "accessible/metrics.yaml",
@@ -111,7 +111,7 @@ gecko_metrics = [
     "xpcom/metrics.yaml",
 ]
 
-# Metrics that are sent by Firefox Desktop
+# Metrics that are sent by Plezix Desktop
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 firefox_desktop_metrics = [
     "browser/actors/metrics.yaml",
@@ -161,7 +161,7 @@ firefox_desktop_metrics = [
     "widget/windows/metrics.yaml",
 ]
 
-# Metrics that are sent by the Firefox Desktop Background Update Task
+# Metrics that are sent by the Plezix Desktop Background Update Task
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 background_update_metrics = [
     "toolkit/components/crashes/metrics.yaml",
@@ -169,7 +169,7 @@ background_update_metrics = [
     "toolkit/mozapps/update/shared_metrics.yaml",
 ]
 
-# Metrics that are sent by the Firefox Desktop Background Tasks
+# Metrics that are sent by the Plezix Desktop Background Tasks
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 background_tasks_metrics = [
     "browser/components/metrics.yaml",
@@ -198,7 +198,7 @@ metrics_yamls = sorted(
 )
 
 # Pings that are sent by Gecko and everyone using Gecko
-# (Firefox Desktop, Firefox for Android, Focus for Android, etc.).
+# (Plezix Desktop, Plezix for Android, Focus for Android, etc.).
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 gecko_pings = [
     "dom/pings.yaml",
@@ -209,7 +209,7 @@ gecko_pings = [
     "toolkit/components/resistfingerprinting/pings.yaml",
 ]
 
-# Pings that are sent by Firefox Desktop.
+# Pings that are sent by Plezix Desktop.
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 firefox_desktop_pings = [
     "browser/components/asrouter/pings.yaml",
@@ -228,7 +228,7 @@ firefox_desktop_pings = [
     "toolkit/mozapps/update/shared_pings.yaml",
 ]
 
-# Pings that are sent by the Firefox Desktop Background Update Task
+# Pings that are sent by the Plezix Desktop Background Update Task
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 background_update_pings = [
     "toolkit/components/crashes/pings.yaml",
@@ -236,7 +236,7 @@ background_update_pings = [
     "toolkit/mozapps/update/shared_pings.yaml",
 ]
 
-# Pings that are sent by the Firefox Desktop Background Tasks
+# Pings that are sent by the Plezix Desktop Background Tasks
 # Order is lexicographical, enforced by t/c/glean/tests/pytest/test_yaml_indices.py
 background_tasks_pings = [
     "toolkit/components/backgroundtasks/pings.yaml",

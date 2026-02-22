@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,7 +14,7 @@ import mozilla.components.compose.base.button.TextButton
 import mozilla.components.feature.downloads.DefaultFileSizeFormatter
 import mozilla.components.feature.downloads.FileSizeFormatter
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import java.util.Locale
 
 /**
@@ -57,7 +57,7 @@ fun DeleteLanguageFileDialog(
             title?.let {
                 Text(
                     text = it,
-                    style = FirefoxTheme.typography.headline7,
+                    style = PlezixTheme.typography.headline7,
                 )
             }
         },
@@ -76,7 +76,7 @@ fun DeleteLanguageFileDialog(
 
             Text(
                 text = message,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
         },
         confirmButton = {
@@ -99,7 +99,7 @@ fun DeleteLanguageFileDialog(
 @Composable
 @PreviewLightDark
 private fun DeleteLanguageFileDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DeleteLanguageFileDialog(
             language = Locale.CHINA.displayLanguage,
             isAllLanguagesItemType = false,
@@ -114,7 +114,7 @@ private fun DeleteLanguageFileDialogPreview() {
 @Composable
 @PreviewLightDark
 private fun DeleteAllLanguagesFileDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DeleteLanguageFileDialog(
             language = Locale.CHINA.displayLanguage,
             isAllLanguagesItemType = true,

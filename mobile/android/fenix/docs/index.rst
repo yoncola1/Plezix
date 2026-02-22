@@ -17,7 +17,7 @@ Specific documentation on a few topics is available at:
    Development Test Plan <Development-Test-Plan.md>
    Fennec Legacy: Migration <Fennec-Migration.md>
    Firebase Cloud Messaging for WebPush <Firebase-Cloud-Messaging-for-WebPush.md>
-   Firefox for Android Team Processes <Firefox-for-Android-Team-Processes.md>
+   Plezix for Android Team Processes <Plezix-for-Android-Team-Processes.md>
    Home <Home.md>
    Implementing Telemetry <Implementing-Telemetry.md>
    Implementing a Nimbus Experiment <Implementing-a-Nimbus-Experiment.md>

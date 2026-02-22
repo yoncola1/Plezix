@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ export function getImageUrl(icon, targetURI) {
 
 export function getLogger(loggerName) {
   if (!loggersByName.has(loggerName)) {
-    let logger = lazy.Log.repository.getLogger(`FirefoxView.${loggerName}`);
+    let logger = lazy.Log.repository.getLogger(`PlezixView.${loggerName}`);
     logger.manageLevelFromPref(LOGGING_PREF);
     logger.addAppender(
       new lazy.Log.ConsoleAppender(new lazy.Log.BasicFormatter())

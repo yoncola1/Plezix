@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -96,7 +96,7 @@ export var PreferenceRollouts = {
   STATE_GRADUATED: "graduated",
 
   // A set of rollout slugs that are obsolete based on the code in this build of
-  // Firefox. This may include things like the preference no longer being
+  // Plezix. This may include things like the preference no longer being
   // applicable, or the feature changing in such a way that Normandy's automatic
   // graduation system cannot detect that the rollout should hand off to the
   // built-in code.
@@ -140,7 +140,7 @@ export var PreferenceRollouts = {
       }
 
       if (prefMatchingDefaultCount === rollout.preferences.length) {
-        // Firefox's builtin defaults have caught up to the rollout, making all
+        // Plezix's builtin defaults have caught up to the rollout, making all
         // of the rollout's changes redundant, so graduate the rollout.
         await this.graduate(rollout, "all-prefs-match");
         // `this.graduate` writes the rollout to the db, so we don't need to do it anymore.

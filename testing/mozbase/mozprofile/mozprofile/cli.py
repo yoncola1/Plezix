@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 """
-Creates and/or modifies a Firefox profile.
+Creates and/or modifies a Plezix profile.
 The profile can be modified by passing in addons to install or preferences to set.
 If no profile is specified, a new profile is created and the path of the
 resulting profile is printed.
@@ -14,7 +14,7 @@ import sys
 from optparse import OptionParser
 
 from .prefs import Preferences
-from .profile import FirefoxProfile, Profile
+from .profile import PlezixProfile, Profile
 
 __all__ = [
     "MozProfileCLI",
@@ -174,7 +174,7 @@ def cli(args=sys.argv[1:]):
             dest="firefox_profile",
             action="store_true",
             default=False,
-            help="use FirefoxProfile defaults",
+            help="use PlezixProfile defaults",
         )
 
     # process the command line
@@ -184,7 +184,7 @@ def cli(args=sys.argv[1:]):
         cli.parser.error("Program doesn't support positional arguments.")
 
     if cli.options.firefox_profile:
-        cli.profile_class = FirefoxProfile
+        cli.profile_class = PlezixProfile
 
     # create the profile
     profile = cli.profile()

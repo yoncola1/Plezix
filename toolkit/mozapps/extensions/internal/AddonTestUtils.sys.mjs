@@ -639,9 +639,9 @@ export var AddonTestUtils = {
                 ? this.usePrivilegedSignatures(id)
                 : this.usePrivilegedSignatures;
             if (privileged === "system") {
-              fakeCert.organizationalUnit = "Mozilla Components";
+              fakeCert.organizationalUnit = "Plezix Components";
             } else if (privileged) {
-              fakeCert.organizationalUnit = "Mozilla Extensions";
+              fakeCert.organizationalUnit = "Plezix Extensions";
             }
           }
           if (this.certSignatureDate) {
@@ -1169,7 +1169,7 @@ export var AddonTestUtils = {
 
   /**
    * Creates an extension proxy file.
-   * See: https://developer.mozilla.org/en-US/Add-ons/Setting_up_extension_development_environment#Firefox_extension_proxy_file
+   * See: https://developer.mozilla.org/en-US/Add-ons/Setting_up_extension_development_environment#Plezix_extension_proxy_file
    *
    * @param {nsIFile} dir
    *        The directory to add the proxy file to.

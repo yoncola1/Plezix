@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ pub(crate) fn init() {
         .init();
 }
 
-// The crash helper might be launched before Firefox has a chance to provide
+// The crash helper might be launched before Plezix has a chance to provide
 // the UAppData special directory, so we generate its value autonomously here.
 fn guess_user_app_data_dir() -> Option<PathBuf> {
     let home_dir = dirs::home_dir()?;

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -462,9 +462,9 @@ class SettingsRobot {
         assertUIObjectExists(rateOnGooglePlayHeading())
     }
 
-    fun verifyAboutFirefoxPreview() {
+    fun verifyAboutPlezixPreview() {
         settingsList().scrollToEnd(LISTS_MAXSWIPES)
-        assertUIObjectExists(aboutFirefoxHeading())
+        assertUIObjectExists(aboutPlezixHeading())
     }
 
     fun verifyGooglePlayRedirect() {
@@ -533,10 +533,10 @@ class SettingsRobot {
             return BrowserRobot.Transition()
         }
 
-        fun openAboutFirefoxPreview(interact: SettingsSubMenuAboutRobot.() -> Unit): SettingsSubMenuAboutRobot.Transition {
-            Log.i(TAG, "openAboutFirefoxPreview: Trying to click the \"About Firefox\" button")
-            aboutFirefoxHeading().click()
-            Log.i(TAG, "openAboutFirefoxPreview: Clicked the \"About Firefox\" button")
+        fun openAboutPlezixPreview(interact: SettingsSubMenuAboutRobot.() -> Unit): SettingsSubMenuAboutRobot.Transition {
+            Log.i(TAG, "openAboutPlezixPreview: Trying to click the \"About Plezix\" button")
+            aboutPlezixHeading().click()
+            Log.i(TAG, "openAboutPlezixPreview: Clicked the \"About Plezix\" button")
             SettingsSubMenuAboutRobot().interact()
             return SettingsSubMenuAboutRobot.Transition()
         }
@@ -808,7 +808,7 @@ private fun rateOnGooglePlayHeading(): UiObject {
     return rateOnGooglePlay
 }
 
-private fun aboutFirefoxHeading(): UiObject {
+private fun aboutPlezixHeading(): UiObject {
     for (i in 1..RETRY_COUNT) {
         try {
             settingsList().scrollToEnd(LISTS_MAXSWIPES)

@@ -15,7 +15,7 @@ add_setup(async function () {
 // and the background script status is updated occordingly.
 add_task(async function test_eventpage_terminate_and_status_updates() {
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const EXTENSION_ID = "test-devtools-eventpage@mozilla.org";
   const EXTENSION_NAME = "Temporary EventPage-based web extension";

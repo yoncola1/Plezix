@@ -432,7 +432,7 @@ for ( let shared of ['shared',''] ) {
 
 		    // Both out-of-bounds and unaligned.  The spec leaves it unspecified
 		    // whether we see the OOB message or the unaligned message (they are
-		    // both "traps").  In Firefox, the unaligned check comes first.
+		    // both "traps").  In Plezix, the unaligned check comes first.
 		    for ( let i=1 ; i < size ; i++ )
 		        addrs.push([65536, i, unaligned]);
 

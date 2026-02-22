@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -372,7 +372,7 @@ class ExecutionTracer {
   // This is just an ID that allows the profiler to easily correlate the trace
   // for a given context with the correct thread in the output profile.
   // We're operating on the assumption that there is one JSContext per thread,
-  // which should be true enough for our uses in Firefox, but doesn't have to
+  // which should be true enough for our uses in Plezix, but doesn't have to
   // be true everywhere.
   mozilla::baseprofiler::BaseProfilerThreadId threadId_;
 

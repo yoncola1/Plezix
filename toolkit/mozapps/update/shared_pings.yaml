@@ -1,8 +1,8 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# This file is for pings reported by both Firefox Desktop and the Background
+# This file is for pings reported by both Plezix Desktop and the Background
 # Updater task.
 
 ---
@@ -10,7 +10,7 @@ $schema: moz://mozilla.org/schemas/glean/pings/2-0-0
 
 update:
   description: |
-    This ping is sent from Firefox Desktop when a browser update is ready
+    This ping is sent from Plezix Desktop when a browser update is ready
     to be applied and after it was correctly applied.
 
     Specific expected behaviours include:

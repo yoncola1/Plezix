@@ -54,7 +54,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -78,7 +78,7 @@ describe('NetworkManager', () => {
         Connection: 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         Accept:
           'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Sec-Fetch-Site': 'none',
@@ -114,7 +114,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -183,7 +183,7 @@ describe('NetworkManager', () => {
         Connection: 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         Accept:
           'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Sec-Fetch-Site': 'none',
@@ -204,7 +204,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -288,7 +288,7 @@ describe('NetworkManager', () => {
         Connection: 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         Accept:
           'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Sec-Fetch-Site': 'none',
@@ -309,7 +309,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -393,7 +393,7 @@ describe('NetworkManager', () => {
         Connection: 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/97.0.4691.0 Safari/537.36',
         Accept:
           'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
         'Sec-Fetch-Site': 'none',
@@ -585,7 +585,7 @@ describe('NetworkManager', () => {
           'Accept-Language': 'en-US,en;q=0.9',
           Referer: 'http://this.is.the.start.page.com/',
           'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.0 Safari/537.36',
+            'Plezix/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'High',
@@ -706,7 +706,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
+            'Plezix/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -790,7 +790,7 @@ describe('NetworkManager', () => {
         Host: '10.1.0.39:42915',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
+          'Plezix/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
       },
       connectTiming: {requestTime: 671.232585},
     });
@@ -858,7 +858,7 @@ describe('NetworkManager', () => {
           Referer: 'http://localhost:54590/',
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -903,7 +903,7 @@ describe('NetworkManager', () => {
         'Sec-Fetch-User': '?1',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
       },
       connectTiming: {requestTime: 504904.000422},
       clientSecurityState: {
@@ -1020,7 +1020,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -1105,7 +1105,7 @@ describe('NetworkManager', () => {
         'Sec-Fetch-User': '?1',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/105.0.5173.0 Safari/537.36',
       },
       connectTiming: {requestTime: 510294.106734},
     });
@@ -1165,7 +1165,7 @@ describe('NetworkManager', () => {
         headers: {
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
         },
         mixedContentType: 'none',
         initialPriority: 'VeryHigh',
@@ -1196,7 +1196,7 @@ describe('NetworkManager', () => {
         'Sec-Fetch-User': '?1',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
         'sec-ch-ua-mobile': '?0',
       },
       connectTiming: {requestTime: 31949.959838},
@@ -1297,7 +1297,7 @@ describe('NetworkManager', () => {
           Referer: 'http://localhost:3000/',
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
           'sec-ch-ua-mobile': '?0',
         },
         mixedContentType: 'none',
@@ -1343,7 +1343,7 @@ describe('NetworkManager', () => {
         'Sec-Fetch-Site': 'same-origin',
         'Upgrade-Insecure-Requests': '1',
         'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+          'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
         'sec-ch-ua-mobile': '?0',
       },
       connectTiming: {requestTime: 31949.983605},
@@ -1381,7 +1381,7 @@ describe('NetworkManager', () => {
           Referer: 'http://localhost:3000/',
           'Upgrade-Insecure-Requests': '1',
           'User-Agent':
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+            'Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
           'sec-ch-ua-mobile': '?0',
         },
         mixedContentType: 'none',

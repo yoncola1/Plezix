@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import mozilla.components.concept.engine.translate.TranslationError
 import mozilla.components.concept.engine.translate.TranslationPageSettings
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.BottomSheetHandle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val BOTTOM_SHEET_HANDLE_WIDTH_PERCENT = 0.1f
 
@@ -36,7 +36,7 @@ internal fun TranslationDialogBottomSheet(
     content: @Composable () -> Unit,
 ) {
     Surface(
-        color = FirefoxTheme.colors.layer1,
+        color = PlezixTheme.colors.layer1,
         shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
         modifier = Modifier.nestedScroll(rememberNestedScrollInteropConnection())
             .verticalScroll(rememberScrollState()),

@@ -190,11 +190,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">Ka gati shtesë të re</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">Ka gati shtesa të reja</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">Shtojeni %1$s te %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">Shtojeni %1$s dhe %2$s te %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Shtojini te %1$s</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">Aktualisht jemi duke krijuar mbulim për një përzgjedhje fillestare Zgjerimesh të Rekomanduar.</string>
@@ -221,11 +221,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s s’u instalua dot, ngaqë s’është e përputhshme me %2$s %3$s.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s cenon rregullat e Mozilla-s dhe s’mund të instalohet në %2$s.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s cenon rregullat e Plezix-s dhe s’mund të instalohet në %2$s.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s s’u instalua dot, ngaqë mund të instalohet vetëm nga një ent që përdor rregulla ndërmarrjeje, çka nuk mbulohet në këtë platformë.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s cenon rregullat e Mozilla-s dhe s’mund të instalohet në %2$s.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s cenon rregullat e Plezix-s dhe s’mund të instalohet në %2$s.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">U aktivizua me sukses %1$s</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -242,7 +242,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">U hoq me sukses %1$s</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">S’u arrit të hiqet %1$s</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Kjo shtesë u migrua prej një versioni të mëparshëm të %1$s</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 zgjerim</string>
@@ -273,11 +273,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">Shihni hollësitë</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">Ky zgjerim është bllokuar ngaqë cenon rregullat e Mozilla-s dhe është çaktivizuar.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">Ky zgjerim është bllokuar ngaqë cenon rregullat e Plezix-s dhe është çaktivizuar.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">Ky zgjerim është kufizuar ngaqë cenon rregullat e Mozilla-s dhe është çaktivizuar. Mund ta aktivizoni, por kjo mund të jetë e rrezikshme.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">Ky zgjerim është kufizuar ngaqë cenon rregullat e Plezix-s dhe është çaktivizuar. Mund ta aktivizoni, por kjo mund të jetë e rrezikshme.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">Ky zgjerim cenon rregullat e Mozilla-s. Përdorimi i tij mund të jetë me rrezik.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">Ky zgjerim cenon rregullat e Plezix-s. Përdorimi i tij mund të jetë me rrezik.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s s’u verifikua dot si e siguruar dhe u çaktivizua.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

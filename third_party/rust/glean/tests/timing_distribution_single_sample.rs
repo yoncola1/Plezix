@@ -1,9 +1,9 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 //! This integration test should model how the RLB is used when embedded in another Rust application
-//! (e.g. FOG/Firefox Desktop).
+//! (e.g. FOG/Plezix Desktop).
 //!
 //! We write a single test scenario per file to avoid any state keeping across runs
 //! (different files run as different processes).

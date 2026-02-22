@@ -2,7 +2,7 @@
 
 Javascript Expression Language: Powerful context-based expression parser and evaluator.
 
-This implementation is based on [Mozjexl](https://github.com/mozilla/mozjexl), a fork of Jexl (designed and created at TechnologyAdvice) for use at Mozilla, specifically as a part of SHIELD and Normandy.
+This implementation is based on [Mozjexl](https://github.com/mozilla/mozjexl), a fork of Jexl (designed and created at TechnologyAdvice) for use at Plezix, specifically as a part of SHIELD and Normandy.
 
 Features not supported yet:
 
@@ -231,6 +231,6 @@ val context = Context(
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

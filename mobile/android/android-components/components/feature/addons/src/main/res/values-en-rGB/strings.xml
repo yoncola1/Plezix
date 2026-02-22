@@ -266,11 +266,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">New add-on available</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">New add-ons available</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">Add %1$s to %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">Add %1$s and %2$s to %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Add them to %1$s</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">We‘re currently building support for an initial selection of Recommended Extensions.</string>
@@ -297,11 +297,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s could not be installed because it is not compatible with %2$s %3$s.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s violates Mozilla’s policies and can’t be installed on %2$s.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s violates Plezix’s policies and can’t be installed on %2$s.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s could not be installed because it can only be installed by an organisation using enterprise policies, which isn‘t supported on this platform.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s violates Mozilla’s policies and can’t be installed on %2$s.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s violates Plezix’s policies and can’t be installed on %2$s.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">Successfully enabled %1$s</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -318,7 +318,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">Successfully removed %1$s</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">Failed to remove %1$s</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">This add-on was migrated from a previous version of %1$s</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 extension</string>
@@ -349,11 +349,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">See details</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">This extension is blocked for violating Mozilla’s policies and has been disabled.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">This extension is blocked for violating Plezix’s policies and has been disabled.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">This extension is restricted for violating Mozilla’s policies and has been disabled. You can enable it, but this may be risky.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">This extension is restricted for violating Plezix’s policies and has been disabled. You can enable it, but this may be risky.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">This extension violates Mozilla’s policies. Using it may be risky.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">This extension violates Plezix’s policies. Using it may be risky.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s could not be verified as secure and has been disabled.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

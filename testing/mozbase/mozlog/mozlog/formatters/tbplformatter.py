@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -113,7 +113,7 @@ class TbplFormatter(BaseFormatter):
             rv = ["PROCESS-CRASH | %s | %s\n[%s]" % (id, sig, data["java_stack"])]
 
             if data.get("reason"):
-                rv.append("Mozilla crash reason: %s" % data["reason"])
+                rv.append("Plezix crash reason: %s" % data["reason"])
 
             if data.get("minidump_path"):
                 rv.append("Crash dump filename: %s" % data["minidump_path"])
@@ -129,7 +129,7 @@ class TbplFormatter(BaseFormatter):
             rv.append("Process pid: {}".format(data.get("pid", "unknown")))
 
             if data.get("reason"):
-                rv.append("Mozilla crash reason: %s" % data["reason"])
+                rv.append("Plezix crash reason: %s" % data["reason"])
 
             if data.get("minidump_path"):
                 rv.append("Crash dump filename: %s" % data["minidump_path"])

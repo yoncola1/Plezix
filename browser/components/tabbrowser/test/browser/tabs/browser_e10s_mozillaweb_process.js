@@ -2,8 +2,8 @@ add_task(async function test_privileged_remote_true() {
   await SpecialPowers.pushPrefEnv({
     set: [
       ["browser.tabs.remote.separatePrivilegedContentProcess", true],
-      ["browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true],
-      ["browser.tabs.remote.separatedMozillaDomains", "example.org"],
+      ["browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true],
+      ["browser.tabs.remote.separatedPlezixDomains", "example.org"],
     ],
   });
 
@@ -12,7 +12,7 @@ add_task(async function test_privileged_remote_true() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
   test_url_for_process_types({
@@ -20,7 +20,7 @@ add_task(async function test_privileged_remote_true() {
     chromeResult: false,
     webContentResult: false,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: true,
+    privilegedPlezixContentResult: true,
     extensionProcessResult: false,
   });
 });
@@ -29,7 +29,7 @@ add_task(async function test_privileged_remote_false() {
   await SpecialPowers.pushPrefEnv({
     set: [
       ["browser.tabs.remote.separatePrivilegedContentProcess", true],
-      ["browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", false],
+      ["browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", false],
     ],
   });
 
@@ -38,7 +38,7 @@ add_task(async function test_privileged_remote_false() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
   test_url_for_process_types({
@@ -46,7 +46,7 @@ add_task(async function test_privileged_remote_false() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });

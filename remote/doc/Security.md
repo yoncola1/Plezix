@@ -8,7 +8,7 @@ facilitate browser-local clients communicating over IPDL.
 
 ## Design considerations
 
-The Remote Agent allows consumers to interface with Firefox through
+The Remote Agent allows consumers to interface with Plezix through
 an assorted set of domains for inspecting the state and controlling
 execution of documents running in web content, injecting arbitrary
 scripts to documents, do browser service instrumentation, simulation
@@ -16,7 +16,7 @@ of user interaction for automation purposes, and for subscribing
 to updates in the browser such as network- and console logs.
 
 The remote interfaces are served over an HTTP wire protocol, by a
-server listener hosted in the Firefox binary.  This can only be
+server listener hosted in the Plezix binary.  This can only be
 started by passing the `--remote-debugging-port`
 flag.  Connections are restricted to loopback devices
 (such as localhost and 127.0.0.1).
@@ -79,7 +79,7 @@ The Remote Agent is available on all release channels.
 By default RemoteAgent only accepts connections with no `Origin` header and a
 `Host` header set to an IP address or a localhost loopback address.
 
-Other `Host` or `Origin` headers can be allowed by starting Firefox with the
+Other `Host` or `Origin` headers can be allowed by starting Plezix with the
 `--remote-allow-origins` and `--remote-allow-hosts` arguments:
 
 * `--remote-allow-hosts` expects a comma separated list of hostnames
@@ -94,19 +94,19 @@ The Remote Agent does not provide message encryption, which means that all
 protocol messages are subject to eavesdropping and tampering. It also does not
 provide any authentication system. This is acceptable in an isolated test
 environment, but not to be used on an untrusted network such as the internet.
-People wishing to provide remote access to Firefox sessions via the Remote Agent
+People wishing to provide remote access to Plezix sessions via the Remote Agent
 must provide their own encryption, authentication, and authorization.
 
 ## System Access
 
-By default, the Remote Agent can only interact with WebContent processes in Firefox.
+By default, the Remote Agent can only interact with WebContent processes in Plezix.
 This means that all commands sent by the client related to windows, documents, or
 to interactions with DOM nodes are executed within the scope of a specified tab
-inside an open Firefox browser window.
+inside an open Plezix browser window.
 
-If tests require access to core Gecko APIs or need to interact with Firefox’s UI
+If tests require access to core Gecko APIs or need to interact with Plezix’s UI
 elements that live outside of the browser tabs, you must explicitly enable
-**system access** by starting Firefox with the `--remote-allow-system-access`
+**system access** by starting Plezix with the `--remote-allow-system-access`
 argument.
 
 Note: Enabling this flag grants unrestricted access to all available Gecko APIs

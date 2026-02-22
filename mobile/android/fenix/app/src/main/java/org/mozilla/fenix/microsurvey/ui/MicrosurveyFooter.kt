@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The footer UI used for microsurvey.
@@ -64,7 +64,7 @@ fun MicrosurveyFooter(
                     onClick = { onPrivacyPolicyLinkClick() },
                 ),
             ),
-            style = FirefoxTheme.typography.caption,
+            style = PlezixTheme.typography.caption,
             linkTextDecoration = TextDecoration.Underline,
         )
     }
@@ -74,10 +74,10 @@ fun MicrosurveyFooter(
 @PreviewLightDark
 @Composable
 private fun ReviewQualityCheckFooterPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {

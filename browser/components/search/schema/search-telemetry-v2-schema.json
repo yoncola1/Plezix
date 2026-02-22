@@ -29,7 +29,7 @@
     "queryParamName": {
       "type": "string",
       "title": "Search Query Parameter Name",
-      "description": "The name of the query parameter for the user's search string. This is deprecated, in preference to queryParamNames, but still defined for older clients (pre Firefox 121)."
+      "description": "The name of the query parameter for the user's search string. This is deprecated, in preference to queryParamNames, but still defined for older clients (pre Plezix 121)."
     },
     "queryParamNames": {
       "type": "array",
@@ -312,7 +312,7 @@
     "accountCookies": {
       "type": "array",
       "title": "Account Cookies",
-      "description": "An array of cookie details that are used to determine whether a client is signed in to a provider's account. NOTE: This property appears only in Firefox 127 but was renamed to `signedInCookies` for Firefox 128 and beyond. Therefore do not use this property. Please use `signedInCookies` instead.",
+      "description": "An array of cookie details that are used to determine whether a client is signed in to a provider's account. NOTE: This property appears only in Plezix 127 but was renamed to `signedInCookies` for Plezix 128 and beyond. Therefore do not use this property. Please use `signedInCookies` instead.",
       "items": {
         "type": "object",
         "properties": {

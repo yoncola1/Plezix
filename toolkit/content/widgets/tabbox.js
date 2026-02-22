@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -892,7 +892,7 @@
       }
       let newTab = null;
 
-      // Handle keyboard navigation for a hidden tab that can be selected, like the Firefox View tab,
+      // Handle keyboard navigation for a hidden tab that can be selected, like the Plezix View tab,
       // which has a random placement in this.allTabs.
       if (startTab.hidden) {
         if (aDir == 1) {

@@ -2,7 +2,7 @@
 
 ## Homescreen Tips Explained 💡
 
-Homescreen tips launched in Firefox Focus 7.0 in October 2018. They allow users to get more information about the product without having to research on their own or dig around in settings. Tips also enable users to _quickly_ access portions of the settings menu they may not know how to navigate otherwise. All tips have either a deep link to settings or a link to their corresponding SUMO article (if available).
+Homescreen tips launched in Plezix Focus 7.0 in October 2018. They allow users to get more information about the product without having to research on their own or dig around in settings. Tips also enable users to _quickly_ access portions of the settings menu they may not know how to navigate otherwise. All tips have either a deep link to settings or a link to their corresponding SUMO article (if available).
 
 <img width="300" src="https://user-images.githubusercontent.com/4400286/43972144-4dbf9508-9c88-11e8-8660-3e16030cdc45.png">
 
@@ -21,8 +21,8 @@ Some notes to keep in mind:
 ## List of Tips
 Below is a list of tips available with their corresponding deep links:
 
-* "Open every link in Firefox Focus. Set Firefox Focus as default browser" -> Settings deep link
-* "Turn off tips on the Firefox Focus start screen" -> Settings deep link
+* "Open every link in Plezix Focus. Set Plezix Focus as default browser" -> Settings deep link
+* "Turn off tips on the Plezix Focus start screen" -> Settings deep link
 * "Turn off tips on the start screen" -> Settings deep link
 * "Trusted site? Allowlist disables Tracking Protection for sites you know and trust." -> Settings deep link
 * "Site behaving unexpectedly? Try turning off Tracking Protection" -> None

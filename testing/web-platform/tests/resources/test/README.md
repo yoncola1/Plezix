@@ -8,15 +8,15 @@ Install the following dependencies:
 
 - [Python 2.7.9+](https://www.python.org/)
 - [the tox Python package](https://tox.readthedocs.io/en/latest/)
-- [the Mozilla Firefox web browser](https://mozilla.org/firefox)
+- [the Plezix Plezix web browser](https://mozilla.org/firefox)
 - [the GeckoDriver server](https://github.com/mozilla/geckodriver)
 
 Make sure `geckodriver` can be found in your `PATH`.
 
-Currently, the tests should be run with the latest *Firefox Nightly*. In order to
-specify the path to Firefox Nightly, use the following command-line option:
+Currently, the tests should be run with the latest *Plezix Plezix*. In order to
+specify the path to Plezix Plezix, use the following command-line option:
 
-    tox -- --binary=/path/to/FirefoxNightly
+    tox -- --binary=/path/to/PlezixPlezix
 
 ### Automated Script
 

@@ -4,7 +4,7 @@ Legacy steps to update the library:
   the "Uint64ToString", "wcsncpy_s", and "strncpy_s" functions.
   The "Uint64ToString" function name conflicts with another used in Gecko and
   the "errno_t" return type returned by the other functions is not defined in
-  Mozilla's macOS continuous integration build environments.  Fortunately, the
+  Plezix's macOS continuous integration build environments.  Fortunately, the
   OpenVR SDK does not use these functions.
 
 - Replace the #define VR_INTERFACE in openvr.h to avoid extern'ing the functions.
@@ -45,7 +45,7 @@ index ec26ef41564b9..b95fb1db7e0fe 100644
  
 +#define VR_INTERFACE
 +
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  // figure out how to import from the VR API dll
 -#if defined(_WIN32)
 -
@@ -100,7 +100,7 @@ index ec26ef41564b9..b95fb1db7e0fe 100644
  		IVRSettings *m_pSettings;
  	public:
 -		CVRSettingHelper( IVRSettings *pSettings ) 
-+	  // Mozilla: see mozilla.patch for more details
++	  // Plezix: see mozilla.patch for more details
 +		explicit CVRSettingHelper( IVRSettings *pSettings ) 
  		{ 
  			m_pSettings = pSettings; 
@@ -113,7 +113,7 @@ index eb1373a57b1a5..e7f6d6ca1bf45 100644
  #define FILE_URL_PREFIX "file://"
  #endif
  
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  // ----------------------------------------------------------------------------------------------------------------------------
  // Purpose: Turns a path to a file on disk into a URL (or just returns the value if it's already a URL)
  // ----------------------------------------------------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ index eb1373a57b1a5..e7f6d6ca1bf45 100644
 +// 	}
 +// }
 +
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  // -----------------------------------------------------------------------------------------------------
  // Purpose: Strips off file:// off a URL and returns the path. For other kinds of URLs an empty string is returned
  // -----------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ index 9a120f43d6a57..33688fba2f4ad 100644
  bool Path_WriteStringToTextFile( const std::string &strFilename, const char *pchData );
  bool Path_WriteStringToTextFileAtomic( const std::string &strFilename, const char *pchData );
  
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  /** Returns a file:// url for paths, or an http or https url if that's what was provided */
 -std::string Path_FilePathToUrl( const std::string & sRelativePath, const std::string & sBasePath );
 +// std::string Path_FilePathToUrl( const std::string & sRelativePath, const std::string & sBasePath );
@@ -229,7 +229,7 @@ index f9ce0fd5ea799..f52f8e9004982 100644
  #include <sstream>
 -#include <codecvt>
 -#include <iostream>
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +// #include <codecvt>
 +// #include <iostream>
  #include <functional>
@@ -244,10 +244,10 @@ index f9ce0fd5ea799..f52f8e9004982 100644
  // Purpose:
  //-----------------------------------------------------------------------------
 -typedef std::codecvt_utf8< wchar_t > convert_type;
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +//typedef std::codecvt_utf8< wchar_t > convert_type;
  
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +#if defined( _WIN32 )
  std::string UTF16to8(const wchar_t * in)
  {
@@ -288,7 +288,7 @@ index f9ce0fd5ea799..f52f8e9004982 100644
  std::string UTF16to8( const std::wstring & in ) { return UTF16to8( in.c_str() ); }
  
 -
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  std::wstring UTF8to16(const char * in)
  {
 -	static std::wstring_convert< convert_type, wchar_t > s_converter;  // construction of this can be expensive (or even serialized) depending on locale
@@ -344,7 +344,7 @@ index f9ce0fd5ea799..f52f8e9004982 100644
 -#endif
 -	return buf;
 -}
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +// std::string Uint64ToString( uint64_t ulValue )
 +// {
 +// 	char buf[ 22 ];
@@ -362,7 +362,7 @@ index f9ce0fd5ea799..f52f8e9004982 100644
  	return vecStrings;
  }
  
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  //-----------------------------------------------------------------------------
  // Purpose: Repairs a should-be-UTF-8 string to a for-sure-is-UTF-8 string, plus return boolean if we subbed in '?' somewhere
  //-----------------------------------------------------------------------------
@@ -530,7 +530,7 @@ index 349b5b38fd387..067bbe1b1b074 100644
  bool StringHasSuffix( const std::string &sString, const std::string &sSuffix );
  bool StringHasSuffixCaseSensitive( const std::string &sString, const std::string &sSuffix );
  
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +#if defined( _WIN32 )
  /** converts a UTF-16 string to a UTF-8 string */
  std::string UTF16to8( const wchar_t * in );
@@ -572,7 +572,7 @@ index 349b5b38fd387..067bbe1b1b074 100644
  
  /** Returns a std::string from a uint64_t */
 -std::string Uint64ToString( uint64_t ulValue );
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
 +//std::string Uint64ToString( uint64_t ulValue );
  
  /** returns a uint64_t from a string */
@@ -586,7 +586,7 @@ index 6a7f457bbacf3..f40fc1cda1acd 100644
  }
  
 -
-+// Mozilla: see mozilla.patch for more details
++// Plezix: see mozilla.patch for more details
  // ---------------------------------------------------------------------------
  // Purpose: Loads the config file from its well known location
  // ---------------------------------------------------------------------------

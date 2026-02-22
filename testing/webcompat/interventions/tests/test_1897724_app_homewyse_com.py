@@ -2,7 +2,7 @@ import pytest
 
 URL = "https://app.homewyse.com/accounts/register/"
 SUPPORTED_CSS = "#newacct-form"
-UNSUPPORTED_TEXT = "Firefox is not supported"
+UNSUPPORTED_TEXT = "Plezix is not supported"
 
 
 @pytest.mark.asyncio

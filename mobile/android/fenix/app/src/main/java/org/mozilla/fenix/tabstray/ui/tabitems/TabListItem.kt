@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,7 +57,7 @@ import org.mozilla.fenix.compose.tabstray.MediaImage
 import org.mozilla.fenix.ext.toShortUrl
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * List item used to display a tab that supports clicks,
@@ -148,9 +148,9 @@ private fun TabContent(
     onLongClick: ((tab: TabSessionState) -> Unit)? = null,
 ) {
     val contentBackgroundColor = if (isSelected) {
-        FirefoxTheme.colors.layerAccentNonOpaque
+        PlezixTheme.colors.layerAccentNonOpaque
     } else {
-        FirefoxTheme.colors.layer1
+        PlezixTheme.colors.layer1
     }
 
     // Used to propagate the ripple effect to the whole tab
@@ -180,7 +180,7 @@ private fun TabContent(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer3)
+            .background(PlezixTheme.colors.layer3)
             .background(contentBackgroundColor)
             .then(clickableModifier)
             .padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
@@ -206,16 +206,16 @@ private fun TabContent(
         ) {
             Text(
                 text = tab.toDisplayTitle().take(MAX_URI_LENGTH),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.body1,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body1,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
             )
 
             Text(
                 text = tab.content.url.toShortUrl(),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textSecondary,
+                style = PlezixTheme.typography.body2,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
@@ -234,7 +234,7 @@ private fun TabContent(
                         id = R.string.close_tab_title,
                         tab.toDisplayTitle(),
                     ),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         } else {
@@ -273,7 +273,7 @@ private fun Thumbnail(
                 modifier = Modifier
                     .size(width = 92.dp, height = 72.dp)
                     .clip(RoundedCornerShape(4.dp))
-                    .background(FirefoxTheme.colors.layerAccentNonOpaque),
+                    .background(PlezixTheme.colors.layerAccentNonOpaque),
             )
 
             Card(
@@ -281,7 +281,7 @@ private fun Thumbnail(
                     .size(size = 40.dp)
                     .align(alignment = Alignment.Center),
                 shape = CircleShape,
-                colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layerAccent),
+                colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layerAccent),
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_checkmark_24),
@@ -289,7 +289,7 @@ private fun Thumbnail(
                         .fillMaxSize()
                         .padding(all = 8.dp),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconActionPrimary,
+                    tint = PlezixTheme.colors.iconActionPrimary,
                 )
             }
         }
@@ -308,9 +308,9 @@ private fun Thumbnail(
 @Composable
 @PreviewLightDark
 private fun TabListItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabListItem(
-            tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
+            tab = createTab(url = "www.mozilla.com", title = "Plezix"),
             thumbnailSize = 108,
             onCloseClick = {},
             onMediaClick = {},
@@ -322,9 +322,9 @@ private fun TabListItemPreview() {
 @Composable
 @PreviewLightDark
 private fun SelectedTabListItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabListItem(
-            tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
+            tab = createTab(url = "www.mozilla.com", title = "Plezix"),
             thumbnailSize = 108,
             onCloseClick = {},
             onMediaClick = {},

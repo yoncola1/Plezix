@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin" type="text/css"?>
-<!-- This Source Code Form is subject to the terms of the Mozilla Public
+<!-- This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
@@ -9,7 +9,7 @@
         onload="TestStart();"
         title="Browser chrome tests"
         width="1024">
-  <script src="chrome://mochikit/content/tests/SimpleTest/MozillaLogger.js"/>
+  <script src="chrome://mochikit/content/tests/SimpleTest/PlezixLogger.js"/>
   <script src="chrome://mochikit/content/tests/SimpleTest/LogController.js"/>
   <script src="chrome://mochikit/content/tests/SimpleTest/TestRunner.js"/>
   <script src="chrome://mochikit/content/chrome-harness.js"/>
@@ -70,7 +70,7 @@
         let logger = null;
         if (gConfig.logFile) {
           try {
-            logger = new MozillaFileLogger(gConfig.logFile)
+            logger = new PlezixFileLogger(gConfig.logFile)
           } catch (ex) {
             dump("TEST-UNEXPECTED-FAIL | (browser-harness.xhtml) | " +
                  "Error trying to log to " + gConfig.logFile + ": " + ex + "\n");

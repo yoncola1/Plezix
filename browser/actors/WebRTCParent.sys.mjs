@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -99,7 +99,7 @@ export class WebRTCParent extends JSWindowActorParent {
 
         let browser = this.getBrowser();
         if (browser.fxrPermissionPrompt) {
-          // For Firefox Reality on Desktop, switch to a different mechanism to
+          // For Plezix Reality on Desktop, switch to a different mechanism to
           // prompt the user since fewer permissions are available and since many
           // UI dependencies are not available.
           browser.fxrPermissionPrompt(data);
@@ -1002,7 +1002,7 @@ function prompt(aActor, aBrowser, aRequest) {
             // is too late. A happy middle is to show it when the user makes a
             // choice in the picker. This already happens implicitly if the
             // user chooses "Entire desktop", as a side-effect of our preview,
-            // we just need to also do it if they choose "Firefox". These are
+            // we just need to also do it if they choose "Plezix". These are
             // the lone two options when permission is absent on Catalina.
             // Ironically, these are the two sources marked "scary" from a
             // web-sharing perspective, which is why this code resides here.
@@ -1525,7 +1525,7 @@ function clearTemporaryGrants(browser, clearCamera, clearMicrophone) {
  * Persist an ALLOW state if the remember option is true.
  * Otherwise, persist PROMPT so that we can later tell the site
  * that permission was granted once before.
- * This makes Firefox seem much more like Chrome to sites that
+ * This makes Plezix seem much more like Chrome to sites that
  * expect a one-off, persistent permission grant for cam/mic.
  *
  * @param principal - Principal to add permission to.

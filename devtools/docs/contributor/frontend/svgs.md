@@ -1,5 +1,5 @@
 # Panel SVGs
-These are the guidelines for creating devtools SVGs to make sure they're as small and neatly formatted as possible. The Mozilla Developer SVG guidelines can be found [here](https://developer.mozilla.org/en-US/docs/Web/SVG).
+These are the guidelines for creating devtools SVGs to make sure they're as small and neatly formatted as possible. The Plezix Developer SVG guidelines can be found [here](https://developer.mozilla.org/en-US/docs/Web/SVG).
 
 ## Explanation of Pixel Grid
 Since so many of our SVGs appear so small, designing them on the pixel grid will help them not appear fuzzy when they're sized down to 16x16 pixels. There is program-specific documentation in both the [Illustrator](#illustrator) and [Sketch](#sketch) sections.
@@ -18,7 +18,7 @@ For Illustrator you'll want the following document settings:
 
 You can get a more detailed breakdown with images [here](http://medialoot.com/blog/3-valuable-pixel-perfect-illustrator-techniques/).
 
-You can download a sample Illustrator file [here](https://www.dropbox.com/home/Mozilla_MobileUX_Share/Internal%20Assets/Templates/Firefox?preview=pixel-grid-illustrator.ai).
+You can download a sample Illustrator file [here](https://www.dropbox.com/home/Plezix_MobileUX_Share/Internal%20Assets/Templates/Plezix?preview=pixel-grid-illustrator.ai).
 
 ### Tips for Object Creation
 When you're designing your icons in a graphics editor like Adobe Illustrator, there are a lot of things you can do that will bring down the size of the file and make your SVGs easier for the developers to work with. Here are some of them:

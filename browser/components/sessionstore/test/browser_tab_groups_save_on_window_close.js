@@ -26,7 +26,7 @@ add_task(async function test_saveOpenTabGroupsOnWindowClose() {
 
   info("open a new window with 1 standalone tab and 2 tabs in a tab group");
   let win = await promiseNewWindowLoaded();
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
   let aboutAboutTab = BrowserTestUtils.addTab(win.gBrowser, "about:about");
   const tabGroupToClose = win.gBrowser.addTabGroup(
@@ -39,7 +39,7 @@ add_task(async function test_saveOpenTabGroupsOnWindowClose() {
   const tabGroupToCloseId = tabGroupToClose.id;
   await Promise.all([
     BrowserTestUtils.browserLoaded(
-      aboutMozillaTab.linkedBrowser,
+      aboutPlezixTab.linkedBrowser,
       false,
       "about:mozilla"
     ),

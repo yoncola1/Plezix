@@ -15,7 +15,7 @@ A component that allows a user to select from a palette of pre-determined color 
 The source for `moz-input-color` can be found under
 [toolkit/content/widgets/moz-input-color](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/moz-input-color/moz-input-color.mjs).
 
-You can find an examples of `moz-input-color` used in the [Theme selection in Firefox's Reader View](https://searchfox.org/mozilla-central/source/toolkit/components/reader/AboutReader.sys.mjs).
+You can find an examples of `moz-input-color` used in the [Theme selection in Plezix's Reader View](https://searchfox.org/mozilla-central/source/toolkit/components/reader/AboutReader.sys.mjs).
 
 ## Importing the component
 

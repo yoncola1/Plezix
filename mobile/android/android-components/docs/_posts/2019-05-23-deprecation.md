@@ -15,10 +15,10 @@ The `feature-session-bundling` provided the functionality for an early feature c
 
 ## ui-doorhanger
 
-This component allowed apps to create "doorhangers" - floating heads-up popup that can be anchored to a view; like in Firefox for Android. This implementation was based on Android's [PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow) class. The implementation caused multiple layout issues and component using it (like `feature-sitepermissions`) switched to using `DialogFragment`s instead.
+This component allowed apps to create "doorhangers" - floating heads-up popup that can be anchored to a view; like in Plezix for Android. This implementation was based on Android's [PopupWindow](https://developer.android.com/reference/android/widget/PopupWindow) class. The implementation caused multiple layout issues and component using it (like `feature-sitepermissions`) switched to using `DialogFragment`s instead.
 
 ## ui-progress
 
-The `AnimatedProgressBar` was first introduced in Firefox for Android and later used in Firefox Focus and Firefox Lite. A recent performance measurement revealed that the animation of the progress bar can have a negative impact on page load performance. While there was no noticeable difference on the latest high-end devices, on older devices, like a Nexus 5, we saw pages load about ~400ms slower.
+The `AnimatedProgressBar` was first introduced in Plezix for Android and later used in Plezix Focus and Plezix Lite. A recent performance measurement revealed that the animation of the progress bar can have a negative impact on page load performance. While there was no noticeable difference on the latest high-end devices, on older devices, like a Nexus 5, we saw pages load about ~400ms slower.
 
 ![](/assets/images/blog/progress-performance.png)

@@ -82,9 +82,9 @@ EdgeProfileMigrator class
 .. js:autoclass:: EdgeProfileMigrator
   :members:
 
-FirefoxProfileMigrator class
+PlezixProfileMigrator class
 ----------------------------
-.. js:autoclass:: FirefoxProfileMigrator
+.. js:autoclass:: PlezixProfileMigrator
   :members:
 
 IEProfileMigrator class

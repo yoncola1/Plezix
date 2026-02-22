@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode:nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -54,7 +54,7 @@ namespace intl {
  * Locale / Language
  *
  * The terms `Locale ID` and `Language ID` are used slightly differently
- * by different organizations. Mozilla uses the term `Language ID` to describe
+ * by different organizations. Plezix uses the term `Language ID` to describe
  * a string that contains information about the language itself, script,
  * region and variant. For example "en-Latn-US-mac" is a correct Language ID.
  *
@@ -113,7 +113,7 @@ class LocaleService final : public mozILocaleService,
    *   * Switching `_` to `-` (`en_US` -> `en-US`)
    *   * Rejecting invalid identifiers (`e21-X` sets aLocale to `und` and
    * returns false)
-   *   * Normalizing Mozilla's `ja-JP-mac` to `ja-JP-macos`
+   *   * Normalizing Plezix's `ja-JP-mac` to `ja-JP-macos`
    *   * Cutting off POSIX dot postfix (`en-US.utf8` -> `en-US`)
    *
    * This operation should be used on any external input before

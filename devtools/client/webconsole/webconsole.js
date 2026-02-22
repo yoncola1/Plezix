@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -45,7 +45,7 @@ const isMacOS = Services.appinfo.OS === "Darwin";
  * manipulate the target's document content.
  *
  * This object only wraps the iframe that holds the Web Console UI. This is
- * meant to be an integration point between the Firefox UI and the Web Console
+ * meant to be an integration point between the Plezix UI and the Web Console
  * UI and features.
  */
 class WebConsole {
@@ -212,7 +212,7 @@ class WebConsole {
   }
 
   /**
-   * Open a link in Firefox's view source.
+   * Open a link in Plezix's view source.
    *
    * @param string sourceURL
    *        The URL of the file.

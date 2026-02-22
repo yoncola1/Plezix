@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -67,7 +67,7 @@ class ShareControllerTest {
     private val sendTabUseCases = mockk<SendTabUseCases>(relaxed = true)
     private val saveToPdfUseCase = mockk<SessionUseCases.SaveToPdfUseCase>(relaxed = true)
     private val printUseCase = mockk<SessionUseCases.PrintContentUseCase>(relaxed = true)
-    private val sentFromFirefoxManager = mockk<SentFromFirefoxManager>(relaxed = true)
+    private val sentFromPlezixManager = mockk<SentFromPlezixManager>(relaxed = true)
     private val navController = mockk<NavController>(relaxed = true)
     private val dismiss = mockk<(ShareController.Result) -> Unit>(relaxed = true)
     private val recentAppStorage = mockk<RecentAppsStorage>(relaxed = true)
@@ -80,7 +80,7 @@ class ShareControllerTest {
     private val testDispatcher = coroutinesTestRule.testDispatcher
     private val testCoroutineScope = coroutinesTestRule.scope
     private val controller = DefaultShareController(
-        context, appStore, shareSubject, shareData, sendTabUseCases, saveToPdfUseCase, printUseCase, sentFromFirefoxManager,
+        context, appStore, shareSubject, shareData, sendTabUseCases, saveToPdfUseCase, printUseCase, sentFromPlezixManager,
         navController, recentAppStorage, testCoroutineScope, testDispatcher, FenixFxAEntryPoint.ShareMenu, dismiss,
     )
 
@@ -105,12 +105,12 @@ class ShareControllerTest {
         val activityContext: Context = mockk<Activity>()
         val testController = DefaultShareController(
             activityContext, appStore, shareSubject, shareData, mockk(), mockk(),
-            mockk(), sentFromFirefoxManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
+            mockk(), sentFromPlezixManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
             FenixFxAEntryPoint.ShareMenu, dismiss,
         )
         every { activityContext.startActivity(capture(shareIntent)) } just Runs
         every { recentAppStorage.updateRecentApp(appShareOption.activityName) } just Runs
-        every { sentFromFirefoxManager.maybeAppendShareText(any(), any()) } returns textToShare
+        every { sentFromPlezixManager.maybeAppendShareText(any(), any()) } returns textToShare
 
         testController.handleShareToApp(appShareOption)
         advanceUntilIdle()
@@ -151,7 +151,7 @@ class ShareControllerTest {
         val activityContext: Context = mockk<Activity>()
         val testController = DefaultShareController(
             activityContext, appStore, shareSubject, shareData, mockk(), mockk(),
-            mockk(), sentFromFirefoxManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
+            mockk(), sentFromPlezixManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
             FenixFxAEntryPoint.ShareMenu, dismiss,
         )
 
@@ -178,7 +178,7 @@ class ShareControllerTest {
         val activityContext: Context = mockk<Activity>()
         val testController = DefaultShareController(
             activityContext, appStore, shareSubject, shareData, mockk(), mockk(),
-            mockk(), sentFromFirefoxManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
+            mockk(), sentFromPlezixManager, mockk(), recentAppStorage, testCoroutineScope, testDispatcher,
             FenixFxAEntryPoint.ShareMenu, dismiss,
         )
 
@@ -210,7 +210,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -248,7 +248,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -278,7 +278,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = saveToPdfUseCase,
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -304,7 +304,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = printUseCase,
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -336,7 +336,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -358,7 +358,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -384,7 +384,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -410,7 +410,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -436,7 +436,7 @@ class ShareControllerTest {
             sendTabUseCases = mockk(),
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = mockk(),
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -599,7 +599,7 @@ class ShareControllerTest {
             sendTabUseCases = sendTabUseCases,
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = navController,
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,
@@ -626,7 +626,7 @@ class ShareControllerTest {
             sendTabUseCases = sendTabUseCases,
             saveToPdfUseCase = mockk(),
             printUseCase = mockk(),
-            sentFromFirefoxManager = sentFromFirefoxManager,
+            sentFromPlezixManager = sentFromPlezixManager,
             navController = navController,
             recentAppsStorage = recentAppStorage,
             viewLifecycleScope = testCoroutineScope,

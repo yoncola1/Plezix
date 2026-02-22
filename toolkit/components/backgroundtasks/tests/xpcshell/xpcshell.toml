@@ -17,7 +17,7 @@ run-if = ["os == 'win'"]
 ["test_backgroundtask_experiments.js"]
 tags = "remote-settings"
 run-if = ["buildapp == 'browser'"]
-reason = "ASRouter is Firefox-only."
+reason = "ASRouter is Plezix-only."
 
 ["test_backgroundtask_help.js"]
 
@@ -51,7 +51,7 @@ skip-if = ["os == 'android'"] # MultiInstanceLock doesn't work on Android
 
 ["test_backgroundtask_targeting.js"]
 run-if = ["buildapp == 'browser'"]
-reason = "ASRouter is Firefox-only."
+reason = "ASRouter is Plezix-only."
 
 ["test_backgroundtask_unique_profile.js"]
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * List of expandable collections.
@@ -108,13 +108,13 @@ private fun getMenuItems(
     return listOfNotNull(
         MenuItem(
             title = stringResource(R.string.collection_open_tabs),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
         ) {
             onOpenTabsTapped(collection)
         },
         MenuItem(
             title = stringResource(R.string.collection_rename),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
         ) {
             onRenameCollectionTapped(collection)
         },
@@ -122,7 +122,7 @@ private fun getMenuItems(
         if (showAddTabs) {
             MenuItem(
                 title = stringResource(R.string.add_tab),
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
             ) {
                 onAddTabTapped(collection)
             }
@@ -132,7 +132,7 @@ private fun getMenuItems(
 
         MenuItem(
             title = stringResource(R.string.collection_delete),
-            color = FirefoxTheme.colors.textCritical,
+            color = PlezixTheme.colors.textCritical,
         ) {
             onDeleteCollectionTapped(collection)
         },
@@ -144,8 +144,8 @@ private fun getMenuItems(
 private fun CollectionsPreview() {
     val expandedCollections: MutableState<Set<Long>> = remember { mutableStateOf(setOf(1L)) }
 
-    FirefoxTheme {
-        Surface(color = FirefoxTheme.colors.layer1) {
+    PlezixTheme {
+        Surface(color = PlezixTheme.colors.layer1) {
             Collections(
                 modifier = Modifier.padding(8.dp),
                 collections = listOf(

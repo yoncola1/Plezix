@@ -4,7 +4,7 @@
 Uptake Telemetry
 ================
 
-Firefox continuously pulls data from different remote sources (eg. settings, system add-ons, …). In order to have consistent insights about the *uptake rate* of these *update sources*, our clients can use a unified Telemetry helper to report their *update status*.
+Plezix continuously pulls data from different remote sources (eg. settings, system add-ons, …). In order to have consistent insights about the *uptake rate* of these *update sources*, our clients can use a unified Telemetry helper to report their *update status*.
 
 The helper — described below — reports predefined update status, which eventually gives a unified way to obtain:
 
@@ -18,7 +18,7 @@ The helper — described below — reports predefined update status, which event
 
    Examples of update status: *up-to-date, success, network error, server error, signature error, server backoff, unknown error…*
 
-Every call to the UptakeTelemetry helper may send a :ref:`Telemetry Event <eventtelemetry>`. Because events are expensive, we take some measures to avoid overwhelming Mozilla systems with the flood of data that this produces. We always send events when not on release channel. On release channel, we only send events from 1% of clients.
+Every call to the UptakeTelemetry helper may send a :ref:`Telemetry Event <eventtelemetry>`. Because events are expensive, we take some measures to avoid overwhelming Plezix systems with the flood of data that this produces. We always send events when not on release channel. On release channel, we only send events from 1% of clients.
 
 Usage
 -----

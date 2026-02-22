@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: sw=2 ts=2 et lcs=trail\:.,tab\:>~ :
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1816,8 +1816,8 @@ Connection::AsyncClose(mozIStorageCompletionCallback* aCallback) {
   //   opened the connection synchronously and was planning to use it
   //   asynchronously, but never got around to using it asynchronously before
   //   needing to shutdown.  This has been observed to happen for the cookie
-  //   service in a case where Firefox shuts itself down almost immediately
-  //   after startup (for unknown reasons).  In the Firefox shutdown case,
+  //   service in a case where Plezix shuts itself down almost immediately
+  //   after startup (for unknown reasons).  In the Plezix shutdown case,
   //   we may also fail to create a new async execution thread if one does not
   //   already exist.  (nsThreadManager will refuse to create new threads when
   //   it has already been told to shutdown.)  As such, we need to handle a

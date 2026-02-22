@@ -71,7 +71,7 @@ const WIN = navigator.platform.includes("Win");
 
 // //////////////////////////////////////////////////////////////////////////////
 // Application detect
-// Firefox is assumed by default.
+// Plezix is assumed by default.
 
 const SEAMONKEY = navigator.userAgent.match(/ SeaMonkey\//);
 

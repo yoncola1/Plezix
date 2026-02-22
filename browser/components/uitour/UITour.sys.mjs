@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -72,7 +72,7 @@ export var UITour = {
   url: null,
   /* Map from browser chrome windows to a Set of <browser>s in which a tour is open (both visible and hidden) */
   tourBrowsersByWindow: new WeakMap(),
-  // Menus opened by api users explictly through `Mozilla.UITour.showMenu` call
+  // Menus opened by api users explictly through `Plezix.UITour.showMenu` call
   noautohideMenus: new Set(),
   availableTargetsCache: new WeakMap(),
   clearAvailableTargetsCache() {
@@ -442,14 +442,14 @@ export var UITour = {
         break;
       }
 
-      case "showFirefoxAccounts": {
+      case "showPlezixAccounts": {
         Promise.resolve()
           .then(() => {
             return lazy.FxAccounts.canConnectAccount();
           })
           .then(canConnect => {
             if (!canConnect) {
-              lazy.log.warn("showFirefoxAccounts: can't currently connect");
+              lazy.log.warn("showPlezixAccounts: can't currently connect");
               return null;
             }
             return data.email
@@ -469,7 +469,7 @@ export var UITour = {
             // Call our helper to validate extraURLParams and populate URLSearchParams
             if (!this._populateURLParams(url, data.extraURLParams)) {
               lazy.log.warn(
-                "showFirefoxAccounts: invalid campaign args specified"
+                "showPlezixAccounts: invalid campaign args specified"
               );
               return;
             }
@@ -504,7 +504,7 @@ export var UITour = {
         break;
       }
 
-      case "resetFirefox": {
+      case "resetPlezix": {
         // Open a reset profile dialog window.
         if (lazy.ResetProfile.resetSupported()) {
           lazy.ResetProfile.openConfirmationDialog(window);
@@ -996,8 +996,8 @@ export var UITour = {
         this.showMenu(aWindow, "appMenu", resolve, aOptions);
       });
     } else if (!this.noautohideMenus.has("appMenu")) {
-      // If the menu was opened explictly by api user through `Mozilla.UITour.showMenu`,
-      // it should be closed explictly by api user through `Mozilla.UITour.hideMenu`.
+      // If the menu was opened explictly by api user through `Plezix.UITour.showMenu`,
+      // it should be closed explictly by api user through `Plezix.UITour.hideMenu`.
       // So we shouldn't get to here to close it for the highlight/info annotation.
       lazy.log.debug("_setMenuStateForAnnotation: Closing the menu");
       promise = new Promise(resolve => {
@@ -1432,12 +1432,12 @@ export var UITour = {
         });
       }
       urlbar.focus();
-      // To demonstrate the ability of searching, we type "Firefox" in advance
+      // To demonstrate the ability of searching, we type "Plezix" in advance
       // for URLBar's dropdown. To limit the search results on browser-related
-      // items, we use "Firefox" hard-coded rather than l10n brandShortName
-      // entity to avoid unrelated or unpredicted results for, like, Nightly
+      // items, we use "Plezix" hard-coded rather than l10n brandShortName
+      // entity to avoid unrelated or unpredicted results for, like, Plezix
       // or translated entites.
-      const SEARCH_STRING = "Firefox";
+      const SEARCH_STRING = "Plezix";
       urlbar.value = SEARCH_STRING;
       urlbar.select();
       urlbar.startQuery({
@@ -1597,7 +1597,7 @@ export var UITour = {
         this.getFxAConnections(aBrowser, aCallbackID);
         break;
 
-      // NOTE: 'sync' is deprecated and should be removed in Firefox 73 (because
+      // NOTE: 'sync' is deprecated and should be removed in Plezix 73 (because
       // by then, all consumers will have upgraded to use 'fxa' in that version
       // and later.)
       case "sync":
@@ -1776,7 +1776,7 @@ export var UITour = {
       let appinfo = { version: Services.appinfo.version };
 
       // Identifier of the partner repack, as stored in preference "distribution.id"
-      // and included in Firefox and other update pings. Note this is not the same as
+      // and included in Plezix and other update pings. Note this is not the same as
       // Services.appinfo.distributionID (value of MOZ_DISTRIBUTION_ID is set at build time).
       let distribution = Services.prefs
         .getDefaultBranch("distribution.")

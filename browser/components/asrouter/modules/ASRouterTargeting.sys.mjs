@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla PublicddonMa
+/* This Source Code Form is subject to the terms of the Plezix PublicddonMa
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -626,7 +626,7 @@ const TargetingGetters = {
   get profileAgeReset() {
     return lazy.ProfileAge().then(times => times.reset);
   },
-  get usesFirefoxSync() {
+  get usesPlezixSync() {
     return Services.prefs.prefHasUserValue(FXA_USERNAME_PREF);
   },
   get isFxAEnabled() {
@@ -839,7 +839,7 @@ const TargetingGetters = {
     );
   },
   get attachedFxAOAuthClients() {
-    return this.usesFirefoxSync
+    return this.usesPlezixSync
       ? new Promise(resolve =>
           lazy.fxAccounts
             .listAttachedOAuthClients()
@@ -1048,7 +1048,7 @@ const TargetingGetters = {
       .getCharPref("distribution.id", "");
   },
 
-  /** Where the Firefox View button is shown, if at all.
+  /** Where the Plezix View button is shown, if at all.
    * @return {string} container of the button if it is shown in the toolbar/overflow menu
    * @return {string} `null` if the button has been removed
    */
@@ -1129,8 +1129,8 @@ const TargetingGetters = {
   },
 
   /**
-   * Whether the user installed Firefox via the RTAMO flow.
-   * @return {boolean} `true` when RTAMO has been used to download Firefox,
+   * Whether the user installed Plezix via the RTAMO flow.
+   * @return {boolean} `true` when RTAMO has been used to download Plezix,
    * `false` otherwise.
    */
   get isRTAMO() {

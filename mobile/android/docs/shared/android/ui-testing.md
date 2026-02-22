@@ -1,5 +1,5 @@
 # Automated UI Testing
-_This document is intended to explain how various technologies are used together to conduct automated UI testing for Android at Mozilla. This document is accessible for all developers including those that are new to the Mozilla community._
+_This document is intended to explain how various technologies are used together to conduct automated UI testing for Android at Plezix. This document is accessible for all developers including those that are new to the Plezix community._
 
 Recall, that the primary problem we try to solve with automated testing is preventing unintended changes, which often lead to bugs or poor user experiences. This problem is most common -- thus we benefit the most from thorough testing.
 
@@ -13,9 +13,9 @@ For simplicity, the flow of UI test execution starts with Taskcluster:
 
 # Taskcluster
 
-Taskcluster is a generic task execution service. Mozilla uses Taskcluster as the continuous (CI) pipeline to build and release Firefox. At Mozilla, we use Taskcluster to build, test, and run code tools for all commits and Pull Requests.
+Taskcluster is a generic task execution service. Plezix uses Taskcluster as the continuous (CI) pipeline to build and release Plezix. At Plezix, we use Taskcluster to build, test, and run code tools for all commits and Pull Requests.
 
-For the sake of simplicity, when a Pull Request (or merge request) is created, a task is created on Taskcluster (FirefoxCI) that handles the building, signing, packaging and delivery of the Android application.
+For the sake of simplicity, when a Pull Request (or merge request) is created, a task is created on Taskcluster (PlezixCI) that handles the building, signing, packaging and delivery of the Android application.
 
 Subsequently, a handoff to Firebase Test Lab occurs to provide an environment of UI test execution.
 
@@ -31,11 +31,11 @@ Executable Espresso and UI Automator UI tests run on virtual devices by default 
 
 _Espresso and UI Automator are Google's core UI testing libraries on Android: they provide APIs to select views, perform actions on them, and assert state without reaching into implementation details._
 
-For a more detailed document on testing styles and technologies used by the Android teams at Mozilla see [here](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/testing.md)
+For a more detailed document on testing styles and technologies used by the Android teams at Plezix see [here](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/testing.md)
 
 # Treeherder
 
-[Treeherder](https://treeherder.mozilla.org/) is a reporting dashboard for Mozilla check-ins. It allows users to see result of automatic builds and their respective tests. A common use case is looking at a particular check-in and pulling up test logs and artifacts from the UI test job.
+[Treeherder](https://treeherder.mozilla.org/) is a reporting dashboard for Plezix check-ins. It allows users to see result of automatic builds and their respective tests. A common use case is looking at a particular check-in and pulling up test logs and artifacts from the UI test job.
 
 For all Android applications, UI tests are classified under the `ui-test-x86` job symbol.
 
@@ -71,9 +71,9 @@ Below is a very simplified flow diagram that demonstrates the hand-off from a Gi
                        └──────────┘
 ```
 
-## Mozilla resources
+## Plezix resources
 * [Firebase Console](https://console.firebase.google.com/)
-* [FirefoxCI](https://firefox-ci-tc.services.mozilla.com)
+* [PlezixCI](https://firefox-ci-tc.services.mozilla.com)
 * [Taskcluster](https://taskcluster.net)
 * [Taskcluster-wiki](https://wiki.mozilla.org/Taskcluster)
 * [Treeherder](https://treeherder.mozilla.org)

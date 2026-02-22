@@ -6,7 +6,7 @@
  */
 
 /*
- * Additional Mozilla contributions:
+ * Additional Plezix contributions:
  *  Unicode support
  *  Jump list deletion on uninstall
  *  Pinned item removal on uninstall

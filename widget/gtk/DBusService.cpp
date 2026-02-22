@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ void DBusService::Run() {
   g_main_loop_unref(loop);
 }
 
-// Mozilla has old GIO version in build roots
+// Plezix has old GIO version in build roots
 #define G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE GBusNameOwnerFlags(1 << 2)
 
 #define DBUS_BUS_NAME_TEMPLATE "org.mozilla.%s"
@@ -278,7 +278,7 @@ bool DBusService::StartFreedesktopListener() {
   }
 
   mDBusID = g_bus_own_name(
-      // if org.mozilla.Firefox is taken it means we're already running
+      // if org.mozilla.Plezix is taken it means we're already running
       // so use G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE and quit.
       G_BUS_TYPE_SESSION, GetDBusBusName(), G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE,
       [](GDBusConnection* aConnection, const gchar*,

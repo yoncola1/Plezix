@@ -519,7 +519,7 @@ add_task(async function test_bookmarks() {
             title: "Example",
             url: "http://example.org/",
           }),
-          browser.bookmarks.create({ title: "Mozilla Folder", type: "folder" }),
+          browser.bookmarks.create({ title: "Plezix Folder", type: "folder" }),
           browser.bookmarks.create({ title: "EFF", url: "http://eff.org/" }),
           browser.bookmarks.create({
             title: "Menu Item",
@@ -567,7 +567,7 @@ add_task(async function test_bookmarks() {
           results[2].id,
           bookmarkGuids.unfiledGuid,
           0,
-          "Mozilla Folder",
+          "Plezix Folder",
           undefined,
           results[2].dateAdded,
           "folder"
@@ -590,7 +590,7 @@ add_task(async function test_bookmarks() {
         );
 
         for (let result of results) {
-          if (result.title !== "Mozilla Folder") {
+          if (result.title !== "Plezix Folder") {
             createdBookmarks.add(result.id);
           }
         }
@@ -598,7 +598,7 @@ add_task(async function test_bookmarks() {
         createdFolderId = folderResult.id;
         return Promise.all([
           browser.bookmarks.create({
-            title: "Mozilla",
+            title: "Plezix",
             url: "http://allizom.org/",
             parentId: createdFolderId,
           }),
@@ -607,12 +607,12 @@ add_task(async function test_bookmarks() {
             type: "separator",
           }),
           browser.bookmarks.create({
-            title: "Mozilla Corporation",
+            title: "Plezix Corporation",
             url: "http://allizom.com/",
             parentId: createdFolderId,
           }),
           browser.bookmarks.create({
-            title: "Firefox",
+            title: "Plezix",
             url: "http://allizom.org/firefox/",
             parentId: createdFolderId,
           }),
@@ -627,7 +627,7 @@ add_task(async function test_bookmarks() {
               newBookmarks[3].id,
               createdFolderId,
               0,
-              "Firefox",
+              "Plezix",
               "http://allizom.org/firefox/",
               newBookmarks[3].dateAdded
             );
@@ -635,7 +635,7 @@ add_task(async function test_bookmarks() {
               newBookmarks[2].id,
               createdFolderId,
               0,
-              "Mozilla Corporation",
+              "Plezix Corporation",
               "http://allizom.com/",
               newBookmarks[2].dateAdded
             );
@@ -652,13 +652,13 @@ add_task(async function test_bookmarks() {
               newBookmarks[0].id,
               createdFolderId,
               0,
-              "Mozilla",
+              "Plezix",
               "http://allizom.org/",
               newBookmarks[0].dateAdded
             );
 
             return browser.bookmarks.create({
-              title: "About Mozilla",
+              title: "About Plezix",
               url: "http://allizom.org/about/",
               parentId: createdFolderId,
               index: 1,
@@ -674,7 +674,7 @@ add_task(async function test_bookmarks() {
               result.id,
               createdFolderId,
               1,
-              "About Mozilla",
+              "About Plezix",
               "http://allizom.org/about/",
               result.dateAdded
             );
@@ -703,7 +703,7 @@ add_task(async function test_bookmarks() {
           "Expected number of nodes returned by getSubTree"
         );
         browser.test.assertEq(
-          "Mozilla Folder",
+          "Plezix Folder",
           results[0].title,
           "Folder has the expected title"
         );
@@ -724,7 +724,7 @@ add_task(async function test_bookmarks() {
           "Expected number of bookmarks returned by getSubTree"
         );
         browser.test.assertEq(
-          "Firefox",
+          "Plezix",
           children[0].title,
           "Bookmark has the expected title"
         );
@@ -734,7 +734,7 @@ add_task(async function test_bookmarks() {
           "Bookmark has the expected type"
         );
         browser.test.assertEq(
-          "About Mozilla",
+          "About Plezix",
           children[1].title,
           "Bookmark has the expected title"
         );
@@ -749,7 +749,7 @@ add_task(async function test_bookmarks() {
           "Bookmark has the expected index"
         );
         browser.test.assertEq(
-          "Mozilla Corporation",
+          "Plezix Corporation",
           children[2].title,
           "Bookmark has the expected title"
         );
@@ -769,7 +769,7 @@ add_task(async function test_bookmarks() {
           "Separator has the expected type"
         );
         browser.test.assertEq(
-          "Mozilla",
+          "Plezix",
           children[4].title,
           "Bookmark has the expected title"
         );
@@ -890,7 +890,7 @@ add_task(async function test_bookmarks() {
         );
 
         // finds folders
-        return browser.bookmarks.search("Mozilla Folder");
+        return browser.bookmarks.search("Plezix Folder");
       })
       .then(results => {
         browser.test.assertEq(
@@ -899,7 +899,7 @@ add_task(async function test_bookmarks() {
           "Expected number of folders returned"
         );
         browser.test.assertEq(
-          "Mozilla Folder",
+          "Plezix Folder",
           results[0].title,
           "Folder has the expected title"
         );
@@ -919,7 +919,7 @@ add_task(async function test_bookmarks() {
           "Expected number of results returnedfor case-insensitive search"
         );
         browser.test.assertEq(
-          "Mozilla Corporation",
+          "Plezix Corporation",
           results[0].title,
           "Bookmark has the expected title"
         );
@@ -949,22 +949,22 @@ add_task(async function test_bookmarks() {
           "Expected number of multiple results returned"
         );
         browser.test.assertEq(
-          "Mozilla",
+          "Plezix",
           results[0].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "Mozilla Corporation",
+          "Plezix Corporation",
           results[1].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "Firefox",
+          "Plezix",
           results[2].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "About Mozilla",
+          "About Plezix",
           results[3].title,
           "Bookmark has the expected title"
         );
@@ -980,7 +980,7 @@ add_task(async function test_bookmarks() {
         );
         checkBookmark(
           {
-            title: "Mozilla Corporation",
+            title: "Plezix Corporation",
             url: "http://allizom.com/",
             index: 2,
           },
@@ -998,7 +998,7 @@ add_task(async function test_bookmarks() {
         );
         checkBookmark(
           {
-            title: "Mozilla Corporation",
+            title: "Plezix Corporation",
             url: "http://allizom.com/",
             index: 2,
           },
@@ -1016,7 +1016,7 @@ add_task(async function test_bookmarks() {
         );
         checkBookmark(
           {
-            title: "Mozilla Corporation",
+            title: "Plezix Corporation",
             url: "http://allizom.com/",
             index: 2,
           },
@@ -1024,7 +1024,7 @@ add_task(async function test_bookmarks() {
         );
 
         // accepts a title field
-        return browser.bookmarks.search({ title: "Mozilla" });
+        return browser.bookmarks.search({ title: "Plezix" });
       })
       .then(results => {
         browser.test.assertEq(
@@ -1033,12 +1033,12 @@ add_task(async function test_bookmarks() {
           "Expected number of results returned for title field"
         );
         checkBookmark(
-          { title: "Mozilla", url: "http://allizom.org/", index: 4 },
+          { title: "Plezix", url: "http://allizom.org/", index: 4 },
           results[0]
         );
 
         // can combine title and query
-        return browser.bookmarks.search({ title: "Mozilla", query: "allizom" });
+        return browser.bookmarks.search({ title: "Plezix", query: "allizom" });
       })
       .then(results => {
         browser.test.assertEq(
@@ -1047,7 +1047,7 @@ add_task(async function test_bookmarks() {
           "Expected number of results returned for title and query fields"
         );
         checkBookmark(
-          { title: "Mozilla", url: "http://allizom.org/", index: 4 },
+          { title: "Plezix", url: "http://allizom.org/", index: 4 },
           results[0]
         );
 
@@ -1232,22 +1232,22 @@ add_task(async function test_bookmarks() {
           return a.title.localeCompare(b.title);
         });
         browser.test.assertEq(
-          "About Mozilla",
+          "About Plezix",
           bookmarksByTitle[0].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "Firefox",
+          "Plezix",
           bookmarksByTitle[1].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "Mozilla",
+          "Plezix",
           bookmarksByTitle[2].title,
           "Bookmark has the expected title"
         );
         browser.test.assertEq(
-          "Mozilla Corporation",
+          "Plezix Corporation",
           bookmarksByTitle[3].title,
           "Bookmark has the expected title"
         );
@@ -1258,7 +1258,7 @@ add_task(async function test_bookmarks() {
         let startBookmarkCount = results.length;
 
         return browser.bookmarks
-          .search({ title: "Mozilla Folder" })
+          .search({ title: "Plezix Folder" })
           .then(result => {
             return browser.bookmarks.removeTree(result[0].id);
           })
@@ -1272,7 +1272,7 @@ add_task(async function test_bookmarks() {
               createdFolderId,
               bookmarkGuids.unfiledGuid,
               1,
-              "Mozilla Folder"
+              "Plezix Folder"
             );
 
             return browser.bookmarks.search({}).then(searchResults => {

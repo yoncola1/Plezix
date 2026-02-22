@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,7 +15,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
  * Optional {@link nsIAppStartup} flags may be provided as
  * an array of masks, and these will be combined by ORing
  * them with a bitmask. The available masks are defined in
- * https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIAppStartup.
+ * https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/nsIAppStartup.
  *
  * Crucially, only one of the *Quit flags can be specified. The |eRestart|
  * flag may be bit-wise combined with one of the *Quit flags to cause

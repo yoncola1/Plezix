@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -58,13 +58,13 @@ class txTransformNotifier final : public nsIScriptLoaderObserver,
   bool mInTransform;
 };
 
-class txMozillaXMLOutput : public txAOutputXMLEventHandler {
+class txPlezixXMLOutput : public txAOutputXMLEventHandler {
  public:
-  txMozillaXMLOutput(mozilla::dom::Document* aSourceDocument,
+  txPlezixXMLOutput(mozilla::dom::Document* aSourceDocument,
                      txOutputFormat* aFormat, nsITransformObserver* aObserver);
-  txMozillaXMLOutput(txOutputFormat* aFormat,
+  txPlezixXMLOutput(txOutputFormat* aFormat,
                      mozilla::dom::DocumentFragment* aFragment, bool aNoFixup);
-  ~txMozillaXMLOutput();
+  ~txPlezixXMLOutput();
 
   TX_DECL_TXAXMLEVENTHANDLER
   TX_DECL_TXAOUTPUTXMLEVENTHANDLER

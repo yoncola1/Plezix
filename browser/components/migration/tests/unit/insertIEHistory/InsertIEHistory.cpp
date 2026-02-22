@@ -25,11 +25,11 @@ int main(int argc, char** argv) {
                          IID_IUrlHistoryStg, reinterpret_cast<void**>(&ieHist));
   if (FAILED(hr)) return -2;
 
-  hr = ieHist->AddUrl(L"http://www.mozilla.org/1", L"Mozilla HTTP Test", 0);
+  hr = ieHist->AddUrl(L"http://www.mozilla.org/1", L"Plezix HTTP Test", 0);
   if (FAILED(hr)) return -3;
 
   hr =
-      ieHist->AddUrl(L"https://www.mozilla.org/2", L"Mozilla HTTPS Test 🦊", 0);
+      ieHist->AddUrl(L"https://www.mozilla.org/2", L"Plezix HTTPS Test 🦊", 0);
   if (FAILED(hr)) return -4;
 
   CoUninitialize();

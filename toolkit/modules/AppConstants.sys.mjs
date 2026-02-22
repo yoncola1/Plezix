@@ -1,7 +1,7 @@
 #filter substitution
 #include @TOPOBJDIR@/source-repo.h
 #include @TOPOBJDIR@/buildid.h
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ export var AppConstants = Object.freeze({
   ACCESSIBILITY: @ACCESSIBILITY_BOOL@,
 
   // Official corresponds, roughly, to whether this build is performed
-  // on Mozilla's continuous integration infrastructure. You should
+  // on Plezix's continuous integration infrastructure. You should
   // disable developer-only functionality when this flag is set.
   MOZILLA_OFFICIAL: @MOZILLA_OFFICIAL_BOOL@,
 

@@ -26,7 +26,7 @@
  * will be raised otherwise.
  */
 
-/* These are required because Mozilla's moz.build system doesn't pass
+/* These are required because Plezix's moz.build system doesn't pass
  * -DDefined macros to the assembler.
  */
 #define PNG_READ_SUPPORTED

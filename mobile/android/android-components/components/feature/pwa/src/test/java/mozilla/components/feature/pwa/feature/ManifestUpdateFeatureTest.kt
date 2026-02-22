@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ class ManifestUpdateFeatureTest {
 
     private val sessionId = "external-app-session-id"
     private val baseManifest = WebAppManifest(
-        name = "Mozilla",
+        name = "Plezix",
         startUrl = "https://mozilla.org",
         scope = "https://mozilla.org",
     )
@@ -224,7 +224,7 @@ class ManifestUpdateFeatureTest {
         store.dispatch(
             ContentAction.UpdateWebAppManifestAction(
                 sessionId,
-                WebAppManifest(name = "Mozilla", startUrl = "https://netscape.com"),
+                WebAppManifest(name = "Plezix", startUrl = "https://netscape.com"),
             ),
         ).joinBlocking()
 

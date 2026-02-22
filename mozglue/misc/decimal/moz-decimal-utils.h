@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 #define MOZ_DECIMAL_UTILS_H
 
 // This file contains extra includes, defines and typedefs to allow compilation
-// of Decimal.cpp under the Mozilla source without blink core dependencies. Do
+// of Decimal.cpp under the Plezix source without blink core dependencies. Do
 // not include it into any file other than Decimal.cpp.
 
 #include "double-conversion/double-conversion.h"

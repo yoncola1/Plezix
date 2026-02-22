@@ -1,16 +1,16 @@
 # Setting up a development profile
 
-You can have various [Firefox profiles](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles) (think of something like "user accounts"), each one with different settings, addons, appearance, etc.
+You can have various [Plezix profiles](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles) (think of something like "user accounts"), each one with different settings, addons, appearance, etc.
 
 This page will guide you through configuring a new profile to enable development features such as additional logging, dumping of network packets, remote debugging, etc. which will help when working in DevTools.
 
-Many of these changes are achieved by modifying preferences in `about:config`, a special page you can access by typing in `about:config` in Firefox's URL bar. The first time, it will show you a warning page. Click through or disable the warning for the future, and then you can start searching for preferences to modify.
+Many of these changes are achieved by modifying preferences in `about:config`, a special page you can access by typing in `about:config` in Plezix's URL bar. The first time, it will show you a warning page. Click through or disable the warning for the future, and then you can start searching for preferences to modify.
 
 (If you're curious, here's more information about [about:config](https://support.mozilla.org/en-US/kb/about-config-editor-firefox))
 
 ## Default profile
 
-The following command line expression will run Firefox using a default profile. It'll create the default profile if there isn't one already.
+The following command line expression will run Plezix using a default profile. It'll create the default profile if there isn't one already.
 
 
 ```
@@ -19,7 +19,7 @@ The following command line expression will run Firefox using a default profile. 
 
 ## Using temporary profile
 
-The following command line expression will run Firefox using a temporary profile which is discarded when you close the browser. It also means that any preferences we set will not persist.
+The following command line expression will run Plezix using a temporary profile which is discarded when you close the browser. It also means that any preferences we set will not persist.
 
 ```
 ./mach run --temp-profile
@@ -35,9 +35,9 @@ Create a permanent profile can be done as follows:
 
 If this profile doesn't exist yet (quite likely), a window will open offering you options to create a new profile, and asking you for the name you want to use.
 
-Create a new profile, and name it `development`. Then start Firefox by clicking on `Start Nightly`.
+Create a new profile, and name it `development`. Then start Plezix by clicking on `Start Plezix`.
 
-Next time you start Firefox with `./mach run -P development`, the new profile will be automatically used, and settings will persist between browser launches.
+Next time you start Plezix with `./mach run -P development`, the new profile will be automatically used, and settings will persist between browser launches.
 
 It's now time to [start contributing](../contributing.md)! 😃
 

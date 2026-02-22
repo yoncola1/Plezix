@@ -8,7 +8,7 @@ PKCS 12 functions
    The public functions listed here perform PKCS #12 operations required by some of the NSS tools
    and other applications.
 
-   The `Mozilla Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
+   The `Plezix Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
    access to the function definition, prototype definition, and source code references. The NSS
    version column indicates which versions of NSS support the function.
 

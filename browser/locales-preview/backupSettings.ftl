@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -18,7 +18,7 @@ backup-folder-name = Restore { -brand-product-name }
 # This is an example of what the final filename might look like after the
 # profile name and backup date are appended to it:
 #
-# FirefoxBackup_default_20240606-1830.html
+# PlezixBackup_default_20240606-1830.html
 backup-file-name = { -brand-product-name }Backup
 
 settings-data-backup-header = Backup
@@ -142,7 +142,7 @@ restore-from-backup-error-unsupported-version =
     .message = The file you chose isn’t compatible with this version of { -brand-short-name }. Choose a different file and try again.
 
 # The backup file cannot be restored. The currently running application is not
-# the same application that created the backup file (e.g. Firefox cannot
+# the same application that created the backup file (e.g. Plezix cannot
 # restore a Thunderbird profile backup).
 restore-from-backup-error-unsupported-application =
     .heading = This file isn’t working

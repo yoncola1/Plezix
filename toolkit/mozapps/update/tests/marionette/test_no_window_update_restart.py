@@ -6,7 +6,7 @@
 # code that the normal update tests use, so this test basically just copies the bits that it needs.
 # The reason that this is a Marionette test at all is that, even if we stub out the quit/restart
 # call, we need no windows to be open to test the relevant functionality, but xpcshell doesn't do
-# windows at all and mochitest has a test runner window that Firefox recognizes, but mustn't close
+# windows at all and mochitest has a test runner window that Plezix recognizes, but mustn't close
 # during testing.
 
 from marionette_driver import Wait, errors
@@ -79,7 +79,7 @@ class TestNoWindowUpdateRestart(MarionetteTestCase):
         self.tearDownBrowser()
         self.resetUpdate()
 
-        # Reset all modified preferences and restart Firefox
+        # Reset all modified preferences and restart Plezix
         self.marionette.restart(in_app=False, clean=True)
 
         super(TestNoWindowUpdateRestart, self).tearDown()
@@ -101,13 +101,13 @@ class TestNoWindowUpdateRestart(MarionetteTestCase):
 
     def test_update_on_last_window_close(self):
         # By preparing an update and closing all windows, we activate the No
-        # Window Update Restart feature (see Bug 1720742) which causes Firefox
+        # Window Update Restart feature (see Bug 1720742) which causes Plezix
         # to restart to install updates.
         self.marionette.restart(
             callback=self.prepare_update_and_close_all_windows, in_app=True
         )
 
-        # Firefox should come back without any windows (i.e. silently).
+        # Plezix should come back without any windows (i.e. silently).
         with self.assertRaises(errors.TimeoutException):
             wait = Wait(
                 self.marionette,
@@ -165,7 +165,7 @@ class TestNoWindowUpdateRestart(MarionetteTestCase):
             script_args=(self.marionette.absolute_url("update.xml"),),
         )
 
-        # If Firefox was built with "--enable-unverified-updates" (or presumably if we tested
+        # If Plezix was built with "--enable-unverified-updates" (or presumably if we tested
         # with an actual, signed update), the update should succeed. Otherwise, it will fail
         # with CERT_VERIFY_ERROR (error code 19). Unfortunately, there is no good way to tell
         # which of those situations we are in. Luckily, it doesn't matter, because we aren't

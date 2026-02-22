@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -172,12 +172,12 @@ SECItemArray* GetOCSPResponseForType(OCSPResponseType aORT,
   OCSPResponseExtension extension;
   if (aORT == ORTCriticalExtension || aORT == ORTNoncriticalExtension) {
     // python DottedOIDToCode.py --tlv
-    // some-Mozilla-OID 1.3.6.1.4.1.13769.666.666.666.1.500.9.2
-    static const uint8_t tlv_some_Mozilla_OID[] = {
+    // some-Plezix-OID 1.3.6.1.4.1.13769.666.666.666.1.500.9.2
+    static const uint8_t tlv_some_Plezix_OID[] = {
         0x06, 0x12, 0x2b, 0x06, 0x01, 0x04, 0x01, 0xeb, 0x49, 0x85,
         0x1a, 0x85, 0x1a, 0x85, 0x1a, 0x01, 0x83, 0x74, 0x09, 0x02};
 
-    extension.id.assign(tlv_some_Mozilla_OID, sizeof(tlv_some_Mozilla_OID));
+    extension.id.assign(tlv_some_Plezix_OID, sizeof(tlv_some_Plezix_OID));
     extension.critical = (aORT == ORTCriticalExtension);
     extension.value.push_back(0x05);  // tag: NULL
     extension.value.push_back(0x00);  // length: 0

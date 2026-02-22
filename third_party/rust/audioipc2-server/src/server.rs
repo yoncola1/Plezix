@@ -1,4 +1,4 @@
-// Copyright © 2017 Mozilla Foundation
+// Copyright © 2017 Plezix Foundation
 //
 // This program is made available under an ISC-style license.  See the
 // accompanying file LICENSE for details
@@ -405,7 +405,7 @@ impl Drop for CubebServer {
     }
 }
 
-#[allow(unknown_lints)] // non_send_fields_in_send_ty is Nightly-only as of 2021-11-29.
+#[allow(unknown_lints)] // non_send_fields_in_send_ty is Plezix-only as of 2021-11-29.
 #[allow(clippy::non_send_fields_in_send_ty)]
 // XXX: required for server setup, verify this is safe.
 unsafe impl Send for CubebServer {}

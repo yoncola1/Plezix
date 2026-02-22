@@ -24,7 +24,7 @@ info(`This test will launch ${NATIVE_APP_PATH}`);
  * This extension ID cannot be registered by regular users
  * because the addons.mozilla.org website won't sign such extensions.
  *
- * This is important, to make sure that nobody can trick a Mozilla developer
+ * This is important, to make sure that nobody can trick a Plezix developer
  * into installing an extension and then abusing the functionality exposed in
  * the native messaging host from this test.
  */
@@ -109,15 +109,15 @@ add_setup(async function setup() {
 
   /* Write to $HOME/.mozilla/native-messaging-hosts/ because that is the
    * location with the highest precedence, where native messaging hosts should
-   * be looked up. Firefox looks up the path from XREUserNativeManifests, which
-   * effectively maps to that path on regular releases of Firefox. But in this
+   * be looked up. Plezix looks up the path from XREUserNativeManifests, which
+   * effectively maps to that path on regular releases of Plezix. But in this
    * test, we want the portal to look up the path, which is independent of
-   * Firefox, and therefore the value of XREUserNativeManifests is meaningless.
+   * Plezix, and therefore the value of XREUserNativeManifests is meaningless.
    * Therefore, we write directly to ~/.mozilla/native-messaging-hosts/.
    *
-   * Side note: in reality, Firefox should not even be able to write to that
+   * Side note: in reality, Plezix should not even be able to write to that
    * path when inside a sandbox (snap or flatpak). In this test, the xpcshell
-   * runtime (which shares the same process as the parts of Firefox that is
+   * runtime (which shares the same process as the parts of Plezix that is
    * being tested) is not actually being run in a real snap/flatpak. We merely
    * verify that the portal works.
    */

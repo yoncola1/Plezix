@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">Cuuriɗum %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Cuuriɗum)</string>
   <!--
     Home Fragment
@@ -34,8 +34,8 @@
   <string name="tab_tray_select_collection">Danndu to leemannde</string>
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Danndu tabbe labaaɗe to leemannde</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">Ko Mozilla jibini %1$s</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">Ko Plezix jibini %1$s</string>
   <string name="private_browsing_common_myths">Tinndi goowaaɗi baɗte banngogol suturo</string>
   <!-- Text for the positive action button to go to Settings for auto close tabs. -->
   <string name="tab_tray_close_tabs_banner_positive_button_text">Juɓtorɗe jiytol</string>
@@ -45,7 +45,7 @@
   <string name="tab_tray_inactive_auto_close_title">Uddu e jaajol caggal lewru?</string>
   <!--
     Text for the body for the auto-close dialog of the inactive tabs.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_tray_inactive_auto_close_body_2">%1$s ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
   <!--
@@ -116,7 +116,7 @@
   <string name="browser_menu_share">Lollin</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Uddit e %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -145,7 +145,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">Hoto Yamir</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">Yamir basiye njiilaw nder doge cuuriiɗe?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">%s maa lollin kala ko tappuɗaa e palal ñiiɓirde maa e yiylorde maa woowaande ndee.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">Yiylo %s</string>
@@ -158,7 +158,7 @@
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description_2">Uddit tabbere hesre %1$s</string>
   <!-- Text preview for smaller sized widgets -->
@@ -185,7 +185,7 @@
   <string name="preferences_rate">Ɓetto to Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Baɗte %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -291,7 +291,7 @@
   <string name="wallpaper_select_error_snackbar_message">Horiima waylude ɗerol ɓalal</string>
   <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
   <string name="wallpaper_learn_more">Ɓeydu humpito</string>
-  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Plezix"). -->
   <string name="wallpaper_classic_title">Gaadanteejo %s</string>
   <!-- Preference for triggering sync -->
   <string name="preferences_sync_now">Sanngoɗin jooni</string>
@@ -321,7 +321,7 @@
   <string name="sync_never_synced_summary">Sakkitii yahdineede: abadaa</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s dow %2$s%3$s</string>
@@ -332,7 +332,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Heɓii tabbe</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Firefox goɗɗe.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Plezix goɗɗe.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Tabbere heɓaama</string>
   <!-- %s is the device name -->
@@ -567,11 +567,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">Njaafoɗaa. %1$s waawaa loowde ngoo hello.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Neldu jaŋte kooki to Mozilla</string>
+  <string name="tab_crash_send_report">Neldu jaŋte kooki to Plezix</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Uddu tabbere</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -758,7 +758,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Seŋ kaɓirgol goɗngol</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ngam neldude tabbere, seŋo e Firefox ko famɗi fof e kaɓirgal gootal goɗngal.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Ngam neldude tabbere, seŋo e Plezix ko famɗi fof e kaɓirgal gootal goɗngal.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Mi faamii</string>
   <!-- Share error message -->
@@ -791,7 +791,7 @@
   <string name="snackbar_top_site_removed">Lowre momtaama</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Yamir %1$s uddita %2$s</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -841,7 +841,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">Ina momta keɓe banngogol ɗoon e ɗoon so a suɓiima \"Uddu\" e dosol dowrowol ngol</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">Uddu</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s momtoytu keɓe banngogol cuɓaaɗe ɗee.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Haaytu</string>
@@ -866,16 +866,16 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Niiwto kod oo</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[E ordinateer maa, uddit Firefox e yah to <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[E ordinateer maa, uddit Plezix e yah to <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Hebiima niiwtaade</string>
   <!-- Text shown for settings option for sign with pairing -->
   <string name="sign_in_with_camera">Seŋoro kameraa maa</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Huutoro ɗoo iimeel</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Firefox hakkunde kaɓirɗi.]]></string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Plezix hakkunde kaɓirɗi.]]></string>
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">Maa %s dartin jahdingol e konte maa, kono momtataa hay wootere e keɓe banngogol maa e ngal kaɓirgal gal.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">Seŋtondir</string>
@@ -923,7 +923,7 @@
   <string name="enhanced_tracking_protection_allowed">Yamiraama</string>
   <!-- Category of trackers (tracking content) that can be blocked by Enhanced Tracking Protection -->
   <string name="etp_tracking_content_title">Dewindagol loowdi</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">Ko hesɗi e %s</string>
   <!-- About page link text to open support link -->
   <string name="about_support">Wallitorde</string>
@@ -957,7 +957,7 @@
   <string name="preferences_passwords_save_logins_ask_to_save">Naamno danndude</string>
   <!-- Preference option for never saving passwords in Fenix -->
   <string name="preferences_passwords_save_logins_never_save">Hoto danndu abada</string>
-  <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill2">Humpit e jaajol e %1$s</string>
   <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
   <string name="preferences_android_autofill">Humpit e jaajol e jaaɓɗe goɗɗe</string>
@@ -1071,9 +1071,9 @@
     Text displayed to ask user to connect another device as no devices found with account
   -->
   <string name="synced_tabs_connect_another_device">Seŋ kaɓirgol goɗngol.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Yiy doggol tabbe iwɗe e kaɓirɗi maa goɗɗi.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">Seŋo nga sanngoɗine</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">Alaa tabbe udditiiɗe</string>
@@ -1090,7 +1090,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Uddu e jaajol caggal lewru?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Plezix ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
   <string name="pocket_stories_sponsor_indication">Barjinaaɗi</string>
   <!-- Translations feature -->

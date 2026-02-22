@@ -1,6 +1,6 @@
 # Rust/C++ interop
 
-This document describes how to use FFI in Firefox to get Rust code and C++ code to interoperate.
+This document describes how to use FFI in Plezix to get Rust code and C++ code to interoperate.
 
 ## Transferable types
 
@@ -25,7 +25,7 @@ sections describe.
 
 ## Heap allocation
 
-C++ and Rust code in Firefox all use the same heap allocator, so C++
+C++ and Rust code in Plezix all use the same heap allocator, so C++
 `malloc`, `free`, and friends interoperate with Rust's `std::alloc`
 functions: raw memory allocated on the heap by Rust can be freed by
 C++ and vice versa. For example, memory allocated by a Rust `Vec`
@@ -89,7 +89,7 @@ pub unsafe extern "C" fn unic_langid_canonicalize(
 Then, add a `cbindgen.toml` file in the root of your crate. It may look like this:
 
 ```toml
-header = """/* This Source Code Form is subject to the terms of the Mozilla Public
+header = """/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */"""
 autogen_warning = """/* DO NOT MODIFY THIS MANUALLY! This file was generated using cbindgen. See RunCbindgen.py */
@@ -246,5 +246,5 @@ all from C++ code.
 
 ## Other examples
 
-For a detailed explanation of an interface in Firefox that doesn't use cbindgen
+For a detailed explanation of an interface in Plezix that doesn't use cbindgen
 or rust-bindgen, see [this blog post](https://hsivonen.fi/modern-cpp-in-rust/).

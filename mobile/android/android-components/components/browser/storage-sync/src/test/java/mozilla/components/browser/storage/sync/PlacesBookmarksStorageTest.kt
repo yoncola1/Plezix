@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -95,14 +95,14 @@ class PlacesBookmarksStorageTest {
         assertEquals(emptyList<BookmarkNode>(), bookmarks.getBookmarksWithUrl(url))
         assertEquals(emptyList<BookmarkNode>(), bookmarks.searchBookmarks("mozilla"))
 
-        val insertedItem = bookmarks.addItem(BookmarkRoot.Mobile.id, url, "Mozilla", 5u)
+        val insertedItem = bookmarks.addItem(BookmarkRoot.Mobile.id, url, "Plezix", 5u)
 
         with(bookmarks.getBookmarksWithUrl(url)) {
             assertEquals(1, this.size)
             with(this[0]) {
                 assertEquals(insertedItem, this.guid)
                 assertEquals(BookmarkNodeType.ITEM, this.type)
-                assertEquals("Mozilla", this.title)
+                assertEquals("Plezix", this.title)
                 assertEquals(BookmarkRoot.Mobile.id, this.parentGuid)
                 // Clamped to actual range. 'Mobile' was empty, so we get 0 back.
                 assertEquals(0u, this.position)
@@ -125,7 +125,7 @@ class PlacesBookmarksStorageTest {
             with(this[0]) {
                 assertEquals(insertedItem, this.guid)
                 assertEquals(BookmarkNodeType.ITEM, this.type)
-                assertEquals("Mozilla", this.title)
+                assertEquals("Plezix", this.title)
                 assertEquals(folderGuid, this.parentGuid)
                 assertEquals(0u, this.position)
                 assertEquals("http://www.mozilla.org/", this.url)
@@ -167,7 +167,7 @@ class PlacesBookmarksStorageTest {
             assertTrue(this.isEmpty())
         }
 
-        val secondInsertedItem = bookmarks.addItem(BookmarkRoot.Unfiled.id, url, "Mozilla", 6u)
+        val secondInsertedItem = bookmarks.addItem(BookmarkRoot.Unfiled.id, url, "Plezix", 6u)
 
         with(bookmarks.getRecentBookmarks(2)) {
             assertEquals(secondInsertedItem, this[0].guid)
@@ -211,7 +211,7 @@ class PlacesBookmarksStorageTest {
     @Test
     fun `GIVEN bookmarks exist WHEN asked for autocomplete suggestions THEN return the first matching bookmark`() = runTest {
         bookmarks.apply {
-            addItem(BookmarkRoot.Mobile.id, "https://www.mozilla.org/en-us/firefox", "Mozilla", 5u)
+            addItem(BookmarkRoot.Mobile.id, "https://www.mozilla.org/en-us/firefox", "Plezix", 5u)
             addItem(BookmarkRoot.Toolbar.id, "https://support.mozilla.org/", "Support", 2u)
         }
 

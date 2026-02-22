@@ -1,9 +1,9 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "txMozillaXSLTProcessor.h"
+#include "txPlezixXSLTProcessor.h"
 #include "nsError.h"
 #include "mozilla/AutoRestore.h"
 #include "mozilla/dom/Element.h"
@@ -11,8 +11,8 @@
 #include "nsIURI.h"
 #include "XPathResult.h"
 #include "txExecutionState.h"
-#include "txMozillaTextOutput.h"
-#include "txMozillaXMLOutput.h"
+#include "txPlezixTextOutput.h"
+#include "txPlezixXMLOutput.h"
 #include "txURIUtils.h"
 #include "txXMLUtils.h"
 #include "txUnknownHandler.h"
@@ -78,8 +78,8 @@ nsresult txToDocHandlerFactory::createHandlerWith(
     }
 
     case eHTMLOutput: {
-      UniquePtr<txMozillaXMLOutput> handler(
-          new txMozillaXMLOutput(mSourceDocument, aFormat, mObserver));
+      UniquePtr<txPlezixXMLOutput> handler(
+          new txPlezixXMLOutput(mSourceDocument, aFormat, mObserver));
 
       nsresult rv = handler->createResultDocument(
           u""_ns, kNameSpaceID_None, mSourceDocument, mDocumentIsData);
@@ -91,8 +91,8 @@ nsresult txToDocHandlerFactory::createHandlerWith(
     }
 
     case eTextOutput: {
-      UniquePtr<txMozillaTextOutput> handler(
-          new txMozillaTextOutput(mSourceDocument, mObserver));
+      UniquePtr<txPlezixTextOutput> handler(
+          new txPlezixTextOutput(mSourceDocument, mObserver));
 
       nsresult rv = handler->createResultDocument(mDocumentIsData);
       if (NS_SUCCEEDED(rv)) {
@@ -120,8 +120,8 @@ nsresult txToDocHandlerFactory::createHandlerWith(
 
     case eXMLOutput:
     case eHTMLOutput: {
-      UniquePtr<txMozillaXMLOutput> handler(
-          new txMozillaXMLOutput(mSourceDocument, aFormat, mObserver));
+      UniquePtr<txPlezixXMLOutput> handler(
+          new txPlezixXMLOutput(mSourceDocument, aFormat, mObserver));
 
       nsresult rv = handler->createResultDocument(aName, aNsID, mSourceDocument,
                                                   mDocumentIsData);
@@ -133,8 +133,8 @@ nsresult txToDocHandlerFactory::createHandlerWith(
     }
 
     case eTextOutput: {
-      UniquePtr<txMozillaTextOutput> handler(
-          new txMozillaTextOutput(mSourceDocument, mObserver));
+      UniquePtr<txPlezixTextOutput> handler(
+          new txPlezixTextOutput(mSourceDocument, mObserver));
 
       nsresult rv = handler->createResultDocument(mDocumentIsData);
       if (NS_SUCCEEDED(rv)) {
@@ -165,18 +165,18 @@ nsresult txToFragmentHandlerFactory::createHandlerWith(
         format.mMethod = eXMLOutput;
       }
 
-      *aHandler = new txMozillaXMLOutput(&format, mFragment, false);
+      *aHandler = new txPlezixXMLOutput(&format, mFragment, false);
       break;
     }
 
     case eXMLOutput:
     case eHTMLOutput: {
-      *aHandler = new txMozillaXMLOutput(aFormat, mFragment, false);
+      *aHandler = new txPlezixXMLOutput(aFormat, mFragment, false);
       break;
     }
 
     case eTextOutput: {
-      *aHandler = new txMozillaTextOutput(mFragment);
+      *aHandler = new txPlezixTextOutput(mFragment);
       break;
     }
   }
@@ -194,9 +194,9 @@ nsresult txToFragmentHandlerFactory::createHandlerWith(
 }
 
 class txVariable : public txIGlobalParameter {
-  using XSLTParameterValue = txMozillaXSLTProcessor::XSLTParameterValue;
+  using XSLTParameterValue = txPlezixXSLTProcessor::XSLTParameterValue;
   using OwningXSLTParameterValue =
-      txMozillaXSLTProcessor::OwningXSLTParameterValue;
+      txPlezixXSLTProcessor::OwningXSLTParameterValue;
 
  public:
   explicit txVariable(UniquePtr<OwningXSLTParameterValue>&& aValue)
@@ -258,58 +258,58 @@ inline void ImplCycleCollectionTraverse(
 }
 
 /**
- * txMozillaXSLTProcessor
+ * txPlezixXSLTProcessor
  */
 
-NS_IMPL_CYCLE_COLLECTION_WRAPPERCACHE_CLASS(txMozillaXSLTProcessor)
+NS_IMPL_CYCLE_COLLECTION_WRAPPERCACHE_CLASS(txPlezixXSLTProcessor)
 
-NS_IMPL_CYCLE_COLLECTION_UNLINK_BEGIN(txMozillaXSLTProcessor)
+NS_IMPL_CYCLE_COLLECTION_UNLINK_BEGIN(txPlezixXSLTProcessor)
   NS_IMPL_CYCLE_COLLECTION_UNLINK(mOwner, mSource)
   MOZ_RELEASE_ASSERT(tmp->mState == State::None);
   tmp->Reset(IgnoreErrors());
   NS_IMPL_CYCLE_COLLECTION_UNLINK_PRESERVED_WRAPPER
 NS_IMPL_CYCLE_COLLECTION_UNLINK_END
 
-NS_IMPL_CYCLE_COLLECTION_TRAVERSE_BEGIN(txMozillaXSLTProcessor)
+NS_IMPL_CYCLE_COLLECTION_TRAVERSE_BEGIN(txPlezixXSLTProcessor)
   NS_IMPL_CYCLE_COLLECTION_TRAVERSE(
       mOwner, mStylesheetDocument, mEmbeddedStylesheetRoot, mSource, mVariables)
 NS_IMPL_CYCLE_COLLECTION_TRAVERSE_END
 
-NS_IMPL_CYCLE_COLLECTING_ADDREF(txMozillaXSLTProcessor)
-NS_IMPL_CYCLE_COLLECTING_RELEASE(txMozillaXSLTProcessor)
+NS_IMPL_CYCLE_COLLECTING_ADDREF(txPlezixXSLTProcessor)
+NS_IMPL_CYCLE_COLLECTING_RELEASE(txPlezixXSLTProcessor)
 
-NS_INTERFACE_MAP_BEGIN_CYCLE_COLLECTION(txMozillaXSLTProcessor)
+NS_INTERFACE_MAP_BEGIN_CYCLE_COLLECTION(txPlezixXSLTProcessor)
   NS_WRAPPERCACHE_INTERFACE_MAP_ENTRY
   NS_INTERFACE_MAP_ENTRY(nsIDocumentTransformer)
   NS_INTERFACE_MAP_ENTRY(nsIMutationObserver)
   NS_INTERFACE_MAP_ENTRY_AMBIGUOUS(nsISupports, nsIDocumentTransformer)
 NS_INTERFACE_MAP_END
 
-txMozillaXSLTProcessor::txMozillaXSLTProcessor()
+txPlezixXSLTProcessor::txPlezixXSLTProcessor()
     : mOwner(nullptr),
       mTransformResult(NS_OK),
       mCompileResult(NS_OK),
       mFlags(0) {}
 
-txMozillaXSLTProcessor::txMozillaXSLTProcessor(nsISupports* aOwner)
+txPlezixXSLTProcessor::txPlezixXSLTProcessor(nsISupports* aOwner)
     : mOwner(aOwner),
       mTransformResult(NS_OK),
       mCompileResult(NS_OK),
       mFlags(0) {}
 
-txMozillaXSLTProcessor::~txMozillaXSLTProcessor() {
+txPlezixXSLTProcessor::~txPlezixXSLTProcessor() {
   MOZ_RELEASE_ASSERT(mState == State::None);
   Reset(IgnoreErrors());
 }
 
 NS_IMETHODIMP
-txMozillaXSLTProcessor::SetTransformObserver(nsITransformObserver* aObserver) {
+txPlezixXSLTProcessor::SetTransformObserver(nsITransformObserver* aObserver) {
   mObserver = aObserver;
   return NS_OK;
 }
 
 NS_IMETHODIMP
-txMozillaXSLTProcessor::SetSourceContentModel(nsINode* aSource) {
+txPlezixXSLTProcessor::SetSourceContentModel(nsINode* aSource) {
   mSource = aSource;
 
   if (NS_FAILED(mTransformResult)) {
@@ -325,7 +325,7 @@ txMozillaXSLTProcessor::SetSourceContentModel(nsINode* aSource) {
 }
 
 NS_IMETHODIMP
-txMozillaXSLTProcessor::AddXSLTParamNamespace(const nsString& aPrefix,
+txPlezixXSLTProcessor::AddXSLTParamNamespace(const nsString& aPrefix,
                                               const nsString& aNamespace) {
   RefPtr<nsAtom> pre = NS_Atomize(aPrefix);
   return mParamNamespaceMap.mapNamespace(pre, aNamespace);
@@ -375,7 +375,7 @@ class MOZ_STACK_CLASS txXSLTParamContext : public txIParseContext,
 };
 
 NS_IMETHODIMP
-txMozillaXSLTProcessor::AddXSLTParam(const nsString& aName,
+txPlezixXSLTProcessor::AddXSLTParam(const nsString& aName,
                                      const nsString& aNamespace,
                                      const nsString& aSelect,
                                      const nsString& aValue,
@@ -467,9 +467,9 @@ txMozillaXSLTProcessor::AddXSLTParam(const nsString& aName,
 
 class nsTransformBlockerEvent : public mozilla::Runnable {
  public:
-  RefPtr<txMozillaXSLTProcessor> mProcessor;
+  RefPtr<txPlezixXSLTProcessor> mProcessor;
 
-  explicit nsTransformBlockerEvent(txMozillaXSLTProcessor* processor)
+  explicit nsTransformBlockerEvent(txPlezixXSLTProcessor* processor)
       : mozilla::Runnable("nsTransformBlockerEvent"), mProcessor(processor) {}
 
   ~nsTransformBlockerEvent() {
@@ -480,13 +480,13 @@ class nsTransformBlockerEvent : public mozilla::Runnable {
 
   NS_IMETHOD Run() override {
     MOZ_RELEASE_ASSERT(mProcessor->mState ==
-                       txMozillaXSLTProcessor::State::None);
+                       txPlezixXSLTProcessor::State::None);
     mProcessor->TransformToDoc(nullptr, false);
     return NS_OK;
   }
 };
 
-nsresult txMozillaXSLTProcessor::DoTransform() {
+nsresult txPlezixXSLTProcessor::DoTransform() {
   NS_ENSURE_TRUE(mSource, NS_ERROR_UNEXPECTED);
   NS_ENSURE_TRUE(mStylesheet, NS_ERROR_UNEXPECTED);
   NS_ASSERTION(mObserver, "no observer");
@@ -504,7 +504,7 @@ nsresult txMozillaXSLTProcessor::DoTransform() {
   return rv;
 }
 
-void txMozillaXSLTProcessor::ImportStylesheet(nsINode& aStyle,
+void txPlezixXSLTProcessor::ImportStylesheet(nsINode& aStyle,
                                               mozilla::ErrorResult& aRv) {
   // We don't support importing multiple stylesheets yet.
   if (NS_WARN_IF(mStylesheetDocument || mStylesheet)) {
@@ -550,7 +550,7 @@ void txMozillaXSLTProcessor::ImportStylesheet(nsINode& aStyle,
   mStylesheetDocument->AddMutationObserver(this);
 }
 
-already_AddRefed<Document> txMozillaXSLTProcessor::TransformToDocument(
+already_AddRefed<Document> txPlezixXSLTProcessor::TransformToDocument(
     nsINode& aSource, ErrorResult& aRv) {
   if (NS_WARN_IF(NS_FAILED(mCompileResult))) {
     aRv.Throw(mCompileResult);
@@ -674,7 +674,7 @@ XSLTProcessRequest::SetTRRMode(nsIRequest::TRRMode aTRRMode) {
   return SetTRRModeImpl(aTRRMode);
 }
 
-nsresult txMozillaXSLTProcessor::TransformToDoc(Document** aResult,
+nsresult txPlezixXSLTProcessor::TransformToDoc(Document** aResult,
                                                 bool aCreateDataDocument) {
   Maybe<txXPathNode> sourceNode(txXPathNativeNode::createXPathNode(mSource));
   if (!sourceNode) {
@@ -746,7 +746,7 @@ nsresult txMozillaXSLTProcessor::TransformToDoc(Document** aResult,
   return rv;
 }
 
-already_AddRefed<DocumentFragment> txMozillaXSLTProcessor::TransformToFragment(
+already_AddRefed<DocumentFragment> txPlezixXSLTProcessor::TransformToFragment(
     nsINode& aSource, Document& aOutput, ErrorResult& aRv) {
   if (NS_WARN_IF(NS_FAILED(mCompileResult))) {
     aRv.Throw(mCompileResult);
@@ -810,7 +810,7 @@ already_AddRefed<DocumentFragment> txMozillaXSLTProcessor::TransformToFragment(
   return frag.forget();
 }
 
-void txMozillaXSLTProcessor::SetParameter(const nsAString& aNamespaceURI,
+void txPlezixXSLTProcessor::SetParameter(const nsAString& aNamespaceURI,
                                           const nsAString& aLocalName,
                                           const XSLTParameterValue& aValue,
                                           ErrorResult& aError) {
@@ -883,7 +883,7 @@ void txMozillaXSLTProcessor::SetParameter(const nsAString& aNamespaceURI,
   mVariables.add(varName, newVar.release());
 }
 
-void txMozillaXSLTProcessor::GetParameter(
+void txPlezixXSLTProcessor::GetParameter(
     const nsAString& aNamespaceURI, const nsAString& aLocalName,
     Nullable<OwningXSLTParameterValue>& aValue, ErrorResult& aRv) {
   int32_t nsId = kNameSpaceID_Unknown;
@@ -904,7 +904,7 @@ void txMozillaXSLTProcessor::GetParameter(
   aValue.SetValue(var->getUnionValue());
 }
 
-void txMozillaXSLTProcessor::RemoveParameter(const nsAString& aNamespaceURI,
+void txPlezixXSLTProcessor::RemoveParameter(const nsAString& aNamespaceURI,
                                              const nsAString& aLocalName,
                                              ErrorResult& aRv) {
   if (mState != State::None) {
@@ -925,7 +925,7 @@ void txMozillaXSLTProcessor::RemoveParameter(const nsAString& aNamespaceURI,
   mVariables.remove(varName);
 }
 
-void txMozillaXSLTProcessor::ClearParameters(ErrorResult& aError) {
+void txPlezixXSLTProcessor::ClearParameters(ErrorResult& aError) {
   if (mState != State::None) {
     aError.ThrowInvalidStateError("Invalid call.");
     return;
@@ -934,7 +934,7 @@ void txMozillaXSLTProcessor::ClearParameters(ErrorResult& aError) {
   mVariables.clear();
 }
 
-void txMozillaXSLTProcessor::Reset(ErrorResult& aError) {
+void txPlezixXSLTProcessor::Reset(ErrorResult& aError) {
   if (mState != State::None) {
     aError.ThrowInvalidStateError("Invalid call.");
     return;
@@ -950,14 +950,14 @@ void txMozillaXSLTProcessor::Reset(ErrorResult& aError) {
   mVariables.clear();
 }
 
-void txMozillaXSLTProcessor::SetFlags(uint32_t aFlags, SystemCallerGuarantee) {
+void txPlezixXSLTProcessor::SetFlags(uint32_t aFlags, SystemCallerGuarantee) {
   mFlags = aFlags;
 }
 
-uint32_t txMozillaXSLTProcessor::Flags(SystemCallerGuarantee) { return mFlags; }
+uint32_t txPlezixXSLTProcessor::Flags(SystemCallerGuarantee) { return mFlags; }
 
 NS_IMETHODIMP
-txMozillaXSLTProcessor::LoadStyleSheet(nsIURI* aUri,
+txPlezixXSLTProcessor::LoadStyleSheet(nsIURI* aUri,
                                        Document* aLoaderDocument) {
   mozilla::dom::ReferrerPolicy refpol = mozilla::dom::ReferrerPolicy::_empty;
   if (mStylesheetDocument) {
@@ -979,7 +979,7 @@ txMozillaXSLTProcessor::LoadStyleSheet(nsIURI* aUri,
   return rv;
 }
 
-nsresult txMozillaXSLTProcessor::setStylesheet(txStylesheet* aStylesheet) {
+nsresult txPlezixXSLTProcessor::setStylesheet(txStylesheet* aStylesheet) {
   mStylesheet = aStylesheet;
   if (mSource) {
     return DoTransform();
@@ -1058,7 +1058,7 @@ static mozilla::Maybe<nsLiteralCString> StatusCodeToL10nId(nsresult aStatus) {
   }
 }
 
-void txMozillaXSLTProcessor::reportError(nsresult aResult,
+void txPlezixXSLTProcessor::reportError(nsresult aResult,
                                          const char16_t* aErrorText,
                                          const char16_t* aSourceText) {
   if (!mObserver) {
@@ -1120,7 +1120,7 @@ void txMozillaXSLTProcessor::reportError(nsresult aResult,
   }
 }
 
-void txMozillaXSLTProcessor::notifyError() {
+void txPlezixXSLTProcessor::notifyError() {
   nsCOMPtr<Document> document;
   {
     nsresult rv = NS_NewXMLDocument(getter_AddRefs(document), nullptr, nullptr);
@@ -1188,7 +1188,7 @@ void txMozillaXSLTProcessor::notifyError() {
   mObserver->OnTransformDone(mSource->OwnerDoc(), mTransformResult, document);
 }
 
-nsresult txMozillaXSLTProcessor::ensureStylesheet() {
+nsresult txPlezixXSLTProcessor::ensureStylesheet() {
   if (mState != State::None) {
     return NS_ERROR_FAILURE;
   }
@@ -1209,7 +1209,7 @@ nsresult txMozillaXSLTProcessor::ensureStylesheet() {
   return TX_CompileStylesheet(style, this, getter_AddRefs(mStylesheet));
 }
 
-void txMozillaXSLTProcessor::NodeWillBeDestroyed(nsINode* aNode) {
+void txPlezixXSLTProcessor::NodeWillBeDestroyed(nsINode* aNode) {
   nsCOMPtr<nsIMutationObserver> kungFuDeathGrip(this);
   if (NS_FAILED(mCompileResult)) {
     return;
@@ -1220,12 +1220,12 @@ void txMozillaXSLTProcessor::NodeWillBeDestroyed(nsINode* aNode) {
   mEmbeddedStylesheetRoot = nullptr;
 }
 
-void txMozillaXSLTProcessor::CharacterDataChanged(
+void txPlezixXSLTProcessor::CharacterDataChanged(
     nsIContent* aContent, const CharacterDataChangeInfo&) {
   mStylesheet = nullptr;
 }
 
-void txMozillaXSLTProcessor::AttributeChanged(Element* aElement,
+void txPlezixXSLTProcessor::AttributeChanged(Element* aElement,
                                               int32_t aNameSpaceID,
                                               nsAtom* aAttribute,
                                               int32_t aModType,
@@ -1233,41 +1233,41 @@ void txMozillaXSLTProcessor::AttributeChanged(Element* aElement,
   mStylesheet = nullptr;
 }
 
-void txMozillaXSLTProcessor::ContentAppended(nsIContent* aFirstNewContent,
+void txPlezixXSLTProcessor::ContentAppended(nsIContent* aFirstNewContent,
                                              const ContentAppendInfo&) {
   mStylesheet = nullptr;
 }
 
-void txMozillaXSLTProcessor::ContentInserted(nsIContent* aChild,
+void txPlezixXSLTProcessor::ContentInserted(nsIContent* aChild,
                                              const ContentInsertInfo&) {
   mStylesheet = nullptr;
 }
 
-void txMozillaXSLTProcessor::ContentWillBeRemoved(nsIContent* aChild,
+void txPlezixXSLTProcessor::ContentWillBeRemoved(nsIContent* aChild,
                                                   const ContentRemoveInfo&) {
   mStylesheet = nullptr;
 }
 
 /* virtual */
-JSObject* txMozillaXSLTProcessor::WrapObject(
+JSObject* txPlezixXSLTProcessor::WrapObject(
     JSContext* aCx, JS::Handle<JSObject*> aGivenProto) {
   return XSLTProcessor_Binding::Wrap(aCx, this, aGivenProto);
 }
 
-DocGroup* txMozillaXSLTProcessor::GetDocGroup() const {
+DocGroup* txPlezixXSLTProcessor::GetDocGroup() const {
   return mStylesheetDocument ? mStylesheetDocument->GetDocGroup() : nullptr;
 }
 
 /* static */
-already_AddRefed<txMozillaXSLTProcessor> txMozillaXSLTProcessor::Constructor(
+already_AddRefed<txPlezixXSLTProcessor> txPlezixXSLTProcessor::Constructor(
     const GlobalObject& aGlobal) {
-  RefPtr<txMozillaXSLTProcessor> processor =
-      new txMozillaXSLTProcessor(aGlobal.GetAsSupports());
+  RefPtr<txPlezixXSLTProcessor> processor =
+      new txPlezixXSLTProcessor(aGlobal.GetAsSupports());
   return processor.forget();
 }
 
 /* static*/
-nsresult txMozillaXSLTProcessor::Startup() {
+nsresult txPlezixXSLTProcessor::Startup() {
   if (!txXSLTProcessor::init()) {
     return NS_ERROR_OUT_OF_MEMORY;
   }
@@ -1276,7 +1276,7 @@ nsresult txMozillaXSLTProcessor::Startup() {
 }
 
 /* static*/
-void txMozillaXSLTProcessor::Shutdown() { txXSLTProcessor::shutdown(); }
+void txPlezixXSLTProcessor::Shutdown() { txXSLTProcessor::shutdown(); }
 
 /* static */
 UniquePtr<txVariable::OwningXSLTParameterValue> txVariable::convertToOwning(

@@ -169,7 +169,7 @@ GIT_CHANGED=`./mach python $SCRIPT_DIR/filter_git_changes.py \
    | wc -l | tr -d " "`
 FILE_CNT_MISMATCH_MSG=$"
 The number of files changed in the upstream commit ($GIT_CHANGED) does
-not match the number of files changed in the local Mozilla repo
+not match the number of files changed in the local Plezix repo
 commit ($MOZ_CHANGED).  This may indicate a mismatch between the vendoring
 script and this script, or it could be a true error in the import
 processing.  Once the issue has been resolved, the following steps
@@ -250,7 +250,7 @@ ERROR_HELP=""
 
 ERROR_HELP=$"
 The test build has failed.  Most likely this is due to an upstream api
-change that must be reflected in Mozilla code outside of the
+change that must be reflected in Plezix code outside of the
 third_party/libwebrtc directory. After fixing the build, you may resume
 running this script with the following command:
     ./mach build && ./mach build recurse_gtest && \\
@@ -269,7 +269,7 @@ if [ "x$MOZ_BUILD_CHANGE_CNT" != "x0" ]; then
   echo_log "Detected modified moz.build files, starting try builds with"
   echo_log "'$TRY_FUZZY_QUERY_STRING' at $CURRENT_TIME"
   echo_log "This try push is started to help earlier detection of build issues"
-  echo_log "across different platforms supported by Mozilla."
+  echo_log "across different platforms supported by Plezix."
   echo_log "Note - this step can take a long time (occasionally in the 10min range)"
   echo_log "       with little or no feedback."
   # Show the time used for this command, and don't let it fail if the

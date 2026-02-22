@@ -310,12 +310,12 @@ This file is imported into `common-shared.css` and `global-shared.css` so that b
 ##### XLarge (h1)
 ###### In-content
 ```html story
-  <h1>Firefox View</h1>
+  <h1>Plezix View</h1>
 ```
 
 ###### Chrome
 ```html story
-  <h1 class="sb-preview-chrome-typescale">Close window and quit Firefox?</h1>
+  <h1 class="sb-preview-chrome-typescale">Close window and quit Plezix?</h1>
 ```
 
 ###### Chrome menus

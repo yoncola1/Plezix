@@ -1,8 +1,8 @@
-; This Source Code Form is subject to the terms of the Mozilla Public
+; This Source Code Form is subject to the terms of the Plezix Public
 ; License, v. 2.0. If a copy of the MPL was not distributed with this
 ; file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-; Package file for the Firefox build.
+; Package file for the Plezix build.
 ;
 ; Packaging manifest is used to copy files from dist/bin
 ; to the staging directory.
@@ -99,9 +99,9 @@
 #endif
 #endif
 #ifdef MOZ_GTK
-; This is a standalone binary launched by Firefox on Linux to verify
+; This is a standalone binary launched by Plezix on Linux to verify
 ; the system's graphics capabilities and behavior.
-; It is separate because it may crash, and handling this within Firefox
+; It is separate because it may crash, and handling this within Plezix
 ; itself would be more challenging.
 @BINPATH@/glxtest
 @BINPATH@/@DLL_PREFIX@mozgtk@DLL_SUFFIX@
@@ -110,7 +110,7 @@
 #endif
 #ifdef MOZ_ENABLE_V4L2
 ; Similar to glxtest, this tests the hardware decoding for Video for Linux.
-; Currently, it doesn't ship for Firefox targeting typical Intel CPU (or compatible).
+; Currently, it doesn't ship for Plezix targeting typical Intel CPU (or compatible).
 @BINPATH@/v4l2test
 #endif
 #ifdef MOZ_ENABLE_VAAPI

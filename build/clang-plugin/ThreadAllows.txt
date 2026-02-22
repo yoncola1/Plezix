@@ -14,7 +14,7 @@
 # to this file; instead, add the test file to `ThreadFileAllows.txt`.)
 
 ######
-# Gecko/Firefox thread names
+# Gecko/Plezix thread names
 # (See also "Unsorted thread names", below.)
 
 # Used by `nsUpdateProcessor` to check for updates. May also be used for polling

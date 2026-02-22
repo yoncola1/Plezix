@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,19 +48,19 @@ private const val TOOLBAR_PADDING_DP = 8
  * @param browserActionsStart List of browser [Action]s to be displayed at the start of the
  * toolbar, outside of the URL bounding box.
  * These should be actions relevant to the browser as a whole.
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction).
  * @param pageActionsStart List of navigation [Action]s to be displayed between [browserActionsStart]
  * and [pageOrigin], inside of the URL bounding box.
  * These should be actions relevant to specific webpages as opposed to [browserActionsStart].
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction).
  * @param pageActionsEnd List of page [Action]s to be displayed between [pageOrigin] and [browserActionsEnd],
  * inside of the URL bounding box.
  * These should be actions relevant to specific webpages as opposed to [browserActionsStart].
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction).
  * @param browserActionsEnd List of browser [Action]s to be displayed at the end of the toolbar,
  * outside of the URL bounding box.
  * These should be actions relevant to the browser as a whole.
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction).
  * @param onInteraction Callback for handling [BrowserToolbarEvent]s on user interactions.
  */
 @Composable
@@ -238,7 +238,7 @@ private class DisplayToolbarDataProvider : PreviewParameterProvider<DisplayToolb
             onClick = object : BrowserToolbarEvent {},
         ),
     )
-    val title = "Firefox"
+    val title = "Plezix"
     val url = "mozilla.com/firefox"
 
     override val values = sequenceOf(

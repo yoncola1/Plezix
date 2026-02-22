@@ -41,7 +41,7 @@ describe('Browser specs', function () {
       if (isChrome) {
         expect(userAgent).toContain('Chrome');
       } else {
-        expect(userAgent).toContain('Firefox');
+        expect(userAgent).toContain('Plezix');
       }
     });
   });

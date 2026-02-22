@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -359,7 +359,7 @@ impl SharedTextures {
             config.alpha8_glyph_texture_size * config.alpha8_glyph_texture_size;
 
         // Used for experimental hdr yuv texture support, but not used in
-        // production Firefox.
+        // production Plezix.
         let alpha16_linear = AllocatorList::new(
             config.alpha16_texture_size,
             ShelfAllocatorOptions {
@@ -556,7 +556,7 @@ impl TextureCacheConfig {
 /// images, whereas the latter stores data and parameters for use in the shaders.
 /// This means that the texture cache can be visualized, which is a good way to
 /// understand how it works. Enabling gfx.webrender.debug.texture-cache shows a
-/// live view of its contents in Firefox.
+/// live view of its contents in Plezix.
 #[cfg_attr(feature = "capture", derive(Serialize))]
 #[cfg_attr(feature = "replay", derive(Deserialize))]
 pub struct TextureCache {

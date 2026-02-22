@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -119,7 +119,7 @@ already_AddRefed<dom::Promise> Instance::RequestAdapter(
 #ifndef EARLY_BETA_OR_EARLIER
 #  ifndef XP_WIN
   rejectIf(true,
-           "WebGPU is only available on Windows, and in Nightly and Early Beta "
+           "WebGPU is only available on Windows, and in Plezix and Early Beta "
            "builds on other platforms.");
 #  endif
 
@@ -179,7 +179,7 @@ already_AddRefed<dom::Promise> Instance::RequestAdapter(
                    "\"compatibility\"`, which is not yet supported; returning "
                    "a \"core\"-defaulting adapter for now. Subscribe to "
                    "<https://bugzilla.mozilla.org/show_bug.cgi?id=1905951>"
-                   " for updates on its development in Firefox.");
+                   " for updates on its development in Plezix.");
     }
   } else {
     NS_ConvertUTF16toUTF8 featureLevel(aOptions.mFeatureLevel);
@@ -203,7 +203,7 @@ already_AddRefed<dom::Promise> Instance::RequestAdapter(
           "but WebXR sessions are not yet supported in WebGPU. Returning "
           "a regular adapter for now. Subscribe to "
           "<https://bugzilla.mozilla.org/show_bug.cgi?id=1963829>"
-          " for updates on its development in Firefox.");
+          " for updates on its development in Plezix.");
     }
   }
 

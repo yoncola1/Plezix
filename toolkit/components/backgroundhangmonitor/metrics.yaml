@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -93,7 +93,7 @@ hangs:
       The data is an array of string pairs (array of 2 strings).
       The first string of the pair is the module name (eg. "libxul.so"),
       the second string is the debug id (33 hexadecimal characters) which
-      can be used to fetch the symbols from the Mozilla symbol server.
+      can be used to fetch the symbols from the Plezix symbol server.
     data_sensitivity:
       - technical
     type: object

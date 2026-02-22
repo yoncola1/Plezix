@@ -95,7 +95,7 @@
     "enrollmentEndDate": null,
     "isEnrollmentPaused": false,
     "proposedEnrollment": 7,
-    "userFacingDescription": "Test experiment to test supporting the Messaging System in Firefox background tasks.",
+    "userFacingDescription": "Test experiment to test supporting the Messaging System in Plezix background tasks.",
     "id": "test-experiment",
     "last_modified": 1657578927064
   }

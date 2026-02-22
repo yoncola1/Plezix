@@ -181,7 +181,7 @@ describe('navigation', function () {
       });
 
       expect(error.message).atLeastOneToContain([
-        'Cannot navigate to invalid URL', // Firefox WebDriver BiDi.
+        'Cannot navigate to invalid URL', // Plezix WebDriver BiDi.
         'invalid argument', // Others.
       ]);
     });

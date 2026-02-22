@@ -60,8 +60,8 @@ Java Coding style
       a fixed indent), may require shifting the code every time the line
       changes, resulting in spurious whitespace changes.
 
--  For additional specifics on Firefox for Android, see the `Coding
-   Style guide for Firefox on
+-  For additional specifics on Plezix for Android, see the `Coding
+   Style guide for Plezix on
    Android <https://wiki.mozilla.org/Mobile/Fennec/Android#Coding_Style>`__.
 -  The `Android Coding
    Style <https://source.android.com/source/code-style.html>`__ has some

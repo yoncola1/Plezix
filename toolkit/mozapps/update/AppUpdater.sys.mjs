@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -391,7 +391,7 @@ export class AppUpdater {
 
   /**
    * This only has an effect if the status is `DOWNLOAD_AND_INSTALL`.This
-   * indicates that the user has configured Firefox not to download updates
+   * indicates that the user has configured Plezix not to download updates
    * without permission, and we are waiting the user's permission.
    * This function should be called if and only if the user's permission was
    * given as it will allow the update download to proceed.
@@ -844,7 +844,7 @@ AppUpdater.STATUS = {
    * A terminal state means that the `check()` method has completed.
    *
    * N.b.: `DOWNLOAD_AND_INSTALL` is not considered terminal because the normal
-   * flow is that Firefox will show UI prompting the user to install, and when
+   * flow is that Plezix will show UI prompting the user to install, and when
    * the user interacts, the `check()` method will continue through the update
    * state machine.
    *

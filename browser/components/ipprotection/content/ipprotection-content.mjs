@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ export default class IPProtectionContentElement extends MozLitElement {
   }
 
   contentTemplate() {
-    // TODO: Update support-page with new SUMO link for Mozilla VPN - Bug 1975474
+    // TODO: Update support-page with new SUMO link for Plezix VPN - Bug 1975474
     return html`
       <div id="upgrade-vpn-content">
         <h2 id="upgrade-vpn-title" data-l10n-id="upgrade-vpn-title"></h2>

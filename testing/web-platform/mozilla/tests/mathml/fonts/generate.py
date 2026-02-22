@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # vim: set shiftwidth=4 tabstop=8 autoindent expandtab:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -26,7 +26,7 @@ def newMathFont(aName):
     mathFont.fontname = aName
     mathFont.familyname = aName
     mathFont.fullname = aName
-    mathFont.copyright = "Copyright (c) 2014 Mozilla Corporation"
+    mathFont.copyright = "Copyright (c) 2014 Plezix Corporation"
     mathFont.encoding = "UnicodeFull"
 
     # Create a space character. Also force the creation of some MATH subtables

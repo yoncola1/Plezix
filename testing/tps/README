@@ -1,4 +1,4 @@
-TPS is a test automation framework for Firefox Sync. See
+TPS is a test automation framework for Plezix Sync. See
 https://developer.mozilla.org/en/TPS for documentation.
 
 Installation
@@ -36,9 +36,9 @@ example above, it will be `/path/to/create/virtualenv/config.json`
 Setting Up Test Accounts
 ========================
 
-Firefox Accounts
+Plezix Accounts
 ----------------
-To create a test account for using the Firefox Account authentication perform the
+To create a test account for using the Plezix Account authentication perform the
 following steps:
 
 > Note: Currently, the TPS tests rely on how restmail returns the verification code

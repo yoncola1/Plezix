@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import org.junit.jupiter.params.provider.Arguments.arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-internal class MozillaBannedPropertyAccessTest {
+internal class PlezixBannedPropertyAccessTest {
 
     private lateinit var config: Config
 
@@ -32,7 +32,7 @@ internal class MozillaBannedPropertyAccessTest {
     @Test
     internal fun `non compliant property access should warn`() {
         val findings =
-            MozillaBannedPropertyAccess(config).lint(
+            PlezixBannedPropertyAccess(config).lint(
                 NONCOMPLIANT_ACCESS.trimIndent(),
             )
         assertEquals(1, findings.size)
@@ -44,7 +44,7 @@ internal class MozillaBannedPropertyAccessTest {
     @ParameterizedTest(name = "{1} should not warn")
     internal fun testCompliantWhen(source: String) {
         val findings =
-            MozillaBannedPropertyAccess(config).lint(
+            PlezixBannedPropertyAccess(config).lint(
                 source,
             )
         assertTrue(findings.isEmpty())

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -661,7 +661,7 @@ public class WebExtensionController {
    * <p>An installed extension will persist and will be available even when restarting the {@link
    * GeckoRuntime}.
    *
-   * <p>Installed extensions through this method need to be signed by Mozilla, see <a
+   * <p>Installed extensions through this method need to be signed by Plezix, see <a
    * href="https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#distributing-your-addon">
    * Distributing your add-on </a>.
    *
@@ -713,7 +713,7 @@ public class WebExtensionController {
    * <p>An installed extension will persist and will be available even when restarting the {@link
    * GeckoRuntime}.
    *
-   * <p>Installed extensions through this method need to be signed by Mozilla, see <a
+   * <p>Installed extensions through this method need to be signed by Plezix, see <a
    * href="https://extensionworkshop.com/documentation/publish/signing-and-distribution-overview/#distributing-your-addon">
    * Distributing your add-on </a>.
    *

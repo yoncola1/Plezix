@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -18956,7 +18956,7 @@ class ForwardDeclarationBuilder:
             assert "::" not in name
             self.decls.add((name, isStruct))
 
-    def addInMozillaDom(self, name, isStruct=False):
+    def addInPlezixDom(self, name, isStruct=False):
         """
         Add a forward declaration to the mozilla::dom:: namespace. |name| should not
         contain any other namespaces.
@@ -19011,18 +19011,18 @@ class ForwardDeclarationBuilder:
         # Note: SpiderMonkey interfaces are typedefs, so can't be
         # forward-declared
         elif t.isPromise():
-            self.addInMozillaDom("Promise")
+            self.addInPlezixDom("Promise")
         elif t.isCallback():
-            self.addInMozillaDom(t.callback.identifier.name)
+            self.addInPlezixDom(t.callback.identifier.name)
         elif t.isDictionary():
-            self.addInMozillaDom(t.inner.identifier.name, isStruct=True)
+            self.addInPlezixDom(t.inner.identifier.name, isStruct=True)
         elif t.isCallbackInterface():
-            self.addInMozillaDom(t.inner.identifier.name)
+            self.addInPlezixDom(t.inner.identifier.name)
         elif t.isUnion():
             # Forward declare both the owning and non-owning version,
             # since we don't know which one we might want
-            self.addInMozillaDom(CGUnionStruct.unionTypeName(t, False))
-            self.addInMozillaDom(CGUnionStruct.unionTypeName(t, True))
+            self.addInPlezixDom(CGUnionStruct.unionTypeName(t, False))
+            self.addInPlezixDom(CGUnionStruct.unionTypeName(t, True))
         elif t.isRecord():
             self.forwardDeclareForType(t.inner, config)
         # Don't need to do anything for void, primitive, string, any or object.
@@ -19081,11 +19081,11 @@ class CGForwardDeclarations(CGWrapper):
                     builder.forwardDeclareForType(m.type, config)
 
         # We just about always need NativePropertyHooks
-        builder.addInMozillaDom("NativePropertyHooks", isStruct=True)
-        builder.addInMozillaDom("ProtoAndIfaceCache")
+        builder.addInPlezixDom("NativePropertyHooks", isStruct=True)
+        builder.addInPlezixDom("ProtoAndIfaceCache")
 
         for callback in callbacks:
-            builder.addInMozillaDom(callback.identifier.name)
+            builder.addInPlezixDom(callback.identifier.name)
             for t in getTypesFromCallback(callback):
                 builder.forwardDeclareForType(t, config)
 
@@ -19095,11 +19095,11 @@ class CGForwardDeclarations(CGWrapper):
             for t in getTypesFromDescriptor(d):
                 builder.forwardDeclareForType(t, config)
             if d.hasCEReactions():
-                builder.addInMozillaDom("DocGroup")
+                builder.addInPlezixDom("DocGroup")
 
         for d in dictionaries:
             if len(d.members) > 0:
-                builder.addInMozillaDom(d.identifier.name + "Atoms", isStruct=True)
+                builder.addInPlezixDom(d.identifier.name + "Atoms", isStruct=True)
             for t in getTypesFromDictionary(d):
                 builder.forwardDeclareForType(t, config)
 
@@ -20697,12 +20697,12 @@ class CGExampleRoot(CGThing):
 
         builder = ForwardDeclarationBuilder()
         if descriptor.hasCEReactions():
-            builder.addInMozillaDom("DocGroup")
+            builder.addInPlezixDom("DocGroup")
         for member in descriptor.interface.members:
             if not member.isAttr() and not member.isMethod():
                 continue
             if member.isStatic():
-                builder.addInMozillaDom("GlobalObject")
+                builder.addInPlezixDom("GlobalObject")
             if member.isAttr():
                 if not member.isMaplikeOrSetlikeAttr():
                     builder.forwardDeclareForType(member.type, config)
@@ -20751,7 +20751,7 @@ class CGExampleRoot(CGThing):
                 """
             /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
             /* vim:set ts=2 sw=2 sts=2 et cindent: */
-            /* This Source Code Form is subject to the terms of the Mozilla Public
+            /* This Source Code Form is subject to the terms of the Plezix Public
              * License, v. 2.0. If a copy of the MPL was not distributed with this
              * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25164,7 +25164,7 @@ class CGEventRoot(CGThing):
                 """
             /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
             /* vim:set ts=2 sw=2 sts=2 et cindent: */
-            /* This Source Code Form is subject to the terms of the Mozilla Public
+            /* This Source Code Form is subject to the terms of the Plezix Public
              * License, v. 2.0. If a copy of the MPL was not distributed with this
              * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 

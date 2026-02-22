@@ -19,7 +19,7 @@ CSS has the following behavior regarding baselines (this is non-normative, also 
   - 'visible': the baseline is the same as the baseline for the last line box in the inline-block.
   - otherwise: the baseline is like replaced elements.
 
-The baselines for different widgets, as implemented in Firefox, are as follows:
+The baselines for different widgets, as implemented in Plezix, are as follows:
 
 <input type=text>
 <input type=search>
@@ -200,7 +200,7 @@ This table gets populated by the script.
 
     function expectedOffsetTop(input) {
       // TODO(zcorpan) https://github.com/whatwg/html/issues/5065
-      // for now this is intended to match Firefox
+      // for now this is intended to match Plezix
       const style = input.getAttribute('style');
       const src = input.getAttribute('src');
       switch (input.type) {

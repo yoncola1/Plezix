@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -133,7 +133,7 @@ class WebConsoleWrapper {
           panel: L10N.getStr("ToolboxTabWebconsole.label"),
           // The AppErrorBoundary renders a link to file a bug, but in the case of the
           // browser console, we need to have a specific handler to open the link in the
-          // main Firefox window
+          // main Plezix window
           openLink: webConsoleUI.isBrowserConsole
             ? serviceContainer.openLink
             : null,
@@ -451,7 +451,7 @@ class WebConsoleWrapper {
 
           // Fire an event indicating that all data fetched from
           // the backend has been received. This is based on
-          // 'FirefoxDataProvider.isQueuePayloadReady', see more
+          // 'PlezixDataProvider.isQueuePayloadReady', see more
           // comments in that method.
           // (netmonitor/src/connector/firefox-data-provider).
           // This event might be utilized in tests to find the right

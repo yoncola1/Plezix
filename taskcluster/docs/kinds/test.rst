@@ -38,7 +38,7 @@ named in ``kind.yml``:
 Variants
 --------
 
-Sometimes we want to run the same tests under a different Firefox context,
+Sometimes we want to run the same tests under a different Plezix context,
 usually this means with a pref set. The concept of ``variants`` was invented to
 handle this use case. A variant is a stanza of configuration that can be merged
 into each test definition. Variants are defined in the `variants.yml`_ file.
@@ -140,7 +140,7 @@ that make up a ``setting``:
    includes things like the build type and which build attributes (like
    ``asan``, ``ccov``, etc) are enabled.
 
-3. Runtime - Bits of information that describe the configured state of Firefox.
+3. Runtime - Bits of information that describe the configured state of Plezix.
    This includes things like prefs and environment variables. Note that tasks
    should only set runtime configuration via the variants system (see
    `Variants`_).

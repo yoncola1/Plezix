@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ ChromeUtils.defineLazyGetter(lazy, "textEncoder", () => new TextEncoder());
 
 const RECOMMENDED_PREFS = new Map([
   // Enables permission isolation by user context.
-  // It should be enabled by default in Nightly in the scope of the bug 1641584.
+  // It should be enabled by default in Plezix in the scope of the bug 1641584.
   ["permissions.isolateBy.userContext", true],
   // Enables race-cache-with-network, which avoids issues with requests
   // intercepted in the responseStarted phase. Without this preference, any

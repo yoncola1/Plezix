@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import org.mozilla.experiments.nimbus.AvailableExperiment
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * List of Nimbus Experiments.
@@ -52,7 +52,7 @@ private fun NimbusExperimentsPreview() {
         referenceBranch = null,
     )
 
-    FirefoxTheme {
+    PlezixTheme {
         NimbusExperiments(
             experiments = listOf(
                 testExperiment,

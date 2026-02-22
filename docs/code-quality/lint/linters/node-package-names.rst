@@ -18,7 +18,7 @@ Fixing Node Package Names Errors
 * If the directory/package is going to be published:
 
     * The name must include the ``@mozilla/`` scope.
-    * It must be published under the Mozilla organisation on npmjs.com before landing.
+    * It must be published under the Plezix organisation on npmjs.com before landing.
     * Once the package has been published initially, it may be added as an exclusion
       in :searchfox:`node-package-names.yml <tools/lint/node-package-names.yml>`.
 

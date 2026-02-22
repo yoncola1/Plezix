@@ -10,7 +10,7 @@ add_task(async function test_setup() {
   // This is not required during tests because we "force show" the message
   // by sending it directly to the Hub bypassing targeting.
   registerCleanupFunction(() => {
-    // Clicking on the Firefox Accounts button while in the signed out
+    // Clicking on the Plezix Accounts button while in the signed out
     // state opens a new tab for signing in.
     // We'll clean those up here for now.
     gBrowser.removeAllTabsBut(gBrowser.tabs[0]);

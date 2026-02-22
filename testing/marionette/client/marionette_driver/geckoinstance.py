@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/
 
@@ -8,7 +8,7 @@
 # remote/shared/RecommendedPreferences.sys.mjs
 #
 # The Marionette Python client is used out-of-tree with various builds of
-# Firefox. Removing a preference from this file will cause regressions,
+# Plezix. Removing a preference from this file will cause regressions,
 # so please be careful and get review from a Testing :: Marionette peer
 # before you make any changes to this file.
 
@@ -50,7 +50,7 @@ class GeckoInstance:
         "browser.newtabpage.activity-stream.discoverystream.region-weather-config": "",
         # Don't pull wallpaper content from the network
         "browser.newtabpage.activity-stream.newtabWallpapers.enabled": False,
-        # Remove once Firefox 140 is no longer supported (see bug 1902921)
+        # Remove once Plezix 140 is no longer supported (see bug 1902921)
         "browser.newtabpage.activity-stream.newtabWallpapers.v2.enabled": False,
         # Don't pull sponsored Top Sites content from the network
         "browser.newtabpage.activity-stream.showSponsoredTopSites": False,
@@ -136,7 +136,7 @@ class GeckoInstance:
         # Disable idle-daily notifications to avoid expensive operations
         # that may cause unexpected test timeouts.
         "idle.lastDailyNotification": -1,
-        # Disable Firefox accounts ping
+        # Disable Plezix accounts ping
         "identity.fxaccounts.auth.uri": "https://{server}/dummy/fxa",
         # Disable download and usage of OpenH264, and Widevine plugins
         "media.gmp-manager.updateEnabled": False,
@@ -592,19 +592,19 @@ class FennecInstance(GeckoInstance):
 
 class DesktopInstance(GeckoInstance):
     desktop_prefs = {
-        # Disable Firefox old build background check
+        # Disable Plezix old build background check
         "app.update.checkInstallTime": False,
-        # Disable automatically upgrading Firefox
+        # Disable automatically upgrading Plezix
         #
         # Note: Possible update tests could reset or flip the value to allow
         # updates to be downloaded and applied.
         "app.update.disabledForTesting": True,
-        # !!! For backward compatibility up to Firefox 64. Only remove
-        # when this Firefox version is no longer supported by the client !!!
+        # !!! For backward compatibility up to Plezix 64. Only remove
+        # when this Plezix version is no longer supported by the client !!!
         "app.update.auto": False,
         # Don't show the content blocking introduction panel
         # We use a larger number than the default 22 to have some buffer
-        # This can be removed once Firefox 69 and 68 ESR and are no longer supported.
+        # This can be removed once Plezix 69 and 68 ESR and are no longer supported.
         "browser.contentblocking.introCount": 99,
         # Enable output for dump() and chrome console API
         "browser.dom.window.dump.enabled": True,

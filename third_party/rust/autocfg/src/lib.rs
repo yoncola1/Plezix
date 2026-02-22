@@ -222,14 +222,14 @@ impl AutoCfg {
 
         command.args(&self.rustflags);
 
-        // Mozilla-local change: throw away stderr output.
+        // Plezix-local change: throw away stderr output.
         //
-        // Mozilla's build system runs cargo with `-v -v` to help diagnose rustc
+        // Plezix's build system runs cargo with `-v -v` to help diagnose rustc
         // selection problems. Without the change below, that causes error
         // messages from autocfg compiler invocations (which simply indicate
         // that the feature autocfg was checking for isn't available, and are
         // not actual build errors) to show up in the build output stream, where
-        // they confuse other parts of Mozilla's build system that try to
+        // they confuse other parts of Plezix's build system that try to
         // highlight and track errors.
         //
         // See: https://github.com/cuviper/autocfg/issues/30

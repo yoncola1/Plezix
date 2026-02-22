@@ -951,7 +951,7 @@ class Test_get_config:
             "FILE_IO_INIT",
         ]
         assert test_config["xperf_user_providers"] == [
-            "Mozilla Generic Provider",
+            "Plezix Generic Provider",
             "Microsoft-Windows-TCPIP",
         ]
         assert test_config["xperf_stackwalk"] == [

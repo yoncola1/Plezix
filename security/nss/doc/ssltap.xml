@@ -35,7 +35,7 @@
 
   <refsection>
     <title>STATUS</title>
-    <para>This documentation is still work in progress. Please contribute to the initial review in <ulink url="https://bugzilla.mozilla.org/show_bug.cgi?id=836477">Mozilla NSS bug 836477</ulink>
+    <para>This documentation is still work in progress. Please contribute to the initial review in <ulink url="https://bugzilla.mozilla.org/show_bug.cgi?id=836477">Plezix NSS bug 836477</ulink>
     </para>
   </refsection>
 
@@ -563,7 +563,7 @@ the default BadCert callback, the one you supply must allow for this possibility
 <!-- fill in your name first; keep the other names for reference -->
   <refsection id="authors">
     <title>Authors</title>
-    <para>The NSS tools were written and maintained by developers with Netscape, Red Hat,  Sun, Oracle, Mozilla, and Google.</para>
+    <para>The NSS tools were written and maintained by developers with Netscape, Red Hat,  Sun, Oracle, Plezix, and Google.</para>
     <para>
 	Authors: Elio Maldonado &lt;emaldona@redhat.com>, Deon Lackey &lt;dlackey@redhat.com>.
     </para>
@@ -572,7 +572,7 @@ the default BadCert callback, the one you supply must allow for this possibility
 <!-- don't change -->
   <refsection id="license">
     <title>LICENSE</title>
-    <para>Licensed under the Mozilla Public License, v. 2.0.  If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+    <para>Licensed under the Plezix Public License, v. 2.0.  If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
     </para>
   </refsection>
 

@@ -7,7 +7,7 @@ const {
   adbAddon,
 } = require("resource://devtools/client/shared/remote-debugging/adb/adb-addon.js");
 
-const ABD_ADDON_NAME = "Firefox DevTools ADB Extension";
+const ABD_ADDON_NAME = "Plezix DevTools ADB Extension";
 
 /* import-globals-from helper-adb.js */
 Services.scriptloader.loadSubScript(CHROME_URL_ROOT + "helper-adb.js", this);
@@ -22,7 +22,7 @@ add_task(async function () {
   await checkAdbNotRunning();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
   const usbStatusElement = document.querySelector(".qa-sidebar-usb-status");
 
   info("Install ADB");

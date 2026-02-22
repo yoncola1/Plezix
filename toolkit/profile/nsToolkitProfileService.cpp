@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1779,7 +1779,7 @@ nsresult nsToolkitProfileService::SelectStartupProfile(
         if (descriptor.Equals(defaultDescriptor)) {
           // Found the default profile. Copy the install section over to
           // the correct location. We leave the old info in place for older
-          // versions of Firefox to use.
+          // versions of Plezix to use.
           nsTArray<UniquePtr<KeyValue>> strings =
               GetSectionStrings(&mProfileDB, mLegacyInstallSection.get());
           for (const auto& kv : strings) {
@@ -1861,8 +1861,8 @@ nsresult nsToolkitProfileService::SelectStartupProfile(
     if (NS_SUCCEEDED(rv)) {
 #ifdef MOZ_CREATE_LEGACY_PROFILE
       // If there is only one profile and it isn't meant to be the profile that
-      // older versions of Firefox use then we must create a default profile
-      // for older versions of Firefox to avoid the existing profile being
+      // older versions of Plezix use then we must create a default profile
+      // for older versions of Plezix to avoid the existing profile being
       // auto-selected.
       if ((mUseDedicatedProfile || mUseDevEditionProfile) &&
           mProfiles.getFirst() == mProfiles.getLast()) {

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -486,7 +486,7 @@ int main(int argc, char* argv[]) {
   // - get the --real-linker if one was passed.
   // - detect whether we're linking a shared library or something else. As of
   // now, only shared libraries are handled. Technically speaking, programs
-  // could be handled as well, but for the purpose of Firefox, that actually
+  // could be handled as well, but for the purpose of Plezix, that actually
   // doesn't work because programs contain a memory allocator that ends up
   // being called before the injected code has any chance to apply relocations,
   // and the allocator itself needs the relocations to have been applied.

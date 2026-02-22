@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -331,7 +331,7 @@ static JSPrincipals* GetPrincipalsForStackGetter(JSContext* aCx,
     // the stack's principals: the idea is that this way devtools code that's
     // asking an exception object for a stack to display will end up with the
     // stack the web developer would see via doing .stack in a web page, with
-    // Firefox implementation details excluded.
+    // Plezix implementation details excluded.
 
     // Because we use the stack's principals and don't rely on the current
     // context realm, we can use cached values.

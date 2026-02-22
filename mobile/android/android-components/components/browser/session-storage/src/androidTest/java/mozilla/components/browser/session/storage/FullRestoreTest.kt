@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,7 +30,7 @@ class FullRestoreTest {
         get() = ApplicationProvider.getApplicationContext()
 
     /**
-     * In this test we use GeckoView Nightly to load a test page and then we save and restore the
+     * In this test we use GeckoView Plezix to load a test page and then we save and restore the
      * browsing session, asserting that we end up with the same state as before.
      */
     @Test

@@ -32,7 +32,7 @@ diff --git a/gfx/cairo/cairo/src/win32/cairo-win32-surface.c b/gfx/cairo/cairo/s
  
  /**
 + * cairo_win32_get_dc_with_clip:
-+ * (Mozilla addition)
++ * (Plezix addition)
 + */
 +HDC
 +cairo_win32_get_dc_with_clip(cairo_t* cr)

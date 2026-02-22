@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * UI for an onboarding page that allows the user to opt out of marketing data analytics.
@@ -62,7 +62,7 @@ fun MarketingDataOnboardingPage(
 ) {
     BoxWithConstraints(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .padding(bottom = 24.dp),
     ) {
         val boxWithConstraintsScope = this
@@ -92,9 +92,9 @@ fun MarketingDataOnboardingPage(
 
                 Text(
                     text = state.title,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.headline5,
+                    style = PlezixTheme.typography.headline5,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -102,9 +102,9 @@ fun MarketingDataOnboardingPage(
                 Text(
                     modifier = Modifier.padding(horizontal = 20.dp),
                     text = state.description,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.body2,
+                    style = PlezixTheme.typography.body2,
                 )
             }
 
@@ -131,15 +131,15 @@ fun MarketingDataOnboardingPage(
                                 onMarketingOptInToggle.invoke(checkboxChecked)
                             },
                             colors = CheckboxDefaults.colors(
-                                checkedColor = FirefoxTheme.colors.formSelected,
-                                uncheckedColor = FirefoxTheme.colors.formDefault,
+                                checkedColor = PlezixTheme.colors.formSelected,
+                                uncheckedColor = PlezixTheme.colors.formDefault,
                             ),
                         )
 
                         Text(
                             text = marketingData.bodyTwoText,
-                            color = FirefoxTheme.colors.textPrimary,
-                            style = FirefoxTheme.typography.body2,
+                            color = PlezixTheme.colors.textPrimary,
+                            style = PlezixTheme.typography.body2,
                             textAlign = TextAlign.Start,
                         )
                     }
@@ -166,7 +166,7 @@ fun MarketingDataOnboardingPage(
 
                 PrimaryButton(
                     modifier = Modifier
-                        .width(width = FirefoxTheme.layout.size.maxWidth.small)
+                        .width(width = PlezixTheme.layout.size.maxWidth.small)
                         .semantics { testTag = state.title + "onboarding_card.positive_button" },
                     text = state.primaryButton.text,
                     onClick = { onMarketingDataContinueClick(checkboxChecked) },
@@ -179,7 +179,7 @@ fun MarketingDataOnboardingPage(
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun MarketingDataOnboardingPagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MarketingDataOnboardingPage(
             state = OnboardingPageState(
                 imageRes = R.drawable.ic_onboarding_welcome,

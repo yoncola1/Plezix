@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ import org.mozilla.fenix.tabstray.browser.compose.detectGridPressAndDragGestures
 import org.mozilla.fenix.tabstray.browser.compose.detectListPressAndDrag
 import org.mozilla.fenix.tabstray.ext.MIN_COLUMN_WIDTH_DP
 import org.mozilla.fenix.tabstray.ext.numberOfGridColumns
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import kotlin.math.max
 
 // Key for the span item at the bottom of the tray, used to make the item not reorderable.
@@ -347,11 +347,11 @@ private fun TabList(
 private fun TabListPreview() {
     val tabs = remember { generateFakeTabsList().toMutableStateList() }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
         ) {
             TabLayout(
                 tabs = tabs,
@@ -374,11 +374,11 @@ private fun TabListPreview() {
 private fun TabGridPreview() {
     val tabs = remember { generateFakeTabsList().toMutableStateList() }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
         ) {
             TabLayout(
                 tabs = tabs,
@@ -402,12 +402,12 @@ private fun TabGridSmallPreview() {
     val tabs = remember { generateFakeTabsList().toMutableStateList() }
     val width = MIN_COLUMN_WIDTH_DP.dp + 50.dp
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxHeight()
                 .width(width)
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
         ) {
             TabLayout(
                 tabs = tabs,
@@ -432,11 +432,11 @@ private fun TabGridMultiSelectPreview() {
     val tabs = generateFakeTabsList()
     val selectedTabs = remember { tabs.take(4).toMutableStateList() }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
         ) {
             TabLayout(
                 tabs = tabs,

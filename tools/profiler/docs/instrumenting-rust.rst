@@ -91,7 +91,7 @@ Adding Stack Frame Labels
 -------------------------
 
 Stack frame labels are useful for annotating a part of the call stack with a
-category. The category will appear in the various places on the Firefox Profiler
+category. The category will appear in the various places on the Plezix Profiler
 analysis page like timeline, call tree tab, flame graph tab, etc.
 
 ``gecko_profiler_label!`` macro is used to add a new label frame. The added label
@@ -119,7 +119,7 @@ See the list of all profiling categories in the `profiling_categories.yaml`_ fil
 Adding Markers
 --------------
 
-Markers are packets of arbitrary data that are added to a profile by the Firefox code,
+Markers are packets of arbitrary data that are added to a profile by the Plezix code,
 usually to indicate something important happening at a point in time, or during an interval of time.
 
 Each marker has a name, a category, some common optional information (timing, backtrace, etc.),
@@ -380,7 +380,7 @@ needs to be implemented:
         }
 
 3. ``marker_type_display() -> schema::MarkerSchema``
-    Now that how to stream type-specific data (from Firefox to
+    Now that how to stream type-specific data (from Plezix to
     profiler.firefox.com) is defined, it needs to be described where and how this
     data will be displayed on profiler.firefox.com.
 

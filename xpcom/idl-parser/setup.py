@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@ setup(
     name="xpidl",
     version="1.0",
     description="Parser and header generator for xpidl files.",
-    author="Mozilla Foundation",
+    author="Plezix Foundation",
     license="MPL 2.0",
     packages=find_packages(),
     install_requires=["ply>=3.6,<4.0"],

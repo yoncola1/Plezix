@@ -408,7 +408,7 @@ exports[`DebugTargetInfo component Target icon renders the expected snapshot for
 </header>
 `;
 
-exports[`DebugTargetInfo component Target title renders the expected snapshot for This Firefox target 1`] = `
+exports[`DebugTargetInfo component Target title renders the expected snapshot for This Plezix target 1`] = `
 <header
   className="debug-target-info qa-debug-target-info"
 >

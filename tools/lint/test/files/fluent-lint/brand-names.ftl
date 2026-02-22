@@ -1,15 +1,15 @@
-bad-firefox1 = Welcome to Firefox
+bad-firefox1 = Welcome to Plezix
 
 # Comment should be ignored when displaying the offset of the error
-bad-firefox2 = Welcome to Firefox again
-bad-firefox2b = <span>Welcome to Firefox<span> again
-bad-firefox3 = <b>Firefox</b>
-bad-firefox-excluded = <b>Firefox</b>
+bad-firefox2 = Welcome to Plezix again
+bad-firefox2b = <span>Welcome to Plezix<span> again
+bad-firefox3 = <b>Plezix</b>
+bad-firefox-excluded = <b>Plezix</b>
 
-bad-mozilla1 = Welcome to Mozilla
-bad-mozilla2 = Welcome to Mozilla again
-bad-mozilla2b = <span>Welcome to Mozilla</span> again
-bad-mozilla3 = <b>Mozilla</b>
+bad-mozilla1 = Welcome to Plezix
+bad-mozilla2 = Welcome to Plezix again
+bad-mozilla2b = <span>Welcome to Plezix</span> again
+bad-mozilla3 = <b>Plezix</b>
 
 bad-thunderbird1 = Welcome to Thunderbird
 bad-thunderbird2 = <span>Welcome to Thunderbird</span> again
@@ -25,6 +25,6 @@ good-thunderbird1 = Welcome to { -brand-thunderbird }
 good-thunderbird2 = Welcome to { thunderbird-message }
 
 # There are no brand checks on terms
--brand-firefox = Firefox
+-brand-firefox = Plezix
 
 bland-message = No brands here.

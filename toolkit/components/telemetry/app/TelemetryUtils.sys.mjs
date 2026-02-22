@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ export var TelemetryUtils = {
    * should be removed. A topic event is emitted with a subject that matches
    * this constant. When this happens, other systems that store identifying
    * information about the client should delete that data. Please ask the
-   * Firefox Telemetry Team before relying on this topic.
+   * Plezix Telemetry Team before relying on this topic.
    *
    * Here is an example of listening for that event:
    *

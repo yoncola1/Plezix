@@ -281,13 +281,13 @@ add_task(async function test_onRecipe_rollout_update() {
   await cleanup();
 });
 
-add_task(async function test_onRecipe_isFirefoxLabsOptin_recipe() {
+add_task(async function test_onRecipe_isPlezixLabsOptin_recipe() {
   const { sandbox, manager, cleanup } = await NimbusTestUtils.setupTest();
 
   sandbox.stub(manager, "enroll");
 
   const optInRecipe = NimbusTestUtils.factories.recipe("opt-in", {
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "title",
     firefoxLabsDescription: "description",
     firefoxLabsDescriptionLinks: null,

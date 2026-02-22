@@ -1,13 +1,13 @@
-Using C++ in Mozilla code
+Using C++ in Plezix code
 =========================
 
 C++ language features
 ---------------------
 
-Mozilla code only uses a subset of C++. Runtime type information (RTTI)
+Plezix code only uses a subset of C++. Runtime type information (RTTI)
 is disabled, as it tends to cause a very large increase in codesize.
 This means that ``dynamic_cast``, ``typeid()`` and ``<typeinfo>`` cannot
-be used in Mozilla code. Also disabled are exceptions; do not use
+be used in Plezix code. Also disabled are exceptions; do not use
 ``try``/``catch`` or throw any exceptions. Libraries that throw
 exceptions may be used if you are willing to have the throw instead be
 treated as an abort.
@@ -27,9 +27,9 @@ write are valid according to the original type. This value validity
 issue is moot for e.g. primitive integers for which all bit patterns of
 their size are valid values.
 
--  As of Mozilla 59, C++14 mode is required to build Mozilla.
--  As of Mozilla 67, MSVC can no longer be used to build Mozilla.
--  As of Mozilla 73, C++17 mode is required to build Mozilla.
+-  As of Plezix 59, C++14 mode is required to build Plezix.
+-  As of Plezix 67, MSVC can no longer be used to build Plezix.
+-  As of Plezix 73, C++17 mode is required to build Plezix.
 
 This means that C++17 can be used where supported on all platforms. The
 list of acceptable features is given below:
@@ -344,10 +344,10 @@ Designated initializers
   and Clang 3.0.
 
 
-C++ and Mozilla standard libraries
+C++ and Plezix standard libraries
 ----------------------------------
 
-The Mozilla codebase contains within it several subprojects which follow
+The Plezix codebase contains within it several subprojects which follow
 different rules for which libraries can and can't be used it. The rules
 listed here apply to normal platform code, and assume unrestricted
 usability of MFBT or XPCOM APIs.
@@ -358,10 +358,10 @@ usability of MFBT or XPCOM APIs.
    purposes. Do not trust the information listed here.
 
 What follows is a list of standard library components provided by
-Mozilla or the C++ standard. If an API is not listed here, then it is
-not permissible to use it in Mozilla code. Deprecated APIs are not
-listed here. In general, prefer Mozilla variants of data structures to
-standard C++ ones, even when permitted to use the latter, since Mozilla
+Plezix or the C++ standard. If an API is not listed here, then it is
+not permissible to use it in Plezix code. Deprecated APIs are not
+listed here. In general, prefer Plezix variants of data structures to
+standard C++ ones, even when permitted to use the latter, since Plezix
 variants tend to have features not found in the standard library (e.g.,
 memory size tracking) or have more controllable performance
 characteristics.
@@ -535,7 +535,7 @@ Safety utilities
 Strings
 ~~~~~~~
 
-See the :doc:`Mozilla internal string guide </xpcom/stringguide>` for
+See the :doc:`Plezix internal string guide </xpcom/stringguide>` for
 usage of ``nsAString`` (our copy-on-write replacement for
 ``std::u16string``) and ``nsACString`` (our copy-on-write replacement
 for ``std::string``).
@@ -658,10 +658,10 @@ Miscellaneous
      -
 
 
-Mozilla data structures and standard C++ ranges and iterators
+Plezix data structures and standard C++ ranges and iterators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Some Mozilla-defined data structures provide STL-style
+Some Plezix-defined data structures provide STL-style
 `iterators <https://en.cppreference.com/w/cpp/named_req/Iterator>`__ and
 are usable in `range-based for
 loops <https://en.cppreference.com/w/cpp/language/range-for>`__ as well
@@ -815,7 +815,7 @@ you'll be able to do type comparisons at runtime.
 Don't use the C++ standard library (including iostream and locale)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the section "C++ and Mozilla standard libraries".
+See the section "C++ and Plezix standard libraries".
 
 
 Use C++ lambdas, but with care

@@ -4,7 +4,7 @@
 "use strict";
 
 add_task(async function test_removing_button_should_close_tab() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     let win = browser.ownerGlobal;
     let tab = browser.getTabBrowser().getTabForBrowser(browser);
     let button = win.document.getElementById("firefox-view-button");
@@ -16,20 +16,20 @@ add_task(async function test_removing_button_should_close_tab() {
 });
 
 add_task(async function test_button_auto_readd() {
-  await withFirefoxView({}, async browser => {
-    let { FirefoxViewHandler } = browser.ownerGlobal;
+  await withPlezixView({}, async browser => {
+    let { PlezixViewHandler } = browser.ownerGlobal;
 
     CustomizableUI.removeWidgetFromArea("firefox-view-button");
     ok(
       !CustomizableUI.getPlacementOfWidget("firefox-view-button"),
       "Button has no placement"
     );
-    ok(!FirefoxViewHandler.tab, "Shouldn't have tab reference");
-    ok(!FirefoxViewHandler.button, "Shouldn't have button reference");
+    ok(!PlezixViewHandler.tab, "Shouldn't have tab reference");
+    ok(!PlezixViewHandler.button, "Shouldn't have button reference");
 
-    FirefoxViewHandler.openTab();
-    ok(FirefoxViewHandler.tab, "Tab re-opened");
-    ok(FirefoxViewHandler.button, "Button re-added");
+    PlezixViewHandler.openTab();
+    ok(PlezixViewHandler.tab, "Tab re-opened");
+    ok(PlezixViewHandler.button, "Button re-added");
     let placement = CustomizableUI.getPlacementOfWidget("firefox-view-button");
     is(
       placement.area,
@@ -42,23 +42,23 @@ add_task(async function test_button_auto_readd() {
 });
 
 add_task(async function test_button_moved() {
-  await withFirefoxView({}, async browser => {
-    let { FirefoxViewHandler } = browser.ownerGlobal;
+  await withPlezixView({}, async browser => {
+    let { PlezixViewHandler } = browser.ownerGlobal;
     CustomizableUI.addWidgetToArea(
       "firefox-view-button",
       CustomizableUI.AREA_NAVBAR,
       0
     );
     is(
-      FirefoxViewHandler.button.closest("toolbar").id,
+      PlezixViewHandler.button.closest("toolbar").id,
       "nav-bar",
       "Button is in the navigation toolbar"
     );
   });
-  await withFirefoxView({}, async browser => {
-    let { FirefoxViewHandler } = browser.ownerGlobal;
+  await withPlezixView({}, async browser => {
+    let { PlezixViewHandler } = browser.ownerGlobal;
     is(
-      FirefoxViewHandler.button.closest("toolbar").id,
+      PlezixViewHandler.button.closest("toolbar").id,
       "nav-bar",
       "Button remains in the navigation toolbar"
     );

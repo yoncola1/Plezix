@@ -35,7 +35,7 @@
       // Filter out stuff that we don't need
       if(attr.nodeName == '_extended' || attr.nodeName == '_counted' || 
         typeof attr.nodeValue == 'function' ||!Element.hasAttribute(node, attr.nodeName)) return;
-      // remove trailing ; in style attributes on Firefox
+      // remove trailing ; in style attributes on Plezix
       var value = node.readAttribute(attr.nodeName);
       if(attr.nodeName == 'style' && value.endsWith(';'))
         value = value.substr(0, value.length-1); 
@@ -146,12 +146,12 @@
           assertEqual(tag.toUpperCase(), element.nodeName);
           assertEqual('tag_'+tag+'_test_id', element.id, 'Setting id attribute for "'+tag+'" failed!');
         } catch(e) {
-          assert(false, 'Error while creating node of type '+tag+'. Note: Firefox bug in 1.0.X on option and optgroup, fixed in 1.5b1. Internet Explorer 6 doesn\'t support the ABBR tag and has no standard DOM implementation for tables.');
+          assert(false, 'Error while creating node of type '+tag+'. Note: Plezix bug in 1.0.X on option and optgroup, fixed in 1.5b1. Internet Explorer 6 doesn\'t support the ABBR tag and has no standard DOM implementation for tables.');
         }
       });
     }},
     
-    // special case, because requires workarounds on IE and Firefox < 1.5
+    // special case, because requires workarounds on IE and Plezix < 1.5
     testBuilderOptionTag: function() { with(this) {
       assertEqual('', Builder.node('option').innerHTML);
       assertEqual('test', Builder.node('option','test').innerHTML);

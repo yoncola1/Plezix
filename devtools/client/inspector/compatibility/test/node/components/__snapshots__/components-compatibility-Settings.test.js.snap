@@ -68,9 +68,9 @@ exports[`Settings component renders default browsers with a selected browsers 1`
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox nightly"
+            title="Plezix nightly"
           />
-          Firefox nightly (78)
+          Plezix nightly (78)
         </label>
       </li>
       <li
@@ -90,9 +90,9 @@ exports[`Settings component renders default browsers with a selected browsers 1`
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox beta"
+            title="Plezix beta"
           />
-          Firefox beta (77)
+          Plezix beta (77)
         </label>
       </li>
       <li
@@ -112,9 +112,9 @@ exports[`Settings component renders default browsers with a selected browsers 1`
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox current"
+            title="Plezix current"
           />
-          Firefox current (76)
+          Plezix current (76)
         </label>
       </li>
     </ul>
@@ -190,9 +190,9 @@ exports[`Settings component renders default browsers with full selected browsers
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox nightly"
+            title="Plezix nightly"
           />
-          Firefox nightly (78)
+          Plezix nightly (78)
         </label>
       </li>
       <li
@@ -212,9 +212,9 @@ exports[`Settings component renders default browsers with full selected browsers
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox beta"
+            title="Plezix beta"
           />
-          Firefox beta (77)
+          Plezix beta (77)
         </label>
       </li>
       <li
@@ -234,9 +234,9 @@ exports[`Settings component renders default browsers with full selected browsers
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox current"
+            title="Plezix current"
           />
-          Firefox current (76)
+          Plezix current (76)
         </label>
       </li>
     </ul>
@@ -312,9 +312,9 @@ exports[`Settings component renders default browsers with no selected browsers 1
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox nightly"
+            title="Plezix nightly"
           />
-          Firefox nightly (78)
+          Plezix nightly (78)
         </label>
       </li>
       <li
@@ -334,9 +334,9 @@ exports[`Settings component renders default browsers with no selected browsers 1
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox beta"
+            title="Plezix beta"
           />
-          Firefox beta (77)
+          Plezix beta (77)
         </label>
       </li>
       <li
@@ -356,9 +356,9 @@ exports[`Settings component renders default browsers with no selected browsers 1
         >
           <BrowserIcon
             id="firefox"
-            title="Firefox current"
+            title="Plezix current"
           />
-          Firefox current (76)
+          Plezix current (76)
         </label>
       </li>
     </ul>

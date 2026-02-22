@@ -3,26 +3,26 @@
 
 "use strict";
 const {
-  openFirefoxViewTab,
-  withFirefoxView,
-  init: FirefoxViewTestUtilsInit,
+  openPlezixViewTab,
+  withPlezixView,
+  init: PlezixViewTestUtilsInit,
 } = ChromeUtils.importESModule(
-  "resource://testing-common/FirefoxViewTestUtils.sys.mjs"
+  "resource://testing-common/PlezixViewTestUtils.sys.mjs"
 );
 
 /**
- * Bug 1856572 - This test is to ensure that fluent strings in Firefox View
+ * Bug 1856572 - This test is to ensure that fluent strings in Plezix View
  * can be updated after opening Customize Mode
  * **/
 add_task(async function test_data_l10n_customize_mode() {
-  FirefoxViewTestUtilsInit(this);
-  await withFirefoxView({ win: window }, async function (browser) {
+  PlezixViewTestUtilsInit(this);
+  await withPlezixView({ win: window }, async function (browser) {
     /**
      * Bug 1856572, Bug 1857622: Without requesting two animation frames
      * the "missing Fluent strings" issue will not reproduce.
      *
-     * Given the precondition that we open Firefox View, then open Customize Mode, then
-     * navigate back to Firefox View in a quick succession, as long as Fluent
+     * Given the precondition that we open Plezix View, then open Customize Mode, then
+     * navigate back to Plezix View in a quick succession, as long as Fluent
      * controlled strings can be updated by changing their Fluent IDs then this
      * test is valid.
      */
@@ -31,7 +31,7 @@ add_task(async function test_data_l10n_customize_mode() {
     );
     await startCustomizing();
     await endCustomizing();
-    await openFirefoxViewTab(window);
+    await openPlezixViewTab(window);
     const { document } = browser.contentWindow;
     let secondPageNavButton = document.querySelectorAll(
       "moz-page-nav-button"

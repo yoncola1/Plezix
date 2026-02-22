@@ -45,7 +45,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Marionette Python Client"
-copyright = "2013, Mozilla Automation and Tools and individual contributors"
+copyright = "2013, Plezix Automation and Tools and individual contributors"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -202,7 +202,7 @@ latex_documents = [
         "index",
         "MarionettePythonClient.tex",
         "Marionette Python Client Documentation",
-        "Mozilla Automation and Tools team",
+        "Plezix Automation and Tools team",
         "manual",
     ),
 ]
@@ -237,7 +237,7 @@ man_pages = [
         "index",
         "marionettepythonclient",
         "Marionette Python Client Documentation",
-        ["Mozilla Automation and Tools team"],
+        ["Plezix Automation and Tools team"],
         1,
     )
 ]
@@ -256,7 +256,7 @@ texinfo_documents = [
         "index",
         "MarionettePythonClient",
         "Marionette Python Client Documentation",
-        "Mozilla Automation and Tools team",
+        "Plezix Automation and Tools team",
         "MarionettePythonClient",
         "One line description of project.",
         "Miscellaneous",

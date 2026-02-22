@@ -46,7 +46,7 @@ add_task(async function testWebExtensionsToolboxWebConsole() {
     tab,
     window: aboutDebuggingWindow,
   } = await openAboutDebugging();
-  await selectThisFirefoxPage(
+  await selectThisPlezixPage(
     document,
     aboutDebuggingWindow.AboutDebugging.store
   );

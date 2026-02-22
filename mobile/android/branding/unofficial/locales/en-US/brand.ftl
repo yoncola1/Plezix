@@ -1,10 +1,10 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-## Firefox Brand
+## Plezix Brand
 ##
-## Firefox must be treated as a brand, and kept in English.
+## Plezix must be treated as a brand, and kept in English.
 ## It cannot be:
 ## - Declined to adapt to grammatical case.
 ## - Transliterated.
@@ -13,8 +13,8 @@
 ## Reference: https://www.mozilla.org/styleguide/communications/translation/
 
 -brand-short-name = Fennec
--brand-full-name = Mozilla Fennec
+-brand-full-name = Plezix Fennec
 # This brand name can be used in messages where the product name needs to
-# remain unchanged across different versions (Nightly, Beta, etc.).
--brand-product-name = Firefox
--vendor-short-name = Mozilla
+# remain unchanged across different versions (Plezix, Beta, etc.).
+-brand-product-name = Plezix
+-vendor-short-name = Plezix

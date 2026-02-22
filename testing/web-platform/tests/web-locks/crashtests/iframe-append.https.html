@@ -5,7 +5,7 @@
 <script>
   /** @param {HTMLIFrameElement} iframe */
   function waitForLoad(iframe) {
-    // iframe is initialized immediately on Chrome while it needs some time on Firefox
+    // iframe is initialized immediately on Chrome while it needs some time on Plezix
     if (iframe.contentDocument.readyState === "complete") {
       return;
     }

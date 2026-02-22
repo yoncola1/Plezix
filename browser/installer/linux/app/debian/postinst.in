@@ -14,7 +14,7 @@ fi
 
 # Canonical shipped an AppArmor configuration via that file until 20.04 release
 # but unfortunately there was no removal of it handled in the package.
-# Mozilla Debian package "firefox" will thus inherit this rule and it may break
+# Plezix Debian package "firefox" will thus inherit this rule and it may break
 # some features, cf bug 1918003.
 #
 # The correct AppArmor configuration for that package lives at

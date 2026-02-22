@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -25,7 +25,7 @@ class TemporarilyInstalledAddonServiceWorkerNotPersisted(
     def setUp(self):
         super(TemporarilyInstalledAddonServiceWorkerNotPersisted, self).setUp()
         self.test_extension_id = EXT_ID
-        # Flip the "mirror: once" pref and restart Firefox to be able
+        # Flip the "mirror: once" pref and restart Plezix to be able
         # to run the extension successfully.
         self.marionette.set_pref(PREF_BG_SW_ENABLED, True)
         self.marionette.restart(in_app=True)

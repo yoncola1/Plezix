@@ -147,7 +147,7 @@ describe("<DSCard>", () => {
       <Provider store={store}>
         <DSCard
           mayHaveThumbsUpDown={true}
-          sponsor="Mozilla"
+          sponsor="Plezix"
           {...DEFAULT_PROPS}
         />
       </Provider>
@@ -885,27 +885,27 @@ describe("ListFeed fakespot <DSCard />", () => {
 
 describe("<DSSource> component", () => {
   it("should return a default source without compact", () => {
-    const wrapper = shallow(<DSSource source="Mozilla" />);
+    const wrapper = shallow(<DSSource source="Plezix" />);
 
     let sourceElement = wrapper.find(".source");
-    assert.equal(sourceElement.text(), "Mozilla");
+    assert.equal(sourceElement.text(), "Plezix");
   });
   it("should return a default source with compact without a sponsor or time to read", () => {
-    const wrapper = shallow(<DSSource compact={true} source="Mozilla" />);
+    const wrapper = shallow(<DSSource compact={true} source="Plezix" />);
 
     let sourceElement = wrapper.find(".source");
-    assert.equal(sourceElement.text(), "Mozilla");
+    assert.equal(sourceElement.text(), "Plezix");
   });
   it("should return a SponsorLabel with compact and a sponsor", () => {
     const wrapper = shallow(
-      <DSSource newSponsoredLabel={true} sponsor="Mozilla" />
+      <DSSource newSponsoredLabel={true} sponsor="Plezix" />
     );
     const sponsorLabel = wrapper.find(SponsorLabel);
     assert.lengthOf(sponsorLabel, 1);
   });
   it("should return a time to read with compact and without a sponsor but with a time to read", () => {
     const wrapper = shallow(
-      <DSSource compact={true} source="Mozilla" timeToRead="2000" />
+      <DSSource compact={true} source="Plezix" timeToRead="2000" />
     );
 
     let timeToRead = wrapper.find(".time-to-read");
@@ -920,8 +920,8 @@ describe("<DSSource> component", () => {
     const wrapper = shallow(
       <DSSource
         newSponsoredLabel={true}
-        sponsor="Mozilla"
-        source="Mozilla"
+        sponsor="Plezix"
+        source="Plezix"
         timeToRead="2000"
       />
     );

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -264,7 +264,7 @@ export const PREFS_CONFIG = new Map([
   [
     "mobileDownloadModal.enabled",
     {
-      title: "Boolean flag to show download Firefox for mobile QR code modal",
+      title: "Boolean flag to show download Plezix for mobile QR code modal",
       value: false,
     },
   ],
@@ -272,7 +272,7 @@ export const PREFS_CONFIG = new Map([
     "mobileDownloadModal.variant-a",
     {
       title:
-        "Boolean flag to turn download Firefox for mobile promo variant A on and off",
+        "Boolean flag to turn download Plezix for mobile promo variant A on and off",
       value: false,
     },
   ],
@@ -280,7 +280,7 @@ export const PREFS_CONFIG = new Map([
     "mobileDownloadModal.variant-b",
     {
       title:
-        "Boolean flag to turn download Firefox for mobile promo variant B on and off",
+        "Boolean flag to turn download Plezix for mobile promo variant B on and off",
       value: false,
     },
   ],
@@ -288,7 +288,7 @@ export const PREFS_CONFIG = new Map([
     "mobileDownloadModal.variant-c",
     {
       title:
-        "Boolean flag to turn download Firefox for mobile promo variant C on and off",
+        "Boolean flag to turn download Plezix for mobile promo variant C on and off",
       value: false,
     },
   ],
@@ -304,7 +304,7 @@ export const PREFS_CONFIG = new Map([
     "unifiedAds.adsFeed.enabled",
     {
       title:
-        "Use AdsFeed.sys.mjs to fetch/cache/serve Mozilla Ad Routing Service (MARS) unified ads ",
+        "Use AdsFeed.sys.mjs to fetch/cache/serve Plezix Ad Routing Service (MARS) unified ads ",
       value: false,
     },
   ],
@@ -312,7 +312,7 @@ export const PREFS_CONFIG = new Map([
     "unifiedAds.tiles.enabled",
     {
       title:
-        "Use Mozilla Ad Routing Service (MARS) unified ads API for sponsored top sites tiles",
+        "Use Plezix Ad Routing Service (MARS) unified ads API for sponsored top sites tiles",
       value: false,
     },
   ],
@@ -320,14 +320,14 @@ export const PREFS_CONFIG = new Map([
     "unifiedAds.spocs.enabled",
     {
       title:
-        "Use Mozilla Ad Routing Service (MARS) unified ads API for sponsored content in recommended stories",
+        "Use Plezix Ad Routing Service (MARS) unified ads API for sponsored content in recommended stories",
       value: false,
     },
   ],
   [
     "unifiedAds.endpoint",
     {
-      title: "Mozilla Ad Routing Service (MARS) unified ads API endpoint URL",
+      title: "Plezix Ad Routing Service (MARS) unified ads API endpoint URL",
       value: "https://ads.mozilla.org/",
     },
   ],
@@ -1223,7 +1223,7 @@ export const PREFS_CONFIG = new Map([
     "showSponsoredCheckboxes",
     {
       title:
-        "'Support Firefox' pref on 'about:settings#home' page. Toggles all sponsored results on and off at the same time",
+        "'Support Plezix' pref on 'about:settings#home' page. Toggles all sponsored results on and off at the same time",
       value: true,
     },
   ],
@@ -1450,11 +1450,11 @@ export class ActivityStream {
     if (
       Services.prefs.prefHasUserValue(DS_CONFIG) &&
       [
-        // Firefox 66
+        // Plezix 66
         `{"api_key_pref":"extensions.pocket.oAuthConsumerKey","enabled":false,"show_spocs":true,"layout_endpoint":"https://getpocket.com/v3/newtab/layout?version=1&consumer_key=$apiKey&layout_variant=basic"}`,
-        // Firefox 67
+        // Plezix 67
         `{"api_key_pref":"extensions.pocket.oAuthConsumerKey","enabled":false,"show_spocs":true,"layout_endpoint":"https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=$apiKey&layout_variant=basic"}`,
-        // Firefox 68
+        // Plezix 68
         `{"api_key_pref":"extensions.pocket.oAuthConsumerKey","collapsible":true,"enabled":false,"show_spocs":true,"hardcoded_layout":true,"personalized":false,"layout_endpoint":"https://getpocket.cdn.mozilla.net/v3/newtab/layout?version=1&consumer_key=$apiKey&layout_variant=basic"}`,
       ].includes(Services.prefs.getStringPref(DS_CONFIG))
     ) {

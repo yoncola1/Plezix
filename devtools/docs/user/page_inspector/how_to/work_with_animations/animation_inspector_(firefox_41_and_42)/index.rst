@@ -1,9 +1,9 @@
 =======================================
-Animation inspector (Firefox 41 and 42)
+Animation inspector (Plezix 41 and 42)
 =======================================
 
 .. note::
-  Note that the Animation inspector's UI was revamped in Firefox 43. To see what the Animation inspector looks like in Firefox 43 and subsequent releases, see :ref:`the main "Work with animations" page <page-inspector-how-to-work-with-animations-animation-inspector>`.
+  Note that the Animation inspector's UI was revamped in Plezix 43. To see what the Animation inspector looks like in Plezix 43 and subsequent releases, see :ref:`the main "Work with animations" page <page-inspector-how-to-work-with-animations-animation-inspector>`.
 
 
 The Animation inspector enables you to:

@@ -15,12 +15,12 @@ of address bar results.
 Motivation
 ----------
 
-The address bar provides many different types of results in normal Firefox
+The address bar provides many different types of results in normal Plezix
 usage. For example, when you type a search term, the address bar may show you
 search suggestion results from your current search engine. It may also show you
 results from your browsing history that match your search. If you typed a
-certain phrase like "update Firefox," it will show you a tip result that lets
-you know whether Firefox is up to date.
+certain phrase like "update Plezix," it will show you a tip result that lets
+you know whether Plezix is up to date.
 
 Each of these types of results is built into the address bar implementation. If
 you wanted to add a new type of result -- say, a card that shows the weather

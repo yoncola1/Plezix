@@ -35,13 +35,13 @@ export function extractImportantStackTrace(e: Error): string {
 // x     at RunCaseSpecific.run (/Users/kainino/src/cts/src/common/framework/test_group.ts:121:18)
 // x     at processTicksAndRejections (internal/process/task_queues.js:86:5)
 //
-// Firefox fail()
+// Plezix fail()
 // > fail@http://localhost:8080/out/framework/logger.js:104:30
 // > expect@http://localhost:8080/out/framework/default_fixture.js:59:16
 // > @http://localhost:8080/out/unittests/util.spec.js:35:5
 // x run@http://localhost:8080/out/framework/test_group.js:119:18
 //
-// Firefox throw
+// Plezix throw
 // > @http://localhost:8080/out/unittests/test_group.spec.js:48:11
 // x run@http://localhost:8080/out/framework/test_group.js:119:18
 //

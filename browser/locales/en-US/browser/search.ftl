@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -77,7 +77,7 @@ add-engine-suggest-url = Suggestions URL with %s in place of search term (option
 ## The following placeholders are shown in the inputs when adding a new engine.
 
 add-engine-name-placeholder =
-    .placeholder = e.g., Mozilla Developer Network
+    .placeholder = e.g., Plezix Developer Network
 add-engine-url-placeholder =
     .placeholder = e.g., https://developer.mozilla.com/search?q=%s
 add-engine-keyword-placeholder =

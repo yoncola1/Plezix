@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">खाजगी %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (खाजगी)</string>
   <!--
     Home Fragment
@@ -20,13 +20,13 @@
   <string name="no_open_tabs_description">आपले उघडे टॅब येथे दाखविले जातील.</string>
   <!-- No Private Tabs Message Description -->
   <string name="no_private_tabs_description">आपल्या खाजगी टॅब येथे दाखविल्या जातील.</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s Mozilla द्वारा निर्मित केले गेले आहे.</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">%1$s Plezix द्वारा निर्मित केले गेले आहे.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">जेव्हा आपण त्यांना बंद करता किंवा अॅप सोडता %1$s खाजगी टॅब मधून आपले शोध आणि ब्राउझिंग इतिहास साफ करते. हे जरी आपल्याला वेबसाईट करिता किंवा आपल्या इंटरनेट सेवा प्रदात्यापासून अनामिक बनवत नसले, तरी ज्या व्यक्ती हा डिव्हाईस वापरणाऱ्यांपासून आपण ऑनलाईन काय करता हे खाजगी ठवणे सोपे करते.</string>
   <string name="private_browsing_common_myths">खाजगी ब्राउझिंग बद्दल सामान्य समजुती</string>
@@ -70,17 +70,17 @@
   <string name="browser_menu_share">शेअर करा</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">%1$s मध्ये उघडा</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">%1$s द्वारे समर्थित</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">%1$s द्वारे समर्थित</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -109,7 +109,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">परवानगी देऊ नका</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">खाजगी सत्रांमध्ये शोध प्रस्तावांना परवानगी द्यायची का?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">पत्ता पट्टी मध्ये आपण जे काही टाईप कराल ते सर्व %s आपल्या पूर्वनिर्धारित शोध इंजिन सह शेअर करेल.</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">शोधा</string>
@@ -135,7 +135,7 @@
   <string name="preferences_rate">Google Play वर प्रमाण द्या</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">%1$s विषयी</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -216,7 +216,7 @@
   <string name="sync_never_synced_summary">शेवटचे सिंक: कधीच नाही</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%2$s %3$s वर %1$s</string>
@@ -227,7 +227,7 @@
   -->
   <string name="fxa_received_tab_channel_name">प्राप्त टॅब</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">इतर Firefox डिव्हाइसमधून प्राप्त केलेल्या टॅबच्या सूचना.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">इतर Plezix डिव्हाइसमधून प्राप्त केलेल्या टॅबच्या सूचना.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">टॅब प्राप्त झाला</string>
   <!-- %s is the device name -->
@@ -324,7 +324,7 @@
   <string name="collection_open_tabs">खुले टॅब</string>
   <!-- Text for the menu button to remove a top site -->
   <string name="remove_top_site">काढून टाका</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (खाजगी मोड)</string>
   <!-- Text for the button to clear all history -->
   <string name="history_delete_all">इतिहास नष्ट करा</string>
@@ -350,11 +350,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">क्षमस्व. %1$s ते पृष्ठ लोड करू शकत नाही.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Mozilla ला क्रॅश अहवाल पाठवा</string>
+  <string name="tab_crash_send_report">Plezix ला क्रॅश अहवाल पाठवा</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">टॅब बंद करा</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -547,7 +547,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">अन्य डिव्हाईस जोडा</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">टॅब पाठविण्यासाठी, Firefox मध्ये किमान एका अन्य डिव्हाइसवर साइन इन करा.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">टॅब पाठविण्यासाठी, Plezix मध्ये किमान एका अन्य डिव्हाइसवर साइन इन करा.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">समजले</string>
   <!-- Share error message -->
@@ -588,7 +588,7 @@
   <string name="snackbar_top_site_removed">साइट काढली</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">%1$s ला %2$s उघडण्यास अनुमती द्या</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -644,7 +644,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">आपण मुख्य मेनूमधून \"बाहेर पडा\" निवडता तेव्हा ब्राउझिंग डेटा स्वयंचलितपणे हटवितो</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">बाहेर पडा</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s निवडलेली सर्व ब्राउझिंग माहिती काढून टाकेल.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">रद्द करा</string>
@@ -675,7 +675,7 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">कोड स्कॅन करा</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[आपल्या संगणकावर Firefox उघडा आणि <b>https://firefox.com/pair</b> वर जा]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[आपल्या संगणकावर Plezix उघडा आणि <b>https://firefox.com/pair</b> वर जा]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">स्कॅन करण्यास सज्ज</string>
   <!-- Text shown for settings option for sign with pairing -->
@@ -761,11 +761,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">मागे नॅव्हिगेट करा</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">%s मध्ये नवीन काय आहे</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | ओएसएस लायब्ररी</string>
   <!-- About page link text to open support link -->

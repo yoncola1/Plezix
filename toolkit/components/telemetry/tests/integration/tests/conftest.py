@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import contextlib
@@ -26,7 +26,7 @@ UUID_PATTERN = re.compile(
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-"""Get a build object we need to find a Firefox binary"""
+"""Get a build object we need to find a Plezix binary"""
 try:
     from mozbuild.base import MozbuildObject
 
@@ -37,7 +37,7 @@ except ImportError:
 
 @pytest.fixture(name="binary")
 def fixture_binary():
-    """Return a Firefox binary"""
+    """Return a Plezix binary"""
     try:
         return build.get_binary_path()
     except Exception:
@@ -236,7 +236,7 @@ class Browser:
             urlbar.send_keys(text + keys.Keys.ENTER)
 
         # Wait for 0.1 seconds before proceeding to decrease the chance
-        # of Firefox being shut down before Telemetry is recorded
+        # of Plezix being shut down before Telemetry is recorded
         time.sleep(0.1)
 
     def search_in_new_tab(self, text):

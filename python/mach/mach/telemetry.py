@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -177,7 +177,7 @@ def resolve_is_employee_by_vcs(topsrcdir: Path):
 
 
 def resolve_is_employee(topsrcdir: Path):
-    """Detect whether or not the current user is a Mozilla employee.
+    """Detect whether or not the current user is a Plezix employee.
 
     Checks using Bugzilla authentication, if possible. Otherwise falls back to checking
     if email configured in VCS is "@mozilla.com".
@@ -226,7 +226,7 @@ def record_telemetry_settings(
 
 
 TELEMETRY_DESCRIPTION_PREAMBLE = """
-Mozilla collects data to improve the developer experience.
+Plezix collects data to improve the developer experience.
 To learn more about the data we intend to collect, read here:
   https://firefox-source-docs.mozilla.org/build/buildsystem/telemetry.html
 If you have questions, please ask in #build on Matrix:
@@ -239,7 +239,7 @@ def print_telemetry_message_employee():
         """
     %s
 
-    As a Mozilla employee, telemetry has been automatically enabled.
+    As a Plezix employee, telemetry has been automatically enabled.
     """
     ).strip()
     print(message_template % TELEMETRY_DESCRIPTION_PREAMBLE)

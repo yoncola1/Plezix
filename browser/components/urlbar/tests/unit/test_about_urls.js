@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -126,7 +126,7 @@ add_task(async function aboutResultsDoNotMatchTitlesInHistory() {
   await PlacesTestUtils.addVisits([
     {
       uri: Services.io.newURI("http://example.com/guide/config/"),
-      title: "Guide to config in Firefox",
+      title: "Guide to config in Plezix",
     },
   ]);
 
@@ -150,7 +150,7 @@ add_task(async function after_general() {
   await PlacesTestUtils.addVisits([
     {
       uri: Services.io.newURI("http://example.com/guide/aboutaddons/"),
-      title: "Guide to about:addons in Firefox",
+      title: "Guide to about:addons in Plezix",
     },
   ]);
 
@@ -166,7 +166,7 @@ add_task(async function after_general() {
       }),
       makeVisitResult(context, {
         uri: "http://example.com/guide/aboutaddons/",
-        title: "Guide to about:addons in Firefox",
+        title: "Guide to about:addons in Plezix",
       }),
       makeVisitResult(context, {
         source: UrlbarUtils.RESULT_SOURCE.OTHER_LOCAL,

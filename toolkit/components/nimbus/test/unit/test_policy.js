@@ -17,7 +17,7 @@ add_task(async function testPolicyDisablesNimbus() {
   info("Enabling policy");
   await EnterprisePolicyTesting.setupPolicyEngineWithJson({
     policies: {
-      DisableFirefoxStudies: true,
+      DisablePlezixStudies: true,
     },
   });
 

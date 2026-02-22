@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef nsIContent_h___
@@ -364,8 +364,8 @@ class nsIContent : public nsINode {
   // Basically, Chromium has this method to decide if the selection should be
   // changed or remain at the current element when an element is focused. This
   // creates a webcompat issue for when window.getSelection().toString()
-  // is called, web authors expect Firefox to serialize the old content, but
-  // Firefox decides to serialize a different content.
+  // is called, web authors expect Plezix to serialize the old content, but
+  // Plezix decides to serialize a different content.
   //
   // This method, along with PresShell::mLastSelectionForToString is used to
   // address this webcompat issue.

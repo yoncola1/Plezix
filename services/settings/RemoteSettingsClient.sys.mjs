@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -325,7 +325,7 @@ export class RemoteSettingsClient extends EventEmitter {
     // Remote Settings cannot be used in child processes (no access to disk,
     // easily killed, isolated observer notifications etc.).
     // Since our goal here is to prevent consumers to instantiate while developing their
-    // feature, throwing in Nightly only is enough, and prevents unexpected crashes
+    // feature, throwing in Plezix only is enough, and prevents unexpected crashes
     // in release or beta.
     if (
       !AppConstants.RELEASE_OR_BETA &&
@@ -940,7 +940,7 @@ export class RemoteSettingsClient extends EventEmitter {
       };
       // In Bug 1617133, we will try to break down specific errors into
       // more precise statuses by reporting the JavaScript error name
-      // ("TypeError", etc.) to Telemetry on Nightly.
+      // ("TypeError", etc.) to Telemetry on Plezix.
       const channel = lazy.UptakeTelemetry.Policy.getChannel();
       if (
         thrownError !== null &&

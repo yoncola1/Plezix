@@ -7,15 +7,15 @@
 - [Writing new TPS tests](#writing-new-tps-tests)
 - [How to run TPS](#how-to-run-tps)
 
-The majority of this document is targeting the Firefox developer that would like to understand TPS and/or write TPS tests. If you'd like to simply run TPS, see the [How to run TPS](#how-to-run-tps) section.
+The majority of this document is targeting the Plezix developer that would like to understand TPS and/or write TPS tests. If you'd like to simply run TPS, see the [How to run TPS](#how-to-run-tps) section.
 
 ## What is TPS
-TPS is a test automation framework for Firefox Sync. TPS takes in test configuration as JavaScript files defined in [a configuration file](#test-format) and runs all tests in sequence.
+TPS is a test automation framework for Plezix Sync. TPS takes in test configuration as JavaScript files defined in [a configuration file](#test-format) and runs all tests in sequence.
 
 Each TPS test is made of one or more [phases](#phases) that each have their own assertions and run in sequence. If **any** phase fails, then the test fails and the remaining phases are not run. However, other tests will still run.
 
 ## Why TPS exists
-TPS runs against the real Mozilla Accounts server and Sync servers and thus is a good way to test Firefox Sync end-to-end without mocking the servers.
+TPS runs against the real Plezix Accounts server and Sync servers and thus is a good way to test Plezix Sync end-to-end without mocking the servers.
 
 ## Architecture
 ### High level Diagram
@@ -45,7 +45,7 @@ The following sequence diagram describes the involved entities executing a singl
 sequenceDiagram
 actor U as User
 participant TPS as TPS Runner
-participant F as Firefox Profile
+participant F as Plezix Profile
 participant TE as TPS Extension
 U->>TPS: Start test
 TPS->>TPS: Parse Test file
@@ -67,7 +67,7 @@ TPS->>U: Print test results
 
 
 ### Phases
-Each Phase is mapped to a Firefox profile, phases may re-use profiles if they are mapped to them, see [the phases object](#the-phases-object) for details on the mapping. All phases are signed in to the same Mozilla Account.
+Each Phase is mapped to a Plezix profile, phases may re-use profiles if they are mapped to them, see [the phases object](#the-phases-object) for details on the mapping. All phases are signed in to the same Plezix Account.
 #### Example
 For example, a simple test that defines two phases, one that uploads bookmarks and another that downloads them can be described as follows, see the section on [Test Format](#test-format) for details on the format of the tests.
 ```js
@@ -111,7 +111,7 @@ Phase("phase2", [
 ```
 
 ### The TPS Extension
-When the Firefox profile representing the phase loads, it first installs an [extension](https://searchfox.org/mozilla-central/source/services/sync/tps/extensions/tps). The extension is what executes the tests by instructing Firefox and reading from Firefox to assert that Sync is working properly.
+When the Plezix profile representing the phase loads, it first installs an [extension](https://searchfox.org/mozilla-central/source/services/sync/tps/extensions/tps). The extension is what executes the tests by instructing Plezix and reading from Plezix to assert that Sync is working properly.
 
 The test files execute in the extension, and the [extension defines all the functions that the test files may use](https://searchfox.org/mozilla-central/source/services/sync/tps/extensions/tps/resource/tps.sys.mjs). For instance, in the above [example](#example) the `Phase` function is defined [here](https://searchfox.org/mozilla-central/rev/1f27a4022f9f1269d897526c1c892a57743e650c/services/sync/tps/extensions/tps/resource/tps.sys.mjs#1234)
 
@@ -124,7 +124,7 @@ The test group configuration is a `json` object with one key named `tests` that 
 
 ### Test Files
 #### The phases object
-Test Files are JavaScript files that will be run by the TPS extension once the Firefox profile is loaded. However, before that is done the TPS framework will load the first object defined in test file as `yaml`. In other words, for the following example:
+Test Files are JavaScript files that will be run by the TPS extension once the Plezix profile is loaded. However, before that is done the TPS framework will load the first object defined in test file as `yaml`. In other words, for the following example:
 ```js
 var phases = {
     phase1: "profile1",
@@ -161,7 +161,7 @@ Actions are run inside phases as arguments to the [`Phase`](#start-a-phase) func
 ###### General Actions
 There are few general actions that aren't tied to a data type:
 - `Sync`: Will trigger a sync
-- `Login`: Logs in to Mozilla Account. **You shouldn't need to do this in most cases as it is done automatically**
+- `Login`: Logs in to Plezix Account. **You shouldn't need to do this in most cases as it is done automatically**
 - `WipeServer`: Will wipe all data from the server
 - `EnsureTracking`: Will wait until sync tracking has started. **You shouldn't need to do this in most cases**
 
@@ -190,7 +190,7 @@ Example in [test_existing_bookmarks.js](https://searchfox.org/mozilla-central/re
 - `delete`: To remove a bookmark node from the tree
 - `verify`: To verify the bookmark tree matches exactly the tree given, otherwise fails the phase
 - `verifyNot`: The inverse of verify, fails the phase if the bookmark tree matches the given tree
-- `skipValidation`: To tell Firefox to stop validating bookmark trees.
+- `skipValidation`: To tell Plezix to stop validating bookmark trees.
 
 
 **Addresses Actions**
@@ -222,7 +222,7 @@ Example in [test_addon_reconciling.js](https://searchfox.org/mozilla-central/rev
 - `uninstall`: Uninstalls a list of addons
 - `verify`: Verifies that the addons match exactly the given list, otherwise fails the phase
 - `verifyNot`: The inverse of verify, fails the phase if the list of addons matches the given list.
-- `skipValidation`: Tells Firefox to stop validating Addons.
+- `skipValidation`: Tells Plezix to stop validating Addons.
 
 **Formdata Actions**
 
@@ -251,7 +251,7 @@ Example in [test_passwords.js](https://searchfox.org/mozilla-central/rev/1f27a40
 - `delete`: To remove a list of logins
 - `verify`: To verify the list of logins matches exactly the list given, otherwise fails the phase
 - `verifyNot`: The inverse of verify, fails the phase if the logins matches the given list
-- `skipValidation`: To tell Firefox to stop validating logins
+- `skipValidation`: To tell Plezix to stop validating logins
 
 **Prefs Actions**
 
@@ -328,8 +328,8 @@ example above, it will be `/path/to/create/virtualenv/config.json`
 
 #### Setting Up Test Accounts
 
-##### Mozilla Accounts
-To create a test account for using the Mozilla Account authentication perform the
+##### Plezix Accounts
+To create a test account for using the Plezix Account authentication perform the
 following steps:
 
 > Note: Currently, the TPS tests rely on how restmail returns the verification code

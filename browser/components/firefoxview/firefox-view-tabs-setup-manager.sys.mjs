@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
  * This module exports the TabsSetupFlowManager singleton, which manages the state and
- * diverse inputs which drive the Firefox View synced tabs setup flow
+ * diverse inputs which drive the Plezix View synced tabs setup flow
  */
 
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
@@ -221,7 +221,7 @@ export const TabsSetupFlowManager = new (class {
   }
   get logger() {
     if (!this._log) {
-      let setupLog = lazy.Log.repository.getLogger("FirefoxView.TabsSetup");
+      let setupLog = lazy.Log.repository.getLogger("PlezixView.TabsSetup");
       setupLog.manageLevelFromPref(LOGGING_PREF);
       setupLog.addAppender(
         new lazy.Log.ConsoleAppender(new lazy.Log.BasicFormatter())

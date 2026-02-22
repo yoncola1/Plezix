@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -28,7 +28,7 @@ interface DOMParser {
   [NewObject, NeedsSubjectPrincipal=NonSystem, Throws, UseCounter, Func="IsNotUAWidget"]
   Document parseFromString((TrustedHTML or DOMString) str, SupportedType type);
 
-  // Mozilla-specific stuff
+  // Plezix-specific stuff
   [NewObject, Throws, Func="IsChromeOrUAWidget"]
   Document parseFromSafeString(DOMString str, SupportedType type);
   [NewObject, Throws, ChromeOnly]

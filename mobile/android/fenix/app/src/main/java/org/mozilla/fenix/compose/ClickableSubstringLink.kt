@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * [Text] containing a substring styled as an URL informing when this is clicked.
@@ -34,9 +34,9 @@ import org.mozilla.fenix.theme.FirefoxTheme
 @Composable
 fun ClickableSubstringLink(
     text: String,
-    textStyle: TextStyle = FirefoxTheme.typography.caption,
-    textColor: Color = FirefoxTheme.colors.textPrimary,
-    linkTextColor: Color = FirefoxTheme.colors.textAccent,
+    textStyle: TextStyle = PlezixTheme.typography.caption,
+    textColor: Color = PlezixTheme.colors.textPrimary,
+    linkTextColor: Color = PlezixTheme.colors.textAccent,
     linkTextDecoration: TextDecoration? = null,
     clickableStartIndex: Int,
     clickableEndIndex: Int,
@@ -94,8 +94,8 @@ fun ClickableSubstringLink(
 private fun ClickableSubstringTextPreview() {
     val text = "This text contains a link"
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             ClickableSubstringLink(
                 text = text,
                 linkTextDecoration = TextDecoration.Underline,

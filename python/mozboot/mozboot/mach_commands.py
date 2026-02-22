@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this,
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -70,7 +70,7 @@ def vcs_setup(command_context, update_only=False, vcs=None):
 
     This command will inspect your VCS configuration and
     guide you through an interactive wizard helping you configure the
-    VCS for optimal use on Mozilla projects.
+    VCS for optimal use on Plezix projects.
 
     If "--update-only" is used, the interactive wizard is disabled
     and this command only ensures that remote repositories providing

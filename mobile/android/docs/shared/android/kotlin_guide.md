@@ -17,7 +17,7 @@ Once you've gained some basic familiarity with the language, you can gain more e
 - Watching videos and conference talks on YouTube.
 - [Convert Java to Kotlin with the auto-converter][convert]and change the resulting code into idiomatic Kotlin
 - Doing coding exercises on a site like [exercism.io](https://exercism.io/)
-- Working on Mozilla code ;)
+- Working on Plezix code ;)
 
 You should also take a look at the official style guides:
 - [Jetbrains](https://kotlinlang.org/docs/reference/coding-conventions.html)

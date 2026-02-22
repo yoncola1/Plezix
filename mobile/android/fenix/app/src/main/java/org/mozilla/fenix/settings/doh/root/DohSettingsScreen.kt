@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -49,7 +49,7 @@ import org.mozilla.fenix.settings.doh.CustomProviderErrorState
 import org.mozilla.fenix.settings.doh.DohSettingsState
 import org.mozilla.fenix.settings.doh.ProtectionLevel
 import org.mozilla.fenix.settings.doh.Provider
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Composable function that displays the root screen of DoH settings.
@@ -81,7 +81,7 @@ internal fun DohSettingsScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .verticalScroll(rememberScrollState()),
     ) {
         DohSummary(
@@ -129,8 +129,8 @@ private fun DohSummary(
             modifier = Modifier.weight(1f),
         ) {
             Text(
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.subtitle1,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.subtitle1,
                 text = stringResource(R.string.preference_doh_title),
             )
 
@@ -148,9 +148,9 @@ private fun DohSummary(
                     ),
                 ),
                 linkTextDecoration = TextDecoration.Underline,
-                style = FirefoxTheme.typography.body2.copy(
+                style = PlezixTheme.typography.body2.copy(
                     textAlign = TextAlign.Left,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                 ),
             )
         }
@@ -204,7 +204,7 @@ private fun DohProtectionLevel(
             Icon(
                 painter = painterResource(R.drawable.mozac_ic_information_24),
                 contentDescription = stringResource(R.string.preference_doh_info_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
                 modifier = Modifier
                     .padding(16.dp)
                     .align(Alignment.Top)
@@ -346,16 +346,16 @@ private fun ProviderSummary(
     summary: String,
 ) {
     Text(
-        color = FirefoxTheme.colors.textPrimary,
-        style = FirefoxTheme.typography.subtitle1,
+        color = PlezixTheme.colors.textPrimary,
+        style = PlezixTheme.typography.subtitle1,
         text = label,
     )
 
     Spacer(modifier = Modifier.height(8.dp))
 
     Text(
-        color = FirefoxTheme.colors.textSecondary,
-        style = FirefoxTheme.typography.body2,
+        color = PlezixTheme.colors.textSecondary,
+        style = PlezixTheme.typography.body2,
         text = summary,
     )
 }
@@ -455,7 +455,7 @@ private fun AlertDialogAddCustomProvider(
         title = {
             Text(
                 text = stringResource(R.string.preference_doh_provider_custom_dialog_title),
-                style = FirefoxTheme.typography.headline7,
+                style = PlezixTheme.typography.headline7,
             )
         },
         text = {
@@ -499,8 +499,8 @@ private fun TextWithUnderline(
     showCustomProviderDialog: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
-    textColor: Color = FirefoxTheme.colors.textPrimary,
-    underlineColor: Color = FirefoxTheme.colors.formDefault,
+    textColor: Color = PlezixTheme.colors.textPrimary,
+    underlineColor: Color = PlezixTheme.colors.formDefault,
 ) {
     Column(
         modifier = modifier,
@@ -512,7 +512,7 @@ private fun TextWithUnderline(
                     showCustomProviderDialog()
                 },
             color = textColor,
-            style = FirefoxTheme.typography.body2,
+            style = PlezixTheme.typography.body2,
             text = text,
         )
 
@@ -538,13 +538,13 @@ private fun ExceptionsRow(onExceptionsClicked: () -> Unit) {
         Icon(
             painter = painterResource(R.drawable.ic_internet),
             contentDescription = stringResource(R.string.preference_doh_exceptions_description),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = PlezixTheme.colors.iconPrimary,
             modifier = Modifier.padding(16.dp),
         )
         Text(
             text = stringResource(R.string.preference_doh_exceptions),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.subtitle1,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1,
         )
     }
 }
@@ -552,7 +552,7 @@ private fun ExceptionsRow(onExceptionsClicked: () -> Unit) {
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun DohScreenDefaultProviderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         val provider = Provider.BuiltIn(
             url = "https://mozilla.cloudflare-dns.com/dns-query",
             name = "Cloudflare",
@@ -581,7 +581,7 @@ private fun DohScreenDefaultProviderPreview() {
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun DohScreenCustomProviderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         val provider = Provider.Custom(url = "")
         DohSettingsScreen(
             state = DohSettingsState(

@@ -2,7 +2,7 @@
 Services
 ========
 
-This is the nascent documentation of the Firefox services.
+This is the nascent documentation of the Plezix services.
 
 .. toctree::
    :maxdepth: 2

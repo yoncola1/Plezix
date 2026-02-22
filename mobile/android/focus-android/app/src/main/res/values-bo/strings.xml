@@ -33,7 +33,7 @@
   <string name="menu_report_site_issue">དྲ་ཚིགས་གནད་དོན་སྙན་སེང་ཞུ་བ།</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">ཁ་འབྱེད་ཡུལ་ %1$s</string>
@@ -98,7 +98,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">སུབ་ནས་%1$sཁ་འབྱེད་པ།</string>
   <!-- Header for the Privacy and Security settings menu -->
@@ -111,11 +111,11 @@
   -->
   <string name="preference_search_summary">རྩ་བ་བསྐོ་སྒྲིག གནད་ཚིག་རང་གྲུབ།</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s ངོ་སྤྲོད། རོགས་རམ།</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -131,7 +131,7 @@
   <string name="preference_show_search_suggestions">འཚོལ་བཤེར་ནང་དོན་འོས་སྦྱོར་ལེན་པ།</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s ཡིས་ཁྱེད་འཇུག་པའི་འཚོལ་བྱའི་ནང་དོན་འཚོལ་བཤེར་དྲ་བ་གཏོང་ལེན་བྱེད།</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -211,15 +211,15 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">\" %1$s སྔོན་སྒྲིག་བཤར་ཆས་སུ་བཀོད་པ།\"</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">དེ་བས་མང་།</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">གསང་དོན་གསལ་བརྡ།</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s ངོ་སྤྲོད།</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">འཚོལ་བཤེར་སྒྲིག་འཇུག</string>
@@ -317,7 +317,7 @@
   <string name="firstrun_shortcut_title">མྱུར་ལམ་བརྙན་ཡོལ་གཙོ་བོ་ཐོག་འཇོག</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">གསང་དོན་ཁྱོད་ཀྱི་གོམས་གཤིས་བཟོས།</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">%1$s སྔོན་སྒྲིག་བཤར་ཆས་སུ་བཀོད་དེ་གསང་རྒྱ་ཡི་ཁེ་ཕན་ཡོད་ཚད་དྲ་ཚིགས་མཉེན་ཆས་གཞན་ནས་ཁ་འབྱེད་སྐབས་ལེན་པ།</string>
   <string name="firstrun_close_button">ཆོག་ ཤེས་སོང་།</string>
   <string name="firstrun_skip_button">མཆོང་པ།</string>
@@ -339,10 +339,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">འཚོལ་རབས་འདོར་སུབ་བྱོས།</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox ཕབ་ལེན།</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix ཕབ་ལེན།</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">སྤྱོད་མཁན་གྱི་མིང་།</string>
   <string name="gv_prompt_password_hint">གསང་གྲངས།</string>

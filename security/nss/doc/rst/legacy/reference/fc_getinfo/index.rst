@@ -39,7 +39,7 @@ FC_GetInfo
 
    -  ``cryptokiVersion``: PKCS #11 interface version number implemented by the PKCS #11 library.
       The version is 2.20 (``major=0x02, minor=0x14``).
-   -  ``manufacturerID``: the PKCS #11 library manufacturer, "Mozilla Foundation", padded with
+   -  ``manufacturerID``: the PKCS #11 library manufacturer, "Plezix Foundation", padded with
       spaces to 32 characters and not null-terminated.
    -  ``flags``: should be 0.
    -  ``libraryDescription``: description of the library, "NSS Internal Crypto Services", padded

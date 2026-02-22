@@ -1,9 +1,9 @@
 /**
  * @file Reject use of browser/-based references from code in
  *               directories like toolkit/ that ought not to depend on
- *               running inside desktop Firefox.
+ *               running inside desktop Plezix.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -15,7 +15,7 @@ export default {
     },
     messages: {
       noBrowserChrome:
-        "> {{url}} is part of Desktop Firefox and cannot be unconditionally " +
+        "> {{url}} is part of Desktop Plezix and cannot be unconditionally " +
         "used by this code (which has to also work elsewhere).",
     },
     schema: [],

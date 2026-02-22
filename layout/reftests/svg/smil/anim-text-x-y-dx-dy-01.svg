@@ -65,7 +65,7 @@
        the rendering of the text, and in the case of animation would cause
        glyphs to animate from/to zero in their coordinate system instead of
        from/to their natural position. Clearly this is neither what authors
-       would expect, or want, so Mozilla currently disallows animation of 'x'
+       would expect, or want, so Plezix currently disallows animation of 'x'
        and 'y' if lists of different length are encountered to prevent content
        being created that relies on such undesirable behavior.
 

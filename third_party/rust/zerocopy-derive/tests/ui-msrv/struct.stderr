@@ -4,7 +4,7 @@ error: unsupported on generic structs that are not repr(transparent) or repr(pac
 55 | #[derive(AsBytes)]
    |          ^^^^^^^
    |
-   = note: this error originates in the derive macro `AsBytes` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `AsBytes` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error: cannot derive Unaligned with repr(align(N > 1))
   --> tests/ui-msrv/struct.rs:80:11
@@ -55,7 +55,7 @@ note: required because it appears within the type `KL00`
 32 | struct KL00(u8, NotKnownLayoutDst);
    |        ^^^^
    = help: see issue #48214
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-msrv/struct.rs:36:10
@@ -70,7 +70,7 @@ note: required because it appears within the type `KL02`
 37 | struct KL02(u8, [u8]);
    |        ^^^^
    = help: see issue #48214
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `NotKnownLayoutDst: KnownLayout` is not satisfied
   --> tests/ui-msrv/struct.rs:41:10
@@ -79,7 +79,7 @@ error[E0277]: the trait bound `NotKnownLayoutDst: KnownLayout` is not satisfied
    |          ^^^^^^^^^^^ the trait `KnownLayout` is not implemented for `NotKnownLayoutDst`
    |
    = help: see issue #48214
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `NotKnownLayout: KnownLayout` is not satisfied
   --> tests/ui-msrv/struct.rs:47:10
@@ -88,7 +88,7 @@ error[E0277]: the trait bound `NotKnownLayout: KnownLayout` is not satisfied
    |          ^^^^^^^^^^^ the trait `KnownLayout` is not implemented for `NotKnownLayout`
    |
    = help: see issue #48214
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `HasPadding<AsBytes2, true>: ShouldBe<false>` is not satisfied
   --> tests/ui-msrv/struct.rs:59:10
@@ -99,7 +99,7 @@ error[E0277]: the trait bound `HasPadding<AsBytes2, true>: ShouldBe<false>` is n
    = help: the following implementations were found:
              <HasPadding<T, VALUE> as ShouldBe<VALUE>>
    = help: see issue #48214
-   = note: this error originates in the derive macro `AsBytes` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `AsBytes` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `HasPadding<AsBytes3, true>: ShouldBe<false>` is not satisfied
   --> tests/ui-msrv/struct.rs:66:10
@@ -110,4 +110,4 @@ error[E0277]: the trait bound `HasPadding<AsBytes3, true>: ShouldBe<false>` is n
    = help: the following implementations were found:
              <HasPadding<T, VALUE> as ShouldBe<VALUE>>
    = help: see issue #48214
-   = note: this error originates in the derive macro `AsBytes` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `AsBytes` (in Plezix builds, run with -Z macro-backtrace for more info)

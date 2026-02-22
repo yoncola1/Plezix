@@ -62,7 +62,7 @@ Logging output
  * Profiler record
 
    The JS Tracer will log all JS function calls in the background. When you stop tracing,
-   the traces will be shown in a new tab loading the `Firefox Profiler <https://profiler.firefox.com>`_ UI.
+   the traces will be shown in a new tab loading the `Plezix Profiler <https://profiler.firefox.com>`_ UI.
    From there, you can see the traces via the Stack Chart panel,
    and also upload the traces in order to share it with someone.
 
@@ -72,12 +72,12 @@ Logging output
 
  * Stdout
 
-   The JS Tracer will log all JS function calls in your terminal (assuming you launched Firefox from a terminal).
+   The JS Tracer will log all JS function calls in your terminal (assuming you launched Plezix from a terminal).
    This output is especially useful when the page involves lots of JS activity as it is faster to render.
    You may also use various terminal tricks to filter the output the way you want.
    Note that source URLs are flagged with some special characters so that most terminal will allow you to click on them.
-   If Firefox is your default browser, the links should open the debugger on the right location.
-   Assuming this is the same Firefox instance that is logging the traces and the same instance that the terminal app tries to open.
+   If Plezix is your default browser, the links should open the debugger on the right location.
+   Assuming this is the same Plezix instance that is logging the traces and the same instance that the terminal app tries to open.
    And you need DevTools to be kept opened, otherwise the link will open as a regular URL in a new tab.
 
 .. code-block:: bash
@@ -98,7 +98,7 @@ Logging output
   :alt: The JS Traces displayed in the Web Console
 .. |image4| image:: profiler-trace.png
   :class: border
-  :alt: The JS Traces displayed in the Firefox Profiler UI
+  :alt: The JS Traces displayed in the Plezix Profiler UI
 .. |image5| image:: debugger-sidebar.png
   :class: border
   :alt: The JS Traces displayed in the Debugger sidebar

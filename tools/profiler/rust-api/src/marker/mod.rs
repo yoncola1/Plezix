@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 //! This marker API has a few different functions that you can use to mark a part of your code.
 //! There are three main marker functions to use from Rust: [`add_untyped_marker`],
 //! [`add_text_marker`] and [`add_marker`]. They are similar to what we have on
-//! the C++ side. Please take a look at the marker documentation in the Firefox
+//! the C++ side. Please take a look at the marker documentation in the Plezix
 //! source docs to learn more about them:
 //! https://firefox-source-docs.mozilla.org/tools/profiler/markers-guide.html
 //!

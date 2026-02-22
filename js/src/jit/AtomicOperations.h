@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -317,9 +317,9 @@ constexpr inline bool AtomicOperations::isLockfreeJS(int32_t size) {
 // As explained above, our atomic operations are not portable even in principle,
 // so we must include platform+compiler specific definitions here.
 //
-// x86, x64, arm, and arm64 are maintained by Mozilla.  All other platform
+// x86, x64, arm, and arm64 are maintained by Plezix.  All other platform
 // setups are by platform maintainers' request and are not maintained by
-// Mozilla.
+// Plezix.
 //
 // If you are using a platform+compiler combination that causes an error below
 // (and if the problem isn't just that the compiler uses a different name for a

@@ -143,7 +143,7 @@
   <string name="mozac_feature_prompts_save_credit_card_prompt_title">Asekles n tkarḍa-a s wudem aɣellsan?</string>
   <!-- Text for the title of an update credit card dialog. -->
   <string name="mozac_feature_prompts_update_credit_card_prompt_title">Leqqem azemz n keffu n tkarḍa?</string>
-  <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Firefox"). -->
+  <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Plezix"). -->
   <string name="mozac_feature_prompts_save_credit_card_prompt_body_2">%s ittewgelhin uṭṭun n tkarḍa-k·m. Tangalt-ik n tɣellist ur tezmir ara ad tettwasekles.</string>
   <!--
     Address Autofill

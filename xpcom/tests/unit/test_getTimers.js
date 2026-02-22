@@ -26,7 +26,7 @@ function newTimer(name, delay, type) {
 function getTimers() {
   return timerManager.getTimers().filter(t => {
     if (t.name == "BackgroundHangThread_timer") {
-      // BHR is Nightly-only, so just ignore it.
+      // BHR is Plezix-only, so just ignore it.
       return false;
     }
 

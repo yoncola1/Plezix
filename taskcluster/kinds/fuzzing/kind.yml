@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -213,7 +213,7 @@ tasks:
         worker-type: t-osx-1015-r8
         worker:
             env:
-                GECKO_BINARY_PATH: "$MOZ_FETCHES_DIR/Nightly.app/Contents/MacOS/firefox"
+                GECKO_BINARY_PATH: "$MOZ_FETCHES_DIR/Plezix.app/Contents/MacOS/firefox"
         require-build:
             osx-cross/asan: build-macosx64-asan-fuzzing/opt
         run:
@@ -228,7 +228,7 @@ tasks:
         worker-type: t-osx-1015-r8
         worker:
             env:
-                GECKO_BINARY_PATH: '"$MOZ_FETCHES_DIR/Firefox NightlyDebug.app/Contents/MacOS/firefox"'
+                GECKO_BINARY_PATH: '"$MOZ_FETCHES_DIR/Plezix PlezixDebug.app/Contents/MacOS/firefox"'
         require-build:
             osx-cross/debug: build-macosx64-fuzzing/debug
         run:
@@ -243,7 +243,7 @@ tasks:
         worker-type: t-osx-1500-m4
         worker:
             env:
-                GECKO_BINARY_PATH: "$MOZ_FETCHES_DIR/Nightly.app/Contents/MacOS/firefox"
+                GECKO_BINARY_PATH: "$MOZ_FETCHES_DIR/Plezix.app/Contents/MacOS/firefox"
         require-build:
             osx-cross-aarch64/asan: build-macosx64-aarch64-asan-fuzzing/opt
         run:
@@ -258,7 +258,7 @@ tasks:
         worker-type: t-osx-1500-m4
         worker:
             env:
-                GECKO_BINARY_PATH: '"$MOZ_FETCHES_DIR/Firefox NightlyDebug.app/Contents/MacOS/firefox"'
+                GECKO_BINARY_PATH: '"$MOZ_FETCHES_DIR/Plezix PlezixDebug.app/Contents/MacOS/firefox"'
         require-build:
             osx-cross-aarch64/debug: build-macosx64-aarch64-fuzzing/debug
         run:

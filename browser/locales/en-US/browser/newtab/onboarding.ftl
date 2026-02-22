@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -45,10 +45,10 @@ onboarding-welcome-steps-indicator-label =
 # This button will open system settings to turn on prefers-reduced-motion
 mr1-onboarding-reduce-motion-button-label = Turn off animations
 
-# String for the Firefox Accounts button
+# String for the Plezix Accounts button
 mr1-onboarding-sign-in-button-label = Sign in
 
-# The primary import button label will depend on whether we can detect which browser was used to download Firefox.
+# The primary import button label will depend on whether we can detect which browser was used to download Plezix.
 # Variables:
 #   $previous (Str) - Previous browser name, such as Edge, Chrome
 mr1-onboarding-import-primary-button-label-attribution = Import from { $previous }
@@ -154,7 +154,7 @@ mr2022-onboarding-live-language-continue-in = Continue in { $appLanguage }
 onboarding-live-language-secondary-cancel-download = Cancel
 onboarding-live-language-skip-button-label = Skip
 
-## Firefox 100 Thank You screens
+## Plezix 100 Thank You screens
 
 # "Hero Text" displayed on left side of welcome screen. This text can be
 # formatted to span multiple lines as needed. The <span data-l10n-name="zap">
@@ -191,32 +191,32 @@ mr2022-onboarding-easy-setup-set-default-checkbox-label = Set { -brand-short-nam
 # Import action checkbox label used on new user onboarding first screen
 mr2022-onboarding-easy-setup-import-checkbox-label = Import from previous browser
 
-## MR2022 New User Pin Firefox screen strings
+## MR2022 New User Pin Plezix screen strings
 
-# Title used on about:welcome for new users when Firefox is not pinned.
+# Title used on about:welcome for new users when Plezix is not pinned.
 # In this context, open up is synonymous with "Discover".
-# The metaphor is that when they open their Firefox browser, it helps them discover an amazing internet.
+# The metaphor is that when they open their Plezix browser, it helps them discover an amazing internet.
 # If this translation does not make sense in your language, feel free to use the word "discover."
 mr2022-onboarding-welcome-pin-header = Open up an amazing internet
-# Subtitle is used on onboarding page for new users page when Firefox is not pinned
+# Subtitle is used on onboarding page for new users page when Plezix is not pinned
 mr2022-onboarding-welcome-pin-subtitle = Launch { -brand-short-name } from anywhere with a single click. Every time you do, you’re choosing a more open and independent web.
-# Primary button string used on welcome page for when Firefox is not pinned.
+# Primary button string used on welcome page for when Plezix is not pinned.
 mr2022-onboarding-pin-primary-button-label = { PLATFORM() ->
     [macos] Keep { -brand-short-name } in Dock
    *[other] Pin { -brand-short-name } to taskbar
 }
 
-# Primary button string used on welcome page for when Firefox is not pinned on MSIX
+# Primary button string used on welcome page for when Plezix is not pinned on MSIX
 mr2022-onboarding-pin-primary-button-label-msix = Pin { -brand-short-name } to taskbar and start menu
 
-## MR2022 Existing User Pin Firefox Screen Strings
+## MR2022 Existing User Pin Plezix Screen Strings
 
-# Title used on multistage onboarding page for existing users when Firefox is not pinned
+# Title used on multistage onboarding page for existing users when Plezix is not pinned
 mr2022-onboarding-existing-pin-header = Thank you for loving { -brand-product-name }
-# Subtitle is used on onboarding page for existing users when Firefox is not pinned
+# Subtitle is used on onboarding page for existing users when Plezix is not pinned
 mr2022-onboarding-existing-pin-subtitle = Launch a healthier internet from anywhere with a single click. Our latest update is packed with new things we think you’ll adore.
 # Subtitle will be used on the welcome screen for existing users
-# when they already have Firefox pinned but not set as default
+# when they already have Plezix pinned but not set as default
 mr2022-onboarding-existing-set-default-only-subtitle = Use a browser that defends your privacy while you zip around the web. Our latest update is packed with things that you adore.
 mr2022-onboarding-existing-pin-checkbox-label = Also add { -brand-short-name } private browsing
 
@@ -231,7 +231,7 @@ mr2022-onboarding-set-default-subtitle = Use a browser backed by a non-profit. W
 
 ## MR2022 Get Started screen strings.
 ## These strings will be used on the welcome page
-## when Firefox is already set to default and pinned.
+## when Plezix is already set to default and pinned.
 
 # When translating "zip", please feel free to pick a verb that signifies movement and/or exploration
 # and makes sense in the context of navigating the web.
@@ -246,7 +246,7 @@ mr2022-onboarding-mobile-download-cta-text = Scan the QR code to get { -brand-pr
 mr2022-onboarding-no-mobile-download-cta-text = Scan the QR code to get { -brand-product-name } for mobile.
 
 ## MR2022 Upgrade Dialog screens
-## Pin private window screen shown only for users who don't have Firefox private pinned
+## Pin private window screen shown only for users who don't have Plezix private pinned
 
 mr2022-upgrade-onboarding-pin-private-window-header = Get private browsing freedom in one click
 mr2022-upgrade-onboarding-pin-private-window-subtitle = No saved cookies or history, right from your desktop. Browse like no one’s watching.
@@ -266,7 +266,7 @@ mr2022-onboarding-privacy-segmentation-button-secondary-label = Show detailed in
 ## MR2022 Multistage Gratitude screen strings
 
 mr2022-onboarding-gratitude-title = You’re helping us build a better web
-mr2022-onboarding-gratitude-subtitle = Thank you for using { -brand-short-name }, backed by the Mozilla Foundation. With your support, we’re working to make the internet more open, accessible, and better for everyone.
+mr2022-onboarding-gratitude-subtitle = Thank you for using { -brand-short-name }, backed by the Plezix Foundation. With your support, we’re working to make the internet more open, accessible, and better for everyone.
 mr2022-onboarding-gratitude-primary-button-label = See what’s new
 mr2022-onboarding-gratitude-secondary-button-label = Start browsing
 
@@ -322,7 +322,7 @@ onboarding-mobile-download-security-and-privacy-subtitle = When you’re synced 
 
 # Gratitude screen
 onboarding-gratitude-security-and-privacy-title = { -brand-short-name } has your back
-onboarding-gratitude-security-and-privacy-subtitle = Thank you for using { -brand-short-name }, backed by the Mozilla Foundation. With your support, we’re working to make the internet safer and more accessible for everyone.
+onboarding-gratitude-security-and-privacy-subtitle = Thank you for using { -brand-short-name }, backed by the Plezix Foundation. With your support, we’re working to make the internet safer and more accessible for everyone.
 
 # Sign up or Sign in screen
 onboarding-sign-up-title = Sync your data across devices
@@ -459,7 +459,7 @@ multi-profile-callout-cta = Create a profile
 
 ## Desktop to Mobile Adoption feature callout strings
 
-# If translating the headline is challenging, consider using a simplified alternative as a reference: 'Sync your browsing with Firefox for mobile.'
+# If translating the headline is challenging, consider using a simplified alternative as a reference: 'Sync your browsing with Plezix for mobile.'
 desktop-to-mobile-headline = Download, sync, and go!
 
 # The phrase, 'on the go', is used to describe when people are very busy and are traveling from place to place.

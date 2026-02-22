@@ -8,7 +8,7 @@ Interacting with Web content and WebExtensions
 ==============================================
 
 GeckoView allows embedder applications to register and run
-`WebExtensions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions>`_
+`WebExtensions <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions>`_
 in a GeckoView instance. Extensions are the preferred way to interact
 with Web content.
 
@@ -20,7 +20,7 @@ Running extensions in GeckoView
 Extensions bundled with applications can be provided in a folder in the
 ``/assets`` section of the APK. Like ordinary extensions, every
 extension bundled with GeckoView requires a
-`manifest.json <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json>`_
+`manifest.json <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json>`_
 file.
 
 To locate files bundled with the APK, GeckoView provides a shorthand
@@ -30,9 +30,9 @@ E.g. ``resource://android/assets/messaging/`` will point to the
 ``/assets/messaging/`` folder present in the APK.
 
 Note: Every installed extension will need an
-`id <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings>`_
+`id <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/browser_specific_settings>`_
 and
-`version <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version>`_
+`version <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/version>`_
 specified in the ``manifest.json`` file.
 
 To install a bundled extension in GeckoView, simply call
@@ -67,30 +67,30 @@ GeckoView allows bidirectional communication with Web pages through
 extensions.
 
 When using GeckoView, `native
-messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#Exchanging_messages>`_
+messaging <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_messaging#Exchanging_messages>`_
 can be used for communicating to and from the browser.
 
-- `runtime.sendNativeMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendNativeMessage>`_
+- `runtime.sendNativeMessage <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/sendNativeMessage>`_
   for one-off messages.
-- `runtime.connectNative <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connectNative>`_
+- `runtime.connectNative <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/connectNative>`_
   for connection-based messaging.
 
 Note: these APIs are only available when the ``geckoViewAddons``
-`permission <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions>`_
+`permission <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions>`_
 is present in the ``manifest.json`` file of the extension.
 
 One-off messages
 ~~~~~~~~~~~~~~~~
 
 The easiest way to send messages from a `content
-script <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_
+script <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Content_scripts>`_
 or a `background
-script <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#Background_scripts>`_
+script <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#Background_scripts>`_
 is using
-`runtime.sendNativeMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendNativeMessage>`_.
+`runtime.sendNativeMessage <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/sendNativeMessage>`_.
 
 Note: Ordinarily, native extensions would use a `native
-manifest <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging#App_manifest>`_
+manifest <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_messaging#App_manifest>`_
 to define what native app identifier to use. For GeckoView this is *not*
 needed, the ``nativeApp`` parameter in ``setMessageDelegate`` will be
 use to determine what native app string is used.
@@ -277,11 +277,11 @@ Connection-based messaging
 
 For more complex scenarios or for when you want to send messages *from*
 the app to the extension,
-`runtime.connectNative <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/connectNative>`_
+`runtime.connectNative <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/connectNative>`_
 is the appropriate API to use.
 
 ``connectNative`` returns a
-`runtime.Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_
+`runtime.Port <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/Port>`_
 that can be used to send messages to the app. On the app side,
 implementing
 `MessageDelegate#onConnect <https://mozilla.github.io/geckoview/javadoc/mozilla-central/org/mozilla/geckoview/WebExtension.MessageDelegate.html#onConnect(org.mozilla.geckoview.WebExtension.Port)>`_
@@ -399,5 +399,5 @@ This allows bidirectional communication between the app and the
 extension.
 
 .. _GeckoRuntime: https://mozilla.github.io/geckoview/javadoc/mozilla-central/org/mozilla/geckoview/GeckoRuntime.html
-.. _runtime.sendNativeMessage: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendNativeMessage
+.. _runtime.sendNativeMessage: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/sendNativeMessage
 .. _WebExtension: https://mozilla.github.io/geckoview/javadoc/mozilla-central/org/mozilla/geckoview/WebExtension.html

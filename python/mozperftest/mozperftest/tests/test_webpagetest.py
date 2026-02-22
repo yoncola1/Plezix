@@ -60,7 +60,7 @@ def init_placeholder_wpt_data(fvonly=False, invalid_results=False):
     placeholder_data = {
         "data": {
             "summary": "websitelink.com",
-            "location": "ec2-us-east-1:Firefox",
+            "location": "ec2-us-east-1:Plezix",
             "testRuns": 3,
             "successfulFVRuns": 3,
             "successfulRVRuns": 3,

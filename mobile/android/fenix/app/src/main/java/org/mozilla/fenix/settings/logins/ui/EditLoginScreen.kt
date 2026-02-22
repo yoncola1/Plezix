@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import mozilla.components.compose.base.textfield.TextFieldColors
 import mozilla.components.compose.base.textfield.TextFieldStyle
 import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val IconButtonHeight = 48.dp
 
@@ -51,14 +51,14 @@ internal fun EditLoginScreen(store: LoginsStore) {
                 loginItem = editState.login,
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .width(FirefoxTheme.layout.size.containerMaxWidth),
+                .width(PlezixTheme.layout.size.containerMaxWidth),
         ) {
-            Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.static200))
+            Spacer(modifier = Modifier.height(PlezixTheme.layout.space.static200))
             EditLoginUrl(url = editState.login.url)
             Spacer(modifier = Modifier.height(8.dp))
             EditLoginUsername(store = store, user = editState.login.username)
@@ -80,7 +80,7 @@ internal fun EditLoginTopBar(store: LoginsStore, loginItem: LoginItem) {
     val isLoginValid = validModifiedUser || validModifiedPassword
 
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         windowInsets = WindowInsets(
             top = 0.dp,
             bottom = 0.dp,
@@ -88,14 +88,14 @@ internal fun EditLoginTopBar(store: LoginsStore, loginItem: LoginItem) {
         title = {
             Text(
                 text = stringResource(R.string.edit_2),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
             IconButton(
                 modifier = Modifier
-                    .padding(horizontal = FirefoxTheme.layout.space.static50),
+                    .padding(horizontal = PlezixTheme.layout.space.static50),
                 onClick = { store.dispatch(EditLoginBackClicked) },
                 contentDescription = stringResource(
                     R.string.edit_login_navigate_back_button_content_description,
@@ -104,7 +104,7 @@ internal fun EditLoginTopBar(store: LoginsStore, loginItem: LoginItem) {
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -112,7 +112,7 @@ internal fun EditLoginTopBar(store: LoginsStore, loginItem: LoginItem) {
             Box {
                 IconButton(
                     modifier = Modifier
-                        .padding(horizontal = FirefoxTheme.layout.space.static50),
+                        .padding(horizontal = PlezixTheme.layout.space.static50),
                     onClick = {
                         store.dispatch(
                             EditLoginAction.SaveEditClicked(loginItem),
@@ -127,9 +127,9 @@ internal fun EditLoginTopBar(store: LoginsStore, loginItem: LoginItem) {
                         painter = painterResource(R.drawable.mozac_ic_checkmark_24),
                         contentDescription = null,
                         tint = if (isLoginValid) {
-                            FirefoxTheme.colors.textPrimary
+                            PlezixTheme.colors.textPrimary
                         } else {
-                            FirefoxTheme.colors.textDisabled
+                            PlezixTheme.colors.textDisabled
                         },
                     )
                 }
@@ -146,18 +146,18 @@ private fun EditLoginUrl(url: String) {
         color = TextFieldColors.default().labelColor,
         modifier = Modifier
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
+                horizontal = PlezixTheme.layout.space.static200,
             ),
     )
 
     Text(
         text = url,
         style = TextFieldStyle.default().placeholderStyle,
-        color = FirefoxTheme.colors.textDisabled,
+        color = PlezixTheme.colors.textDisabled,
         modifier = Modifier
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
-                vertical = FirefoxTheme.layout.space.static100,
+                horizontal = PlezixTheme.layout.space.static200,
+                vertical = PlezixTheme.layout.space.static100,
             ),
     )
 }
@@ -176,8 +176,8 @@ private fun EditLoginUsername(store: LoginsStore, user: String) {
         errorText = "",
         modifier = Modifier
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
-                vertical = FirefoxTheme.layout.space.static100,
+                horizontal = PlezixTheme.layout.space.static200,
+                vertical = PlezixTheme.layout.space.static100,
             ),
         label = stringResource(R.string.preferences_passwords_saved_logins_username),
         minHeight = IconButtonHeight,
@@ -189,7 +189,7 @@ private fun EditLoginUsername(store: LoginsStore, user: String) {
             }
         },
         colors = TextFieldColors.default(
-            placeholderColor = FirefoxTheme.colors.textPrimary,
+            placeholderColor = PlezixTheme.colors.textPrimary,
         ),
     )
 }
@@ -210,8 +210,8 @@ private fun EditLoginPassword(store: LoginsStore, pass: String) {
             errorText = "",
             modifier = Modifier
                 .padding(
-                    horizontal = FirefoxTheme.layout.space.static200,
-                    vertical = FirefoxTheme.layout.space.static100,
+                    horizontal = PlezixTheme.layout.space.static200,
+                    vertical = PlezixTheme.layout.space.static100,
                 ),
             label = stringResource(R.string.preferences_passwords_saved_logins_password),
             minHeight = IconButtonHeight,
@@ -238,7 +238,7 @@ private fun EditLoginPassword(store: LoginsStore, pass: String) {
                 PasswordVisualTransformation()
             },
             colors = TextFieldColors.default(
-                placeholderColor = FirefoxTheme.colors.textPrimary,
+                placeholderColor = PlezixTheme.colors.textPrimary,
             ),
         )
     }
@@ -271,8 +271,8 @@ private fun EditLoginScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             EditLoginScreen(store)
         }
     }

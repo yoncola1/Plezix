@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -458,7 +458,7 @@ var ctrlTab = {
   attachTab: function ctrlTab_attachTab(aTab, aPos) {
     // If the tab is hidden, don't add it to the list unless it's selected
     // (Normally hidden tabs would be unhidden when selected, but that doesn't
-    // happen for Firefox View).
+    // happen for Plezix View).
     if (aTab.closing || (aTab.hidden && !aTab.selected)) {
       return;
     }
@@ -671,7 +671,7 @@ var ctrlTab = {
         break;
       case "TabSelect":
         this.attachTab(event.target, 0);
-        // If the previous tab was hidden (e.g. Firefox View), remove it from
+        // If the previous tab was hidden (e.g. Plezix View), remove it from
         // the list when it's deselected.
         let previousTab = event.detail.previousTab;
         if (previousTab.hidden) {

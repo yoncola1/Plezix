@@ -1,5 +1,5 @@
 //* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1586,7 +1586,7 @@ nsresult Classifier::ReadNoiseEntries(const Prefix& aPrefix,
   }
 
   // We do not want to simply pick random prefixes, because this would allow
-  // averaging out the noise by analysing the traffic from Firefox users.
+  // averaging out the noise by analysing the traffic from Plezix users.
   // Instead, we ensure the 'noise' is the same for the same prefix by seeding
   // the random number generator with the prefix. We prefer not to use rand()
   // which isn't thread safe, and the reseeding of which could trip up other

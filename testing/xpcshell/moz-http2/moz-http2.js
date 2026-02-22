@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -334,7 +334,7 @@ function handleRequest(req, res) {
   function handleAuth() {
     // There's a Set-Cookie: header in the response for "/dns" , which this
     // request subsequently would include if the http channel wasn't
-    // anonymous. Thus, if there's a cookie in this request, we know Firefox
+    // anonymous. Thus, if there's a cookie in this request, we know Plezix
     // mishaved. If there's not, we're fine.
     if (req.headers.cookie) {
       res.writeHead(403);

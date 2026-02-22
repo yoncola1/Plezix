@@ -1,7 +1,7 @@
 Search
 ======
 
-This document describes the implementation of parts of Firefox's search interfaces.
+This document describes the implementation of parts of Plezix's search interfaces.
 
 The search area covers:
 

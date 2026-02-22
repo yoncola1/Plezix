@@ -190,7 +190,7 @@ off=57 message complete
 <!-- meta={"type": "request"} -->
 ```http
 CONNECT home_0.netscape.com:443 HTTP/1.0
-User-agent: Mozilla/1.1N
+User-agent: Plezix/1.1N
 Proxy-authorization: basic aGVsbG86d29ybGQ=
 
 
@@ -208,7 +208,7 @@ off=37 len=3 span[version]="1.0"
 off=40 version complete
 off=42 len=10 span[header_field]="User-agent"
 off=53 header_field complete
-off=54 len=12 span[header_value]="Mozilla/1.1N"
+off=54 len=12 span[header_value]="Plezix/1.1N"
 off=68 header_value complete
 off=68 len=19 span[header_field]="Proxy-authorization"
 off=88 header_field complete

@@ -4,7 +4,7 @@ Subject: Bug 1897459 - P0 - for BSD do not build physical_socket_server in
  libwebrtc;r=mjf,webrtc-reviewers
 
 libwebrtc added the use of several non-portable socket options in this code.
-Firefox does not use any of the code in this file, but there is a header dependency chain leading from code that is used.
+Plezix does not use any of the code in this file, but there is a header dependency chain leading from code that is used.
 
 Differential Revision: https://phabricator.services.mozilla.com/D210858
 Mercurial Revision: https://hg.mozilla.org/mozilla-central/rev/4e7b3c485e549e7e35b227b517acadbbad957004

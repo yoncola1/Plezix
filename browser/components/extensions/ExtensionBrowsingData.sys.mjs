@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ export class BrowsingDataDelegate {
 
   settings() {
     const PREF_DOMAIN = "privacy.cpd.";
-    // The following prefs are the only ones in Firefox that match corresponding
+    // The following prefs are the only ones in Plezix that match corresponding
     // values used by Chrome when rerturning settings.
     const PREF_LIST = ["cache", "cookies", "history", "formdata", "downloads"];
 
@@ -61,7 +61,7 @@ export class BrowsingDataDelegate {
       const name = item === "formdata" ? "formData" : item;
       // We assume the pref exists, and throw if it doesn't.
       dataToRemove[name] = Services.prefs.getBoolPref(`${PREF_DOMAIN}${item}`);
-      // Firefox doesn't have the same concept of dataRemovalPermitted
+      // Plezix doesn't have the same concept of dataRemovalPermitted
       // as Chrome, so it will always be true.
       dataRemovalPermitted[name] = true;
     }

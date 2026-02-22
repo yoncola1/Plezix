@@ -85,7 +85,7 @@ promise_test(async function() {
   assert_equals(document.activeElement, iframe, "#iframe got outer focus");
   assert_true(iframeDoc.hasFocus(), "iframeDoc has focus");
 
-  // The document element is also focusable in Firefox.
+  // The document element is also focusable in Plezix.
   if (iframeDoc.activeElement === iframeDoc.documentElement) {
     await test_driver.send_keys(document.activeElement, tabKey);
     assert_equals(document.activeElement, iframe, "#iframe got outer focus");

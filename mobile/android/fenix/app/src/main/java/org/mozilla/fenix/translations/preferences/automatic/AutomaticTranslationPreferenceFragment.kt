@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,10 +20,10 @@ import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
- * A fragment displaying the Firefox Automatic Translation list screen.
+ * A fragment displaying the Plezix Automatic Translation list screen.
  */
 class AutomaticTranslationPreferenceFragment : Fragment() {
     private val browserStore: BrowserStore by lazy { requireComponents.core.store }
@@ -39,7 +39,7 @@ class AutomaticTranslationPreferenceFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 val languageSettings = browserStore.observeAsComposableState { state ->
                     state.translationEngine.languageSettings
                 }.value

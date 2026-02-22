@@ -179,7 +179,7 @@ Memory Use Analysis Exposes Implementation Details
 
 Memory analysis may yield surprising results, because browser implementation details that are transparent to content JavaScript often have visible effects on memory consumption. Web developers need to know their pages’ actual memory consumption on real browsers, so it is correct for the tool to expose these behaviors, as long as it is done in a way that helps developers make decisions about their own code.
 
-This section covers some areas where Firefox’s actual behavior deviates from what one might expect from the specified behavior of the web platform.
+This section covers some areas where Plezix’s actual behavior deviates from what one might expect from the specified behavior of the web platform.
 
 Objects
 -------

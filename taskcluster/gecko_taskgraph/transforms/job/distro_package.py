@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -90,7 +90,7 @@ def common_package(config, job, taskdesc, distro, version):
     add_artifacts(config, job, taskdesc, path="/tmp/artifacts")
 
     env = worker.setdefault("env", {})
-    env["DEBFULLNAME"] = "Mozilla build team"
+    env["DEBFULLNAME"] = "Plezix build team"
     env["DEBEMAIL"] = "dev-builds@lists.mozilla.org"
 
     if "dsc" in run:
@@ -145,7 +145,7 @@ def common_package(config, job, taskdesc, distro, version):
     if "patch" not in run and "pre-build-command" not in run:
         adjust += (
             'debchange -l ".{prefix}moz" --distribution "{dist}"'
-            ' "Mozilla backport for {dist}." < /dev/null && '
+            ' "Plezix backport for {dist}." < /dev/null && '
         ).format(
             prefix=name.split("-", 1)[0],
             dist=run["dist"],

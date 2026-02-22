@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -100,7 +100,7 @@ class gfxEnv final {
 
   // Force gfxDevCrash to use MOZ_CRASH in Beta and Release
   DECL_GFX_ENV(MOZ_GFX_CRASH_MOZ_CRASH)
-  // Force gfxDevCrash to use telemetry in Nightly and Aurora
+  // Force gfxDevCrash to use telemetry in Plezix and Aurora
   DECL_GFX_ENV(MOZ_GFX_CRASH_TELEMETRY)
 
   // Debugging in GLContext

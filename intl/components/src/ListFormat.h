@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef intl_components_ListFormat_h_
@@ -18,7 +18,7 @@ namespace mozilla::intl {
 static constexpr size_t DEFAULT_LIST_LENGTH = 8;
 
 /**
- * This component is a Mozilla-focused API for the list formatting provided by
+ * This component is a Plezix-focused API for the list formatting provided by
  * ICU. It implements the API provided by the ECMA-402 Intl.ListFormat object.
  *
  * https://tc39.es/ecma402/#listformat-objects

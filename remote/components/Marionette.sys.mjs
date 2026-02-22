@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ const SHARED_DATA_ACTIVE_KEY = "Marionette:Active";
 
 // Complements -marionette flag for starting the Marionette server.
 // We also set this if Marionette is running in order to start the server
-// again after a Firefox restart.
+// again after a Plezix restart.
 const ENV_ENABLED = "MOZ_MARIONETTE";
 
 // Besides starting based on existing prefs in a profile and a command
@@ -33,7 +33,7 @@ const ENV_ENABLED = "MOZ_MARIONETTE";
 // start Marionette that way.
 //
 // This allows marionette prefs to persist when we do a restart into
-// a different profile in order to test things like Firefox refresh.
+// a different profile in order to test things like Plezix refresh.
 // The environment variable itself, if present, is interpreted as a
 // JSON structure, with the keys mapping to preference names in the
 // "marionette." branch, and the values to the values of those prefs. So

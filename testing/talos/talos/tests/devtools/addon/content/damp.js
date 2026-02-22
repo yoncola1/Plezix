@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@
 
 /* globals dampWindow */
 
-const { gBrowser, MozillaFileLogger, requestIdleCallback } = dampWindow;
+const { gBrowser, PlezixFileLogger, requestIdleCallback } = dampWindow;
 
 const { AddonManager } = require("resource://gre/modules/AddonManager.sys.mjs");
 
@@ -295,8 +295,8 @@ Damp.prototype = {
   },
 
   _log(str) {
-    if (MozillaFileLogger && MozillaFileLogger.log) {
-      MozillaFileLogger.log(str);
+    if (PlezixFileLogger && PlezixFileLogger.log) {
+      PlezixFileLogger.log(str);
     }
 
     dump(str);
@@ -400,7 +400,7 @@ Damp.prototype = {
     this.error(str);
   },
 
-  // Waits for any pending operations that may execute on Firefox startup and that
+  // Waits for any pending operations that may execute on Plezix startup and that
   // can still be pending when we start running DAMP tests.
   async waitBeforeRunningTests() {
     // Addons may still be being loaded, so wait for them to be fully set up.
@@ -432,7 +432,7 @@ Damp.prototype = {
     await this.ensureTalosParentProfiler();
 
     // Free memory before running the first test, otherwise we may have a GC
-    // related to Firefox startup or DAMP setup during the first test.
+    // related to Plezix startup or DAMP setup during the first test.
     await this.garbageCollect();
   },
 

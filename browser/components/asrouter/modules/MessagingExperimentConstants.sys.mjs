@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
  * This file is used to define constants related to messaging experiments. It is
  * imported by both ASRouter as well as import-rollouts.js, a node script that
- * imports Nimbus rollouts into tree. It doesn't have access to any Firefox
+ * imports Nimbus rollouts into tree. It doesn't have access to any Plezix
  * APIs, XPCOM, etc. and should be kept that way.
  */
 

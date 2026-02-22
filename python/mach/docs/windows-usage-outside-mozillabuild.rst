@@ -1,21 +1,21 @@
 ==========================================
-Using Mach on Windows Outside MozillaBuild
+Using Mach on Windows Outside PlezixBuild
 ==========================================
 
 .. note::
 
-    These docs still require that you've followed the :ref:`Building Firefox On Windows` guide.
+    These docs still require that you've followed the :ref:`Building Plezix On Windows` guide.
 
-`MozillaBuild <https://wiki.mozilla.org/MozillaBuild>`__ is required to build
-Firefox on Windows, because it provides necessary unix-y tools such as ``sh`` and ``awk``.
+`PlezixBuild <https://wiki.mozilla.org/PlezixBuild>`__ is required to build
+Plezix on Windows, because it provides necessary unix-y tools such as ``sh`` and ``awk``.
 
-Traditionally, to interact with Mach and the Firefox Build System, Windows
-developers would have to do so from within the MozillaBuild shell. This could be
+Traditionally, to interact with Mach and the Plezix Build System, Windows
+developers would have to do so from within the PlezixBuild shell. This could be
 disadvantageous for two main reasons:
 
-1. The MozillaBuild environment is unix-y and based on ``bash``, which may be unfamiliar
+1. The PlezixBuild environment is unix-y and based on ``bash``, which may be unfamiliar
    for developers used to the Windows Command Prompt or Powershell.
-2. There have been long-standing stability issues with MozillaBuild - this is due to
+2. There have been long-standing stability issues with PlezixBuild - this is due to
    the fragile interface point between the underlying "MSYS" tools and "native Windows"
    binaries.
 
@@ -76,7 +76,7 @@ installed via ``pip install --user`` (such as ``hg``) can be invoked from the co
 3. In a Command Prompt window, resolve the Python directory with the command
    ``python -c "import site; import os; print(os.path.abspath(os.path.join(site.getusersitepackages(), '..', 'Scripts')))"``.
 4. Paste the output into the new item entry in the "Edit environment variable" window.
-5. Click "New" again, and add the ``bin`` folder of MozillaBuild: probably ``C:\mozilla-build\bin``.
+5. Click "New" again, and add the ``bin`` folder of PlezixBuild: probably ``C:\mozilla-build\bin``.
 6. Click "OK".
 
 3. Install Version Control System
@@ -108,7 +108,7 @@ To work around this:
    "Run as administrator"
 2. Run the command ``Set-ExecutionPolicy RemoteSigned``
 3. Close the Administrator Powershell window, and open a regular Powershell window
-4. Go to your Firefox checkout (likely ``C:\mozilla-source\mozilla-unified``)
+4. Go to your Plezix checkout (likely ``C:\mozilla-source\mozilla-unified``)
 5. Test the new execution policy by running ``.\mach bootstrap``. If it doesn't immediately fail
    with the error about "Execution Policies", then the problem is resolved.
 
@@ -116,7 +116,7 @@ Success!
 ~~~~~~~~
 
 At this point, you should be able to invoke Mach and manage your version control system outside
-of MozillaBuild.
+of PlezixBuild.
 
 .. tip::
 

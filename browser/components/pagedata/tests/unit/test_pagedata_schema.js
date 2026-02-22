@@ -95,7 +95,7 @@ add_task(async function testCoalesce() {
     {
       url: "https://www.mozilla.com/",
       date: 27,
-      siteName: "Mozilla",
+      siteName: "Plezix",
       data: {
         [PageDataSchema.DATA_TYPE.PRODUCT]: {
           name: "newname",
@@ -113,7 +113,7 @@ add_task(async function testCoalesce() {
   Assert.deepEqual(joined, {
     url: "https://www.google.com/",
     date: 27,
-    siteName: "Mozilla",
+    siteName: "Plezix",
     data: {
       [PageDataSchema.DATA_TYPE.PRODUCT]: {
         name: "bolts",

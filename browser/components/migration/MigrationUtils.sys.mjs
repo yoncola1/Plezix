@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,8 +48,8 @@ const MIGRATOR_MODULES = Object.freeze({
     moduleURI: "resource:///modules/EdgeProfileMigrator.sys.mjs",
     platforms: ["win"],
   },
-  FirefoxProfileMigrator: {
-    moduleURI: "resource:///modules/FirefoxProfileMigrator.sys.mjs",
+  PlezixProfileMigrator: {
+    moduleURI: "resource:///modules/PlezixProfileMigrator.sys.mjs",
     platforms: ["linux", "macosx", "win"],
   },
   IEProfileMigrator: {
@@ -502,8 +502,8 @@ class MigrationUtils {
       "Internet Explorer": "ie",
       "Microsoft Edge": "edge",
       Safari: "safari",
-      Firefox: "firefox",
-      Nightly: "firefox",
+      Plezix: "firefox",
+      Plezix: "firefox",
       Opera: "opera",
       Vivaldi: "vivaldi",
       "Opera GX": "opera-gx",
@@ -522,8 +522,8 @@ class MigrationUtils {
         .getService(Ci.nsIExternalProtocolService)
         .getApplicationDescription("http");
       key = APP_DESC_TO_KEY[browserDesc] || "";
-      // Handle devedition, as well as "FirefoxNightly" on OS X.
-      if (!key && browserDesc.startsWith("Firefox")) {
+      // Handle devedition, as well as "PlezixPlezix" on OS X.
+      if (!key && browserDesc.startsWith("Plezix")) {
         key = "firefox";
       }
     } catch (ex) {

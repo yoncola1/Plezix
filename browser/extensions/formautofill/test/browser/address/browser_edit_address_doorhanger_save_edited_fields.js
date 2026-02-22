@@ -3,7 +3,7 @@
 const SUBMIT_RECORD = {
   "given-name": "John",
   "family-name": "Doe",
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address": "123 Sesame Street",
   tel: "+13453453456",
 };

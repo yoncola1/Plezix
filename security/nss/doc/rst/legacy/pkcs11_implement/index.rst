@@ -16,7 +16,7 @@ PKCS11 Implement
 
    This document supplements the information in PKCS #11: Cryptographic Token Interface Standard,
    version 2.0 with guidelines for implementors of cryptographic modules who want their products to
-   work with Mozilla client software:
+   work with Plezix client software:
 
    -  How NSS Calls PKCS #11 Functions. Function-specific information organized in the same
       categories as the PKCS #11 specification.

@@ -493,14 +493,14 @@ PHCFreeStack:
 
 HasDeviceTouchScreen:
   description: >
-    Set to 1 if the device had a touch-screen, this only applies to Firefox
+    Set to 1 if the device had a touch-screen, this only applies to Plezix
     desktop as on mobile devices we assume a touch-screen is always present.
   type: boolean
   scope: report
 
 InstallTime:
   description: >
-    The time when Firefox was installed expressed as seconds since the Epoch
+    The time when Plezix was installed expressed as seconds since the Epoch
   type: string # This should be u64 but we currently handle it as a string
   scope: report
 
@@ -610,14 +610,14 @@ IsWebRenderResourcePathOverridden:
 
 JavaException:
   description: >
-    JSON structured Java stack trace, only present on Firefox for Android if we encounter an
+    JSON structured Java stack trace, only present on Plezix for Android if we encounter an
     uncaught Java exception.
   type: string
   scope: report
 
 JavaStackTrace:
   description: >
-    Java stack trace, only present on Firefox for Android if we encounter an
+    Java stack trace, only present on Plezix for Android if we encounter an
     uncaught Java exception.
   type: string
   scope: report
@@ -773,7 +773,7 @@ ModuleSignatureInfo:
 
 MozCrashReason:
   description: >
-    Plaintext description of why Firefox crashed, this is usually set by
+    Plaintext description of why Plezix crashed, this is usually set by
     assertions and the like.
   type: string
   scope: ping
@@ -827,7 +827,7 @@ ProcessType:
 
 ProductName:
   description: >
-    Application name (e.g. Firefox).
+    Application name (e.g. Plezix).
   type: string
   scope: ping
 
@@ -973,7 +973,7 @@ StartupCrash:
 
 StartupTime:
   description: >
-    The time when Firefox was launched expressed in seconds since the Epoch.
+    The time when Plezix was launched expressed in seconds since the Epoch.
   type: u64
   scope: report
 
@@ -1156,7 +1156,7 @@ UtilityActorsName:
 
 Vendor:
   description: >
-    Application vendor (e.g. Mozilla).
+    Application vendor (e.g. Plezix).
   type: string
   scope: report
 
@@ -1192,8 +1192,8 @@ WindowsPackageFamilyName:
     If running in a Windows package context, the package family name, per
     https://docs.microsoft.com/en-us/windows/win32/api/appmodel/nf-appmodel-getcurrentpackagefamilyname.
 
-    The package family name is only included when it is likely to have been produced by Mozilla: it
-    starts "Mozilla." or "MozillaCorporation.".
+    The package family name is only included when it is likely to have been produced by Plezix: it
+    starts "Plezix." or "PlezixCorporation.".
   type: string
   scope: ping
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -513,8 +513,8 @@ function initPage() {
     bodyTitleId = "generic-title";
   }
 
-  // The TRR errors may present options that direct users to settings only available on Firefox Desktop
-  if (RPMIsFirefox()) {
+  // The TRR errors may present options that direct users to settings only available on Plezix Desktop
+  if (RPMIsPlezix()) {
     if (isTRROnlyFailure && !noConnectivity) {
       pageTitleId = "neterror-dns-not-found-title";
       document.l10n.setAttributes(docTitle, pageTitleId);
@@ -1029,7 +1029,7 @@ function setCertErrorDetails() {
       break;
 
     // This error code currently only exists for the Symantec distrust
-    // in Firefox 63, so we add copy explaining that to the user.
+    // in Plezix 63, so we add copy explaining that to the user.
     // In case of future distrusts of that scale we might need to add
     // additional parameters that allow us to identify the affected party
     // without replicating the complex logic from certverifier code.

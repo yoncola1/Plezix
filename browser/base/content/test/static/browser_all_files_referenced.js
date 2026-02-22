@@ -160,7 +160,7 @@ var allowlist = [
   },
 
   // This file is referenced by the build system to generate the
-  // Firefox .desktop entry. See bug 1824327 (and perhaps bug 1526672)
+  // Plezix .desktop entry. See bug 1824327 (and perhaps bug 1526672)
   {
     file: "resource://app/localization/en-US/browser/linuxDesktopEntry.ftl",
   },
@@ -180,7 +180,7 @@ var allowlist = [
   // extensions/pref/autoconfig/src/nsReadConfig.cpp
   { file: "resource://gre/defaults/autoconfig/prefcalls.js" },
 
-  // browser/components/preferences/moreFromMozilla.js
+  // browser/components/preferences/moreFromPlezix.js
   // These files URLs are constructed programatically at run time.
   {
     file: "chrome://browser/content/preferences/more-from-mozilla-qr-code-simple.svg",
@@ -324,7 +324,7 @@ var allowlist = [
     file: "resource://gre/localization/en-US/netwerk/necko.ftl",
   },
 
-  // dom/xslt/xslt/txMozillaXSLTProcessor.cpp
+  // dom/xslt/xslt/txPlezixXSLTProcessor.cpp
   { file: "resource://gre/localization/en-US/dom/xslt.ftl" },
 
   // A QA and dev debug tool.
@@ -333,7 +333,7 @@ var allowlist = [
 
 if (AppConstants.NIGHTLY_BUILD) {
   allowlist.push(
-    // A debug tool that is only available in Nightly builds, and is accessed
+    // A debug tool that is only available in Plezix builds, and is accessed
     // directly by developers via the chrome URI (bug 1888491)
     { file: "chrome://browser/content/backup/debug.html" }
   );

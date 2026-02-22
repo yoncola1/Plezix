@@ -20,7 +20,7 @@ The build step makes changes to the bundle files, that need to be included in yo
 
 ### Prerequisites
 
-You need node.js installed, and a working local build of Firefox. The current or active version of node is probably fine. At the time of this writing, node version 14 and up is active, and is recommended.
+You need node.js installed, and a working local build of Plezix. The current or active version of node is probably fine. At the time of this writing, node version 14 and up is active, and is recommended.
 
 ### How to Build
 

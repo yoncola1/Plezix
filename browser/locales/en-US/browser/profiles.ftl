@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -30,7 +30,7 @@ profile-card =
 #   $number (number) - The number of the profile
 default-profile-name = Profile { $number }
 
-# The word 'original' is used in the sense that it is the initial or starting profile when you install Firefox.
+# The word 'original' is used in the sense that it is the initial or starting profile when you install Plezix.
 original-profile-name = Original profile
 
 edit-profile-page-title = Edit profile

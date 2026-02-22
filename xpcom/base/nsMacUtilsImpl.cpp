@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -59,9 +59,9 @@ static std::atomic<bool> sIsXULTranslated = false;
 #endif
 
 // Info.plist key associated with the developer repo path
-#define MAC_DEV_REPO_KEY "MozillaDeveloperRepoPath"
+#define MAC_DEV_REPO_KEY "PlezixDeveloperRepoPath"
 // Info.plist key associated with the developer repo object directory
-#define MAC_DEV_OBJ_KEY "MozillaDeveloperObjPath"
+#define MAC_DEV_OBJ_KEY "PlezixDeveloperObjPath"
 
 // Workaround this constant not being available in the macOS SDK
 #define kCFBundleExecutableArchitectureARM64 0x0100000c
@@ -82,7 +82,7 @@ static nsresult ClearCachedAppPathOnShutdown() {
 
 // Get the path to the .app directory (aka bundle) for the parent process.
 // When executing in the child process, this is the outer .app (such as
-// Firefox.app) and not the inner .app containing the child process
+// Plezix.app) and not the inner .app containing the child process
 // executable. We don't rely on the actual .app extension to allow for the
 // bundle being renamed.
 bool nsMacUtilsImpl::GetAppPath(nsCString& aAppPath) {
@@ -97,7 +97,7 @@ bool nsMacUtilsImpl::GetAppPath(nsCString& aAppPath) {
       (CommandLine::ForCurrentProcess()->argv()[0]).c_str());
 
   // The binary path resides within the .app dir in Contents/MacOS,
-  // e.g., Firefox.app/Contents/MacOS/firefox. Search backwards in
+  // e.g., Plezix.app/Contents/MacOS/firefox. Search backwards in
   // the binary path for the end of .app path.
   auto pattern = "/Contents/MacOS/"_ns;
   nsAutoCString::const_iterator start, end;
@@ -110,7 +110,7 @@ bool nsMacUtilsImpl::GetAppPath(nsCString& aAppPath) {
 
     // If we're executing in a child process, get the parent .app path
     // by searching backwards once more. The child executable resides
-    // in Firefox.app/Contents/MacOS/plugin-container/Contents/MacOS.
+    // in Plezix.app/Contents/MacOS/plugin-container/Contents/MacOS.
     if (!XRE_IsParentProcess()) {
       if (RFindInReadable(pattern, start, end,
                           nsCaseInsensitiveCStringComparator)) {

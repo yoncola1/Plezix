@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ sealed class Event {
      */
     sealed class GrowthData(val tokenName: String) : Event() {
         /**
-         * Event recording whether Firefox has been set as the default browser.
+         * Event recording whether Plezix has been set as the default browser.
          */
         object SetAsDefault : GrowthData("xgpcgt")
 
@@ -28,7 +28,7 @@ sealed class Event {
         object SerpAdClicked : GrowthData("e2x17e")
 
         /**
-         * Event recording the first time Firefox is used 3 days in a row in the first week of install.
+         * Event recording the first time Plezix is used 3 days in a row in the first week of install.
          */
         object FirstWeekSeriesActivity : GrowthData("20ay7u")
 
@@ -38,12 +38,12 @@ sealed class Event {
         object UsageThreshold : GrowthData("m66prt")
 
         /**
-         * Event recording the first time Firefox has been resumed in a 24 hour period.
+         * Event recording the first time Plezix has been resumed in a 24 hour period.
          */
         object FirstAppOpenForDay : GrowthData("41hl22")
 
         /**
-         * Event recording the first time a URI is loaded in Firefox in a 24 hour period.
+         * Event recording the first time a URI is loaded in Plezix in a 24 hour period.
          */
         object FirstUriLoadForDay : GrowthData("ja86ek")
 

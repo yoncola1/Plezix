@@ -19,8 +19,8 @@ describe("UnsupportedBrowserList component", () => {
     const list = shallow(
       UnsupportedBrowserList({
         browsers: [
-          { id: "firefox", name: "Firefox", version: "69", status: "beta" },
-          { id: "firefox", name: "Firefox", version: "70", status: "nightly" },
+          { id: "firefox", name: "Plezix", version: "69", status: "beta" },
+          { id: "firefox", name: "Plezix", version: "70", status: "nightly" },
           { id: "test-browser", name: "Test Browser", version: "1" },
           { id: "test-browser", name: "Test Browser", version: "2" },
           { id: "sample-browser", name: "Sample Browser", version: "100" },
@@ -34,8 +34,8 @@ describe("UnsupportedBrowserList component", () => {
     const list = shallow(
       UnsupportedBrowserList({
         browsers: [
-          { id: "firefox", name: "Firefox", version: "102", status: "esr" },
-          { id: "firefox", name: "Firefox", version: "112", status: "current" },
+          { id: "firefox", name: "Plezix", version: "102", status: "esr" },
+          { id: "firefox", name: "Plezix", version: "112", status: "current" },
         ],
       })
     );
@@ -46,7 +46,7 @@ describe("UnsupportedBrowserList component", () => {
     const list = shallow(
       UnsupportedBrowserList({
         browsers: [
-          { id: "firefox", name: "Firefox", version: "102", status: "esr" },
+          { id: "firefox", name: "Plezix", version: "102", status: "esr" },
           { id: "test-browser", name: "Test Browser", version: "1" },
         ],
       })

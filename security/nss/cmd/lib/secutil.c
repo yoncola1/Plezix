@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*
@@ -3619,7 +3619,7 @@ SEC_PrintCertificateAndTrust(CERTCertificate *cert,
         moz_policy_ca_info = "false (attribute missing)";
     }
     SECU_Indent(stdout, 1);
-    printf("Mozilla-CA-Policy: %s\n", moz_policy_ca_info);
+    printf("Plezix-CA-Policy: %s\n", moz_policy_ca_info);
 
     if (trust) {
         SECU_PrintTrustFlags(stdout, trust,

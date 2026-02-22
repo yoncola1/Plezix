@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -128,7 +128,7 @@ static ipc::ReadOnlySharedMemoryHandle LoadFromURI(nsIURI* aURI,
     return nullptr;
   }
   // Check size, bail out if it is excessively large (the largest of the
-  // hyphenation files currently shipped with Firefox is around 1MB
+  // hyphenation files currently shipped with Plezix is around 1MB
   // uncompressed).
   uint64_t available;
   if (NS_FAILED(instream->Available(&available)) || !available ||

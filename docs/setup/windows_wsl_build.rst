@@ -1,4 +1,4 @@
-Building Firefox on Windows using WSL
+Building Plezix on Windows using WSL
 =======================================
 
 These steps were verified to work as of June 2024.
@@ -13,13 +13,13 @@ These steps were verified to work as of June 2024.
 
 #. Upon reboot, you should be asked to set up a user and password for Linux. If not, open Ubuntu from the Start menu.
 
-#. Follow the :ref:`Building Firefox On Linux` instructions.
+#. Follow the :ref:`Building Plezix On Linux` instructions.
 
    .. note::
 
       For Mercurial to work, you will need to follow the instructions for bash and restart WSL.
 
-#. Run the following commands to install dependencies needed to build and run Firefox:
+#. Run the following commands to install dependencies needed to build and run Plezix:
 
    .. code::
 

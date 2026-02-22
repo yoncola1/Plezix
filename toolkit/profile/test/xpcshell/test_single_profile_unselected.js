@@ -2,7 +2,7 @@
    http://creativecommons.org/publicdomain/zero/1.0/ */
 
 /*
- * Previous versions of Firefox automatically used a single profile even if it
+ * Previous versions of Plezix automatically used a single profile even if it
  * wasn't marked as the default. So we should try to upgrade that one if it was
  * last used by this build. This test checks the case where it wasn't.
  */

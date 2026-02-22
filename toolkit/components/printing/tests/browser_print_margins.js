@@ -78,14 +78,14 @@ async function setupLetterPaper() {
   ok(paper, "Found a paper");
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["print.printer_Mozilla_Save_to_PDF.print_paper_id", paper.id.toString()],
-      ["print.printer_Mozilla_Save_to_PDF.print_paper_size_unit", 0],
+      ["print.printer_Plezix_Save_to_PDF.print_paper_id", paper.id.toString()],
+      ["print.printer_Plezix_Save_to_PDF.print_paper_size_unit", 0],
       [
-        "print.printer_Mozilla_Save_to_PDF.print_paper_width",
+        "print.printer_Plezix_Save_to_PDF.print_paper_width",
         (paper.width * INCHES_PER_POINT).toString(),
       ],
       [
-        "print.printer_Mozilla_Save_to_PDF.print_paper_height",
+        "print.printer_Plezix_Save_to_PDF.print_paper_height",
         (paper.height * INCHES_PER_POINT).toString(),
       ],
     ],
@@ -515,7 +515,7 @@ add_task(async function testCustomMarginsPersist() {
 add_task(async function testChangingBetweenMargins() {
   await PrintHelper.withTestPage(async helper => {
     await SpecialPowers.pushPrefEnv({
-      set: [["print.printer_Mozilla_Save_to_PDF.print_margin_left", "1"]],
+      set: [["print.printer_Plezix_Save_to_PDF.print_margin_left", "1"]],
     });
 
     await helper.startPrint();
@@ -598,7 +598,7 @@ add_task(async function testInvalidPrefValueHeight() {
   await PrintHelper.withTestPage(async helper => {
     // Set some bad prefs
     await SpecialPowers.pushPrefEnv({
-      set: [["print.printer_Mozilla_Save_to_PDF.print_margin_top", "-1"]],
+      set: [["print.printer_Plezix_Save_to_PDF.print_margin_top", "-1"]],
     });
     await helper.startPrint();
     helper.assertSettingsMatch({
@@ -615,7 +615,7 @@ add_task(async function testInvalidPrefValueWidth() {
   await PrintHelper.withTestPage(async helper => {
     // Set some bad prefs
     await SpecialPowers.pushPrefEnv({
-      set: [["print.printer_Mozilla_Save_to_PDF.print_margin_left", "-1"]],
+      set: [["print.printer_Plezix_Save_to_PDF.print_margin_left", "-1"]],
     });
     await helper.startPrint();
     helper.assertSettingsMatch({
@@ -632,8 +632,8 @@ add_task(async function testInvalidMarginStartup() {
   await PrintHelper.withTestPage(async helper => {
     await SpecialPowers.pushPrefEnv({
       set: [
-        ["print.printer_Mozilla_Save_to_PDF.print_margin_right", "4"],
-        ["print.printer_Mozilla_Save_to_PDF.print_margin_left", "5"],
+        ["print.printer_Plezix_Save_to_PDF.print_margin_right", "4"],
+        ["print.printer_Plezix_Save_to_PDF.print_margin_left", "5"],
       ],
     });
     await setupLetterPaper();
@@ -899,19 +899,19 @@ add_task(async function testCustomMarginUnits() {
     await SpecialPowers.pushPrefEnv({
       set: [
         [
-          "print.printer_Mozilla_Save_to_PDF.print_margin_right",
+          "print.printer_Plezix_Save_to_PDF.print_margin_right",
           persistedMargins.right.toString(),
         ],
         [
-          "print.printer_Mozilla_Save_to_PDF.print_margin_left",
+          "print.printer_Plezix_Save_to_PDF.print_margin_left",
           persistedMargins.left.toString(),
         ],
         [
-          "print.printer_Mozilla_Save_to_PDF.print_margin_top",
+          "print.printer_Plezix_Save_to_PDF.print_margin_top",
           persistedMargins.top.toString(),
         ],
         [
-          "print.printer_Mozilla_Save_to_PDF.print_margin_bottom",
+          "print.printer_Plezix_Save_to_PDF.print_margin_bottom",
           persistedMargins.bottom.toString(),
         ],
       ],

@@ -15,8 +15,8 @@ add_setup(async function () {
       // Set preferences so that opening a page with the origin "example.org"
       // will result in a remoteType of "privilegedmozilla" for both the
       // page and the ServiceWorker.
-      ["browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true],
-      ["browser.tabs.remote.separatedMozillaDomains", "example.org"],
+      ["browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true],
+      ["browser.tabs.remote.separatedPlezixDomains", "example.org"],
       ["dom.ipc.processCount.privilegedmozilla", 1],
       ["dom.ipc.processPrelaunch.enabled", false],
       ["dom.serviceWorkers.enabled", true],

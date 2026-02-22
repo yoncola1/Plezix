@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import org.mozilla.fenix.components.AppStore
 import org.mozilla.fenix.components.appstate.AppAction
 
 @RunWith(AndroidJUnit4::class)
-class OpenInFirefoxBindingTest {
+class OpenInPlezixBindingTest {
     @get:Rule
     val coroutineRule = MainCoroutineRule()
 
@@ -42,10 +42,10 @@ class OpenInFirefoxBindingTest {
     }
 
     @Test
-    fun `WHEN open in Firefox is requested THEN open in Firefox`() = runTestOnMain {
+    fun `WHEN open in Plezix is requested THEN open in Plezix`() = runTestOnMain {
         val appStore = AppStore()
 
-        val binding = OpenInFirefoxBinding(
+        val binding = OpenInPlezixBinding(
             activity = activity,
             appStore = appStore,
             customTabSessionId = "",
@@ -62,9 +62,9 @@ class OpenInFirefoxBindingTest {
 
         binding.start()
 
-        appStore.dispatch(AppAction.OpenInFirefoxStarted)
+        appStore.dispatch(AppAction.OpenInPlezixStarted)
 
-        // Wait for AppAction.OpenInFirefoxStarted
+        // Wait for AppAction.OpenInPlezixStarted
         appStore.waitUntilIdle()
 
         verify(getSessionFeature).release()
@@ -75,6 +75,6 @@ class OpenInFirefoxBindingTest {
         }
         verify(activity).finishAndRemoveTask()
 
-        assertFalse(appStore.state.openInFirefoxRequested)
+        assertFalse(appStore.state.openInPlezixRequested)
     }
 }

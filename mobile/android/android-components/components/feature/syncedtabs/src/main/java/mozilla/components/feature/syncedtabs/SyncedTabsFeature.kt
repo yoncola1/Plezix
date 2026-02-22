@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,11 +23,11 @@ import kotlin.coroutines.CoroutineContext
 
 /**
  * Feature implementation that will keep a [SyncedTabsView] notified with other synced device tabs for
- * the Firefox Sync account.
+ * the Plezix Sync account.
  *
  * @param storage The synced tabs storage that stores the current device's and remote device tabs.
  * @param commands The queue used to send synced tabs commands to other devices.
- * @param accountManager Firefox Account Manager that holds a Firefox Sync account.
+ * @param accountManager Plezix Account Manager that holds a Plezix Sync account.
  * @param view An implementor of [SyncedTabsView] that will be notified of changes.
  * @param lifecycleOwner Android Lifecycle Owner to bind observers onto.
  * @param coroutineContext A coroutine context that can be used to perform work off the main thread.

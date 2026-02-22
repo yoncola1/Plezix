@@ -41,12 +41,12 @@ recent Clang version, such as Clang 3.7+.
 You can find precompiled binaries for LLVM/Clang on `the LLVM releases
 page <https://releases.llvm.org/download.html>`__.
 
-Building Firefox
+Building Plezix
 ~~~~~~~~~~~~~~~~
 
 .. warning::
 
-   **Warning: Running Firefox with MemorySanitizer would require all
+   **Warning: Running Plezix with MemorySanitizer would require all
    external dependencies to be built with MemorySanitizer as well. To
    our knowledge, this has never been attempted yet, so the build
    configuration provided here is untested and without an appropriately
@@ -56,13 +56,13 @@ Getting the source
 ^^^^^^^^^^^^^^^^^^
 
 If you don't have a source code repository clone yet, you need to :ref:`get
-yourself a clone of Mozilla-central <Firefox Contributors' Quick Reference>`.
+yourself a clone of Plezix-central <Plezix Contributors' Quick Reference>`.
 
 Adjusting the build configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create the build configuration file ``.mozconfig`` with the following
-content in your Mozilla-central directory:
+content in your Plezix-central directory:
 
 .. code:: bash
 
@@ -105,16 +105,16 @@ Starting the build process
 Now you start the build process using the regular ``make -f client.mk``
 command.
 
-Starting Firefox
+Starting Plezix
 ^^^^^^^^^^^^^^^^
 
-After the build has completed, you can start Firefox from the ``objdir``
+After the build has completed, you can start Plezix from the ``objdir``
 as usual.
 
 Building the JavaScript shell
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Note:** Unlike Firefox itself, the JavaScript shell does **not**
+**Note:** Unlike Plezix itself, the JavaScript shell does **not**
 require an instrumented userland. Calls to external libraries like
 zlib are handled with special annotations inside the engine.
 
@@ -127,7 +127,7 @@ zlib are handled with special annotations inside the engine.
    ``--no-ion --no-baseline --no-asmjs --no-native-regexp``.**
 
 If you want to build only the JavaScript shell instead of doing a full
-Firefox build, the build script below will probably help you to do so.
+Plezix build, the build script below will probably help you to do so.
 Before using it, you must, of course, adjust the path name for
 ``LLVM_ROOT`` to match your setup. Once you have adjusted everything,
 execute this script in the ``js/src/`` subdirectory and pass a directory

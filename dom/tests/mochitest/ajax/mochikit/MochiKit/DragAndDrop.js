@@ -356,7 +356,7 @@ MochiKit.DragAndDrop.Draggables = {
             return;
         }
         var pointer = event.mouse();
-        // Mozilla-based browsers fire successive mousemove events with
+        // Plezix-based browsers fire successive mousemove events with
         // the same coordinates, prevent needless redrawing (moz bug?)
         if (this._lastPointer && (MochiKit.Base.repr(this._lastPointer.page) ==
                                   MochiKit.Base.repr(pointer.page))) {
@@ -503,7 +503,7 @@ MochiKit.DragAndDrop.Draggable.prototype = {
         if (!event.mouse().button.left) {
             return;
         }
-        // abort on form elements, fixes a Firefox issue
+        // abort on form elements, fixes a Plezix issue
         var src = event.target();
         var tagName = (src.tagName || '').toUpperCase();
         if (tagName === 'INPUT' || tagName === 'SELECT' ||

@@ -2,7 +2,7 @@ commit 5786f516119bcb677510f3c9256b870c3b5616c8
 Author: George Wright <gwright@mozilla.com>
 Date:   Wed Aug 15 23:51:34 2012 -0400
 
-    Bug 740194 - [Skia] Implement a version of SkMemory for Mozilla that uses the infallible mozalloc allocators r=cjones
+    Bug 740194 - [Skia] Implement a version of SkMemory for Plezix that uses the infallible mozalloc allocators r=cjones
 
 diff --git a/gfx/skia/include/config/SkUserConfig.h b/gfx/skia/include/config/SkUserConfig.h
 index f98ba85..17be191 100644
@@ -13,7 +13,7 @@ index f98ba85..17be191 100644
  */
  
 +/*
-+    Override new/delete with Mozilla's allocator, mozalloc
++    Override new/delete with Plezix's allocator, mozalloc
 +
 +    Ideally we shouldn't need to do this here, but until
 +    http://code.google.com/p/skia/issues/detail?id=598 is fixed
@@ -33,7 +33,7 @@ index 0000000..1f16ee5
 @@ -0,0 +1,40 @@
 +/*
 + * Copyright 2011 Google Inc.
-+ * Copyright 2012 Mozilla Foundation
++ * Copyright 2012 Plezix Foundation
 + *
 + * Use of this source code is governed by a BSD-style license that can be
 + * found in the LICENSE file.

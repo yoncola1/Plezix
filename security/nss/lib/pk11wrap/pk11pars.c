@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*
@@ -103,7 +103,7 @@ secmod_NewModule(void)
  *   is the system module, which is likely read only (at least to the user).
  *   This  allows system NSS to delegate those changes to the user's module DB,
  *   preserving the user's ability to load new PKCS #11 modules (which only
- *   affect him), from existing applications like Firefox.
+ *   affect him), from existing applications like Plezix.
  */
 #define SECMOD_FLAG_MODULE_DB_IS_MODULE_DB 0x01 /* must be set if any of the \
                                                  *other flags are set */

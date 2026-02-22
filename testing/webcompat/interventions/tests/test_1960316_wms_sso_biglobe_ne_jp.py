@@ -6,7 +6,7 @@ SUPPORTED_URL = "https://auth.sso.biglobe.ne.jp/mail/"
 UNSUPPORTED_URL = "https://wms.sso.biglobe.ne.jp/webmail/notsupport.jsp"
 
 
-# don't skip android, as we want to ensure they do not begin blocking Firefox there as well.
+# don't skip android, as we want to ensure they do not begin blocking Plezix there as well.
 @pytest.mark.asyncio
 @pytest.mark.with_interventions
 async def test_enabled(client):

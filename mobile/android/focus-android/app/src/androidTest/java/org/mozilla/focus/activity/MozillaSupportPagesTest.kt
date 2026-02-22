@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.focus.activity
@@ -18,7 +18,7 @@ import org.mozilla.focus.testAnnotations.SmokeTest
 
 // This test visits each About page and checks whether some essential elements are being displayed
 @RunWith(AndroidJUnit4ClassRunner::class)
-class MozillaSupportPagesTest : TestSetup() {
+class PlezixSupportPagesTest : TestSetup() {
     private val featureSettingsHelper = FeatureSettingsHelper()
 
     @get:Rule
@@ -52,7 +52,7 @@ class MozillaSupportPagesTest : TestSetup() {
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openAboutPage {
             verifyVersionNumbers()
         }.openAboutPageLearnMoreLink {
@@ -62,12 +62,12 @@ class MozillaSupportPagesTest : TestSetup() {
 
     @SmokeTest
     @Test
-    fun openMozillaSettingsHelpLinkTest() {
+    fun openPlezixSettingsHelpLinkTest() {
         // Go to settings "About" page
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openHelpLink {
             verifyPageURL("what-firefox-focus-android")
         }
@@ -79,7 +79,7 @@ class MozillaSupportPagesTest : TestSetup() {
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openTermsOfUsePage {
             verifyPageURL("/about/legal/terms/firefox-focus/")
         }
@@ -91,7 +91,7 @@ class MozillaSupportPagesTest : TestSetup() {
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openLibrariesUsedPage {
             if (!BuildConfig.DEBUG) {
                 verifyLibrariesUsedTitle()
@@ -106,7 +106,7 @@ class MozillaSupportPagesTest : TestSetup() {
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openLicenseInformation {
             verifyPageURL("about:license")
         }
@@ -118,7 +118,7 @@ class MozillaSupportPagesTest : TestSetup() {
         homeScreen {
         }.openMainMenu {
         }.openSettings {
-        }.openMozillaSettingsMenu {
+        }.openPlezixSettingsMenu {
         }.openPrivacyNotice {
             verifyPageURL("privacy/firefox-focus")
         }

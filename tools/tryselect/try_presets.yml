@@ -96,7 +96,7 @@ desktop-frontend:
 devtools:
     selector: fuzzy
     description: >-
-        Runs the tests relevant to the Firefox Devtools
+        Runs the tests relevant to the Plezix Devtools
     env:
         - MOZ_DEVTOOLS_TEST_SCOPES=1
     query:
@@ -113,7 +113,7 @@ devtools:
 devtools-linux:
     selector: fuzzy
     description: >-
-        Runs the tests relevant to the Firefox Devtools, on Linux only.
+        Runs the tests relevant to the Plezix Devtools, on Linux only.
     env:
         - MOZ_DEVTOOLS_TEST_SCOPES=1
     query:

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.support.ktx.kotlin.tryGetHostFromUrl
 import org.mozilla.fenix.compose.Favicon
 import org.mozilla.fenix.settings.trustpanel.store.WebsiteInfoState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 private val ICON_SIZE = 16.dp
@@ -56,16 +56,16 @@ internal fun ProtectionPanelHeader(
         ) {
             Text(
                 text = websiteInfoState.websiteTitle,
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 maxLines = 1,
-                style = FirefoxTheme.typography.headline7,
+                style = PlezixTheme.typography.headline7,
                 overflow = TextOverflow.Ellipsis,
             )
 
             Text(
                 text = websiteInfoState.websiteUrl.tryGetHostFromUrl(),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textSecondary,
+                style = PlezixTheme.typography.body2,
             )
         }
     }
@@ -82,7 +82,7 @@ private fun ProtectionPanelIcon(
             contentDescription = null,
             modifier = Modifier
                 .background(
-                    color = FirefoxTheme.colors.layer2,
+                    color = PlezixTheme.colors.layer2,
                     shape = OUTER_ICON_SHAPE,
                 )
                 .padding(all = ICON_PADDING)
@@ -93,7 +93,7 @@ private fun ProtectionPanelIcon(
             url = url,
             modifier = Modifier
                 .background(
-                    color = FirefoxTheme.colors.layer2,
+                    color = PlezixTheme.colors.layer2,
                     shape = OUTER_ICON_SHAPE,
                 )
                 .padding(all = ICON_PADDING),
@@ -106,17 +106,17 @@ private fun ProtectionPanelIcon(
 @PreviewLightDark
 @Composable
 private fun ProtectionPanelHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1),
+                .background(color = PlezixTheme.colors.layer1),
         ) {
             ProtectionPanelHeader(
                 icon = null,
                 websiteInfoState = WebsiteInfoState(
                     isSecured = true,
                     websiteUrl = "https://www.mozilla.org",
-                    websiteTitle = "Mozilla",
+                    websiteTitle = "Plezix",
                     certificateName = "",
                 ),
             )
@@ -127,17 +127,17 @@ private fun ProtectionPanelHeaderPreview() {
 @Preview
 @Composable
 private fun ProtectionPanelHeaderPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             ProtectionPanelHeader(
                 icon = null,
                 websiteInfoState = WebsiteInfoState(
                     isSecured = false,
                     websiteUrl = "https://www.mozilla.org",
-                    websiteTitle = "Mozilla",
+                    websiteTitle = "Plezix",
                     certificateName = "",
                 ),
             )

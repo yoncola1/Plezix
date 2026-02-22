@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import org.mozilla.fenix.compose.home.HomeSectionHeader
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.pocket.interactor.PocketStoriesInteractor
 import org.mozilla.fenix.home.pocket.ui.PocketStories
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 
 /**
@@ -104,7 +104,7 @@ class PocketStoriesViewHolder(
 @Composable
 @Preview
 fun PocketStoriesViewHolderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column {
             HomeSectionHeader(
                 headerText = stringResource(R.string.pocket_stories_header_2),
@@ -116,7 +116,7 @@ fun PocketStoriesViewHolderPreview() {
             PocketStories(
                 stories = FakeHomepagePreview.pocketStories(limit = 8),
                 contentPadding = 0.dp,
-                backgroundColor = FirefoxTheme.colors.layer2,
+                backgroundColor = PlezixTheme.colors.layer2,
                 onStoryShown = { _, _ -> },
                 onStoryClicked = { _, _ -> },
             )

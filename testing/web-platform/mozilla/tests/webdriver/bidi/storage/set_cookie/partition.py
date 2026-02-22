@@ -10,8 +10,8 @@ from webdriver.bidi.modules.storage import (
 pytestmark = pytest.mark.asyncio
 
 
-# This is a gecko-specific test because Firefox and Chrome define partitioning
-# on a browsing context differently. Firefox as a combination of an origin loaded
+# This is a gecko-specific test because Plezix and Chrome define partitioning
+# on a browsing context differently. Plezix as a combination of an origin loaded
 # in this browsing context and a related user context, where Chrome defines it
 # as only a user context, which leads to different returned partition keys.
 async def test_partition_context(

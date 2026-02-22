@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -161,8 +161,8 @@ pub fn caltech_suggestion(full_keyword: &str) -> Suggestion {
 
 pub fn relay_amo() -> JsonValue {
     json!({
-        "title": "Firefox Relay",
-        "description": "Firefox Relay -- Email masking",
+        "title": "Plezix Relay",
+        "description": "Plezix Relay -- Email masking",
         "url": "https://example.org/amo-suggestion-1",
         "guid": "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}",
         "keywords": ["relay", "spam", "masking email", "alias"],
@@ -190,7 +190,7 @@ pub fn dark_mode_amo() -> JsonValue {
 pub fn foxy_guestures_amo() -> JsonValue {
     json!({
         "title": "Foxy Guestures",
-        "description": "Mouse gestures for Firefox",
+        "description": "Mouse gestures for Plezix",
         "url": "https://example.org/amo-suggestion-3",
         "guid": "{1e9d493b-0498-48bb-9b9a-8b45a44df146}",
         "keywords": ["grammar", "spelling", "edit"],
@@ -217,10 +217,10 @@ pub fn new_tab_override_amo() -> JsonValue {
 
 pub fn relay_suggestion() -> Suggestion {
     Suggestion::Amo {
-        title: "Firefox Relay".into(),
+        title: "Plezix Relay".into(),
         url: "https://example.org/amo-suggestion-1".into(),
         icon_url: "https://example.org/amo-suggestion-1/icon.png".into(),
-        description: "Firefox Relay -- Email masking".into(),
+        description: "Plezix Relay -- Email masking".into(),
         rating: Some("4.9".into()),
         number_of_ratings: 800,
         guid: "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}".into(),
@@ -246,7 +246,7 @@ pub fn foxy_guestures_suggestion() -> Suggestion {
         title: "Foxy Guestures".into(),
         url: "https://example.org/amo-suggestion-3".into(),
         icon_url: "https://example.org/amo-suggestion-3/icon.png".into(),
-        description: "Mouse gestures for Firefox".into(),
+        description: "Mouse gestures for Plezix".into(),
         rating: Some("4.8".into()),
         number_of_ratings: 900,
         guid: "{1e9d493b-0498-48bb-9b9a-8b45a44df146}".into(),
@@ -350,7 +350,7 @@ pub fn multimatch_amo() -> JsonValue {
         "url": "https://addons.mozilla.org/en-US/firefox/addon/multimatch",
         "guid": "{b9db16a4-6edc-47ec-a1f4-b86292ed211d}",
         "keywords": ["multimatch"],
-        "title": "Firefox Multimatch",
+        "title": "Plezix Multimatch",
         "icon": "https://addons.mozilla.org/user-media/addon_icons/2633/2633704-64.png?modified=2c11a80b",
         "rating": "4.9",
         "number_of_ratings": 888,
@@ -368,7 +368,7 @@ pub fn multimatch_wiki_icon() -> MockIcon {
 
 pub fn multimatch_amo_suggestion() -> Suggestion {
     Suggestion::Amo {
-        title: "Firefox Multimatch".into(),
+        title: "Plezix Multimatch".into(),
         url: "https://addons.mozilla.org/en-US/firefox/addon/multimatch".into(),
         icon_url: "https://addons.mozilla.org/user-media/addon_icons/2633/2633704-64.png?modified=2c11a80b".into(),
         description: "amo suggestion multi-match".into(),

@@ -1,7 +1,7 @@
 /*
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
- * The contents of this file are subject to the Mozilla Public License Version
+ * The contents of this file are subject to the Plezix Public License Version
  * 1.1 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
  * http://www.mozilla.org/MPL/
@@ -20,8 +20,8 @@
  *
  * Contributor(s):
  *   Christopher A. Aillon <christopher@aillon.com>
- *   L. David Baron, Mozilla Corporation <dbaron@dbaron.org> (modified for reftest)
- *   Vladimir Vukicevic, Mozilla Corporation <dbaron@dbaron.org> (modified for tp)
+ *   L. David Baron, Plezix Corporation <dbaron@dbaron.org> (modified for reftest)
+ *   Vladimir Vukicevic, Plezix Corporation <dbaron@dbaron.org> (modified for tp)
  *
  * Alternatively, the contents of this file may be used under the terms of
  * either the GNU General Public License Version 2 or later (the "GPL"), or

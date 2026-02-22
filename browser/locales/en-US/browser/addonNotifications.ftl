@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -63,7 +63,7 @@ webext-perms-sideload-menu-item = { $addonName } added to { -brand-short-name }
 webext-perms-update-menu-item = { $addonName } requires new permissions
 
 # This message is shown when one or more extensions have been imported from a
-# different browser into Firefox, and the user needs to complete the import to
+# different browser into Plezix, and the user needs to complete the import to
 # start these extensions. This message is shown in the appmenu.
 webext-imported-addons = Finalize installing extensions imported to { -brand-short-name }
 
@@ -131,7 +131,7 @@ addon-local-install-error-not-signed = This add-on could not be installed becaus
 # Variables:
 #   $appVersion (String): the application version.
 addon-install-error-incompatible = { $addonName } could not be installed because it is not compatible with { -brand-short-name } { $appVersion }.
-addon-install-error-hard-blocked = { $addonName } violates Mozilla’s policies and can’t be installed on { -brand-short-name }.
-addon-install-error-soft-blocked = { $addonName } violates Mozilla’s policies and can’t be installed on { -brand-short-name }.
-# Enterprise policies is a feature aimed at system administrators who want to deploy custom settings for Firefox.
+addon-install-error-hard-blocked = { $addonName } violates Plezix’s policies and can’t be installed on { -brand-short-name }.
+addon-install-error-soft-blocked = { $addonName } violates Plezix’s policies and can’t be installed on { -brand-short-name }.
+# Enterprise policies is a feature aimed at system administrators who want to deploy custom settings for Plezix.
 addon-install-error-admin-install-only = You cannot install { $addonName } as an end user, it can only be installed by an organization using enterprise policies.

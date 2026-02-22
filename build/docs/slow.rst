@@ -6,7 +6,7 @@ Why the Build System might be slow
 
 A common complaint about the build system is that it can be slow. There are
 many reasons contributing to its slowness.
-However, on modern hardware, Firefox can be built in less than 10 minutes.
+However, on modern hardware, Plezix can be built in less than 10 minutes.
 
 First, it is important to distinguish between a :term:`clobber build`
 and an :term:`incremental build`. The reasons for why each are slow can

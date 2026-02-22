@@ -1,4 +1,4 @@
-// Copyright (C) 2018 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2018 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-%typedarray%.prototype.sort

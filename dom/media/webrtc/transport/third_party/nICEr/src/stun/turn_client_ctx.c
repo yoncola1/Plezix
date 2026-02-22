@@ -1,6 +1,6 @@
 /*
   Copyright (c) 2007, Adobe Systems, Incorporated
-  Copyright (c) 2013, Mozilla
+  Copyright (c) 2013, Plezix
 
   All rights reserved.
 
@@ -15,7 +15,7 @@
   notice, this list of conditions and the following disclaimer in the
   documentation and/or other materials provided with the distribution.
 
-  * Neither the name of Adobe Systems, Network Resonance, Mozilla nor
+  * Neither the name of Adobe Systems, Network Resonance, Plezix nor
   the names of its contributors may be used to endorse or promote
   products derived from this software without specific prior written
   permission.
@@ -456,7 +456,7 @@ static void nr_turn_stun_ctx_cb(NR_SOCKET s, int how, void *arg)
          we retry once. This allows the 401/438 nonce retry
          paradigm. After that, we fail */
       /* TODO(ekr@rtfm.com): 401 needs a #define */
-      /* TODO(ekr@rtfm.com): Add alternate-server (Mozilla bug 857688) */
+      /* TODO(ekr@rtfm.com): Add alternate-server (Plezix bug 857688) */
       if (ctx->stun->error_code == 438) {
         // track 438s for ice telemetry
         nr_accumulate_count(&(ctx->tctx->cnt_438s), 1);
@@ -1021,7 +1021,7 @@ abort:
 }
 
 /* TODO(ekr@rtfm.com): We currently don't support channels.
-   We might in the future. Mozilla bug 857736 */
+   We might in the future. Plezix bug 857736 */
 int nr_turn_client_send_indication(nr_turn_client_ctx *ctx,
                                    const UCHAR *msg, size_t len,
                                    int flags, const nr_transport_addr *remote_addr)

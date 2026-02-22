@@ -691,7 +691,7 @@ nsDoTestsForAutoCompleteWithComposition.prototype = {
         );
       },
       popup: true,
-      value: "Mozilla",
+      value: "Plezix",
       searchString: "Mo",
     },
     // House keeping...

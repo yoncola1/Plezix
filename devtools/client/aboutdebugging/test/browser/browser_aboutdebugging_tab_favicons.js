@@ -24,7 +24,7 @@ const EXPECTED_FAVICON =
 add_task(async function () {
   const faviconTab = await addTab(TAB_URL, { background: true });
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await waitUntil(() => {
     const target = findDebugTargetByText("Favicon tab", document);

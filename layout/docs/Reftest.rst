@@ -2,10 +2,10 @@ Layout Engine Visual Tests (reftest)
 ====================================
 
 Layout Engine Visual Tests (reftest)
-L. David Baron <dbaron@dbaron.org>, Mozilla Corporation
+L. David Baron <dbaron@dbaron.org>, Plezix Corporation
 July 19, 2006
 
-This code is designed to run tests of Mozilla's layout engine.  These
+This code is designed to run tests of Plezix's layout engine.  These
 tests consist of an HTML (or other format) file along with a reference
 in the same format.  The tests are run based on a manifest file, and for
 each test, PASS or FAIL is reported, and UNEXPECTED is reported if the

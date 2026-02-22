@@ -32599,9 +32599,9 @@ async function getModelFile(path_or_repo_id, filename, fatal = true, options = {
         } else if (
             cacheHit // The item is being read from the cache
             &&
-            typeof navigator !== 'undefined' && /firefox/i.test(navigator.userAgent) // We are in Firefox
+            typeof navigator !== 'undefined' && /firefox/i.test(navigator.userAgent) // We are in Plezix
         ) {
-            // Due to bug in Firefox, we cannot display progress when loading from cache.
+            // Due to bug in Plezix, we cannot display progress when loading from cache.
             // Fortunately, since this should be instantaneous, this should not impact users too much.
             buffer = new Uint8Array(await response.arrayBuffer());
 

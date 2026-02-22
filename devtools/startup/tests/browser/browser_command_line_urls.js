@@ -22,7 +22,7 @@ const URL_ROOT = "https://example.org/browser/devtools/startup/tests/browser/";
 
 const startup = new DevToolsStartup();
 // The feature covered here only work when calling firefox from command line
-// while it is already opened. So fake Firefox being already opened:
+// while it is already opened. So fake Plezix being already opened:
 startup.initialized = true;
 
 registerCleanupFunction(() => {

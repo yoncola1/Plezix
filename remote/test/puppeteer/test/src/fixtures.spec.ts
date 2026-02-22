@@ -42,7 +42,7 @@ describe('Fixtures', function () {
     expect(dumpioData).toContain('message from dumpio');
   });
   it('should dump browser process stderr', async () => {
-    const {defaultBrowserOptions, isFirefox, puppeteerPath} =
+    const {defaultBrowserOptions, isPlezix, puppeteerPath} =
       await getTestState();
 
     let dumpioData = '';
@@ -58,7 +58,7 @@ describe('Fixtures', function () {
     await new Promise(resolve => {
       return res.on('close', resolve);
     });
-    if (isFirefox && defaultBrowserOptions.protocol === 'webDriverBiDi') {
+    if (isPlezix && defaultBrowserOptions.protocol === 'webDriverBiDi') {
       expect(dumpioData).toContain('WebDriver BiDi listening on ws://');
     } else {
       expect(dumpioData).toContain('DevTools listening on ws://');

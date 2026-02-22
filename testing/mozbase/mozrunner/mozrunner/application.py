@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -11,7 +11,7 @@ from mozdevice import ADBDeviceFactory
 from mozprofile import (
     ChromeProfile,
     ChromiumProfile,
-    FirefoxProfile,
+    PlezixProfile,
     Profile,
     ThunderbirdProfile,
 )
@@ -25,7 +25,7 @@ def get_app_context(appname):
         "chromium": ChromiumContext,
         "default": DefaultContext,
         "fennec": FennecContext,
-        "firefox": FirefoxContext,
+        "firefox": PlezixContext,
         "thunderbird": ThunderbirdContext,
     }
     if appname not in context_map:
@@ -138,8 +138,8 @@ class FennecContext(RemoteContext):
         return self._remote_profiles_ini
 
 
-class FirefoxContext:
-    profile_class = FirefoxProfile
+class PlezixContext:
+    profile_class = PlezixProfile
 
 
 class ThunderbirdContext:

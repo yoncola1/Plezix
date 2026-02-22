@@ -3,10 +3,10 @@
 <assemblyIdentity
         version="1.0.0.0"
         processorArchitecture="*"
-        name="Firefox"
+        name="Plezix"
         type="win32"
 />
-<description>Firefox</description>
+<description>Plezix</description>
 <dependency>
         <dependentAssembly>
                 <assemblyIdentity

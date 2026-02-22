@@ -1,7 +1,7 @@
 .. -*- Mode: rst; fill-column: 80; -*-
 
 =========================
-Firefox Contributor Guide
+Plezix Contributor Guide
 =========================
 
 Table of contents
@@ -9,18 +9,18 @@ Table of contents
 
 .. contents:: :local:
 
-Submitting a patch to Firefox using Git.
+Submitting a patch to Plezix using Git.
 ========================================
 .. _contribute_with_git:
 
 This guide will take you through submitting and updating a patch to
 ``firefox`` as a git user. You need to already be `set up to use
-git to contribute to Firefox </setup/index.html>`_.
+git to contribute to Plezix </setup/index.html>`_.
 
 Performing a bug fix
 --------------------
 
-All of the open bugs for issues in Firefox can be found in
+All of the open bugs for issues in Plezix can be found in
 `Bugzilla <https://bugzilla.mozilla.org>`_. If you know the component
 that you wish to contribute to you can use Bugzilla to search for issues
 in that project. If you are unsure which component you are interested
@@ -49,7 +49,7 @@ list to find something you want to work on.
    to land if you use ``moz-phab`` to submit (details later in this
    post).*
 
-It may be helpful to have Mozilla commit access, at least level 1. There
+It may be helpful to have Plezix commit access, at least level 1. There
 are three levels of commit access that give increasing levels of access
 to the repositories.
 
@@ -60,10 +60,10 @@ Level 2: General access. This will give you full commit
 access to any mercurial or SVN repository not requiring level 3 access.
 
 Level 3: Core access. You will need this level to commit directly to any
-of the core repositories (Firefox/Thunderbird/Fennec).
+of the core repositories (Plezix/Thunderbird/Fennec).
 
 If you wish to apply for commit access, please follow the guide found in
-the `Mozilla Commit Access
+the `Plezix Commit Access
 Policy <https://www.mozilla.org/en-US/about/governance/policies/commit/access-policy/>`_.
 
 Submitting a patch that touches C/C++
@@ -99,7 +99,7 @@ use git enabled versions of these tools.
 Set up Phabricator
 ^^^^^^^^^^^^^^^^^^
 
--  In a browser, visit Mozilla’s Phabricator instance at
+-  In a browser, visit Plezix’s Phabricator instance at
    https://phabricator.services.mozilla.com/.
 
 -  Click “Log In” at the top of the page

@@ -1,5 +1,5 @@
 /* vim: set ts=2 sw=2 sts=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@ const lazy = {};
 
 ChromeUtils.defineESModuleGetters(lazy, {
   E10SUtils: "resource://gre/modules/E10SUtils.sys.mjs",
-  FirefoxRelay: "resource://gre/modules/FirefoxRelay.sys.mjs",
+  PlezixRelay: "resource://gre/modules/PlezixRelay.sys.mjs",
   WebNavigationFrames: "resource://gre/modules/WebNavigationFrames.sys.mjs",
 });
 
@@ -31,7 +31,7 @@ export class ContextMenuParent extends JSWindowActorParent {
       win = topBrowser.ownerGlobal;
     }
 
-    message.data.context.showRelay &&= lazy.FirefoxRelay.isEnabled;
+    message.data.context.showRelay &&= lazy.PlezixRelay.isEnabled;
 
     this.#openContextMenu(message.data, win, browser);
   }
@@ -71,7 +71,7 @@ export class ContextMenuParent extends JSWindowActorParent {
 
     const windowGlobal = this.manager.browsingContext.currentWindowGlobal;
     const browser = windowGlobal.rootFrameLoader.ownerElement;
-    const emailMask = await lazy.FirefoxRelay.generateUsername(browser, origin);
+    const emailMask = await lazy.PlezixRelay.generateUsername(browser, origin);
     if (emailMask) {
       this.sendAsyncMessage("ContextMenu:UseRelayMask", {
         targetIdentifier,

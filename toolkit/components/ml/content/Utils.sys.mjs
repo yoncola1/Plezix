@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 const lazy = {};
@@ -1097,11 +1097,11 @@ export function isPrivateBrowsing() {
  */
 
 function baseRecordData(modelAddonWrapper) {
-  const { usedByAddonIds, usedByFirefoxFeatures, model, version } =
+  const { usedByAddonIds, usedByPlezixFeatures, model, version } =
     modelAddonWrapper;
   return {
     extension_ids: usedByAddonIds.join(","),
-    feature_ids: usedByFirefoxFeatures.join(","),
+    feature_ids: usedByPlezixFeatures.join(","),
     model,
     version,
   };

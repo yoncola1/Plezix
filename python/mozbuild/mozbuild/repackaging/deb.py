@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -282,12 +282,12 @@ def _is_chroot_available(arch):
 
 
 def _get_chroot_path(arch):
-    # At the moment the Firefox build baseline for i386 and amd64 is jessie and the baseline for arm64 is buster.
+    # At the moment the Plezix build baseline for i386 and amd64 is jessie and the baseline for arm64 is buster.
     # These baselines are defined in taskcluster/scripts/misc/build-sysroot.sh
     # The debian-repackage image defined in taskcluster/docker/debian-repackage/Dockerfile
     # bootstraps /srv/jessie-i386, /srv/jessie-amd64, and /srv/buster-amd64 roots.
     # We use these roots to run the repackage step and generate shared
-    # library dependencies that match the Firefox build baseline.
+    # library dependencies that match the Plezix build baseline.
     deb_sysroot_dist = _DEB_SYSROOT_DIST[arch]
     deb_sysroot_arch = _DEB_SYSROOT_ARCH[arch]
     return f"/srv/{deb_sysroot_dist}-{deb_sysroot_arch}"

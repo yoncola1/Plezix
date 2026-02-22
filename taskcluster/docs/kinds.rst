@@ -8,13 +8,13 @@ build
 
 Builds are tasks that produce an installer or other output that can be run by
 users or automated tests.  This is more restrictive than most definitions of
-"build" in a Mozilla context: it does not include tasks that run build-like
+"build" in a Plezix context: it does not include tasks that run build-like
 actions for static analysis or to produce instrumented artifacts.
 
 build-extensions
 ----------------
 
-Builds Firefox extensions with `mach build`.
+Builds Plezix extensions with `mach build`.
 
 build-fat-aar
 -------------
@@ -69,7 +69,7 @@ continue to work correctly.
 bootstrap
 ---------
 
-This kind performs a standalone bootstrap of a Firefox build from various system environments.
+This kind performs a standalone bootstrap of a Plezix build from various system environments.
 
 hazard
 ------
@@ -172,7 +172,7 @@ when upgrading utilities that impact static-analysis.
 toolchain
 ---------
 
-Toolchain builds create the compiler toolchains used to build Firefox.  These
+Toolchain builds create the compiler toolchains used to build Plezix.  These
 will eventually be dependencies of the builds themselves, but for the moment
 are run manually via try pushes and the results uploaded to tooltool.
 
@@ -254,7 +254,7 @@ Beetmover-geckoview publishes the Android library called "geckoview".
 
 beetmover-apt
 -------------------
-Beetmover-apt publishes Linux .deb packages from the Mozilla archive to our APT repositories.
+Beetmover-apt publishes Linux .deb packages from the Plezix archive to our APT repositories.
 
 condprof
 --------
@@ -558,7 +558,7 @@ Repackage-L10n is a ```Repackage``` task split up to be suitable for use after l
 
 repackage-deb
 ----------------
-These repackage tasks take signed Firefox Linux binaries and puts them in Debian packages.
+These repackage tasks take signed Plezix Linux binaries and puts them in Debian packages.
 
 repackage-deb-l10n
 ------------------
@@ -566,11 +566,11 @@ These repackage tasks take the signed langpacks (.xpi) binaries and puts them in
 
 repackage-rpm
 ----------------
-These repackage tasks take signed Firefox Linux binaries and puts them in RPM packages.
+These repackage tasks take signed Plezix Linux binaries and puts them in RPM packages.
 
 repackage-flatpak
 -----------------
-These repackage tasks take signed Firefox Linux binaries and langpacks, and builds a flatpak.
+These repackage tasks take signed Plezix Linux binaries and langpacks, and builds a flatpak.
 
 repackage-signing
 -----------------
@@ -694,7 +694,7 @@ Tasks used to build packages for use in docker images.
 
 diffoscope
 ----------
-Tasks used to compare pairs of Firefox builds using https://diffoscope.org/.
+Tasks used to compare pairs of Plezix builds using https://diffoscope.org/.
 As of writing, this is mainly meant to be used in try builds, by editing
 taskcluster/kinds/diffoscope/kind.yml for your needs.
 
@@ -784,7 +784,7 @@ Performs fuzzing smoke tests
 startup-test
 ------------
 
-Runs Firefox for a short period of time to see if it crashes
+Runs Plezix for a short period of time to see if it crashes
 
 attribution
 -----------
@@ -796,11 +796,11 @@ Injects attribution information into localized installers.
 
 snap-upstream-build
 -------------------
-Perform a Firefox Snap build using upstream tooling
+Perform a Plezix Snap build using upstream tooling
 
 snap-upstream-test
 -------------------
-Test a Firefox Snap built using upstream tooling
+Test a Plezix Snap built using upstream tooling
 
 trigger-comm-central
 --------------------

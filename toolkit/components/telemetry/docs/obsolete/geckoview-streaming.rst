@@ -1,7 +1,7 @@
 GeckoView Streaming API
 =======================
 
-As an alternative to the normal mode where Firefox Desktop records and sends data,
+As an alternative to the normal mode where Plezix Desktop records and sends data,
 Telemetry can instead route Histogram samples and Scalar values out of Gecko to a Telemetry Delegate.
 
 To do this, ``toolkit.telemetry.geckoview.streaming`` must be set to true,

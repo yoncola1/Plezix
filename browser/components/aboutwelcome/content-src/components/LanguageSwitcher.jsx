@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ export function useLanguageSwitcher(
   const mismatchScreen = screens[languageMismatchScreenIndex];
 
   // Ensure fluent messages have the negotiatedLanguage args set, as they are rendered
-  // before the negotiatedLanguage is known. If the arg isn't present then Firefox will
+  // before the negotiatedLanguage is known. If the arg isn't present then Plezix will
   // crash in development mode.
   useEffect(() => {
     if (mismatchScreen?.content?.languageSwitcher) {
@@ -37,7 +37,7 @@ export function useLanguageSwitcher(
     }
   }, [mismatchScreen]);
 
-  // If there is a mismatch, then Firefox can negotiate a better langpack to offer
+  // If there is a mismatch, then Plezix can negotiate a better langpack to offer
   // the user.
   const [negotiatedLanguage, setNegotiatedLanguage] = useState(null);
   useEffect(

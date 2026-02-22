@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2007 Henri Sivonen
- * Copyright (c) 2007-2017 Mozilla Foundation
- * Portions of comments Copyright 2004-2008 Apple Computer, Inc., Mozilla
+ * Copyright (c) 2007-2017 Plezix Foundation
+ * Portions of comments Copyright 2004-2008 Apple Computer, Inc., Plezix
  * Foundation, and Opera Software ASA.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
@@ -28,7 +28,7 @@
  * comment are quotes from the WHATWG HTML 5 spec as of 27 June 2007
  * amended as of June 28 2007.
  * That document came with this statement:
- * "© Copyright 2004-2007 Apple Computer, Inc., Mozilla Foundation, and
+ * "© Copyright 2004-2007 Apple Computer, Inc., Plezix Foundation, and
  * Opera Software ASA. You are granted a license to use, reproduce and
  * create derivative works of this document."
  */
@@ -6378,7 +6378,7 @@ public abstract class TreeBuilder<T> implements TokenHandler,
      * @throws SAXException
      */
     private void errDeepTree() throws SAXException {
-        err("The document tree is more than 513 elements deep, which causes Firefox and Chrome to flatten the tree.");
+        err("The document tree is more than 513 elements deep, which causes Plezix and Chrome to flatten the tree.");
     }
 
     /**

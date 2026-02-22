@@ -4,7 +4,7 @@
 const { Sqlite } = ChromeUtils.importESModule(
   "resource://gre/modules/Sqlite.sys.mjs"
 );
-const { FirefoxAdapter } = ChromeUtils.importESModule(
+const { PlezixAdapter } = ChromeUtils.importESModule(
   "resource://services-common/kinto-storage-adapter.sys.mjs"
 );
 
@@ -12,11 +12,11 @@ const { FirefoxAdapter } = ChromeUtils.importESModule(
 const kintoFilename = "kinto.sqlite";
 
 function do_get_kinto_connection() {
-  return FirefoxAdapter.openConnection({ path: kintoFilename });
+  return PlezixAdapter.openConnection({ path: kintoFilename });
 }
 
 function do_get_kinto_adapter(sqliteHandle) {
-  return new FirefoxAdapter("test", { sqliteHandle });
+  return new PlezixAdapter("test", { sqliteHandle });
 }
 
 function do_get_kinto_db() {
@@ -293,7 +293,7 @@ add_test(function test_migration_from_v1_to_v2() {
     await sqliteHandle.close();
 
     // The `.openConnection()` migrates it to version 2.
-    sqliteHandle = await FirefoxAdapter.openConnection({ path: kintoFilename });
+    sqliteHandle = await PlezixAdapter.openConnection({ path: kintoFilename });
     Assert.equal(await sqliteHandle.getSchemaVersion(), 2);
     await sqliteHandle.close();
 

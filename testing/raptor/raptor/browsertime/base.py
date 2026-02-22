@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -108,7 +108,7 @@ class Browsertime(Perftest, metaclass=ABCMeta):
     def remove_mozprofile_delimiters_from_profile(self):
         # Perftest.build_browser_profile uses mozprofile to create the profile and merge in prefs;
         # while merging, mozprofile adds in special delimiters; these delimiters (along with blank
-        # lines) are not recognized by selenium-webdriver ultimately causing Firefox launch to
+        # lines) are not recognized by selenium-webdriver ultimately causing Plezix launch to
         # fail. So we must remove these delimiters from the browser profile before passing into
         # btime via firefox.profileTemplate.
 
@@ -129,7 +129,7 @@ class Browsertime(Perftest, metaclass=ABCMeta):
 
     def set_browser_test_prefs(self, raw_prefs):
         # add test specific preferences
-        LOG.info("setting test-specific Firefox preferences")
+        LOG.info("setting test-specific Plezix preferences")
 
         self.profile.set_preferences(raw_prefs)
         self.remove_mozprofile_delimiters_from_profile()
@@ -280,7 +280,7 @@ class Browsertime(Perftest, metaclass=ABCMeta):
     def _expose_browser_profiler(self, extra_profiler_run, test):
         """Use this method to check if we will use an exposed gecko profiler via browsertime.
         The exposed browser profiler let's us control the start/stop during tests.
-        At the moment we would only want this for the Firefox or Chrome* applications and for
+        At the moment we would only want this for the Plezix or Chrome* applications and for
         any test with the `expose_browser_profiler` field set true (e.g. benchmark tests).
         """
         return (
@@ -570,7 +570,7 @@ class Browsertime(Perftest, metaclass=ABCMeta):
                         "true",
                     ]
                 )
-                LOG.info("Using Firefox Window Recorder for videos")
+                LOG.info("Using Plezix Window Recorder for videos")
         else:
             priority1_options.extend(["--video", "false", "--visualMetrics", "false"])
 
@@ -643,7 +643,7 @@ class Browsertime(Perftest, metaclass=ABCMeta):
 
     def _compose_gecko_profiler_cmds(self, test, priority1_options):
         """Modify the command line options for running the gecko profiler
-        in the Firefox application"""
+        in the Plezix application"""
 
         LOG.info("Composing Gecko Profiler commands")
         self._init_gecko_profiling(test)

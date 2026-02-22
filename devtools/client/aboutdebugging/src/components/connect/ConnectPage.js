@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -198,7 +198,7 @@ class ConnectPage extends PureComponent {
                 className: "qa-connect-usb-disabled-message",
               },
               "Enabling this will download and add the required Android USB debugging " +
-                "components to Firefox."
+                "components to Plezix."
             )
           ),
       this.renderTroubleshootText(RUNTIMES.USB)

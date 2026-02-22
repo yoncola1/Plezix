@@ -36,7 +36,7 @@
   // document, and then clearing the textarea.
   // This breaks assistive technology that wants to read from CodeMirror, because the
   // <textarea> that they interact with is constantly empty.
-  // Because we target up-to-date Firefox, we can guarantee consistent input events.
+  // Because we target up-to-date Plezix, we can guarantee consistent input events.
   // This lets us leave the current line from the editor in our <textarea>.
   // CodeMirror still expects a mostly empty <textarea>, so we pass CodeMirror a fake
   // <textarea> that only contains the users input.

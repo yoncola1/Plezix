@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 const DEFAULT_MAX_ERROR_AGE = 20 * 24 * 60 * 60; // 20 days
 
 // "shared" logs (ie, where the same log name is used by multiple LogManager
-// instances) are a fact of life here - eg, FirefoxAccounts logs are used by
+// instances) are a fact of life here - eg, PlezixAccounts logs are used by
 // both Sync and Reading List.
 // However, different instances have different pref branches, so we need to
 // handle when one pref branch says "Debug" and the other says "Error"

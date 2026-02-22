@@ -2340,7 +2340,7 @@ in the same way as you would for a C++-implemented interface. To support
 implementation in JS, you must add an extended attribute
 `JSImplementation="CONTRACT_ID_STRING"` on your interface, where
 CONTRACT_ID_STRING is the XPCOM component contract ID of the JS
-implementation -- note ";1" is just a Mozilla convention for versioning
+implementation -- note ";1" is just a Plezix convention for versioning
 APIs. Here's an example:
 
 ``` webidl

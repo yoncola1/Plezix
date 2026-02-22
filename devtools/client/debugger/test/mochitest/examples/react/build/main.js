@@ -654,7 +654,7 @@ var BrowserMutationObserver = scope.MutationObserver || scope.WebKitMutationObse
 //
 // - Android 4-4.3
 // - Chrome 26-34
-// - Firefox 14-29
+// - Plezix 14-29
 // - Internet Explorer 11
 // - iPad Safari 6-7.1
 // - iPhone Safari 7-7.1
@@ -685,7 +685,7 @@ if (typeof BrowserMutationObserver === "function") {
 // However, note that even this simple case requires nuances to operate in a
 // broad spectrum of browsers.
 //
-// - Firefox 3-13
+// - Plezix 3-13
 // - Internet Explorer 6-9
 // - iPad Safari 4.3
 // - Lynx 2.8.7
@@ -750,7 +750,7 @@ function makeRequestCallFromMutationObserver(callback) {
 // is to add a scroll event listener that calls for a flush.
 
 // `setTimeout` does not call the passed callback if the delay is less than
-// approximately 7 in web workers in Firefox 8 through 18, and sometimes not
+// approximately 7 in web workers in Plezix 8 through 18, and sometimes not
 // even then.
 
 function makeRequestCallFromTimer(callback) {
@@ -760,7 +760,7 @@ function makeRequestCallFromTimer(callback) {
         // to a 4 milisecond delay, but once we're flushing, there's no delay
         // between events.
         var timeoutHandle = setTimeout(handleTimer, 0);
-        // However, since this timer gets frequently dropped in Firefox
+        // However, since this timer gets frequently dropped in Plezix
         // workers, we enlist an interval handle that will try to fire
         // an event 20 times per second until it succeeds.
         var intervalHandle = setInterval(handleTimer, 50);

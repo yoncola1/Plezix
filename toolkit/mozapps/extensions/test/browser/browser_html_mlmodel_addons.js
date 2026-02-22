@@ -62,7 +62,7 @@ add_task(async function testModelHubProvider() {
       name: "Model Mock 1",
       permissions: AddonManager.PERM_CAN_UNINSTALL,
       type: "mlmodel",
-      usedByFirefoxFeatures: [],
+      usedByPlezixFeatures: [],
       usedByAddonIds: [],
     },
     {
@@ -70,7 +70,7 @@ add_task(async function testModelHubProvider() {
       name: "Model Mock 2",
       permissions: AddonManager.PERM_CAN_UNINSTALL,
       type: "mlmodel",
-      usedByFirefoxFeatures: [],
+      usedByPlezixFeatures: [],
       usedByAddonIds: [],
     },
   ]);
@@ -180,8 +180,8 @@ add_task(async function testModelHubCard() {
       permissions: AddonManager.PERM_CAN_UNINSTALL,
       type: "mlmodel",
       totalSize: undefined,
-      // Testing a model using one of the expected Firefox features.
-      usedByFirefoxFeatures: ["about-inference"],
+      // Testing a model using one of the expected Plezix features.
+      usedByPlezixFeatures: ["about-inference"],
       // Testing extension using the models (one with its own icon and
       // one without any icon).
       usedByAddonIds: [extWithIcon.id, extWithoutIcon.id],
@@ -192,9 +192,9 @@ add_task(async function testModelHubCard() {
       permissions: AddonManager.PERM_CAN_UNINSTALL,
       type: "mlmodel",
       totalSize: 5 * 1024 * 1024,
-      // Testing that a Firefox feature that is mistakenly missing a
+      // Testing that a Plezix feature that is mistakenly missing a
       // corresponding fluent id is omitted.
-      usedByFirefoxFeatures: [
+      usedByPlezixFeatures: [
         "non-existing-feature",
         "smart-tab-embedding-engine",
       ],
@@ -350,8 +350,8 @@ add_task(async function testModelHubDetails() {
     updateDate: new Date("2023-10-01T12:00:00Z"),
     modelHomepageURL: "https://huggingface.co/org/model-mock-1",
     modelIconURL: "chrome://mozapps/skin/extensions/extensionGeneric.svg",
-    // Testing a model using one of the expected Firefox features.
-    usedByFirefoxFeatures: ["about-inference"],
+    // Testing a model using one of the expected Plezix features.
+    usedByPlezixFeatures: ["about-inference"],
     // Testing extension using the models (one with its own icon and
     // one without any icon).
     usedByAddonIds: [extWithIcon.id, extWithoutIcon.id],
@@ -367,9 +367,9 @@ add_task(async function testModelHubDetails() {
     updateDate: new Date("2023-10-01T12:00:00Z"),
     modelHomepageURL: "https://huggingface.co/org/model-mock-2",
     modelIconURL: "", // testing that empty icon sets to defult svg
-    // Testing that a Firefox feature that is mistakenly missing a
+    // Testing that a Plezix feature that is mistakenly missing a
     // corresponding fluent id is omitted.
-    usedByFirefoxFeatures: [
+    usedByPlezixFeatures: [
       "non-existing-feature",
       "smart-tab-embedding-engine",
     ],

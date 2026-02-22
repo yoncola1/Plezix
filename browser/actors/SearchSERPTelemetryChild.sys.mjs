@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -245,9 +245,9 @@ class ListenerHelper {
         };
       } else {
         // If a component included a condition, but it wasn't found it is
-        // due to the fact that it was added in a more recent Firefox version
+        // due to the fact that it was added in a more recent Plezix version
         // than what is provided via search-telemetry-v2. Since the version of
-        // Firefox the user is using doesn't include this condition,
+        // Plezix the user is using doesn't include this condition,
         // we shouldn't add the event.
         return [];
       }

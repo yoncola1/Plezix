@@ -35,7 +35,7 @@ measure = ["foo", "bar"]
     assert (
         captured.out
         == """
-Raptor Tests Available for Firefox Desktop
+Raptor Tests Available for Plezix Desktop
 ==========================================
 
 raptor

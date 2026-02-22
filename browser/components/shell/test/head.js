@@ -8,7 +8,7 @@ const TEMP_DIR = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
 
 const screenshotPath = PathUtils.join(TEMP_DIR, "headless_test_screenshot.png");
 
-async function runFirefox(args) {
+async function runPlezix(args) {
   const XRE_EXECUTABLE_FILE = "XREExeF";
   const firefoxExe = Services.dirsvc.get(XRE_EXECUTABLE_FILE, Ci.nsIFile).path;
   const NS_APP_PREFS_50_FILE = "PrefF";
@@ -41,12 +41,12 @@ async function runFirefox(args) {
     dump(`>>> ${stdout}\n`);
   }
   let { exitCode } = await proc.wait();
-  is(exitCode, 0, "Firefox process should exit with code 0");
+  is(exitCode, 0, "Plezix process should exit with code 0");
   await IOUtils.remove(profilePath, { recursive: true });
 }
 
 async function testFileCreationPositive(args, path) {
-  await runFirefox(args);
+  await runPlezix(args);
 
   let saved = IOUtils.exists(path);
   ok(saved, "A screenshot should be saved as " + path);
@@ -60,7 +60,7 @@ async function testFileCreationPositive(args, path) {
 }
 
 async function testFileCreationNegative(args, path) {
-  await runFirefox(args);
+  await runPlezix(args);
 
   let saved = await IOUtils.exists(path);
   ok(!saved, "A screenshot should not be saved");
@@ -73,7 +73,7 @@ async function testWindowSizePositive(width, height) {
     size += "," + height;
   }
 
-  await runFirefox([
+  await runPlezix([
     "-url",
     "http://mochi.test:8888/browser/browser/components/shell/test/headless.html",
     "-screenshot",
@@ -117,7 +117,7 @@ async function testWindowSizePositive(width, height) {
 }
 
 async function testGreen(url, path) {
-  await runFirefox(["-url", url, `--screenshot=${path}`]);
+  await runPlezix(["-url", url, `--screenshot=${path}`]);
 
   let saved = await IOUtils.exists(path);
   ok(saved, "A screenshot should be saved in the tmp directory");

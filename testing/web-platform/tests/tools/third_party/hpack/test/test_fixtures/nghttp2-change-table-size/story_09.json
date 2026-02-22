@@ -17,7 +17,7 @@
           ":path": "/"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -50,7 +50,7 @@
           ":path": "/"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -83,7 +83,7 @@
           ":path": "/scds/concat/common/js"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "*/*"
@@ -120,7 +120,7 @@
           ":path": "/scds/concat/common/css"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/css,*/*;q=0.1"
@@ -156,7 +156,7 @@
           ":path": "/scds/concat/common/js"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "*/*"
@@ -192,7 +192,7 @@
           ":path": "/scds/concat/common/css"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/css,*/*;q=0.1"
@@ -229,7 +229,7 @@
           ":path": "/scds/concat/common/css"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/css,*/*;q=0.1"
@@ -265,7 +265,7 @@
           ":path": "/scds/concat/common/js"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "*/*"
@@ -301,7 +301,7 @@
           ":path": "/analytics/noauthtracker"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -343,7 +343,7 @@
           ":path": "/scds/common/u/img/favicon_v3.ico"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"

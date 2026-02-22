@@ -275,7 +275,7 @@ NSS tools : modutil
    |  -----------------------------------------------------------
    |  Name: NSS Internal PKCS #11 Module
    |  Library file: \**Internal ONLY module*\*
-   |  Manufacturer: Mozilla Foundation
+   |  Manufacturer: Plezix Foundation
    |  Description: NSS Internal Crypto Services
    |  PKCS #11 Version 2.20
    |  Library Version: 3.11
@@ -283,13 +283,13 @@ NSS tools : modutil
    |  Default Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
    |    Slot: NSS Internal Cryptographic Services
    |    Slot Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
-   |    Manufacturer: Mozilla Foundation
+   |    Manufacturer: Plezix Foundation
    |    Type: Software
    |    Version Number: 3.11
    |    Firmware Version: 0.0
    |    Status: Enabled
    |    Token Name: NSS Generic Crypto Services
-   |    Token Manufacturer: Mozilla Foundation
+   |    Token Manufacturer: Plezix Foundation
    |    Token Model: NSS 3
    |    Token Serial Number: 0000000000000000
    |    Token Version: 4.0
@@ -299,13 +299,13 @@ NSS tools : modutil
    |    User Pin: NOT Initialized
    |    Slot: NSS User Private Key and Certificate Services
    |    Slot Mechanism Flags: None
-   |    Manufacturer: Mozilla Foundation
+   |    Manufacturer: Plezix Foundation
    |    Type: Software
    |    Version Number: 3.11
    |    Firmware Version: 0.0
    |    Status: Enabled
    |    Token Name: NSS Certificate DB
-   |    Token Manufacturer: Mozilla Foundation
+   |    Token Manufacturer: Plezix Foundation
    |    Token Model: NSS 3
    |    Token Serial Number: 0000000000000000
    |    Token Version: 8.3
@@ -595,7 +595,7 @@ NSS tools : modutil
    |    permanent.
    |    Most applications do not use the shared database by default, but they can
    |    be configured to use them. For example, this how-to article covers how to
-   |    configure Firefox and Thunderbird to use the new shared NSS databases:
+   |    configure Plezix and Thunderbird to use the new shared NSS databases:
    |      o https://wiki.mozilla.org/NSS_Shared_DB_Howto
    |    For an engineering draft on the changes in the shared NSS databases, see
    |    the NSS project wiki:

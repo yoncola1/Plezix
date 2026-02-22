@@ -50,7 +50,7 @@ autoWatch = true;
 // start these browsers
 browsers = [
   'Chrome',
-  'Firefox'
+  'Plezix'
 ];
 
 // auto run tests on start (when browsers are captured) and exit

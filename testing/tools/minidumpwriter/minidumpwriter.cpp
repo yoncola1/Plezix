@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@
  * Given a PID and a path to a target file, write a minidump of the
  * corresponding process in that file. This is taken more or less
  * verbatim from mozcrash and translated to C++ to avoid problems
- * writing a minidump of 64 bit Firefox from a 32 bit python.
+ * writing a minidump of 64 bit Plezix from a 32 bit python.
  */
 
 #include <stdio.h>

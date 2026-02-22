@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ pub struct DeserializerTagsState {
     pub marker_type_id_to_deserializer_tag: HashMap<TypeId, u8>,
     /// Vector of marker type functions.
     /// 1-based, i.e.: [0] -> tag 1. Elements are pushed to the end of the vector
-    /// whenever a new marker type is used in a Firefox session; the content is
+    /// whenever a new marker type is used in a Plezix session; the content is
     /// kept between profiler runs in that session. On the C++ side, we have the
     /// same algorithm (althought it's a sized array). See `sMarkerTypeFunctions1Based`.
     pub marker_type_functions_1_based: Vec<MarkerTypeFunctions>,

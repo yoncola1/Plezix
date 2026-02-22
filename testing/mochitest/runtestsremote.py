@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -69,7 +69,7 @@ class MochiRemote(MochitestDesktop):
         self.message_logger = MessageLogger(logger=None)
         self.message_logger.logger = self.log
 
-        # Check that Firefox is installed
+        # Check that Plezix is installed
         expected = options.app.split("/")[-1]
         if not self.device.is_app_installed(expected):
             raise Exception("%s is not installed on this device" % expected)

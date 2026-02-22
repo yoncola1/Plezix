@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -89,7 +89,7 @@ import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.deletebrowsingdata.deleteAndQuit
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.DELAY_MS_MAIN_MENU
 import org.mozilla.fenix.utils.DELAY_MS_SUB_MENU
 import org.mozilla.fenix.utils.DURATION_MS_MAIN_MENU
@@ -189,7 +189,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 val context = LocalContext.current
 
                 val components = components
@@ -331,7 +331,7 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                     isExtensionsExpanded = isExtensionsExpanded,
                     isMoreMenuExpanded = isMoreMenuExpanded,
                     cornerShape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
-                    handleColor = FirefoxTheme.colors.borderInverted.copy(0.4f),
+                    handleColor = PlezixTheme.colors.borderInverted.copy(0.4f),
                     handleCornerRadius = CornerRadius(100f, 100f),
                     menuCfrState = if (settings.shouldShowMenuCFR) {
                         MenuCFRState(
@@ -544,10 +544,10 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     showBanner = showBanner,
                                     webExtensionMenuCount = webExtensionsCount,
                                     allWebExtensionsDisabled = allWebExtensionsDisabled,
-                                    onMozillaAccountButtonClick = {
+                                    onPlezixAccountButtonClick = {
                                         view?.slideDown {
                                             store.dispatch(
-                                                MenuAction.Navigate.MozillaAccount(
+                                                MenuAction.Navigate.PlezixAccount(
                                                     accountState = accountState,
                                                     accesspoint = args.accesspoint,
                                                 ),
@@ -769,8 +769,8 @@ class MenuDialogFragment : BottomSheetDialogFragment() {
                                     onFindInPageMenuClick = {
                                         store.dispatch(MenuAction.FindInPage)
                                     },
-                                    onOpenInFirefoxMenuClick = {
-                                        store.dispatch(MenuAction.OpenInFirefox)
+                                    onOpenInPlezixMenuClick = {
+                                        store.dispatch(MenuAction.OpenInPlezix)
                                     },
                                     onBackButtonClick = { viewHistory: Boolean ->
                                         store.dispatch(MenuAction.Navigate.Back(viewHistory))

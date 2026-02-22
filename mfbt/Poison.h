@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,12 +20,12 @@
 
 MOZ_BEGIN_EXTERN_C
 
-extern MFBT_DATA uintptr_t gMozillaPoisonValue;
+extern MFBT_DATA uintptr_t gPlezixPoisonValue;
 
 /**
  * @return the poison value.
  */
-inline uintptr_t mozPoisonValue() { return gMozillaPoisonValue; }
+inline uintptr_t mozPoisonValue() { return gPlezixPoisonValue; }
 
 /**
  * Overwrite the memory block of aSize bytes at aPtr with the poison value.
@@ -43,8 +43,8 @@ inline void mozWritePoison(void* aPtr, size_t aSize) {
 }
 
 /* Values annotated by CrashReporter */
-extern MFBT_DATA uintptr_t gMozillaPoisonBase;
-extern MFBT_DATA uintptr_t gMozillaPoisonSize;
+extern MFBT_DATA uintptr_t gPlezixPoisonBase;
+extern MFBT_DATA uintptr_t gPlezixPoisonSize;
 
 MOZ_END_EXTERN_C
 

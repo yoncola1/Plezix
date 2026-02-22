@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -22,11 +22,11 @@ deps = [
 setup(
     name=PACKAGE_NAME,
     version=PACKAGE_VERSION,
-    description="Mozilla's mach perftest command",
+    description="Plezix's mach perftest command",
     classifiers=["Programming Language :: Python :: 3.6"],
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords="",
-    author="Mozilla Performance Test Engineering Team",
+    author="Plezix Performance Test Engineering Team",
     author_email="tools@lists.mozilla.org",
     url="https://hg.mozilla.org/mozilla-central/file/tip/python/mozperftest",
     license="MPL",

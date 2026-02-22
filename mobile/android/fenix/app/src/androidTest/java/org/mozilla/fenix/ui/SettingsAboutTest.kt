@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ class SettingsAboutTest : TestSetup() {
         }.openSettings {
             verifyAboutHeading()
             verifyRateOnGooglePlay()
-            verifyAboutFirefoxPreview()
+            verifyAboutPlezixPreview()
         }
     }
 
@@ -62,12 +62,12 @@ class SettingsAboutTest : TestSetup() {
 
     // TestRail link: https://mozilla.testrail.io/index.php?/cases/view/246961
     @Test
-    fun verifyAboutFirefoxMenuItems() {
+    fun verifyAboutPlezixMenuItems() {
         homeScreen {
         }.openThreeDotMenu {
         }.openSettings {
-        }.openAboutFirefoxPreview {
-            verifyAboutFirefoxPreviewInfo()
+        }.openAboutPlezixPreview {
+            verifyAboutPlezixPreviewInfo()
         }
     }
 
@@ -77,7 +77,7 @@ class SettingsAboutTest : TestSetup() {
             homeScreen {
             }.openThreeDotMenu {
             }.openSettings {
-            }.openAboutFirefoxPreview {
+            }.openAboutPlezixPreview {
                 verifyLibrariesUsedLink()
                 verifyTheLibrariesListNotEmpty()
             }

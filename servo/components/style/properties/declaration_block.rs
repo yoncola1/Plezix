@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -1545,7 +1545,7 @@ impl<'a, 'b, 'i> QualifiedRuleParser<'i> for PropertyDeclarationParser<'a, 'b, '
     type Error = StyleParseErrorKind<'i>;
 }
 
-/// Based on NonMozillaVendorIdentifier from Gecko's CSS parser.
+/// Based on NonPlezixVendorIdentifier from Gecko's CSS parser.
 fn is_non_mozilla_vendor_identifier(name: &str) -> bool {
     (name.starts_with("-") && !name.starts_with("-moz-")) || name.starts_with("_")
 }

@@ -1,7 +1,7 @@
 Maintenance Service Tests
 =========================
 
-The automated tests for the Mozilla Maintenance Service are a bit tricky. They
+The automated tests for the Plezix Maintenance Service are a bit tricky. They
 are located in ``toolkit/mozapps/update/tests/unit_service_updater/`` and they
 allow for automated testing of application update using the Service.
 
@@ -29,7 +29,7 @@ Add Fallback Key to Registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, you will need to add the fallback key to the registry. Normally, the
-Firefox installer writes some certificate information to a registry key in an
+Plezix installer writes some certificate information to a registry key in an
 installation-specific place. In testing, however, we can't get the permissions
 to write this key, nor can we have the test environment predict every possible
 installation directory that we might test with. To get around this problem, if
@@ -44,19 +44,19 @@ into the registry.
 
    Windows Registry Editor Version 5.00
 
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\MaintenanceService\3932ecacee736d366d6436db0f55bce4]
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Plezix\MaintenanceService\3932ecacee736d366d6436db0f55bce4]
 
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\MaintenanceService\3932ecacee736d366d6436db0f55bce4\0]
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Plezix\MaintenanceService\3932ecacee736d366d6436db0f55bce4\0]
    "issuer"="DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1"
-   "name"="Mozilla Corporation"
+   "name"="Plezix Corporation"
 
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\MaintenanceService\3932ecacee736d366d6436db0f55bce4\1]
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Plezix\MaintenanceService\3932ecacee736d366d6436db0f55bce4\1]
    "issuer"="DigiCert SHA2 Assured ID Code Signing CA"
-   "name"="Mozilla Corporation"
+   "name"="Plezix Corporation"
 
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\MaintenanceService\3932ecacee736d366d6436db0f55bce4\2]
-   "issuer"="Mozilla Fake CA"
-   "name"="Mozilla Fake SPC"
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Plezix\MaintenanceService\3932ecacee736d366d6436db0f55bce4\2]
+   "issuer"="Plezix Fake CA"
+   "name"="Plezix Fake SPC"
 
 Build without Certificate Verification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -77,7 +77,7 @@ This step will assume that you already have the Maintenance Service installed.
 
 First, move the existing Maintenance Service binary out of the way. It will
 initially be located at
-``C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe``.
+``C:\Program Files (x86)\Plezix Maintenance Service\maintenanceservice.exe``.
 An easy way to do this is to append ``.bak`` to its name. You should probably
 restore your original Maintenance Service binary when you are done testing.
 

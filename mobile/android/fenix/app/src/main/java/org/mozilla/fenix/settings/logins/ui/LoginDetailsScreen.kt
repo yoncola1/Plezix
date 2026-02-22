@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -45,7 +45,7 @@ import mozilla.components.compose.base.theme.AcornTheme
 import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 @Composable
 internal fun LoginDetailsScreen(store: LoginsStore) {
@@ -60,14 +60,14 @@ internal fun LoginDetailsScreen(store: LoginsStore) {
                 onBackClick = { store.dispatch(LoginsDetailBackClicked) },
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .width(FirefoxTheme.layout.size.containerMaxWidth),
+                .width(PlezixTheme.layout.size.containerMaxWidth),
         ) {
-            Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.static200))
+            Spacer(modifier = Modifier.height(PlezixTheme.layout.space.static200))
             LoginDetailsUrl(store = store, url = detailState.login.url)
             Spacer(modifier = Modifier.height(8.dp))
             LoginDetailsUsername(store = store, username = detailState.login.username)
@@ -87,7 +87,7 @@ private fun LoginDetailTopBar(
     var showMenu by remember { mutableStateOf(false) }
 
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         windowInsets = WindowInsets(
             top = 0.dp,
             bottom = 0.dp,
@@ -95,8 +95,8 @@ private fun LoginDetailTopBar(
         title = {
             Text(
                 text = loginItem.getDomainName(),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -106,7 +106,7 @@ private fun LoginDetailTopBar(
                     contentDescription = stringResource(
                         R.string.login_details_navigate_back_button_content_description,
                     ),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -118,12 +118,12 @@ private fun LoginDetailTopBar(
                         R.string.login_detail_menu_button_content_description,
                     ),
                     modifier = Modifier
-                        .padding(horizontal = FirefoxTheme.layout.space.static50),
+                        .padding(horizontal = PlezixTheme.layout.space.static50),
                     ) {
                     Icon(
                         painter = painterResource(R.drawable.mozac_ic_ellipsis_vertical_24),
                         contentDescription = null,
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
 
@@ -179,7 +179,7 @@ private fun LoginDetailsUrl(store: LoginsStore, url: String) {
         color = TextFieldColors.default().labelColor,
         modifier = Modifier
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
+                horizontal = PlezixTheme.layout.space.static200,
             ),
     )
 
@@ -256,7 +256,7 @@ private fun LoginDetailsPassword(store: LoginsStore, password: String) {
 
         IconButton(
             modifier = Modifier
-                .padding(horizontal = FirefoxTheme.layout.space.static50)
+                .padding(horizontal = PlezixTheme.layout.space.static50)
                 .size(48.dp),
             onClick = { store.dispatch(DetailLoginAction.CopyPasswordClicked(password)) },
             contentDescription = stringResource(R.string.saved_logins_copy_password),
@@ -294,8 +294,8 @@ private fun LoginDetailsScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             LoginDetailsScreen(store)
         }
     }

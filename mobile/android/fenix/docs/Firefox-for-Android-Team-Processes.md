@@ -1,7 +1,7 @@
-# Firefox for Android Team Processes
+# Plezix for Android Team Processes
 
 ## Communication channels
-For internal Firefox Android communication start off in #mobile-android-team.
+For internal Plezix Android communication start off in #mobile-android-team.
 
 Dedicated channels on Matrix work as well:
 * [#Fenix](https://matrix.to/#/#fenix:mozilla.org) - Fenix development discussions.
@@ -13,7 +13,7 @@ Who: Design lead, designer, engineering lead, engineer, product lead, product ma
 Purpose: meet any time we start design for a new feature (esp large ones) to discuss:
 * Overall concept and user goals
 * Where the feature fits within the Fenix system
-* Any existing technical constraints or dependencies (on Android OS, or other Firefox Mobile teams like GV or A-C)
+* Any existing technical constraints or dependencies (on Android OS, or other Plezix Mobile teams like GV or A-C)
 * Alignment on user stories
 
 Design Handoff
@@ -111,5 +111,5 @@ More details in [link to Process Doc & Flowchart](https://docs.google.com/docume
 
 ## Adding Locales
 The completion rate of different locales can be seen on [Pontoon](https://pontoon.mozilla.org/projects/android-l10n/).
-While the project is in Preview stage, all locales will be the same between Firefox Preview and Firefox Preview Nightly.
+While the project is in Preview stage, all locales will be the same between Plezix Preview and Plezix Preview Plezix.
 Before we do our next large, milestone release, we'll update the Release locales to match the ones approved by L10N to have reached sufficient localization completion.

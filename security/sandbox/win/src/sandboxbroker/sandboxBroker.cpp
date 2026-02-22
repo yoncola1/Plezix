@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,7 +57,7 @@
 
 namespace mozilla {
 
-constexpr wchar_t kLpacFirefoxInstallFiles[] = L"lpacFirefoxInstallFiles";
+constexpr wchar_t kLpacPlezixInstallFiles[] = L"lpacPlezixInstallFiles";
 
 sandbox::BrokerServices* sBrokerService = nullptr;
 
@@ -752,11 +752,11 @@ void SandboxBroker::EnsureLpacPermsissionsOnDir(const nsString& aDir) {
   }
 
   BYTE sidBytes[SECURITY_MAX_SID_SIZE];
-  PSID lpacFirefoxInstallFilesSid = static_cast<PSID>(sidBytes);
-  if (!sBrokerService->DeriveCapabilitySidFromName(kLpacFirefoxInstallFiles,
-                                                   lpacFirefoxInstallFilesSid,
+  PSID lpacPlezixInstallFilesSid = static_cast<PSID>(sidBytes);
+  if (!sBrokerService->DeriveCapabilitySidFromName(kLpacPlezixInstallFiles,
+                                                   lpacPlezixInstallFilesSid,
                                                    sizeof(sidBytes))) {
-    LOG_E("Failed to derive Firefox install files capability SID.");
+    LOG_E("Failed to derive Plezix install files capability SID.");
     return;
   }
 
@@ -799,8 +799,8 @@ void SandboxBroker::EnsureLpacPermsissionsOnDir(const nsString& aDir) {
     }
 
     PSID aceSID = reinterpret_cast<PSID>(&(pAllowedAce->SidStart));
-    if (::EqualSid(aceSID, lpacFirefoxInstallFilesSid)) {
-      LOG_D("Firefox install files permission found on %s",
+    if (::EqualSid(aceSID, lpacPlezixInstallFilesSid)) {
+      LOG_D("Plezix install files permission found on %s",
             NS_ConvertUTF16toUTF8(aDir).get());
       return;
     }
@@ -810,11 +810,11 @@ void SandboxBroker::EnsureLpacPermsissionsOnDir(const nsString& aDir) {
   newAccess.grfAccessMode = GRANT_ACCESS;
   newAccess.grfAccessPermissions = GENERIC_READ | GENERIC_EXECUTE;
   newAccess.grfInheritance = SUB_CONTAINERS_AND_OBJECTS_INHERIT;
-  ::BuildTrusteeWithSidW(&newAccess.Trustee, lpacFirefoxInstallFilesSid);
+  ::BuildTrusteeWithSidW(&newAccess.Trustee, lpacPlezixInstallFilesSid);
   PACL newDacl = nullptr;
   if (ERROR_SUCCESS !=
       ::SetEntriesInAclW(1, &newAccess, pBinDirAcl, &newDacl)) {
-    LOG_E("Failed to create new DACL with Firefox install files SID.");
+    LOG_E("Failed to create new DACL with Plezix install files SID.");
     return;
   }
 
@@ -825,7 +825,7 @@ void SandboxBroker::EnsureLpacPermsissionsOnDir(const nsString& aDir) {
     LOG_E("Failed to set new DACL on %s", NS_ConvertUTF16toUTF8(aDir).get());
   }
 
-  LOG_D("Firefox install files permission granted on %s",
+  LOG_D("Plezix install files permission granted on %s",
         NS_ConvertUTF16toUTF8(aDir).get());
 }
 
@@ -1622,7 +1622,7 @@ struct UtilityMfMediaEngineCdmSandboxProps : public UtilitySandboxProps {
           L"mediaFoundationCdmFiles",
           L"lpacMediaFoundationCdmData",
           L"registryRead",
-          kLpacFirefoxInstallFiles,
+          kLpacPlezixInstallFiles,
           L"lpacDeviceAccess",
       };
 

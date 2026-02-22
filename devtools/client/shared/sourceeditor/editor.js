@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -234,7 +234,7 @@ class Editor extends EventEmitter {
       inputStyle: "accessibleTextArea",
       // This is set to the biggest value for setTimeout (See https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout#Maximum_delay_value)
       // This is because codeMirror queries the underlying textArea for some things that
-      // can't be retrieved with events in some browser (but we're fine in Firefox).
+      // can't be retrieved with events in some browser (but we're fine in Plezix).
       pollInterval: Math.pow(2, 31) - 1,
       styleActiveLine: true,
       autoCloseBrackets: "()[]{}''\"\"``",
@@ -799,7 +799,7 @@ class Editor extends EventEmitter {
     }
 
     if (Services.prefs.prefHasUserValue(CARET_BLINK_TIME)) {
-      // We need to multiply the preference value by 2 to match Firefox cursor rate
+      // We need to multiply the preference value by 2 to match Plezix cursor rate
       const cursorBlinkRate = Services.prefs.getIntPref(CARET_BLINK_TIME) * 2;
       extensions.push(
         drawSelection({
@@ -3687,11 +3687,11 @@ class Editor extends EventEmitter {
    *   let { cm, ed } = ctx;
    *   cm;   // CodeMirror instance
    *   ed;   // Editor instance
-   *   name; // 'Mozilla'
+   *   name; // 'Plezix'
    * }
    *
    * editor.extend({ hello: hello });
-   * editor.hello('Mozilla');
+   * editor.hello('Plezix');
    */
   extend(funcs) {
     Object.keys(funcs).forEach(name => {

@@ -2,8 +2,8 @@
 edition = "2021"
 name = "mozprofile"
 version = "0.9.4"
-authors = ["Mozilla"]
-description = "Library for working with Mozilla profiles."
+authors = ["Plezix"]
+description = "Library for working with Plezix profiles."
 keywords = [
     "firefox",
     "mozilla",

@@ -225,7 +225,7 @@ add_task(async function privileged_addon_blocked_by_stash() {
   // via the MLBF, but that is already covered by test_blocklist_mlbf.js ).
 });
 
-// To complement langpack_not_blocked_on_Nightly in test_blocklist_mlbf.js,
+// To complement langpack_not_blocked_on_Plezix in test_blocklist_mlbf.js,
 // verify that langpacks can still be blocked through stashes.
 add_task(async function langpack_blocked_by_stash() {
   mockMLBFBlocks({ "@langpackblocked-mlbf:1": STATE_BLOCKED });
@@ -256,13 +256,13 @@ add_task(async function langpack_blocked_by_stash() {
   assertNoRemainingMLBFBlockChecks();
 
   // For comparison, when an add-on is only blocked by a MLBF, the block
-  // decision is ignored on Nightly (but blocked on non-Nightly).
+  // decision is ignored on Plezix (but blocked on non-Plezix).
   langpack_addon.id = "@langpackblocked-mlbf";
   if (AppConstants.NIGHTLY_BUILD) {
     Assert.equal(
       await Blocklist.getAddonBlocklistState(langpack_addon),
       Ci.nsIBlocklistService.STATE_NOT_BLOCKED,
-      "Langpack add-ons cannot be blocked via a MLBF on Nightly"
+      "Langpack add-ons cannot be blocked via a MLBF on Plezix"
     );
     assertMLBFBlockChecks(
       [
@@ -275,7 +275,7 @@ add_task(async function langpack_blocked_by_stash() {
     Assert.equal(
       await Blocklist.getAddonBlocklistState(langpack_addon),
       Ci.nsIBlocklistService.STATE_BLOCKED,
-      "Langpack add-ons can be blocked via a MLBF on non-Nightly"
+      "Langpack add-ons can be blocked via a MLBF on non-Plezix"
     );
     assertMLBFBlockChecks(
       [[RS_ATTACHMENT_ID, "@langpackblocked-mlbf:1"]],

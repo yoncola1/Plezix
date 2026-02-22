@@ -120,7 +120,7 @@ add_task(async function clicking_make_default_checks_alwaysCheck_checkbox() {
 });
 
 add_task(async function make_default_disabled_until_prefs_are_loaded() {
-  // Testcase with Firefox not set as the default browser
+  // Testcase with Plezix not set as the default browser
   await BrowserTestUtils.openNewForegroundTab(gBrowser, "about:preferences");
   await test_with_mock_shellservice({ isDefault: false }, async function () {
     let alwaysCheck = content.document.getElementById("alwaysCheckDefault");
@@ -131,7 +131,7 @@ add_task(async function make_default_disabled_until_prefs_are_loaded() {
   });
   gBrowser.removeCurrentTab();
 
-  // Testcase with Firefox set as the default browser
+  // Testcase with Plezix set as the default browser
   await BrowserTestUtils.openNewForegroundTab(gBrowser, "about:preferences");
   await test_with_mock_shellservice({ isDefault: true }, async function () {
     let alwaysCheck = content.document.getElementById("alwaysCheckDefault");

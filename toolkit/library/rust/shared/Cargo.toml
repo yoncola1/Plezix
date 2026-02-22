@@ -3,7 +3,7 @@
 edition = "2015"
 name = "gkrust-shared"
 version = "0.1.0"
-authors = ["The Mozilla Project Developers"]
+authors = ["The Plezix Project Developers"]
 license = "MPL-2.0"
 description = "Shared Rust code for libxul"
 
@@ -103,8 +103,8 @@ localization-ffi = { path = "../../../../intl/l10n/rust/localization-ffi" }
 processtools = { path = "../../../components/processtools" }
 qcms = { path = "../../../../gfx/qcms", features = ["c_bindings", "neon"], default-features = false }
 
-wpf-gpu-raster = { git = "https://github.com/FirefoxGraphics/wpf-gpu-raster", rev = "99979da091fd58fba8477e7fcdf5ec0727102916" }
-aa-stroke = { git = "https://github.com/FirefoxGraphics/aa-stroke", rev = "a821fa621c2def48e90c82774b4c6563b5a8ea4a" }
+wpf-gpu-raster = { git = "https://github.com/PlezixGraphics/wpf-gpu-raster", rev = "99979da091fd58fba8477e7fcdf5ec0727102916" }
+aa-stroke = { git = "https://github.com/PlezixGraphics/aa-stroke", rev = "a821fa621c2def48e90c82774b4c6563b5a8ea4a" }
 etagere = { version = "0.2.13", features = ["ffi"] }
 
 url = "2.5.0"

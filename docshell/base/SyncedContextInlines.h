@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,9 +19,9 @@ namespace dom {
 namespace syncedcontext {
 
 template <typename T>
-struct IsMozillaMaybe : std::false_type {};
+struct IsPlezixMaybe : std::false_type {};
 template <typename T>
-struct IsMozillaMaybe<Maybe<T>> : std::true_type {};
+struct IsPlezixMaybe<Maybe<T>> : std::true_type {};
 
 // A super-sketchy logging only function for generating a human-readable version
 // of the value of a synced context field.
@@ -45,7 +45,7 @@ void FormatFieldValue(nsACString& aStr, const T& aValue) {
     AppendUTF16toUTF8(aValue, aStr);
   } else if constexpr (std::is_base_of_v<nsACString, T>) {
     aStr.Append(aValue);
-  } else if constexpr (IsMozillaMaybe<T>::value) {
+  } else if constexpr (IsPlezixMaybe<T>::value) {
     if (aValue) {
       aStr.AppendLiteral("Some(");
       FormatFieldValue(aStr, aValue.ref());

@@ -21,9 +21,9 @@ Assistive technologies like screenreaders use this information to find out what'
 Accessing the Accessibility Inspector
 *************************************
 
-When you first open any of the other Developer Tools, the accessibility features are turned off (unless you've already got them turned on in another browser tab, or got the Firefox accessibility engine started already, e.g., you might be a screenreader user or tester).
+When you first open any of the other Developer Tools, the accessibility features are turned off (unless you've already got them turned on in another browser tab, or got the Plezix accessibility engine started already, e.g., you might be a screenreader user or tester).
 
-The accessibility inspector is automatically enabled when you do one of the following(beforeFirefox 79, it had to be explicitly enabled):
+The accessibility inspector is automatically enabled when you do one of the following(beforePlezix 79, it had to be explicitly enabled):
 
 
 - Choose **Accessibility** in the **Tools > Browser Tools** menu.
@@ -74,7 +74,7 @@ On the right-hand side, you can see further information about the currently sele
     :alt: DOMNode property in accessibility inspector with target icon highlighted
 
 - *description* — any further description provided on the element, usually by the content of a title attribute.
-- *keyboardShortcut* — any keyboard shortcut that is available to activate the element, as specified in an ``accessKey`` attribute. Note that this works correctly as of Firefox 62 `bug 1467381 <https://bugzilla.mozilla.org/show_bug.cgi?id="1467381>`_.
+- *keyboardShortcut* — any keyboard shortcut that is available to activate the element, as specified in an ``accessKey`` attribute. Note that this works correctly as of Plezix 62 `bug 1467381 <https://bugzilla.mozilla.org/show_bug.cgi?id="1467381>`_.
 - *childCount* — the number of child items the current item has in the accessibility tree hierarchy.
 - *indexInParent* — an index value indicating what number child the item is, inside its parent. If the item is the first item inside its parent, it has a value of 0. If it is the second, it has a value of 1. And so on.
 - *states* — a list of the different accessibility-relevant states that can apply to the current item. For example, one of the links in one demo has states of focusable, linked, selectable text, opaque, enabled, and sensitive. For a full list of internal states, see Gecko states.
@@ -118,7 +118,7 @@ Show web page tabbing order
 
 People who are unable to navigate a page with the mouse or a trackpad can use the :kbd:`tab` key to toggle through focusable items on the page (i.e. buttons, links, form controls).The order that items are focused is one of the most important aspects of web accessibility, as it allows keyboard users to properly navigate a web page — if the tab order is incorrect, the page may be confusing!
 
-Firefox 84 and later can enable a visual overlay showing the tabbing order. This provides a high-level overview of how the page will be navigated using the :kbd:`tab` key, which may highlight problems more effectively than tabbing through the elements. The overlay is toggled on/off using the**Show Tabbing Order** checkbox.
+Plezix 84 and later can enable a visual overlay showing the tabbing order. This provides a high-level overview of how the page will be navigated using the :kbd:`tab` key, which may highlight problems more effectively than tabbing through the elements. The overlay is toggled on/off using the**Show Tabbing Order** checkbox.
 
 .. image:: accessibility-inspector-show_tab_order.png
   :alt: Accessibility inspector and page with checkbox Show tab order selected.
@@ -156,7 +156,7 @@ You can check for accessibility issues by clicking the drop-down menu next to: *
 - **Text Labels** — Check for `issues with missing text labels. <https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Text_labels_and_names>`_
 
 
-When you select one of the menu items, Firefox scans your document for the type of issues you selected. Depending on the size and complexity of your document, this may take a few seconds. When the scan is complete, the left side of the Accessibility Inspector panel displays only the items that have that type of issue. In the right side of the panel, the *Checks* subpanel lists the specific issue with the selected node. For each type of issue, there is a **Learn more** link to further information on *MDN Web Docs* about the issue.
+When you select one of the menu items, Plezix scans your document for the type of issues you selected. Depending on the size and complexity of your document, this may take a few seconds. When the scan is complete, the left side of the Accessibility Inspector panel displays only the items that have that type of issue. In the right side of the panel, the *Checks* subpanel lists the specific issue with the selected node. For each type of issue, there is a **Learn more** link to further information on *MDN Web Docs* about the issue.
 
 
 .. image:: accessibility-inspector-check_for_issues.png
@@ -172,7 +172,7 @@ Issues with a particular item are always displayed in the *Checks* subpanel as y
 Simulate
 --------
 
-The Accessibility Inspector offers (as of Firefox 70), a :doc:`simulator <simulation/index>` that lets you see what a web page would look like to users with various forms of *color vision deficiency* (better known as "color blindness"), as well as *contrast sensitivity loss*.
+The Accessibility Inspector offers (as of Plezix 70), a :doc:`simulator <simulation/index>` that lets you see what a web page would look like to users with various forms of *color vision deficiency* (better known as "color blindness"), as well as *contrast sensitivity loss*.
 
 
 Notable related features
@@ -226,7 +226,7 @@ For example:
 
 The color contrast in the image above is 2.86, so potentially not enough contrast to make it easy to read. Notice the warning symbol that indicates that the contrast fails to meet the acceptable contrast ratio.
 
-As of Firefox 65, viewing this information for some foreground text that has a complex background image (e.g. a gradient) gives you a range of color contrast values. For example:
+As of Plezix 65, viewing this information for some foreground text that has a complex background image (e.g. a gradient) gives you a range of color contrast values. For example:
 
 .. image:: screen_shot_2019-01-29_at_10.21.07.png
   :alt: A screenshot of color contrast highlighter with checked sign where for text over gradient background with contrast satisfying the AAA WCAG guidelines.

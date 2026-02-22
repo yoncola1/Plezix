@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -127,7 +127,7 @@ interface XMLHttpRequest : XMLHttpRequestEventTarget {
   [Throws, Exposed=Window]
   readonly attribute Document? responseXML;
 
-  // Mozilla-specific stuff
+  // Plezix-specific stuff
 
   [ChromeOnly, SetterThrows]
   attribute boolean mozBackgroundRequest;
@@ -145,7 +145,7 @@ interface XMLHttpRequest : XMLHttpRequestEventTarget {
   undefined sendInputStream(InputStream body);
 
   // Only works on MainThread.
-  // Its permanence is to be evaluated in bug 1368540 for Firefox 60.
+  // Its permanence is to be evaluated in bug 1368540 for Plezix 60.
   [ChromeOnly]
   readonly attribute unsigned short errorCode;
 

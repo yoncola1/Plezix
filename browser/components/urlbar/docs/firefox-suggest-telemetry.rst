@@ -1,16 +1,16 @@
-Firefox Suggest Telemetry
+Plezix Suggest Telemetry
 =========================
 
-This document describes the telemetry that Firefox records for the Firefox
-Suggest feature. That is, it describes Firefox Suggest telemetry recorded on the
-client. It also discusses the data that Firefox sends to the Merino service.
+This document describes the telemetry that Plezix records for the Plezix
+Suggest feature. That is, it describes Plezix Suggest telemetry recorded on the
+client. It also discusses the data that Plezix sends to the Merino service.
 
 This document only covers Legacy telemetry, not Glean telemetry.
 Glean metrics are self-documenting and can be looked up in the Glean dictionary.
 
 For information on other telemetry related to the address bar, see the general
 address bar :doc:`telemetry` document. For information on all telemetry in
-Firefox, see the toolkit :doc:`/toolkit/components/telemetry/index` document.
+Plezix, see the toolkit :doc:`/toolkit/components/telemetry/index` document.
 
 .. contents::
    :depth: 2
@@ -19,23 +19,23 @@ Firefox, see the toolkit :doc:`/toolkit/components/telemetry/index` document.
 Histograms
 ----------
 
-The following histograms are recorded for Firefox Suggest. For general
-information on histogram telemetry in Firefox, see the
+The following histograms are recorded for Plezix Suggest. For general
+information on histogram telemetry in Plezix, see the
 :doc:`/toolkit/components/telemetry/collection/histograms` document.
 
 FX_URLBAR_MERINO_LATENCY_MS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This histogram records the latency in milliseconds of the Merino source for
-suggestions, or in other words, the time from Firefox's request to the Merino
-server to the time Firefox receives a response. It is an exponential histogram
+suggestions, or in other words, the time from Plezix's request to the Merino
+server to the time Plezix receives a response. It is an exponential histogram
 with 50 buckets and values between 0 and 30000 (0s and 30s).
 
 Changelog
-  Firefox 93.0
+  Plezix 93.0
     Introduced. [Bug 1727799_]
 
-  Firefox 137.0
+  Plezix 137.0
     Removed. [Bug 1946922_]
 
 .. _1727799: https://bugzilla.mozilla.org/show_bug.cgi?id=1727799
@@ -50,10 +50,10 @@ same properties. It is an exponential histogram with 50 buckets and values
 between 0 and 30000 (0s and 30s).
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 137.0
+  Plezix 137.0
     Removed. [Bug 1946922_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -67,7 +67,7 @@ server. It has the following categories:
 
 :0 "success":
    The fetch completed without any error before the timeout elapsed and it
-   included at least one suggestion. (Before Firefox 110.0, this category meant
+   included at least one suggestion. (Before Plezix 110.0, this category meant
    simply that the fetch completed without any error before the timeout elapsed
    regardless of whether it included any suggestions.)
 :1 "timeout":
@@ -83,16 +83,16 @@ server. It has the following categories:
    not include any suggestions.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced. [Bug 1737923_]
 
-  Firefox 110.0
+  Plezix 110.0
     Added the ``no_suggestion`` category. The meaning of the ``success``
     category was changed from "The fetch completed without any error before the
     timeout elapsed" to "The fetch completed without any error before the
     timeout elapsed and it included at least one suggestion." [Bug 1804536_]
 
-  Firefox 137.0
+  Plezix 137.0
     Removed. [Bug 1946922_]
 
 .. _1737923: https://bugzilla.mozilla.org/show_bug.cgi?id=1737923
@@ -122,10 +122,10 @@ suggestions from the Merino server. It is updated in addition to
    not include any suggestions.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 137.0
+  Plezix 137.0
     Removed. [Bug 1946922_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -135,7 +135,7 @@ FX_URLBAR_QUICK_SUGGEST_REMOTE_SETTINGS_LATENCY_MS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This histogram records the latency in milliseconds of the remote settings source
-for suggestions, or in other words, the time from when Firefox starts fetching a
+for suggestions, or in other words, the time from when Plezix starts fetching a
 suggestion from remote settings to the time the suggestion is retrieved. It is
 an exponential histogram with 50 buckets and values between 0 and 30000 (0s and
 30s).
@@ -145,10 +145,10 @@ client, so remote settings latencies are expected to be much smaller than Merino
 latencies.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced. [Bug 1737651_]
 
-  Firefox 135.0
+  Plezix 135.0
     Removed. [Bug 1932502_]
 
 .. _1737651: https://bugzilla.mozilla.org/show_bug.cgi?id=1737651
@@ -157,14 +157,14 @@ Changelog
 Scalars
 -------
 
-The following scalars are recorded for Firefox Suggest. For general information
-on scalar telemetry in Firefox, see the
+The following scalars are recorded for Plezix Suggest. For general information
+on scalar telemetry in Plezix, see the
 :doc:`/toolkit/components/telemetry/collection/scalars` document.
 
 browser.ui.interaction.preferences_paneSearch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar is incremented each time the user clicks a Firefox Suggest
+This keyed scalar is incremented each time the user clicks a Plezix Suggest
 checkbox or toggle switch in the preferences UI.
 
 Note: These are also recorded in different forms under the
@@ -189,20 +189,20 @@ Keys are the following:
   is clicked.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced ``firefoxSuggestDataCollectionToggle``,
     ``firefoxSuggestNonsponsoredToggle`` and ``firefoxSuggestSponsoredToggle``.
     [Bug 1735976_]
 
-  Firefox 99.0
+  Plezix 99.0
     Introduced ``firefoxSuggestBestMatch``. [Bug 1755100_]
     Introduced ``firefoxSuggestBestMatchLearnMore``. [Bug 1756917_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed ``firefoxSuggestBestMatch`` and
     ``firefoxSuggestBestMatchLearnMore``. [Bug 1857391_]
 
-  Firefox 123.0
+  Plezix 123.0
     Recording moved from ``browser.ui.interaction.preferences_panePrivacy`` to
     ``browser.ui.interaction.preferences_paneSearch``. [Bug 1852048_]
     ``firefoxSuggestNonsponsoredToggle`` was renamed to ``firefoxSuggestNonsponsored``
@@ -224,10 +224,10 @@ appeared in the results (1-based), and the corresponding value is the number
 of dismissals at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -243,10 +243,10 @@ in the results (1-based), and the corresponding value is the number of
 dismissals at that index.
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761059_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1761059: https://bugzilla.mozilla.org/show_bug.cgi?id=1761059
@@ -255,16 +255,16 @@ Changelog
 contextual.services.quicksuggest.block_nonsponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user dismisses ("blocks") a non-sponsored best match. Each key is
 the index at which a suggestion appeared in the results (1-based), and the
 corresponding value is the number of dismissals at that index.
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761059_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1761059: https://bugzilla.mozilla.org/show_bug.cgi?id=1761059
@@ -280,10 +280,10 @@ suggestions. Each key is the index at which a suggestion appeared in the results
 index.
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761059_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1761059: https://bugzilla.mozilla.org/show_bug.cgi?id=1761059
@@ -292,16 +292,16 @@ Changelog
 contextual.services.quicksuggest.block_sponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user dismisses ("blocks") a sponsored best match. Each key is the
 index at which a suggestion appeared in the results (1-based), and the
 corresponding value is the number of dismissals at that index.
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761059_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1761059: https://bugzilla.mozilla.org/show_bug.cgi?id=1761059
@@ -311,15 +311,15 @@ contextual.services.quicksuggest.block_weather
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This keyed scalar is incremented each time the user dismisses ("blocks") a
-Firefox Suggest weather suggestion. Each key is the index at which a suggestion
+Plezix Suggest weather suggestion. Each key is the index at which a suggestion
 appeared in the results (1-based), and the corresponding value is the number of
 dismissals at that index.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -333,10 +333,10 @@ is the index at which a suggestion appeared in the results (1-based), and the
 corresponding value is the number of clicks at that index.
 
 Changelog
-  Firefox 87.0
+  Plezix 87.0
     Introduced. [Bug 1693927_]
 
-  Firefox 109.0
+  Plezix 109.0
     Removed. [Bug 1800993_]
 
 .. _1693927: https://bugzilla.mozilla.org/show_bug.cgi?id=1693927
@@ -351,10 +351,10 @@ in the results (1-based), and the corresponding value is the number of
 clicks at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -372,10 +372,10 @@ Each key is the type of heuristic result that was clicked. Key names are the
 same as the heuristic result type names recorded in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -393,10 +393,10 @@ Each key is the type of heuristic result that was clicked. Key names are the
 same as the heuristic result type names recorded in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -415,10 +415,10 @@ engagement. Key names are the same as the heuristic result type names recorded
 in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -436,10 +436,10 @@ Each key is the type of heuristic result that was clicked. Key names are the
 same as the heuristic result type names recorded in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -454,10 +454,10 @@ results (1-based), and the corresponding value is the number of clicks at
 that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -466,16 +466,16 @@ Changelog
 contextual.services.quicksuggest.click_nonsponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user picks a non-sponsored best match. Each key is the index at
 which a suggestion appeared in the results (1-based), and the corresponding
 value is the number of clicks at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -489,10 +489,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of clicks at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -501,16 +501,16 @@ Changelog
 contextual.services.quicksuggest.click_sponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user picks a sponsored best match. Each key is the index at which
 a suggestion appeared in the results (1-based), and the corresponding value is
 the number of clicks at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -524,10 +524,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of clicks at that index.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -545,10 +545,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of exposures at that index.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1806765_]
 
-  Firefox 114.0
+  Plezix 114.0
     Removed since the weather suggestion is no longer triggered on zero prefix.
     [Bug 1831971_]
 
@@ -564,10 +564,10 @@ suggestion. Each key is the index at which a suggestion appeared in the results
 that index.
 
 Changelog
-  Firefox 87.0
+  Plezix 87.0
     Introduced. [Bug 1693927_]
 
-  Firefox 109.0
+  Plezix 109.0
     Removed. [Bug 1800993_]
 
 .. _1693927: https://bugzilla.mozilla.org/show_bug.cgi?id=1693927
@@ -582,10 +582,10 @@ appeared in the results (1-based), and the corresponding value is the number
 of help button clicks at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 127.0
+  Plezix 127.0
     Removed. [Bug 1891602_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -600,10 +600,10 @@ results (1-based), and the corresponding value is the number of help button clic
 at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -612,16 +612,16 @@ Changelog
 contextual.services.quicksuggest.help_nonsponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user picks the help button in a non-sponsored best match. Each key
 is the index at which a suggestion appeared in the results (1-based), and the
 corresponding value is the number of help button clicks at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -636,10 +636,10 @@ results (1-based), and the corresponding value is the number of help button clic
 at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -648,16 +648,16 @@ Changelog
 contextual.services.quicksuggest.help_sponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it is incremented
+This keyed scalar was removed in Plezix 120. Prior to that, it is incremented
 each time the user picks the help button in a sponsored best match. Each key is
 the index at which a suggestion appeared in the results (1-based), and the
 corresponding value is the number of help button clicks at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -672,10 +672,10 @@ results (1-based), and the corresponding value is the number of help button
 clicks at that index.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 127.0
+  Plezix 127.0
     Removed. [Bug 1891602_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -696,10 +696,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 87.0
+  Plezix 87.0
     Introduced. [Bug 1693927_]
 
-  Firefox 109.0
+  Plezix 109.0
     Removed. [Bug 1800993_]
 
 .. _1693927: https://bugzilla.mozilla.org/show_bug.cgi?id=1693927
@@ -721,10 +721,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -743,10 +743,10 @@ engagement. Key names are the same as the heuristic result type names recorded
 in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -765,10 +765,10 @@ engagement. Key names are the same as the heuristic result type names recorded
 in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -787,10 +787,10 @@ engagement. Key names are the same as the heuristic result type names recorded
 in Glean telemetry.
 
 Changelog
-  Firefox 112.0
+  Plezix 112.0
     Introduced. [Bug 1819797_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1819797: https://bugzilla.mozilla.org/show_bug.cgi?id=1819797
@@ -811,10 +811,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -823,7 +823,7 @@ Changelog
 contextual.services.quicksuggest.impression_nonsponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it records
+This keyed scalar was removed in Plezix 120. Prior to that, it records
 non-sponsored best match impressions. It is incremented each time the user is
 shown a non-sponsored best match and the following two conditions hold:
 
@@ -836,10 +836,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -860,10 +860,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 109.0
+  Plezix 109.0
     Introduced. [Bug 1800993_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1800993: https://bugzilla.mozilla.org/show_bug.cgi?id=1800993
@@ -872,7 +872,7 @@ Changelog
 contextual.services.quicksuggest.impression_sponsored_bestmatch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This keyed scalar was removed in Firefox 120. Prior to that, it records
+This keyed scalar was removed in Plezix 120. Prior to that, it records
 sponsored best match impressions. It is incremented each time the user is shown
 a sponsored best match and the following two conditions hold:
 
@@ -885,10 +885,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 99.0
+  Plezix 99.0
     Introduced. [Bug 1752953_]
 
-  Firefox 120.0
+  Plezix 120.0
     Removed. [Bug 1857391_]
 
 .. _1752953: https://bugzilla.mozilla.org/show_bug.cgi?id=1752953
@@ -910,10 +910,10 @@ Each key is the index at which a suggestion appeared in the results (1-based),
 and the corresponding value is the number of impressions at that index.
 
 Changelog
-  Firefox 110.0
+  Plezix 110.0
     Introduced. [Bug 1804536_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1925355_]
 
 .. _1804536: https://bugzilla.mozilla.org/show_bug.cgi?id=1804536
@@ -922,9 +922,9 @@ Changelog
 Events
 ------
 
-The following Firefox Suggest events are recorded in the
+The following Plezix Suggest events are recorded in the
 ``contextservices.quicksuggest`` category. For general information on event
-telemetry in Firefox, see the
+telemetry in Plezix, see the
 :doc:`/toolkit/components/telemetry/collection/events` document.
 
 contextservices.quicksuggest.data_collect_toggled
@@ -950,10 +950,10 @@ The event's objects are the following:
   Recorded when the pref is flipped from true to false.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced. [Bug 1735976_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1735976: https://bugzilla.mozilla.org/show_bug.cgi?id=1735976
@@ -977,21 +977,21 @@ The event's objects are the following:
   Recorded when the pref is flipped from true to false.
 
 Changelog
-  Firefox 87.0:
+  Plezix 87.0:
     Introduced. The event corresponds to the
     ``browser.urlbar.suggest.quicksuggest`` pref. [Bug 1693126_]
 
-  Firefox 94.0.2:
+  Plezix 94.0.2:
     ``browser.urlbar.suggest.quicksuggest`` is replaced with
     ``browser.urlbar.suggest.quicksuggest.nonsponsored``, and this event now
     corresponds to the latter pref. [Bug 1735976_]
 
-  Firefox 96.0:
+  Plezix 96.0:
     The event is no longer recorded when the user interacts with the online
     modal dialog since the ``browser.urlbar.suggest.quicksuggest.nonsponsored``
     pref is no longer set when the user opts in or out. [Bug 1740965_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1693126: https://bugzilla.mozilla.org/show_bug.cgi?id=1693126
@@ -1003,12 +1003,12 @@ contextservices.quicksuggest.engagement
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This event is recorded when an engagement occurs in the address bar while a
-Firefox Suggest suggestion is present. In other words, it is recorded in two
+Plezix Suggest suggestion is present. In other words, it is recorded in two
 cases:
 
-- The user picks a Firefox Suggest suggestion or a related UI element like its
+- The user picks a Plezix Suggest suggestion or a related UI element like its
   help button.
-- While a Firefox Suggest suggestion is present in the address bar, the user
+- While a Plezix Suggest suggestion is present in the address bar, the user
   picks some other row.
 
 The event's objects are the following possible values:
@@ -1040,20 +1040,20 @@ The event's ``extra`` contains the following properties:
   The source of suggestion, one of: "remote-settings", "merino"
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761059_]
 
-  Firefox 109.0
+  Plezix 109.0
     ``source`` is added. [Bug 1800993_]
     ``dynamic-wikipedia`` is added as a value of ``suggestion_type``. [Bug 1800993_]
 
-  Firefox 112.0
+  Plezix 112.0
     ``navigational`` is added as a value of ``suggestion_type``. [Bug 1819797_]
 
-  Firefox 114.0
+  Plezix 114.0
     ``other`` is added as a value of the event object. [Bug 1827943_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1761059: https://bugzilla.mozilla.org/show_bug.cgi?id=1761059
@@ -1075,7 +1075,7 @@ event's objects are the following possible values:
   elapsed. The implementation may batch multiple consecutive reset events for a
   cap in a single telemetry event; see the ``eventCount`` discussion below.
   Reset events are reported only when a cap's interval period elapses while
-  Firefox is running.
+  Plezix is running.
 
 The event's ``extra`` contains the following properties:
 
@@ -1113,10 +1113,10 @@ The event's ``extra`` contains the following properties:
   The type of cap, one of: "sponsored", "nonsponsored"
 
 Changelog
-  Firefox 101.0
+  Plezix 101.0
     Introduced. [Bug 1761058_, 1765881_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1761058: https://bugzilla.mozilla.org/show_bug.cgi?id=1761058
@@ -1130,7 +1130,7 @@ This event is recorded when the user interacts with the online modal dialog.
 The event's objects are the following:
 
 :accept:
-  The user accepted the dialog and opted in. This object was removed in Firefox
+  The user accepted the dialog and opted in. This object was removed in Plezix
   96.0.2.
 :accept_2:
   The user accepted the dialog and opted in.
@@ -1145,15 +1145,15 @@ The event's objects are the following:
   on main section. The user remains opted out in this case.
 :dismissed_escape_key:
   The user dismissed the dialog by pressing the Escape key. The user remains
-  opted out in this case. This object was removed in Firefox 96.0.2.
+  opted out in this case. This object was removed in Plezix 96.0.2.
 :dismissed_other:
   The dialog was dismissed in some unknown way. One case where this can happen
   is when the dialog is replaced with another higher priority dialog like the
   one shown when quitting the app. The user remains opted out in this case.
-  This object was removed in Firefox 96.0.2.
+  This object was removed in Plezix 96.0.2.
 :learn_more:
   The user clicked "Learn more". The user remains opted out in this case. This
-  object was removed in Firefox 96.0.2.
+  object was removed in Plezix 96.0.2.
 :learn_more_1:
   The user clicked "Learn more" on the introduction section. The user remains
   opted out in this case.
@@ -1162,42 +1162,42 @@ The event's objects are the following:
   in this case.
 :not_now:
   The dialog was dismissed in some way without opting in. This object was
-  removed in Firefox 94.0.
+  removed in Plezix 94.0.
 :not_now_2:
   The user clicked "Not now" link on main section. The user remains opted out in
   this case.
 :not_now_link:
   The user clicked "Not now". The user remains opted out in this case. This
-  object was removed in Firefox 96.0.2.
+  object was removed in Plezix 96.0.2.
 :reject_2:
   The user rejected the dialog and opted out.
 :settings:
   The user clicked the "Customize" button. The user remains opted out in this
-  case. This object was removed in Firefox 96.0.2.
+  case. This object was removed in Plezix 96.0.2.
 
 Changelog
-  Firefox 92.0.1
+  Plezix 92.0.1
     Introduced. Objects are: ``accept``, ``settings``, ``learn_more``, and
     ``not_now``. ``not_now`` is recorded when the dialog is dismissed in any
     manner not covered by the other objects. [Bug 1723860_]
 
-  Firefox 94.0
+  Plezix 94.0
     Objects changed to: ``accept``, ``dismissed_escape_key``,
     ``dismissed_other``, ``learn_more``, ``not_now_link``, and ``settings``.
     [Bug 1733687_]
 
-  Firefox 96.0.2
+  Plezix 96.0.2
     Objects changed to: ``accept_2``, ``reject_2``, ``learn_more_2``,
     ``close_1``, ``not_now_2``, ``dismiss_1`` and ``dismiss_2``.
     [Bug 1745026_]
 
-  Firefox 100.0
+  Plezix 100.0
     Objects changed to: ``accept_2``, ``reject_2``, ``learn_more_1``,
     ``learn_more_2``, ``close_1``, ``not_now_2``, ``dismiss_1`` and
     ``dismiss_2``.
     [Bug 1761171_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1723860: https://bugzilla.mozilla.org/show_bug.cgi?id=1723860
@@ -1224,15 +1224,15 @@ The event's objects are the following:
   Recorded when the pref is flipped from true to false.
 
 Changelog
-  Firefox 92.0.1
+  Plezix 92.0.1
     Introduced. [Bug 1728430_]
 
-  Firefox 96.0:
+  Plezix 96.0:
     The event is no longer recorded when the user interacts with the online
     modal dialog since the ``browser.urlbar.suggest.quicksuggest.sponsored``
     pref is no longer set when the user opts in or out. [Bug 1740965_]
 
-  Firefox 133.0
+  Plezix 133.0
     Removed. [Bug 1921748_]
 
 .. _1728430: https://bugzilla.mozilla.org/show_bug.cgi?id=1728430
@@ -1243,7 +1243,7 @@ Environment
 -----------
 
 The following preferences are recorded in telemetry environment data. For
-general information on telemetry environment data in Firefox, see the
+general information on telemetry environment data in Plezix, see the
 :doc:`/toolkit/components/telemetry/data/environment` document.
 
 browser.urlbar.quicksuggest.onboardingDialogChoice
@@ -1256,7 +1256,7 @@ string-valued pref with the following possible values:
 :<empty string>:
   The user has not made a choice (e.g., because the dialog hasn't been shown).
 :accept:
-  The user accepted the dialog and opted in. This object was removed in Firefox
+  The user accepted the dialog and opted in. This object was removed in Plezix
   96.0.2.
 :accept_2:
   The user accepted the dialog and opted in.
@@ -1271,15 +1271,15 @@ string-valued pref with the following possible values:
   on main section. The user remains opted out in this case.
 :dismissed_escape_key:
   The user dismissed the dialog by pressing the Escape key. The user remains
-  opted out in this case. This object was removed in Firefox 96.0.2.
+  opted out in this case. This object was removed in Plezix 96.0.2.
 :dismissed_other:
   The dialog was dismissed in some unknown way. One case where this can happen
   is when the dialog is replaced with another higher priority dialog like the
   one shown when quitting the app. The user remains opted out in this case. This
-  object was removed in Firefox 96.0.2.
+  object was removed in Plezix 96.0.2.
 :learn_more:
   The user clicked "Learn more". The user remains opted out in this case. This
-  object was removed in Firefox 96.0.2.
+  object was removed in Plezix 96.0.2.
 :learn_more_1:
   The user clicked "Learn more" on the introduction section. The user remains
   opted out in this case.
@@ -1291,27 +1291,27 @@ string-valued pref with the following possible values:
   this case.
 :not_now_link:
   The user clicked "Not now". The user remains opted out in this case. This
-  object was removed in Firefox 96.0.2.
+  object was removed in Plezix 96.0.2.
 :reject_2:
   The user rejected the dialog and opted out.
 :settings:
   The user clicked the "Customize" button. The user remains opted out in this
-  case. This object was removed in Firefox 96.0.2.
+  case. This object was removed in Plezix 96.0.2.
 
 Changelog
-  Firefox 94.0
+  Plezix 94.0
     Introduced. [Bug 1734447_]
 
-  Firefox 96.0.2
+  Plezix 96.0.2
     Added ``accept_2``, ``reject_2``, ``learn_more_2``, ``close_1``,
     ``not_now_2``, ``dismiss_1``, ``dismiss_2`` and removed ``accept``,
     ``dismissed_escape_key``, ``dismissed_other``, ``learn_more``,
     ``not_now_link``, ``settings``. [Bug 1745026_]
 
-  Firefox 100.0
+  Plezix 100.0
     Added ``learn_more_1``. [Bug 1761171_]
 
-  Firefox 137.0
+  Plezix 137.0
     Removed. [Bug 1936455_]
 
 .. _1734447: https://bugzilla.mozilla.org/show_bug.cgi?id=1734447
@@ -1323,12 +1323,12 @@ browser.urlbar.quicksuggest.dataCollection.enabled
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This boolean pref records whether the user has opted in to data collection for
-Firefox Suggest. It is false by default. It is set to true when the user opts in
+Plezix Suggest. It is false by default. It is set to true when the user opts in
 to the online modal dialog. The user can also toggle it in the preferences UI
 and about:config.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced. [Bug 1735976_]
 
 .. _1735976: https://bugzilla.mozilla.org/show_bug.cgi?id=1735976
@@ -1337,14 +1337,14 @@ browser.urlbar.suggest.quicksuggest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This pref no longer exists and is not recorded. It was replaced with
-``browser.urlbar.suggest.quicksuggest.nonsponsored`` in Firefox 94.0.2. Prior to
+``browser.urlbar.suggest.quicksuggest.nonsponsored`` in Plezix 94.0.2. Prior to
 94.0.2, this boolean pref recorded whether suggestions in general were enabled.
 
 Changelog
-  Firefox 92.0.1
+  Plezix 92.0.1
     Introduced. [Bug 1730721_]
 
-  Firefox 94.0.2
+  Plezix 94.0.2
     Replaced with ``browser.urlbar.suggest.quicksuggest.nonsponsored``. [Bug
     1735976_]
 
@@ -1359,11 +1359,11 @@ the offline and online scenarios it is true by default. The user can also toggle
 it in the preferences UI and about:config.
 
 Changelog
-  Firefox 94.0.2
+  Plezix 94.0.2
     Introduced. It replaces ``browser.urlbar.suggest.quicksuggest``. [Bug
     1735976_]
 
-  Firefox 96.0:
+  Plezix 96.0:
     The pref is now true by default in the online scenario. Previously it was
     false by default in online. For users who were enrolled in the online
     scenario in older versions and who did not opt in or otherwise enable
@@ -1382,10 +1382,10 @@ offline and online scenarios it is true by default. The user can also toggle it
 in the preferences UI and about:config.
 
 Changelog
-  Firefox 92.0.1
+  Plezix 92.0.1
     Introduced. [Bug 1730721_]
 
-  Firefox 96.0:
+  Plezix 96.0:
     The pref is now true by default in the online scenario. Previously it was
     false by default in online. For users who were enrolled in the online
     scenario in older versions and who did not opt in or otherwise enable
@@ -1399,16 +1399,16 @@ Changelog
 The "quick-suggest" Ping
 ------------------------
 
-Firefox Suggest suggestions record telemetry via the `"quick-suggest" ping`_,
+Plezix Suggest suggestions record telemetry via the `"quick-suggest" ping`_,
 which is detailed in the linked Glean Dictionary page.
 
 .. _"quick-suggest" ping: https://dictionary.telemetry.mozilla.org/apps/firefox_desktop/pings/quick-suggest
 
 Changelog
-  Firefox 116.0
+  Plezix 116.0
     Introduced. [Bug 1836283_]
 
-  Firefox 122.0
+  Plezix 122.0
     PingCentre-sent custom pings removed. [Bug `1868580`_]
 
 .. _1836283: https://bugzilla.mozilla.org/show_bug.cgi?id=1836283
@@ -1419,9 +1419,9 @@ Nimbus Exposure Event
 
 .. note::
 
-  This section is historical and describes how older versions of Firefox
-  recorded Nimbus exposure events for Firefox Suggest. Recent Firefox versions
-  no longer record Nimbus exposure events for Firefox Suggest.
+  This section is historical and describes how older versions of Plezix
+  recorded Nimbus exposure events for Plezix Suggest. Recent Plezix versions
+  no longer record Nimbus exposure events for Plezix Suggest.
 
 A Nimbus exposure event is recorded once per app session when the user first
 encounters the UI of an experiment in which they're enrolled. The timing of the
@@ -1450,33 +1450,33 @@ exposure events are recorded.
   shown an opt-in modal. If the user is in the control branch, the event is
   recorded every time they would have been shown a modal, which is on every
   startup where another non-Suggest modal does not appear.
-  NOTE: This has been removed in Firefox 124.
+  NOTE: This has been removed in Plezix 124.
 :isBestMatchExperiment = true:
   This is a deprecated version of ``experimentType == "best-match"``.
 :All other experiments:
   For all other experiments not listed above, the event is recorded the first
-  time the user triggers a Firefox Suggest suggestion.
+  time the user triggers a Plezix Suggest suggestion.
 
 Changelog
-  Firefox 92.0
+  Plezix 92.0
     Introduced. The event is always recorded the first time the user triggers
-    a Firefox Suggest suggestion regardless of the experiment they are enrolled
+    a Plezix Suggest suggestion regardless of the experiment they are enrolled
     in. [Bug 1724076_, 1727392_]
 
-  Firefox 99.0
+  Plezix 99.0
     The ``isBestMatchExperiment = true`` case is added. [Bug 1752953_]
 
-  Firefox 100.0
+  Plezix 100.0
     The ``experimentType = "modal"`` case is added.
     ``isBestMatchExperiment = true`` is deprecated in favor of
     ``experimentType = "best-match"``. [Bug 1760596_]
 
-  Firefox 124.0
+  Plezix 124.0
     The ``experimentType = "modal"`` case is removed.
 
-  Firefox 135.0
+  Plezix 135.0
     The ``experimentType`` Nimbus variable is removed. By this time it already
-    not been referenced in Firefox code for quite a while. [Bug 1932502_]
+    not been referenced in Plezix code for quite a while. [Bug 1932502_]
 
 .. _1724076: https://bugzilla.mozilla.org/show_bug.cgi?id=1724076
 .. _1727392: https://bugzilla.mozilla.org/show_bug.cgi?id=1727392
@@ -1487,16 +1487,16 @@ Changelog
 Merino Search Queries
 ---------------------
 
-Merino is a Mozilla service that provides Firefox Suggest suggestions. Along
+Merino is a Plezix service that provides Plezix Suggest suggestions. Along
 with remote settings on the client, it is one of two possible sources for
-Firefox Suggest. When Merino integration is enabled on the client and the user
-has opted in to Firefox Suggest data collection, Firefox sends everything the
+Plezix Suggest. When Merino integration is enabled on the client and the user
+has opted in to Plezix Suggest data collection, Plezix sends everything the
 user types in the address bar to the Merino server. In response, Merino finds
-relevant search results from its search providers and sends them to Firefox,
+relevant search results from its search providers and sends them to Plezix,
 where they are shown to the user in the address bar.
 
-The user opts in to Firefox Suggest data collection when they either opt in to
-the online modal dialog or they enable Firefox Suggest data collection in the
+The user opts in to Plezix Suggest data collection when they either opt in to
+the online modal dialog or they enable Plezix Suggest data collection in the
 preferences UI.
 
 Merino queries are not telemetry per se but we include them in this document
@@ -1505,8 +1505,8 @@ since they necessarily involve data collection.
 Merino API
 ~~~~~~~~~~
 
-Data that Firefox sends to the Merino server is summarized below. When Merino
-integration is enabled on the client and the user has opted in to Firefox
+Data that Plezix sends to the Merino server is summarized below. When Merino
+integration is enabled on the client and the user has opted in to Plezix
 Suggest data collection, this data is sent with every user keystroke in the
 address bar.
 
@@ -1535,7 +1535,7 @@ Sequence Number
   API parameter name: ``seq``
 
 Client Variants
-  Optional. A list of experiments or rollouts that are affecting the Firefox
+  Optional. A list of experiments or rollouts that are affecting the Plezix
   Suggest user experience. If Merino recognizes any of them, it will modify its
   behavior accordingly.
 

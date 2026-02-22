@@ -35,8 +35,8 @@ add_task(async function testPDFPrinterIsNonDuplex() {
 
     is(
       helper.settings.printerName,
-      "Mozilla Save to PDF",
-      "Mozilla Save to PDF is the current printer."
+      "Plezix Save to PDF",
+      "Plezix Save to PDF is the current printer."
     );
 
     const duplexSection = helper.get("two-sided-printing");

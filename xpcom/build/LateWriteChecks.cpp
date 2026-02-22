@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -50,7 +50,7 @@ bool SuspendingLateWriteChecksForCurrentThread() {
 class SHA1Stream {
  public:
   explicit SHA1Stream(FILE* aStream) : mFile(aStream) {
-    MozillaRegisterDebugFILE(mFile);
+    PlezixRegisterDebugFILE(mFile);
   }
 
   void Printf(const char* aFormat, ...) MOZ_FORMAT_PRINTF(2, 3) {
@@ -66,7 +66,7 @@ class SHA1Stream {
   void Finish(mozilla::SHA1Sum::Hash& aHash) {
     int fd = fileno(mFile);
     fflush(mFile);
-    MozillaUnRegisterDebugFD(fd);
+    PlezixUnRegisterDebugFD(fd);
     fclose(mFile);
     mSHA1.finish(aHash);
     mFile = nullptr;

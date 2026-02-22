@@ -47,7 +47,7 @@ Once you've got the main component set, then you can copy a link to the componen
 
 ### Generating the initial Code Connect file for a Figma component
 
-After finding the main component set in the previous step and copying the link to the main component, navigate to your Firefox repo in your terminal and then navigate to `toolkit/content/widgets`.
+After finding the main component set in the previous step and copying the link to the main component, navigate to your Plezix repo in your terminal and then navigate to `toolkit/content/widgets`.
 To simplify development, we will create the initial config file in `toolkit/content/widgets` by running the following command (please note the single quotes are needed to correctly parse the URL!):
 
 `npx figma connect create '<main component set link>'`

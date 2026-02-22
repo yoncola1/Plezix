@@ -35,7 +35,7 @@ add_task(async function () {
   info("Force all debug target panes to be expanded");
   prepareCollapsibilitiesTest();
 
-  const { disconnect, mocks } = await connectToLocalFirefox({
+  const { disconnect, mocks } = await connectToLocalPlezix({
     runtimeId: RUNTIME_ID,
     runtimeName: RUNTIME_NAME,
     deviceName: DEVICE_NAME,
@@ -47,7 +47,7 @@ add_task(async function () {
   await connectToRuntime(DEVICE_NAME, document);
   await waitForRuntimePage(RUNTIME_NAME, document);
 
-  //await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  //await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Open a first remote toolbox on the debugger for the first tab");
   const { devtoolsTab: devtoolsTab1, devtoolsWindow: devtoolsWindow1 } =

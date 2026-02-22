@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -750,7 +750,7 @@ var gNavigatorBundle = {
 };
 
 function updateFxaToolbarMenu(enable, isInitialUpdate = false) {
-  // We only show the Firefox Account toolbar menu if the feature is enabled and
+  // We only show the Plezix Account toolbar menu if the feature is enabled and
   // if sync is enabled.
   const syncEnabled = Services.prefs.getBoolPref(
     "identity.fxaccounts.enabled",
@@ -3393,7 +3393,7 @@ function contentAreaClick(event, isPanelClick) {
   ) {
     // An extension panel's links should target the main content area.  Do this
     // if no modifier keys are down and if there's no target or the target
-    // equals _main (the IE convention) or _content (the Mozilla convention).
+    // equals _main (the IE convention) or _content (the Plezix convention).
     let target = linkNode.target;
     let mainTarget = !target || target == "_content" || target == "_main";
     if (isPanelClick && mainTarget) {
@@ -5566,7 +5566,7 @@ var ConfirmationHint = {
   },
 };
 
-var FirefoxViewHandler = {
+var PlezixViewHandler = {
   tab: null,
   BUTTON_ID: "firefox-view-button",
   get button() {
@@ -5604,7 +5604,7 @@ var FirefoxViewHandler = {
     if (section) {
       viewURL = `${viewURL}#${section}`;
     }
-    // Need to account for navigation to Firefox View pages
+    // Need to account for navigation to Plezix View pages
     if (
       this.tab &&
       this.tab.linkedBrowser.currentURI.spec.split("#")[0] != viewURL
@@ -5660,7 +5660,7 @@ var FirefoxViewHandler = {
       return;
     }
     // close the tab left behind after a user pairs a device and
-    // is redirected back to the Firefox View tab
+    // is redirected back to the Plezix View tab
     const fxaRoot = Services.prefs.getCharPref(
       "identity.fxaccounts.remote.root"
     );
@@ -5675,7 +5675,7 @@ var FirefoxViewHandler = {
     }
 
     if (gBrowser.tabs.length <= 2) {
-      // if its the only tab besides the Firefox View tab,
+      // if its the only tab besides the Plezix View tab,
       // open a new tab first so the browser doesn't close
       gBrowser.addTrustedTab("about:newtab");
     }

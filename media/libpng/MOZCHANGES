@@ -1,7 +1,7 @@
 Changes made to pristine libpng source by mozilla.org developers.
 Update the 'release' field in moz.yaml when you update this file.
 
-pnglibconf.h and moz.build are distributed under the Mozilla Public License,
+pnglibconf.h and moz.build are distributed under the Plezix Public License,
 v. 2.0. If a copy of the MPL was not distributed with this file, You can
 obtain one at http://mozilla.org/MPL/2.0/.
 

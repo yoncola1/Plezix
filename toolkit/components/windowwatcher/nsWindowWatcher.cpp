@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1914,7 +1914,7 @@ uint32_t nsWindowWatcher::CalculateChromeFlagsForSystem(
   /* This function has become complicated since browser windows and
      dialogs diverged. The difference is, browser windows assume all
      chrome not explicitly mentioned is off, if the features string
-     is not null. Exceptions are some OS border chrome new with Mozilla.
+     is not null. Exceptions are some OS border chrome new with Plezix.
      Dialogs interpret a (mostly) empty features string to mean
      "OS's choice," and also support an "all" flag explicitly disallowed
      in the standards-compliant window.(normal)open. */

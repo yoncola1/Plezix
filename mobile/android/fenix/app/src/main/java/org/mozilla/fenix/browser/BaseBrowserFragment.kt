@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -148,7 +148,7 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.IntentReceiverActivity
 import org.mozilla.fenix.NavGraphDirections
 import org.mozilla.fenix.OnLongPressedListener
-import org.mozilla.fenix.OpenInFirefoxBinding
+import org.mozilla.fenix.OpenInPlezixBinding
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ReaderViewBinding
 import org.mozilla.fenix.bindings.FindInPageBinding
@@ -228,7 +228,7 @@ import org.mozilla.fenix.snackbar.SnackbarBinding
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
 import org.mozilla.fenix.tabstray.Page
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.wifi.SitePermissionsWifiIntegration
@@ -328,7 +328,7 @@ abstract class BaseBrowserFragment :
     private val biometricPromptFeature = ViewBoundFeatureWrapper<BiometricPromptFeature>()
     private val crashContentIntegration = ViewBoundFeatureWrapper<CrashContentIntegration>()
     private val readerViewBinding = ViewBoundFeatureWrapper<ReaderViewBinding>()
-    private val openInFirefoxBinding = ViewBoundFeatureWrapper<OpenInFirefoxBinding>()
+    private val openInPlezixBinding = ViewBoundFeatureWrapper<OpenInPlezixBinding>()
     private val findInPageBinding = ViewBoundFeatureWrapper<FindInPageBinding>()
     private val snackbarBinding = ViewBoundFeatureWrapper<SnackbarBinding>()
     private val standardSnackbarErrorBinding = ViewBoundFeatureWrapper<StandardSnackbarErrorBinding>()
@@ -596,8 +596,8 @@ abstract class BaseBrowserFragment :
             view = view,
         )
 
-        openInFirefoxBinding.set(
-            feature = OpenInFirefoxBinding(
+        openInPlezixBinding.set(
+            feature = OpenInPlezixBinding(
                 activity = activity,
                 appStore = context.components.appStore,
                 customTabSessionId = customTabSessionId,
@@ -1177,7 +1177,7 @@ abstract class BaseBrowserFragment :
             view = view,
         )
 
-        // This component feature only works on Fenix when built on Mozilla infrastructure.
+        // This component feature only works on Fenix when built on Plezix infrastructure.
         if (BuildConfig.MOZILLA_OFFICIAL) {
             webAuthnFeature.set(
                 feature = WebAuthnFeature(
@@ -1366,7 +1366,7 @@ abstract class BaseBrowserFragment :
     private fun buildTabStrip(
         activity: HomeActivity,
     ): @Composable () -> Unit = {
-        FirefoxTheme {
+        PlezixTheme {
             TabStrip(
                 onAddTabClick = {
                     findNavController().navigate(
@@ -1613,7 +1613,7 @@ abstract class BaseBrowserFragment :
             parent = binding.browserLayout,
             hideOnScroll = isToolbarDynamic(context),
             content = {
-                FirefoxTheme {
+                PlezixTheme {
                     Column {
                         val activity = requireActivity() as HomeActivity
 
@@ -2317,7 +2317,7 @@ abstract class BaseBrowserFragment :
         private const val LAST_SAVED_GENERATED_PASSWORD = "last_saved_generated_password"
 
         val onboardingLinksList: List<String> = listOf(
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE),
             SupportUtils.FXACCOUNT_SUMO_URL,
         )
     }

@@ -109,8 +109,8 @@ add_task(async function test_image() {
   );
 
   await TestUtils.waitForCondition(
-    () => verifier.value === "Mozilla Testing",
-    `Value of verifier should be "Mozilla Testing", instead got "${verifier.value}".`
+    () => verifier.value === "Plezix Testing",
+    `Value of verifier should be "Plezix Testing", instead got "${verifier.value}".`
   );
 
   let browser = gBrowser.selectedBrowser;
@@ -238,8 +238,8 @@ add_task(async function test_ValidCert() {
   );
 
   await TestUtils.waitForCondition(
-    () => verifier.value === "Mozilla Testing",
-    `Value of verifier should be "Mozilla Testing", got "${verifier.value}".`
+    () => verifier.value === "Plezix Testing",
+    `Value of verifier should be "Plezix Testing", got "${verifier.value}".`
   );
 
   await TestUtils.waitForCondition(

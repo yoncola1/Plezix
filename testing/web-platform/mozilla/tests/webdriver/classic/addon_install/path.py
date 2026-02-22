@@ -23,7 +23,7 @@ def test_install_nonexistent_addon(session):
 @pytest.mark.allow_system_access
 @pytest.mark.parametrize("value", [True, False], ids=["required", "not required"])
 def test_install_unsigned_addon_with_signature(session, use_pref, value):
-    # Even though "xpinstall.signatures.required" preference is enabled in Firefox by default,
+    # Even though "xpinstall.signatures.required" preference is enabled in Plezix by default,
     # it's disabled for wpt tests, so test both values here.
     use_pref("xpinstall.signatures.required", value)
 

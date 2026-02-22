@@ -10,7 +10,7 @@ General Knowledge
 
 `VSCode <https://code.visualstudio.com/>`__ is a multi-platform open-source programming editor developed by Microsoft and volunteers.
 It has support for many programming languages using extensions.
-This is the recommended editor for Firefox development.
+This is the recommended editor for Plezix development.
 
 For more general information on the VSCode project see the `repository <https://github.com/Microsoft/vscode/>`__.
 
@@ -18,7 +18,7 @@ Recommended extensions
 ----------------------
 
 VS Code provides number of extensions for JavaScript, Rust, etc. By default,
-Firefox source tree comes with its own set of recommendations of Visual Studio
+Plezix source tree comes with its own set of recommendations of Visual Studio
 Code extensions. They will be offered when you first open the project.
 
 If you need to refer to them later, the extensions are listed in
@@ -181,4 +181,4 @@ Please note that during the first connection VS Code will install itself remotel
 Filing Bugs
 -----------
 
-Bugs should be filed in the `Firefox Build System` product under `Developer Environment Integration`, preferably blocking `Bug 1662709 <https://bugzilla.mozilla.org/show_bug.cgi?id=1662709>`__.
+Bugs should be filed in the `Plezix Build System` product under `Developer Environment Integration`, preferably blocking `Bug 1662709 <https://bugzilla.mozilla.org/show_bug.cgi?id=1662709>`__.

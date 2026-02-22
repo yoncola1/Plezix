@@ -1,17 +1,17 @@
-# [Android Components](../../../README.md) > Service > Firefox Sync - Logins
+# [Android Components](../../../README.md) > Service > Plezix Sync - Logins
 
-A library for integrating with Firefox Sync - Logins.
+A library for integrating with Plezix Sync - Logins.
 
 ## Before using this component
-Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Firefox/Data_Collection).
+Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Plezix/Data_Collection).
 This component provides data collection using the [Glean SDK](https://mozilla.github.io/glean/book/index.html).
 The list of metrics being collected is available in the [metrics documentation](../../support/sync-telemetry/docs/metrics.md).
 
 ## Motivation
 
-The **Firefox Sync - Logins Component** provides a way for Android applications to do the following:
+The **Plezix Sync - Logins Component** provides a way for Android applications to do the following:
 
-* Retrieve the Logins (url / password) data type from [Firefox Sync](https://www.mozilla.org/en-US/firefox/features/sync/)
+* Retrieve the Logins (url / password) data type from [Plezix Sync](https://www.mozilla.org/en-US/firefox/features/sync/)
 
 ## Usage
 
@@ -19,7 +19,7 @@ The **Firefox Sync - Logins Component** provides a way for Android applications 
 
 The `mozilla.appservices.logins` component collects telemetry using the [Glean SDK](https://mozilla.github.io/glean/).
 Applications that send telemetry via Glean *must ensure* they have received appropriate data-review following
-[the Firefox Data Collection process](https://wiki.mozilla.org/Firefox/Data_Collection) before integrating this component.
+[the Plezix Data Collection process](https://wiki.mozilla.org/Plezix/Data_Collection) before integrating this component.
 
 Details on the metrics collected by the `mozilla.appservices.logins` component are available
 [here](https://github.com/mozilla/application-services/tree/main/docs/metrics/logins/metrics.md)
@@ -33,7 +33,7 @@ Use Gradle to download the library from [maven.mozilla.org](https://maven.mozill
 implementation "org.mozilla.components:service-sync-logins:{latest-version}"
 ```
 
-You will also need the Firefox Accounts component to be able to obtain the keys to decrypt the Logins data:
+You will also need the Plezix Accounts component to be able to obtain the keys to decrypt the Logins data:
 
 ```
 implementation "org.mozilla.components:fxa:{latest-version}
@@ -71,6 +71,6 @@ Just create a `DatabaseLoginsStorage` with the path `:memory:`, and it will work
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

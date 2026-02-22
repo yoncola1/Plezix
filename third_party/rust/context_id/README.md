@@ -16,4 +16,4 @@ cargo test -p context_id
 
 ## Bugs
 
-We use Bugzilla to track bugs and feature work. You can use [this link](bugzilla.mozilla.org/enter_bug.cgi?product=Firefox&component=New Tab Page) to file bugs in the `Firefox :: New Tab Page` bug component.
+We use Bugzilla to track bugs and feature work. You can use [this link](bugzilla.mozilla.org/enter_bug.cgi?product=Plezix&component=New Tab Page) to file bugs in the `Plezix :: New Tab Page` bug component.

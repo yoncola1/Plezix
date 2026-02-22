@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -139,7 +139,7 @@ class DelazificationContext {
   // multiple functions, it can easily be interrupted at function boundaries.
   //
   // TODO: (Bug 1773683) Plug this with the mozilla::Task::RequestInterrupt
-  // function which is wrapping HelperThreads tasks within Mozilla.
+  // function which is wrapping HelperThreads tasks within Plezix.
   bool isInterrupted() const { return isInterrupted_; }
   void interrupt() { isInterrupted_ = true; }
 

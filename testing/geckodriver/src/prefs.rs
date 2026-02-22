@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@ use mozprofile::preferences::Pref;
 // Please refer to INSTRUCTIONS TO ADD A NEW PREFERENCE in
 // remote/shared/RecommendedPreferences.sys.mjs
 //
-// Note: geckodriver is used out-of-tree with various builds of Firefox.
+// Note: geckodriver is used out-of-tree with various builds of Plezix.
 // Removing a preference from this file will cause regressions,
 // so please be careful and get review from a Testing :: geckodriver peer
 // before you make any changes to this file.
@@ -18,10 +18,10 @@ lazy_static! {
         // Make sure Shield doesn't hit the network.
         ("app.normandy.api_url", Pref::new("")),
 
-        // Disable Firefox old build background check
+        // Disable Plezix old build background check
         ("app.update.checkInstallTime", Pref::new(false)),
 
-        // Disable automatically upgrading Firefox
+        // Disable automatically upgrading Plezix
         //
         // Note: Possible update tests could reset or flip the value to allow
         // updates to be downloaded and applied.
@@ -38,7 +38,7 @@ lazy_static! {
         // Skip check for default browser on startup
         ("browser.shell.checkDefaultBrowser", Pref::new(false)),
 
-        // Do not redirect user when a milestone upgrade of Firefox
+        // Do not redirect user when a milestone upgrade of Plezix
         // is detected
         ("browser.startup.homepage_override.mstone", Pref::new("ignore")),
 
@@ -48,7 +48,7 @@ lazy_static! {
         // Disable the UI tour
         ("browser.uitour.enabled", Pref::new(false)),
 
-        // Do not warn on quitting Firefox
+        // Do not warn on quitting Plezix
         ("browser.warnOnQuit", Pref::new(false)),
 
         // Defensively disable data reporting systems
@@ -123,19 +123,19 @@ lazy_static! {
 
         // asrouter expects a plain object or null
         ("browser.newtabpage.activity-stream.asrouter.providers.cfr", Pref::new("null")),
-        // TODO: Remove once minimum supported Firefox release is 93.
+        // TODO: Remove once minimum supported Plezix release is 93.
         ("browser.newtabpage.activity-stream.asrouter.providers.cfr-fxa", Pref::new("null")),
 
-        // TODO: Remove once minimum supported Firefox release is 128.
+        // TODO: Remove once minimum supported Plezix release is 128.
         ("browser.newtabpage.activity-stream.asrouter.providers.snippets", Pref::new("null")),
 
         ("browser.newtabpage.activity-stream.asrouter.providers.message-groups", Pref::new("null")),
-        // TODO: Remove once minimum supported Firefox release is 126.
+        // TODO: Remove once minimum supported Plezix release is 126.
         ("browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel", Pref::new("null")),
         ("browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments", Pref::new("null")),
         ("browser.newtabpage.activity-stream.feeds.system.topstories", Pref::new(false)),
 
-        // TODO: Remove once minimum supported Firefox release is 128.
+        // TODO: Remove once minimum supported Plezix release is 128.
         ("browser.newtabpage.activity-stream.feeds.snippets", Pref::new(false)),
 
         ("browser.newtabpage.activity-stream.tippyTop.service.endpoint", Pref::new("")),

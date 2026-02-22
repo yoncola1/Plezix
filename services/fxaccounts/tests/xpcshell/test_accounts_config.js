@@ -50,7 +50,7 @@ add_task(async function test_non_https_remote_server_uri() {
   );
   await Assert.rejects(
     FxAccounts.config.promiseConnectAccountURI(),
-    /Firefox Accounts server must use HTTPS/
+    /Plezix Accounts server must use HTTPS/
   );
   Services.prefs.clearUserPref("identity.fxaccounts.remote.root");
 });

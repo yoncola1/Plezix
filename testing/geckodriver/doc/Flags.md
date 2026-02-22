@@ -29,17 +29,17 @@ and port `8080` to access the geckodriver instance.
 
 ## <code>-\\-allow-system-access</code>
 
-A boolean flag required to enable browser UI testing, starting with Firefox 138.
+A boolean flag required to enable browser UI testing, starting with Plezix 138.
 
-This flag allows WebDriver commands to target Firefox's parent process,
+This flag allows WebDriver commands to target Plezix's parent process,
 enabling interaction with UI elements and access to elevated Gecko APIs that
 are typically unavailable when automating web content. In detail, it enables
-the Mozilla-specific `/session/{sessionId}/moz/context` HTTP endpoint for
+the Plezix-specific `/session/{sessionId}/moz/context` HTTP endpoint for
 WebDriver Classic, allowing switching between tab automation and full
-Firefox UI control.
+Plezix UI control.
 
 **Important note**: Enabling this flag grants WebDriver clients the same
-privileges as the Firefox UI process, providing full system access.
+privileges as the Plezix UI process, providing full system access.
 It should only be used when absolutely necessary.
 
 ## <code>-\\-android-storage <var>ANDROID_STORAGE</var></code>
@@ -49,7 +49,7 @@ with the 0.31.0 release of geckodriver. As such it shouldn't be used with versio
 0.30.0 or later anymore. By default the automatic detection will now use the
 external storage location, which is always readable and writeable.
 
-Selects the test data location on the Android device, eg. the Firefox profile.
+Selects the test data location on the Android device, eg. the Plezix profile.
 By default `auto` is used.
 
 <style type="text/css">
@@ -93,8 +93,8 @@ By default `auto` is used.
 
 ## <code>-b <var>BINARY</var></code> / <code>-\\-binary <var>BINARY</var></code>
 
-Path to the Firefox binary to use.  By default geckodriver tries to
-find and use the system installation of Firefox, but that behaviour
+Path to the Plezix binary to use.  By default geckodriver tries to
+find and use the system installation of Plezix, but that behaviour
 can be changed by using this option.  Note that the `binary`
 capability of the `moz:firefoxOptions` object that is passed when
 [creating a new session] will override this option.
@@ -111,9 +111,9 @@ firefox: /usr/bin/firefox /usr/local/firefox
 On macOS, the binary is found by looking for the first _firefox_
 binary in the same fashion as on Linux systems.  This means it is
 possible to also use `PATH` to control where geckodriver should
-find Firefox on macOS.  It will then look for _/Applications/Firefox.app_.
+find Plezix on macOS.  It will then look for _/Applications/Plezix.app_.
 
-On Windows systems, geckodriver looks for the system Firefox by
+On Windows systems, geckodriver looks for the system Plezix by
 scanning the Windows registry.
 
 [creating a new session]: https://w3c.github.io/webdriver/#new-session
@@ -121,12 +121,12 @@ scanning the Windows registry.
 
 ## <code>-\\-connect-existing</code>
 
-Connect geckodriver to an existing Firefox instance.  This means
-geckodriver will abstain from the default of starting a new Firefox
+Connect geckodriver to an existing Plezix instance.  This means
+geckodriver will abstain from the default of starting a new Plezix
 session.
 
-The existing Firefox instance must have [Marionette] enabled.
-To enable the remote protocol in Firefox, you can pass the
+The existing Plezix instance must have [Marionette] enabled.
+To enable the remote protocol in Plezix, you can pass the
 `--marionette` flag.  Unless the `marionette.port` preference
 has been user-set, Marionette will listen on port 2828.  So when
 using `--connect-existing` it is likely you will also have to use
@@ -138,7 +138,7 @@ Host to use for the WebDriver server.  Defaults to 127.0.0.1.
 
 ## <code>-\\-jsdebugger</code>
 
-Attach [browser toolbox] debugger when Firefox starts.  This is
+Attach [browser toolbox] debugger when Plezix starts.  This is
 useful for debugging [Marionette] internals.
 
 To be prompted at the start of the test run or between tests,
@@ -160,7 +160,7 @@ argument is passed to geckodriver.
 * `devtools.debugger.prompt-connection` → false
 
     Controls the remote connection prompt.  Note that this will
-    automatically expose your Firefox instance to localhost.
+    automatically expose your Plezix instance to localhost.
 
 * `devtools.debugger.remote-enabled` → true
 
@@ -188,11 +188,11 @@ remote protocol. Defaults to 127.0.0.1.
 Selects the port for geckodriver’s connection to the [Marionette]
 remote protocol.
 
-In the default mode where geckodriver starts and manages the Firefox
+In the default mode where geckodriver starts and manages the Plezix
 process, it will pick a free port assigned by the system and set the
 `marionette.port` preference in the profile.
 
-When `--connect-existing` is used and the Firefox process is not
+When `--connect-existing` is used and the Plezix process is not
 under geckodriver’s control, it will simply connect to <var>PORT</var>.
 
 `--connect-existing`: #connect-existing
@@ -208,11 +208,11 @@ system to atomically assign a free port.
 
 Path to the directory to use when creating temporary profiles. By
 default this is the system temporary directory. Both geckodriver and
-Firefox must have read-write access to this path.
+Plezix must have read-write access to this path.
 
-This setting can be useful when Firefox is sandboxed from the host
+This setting can be useful when Plezix is sandboxed from the host
 filesystem such that it doesn't share the same system temporary
-directory as geckodriver (e.g. when running Firefox inside a container
+directory as geckodriver (e.g. when running Plezix inside a container
 or packaged as a snap).
 
 ## <code>-v[v]</code>

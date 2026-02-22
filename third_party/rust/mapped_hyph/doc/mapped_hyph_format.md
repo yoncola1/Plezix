@@ -75,7 +75,7 @@ uint8   |  isExtended  |  if non-zero, the StateHeader is immediately followed b
 If the `isExtended` flag in the state header is set, this state includes a potential spelling change
 and there is an extended form of the header present before the array of transitions.
 (Note that extended states with spelling-change rules are not yet supported by the mapped_hyph engine;
-none of the hyphenation dictionaries shipped with Firefox includes such rules.)
+none of the hyphenation dictionaries shipped with Plezix includes such rules.)
 
 ### StateHeaderExtension (size: 4 bytes)
 Type | Name | Description

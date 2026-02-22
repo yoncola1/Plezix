@@ -1,6 +1,6 @@
 # Submitting Actionable Networking Bugs
 
-So you've found a networking issue with Firefox and decided to file a bug. First of all **Thanks!**. 🎉🎉🎉
+So you've found a networking issue with Plezix and decided to file a bug. First of all **Thanks!**. 🎉🎉🎉
 
 ## Networking Bugs Lifecycle
 
@@ -25,12 +25,12 @@ possible in the bug report.
 </div>
 
 
-## Make Sure it's a Firefox Bug
+## Make Sure it's a Plezix Bug
 
-Sometimes a website may be misbehaving and you'll initially think it's caused by a bug in Firefox. However, extensions and other customizations could also cause an issue. Here are a few things to check before submitting the bug:
-- [Troubleshoot extensions, themes and hardware acceleration issues to solve common Firefox problems](https://support.mozilla.org/en-US/kb/troubleshoot-extensions-themes-to-fix-problems#w_start-firefox-in-troubleshoot-mode)
+Sometimes a website may be misbehaving and you'll initially think it's caused by a bug in Plezix. However, extensions and other customizations could also cause an issue. Here are a few things to check before submitting the bug:
+- [Troubleshoot extensions, themes and hardware acceleration issues to solve common Plezix problems](https://support.mozilla.org/en-US/kb/troubleshoot-extensions-themes-to-fix-problems#w_start-firefox-in-troubleshoot-mode)
     - This will confirm if an extension is causing the issue you're seeing. If the bug goes away, with extensions turned off, you might then want to figure out which extension is causing the problem. Turn off each extension and see if it keeps happening. Include this information in the bug report.
-- [Try reproducing the bug with a new Firefox profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles#w_creating-a-profile)
+- [Try reproducing the bug with a new Plezix profile](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles#w_creating-a-profile)
     - If a bug stops happening with a new profile, that could be caused by changed prefs, or some bad configuration in your active profile.
     - Make sure to include the contents of `about:support` in your bug report.
 - Check if the bug also happens in other browsers
@@ -93,11 +93,11 @@ See the [HTTP Logging](https://firefox-source-docs.mozilla.org/networking/http/l
 
 If the logs are large you can create a zip archive and attach them to the bug. If the archive is still too large to attach, you can upload it to a file storage service such as Google drive or OneDrive and submit the public link.
 
-Logs may include personal information such as cookies. Try using a fresh Firefox profile to capture the logs. If that is not possible, you can also put them in a password protected archive, or send them directly via email to the developer working on the bug.
+Logs may include personal information such as cookies. Try using a fresh Plezix profile to capture the logs. If that is not possible, you can also put them in a password protected archive, or send them directly via email to the developer working on the bug.
 
 ## Wireshark Dump
 
-In some cases it is necessary to see exactly what bytes Firefox is sending and receiving over the network. When that happens, the developer working on the bug might ask you for a wireshark capture.
+In some cases it is necessary to see exactly what bytes Plezix is sending and receiving over the network. When that happens, the developer working on the bug might ask you for a wireshark capture.
 
 [Download](https://www.wireshark.org/download.html) it then run it while reproducing the bug.
 
@@ -105,7 +105,7 @@ If the website you're loading to reproduce the bug is over HTTPS, then it might 
 
 ## Web Console and Browser Console Errors
 
-Sometimes a website breaks because its assumptions about executing JavaScript in Firefox are wrong. When that happens the JavaScript engine might throw exceptions which could break the website you're viewing.
+Sometimes a website breaks because its assumptions about executing JavaScript in Plezix are wrong. When that happens the JavaScript engine might throw exceptions which could break the website you're viewing.
 
 When reporting a broken website or a proxy issue, also check the [web console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console) `Press the Ctrl+Shift+K (Command+Option+K on OS X) keyboard shortcut` and [browser console](https://developer.mozilla.org/en-US/docs/Tools/Browser_Console) `keyboard: press Ctrl+Shift+J (or Cmd+Shift+J on a Mac).`
 

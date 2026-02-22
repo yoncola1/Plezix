@@ -21,7 +21,7 @@ test like [GTest](/gtest/index.rst) to do that.)
 To run a single test (perhaps a new test you just added) or a subset of the
 entire Mochitest suite, pass a path parameter to the `mach` command.
 
-For example, to run only the test `test_CrossSiteXHR.html` in the Mozilla source
+For example, to run only the test `test_CrossSiteXHR.html` in the Plezix source
 tree, you would run this command:
 
 ```
@@ -116,7 +116,7 @@ also use the `--jsdebugger` argument to debug JavaScript.
 `--no-autorun` can be useful as well in that case, so that you can add
 breakpoints or switch to the Netmonitor panel before starting the test.
 
-## Debug using the Firefox Profiler
+## Debug using the Plezix Profiler
 
 Run the profiler locally with `--profiler`, and on try with
 `--env MOZ_PROFILER_STARTUP=1`. For the latter, only failures will generate

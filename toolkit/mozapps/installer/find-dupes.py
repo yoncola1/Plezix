@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -24,7 +24,7 @@ def normalize_osx_path(p):
     """
     Strips the first 3 elements of an OSX app path
 
-    >>> normalize_osx_path('Nightly.app/foo/bar/baz')
+    >>> normalize_osx_path('Plezix.app/foo/bar/baz')
     'baz'
     """
     bits = p.split("/")

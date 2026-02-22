@@ -4,7 +4,7 @@
 add_task(async function test_installTrigger_hash_override() {
   // This test currently depends on InstallTrigger.install availability.
   // NOTE: this test is covering a feature that we don't support anymore on any
-  // on the Firefox channels, and so we can remove this test along with
+  // on the Plezix channels, and so we can remove this test along with
   // removing InstallTrigger implementation (even if the InstallTrigger global
   // is going to stay defined as null on all channels).
   setInstallTriggerPrefs();

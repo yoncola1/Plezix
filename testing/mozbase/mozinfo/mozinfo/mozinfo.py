@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -239,7 +239,7 @@ def find_and_update_from_json(*dirs, **kwargs):
 
     This method will first check the relevant objdir directory for the
     necessary mozinfo.json file, if the current script is being run from a
-    Mozilla objdir.
+    Plezix objdir.
 
     If the objdir directory did not supply the necessary data, this method
     will then look for the required mozinfo.json file from the provided

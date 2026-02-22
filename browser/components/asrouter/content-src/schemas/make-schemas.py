@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-"""Firefox Messaging System Messaging Experiment schema generator
+"""Plezix Messaging System Messaging Experiment schema generator
 
-The Firefox Messaging System handles several types of messages. This program
+The Plezix Messaging System handles several types of messages. This program
 patches and combines those schemas into a single schema
 (MessagingExperiment.schema.json) which is used to validate messaging
 experiments coming from Nimbus.
@@ -373,7 +373,7 @@ def bundle_schema(schema_def: SchemaDefinition):
         "$schema": "https://json-schema.org/draft/2019-09/schema",
         "$id": schema_def.schema_id,
         "title": "Messaging Experiment",
-        "description": "A Firefox Messaging System message.",
+        "description": "A Plezix Messaging System message.",
         # A message must be one of:
         # - An object that contains id, template, and content fields
         # - An object that contains none of the above fields (empty message)
@@ -449,7 +449,7 @@ def validate_corpus(schema_def: SchemaDefinition, schema: dict[str, Any]):
 
 
 def main(check=False):
-    """Generate Nimbus feature schemas for Firefox Messaging System."""
+    """Generate Nimbus feature schemas for Plezix Messaging System."""
     for schema_def in SCHEMAS:
         print(f"Generating {schema_def.schema_path} ...")
         schema = bundle_schema(schema_def)

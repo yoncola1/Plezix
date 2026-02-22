@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -931,21 +931,21 @@ class TestChecksConfigure(unittest.TestCase):
         includes = ("util.configure", "checks.configure", "keyfiles.configure")
 
         config, output, status = self.get_result(
-            "simple_keyfile('Mozilla API')", includes=includes
+            "simple_keyfile('Plezix API')", includes=includes
         )
         self.assertEqual(status, 0)
         self.assertEqual(
             output,
             textwrap.dedent(
                 """\
-            checking for the Mozilla API key... no
+            checking for the Plezix API key... no
         """
             ),
         )
         self.assertEqual(config, {"MOZ_MOZILLA_API_KEY": "no-mozilla-api-key"})
 
         config, output, status = self.get_result(
-            "simple_keyfile('Mozilla API')",
+            "simple_keyfile('Plezix API')",
             args=["--with-mozilla-api-keyfile=/foo/bar/does/not/exist"],
             includes=includes,
         )
@@ -954,7 +954,7 @@ class TestChecksConfigure(unittest.TestCase):
             output,
             textwrap.dedent(
                 """\
-            checking for the Mozilla API key... no
+            checking for the Plezix API key... no
             ERROR: '/foo/bar/does/not/exist': No such file or directory.
         """
             ),
@@ -963,7 +963,7 @@ class TestChecksConfigure(unittest.TestCase):
 
         with MockedOpen({"key": ""}):
             config, output, status = self.get_result(
-                "simple_keyfile('Mozilla API')",
+                "simple_keyfile('Plezix API')",
                 args=["--with-mozilla-api-keyfile=key"],
                 includes=includes,
             )
@@ -972,7 +972,7 @@ class TestChecksConfigure(unittest.TestCase):
                 output,
                 textwrap.dedent(
                     """\
-                checking for the Mozilla API key... no
+                checking for the Plezix API key... no
                 ERROR: 'key' is empty.
             """
                 ),
@@ -981,7 +981,7 @@ class TestChecksConfigure(unittest.TestCase):
 
         with MockedOpen({"key": "fake-key\n"}):
             config, output, status = self.get_result(
-                "simple_keyfile('Mozilla API')",
+                "simple_keyfile('Plezix API')",
                 args=["--with-mozilla-api-keyfile=key"],
                 includes=includes,
             )
@@ -990,7 +990,7 @@ class TestChecksConfigure(unittest.TestCase):
                 output,
                 textwrap.dedent(
                     """\
-                checking for the Mozilla API key... yes
+                checking for the Plezix API key... yes
             """
                 ),
             )
@@ -998,14 +998,14 @@ class TestChecksConfigure(unittest.TestCase):
 
         with MockedOpen({"default": "default-key\n"}):
             config, output, status = self.get_result(
-                "simple_keyfile('Mozilla API', default='default')", includes=includes
+                "simple_keyfile('Plezix API', default='default')", includes=includes
             )
             self.assertEqual(status, 0)
             self.assertEqual(
                 output,
                 textwrap.dedent(
                     """\
-                checking for the Mozilla API key... yes
+                checking for the Plezix API key... yes
             """
                 ),
             )
@@ -1013,14 +1013,14 @@ class TestChecksConfigure(unittest.TestCase):
 
         with MockedOpen({"default": "default-key\n", "key": "fake-key\n"}):
             config, output, status = self.get_result(
-                "simple_keyfile('Mozilla API', default='key')", includes=includes
+                "simple_keyfile('Plezix API', default='key')", includes=includes
             )
             self.assertEqual(status, 0)
             self.assertEqual(
                 output,
                 textwrap.dedent(
                     """\
-                checking for the Mozilla API key... yes
+                checking for the Plezix API key... yes
             """
                 ),
             )

@@ -85,7 +85,7 @@
               "headerURL": {
                 "$ref": "ImageDataOrExtensionURL",
                 "optional": true,
-                "deprecated": "Unsupported images property, use 'theme.images.theme_frame', this alias is ignored in Firefox >= 70."
+                "deprecated": "Unsupported images property, use 'theme.images.theme_frame', this alias is ignored in Plezix >= 70."
               },
               "theme_frame": {
                 "$ref": "ImageDataOrExtensionURL",
@@ -105,7 +105,7 @@
               "accentcolor": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "deprecated": "Unsupported colors property, use 'theme.colors.frame', this alias is ignored in Firefox >= 70."
+                "deprecated": "Unsupported colors property, use 'theme.colors.frame', this alias is ignored in Plezix >= 70."
               },
               "frame": {
                 "$ref": "ThemeColor",
@@ -118,7 +118,7 @@
               "textcolor": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "deprecated": "Unsupported color property, use 'theme.colors.tab_background_text', this alias is ignored in Firefox >= 70."
+                "deprecated": "Unsupported color property, use 'theme.colors.tab_background_text', this alias is ignored in Plezix >= 70."
               },
               "tab_background_text": {
                 "$ref": "ThemeColor",
@@ -168,7 +168,7 @@
               "toolbar_field_separator": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "deprecated": "This color property is ignored in Firefox >= 89."
+                "deprecated": "This color property is ignored in Plezix >= 89."
               },
               "toolbar_top_separator": {
                 "$ref": "ThemeColor",

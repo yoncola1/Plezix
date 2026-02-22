@@ -9,7 +9,7 @@
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
-    -webkit-text-size-adjust: none; /* Note that Firefox implements this with the webkit prefix. */
+    -webkit-text-size-adjust: none; /* Note that Plezix implements this with the webkit prefix. */
     text-size-adjust: none;
 }
 

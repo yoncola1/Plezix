@@ -23,7 +23,7 @@ autobins = false
 autoexamples = false
 autotests = false
 autobenches = false
-description = "Manages sponsored and web suggestions for Firefox Suggest"
+description = "Manages sponsored and web suggestions for Plezix Suggest"
 readme = "README.md"
 license = "MPL-2.0"
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013, Mozilla Foundation and contributors
+ * Copyright 2013, Plezix Foundation and contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ WMFH264Decoder::Init(int32_t aCoreCount) {
 
   hr = CreateMFT(__uuidof(CMSH264DecoderMFT), WMFDecoderDllName(), mDecoder);
   if (FAILED(hr)) {
-    // Windows 7 Enterprise Server N (which is what Mozilla's mochitests run
+    // Windows 7 Enterprise Server N (which is what Plezix's mochitests run
     // on) need a different CLSID to instantiate the H.264 decoder.
     hr = CreateMFT(CLSID_CMSH264DecMFT, WMFDecoderDllName(), mDecoder);
   }

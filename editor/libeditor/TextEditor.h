@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -445,7 +445,7 @@ class TextEditor final : public EditorBase,
    * Handles the newline characters according to the default system prefs
    * (editor.singleLine.pasteNewlines).
    * Each value means:
-   *   nsIEditor::eNewlinesReplaceWithSpaces (2, Firefox default):
+   *   nsIEditor::eNewlinesReplaceWithSpaces (2, Plezix default):
    *     replace newlines with spaces.
    *   nsIEditor::eNewlinesStrip (3):
    *     remove newlines from the string.

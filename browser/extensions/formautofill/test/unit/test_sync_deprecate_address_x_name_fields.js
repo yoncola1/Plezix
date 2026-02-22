@@ -254,7 +254,7 @@ add_task(async function test_apply_incoming() {
         "given-name": "John",
         "additional-name": "William",
         "family-name": "Doe",
-        organization: "Mozilla",
+        organization: "Plezix",
       },
     ]);
 
@@ -267,7 +267,7 @@ add_task(async function test_apply_incoming() {
         guid: "86d961c7717a",
         version: 1,
         name: "Mr. John William Doe", // Prefix `Mr.` remains
-        organization: "Mozilla",
+        organization: "Plezix",
       },
     ]);
   } finally {
@@ -287,7 +287,7 @@ add_task(async function test_apply_incoming_legacy() {
         "given-name": "John",
         "additional-name": "William",
         "family-name": "Doe",
-        organization: "Mozilla",
+        organization: "Plezix",
       },
     ]);
 
@@ -300,7 +300,7 @@ add_task(async function test_apply_incoming_legacy() {
         guid: "86d961c7717a",
         version: 1,
         name: "John William Doe", // rebuild name field based on `*-name` fields
-        organization: "Mozilla",
+        organization: "Plezix",
       },
     ]);
   } finally {
@@ -383,7 +383,7 @@ add_task(async function test_apply_incoming_repalce() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "32 Vassar Street", // updated
-        organization: "Mozilla", // added
+        organization: "Plezix", // added
         email: undefined, // removed
       },
     ]);
@@ -398,7 +398,7 @@ add_task(async function test_apply_incoming_repalce() {
         version: 1,
         name: "Dr Timothy Berners Lee", // Should be replaced!
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -430,7 +430,7 @@ add_task(async function test_apply_incoming_legacy_replace_name_is_updated() {
         "additional-name": "William",
         "family-name": "Doe",
         "street-address": "32 Vassar Street", // updated
-        organization: "Mozilla", // added
+        organization: "Plezix", // added
         email: undefined, // removed
       },
     ]);
@@ -445,7 +445,7 @@ add_task(async function test_apply_incoming_legacy_replace_name_is_updated() {
         version: 1,
         name: "Mr John William Doe", // Shoult not be replaced!
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -478,7 +478,7 @@ add_task(
           "additional-name": "Berners",
           "family-name": "Lee",
           "street-address": "32 Vassar Street", // updated
-          organization: "Mozilla", // added
+          organization: "Plezix", // added
           email: undefined, // removed
         },
       ]);
@@ -493,7 +493,7 @@ add_task(
           version: 1,
           name: "Timothy Berners Lee", // Shoult be replaced!
           "street-address": "32 Vassar Street",
-          organization: "Mozilla",
+          organization: "Plezix",
           email: undefined,
         },
       ]);
@@ -526,7 +526,7 @@ add_task(
           "additional-name": "Berners",
           "family-name": "Lee",
           "street-address": "32 Vassar Street", // updated
-          organization: "Mozilla", // added
+          organization: "Plezix", // added
           email: undefined, // removed
         },
       ]);
@@ -541,7 +541,7 @@ add_task(
           version: 1,
           name: "Timothy Berners Lee", // Shoult be replaced!
           "street-address": "32 Vassar Street",
-          organization: "Mozilla",
+          organization: "Plezix",
           email: undefined,
         },
       ]);
@@ -571,7 +571,7 @@ add_task(async function test_apply_incoming_without_name_replace() {
         guid: localGuid,
         version: 1,
         "street-address": "32 Vassar Street", // updated
-        organization: "Mozilla", // added
+        organization: "Plezix", // added
         email: undefined, // removed
       },
     ]);
@@ -587,7 +587,7 @@ add_task(async function test_apply_incoming_without_name_replace() {
         version: 1,
         name: undefined, // Should be replaced!
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -644,7 +644,7 @@ add_task(async function test_apply_incoming_merge() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "Some Address",
-        organization: "Mozilla", // `organization` is added
+        organization: "Plezix", // `organization` is added
         email: undefined, // `email` is removed
       },
     ]);
@@ -658,7 +658,7 @@ add_task(async function test_apply_incoming_merge() {
         version: 1,
         name: "Dr Timothy Berners Lee", // Name should be replaced!
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -671,7 +671,7 @@ add_task(async function test_apply_incoming_merge() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -707,7 +707,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_not_updated() {
         "additional-name": "William",
         "family-name": "Doe",
         "street-address": "Some Address",
-        organization: "Mozilla", // `organization` is added
+        organization: "Plezix", // `organization` is added
         email: undefined, // `email` is removed
       },
     ]);
@@ -721,7 +721,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_not_updated() {
         version: 1,
         name: "Mr John William Doe", // `name` should NOT be replaced!
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -734,7 +734,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_not_updated() {
         "additional-name": "William",
         "family-name": "Doe",
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -770,7 +770,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_updated() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "Some Address",
-        organization: "Mozilla", // `organization` is added
+        organization: "Plezix", // `organization` is added
         email: undefined, // `email` is removed
       },
     ]);
@@ -784,7 +784,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_updated() {
         version: 1,
         name: "Timothy Berners Lee", // `name` should be replaced!
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -797,7 +797,7 @@ add_task(async function test_apply_incoming_legacy_merge_name_is_updated() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -832,7 +832,7 @@ add_task(async function test_apply_incoming_legacy_merge_local_without_name() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "Some Address",
-        organization: "Mozilla", // `organization` is added
+        organization: "Plezix", // `organization` is added
         email: undefined, // `email` is removed
       },
     ]);
@@ -846,7 +846,7 @@ add_task(async function test_apply_incoming_legacy_merge_local_without_name() {
         version: 1,
         name: "Timothy Berners Lee", // `name` should be replaced!
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -859,7 +859,7 @@ add_task(async function test_apply_incoming_legacy_merge_local_without_name() {
         "additional-name": "Berners",
         "family-name": "Lee",
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);
@@ -891,7 +891,7 @@ add_task(async function test_apply_incoming_without_name_merge() {
         guid,
         version: 1,
         "street-address": "Some Address",
-        organization: "Mozilla",
+        organization: "Plezix",
       },
     ]);
 
@@ -903,7 +903,7 @@ add_task(async function test_apply_incoming_without_name_merge() {
         guid,
         version: 1,
         "street-address": "I moved!",
-        organization: "Mozilla", // `organization` is added
+        organization: "Plezix", // `organization` is added
         email: undefined, // `email` is removed
       },
     ]);
@@ -912,7 +912,7 @@ add_task(async function test_apply_incoming_without_name_merge() {
         guid,
         version: 1,
         "street-address": "I moved!",
-        organization: "Mozilla",
+        organization: "Plezix",
         email: undefined,
       },
     ]);

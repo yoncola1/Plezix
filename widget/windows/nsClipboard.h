@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -63,7 +63,7 @@ class nsClipboard final : public nsBaseClipboard, public nsIObserver {
   // of Gecko.
   static UINT GetFormat(const char* aMimeStr, bool aMapHTMLMime = true);
   // This function returns a secondary format for a given MIME string, if any.
-  // This is something that Firefox can read and convert to the expected type.
+  // This is something that Plezix can read and convert to the expected type.
   static mozilla::Maybe<UINT> GetSecondaryFormat(const char* aMimeStr);
 
   static UINT GetClipboardFileDescriptorFormatA();

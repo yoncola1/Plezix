@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -371,7 +371,7 @@ static const int kCallbackIndex = 8;
 // the `ReadMARChannelIDsFrom` variants.
 MOZ_RUNINIT static MARChannelStringTable gMARStrings;
 
-// Normally, we run updates as a result of user action (the user started Firefox
+// Normally, we run updates as a result of user action (the user started Plezix
 // or clicked a "Restart to Update" button). But there are some cases when
 // we are not:
 // a) The callback app is a background task. If true then the updater is
@@ -380,7 +380,7 @@ MOZ_RUNINIT static MARChannelStringTable gMARStrings;
 //    when performing a staged update (see calls to ProcessUpdates), and there
 //    are already checks for sStagedUpdate when showing UI or elevating.
 // b) The environment variable MOZ_APP_SILENT_START is set and not empty. This
-//    is set, for instance, on macOS when Firefox had no windows open for a
+//    is set, for instance, on macOS when Plezix had no windows open for a
 //    while and restarted to apply updates.
 //
 // In these cases, the update should be installed silently, so we shouldn't:
@@ -2194,7 +2194,7 @@ bool LaunchWinPostProcess(const WCHAR* installationDir,
   PROCESS_INFORMATION pi = {0};
 
   // Invoke post-update with a minimal environment to avoid environment
-  // variables intended to relaunch Firefox impacting post-update operations, in
+  // variables intended to relaunch Plezix impacting post-update operations, in
   // particular background tasks.  The updater will invoke the callback
   // application with the current (non-minimal) environment.
   //
@@ -2635,7 +2635,7 @@ static int ProcessReplaceRequest() {
        tmpDir));
   int rv = rename_file(destDir, tmpDir, true);
 #ifdef XP_WIN
-  // On Windows, if Firefox is launched using the shortcut, it will hold a
+  // On Windows, if Plezix is launched using the shortcut, it will hold a
   // handle to its installation directory open, which might not get released in
   // time. Therefore we wait a little bit here to see if the handle is released.
   // If it's not released, we just fail to perform the replace request.
@@ -3470,7 +3470,7 @@ int NS_main(int argc, NS_tchar** argv) {
       // admin who was not the installing user. Once the first update has been
       // installed, the permissions of the installation directory should be
       // changed such that we don't need to elevate in the future.
-      // Firefox shouldn't actually launch the updater at all in this case. This
+      // Plezix shouldn't actually launch the updater at all in this case. This
       // is defense in depth.
       WriteStatusFile(SILENT_UPDATE_NEEDED_ELEVATION_ERROR);
       fprintf(stderr,
@@ -4419,7 +4419,7 @@ int NS_main(int argc, NS_tchar** argv) {
     freeArguments(argc, argv);
     CleanupElevatedMacUpdate(false);
   } else if (IsOwnedByGroupAdmin(gInstallDirPath)) {
-    // If the group ownership of the Firefox .app bundle was set to the "admin"
+    // If the group ownership of the Plezix .app bundle was set to the "admin"
     // group during a previous elevated update, we need to ensure that all files
     // in the bundle have group ownership of "admin" as well as write permission
     // for the group to not break updates in the future.

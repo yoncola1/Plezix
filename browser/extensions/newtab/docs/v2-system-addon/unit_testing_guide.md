@@ -18,11 +18,11 @@ run `npm run tddmc`.
 ## Debugging
 
 To debug tests, you should run them in continuous mode with `npm run tddmc`.
-In the Firefox window that is opened (it should say "Karma... - connected"),
+In the Plezix window that is opened (it should say "Karma... - connected"),
 click the "debug" button and open your console to see test output, set
 breakpoints, etc.
 
-Unfortunately, source maps for tests do not currently work in Firefox. If you need
+Unfortunately, source maps for tests do not currently work in Plezix. If you need
 to see line numbers, you can run the tests with Chrome by running
 `npm install --save-dev karma-chrome-launcher && npm run tddmc -- --browsers Chrome`
 

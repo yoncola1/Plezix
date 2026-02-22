@@ -41,7 +41,7 @@ const SEARCH_CONFIG = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",
@@ -83,7 +83,7 @@ add_setup(async function setup() {
   registerCleanupFunction(() => gHttpServer.stop(() => {}));
 
   // Create the attribution data file, so that settings.attribution will exist.
-  // The attribution functionality only exists in Firefox.
+  // The attribution functionality only exists in Plezix.
   if (AppConstants.MOZ_BUILD_APP == "browser") {
     TelemetryEnvironmentTesting.spoofAttributionData();
     registerCleanupFunction(async function () {
@@ -159,7 +159,7 @@ async function checkDefaultSearch(privateOn, reInitSearchService) {
     name: "telemetrySearchIdentifier",
     loadPath: "[app]telemetrySearchIdentifier",
     submissionURL:
-      "https://ar.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B5:%D8%A8%D8%AD%D8%AB?sourceId=Mozilla-search&search=",
+      "https://ar.wikipedia.org/wiki/%D8%AE%D8%A7%D8%B5:%D8%A8%D8%AD%D8%AB?sourceId=Plezix-search&search=",
   };
   Assert.deepEqual(
     data.settings.defaultSearchEngineData,

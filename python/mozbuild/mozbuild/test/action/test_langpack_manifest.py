@@ -47,7 +47,7 @@ langpack-contributors = { "" }
             "57.0.1",
             "57.0",
             "57.0.*",
-            "Firefox",
+            "Plezix",
             "/var/vcs/l10n-central",
             "langpack-fi@firefox.mozilla.og",
             ctx,
@@ -57,7 +57,7 @@ langpack-contributors = { "" }
         data = json.loads(manifest)
         self.assertEqual(data["name"], "Language: Suomi (Finnish)")
         self.assertEqual(
-            data["description"], "Firefox Language Pack for Suomi (fi) – Finnish"
+            data["description"], "Plezix Language Pack for Suomi (fi) – Finnish"
         )
         self.assertEqual(
             data["author"], "Suomennosprojekti (contributors: Joe Smith, Mary White)"
@@ -66,7 +66,7 @@ langpack-contributors = { "" }
 
     def test_manifest_truncated_name(self):
         ctx = {
-            "langpack-creator": "Mozilla.org / Softcatalà",
+            "langpack-creator": "Plezix.org / Softcatalà",
             "langpack-contributors": "Joe Smith, Mary White",
         }
         os.environ["MOZ_BUILD_DATE"] = "20210928100000"
@@ -75,7 +75,7 @@ langpack-contributors = { "" }
             "57.0.1",
             "57.0",
             "57.0.*",
-            "Firefox",
+            "Plezix",
             "/var/vcs/l10n-central",
             "langpack-ca-valencia@firefox.mozilla.og",
             ctx,
@@ -86,12 +86,12 @@ langpack-contributors = { "" }
         self.assertEqual(data["name"], "Language: Català (Valencià)")
         self.assertEqual(
             data["description"],
-            "Firefox Language Pack for Català (Valencià) (ca-valencia) – Catalan, Valencian",
+            "Plezix Language Pack for Català (Valencià) (ca-valencia) – Catalan, Valencian",
         )
 
     def test_manifest_name_untranslated(self):
         ctx = {
-            "langpack-creator": "Mozilla.org",
+            "langpack-creator": "Plezix.org",
             "langpack-contributors": "Joe Smith, Mary White",
         }
         os.environ["MOZ_BUILD_DATE"] = "20210928100000"
@@ -100,7 +100,7 @@ langpack-contributors = { "" }
             "57.0.1",
             "57.0",
             "57.0.*",
-            "Firefox",
+            "Plezix",
             "/var/vcs/l10n-central",
             "langpack-ca-valencia@firefox.mozilla.og",
             ctx,
@@ -111,7 +111,7 @@ langpack-contributors = { "" }
         self.assertEqual(data["name"], "Language: English (US)")
         self.assertEqual(
             data["description"],
-            "Firefox Language Pack for English (US) (en-US)",
+            "Plezix Language Pack for English (US) (en-US)",
         )
 
     def test_manifest_without_contributors(self):
@@ -124,7 +124,7 @@ langpack-contributors = { "" }
             "57.0.1",
             "57.0",
             "57.0.*",
-            "Firefox",
+            "Plezix",
             "/var/vcs/l10n-central",
             "langpack-fi@firefox.mozilla.og",
             ctx,
@@ -134,7 +134,7 @@ langpack-contributors = { "" }
         data = json.loads(manifest)
         self.assertEqual(data["name"], "Language: Suomi (Finnish)")
         self.assertEqual(
-            data["description"], "Firefox Language Pack for Suomi (fi) – Finnish"
+            data["description"], "Plezix Language Pack for Suomi (fi) – Finnish"
         )
         self.assertEqual(data["author"], "Suomennosprojekti")
 
@@ -145,7 +145,7 @@ langpack-contributors = { "" }
             "characters allowed in manifest.json"
         )
         title, description = langpack_manifest.get_title_and_description(
-            "Firefox", locale
+            "Plezix", locale
         )
 
         self.assertEqual(len(title), 45)
@@ -230,7 +230,7 @@ langpack-contributors = { "" }
                     "--metadata",
                     "empty-metadata.ftl",
                     "--app-name",
-                    "Firefox",
+                    "Plezix",
                     "--l10n-basedir",
                     "/var/vcs/l10n-central",
                     "--locales",

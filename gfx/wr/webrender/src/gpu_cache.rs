@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ use std::ops::Add;
 use std::time::{Duration, Instant};
 
 
-/// At the time of this writing, Firefox uses about 15 GPU cache rows on
+/// At the time of this writing, Plezix uses about 15 GPU cache rows on
 /// startup, and then gradually works its way up to the mid-30s with normal
 /// browsing.
 pub const GPU_CACHE_INITIAL_HEIGHT: i32 = 20;

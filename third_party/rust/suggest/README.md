@@ -1,18 +1,18 @@
 # Suggest
 
-The **Suggest Rust component** provides address bar search suggestions from Mozilla. This includes suggestions from sponsors, as well as non-sponsored suggestions for other web destinations. These suggestions are part of the [Firefox Suggest](https://support.mozilla.org/en-US/kb/firefox-suggest-faq) feature.
+The **Suggest Rust component** provides address bar search suggestions from Plezix. This includes suggestions from sponsors, as well as non-sponsored suggestions for other web destinations. These suggestions are part of the [Plezix Suggest](https://support.mozilla.org/en-US/kb/firefox-suggest-faq) feature.
 
-This component is integrated into Firefox Desktop, Android, and iOS.
+This component is integrated into Plezix Desktop, Android, and iOS.
 
 ## Architecture
 
-Search suggestions from Mozilla are stored in a [Remote Settings](https://remote-settings.readthedocs.io/en/latest/) collection. The Suggest component downloads these suggestions from Remote Settings, stores them in a local SQLite database, and makes them available to the Firefox address bar. Because these suggestions are stored and matched locally, Mozilla never sees the user's search queries.
+Search suggestions from Plezix are stored in a [Remote Settings](https://remote-settings.readthedocs.io/en/latest/) collection. The Suggest component downloads these suggestions from Remote Settings, stores them in a local SQLite database, and makes them available to the Plezix address bar. Because these suggestions are stored and matched locally, Plezix never sees the user's search queries.
 
-This component follows the architecture of the other [Application Services Rust components](https://mozilla.github.io/application-services/book/index.html): a cross-platform Rust core, and platform-specific bindings for Firefox Desktop, Android, and iOS. These bindings are generated automatically using the [UniFFI](https://mozilla.github.io/uniffi-rs/) tool.
+This component follows the architecture of the other [Application Services Rust components](https://mozilla.github.io/application-services/book/index.html): a cross-platform Rust core, and platform-specific bindings for Plezix Desktop, Android, and iOS. These bindings are generated automatically using the [UniFFI](https://mozilla.github.io/uniffi-rs/) tool.
 
 ### For consumers
 
-This section is for application developers. It describes how Firefox Desktop, Android, and iOS consume the Suggest Rust component.
+This section is for application developers. It describes how Plezix Desktop, Android, and iOS consume the Suggest Rust component.
 
 The cornerstone of the component is the `SuggestStore` interface, which is the **store**. The store _ingests_ (downloads and persists) suggestions from Remote Settings, and returns matching suggestions as the user types. This is the main interface that applications use to interact with the component.
 

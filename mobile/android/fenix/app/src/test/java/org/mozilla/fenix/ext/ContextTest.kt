@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@ class ContextTest {
 
     private lateinit var mockContext: Context
     private val selectedLocale = Locale.Builder().setLanguage("ro").setRegion("RO").build()
-    private val appName = "Firefox Preview"
+    private val appName = "Plezix Preview"
 
     private val mockId: Int = 11
 
@@ -53,7 +53,7 @@ class ContextTest {
 
         val result = mockContext.getStringWithArgSafe(mockId, appName)
 
-        assertEquals("Incearca noul Firefox Preview", result)
+        assertEquals("Incearca noul Plezix Preview", result)
     }
 
     @Test
@@ -65,7 +65,7 @@ class ContextTest {
 
         val result = mockContext.getStringWithArgSafe(mockId, appName)
 
-        assertEquals("Try the new Firefox Preview", result)
+        assertEquals("Try the new Plezix Preview", result)
     }
 
     @Test

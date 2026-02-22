@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * UI for displaying the Empty Tab Page in the Tabs Tray.
@@ -45,8 +45,8 @@ internal fun EmptyTabPage(isPrivate: Boolean) {
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 80.dp),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.body1,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.body1,
         )
     }
 }

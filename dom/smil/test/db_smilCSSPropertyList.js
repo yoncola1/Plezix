@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 sw=2 sts=2 et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,8 +11,8 @@ var gPropList = {
   // NOTE: AnimatedAttribute signature is:
   //  (attrName, attrType, sampleTarget, isAnimatable, isAdditive)
 
-  // SKIP 'alignment-baseline' property: animatable but not supported by Mozilla
-  // SKIP 'baseline-shift' property: animatable but not supported by Mozilla
+  // SKIP 'alignment-baseline' property: animatable but not supported by Plezix
+  // SKIP 'baseline-shift' property: animatable but not supported by Plezix
   clip: new AdditiveAttribute("clip", "CSS", "marker"),
   clip_path: new NonAdditiveAttribute("clip-path", "CSS", "rect"),
   clip_rule: new NonAdditiveAttribute("clip-rule", "CSS", "circle"),
@@ -27,7 +27,7 @@ var gPropList = {
     "CSS",
     "feFlood"
   ),
-  // SKIP 'color-profile' property: animatable but not supported by Mozilla
+  // SKIP 'color-profile' property: animatable but not supported by Plezix
   cursor: new NonAdditiveAttribute("cursor", "CSS", "rect"),
   direction: new NonAnimatableAttribute("direction", "CSS", "text"),
   display: new NonAdditiveAttribute("display", "CSS", "rect"),
@@ -37,7 +37,7 @@ var gPropList = {
     "text"
   ),
   enable_background:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     new NonAnimatableAttribute("enable-background", "CSS", "marker"),
   fill: new AdditiveAttribute("fill", "CSS", "rect"),
   fill_opacity: new AdditiveAttribute("fill-opacity", "CSS", "rect"),
@@ -55,13 +55,13 @@ var gPropList = {
   // XXXdholbert should 'font-weight' be additive?
   font_weight: new NonAdditiveAttribute("font-weight", "CSS", "text"),
   glyph_orientation_horizontal:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     NonAnimatableAttribute("glyph-orientation-horizontal", "CSS", "text"),
   glyph_orientation_vertical:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     NonAnimatableAttribute("glyph-orientation-horizontal", "CSS", "text"),
   image_rendering: NonAdditiveAttribute("image-rendering", "CSS", "image"),
-  // SKIP 'kerning' property: animatable but not supported by Mozilla
+  // SKIP 'kerning' property: animatable but not supported by Plezix
   letter_spacing: new AdditiveAttribute("letter-spacing", "CSS", "text"),
   lighting_color: new AdditiveAttribute(
     "lighting-color",
@@ -99,6 +99,6 @@ var gPropList = {
   visibility: new NonAdditiveAttribute("visibility", "CSS", "rect"),
   word_spacing: new AdditiveAttribute("word-spacing", "CSS", "text"),
   writing_mode:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     new NonAnimatableAttribute("writing-mode", "CSS", "text"),
 };

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -128,7 +128,7 @@ tasks:
             fetch:
                 - symbol-scrapers
     firefox-snap:
-        description: Extract Firefox Snap symbols found in crashreports
+        description: Extract Plezix Snap symbols found in crashreports
         attributes:
             build_platform: firefox-snap
         index:
@@ -152,7 +152,7 @@ tasks:
             fetch:
                 - symbol-scrapers
     flatpak:
-        description: Extract Firefox Flatpak symbols found in crashreports
+        description: Extract Plezix Flatpak symbols found in crashreports
         attributes:
             build_platform: firefox-flatpak
         index:

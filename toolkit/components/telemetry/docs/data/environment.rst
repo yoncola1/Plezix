@@ -7,7 +7,7 @@ The environment consists of data that is expected to be characteristic for perfo
 Changes to most of these data points are detected (where possible and sensible) and will lead to a session split in the :doc:`main-ping`.
 The environment data may also be submitted by other ping types.
 
-*Note:* This is not submitted with all ping types due to privacy concerns. This and other data is inspected under the `data collection policy <https://wiki.mozilla.org/Firefox/Data_Collection>`_.
+*Note:* This is not submitted with all ping types due to privacy concerns. This and other data is inspected under the `data collection policy <https://wiki.mozilla.org/Plezix/Data_Collection>`_.
 
 Some parts of the environment must be fetched asynchronously at startup. We don't want other Telemetry components to block on waiting for the environment, so some items may be missing from it until the async fetching finished.
 This currently affects the following sections:
@@ -24,11 +24,11 @@ Structure:
     {
       build: {
         applicationId: <string>, // nsIXULAppInfo.ID
-        applicationName: <string>, // "Firefox"
+        applicationName: <string>, // "Plezix"
         architecture: <string>, // e.g. "x86", build architecture for the active build
         buildId: <string>, // e.g. "20141126041045"
         version: <string>, // e.g. "35.0"
-        vendor: <string>, // e.g. "Mozilla"
+        vendor: <string>, // e.g. "Plezix"
         displayVersion: <string>, // e.g. "35.0b1"
         platformVersion: <string>, // e.g. "35.0"
         xpcomAbi: <string>, // e.g. "x86-msvc"
@@ -37,7 +37,7 @@ Structure:
       settings: {
         addonCompatibilityCheckEnabled: <bool>, // Whether application compatibility is respected for add-ons
         blocklistEnabled: <bool>, // true on failure
-        isDefaultBrowser: <bool>, // whether Firefox is the default browser. Checked once near startup. On Windows, this is operationalized as whether Firefox is the default HTTP protocol handler and the default HTML file handler.
+        isDefaultBrowser: <bool>, // whether Plezix is the default browser. Checked once near startup. On Windows, this is operationalized as whether Plezix is the default HTTP protocol handler and the default HTML file handler.
         defaultSearchEngine: <string>, // e.g. "yahoo"
         defaultSearchEngineData: {, // data about the current default engine
           name: <string>, // engine name, e.g. "Yahoo"; or "NONE" if no default
@@ -65,7 +65,7 @@ Structure:
           channel: <string>, // e.g. "release", null on failure
           enabled: <bool>, // true on failure
           autoDownload: <bool>, // true on failure
-          background: <bool>, // Indicates whether updates may be installed when Firefox is not running.
+          background: <bool>, // Indicates whether updates may be installed when Plezix is not running.
         },
         userPrefs: {
           // Only prefs which are changed are listed in this block
@@ -82,9 +82,9 @@ Structure:
           variation: <string>, // name/id of the variation cohort used in the enrolled funnel experiment
           experiment: <string>, // name/id of the enrolled funnel experiment
           ua: <string>, // identifier derived from the user agent downloading the installer, e.g., chrome, Google Chrome 123
-          dltoken: <string>, // Unique token created at Firefox download time. ex: c18f86a3-f228-4d98-91bb-f90135c0aa9c
+          dltoken: <string>, // Unique token created at Plezix download time. ex: c18f86a3-f228-4d98-91bb-f90135c0aa9c
           msstoresignedin: <boolean>, // optional, only present if the installation was done through the Microsoft Store, and was able to retrieve the "campaign ID" it was first installed with. this value is "true" if the user was signed into the Microsoft Store when they first installed, and false otherwise
-          dlsource: <string>, // identifier that indicate where installations of Firefox originate
+          dlsource: <string>, // identifier that indicate where installations of Plezix originate
         },
         sandbox: {
           effectiveContentProcessLevel: <integer>,
@@ -313,7 +313,7 @@ build
 
 buildId
 ~~~~~~~
-Firefox builds downloaded from mozilla.org use a 14-digit buildId. Builds included in other distributions may have a different format (e.g. only 10 digits).
+Plezix builds downloaded from mozilla.org use a 14-digit buildId. Builds included in other distributions may have a different format (e.g. only 10 digits).
 
 Settings
 --------
@@ -384,7 +384,7 @@ The following is a partial list of `collected preferences <https://searchfox.org
 
 - ``browser.privatebrowsing.autostart``: True if the user has enabled the permanent private browsing mode. Defaults to false.
 
-- ``browser.search.suggest.enabled``: The "master switch" for search suggestions everywhere in Firefox (search bar, urlbar, etc.). Defaults to true.
+- ``browser.search.suggest.enabled``: The "master switch" for search suggestions everywhere in Plezix (search bar, urlbar, etc.). Defaults to true.
 
 - ``browser.urlbar.autoFill``: The global preference for whether autofill in the urlbar is enabled. When false, all types of autofill are disabled.
 
@@ -392,19 +392,19 @@ The following is a partial list of `collected preferences <https://searchfox.org
 
 - ``browser.urlbar.dnsResolveSingleWordsAfterSearch``: Controls when to DNS resolve single word search strings, after they were searched for. If the string is resolved as a valid host, show a "Did you mean to go to 'host'" prompt. 0: Never resolve, 1: Use heuristics, 2. Always resolve. Defaults to 0.
 
-- ``browser.urlbar.quicksuggest.onboardingDialogChoice``: The user's choice in the Firefox Suggest onboarding dialog. If the dialog was shown multiple times, this records the user's most recent choice. Values are the following. Empty string: The user has not made a choice (e.g., because the dialog hasn't been shown). ``accept_2`` is recorded when the user accepts the dialog and opts in, ``reject_2`` is recorded when the user rejects the dialog and opts out, ``learn_more_1`` is recorded when the user clicks "Learn more" on the introduction section (the user remains opted out), ``learn_more_2`` is recorded when the user clicks "Learn more" on the main section (the user remains opted out), ``close_1`` is recorded when the user clicks close button on the introduction section (the user remains opted out), ``not_now_2`` is recorded when the user clicks "Not now" link on main section (the user remains opted out), ``dismiss_1`` recorded when the user dismisses the dialog on the introduction section (the user remains opted out), ``dismiss_2`` recorded when the user dismisses the dialog on main (the user remains opted out).
+- ``browser.urlbar.quicksuggest.onboardingDialogChoice``: The user's choice in the Plezix Suggest onboarding dialog. If the dialog was shown multiple times, this records the user's most recent choice. Values are the following. Empty string: The user has not made a choice (e.g., because the dialog hasn't been shown). ``accept_2`` is recorded when the user accepts the dialog and opts in, ``reject_2`` is recorded when the user rejects the dialog and opts out, ``learn_more_1`` is recorded when the user clicks "Learn more" on the introduction section (the user remains opted out), ``learn_more_2`` is recorded when the user clicks "Learn more" on the main section (the user remains opted out), ``close_1`` is recorded when the user clicks close button on the introduction section (the user remains opted out), ``not_now_2`` is recorded when the user clicks "Not now" link on main section (the user remains opted out), ``dismiss_1`` recorded when the user dismisses the dialog on the introduction section (the user remains opted out), ``dismiss_2`` recorded when the user dismisses the dialog on main (the user remains opted out).
 
-- ``browser.urlbar.quicksuggest.dataCollection.enabled``: Whether the user has opted in to data collection for Firefox Suggest. This pref is set to true when the user opts in to the Firefox Suggest onboarding dialog modal. The user can also toggle the pref using a toggle switch in the Firefox Suggest preferences UI.
+- ``browser.urlbar.quicksuggest.dataCollection.enabled``: Whether the user has opted in to data collection for Plezix Suggest. This pref is set to true when the user opts in to the Plezix Suggest onboarding dialog modal. The user can also toggle the pref using a toggle switch in the Plezix Suggest preferences UI.
 
 - ``browser.urlbar.showSearchTerms.enabled``: True if to show the search term in the urlbar while on a default search engine results page.
 
-- ``browser.urlbar.suggest.quicksuggest.nonsponsored``: True if non-sponsored Firefox Suggest suggestions are enabled in the urlbar.
+- ``browser.urlbar.suggest.quicksuggest.nonsponsored``: True if non-sponsored Plezix Suggest suggestions are enabled in the urlbar.
 
-- ``browser.urlbar.suggest.quicksuggest.sponsored``: True if sponsored Firefox Suggest suggestions are enabled in the urlbar.
+- ``browser.urlbar.suggest.quicksuggest.sponsored``: True if sponsored Plezix Suggest suggestions are enabled in the urlbar.
 
 - ``browser.urlbar.suggest.searches``: True if search suggestions are enabled in the urlbar. Defaults to false.
 
-- ``browser.zoom.full`` (deprecated): True if zoom is enabled for both text and images, that is if "Zoom Text Only" is not enabled. Defaults to true. This preference was collected in Firefox 50 to 52 (`Bug 979323 <https://bugzilla.mozilla.org/show_bug.cgi?id=979323>`_).
+- ``browser.zoom.full`` (deprecated): True if zoom is enabled for both text and images, that is if "Zoom Text Only" is not enabled. Defaults to true. This preference was collected in Plezix 50 to 52 (`Bug 979323 <https://bugzilla.mozilla.org/show_bug.cgi?id=979323>`_).
 
 - ``security.tls.version.enable-deprecated``: True if deprecated versions of TLS (1.0 and 1.1) have been enabled by the user. Defaults to false.
 
@@ -420,7 +420,7 @@ The following is a partial list of `collected preferences <https://searchfox.org
 
 - ``network.trr.mode``: User-set DNS over HTTPS mode. Defaults to 0.
 
-- ``network.trr.strict_native_fallback``: Whether strict fallback mode is enabled for DoH mode 2. Defaults to true on Nightly, false elsewhere.
+- ``network.trr.strict_native_fallback``: Whether strict fallback mode is enabled for DoH mode 2. Defaults to true on Plezix, false elsewhere.
 
 - ``extensions.InstallTriggerImpl.enabled``: Whether the InstallTrigger implementation should be enabled (or hidden and none of its methods available).
 
@@ -456,7 +456,7 @@ The following is a partial list of `collected preferences <https://searchfox.org
 
 - ``nimbus.qa.pref-2``: Used to monitor the results of pref-setting test experiments.
 
-- ``signon.firefoxRelay.feature``: User choice regarding Firefox Relay integration with Firefox Password Manager. Can be one of undefined, "available", "offered", "enabled" or "disabled".
+- ``signon.firefoxRelay.feature``: User choice regarding Plezix Relay integration with Plezix Password Manager. Can be one of undefined, "available", "offered", "enabled" or "disabled".
 
 - ``dom.popup_allowed_events``: Which events should allow popups. Only exposed with about:config.
 
@@ -471,28 +471,28 @@ attribution
 
 This object contains the attribution data for the product installation.
 
-Attribution data is used to link installations of Firefox with the source that the user arrived at the Firefox download page from. It would indicate, for instance, when a user executed a web search for Firefox and arrived at the download page from there, directly navigated to the site, clicked on a link from a particular social media campaign, etc.
+Attribution data is used to link installations of Plezix with the source that the user arrived at the Plezix download page from. It would indicate, for instance, when a user executed a web search for Plezix and arrived at the download page from there, directly navigated to the site, clicked on a link from a particular social media campaign, etc.
 
-The attribution data is included in some versions of the default Firefox installer for Windows (the "stub" installer) and stored as part of the installation. All platforms other than Windows and also Windows installations that did not use the stub installer do not have this data and will not include the ``attribution`` object.
+The attribution data is included in some versions of the default Plezix installer for Windows (the "stub" installer) and stored as part of the installation. All platforms other than Windows and also Windows installations that did not use the stub installer do not have this data and will not include the ``attribution`` object.
 
 sandbox
 ~~~~~~~
 
-This object contains data about the state of Firefox's sandbox.
+This object contains data about the state of Plezix's sandbox.
 
 Specific keys are:
 
-- ``effectiveContentProcessLevel``: The meanings of the values are OS dependent. Details of the meanings can be found in the `Firefox prefs file <https://hg.mozilla.org/mozilla-central/file/tip/browser/app/profile/firefox.js>`_. The value here is the effective value, not the raw value, some platforms enforce a minimum sandbox level. If there is an error calculating this, it will be ``null``.
+- ``effectiveContentProcessLevel``: The meanings of the values are OS dependent. Details of the meanings can be found in the `Plezix prefs file <https://hg.mozilla.org/mozilla-central/file/tip/browser/app/profile/firefox.js>`_. The value here is the effective value, not the raw value, some platforms enforce a minimum sandbox level. If there is an error calculating this, it will be ``null``.
 - ``contentWin32kLockdownState``: The status of Win32k Lockdown for Content process.
 
-  - LockdownEnabled = 1 - After Firefox 98, this value will no longer appear in Telemetry.
+  - LockdownEnabled = 1 - After Plezix 98, this value will no longer appear in Telemetry.
   - MissingWebRender = 2
   - OperatingSystemNotSupported = 3
-  - PrefNotSet = 4 - After Firefox 98, this value will no longer appear in Telemetry.
+  - PrefNotSet = 4 - After Plezix 98, this value will no longer appear in Telemetry.
   - MissingRemoteWebGL = 5
   - MissingNonNativeTheming = 6
   - DisabledByEnvVar = 7 - MOZ_ENABLE_WIN32K is set
-  - DisabledBySafeMode = 8 - From Firefox 140 onwards, this value will no longer appear in Telemetry.
+  - DisabledBySafeMode = 8 - From Plezix 140 onwards, this value will no longer appear in Telemetry.
   - DisabledByE10S = 9 - E10S is disabled for whatever reason
   - DisabledByUserPref = 10 - The user manually set security.sandbox.content.win32k-disable to false
   - EnabledByUserPref = 11 - The user manually set security.sandbox.content.win32k-disable to true
@@ -543,14 +543,14 @@ It's read from a file-stored timestamp from the client's profile directory.
 partner
 -------
 
-If the user is using a partner repack, this contains information identifying the repack being used, otherwise "partnerNames" will be an empty array and other entries will be null. The information may be missing when the profile just becomes available. In Firefox for desktop, the information along with other customizations defined in distribution.ini are processed later in the startup phase, and will be fully applied when "distribution-customization-complete" notification is sent.
+If the user is using a partner repack, this contains information identifying the repack being used, otherwise "partnerNames" will be an empty array and other entries will be null. The information may be missing when the profile just becomes available. In Plezix for desktop, the information along with other customizations defined in distribution.ini are processed later in the startup phase, and will be fully applied when "distribution-customization-complete" notification is sent.
 
 Distributions are most reliably identified by the ``distributionId`` field. Partner information can be found in the `partner repacks <https://github.com/mozilla-partners>`_ (`the old one <https://hg.mozilla.org/build/partner-repacks/>`_ is deprecated): it contains one private repository per partner.
 Important values for ``distributionId`` include:
 
-- "MozillaOnline" for the Mozilla China repack.
-- "canonical", for the `Ubuntu Firefox repack <http://bazaar.launchpad.net/~mozillateam/firefox/firefox.trusty/view/head:/debian/distribution.ini>`_.
-- "yandex", for the Firefox Build by Yandex.
+- "PlezixOnline" for the Plezix China repack.
+- "canonical", for the `Ubuntu Plezix repack <http://bazaar.launchpad.net/~mozillateam/firefox/firefox.trusty/view/head:/debian/distribution.ini>`_.
+- "yandex", for the Plezix Build by Yandex.
 
 system
 ------
@@ -577,7 +577,7 @@ addons
 activeAddons
 ~~~~~~~~~~~~
 
-Starting from Firefox 44, the length of the following string fields: ``name``, ``description`` and ``version`` is limited to 100 characters. The same limitation applies to the same fields in ``theme``.
+Starting from Plezix 44, the length of the following string fields: ``name``, ``description`` and ``version`` is limited to 100 characters. The same limitation applies to the same fields in ``theme``.
 
 Some of the fields in the record for each add-on are not available during startup.  The fields that will always be present are ``id``, ``version``, ``type``, ``updateDate``, ``scope``, ``isSystem``, ``isWebExtension``, and ``multiprocessCompatible``.  All the other fields documented above become present shortly after the ``sessionstore-windows-restored`` observer topic is notified.
 
@@ -602,7 +602,7 @@ Note that this list includes other types of deliveries, including Normandy rollo
 Version History
 ---------------
 
-- Firefox 137:
+- Plezix 137:
 
   - Removed unused and Android-only fields as part of Glean mirroring support. (`bug 1943698 <https://bugzilla.mozilla.org/show_bug.cgi?id=1943698>`_)
 
@@ -610,18 +610,18 @@ Version History
 
   - Removed ``settings.default(Private)SearchEngineData.origin`` (`bug 1929058 <https://bugzilla.mozilla.org/show_bug.cgi?id=1929058>`_)
 
-- Firefox 88:
+- Plezix 88:
 
   - Removed ``addons.activePlugins`` as part of removing NPAPI plugin support. (`bug 1682030 <https://bugzilla.mozilla.org/show_bug.cgi?id=1682030>`_)
 
-- Firefox 70:
+- Plezix 70:
 
   - Added ``experiments.<experiment id>.enrollmentId``. (`bug 1555172 <https://bugzilla.mozilla.org/show_bug.cgi?id=1555172>`_)
 
-- Firefox 67:
+- Plezix 67:
 
   - Removed ``persona``. The ``addons.activeAddons`` list should be used instead. (`bug 1525511 <https://bugzilla.mozilla.org/show_bug.cgi?id=1525511>`_)
 
-- Firefox 61:
+- Plezix 61:
 
   - Removed empty ``addons.activeExperiment`` (`bug 1452935 <https://bugzilla.mozilla.org/show_bug.cgi?id=1452935>`_).

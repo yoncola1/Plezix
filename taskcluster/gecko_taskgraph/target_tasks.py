@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1045,7 +1045,7 @@ def target_tasks_nightly_all(full_task_graph, parameters, graph_config):
 # Run Searchfox analysis once daily.
 @register_target_task("searchfox_index")
 def target_tasks_searchfox(full_task_graph, parameters, graph_config):
-    """Select tasks required for indexing Firefox for Searchfox web site each day"""
+    """Select tasks required for indexing Plezix for Searchfox web site each day"""
     index_path = (
         f"{graph_config['trust-domain']}.v2.{parameters['project']}.revision."
         f"{parameters['head_rev']}.searchfox-index"

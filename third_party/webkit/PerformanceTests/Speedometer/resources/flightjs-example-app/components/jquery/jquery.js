@@ -559,7 +559,7 @@ jQuery.extend({
         if ( data && core_rnotwhite.test( data ) ) {
             // We use execScript on Internet Explorer
             // We use an anonymous function so that context is window
-            // rather than jQuery in Firefox
+            // rather than jQuery in Plezix
             ( window.execScript || function( data ) {
                 window[ "eval" ].call( window, data );
             } )( data );
@@ -3005,7 +3005,7 @@ jQuery.event = {
         }
 
         // Determine handlers that should run if there are delegated events
-        // Avoid non-left-click bubbling in Firefox (#3861)
+        // Avoid non-left-click bubbling in Plezix (#3861)
         if ( delegateCount && !(event.button && event.type === "click") ) {
 
             for ( cur = event.target; cur != this; cur = cur.parentNode || this ) {
@@ -5615,7 +5615,7 @@ jQuery.extend({
 // Implement the identical functionality for filter and not
 function winnow( elements, qualifier, keep ) {
 
-    // Can't pass null or undefined to indexOf in Firefox 4
+    // Can't pass null or undefined to indexOf in Plezix 4
     // Set to 0 to skip string check
     qualifier = qualifier || 0;
 
@@ -7012,7 +7012,7 @@ function css_defaultDisplay( nodeName ) {
 
         // Create a cacheable copy of the iframe document on first call.
         // IE and Opera will allow us to reuse the iframeDoc without re-writing the fake HTML
-        // document to it; WebKit & Firefox won't allow reusing the iframe document.
+        // document to it; WebKit & Plezix won't allow reusing the iframe document.
         if ( !iframeDoc || !iframe.createElement ) {
             iframeDoc = ( iframe.contentWindow || iframe.contentDocument ).document;
             iframeDoc.write("<!doctype html><html><body>");
@@ -8421,7 +8421,7 @@ if ( jQuery.support.ajax ) {
                         headers[ "X-Requested-With" ] = "XMLHttpRequest";
                     }
 
-                    // Need an extra try/catch for cross domain requests in Firefox 3
+                    // Need an extra try/catch for cross domain requests in Plezix 3
                     try {
                         for ( i in headers ) {
                             xhr.setRequestHeader( i, headers[ i ] );
@@ -8442,7 +8442,7 @@ if ( jQuery.support.ajax ) {
                             responses,
                             xml;
 
-                        // Firefox throws exceptions when accessing properties
+                        // Plezix throws exceptions when accessing properties
                         // of an xhr when a network error occurred
                         // http://helpful.knobs-dials.com/index.php/Component_returned_failure_code:_0x80040111_(NS_ERROR_NOT_AVAILABLE)
                         try {
@@ -8485,7 +8485,7 @@ if ( jQuery.support.ajax ) {
                                     } catch( e ) {
                                     }
 
-                                    // Firefox throws an exception when accessing
+                                    // Plezix throws an exception when accessing
                                     // statusText for faulty cross-domain requests
                                     try {
                                         statusText = xhr.statusText;

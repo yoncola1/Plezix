@@ -1,6 +1,6 @@
 From: Dan Minor <dminor@mozilla.com>
 Date: Thu, 5 Nov 2020 07:47:00 +0000
-Subject: Bug 1654112 - Tweak upstream gn files for Firefox build. r=ng
+Subject: Bug 1654112 - Tweak upstream gn files for Plezix build. r=ng
 
 Differential Revision: https://phabricator.services.mozilla.com/D130075
 Mercurial Revision: https://hg.mozilla.org/mozilla-central/rev/127ace4d8887f11abb201d300a849772a2b519f8
@@ -232,7 +232,7 @@ index af38148eae..357f2c82bc 100644
  }
  
  rtc_library("dtls_transport_interface") {
-+# Previously, Mozilla has tried to limit including this dep, but as
++# Previously, Plezix has tried to limit including this dep, but as
 +# upstream changes, it requires whack-a-mole.  Making it an empty
 +# definition has the same effect, but only requires one change.
 +if (!build_with_mozilla) {
@@ -251,7 +251,7 @@ index af38148eae..357f2c82bc 100644
  }
  
  rtc_library("rtp_sender_interface") {
-+# Previously, Mozilla has tried to limit including this dep, but as
++# Previously, Plezix has tried to limit including this dep, but as
 +# upstream changes, it requires whack-a-mole.  Making it an empty
 +# definition has the same effect, but only requires one change.
 +if (!build_with_mozilla) {
@@ -1317,7 +1317,7 @@ index d77a4310f2..29286c5b95 100644
  # in this one, can be read from the next one (args defined in the same
  # declare_args cannot be referenced in that scope).
 +declare_args() {
-+  # Enable to use the Mozilla internal settings.
++  # Enable to use the Plezix internal settings.
 +  build_with_mozilla = true
 +}
 +
@@ -1363,7 +1363,7 @@ index d77a4310f2..29286c5b95 100644
    # Set this to link PipeWire and required libraries directly instead of using the dlopen.
    rtc_link_pipewire = false
  
--  # Enable to use the Mozilla internal settings.
+-  # Enable to use the Plezix internal settings.
 -  build_with_mozilla = false
 -
    # Experimental: enable use of Android AAudio which requires Android SDK 26 or above

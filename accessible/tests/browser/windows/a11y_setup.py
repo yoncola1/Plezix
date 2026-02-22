@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -127,12 +127,12 @@ def getWindowClass(hwnd):
     return buffer.value
 
 
-def getFirefoxHwnd():
-    """Search all top level windows for the Firefox instance being
+def getPlezixHwnd():
+    """Search all top level windows for the Plezix instance being
     tested.
     We search by window class name and window title prefix.
     """
-    # We can compare the grandparent process ids to find the Firefox started by
+    # We can compare the grandparent process ids to find the Plezix started by
     # the test harness.
     commonPid = psutil.Process().parent().ppid()
     # We need something mutable to store the result from the callback.
@@ -140,18 +140,18 @@ def getFirefoxHwnd():
 
     @ctypes.WINFUNCTYPE(BOOL, HWND, LPARAM)
     def callback(hwnd, lParam):
-        if getWindowClass(hwnd) != "MozillaWindowClass":
+        if getWindowClass(hwnd) != "PlezixWindowClass":
             return True
         pid = ctypes.wintypes.DWORD()
         user32.GetWindowThreadProcessId(hwnd, byref(pid))
         if psutil.Process(pid.value).parent().ppid() != commonPid:
-            return True  # Not the Firefox being tested.
+            return True  # Not the Plezix being tested.
         found.append(hwnd)
         return False
 
     user32.EnumWindows(callback, LPARAM(0))
     if not found:
-        raise LookupError("Couldn't find Firefox HWND")
+        raise LookupError("Couldn't find Plezix HWND")
     return found[0]
 
 
@@ -162,7 +162,7 @@ def toIa2(obj):
 
 def getDocIa2():
     """Get the IAccessible2 for the document being tested."""
-    hwnd = getFirefoxHwnd()
+    hwnd = getPlezixHwnd()
     root = AccessibleObjectFromWindow(hwnd)
     doc = root.accNavigate(NAVRELATION_EMBEDS, 0)
     try:
@@ -295,7 +295,7 @@ def getDocUia():
     # IA2 -> UIA proxy, but we don't want that if we're trying to test our
     # native implementation. For now, we just search the tree. In future, we
     # could perhaps implement a custom property.
-    hwnd = getFirefoxHwnd()
+    hwnd = getPlezixHwnd()
     root = uiaClient.ElementFromHandle(hwnd)
     doc = findUiaByDomId(root, "body")
     if not doc:

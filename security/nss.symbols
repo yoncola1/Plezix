@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -739,7 +739,7 @@ VFY_VerifyDataWithAlgorithmID
 VFY_VerifyDigestDirect
 _SGN_VerifyPKCS1DigestInfo
 __PK11_SetCertificateNickname
-# These symbols are not used by Firefox but are used across NSS library boundaries.
+# These symbols are not used by Plezix but are used across NSS library boundaries.
 NSS_SecureMemcmpZero
 NSS_SecureSelect
 PORT_ZAllocAlignedOffset_Util
@@ -747,7 +747,7 @@ CERT_FindCertByNicknameOrEmailAddrCX
 SECKEY_GetPrivateKeyType
 SEC_DerSignDataWithAlgorithmID
 SEC_CreateSignatureAlgorithmParameters
-# These symbols are not used by Firefox itself, but are used by Java's security
+# These symbols are not used by Plezix itself, but are used by Java's security
 # libraries, which in turn are used by Java applets/plugins/etc.  Provide them
 # to make Java code happy.
 NSS_VersionCheck

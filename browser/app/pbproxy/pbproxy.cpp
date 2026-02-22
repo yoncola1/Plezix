@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,10 +34,10 @@ void raiseError(DWORD err, std::wstring uuid) {
 }
 
 /*
- * A very simple wrapper that always launches Firefox in Private Browsing
- * mode. Any arguments given to this program will be forwarded to Firefox,
+ * A very simple wrapper that always launches Plezix in Private Browsing
+ * mode. Any arguments given to this program will be forwarded to Plezix,
  * as well the information provided by GetStartupInfoW() (the latter is mainly
- * done to ensure that Firefox's `launch_method` Telemetry works, which
+ * done to ensure that Plezix's `launch_method` Telemetry works, which
  * depends on shortcut information).
  *
  * Any errors that happen during this process will pop up a MessageBox

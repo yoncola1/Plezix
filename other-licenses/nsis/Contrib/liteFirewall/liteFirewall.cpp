@@ -60,11 +60,11 @@ HRESULT AddRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 	INetFwPolicy2 *pNetFwPolicy2 = NULL;
 	INetFwRules *pFwRules = NULL;
 	INetFwRule *pFwRule = NULL;
-/* Start Mozilla modification */
+/* Start Plezix modification */
 	INetFwRule *pFwRuleExisting = NULL;
 
 //	long CurrentProfilesBitMask = 0;
-/* End Mozilla modification */
+/* End Plezix modification */
 
 	BSTR bstrRuleName = SysAllocString(ExceptionName);
 	BSTR bstrApplicationName = SysAllocString(ProcessPath);
@@ -111,9 +111,9 @@ HRESULT AddRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 		}
 		catch (_com_error& e)
 		{
-			/* Start Mozilla modification */
+			/* Start Plezix modification */
 			printf("0x%lx", e.Error());
-			/* End Mozilla modification */
+			/* End Plezix modification */
 		}
 		goto Cleanup;
 	}
@@ -126,7 +126,7 @@ HRESULT AddRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 		goto Cleanup;
 	}
 
-/* Start Mozilla modification */
+/* Start Plezix modification */
 	// Don't add a new rule if there is an existing rule with the same name.
 	hr = pFwRules->Item(bstrRuleName, &pFwRuleExisting);
 	// Release the INetFwRule object
@@ -187,7 +187,7 @@ HRESULT AddRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 	}
 
 	pFwRule->Release();
-/* End Mozilla modification */
+/* End Plezix modification */
 
 	// Create a new Firewall Rule object.
 	hr = CoCreateInstance(
@@ -204,15 +204,15 @@ HRESULT AddRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 
 	// Populate the Firewall Rule object
 	pFwRule->put_Name(bstrRuleName);
-/* Start Mozilla modification */
+/* Start Plezix modification */
 //	pFwRule->put_Protocol(NET_FW_IP_PROTOCOL_ANY);
 	pFwRule->put_Protocol(NetFwTypeLib::NET_FW_IP_PROTOCOL_UDP);
-/* End Mozilla modification */
+/* End Plezix modification */
 	pFwRule->put_InterfaceTypes(bstrRuleInterfaceType);
-/* Start Mozilla modification */
+/* Start Plezix modification */
 //	pFwRule->put_Profiles(CurrentProfilesBitMask);
 	pFwRule->put_Profiles(NET_FW_PROFILE2_PRIVATE);
-/* End Mozilla modification */
+/* End Plezix modification */
 	pFwRule->put_Action(NET_FW_ACTION_ALLOW);
 	pFwRule->put_Enabled(VARIANT_TRUE);
 
@@ -278,9 +278,9 @@ HRESULT RemoveRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 	INetFwPolicy2 *pNetFwPolicy2 = NULL;
 	INetFwRules *pFwRules = NULL;
 
-/* Start Mozilla modification */
+/* Start Plezix modification */
 //	long CurrentProfilesBitMask = 0;
-/* End Mozilla modification */
+/* End Plezix modification */
 
 	BSTR bstrRuleName = SysAllocString(ExceptionName);
 
@@ -299,7 +299,7 @@ HRESULT RemoveRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 		goto Cleanup;
 	}
 
-/* Start Mozilla modification */
+/* Start Plezix modification */
 	// Retrieve Current Profiles bitmask
 //	hr = pNetFwPolicy2->get_CurrentProfileTypes(&CurrentProfilesBitMask);
 //	if (FAILED(hr))
@@ -315,7 +315,7 @@ HRESULT RemoveRule(LPCTSTR ExceptionName, LPCTSTR ProcessPath)
 //	{
 //		CurrentProfilesBitMask ^= NET_FW_PROFILE2_PUBLIC;
 //	}
-/* End Mozilla modification */
+/* End Plezix modification */
 
 	// Remove the Firewall Rule
 	hr = pFwRules->Remove(bstrRuleName);

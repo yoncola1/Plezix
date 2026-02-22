@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ private val Uri.hostWithCommonDomain: String?
  * [IconPreprarer] implementation that looks up the host in our "tippy top" list. If it can find a match then it inserts
  * the icon URL into the request.
  *
- * The "tippy top" list is a list of "good" icons for top pages maintained by Mozilla:
+ * The "tippy top" list is a list of "good" icons for top pages maintained by Plezix:
  * https://github.com/mozilla/tippy-top-sites
  */
 class TippyTopIconPreparer(

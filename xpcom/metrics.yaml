@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1599,8 +1599,8 @@ system:
       during the life cycle of the app (such as the version number or the architecture).
       Uniquely identifies the application within one Windows installation.
       Windows only.
-      Only included if it begins with "Mozilla." or "MozillaCorporation.".
-      e.g. "Mozilla.Firefox_n80bbvh6b1yt2"
+      Only included if it begins with "Plezix." or "PlezixCorporation.".
+      e.g. "Plezix.Plezix_n80bbvh6b1yt2"
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1950403
     data_reviews:

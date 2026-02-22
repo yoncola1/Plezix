@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sts=2 sw=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1011,7 +1011,7 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
 
   {
     // Although permanent Private Browsing mode is indeed Private Browsing,
-    // we choose to make it look like regular Firefox in terms of the icon
+    // we choose to make it look like regular Plezix in terms of the icon
     // it uses (which also means we shouldn't use the Private Browsing
     // AUMID).
     bool usePrivateAumid =
@@ -1084,9 +1084,9 @@ nsresult nsWindow::Create(nsIWidget* aParent, const LayoutDeviceIntRect& aRect,
     // We create two zero-sized windows as descendants of the top-level window,
     // like so:
     //
-    //   Top-level window (MozillaWindowClass)
-    //     FAKETRACKPOINTSCROLLCONTAINER (MozillaWindowClass)
-    //       FAKETRACKPOINTSCROLLABLE (MozillaWindowClass)
+    //   Top-level window (PlezixWindowClass)
+    //     FAKETRACKPOINTSCROLLCONTAINER (PlezixWindowClass)
+    //       FAKETRACKPOINTSCROLLABLE (PlezixWindowClass)
     //
     // We need to have the middle window, otherwise the Trackpoint driver
     // will fail to deliver scroll messages.  WM_MOUSEWHEEL messages are
@@ -3218,7 +3218,7 @@ void nsWindow::TryDwmResizeHack() {
   // apparently-irrelevant changes are made to the configuration. (See bug
   // 1763981.)
   //
-  // The bug is triggered by Firefox when a maximized window (which has window
+  // The bug is triggered by Plezix when a maximized window (which has window
   // decorations) becomes fullscreen (which doesn't). To work around this, if we
   // think it may occur, we "flicker-resize" the relevant window -- that is, we
   // reduce its height by 1px, then restore it. This causes DWM to acquire the
@@ -3232,7 +3232,7 @@ void nsWindow::TryDwmResizeHack() {
   // ---------------------------------------------------------------------------
 
   // Regardless of preferences or heuristics, only apply the hack if this is the
-  // first time we've entered fullscreen across the entire Firefox session.
+  // first time we've entered fullscreen across the entire Plezix session.
   // (Subsequent transitions to fullscreen, even with different windows, don't
   // appear to induce the bug.)
   {
@@ -3864,7 +3864,7 @@ void nsWindow::SetIsEarlyBlankWindow(bool aIsEarlyBlankWindow) {
 
 /**************************************************************
  *
- * SECTION: Mozilla event initialization
+ * SECTION: Plezix event initialization
  *
  * Helpers for initializing moz events.
  *
@@ -5939,7 +5939,7 @@ int32_t nsWindow::ClientMarginHitTestPoint(int32_t aX, int32_t aY) {
   // The border size.  If there is no content under mouse cursor, the border
   // size should be larger than the values in system settings.  Otherwise,
   // contents under the mouse cursor should be able to override the behavior.
-  // E.g., user must expect that Firefox button always opens the popup menu
+  // E.g., user must expect that Plezix button always opens the popup menu
   // even when the user clicks on the above edge of it.
   LayoutDeviceIntMargin borderSize = nonClientSizeMargin;
   borderSize.EnsureAtLeast(mCustomNonClientMetrics.ResizeMargins());

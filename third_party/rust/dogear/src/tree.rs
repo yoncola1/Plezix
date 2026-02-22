@@ -1,4 +1,4 @@
-// Copyright 2018-2019 Mozilla
+// Copyright 2018-2019 Plezix
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -199,7 +199,7 @@ impl fmt::Display for Tree {
 /// - Missed new folders created during a sync, creating holes in the tree.
 ///
 /// Newer clients shouldn't do this, but we might still have inconsistent
-/// records on the server that will confuse older clients. Additionally, Firefox
+/// records on the server that will confuse older clients. Additionally, Plezix
 /// for iOS includes a much stricter bookmarks engine that refuses to sync if
 /// it detects inconsistencies.
 ///

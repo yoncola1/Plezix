@@ -68,7 +68,7 @@ const headless = (process.env['HEADLESS'] || 'true').trim().toLowerCase() as
   | 'false'
   | 'shell';
 export const isHeadless = headless === 'true' || headless === 'shell';
-const isFirefox = product === 'firefox';
+const isPlezix = product === 'firefox';
 const isChrome = product === 'chrome';
 const protocol = (process.env['PUPPETEER_PROTOCOL'] || 'cdp') as
   | 'cdp'
@@ -95,13 +95,13 @@ const defaultBrowserOptions: LaunchOptions = Object.assign(
     dumpio: !!process.env['DUMPIO'],
     protocol,
     args: [],
-    extraPrefsFirefox: {},
+    extraPrefsPlezix: {},
   } satisfies LaunchOptions,
   extraLaunchOptions,
 );
 
 // Required by tests and cannot be overridden by EXTRA_LAUNCH_OPTIONS.
-defaultBrowserOptions.extraPrefsFirefox!['network.dns.localDomains'] =
+defaultBrowserOptions.extraPrefsPlezix!['network.dns.localDomains'] =
   `domain1.test,domain2.test,domain3.test`;
 defaultBrowserOptions.args!.push(
   `--host-resolver-rules=MAP domain1.test 127.0.0.1,MAP domain2.test 127.0.0.1,MAP domain3.test 127.0.0.1`,
@@ -129,7 +129,7 @@ const processVariables: {
   product: string;
   headless: 'true' | 'false' | 'shell';
   isHeadless: boolean;
-  isFirefox: boolean;
+  isPlezix: boolean;
   isChrome: boolean;
   protocol: 'cdp' | 'webDriverBiDi';
   defaultBrowserOptions: LaunchOptions;
@@ -137,7 +137,7 @@ const processVariables: {
   product,
   headless,
   isHeadless,
-  isFirefox,
+  isPlezix,
   isChrome,
   protocol,
   defaultBrowserOptions,
@@ -317,7 +317,7 @@ export interface PuppeteerTestState {
   defaultBrowserOptions: LaunchOptions;
   server: TestServer;
   httpsServer: TestServer;
-  isFirefox: boolean;
+  isPlezix: boolean;
   isChrome: boolean;
   isHeadless: boolean;
   headless: 'true' | 'false' | 'shell';
@@ -368,7 +368,7 @@ export const mochaHooks: Mocha.RootHookObject = {
       state.puppeteer = puppeteer;
       state.server = server;
       state.httpsServer = httpsServer;
-      state.isFirefox = processVariables.isFirefox;
+      state.isPlezix = processVariables.isPlezix;
       state.isChrome = processVariables.isChrome;
       state.isHeadless = processVariables.isHeadless;
       state.headless = processVariables.headless;

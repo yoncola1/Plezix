@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -592,7 +592,7 @@ var gMainPane = {
     );
     tabGroupSuggestionsCheckbox.hidden = !smartTabGroupFeatureEnabled;
 
-    // The "opening multiple tabs might slow down Firefox" warning provides
+    // The "opening multiple tabs might slow down Plezix" warning provides
     // an option for not showing this warning again. When the user disables it,
     // we provide checkboxes to re-enable the warning.
     if (!TransientPrefs.prefShouldBeVisible("browser.tabs.warnOnOpen")) {
@@ -776,7 +776,7 @@ var gMainPane = {
     // Initializes the fonts dropdowns displayed in this pane.
     this._rebuildFonts();
 
-    // Firefox Translations settings panel
+    // Plezix Translations settings panel
     // TODO (Bug 1817084) Remove this code when we disable the extension
     const fxtranslationsDisabledPrefName = "extensions.translations.disabled";
     if (!Services.prefs.getBoolPref(fxtranslationsDisabledPrefName, true)) {
@@ -797,7 +797,7 @@ var gMainPane = {
         .getElementById("drmGroup")
         .setAttribute("style", "display: none !important");
     }
-    // Initialize the Firefox Updates section.
+    // Initialize the Plezix Updates section.
     let version = AppConstants.MOZ_APP_VERSION_DISPLAY;
 
     // Include the build ID if this is an "a#" (nightly) build
@@ -1917,7 +1917,7 @@ var gMainPane = {
     }
     if (event.target.checked) {
       // windowsLaunchOnLogin has been checked: create registry key or shortcut
-      // The shortcut is created with the same AUMID as Firefox itself. However,
+      // The shortcut is created with the same AUMID as Plezix itself. However,
       // this is not set during browser tests and the fallback of checking the
       // registry fails. As such we pass an arbitrary AUMID for the purpose
       // of testing.
@@ -3135,7 +3135,7 @@ var gMainPane = {
     }
 
     let internalMenuItem;
-    // Add the "Open in Firefox" option for optional internal handlers.
+    // Add the "Open in Plezix" option for optional internal handlers.
     if (
       handlerInfo instanceof InternalHandlerInfoWrapper &&
       !handlerInfo.preventInternalViewing
@@ -3181,7 +3181,7 @@ var gMainPane = {
       );
       // If an internal option is available, don't show the application
       // name for the OS default to prevent two options from appearing
-      // that may both say "Firefox".
+      // that may both say "Plezix".
       if (internalMenuItem) {
         document.l10n.setAttributes(
           defaultMenuItem,

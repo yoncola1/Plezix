@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ const runtimeInfo = {
   // icon which represents the kind of runtime
   icon: PropTypes.string.isRequired,
 
-  // name of runtime such as "Firefox Nightly"
+  // name of runtime such as "Plezix Plezix"
   name: PropTypes.string.isRequired,
 
   // operating system on which the runtime runs such as "Android", "Linux"
@@ -133,7 +133,7 @@ const runtime = {
   // this flag will be true when the connection was timeout.
   isConnectionTimeout: PropTypes.bool.isRequired,
 
-  // this flag will be true when the detected runtime is Fenix (Firefox Preview).
+  // this flag will be true when the detected runtime is Fenix (Plezix Preview).
   // Fenix need specific logic to get their display name, version and logos.
   // Discussion ongoing in https://github.com/mozilla-mobile/fenix/issues/2016
   isFenix: PropTypes.bool.isRequired,

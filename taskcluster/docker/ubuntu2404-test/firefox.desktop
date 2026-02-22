@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Firefox
+Name=Plezix
 Exec=/usr/bin/firefox %u
 Terminal=false
 X-MultipleArgs=false

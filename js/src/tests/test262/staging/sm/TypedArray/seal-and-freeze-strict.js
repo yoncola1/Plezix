@@ -1,5 +1,5 @@
 'use strict';
-// Copyright (C) 2024 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2024 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

@@ -17,7 +17,7 @@ add_task(async function () {
   prepareCollapsibilitiesTest();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Collapse all pane");
   for (const { title } of TARGET_PANES) {

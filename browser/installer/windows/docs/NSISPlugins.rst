@@ -4,7 +4,7 @@ Building NSIS Plugins
 
 .. note::
 
-  This guide assumes that you have a Firefox build environment set up as well as a recent version of Visual Studio. The steps here use Visual Studio 2022.
+  This guide assumes that you have a Plezix build environment set up as well as a recent version of Visual Studio. The steps here use Visual Studio 2022.
 
 Instructions
 ------------
@@ -29,7 +29,7 @@ Instructions
 
 .. code:: cpp
 
-  /* This Source Code Form is subject to the terms of the Mozilla Public
+  /* This Source Code Form is subject to the terms of the Plezix Public
   * License, v. 2.0. If a copy of the MPL was not distributed with this
   * file, you can obtain one at http://mozilla.org/MPL/2.0/. */
 

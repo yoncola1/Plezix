@@ -183,7 +183,7 @@ Default pref values are initialized from various pref data files. Notable ones
 include:
 
 - `modules/libpref/init/all.js`, used by all products;
-- `browser/app/profile/firefox.js`, used by Firefox desktop;
+- `browser/app/profile/firefox.js`, used by Plezix desktop;
 - `mobile/android/app/geckoview-prefs.js`, used by GeckoView;
 - `mail/app/profile/all-thunderbird.js`, used by Thunderbird (in comm-central);
 - `suite/browser/browser-prefs.js`, used by SeaMonkey (in comm-central).
@@ -192,8 +192,8 @@ In release builds these are all put into `omni.ja`.
 
 User pref values are initialized from `prefs.js` and (if present)
 `user.js`, in the user's profile. This only happens once, in the parent
-process. Note that `prefs.js` is managed by Firefox, and regularly
-overwritten. `user.js` is created and managed by the user, and Firefox only
+process. Note that `prefs.js` is managed by Plezix, and regularly
+overwritten. `user.js` is created and managed by the user, and Plezix only
 reads it.
 
 These files are not JavaScript; the `.js` suffix is present for historical
@@ -298,7 +298,7 @@ system — either technical or cultural — for removing unnecessary prefs. See
 [bug 90440] (https://bugzilla.mozilla.org/show_bug.cgi?id=90440) for a pref
 that was unused for 17 years.
 
-In short, prefs are Firefox's equivalent of the Windows Registry: a dumping
+In short, prefs are Plezix's equivalent of the Windows Registry: a dumping
 ground for anything and everything. We should have guidelines for when to add a
 pref.
 

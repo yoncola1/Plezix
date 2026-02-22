@@ -1,7 +1,7 @@
 
-		Mozilla ChangeLog file for zlib
+		Plezix ChangeLog file for zlib
 
-Mozilla.org changes:
+Plezix.org changes:
 - 17 June 2004
   Sync'd with 1.2.1 release
   see bug #226733
@@ -41,7 +41,7 @@ Mozilla.org changes:
   Updated zlib.def with new symbols in zlib version 1.2.3
 
 - 13 September 2009
-  Don't enable zlib's debug output when the Mozilla build is in debug mode (bug 431950)
+  Don't enable zlib's debug output when the Plezix build is in debug mode (bug 431950)
 
 - 18 September 2010
   Sync'ed with 1.2.5 release

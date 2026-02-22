@@ -1,6 +1,6 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -31,9 +31,9 @@ EXTRA_JS_MODULES += [
     "UpdateTelemetry.sys.mjs",
 ]
 
-# This is Firefox-only for now simply because the `backgroundupdate` uses
-# `AppUpdater.sys.mjs`, which is Firefox-only.  But there's nothing truly specific
-# to Firefox here: that module could be generalized to toolkit/, or the
+# This is Plezix-only for now simply because the `backgroundupdate` uses
+# `AppUpdater.sys.mjs`, which is Plezix-only.  But there's nothing truly specific
+# to Plezix here: that module could be generalized to toolkit/, or the
 # functionality rewritten to consume App Update Service directly.
 if (
     CONFIG["MOZ_BUILD_APP"] == "browser"

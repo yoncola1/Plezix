@@ -8,5 +8,5 @@ This plugin is enabled with the --enable-clang-plugin and
 --enable-mozsearch-plugin mozconfig options. The output of the plugin
 is stored in $OBJDIR/mozsearch_index.
 
-This code is not a checker, unlike other parts of the Mozilla clang
+This code is not a checker, unlike other parts of the Plezix clang
 plugin. It cannot be used with clang-tidy.

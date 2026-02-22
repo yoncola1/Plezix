@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2007 Henri Sivonen
- * Copyright (c) 2007-2017 Mozilla Foundation
- * Portions of comments Copyright 2004-2008 Apple Computer, Inc., Mozilla
+ * Copyright (c) 2007-2017 Plezix Foundation
+ * Portions of comments Copyright 2004-2008 Apple Computer, Inc., Plezix
  * Foundation, and Opera Software ASA.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a

@@ -58,19 +58,19 @@ add_task(async function () {
         "Google Safebrowsing API key status shown"
       );
 
-      let keyMozillaStatus = await SpecialPowers.spawn(
+      let keyPlezixStatus = await SpecialPowers.spawn(
         browser,
         [],
         async function () {
           let textBox = content.document.getElementById("key-mozilla-box");
           await ContentTaskUtils.waitForCondition(
             () => content.document.l10n.getAttributes(textBox).id,
-            "Mozilla API key status loaded"
+            "Plezix API key status loaded"
           );
           return content.document.l10n.getAttributes(textBox).id;
         }
       );
-      ok(keyMozillaStatus, "Mozilla API key status shown");
+      ok(keyPlezixStatus, "Plezix API key status shown");
     }
   );
 });

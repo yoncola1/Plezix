@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -73,7 +73,7 @@ import org.mozilla.fenix.compose.ext.isItemPartiallyVisible
 import org.mozilla.fenix.tabstray.browser.compose.DragItemContainer
 import org.mozilla.fenix.tabstray.browser.compose.createListReorderState
 import org.mozilla.fenix.tabstray.browser.compose.detectListPressAndDrag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 private val minTabStripItemWidth = 130.dp
@@ -170,7 +170,7 @@ private fun TabStripContent(
         modifier = Modifier
             .fillMaxWidth()
             .height(dimensionResource(R.dimen.tab_strip_height))
-            .background(FirefoxTheme.colors.layer3)
+            .background(PlezixTheme.colors.layer3)
             .systemGestureExclusion()
             .padding(horizontal = tabStripHorizontalPadding),
         verticalAlignment = Alignment.CenterVertically,
@@ -191,7 +191,7 @@ private fun TabStripContent(
             IconButton(onClick = onAddTabClick) {
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_plus_24),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                     contentDescription = stringResource(R.string.add_tab),
                 )
             }
@@ -315,9 +315,9 @@ private fun TabItem(
     onSelectedTabClick: (id: String) -> Unit,
 ) {
     val backgroundColor = if (state.isSelected) {
-        FirefoxTheme.colors.tabActive
+        PlezixTheme.colors.tabActive
     } else {
-        FirefoxTheme.colors.tabInactive
+        PlezixTheme.colors.tabInactive
     }
     val closeTabLabel = stringResource(R.string.close_tab)
 
@@ -378,10 +378,10 @@ private fun TabItem(
                     Text(
                         text = state.title,
                         modifier = Modifier.align(Alignment.CenterStart),
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = PlezixTheme.colors.textPrimary,
                         softWrap = false,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.subtitle2,
+                        style = PlezixTheme.typography.subtitle2,
                     )
                 }
             }
@@ -398,9 +398,9 @@ private fun TabItem(
                     Icon(
                         painter = painterResource(R.drawable.mozac_ic_cross_20),
                         tint = if (state.isSelected) {
-                            FirefoxTheme.colors.iconPrimary
+                            PlezixTheme.colors.iconPrimary
                         } else {
-                            FirefoxTheme.colors.iconSecondary
+                            PlezixTheme.colors.iconSecondary
                         },
                         contentDescription = stringResource(
                             id = R.string.close_tab_title,
@@ -510,7 +510,7 @@ private class TabUIStateParameterProvider : PreviewParameterProvider<TabStripSta
 private fun TabStripPreview(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         TabStripContentPreview(tabStripState.tabs.filter { !it.isPrivate })
     }
 }
@@ -520,7 +520,7 @@ private fun TabStripPreview(
 private fun TabStripPreviewDarkMode(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme(theme = Theme.Dark) {
+    PlezixTheme(theme = Theme.Dark) {
         TabStripContentPreview(tabStripState.tabs.filter { !it.isPrivate })
     }
 }
@@ -530,7 +530,7 @@ private fun TabStripPreviewDarkMode(
 private fun TabStripPreviewPrivateMode(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         TabStripContentPreview(tabStripState.tabs.filter { it.isPrivate })
     }
 }
@@ -563,7 +563,7 @@ private fun TabStripContentPreview(tabs: List<TabStripItem>) {
 private fun TabStripPreview() {
     val browserStore = BrowserStore()
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()

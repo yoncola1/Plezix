@@ -11,7 +11,7 @@
   const clippedSampleLength = 40;
   const inputAndClippedInput = [
     // Strings with surrogate pairs
-    // We use Firefox's behavior as expectations i.e. clip the source as UTF-16
+    // We use Plezix's behavior as expectations i.e. clip the source as UTF-16
     // string of length 40 ; or of length 41 if the last character is a
     // surrogate pair). See https://github.com/w3c/webappsec-csp/issues/704
     ['𝐆'.repeat(clippedSampleLength / 2), '𝐆'.repeat(clippedSampleLength / 2)],

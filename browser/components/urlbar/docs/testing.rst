@@ -34,7 +34,7 @@ allows programmers to write custom functions in one language, such as C++, and
 connect it to other components in another language, such as JavaScript.
 
 Each XPCShell test is executed in a new shell instance, therefore you will
-see several Firefox icons pop up and close when XPCShell tests are executing.
+see several Plezix icons pop up and close when XPCShell tests are executing.
 These are two examples of XPCShell tests for the address bar
 `test_providerHeuristicFallback <https://searchfox.org/mozilla-central/source
 /browser/components/urlbar/tests/unit/test_providerHeuristicFallback.js>`_

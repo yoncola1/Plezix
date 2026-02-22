@@ -18,7 +18,7 @@
           ":path": "/"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -51,7 +51,7 @@
           ":path": "/"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -84,7 +84,7 @@
           ":path": "/wp-content/uploads/2012/11/Iso-65.jpg"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -120,7 +120,7 @@
           ":path": "/roversync/"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -159,7 +159,7 @@
           ":path": "/aw/pics/s.gif"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -195,7 +195,7 @@
           ":path": "/aw/pics/mops/2012_doodles/Holiday/DS3/ImgWeek_1_Penguin_Small_150x30.png"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -231,7 +231,7 @@
           ":path": "/aw/pics/globalHeader/facebook/g12.gif"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -267,7 +267,7 @@
           ":path": "/aw/pics/globalHeader/twitter/g12.gif"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -303,7 +303,7 @@
           ":path": "/aw/pics/globalHeader/icon_mobile_gray_11x16.gif"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -339,7 +339,7 @@
           ":path": "/rtm"
         }, 
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         }, 
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"

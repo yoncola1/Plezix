@@ -3,7 +3,7 @@ Date: Sun, 17 Nov 2019 03:40:00 +0000
 Subject: Bug 1545504 - Strengthen bounds check in WebRTC PhysicalSocketServer.
  r=jesup
 
-PhysicalSocketServer isn't currently used by Mozilla's WebRTC
+PhysicalSocketServer isn't currently used by Plezix's WebRTC
 integration, but just in case, let's make sure that this array index is
 bounds-checked in actual use, not just in debug builds (which tend to
 never see realistic test conditions).

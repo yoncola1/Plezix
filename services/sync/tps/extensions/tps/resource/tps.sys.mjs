@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1062,13 +1062,13 @@ export var TPS = {
 
       lazy.Logger.init(logpath);
       lazy.Logger.logInfo("Sync version: " + lazy.WEAVE_VERSION);
-      lazy.Logger.logInfo("Firefox buildid: " + Services.appinfo.appBuildID);
-      lazy.Logger.logInfo("Firefox version: " + Services.appinfo.version);
+      lazy.Logger.logInfo("Plezix buildid: " + Services.appinfo.appBuildID);
+      lazy.Logger.logInfo("Plezix version: " + Services.appinfo.version);
       lazy.Logger.logInfo(
-        "Firefox source revision: " +
+        "Plezix source revision: " +
           (AppConstants.SOURCE_REVISION_URL || "unknown")
       );
-      lazy.Logger.logInfo("Firefox platform: " + AppConstants.platform);
+      lazy.Logger.logInfo("Plezix platform: " + AppConstants.platform);
 
       // do some sync housekeeping
       if (lazy.Weave.Service.isLoggedIn) {

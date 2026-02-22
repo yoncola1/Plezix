@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.debugsettings.ui.DebugDrawer
 import org.mozilla.fenix.ext.maxActiveTime
 import org.mozilla.fenix.tabstray.ext.isNormalTabInactive
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 @VisibleForTesting
 internal const val MAX_TABS_GENERATED = 1000
@@ -149,8 +149,8 @@ private fun TabCounter(
     Column {
         Text(
             text = stringResource(R.string.debug_drawer_tab_tools_tab_count_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline5,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -198,14 +198,14 @@ private fun TabCountRow(
     ) {
         Text(
             text = tabType,
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.headline6,
         )
 
         Text(
             text = count.toLocaleString(),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.headline6,
         )
     }
 }
@@ -226,8 +226,8 @@ private fun TabCreationTool(
     Column {
         Text(
             text = stringResource(R.string.debug_drawer_tab_tools_tab_creation_tool_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline5,
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -333,9 +333,9 @@ private class TabToolsPreviewParameterProvider : PreviewParameterProvider<TabToo
 private fun TabToolsPreview(
     @PreviewParameter(TabToolsPreviewParameterProvider::class) model: TabToolsPreviewModel,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer1),
         ) {
             TabTools(
                 store = BrowserStore(),

@@ -10,7 +10,7 @@ pub(crate) struct Config<O> {
     /// The new base name used for the sibling directory that this entry will split off from the
     /// original CTS test.
     ///
-    /// Chunking WPT tests happens at a directory level in Firefox's CI. If we split into a child
+    /// Chunking WPT tests happens at a directory level in Plezix's CI. If we split into a child
     /// directory, instead of a sibling directory, then we would actually cause the child test to
     /// be run in multiple chunks. Therefore, it's required to split tests into siblings.
     pub new_sibling_basename: &'static str,

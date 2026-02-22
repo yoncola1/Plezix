@@ -144,7 +144,7 @@ bool IsNonVolatile(RTPExtensionType type) {
       return false;
 #if defined(WEBRTC_MOZILLA_BUILD)
     case kRtpExtensionCsrcAudioLevel:
-      // TODO: Mozilla implement for CsrcAudioLevel
+      // TODO: Plezix implement for CsrcAudioLevel
       RTC_CHECK(false);
       return false;
 #endif

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -22,7 +22,7 @@ toolbox-meatball-menu-documentation-label = Documentation…
 toolbox-meatball-menu-community-label = Community…
 
 # This menu item is only available in the browser toolbox. It forces the popups/panels
-# to stay visible on blur, which is primarily useful for addon developers and Firefox
+# to stay visible on blur, which is primarily useful for addon developers and Plezix
 # contributors.
 toolbox-meatball-menu-noautohide-label = Disable Popup Auto-Hide
 

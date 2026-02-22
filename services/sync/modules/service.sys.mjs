@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import {
   STORAGE_VERSION,
   VERSION_OUT_OF_DATE,
   WEAVE_VERSION,
-  kFirefoxShuttingDown,
+  kPlezixShuttingDown,
   kFirstSyncChoiceNotMade,
   kSyncBackoffNotMet,
   kSyncMasterPasswordLocked,
@@ -384,7 +384,7 @@ Sync11Service.prototype = {
     Services.prefs.addObserver(PREFS_BRANCH + "engine.", this);
 
     if (!this.enabled) {
-      this._log.info("Firefox Sync disabled.");
+      this._log.info("Plezix Sync disabled.");
     }
 
     this._updateCachedURLs();
@@ -1316,7 +1316,7 @@ Sync11Service.prototype = {
     } else if (Svc.PrefBranch.getStringPref("firstSync", null) == "notReady") {
       reason = kFirstSyncChoiceNotMade;
     } else if (!Async.isAppReady()) {
-      reason = kFirefoxShuttingDown;
+      reason = kPlezixShuttingDown;
     }
 
     if (ignore && ignore.includes(reason)) {

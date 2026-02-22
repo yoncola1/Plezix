@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub use webgpu_impl::*;
 mod webgpu_impl {
     //! Constant values for [`super::FeaturesWebGPU`], separated so they can be picked up by
-    //! `cbindgen` in `mozilla-central` (where Firefox is developed).
+    //! `cbindgen` in `mozilla-central` (where Plezix is developed).
     #![allow(missing_docs)]
 
     #[doc(hidden)]

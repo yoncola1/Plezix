@@ -237,7 +237,7 @@ class WebExecutorTest {
         }
 
         val expectedIssuer = if (env.isAutomation) {
-            "OU=Profile Guided Optimization,O=Mozilla Testing,CN=Temporary Certificate Authority"
+            "OU=Profile Guided Optimization,O=Plezix Testing,CN=Temporary Certificate Authority"
         } else {
             "CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US"
         }

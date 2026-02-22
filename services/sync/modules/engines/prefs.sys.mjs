@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 // In bug 1538015, we decided that it isn't always safe to allow all "incoming"
 // preferences to be applied locally. So we introduced another preference to control
 // this for backward compatibility. We removed that capability in bug 1854698, but in the
-// interests of working well between different versions of Firefox, we still forever
+// interests of working well between different versions of Plezix, we still forever
 // want to prevent this preference from syncing.
 // This was the name of the "control" pref.
 const PREF_SYNC_PREFS_ARBITRARY =

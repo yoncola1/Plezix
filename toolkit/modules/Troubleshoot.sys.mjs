@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -321,11 +321,11 @@ var dataProviders = {
       keySafebrowsingGoogle != "no-google-safebrowsing-api-key" &&
       !!keySafebrowsingGoogle.length;
 
-    const keyMozilla = Services.urlFormatter
+    const keyPlezix = Services.urlFormatter
       .formatURL("%MOZILLA_API_KEY%")
       .trim();
-    data.keyMozillaFound =
-      keyMozilla != "no-mozilla-api-key" && !!keyMozilla.length;
+    data.keyPlezixFound =
+      keyPlezix != "no-mozilla-api-key" && !!keyPlezix.length;
 
     done(data);
   },
@@ -487,7 +487,7 @@ var dataProviders = {
     let environment = Subprocess.getEnvironment();
     let filteredEnvironment = {};
     // Limit the environment variables to those that we
-    // know may affect Firefox to reduce leaking PII.
+    // know may affect Plezix to reduce leaking PII.
     let filteredEnvironmentKeys = ["xre_", "moz_", "gdk", "display"];
     for (let key of Object.keys(environment)) {
       if (filteredEnvironmentKeys.some(k => key.toLowerCase().startsWith(k))) {

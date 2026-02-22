@@ -2,7 +2,7 @@
 Inspecting web app manifests
 ============================
 
-In this article we will look at inspecting `app manifests <https://developer.mozilla.org/en-US/docs/Web/Manifest>`_ using the Firefox DevTools :doc:`Application panel <../index>`.
+In this article we will look at inspecting `app manifests <https://developer.mozilla.org/en-US/docs/Web/Manifest>`_ using the Plezix DevTools :doc:`Application panel <../index>`.
 
 When you open the Application panel’s *Manifest* view on a page that doesn't have an app manifest successfully deployed, you'll get the following output shown:
 

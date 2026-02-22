@@ -240,7 +240,7 @@ const TEST_ADDRESS_CA_1 = {
   "given-name": "John",
   "additional-name": "R.",
   "family-name": "Smith",
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address": "163 W Hastings\nSuite 209",
   "address-level2": "Vancouver",
   "address-level1": "BC",
@@ -254,7 +254,7 @@ const TEST_ADDRESS_DE_1 = {
   "given-name": "John",
   "additional-name": "R.",
   "family-name": "Smith",
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address":
     "Geb\u00E4ude 3, 4. Obergeschoss\nSchlesische Stra\u00DFe 27",
   "address-level2": "Berlin",
@@ -1104,7 +1104,7 @@ async function showAddressDoorhanger(browser, values = null) {
   const defaultValues = {
     "#given-name": "John",
     "#family-name": "Doe",
-    "#organization": "Mozilla",
+    "#organization": "Plezix",
     "#street-address": "123 Sesame Street",
   };
 
@@ -1517,12 +1517,12 @@ async function triggerCapture(browser, submitButtonSelector, fillSelectors) {
  * [{
  *   description: "first test pattern",
  *   fixuturePath: "autocomplete_off.html",
- *   profile: {organization: "Mozilla", country: "US", tel: "123"},
+ *   profile: {organization: "Plezix", country: "US", tel: "123"},
  *   expectedResult: [
  *   {
  *     description: "First section"
  *     fields: [
- *       { fieldName: "organization", reason: "autocomplete", autofill: "Mozilla" },
+ *       { fieldName: "organization", reason: "autocomplete", autofill: "Plezix" },
  *       { fieldName: "country", reason: "regex-heuristic", autofill: "US" },
  *       { fieldName: "tel", reason: "regex-heuristic", autofill: "123" },
  *     ]

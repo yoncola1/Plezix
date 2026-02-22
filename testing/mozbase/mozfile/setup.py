@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -10,7 +10,7 @@ PACKAGE_VERSION = "3.0.0"
 setup(
     name=PACKAGE_NAME,
     version=PACKAGE_VERSION,
-    description="Library of file utilities for use in Mozilla testing",
+    description="Library of file utilities for use in Plezix testing",
     long_description="see https://firefox-source-docs.mozilla.org/mozbase/index.html",
     classifiers=[
         "Programming Language :: Python",
@@ -21,10 +21,10 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)",
     ],
     keywords="mozilla",
-    author="Mozilla Automation and Tools team",
+    author="Plezix Automation and Tools team",
     author_email="tools@lists.mozilla.org",
     url="https://wiki.mozilla.org/Auto-tools/Projects/Mozbase",
     license="MPL",

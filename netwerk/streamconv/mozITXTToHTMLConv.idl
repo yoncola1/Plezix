@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -44,7 +44,7 @@ interface mozITXTToHTMLConv : nsIStreamConverter {
   or "unknowledged" (DELETEME: is that a word?) to make.
   <p>
   <em>Note:</em> Don't use kGlyphSubstitution with this function. This option
-  generates tags, that are unuseable for UAs other than Mozilla. This would
+  generates tags, that are unuseable for UAs other than Plezix. This would
   be a data loss bug.
 
   @param text: HTML source to scan. May be a line, paragraph (recommended)

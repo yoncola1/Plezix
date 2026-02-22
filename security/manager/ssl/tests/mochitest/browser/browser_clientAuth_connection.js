@@ -292,7 +292,7 @@ add_task(async function testEmptyCertChosenByUser() {
 });
 
 // Test that if the user chooses a certificate in a private browsing window,
-// configures Firefox to remember this certificate for the duration of the
+// configures Plezix to remember this certificate for the duration of the
 // session, closes that window (and thus all private windows), reopens a private
 // window, and visits that site again, they are re-asked for a certificate (i.e.
 // any state from the previous private session should be gone). Similarly, after
@@ -328,7 +328,7 @@ add_task(async function testClearPrivateBrowsingState() {
   );
   // NB: we don't `cars.clearRememberedDecisions()` in between the two calls to
   // `testHelper` because that would clear all client auth certificate state and
-  // obscure what we're testing (that Firefox properly clears the relevant state
+  // obscure what we're testing (that Plezix properly clears the relevant state
   // when the last private window closes).
   cars.clearRememberedDecisions();
 });

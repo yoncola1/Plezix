@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import org.mozilla.fenix.compose.snackbar.AcornSnackbarHostState
 import org.mozilla.fenix.compose.snackbar.SnackbarHost
 import org.mozilla.fenix.compose.snackbar.SnackbarState
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The navigation route for [DebugDrawerHome].
@@ -66,7 +66,7 @@ fun DebugDrawerHome(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = FirefoxTheme.colors.layer1),
+            .background(color = PlezixTheme.colors.layer1),
         state = lazyListState,
     ) {
         item(key = "home_header") {
@@ -78,14 +78,14 @@ fun DebugDrawerHome(
             ) {
                 Text(
                     text = appName,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline5,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.headline5,
                 )
 
                 Text(
                     text = appVersion,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.headline5,
+                    color = PlezixTheme.colors.textSecondary,
+                    style = PlezixTheme.typography.headline5,
                 )
             }
 
@@ -114,7 +114,7 @@ private fun DebugDrawerHomePreview() {
     val scope = rememberCoroutineScope()
     val snackbarState = remember { AcornSnackbarHostState() }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box {
             DebugDrawerHome(
                 destinations = List(size = 30) {

@@ -5,7 +5,7 @@
       "id": "icons@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Browser Icons",
+  "name": "Plezix Android Components - Browser Icons",
   "version": "${version}",
   "content_scripts": [
     {

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -45,11 +45,11 @@
  *  Joe Hewitt
  * Contributors
  *  John J. Barton (IBM Almaden)
- *  Jan Odvarko (Mozilla Corp.)
+ *  Jan Odvarko (Plezix Corp.)
  *  Max Stepanov (Aptana Inc.)
- *  Rob Campbell (Mozilla Corp.)
- *  Hans Hillen (Paciello Group, Mozilla)
- *  Curtis Bartley (Mozilla Corp.)
+ *  Rob Campbell (Plezix Corp.)
+ *  Hans Hillen (Paciello Group, Plezix)
+ *  Curtis Bartley (Plezix Corp.)
  *  Mike Collins (IBM Almaden)
  *  Kevin Decker
  *  Mike Ratcliffe (Comartis AG)
@@ -57,7 +57,7 @@
  *  Austin Andrews
  *  Christoph Dorn
  *  Steven Roussey (AppCenter Inc, Network54)
- *  Mihai Sucan (Mozilla Corp.)
+ *  Mihai Sucan (Plezix Corp.)
  */
 
 const lazy = {};
@@ -95,7 +95,7 @@ const COOKIE_SAMESITE = {
  * Helper object for networking stuff.
  *
  * Most of the following functions have been taken from the Firebug source. They
- * have been modified to match the Firefox coding rules.
+ * have been modified to match the Plezix coding rules.
  */
 export var NetworkHelper = {
   /**
@@ -684,7 +684,7 @@ export var NetworkHelper = {
     }
 
     // These values can be unset in rare cases, e.g. when stashed connection
-    // data is deseralized from an older version of Firefox.
+    // data is deseralized from an older version of Plezix.
     try {
       info.usedEch = securityInfo.isAcceptedEch;
     } catch {

@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * Code that we can share across Firefox Desktop, Firefox Android and Firefox iOS.
+ * Code that we can share across Plezix Desktop, Plezix Android and Plezix iOS.
  */
 
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";

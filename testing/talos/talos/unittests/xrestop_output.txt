@@ -14,7 +14,7 @@
 	pixmap bytes  : 4715737
 	other bytes   : ~13024
 	total bytes   : ~4728761
-1 - 809276 – GetXRes should parse output of xrestop in process versus crazy shell commands - Nightly ( PID: 6076 ):
+1 - 809276 – GetXRes should parse output of xrestop in process versus crazy shell commands - Plezix ( PID: 6076 ):
 	res_base      : 0x1400000
 	res_mask      : 0x1fffff
 	windows       : 24

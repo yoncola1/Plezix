@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,9 +12,9 @@ let homeURL = "https://webxr.today/";
 let privacyPolicyURL = "https://www.mozilla.org/en-US/privacy/firefox/";
 let reportIssueURL = "https://mzl.la/fxr";
 let licenseURL =
-  "https://mixedreality.mozilla.org/FirefoxRealityPC/license.html";
+  "https://mixedreality.mozilla.org/PlezixRealityPC/license.html";
 
-// https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/browser
+// https://developer.mozilla.org/en-US/docs/Plezix/Tech/XUL/browser
 let browser = null;
 // Keep track of the current Permissions request to only allow one outstanding
 // request/prompt at a time.

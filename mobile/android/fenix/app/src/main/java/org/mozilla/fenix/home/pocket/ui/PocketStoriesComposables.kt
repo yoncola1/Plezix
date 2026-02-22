@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -67,7 +67,7 @@ import org.mozilla.fenix.home.pocket.PocketRecommendedStoriesCategory
 import org.mozilla.fenix.home.pocket.PocketRecommendedStoriesSelectedCategory
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE_SPONSORED_STORY
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE_STORY
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import kotlin.math.roundToInt
 
 private const val URI_PARAM_UTM_KEY = "utm_source"
@@ -104,10 +104,10 @@ fun PocketStory(
                     testTagsAsResourceId = true
                     testTag = "pocket.story.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
         },
         subtitle = {
@@ -120,10 +120,10 @@ fun PocketStory(
                         testTagsAsResourceId = true
                         testTag = "pocket.story.publisher"
                     },
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.caption,
+                    style = PlezixTheme.typography.caption,
                 )
             } else if (isValidTimeToRead) {
                 Text(
@@ -132,10 +132,10 @@ fun PocketStory(
                         testTagsAsResourceId = true
                         testTag = "pocket.story.timeToRead"
                     },
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.caption,
+                    style = PlezixTheme.typography.caption,
                 )
             }
         },
@@ -180,10 +180,10 @@ fun PocketSponsoredStory(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredStory.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
 
             Text(
@@ -192,10 +192,10 @@ fun PocketSponsoredStory(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredStory.identifier"
                 },
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
 
             Text(
@@ -204,10 +204,10 @@ fun PocketSponsoredStory(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredStory.sponsor"
                 },
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
         }
     }
@@ -244,10 +244,10 @@ fun SponsoredContent(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredContent.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
 
             Text(
@@ -256,10 +256,10 @@ fun SponsoredContent(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredContent.identifier"
                 },
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
 
             Text(
@@ -268,10 +268,10 @@ fun SponsoredContent(
                     testTagsAsResourceId = true
                     testTag = "pocket.sponsoredContent.sponsor"
                 },
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
         }
     }
@@ -307,10 +307,10 @@ fun ContentRecommendation(
                     testTagsAsResourceId = true
                     testTag = "pocket.contentRecommendation.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 2,
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
         },
         subtitle = {
@@ -320,10 +320,10 @@ fun ContentRecommendation(
                     testTagsAsResourceId = true
                     testTag = "pocket.contentRecommendation.publisher"
                 },
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
         },
     )
@@ -347,7 +347,7 @@ fun ContentRecommendation(
 fun PocketStories(
     @PreviewParameter(PocketStoryProvider::class) stories: List<PocketStory>,
     contentPadding: Dp,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     onStoryShown: (PocketStory, Triple<Int, Int, Int>) -> Unit,
     onStoryClicked: (PocketStory, Triple<Int, Int, Int>) -> Unit,
 ) {
@@ -566,8 +566,8 @@ fun PocketStoriesCategories(
 @Composable
 @Preview
 private fun PocketStoriesComposablesPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer2)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer2)) {
             Column {
                 PocketStories(
                     stories = FakeHomepagePreview.pocketStories(limit = 8),

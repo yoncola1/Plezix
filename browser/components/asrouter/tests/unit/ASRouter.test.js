@@ -124,7 +124,7 @@ describe("ASRouter", () => {
         currentDate: "2000-01-01T10:00:0.001Z",
         profileAgeCreated: {},
         profileAgeReset: {},
-        usesFirefoxSync: false,
+        usesPlezixSync: false,
         isFxAEnabled: true,
         isFxASignedIn: false,
         sync: {

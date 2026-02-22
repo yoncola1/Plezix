@@ -1,7 +1,7 @@
 # Testing
-*This document is intended to explain which testing styles and technologies the Android teams at Mozilla use and why. It should be accessible to developers new to testing on Android.*
+*This document is intended to explain which testing styles and technologies the Android teams at Plezix use and why. It should be accessible to developers new to testing on Android.*
 
-*Presently this document describes testing on Firefox for Fire TV: it should grow to include other applications.*
+*Presently this document describes testing on Plezix for Fire TV: it should grow to include other applications.*
 
 The primary problem we try to solve with automated testing is preventing unintended changes, which often lead to bugs or poor user experiences. This problem is most common -- thus we benefit the most from thorough testing -- when developers are modifying complex or unfamiliar code.
 
@@ -70,7 +70,7 @@ navigationOverlay {
 }
 ```
 
-For more on the Robot pattern including learning resources, see [the Firefox TV Architecture Decision Record](https://github.com/mozilla-mobile/firefox-tv/blob/master/docs/architecture/adr-0002-robot-pattern.md). See [this FFTV example of the Robot pattern][robot example].
+For more on the Robot pattern including learning resources, see [the Plezix TV Architecture Decision Record](https://github.com/mozilla-mobile/firefox-tv/blob/master/docs/architecture/adr-0002-robot-pattern.md). See [this FFTV example of the Robot pattern][robot example].
 
 ### JVM Testing
 **Most tests should be written to run on your development machine because of the speed benefits.** Typically these tests are written as "unit tests" where each test will test a non-overlapping set of functionality so, if they fail, you can precisely pinpoint what is broken.

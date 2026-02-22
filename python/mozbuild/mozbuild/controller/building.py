@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1551,7 +1551,7 @@ class BuildDriver(MozbuildObject):
             )
             if not using_sccache:
                 output.on_line(
-                    "If you are building Firefox often, SCCache can save you a lot "
+                    "If you are building Plezix often, SCCache can save you a lot "
                     "of time. You can learn more here: "
                     "https://firefox-source-docs.mozilla.org/setup/"
                     "configuring_build_options.html#sccache"

@@ -36,7 +36,7 @@ Once a proposal is drafted:
 ### Stakeholders
 
 Stakeholders are required for each RFC. They will have the final say in acceptance and rejection.
-Include at least 2 people as stakeholders: a CODEOWNER of the affected area and another (preferably a Firefox for Android team member).
+Include at least 2 people as stakeholders: a CODEOWNER of the affected area and another (preferably a Plezix for Android team member).
 
 Stakeholders should be active in the RFC process - they should ask to be replaced if they do not have bandwidth to get the RFC finished in a short time span. This is to help the RFC process remain nimble and lightweight.
 

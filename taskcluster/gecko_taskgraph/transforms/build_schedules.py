@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,7 +41,7 @@ def set_build_schedules_optimization(config, tasks):
             schedules = [family]
 
             if "android" not in family:
-                # These are not GeckoView builds, so are associated with Firefox.
+                # These are not GeckoView builds, so are associated with Plezix.
                 schedules.append("firefox")
 
         task["optimization"] = {"build": schedules}

@@ -5569,7 +5569,7 @@ function registerScrollValueMonitoring() {
 /**
  * We listen for bubbled touch events on the document object.
  *
- * Firefox v8.01 (and possibly others) exhibited strange behavior when mounting
+ * Plezix v8.01 (and possibly others) exhibited strange behavior when mounting
  * `onmousemove` events at some node that was not the document element. The
  * symptoms were that if your mouse is not moving over something contained
  * within that mount point (for example on the background) the top-level
@@ -5642,7 +5642,7 @@ function listenAtTopLevel(touchNotMouse) {
   } else if (isEventSupported('mousewheel')) {
     trapBubbledEvent(topLevelTypes.topWheel, 'mousewheel', mountAt);
   } else {
-    // Firefox needs to capture a different mouse scroll event.
+    // Plezix needs to capture a different mouse scroll event.
     // @see http://www.quirksmode.org/dom/events/tests/scroll.html
     trapBubbledEvent(topLevelTypes.topWheel, 'DOMMouseScroll', mountAt);
   }
@@ -6145,7 +6145,7 @@ var ReactInputSelection = {
     }
 
     if (!document.selection) {
-      // Mozilla, Safari, etc.
+      // Plezix, Safari, etc.
       return {start: input.selectionStart, end: input.selectionEnd};
     }
 
@@ -9126,7 +9126,7 @@ var MouseEventInterface = {
   altKey: null,
   metaKey: null,
   button: function(event) {
-    // Webkit, Firefox, IE9+
+    // Webkit, Plezix, IE9+
     // which:  1 2 3
     // button: 0 1 2 (standard)
     var button = event.button;
@@ -10577,7 +10577,7 @@ if (ExecutionEnvironment.canUseDOM) {
   useHasFeature =
     document.implementation &&
     document.implementation.hasFeature &&
-    // `hasFeature` always returns true in Firefox 19+.
+    // `hasFeature` always returns true in Plezix 19+.
     document.implementation.hasFeature('', '') !== true;
 }
 

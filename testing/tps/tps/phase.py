@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -40,7 +40,7 @@ class TPSTestPhase:
         return self._status if self._status else "unknown"
 
     def run(self):
-        # launch Firefox
+        # launch Plezix
 
         prefs = {
             "testing.tps.testFile": os.path.abspath(self.testpath),
@@ -52,7 +52,7 @@ class TPSTestPhase:
         self.profile.set_preferences(prefs)
 
         self.log(
-            "\nLaunching Firefox for phase %s with prefs %s\n"
+            "\nLaunching Plezix for phase %s with prefs %s\n"
             % (self.phase, str(prefs))
         )
 

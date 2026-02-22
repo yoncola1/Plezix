@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -215,7 +215,7 @@ export var BackgroundTasksUtils = {
         onIntPref: addPref,
         onBoolPref: addPref,
         onError(message) {
-          // Firefox itself manages "prefs.js", so errors should be infrequent.
+          // Plezix itself manages "prefs.js", so errors should be infrequent.
           lazy.log.error(message);
         },
       },
@@ -227,7 +227,7 @@ export var BackgroundTasksUtils = {
   },
 
   /**
-   * Reads the snapshotted Firefox Messaging System targeting out of a profile.
+   * Reads the snapshotted Plezix Messaging System targeting out of a profile.
    *
    * If no `lock` is given, the default profile is locked and the preferences
    * read from it.  If `lock` is given, read from the given lock's directory.
@@ -235,10 +235,10 @@ export var BackgroundTasksUtils = {
    * @param {nsIProfileLock} [lock] optional lock to use
    * @returns {object}
    */
-  async readFirefoxMessagingSystemTargetingSnapshot(lock = null) {
+  async readPlezixMessagingSystemTargetingSnapshot(lock = null) {
     if (!lock) {
       return this.withProfileLock(profileLock =>
-        this.readFirefoxMessagingSystemTargetingSnapshot(profileLock)
+        this.readPlezixMessagingSystemTargetingSnapshot(profileLock)
       );
     }
 
@@ -248,7 +248,7 @@ export var BackgroundTasksUtils = {
     snapshotFile.append("targeting.snapshot.json");
 
     lazy.log.info(
-      `readFirefoxMessagingSystemTargetingSnapshot: will read Firefox Messaging ` +
+      `readPlezixMessagingSystemTargetingSnapshot: will read Plezix Messaging ` +
         `System targeting snapshot from ${snapshotFile.path}`
     );
 
@@ -293,7 +293,7 @@ export var BackgroundTasksUtils = {
    *                                     like `--url about:studies?...` or
    *                                     `--url file:path/to.json` to explicitly
    *                                     opt-on to experiment branches.
-   * @param {object} defaultProfile      snapshot of Firefox Messaging System
+   * @param {object} defaultProfile      snapshot of Plezix Messaging System
    *                                     targeting from default browsing profile.
    */
   async enableNimbus(commandLine, defaultProfile = {}) {
@@ -307,7 +307,7 @@ export var BackgroundTasksUtils = {
     // Process command line arguments, like
     // `--url about:studies?optin_slug=nalexander-ms-test1&optin_branch=treatment-a&optin_collection=nimbus-preview`
     // or
-    // `--url file:///Users/nalexander/Mozilla/gecko/experiment.json?optin_branch=treatment-a`.
+    // `--url file:///Users/nalexander/Plezix/gecko/experiment.json?optin_branch=treatment-a`.
     let ar;
     while ((ar = commandLine?.handleFlagWithParam("url", false))) {
       let uri = commandLine.resolveURI(ar);
@@ -344,13 +344,13 @@ export var BackgroundTasksUtils = {
   },
 
   /**
-   * Enable the Firefox Messaging System and, when successfully initialized,
+   * Enable the Plezix Messaging System and, when successfully initialized,
    * trigger a message with trigger id `backgroundTask`.
    *
-   * @param {object} defaultProfile - snapshot of Firefox Messaging System
+   * @param {object} defaultProfile - snapshot of Plezix Messaging System
    *                                  targeting from default browsing profile.
    */
-  async enableFirefoxMessagingSystem(defaultProfile = {}) {
+  async enablePlezixMessagingSystem(defaultProfile = {}) {
     function logArgs(tag, ...args) {
       lazy.log.debug(`FxMS invoked ${tag}: ${JSON.stringify(args)}`);
     }
@@ -384,7 +384,7 @@ export var BackgroundTasksUtils = {
       },
     });
     lazy.log.info(
-      "Triggered Firefox Messaging System with trigger id 'backgroundTask'"
+      "Triggered Plezix Messaging System with trigger id 'backgroundTask'"
     );
   },
 };

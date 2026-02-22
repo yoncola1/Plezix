@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -89,7 +89,7 @@ const HIGHLIGHT_PSEUDO_ELEMENTS = [
   "::highlight",
   "::selection",
   "::target-text",
-  // Below are properties not yet implemented in Firefox (Bug 1694053)
+  // Below are properties not yet implemented in Plezix (Bug 1694053)
   "::grammar-error",
   "::spelling-error",
 ];
@@ -326,7 +326,7 @@ class InactivePropertyHelper {
           "text-orientation",
           "vertical-align",
           "writing-mode",
-          // Below are properties not yet implemented in Firefox (Bug 1312611)
+          // Below are properties not yet implemented in Plezix (Bug 1312611)
           "alignment-baseline",
           "baseline-shift",
           "initial-letter",

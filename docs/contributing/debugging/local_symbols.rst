@@ -35,7 +35,7 @@ You should be able to delete the two original files now.
 Next we need to ensure that the locations of binaries are rewritten from
 where they are on TreeHerder to where we have them locally. We'll do this by
 editing ``fix_stacks.py``. This file is located in the ``tools/rb/`` directory of
-the Firefox source directory. You need to add these two lines to the function
+the Plezix source directory. You need to add these two lines to the function
 ``fixSymbols``, after ``line_str`` is defined and before it is written to
 ``fix_stacks.stdin``. I've done this right before the definition of
 ``is_missing_newline``.

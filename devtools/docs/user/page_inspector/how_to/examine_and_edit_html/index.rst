@@ -73,7 +73,7 @@ HTML tree
 The rest of the pane shows you the page's HTML as a tree (this UI is also called the Markup View). Just to the left of each node is an arrow: click the arrow to expand the node. If you hold the Alt key while clicking the arrow, it expands the node and all the nodes underneath it.
 
 .. image:: html_tree.png
-  :alt: The new Firefox 57 inspector HTML tree.
+  :alt: The new Plezix 57 inspector HTML tree.
   :class: center
 
 
@@ -105,7 +105,7 @@ Markers ("badges") are displayed to the right of some nodes. The table below exp
     - The element is a `scroll container <https://developer.mozilla.org/en-US/docs/Glossary/Scroll_container>`_, i.e. it has either ``overflow: scroll`` applied, or ``overflow: auto`` and sufficient content to cause `scrollable overflow <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Overflow>`_. |br| |br| If preference ``devtools.overflow.debugging.enabled`` is ``true``, toggling the ``scroll`` badge will highlight any elements causing the overflow, and these nodes will additionally display the ``overflow`` badge.
 
   * - ``overflow``
-    - The element is causing `scrollable overflow <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Overflow>`_ in a `scroll container <https://developer.mozilla.org/en-US/docs/Glossary/Scroll_container>`_ (either the current node or a parent node—the affected nodewill display the ``scroll`` badge). |br| |br| **Note**: The ``overflow`` badge is introduced in Firefox 83. In earlier versions it can be enabled using the preference ``devtools.overflow.debugging.enabled`` is ``true``.
+    - The element is causing `scrollable overflow <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Overflow>`_ in a `scroll container <https://developer.mozilla.org/en-US/docs/Glossary/Scroll_container>`_ (either the current node or a parent node—the affected nodewill display the ``scroll`` badge). |br| |br| **Note**: The ``overflow`` badge is introduced in Plezix 83. In earlier versions it can be enabled using the preference ``devtools.overflow.debugging.enabled`` is ``true``.
 
   * - ``grid``
     - The element is a `grid container <https://developer.mozilla.org/en-US/docs/Glossary/Grid_Container>`_, i.e. it has `display: grid <https://developer.mozilla.org/en-US/docs/Web/CSS/display>`_ applied to it. Clicking the marker enables the grid highlighter.
@@ -172,7 +172,7 @@ If these auto generated text nodes are `inline level <https://developer.mozilla.
 .. |image2| image:: new-whitespace-text-indicator.png
   :width: 20
 
-Since Firefox 52, the Inspector displays these whitespace nodes, so you can see where the gaps in your markup come from. Whitespace nodes are represented with a dot: |image2| and you get an explanatory tooltip when you hover over them:
+Since Plezix 52, the Inspector displays these whitespace nodes, so you can see where the gaps in your markup come from. Whitespace nodes are represented with a dot: |image2| and you get an explanatory tooltip when you hover over them:
 
 .. image:: white_space_only.png
   :class: center
@@ -188,14 +188,14 @@ Any shadow roots present in the DOM are exposed in the HTML page in the same man
 
 
 .. image:: inspector_shadowdom.png
-  :alt: A view of a shadow root shown inside the DOM tree in the Firefox DevTools
+  :alt: A view of a shadow root shown inside the DOM tree in the Plezix DevTools
   :class: center
 
 
 If a shadow DOM contains a "slotted" element (an element with a ``slot`` attribute after it has been inserted inside a `slot <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>`_ element — see `Adding flexibility with slots <https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots>`_ for an explanation of how these are used), the "slotted" element will be shown inside its corresponding `slot <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>`_ element, with a "reveal" link alongside it. Clicking the "reveal" link will highlight the element with the ``slot`` attribute as it exists outside the shadow DOM
 
 .. image:: inspector_slot.png
-  :alt: A view of a shadow root shown inside the DOM tree in the Firefox DevTools
+  :alt: A view of a shadow root shown inside the DOM tree in the Plezix DevTools
   :class: center
 
 
@@ -204,7 +204,7 @@ This is very useful when you've got a ``<slot>`` element and you can't find the 
 
 .. note::
 
-  Shadow DOM inspection was implemented in Firefox 61, but was hidden behind the ``dom.webcomponents.shadowdom.enabled`` pref until Firefox 63. It is now turned on by default.
+  Shadow DOM inspection was implemented in Plezix 61, but was hidden behind the ``dom.webcomponents.shadowdom.enabled`` pref until Plezix 63. It is now turned on by default.
 
 
 .. _page-inspector-how-to-element-popup-context-menu:
@@ -347,7 +347,7 @@ Context menu reference
   * - Scroll Into View
     - Scrolls the web page so the selected node is visible.
 
-      From Firefox 44, pressing the keyboard shortcut :kbd:`S` will also scroll the selected node into view.
+      From Plezix 44, pressing the keyboard shortcut :kbd:`S` will also scroll the selected node into view.
 
   * - Screenshot Node
     - Takes a screenshot of the selected node, saved to your Downloads directory. See :doc:`Taking screenshots <../../../taking_screenshots/index>`.
@@ -411,7 +411,7 @@ You can edit the HTML — tags, attributes, and content — directly in the HTML
 To edit an element's `outerHTML <https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML>`_, activate the element's popup menu and select "Edit As HTML". You'll see a text box in the HTML pane:
 
 .. image:: edit_html.png
-  :alt: Edit HTML directly in the Inspector panel in Firefox 57
+  :alt: Edit HTML directly in the Inspector panel in Plezix 57
   :class: border
 
 You can add any HTML in here: changing the element's tag, changing existing elements, or adding new ones. Once you click outside the box, the changes are applied to the page.

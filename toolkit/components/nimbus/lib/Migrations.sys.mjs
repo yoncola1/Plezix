@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@ const lazy = {};
 
 ChromeUtils.defineESModuleGetters(lazy, {
   ExperimentAPI: "resource://nimbus/ExperimentAPI.sys.mjs",
-  FirefoxLabs: "resource://nimbus/FirefoxLabs.sys.mjs",
+  PlezixLabs: "resource://nimbus/PlezixLabs.sys.mjs",
   NimbusEnrollments: "resource://nimbus/lib/Enrollments.sys.mjs",
   NimbusFeatures: "resource://nimbus/ExperimentAPI.sys.mjs",
   NimbusTelemetry: "resource://nimbus/lib/Telemetry.sys.mjs",
@@ -161,7 +161,7 @@ async function migrateEnrollmentsToSql() {
         isRollout: enrollment.isRollout ?? false,
         localizations: enrollment.localizations ?? null,
         isEnrollmentPaused: true,
-        isFirefoxLabsOptIn: enrollment.isFirefoxLabsOptIn ?? false,
+        isPlezixLabsOptIn: enrollment.isPlezixLabsOptIn ?? false,
         firefoxLabsTitle: enrollment.firefoxLabsTitle ?? null,
         firefoxLabsDescription: enrollment.firefoxLabsDescription ?? null,
         firefoxLabsDescriptionLinks:
@@ -232,9 +232,9 @@ async function migrateEnrollmentsToSql() {
 }
 
 /**
- * Migrate the pre-Nimbus Firefox Labs experiences into Nimbus enrollments.
+ * Migrate the pre-Nimbus Plezix Labs experiences into Nimbus enrollments.
  *
- * Previously Firefox Labs had a one-to-one correlation between Labs Experiments
+ * Previously Plezix Labs had a one-to-one correlation between Labs Experiments
  * and prefs being set. If any of those prefs are set, attempt to enroll in the
  * corresponding live Nimbus rollout.
  *
@@ -243,7 +243,7 @@ async function migrateEnrollmentsToSql() {
  * LABS_MIGRATION_FEATURE_MAP} and once that map is empty this migration can be
  * replaced with a no-op.
  */
-async function migrateFirefoxLabsEnrollments() {
+async function migratePlezixLabsEnrollments() {
   const bts = Cc["@mozilla.org/backgroundtasks;1"]?.getService(
     Ci.nsIBackgroundTasks
   );
@@ -256,7 +256,7 @@ async function migrateFirefoxLabsEnrollments() {
   await lazy.ExperimentAPI._rsLoader.finishedUpdating();
   await lazy.ExperimentAPI._rsLoader.withUpdateLock(
     async () => {
-      const labs = await lazy.FirefoxLabs.create();
+      const labs = await lazy.PlezixLabs.create();
 
       let didEnroll = false;
 
@@ -440,7 +440,7 @@ export const NimbusMigrations = {
     ],
 
     [Phase.AFTER_REMOTE_SETTINGS_UPDATE]: [
-      migration("firefox-labs-enrollments", migrateFirefoxLabsEnrollments),
+      migration("firefox-labs-enrollments", migratePlezixLabsEnrollments),
     ],
   },
 };

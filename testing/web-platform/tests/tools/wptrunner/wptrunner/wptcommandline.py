@@ -109,10 +109,10 @@ scheme host and port.""")
     chaos_mode_group = mode_group.add_mutually_exclusive_group()
     chaos_mode_group.add_argument("--verify-no-chaos-mode", action="store_false",
                                   dest="verify_chaos_mode",
-                                  help="Disable chaos mode when running on Firefox")
+                                  help="Disable chaos mode when running on Plezix")
     chaos_mode_group.add_argument("--verify-chaos-mode", action="store_true",
                                   default=True,
-                                  help="Enable chaos mode when running on Firefox")
+                                  help="Enable chaos mode when running on Plezix")
     mode_group.add_argument("--verify-max-time",
                             help="The maximum number of minutes for the job to run",
                             type=lambda x: timedelta(minutes=float(x)))
@@ -300,7 +300,7 @@ scheme host and port.""")
     ssl_group.add_argument("--openssl-binary", default="openssl",
                            help="Path to openssl binary")
     ssl_group.add_argument("--certutil-binary",
-                           help="Path to certutil binary for use with Firefox + ssl")
+                           help="Path to certutil binary for use with Plezix + ssl")
 
     ssl_group.add_argument("--ca-cert-path", type=abs_path,
                            help="Path to ca certificate when using pregenerated ssl certificates")

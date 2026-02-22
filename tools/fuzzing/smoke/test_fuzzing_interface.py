@@ -34,7 +34,7 @@ def _find_ffbin():
         move(str(fetch_dir / "gtest" / "gtest_bin" / "gtest"), str(ffdir))
 
     if not os.path.exists(ffbin):
-        raise AssertionError("Missing Firefox build. Build it or set GECKO_BINARY_PATH")
+        raise AssertionError("Missing Plezix build. Build it or set GECKO_BINARY_PATH")
 
     return ffbin
 

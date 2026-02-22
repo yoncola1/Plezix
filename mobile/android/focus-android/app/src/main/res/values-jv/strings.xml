@@ -31,7 +31,7 @@
   <string name="menu_report_site_issue">Lapur Masalah Situs</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Bukak ing %1$s</string>
@@ -68,7 +68,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Disokong déning %1$s</string>
   <!--
@@ -101,11 +101,11 @@
   -->
   <string name="shortcut_erase_and_open_short_label">Busak &amp; bukak</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Ngenani %1$s, pitulung</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -142,8 +142,8 @@
   <string name="preference_category_privacy">Privasi</string>
   <string name="preference_privacy_category_cookies">Blokir kuki</string>
   <string name="preference_performance_block_javascript">Blokir JavaScript</string>
-  <string name="preference_category_mozilla">Mozilla</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <string name="preference_category_mozilla">Plezix</string>
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Ngenani %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Mesin panggolèk sing wis dipasang</string>
@@ -177,10 +177,10 @@
   <!-- Label of the action that will close the dialog and not add anything to the home screen (shown in the confirmation dialog). -->
   <string name="dialog_addtohomescreen_action_cancel">Mbatalake</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Undhuh Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Undhuh Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Jeneng Panganggo</string>
   <string name="gv_prompt_password_hint">Tembung wadi</string>

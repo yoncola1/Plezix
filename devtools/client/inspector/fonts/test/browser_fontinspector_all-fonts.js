@@ -86,7 +86,7 @@ add_task(async function () {
         },
         {
           name: "Manufacturer:",
-          value: "Mozilla",
+          value: "Plezix",
         },
         {
           name: "Vendor:",

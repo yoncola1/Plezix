@@ -1,6 +1,6 @@
 # [Android Components](../../../README.md) > Service > Location
 
- A library for accessing Mozilla's and other location services.
+ A library for accessing Plezix's and other location services.
 
 ## Usage
 
@@ -14,6 +14,6 @@ implementation "org.mozilla.components:service-location:{latest-version}"
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

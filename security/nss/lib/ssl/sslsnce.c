@@ -2,7 +2,7 @@
 /* This file implements the SERVER Session ID cache.
  * NOTE:  The contents of this file are NOT used by the client.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 

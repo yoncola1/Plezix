@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.button.PrimaryButton
 import mozilla.components.compose.base.button.SecondaryButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The ratio of the content height to screen height. This was determined from the designs in figma
@@ -126,9 +126,9 @@ fun ResearchSurfaceSurvey(
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = messageText,
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = PlezixTheme.colors.textPrimary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.headline6,
+                        style = PlezixTheme.typography.headline6,
                     )
                 }
                 Column(
@@ -155,7 +155,7 @@ fun ResearchSurfaceSurvey(
 @Composable
 @PreviewLightDark
 private fun SurveyPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ResearchSurfaceSurvey(
             messageText = stringResource(id = R.string.nimbus_survey_message_text),
             onAcceptButtonText = stringResource(id = R.string.preferences_take_survey),

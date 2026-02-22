@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import mozilla.components.browser.icons.compose.Placeholder
 import mozilla.components.browser.icons.compose.WithIcon
 import mozilla.components.compose.base.utils.inComposePreview
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Load and display the favicon of a particular website.
@@ -101,7 +101,7 @@ private fun FaviconPlaceholder(
             .size(size)
             .clip(RoundedCornerShape(2.dp))
             .background(
-                color = FirefoxTheme.colors.layer2,
+                color = PlezixTheme.colors.layer2,
             ),
     )
 }
@@ -109,8 +109,8 @@ private fun FaviconPlaceholder(
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun FaviconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             Favicon(
                 url = "www.mozilla.com",
                 size = 64.dp,

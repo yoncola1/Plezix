@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -198,9 +198,9 @@ static uintptr_t GetPoisonValue(uintptr_t aBase, uintptr_t aSize) {
 // specifically comes before libxul, so nearly all gecko code runs strictly
 // after this.)
 extern "C" {
-MOZ_RUNINIT uintptr_t gMozillaPoisonSize = GetDesiredRegionSize();
-MOZ_RUNINIT uintptr_t gMozillaPoisonBase =
-    ReservePoisonArea(gMozillaPoisonSize);
-MOZ_RUNINIT uintptr_t gMozillaPoisonValue =
-    GetPoisonValue(gMozillaPoisonBase, gMozillaPoisonSize);
+MOZ_RUNINIT uintptr_t gPlezixPoisonSize = GetDesiredRegionSize();
+MOZ_RUNINIT uintptr_t gPlezixPoisonBase =
+    ReservePoisonArea(gPlezixPoisonSize);
+MOZ_RUNINIT uintptr_t gPlezixPoisonValue =
+    GetPoisonValue(gPlezixPoisonBase, gPlezixPoisonSize);
 }

@@ -6,7 +6,7 @@
  * is a table of all the prime values that will fit into a single
  * mp_digit (given the current size of an mp_digit, which is two bytes).
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 

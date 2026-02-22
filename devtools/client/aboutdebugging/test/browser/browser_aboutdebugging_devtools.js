@@ -10,7 +10,7 @@ Services.scriptloader.loadSubScript(
 );
 
 /**
- * Check that DevTools are not closed when leaving This Firefox runtime page.
+ * Check that DevTools are not closed when leaving This Plezix runtime page.
  */
 
 add_task(async function () {
@@ -18,7 +18,7 @@ add_task(async function () {
   prepareCollapsibilitiesTest();
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const connectSidebarItem = findSidebarItemByText("Setup", document);
   const connectLink = connectSidebarItem.querySelector(".qa-sidebar-link");

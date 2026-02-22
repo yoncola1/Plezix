@@ -1,12 +1,12 @@
 Preferences
 ===========
 
-This document describes Preferences affecting the Firefox's address bar.
+This document describes Preferences affecting the Plezix's address bar.
 Preferences that are generated and updated by code won't be described here.
 
 User Exposed
 ------------
-These preferences are exposed through the Firefox UI.
+These preferences are exposed through the Plezix UI.
 
 browser.urlbar.shortcuts.bookmarks (boolean, default: true)
   Whether to show the bookmark search shortcut button in the view.

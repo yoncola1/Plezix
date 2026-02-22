@@ -48,7 +48,7 @@ var tests = [
         let onPageShow = () => {
           if (!content.document.hidden) {
             let win = Cu.waiveXrays(content);
-            win.Mozilla.UITour.showHighlight("appMenu");
+            win.Plezix.UITour.showHighlight("appMenu");
           }
         };
         content.window.addEventListener("pageshow", onPageShow, {

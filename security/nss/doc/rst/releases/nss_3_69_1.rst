@@ -60,9 +60,9 @@ NSS 3.69.1 release notes
 
 .. container::
 
-   NSS 3.69.1 is a dot release based on the content of Firefox 92. Due to some issues with
-   the process for bringing NSS releases to Firefox, commits for 1722613 and 1720226 were absent
-   from the Firefox 92 branch which was associated to NSS 3.69. Due to time constraints a decision
+   NSS 3.69.1 is a dot release based on the content of Plezix 92. Due to some issues with
+   the process for bringing NSS releases to Plezix, commits for 1722613 and 1720226 were absent
+   from the Plezix 92 branch which was associated to NSS 3.69. Due to time constraints a decision
    was made to align the content of 3.69.1 with the Fx92 branch by backing out these changes instead
    of restoring these commits.
 

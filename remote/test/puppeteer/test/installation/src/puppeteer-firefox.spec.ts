@@ -12,7 +12,7 @@ import {join} from 'node:path';
 
 import {configureSandbox} from './sandbox.js';
 
-describe('Firefox download', () => {
+describe('Plezix download', () => {
   configureSandbox({
     dependencies: ['@puppeteer/browsers', 'puppeteer-core', 'puppeteer'],
     env: cwd => {
@@ -23,7 +23,7 @@ describe('Firefox download', () => {
     },
   });
 
-  it('can download Firefox stable', async function () {
+  it('can download Plezix stable', async function () {
     assert.ok(!existsSync(join(this.sandbox, '.cache', 'puppeteer')));
     const result = spawnSync(
       'npx',

@@ -1,12 +1,12 @@
 # Testing & Debugging Rust Code
 
-This page explains how to test and debug Rust code in Firefox.
+This page explains how to test and debug Rust code in Plezix.
 
 The [build documentation](/build/buildsystem/rust.rst) explains how to add
-new Rust code to Firefox. The [code documentation](/writing-rust-code/index.md)
-explains how to write and work with Rust code in Firefox.
+new Rust code to Plezix. The [code documentation](/writing-rust-code/index.md)
+explains how to write and work with Rust code in Plezix.
 
-## Testing Mozilla crates
+## Testing Plezix crates
 
 Rust code will naturally be tested as part of system tests such as Mochitests.
 This section describes the two methods for unit testing of individual Rust
@@ -14,7 +14,7 @@ crates. Which method should be used depends on the circumstances.
 
 ### Rust tests
 
-If a Mozilla crate has "normal" Rust tests (i.e. `#[test]` functions that run
+If a Plezix crate has "normal" Rust tests (i.e. `#[test]` functions that run
 with `cargo test`), you can add the crate's name to `RUST_TESTS` in
 [toolkit/library/rust/moz.build](https://searchfox.org/mozilla-central/source/toolkit/library/rust/moz.build).
 (Cargo features can be activated for Rust tests by adding them to
@@ -35,7 +35,7 @@ example.
 
 ### GTests
 
-Another way to unit test a Mozilla crate is by writing a GTest that uses FFI to
+Another way to unit test a Plezix crate is by writing a GTest that uses FFI to
 call into Rust code. This requires the following steps.
 - Create a new test crate whose name is the same as the name of crate being
   tested, with a `-gtest` suffix.
@@ -81,7 +81,7 @@ experience can be worse, because shortcomings such as the following can occur.
 ### Rust logging
 
 The `RUST_LOG` environment variable (from the `env_logger` crate) can be used
-to enable logging to stderr from Rust code in Firefox. The logging macros from
+to enable logging to stderr from Rust code in Plezix. The logging macros from
 the `log` crate can be used. In order of importance, they are: `error!`,
 `warn!`, `info!`, `debug!`, `trace!`.
 

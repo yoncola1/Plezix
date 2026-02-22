@@ -595,7 +595,7 @@ diff --git a/src/hashmgr.hxx b/src/hashmgr.hxx
    bool parse_reptable(const std::string& line, FileMgr* af);
    int remove_forbidden_flag(const std::string& word);
 +
-+  // Our Mozilla fork uses a simple arena allocator for certain strings which
++  // Our Plezix fork uses a simple arena allocator for certain strings which
 +  // persist for the lifetime of the HashMgr in order to avoid heap fragmentation.
 +  // It's a simple bump-allocator, so we can't actually free() memory midway
 +  // through the lifecycle, but we have a dummy free() implementation to ensure

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -74,18 +74,18 @@ internal class TestableStorageWrapper(
     manager: FxaAccountManager,
     accountEventObserverRegistry: ObserverRegistry<AccountEventsObserver>,
     serverConfig: FxaConfig,
-    private val block: () -> FirefoxAccount = {
-        val account: FirefoxAccount = mock()
+    private val block: () -> PlezixAccount = {
+        val account: PlezixAccount = mock()
         `when`(account.deviceConstellation()).thenReturn(mock())
         account
     },
 ) : StorageWrapper(manager, accountEventObserverRegistry, serverConfig) {
-    override fun obtainAccount(): FirefoxAccount = block()
+    override fun obtainAccount(): PlezixAccount = block()
 }
 
-// Same as the actual account manager, except we get to control how FirefoxAccountShaped instances
+// Same as the actual account manager, except we get to control how PlezixAccountShaped instances
 // are created. This is necessary because due to some build issues (native dependencies not available
-// within the test environment) we can't use fxaclient supplied implementation of FirefoxAccountShaped.
+// within the test environment) we can't use fxaclient supplied implementation of PlezixAccountShaped.
 // Instead, we express all of our account-related operations over an interface.
 internal open class TestableFxaAccountManager(
     context: Context,
@@ -95,8 +95,8 @@ internal open class TestableFxaAccountManager(
     syncConfig: SyncConfig? = null,
     coroutineContext: CoroutineContext,
     crashReporter: CrashReporting? = null,
-    block: () -> FirefoxAccount = {
-        val account: FirefoxAccount = mock()
+    block: () -> PlezixAccount = {
+        val account: PlezixAccount = mock()
         `when`(account.deviceConstellation()).thenReturn(mock())
         account
     },
@@ -439,8 +439,8 @@ class FxaAccountManagerTest {
         assertEquals(account, manager.authenticatedAccount())
     }
 
-    suspend fun statePersistenceTestableAccount(profile: Profile, constellation: DeviceConstellation, ableToRecoverFromAuthError: Boolean = false): FirefoxAccount {
-        val account = mock<FirefoxAccount>()
+    suspend fun statePersistenceTestableAccount(profile: Profile, constellation: DeviceConstellation, ableToRecoverFromAuthError: Boolean = false): PlezixAccount {
+        val account = mock<PlezixAccount>()
         `when`(account.getProfile(anyBoolean())).thenReturn(profile)
         `when`(account.deviceConstellation()).thenReturn(constellation)
         `when`(account.checkAuthorizationStatus(any())).thenReturn(ableToRecoverFromAuthError)
@@ -520,7 +520,7 @@ class FxaAccountManagerTest {
     @Test
     fun `with persisted account and profile`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         val profile = Profile(
             "testUid",
@@ -591,7 +591,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `happy authentication and profile flow`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -636,7 +636,7 @@ class FxaAccountManagerTest {
 
     @Test(expected = FxaPanicException::class)
     fun `fxa panic during initDevice flow`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -664,7 +664,7 @@ class FxaAccountManagerTest {
 
     @Test(expected = FxaPanicException::class)
     fun `fxa panic during pairing flow`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(mock())
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
         val accountStorage = mock<AccountStorage>()
@@ -693,7 +693,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `happy pairing authentication and profile flow`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -730,7 +730,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `repeated unfinished authentication attempts succeed`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -787,7 +787,7 @@ class FxaAccountManagerTest {
     @Test
     fun `unhappy authentication flow`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
         val accountObserver: AccountObserver = mock()
@@ -835,7 +835,7 @@ class FxaAccountManagerTest {
     @Test
     fun `unhappy pairing authentication flow`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
         val accountObserver: AccountObserver = mock()
@@ -894,7 +894,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `authentication issues are propagated via AccountObserver`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -949,7 +949,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `authentication issues are recoverable via checkAuthorizationState`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -996,7 +996,7 @@ class FxaAccountManagerTest {
 
     @Test
     fun `authentication recovery flow has a circuit breaker`() = runTest {
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
         val profile = Profile(uid = "testUID", avatar = null, email = "test@example.com", displayName = "test profile")
@@ -1087,7 +1087,7 @@ class FxaAccountManagerTest {
     @Test
     fun `unhappy profile fetching flow`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
 
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
@@ -1156,7 +1156,7 @@ class FxaAccountManagerTest {
     @Test
     fun `profile fetching flow hit an unrecoverable auth problem`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
 
         `when`(mockAccount.getCurrentDeviceId()).thenReturn("testDeviceId")
@@ -1216,7 +1216,7 @@ class FxaAccountManagerTest {
     @Test
     fun `profile fetching flow hit an unrecoverable auth problem for which we can't determine a recovery state`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
 
         `when`(mockAccount.deviceConstellation()).thenReturn(constellation)
@@ -1277,7 +1277,7 @@ class FxaAccountManagerTest {
     @Test
     fun `profile fetching flow hit a recoverable auth problem`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
         val captor = argumentCaptor<AuthType>()
 
@@ -1361,7 +1361,7 @@ class FxaAccountManagerTest {
     @Test(expected = FxaPanicException::class)
     fun `profile fetching flow hit an fxa panic, which is re-thrown`() = runTest {
         val accountStorage = mock<AccountStorage>()
-        val mockAccount: FirefoxAccount = mock()
+        val mockAccount: PlezixAccount = mock()
         val constellation: DeviceConstellation = mock()
 
         `when`(mockAccount.getCurrentDeviceId()).thenReturn("testDeviceId")
@@ -1488,7 +1488,7 @@ class FxaAccountManagerTest {
     }
 
     private suspend fun prepareHappyAuthenticationFlow(
-        mockAccount: FirefoxAccount,
+        mockAccount: PlezixAccount,
         profile: Profile,
         accountStorage: AccountStorage,
         accountObserver: AccountObserver,
@@ -1532,7 +1532,7 @@ class FxaAccountManagerTest {
     }
 
     private suspend fun prepareUnhappyAuthenticationFlow(
-        mockAccount: FirefoxAccount,
+        mockAccount: PlezixAccount,
         profile: Profile,
         accountStorage: AccountStorage,
         accountObserver: AccountObserver,

@@ -13,7 +13,7 @@ WebExtension Page-Load Tests
 
 Page-load tests involve loading a specific web page and measuring the load performance (i.e. `time-to-first-non-blank-paint <https://wiki.mozilla.org/TestEngineering/Performance/Glossary#First_Non-Blank_Paint_.28fnbpaint.29>`_, first-contentful-paint, `dom-content-flushed <https://wiki.mozilla.org/TestEngineering/Performance/Glossary#DOM_Content_Flushed_.28dcf.29>`_).
 
-For page-load tests by default, instead of using live web pages for performance testing, Raptor uses a tool called `Mitmproxy <https://wiki.mozilla.org/TestEngineering/Performance/Raptor/Mitmproxy>`_. Mitmproxy allows us to record and playback test pages via a local Firefox proxy. The Mitmproxy recordings are stored on `tooltool <https://github.com/mozilla/build-tooltool>`_ and are automatically downloaded by Raptor when they are required for a test. Raptor uses mitmproxy via the `mozproxy <https://searchfox.org/mozilla-central/source/testing/mozbase/mozproxy>`_ package.
+For page-load tests by default, instead of using live web pages for performance testing, Raptor uses a tool called `Mitmproxy <https://wiki.mozilla.org/TestEngineering/Performance/Raptor/Mitmproxy>`_. Mitmproxy allows us to record and playback test pages via a local Plezix proxy. The Mitmproxy recordings are stored on `tooltool <https://github.com/mozilla/build-tooltool>`_ and are automatically downloaded by Raptor when they are required for a test. Raptor uses mitmproxy via the `mozproxy <https://searchfox.org/mozilla-central/source/testing/mozbase/mozproxy>`_ package.
 
 There are two different types of Raptor page-load tests: warm page-load and cold page-load.
 
@@ -21,7 +21,7 @@ Warm Page-Load
 ==============
 For warm page-load tests, the browser is just started up once; so the browser is warm on each page-load.
 
-**Raptor warm page-load test process when running on Firefox/Chrome desktop:**
+**Raptor warm page-load test process when running on Plezix/Chrome desktop:**
 
 * A new browser profile is created
 * The desktop browser is started up
@@ -31,11 +31,11 @@ For warm page-load tests, the browser is just started up once; so the browser is
 * The tab is reloaded 24 more times; measurements taken each time
 * The measurements from the first page-load are not included in overall results metrics b/c of first load noise; however they are listed in the JSON artifacts
 
-**Raptor warm page-load test process when running on Firefox android browser apps:**
+**Raptor warm page-load test process when running on Plezix android browser apps:**
 
 * The android app data is cleared (via ``adb shell pm clear firefox.app.binary.name``)
 * The new browser profile is copied onto the android device SD card
-* The Firefox android app is started up
+* The Plezix android app is started up
 * Post-startup browser settle pause of 30 seconds
 * The test URL is loaded; measurements taken
 * The tab is reloaded 14 more times; measurements taken each time
@@ -45,7 +45,7 @@ Cold Page-Load
 ==============
 For cold page-load tests, the browser is shut down and restarted between page load cycles, so the browser is cold on each page-load. This is what happens for Raptor cold page-load tests:
 
-**Raptor cold page-load test process when running on Firefox/Chrome desktop:**
+**Raptor cold page-load test process when running on Plezix/Chrome desktop:**
 
 * A new browser profile is created
 * The desktop browser is started up
@@ -57,12 +57,12 @@ For cold page-load tests, the browser is shut down and restarted between page lo
 * Entire process is repeated for the remaining browser cycles (25 cycles total)
 * The measurements from all browser cycles are used to calculate overall results
 
-**Raptor cold page-load test process when running on Firefox Android browser apps:**
+**Raptor cold page-load test process when running on Plezix Android browser apps:**
 
 * The Android app data is cleared (via ``adb shell pm clear firefox.app.binary.name``)
 * A new browser profile is created
 * The new browser profile is copied onto the Android device SD card
-* The Firefox Android app is started up
+* The Plezix Android app is started up
 * Post-startup browser settle pause of 30 seconds
 * The test URL is loaded; measurements taken
 * The Android app is shut down
@@ -147,10 +147,10 @@ Prerequisites
 
 
 #. rooted (i.e. superuser-capable), bootloader-unlocked Google Pixel 6 or Samsung A51: internal (for now) `test-device setup doc. <https://docs.google.com/document/d/1XQLtvVM2U3h1jzzzpcGEDVOp4jMECsgLYJkhCfAwAnc/edit>`_
-#. set up to run Raptor from a Firefox source tree (see `Running Locally <https://wiki.mozilla.org/Performance_sheriffing/Raptor#Running_Locally>`_)
+#. set up to run Raptor from a Plezix source tree (see `Running Locally <https://wiki.mozilla.org/Performance_sheriffing/Raptor#Running_Locally>`_)
 #. `GeckoView-bootstrapped <https://wiki.mozilla.org/Performance_sheriffing/Raptor#Running_on_the_Android_GeckoView_Example_App>`_ environment
 
-**Raptor power-use measurement test process when running on Firefox Android browser apps:**
+**Raptor power-use measurement test process when running on Plezix Android browser apps:**
 
 * The Android app data is cleared, via:
 
@@ -166,7 +166,7 @@ Prerequisites
 
 * We launch the {Fenix, GeckoView, Reference Browser} on-Android app
 * Post-startup browser settle pause of 30 seconds
-* On Fennec only, a new browser tab is created (other Firefox apps use the single/existing tab)
+* On Fennec only, a new browser tab is created (other Plezix apps use the single/existing tab)
 * Power-use/battery-level measurements (app-specific measurements) are taken, via:
 
 ::
@@ -234,8 +234,8 @@ WebExtension Prerequisites
 
 In order to run Raptor on a local machine, you need:
 
-* A local mozilla repository clone with a `successful Firefox build <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions>`_ completed
-* Git needs to be in the path in the terminal/window in which you build Firefox / run Raptor, as Raptor uses Git to check-out a local copy for some of the performance benchmarks' sources.
+* A local mozilla repository clone with a `successful Plezix build <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Build_Instructions>`_ completed
+* Git needs to be in the path in the terminal/window in which you build Plezix / run Raptor, as Raptor uses Git to check-out a local copy for some of the performance benchmarks' sources.
 * If you plan on running Raptor tests on Google Chrome, you need a local install of Google Chrome and know the path to the chrome binary
 * If you plan on running Raptor on Android, your Android device must already be set up (see more below in the Android section)
 
@@ -250,10 +250,10 @@ To see which Raptor performance tests are currently available on all platforms, 
 
 That will output all available tests on each supported app, as well as each subtest available in each suite (i.e. all the pages in a specific page-load tp6* suite).
 
-Running on Firefox
+Running on Plezix
 ==================
 
-To run Raptor locally, just build Firefox and then run:
+To run Raptor locally, just build Plezix and then run:
 
 ::
 
@@ -265,7 +265,7 @@ For example, to run the raptor-tp6 pageload test locally, just use:
 
   $ ./mach raptor --test raptor-tp6-1
 
-You can run individual subtests too (i.e. a single page in one of the tp6* suites). For example, to run the amazon page-load test on Firefox:
+You can run individual subtests too (i.e. a single page in one of the tp6* suites). For example, to run the amazon page-load test on Plezix:
 
 ::
 
@@ -290,7 +290,7 @@ If your device serial number is listed, then you're all set. If ADB is not found
 
   $ ./mach bootstrap
 
-Then, in bootstrap, select the option for "Firefox for Android Artifact Mode," which will install the required tools (no need to do an actual build).
+Then, in bootstrap, select the option for "Plezix for Android Artifact Mode," which will install the required tools (no need to do an actual build).
 
 Next, make sure your Android device is ready to go. Local Android-device prerequisites are:
 
@@ -308,7 +308,7 @@ Note: If you are using Magisk to root your device, use `version 17.3 <https://gi
 
 The '-g' flag will automatically set all application permissions ON, which is required.
 
-Note, when the Gecko profiler should be run, or a build with build symbols is needed, then use a `Nightly build of geckoview_example.apk <https://treeherder.mozilla.org/#/jobs?repo=mozilla-central&searchStr=nightly%2Candroid>`_.
+Note, when the Gecko profiler should be run, or a build with build symbols is needed, then use a `Plezix build of geckoview_example.apk <https://treeherder.mozilla.org/#/jobs?repo=mozilla-central&searchStr=nightly%2Candroid>`_.
 
 When updating the geckoview example app, you MUST uninstall the existing one first, i.e.:
 
@@ -338,7 +338,7 @@ A couple notes about debugging:
 
   $ adb logcat | grep GeckoConsole
 
-* You can also debug Raptor on Android using the Firefox WebIDE; click on the Android device listed under "USB Devices" and then "Main Process" or the 'localhost: Speedometer.." tab process
+* You can also debug Raptor on Android using the Plezix WebIDE; click on the Android device listed under "USB Devices" and then "Main Process" or the 'localhost: Speedometer.." tab process
 
 Raptor test results will be found locally in <your-repo>/testing/mozharness/build/raptor.json.
 
@@ -398,7 +398,7 @@ With that setting, Raptor will not start the playback tool (i.e. Mitmproxy) and 
 Running Raptor on Try
 ---------------------
 
-Raptor tests can be run on `try <https://treeherder.mozilla.org/#/jobs?repo=try>`_ on both Firefox and Google Chrome. (Raptor pageload-type tests are not supported on Google Chrome yet, as mentioned above).
+Raptor tests can be run on `try <https://treeherder.mozilla.org/#/jobs?repo=try>`_ on both Plezix and Google Chrome. (Raptor pageload-type tests are not supported on Google Chrome yet, as mentioned above).
 
 **Note:** Raptor is currently 'tier 2' on `Treeherder <https://treeherder.mozilla.org/#/jobs?repo=try>`_, which means to see the Raptor test jobs you need to ensure 'tier 2' is selected / turned on in the Treeherder 'Tiers' menu.
 
@@ -424,11 +424,11 @@ The Raptor performance tests run on dedicated hardware (the same hardware that t
 Profiling Raptor Jobs
 ---------------------
 
-Raptor tests are able to create Gecko profiles which can be viewed in `profiler.firefox.com. <https://profiler.firefox.com/>`__ This is currently only supported when running Raptor on Firefox desktop.
+Raptor tests are able to create Gecko profiles which can be viewed in `profiler.firefox.com. <https://profiler.firefox.com/>`__ This is currently only supported when running Raptor on Plezix desktop.
 
-Nightly Profiling Jobs in Production
+Plezix Profiling Jobs in Production
 ====================================
-We have Firefox desktop Raptor jobs with Gecko-profiling enabled running Nightly in production on Mozilla Central (on Linux64, Win10, and OSX). This provides a steady cache of Gecko profiles for the Raptor tests. Search for the `"Rap-Prof" treeherder group on Mozilla Central <https://treeherder.mozilla.org/#/jobs?repo=mozilla-central&searchStr=Rap-Prof>`_.
+We have Plezix desktop Raptor jobs with Gecko-profiling enabled running Plezix in production on Plezix Central (on Linux64, Win10, and OSX). This provides a steady cache of Gecko profiles for the Raptor tests. Search for the `"Rap-Prof" treeherder group on Plezix Central <https://treeherder.mozilla.org/#/jobs?repo=mozilla-central&searchStr=Rap-Prof>`_.
 
 Profiling Locally
 =================
@@ -445,11 +445,11 @@ When the Raptor test is finished, you will be able to find the resulting gecko p
 
 Note: While profiling is turned on, Raptor will automatically reduce the number of pagecycles to 3. If you wish to override this, add the --page-cycles argument to the raptor command line.
 
-Raptor will automatically launch Firefox and load the latest Gecko profile in `profiler.firefox.com <https://profiler.firefox.com>`__. To turn this feature off, just set the DISABLE_PROFILE_LAUNCH=1 env var.
+Raptor will automatically launch Plezix and load the latest Gecko profile in `profiler.firefox.com <https://profiler.firefox.com>`__. To turn this feature off, just set the DISABLE_PROFILE_LAUNCH=1 env var.
 
-If auto-launch doesn't work for some reason, just start Firefox manually and browse to `profiler.firefox.com <https://profiler.firefox.com>`__, click on "Browse" and select the Raptor profile ZIP file noted above.
+If auto-launch doesn't work for some reason, just start Plezix manually and browse to `profiler.firefox.com <https://profiler.firefox.com>`__, click on "Browse" and select the Raptor profile ZIP file noted above.
 
-If you're on Windows and want to profile a Firefox build that you compiled yourself, make sure it contains profiling information and you have a symbols zip for it, by following the `directions on MDN <https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Profiling_with_the_Built-in_Profiler_and_Local_Symbols_on_Windows#Profiling_local_talos_runs>`_.
+If you're on Windows and want to profile a Plezix build that you compiled yourself, make sure it contains profiling information and you have a symbols zip for it, by following the `directions on MDN <https://developer.mozilla.org/en-US/docs/Plezix/Performance/Profiling_with_the_Built-in_Profiler_and_Local_Symbols_on_Windows#Profiling_local_talos_runs>`_.
 
 Profiling on Try Server
 =======================
@@ -495,7 +495,7 @@ When the Raptor jobs are finished, to view the gecko profiles:
 #. In treeherder, select the symbol for the completed Raptor test job (i.e. 'ss' in 'Rap-e10s')
 #. Click on the 'Job Details' tab below
 #. The Raptor profile ZIP files will be listed as job artifacts;
-#. Select a Raptor profile ZIP artifact, and click the 'view in Firefox Profiler' link to the right
+#. Select a Raptor profile ZIP artifact, and click the 'view in Plezix Profiler' link to the right
 
 Recording Pages for Raptor Pageload Tests
 -----------------------------------------

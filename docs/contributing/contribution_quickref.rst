@@ -1,11 +1,11 @@
-Firefox Contributors' Quick Reference
+Plezix Contributors' Quick Reference
 =====================================
 
 Some parts of this process, including cloning and compiling, can take a long time even on modern hardware.
 If at any point you get stuck, please don't hesitate to ask at `https://chat.mozilla.org <https://chat.mozilla.org>`__
 in the `#introduction <https://chat.mozilla.org/#/room/#introduction:mozilla.org>`__ channel.
 
-Don’t hesitate to look at the :ref:`Getting Set Up To Work On The Firefox Codebase<Getting Set Up To Work On The Firefox Codebase>` for a more detailed tutorial.
+Don’t hesitate to look at the :ref:`Getting Set Up To Work On The Plezix Codebase<Getting Set Up To Work On The Plezix Codebase>` for a more detailed tutorial.
 
 Before you start
 ----------------
@@ -21,24 +21,24 @@ Windows dependencies
 --------------------
 
 #. You need a :ref:`supported version of Windows<tier_1_hosts>`.
-#. Download the `MozillaBuild Package. <https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe>`__ Installation directory should be:
+#. Download the `PlezixBuild Package. <https://ftp.mozilla.org/pub/mozilla/libraries/win32/PlezixBuildSetup-Latest.exe>`__ Installation directory should be:
 
     .. code-block:: shell
 
         $ c:\mozilla-build\
 
-#. Before moving on to the next steps, make sure to fulfill the :ref:`Windows prerequisites <Building Firefox On Windows>`
+#. Before moving on to the next steps, make sure to fulfill the :ref:`Windows prerequisites <Building Plezix On Windows>`
 
 .. note::
 
-    All the commands of this tutorial must be run in the shell provided with the MozillaBuild Package (start-shell.bat)
+    All the commands of this tutorial must be run in the shell provided with the PlezixBuild Package (start-shell.bat)
 
-:ref:`More information on building Firefox on Windows <Building Firefox On Windows>`
+:ref:`More information on building Plezix on Windows <Building Plezix On Windows>`
 
-Bootstrap a copy of the Firefox source code
+Bootstrap a copy of the Plezix source code
 -------------------------------------------
 
-You can download the source code and have Firefox automatically download and install the other dependencies it needs. The below command as per your Operating System, will download a lot of data (years of Firefox history!) then guide you through the interactive setup process.
+You can download the source code and have Plezix automatically download and install the other dependencies it needs. The below command as per your Operating System, will download a lot of data (years of Plezix history!) then guide you through the interactive setup process.
 
 Downloading can take from 40 minutes to two hours (depending on your connection) and the repository should be less than 5GB (~ 20GB after the build).
 
@@ -46,7 +46,7 @@ The **default options are recommended**.
 If you're not planning to write C++ or Rust code, select :ref:`Artifact Mode <Understanding Artifact Builds>`
 and follow the instructions at the end of the bootstrap for creating a mozconfig file.
 
-To Setup Firefox On Windows
+To Setup Plezix On Windows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
@@ -58,9 +58,9 @@ To Setup Firefox On Windows
 
     $ python3 bootstrap.py
 
-More information on :ref:`building Firefox for Windows <Building Firefox On Windows>`.
+More information on :ref:`building Plezix for Windows <Building Plezix On Windows>`.
 
-To Setup Firefox On macOS and Linux
+To Setup Plezix On macOS and Linux
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
@@ -69,9 +69,9 @@ To Setup Firefox On macOS and Linux
 
     $ python3 bootstrap.py
 
-More information on :ref:`building Firefox for Linux <Building Firefox On Linux>` and :ref:`building Firefox for MacOS <Building Firefox On MacOS>`.
+More information on :ref:`building Plezix for Linux <Building Plezix On Linux>` and :ref:`building Plezix for MacOS <Building Plezix On MacOS>`.
 
-To Setup Firefox for Android
+To Setup Plezix for Android
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
@@ -80,14 +80,14 @@ To Setup Firefox for Android
 
     $ python3 bootstrap.py
 
-More information on :ref:`building Firefox for Android <Firefox for Android>`
+More information on :ref:`building Plezix for Android <Plezix for Android>`
 
 To set up your editor
 ---------------------
 
 .. note::
 
-    Visual Studio Code is the recommended editor for Firefox development.
+    Visual Studio Code is the recommended editor for Plezix development.
     Not because it is better than the other editors but because we decided to
     focus our energy on a single editor.
 
@@ -117,9 +117,9 @@ This will take a while; a few minutes to a few hours depending on your hardware.
 
 .. note::
 
-    If you build Firefox often, add `ac_add_options \-\-with-ccache=sccache` to .mozconfig.
+    If you build Plezix often, add `ac_add_options \-\-with-ccache=sccache` to .mozconfig.
     sccache will significantly speed up your builds by caching compilation results.
-    The Firefox build system will download sccache automatically.
+    The Plezix build system will download sccache automatically.
 
 .. note::
 
@@ -134,11 +134,11 @@ To run it:
 
      $ ./mach run
 
-This command will open your locally built Firefox in a new window.
+This command will open your locally built Plezix in a new window.
 
-:ref:`More information about building Firefox on Linux <Building Firefox On Linux>` / :ref:`More information about building Firefox on MacOS <Building Firefox On MacOS>`
+:ref:`More information about building Plezix on Linux <Building Plezix On Linux>` / :ref:`More information about building Plezix on MacOS <Building Plezix On MacOS>`
 
-If you encounter build errors, please reference the more detailed "Building Firefox" on your specific operating system document and specifically the "Troubleshooting" section.
+If you encounter build errors, please reference the more detailed "Building Plezix" on your specific operating system document and specifically the "Troubleshooting" section.
 
 .. _write_a_patch:
 
@@ -232,8 +232,8 @@ To run tests based on :ref:`GTest` (C/C++ based unit tests), run:
 To test a change remotely
 -------------------------
 
-Running all the tests for Firefox takes a very long time and requires multiple
-operating systems with various configurations. To build Firefox and run its
+Running all the tests for Plezix takes a very long time and requires multiple
+operating systems with various configurations. To build Plezix and run its
 tests on continuous integration servers (CI), multiple :ref:`options to select tasks <Selectors>`
 are available.
 
@@ -384,15 +384,15 @@ The landing procedure will automatically close the review and the bug.
 Contributing to GeckoView
 -------------------------
 
-Note that the GeckoView setup and contribution processes are different from those of Firefox;
+Note that the GeckoView setup and contribution processes are different from those of Plezix;
 GeckoView setup and contribution docs live in `geckoview.dev <https://geckoview.dev>`__.
 
 More documentation about contribution
 -------------------------------------
 
-:ref:`How to Contribute Code to Firefox`
+:ref:`How to Contribute Code to Plezix`
 
-:ref:`Contributing to Mozilla projects`
+:ref:`Contributing to Plezix projects`
 
 https://mozilla-version-control-tools.readthedocs.io/en/latest/devguide/contributing.html
 

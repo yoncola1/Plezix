@@ -33,7 +33,7 @@ async_test(t => {
   frame.src = "resources/meta-refresh.py?0";
 }, "document.open() aborts documents that are queued for navigation through <meta> refresh with timeout 0 (fetch())");
 
-// We cannot test for img element's error event for this test, as Firefox does
+// We cannot test for img element's error event for this test, as Plezix does
 // not fire the event if the fetch is aborted while Chrome does.
 async_test(t => {
   const frame = document.body.appendChild(document.createElement("iframe"));
@@ -91,7 +91,7 @@ async_test(t => {
   frame.src = "resources/http-refresh.py?0";
 }, "document.open() aborts documents that are queued for navigation through Refresh header with timeout 0 (fetch())");
 
-// We cannot test for img element's error event for this test, as Firefox does
+// We cannot test for img element's error event for this test, as Plezix does
 // not fire the event if the fetch is aborted while Chrome does.
 async_test(t => {
   const frame = document.body.appendChild(document.createElement("iframe"));

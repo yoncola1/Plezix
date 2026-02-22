@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.components.lazyStore
 import org.mozilla.fenix.compose.ComposeFragment
 import org.mozilla.fenix.ext.requireComponents
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.webcompat.WEB_COMPAT_REPORTER_SUMO_URL
 import org.mozilla.fenix.webcompat.WEB_COMPAT_REPORTER_URL
 import org.mozilla.fenix.webcompat.di.WebCompatReporterMiddlewareProvider
@@ -52,7 +52,7 @@ class WebCompatReporterFragment : ComposeFragment() {
 
     @Composable
     override fun UI() {
-        FirefoxTheme {
+        PlezixTheme {
             WebCompatReporter(
                 store = webCompatReporterStore,
             )

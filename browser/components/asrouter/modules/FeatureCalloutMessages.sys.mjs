@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -874,7 +874,7 @@ const MESSAGES = () => {
                 marginInline: "0 48px",
               },
               subtitle: {
-                raw: "Make browsing faster, safer, or just plain fun with Firefox add-ons. See what our staff recommends!",
+                raw: "Make browsing faster, safer, or just plain fun with Plezix add-ons. See what our staff recommends!",
                 paddingInline: "34px 0",
               },
               primary_button: {

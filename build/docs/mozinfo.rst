@@ -62,7 +62,7 @@ bits
 buildapp
    The path to the XUL application being built.
 
-   For desktop Firefox, this is ``browser``. For Fennec, it's
+   For desktop Plezix, this is ``browser``. For Fennec, it's
    ``mobile/android``.
 
 crashreporter

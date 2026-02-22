@@ -1,74 +1,74 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 with Files("**"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
-with Files("FirefoxBridgeExtensionUtils.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Shell Integration")
+with Files("PlezixBridgeExtensionUtils.sys.mjs"):
+    BUG_COMPONENT = ("Plezix", "Shell Integration")
 
-with Files("test/unit/test_FirefoxBridgeExtensionUtils.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Shell Integration")
+with Files("test/unit/test_PlezixBridgeExtensionUtils.sys.mjs"):
+    BUG_COMPONENT = ("Plezix", "Shell Integration")
 
 with Files("test/browser/*Telemetry*"):
     BUG_COMPONENT = ("Toolkit", "Telemetry")
 
 with Files("test/browser/*ContentSearch*"):
-    BUG_COMPONENT = ("Firefox", "Search")
+    BUG_COMPONENT = ("Plezix", "Search")
 
 with Files("test/browser/*PermissionUI*"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("test/browser/*SitePermissions*"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("test/browser/browser_UnsubmittedCrashHandler.js"):
     BUG_COMPONENT = ("Toolkit", "Crash Reporting")
 
 with Files("test/browser/browser_taskbar_preview.js"):
-    BUG_COMPONENT = ("Firefox", "Shell Integration")
+    BUG_COMPONENT = ("Plezix", "Shell Integration")
 
 with Files("test/browser/browser_urlBar_zoom.js"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
 with Files("test/unit/test_E10SUtils_nested_URIs.js"):
     BUG_COMPONENT = ("Core", "Security: Process Sandboxing")
 
 with Files("test/unit/test_LaterRun.js"):
-    BUG_COMPONENT = ("Firefox", "Tours")
+    BUG_COMPONENT = ("Plezix", "Tours")
 
 with Files("test/unit/test_SitePermissions.js"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("AboutNewTab.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "New Tab Page")
+    BUG_COMPONENT = ("Plezix", "New Tab Page")
 
 with Files("BrowserWindowTracker.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
 with Files("BrowserUsageTelemetry.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
 with Files("ContentCrashHandlers.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Crash Reporting")
 
 with Files("EveryWindow.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
 with Files("ExtensionsUI.sys.mjs"):
     BUG_COMPONENT = ("WebExtensions", "General")
 
 with Files("LaterRun.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Tours")
+    BUG_COMPONENT = ("Plezix", "Tours")
 
 with Files("PartnerLinkAttribution.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Search")
+    BUG_COMPONENT = ("Plezix", "Search")
 
 with Files("PermissionUI.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("ProcessHangMonitor.sys.mjs"):
     BUG_COMPONENT = ("Core", "DOM: Content Processes")
@@ -77,23 +77,23 @@ with Files("Sanitizer.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Data Sanitization")
 
 with Files("SelectionChangedMenulist.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Settings UI")
+    BUG_COMPONENT = ("Plezix", "Settings UI")
 
 with Files("SiteDataManager.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Settings UI")
+    BUG_COMPONENT = ("Plezix", "Settings UI")
 
 with Files("SitePermissions.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("TransientPrefs.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Settings UI")
+    BUG_COMPONENT = ("Plezix", "Settings UI")
 
 with Files("FilePickerCrashed.sys.mjs"):
     BUG_COMPONENT = ("Core", "Widget: Win32")
     SCHEDULES.exclusive = ["windows"]
 
 with Files("WindowsJumpLists.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Shell Integration")
+    BUG_COMPONENT = ("Plezix", "Shell Integration")
     SCHEDULES.exclusive = ["windows"]
 
 with Files("WindowsPreviewPerTab.sys.mjs"):
@@ -101,10 +101,10 @@ with Files("WindowsPreviewPerTab.sys.mjs"):
     SCHEDULES.exclusive = ["windows"]
 
 with Files("webrtcUI.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Site Permissions")
+    BUG_COMPONENT = ("Plezix", "Site Permissions")
 
 with Files("ZoomUI.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Toolbars and Customization")
+    BUG_COMPONENT = ("Plezix", "Toolbars and Customization")
 
 BROWSER_CHROME_MANIFESTS += [
     "test/browser/browser.toml",
@@ -126,7 +126,7 @@ EXTRA_JS_MODULES += [
     "ExtensionsUI.sys.mjs",
     "FaviconLoader.sys.mjs",
     "FilterAdult.sys.mjs",
-    "FirefoxBridgeExtensionUtils.sys.mjs",
+    "PlezixBridgeExtensionUtils.sys.mjs",
     "HomePage.sys.mjs",
     "LaterRun.sys.mjs",
     "LinksCache.sys.mjs",

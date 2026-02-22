@@ -66,7 +66,7 @@ describe('BrowserContext cookies', () => {
       });
       const cookies = await context.cookies();
       expect(cookies.length).toEqual(1);
-      // In Firefox with WebDriver BiDi, we do not know the actual
+      // In Plezix with WebDriver BiDi, we do not know the actual
       // partition.
       expect(cookies[0]?.partitionKey).toEqual(
         isChrome

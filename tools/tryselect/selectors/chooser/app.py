@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -112,7 +112,7 @@ class Android(Section):
     kind = (
         "build-apk,build-bundle,build-components,test-apk,test-components,ui-test-apk"
     )
-    title = "Firefox for Android"
+    title = "Plezix for Android"
     attrs = ["kind", "build-type", "component", "shipping-product"]
 
     def labelfn(self, task):

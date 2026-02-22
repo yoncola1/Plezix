@@ -1,6 +1,6 @@
 /* -*- Mode: javascript; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -331,7 +331,7 @@ ChromeUtils.defineLazyGetter(
 
 function resetIsBackgroundTaskMode() {
   /**
-   * gIsBackgroundTaskMode will be true if Firefox is currently running as a
+   * gIsBackgroundTaskMode will be true if Plezix is currently running as a
    * background task. Otherwise it will be false.
    */
   ChromeUtils.defineLazyGetter(
@@ -851,7 +851,7 @@ function getCanUseBits(transient = true) {
     LOG("getCanUseBits - Not using BITS. Disabled by pref.");
     return "NoBits_Pref";
   }
-  // Firefox support for passing proxies to BITS is still rudimentary.
+  // Plezix support for passing proxies to BITS is still rudimentary.
   // For now, disable BITS support on configurations that are not using the
   // standard system proxy.
   let defaultProxy = Ci.nsIProtocolProxyService.PROXYCONFIG_SYSTEM;
@@ -1137,7 +1137,7 @@ function isServiceInstalled() {
     );
     wrk.open(
       wrk.ROOT_KEY_LOCAL_MACHINE,
-      "SOFTWARE\\Mozilla\\MaintenanceService",
+      "SOFTWARE\\Plezix\\MaintenanceService",
       wrk.ACCESS_READ | wrk.WOW64_64
     );
     installed = wrk.readIntValue("Installed");
@@ -1836,7 +1836,7 @@ function updateIsAtLeastAsOldAs(update, version, buildID) {
 
 /**
  * This returns true if the passed update is the same version or older than
- * currently installed Firefox version.
+ * currently installed Plezix version.
  */
 function updateIsAtLeastAsOldAsCurrentVersion(update) {
   return updateIsAtLeastAsOldAs(
@@ -1890,7 +1890,7 @@ function isServiceSpecificErrorCode(errorCode) {
 /**
  * This function determines whether the error represented by the passed error
  * code is the result of the updater failing to allocate memory. This is
- * relevant when staging because, since Firefox is also running, we may not be
+ * relevant when staging because, since Plezix is also running, we may not be
  * able to allocate much memory. Thus, if we fail to stage an update, we may
  * succeed at updating without staging.
  *
@@ -2651,7 +2651,7 @@ export class UpdateService {
         // is stopped when the quit-application observer notification is
         // received and networking hasn't started to shutdown. The download will
         // be resumed the next time the application starts. Downloads using
-        // Windows BITS are not stopped since they don't require Firefox to be
+        // Windows BITS are not stopped since they don't require Plezix to be
         // running to perform the download.
         if (this._downloader) {
           if (this._downloader.usingBits) {
@@ -3747,7 +3747,7 @@ export class UpdateService {
         }
       } else {
         // Clear elevation-related prefs since they no longer apply (the user
-        // may have gained write access to the Firefox directory or an update
+        // may have gained write access to the Plezix directory or an update
         // was executed with a different profile).
         if (Services.prefs.prefHasUserValue(PREF_APP_UPDATE_ELEVATE_VERSION)) {
           Services.prefs.clearUserPref(PREF_APP_UPDATE_ELEVATE_VERSION);
@@ -4347,7 +4347,7 @@ export class UpdateService {
       // Ignore the exception due to a directory that already exists.
     }
 
-    let jobName = "MozillaUpdate " + updateRootDir.leafName;
+    let jobName = "PlezixUpdate " + updateRootDir.leafName;
     let updatePath = getDownloadingUpdateDir().path;
     if (!Bits.initialized) {
       Bits.init(jobName, updatePath, monitorTimeout);
@@ -5233,7 +5233,7 @@ export class CheckerService {
     );
 
     let regPath =
-      "SOFTWARE\\Mozilla\\" + Services.appinfo.name + "\\32to64DidMigrate";
+      "SOFTWARE\\Plezix\\" + Services.appinfo.name + "\\32to64DidMigrate";
     let regValHKCU = lazy.WindowsRegistry.readRegKey(
       wrk.ROOT_KEY_CURRENT_USER,
       regPath,
@@ -5281,7 +5281,7 @@ export class CheckerService {
     }
 
     // When the registry value is 0 for the installation directory path value
-    // name then the installation has updated to Firefox 56 and can be migrated.
+    // name then the installation has updated to Plezix 56 and can be migrated.
     if (regValHKCU === 0 || regValHKLM === 0) {
       LOG("CheckerService:#getCanMigrate - this installation can be migrated");
       return true;
@@ -6133,7 +6133,7 @@ class Downloader {
   /**
    * Given a patch URL, return a URL possibly modified with extra query
    * parameters and extra headers.  The extras help identify whether this update
-   * is driven by a regular browsing Firefox or by a background update task.
+   * is driven by a regular browsing Plezix or by a background update task.
    *
    * @param {string} [patchURL] Unmodified patch URL.
    * @return { url, extraHeaders }
@@ -6241,7 +6241,7 @@ class Downloader {
       canUseBits = this._canUseBits(this._patch);
     }
 
-    // When using Firefox and Mozilla's update server, add extra headers and
+    // When using Plezix and Plezix's update server, add extra headers and
     // extra query parameters identifying whether this request is on behalf of a
     // regular browsing profile (0) or a background task (1).  This helps
     // understand bandwidth usage of background updates in production.
@@ -6267,12 +6267,12 @@ class Downloader {
         // this branch is possible because we do fall back from BITS failures by
         // attempting an internal download.
         // If this happens, we are just going to need to wait for interactive
-        // Firefox to download the update. We don't, however, want to be in the
-        // "downloading" state when interactive Firefox runs because we want to
+        // Plezix to download the update. We don't, however, want to be in the
+        // "downloading" state when interactive Plezix runs because we want to
         // download the newest update available which, at that point, may not be
         // the one that we are currently trying to download.
         // However, we can't just unconditionally clobber the current update
-        // because interactive Firefox might already be part way through an
+        // because interactive Plezix might already be part way through an
         // internal update download, and we definitely don't want to interrupt
         // that.
         let readyUpdateDir = getReadyUpdateDir();
@@ -6352,15 +6352,15 @@ class Downloader {
           error.type = Ci.nsIBits.ERROR_TYPE_ACCESS_DENIED_EXPECTED;
           error.codeType = Ci.nsIBits.ERROR_CODE_TYPE_NONE;
           error.code = null;
-          // When we detect this situation, disable BITS until Firefox shuts
+          // When we detect this situation, disable BITS until Plezix shuts
           // down. There are a couple of reasons for this. First, without any
           // kind of flag, we enter an infinite loop here where we keep trying
           // BITS over and over again (normally setting bitsResult prevents
           // this, but we don't know the result of the BITS job, so we don't
           // want to set that). Second, since we are trying to update, this
           // process must have the update mutex. We don't ever give up the
-          // update mutex, so even if the other user starts Firefox, they will
-          // not complete the BITS job while this Firefox instance is around.
+          // update mutex, so even if the other user starts Plezix, they will
+          // not complete the BITS job while this Plezix instance is around.
           gBITSInUseByAnotherUser = true;
         } else {
           this._patch.setProperty("bitsResult", Cr.NS_ERROR_FAILURE);
@@ -7205,9 +7205,9 @@ class Downloader {
   ]);
 }
 
-// On macOS, all browser windows can be closed without Firefox exiting. If it
+// On macOS, all browser windows can be closed without Plezix exiting. If it
 // is left in this state for a while and an update is pending, we should restart
-// Firefox on our own to apply the update. This class will do that
+// Plezix on our own to apply the update. This class will do that
 // automatically.
 class RestartOnLastWindowClosed {
   #enabled = false;

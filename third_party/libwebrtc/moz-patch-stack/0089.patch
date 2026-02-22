@@ -1,6 +1,6 @@
 From: Andreas Pehrson <apehrson@mozilla.com>
 Date: Wed, 18 Oct 2023 17:21:00 +0000
-Subject: Bug 1859786 - Fix lock annotation warning in Mozilla-specific edit on
+Subject: Bug 1859786 - Fix lock annotation warning in Plezix-specific edit on
  top of video_capture_impl.cc. r=webrtc-reviewers,mjf
 
 The annotations were added in M116:

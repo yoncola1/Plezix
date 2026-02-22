@@ -217,7 +217,7 @@ SamplerThread::SamplerThread(PSLockRef aLock, uint32_t aActivityGeneration,
     // By default the timer resolution (which tends to be 1/64Hz, around 16ms)
     // is not changed. However, if the requested interval is sufficiently low,
     // the resolution will be adjusted to match. Note that this affects all
-    // timers in Firefox, and could therefore hide issues while profiling. This
+    // timers in Plezix, and could therefore hide issues while profiling. This
     // change may be prevented with the "notimerresolutionchange" feature.
     ::timeBeginPeriod(mIntervalMicroseconds / 1000);
   }

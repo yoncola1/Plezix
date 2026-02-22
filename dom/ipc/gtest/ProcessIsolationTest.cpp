@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -87,14 +87,14 @@ TEST(ProcessIsolationTest, WorkerOptions)
   // Forcibly enable the privileged mozilla content process for the duration of
   // the test.
   MOZ_ALWAYS_SUCCEEDS(Preferences::SetCString(
-      "browser.tabs.remote.separatedMozillaDomains", "addons.mozilla.org"));
+      "browser.tabs.remote.separatedPlezixDomains", "addons.mozilla.org"));
   MOZ_ALWAYS_SUCCEEDS(Preferences::SetBool(
-      "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true));
+      "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true));
   auto cleanup = MakeScopeExit([&] {
     MOZ_ALWAYS_SUCCEEDS(
-        Preferences::ClearUser("browser.tabs.remote.separatedMozillaDomains"));
+        Preferences::ClearUser("browser.tabs.remote.separatedPlezixDomains"));
     MOZ_ALWAYS_SUCCEEDS(Preferences::ClearUser(
-        "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess"));
+        "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess"));
   });
 
   nsCOMPtr<nsIPrincipal> systemPrincipal = SystemPrincipal::Get();
@@ -110,7 +110,7 @@ TEST(ProcessIsolationTest, WorkerOptions)
       MakeTestPrincipal("file:///path/to/dir");
   nsCOMPtr<nsIPrincipal> extensionPrincipal =
       MakeTestPrincipal("moz-extension://fake-uuid");
-  nsCOMPtr<nsIPrincipal> privilegedMozillaPrincipal =
+  nsCOMPtr<nsIPrincipal> privilegedPlezixPrincipal =
       MakeTestPrincipal("https://addons.mozilla.org");
   nsCOMPtr<nsIPrincipal> expandedPrincipal = ExpandedPrincipal::Create(
       nsTArray{secureComPrincipal, extensionPrincipal}, {});
@@ -160,7 +160,7 @@ TEST(ProcessIsolationTest, WorkerOptions)
       {.mPrincipal = extensionPrincipal,
        .mWorkerKind = WorkerKindService,
        .mExpected = RemoteTypes{extensionRemoteType, extensionRemoteType}},
-      {.mPrincipal = privilegedMozillaPrincipal,
+      {.mPrincipal = privilegedPlezixPrincipal,
        .mWorkerKind = WorkerKindService,
        .mExpected = RemoteTypes{PRIVILEGEDMOZILLA_REMOTE_TYPE,
                                 PRIVILEGEDMOZILLA_REMOTE_TYPE}},
@@ -217,7 +217,7 @@ TEST(ProcessIsolationTest, WorkerOptions)
       {.mPrincipal = extensionPrincipal,
        .mWorkerKind = WorkerKindShared,
        .mExpected = RemoteTypes{extensionRemoteType, extensionRemoteType}},
-      {.mPrincipal = privilegedMozillaPrincipal,
+      {.mPrincipal = privilegedPlezixPrincipal,
        .mWorkerKind = WorkerKindShared,
        .mExpected = RemoteTypes{PRIVILEGEDMOZILLA_REMOTE_TYPE,
                                 PRIVILEGEDMOZILLA_REMOTE_TYPE}},

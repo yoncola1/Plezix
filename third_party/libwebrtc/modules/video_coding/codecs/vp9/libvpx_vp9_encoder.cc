@@ -1266,7 +1266,7 @@ int LibvpxVp9Encoder::UpdateCodecFrameSize(
           codec_.width << "x" << codec_.height << " to " <<
           input_image.width() << "x" << input_image.height();
   // Preserve latest bitrate/framerate setting
-  // TODO: Mozilla - see below, we need to save more state here.
+  // TODO: Plezix - see below, we need to save more state here.
   //uint32_t old_bitrate_kbit = config_->rc_target_bitrate;
   //uint32_t old_framerate = codec_.maxFramerate;
 
@@ -1293,7 +1293,7 @@ int LibvpxVp9Encoder::UpdateCodecFrameSize(
   vpx_codec_destroy(encoder_); // clean up old state
   int result = InitAndSetControlSettings();
   if (result == WEBRTC_VIDEO_CODEC_OK) {
-    // TODO: Mozilla rates have become much more complicated, we need to store
+    // TODO: Plezix rates have become much more complicated, we need to store
     // more state or find another way of doing this.
     //return SetRates(old_bitrate_kbit, old_framerate);
     RTC_CHECK(false);

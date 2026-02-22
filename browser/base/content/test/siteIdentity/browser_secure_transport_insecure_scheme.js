@@ -5,7 +5,7 @@
 
 // Test that an insecure resource routed over a secure transport is considered
 // insecure in terms of the site identity panel. We achieve this by running an
-// HTTP-over-TLS "proxy" and having Firefox request an http:// URI over it.
+// HTTP-over-TLS "proxy" and having Plezix request an http:// URI over it.
 
 const NOT_SECURE_LABEL = Services.prefs.getBoolPref(
   "security.insecure_connection_text.enabled"
@@ -138,7 +138,7 @@ add_task(async function () {
   ].getService(Ci.nsICertOverrideService);
 
   let cert = getTestServerCertificate();
-  // Start the proxy and configure Firefox to trust its certificate.
+  // Start the proxy and configure Plezix to trust its certificate.
   let server = startServer(cert);
   certOverrideService.rememberValidityOverride(
     "localhost",
@@ -147,7 +147,7 @@ add_task(async function () {
     cert,
     true
   );
-  // Configure Firefox to use the proxy.
+  // Configure Plezix to use the proxy.
   let systemProxySettings = {
     QueryInterface: ChromeUtils.generateQI(["nsISystemProxySettings"]),
     mainThreadOnly: true,

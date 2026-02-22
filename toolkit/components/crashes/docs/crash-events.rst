@@ -46,7 +46,7 @@ until later. This helps ensure that application downgrades (potentially
 due to elevated crash rate) don't result in data loss.
 
 The format and semantics of each event type are meant to be constant once
-that event type is committed to the main Firefox repository. If new metadata
+that event type is committed to the main Plezix repository. If new metadata
 needs to be captured or the meaning of data captured in an event changes,
 that change should be expressed through the invention of a new event type.
 For this reason, event names are highly recommended to contain a version.

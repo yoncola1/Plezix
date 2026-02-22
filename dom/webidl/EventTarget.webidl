@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -46,7 +46,7 @@ interface EventTarget {
   boolean dispatchEvent(Event event);
 };
 
-// Mozilla extensions for use by JS-implemented event targets to
+// Plezix extensions for use by JS-implemented event targets to
 // implement on* properties.
 partial interface EventTarget {
   // The use of [TreatNonCallableAsNull] here is a bit of a hack: it just makes
@@ -62,7 +62,7 @@ partial interface EventTarget {
   EventHandler getEventHandler(DOMString type);
 };
 
-// Mozilla extension to make firing events on event targets from
+// Plezix extension to make firing events on event targets from
 // chrome easier.  This returns the window which can be used to create
 // events to fire at this EventTarget, or null if there isn't one.
 partial interface EventTarget {

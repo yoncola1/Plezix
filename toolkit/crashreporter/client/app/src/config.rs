@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -83,8 +83,8 @@ mod buildid_section {
 
 const VENDOR_KEY: &str = "Vendor";
 const PRODUCT_KEY: &str = "ProductName";
-const DEFAULT_VENDOR: &str = "Mozilla";
-const DEFAULT_PRODUCT: &str = "Firefox";
+const DEFAULT_VENDOR: &str = "Plezix";
+const DEFAULT_PRODUCT: &str = "Plezix";
 
 #[derive(Default)]
 pub struct Config {
@@ -610,7 +610,7 @@ impl Config {
     }
 }
 
-/// Get the path of resources for the Firefox installation containing the crashreporter.
+/// Get the path of resources for the Plezix installation containing the crashreporter.
 pub fn installation_resource_path() -> &'static Path {
     static PATH: Lazy<PathBuf> = Lazy::new(|| {
         if cfg!(all(not(mock), target_os = "macos")) {
@@ -636,10 +636,10 @@ pub fn installation_program_path<N: AsRef<OsStr>>(program: N) -> PathBuf {
     installation_path().join(p)
 }
 
-/// Get the path of the Firefox installation containing the crashreporter.
+/// Get the path of the Plezix installation containing the crashreporter.
 ///
 /// On MacOS, this assumes that the crashreporter is its own application bundle within the main
-/// program bundle. It returns the MacOS directory of the Firefox application bundle.
+/// program bundle. It returns the MacOS directory of the Plezix application bundle.
 pub fn installation_path() -> &'static Path {
     static PATH: Lazy<&'static Path> = Lazy::new(|| {
         // Expect shouldn't panic as we don't invoke the program without a parent directory.
@@ -647,9 +647,9 @@ pub fn installation_path() -> &'static Path {
 
         if cfg!(all(not(mock), target_os = "macos")) {
             // On macOS the crash reporter client is shipped as an application bundle contained
-            // within Firefox's main application bundle. So when it's invoked its current working
+            // within Plezix's main application bundle. So when it's invoked its current working
             // directory looks like:
-            // Firefox.app/Contents/MacOS/crashreporter.app/Contents/MacOS/
+            // Plezix.app/Contents/MacOS/crashreporter.app/Contents/MacOS/
 
             // 3rd ancestor (the 0th element of ancestors has no paths removed) to remove
             // `crashreporter.app/Contents/MacOS`.

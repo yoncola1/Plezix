@@ -11,7 +11,7 @@ More information about `Messaging System`__.
 Messages
 --------
 
-There are JSON schemas for each type of message that the Firefox Messaging
+There are JSON schemas for each type of message that the Plezix Messaging
 System handles:
 
 * `CFR URLBar Chiclet <cfr_urlbar_chiclet_schema_>`_
@@ -80,7 +80,7 @@ schema:
    cd browser/components/asrouter/content-src/schemas/
    ../../../../../mach python make-schemas.py
 
-If you do not, the `Firefox MS Schemas CI job <make_schemas_check_>`_ will fail.
+If you do not, the `Plezix MS Schemas CI job <make_schemas_check_>`_ will fail.
 
 .. _run_make_schemas:
 
@@ -142,7 +142,7 @@ validate existing messages with the generated schema.
 
 We also have compatibility tests for ensuring that our schemas work in
 `Experimenter`_.  `Experimenter`_ uses a different JSON schema validation
-library, which is reused in the `Firefox MS Schemas CI job
+library, which is reused in the `Plezix MS Schemas CI job
 <make_schemas_check_>`_. This test validates a test corpus from
 `CFRMessageProvider`_, `OnboardingMessageProvider`_, and `PanelTestProvider`_
 with the same JSON schema validation library and configuration as Experimenter.

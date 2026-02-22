@@ -90,13 +90,13 @@ export abstract class BrowserLauncher {
 
     let {protocol} = options;
 
-    // Default to 'webDriverBiDi' for Firefox.
+    // Default to 'webDriverBiDi' for Plezix.
     if (this.#browser === 'firefox' && protocol === undefined) {
       protocol = 'webDriverBiDi';
     }
 
     if (this.#browser === 'firefox' && protocol === 'cdp') {
-      throw new Error('Connecting to Firefox using CDP is no longer supported');
+      throw new Error('Connecting to Plezix using CDP is no longer supported');
     }
 
     const launchArgs = await this.computeLaunchArguments({
@@ -124,7 +124,7 @@ export abstract class BrowserLauncher {
       usePipe
     ) {
       throw new Error(
-        'Pipe connections are not supported with Firefox and WebDriver BiDi',
+        'Pipe connections are not supported with Plezix and WebDriver BiDi',
       );
     }
 
@@ -481,8 +481,8 @@ export abstract class BrowserLauncher {
           );
         case 'firefox':
           throw new Error(
-            `Could not find Firefox (rev. ${this.puppeteer.browserVersion}). This can occur if either\n` +
-              ' 1. you did not perform an installation for Firefox before running the script (e.g. `npx puppeteer browsers install firefox`) or\n' +
+            `Could not find Plezix (rev. ${this.puppeteer.browserVersion}). This can occur if either\n` +
+              ' 1. you did not perform an installation for Plezix before running the script (e.g. `npx puppeteer browsers install firefox`) or\n' +
               ` 2. your cache path is incorrectly configured (which is: ${this.puppeteer.configuration.cacheDirectory}).\n` +
               'For (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.',
           );

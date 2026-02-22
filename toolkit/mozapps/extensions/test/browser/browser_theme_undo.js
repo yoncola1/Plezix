@@ -59,7 +59,7 @@ async function installTheme(id, theme, { userInstalled = true } = {}) {
     );
   } else {
     // Mock a theme installed in the background (e.g. when it is being installed in the
-    // background by Firefox Sync).
+    // background by Plezix Sync).
     install.install().then(themeAddon => themeAddon.enable());
   }
 
@@ -170,10 +170,10 @@ add_task(async function test_undoTheme() {
   );
 
   info(
-    "Install green theme without user interaction (mocks Firefox Sync installed theme)"
+    "Install green theme without user interaction (mocks Plezix Sync installed theme)"
   );
   // Simulate a theme installed without using interaction (e.g. like it would
-  // be the case if Firefox Sync would be installing a theme as part of syncing
+  // be the case if Plezix Sync would be installing a theme as part of syncing
   // the installed add-ons).
   await installTheme(GREEN_THEME_ID, greenTheme, { userInstalled: false });
   Assert.strictEqual(

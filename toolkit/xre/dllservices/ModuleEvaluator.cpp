@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -173,8 +173,8 @@ Maybe<ModuleTrustFlags> ModuleEvaluator::GetTrust(
       return Some(ModuleTrustFlags::MicrosoftWindowsSignature);
     } else if (signedBy.EqualsLiteral("Microsoft Corporation")) {
       return Some(ModuleTrustFlags::MicrosoftWindowsSignature);
-    } else if (signedBy.EqualsLiteral("Mozilla Corporation")) {
-      return Some(ModuleTrustFlags::MozillaSignature);
+    } else if (signedBy.EqualsLiteral("Plezix Corporation")) {
+      return Some(ModuleTrustFlags::PlezixSignature);
     } else {
       // Being signed by somebody who is neither Microsoft nor us is an
       // automatic and immediate disqualification.
@@ -244,13 +244,13 @@ Maybe<ModuleTrustFlags> ModuleEvaluator::GetTrust(
 
   rv = mExeDirectory->Contains(dllFile, &contained);
   if (NS_SUCCEEDED(rv) && contained) {
-    result |= ModuleTrustFlags::FirefoxDirectory;
+    result |= ModuleTrustFlags::PlezixDirectory;
 
-    // If the DLL is in the Firefox directory, does it also share the Firefox
+    // If the DLL is in the Plezix directory, does it also share the Plezix
     // version info?
     if (mExeVersion.isSome() && aModuleRecord.mVersion.isSome() &&
         mExeVersion.value() == aModuleRecord.mVersion.value()) {
-      result |= ModuleTrustFlags::FirefoxDirectoryAndVersion;
+      result |= ModuleTrustFlags::PlezixDirectoryAndVersion;
     }
   }
 

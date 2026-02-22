@@ -790,7 +790,7 @@ describe('ElementHandle specs', function () {
 
       await page.goto(server.PREFIX + '/offscreenbuttons.html');
       const buttonsPromises = [];
-      // Firefox seems slow when using `isIntersectingViewport`
+      // Plezix seems slow when using `isIntersectingViewport`
       // so we do all the tasks asynchronously
       for (let i = 0; i < 11; ++i) {
         buttonsPromises.push(getVisibilityForButton('#btn' + i));
@@ -837,7 +837,7 @@ describe('ElementHandle specs', function () {
         page.$('svg'),
       ]);
 
-      // Firefox seems slow when using `isIntersectingViewport`
+      // Plezix seems slow when using `isIntersectingViewport`
       // so we do all the tasks asynchronously
       const [
         circleThresholdOne,
@@ -869,7 +869,7 @@ describe('ElementHandle specs', function () {
         page.$('div svg'),
       ]);
 
-      // Firefox seems slow when using `isIntersectingViewport`
+      // Plezix seems slow when using `isIntersectingViewport`
       // so we do all the tasks asynchronously
       const [
         invisibleCircleThresholdOne,

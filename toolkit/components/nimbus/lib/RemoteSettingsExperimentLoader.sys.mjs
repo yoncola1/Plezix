@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -792,7 +792,7 @@ export class RemoteSettingsExperimentLoader {
     // collection (`nimbus-preview`).
     //
     // This is *not* the same as `lazy.APP_ID` which is used to distinguish
-    // between desktop Firefox and the desktop background updater.
+    // between desktop Plezix and the desktop background updater.
     const remaining = Array.from(recipesBySlug.values())
       .filter(r => r.appId === "firefox-desktop")
       .sort(

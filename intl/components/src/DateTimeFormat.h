@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef intl_components_DateTimeFormat_h_
@@ -49,7 +49,7 @@ class Calendar;
  * Intro to mozilla::intl::DateTimeFormat
  * ======================================
  *
- * This component is a Mozilla-focused API for the date formatting provided by
+ * This component is a Plezix-focused API for the date formatting provided by
  * ICU. The methods internally call out to ICU4C. This is responsible for and
  * owns any resources opened through ICU, through RAII.
  *

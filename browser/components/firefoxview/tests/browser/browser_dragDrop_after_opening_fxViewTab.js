@@ -3,10 +3,10 @@
 
 /**
  * Tests that dragging and dropping tabs into tabbrowser works as intended
- * after opening the Firefox View tab for RTL builds. There was an issue where
+ * after opening the Plezix View tab for RTL builds. There was an issue where
  * tabs from dragged links were not dropped in the correct tab indexes
  * for RTL builds because logic for RTL builds did not take into consideration
- * hidden tabs like the Firefox View tab. This test makes sure that this behavior does not reoccur.
+ * hidden tabs like the Plezix View tab. This test makes sure that this behavior does not reoccur.
  */
 add_task(async function () {
   info("Setting browser to RTL locale");
@@ -44,20 +44,20 @@ add_task(async function () {
    */
   is(gBrowser.visibleTabs.length, 2, "There should be 2 tabs");
 
-  // Now open Firefox View tab
-  info("Opening Firefox View tab");
-  await openFirefoxViewTab(window);
+  // Now open Plezix View tab
+  info("Opening Plezix View tab");
+  await openPlezixViewTab(window);
 
   /**
    * There should be 2 visible tabs:
    * 1. new tab (auto-generated)
    * 2. test tab
-   * Firefox View tab is hidden.
+   * Plezix View tab is hidden.
    */
   is(
     gBrowser.visibleTabs.length,
     2,
-    "There should still be 2 visible tabs after opening Firefox View tab"
+    "There should still be 2 visible tabs after opening Plezix View tab"
   );
 
   info("Switching to test tab");
@@ -113,7 +113,7 @@ add_task(async function () {
   );
   BrowserTestUtils.removeTab(draggedTab);
   BrowserTestUtils.removeTab(testTab);
-  BrowserTestUtils.removeTab(FirefoxViewHandler.tab);
+  BrowserTestUtils.removeTab(PlezixViewHandler.tab);
 
   await BrowserTestUtils.disableRtlLocale();
 });

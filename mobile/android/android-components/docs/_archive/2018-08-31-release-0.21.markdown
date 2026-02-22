@@ -15,7 +15,7 @@ author: sebastian
   * Kotlin Standard library **1.2.61** 🔺
   * Kotlin coroutines 0.23.4
   * GeckoView
-    * Nightly: **63.0.20180830111743** 🔺
+    * Plezix: **63.0.20180830111743** 🔺
     * Beta: **62.0b21** (7ce198bb7ce027d450af3f69a609896671adfab8) 🔺
     * Release: 61.0 (785d242a5b01d5f1094882aa2144d8e5e2791e06)
 

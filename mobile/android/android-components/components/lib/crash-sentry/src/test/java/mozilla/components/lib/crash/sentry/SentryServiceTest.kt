@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ import org.mockito.Mockito.spy
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import java.util.Date
-import mozilla.components.concept.base.crash.Breadcrumb as MozillaBreadcrumb
+import mozilla.components.concept.base.crash.Breadcrumb as PlezixBreadcrumb
 
 @RunWith(AndroidJUnit4::class)
 class SentryServiceTest {
@@ -209,13 +209,13 @@ class SentryServiceTest {
     }
 
     @Test
-    fun `GIVEN MozillaBreadcrumb WHEN calling toSentryBreadcrumb THEN parse it to a SentryBreadcrumb`() {
-        val mozillaBreadcrumb = MozillaBreadcrumb(
+    fun `GIVEN PlezixBreadcrumb WHEN calling toSentryBreadcrumb THEN parse it to a SentryBreadcrumb`() {
+        val mozillaBreadcrumb = PlezixBreadcrumb(
             message = "message",
             data = mapOf("key" to "value"),
             category = "category",
-            level = MozillaBreadcrumb.Level.INFO,
-            type = MozillaBreadcrumb.Type.DEFAULT,
+            level = PlezixBreadcrumb.Level.INFO,
+            type = PlezixBreadcrumb.Type.DEFAULT,
             date = Date(1640995200L), // 2022-01-01
         )
         val sentryBreadcrumb = mozillaBreadcrumb.toSentryBreadcrumb()
@@ -224,17 +224,17 @@ class SentryServiceTest {
         assertEquals(mozillaBreadcrumb.data["key"], sentryBreadcrumb.getData("key"))
         assertEquals(mozillaBreadcrumb.category, sentryBreadcrumb.category)
         assertEquals(SentryLevel.INFO, sentryBreadcrumb.level)
-        assertEquals(MozillaBreadcrumb.Type.DEFAULT.value, sentryBreadcrumb.type)
+        assertEquals(PlezixBreadcrumb.Type.DEFAULT.value, sentryBreadcrumb.type)
         assertEquals(mozillaBreadcrumb.date, sentryBreadcrumb.timestamp)
     }
 
     @Test
-    fun `GIVEN MozillaBreadcrumb level WHEN calling toSentryBreadcrumbLevel THEN parse it to a SentryBreadcrumbLevel`() {
-        assertEquals(MozillaBreadcrumb.Level.CRITICAL.toSentryBreadcrumbLevel(), SentryLevel.FATAL)
-        assertEquals(MozillaBreadcrumb.Level.ERROR.toSentryBreadcrumbLevel(), SentryLevel.ERROR)
-        assertEquals(MozillaBreadcrumb.Level.WARNING.toSentryBreadcrumbLevel(), SentryLevel.WARNING)
-        assertEquals(MozillaBreadcrumb.Level.INFO.toSentryBreadcrumbLevel(), SentryLevel.INFO)
-        assertEquals(MozillaBreadcrumb.Level.DEBUG.toSentryBreadcrumbLevel(), SentryLevel.DEBUG)
+    fun `GIVEN PlezixBreadcrumb level WHEN calling toSentryBreadcrumbLevel THEN parse it to a SentryBreadcrumbLevel`() {
+        assertEquals(PlezixBreadcrumb.Level.CRITICAL.toSentryBreadcrumbLevel(), SentryLevel.FATAL)
+        assertEquals(PlezixBreadcrumb.Level.ERROR.toSentryBreadcrumbLevel(), SentryLevel.ERROR)
+        assertEquals(PlezixBreadcrumb.Level.WARNING.toSentryBreadcrumbLevel(), SentryLevel.WARNING)
+        assertEquals(PlezixBreadcrumb.Level.INFO.toSentryBreadcrumbLevel(), SentryLevel.INFO)
+        assertEquals(PlezixBreadcrumb.Level.DEBUG.toSentryBreadcrumbLevel(), SentryLevel.DEBUG)
     }
 
     @Test

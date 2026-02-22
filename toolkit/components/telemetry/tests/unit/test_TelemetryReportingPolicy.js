@@ -23,7 +23,7 @@ const { Policy, TelemetryReportingPolicy } = ChromeUtils.importESModule(
 
 NimbusTestUtils.init(this);
 
-// Some tests in this test file can't outside desktop Firefox because of
+// Some tests in this test file can't outside desktop Plezix because of
 // features that aren't included in the build.
 const skipIfNotBrowser = () => ({
   skip_if: () => AppConstants.MOZ_BUILD_APP != "browser",
@@ -549,7 +549,7 @@ add_task(skipIfNotBrowser(), async function test_feature_prefs() {
   await Policy.fakeSessionRestoreNotification();
   assertPrefs(900, 899, "http://mochi.test/v900");
 
-  // Unenroll.  Values remain, for consistency while Firefox is running.
+  // Unenroll.  Values remain, for consistency while Plezix is running.
   await doCleanup();
   Assert.ok(!NimbusFeatures.preonboarding.getVariable("enabled"));
   assertPrefs(900, 899, "http://mochi.test/v900");

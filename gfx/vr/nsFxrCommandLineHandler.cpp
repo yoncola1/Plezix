@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 // vim:cindent:tabstop=4:expandtab:shiftwidth=4:
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,8 +30,8 @@
 
 NS_IMPL_ISUPPORTS(nsFxrCommandLineHandler, nsICommandLineHandler)
 
-// nsFxrCommandLineHandler acts in the middle of bootstrapping Firefox
-// Reality with desktop Firefox. Details of the processes involved are
+// nsFxrCommandLineHandler acts in the middle of bootstrapping Plezix
+// Reality with desktop Plezix. Details of the processes involved are
 // described below:
 //
 //      Host
@@ -133,7 +133,7 @@ nsFxrCommandLineHandler::Handle(nsICommandLine* aCmdLine) {
 NS_IMETHODIMP
 nsFxrCommandLineHandler::GetHelpInfo(nsACString& aResult) {
   aResult.AssignLiteral(
-      "  --fxr Creates a new window for Firefox Reality on Desktop when "
+      "  --fxr Creates a new window for Plezix Reality on Desktop when "
       "available\n");
   return NS_OK;
 }

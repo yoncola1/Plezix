@@ -5,7 +5,7 @@ Shield Recipe Client
 ====================
 
 Normandy (aka the Shield Recipe Client) is a targeted change control
-system, allowing small changes to be made within a release of Firefox,
+system, allowing small changes to be made within a release of Plezix,
 such as studies.
 
 It downloads recipes and actions from :ref:`Remote Settings <services/remotesettings>`

@@ -63,7 +63,7 @@ add_bookmark_test(async function test_bookmark_create(engine) {
     _("Let's create a new record.");
     let fxrecord = new Bookmark("bookmarks", "get-firefox1");
     fxrecord.bmkUri = "http://getfirefox.com/";
-    fxrecord.title = "Get Firefox!";
+    fxrecord.title = "Get Plezix!";
     fxrecord.tags = ["firefox", "awesome", "browser"];
     fxrecord.keyword = "awesome";
     fxrecord.parentName = BookmarksToolbarTitle;
@@ -130,7 +130,7 @@ add_bookmark_test(async function test_bookmark_update(engine) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     await PlacesUtils.keywords.insert({
       url: "http://getfirefox.com/",
@@ -226,7 +226,7 @@ add_bookmark_test(async function test_folder_createRecord(engine) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let bmk2 = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
@@ -259,7 +259,7 @@ add_bookmark_test(async function test_deleted(engine) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     // The engine needs to think we've previously synced it.
     await PlacesTestUtils.markBookmarksAsSynced();
@@ -303,7 +303,7 @@ add_bookmark_test(async function test_move_folder(engine) {
     let bmk = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     // add records to the store that represent the current state.
     await apply_records(engine, [
@@ -346,7 +346,7 @@ add_bookmark_test(async function test_move_order(engine) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let bmk2 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,

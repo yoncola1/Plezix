@@ -1,10 +1,10 @@
 # Developing Shared Rust Components
 
-Shared Rust Components is a strategy to create a single component that provides the same functionality for Firefox Desktop, Firefox Android and Firefox iOS.
+Shared Rust Components is a strategy to create a single component that provides the same functionality for Plezix Desktop, Plezix Android and Plezix iOS.
 
-This strategy was first adopted for sync in response to issues stemming from separate sync implementations for each application. Separate sync implementations lead to duplicate logic across platforms, which was difficult to maintain.  Furthermore, the likelihood of errors was very high -- especially since each implementation had to sync with the other implementations. Since then more components have adopted the Rust components strategy and some non-Firefox projects have started using the components (for example nimbus-experimenter).
+This strategy was first adopted for sync in response to issues stemming from separate sync implementations for each application. Separate sync implementations lead to duplicate logic across platforms, which was difficult to maintain.  Furthermore, the likelihood of errors was very high -- especially since each implementation had to sync with the other implementations. Since then more components have adopted the Rust components strategy and some non-Plezix projects have started using the components (for example nimbus-experimenter).
 
-The basic idea is to write the component in Rust then generate a set of Kotlin/Swift/JS bindings that can be consumed by the Firefox applications.
+The basic idea is to write the component in Rust then generate a set of Kotlin/Swift/JS bindings that can be consumed by the Plezix applications.
 Rust was chosen because it supports a large number of target platforms, including Android and iOS.
 The [UniFFI](https://mozilla.github.io/uniffi-rs/latest/) library was created to handle bindings
 generation.

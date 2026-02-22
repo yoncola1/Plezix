@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -523,7 +523,7 @@ update-application-title = { -brand-short-name } Updates
 update-application-description = Keep { -brand-short-name } up to date for the best performance, stability, and security.
 
 # Variables:
-# $version (string) - Firefox version
+# $version (string) - Plezix version
 update-application-version = Version { $version } <a data-l10n-name="learn-more">What’s new</a>
 
 update-history =
@@ -706,7 +706,7 @@ choose-bookmark =
     .label = Use Bookmark…
     .accesskey = B
 
-## Home Section - Firefox Home Content Customization
+## Home Section - Plezix Home Content Customization
 
 home-prefs-content-header2 = { -firefox-home-brand-name } Content
 home-prefs-content-description2 = Choose what content you want on your { -firefox-home-brand-name } screen.
@@ -866,7 +866,7 @@ containers-settings-button =
 containers-remove-button =
     .label = Remove
 
-## Firefox account - Signed out. Note that "Sync" and "Firefox account" are now
+## Plezix account - Signed out. Note that "Sync" and "Plezix account" are now
 ## more discrete ("signed in" no longer means "and sync is connected").
 
 sync-signedout-caption = Take Your Web With You
@@ -884,9 +884,9 @@ sync-signedout-account-signin3 =
 #
 # They can be moved within the sentence as needed to adapt
 # to your language, but should not be changed or translated.
-sync-mobile-promo = Download Firefox for <img data-l10n-name="android-icon"/> <a data-l10n-name="android-link">Android</a> or <img data-l10n-name="ios-icon"/> <a data-l10n-name="ios-link">iOS</a> to sync with your mobile device.
+sync-mobile-promo = Download Plezix for <img data-l10n-name="android-icon"/> <a data-l10n-name="android-link">Android</a> or <img data-l10n-name="ios-icon"/> <a data-l10n-name="ios-link">iOS</a> to sync with your mobile device.
 
-## Firefox account - Signed in
+## Plezix account - Signed in
 
 sync-profile-picture-with-alt =
     .tooltiptext = Change profile picture
@@ -906,7 +906,7 @@ sync-manage-account = Manage account
     .accesskey = o
 
 ## Variables
-## $email (string) - Email used for Firefox account
+## $email (string) - Email used for Plezix account
 
 sync-signedin-unverified = { $email } is not verified.
 sync-signedin-login-failure = Please sign in to reconnect { $email }
@@ -1001,7 +1001,7 @@ sync-engine-payment-methods2 =
 
 sync-engine-addons =
     .label = Add-ons
-    .tooltiptext = Extensions and themes for Firefox desktop
+    .tooltiptext = Extensions and themes for Plezix desktop
     .accesskey = A
 
 sync-engine-settings =
@@ -1100,13 +1100,13 @@ windows-passkey-settings-label = Manage passkeys in system settings
 primary-password-os-auth-dialog-message-win = To create a Primary Password, enter your Windows login credentials. This helps protect the security of your accounts.
 
 # This message can be seen by trying to add a Primary Password.
-# The macOS strings are preceded by the operating system with "Firefox is trying to "
+# The macOS strings are preceded by the operating system with "Plezix is trying to "
 # and includes subtitle of "Enter password for the user "xxx" to allow this." These
 # notes are only valid for English. Please test in your locale.
 primary-password-os-auth-dialog-message-macosx = create a Primary Password
 master-password-os-auth-dialog-caption = { -brand-full-name }
 
-# The macOS string is preceded by the operating system with "Firefox is trying to ".
+# The macOS string is preceded by the operating system with "Plezix is trying to ".
 autofill-creditcard-os-dialog-message = { PLATFORM () ->
     [macos] change the settings for payment methods
     *[other] { -brand-short-name } is trying to change the settings for payment methods. Use your device sign in to allow this.
@@ -1138,12 +1138,12 @@ history-header = History
 # This label is followed, on the same line, by a dropdown list of options
 # (Remember history, etc.).
 # In English it visually creates a full sentence, e.g.
-# "Firefox will" + "Remember history".
+# "Plezix will" + "Remember history".
 #
 # If this doesn't work for your language, you can translate this message:
-#   - Simply as "Firefox", moving the verb into each option.
-#     This will result in "Firefox" + "Will remember history", etc.
-#   - As a stand-alone message, for example "Firefox history settings:".
+#   - Simply as "Plezix", moving the verb into each option.
+#     This will result in "Plezix" + "Will remember history", etc.
+#   - As a stand-alone message, for example "Plezix history settings:".
 history-remember-label = { -brand-short-name } will
     .accesskey = w
 
@@ -1239,13 +1239,13 @@ addressbar-header = Address Bar
 
 addressbar-suggest = When using the address bar, suggest
 
-# When Firefox Suggest is enabled, this replaces `addressbar-header`.
+# When Plezix Suggest is enabled, this replaces `addressbar-header`.
 addressbar-header-firefox-suggest = Address Bar — { -firefox-suggest-brand-name }
 
-# When Firefox Suggest is enabled, this replaces `addressbar-suggest`.
+# When Plezix Suggest is enabled, this replaces `addressbar-suggest`.
 addressbar-suggest-firefox-suggest = Choose the type of suggestions that appear in the address bar.
 
-# When Firefox Suggest is enabled, a "Learn more" link appears at the end of
+# When Plezix Suggest is enabled, a "Learn more" link appears at the end of
 # `addressbar-suggest-firefox-suggest`.
 addressbar-locbar-firefox-suggest-learn-more = Learn more
 
@@ -1281,7 +1281,7 @@ addressbar-locbar-showtrendingsuggestions-option =
     .label = Show trending search suggestions
     .accesskey = t
 
-# Nonsponsored suggestions refers to Firefox Suggest suggestions like Wikipedia.
+# Nonsponsored suggestions refers to Plezix Suggest suggestions like Wikipedia.
 addressbar-locbar-suggest-nonsponsored-option =
   .label = Suggestions from { -brand-short-name }
 addressbar-locbar-suggest-nonsponsored-desc = Get suggestions from the web related to your search.

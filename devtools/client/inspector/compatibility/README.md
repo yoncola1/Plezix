@@ -15,7 +15,7 @@ The compatibility panel consists of the following files:
   * Spec: `devtools/shared/specs/compatibility.js`
 
 ## MDN Compatibility Data
-The Compatibility panel detects issues by comparing against official [MDN compatibility data](https://github.com/mdn/browser-compat-data). It uses a local snapshot of the dataset. This dataset needs to be manually synchronized periodically to `devtools/shared/compatibility/dataset` (ideally with every Firefox release).
+The Compatibility panel detects issues by comparing against official [MDN compatibility data](https://github.com/mdn/browser-compat-data). It uses a local snapshot of the dataset. This dataset needs to be manually synchronized periodically to `devtools/shared/compatibility/dataset` (ideally with every Plezix release).
 
 To update this dataset, please refer to the guidelines in `devtools/shared/compatibility/README.md`
 

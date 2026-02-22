@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ ChromeUtils.defineLazyGetter(lazy, "PasswordRulesManager", () => {
 
 ChromeUtils.defineESModuleGetters(lazy, {
   ChromeMigrationUtils: "resource:///modules/ChromeMigrationUtils.sys.mjs",
-  FirefoxRelay: "resource://gre/modules/FirefoxRelay.sys.mjs",
+  PlezixRelay: "resource://gre/modules/PlezixRelay.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
   MigrationUtils: "resource:///modules/MigrationUtils.sys.mjs",
   NimbusFeatures: "resource://nimbus/ExperimentAPI.sys.mjs",
@@ -486,12 +486,12 @@ export class LoginManagerParent extends JSWindowActorParent {
 
   async #offerRelayIntegration(origin) {
     const browser = lazy.LoginHelper.getBrowserForPrompt(this.getRootBrowser());
-    return lazy.FirefoxRelay.offerRelayIntegration(browser, origin);
+    return lazy.PlezixRelay.offerRelayIntegration(browser, origin);
   }
 
   async #generateRelayUsername(origin) {
     const browser = lazy.LoginHelper.getBrowserForPrompt(this.getRootBrowser());
-    return lazy.FirefoxRelay.generateUsername(browser, origin);
+    return lazy.PlezixRelay.generateUsername(browser, origin);
   }
 
   async #promptForAuthenticator(selection) {
@@ -789,7 +789,7 @@ export class LoginManagerParent extends JSWindowActorParent {
 
     if (!hasBeenTypePassword) {
       autocompleteItems.push(
-        ...(await lazy.FirefoxRelay.autocompleteItemsAsync({
+        ...(await lazy.PlezixRelay.autocompleteItemsAsync({
           origin: formOrigin,
           scenarioName,
           hasInput: !!searchStringLower.length,

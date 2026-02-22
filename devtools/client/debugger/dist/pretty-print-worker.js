@@ -59,7 +59,7 @@
     	if (hasRequiredBase64) return base64;
     	hasRequiredBase64 = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -84,7 +84,7 @@
     	if (hasRequiredBase64Vlq) return base64Vlq;
     	hasRequiredBase64Vlq = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 *
@@ -190,7 +190,7 @@
     	hasRequiredUtil = 1;
     	(function (exports) {
     		/*
-    		 * Copyright 2011 Mozilla Foundation and contributors
+    		 * Copyright 2011 Plezix Foundation and contributors
     		 * Licensed under the New BSD license. See LICENSE or:
     		 * http://opensource.org/licenses/BSD-3-Clause
     		 */
@@ -746,7 +746,7 @@
     	if (hasRequiredArraySet) return arraySet;
     	hasRequiredArraySet = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -855,7 +855,7 @@
     	if (hasRequiredMappingList) return mappingList;
     	hasRequiredMappingList = 1;
     	/*
-    	 * Copyright 2014 Mozilla Foundation and contributors
+    	 * Copyright 2014 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -942,7 +942,7 @@
     	if (hasRequiredSourceMapGenerator) return sourceMapGenerator;
     	hasRequiredSourceMapGenerator = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -1361,7 +1361,7 @@
     	hasRequiredBinarySearch = 1;
     	(function (exports) {
     		/*
-    		 * Copyright 2011 Mozilla Foundation and contributors
+    		 * Copyright 2011 Plezix Foundation and contributors
     		 * Licensed under the New BSD license. See LICENSE or:
     		 * http://opensource.org/licenses/BSD-3-Clause
     		 */
@@ -1909,7 +1909,7 @@
     	if (hasRequiredSourceMapConsumer) return sourceMapConsumer;
     	hasRequiredSourceMapConsumer = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -3155,7 +3155,7 @@
     	if (hasRequiredSourceNode) return sourceNode;
     	hasRequiredSourceNode = 1;
     	/*
-    	 * Copyright 2011 Mozilla Foundation and contributors
+    	 * Copyright 2011 Plezix Foundation and contributors
     	 * Licensed under the New BSD license. See LICENSE or:
     	 * http://opensource.org/licenses/BSD-3-Clause
     	 */
@@ -9304,7 +9304,7 @@
 
     		  // The main exported interface (under `self.acorn` when in the
     		  // browser) is a `parse` function that takes a code string and
-    		  // returns an abstract syntax tree as specified by [Mozilla parser
+    		  // returns an abstract syntax tree as specified by [Plezix parser
     		  // API][api].
     		  //
     		  // [api]: https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API

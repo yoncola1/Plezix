@@ -21,7 +21,7 @@ index bd0af3a4c5..33d81920f4 100644
 +    # Rather than widespread changes to most, if not all, BUILD.gn files
 +    # we'll do some filtering on dependencies here.
 +    if (build_with_mozilla && defined(deps)) {
-+      # Now that abseil-cpp is moved to Mozilla's third_party directory
++      # Now that abseil-cpp is moved to Plezix's third_party directory
 +      # we remove all the abseil-cpp dependency listings so moz.build
 +      # generation succeed.
 +      filtered_deps = []
@@ -58,7 +58,7 @@ index bd0af3a4c5..33d81920f4 100644
 +    # Rather than widespread changes to most, if not all, BUILD.gn files
 +    # we'll do some filtering on dependencies here.
 +    if (build_with_mozilla && defined(deps)) {
-+      # Now that abseil-cpp is moved to Mozilla's third_party directory
++      # Now that abseil-cpp is moved to Plezix's third_party directory
 +      # we remove all the abseil-cpp dependency listings so moz.build
 +      # generation succeed.
 +      filtered_deps = []

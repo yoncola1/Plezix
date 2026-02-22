@@ -1,8 +1,8 @@
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-const { FirefoxLabs } = ChromeUtils.importESModule(
-  "resource://nimbus/FirefoxLabs.sys.mjs"
+const { PlezixLabs } = ChromeUtils.importESModule(
+  "resource://nimbus/PlezixLabs.sys.mjs"
 );
 
 function setupTest({ ...ctx }) {
@@ -18,7 +18,7 @@ add_task(async function test_all() {
     experiments: [
       NimbusTestUtils.factories.recipe("opt-in-rollout", {
         isRollout: true,
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: "title",
         firefoxLabsDescription: "description",
         firefoxLabsDescriptionLinks: null,
@@ -32,7 +32,7 @@ add_task(async function test_all() {
             firefoxLabsTitle: "title",
           },
         ],
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: "title",
         firefoxLabsDescription: "description",
         firefoxLabsDescriptionLinks: null,
@@ -42,7 +42,7 @@ add_task(async function test_all() {
       NimbusTestUtils.factories.recipe("targeting-fail", {
         targeting: "false",
         isRollout: true,
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: "title",
         firefoxLabsDescription: "description",
         firefoxLabsDescriptionLinks: null,
@@ -55,7 +55,7 @@ add_task(async function test_all() {
           count: 0,
         },
         isRollout: true,
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: "title",
         firefoxLabsDescription: "description",
         firefoxLabsDescriptionLinks: null,
@@ -73,7 +73,7 @@ add_task(async function test_all() {
 
   await initExperimentAPI();
 
-  const labs = await FirefoxLabs.create();
+  const labs = await PlezixLabs.create();
   const availableSlugs = Array.from(labs.all(), recipe => recipe.slug).sort();
 
   Assert.deepEqual(
@@ -99,7 +99,7 @@ add_task(async function test_enroll() {
     { featureId: "nimbus-qa-1" },
     {
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "placeholder",
       firefoxLabsDescription: "placeholder",
       firefoxLabsDescriptionLinks: null,
@@ -117,7 +117,7 @@ add_task(async function test_enroll() {
 
   await initExperimentAPI();
 
-  const labs = await FirefoxLabs.create();
+  const labs = await PlezixLabs.create();
 
   await Assert.rejects(
     labs.enroll(),
@@ -172,7 +172,7 @@ add_task(async function test_enroll() {
 
 add_task(async function test_reenroll() {
   const recipe = NimbusTestUtils.factories.recipe("opt-in", {
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "placeholder",
     firefoxLabsDescription: "placeholder",
     firefoxLabsDescriptionLinks: null,
@@ -183,7 +183,7 @@ add_task(async function test_reenroll() {
 
   const { manager, cleanup } = await setupTest({ experiments: [recipe] });
 
-  const labs = await FirefoxLabs.create();
+  const labs = await PlezixLabs.create();
 
   Assert.strictEqual(
     typeof manager.store.get(recipe.slug),
@@ -243,7 +243,7 @@ add_task(async function test_unenroll() {
         { featureId: "nimbus-qa-2" },
         {
           isRollout: true,
-          isFirefoxLabsOptIn: true,
+          isPlezixLabsOptIn: true,
           firefoxLabsTitle: "title",
           firefoxLabsDescription: "description",
           firefoxLabsDescriptionLinks: null,
@@ -254,7 +254,7 @@ add_task(async function test_unenroll() {
     ],
   });
 
-  const labs = await FirefoxLabs.create();
+  const labs = await PlezixLabs.create();
 
   Assert.ok(manager.store.get("rollout")?.active, "Enrolled in rollout");
   Assert.strictEqual(
@@ -320,7 +320,7 @@ add_task(async function test_reenroll_quickly() {
         { featureId: "nimbus-qa-2" },
         {
           isRollout: true,
-          isFirefoxLabsOptIn: true,
+          isPlezixLabsOptIn: true,
           firefoxLabsTitle: "title",
           firefoxLabsDescription: "description",
           firefoxLabsDescriptionLinks: null,
@@ -331,7 +331,7 @@ add_task(async function test_reenroll_quickly() {
     ],
   });
 
-  const labs = await FirefoxLabs.create();
+  const labs = await PlezixLabs.create();
 
   Assert.equal(
     await NimbusTestUtils.queryEnrollment("optin"),

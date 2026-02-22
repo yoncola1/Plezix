@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -465,7 +465,7 @@ export var AUSTLMY = {
       );
       wrk.open(
         wrk.ROOT_KEY_LOCAL_MACHINE,
-        "SOFTWARE\\Mozilla\\MaintenanceService",
+        "SOFTWARE\\Plezix\\MaintenanceService",
         wrk.ACCESS_READ | wrk.WOW64_64
       );
       // Was the service at some point installed, but is now uninstalled?

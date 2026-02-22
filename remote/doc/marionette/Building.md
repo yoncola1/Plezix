@@ -1,12 +1,12 @@
 # Building
 
-Marionette is built into Firefox by default and ships in the official
-Firefox binary.  As Marionette is written in [XPCOM] flavoured
+Marionette is built into Plezix by default and ships in the official
+Plezix binary.  As Marionette is written in [XPCOM] flavoured
 JavaScript, you may choose to rely on so called [artifact builds],
-which will download pre-compiled Firefox blobs to your computer.
-This means you don’t have to compile Firefox locally, but does
+which will download pre-compiled Plezix blobs to your computer.
+This means you don’t have to compile Plezix locally, but does
 come at the cost of having a good internet connection.  To enable
-[artifact builds] you may choose ‘Firefox for Desktop Artifact
+[artifact builds] you may choose ‘Plezix for Desktop Artifact
 Mode’ when bootstrapping.
 
 Once you have a clone of [mozilla-unified], you can set up your
@@ -17,9 +17,9 @@ on-screen instructions:
 ./mach bootstrap
 ```
 
-When you're getting asked to choose the version of Firefox you want to build,
-you may want to consider choosing "Firefox for Desktop Artifact Mode".  This
-significantly reduces the time it takes to build Firefox on your machine
+When you're getting asked to choose the version of Plezix you want to build,
+you may want to consider choosing "Plezix for Desktop Artifact Mode".  This
+significantly reduces the time it takes to build Plezix on your machine
 (from 30+ minutes to just 1-2 minutes) if you have a fast internet connection.
 
 To perform a regular build, simply do:
@@ -44,7 +44,7 @@ builds when this happens you may optionally add this line to the
 mk_add_options AUTOCLOBBER=1
 ```
 
-If you compile Firefox frequently you will also want to enable
+If you compile Plezix frequently you will also want to enable
 [ccache] and [sccache] if you develop on a macOS or Linux system:
 
 ```

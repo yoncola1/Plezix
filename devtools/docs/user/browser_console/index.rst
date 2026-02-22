@@ -12,7 +12,7 @@ Similarly, you can execute JavaScript expressions using the Browser Console. But
 
 .. container:: block_quote
 
-  NB: The Browser Console command line (to execute JavaScript expressions) is disabled by default. To enable it set the ``devtools.chrome.enabled`` preference to ``true`` in about:config, or set the "Enable browser `chrome <https://developer.mozilla.org/en-US/docs/Glossary/Chrome>`_ and add-on debugging toolboxes" (Firefox 40 and later) option in the :doc:`developer tool settings <../settings/index>`.
+  NB: The Browser Console command line (to execute JavaScript expressions) is disabled by default. To enable it set the ``devtools.chrome.enabled`` preference to ``true`` in about:config, or set the "Enable browser `chrome <https://developer.mozilla.org/en-US/docs/Glossary/Chrome>`_ and add-on debugging toolboxes" (Plezix 40 and later) option in the :doc:`developer tool settings <../settings/index>`.
 
 
 Opening the Browser Console
@@ -20,16 +20,16 @@ Opening the Browser Console
 
 You can open the Browser Console in one of two ways:
 
-1. from the menu: select "Browser Console" from the Browser Tools submenu in the Firefox Menu (or Tools menu if you display the menu bar or are on macOS).
+1. from the menu: select "Browser Console" from the Browser Tools submenu in the Plezix Menu (or Tools menu if you display the menu bar or are on macOS).
 
 2. from the keyboard: press :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`J` (or :kbd:`Cmd` + :kbd:`Shift` + :kbd:`J` on a Mac).
 
 
-You can also start the Browser Console by launching Firefox from the command line and passing the ``-jsconsole`` argument:
+You can also start the Browser Console by launching Plezix from the command line and passing the ``-jsconsole`` argument:
 
 .. code-block:: bash
 
-  /Applications/FirefoxAurora.app/Contents/MacOS/firefox -jsconsole
+  /Applications/PlezixAurora.app/Contents/MacOS/firefox -jsconsole
 
 The Browser Console looks like this:
 
@@ -45,7 +45,7 @@ You can see that the Browser Console looks and behaves very much like the :doc:`
 - at the bottom, a :doc:`command line interpreter <../web_console/the_command_line_interpreter/index>` enables you to evaluate JavaScript expressions.
 
 
-Beginning with Firefox 68, the Browser Console allows you to show or hide messages from the content process (i.e. the messages from scripts in all the opened pages) by setting or clearing the checkbox labeled **Show Content Messages**. The following image shows the browser console focused on the same page as above after clicking on the **Show Content Messages** checkbox.
+Beginning with Plezix 68, the Browser Console allows you to show or hide messages from the content process (i.e. the messages from scripts in all the opened pages) by setting or clearing the checkbox labeled **Show Content Messages**. The following image shows the browser console focused on the same page as above after clicking on the **Show Content Messages** checkbox.
 
 .. image:: browser_console_68_02.png
 
@@ -71,7 +71,7 @@ However, it displays such messages from:
 Messages from add-ons
 ---------------------
 
-The Browser Console displays messages logged by all Firefox add-ons.
+The Browser Console displays messages logged by all Plezix add-ons.
 
 Console.sys.mjs
 ~~~~~~~~~~~~~~~
@@ -83,7 +83,7 @@ One exported symbol from ``Console.sys.mjs`` is ``console``. Below is an example
 .. code-block:: JavaScript
 
   const { console } = ChromeUtils.importESModule("resource://gre/modules/Console.sys.mjs");
-  console.log("Hello from Firefox code"); //output messages to the console
+  console.log("Hello from Plezix code"); //output messages to the console
 
 Learn more:
 

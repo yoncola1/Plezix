@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ import org.mozilla.fenix.compose.SwipeToDismissState2
 import org.mozilla.fenix.compose.core.Action
 import org.mozilla.fenix.compose.snackbar.SnackbarState.Type
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import com.google.android.material.snackbar.Snackbar as MaterialSnackbar
 
 const val SNACKBAR_TEST_TAG = "snackbar"
@@ -143,7 +143,7 @@ class Snackbar private constructor(
                 }
 
                 contentView.setContent {
-                    FirefoxTheme {
+                    PlezixTheme {
                         val density = LocalDensity.current
                         val isRtl = LocalLayoutDirection.current == LayoutDirection.Rtl
                         val decayAnimationSpec: DecayAnimationSpec<Float> = rememberSplineBasedDecay()
@@ -280,7 +280,7 @@ internal fun Snackbar(
     ) {
         Card(
             modifier = modifier
-                .widthIn(max = FirefoxTheme.layout.size.maxWidth.small)
+                .widthIn(max = PlezixTheme.layout.size.maxWidth.small)
                 .semantics {
                     testTagsAsResourceId = true
                 }
@@ -307,7 +307,7 @@ internal fun Snackbar(
                         color = colors.messageTextColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
-                        style = FirefoxTheme.typography.headline7,
+                        style = PlezixTheme.typography.headline7,
                     )
 
                     snackbarState.subMessage?.let {
@@ -316,7 +316,7 @@ internal fun Snackbar(
                             color = colors.messageTextColor,
                             overflow = TextOverflow.Ellipsis,
                             maxLines = 1,
-                            style = FirefoxTheme.typography.caption,
+                            style = PlezixTheme.typography.caption,
                         )
                     }
                 }
@@ -357,16 +357,16 @@ private data class SnackbarColors(
     companion object {
         val default: SnackbarColors
             @Composable get() = SnackbarColors(
-                messageTextColor = FirefoxTheme.colors.textActionPrimary,
-                actionTextColor = FirefoxTheme.colors.textActionPrimary,
-                backgroundColor = FirefoxTheme.colors.actionPrimary,
+                messageTextColor = PlezixTheme.colors.textActionPrimary,
+                actionTextColor = PlezixTheme.colors.textActionPrimary,
+                backgroundColor = PlezixTheme.colors.actionPrimary,
             )
 
         val warning: SnackbarColors
             @Composable get() = SnackbarColors(
-                messageTextColor = FirefoxTheme.colors.textCritical,
-                actionTextColor = FirefoxTheme.colors.textPrimary,
-                backgroundColor = FirefoxTheme.colors.layer3,
+                messageTextColor = PlezixTheme.colors.textCritical,
+                actionTextColor = PlezixTheme.colors.textPrimary,
+                backgroundColor = PlezixTheme.colors.layer3,
             )
     }
 }
@@ -380,11 +380,11 @@ private fun SnackbarHostPreview() {
     var warningSnackbarClicks by remember { mutableIntStateOf(0) }
     val scope = rememberCoroutineScope()
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             Column {
@@ -440,14 +440,14 @@ private fun SnackbarHostPreview() {
 
                 Text(
                     text = "Default snackbar action clicks: $defaultSnackbarClicks",
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
                     text = "Warning snackbar action clicks: $warningSnackbarClicks",
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -464,7 +464,7 @@ private fun SnackbarHostPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun SnackbarPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Regular snackbar",
@@ -476,7 +476,7 @@ private fun SnackbarPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun LongSnackbarPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Regular snackbar with a very very long wrapping message",
@@ -488,7 +488,7 @@ private fun LongSnackbarPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun SnackbarActionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Regular snackbar",
@@ -504,7 +504,7 @@ private fun SnackbarActionPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun LongSnackbarActionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Regular snackbar with a very very long wrapping message",
@@ -520,7 +520,7 @@ private fun LongSnackbarActionPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun WarningSnackbarPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Warning snackbar",
@@ -533,7 +533,7 @@ private fun WarningSnackbarPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun WarningSnackbarActionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Snackbar(
             SnackbarState(
                 message = "Warning snackbar",

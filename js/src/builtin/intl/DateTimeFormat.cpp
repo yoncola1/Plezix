@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1307,7 +1307,7 @@ static mozilla::intl::DateTimeFormat* NewDateTimeFormat(
   mozilla::UniquePtr<mozilla::intl::DateTimeFormat> df = nullptr;
   if (hasPattern) {
     // This is a DateTimeFormat defined by a pattern option. This is internal
-    // to Mozilla, and not part of the ECMA-402 API.
+    // to Plezix, and not part of the ECMA-402 API.
     if (!GetProperty(cx, internals, internals, cx->names().pattern, &value)) {
       return nullptr;
     }

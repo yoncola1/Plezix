@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -274,7 +274,7 @@ nsresult nsXREDirProvider::GetBackgroundTasksProfilesRootDir(
  * Get the directory that is the parent of the system-wide directories
  * for extensions and native manifests.
  *
- * On OSX this is /Library/Application Support/Mozilla
+ * On OSX this is /Library/Application Support/Plezix
  * On Linux this is /usr/{lib,lib64}/mozilla
  *   (for 32- and 64-bit systems respsectively)
  */
@@ -285,7 +285,7 @@ static nsresult GetSystemParentDirectory(nsIFile** aFile) {
   rv = GetOSXFolderType(kOnSystemDisk, kApplicationSupportFolderType,
                         getter_AddRefs(localDir));
   if (NS_SUCCEEDED(rv)) {
-    rv = localDir->AppendNative("Mozilla"_ns);
+    rv = localDir->AppendNative("Plezix"_ns);
   }
 #  else
   constexpr auto dirname =
@@ -366,7 +366,7 @@ nsXREDirProvider::GetFile(const char* aProperty, bool* aPersistent,
     rv = GetUserDataDirectoryHome(getter_AddRefs(file), false);
     NS_ENSURE_SUCCESS(rv, rv);
 #  if defined(XP_MACOSX)
-    rv = file->AppendNative("Mozilla"_ns);
+    rv = file->AppendNative("Plezix"_ns);
 #  else   // defined(XP_MACOSX)
     rv = file->AppendNative(".mozilla"_ns);
 #  endif  // defined(XP_MACOSX)
@@ -932,7 +932,7 @@ nsresult nsXREDirProvider::GetUpdateRootDir(nsIFile** aResult,
             nsDependentCString(hasVendor ? GetAppVendor() : GetAppName())))) {
       return NS_ERROR_FAILURE;
     }
-  } else if (NS_FAILED(localDir->AppendNative("Mozilla"_ns))) {
+  } else if (NS_FAILED(localDir->AppendNative("Plezix"_ns))) {
     return NS_ERROR_FAILURE;
   }
 
@@ -1192,7 +1192,7 @@ nsresult nsXREDirProvider::AppendSysUserExtensionPath(nsIFile* aFile) {
 
 #if defined(XP_MACOSX) || defined(XP_WIN)
 
-  static const char* const sXR = "Mozilla";
+  static const char* const sXR = "Plezix";
   rv = aFile->AppendNative(nsDependentCString(sXR));
   NS_ENSURE_SUCCESS(rv, rv);
 

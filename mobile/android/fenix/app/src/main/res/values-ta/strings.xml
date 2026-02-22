@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">கமுக்க %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (கமுக்க)</string>
   <!--
     Home Fragment
@@ -32,13 +32,13 @@
   <string name="tab_tray_close_multiselect_content_description">பன்முறை தேர் பயன்முறையிலிருந்து வெளியேறுக</string>
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">தேர்ந்த கீற்றுகளைத் திரட்டில் சேமிக்கவும்</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
   <string name="about_content">%1$s மொசில்லாவால் தயாரிக்கப்படுகிறது.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">நீங்கள் கமுக்கக் கீற்றுகளை மூடும்போது அல்லது செயலியை விட்டு வெளியேறும் போது உங்கள் தேடல், உலாவல் வரலாற்றை %1$s துடைக்கிறது. இது வலைத்தளங்கள் அல்லது இணைய சேவை வழங்குநர்களிடமிருந்து உங்களை அடையாளமற்றவராக மாற்றாது, ஆனால் இந்தக் கணினியைப் பயன்படுத்தும் மற்றவர்களிடமிருந்தும் இயங்கலையில் நீங்கள் செய்பவற்றை கமுக்கமாக வைப்பதை எளிதாக்குகிறது.</string>
   <string name="private_browsing_common_myths">கமுக்க உலாவல் பற்றிய பொதுவான தொன்மங்கள்</string>
@@ -98,17 +98,17 @@
   <string name="browser_menu_share">பகிர்</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">%1$s இல் திறக்கவும்</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">%1$s ஆல் இயக்கப்படுகிறது</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">%1$s மூலம் இயக்கப்படுகிறது</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -137,7 +137,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">அனுமதிக்காதே</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">கமுக்க அமர்வுகளில் தேடல் பரிந்துரைகளை அனுமதிக்கவா?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">நீங்கள் முகவரி பட்டையில் உள்ளிடும் அனைத்தையும் %s உங்கள் இயல்புநிலை தேடுபொறியுடன் பகிர்ந்து கொள்ளும்.</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">தேடல்</string>
@@ -163,7 +163,7 @@
   <string name="preferences_rate">கூகுள் கடையில் மதிப்பிடுக</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">%1$s பற்றி</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -250,7 +250,7 @@
   <string name="sync_never_synced_summary">கடைசி ஒத்திசைவு: இல்லை</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%2$s %3$s இல் %1$s</string>
@@ -400,7 +400,7 @@
   <string name="remove_top_site">நீக்கு</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">வரலாற்றிலிருந்து அழி</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (கமுக்க முறை)</string>
   <!-- Text for the button to clear all history -->
   <string name="history_delete_all">வரலாற்றை அழி</string>
@@ -431,7 +431,7 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">மன்னிக்கவும். %1$s பக்கத்தை ஏற்ற முடியாது.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
@@ -446,7 +446,7 @@
     Confirmation message for a dialog confirming if the user wants to delete the selected folder
   -->
   <string name="bookmark_delete_folder_confirmation_dialog">நீங்கள் இக்கோப்புறையை நீக்குவதில் உறுதியாக இருக்கிறீர்களா?</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">%s தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை நீக்கும்.</string>
   <!-- Screen title for adding a bookmarks folder -->
   <string name="bookmark_add_folder">கோப்புறையைச் சேர்</string>
@@ -670,7 +670,7 @@
   <string name="snackbar_top_site_removed">பக்கம் நீக்கப்பட்டது</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">%2$s திறக்க %1$s செயலியை அனுமதி</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -720,7 +720,7 @@
   <string name="preference_summary_delete_browsing_data_on_quit_2">பிரதான பட்டியிலிருந்து \"விலகு\" என்பதைத் தேரும்போது உலாவல் தரவைத் தானாக நீக்குகிறது</string>
   <!-- Action item in menu for the Delete browsing data on quit feature -->
   <string name="delete_browsing_data_on_quit_action">விலகு</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">தேர்ந்தெடுக்கப்பட்ட உலாவல் தரவை %s செயலி நீக்கும்.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">ரத்து</string>
@@ -758,7 +758,7 @@
   <string name="sign_in_with_camera">உங்கள் படக்கருவியால் புகுபதிக</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">பதிலாக மின்னஞ்சல் பயன்படுத்துக</string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">%s உங்கள் கணக்குடன் ஒத்திசைவை நிறுத்தும், ஆனால் இச்சாதனத்திலுள்ள உங்கள் உலாவல் தரவை அழிக்காது.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">இணைப்பைநீக்கு</string>
@@ -843,11 +843,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">மீண்டும் செல்லவும்</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">%s பக்கத்தில் புதியது என்ன</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s |OSS நூலகங்கள்</string>
   <!-- About page link text to open support link -->
@@ -1005,13 +1005,13 @@
   <string name="synced_tabs_connect_another_device">மற்றொரு சாதனத்தை இணைக்க.</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">மறு-அங்கீகரியுங்கள்.</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">கீற்று ஒத்திசைவைச் செயற்படுத்துங்கள்.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
   <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">உங்களின் மற்ற சாதனங்களின் பயர்பாக்சில் திறந்த கீற்றுகள் ஏதுமில்லை.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">உங்கள் மற்ற கருவிகளிலிருந்து கீற்றுகளின் பட்டியலைப் பார்க்க.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">ஒத்திசைக்க புகுபதிக</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">திறந்த கீற்றுகள் இல்லை</string>

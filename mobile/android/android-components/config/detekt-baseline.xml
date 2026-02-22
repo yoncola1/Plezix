@@ -120,7 +120,7 @@
     <ID>UndocumentedPublicClass:ExternalAppBrowserFragment.kt$ExternalAppBrowserFragment$Companion</ID>
     <ID>UndocumentedPublicClass:FactCollectDetector.kt$FactCollectDetector$Companion</ID>
     <ID>UndocumentedPublicClass:FindInPageView.kt$FindInPageView$Listener</ID>
-    <ID>UndocumentedPublicClass:FirefoxAccount.kt$FirefoxAccount$Companion</ID>
+    <ID>UndocumentedPublicClass:PlezixAccount.kt$PlezixAccount$Companion</ID>
     <ID>UndocumentedPublicClass:FxaPushSupportFeature.kt$FxaPushSupportFeature$Companion</ID>
     <ID>UndocumentedPublicClass:FxaWebChannelFeature.kt$FxaWebChannelFeature$Companion</ID>
     <ID>UndocumentedPublicClass:FxaWebChannelFeature.kt$FxaWebChannelFeature.Companion$WebChannelCommand</ID>

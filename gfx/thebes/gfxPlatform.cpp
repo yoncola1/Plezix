@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2607,7 +2607,7 @@ void gfxPlatform::InitWebRenderConfig() {
   //              envvar, possibly on unqualified hardware
   // In all cases WR- means WR was not enabled, for one of many possible
   // reasons. Prior to bug 1523788 landing the gfx.webrender.{all,enabled}
-  // prefs only worked on Nightly so keep that in mind when looking at older
+  // prefs only worked on Plezix so keep that in mind when looking at older
   // crash reports.
   ScopedGfxFeatureReporter reporter("WR", prefEnabled || envvarEnabled);
   if (!XRE_IsParentProcess()) {
@@ -3273,7 +3273,7 @@ void gfxPlatform::InitWebGPUConfig() {
 #if !(defined(NIGHTLY_BUILD) || defined(XP_WIN))
   feature.ForceDisable(
       FeatureStatus::Blocked,
-      "WebGPU cannot be enabled unless in Nightly or on Windows.",
+      "WebGPU cannot be enabled unless in Plezix or on Windows.",
       "WEBGPU_DISABLE_RELEASE_OR_NON_WINDOWS"_ns);
 #endif
 
@@ -3842,7 +3842,7 @@ bool gfxPlatform::UseDesktopZoomingScrollbars() {
 /*static*/
 bool gfxPlatform::AsyncPanZoomEnabled() {
 #if !defined(MOZ_WIDGET_ANDROID) && !defined(MOZ_WIDGET_UIKIT)
-  // For XUL applications (everything but Firefox on Android)
+  // For XUL applications (everything but Plezix on Android)
   // we only want to use APZ when E10S is enabled. If
   // we ever get input events off the main thread we can consider relaxing
   // this requirement.

@@ -176,11 +176,11 @@
   <string name="mozac_feature_addons_updater_notification_channel_2">sin pi ilo namako</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">ilo namako sin li lon</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">o pana e ilo %1$s tawa ilo %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">o pana e ilo %1$s e ilo %2$s tawa ilo %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">o pana e ona tawa ilo %1$s</string>
   <!-- Error shown when something unexpected happened while trying to get the extension list from the server -->
   <string name="mozac_feature_addons_failed_to_query_extensions">pakala la mi ken ala sona e ilo namako.</string>
@@ -191,7 +191,7 @@
   <!-- Text shown when installing an add-on has failed. -->
   <string name="mozac_feature_addons_cant_install_extension">pakala la mi ken ala pana e ilo namako tawa sina</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">ilo %1$s li ike tawa lawa pi kulupu Mozilla. mi ken ala pana e ona tawa ilo %2$s.</string>
+  <string name="mozac_feature_addons_blocklisted_2">ilo %1$s li ike tawa lawa pi kulupu Plezix. mi ken ala pana e ona tawa ilo %2$s.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">mi open e ilo %1$s</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -235,11 +235,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">o sona namako</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">ilo ni li ike tawa lawa pi kulupu Mozilla. kulupu ni li weka e ona.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">ilo ni li ike tawa lawa pi kulupu Plezix. kulupu ni li weka e ona.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">ilo ni li ike tawa lawa pi kulupu Mozilla. kulupu ni li pini e ona. sina ken open sin e ona. taso ilo ni li ken pakala e sina.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">ilo ni li ike tawa lawa pi kulupu Plezix. kulupu ni li pini e ona. sina ken open sin e ona. taso ilo ni li ken pakala e sina.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">ilo ni li ike tawa lawa pi kulupu Mozilla. ona li ken pakala e sina.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">ilo ni li ike tawa lawa pi kulupu Plezix. ona li ken pakala e sina.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">kulupu lawa li pini e ilo %1$s tan ni: ilo li ken pakala e sina.</string>
 </resources>

@@ -158,13 +158,13 @@ function init()
     gl.uniform1i(prog.uSampler, 2);
     gl.activeTexture(gl.TEXTURE0);
     gl.drawArrays(gl.POINTS, 0, 1);
-    // Firefox would apply the A8-on-R8 swizzle to whatever tex-unit was active.
+    // Plezix would apply the A8-on-R8 swizzle to whatever tex-unit was active.
 
     gl.uniform1i(prog.uSampler, 0);
     gl.drawArrays(gl.POINTS, 0, 1);
     gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, window.after_swizzle_applied);
     shouldBeString("window.after_swizzle_applied", tex0_rgba8_data.toString());
-    // Firefox would then get 0,0,0,10 here, as the [ZERO,ZERO,ZERO,RED] swizzle was applied to our
+    // Plezix would then get 0,0,0,10 here, as the [ZERO,ZERO,ZERO,RED] swizzle was applied to our
     // 10,20,30,40 texture.
   }
 }

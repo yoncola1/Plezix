@@ -1,5 +1,5 @@
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
   Readerable: "resource://gre/modules/Readerable.sys.mjs",
 });
 
-const gIsFirefoxDesktop =
+const gIsPlezixDesktop =
   Services.appinfo.ID == "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
 
 export var ReaderMode = {
@@ -442,7 +442,7 @@ export var ReaderMode = {
     article.title = Cc["@mozilla.org/parserutils;1"]
       .getService(Ci.nsIParserUtils)
       .convertToPlainText(article.title, flags, 0);
-    if (gIsFirefoxDesktop) {
+    if (gIsPlezixDesktop) {
       await this._assignLanguage(article);
       this._maybeAssignTextDirection(article);
     }

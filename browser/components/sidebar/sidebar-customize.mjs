@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -159,7 +159,7 @@ export class SidebarCustomize extends SidebarPage {
     return l10nMap.get(view);
   }
 
-  openFirefoxSettings(e) {
+  openPlezixSettings(e) {
     if (e.type == "click" || (e.type == "keydown" && e.code == "Enter")) {
       e.preventDefault();
       this.getWindow().openPreferences();
@@ -334,8 +334,8 @@ export class SidebarCustomize extends SidebarPage {
           <img src="chrome://browser/skin/preferences/category-general.svg" class="icon" role="presentation" />
           <a
             href="about:preferences"
-            @click=${this.openFirefoxSettings}
-            @keydown=${this.openFirefoxSettings}
+            @click=${this.openPlezixSettings}
+            @keydown=${this.openPlezixSettings}
             data-l10n-id="sidebar-customize-firefox-settings"
           >
           </a>

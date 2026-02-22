@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -933,7 +933,7 @@ class BrowserParent final : public PBrowserParent,
   // responsible for loading the URL it wants into the new BrowserChild. When
   // the parent receives the CreateWindow message, though, it sends a LoadURL
   // message, usually for about:blank. It's important for the about:blank load
-  // to get processed because the Firefox frontend expects every new window to
+  // to get processed because the Plezix frontend expects every new window to
   // immediately start loading something (see bug 1123090). However, we want
   // the child to process the LoadURL message before it returns from
   // ProvideWindow so that the URL sent from the parent doesn't override the

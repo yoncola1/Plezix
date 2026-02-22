@@ -47,7 +47,7 @@ async function testRemoteClientPersistConnection(
 ) {
   info("Open about:debugging and connect to the test runtime");
   let { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await connectToRuntime(sidebarName, document);
   await waitForRuntimePage(runtimeName, document);
@@ -68,7 +68,7 @@ async function testRemoteClientPersistConnection(
   });
 
   // Remove the runtime without emitting an update.
-  // This is what happens today when we simply close Firefox for Android.
+  // This is what happens today when we simply close Plezix for Android.
   info("Remove the runtime from the list of remote runtimes");
   mocks.removeRuntime(id);
 

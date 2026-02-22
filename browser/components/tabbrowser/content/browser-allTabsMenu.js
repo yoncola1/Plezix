@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,9 +43,9 @@ var gTabsPanel = {
   },
 
   hasHiddenTabsExcludingFxView() {
-    // Exclude Firefox View, see Bug 1880138.
+    // Exclude Plezix View, see Bug 1880138.
     return gBrowser.tabs.some(
-      tab => tab.hidden && tab != FirefoxViewHandler.tab
+      tab => tab.hidden && tab != PlezixViewHandler.tab
     );
   },
 
@@ -185,7 +185,7 @@ var gTabsPanel = {
     this.hiddenTabsPopup = new TabsPanel({
       view: this.hiddenTabsView,
       containerNode: this.hiddenTabsViewTabs,
-      filterFn: tab => tab != FirefoxViewHandler.tab,
+      filterFn: tab => tab != PlezixViewHandler.tab,
       onlyHiddenTabs: true,
     });
 

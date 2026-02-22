@@ -93,7 +93,7 @@ const TESTCASES = [
     focusedInputId: "organization",
     profileData: {
       country: "US",
-      organization: "Mozilla",
+      organization: "Plezix",
       "address-level1": "CA",
     },
     expectedResultState: {

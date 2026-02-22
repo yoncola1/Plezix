@@ -32,7 +32,7 @@
   <string name="menu_report_site_issue">సైటు సమస్యను నివేదించండి</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s లో తెరువు</string>
@@ -69,7 +69,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">వీరిచే %1$s</string>
   <!--
@@ -101,11 +101,11 @@
   <!-- Preference summary for settings related to privacy and security -->
   <string name="preference_privacy_and_security_summary">ట్రాకింగ్, కుక్కీలు, డేటా ఎంపికలు</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s గురించి, సహాయం</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -123,7 +123,7 @@
   <string name="preference_show_search_suggestions">వెతుకుడు సలహాలను చూపించు</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">మీరు చిరునామా పట్టీలో టైపుచేసినదాన్ని %1$s మీ సెర్చింజనుకి పంపిస్తుంది</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -224,18 +224,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s‌ను అప్రమేయ విహారిణి చేయి</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">వాడుక దత్తాంశాన్ని పంపించు</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">ఇంకా తెలుసుకోండి</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="preference_mozilla_telemetry_summary2">%1$s‌ని అందరికీ అందించడానికి, మెరుగుపరచడానికి ఎంత తక్కవ అవసరమో అంతే సేకరించడానికి మొజిల్లా కృషిచేస్తుంది.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">గోప్యతా విధానం</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s గురించి</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">స్థాపిత శోధన యంత్రాలు</string>
@@ -325,13 +325,13 @@
   <string name="external_app_prompt_title">ఈ లంకెని మరొక అనువర్తనంలో తెరువు</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">%2$sని తెరువుటకు %1$sని వదలవచ్చును.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">లింక్ను తెరవగల అనువర్తనాన్ని కనుగొనండి</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">మీ పరికరంలోని అనువర్తనాల్లో ఏదీ ఈ లింక్ను తెరవలేకపోతుంది. మీరు చేయగల అనువర్తనం కోసం %2$sను శోధించడానికి %1$sను వదిలివేయవచ్చు.</string>
@@ -376,10 +376,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">విహరణ చరిత్రను తుడిచివేయి</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefoxను దింపుకోండి</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezixను దింపుకోండి</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">వాడుకరి పేరు</string>
   <string name="gv_prompt_password_hint">సంకేతపదం</string>
@@ -502,7 +502,7 @@
   <string name="tab_crash_report_description">ఒక అంతరంగిక విహారిణిగా, మేము ఈ ట్యాబును భద్రపరచలేదు, దాన్ని పునరుద్ధరించలేము.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">ట్యాబును మూసివేయి</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
   <string name="crash_report_send_crash_label">క్రాష్ నివేదికను మొజిల్లాకు పంపు</string>
   <!-- Tracking protection bottom sheet -->
 

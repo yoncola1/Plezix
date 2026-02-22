@@ -1,5 +1,5 @@
 const PRINT_DOCUMENT_URI = "chrome://global/content/print.html";
-const DEFAULT_PRINTER_NAME = "Mozilla Save to PDF";
+const DEFAULT_PRINTER_NAME = "Plezix Save to PDF";
 const { MockFilePicker } = SpecialPowers;
 
 let pickerMocked = false;

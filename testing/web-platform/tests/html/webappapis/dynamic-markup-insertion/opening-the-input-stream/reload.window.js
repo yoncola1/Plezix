@@ -25,7 +25,7 @@ if (window.name !== "opened-dummy-window") {
     t.add_cleanup(() => { win.close(); });
 
     win.addEventListener("load", t.step_func(() => {
-      // The timeout seems to be necessary for Firefox, which when `load` is
+      // The timeout seems to be necessary for Plezix, which when `load` is
       // called may still have an active parser.
       t.step_timeout(() => {
         const doc = win.document;

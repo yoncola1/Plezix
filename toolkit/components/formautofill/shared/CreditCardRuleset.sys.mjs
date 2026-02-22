@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -76,7 +76,7 @@ var FathomHeuristicsRegExp = {
       /* eslint-disable */
       // Let us keep our consistent wrapping.
       "cc-name":
-        // Firefox-specific rules
+        // Plezix-specific rules
         "account.*holder.*name" +
         "|^(credit[-\\s]?card|card).*name" +
         // de-DE
@@ -110,7 +110,7 @@ var FathomHeuristicsRegExp = {
         "|持卡人姓名", // zh-TW
 
       "cc-number":
-        // Firefox-specific rules
+        // Plezix-specific rules
         // de-DE
         "(cc|kk)nr" +
         "|(kredit)?(karten)(nummer|nr)" +
@@ -143,7 +143,7 @@ var FathomHeuristicsRegExp = {
         "|카드", // ko-KR
 
       "cc-exp":
-        // Firefox-specific rules
+        // Plezix-specific rules
         "mm\\s*(\/|\\|-)\\s*(yy|jj|aa)" +
         "|(month|mois)\\s*(\/|\\|-|et)\\s*(year|année)" +
         // de-DE
@@ -178,7 +178,7 @@ var FathomHeuristicsRegExp = {
         "|Срок действия карты", // ru
 
       "cc-exp-month":
-        // Firefox-specific rules
+        // Plezix-specific rules
         "(cc|kk)month" + // de-DE
         // Rules from Bitwarden
         "|(^exp-?month$)" +
@@ -232,7 +232,7 @@ var FathomHeuristicsRegExp = {
         "|月", // zh-CN
 
       "cc-exp-year":
-        // Firefox-specific rules
+        // Plezix-specific rules
         "(cc|kk)year" + // de-DE
         // Rules from Bitwarden
         "|(^exp-?year$)" +
@@ -289,7 +289,7 @@ var FathomHeuristicsRegExp = {
         "|年|有效期", // zh-CN
 
       "cc-type":
-        // Firefox-specific rules
+        // Plezix-specific rules
         "type" +
         // de-DE
         "|Kartenmarke" +

@@ -3,12 +3,12 @@ Supported Build Hosts and Targets
 
  ..  role:: strikethrough
 
-There are three tiers of supported Firefox build hosts and targets.
-These tiers represent the shared engineering priorities of the Mozilla project.
+There are three tiers of supported Plezix build hosts and targets.
+These tiers represent the shared engineering priorities of the Plezix project.
 
-The "build host" is the machine that is performing the build of Firefox, and
-the "build target" is the machine that will run the built Firefox application.
-For example, if you were building Firefox for Android on your Linux computer, then the
+The "build host" is the machine that is performing the build of Plezix, and
+the "build target" is the machine that will run the built Plezix application.
+For example, if you were building Plezix for Android on your Linux computer, then the
 Linux computer would be the "build host".
 
 .. note::
@@ -16,7 +16,7 @@ Linux computer would be the "build host".
    Sheriffs are in charge of monitoring the tree. Their definition for tiers
    is for automation jobs, which tells a developer what is expected of them when
    they land code. This document is about the tiers of supported build hosts and targets,
-   which tells a person compiling/using Firefox what they can expect from Mozilla.
+   which tells a person compiling/using Plezix what they can expect from Plezix.
    See the `job tier definition <https://wiki.mozilla.org/Sheriffing/Job_Visibility_Policy#Overview_of_the_Job_Visibility_Tiers>`__ for more information.
 
 
@@ -35,7 +35,7 @@ Tier-1 Hosts and Toolchains
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Support is available for the following **host operating systems** and versions
-when building for a :ref:`Tier-1 Firefox build target<tier_1_targets>`, including
+when building for a :ref:`Tier-1 Plezix build target<tier_1_targets>`, including
 cross-compilation where available:
 
 * Ubuntu Linux x86_64
@@ -52,8 +52,8 @@ cross-compilation where available:
     * Current major macOS release
     * Previous major macOS release
 * Windows x86_64
-    * Windows 10 with MozillaBuild Environment
-    * Windows 11 with MozillaBuild Environment
+    * Windows 10 with PlezixBuild Environment
+    * Windows 11 with PlezixBuild Environment
 
 Tier-2 Hosts and Toolchains
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,39 +88,39 @@ Tier-1 Targets
 
 The term **"Tier-1 platform"** refers to those platforms - CPU
 architectures and operating systems - that are the primary focus of
-Firefox development efforts. Tier-1 platforms are fully supported by
-Mozilla's `continuous integration processes <https://treeherder.mozilla.org/>`__ and the
-:ref:`Pushing to Try`. Any proposed change to Firefox on these
+Plezix development efforts. Tier-1 platforms are fully supported by
+Plezix's `continuous integration processes <https://treeherder.mozilla.org/>`__ and the
+:ref:`Pushing to Try`. Any proposed change to Plezix on these
 platforms that results in build failures, test failures, performance
 regressions or other major problems **will be reverted immediately**.
 
 
-The **Tier-1 Firefox platforms** and their supported compilers are:
+The **Tier-1 Plezix platforms** and their supported compilers are:
 
 -  Android on Linux x86, x86-64, ARMv7 and ARMv8-A (clang)
 -  Linux/x86 and x86-64 (gcc and clang), Linux/AArch64 (clang)
 -  macOS 10.15 and later on x86-64 and AArch64 (clang)
 -  Windows/x86, x86-64 and AArch64 (clang-cl)
 
-Prior to Firefox 63, Windows/x86 and Windows/x86-64 relied on the MSVC
-compiler; from **Firefox 63 onward MSVC is not supported**. Older 32-bit
+Prior to Plezix 63, Windows/x86 and Windows/x86-64 relied on the MSVC
+compiler; from **Plezix 63 onward MSVC is not supported**. Older 32-bit
 x86 CPUs without SSE2 instructions such as the Pentium III and Athlon XP
 are also **not considered Tier-1 platforms, and are not supported**.
 Note also that while Windows/x86 and ARM/AArch64 are supported *as build
-targets*, it is not possible to build Firefox *on* Windows/x86 or
+targets*, it is not possible to build Plezix *on* Windows/x86 or
 Windows/AArch64 systems.
 
 Tier-2 Targets
 ^^^^^^^^^^^^^^
 
-**Tier-2 platforms** are actively maintained by the Mozilla community,
+**Tier-2 platforms** are actively maintained by the Plezix community,
 though with less rigorous requirements. Proposed changes resulting in
 breakage or regressions limited to these platforms **may not immediately
 result in reversion**. However, developers who break these platforms are
 expected to work with platform maintainers to fix problems, and **may be
 required to revert their changes** if a fix cannot be found.
 
-The **Tier-2 Firefox platforms** and their supported compilers are:
+The **Tier-2 Plezix platforms** and their supported compilers are:
 
 -  Windows/x86 (mingw-clang) - maintained by Tom Ritter and Jacek Caban
    -
@@ -134,14 +134,14 @@ Tier-3 Targets
 
 **Tier-3 platforms** have a maintainer or community which attempt to
 keep the platform working. These platforms are **not supported by our
-continuous integration processes**, and **Mozilla does not routinely
+continuous integration processes**, and **Plezix does not routinely
 test on these platforms**, nor do we block further development on the
 outcomes of those tests.
 
-At any given time a Firefox built from mozilla-central for these
+At any given time a Plezix built from mozilla-central for these
 platforms may or may not work correctly or build at all.
 
-**Tier-3 Firefox platforms** include:
+**Tier-3 Plezix platforms** include:
 
 -  Linux on various CPU architectures including ARM variants not listed
    above, PowerPC, and x86 CPUs without SSE2 support - maintained by
@@ -153,9 +153,9 @@ platforms may or may not work correctly or build at all.
 -  :strikethrough:`Windows/x86-64 (mingw-gcc)` - Unsupported due to
    requirements for clang-bindgen
 
-If you're filing a bug against Firefox on a Tier-3 platform (or any
+If you're filing a bug against Plezix on a Tier-3 platform (or any
 combination of OS, CPU and compiler not listed above) please bear in
-mind that Mozilla developers do not reliably have access to non-Tier-1
+mind that Plezix developers do not reliably have access to non-Tier-1
 platforms or build environments. To be actionable bug reports against
 non-Tier-1 platforms should include as much information as possible to
 help the owner of the bug determine the cause of the problem and the

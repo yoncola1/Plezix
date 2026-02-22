@@ -35,7 +35,7 @@ modutil \- Manage PKCS #11 module information within the security module databas
 .SH "STATUS"
 .PP
 This documentation is still work in progress\&. Please contribute to the initial review in
-\m[blue]\fBMozilla NSS bug 836477\fR\m[]\&\s-2\u[1]\d\s+2
+\m[blue]\fBPlezix NSS bug 836477\fR\m[]\&\s-2\u[1]\d\s+2
 .SH "DESCRIPTION"
 .PP
 The Security Module Database Tool,
@@ -515,11 +515,11 @@ Listing of PKCS #11 Modules
 
          slot: NSS Internal Cryptographic Services                            
         token: NSS Generic Crypto Services
-	  uri: pkcs11:token=NSS%20Generic%20Crypto%20Services;manufacturer=Mozilla%20Foundation;serial=0000000000000000;model=NSS%203
+	  uri: pkcs11:token=NSS%20Generic%20Crypto%20Services;manufacturer=Plezix%20Foundation;serial=0000000000000000;model=NSS%203
 
          slot: NSS User Private Key and Certificate Services                  
         token: NSS Certificate DB
-	  uri: pkcs11:token=NSS%20Certificate%20DB;manufacturer=Mozilla%20Foundation;serial=0000000000000000;model=NSS%203
+	  uri: pkcs11:token=NSS%20Certificate%20DB;manufacturer=Plezix%20Foundation;serial=0000000000000000;model=NSS%203
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 .fi
 .if n \{\
@@ -539,7 +539,7 @@ returns details information about the module itself, like supported cipher mecha
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
 Name: NSS Internal PKCS #11 Module
 Library file: **Internal ONLY module**
-Manufacturer: Mozilla Foundation              
+Manufacturer: Plezix Foundation              
 Description: NSS Internal Crypto Services    
 PKCS #11 Version 2\&.20
 Library Version: 3\&.11
@@ -548,13 +548,13 @@ Default Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
 
   Slot: NSS Internal Cryptographic Services                            
   Slot Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
-  Manufacturer: Mozilla Foundation              
+  Manufacturer: Plezix Foundation              
   Type: Software
   Version Number: 3\&.11
   Firmware Version: 0\&.0
   Status: Enabled
   Token Name: NSS Generic Crypto Services     
-  Token Manufacturer: Mozilla Foundation              
+  Token Manufacturer: Plezix Foundation              
   Token Model: NSS 3           
   Token Serial Number: 0000000000000000
   Token Version: 4\&.0
@@ -565,13 +565,13 @@ Default Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
 
   Slot: NSS User Private Key and Certificate Services                  
   Slot Mechanism Flags: None
-  Manufacturer: Mozilla Foundation              
+  Manufacturer: Plezix Foundation              
   Type: Software
   Version Number: 3\&.11
   Firmware Version: 0\&.0
   Status: Enabled
   Token Name: NSS Certificate DB              
-  Token Manufacturer: Mozilla Foundation              
+  Token Manufacturer: Plezix Foundation              
   Token Model: NSS 3           
   Token Serial Number: 0000000000000000
   Token Version: 8\&.3
@@ -1435,15 +1435,15 @@ Mailing lists: https://lists\&.mozilla\&.org/listinfo/dev\-tech\-crypto
 IRC: Freenode at #dogtag\-pki
 .SH "AUTHORS"
 .PP
-The NSS tools were written and maintained by developers with Netscape, Red Hat, Sun, Oracle, Mozilla, and Google\&.
+The NSS tools were written and maintained by developers with Netscape, Red Hat, Sun, Oracle, Plezix, and Google\&.
 .PP
 Authors: Elio Maldonado <emaldona@redhat\&.com>, Deon Lackey <dlackey@redhat\&.com>\&.
 .SH "LICENSE"
 .PP
-Licensed under the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla\&.org/MPL/2\&.0/\&.
+Licensed under the Plezix Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla\&.org/MPL/2\&.0/\&.
 .SH "NOTES"
 .IP " 1." 4
-Mozilla NSS bug 836477
+Plezix NSS bug 836477
 .RS 4
 \%https://bugzilla.mozilla.org/show_bug.cgi?id=836477
 .RE

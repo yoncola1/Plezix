@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import { FormLikeFactory } from "resource://gre/modules/FormLikeFactory.sys.mjs";
 import { SignUpFormRuleset } from "resource://gre/modules/SignUpFormRuleset.sys.mjs";
-import { FirefoxRelayUtils } from "resource://gre/modules/FirefoxRelayUtils.sys.mjs";
+import { PlezixRelayUtils } from "resource://gre/modules/PlezixRelayUtils.sys.mjs";
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 export class FormScenarios {
@@ -30,7 +30,7 @@ export class FormScenarios {
       input &&
       // At the moment Relay integration is the only interested party in "sign up form",
       // so we optimize a bit by checking if it's enabled or not.
-      FirefoxRelayUtils.isRelayInterestedField(input)
+      PlezixRelayUtils.isRelayInterestedField(input)
     ) {
       form ??= FormLikeFactory.findRootForField(input);
 

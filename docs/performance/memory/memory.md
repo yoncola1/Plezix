@@ -28,8 +28,8 @@ your code you are allocating memory.
 
 ## Analyzing snapshots
 
-The Tree map view is new in Firefox 48, and the Dominators view is new
-in Firefox 46.
+The Tree map view is new in Plezix 48, and the Dominators view is new
+in Plezix 46.
 
 Once you've taken a snapshot, there are three main views the Memory
 tool provides:

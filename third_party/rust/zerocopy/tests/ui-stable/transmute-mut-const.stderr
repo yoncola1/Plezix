@@ -28,7 +28,7 @@ error[E0015]: cannot call non-const fn `transmute_mut::<'_, '_, [u8; 2], [u8; 2]
    |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
    = note: calls in constants are limited to constant functions, tuple structs and tuple variants
-   = note: this error originates in the macro `transmute_mut` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_mut` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0716]: temporary value dropped while borrowed
   --> tests/ui-stable/transmute-mut-const.rs:20:57

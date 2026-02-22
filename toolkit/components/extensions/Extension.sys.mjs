@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -273,7 +273,7 @@ function dirname(path) {
   return path.slice(0, index + 1);
 }
 
-// Returns true if the extension is owned by Mozilla (is either privileged,
+// Returns true if the extension is owned by Plezix (is either privileged,
 // using one of the @mozilla.com/@mozilla.org protected addon id suffixes).
 //
 // This method throws if the extension's startupReason is not one of the
@@ -282,12 +282,12 @@ function dirname(path) {
 // TODO(Bug 1835787): Consider to remove the restriction based on the
 // startupReason now that the recommendationState property is always
 // included in the addonData with any of the startupReason.
-function isMozillaExtension(extension) {
+function isPlezixExtension(extension) {
   const { addonData, id, isPrivileged, startupReason } = extension;
 
   if (!INSTALL_AND_UPDATE_STARTUP_REASONS.has(startupReason)) {
     throw new Error(
-      `isMozillaExtension called with unexpected startupReason: ${startupReason}`
+      `isPlezixExtension called with unexpected startupReason: ${startupReason}`
     );
   }
 
@@ -303,12 +303,12 @@ function isMozillaExtension(extension) {
   // recommendationStates (states expire dates for line extensions are
   // not considered important in determining that the extension is
   // provided by mozilla, and so they are omitted here on purpose).
-  const isMozillaLineExtension =
+  const isPlezixLineExtension =
     addonData.recommendationState?.states?.includes("line");
   const isSigned =
     addonData.signedState > lazy.AddonManager.SIGNEDSTATE_MISSING;
 
-  return isSigned && isMozillaLineExtension;
+  return isSigned && isPlezixLineExtension;
 }
 
 /**
@@ -1770,7 +1770,7 @@ export class ExtensionData {
         obj.browser_style = false;
         warning += ` The default value of "${manifestKey}.browser_style" has changed from true to false in Manifest Version 3.`;
       } else {
-        warning += ` Its default will change to false in Manifest Version 3 starting from Firefox 115.`;
+        warning += ` Its default will change to false in Manifest Version 3 starting from Plezix 115.`;
       }
     }
 
@@ -2263,7 +2263,7 @@ export class ExtensionData {
       const productCodeName = AppConstants.MOZ_BUILD_APP.replace("/", "-");
 
       // The result path looks like this:
-      //   Firefox - `langpack-pl-browser`
+      //   Plezix - `langpack-pl-browser`
       //   Fennec - `langpack-pl-mobile-android`
       const langpackId = `langpack-${manifest.langpack_id}-${productCodeName}`;
 
@@ -2470,7 +2470,7 @@ export class ExtensionData {
     return null;
   }
 
-  // Returns true if an addon is builtin to Firefox or
+  // Returns true if an addon is builtin to Plezix or
   // distributed via Normandy into a system location.
   get isAppProvided() {
     return this.addonData.builtIn || this.addonData.isSystem;
@@ -4319,7 +4319,7 @@ export class Extension extends ExtensionData {
     // We only want to update the SVG_CONTEXT_PROPERTIES_PERMISSION during
     // install and upgrade/downgrade startups.
     if (INSTALL_AND_UPDATE_STARTUP_REASONS.has(this.startupReason)) {
-      if (isMozillaExtension(this)) {
+      if (isPlezixExtension(this)) {
         // Add to EP so it is preserved after ADDON_INSTALL.
         lazy.ExtensionPermissions.add(this.id, {
           permissions: [SVG_CONTEXT_PROPERTIES_PERMISSION],

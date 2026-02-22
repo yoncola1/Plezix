@@ -863,7 +863,7 @@ describe('request interception', function () {
       expect(response.url()).toBe(server.EMPTY_PAGE);
     });
     it('should allow mocking multiple headers with same key', async () => {
-      const {isFirefox, page, server} = await getTestState();
+      const {isPlezix, page, server} = await getTestState();
 
       await page.setRequestInterception(true);
       page.on('request', request => {
@@ -896,7 +896,7 @@ describe('request interception', function () {
       // clients are also allowed to use other separators for special cases.
       // However Chrome DevTools do return comma separated values for headers
       // with multiple values, so this might be a bug.
-      if (isFirefox) {
+      if (isPlezix) {
         expect(response.headers()['arr']).toBe('1, 2');
       } else {
         expect(response.headers()['arr']).toBe('1\n2');

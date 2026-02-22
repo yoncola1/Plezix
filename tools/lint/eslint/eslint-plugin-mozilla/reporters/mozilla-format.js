@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,9 +15,9 @@
 
 var mocha = require("mocha");
 var path = require("path");
-module.exports = MozillaFormatter;
+module.exports = PlezixFormatter;
 
-function MozillaFormatter(runner) {
+function PlezixFormatter(runner) {
   mocha.reporters.Base.call(this, runner);
   var passes = 0;
   var failures = [];

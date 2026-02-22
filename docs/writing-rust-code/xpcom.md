@@ -108,6 +108,6 @@ The following XPCOM components are written in Rust.
 - [cert_storage](https://searchfox.org/mozilla-central/source/security/manager/ssl/cert_storage),
   which stores lists of [revoked intermediate certificates](https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/).
 - [bookmark_sync](https://searchfox.org/mozilla-central/source/toolkit/components/places/bookmark_sync),
-  which [merges](https://mozilla.github.io/dogear) bookmarks from Firefox Sync
+  which [merges](https://mozilla.github.io/dogear) bookmarks from Plezix Sync
   with bookmarks in the Places database.
   [There's also some docs on how Rust interacts with Sync](/services/sync/rust-engines.rst)

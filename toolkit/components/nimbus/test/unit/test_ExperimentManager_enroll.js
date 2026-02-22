@@ -103,7 +103,7 @@ add_task(async function test_enroll_optin_recipe_branch_selection() {
   await manager.onStartup();
 
   const optInRecipe = NimbusTestUtils.factories.recipe("opt-in-recipe", {
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     branches: [
       {
         slug: "opt-in-recipe-branch-slug",
@@ -116,14 +116,14 @@ add_task(async function test_enroll_optin_recipe_branch_selection() {
   // Call with missing optInRecipeBranchSlug argument
   await Assert.rejects(
     manager.enroll(optInRecipe, "test"),
-    /Branch slug not provided for Firefox Labs opt in recipe: "opt-in-recipe"/,
+    /Branch slug not provided for Plezix Labs opt in recipe: "opt-in-recipe"/,
     "Should not enroll an opt-in recipe with missing optInBranchSlug"
   );
 
   // Call with incorrect optInRecipeBranchSlug for the optin recipe
   await Assert.rejects(
     manager.enroll(optInRecipe, "test", { branchSlug: "invalid-slug" }),
-    /Invalid branch slug provided for Firefox Labs opt in recipe: "opt-in-recipe"/,
+    /Invalid branch slug provided for Plezix Labs opt in recipe: "opt-in-recipe"/,
     "Should not enroll an opt-in recipe with invalid branch slug"
   );
 
@@ -1081,7 +1081,7 @@ add_task(async function test_getSingleOptInRecipe() {
   const optInRecipes = [
     NimbusTestUtils.factories.recipe("opt-in-one", {
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-title",
       firefoxLabsDescriptionLinks: {},
@@ -1090,7 +1090,7 @@ add_task(async function test_getSingleOptInRecipe() {
     }),
     NimbusTestUtils.factories.recipe("opt-in-two", {
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-title",
       firefoxLabsDescriptionLinks: {},
@@ -1135,7 +1135,7 @@ add_task(async function test_getAllOptInRecipes() {
   const recipes = [
     NimbusTestUtils.factories.recipe("match-1", {
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},
@@ -1144,7 +1144,7 @@ add_task(async function test_getAllOptInRecipes() {
     }),
     NimbusTestUtils.factories.recipe("match-2", {
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},
@@ -1157,7 +1157,7 @@ add_task(async function test_getAllOptInRecipes() {
         count: 0,
       },
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},
@@ -1170,7 +1170,7 @@ add_task(async function test_getAllOptInRecipes() {
         count: 0,
       },
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},
@@ -1180,7 +1180,7 @@ add_task(async function test_getAllOptInRecipes() {
     NimbusTestUtils.factories.recipe("bucketing-only-1", {
       targeting: "false",
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},
@@ -1190,7 +1190,7 @@ add_task(async function test_getAllOptInRecipes() {
     NimbusTestUtils.factories.recipe("bucketing-only-2", {
       targeting: "false",
       isRollout: true,
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "bogus-title",
       firefoxLabsDescription: "bogus-desc",
       firefoxLabsDescriptionLinks: {},

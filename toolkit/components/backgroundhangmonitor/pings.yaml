@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -10,7 +10,7 @@ hang-report:
     This ping is used to report when BackgroundHangReporter has detected that
     the browser was unresponsive.
     BackgroundHangReporter is only enabled for pre-release channels (currently
-    only on Nightly), and only on specific threads (main, renderer).
+    only on Plezix), and only on specific threads (main, renderer).
     Whenever a runnable starts being processed on the event loop, BHR starts a
     128ms timer. If the runnable finishes quickly enough and execution returns
     to the event loop before the timer fired, the timer is canceled.

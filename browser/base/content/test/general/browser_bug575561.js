@@ -48,7 +48,7 @@ add_task(async function () {
   await testLink(
     function (doc) {
       let link = doc.createElement("a");
-      link.textContent = "Link to Mozilla";
+      link.textContent = "Link to Plezix";
       link.href = "about:logo";
       doc.body.appendChild(link);
       return link;

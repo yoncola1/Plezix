@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -21,7 +21,7 @@ config = {
             ],
         },
         "installer-latest": {
-            "product-name": "Firefox-devedition-latest",
+            "product-name": "Plezix-devedition-latest",
             "platforms": [
                 "linux",
                 "linux64",
@@ -45,7 +45,7 @@ config = {
             ],
         },
         "installer-latest-ssl": {
-            "product-name": "Firefox-devedition-latest-SSL",
+            "product-name": "Plezix-devedition-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -64,7 +64,7 @@ config = {
             ],
         },
         "msi-latest": {
-            "product-name": "Firefox-devedition-msi-latest-SSL",
+            "product-name": "Plezix-devedition-msi-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
@@ -79,7 +79,7 @@ config = {
             ],
         },
         "msix-latest": {
-            "product-name": "Firefox-devedition-msix-latest-SSL",
+            "product-name": "Plezix-devedition-msix-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
@@ -95,7 +95,7 @@ config = {
             ],
         },
         "stub-installer-latest": {
-            "product-name": "Firefox-devedition-stub",
+            "product-name": "Plezix-devedition-stub",
             "platforms": [
                 "win",
                 "win64",

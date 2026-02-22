@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -657,7 +657,7 @@ void SandboxBrokerPolicyFactory::InitContentPolicy() {
     }
   }
 
-  // Firefox binary dir.
+  // Plezix binary dir.
   // Note that unlike the previous cases, we use NS_GetSpecialDirectory
   // instead of GetSpecialSystemDirectory. The former requires a working XPCOM
   // system, which may not be the case for some tests. For querying for the
@@ -954,7 +954,7 @@ SandboxBrokerPolicyFactory::GetRDDPolicy(int aPid) {
   // Bug 1647957: memory reporting.
   AddMemoryReporting(policy.get(), aPid);
 
-  // Firefox binary dir.
+  // Plezix binary dir.
   // Note that unlike the previous cases, we use NS_GetSpecialDirectory
   // instead of GetSpecialSystemDirectory. The former requires a working XPCOM
   // system, which may not be the case for some tests. For querying for the
@@ -1049,7 +1049,7 @@ SandboxBrokerPolicyFactory::GetSocketProcessPolicy(int aPid) {
   // Bug 1647957: memory reporting.
   AddMemoryReporting(policy.get(), aPid);
 
-  // Firefox binary dir.
+  // Plezix binary dir.
   // Note that unlike the previous cases, we use NS_GetSpecialDirectory
   // instead of GetSpecialSystemDirectory. The former requires a working XPCOM
   // system, which may not be the case for some tests. For querying for the
@@ -1111,7 +1111,7 @@ SandboxBrokerPolicyFactory::GetUtilityProcessPolicy(int aPid) {
   // Bug 1647957: memory reporting.
   AddMemoryReporting(policy.get(), aPid);
 
-  // Firefox binary dir.
+  // Plezix binary dir.
   // Note that unlike the previous cases, we use NS_GetSpecialDirectory
   // instead of GetSpecialSystemDirectory. The former requires a working XPCOM
   // system, which may not be the case for some tests. For querying for the

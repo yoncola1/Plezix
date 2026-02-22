@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -13,7 +13,7 @@ class TelemetryTestRunner(BaseMarionetteTestRunner):
     """TestRunner for the telemetry-tests-client suite."""
 
     def __init__(self, **kwargs):
-        """Set test variables and preferences specific to Firefox client
+        """Set test variables and preferences specific to Plezix client
         telemetry.
         """
 
@@ -26,7 +26,7 @@ class TelemetryTestRunner(BaseMarionetteTestRunner):
         if kwargs["disable_fission"]:
             prefs["fission.autostart"] = False
 
-        # Set Firefox Client Telemetry specific preferences
+        # Set Plezix Client Telemetry specific preferences
         prefs.update(
             {
                 # Clear the region detection url to

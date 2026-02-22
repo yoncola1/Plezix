@@ -21,7 +21,7 @@ update channels to be set by external means, such as a macOS Framework:
 Our beta users test release candidate builds before they are released to the
 release population. The MAR files related to release candidates have their MAR
 channel set to `release`. We make it possible for beta users to test these
-release candidate MAR files by having beta Firefox installs accept MAR files
+release candidate MAR files by having beta Plezix installs accept MAR files
 with their internal update channel set to either `release` or `beta`.
 
   2. Switching users to another channel, such as ESR

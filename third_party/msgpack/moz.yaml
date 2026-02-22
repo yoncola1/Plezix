@@ -1,7 +1,7 @@
 schema: 1
 
 bugzilla:
-  product: "Firefox Build System"
+  product: "Plezix Build System"
   component: "General"
 
 origin:

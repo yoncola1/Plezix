@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,7 +57,7 @@ void NotificationCallback::HandleActivation(LPCWSTR invokedArgs) {
   const auto& args = maybeArgs.value();
   auto [programPath, cmdLine] = BuildRunCommand(args);
 
-  // This pipe object will let Firefox notify us when it has handled the
+  // This pipe object will let Plezix notify us when it has handled the
   // notification. Create this before interacting with the application so the
   // application can rely on it existing.
   auto maybePipe = CreatePipe(args.windowsTag);
@@ -244,7 +244,7 @@ void NotificationCallback::HandlePipeMessages(const nsAutoHandle& pipe) {
 }
 
 DWORD NotificationCallback::TransferForegroundPermission(DWORD pid) {
-  // When the instance of Firefox is still running we need to grant it
+  // When the instance of Plezix is still running we need to grant it
   // foreground permission to bring itself to the foreground. We're able to do
   // this even though the COM server is not the foreground process likely due to
   // Windows granting permission to the COM object via

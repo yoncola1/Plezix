@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -377,8 +377,8 @@ export var UpdateUtils = {
    *                      differs depending on whether the current platform
    *                      supports per-installation prefs. If they are
    *                      supported, default branch values persist across
-   *                      Firefox sessions. If they aren't supported, default
-   *                      branch values reset when Firefox shuts down.
+   *                      Plezix sessions. If they aren't supported, default
+   *                      branch values reset when Plezix shuts down.
    * @return A Promise that, once the setting has been saved, resolves with the
    *         value that was saved.
    * @throw  If there is an I/O error when attempting to write to the config
@@ -428,7 +428,7 @@ export var UpdateUtils = {
       }
       // Rather than call maybeUpdateConfigChanged, a pref observer has
       // been connected to the relevant pref. This allows us to catch direct
-      // changes to prefs (which Firefox shouldn't be doing, but the user
+      // changes to prefs (which Plezix shouldn't be doing, but the user
       // might do in about:config).
       return Promise.resolve(value);
     }

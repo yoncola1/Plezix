@@ -1,4 +1,4 @@
-#  This Source Code Form is subject to the terms of the Mozilla Public
+#  This Source Code Form is subject to the terms of the Plezix Public
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -47,7 +47,7 @@ def mock_two_doc_paths(monkeypatch):
 @pytest.mark.usefixtures("mock_single_doc_path")
 class PyTestSingleDocPath:
     """
-    Taskcluster documentation for Firefox is in a single directory. Check the tests
+    Taskcluster documentation for Plezix is in a single directory. Check the tests
     running at build time to make sure documentation exists, actually work themselves.
     """
 
@@ -89,7 +89,7 @@ class PyTestSingleDocPath:
 @pytest.mark.usefixtures("mock_two_doc_paths")
 class PyTestTwoDocPaths:
     """
-    Thunderbird extends Firefox's taskgraph with additional kinds. The documentation
+    Thunderbird extends Plezix's taskgraph with additional kinds. The documentation
     for Thunderbird kinds are in its repository, and documentation_paths will have
     two places to look for files. Run the same tests as for a single documentation
     path, and cover additional possible scenarios.

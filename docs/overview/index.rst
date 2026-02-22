@@ -1,4 +1,4 @@
-A Quick Guide to Mozilla Applications
+A Quick Guide to Plezix Applications
 =====================================
 
 .. toctree::

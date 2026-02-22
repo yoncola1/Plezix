@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A TopAppBar for the Downloads screen. It has slots for a title, an optional navigation icon
@@ -54,13 +54,13 @@ internal fun DownloadsTopAppBar(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun DownloadsTopAppBarPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DownloadsTopAppBar(
-            backgroundColor = FirefoxTheme.colors.layerAccent,
+            backgroundColor = PlezixTheme.colors.layerAccent,
             title = {
                 Text(
-                    color = FirefoxTheme.colors.textOnColorPrimary,
-                    style = FirefoxTheme.typography.headline6,
+                    color = PlezixTheme.colors.textOnColorPrimary,
+                    style = PlezixTheme.typography.headline6,
                     text = stringResource(
                         R.string.download_multi_select_title,
                         1,
@@ -72,7 +72,7 @@ private fun DownloadsTopAppBarPreview() {
                     Icon(
                         painter = painterResource(R.drawable.mozac_ic_back_24),
                         contentDescription = stringResource(R.string.download_navigate_back_description),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             },
@@ -83,7 +83,7 @@ private fun DownloadsTopAppBarPreview() {
                         contentDescription = stringResource(
                             R.string.content_description_menu,
                         ),
-                        tint = FirefoxTheme.colors.iconOnColor,
+                        tint = PlezixTheme.colors.iconOnColor,
                     )
                 }
             },

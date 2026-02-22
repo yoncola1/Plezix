@@ -6,7 +6,7 @@ bugzilla:
 
 origin:
   name: Readability
-  description: Readability library used for Firefox Reader View
+  description: Readability library used for Plezix Reader View
   url: https://github.com/mozilla/readability
   license: Apache-2.0
   release: 0.6.0 (2025-03-03T21:53:13+00:00).

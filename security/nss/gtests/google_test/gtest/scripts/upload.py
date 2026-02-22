@@ -381,7 +381,7 @@ class HttpRpcServer(AbstractRpcServer):
     opener.add_handler(urllib2.HTTPErrorProcessor())
     if self.save_cookies:
       self.cookie_file = os.path.expanduser("~/.codereview_upload_cookies")
-      self.cookie_jar = cookielib.MozillaCookieJar(self.cookie_file)
+      self.cookie_jar = cookielib.PlezixCookieJar(self.cookie_file)
       if os.path.exists(self.cookie_file):
         try:
           self.cookie_jar.load()

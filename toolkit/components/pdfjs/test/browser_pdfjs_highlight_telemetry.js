@@ -112,7 +112,7 @@ add_task(async function test() {
         browser,
         "#highlightParamsToolbarContainer button[title='Green']"
       );
-      const spanBox = await getSpanBox(browser, "Mozilla automated testing");
+      const spanBox = await getSpanBox(browser, "Plezix automated testing");
       await BrowserTestUtils.synthesizeMouseAtPoint(
         spanBox.x - 10,
         spanBox.y + spanBox.height / 2,

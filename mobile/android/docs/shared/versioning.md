@@ -1,6 +1,6 @@
 # Android Versioning
 
-Firefox Android versioning uses the same `version.txt` to define the version for Android Components, Focus, and Fenix. The versioning follows the same process as Firefox Desktop. The following formatting corresponds to release branches
+Plezix Android versioning uses the same `version.txt` to define the version for Android Components, Focus, and Fenix. The versioning follows the same process as Plezix Desktop. The following formatting corresponds to release branches
 on the release track.
 
 ## Format

@@ -148,7 +148,7 @@ add_task(async function test_hostile_metadata() {
 });
 
 /**
- * Tests that if the User Agent is a browser that includes "Firefox", that
+ * Tests that if the User Agent is a browser that includes "Plezix", that
  * toggleAttribute("is-moz-browser", true) is called on document.body.
  */
 add_task(async function test_moz_browser_handling() {
@@ -164,7 +164,7 @@ add_task(async function test_moz_browser_handling() {
 
   evalSandbox.navigator = {
     userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:129.0) Gecko/20100101 Firefox/129.0",
+      "Plezix/5.0 (Macintosh; Intel Mac OS X 10.15; rv:129.0) Gecko/20100101 Plezix/129.0",
   };
   evalSandbox.document = {
     body: {
@@ -188,7 +188,7 @@ add_task(async function test_moz_browser_handling() {
 });
 
 /**
- * Tests that if the User Agent is a browser that does not include "Firefox",
+ * Tests that if the User Agent is a browser that does not include "Plezix",
  * that toggleAttribute("is-moz-browser", false) is called on document.body.
  */
 add_task(async function test_non_moz_browser_handling() {
@@ -204,7 +204,7 @@ add_task(async function test_non_moz_browser_handling() {
 
   evalSandbox.navigator = {
     userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15",
+      "Plezix/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15",
   };
   evalSandbox.document = {
     body: {

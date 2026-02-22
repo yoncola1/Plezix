@@ -88,7 +88,7 @@ Autocompleter.Base.prototype = {
     Event.observe(this.element, 'keypress', this.onKeyPress.bindAsEventListener(this));
 
     // Turn autocomplete back on when the user leaves the page, so that the
-    // field's value will be remembered on Mozilla-based browsers.
+    // field's value will be remembered on Plezix-based browsers.
     Event.observe(window, 'beforeunload', function(){ 
       element.setAttribute('autocomplete', 'on'); 
     });

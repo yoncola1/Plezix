@@ -1123,7 +1123,7 @@ to allow adding gecko profiler markers.
 [78.1]: {{javadoc_uri}}/WebExtensionController.html#installBuiltIn(java.lang.String)
 [78.2]: {{javadoc_uri}}/ContentBlocking.CookieBehavior.html#ACCEPT_FIRST_PARTY_AND_ISOLATE_OTHERS
 [78.3]: {{javadoc_uri}}/WebExtension.CreateTabDetails.html
-[78.4]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities
+[78.4]: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/contextualIdentities
 [78.5]: {{javadoc_uri}}/GeckoSession.NavigationDelegate.html#onSubframeLoadRequest(org.mozilla.geckoview.GeckoSession,org.mozilla.geckoview.GeckoSession.NavigationDelegate.LoadRequest)
 [78.6]: {{javadoc_uri}}/GeckoSession.PromptDelegate.BeforeUnloadPrompt.html
 [78.7]: {{javadoc_uri}}/Autocomplete.html
@@ -1541,9 +1541,9 @@ to allow adding gecko profiler markers.
 [70.17]: {{javadoc_uri}}/ContentBlocking.html
 [70.18]: {{javadoc_uri}}/WebExtensionController.html
 [70.19]: {{javadoc_uri}}/WebExtensionController.TabDelegate.html
-[70.20]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/create
+[70.20]: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/create
 [70.21]: {{javadoc_uri}}/WebExtensionController.TabDelegate.html#onCloseTab(org.mozilla.geckoview.WebExtension,org.mozilla.geckoview.GeckoSession)
-[70.22]: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/remove
+[70.22]: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/remove
 [70.23]: {{javadoc_uri}}/GeckoSession.ContentDelegate.html
 [70.24]: {{javadoc_uri}}/WebPushController.html
 [70.25]: {{javadoc_uri}}/WebPushDelegate.html

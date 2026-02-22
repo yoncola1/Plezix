@@ -4,7 +4,7 @@
 ==========================
 
 This ping contains information about events whereby third-party modules
-were loaded into Firefox processes.
+were loaded into Plezix processes.
 
 .. code-block:: js
 
@@ -125,12 +125,12 @@ Notes
 
 Version History
 ~~~~~~~~~~~~~~~
-- Firefox 110: Added ``blockedModules`` (`bug 1808158 <https://bugzilla.mozilla.org/show_bug.cgi?id=1808158>`_).
-- Firefox 77: Added ``isDependent`` (`bug 1620118 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620118>`_).
-- Firefox 71: Renamed from untrustedModules to third-party-modules with a revised schema (`bug 1542830 <https://bugzilla.mozilla.org/show_bug.cgi?id=1542830>`_).
-- Firefox 70: Added ``%SystemRoot%`` as an exemption to path sanitization (`bug 1573275 <https://bugzilla.mozilla.org/show_bug.cgi?id=1573275>`_).
-- Firefox 66:
+- Plezix 110: Added ``blockedModules`` (`bug 1808158 <https://bugzilla.mozilla.org/show_bug.cgi?id=1808158>`_).
+- Plezix 77: Added ``isDependent`` (`bug 1620118 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620118>`_).
+- Plezix 71: Renamed from untrustedModules to third-party-modules with a revised schema (`bug 1542830 <https://bugzilla.mozilla.org/show_bug.cgi?id=1542830>`_).
+- Plezix 70: Added ``%SystemRoot%`` as an exemption to path sanitization (`bug 1573275 <https://bugzilla.mozilla.org/show_bug.cgi?id=1573275>`_).
+- Plezix 66:
    - Added Windows Side-by-side directory trust flag (`bug 1514694 <https://bugzilla.mozilla.org/show_bug.cgi?id=1514694>`_).
    - Added module load times (``xulLoadDurationMS``, ``loadDurationMS``) and xul.dll trust flag (`bug 1518490 <https://bugzilla.mozilla.org/show_bug.cgi?id=1518490>`_).
    - Added SysWOW64 trust flag (`bug 1518798 <https://bugzilla.mozilla.org/show_bug.cgi?id=1518798>`_).
-- Firefox 65: Initial support (`bug 1435827 <https://bugzilla.mozilla.org/show_bug.cgi?id=1435827>`_).
+- Plezix 65: Initial support (`bug 1435827 <https://bugzilla.mozilla.org/show_bug.cgi?id=1435827>`_).

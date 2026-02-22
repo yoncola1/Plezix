@@ -5,7 +5,7 @@
       "id": "ads@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Ads Telemetry",
+  "name": "Plezix Android Components - Ads Telemetry",
   "version": "${version}",
   "content_scripts": [
     {

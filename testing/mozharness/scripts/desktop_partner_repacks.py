@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 """desktop_partner_repacks.py
@@ -34,14 +34,14 @@ class DesktopPartnerRepacks(AutomationMixin, BaseScript, VirtualenvMixin, Secret
             ["--version", "-v"],
             {
                 "dest": "version",
-                "help": "Version of Firefox to repack",
+                "help": "Version of Plezix to repack",
             },
         ],
         [
             ["--build-number", "-n"],
             {
                 "dest": "build_number",
-                "help": "Build number of Firefox to repack",
+                "help": "Build number of Plezix to repack",
             },
         ],
         [
@@ -63,7 +63,7 @@ class DesktopPartnerRepacks(AutomationMixin, BaseScript, VirtualenvMixin, Secret
             {
                 "dest": "taskIds",
                 "action": "extend",
-                "help": "taskId(s) of upstream tasks for vanilla Firefox artifacts",
+                "help": "taskId(s) of upstream tasks for vanilla Plezix artifacts",
             },
         ],
         [

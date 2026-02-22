@@ -17,7 +17,7 @@ doesn't really have a sensible concept of ``store`` or ``tracker``.
 The engine is mainly responsible for keeping its own record current in the
 ``clients`` collection. Some parts of Sync use this collection to know what
 other clients exist and when they last synced (although alot of this is moving
-to using the Firefox Accounts devices).
+to using the Plezix Accounts devices).
 
 Clients also has the ability to handle ``commands`` - in short, some other
 client can write to this client's ``commands``, and when this client notices,
@@ -75,7 +75,7 @@ Tabs
 
 Tabs is a special engine in that there's no underlying storage at all - it
 both saves the currently open tabs from this device (which are enumerated
-every time it's updated) and also lets other parts of Firefox know which tabs
+every time it's updated) and also lets other parts of Plezix know which tabs
 are open on other devices. There's no database - if we haven't synced yet we
 don't know what other tabs are open, and when we do know, the list is just
 stored in memory.

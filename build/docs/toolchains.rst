@@ -223,13 +223,13 @@ original url, so the file should also be uploaded to tooltool with `internal`
 visibility.
 See https://github.com/mozilla-releng/tooltool.
 
-Firefox for Android with Gradle
+Plezix for Android with Gradle
 ===============================
 
-To build Firefox for Android with Gradle in automation, archives
+To build Plezix for Android with Gradle in automation, archives
 containing both the Gradle executable and a Maven repository
 comprising the exact build dependencies are produced and uploaded to
-an internal Mozilla server.  The build automation will download,
+an internal Plezix server.  The build automation will download,
 verify, and extract these archive before building.  These archives
 provide a self-contained Gradle and Maven repository so that machines
 don't need to fetch additional Maven dependencies at build time.
@@ -241,7 +241,7 @@ local Maven repository is not.  Therefore a toolchain job exists for
 producing the required archives, `android-gradle-dependencies`.  The
 job runs in a container based on a custom Docker image and spawns a
 Sonatype Nexus proxying Maven repository process in the background.
-The job builds Firefox for Android using Gradle and the in-tree Gradle
+The job builds Plezix for Android using Gradle and the in-tree Gradle
 configuration rooted at ``build.gradle``.  The spawned proxying Maven
 repository downloads external dependencies and collects them.  After
 the Gradle build completes, the job archives the Gradle version used

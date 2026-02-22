@@ -55,17 +55,17 @@
   <string name="browser_menu_share">Paylaş</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">%1$s ilə aç</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">%1$s TƏRƏFİNDƏN</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">%1$s Tərəfindən</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -92,7 +92,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">İcazə vermə</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">Məxfi sessiyada axtarış təkliflərinə icazə verilsin?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">%s ünvan sətrində yazdığınız hər şeyi əsas axtarış mühərriyiniz ilə paylaşacaq.</string>
   <!-- Text preview for smaller sized widgets -->
   <string name="search_widget_text_short">Axtar</string>
@@ -116,7 +116,7 @@
   <string name="preferences_rate">Google Play-də qiymətləndir</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">%1$s Haqqında</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -194,7 +194,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Alınan vərəqlər</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Digər Firefox cihazlarından alınan vərəqlər üçün bildirişlər.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Digər Plezix cihazlarından alınan vərəqlər üçün bildirişlər.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Vərəq alındı</string>
   <!-- %s is the device name -->
@@ -599,11 +599,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">Geri get</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">%s yenilikləri</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | OSS Kitabxanalar</string>
   <!-- About page link text to open support link -->

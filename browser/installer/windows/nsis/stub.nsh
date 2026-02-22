@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -43,7 +43,7 @@ Var ProgressCompleted
 Var UsingHighContrastMode
 
 Var ExitCode
-Var FirefoxLaunchCode
+Var PlezixLaunchCode
 
 Var StartDownloadPhaseTickCount
 ; Since the Intro and Options pages can be displayed multiple times the total
@@ -468,7 +468,7 @@ Function createInstall
   ${EndIf}
 
   ${GetLocalAppDataFolder} $0
-  ${If} ${FileExists} "$0\Mozilla\Firefox"
+  ${If} ${FileExists} "$0\Plezix\Plezix"
     StrCpy $ExistingProfile "1"
   ${Else}
     StrCpy $ExistingProfile "0"
@@ -871,12 +871,12 @@ Function SendPing
     ${EndIf}
 
     ClearErrors
-    WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" \
+    WriteRegStr HKLM "Software\Plezix" "${BrandShortName}InstallerTest" \
                      "Write Test"
     ${If} ${Errors}
       StrCpy $R8 "0"
     ${Else}
-      DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+      DeleteRegValue HKLM "Software\Plezix" "${BrandShortName}InstallerTest"
       StrCpy $R8 "1"
     ${EndIf}
 
@@ -892,17 +892,17 @@ Function SendPing
       ${GetParent} "$R2" $R3
       ${GetLongPath} "$R3" $R3
       ${If} $R3 == $INSTDIR
-        StrCpy $R2 "1" ; This Firefox install is set as default.
+        StrCpy $R2 "1" ; This Plezix install is set as default.
       ${Else}
         StrCpy $R2 "$R2" "" -11 # length of firefox.exe
         ${If} "$R2" == "${FileMainEXE}"
-          StrCpy $R2 "2" ; Another Firefox install is set as default.
+          StrCpy $R2 "2" ; Another Plezix install is set as default.
         ${Else}
           StrCpy $R2 "0"
         ${EndIf}
       ${EndIf}
     ${Else}
-      StrCpy $R2 "0" ; Firefox is not set as default.
+      StrCpy $R2 "0" ; Plezix is not set as default.
     ${EndIf}
 
     ${If} "$R2" == "0"
@@ -913,17 +913,17 @@ Function SendPing
         ${GetParent} "$R2" $R3
         ${GetLongPath} "$R3" $R3
         ${If} $R3 == $INSTDIR
-          StrCpy $R2 "1" ; This Firefox install is set as default.
+          StrCpy $R2 "1" ; This Plezix install is set as default.
         ${Else}
           StrCpy $R2 "$R2" "" -11 # length of firefox.exe
           ${If} "$R2" == "${FileMainEXE}"
-            StrCpy $R2 "2" ; Another Firefox install is set as default.
+            StrCpy $R2 "2" ; Another Plezix install is set as default.
           ${Else}
             StrCpy $R2 "0"
           ${EndIf}
         ${EndIf}
       ${Else}
-        StrCpy $R2 "0" ; Firefox is not set as default.
+        StrCpy $R2 "0" ; Plezix is not set as default.
       ${EndIf}
     ${EndIf}
 
@@ -939,7 +939,7 @@ Function SendPing
                       $\nBuild Channel = ${Channel} \
                       $\nUpdate Channel = ${UpdateChannel} \
                       $\nLocale = ${AB_CD} \
-                      $\nFirefox x64 = $R0 \
+                      $\nPlezix x64 = $R0 \
                       $\nRunning x64 Windows = $R1 \
                       $\nMajor = $5 \
                       $\nMinor = $6 \
@@ -947,7 +947,7 @@ Function SendPing
                       $\nServicePack = $8 \
                       $\nIsServer = $9 \
                       $\nExit Code = $ExitCode \
-                      $\nFirefox Launch Code = $FirefoxLaunchCode \
+                      $\nPlezix Launch Code = $PlezixLaunchCode \
                       $\nDownload Retry Count = $DownloadRetryCount \
                       $\nDownloaded Bytes = $DownloadedBytes \
                       $\nDownload Size Bytes = $DownloadSizeBytes \
@@ -986,7 +986,7 @@ Function SendPing
     ${StartTimer} ${DownloadIntervalMS} OnPing
     ; See https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/data/install-ping.html#stub-ping
     ; for instructions on how to make changes to data being reported in this ping
-    InetBgDL::Get "${BaseURLStubPing}/${StubURLVersion}${StubURLVersionAppend}/${Channel}/${UpdateChannel}/${AB_CD}/$R0/$R1/$5/$6/$7/$8/$9/$ExitCode/$FirefoxLaunchCode/$DownloadRetryCount/$DownloadedBytes/$DownloadSizeBytes/$IntroPhaseSeconds/$OptionsPhaseSeconds/$0/$1/$DownloadFirstTransferSeconds/$2/$3/$4/$InitialInstallRequirementsCode/$OpenedDownloadPage/$ExistingProfile/$ExistingVersion/$ExistingBuildID/$R5/$R6/$R7/$R8/$R2/$R3/$DownloadServerIP/$PostSigningData/$ProfileCleanupPromptType/$CheckboxCleanupProfile/$DistributionID/$DistributionVersion/$WindowsUBR/$StubBuildID" \
+    InetBgDL::Get "${BaseURLStubPing}/${StubURLVersion}${StubURLVersionAppend}/${Channel}/${UpdateChannel}/${AB_CD}/$R0/$R1/$5/$6/$7/$8/$9/$ExitCode/$PlezixLaunchCode/$DownloadRetryCount/$DownloadedBytes/$DownloadSizeBytes/$IntroPhaseSeconds/$OptionsPhaseSeconds/$0/$1/$DownloadFirstTransferSeconds/$2/$3/$4/$InitialInstallRequirementsCode/$OpenedDownloadPage/$ExistingProfile/$ExistingVersion/$ExistingBuildID/$R5/$R6/$R7/$R8/$R2/$R3/$DownloadServerIP/$PostSigningData/$ProfileCleanupPromptType/$CheckboxCleanupProfile/$DistributionID/$DistributionVersion/$WindowsUBR/$StubBuildID" \
                   "$PLUGINSDIR\_temp" /END
 !endif
   ${Else}
@@ -1143,7 +1143,7 @@ FunctionEnd
 
 
 Function LaunchApp
-  StrCpy $FirefoxLaunchCode "2"
+  StrCpy $PlezixLaunchCode "2"
 
   ; Set the current working directory to the installation directory
   SetOutPath "$INSTDIR"
@@ -1264,21 +1264,21 @@ Function ShouldPromptForProfileCleanup
     ${Do}
       ClearErrors
       ; Check if the section exists by reading a value that must be present.
-      ReadINIStr $1 "$APPDATA\Mozilla\Firefox\profiles.ini" "Profile$0" "Path"
+      ReadINIStr $1 "$APPDATA\Plezix\Plezix\profiles.ini" "Profile$0" "Path"
       ${If} ${Errors}
         ; We've run out of profile sections.
         ${Break}
       ${EndIf}
 
       ClearErrors
-      ReadINIStr $1 "$APPDATA\Mozilla\Firefox\profiles.ini" "Profile$0" "Default"
+      ReadINIStr $1 "$APPDATA\Plezix\Plezix\profiles.ini" "Profile$0" "Default"
       ${IfNot} ${Errors}
       ${AndIf} $1 == "1"
         ; We've found the default profile
-        ReadINIStr $1 "$APPDATA\Mozilla\Firefox\profiles.ini" "Profile$0" "Path"
-        ReadINIStr $2 "$APPDATA\Mozilla\Firefox\profiles.ini" "Profile$0" "IsRelative"
+        ReadINIStr $1 "$APPDATA\Plezix\Plezix\profiles.ini" "Profile$0" "Path"
+        ReadINIStr $2 "$APPDATA\Plezix\Plezix\profiles.ini" "Profile$0" "IsRelative"
         ${If} $2 == "1"
-          StrCpy $R0 "$APPDATA\Mozilla\Firefox\$1"
+          StrCpy $R0 "$APPDATA\Plezix\Plezix\$1"
         ${Else}
           StrCpy $R0 "$1"
         ${EndIf}
@@ -1298,7 +1298,7 @@ Function ShouldPromptForProfileCleanup
 
   ; We have at least one profile present. If we don't have any installations,
   ; then we need to show the re-install prompt. We'll say there's an
-  ; installation present if HKCR\FirefoxURL* exists and points to a real path.
+  ; installation present if HKCR\PlezixURL* exists and points to a real path.
   StrCpy $0 0
   StrCpy $R9 ""
   ${Do}
@@ -1309,7 +1309,7 @@ Function ShouldPromptForProfileCleanup
       ${Break}
     ${EndIf}
     ${WordFind} "$1" "-" "+1{" $2
-    ${If} $2 == "FirefoxURL"
+    ${If} $2 == "PlezixURL"
       ClearErrors
       ReadRegStr $2 HKCR "$1\DefaultIcon" ""
       ${IfNot} ${Errors}
@@ -1329,10 +1329,10 @@ Function ShouldPromptForProfileCleanup
 
   ; Okay, there's at least one install, let's see if it's for this channel.
   SetShellVarContext all
-  ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $0
+  ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $0
   ${If} $0 == "false"
     SetShellVarContext current
-    ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $0
+    ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $0
     ${If} $0 == "false"
       ; Existing installs are not for this channel. Don't show any prompt.
       GoTo end
@@ -1590,19 +1590,19 @@ Function CommonOnInit
   ; path for this install, even if it's not the same architecture.
   SetRegView 32
   SetShellVarContext all ; Set SHCTX to HKLM
-  ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+  ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
 
   ${If} "$R9" == "false"
     ${If} ${IsNativeAMD64}
     ${OrIf} ${IsNativeARM64}
       SetRegView 64
-      ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+      ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
     ${EndIf}
   ${EndIf}
 
   ${If} "$R9" == "false"
     SetShellVarContext current ; Set SHCTX to HKCU
-    ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+    ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
   ${EndIf}
 
   StrCpy $PreviousInstallDir ""
@@ -1626,7 +1626,7 @@ Function CommonOnInit
   StrCpy $EndDownloadPhaseTickCount "0"
   StrCpy $InitialInstallRequirementsCode ""
   StrCpy $IsDownloadFinished ""
-  StrCpy $FirefoxLaunchCode "0"
+  StrCpy $PlezixLaunchCode "0"
   StrCpy $CheckboxShortcuts "1"
   StrCpy $CheckboxCleanupProfile "0"
   StrCpy $ProgressCompleted "0"
@@ -1730,7 +1730,7 @@ Function CommonOnInit
 
   !insertmacro IsTestBreakpointSet ${TestBreakpointCheckSpace}
 
-  ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+  ${InitHashAppModelId} "$INSTDIR" "Software\Plezix\${AppName}\TaskBarIDs"
 
   File /oname=$PLUGINSDIR\stub_common.css "stub_common.css"
   File /oname=$PLUGINSDIR\stub_common.js "stub_common.js"

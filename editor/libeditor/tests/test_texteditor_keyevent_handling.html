@@ -289,8 +289,8 @@ async function runTests() {
     check(aDescription + "a", true, true, !aIsReadonly);
     sendString(" ");
     check(aDescription + "' '", true, true, !aIsReadonly);
-    is(aElement.value, !aIsReadonly ? "Mozilla " : "",
-       aDescription + "typed \"Mozilla \"");
+    is(aElement.value, !aIsReadonly ? "Plezix " : "",
+       aDescription + "typed \"Plezix \"");
 
     // typing non-BMP character:
     async function test_typing_surrogate_pair(

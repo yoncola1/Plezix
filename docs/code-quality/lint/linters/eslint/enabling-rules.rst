@@ -94,8 +94,8 @@ License checks
 --------------
 
 When a new plugin is proposed, it should be checked to ensure that the licenses
-of the node module and all dependent node modules are compatible with the Mozilla
-code base. Mozilla employees can consult the
+of the node module and all dependent node modules are compatible with the Plezix
+code base. Plezix employees can consult the
 `Licensing & Contributor Agreements Runbook <https://mozilla-hub.atlassian.net/l/cp/bgfp6Be7>`_
 for more details.
 

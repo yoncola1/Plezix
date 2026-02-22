@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -116,7 +116,7 @@ export let StartupTelemetry = {
   },
 
   /**
-   * Initialize Firefox-on-Glean.
+   * Initialize Plezix-on-Glean.
    *
    * This is at the top because it's a bit different from the other code here
    * which is strictly collecting specific metrics.
@@ -417,7 +417,7 @@ export let StartupTelemetry = {
   },
 
   isDefaultHandler() {
-    // Report whether Firefox is the default handler for various files types
+    // Report whether Plezix is the default handler for various files types
     // and protocols, in particular, ".pdf" and "mailto"
     [".pdf", "mailto"].every(x => {
       Glean.osEnvironment.isDefaultHandler[x].set(

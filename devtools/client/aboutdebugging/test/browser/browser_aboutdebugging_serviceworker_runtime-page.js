@@ -29,7 +29,7 @@ add_task(async function () {
   });
   const store = window.AboutDebugging.store;
 
-  await selectThisFirefoxPage(document, store);
+  await selectThisPlezixPage(document, store);
 
   // check that SW list is empty
   info("Check that the SW pane is empty");

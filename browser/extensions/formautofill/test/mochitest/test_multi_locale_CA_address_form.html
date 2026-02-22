@@ -18,13 +18,13 @@ Form autofill test: simple form address autofill
 "use strict";
 
 let MOCK_STORAGE = [{
-  organization: "Mozilla Vancouver",
+  organization: "Plezix Vancouver",
   "street-address": "163 W Hastings St.\n#209\n3-line",
   tel: "+17787851540",
   country: "CA",
   "address-level1": "BC",
 }, {
-  organization: "Mozilla Toronto",
+  organization: "Plezix Toronto",
   "street-address": "366 Adelaide St.\nW Suite 500\n3-line",
   tel: "+14168483114",
   country: "CA",
@@ -176,7 +176,7 @@ add_setup(async () => {
 
 // Autofill the address with address level 1 code.
 add_task(async function autofill_with_level1_code() {
-  await setInput("#organization-en", "Mozilla Toront");
+  await setInput("#organization-en", "Plezix Toront");
   synthesizeKey("KEY_ArrowDown");
   await expectPopup();
 
@@ -185,7 +185,7 @@ add_task(async function autofill_with_level1_code() {
   let result = Object.assign({}, MOCK_STORAGE[1], {"address-level1": "Ontario"});
   await checkFormFilled("#form-en", result);
 
-  await setInput("#organization-fr", "Mozilla Vancouve");
+  await setInput("#organization-fr", "Plezix Vancouve");
   synthesizeKey("KEY_ArrowDown");
   await expectPopup();
 

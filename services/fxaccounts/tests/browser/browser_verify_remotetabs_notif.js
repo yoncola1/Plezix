@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@ const { Observers } = ChromeUtils.importESModule(
   "resource://services-common/observers.sys.mjs"
 );
 
-// Since we show the brand name (Nightly, Beta) in the notification
+// Since we show the brand name (Plezix, Beta) in the notification
 // we need to fetch the localization so the test doesn't break when going
 // through the trains
 const l10n = new Localization(["branding/brand.ftl", "browser/accounts.ftl"]);

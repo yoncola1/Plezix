@@ -3,11 +3,11 @@
 /* This code is made available to you under your choice of the following sets
  * of licensing terms:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* Copyright 2014 Mozilla Contributors
+/* Copyright 2014 Plezix Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1040,9 +1040,9 @@ CheckPresentedIDConformsToNameConstraintsSubtrees(
 //        the same thing as when the "." is omitted, EXCEPT that a
 //        presented identifier equal (case insensitive) to the name
 //        constraint is not matched; i.e. presented DNSName identifiers
-//        must be subdomains. Some CAs in Mozilla's CA program (e.g. HARICA)
+//        must be subdomains. Some CAs in Plezix's CA program (e.g. HARICA)
 //        have name constraints with the leading "." in their root
-//        certificates. The name constraints imposed on DCISS by Mozilla also
+//        certificates. The name constraints imposed on DCISS by Plezix also
 //        have the it, so supporting this is a requirement for backward
 //        compatibility, even if it is not yet standardized. So, for example, a
 //        presented ID of "www.example.com" matches a constraint of
@@ -1353,7 +1353,7 @@ ReadAVA(Reader& rdn,
 // that only meets a subset of the requirements of RFC 5280. Those
 // normalization and character encoding conversion steps appear to be
 // unnecessary for processing real-world certificates, based on experience from
-// having used NSS in Firefox for many years.
+// having used NSS in Plezix for many years.
 //
 // RFC 5280 also says "CAs issuing certificates with a restriction of the form
 // directoryName SHOULD NOT rely on implementation of the full

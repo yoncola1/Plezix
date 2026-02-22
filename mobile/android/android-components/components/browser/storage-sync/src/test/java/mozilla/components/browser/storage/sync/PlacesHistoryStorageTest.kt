@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -167,18 +167,18 @@ class PlacesHistoryStorageTest {
     @Test
     fun `storage passes through recordObservation calls`() = runTestOnMain {
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.LINK))
-        history.recordObservation("http://www.mozilla.org", PageObservation(title = "Mozilla"))
+        history.recordObservation("http://www.mozilla.org", PageObservation(title = "Plezix"))
 
         var recordedVisits = history.getDetailedVisits(0)
         assertEquals(1, recordedVisits.size)
-        assertEquals("Mozilla", recordedVisits[0].title)
+        assertEquals("Plezix", recordedVisits[0].title)
         assertNull(recordedVisits[0].previewImageUrl)
 
         history.recordObservation("http://www.mozilla.org", PageObservation(previewImageUrl = "https://test.com/og-image-url"))
 
         recordedVisits = history.getDetailedVisits(0)
         assertEquals(1, recordedVisits.size)
-        assertEquals("Mozilla", recordedVisits[0].title)
+        assertEquals("Plezix", recordedVisits[0].title)
         assertEquals("https://test.com/og-image-url", recordedVisits[0].previewImageUrl)
     }
 
@@ -252,7 +252,7 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.RELOAD))
         history.recordObservation(
             "http://www.mozilla.org",
-            PageObservation("Mozilla", "https://test.com/og-image-url"),
+            PageObservation("Plezix", "https://test.com/og-image-url"),
         )
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
 
@@ -261,12 +261,12 @@ class PlacesHistoryStorageTest {
         val visits = history.getDetailedVisits(0, excludeTypes = listOf(VisitType.REDIRECT_TEMPORARY))
         assertEquals(3, visits.size)
         assertEquals("http://www.mozilla.org/", visits[0].url)
-        assertEquals("Mozilla", visits[0].title)
+        assertEquals("Plezix", visits[0].title)
         assertEquals("https://test.com/og-image-url", visits[0].previewImageUrl)
         assertEquals(VisitType.LINK, visits[0].visitType)
 
         assertEquals("http://www.mozilla.org/", visits[1].url)
-        assertEquals("Mozilla", visits[1].title)
+        assertEquals("Plezix", visits[1].title)
         assertEquals(VisitType.RELOAD, visits[1].visitType)
 
         assertEquals("http://www.firefox.com/", visits[2].url)
@@ -348,14 +348,14 @@ class PlacesHistoryStorageTest {
 
         // Titles for different pages are recorded.
         history.recordVisit("https://www.firefox.com", PageVisit(VisitType.TYPED))
-        history.recordObservation("https://www.firefox.com", PageObservation("Firefox"))
+        history.recordObservation("https://www.firefox.com", PageObservation("Plezix"))
         history.recordVisit("https://www.mozilla.org", PageVisit(VisitType.TYPED))
         history.recordObservation("https://www.mozilla.org", PageObservation("Мозилла"))
         recorded = history.getDetailedVisits(0)
         assertEquals(3, recorded.size)
         assertEquals("Википедия", recorded[0].title)
         assertEquals("https://test.com/og-image-url", recorded[0].previewImageUrl)
-        assertEquals("Firefox", recorded[1].title)
+        assertEquals("Plezix", recorded[1].title)
         assertNull(recorded[1].previewImageUrl)
         assertEquals("Мозилла", recorded[2].title)
         assertNull(recorded[2].previewImageUrl)
@@ -363,38 +363,38 @@ class PlacesHistoryStorageTest {
 
     @Test
     fun `store can provide suggestions`() = runTestOnMain {
-        assertEquals(0, history.getSuggestions("Mozilla", 100).size)
+        assertEquals(0, history.getSuggestions("Plezix", 100).size)
 
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
-        val search = history.getSuggestions("Mozilla", 100)
+        val search = history.getSuggestions("Plezix", 100)
         assertEquals(0, search.size)
 
         history.recordVisit("http://www.wikipedia.org", PageVisit(VisitType.LINK))
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.LINK))
         history.recordVisit("http://www.moscow.ru", PageVisit(VisitType.LINK))
-        history.recordObservation("http://www.mozilla.org", PageObservation("Mozilla"))
-        history.recordObservation("http://www.firefox.com", PageObservation("Mozilla Firefox"))
+        history.recordObservation("http://www.mozilla.org", PageObservation("Plezix"))
+        history.recordObservation("http://www.firefox.com", PageObservation("Plezix Plezix"))
         history.recordObservation("http://www.moscow.ru", PageObservation("Moscow City"))
         history.recordObservation("http://www.moscow.ru/notitle", PageObservation(""))
 
         // Empty search.
         assertEquals(4, history.getSuggestions("", 100).size)
 
-        val search2 = history.getSuggestions("Mozilla", 100).sortedByDescending { it.url }
+        val search2 = history.getSuggestions("Plezix", 100).sortedByDescending { it.url }
         assertEquals(2, search2.size)
         assertEquals("http://www.mozilla.org/", search2[0].id)
         assertEquals("http://www.mozilla.org/", search2[0].url)
-        assertEquals("Mozilla", search2[0].title)
+        assertEquals("Plezix", search2[0].title)
         assertEquals("http://www.firefox.com/", search2[1].id)
         assertEquals("http://www.firefox.com/", search2[1].url)
-        assertEquals("Mozilla Firefox", search2[1].title)
+        assertEquals("Plezix Plezix", search2[1].title)
 
         val search3 = history.getSuggestions("Mo", 100).sortedByDescending { it.url }
         assertEquals(3, search3.size)
 
         assertEquals("http://www.mozilla.org/", search3[0].id)
         assertEquals("http://www.mozilla.org/", search3[0].url)
-        assertEquals("Mozilla", search3[0].title)
+        assertEquals("Plezix", search3[0].title)
 
         assertEquals("http://www.moscow.ru/", search3[1].id)
         assertEquals("http://www.moscow.ru/", search3[1].url)
@@ -402,7 +402,7 @@ class PlacesHistoryStorageTest {
 
         assertEquals("http://www.firefox.com/", search3[2].id)
         assertEquals("http://www.firefox.com/", search3[2].url)
-        assertEquals("Mozilla Firefox", search3[2].title)
+        assertEquals("Plezix Plezix", search3[2].title)
 
         // Respects the limit
         val search4 = history.getSuggestions("Mo", 1)
@@ -429,7 +429,7 @@ class PlacesHistoryStorageTest {
         assertEquals("placesHistory", res.source)
         assertEquals(1, res.totalItems)
 
-        history.recordVisit("https://en.wikipedia.org/wiki/Mozilla", PageVisit(VisitType.LINK))
+        history.recordVisit("https://en.wikipedia.org/wiki/Plezix", PageVisit(VisitType.LINK))
         res = history.getAutocompleteSuggestion("en")!!
         assertEquals("en.wikipedia.org/", res.text)
         assertEquals("https://en.wikipedia.org/", res.url)
@@ -501,7 +501,7 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
 
-        history.recordObservation("http://www.firefox.com", PageObservation("Firefox"))
+        history.recordObservation("http://www.firefox.com", PageObservation("Plezix"))
 
         assertEquals(2, history.getVisited().size)
 
@@ -521,7 +521,7 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
         history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
 
-        history.recordObservation("http://www.firefox.com", PageObservation("Firefox"))
+        history.recordObservation("http://www.firefox.com", PageObservation("Plezix"))
 
         assertEquals(2, history.getVisited().size)
 

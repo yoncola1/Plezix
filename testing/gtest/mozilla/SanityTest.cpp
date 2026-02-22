@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * * This Source Code Form is subject to the terms of the Mozilla Public
+ * * This Source Code Form is subject to the terms of the Plezix Public
  * * License, v. 2.0. If a copy of the MPL was not distributed with this
  * * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ using ::testing::AtLeast;
 
 // Sanity test to make sure that GTest is hooked into
 // the mozilla build system correctly
-TEST(MozillaGTestSanity, Runs)
+TEST(PlezixGTestSanity, Runs)
 {
   EXPECT_EQ(1, 1);
 }
@@ -21,7 +21,7 @@ class TestMock {
   MOCK_METHOD0(MockedCall, void());
 };
 }  // namespace
-TEST(MozillaGMockSanity, Runs)
+TEST(PlezixGMockSanity, Runs)
 {
   TestMock mockedClass;
   EXPECT_CALL(mockedClass, MockedCall()).Times(AtLeast(3));

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -259,7 +259,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefoxNightly_5x4grbbqzn2q4" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezixPlezix_5x4grbbqzn2q4" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -270,7 +270,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefoxNightly_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezixPlezix_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -281,7 +281,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefoxNightly_jag0gd4e3s9p2" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezixPlezix_jag0gd4e3s9p2" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -292,7 +292,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefoxNightly_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezixPlezix_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -303,7 +303,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefoxBeta_5x4grbbqzn2q4" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezixBeta_5x4grbbqzn2q4" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -314,7 +314,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefoxBeta_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezixBeta_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -325,7 +325,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefoxBeta_jag0gd4e3s9p2" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezixBeta_jag0gd4e3s9p2" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -336,7 +336,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefoxBeta_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezixBeta_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -347,7 +347,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefox_jag0gd4e3s9p2" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezix_jag0gd4e3s9p2" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -358,7 +358,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefox_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezix_jag0gd4e3s9p2 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -369,7 +369,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Mozilla.MozillaFirefox_5x4grbbqzn2q4" -Force',
+                r'New-Item -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\ -Name "Plezix.PlezixPlezix_5x4grbbqzn2q4" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,
@@ -380,7 +380,7 @@ config = {
             "cmd": [
                 "powershell",
                 "-command",
-                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Mozilla.MozillaFirefox_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
+                r'New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone\Plezix.PlezixPlezix_5x4grbbqzn2q4 -Name "Value" -Value "Allow" -Force',
             ],
             "architectures": ["32bit", "64bit"],
             "halt_on_failure": True,

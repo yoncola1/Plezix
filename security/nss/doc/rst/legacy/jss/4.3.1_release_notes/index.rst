@@ -167,7 +167,7 @@
 
    -  Bugs discovered should be reported by filing a bug report with
       `bugzilla <http://bugzilla.mozilla.org/enter_bug.cgi?product=JSS>`__.
-   -  You can also give feedback directly to the developers on the Mozilla Cryptography forums...
+   -  You can also give feedback directly to the developers on the Plezix Cryptography forums...
 
       -  `Mailing list <https://lists.mozilla.org/listinfo/dev-tech-crypto>`__
       -  `Newsgroup <http://groups.google.com/group/mozilla.dev.tech.crypto>`__

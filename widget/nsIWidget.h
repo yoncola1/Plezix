@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -966,7 +966,7 @@ class nsIWidget : public nsISupports {
    * This can fail if the platform doesn't support
    * transparency/glass. By default widgets are not
    * transparent.  This will also fail if the toplevel window is not
-   * a Mozilla window, e.g., if the widget is in an embedded
+   * a Plezix window, e.g., if the widget is in an embedded
    * context.
    *
    * After transparency/glass has been enabled, the initial alpha channel

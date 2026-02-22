@@ -4,7 +4,7 @@
 Identifiers
 ===========
 
-Firefox Health Report records some identifiers to keep track of clients
+Plezix Health Report records some identifiers to keep track of clients
 and uploaded documents.
 
 Identifier Types
@@ -70,7 +70,7 @@ Rollback
 A significant percentage of the records on the server belonged to
 misbehaving clients. Identifying these records was extremely resource
 intensive and error-prone. These records were undermining the ability
-to use Firefox Health Report data.
+to use Plezix Health Report data.
 
 Thus, the *Client ID* was born. The intent of the *Client ID* was to
 uniquely identify clients so the extreme effort required and the

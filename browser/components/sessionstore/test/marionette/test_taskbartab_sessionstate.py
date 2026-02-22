@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -34,7 +34,7 @@ class TestTaskbarTabSessionState(SessionStoreTestCase):
         )
 
     """
-    Close all Firefox windows with the web app being closed last,
+    Close all Plezix windows with the web app being closed last,
     the session store state should include the last regular window
     that's closed, but not the web app
     """
@@ -48,7 +48,7 @@ class TestTaskbarTabSessionState(SessionStoreTestCase):
 
         self.open_taskbartab_window()
 
-        # Close the original regular Firefox window
+        # Close the original regular Plezix window
         taskbar_tab_window_handle = self.marionette.close_chrome_window()[0]
         self.marionette.switch_to_window(taskbar_tab_window_handle)
 

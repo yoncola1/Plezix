@@ -11,7 +11,7 @@ The readme.txt file states that the code is GPLv3 and the generated image files
 are in the public domain. We have not included the code, but we have included:
 (a) some quotes from the documentation and (b) some of the reference PNG
 images. However, (a) and (b) are for testing purposes only and are not included
-in Firefox releases.
+in Plezix releases.
 
 The BMP files within this directory were generated with bmpsuite v2.3 (git
 revision 3adcc9e20c0b6d2d665966b7e047b6f9474cef12). (Since then updated to v2.8

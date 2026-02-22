@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -38,12 +38,12 @@ import subprocess
 class PackagerFileFinder(FileFinder):
     def get(self, path):
         f = super(PackagerFileFinder, self).get(path)
-        # Normalize Info.plist files, and remove the MozillaDeveloper*Path
+        # Normalize Info.plist files, and remove the PlezixDeveloper*Path
         # entries which are only needed on unpackaged builds.
         if mozpath.basename(path) == "Info.plist":
             info = plistlib.load(f.open(), dict_type=OrderedDict)
-            info.pop("MozillaDeveloperObjPath", None)
-            info.pop("MozillaDeveloperRepoPath", None)
+            info.pop("PlezixDeveloperObjPath", None)
+            info.pop("PlezixDeveloperRepoPath", None)
             return GeneratedFile(plistlib.dumps(info, sort_keys=False))
         return f
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import mozilla.components.feature.tabs.TabsUseCases
 import mozilla.components.lib.state.helpers.AbstractBinding
 import mozilla.components.ui.widgets.SnackbarDelegate
 import org.mozilla.fenix.FeatureFlags
-import org.mozilla.fenix.GleanMetrics.SentFromFirefox
+import org.mozilla.fenix.GleanMetrics.SentFromPlezix
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.BrowserFragmentDirections
 import org.mozilla.fenix.components.AppStore
@@ -159,7 +159,7 @@ class SnackbarBinding(
                             duration = Snackbar.LENGTH_LONG,
                             action = R.string.link_shared_snackbar_action,
                         ) {
-                            SentFromFirefox.snackbarClicked.record()
+                            SentFromPlezix.snackbarClicked.record()
                             // Navigating twice ensures the correct behavior when opening the link
                             // sharing settings screen. The first navigation scrolls to the link
                             // sharing section in the settings screen. The second navigation opens

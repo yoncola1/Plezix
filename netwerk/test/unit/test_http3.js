@@ -180,7 +180,7 @@ Http3CheckListener.prototype = {
       } catch (e) {}
       Assert.equal(httpVersion, "h3");
       Assert.equal(this.onDataAvailableFired, true);
-      Assert.equal(request.getResponseHeader("X-Firefox-Http3"), "h3");
+      Assert.equal(request.getResponseHeader("X-Plezix-Http3"), "h3");
     }
     run_next_test();
     do_test_finished();
@@ -246,7 +246,7 @@ function test_https_alt_svc() {
   dump("test_https_alt_svc()\n");
   do_test_pending();
   if (mozinfo.os == "android") {
-    // Set necessary prefs to make Firefox connect to the http3Server on the
+    // Set necessary prefs to make Plezix connect to the http3Server on the
     // host machine.
     prefs.setCharPref("network.dns.localDomains", "");
     const overrideService = Cc[

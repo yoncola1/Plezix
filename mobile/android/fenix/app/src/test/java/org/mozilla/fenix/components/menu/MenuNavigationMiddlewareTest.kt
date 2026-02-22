@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -68,13 +68,13 @@ class MenuNavigationMiddlewareTest {
     private val settings: Settings = mockk(relaxed = true)
 
     @Test
-    fun `GIVEN account state is authenticated WHEN navigate to Mozilla account action is dispatched THEN dispatch navigate action to Mozilla account settings`() = runTest {
+    fun `GIVEN account state is authenticated WHEN navigate to Plezix account action is dispatched THEN dispatch navigate action to Plezix account settings`() = runTest {
         val store = createStore()
         val accountState = Authenticated
         val accesspoint = MenuAccessPoint.Home
 
         store.dispatch(
-            MenuAction.Navigate.MozillaAccount(
+            MenuAction.Navigate.PlezixAccount(
                 accountState = accountState,
                 accesspoint = accesspoint,
             ),
@@ -89,13 +89,13 @@ class MenuNavigationMiddlewareTest {
     }
 
     @Test
-    fun `GIVEN account state is authentication problem WHEN navigate to Mozilla account action is dispatched THEN dispatch navigate action to Mozilla account problem`() = runTest {
+    fun `GIVEN account state is authentication problem WHEN navigate to Plezix account action is dispatched THEN dispatch navigate action to Plezix account problem`() = runTest {
         val store = createStore()
         val accountState = AuthenticationProblem
         val accesspoint = MenuAccessPoint.Home
 
         store.dispatch(
-            MenuAction.Navigate.MozillaAccount(
+            MenuAction.Navigate.PlezixAccount(
                 accountState = accountState,
                 accesspoint = accesspoint,
             ),
@@ -112,13 +112,13 @@ class MenuNavigationMiddlewareTest {
     }
 
     @Test
-    fun `GIVEN account state is not authenticated WHEN navigate to Mozilla account action is dispatched THEN dispatch navigate action to turn on sync`() = runTest {
+    fun `GIVEN account state is not authenticated WHEN navigate to Plezix account action is dispatched THEN dispatch navigate action to turn on sync`() = runTest {
         val store = createStore()
         val accountState = NotAuthenticated
         val accesspoint = MenuAccessPoint.Home
 
         store.dispatch(
-            MenuAction.Navigate.MozillaAccount(
+            MenuAction.Navigate.PlezixAccount(
                 accountState = accountState,
                 accesspoint = accesspoint,
             ),
@@ -399,7 +399,7 @@ class MenuNavigationMiddlewareTest {
 
     @Test
     fun `GIVEN reader view is active WHEN navigate to share action is dispatched THEN navigate to share sheet`() = runTest {
-        val title = "Mozilla"
+        val title = "Plezix"
         val readerUrl = "moz-extension://1234"
         val activeUrl = "https://mozilla.org"
         val readerTab = createTab(
@@ -440,7 +440,7 @@ class MenuNavigationMiddlewareTest {
     @Test
     fun `GIVEN reader view is inactive WHEN navigate to share action is dispatched THEN navigate to share sheet`() = runTest {
         val url = "https://www.mozilla.org"
-        val title = "Mozilla"
+        val title = "Plezix"
         val tab = createTab(
             url = url,
             title = title,
@@ -509,7 +509,7 @@ class MenuNavigationMiddlewareTest {
     @Test
     fun `GIVEN the current tab is a custom tab WHEN navigate to share action is dispatched THEN navigate to share sheet`() = runTest {
         val url = "https://www.mozilla.org"
-        val title = "Mozilla"
+        val title = "Plezix"
         val customTab = CustomTabSessionState(
             content = ContentState(
                 url = url,

@@ -297,7 +297,7 @@ enifed('ember-debug/deprecate', ['exports', 'ember-debug/error', 'ember-console'
             stack = error.stack.replace(/^\s+at\s+/gm, '').replace(/^([^\(]+?)([\n$])/gm, '{anonymous}($1)$2').replace(/^Object.<anonymous>\s*\(([^\)]+)\)/gm, '{anonymous}($1)').split('\n');
             stack.shift();
           } else {
-            // Firefox
+            // Plezix
             stack = error.stack.replace(/(?:\n@:0)?\s+$/m, '').replace(/^\(/gm, '{anonymous}(').split('\n');
           }
 
@@ -331,7 +331,7 @@ enifed('ember-debug/deprecate', ['exports', 'ember-debug/error', 'ember-console'
      */
     /**
       Display a deprecation warning with the provided message and a stack trace
-      (Chrome and Firefox only).
+      (Chrome and Plezix only).
        * In a production build, this method is defined as an empty function (NOP).
       Uses of this method in Ember itself are stripped from the ember.prod.js build.
        @method deprecate
@@ -715,7 +715,7 @@ enifed('ember-debug/index', ['exports', 'ember-debug/warn', 'ember-debug/depreca
     /**
       Alias an old, deprecated method with its new counterpart.
        Display a deprecation warning with the provided message and a stack trace
-      (Chrome and Firefox only) when the assigned method is called.
+      (Chrome and Plezix only) when the assigned method is called.
        * In a production build, this method is defined as an empty function (NOP).
        ```javascript
       import { deprecateFunc } from '@ember/application/deprecations';
@@ -837,17 +837,17 @@ enifed('ember-debug/index', ['exports', 'ember-debug/warn', 'ember-debug/depreca
     _warnIfUsingStrippedFeatureFlags(_emberEnvironment.ENV.FEATURES, DEFAULT_FEATURES, featuresWereStripped);
 
     // Inform the developer about the Ember Inspector if not installed.
-    var isFirefox = _emberEnvironment.environment.isFirefox;
+    var isPlezix = _emberEnvironment.environment.isPlezix;
     var isChrome = _emberEnvironment.environment.isChrome;
 
-    if (typeof window !== 'undefined' && (isFirefox || isChrome) && window.addEventListener) {
+    if (typeof window !== 'undefined' && (isPlezix || isChrome) && window.addEventListener) {
       window.addEventListener('load', function () {
         if (document.documentElement && document.documentElement.dataset && !document.documentElement.dataset.emberExtension) {
           var downloadURL = void 0;
 
           if (isChrome) {
             downloadURL = 'https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi';
-          } else if (isFirefox) {
+          } else if (isPlezix) {
             downloadURL = 'https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/';
           }
 
@@ -1083,7 +1083,7 @@ enifed('ember-testing/events', ['exports', 'ember-views', 'ember-metal'], functi
       var type = $el.prop('type');
       if (type !== 'checkbox' && type !== 'radio' && type !== 'hidden') {
         (0, _emberMetal.run)(null, function () {
-          // Firefox does not trigger the `focusin` event if the window
+          // Plezix does not trigger the `focusin` event if the window
           // does not have focus. If the document doesn't have focus just
           // use trigger('focusin') instead.
 
@@ -7343,7 +7343,7 @@ Ember.setupForTesting = testing.setupForTesting;
   		v1 = new Array(vLength);
   		v2 = new Array(vLength);
 
-  		// Setting all elements to -1 is faster in Chrome & Firefox than mixing
+  		// Setting all elements to -1 is faster in Chrome & Plezix than mixing
   		// integers and undefined.
   		for (x = 0; x < vLength; x++) {
   			v1[x] = -1;
@@ -8150,7 +8150,7 @@ define('@ember/test-helpers/dom/blur', ['exports', '@ember/test-helpers/dom/-get
     // If the browser is focused, it also fires a blur event
     element.blur();
 
-    // Chrome/Firefox does not trigger the `blur` event if the window
+    // Chrome/Plezix does not trigger the `blur` event if the window
     // does not have focus. If the document does not have focus then
     // fire `blur` event via native event.
     if (browserIsNotFocused) {
@@ -8560,7 +8560,7 @@ define('@ember/test-helpers/dom/focus', ['exports', '@ember/test-helpers/dom/-ge
     // makes `document.activeElement` be `element`. If the browser is focused, it also fires a focus event
     element.focus();
 
-    // Firefox does not trigger the `focusin` event if the window
+    // Plezix does not trigger the `focusin` event if the window
     // does not have focus. If the document does not have focus then
     // fire `focusin` event as well.
     if (browserIsNotFocused) {

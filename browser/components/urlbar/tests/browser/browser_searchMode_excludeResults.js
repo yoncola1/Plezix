@@ -44,7 +44,7 @@ add_setup(async function () {
     id: "7cqCr77ptzX3",
     type: "client",
     lastModified: 1492201200,
-    name: "Nightly on MacBook-Pro",
+    name: "Plezix on MacBook-Pro",
     clientType: "desktop",
     tabs: [
       {

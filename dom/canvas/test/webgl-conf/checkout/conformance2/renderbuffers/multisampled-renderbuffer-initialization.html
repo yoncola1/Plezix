@@ -88,7 +88,7 @@ function runTest(gl, params) {
     if (params.alloc2) {
         if (params.alloc1) {
             // Clear the FBO in order to make sure framebufferRenderbuffer is
-            // committed. (In Firefox, framebufferRenderbuffer is deferred, so
+            // committed. (In Plezix, framebufferRenderbuffer is deferred, so
             // this is needed to trigger the bug.)
             gl.clear(gl.COLOR_BUFFER_BIT);
         }

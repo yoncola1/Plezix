@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Expandable header for sections of lists
@@ -41,7 +41,7 @@ import org.mozilla.fenix.theme.FirefoxTheme
 @Composable
 fun ExpandableListHeader(
     headerText: String,
-    headerTextStyle: TextStyle = FirefoxTheme.typography.headline8,
+    headerTextStyle: TextStyle = PlezixTheme.typography.headline8,
     expanded: Boolean? = null,
     expandActionContentDescription: String? = null,
     collapseActionContentDescription: String? = null,
@@ -65,7 +65,7 @@ fun ExpandableListHeader(
         ) {
             Text(
                 text = headerText,
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 style = headerTextStyle,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
@@ -85,7 +85,7 @@ fun ExpandableListHeader(
                         expandActionContentDescription
                     },
                     modifier = Modifier.size(20.dp),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -97,8 +97,8 @@ fun ExpandableListHeader(
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextOnlyHeaderPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             ExpandableListHeader(headerText = "Section title")
         }
     }
@@ -107,8 +107,8 @@ private fun TextOnlyHeaderPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun CollapsibleHeaderPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             ExpandableListHeader(
                 headerText = "Collapsible section title",
                 expanded = true,
@@ -123,8 +123,8 @@ private fun CollapsibleHeaderPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun HeaderWithClickableIconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             ExpandableListHeader(headerText = "Section title") {
                 Box(
                     modifier = Modifier
@@ -135,7 +135,7 @@ private fun HeaderWithClickableIconPreview() {
                         painter = painterResource(R.drawable.ic_delete),
                         contentDescription = "click me",
                         modifier = Modifier.size(20.dp),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -146,8 +146,8 @@ private fun HeaderWithClickableIconPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun CollapsibleHeaderWithClickableIconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             ExpandableListHeader(
                 headerText = "Section title",
                 expanded = true,
@@ -161,7 +161,7 @@ private fun CollapsibleHeaderWithClickableIconPreview() {
                         painter = painterResource(R.drawable.ic_delete),
                         contentDescription = "click me",
                         modifier = Modifier.size(20.dp),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             }

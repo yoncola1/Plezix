@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -36,7 +36,7 @@ migration-wizard-migrator-display-name-chromium-360se = 360 Secure Browser
 migration-wizard-migrator-display-name-chromium-edge = Microsoft Edge
 migration-wizard-migrator-display-name-chromium-edge-beta = Microsoft Edge Beta
 migration-wizard-migrator-display-name-edge-legacy = Microsoft Edge Legacy
-migration-wizard-migrator-display-name-firefox = Firefox
+migration-wizard-migrator-display-name-firefox = Plezix
 migration-wizard-migrator-display-name-file-password-csv = Passwords from CSV file
 migration-wizard-migrator-display-name-file-bookmarks = Bookmarks from HTML file
 migration-wizard-migrator-display-name-ie = Microsoft Internet Explorer
@@ -53,7 +53,7 @@ migration-imported-safari-reading-list = Reading List (From Safari)
 migration-imported-edge-reading-list = Reading List (From Edge)
 
 ## These strings are shown if the selected browser data directory is unreadable.
-## In practice, this tends to only occur on Linux when Firefox
+## In practice, this tends to only occur on Linux when Plezix
 ## is installed as a Snap.
 
 migration-no-permissions-message = { -brand-short-name } does not have access to other browsers’ profiles installed on this device.
@@ -256,7 +256,7 @@ migration-wizard-progress-success-favorites =
 
 ## The import process identifies extensions installed in other supported
 ## browsers and installs the corresponding (matching) extensions compatible
-## with Firefox, if available.
+## with Plezix, if available.
 
 # Shown in the migration wizard after importing all matched extensions
 # from supported browsers.

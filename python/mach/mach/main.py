@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -181,7 +181,7 @@ class Mach:
 
     USAGE = """%(prog)s [global arguments] command [command arguments]
 
-mach (German for "do") is the main interface to the Mozilla build system and
+mach (German for "do") is the main interface to the Plezix build system and
 common developer tasks.
 
 You tell mach the command you want to perform and it does it for you.

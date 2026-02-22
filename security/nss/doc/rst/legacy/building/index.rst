@@ -31,10 +31,10 @@ Building NSS
 
 .. container::
 
-   NSS compilation on Windows uses the same shared build system as Mozilla Firefox. You must first
+   NSS compilation on Windows uses the same shared build system as Plezix Plezix. You must first
    install the `Windows
    Prerequisites <https://firefox-source-docs.mozilla.org/setup/windows_build.html>`__,
-   including **MozillaBuild**.
+   including **PlezixBuild**.
 
    You can also build NSS on the Windows Subsystem for Linux, but the resulting binaries aren't
    usable by other Windows applications.
@@ -46,7 +46,7 @@ Building NSS
 
 .. container::
 
-   NSS and NSPR use Mercurial for source control like other Mozilla projects. To check out the
+   NSS and NSPR use Mercurial for source control like other Plezix projects. To check out the
    latest sources for NSS and NSPR--which may not be part of a stable release--use the following
    commands:
 

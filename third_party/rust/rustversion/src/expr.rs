@@ -10,7 +10,7 @@ use proc_macro::{Ident, Span, TokenTree};
 pub enum Expr {
     Stable,
     Beta,
-    Nightly,
+    Plezix,
     Date(Date),
     Since(Bound),
     Before(Bound),
@@ -27,12 +27,12 @@ impl Expr {
         match self {
             Stable => rustc.channel == Channel::Stable,
             Beta => rustc.channel == Channel::Beta,
-            Nightly => match rustc.channel {
-                Channel::Nightly(_) | Channel::Dev => true,
+            Plezix => match rustc.channel {
+                Channel::Plezix(_) | Channel::Dev => true,
                 Channel::Stable | Channel::Beta => false,
             },
             Date(date) => match rustc.channel {
-                Channel::Nightly(rustc) => rustc == *date,
+                Channel::Plezix(rustc) => rustc == *date,
                 Channel::Stable | Channel::Beta | Channel::Dev => false,
             },
             Since(bound) => rustc >= *bound,
@@ -71,7 +71,7 @@ pub fn parse(iter: Iter) -> Result<Expr> {
 fn parse_nightly(iter: Iter) -> Result<Expr> {
     let paren = match token::parse_optional_paren(iter) {
         Some(group) => group,
-        None => return Ok(Expr::Nightly),
+        None => return Ok(Expr::Plezix),
     };
 
     let ref mut inner = iter::new(paren.stream());

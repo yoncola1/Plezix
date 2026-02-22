@@ -87,7 +87,7 @@ pref('string.single-quotes', '"abc"');
 pref("string.double-quotes", "'abc'");
 pref("string.weird-chars", " 	    ");
 pref("string.escapes", "\" \' \\ \n \r");
-pref("string.x-escapes1", "Mozilla0\x4d\x6F\x7a\x69\x6c\x6C\x610");
+pref("string.x-escapes1", "Plezix0\x4d\x6F\x7a\x69\x6c\x6C\x610");
 pref("string.x-escapes2", "A\x41 A_umlaut\xc4 y_umlaut\xff");
 pref("string.u-escapes1", "A\u0041 A_umlaut\u00c4 y_umlaut\u00ff0");
 pref("string.u-escapes2", "S_acute\u015a y_grave\u1Ef3");

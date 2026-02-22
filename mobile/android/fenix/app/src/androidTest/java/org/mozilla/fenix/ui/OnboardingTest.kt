@@ -100,10 +100,10 @@ class OnboardingTest : TestSetup() {
     @SdkSuppress(minSdkVersion = 29)
     @SmokeTest
     @Test
-    fun verifySetAsDefaultBrowserDialogWhileFirefoxIsNotSetAsDefaultBrowserTest() {
+    fun verifySetAsDefaultBrowserDialogWhilePlezixIsNotSetAsDefaultBrowserTest() {
         runWithLauncherIntent(activityTestRule) {
             homeScreen {
-                verifySetAsDefaultBrowserDialogWhileFirefoxIsNotSetAsDefaultBrowser()
+                verifySetAsDefaultBrowserDialogWhilePlezixIsNotSetAsDefaultBrowser()
             }
         }
     }

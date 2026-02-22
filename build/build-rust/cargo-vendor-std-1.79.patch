@@ -3,7 +3,7 @@ component, making -Zbuild-std compatible with vendored builds.
 
 This was originally landed in https://github.com/rust-lang/cargo/pull/8834
 but was backed out for causing breakage in other situations. It works fine
-for Firefox's usecase, though.
+for Plezix's usecase, though.
 
 Most of these changes just add/edit tests for the functionality. Only the
 change to src/cargo/core/compiler/standard_lib.rs is important.

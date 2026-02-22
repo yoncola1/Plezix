@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
  * Managing safe shutdown of asynchronous services.
  *
- * Firefox shutdown is composed of phases that take place
+ * Plezix shutdown is composed of phases that take place
  * sequentially. Typically, each shutdown phase removes some
  * capabilities from the application. For instance, at the end of
  * phase profileBeforeChange, no service is permitted to write to the

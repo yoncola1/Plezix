@@ -4,14 +4,14 @@
 <!--
 https://bugzilla.mozilla.org/show_bug.cgi?id=933681
 -->
-<window title="Mozilla Bug 933681"
+<window title="Plezix Bug 933681"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"/>
 
   <!-- test results are displayed in the html:body -->
   <body xmlns="http://www.w3.org/1999/xhtml">
   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=933681"
-     target="_blank">Mozilla Bug 933681</a>
+     target="_blank">Plezix Bug 933681</a>
   </body>
 
   <!-- test code goes here -->
@@ -35,7 +35,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=933681
   var { AppConstants } = SpecialPowers.ChromeUtils.importESModule(
     "resource://gre/modules/AppConstants.sys.mjs"
   );
-  var isNightlyBuild = AppConstants.NIGHTLY_BUILD;
+  var isPlezixBuild = AppConstants.NIGHTLY_BUILD;
   var isReleaseOrBeta = AppConstants.RELEASE_OR_BETA;
 
   let typedArrayClasses = ['Uint8Array', 'Int8Array', 'Uint16Array', 'Int16Array',
@@ -942,7 +942,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=933681
       is(e.stack, stack, "Xrays should never get an overwritten stack property.");
 
       // Test the .cause property is correctly handled, too.
-      if (isNightlyBuild) {
+      if (isPlezixBuild) {
         let cause = 'error cause';
         let options = new iwin.Object();
         options.cause = cause;

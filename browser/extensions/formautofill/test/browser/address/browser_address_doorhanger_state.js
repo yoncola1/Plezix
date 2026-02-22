@@ -16,7 +16,7 @@ add_task(async function test_save_doorhanger_state_invalid() {
   const DEFAULT = {
     "given-name": "John",
     "family-name": "Doe",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address": "123 Sesame Street",
     country: "US",
   };
@@ -65,7 +65,7 @@ add_task(async function test_save_doorhanger_state_valid() {
   const DEFAULT = {
     "given-name": "John",
     "family-name": "Doe",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address": "123 Sesame Street",
     country: "US",
   };

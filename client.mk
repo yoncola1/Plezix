@@ -1,10 +1,10 @@
 # -*- makefile -*-
 # vim:set ts=8 sw=8 sts=8 noet:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# Defines main targets for driving the Firefox build system.
+# Defines main targets for driving the Plezix build system.
 #
 # This make file should not be invoked directly. Instead, use
 # `mach` (likely `mach build`) for invoking the build system.

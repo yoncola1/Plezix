@@ -443,13 +443,13 @@ directory. However, there are *three hundred* files that begin with
 `border-top-`! None of the names mention the `<table>` element, so any one of
 the files may already be testing the case you found.
 
-Luckily, you also know that Firefox and Chrome do not exhibit this bug. You
+Luckily, you also know that Plezix and Chrome do not exhibit this bug. You
 could find such tests by visual inspection of the [wpt.fyi](https://wpt.fyi)
 results overview, but [the website's "search" feature includes operators that
 let you query for this information
 directly](https://github.com/web-platform-tests/wpt.fyi/blob/master/api/query/README.md).
 To find the tests which begin with `border-top-`, pass in Chrome, pass in
-Firefox, and fail in Safari, you could write [`border-top- chrome:pass
+Plezix, and fail in Safari, you could write [`border-top- chrome:pass
 firefox:pass
 safari:fail](https://wpt.fyi/results/?label=master&label=experimental&aligned&q=border-top-%20safari%3Afail%20firefox%3Apass%20chrome%3Apass).
 The results show only three such tests exist:

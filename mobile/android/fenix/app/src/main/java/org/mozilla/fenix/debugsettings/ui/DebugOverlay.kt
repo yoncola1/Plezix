@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -45,7 +45,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.button.FloatingActionButton
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
 import org.mozilla.fenix.debugsettings.store.DrawerStatus
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import kotlin.math.roundToInt
 
 /**
@@ -121,7 +121,7 @@ fun DebugOverlay(
         ) {
             Row {
                 ModalDrawerSheet(
-                    drawerContainerColor = FirefoxTheme.colors.layer1,
+                    drawerContainerColor = PlezixTheme.colors.layer1,
                     drawerState = drawerState,
                 ) {
                     DebugDrawer(
@@ -153,15 +153,15 @@ private fun DebugOverlayPreview() {
                 content = {
                     Text(
                         text = "Tool $index",
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.headline6,
                     )
                 },
             )
         }
     }
 
-    FirefoxTheme {
+    PlezixTheme {
         DebugOverlay(
             navController = navController,
             drawerStatus = drawerStatus,

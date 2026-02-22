@@ -8,7 +8,7 @@
         "impression": "https://firefox.com/impression"
       },
       "image_url": "https://test.com/image1.jpg",
-      "name": "Firefox",
+      "name": "Plezix",
       "block_key": "1"
     }
   ],
@@ -21,7 +21,7 @@
         "impression": "https://mozilla.com/impression"
       },
       "image_url": "https://test.com/image2.jpg",
-      "name": "Mozilla",
+      "name": "Plezix",
       "block_key": "2"
     }
   ]

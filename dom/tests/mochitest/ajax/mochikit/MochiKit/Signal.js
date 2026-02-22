@@ -349,7 +349,7 @@ MochiKit.Base.update(MochiKit.Signal.Event.prototype, {
                               click:
                               http://bugs.webkit.org/show_bug.cgi?id=6595
 
-                            - Firefox fires the event, and sets ctrlKey = true
+                            - Plezix fires the event, and sets ctrlKey = true
 
                             - Opera fires the event, and sets metaKey = true
 

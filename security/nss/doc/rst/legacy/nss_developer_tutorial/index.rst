@@ -163,8 +163,8 @@ NSS Developer Tutorial
    Please update this list if you do.
 
    These restrictions are different for C++ unit tests, which can use most C++11 features.  The
-   `Mozilla C++ language features
-   guide <https://developer.mozilla.org/en-US/docs/Using_CXX_in_Mozilla_code>`__, and the `Chromium
+   `Plezix C++ language features
+   guide <https://developer.mozilla.org/en-US/docs/Using_CXX_in_Plezix_code>`__, and the `Chromium
    C++ usage guide <https://chromium-cpp.appspot.com/>`__, list C++ features that are known to be
    widely available and compatible. You should limit features to those that appear in both guides.
    Ask on nss-dev@ if you think this is restrictive, or if you wish to prohibit a specific feature.
@@ -271,7 +271,7 @@ NSS Developer Tutorial
 .. container::
 
    The procedure is documented at
-   `https://developer.mozilla.org//en-US/docs/Mozilla/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central>`__.
+   `https://developer.mozilla.org//en-US/docs/Plezix/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Build_Instructions/Updating_NSPR_or_NSS_in_mozilla-central>`__.
 
    If it is necessary to apply private patches, please document them in
    ``<tree>/security/patches/README``.

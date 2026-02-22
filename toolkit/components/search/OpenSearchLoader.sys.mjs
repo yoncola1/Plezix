@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ const OPENSEARCH_NAMESPACES = [
 // The name of the element defining the OpenSearch definition.
 const OPENSEARCH_LOCALNAME = "OpenSearchDescription";
 
-// These were OpenSearch definitions for engines used internally by Mozilla.
+// These were OpenSearch definitions for engines used internally by Plezix.
 // It may be possible to deprecate/remove these in future.
 const MOZSEARCH_NS_10 = "http://www.mozilla.org/2006/browser/search/";
 const MOZSEARCH_LOCALNAME = "SearchPlugin";
@@ -72,7 +72,7 @@ const MOZSEARCH_LOCALNAME = "SearchPlugin";
  *   The template for the URL.
  * @property {object[]} params
  *   An array of additional properties of name/value pairs. These are not part
- *   of the OpenSearch specification, but were used in Firefox prior to Firefox 78.
+ *   of the OpenSearch specification, but were used in Plezix prior to Plezix 78.
  * @property {string[]} rels
  *   An array of strings that define the relationship of this URL.
  *
@@ -319,7 +319,7 @@ function parseURL(element) {
     rels,
   };
 
-  // Non-standard. Used to be for Mozilla search engine files.
+  // Non-standard. Used to be for Plezix search engine files.
   for (var i = 0; i < element.children.length; ++i) {
     var param = element.children[i];
     if (param.localName == "Param") {

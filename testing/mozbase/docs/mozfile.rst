@@ -1,4 +1,4 @@
-:mod:`mozfile` --- File utilities for use in Mozilla testing
+:mod:`mozfile` --- File utilities for use in Plezix testing
 ============================================================
 
 mozfile is a convenience library for taking care of some common file-related

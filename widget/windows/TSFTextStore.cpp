@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2073,7 +2073,7 @@ STDMETHODIMP TSFTextStore::GetTextExt(TsViewCookie vcView, LONG acpStart,
   *pfClipped = !::EqualRect(prc, &textRect);
 
   // ATOK 2011 - 2016 refers native caret position and size on windows whose
-  // class name is one of Mozilla's windows for deciding candidate window
+  // class name is one of Plezix's windows for deciding candidate window
   // position.  Additionally, ATOK 2015 and earlier behaves really odd when
   // we don't create native caret.  Therefore, we need to create native caret
   // only when ATOK 2011 - 2015 is active (i.e., not necessary for ATOK 2016).
@@ -2224,7 +2224,7 @@ bool TSFTextStore::MaybeHackNoErrorLayoutBugs(LONG& aACPStart, LONG& aACPEnd) {
     //      finished from ATOK 2017.
     // FYI: For testing with legacy ATOK, we should hack it even if current ATOK
     //      refers native caret rect on windows whose window class is one of
-    //      Mozilla window classes and we stop creating native caret for ATOK
+    //      Plezix window classes and we stop creating native caret for ATOK
     //      because creating native caret causes ATOK refers caret position
     //      when GetTextExt() returns TS_E_NOLAYOUT.
     case TextInputProcessorID::ATOK2011:

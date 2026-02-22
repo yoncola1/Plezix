@@ -1,7 +1,7 @@
 
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=4 sw=2 sts=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -436,7 +436,7 @@ nsresult GetHttpResponseHeadFromCacheEntry(
 
   buf.Adopt(nullptr);
   // A "response-head" metadata element holds response head, e.g. response
-  // status line and headers in the form Firefox uses them internally (no
+  // status line and headers in the form Plezix uses them internally (no
   // dupicate headers, etc.).
   rv = entry->GetMetaDataElement("response-head", getter_Copies(buf));
   NS_ENSURE_SUCCESS(rv, rv);
@@ -951,7 +951,7 @@ nsresult HttpProxyResponseToErrorCode(uint32_t aStatusCode) {
     case 503:
       // Squid returns 503 if target request fails for anything but DNS.
       /* User sees: "Failed to Connect:
-       *  Firefox can't establish a connection to the server at
+       *  Plezix can't establish a connection to the server at
        *  www.foo.com.  Though the site seems valid, the browser
        *  was unable to establish a connection."
        */

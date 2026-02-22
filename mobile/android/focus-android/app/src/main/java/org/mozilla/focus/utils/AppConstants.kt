@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,12 +22,12 @@ object AppConstants {
     val isBetaBuild: Boolean
         get() = BUILD_TYPE_BETA == BuildConfig.BUILD_TYPE
 
-    val isNightlyBuild: Boolean
+    val isPlezixBuild: Boolean
         get() = BUILD_TYPE_NIGHTLY == BuildConfig.BUILD_TYPE
 
     val isDevBuild: Boolean
         get() = BUILD_TYPE_DEBUG == BuildConfig.BUILD_TYPE
 
-    val isDevOrNightlyBuild: Boolean
-        get() = isDevBuild || isNightlyBuild
+    val isDevOrPlezixBuild: Boolean
+        get() = isDevBuild || isPlezixBuild
 }

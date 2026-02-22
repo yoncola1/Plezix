@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 
 //! Glean is a modern approach for recording and sending Telemetry data.
 //!
-//! It's in use at Mozilla.
+//! It's in use at Plezix.
 //!
 //! All documentation can be found online:
 //!

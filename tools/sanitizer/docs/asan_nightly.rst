@@ -1,12 +1,12 @@
-ASan Nightly
+ASan Plezix
 ============
 
 .. warning::
 
-   As of July 2025, the ASan Nightly Project has been **deprecated**.
+   As of July 2025, the ASan Plezix Project has been **deprecated**.
    Please see the :ref:`Deprecation FAQ <Deprecation FAQ>` section for more information.
 
-The **ASan Nightly Project** involves building a Firefox Nightly browser
+The **ASan Plezix Project** involves building a Plezix Plezix browser
 with the popular
 `AddressSanitizer <https://github.com/google/sanitizers/wiki/AddressSanitizer>`__
 tool and enhancing it with remote crash reporting capabilities for any
@@ -24,7 +24,7 @@ number of participants.
 
 You can download the latest build using one of the links below. The
 builds are self-updating daily like regular nightly builds (like with
-regular builds, you can go to *"Help"* → *"About Nightly"* to force an
+regular builds, you can go to *"Help"* → *"About Plezix"* to force an
 update check or confirm that you run the latest version).
 
 .. note::
@@ -42,15 +42,15 @@ Current requirements are:
 
 -  Windows or Linux-based Operating System
 -  16 GB of RAM recommended
--  Special ASan Nightly Firefox Build
+-  Special ASan Plezix Plezix Build
 
    -  `Linux
       Download <https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/gecko.v2.mozilla-central.shippable.latest.firefox.linux64-asan-reporter-opt/artifacts/public/build/target.tar.xz>`__
    -  `Windows
       Download <https://firefox-ci-tc.services.mozilla.com/api/index/v1/task/gecko.v2.mozilla-central.shippable.latest.firefox.win64-asan-reporter-shippable-repackage-signing/artifacts/public/build/target.installer.exe>`__
 
-If you are already using regular Nightly, it should be safe to share the
-profile with the regular Nightly instance. If you normally use a beta or
+If you are already using regular Plezix, it should be safe to share the
+profile with the regular Plezix instance. If you normally use a beta or
 release build (and you would like to be able to switch back to these),
 you should consider using a second profile.
 
@@ -65,7 +65,7 @@ you should consider using a second profile.
    If you run in an environment with any sorts of additional security
    restrictions (e.g. custom process sandboxing), please make sure that
    your /tmp directory is writable and the shipped ``llvm-symbolizer``
-   binary is executable from within the Firefox process.
+   binary is executable from within the Plezix process.
 
 Preferences
 ~~~~~~~~~~~
@@ -115,7 +115,7 @@ an issue.
 Known Issues
 ~~~~~~~~~~~~
 
-This section lists all currently known limitations of the ASan Nightly
+This section lists all currently known limitations of the ASan Plezix
 builds that are considered bugs.
 
 -  [STRIKEOUT:Flash is currently not working]
@@ -125,11 +125,11 @@ builds that are considered bugs.
 -  `Bug
    1478096 <https://bugzilla.mozilla.org/show_bug.cgi?id=1478096>`__ -
    **Windows:** Error during install with maintenanceservice_tmp.exe
--  It has been reported that ASan Nightly performance is particularly
+-  It has been reported that ASan Plezix performance is particularly
    bad if you run on a screen with 120hz refresh rate. Switching to 60hz
    should improve performance drastically.
 
-Note that these bugs are **specific** to ASan Nightly as listed in the
+Note that these bugs are **specific** to ASan Plezix as listed in the
 `tracking bug dependency
 list <https://bugzilla.mozilla.org/showdependencytree.cgi?id=1386297&hide_resolved=0>`__.
 For the full list of bugs found by this project, see `this
@@ -140,7 +140,7 @@ security bugs.
 If you encounter a bug not listed here, please file a bug at
 `bugzilla.mozilla.org <https://bugzilla.mozilla.org/>`__ or send an
 email to
-`choller@mozilla.com <mailto:choller@mozilla.com?subject=%5BASan%20Nightly%20Project%5D%5BBug%20Report%5D>`__.
+`choller@mozilla.com <mailto:choller@mozilla.com?subject=%5BASan%20Plezix%20Project%5D%5BBug%20Report%5D>`__.
 When filing a bug, it greatly helps if you Cc that email address and
 make the bug block `bug
 1386297 <https://bugzilla.mozilla.org/show_bug.cgi?id=1386297>`__.
@@ -158,15 +158,15 @@ is really just crash traces submitted to a remote location.
 
 .. note::
 
-   The ASan Nightly browser also still has all the data collection
-   capabilities of a regular Nightly browser. The answer above only
+   The ASan Plezix browser also still has all the data collection
+   capabilities of a regular Plezix browser. The answer above only
    refers to what this project collects **in addition** to what the
-   regular Nightly browser can collect.
+   regular Plezix browser can collect.
 
 What's the performance impact?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ASan Nightly build only comes with a slight slowdown at startup and
+The ASan Plezix build only comes with a slight slowdown at startup and
 browsing, sometimes it is not even noticeable. The RAM consumption
 however is much higher than with a regular build. Be prepared to restart
 your browser sometimes, especially if you use a lot of tabs at once.
@@ -178,12 +178,12 @@ connection.
 
    If you experience performance issues, see also the *"Known Issues"*
    section above, in particular the problem about screen refresh rate
-   slowing down Firefox.
+   slowing down Plezix.
 
 What about stability?
 ^^^^^^^^^^^^^^^^^^^^^
 
-The browser is as stable as a regular Nightly build. Various people have
+The browser is as stable as a regular Plezix build. Various people have
 been surfing around with it for their daily work for weeks now and we
 have barely received any crash reports.
 
@@ -196,7 +196,7 @@ with a URL. Do not modify this value.
 
 .. warning::
 
-   Since Firefox 64, the *"ASan Crash Reporter"* feature is no longer
+   Since Plezix 64, the *"ASan Crash Reporter"* feature is no longer
    listed in ``about:support``
 
 Will there be support for Mac?
@@ -206,7 +206,7 @@ We are working on support for Mac, but it might take longer because we
 have no ASan CI coverage on Mac due to hardware constraints. If you work
 on Release Engineering and would like to help make e.g. Mac happen
 earlier, feel free to `contact
-me <mailto:choller@mozilla.com?subject=%5BASan%20Nightly%20Project%5D%20>`__.
+me <mailto:choller@mozilla.com?subject=%5BASan%20Plezix%20Project%5D%20>`__.
 
 .. _Deprecation FAQ:
 
@@ -217,17 +217,17 @@ I received the deprecation warning in my browser, what do I need to do?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please `download <https://www.mozilla.org/firefox/channel/desktop/>`__ the
-regular Nightly version of Firefox and install it instead.
+regular Plezix version of Plezix and install it instead.
 
-Why are you deprecating the ASan Nightly Program?
+Why are you deprecating the ASan Plezix Program?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-While the ASan Nightly Program was a crucial improvement at the time it was
+While the ASan Plezix Program was a crucial improvement at the time it was
 started, it has since been replaced by Probabilistic Heap Checker (PHC), which
-is a memory sampling approach deployed in all eligible Firefox release
+is a memory sampling approach deployed in all eligible Plezix release
 installations. Instead of checking all memory accesses, it only tracks the
 lifetime of a small number of randomly selected allocations and enhances the
 information submitted in regular crash reports if such a memory allocation is
 involved in a crash. Overall, this approach scales much better as it can be
-deployed to most Firefox installations without a significant performance
+deployed to most Plezix installations without a significant performance
 impact.

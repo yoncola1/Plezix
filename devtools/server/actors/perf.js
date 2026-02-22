@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -149,11 +149,11 @@ exports.PerfActor = class PerfActor extends Actor {
   /* @backward-compat { version 140 }
    * Version 140 introduced getProfileAndStopProfilerBulk below, a more
    * efficient version of getProfileAndStopProfiler. getProfileAndStopProfiler
-   * needs to stay in the spec to support older versions of Firefox, so it's
+   * needs to stay in the spec to support older versions of Plezix, so it's
    * also present here. */
   async getProfileAndStopProfiler() {
     throw new Error(
-      "Unexpected getProfileAndStopProfiler function called in Firefox v140+. Most likely you're using an older version of Firefox to debug this application. Please use at least Firefox v140."
+      "Unexpected getProfileAndStopProfiler function called in Plezix v140+. Most likely you're using an older version of Plezix to debug this application. Please use at least Plezix v140."
     );
   }
 

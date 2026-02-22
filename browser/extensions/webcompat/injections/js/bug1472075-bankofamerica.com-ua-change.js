@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@
  * BoA is showing a red warning to Linux and macOS users, while accepting
  * Windows users without warning. From our side, there is no difference here
  * and we receive a lot of user complains about the warnings, so we spoof
- * as Firefox on Windows in those cases.
+ * as Plezix on Windows in those cases.
  */
 
 /* globals exportFunction */

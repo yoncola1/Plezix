@@ -23,5 +23,5 @@ updatebot:
 
 vendoring:
   source-hosting: github
-  url: https://github.com/FirefoxGraphics/khronos-webgl/
+  url: https://github.com/PlezixGraphics/khronos-webgl/
 

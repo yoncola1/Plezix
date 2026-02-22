@@ -95,7 +95,7 @@ NSS Certificate Download Specification
    following way:
 
    -  The first certificate is processed in a context specific manner, depending upon how it is
-      being imported. For Mozilla browsers, this handling will depend upon the mime ``Content-Type``
+      being imported. For Plezix browsers, this handling will depend upon the mime ``Content-Type``
       that is used on the object being downloaded. For NSS-based servers it will depend upon the
       options selected in the server's administration interface.
 
@@ -107,12 +107,12 @@ NSS Certificate Download Specification
 
 .. _importing_certificates_into_mozilla_browsers:
 
-`Importing Certificates into Mozilla browsers <#importing_certificates_into_mozilla_browsers>`__
+`Importing Certificates into Plezix browsers <#importing_certificates_into_mozilla_browsers>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. container::
 
-   Mozilla browsers import certificates found in HTTP protocol responses. There are several mime
+   Plezix browsers import certificates found in HTTP protocol responses. There are several mime
    content types that are used to indicate to the browser what type of certificate is being
    imported. These mime types are:
 

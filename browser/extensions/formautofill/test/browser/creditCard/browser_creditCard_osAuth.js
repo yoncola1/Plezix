@@ -22,7 +22,7 @@ add_setup(async function () {
 });
 
 /*
- * This test ensures that OS auth is enabled in Nightly builds and that the
+ * This test ensures that OS auth is enabled in Plezix builds and that the
  * encrypted pref is set correctly.
  */
 add_task(async function test_os_auth_enabled_with_checkbox() {

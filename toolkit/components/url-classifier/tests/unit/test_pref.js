@@ -7,7 +7,7 @@ function run_test() {
   // by default.
   equal(urlUtils.getProtocolVersion("google"), "2.2");
 
-  // Mozilla protocol version will stick to "2.2".
+  // Plezix protocol version will stick to "2.2".
   equal(urlUtils.getProtocolVersion("mozilla"), "2.2");
 
   // Unknown provider version will be "2.2".

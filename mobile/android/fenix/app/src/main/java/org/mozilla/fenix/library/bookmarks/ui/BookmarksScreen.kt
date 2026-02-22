@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -119,7 +119,7 @@ import org.mozilla.fenix.search.SearchFragmentAction.SuggestionClicked
 import org.mozilla.fenix.search.SearchFragmentAction.SuggestionSelected
 import org.mozilla.fenix.search.SearchFragmentState
 import org.mozilla.fenix.search.SearchFragmentStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import mozilla.components.ui.icons.R as iconsR
 
 private val IconButtonHeight = 48.dp
@@ -344,7 +344,7 @@ private fun BookmarksList(
                 }
             }
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         if (state.isLoading) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -390,7 +390,7 @@ private fun BookmarksList(
                                     columnIndex = 0,
                                 )
                             }
-                            .width(FirefoxTheme.layout.size.containerMaxWidth),
+                            .width(PlezixTheme.layout.size.containerMaxWidth),
                     )
                 } else {
                     SelectableIconListItem(
@@ -408,7 +408,7 @@ private fun BookmarksList(
                                     columnIndex = 0,
                                 )
                             }
-                            .width(FirefoxTheme.layout.size.containerMaxWidth),
+                            .width(PlezixTheme.layout.size.containerMaxWidth),
                     ) {
                         Box {
                             IconButton(
@@ -421,7 +421,7 @@ private fun BookmarksList(
                                         R.string.bookmark_item_menu_button_content_description,
                                         item.title,
                                     ),
-                                    tint = FirefoxTheme.colors.iconPrimary,
+                                    tint = PlezixTheme.colors.iconPrimary,
                                 )
                             }
 
@@ -464,7 +464,7 @@ private fun BookmarksList(
                                 columnIndex = 0,
                             )
                         }
-                        .width(FirefoxTheme.layout.size.containerMaxWidth),
+                        .width(PlezixTheme.layout.size.containerMaxWidth),
                 ) {
                     Box {
                         IconButton(
@@ -477,7 +477,7 @@ private fun BookmarksList(
                                     R.string.bookmark_item_menu_button_content_description,
                                     item.title,
                                 ),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
 
@@ -513,10 +513,10 @@ private fun BookmarksList(
                     orientation = AwesomeBarOrientation.TOP,
                     colors = AwesomeBarDefaults.colors(
                         background = Color.Transparent,
-                        title = FirefoxTheme.colors.textPrimary,
-                        description = FirefoxTheme.colors.textSecondary,
-                        autocompleteIcon = FirefoxTheme.colors.textSecondary,
-                        groupTitle = FirefoxTheme.colors.textSecondary,
+                        title = PlezixTheme.colors.textPrimary,
+                        description = PlezixTheme.colors.textSecondary,
+                        autocompleteIcon = PlezixTheme.colors.textSecondary,
+                        groupTitle = PlezixTheme.colors.textSecondary,
                     ),
                     onSuggestionClicked = { suggestion ->
                         searchStore.dispatch(SuggestionClicked(suggestion))
@@ -551,21 +551,21 @@ private fun BookmarksListTopBar(
     val showSortMenu by store.observeAsState(store.state.sortMenuShown) { it.sortMenuShown }
 
     val backgroundColor = if (selectedItems.isEmpty()) {
-        FirefoxTheme.colors.layer1
+        PlezixTheme.colors.layer1
     } else {
-        FirefoxTheme.colors.layerAccent
+        PlezixTheme.colors.layerAccent
     }
 
     val textColor = if (selectedItems.isEmpty()) {
-        FirefoxTheme.colors.textPrimary
+        PlezixTheme.colors.textPrimary
     } else {
-        FirefoxTheme.colors.textOnColorPrimary
+        PlezixTheme.colors.textOnColorPrimary
     }
 
     val iconColor = if (selectedItems.isEmpty()) {
-        FirefoxTheme.colors.textPrimary
+        PlezixTheme.colors.textPrimary
     } else {
-        FirefoxTheme.colors.iconOnColor
+        PlezixTheme.colors.iconOnColor
     }
 
     Box {
@@ -574,7 +574,7 @@ private fun BookmarksListTopBar(
             title = {
                 Text(
                     color = textColor,
-                    style = FirefoxTheme.typography.headline6,
+                    style = PlezixTheme.typography.headline6,
                     text = if (selectedItems.isNotEmpty()) {
                         val total = selectedItems.size + (recursiveCount ?: 0)
                         stringResource(R.string.bookmarks_multi_select_title, total)
@@ -638,7 +638,7 @@ private fun BookmarksListTopBar(
                                     contentDescription = stringResource(
                                         R.string.content_description_close_button,
                                     ),
-                                    tint = FirefoxTheme.colors.iconPrimary,
+                                    tint = PlezixTheme.colors.iconPrimary,
                                 )
                             }
                         }
@@ -802,7 +802,7 @@ private fun SelectFolderScreen(
                 },
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
@@ -816,14 +816,14 @@ private fun SelectFolderScreen(
                     Row(
                         modifier = Modifier
                             .padding(start = folder.startPadding)
-                            .width(FirefoxTheme.layout.size.containerMaxWidth),
+                            .width(PlezixTheme.layout.size.containerMaxWidth),
                     ) {
                         // We need to account for not having an icon
                         Spacer(modifier = Modifier.width(56.dp))
                         Text(
                             text = folder.title,
-                            color = FirefoxTheme.colors.textAccent,
-                            style = FirefoxTheme.typography.headline8,
+                            color = PlezixTheme.colors.textAccent,
+                            style = PlezixTheme.typography.headline8,
                         )
                     }
                 } else {
@@ -834,7 +834,7 @@ private fun SelectFolderScreen(
                         beforeIconPainter = painterResource(R.drawable.mozac_ic_folder_24),
                         modifier = Modifier
                             .padding(start = folder.startPadding)
-                            .width(FirefoxTheme.layout.size.containerMaxWidth)
+                            .width(PlezixTheme.layout.size.containerMaxWidth)
                             .toggleable(
                                 value = isSelected,
                                 role = Role.RadioButton,
@@ -847,10 +847,10 @@ private fun SelectFolderScreen(
                 item {
                     IconListItem(
                         label = stringResource(R.string.bookmark_select_folder_new_folder_button_title),
-                        modifier = Modifier.width(FirefoxTheme.layout.size.containerMaxWidth),
-                        labelTextColor = FirefoxTheme.colors.textAccent,
+                        modifier = Modifier.width(PlezixTheme.layout.size.containerMaxWidth),
+                        labelTextColor = PlezixTheme.colors.textAccent,
                         beforeIconPainter = painterResource(R.drawable.mozac_ic_folder_add_24),
-                        beforeIconTint = FirefoxTheme.colors.textAccent,
+                        beforeIconTint = PlezixTheme.colors.textAccent,
                         onClick = { store.dispatch(AddFolderClicked) },
                     )
                 }
@@ -865,12 +865,12 @@ private fun SelectFolderTopBar(
     onNewFolderClick: (() -> Unit)?,
 ) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         title = {
             Text(
                 text = stringResource(R.string.bookmark_select_folder_fragment_label),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -878,7 +878,7 @@ private fun SelectFolderTopBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = stringResource(R.string.bookmark_navigate_back_button_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -890,7 +890,7 @@ private fun SelectFolderTopBar(
                         contentDescription = stringResource(
                             R.string.bookmark_add_new_folder_button_content_description,
                         ),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -942,7 +942,7 @@ private fun EmptyList(
         contentAlignment = Alignment.Center,
     ) {
         Column(
-            modifier = Modifier.width(FirefoxTheme.layout.size.containerMaxWidth),
+            modifier = Modifier.width(PlezixTheme.layout.size.containerMaxWidth),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
@@ -952,19 +952,19 @@ private fun EmptyList(
             )
             Text(
                 text = stringResource(R.string.bookmark_empty_list_title),
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
             )
             Text(
                 text = stringResource(state.descriptionId()),
-                style = FirefoxTheme.typography.body2,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
                 textAlign = TextAlign.Center,
             )
             if (state is EmptyListState.NotAuthenticated) {
                 TextButton(
                     onClick = { dispatcher(SignIntoSyncClicked) },
-                    colors = ButtonDefaults.buttonColors(containerColor = FirefoxTheme.colors.actionPrimary),
+                    colors = ButtonDefaults.buttonColors(containerColor = PlezixTheme.colors.actionPrimary),
                     shape = RoundedCornerShape(4.dp),
                     modifier = Modifier
                         .heightIn(36.dp)
@@ -972,8 +972,8 @@ private fun EmptyList(
                 ) {
                     Text(
                         text = stringResource(R.string.bookmark_empty_list_guest_cta),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.button,
+                        color = PlezixTheme.colors.textOnColorPrimary,
+                        style = PlezixTheme.typography.button,
                         textAlign = TextAlign.Center,
                     )
                 }
@@ -1051,7 +1051,7 @@ private fun BookmarkListOverflowMenu(
         ),
         MenuItem(
             title = stringResource(R.string.bookmark_menu_delete_button),
-            color = FirefoxTheme.colors.actionCritical,
+            color = PlezixTheme.colors.actionCritical,
             onClick = { store.dispatch(BookmarksListMenuAction.MultiSelect.DeleteClicked) },
         ),
     )
@@ -1093,7 +1093,7 @@ private fun BookmarkListItemMenu(
         ),
         MenuItem(
             title = stringResource(R.string.bookmark_menu_delete_button),
-            color = FirefoxTheme.colors.actionCritical,
+            color = PlezixTheme.colors.actionCritical,
             onClick = { store.dispatch(BookmarksListMenuAction.Bookmark.DeleteClicked(bookmark)) },
         ),
     )
@@ -1127,7 +1127,7 @@ private fun BookmarkListFolderMenu(
         ),
         MenuItem(
             title = stringResource(R.string.bookmark_menu_delete_button),
-            color = FirefoxTheme.colors.actionCritical,
+            color = PlezixTheme.colors.actionCritical,
             onClick = { store.dispatch(BookmarksListMenuAction.Folder.DeleteClicked(folder)) },
         ),
     )
@@ -1160,7 +1160,7 @@ private fun EditFolderScreen(
                 onDeleteClick = { store.dispatch(EditFolderAction.DeleteClicked) },
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Box(
             modifier = Modifier
@@ -1169,7 +1169,7 @@ private fun EditFolderScreen(
             contentAlignment = Alignment.TopCenter,
         ) {
             Column(
-                modifier = Modifier.width(FirefoxTheme.layout.size.containerMaxWidth),
+                modifier = Modifier.width(PlezixTheme.layout.size.containerMaxWidth),
             ) {
                 TextField(
                     value = editState.folder.title,
@@ -1190,8 +1190,8 @@ private fun EditFolderScreen(
 
                 Text(
                     stringResource(R.string.bookmark_save_in_label),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
                     modifier = Modifier.padding(start = 16.dp),
                 )
 
@@ -1211,12 +1211,12 @@ private fun EditFolderTopBar(
     onDeleteClick: () -> Unit,
 ) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         title = {
             Text(
                 text = stringResource(R.string.edit_bookmark_folder_fragment_title),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -1224,7 +1224,7 @@ private fun EditFolderTopBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = stringResource(R.string.bookmark_navigate_back_button_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -1233,7 +1233,7 @@ private fun EditFolderTopBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_delete_24),
                     contentDescription = stringResource(R.string.bookmark_delete_folder_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -1248,7 +1248,7 @@ private fun AddFolderScreen(
     val state by store.observeAsState(store.state.bookmarksAddFolderState) { it.bookmarksAddFolderState }
     Scaffold(
         topBar = { AddFolderTopBar(onBackClick = { store.dispatch(BackClicked) }) },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Box(
             modifier = Modifier
@@ -1257,7 +1257,7 @@ private fun AddFolderScreen(
             contentAlignment = Alignment.TopCenter,
         ) {
             Column(
-                modifier = Modifier.width(FirefoxTheme.layout.size.containerMaxWidth),
+                modifier = Modifier.width(PlezixTheme.layout.size.containerMaxWidth),
             ) {
                 TextField(
                     value = state?.folderBeingAddedTitle ?: "",
@@ -1281,8 +1281,8 @@ private fun AddFolderScreen(
 
                 Text(
                     stringResource(R.string.bookmark_save_in_label),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
                     modifier = Modifier.padding(start = 16.dp),
                 )
 
@@ -1299,12 +1299,12 @@ private fun AddFolderScreen(
 @Composable
 private fun AddFolderTopBar(onBackClick: () -> Unit) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         title = {
             Text(
                 text = stringResource(R.string.bookmark_add_folder),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -1312,7 +1312,7 @@ private fun AddFolderTopBar(onBackClick: () -> Unit) {
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = stringResource(R.string.bookmark_navigate_back_button_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -1335,7 +1335,7 @@ private fun EditBookmarkScreen(
                 onDeleteClicked = { store.dispatch(EditBookmarkAction.DeleteClicked) },
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Box(
             modifier = Modifier
@@ -1345,7 +1345,7 @@ private fun EditBookmarkScreen(
             contentAlignment = Alignment.TopCenter,
         ) {
             Column(
-                modifier = Modifier.width(FirefoxTheme.layout.size.containerMaxWidth),
+                modifier = Modifier.width(PlezixTheme.layout.size.containerMaxWidth),
             ) {
                 BookmarkEditor(
                     bookmarkItem = bookmark,
@@ -1416,8 +1416,8 @@ private fun FolderInfo(
     Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text(
             text = stringResource(R.string.bookmark_save_in_label),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.body2,
         )
 
         Row(
@@ -1431,12 +1431,12 @@ private fun FolderInfo(
             Icon(
                 painter = painterResource(id = iconsR.drawable.mozac_ic_folder_24),
                 contentDescription = "",
-                tint = FirefoxTheme.colors.textPrimary,
+                tint = PlezixTheme.colors.textPrimary,
             )
             Text(
                 text = folderTitle,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2,
             )
         }
     }
@@ -1467,7 +1467,7 @@ private fun ClearableTextField(
             }
         },
         colors = TextFieldColors.default(
-            placeholderColor = FirefoxTheme.colors.textPrimary,
+            placeholderColor = PlezixTheme.colors.textPrimary,
         ),
     )
 }
@@ -1478,12 +1478,12 @@ private fun EditBookmarkTopBar(
     onDeleteClicked: () -> Unit,
 ) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         title = {
             Text(
                 text = stringResource(R.string.edit_bookmark_fragment_title),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -1491,7 +1491,7 @@ private fun EditBookmarkTopBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = stringResource(R.string.bookmark_navigate_back_button_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -1500,7 +1500,7 @@ private fun EditBookmarkTopBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_delete_24),
                     contentDescription = stringResource(R.string.bookmark_delete_bookmark_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -1545,8 +1545,8 @@ private fun EditBookmarkScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             EditBookmarkScreen(store = store)
         }
     }
@@ -1601,7 +1601,7 @@ private fun EditFolderScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
+    PlezixTheme {
         EditFolderScreen(store = store)
     }
 }
@@ -1651,8 +1651,8 @@ private fun BookmarksScreenPreview() {
         )
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             BookmarksScreen(
                 buildStore = store,
                 appStore = AppStore(),
@@ -1695,8 +1695,8 @@ private fun EmptyBookmarksScreenPreview() {
         )
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             BookmarksScreen(
                 buildStore = store,
                 appStore = AppStore(),
@@ -1745,8 +1745,8 @@ private fun AddFolderPreview() {
             isSearching = false,
         ),
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             AddFolderScreen(store)
         }
     }
@@ -1846,8 +1846,8 @@ private fun SelectFolderPreview() {
             isSearching = false,
         ),
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             SelectFolderScreen(store)
         }
     }

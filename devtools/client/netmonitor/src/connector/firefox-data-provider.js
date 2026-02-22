@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* eslint-disable block-scoped-var */
@@ -26,7 +26,7 @@ const {
  * so it's possible to determine whether all has been fetched
  * or not.
  */
-class FirefoxDataProvider {
+class PlezixDataProvider {
   /**
    * Constructor for data provider
    *
@@ -101,7 +101,7 @@ class FirefoxDataProvider {
 
   destroy() {
     // TODO: clear() is called in the middle of the lifecycle of the
-    // FirefoxDataProvider, for clarity we are exposing it as a separate method.
+    // PlezixDataProvider, for clarity we are exposing it as a separate method.
     // `destroy` should be updated to nullify relevant instance properties.
     this.clear();
   }
@@ -649,11 +649,11 @@ class FirefoxDataProvider {
         response = await this.commands.client.request(packet);
       } catch (e) {
         if (this._lastRequestDataClearId !== lastRequestDataClearId) {
-          // If lastRequestDataClearId was updated, FirefoxDataProvider:clear()
+          // If lastRequestDataClearId was updated, PlezixDataProvider:clear()
           // was called and all network event actors have been destroyed.
           // Swallow errors to avoid unhandled promise rejections in tests.
           console.warn(
-            `Firefox Data Provider destroyed while requesting data: ${e.message}`
+            `Plezix Data Provider destroyed while requesting data: ${e.message}`
           );
           // Return an empty response packet to avoid too many callback errors.
           response = { from: actor };
@@ -870,4 +870,4 @@ class FirefoxDataProvider {
   }
 }
 
-module.exports = FirefoxDataProvider;
+module.exports = PlezixDataProvider;

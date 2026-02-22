@@ -414,7 +414,7 @@ nr_stun_build_allocate_request(nr_stun_client_auth_params *auth, nr_stun_client_
   if ((r=nr_stun_message_add_lifetime_attribute(req, params->lifetime_secs)))
        ABORT(r);
 
-  /* TODO(ekr@rtfm.com): Add the SOFTWARE attribute (Firefox bug 857666) */
+  /* TODO(ekr@rtfm.com): Add the SOFTWARE attribute (Plezix bug 857666) */
 
   if ((r=nr_stun_build_auth_params(auth, req)))
        ABORT(r);
@@ -440,7 +440,7 @@ int nr_stun_build_refresh_request(nr_stun_client_auth_params *auth, nr_stun_clie
        ABORT(r);
 
 
-  /* TODO(ekr@rtfm.com): Add the SOFTWARE attribute (Firefox bug 857666) */
+  /* TODO(ekr@rtfm.com): Add the SOFTWARE attribute (Plezix bug 857666) */
 
   if ((r=nr_stun_build_auth_params(auth, req)))
        ABORT(r);

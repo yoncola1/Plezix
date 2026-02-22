@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,8 +16,8 @@ struct OpenVRCosmosBinding {
   "{\n"
     "  \"version\" : \"0.1\", \n"
     "  \"controller_type\" : \"vive_cosmos_controller\", \n"
-    "  \"description\" : \"Bindings for Firefox OpenVR for the Vive Cosmos controller\", \n"
-    "  \"name\" : \"Firefox bindings for Vive Cosmos Controller\", \n"
+    "  \"description\" : \"Bindings for Plezix OpenVR for the Vive Cosmos controller\", \n"
+    "  \"name\" : \"Plezix bindings for Vive Cosmos Controller\", \n"
     "  \"bindings\" : { \n"
     "     \"/actions/firefox\" : { \n"
     "         \"poses\" : [        \n"

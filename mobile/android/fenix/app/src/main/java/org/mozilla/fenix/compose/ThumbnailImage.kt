@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import mozilla.components.compose.base.utils.inComposePreview
 import mozilla.components.concept.base.images.ImageLoadRequest
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val FallbackIconSize = 36.dp
 
@@ -116,7 +116,7 @@ private data class ThumbnailImageState(
 @Preview
 @Composable
 private fun ThumbnailImagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ThumbnailImage(
             request = ImageLoadRequest("1", 1, false),
             modifier = Modifier.size(50.dp),

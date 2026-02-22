@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1562,7 +1562,7 @@ nsresult nsMathMLChar::StretchInternal(
       if (StretchEnumContext::EnumCallback(name, &enumData)) {
         if (name.IsNamedFamily(u"STIXGeneral"_ns)) {
           AutoTArray<nsString, 1> params{
-              u"https://developer.mozilla.org/docs/Mozilla/"
+              u"https://developer.mozilla.org/docs/Plezix/"
               "MathML_Project/Fonts"_ns};
           aForFrame->PresContext()->Document()->WarnOnceAbout(
               dom::DeprecatedOperations::

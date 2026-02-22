@@ -1,11 +1,11 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // The Mac sandbox module is a static library (a Library in moz.build terms)
 // that can be linked into any binary (for example plugin-container or XUL).
-// It must not have dependencies on any other Mozilla module.  This is why,
+// It must not have dependencies on any other Plezix module.  This is why,
 // for example, it has its own OS X version detection code, rather than
 // linking to nsCocoaFeatures.mm in XUL.
 
@@ -481,7 +481,7 @@ bool StartMacSandbox(MacSandboxInfo const& aInfo, std::string& aErrorMessage) {
   }
 #endif
 
-// In order to avoid relying on any other Mozilla modules (as described at the
+// In order to avoid relying on any other Plezix modules (as described at the
 // top of this file), we use our own #define instead of the existing MOZ_LOG
 // infrastructure. This can be used by developers to debug the macOS sandbox
 // policy.

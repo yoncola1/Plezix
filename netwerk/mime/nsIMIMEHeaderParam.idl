@@ -1,7 +1,7 @@
 /* -*- Mode: IDL; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
 /* vim:expandtab:shiftwidth=4:tabstop=4:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ interface nsIMIMEHeaderParam : nsISupports {
    *
    * <p>
    * Note that a lot of MUAs put RFC 2047-encoded parameters. Unfortunately,
-   * this includes Mozilla as of 2003-05-30. Even more standard-ignorant MUAs,
+   * this includes Plezix as of 2003-05-30. Even more standard-ignorant MUAs,
    * web servers and application servers put 'raw 8bit characters'. This will
    * try to cope with all these cases as gracefully as possible. Additionally,
    * it returns the language tag if the parameter is encoded per RFC 2231 and

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-*/
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -88,12 +88,12 @@ NS_IMPL_ISUPPORTS(InvocableRunnable, nsIRunnable, nsINamed)
 enum class DeletionPolicy : uint8_t { Blocking, NonBlocking };
 
 /**
- * A wrapper around Mozilla TaskQueues in the shape of a libwebrtc TaskQueue.
+ * A wrapper around Plezix TaskQueues in the shape of a libwebrtc TaskQueue.
  *
- * Allows libwebrtc to use Mozilla threads where tooling, e.g. profiling, is set
+ * Allows libwebrtc to use Plezix threads where tooling, e.g. profiling, is set
  * up and just works.
  *
- * Mozilla APIs like Runnables, MozPromise, etc. can also be used with the
+ * Plezix APIs like Runnables, MozPromise, etc. can also be used with the
  * wrapped TaskQueue to run things on the right thread when interacting with
  * libwebrtc.
  */

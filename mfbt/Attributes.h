@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -311,7 +311,7 @@
  * MOZ_NO_SANITIZE_UNSIGNED_OVERFLOW disables *un*signed integer overflow
  * checking on the function it annotates, in builds configured to perform it.
  * (Currently this is only Clang using -fsanitize=unsigned-integer-overflow, or
- * via --enable-unsigned-overflow-sanitizer in Mozilla's build system.)  It has
+ * via --enable-unsigned-overflow-sanitizer in Plezix's build system.)  It has
  * no effect in other builds.
  *
  * Place this attribute at the very beginning of a function declaration.
@@ -351,7 +351,7 @@
  * MOZ_NO_SANITIZE_SIGNED_OVERFLOW disables *signed* integer overflow checking
  * on the function it annotates, in builds configured to perform it.  (Currently
  * this is only Clang using -fsanitize=signed-integer-overflow, or via
- * --enable-signed-overflow-sanitizer in Mozilla's build system.  GCC support
+ * --enable-signed-overflow-sanitizer in Plezix's build system.  GCC support
  * will probably be added in the future.)  It has no effect in other builds.
  *
  * Place this attribute at the very beginning of a function declaration.
@@ -558,7 +558,7 @@
 
 /*
  * The following macros are attributes that support the static analysis plugin
- * included with Mozilla, and will be implemented (when such support is enabled)
+ * included with Plezix, and will be implemented (when such support is enabled)
  * as C++11 attributes. Since such attributes are legal pretty much everywhere
  * and have subtly different semantics depending on their placement, the
  * following is a guide on where to place the attributes.

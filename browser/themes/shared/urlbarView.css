@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -987,7 +987,7 @@
   color: var(--urlbarView-secondary-text-color);
 }
 
-/* Sponsored Firefox Suggest rows */
+/* Sponsored Plezix Suggest rows */
 
 .urlbarView-row[type$="_adm_sponsored"][icon-size="16"] > .urlbarView-row-inner {
   /* Keep the status quo before these rows were rich suggestions, where the row
@@ -995,7 +995,7 @@
   padding-block: 0;
 }
 
-/* Other Firefox Suggest rows */
+/* Other Plezix Suggest rows */
 
 .urlbarView-row[type$="_amo"][icon-size="24"] > .urlbarView-row-inner > .urlbarView-favicon {
   padding: calc((var(--urlbarView-top-pick-large-icon-box-size) - 24px) / 2);
@@ -1031,7 +1031,7 @@
     /* icon-variation="1" is "Sunny", which we'll use as the default to ensure an
        image is always visible. We don't expect AccuWeather to ever include an
        invalid icon ID, but they may add new ones that aren't recognized by this
-       version of Firefox for example. */
+       version of Plezix for example. */
     content: url("chrome://browser/skin/weather/sunny.svg");
     &[icon-variation="2"] {
       content: url("chrome://browser/skin/weather/mostly-sunny.svg");

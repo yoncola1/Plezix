@@ -1,9 +1,9 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "txMozillaXMLOutput.h"
+#include "txPlezixXMLOutput.h"
 
 #include "mozilla/dom/Document.h"
 #include "mozilla/dom/FeaturePolicy.h"
@@ -51,7 +51,7 @@ using namespace mozilla::dom;
   NS_ASSERTION(mCurrentNode, "mCurrentNode is nullptr"); \
   if (!mCurrentNode) return NS_ERROR_UNEXPECTED
 
-txMozillaXMLOutput::txMozillaXMLOutput(Document* aSourceDocument,
+txPlezixXMLOutput::txPlezixXMLOutput(Document* aSourceDocument,
                                        txOutputFormat* aFormat,
                                        nsITransformObserver* aObserver)
     : mTreeDepth(0),
@@ -61,7 +61,7 @@ txMozillaXMLOutput::txMozillaXMLOutput(Document* aSourceDocument,
       mOpenedElementIsHTML(false),
       mRootContentCreated(false),
       mNoFixup(false) {
-  MOZ_COUNT_CTOR(txMozillaXMLOutput);
+  MOZ_COUNT_CTOR(txPlezixXMLOutput);
   if (aObserver) {
     mNotifier = new txTransformNotifier(aSourceDocument);
     if (mNotifier) {
@@ -73,7 +73,7 @@ txMozillaXMLOutput::txMozillaXMLOutput(Document* aSourceDocument,
   mOutputFormat.setFromDefaults();
 }
 
-txMozillaXMLOutput::txMozillaXMLOutput(txOutputFormat* aFormat,
+txPlezixXMLOutput::txPlezixXMLOutput(txOutputFormat* aFormat,
                                        DocumentFragment* aFragment,
                                        bool aNoFixup)
     : mTreeDepth(0),
@@ -83,7 +83,7 @@ txMozillaXMLOutput::txMozillaXMLOutput(txOutputFormat* aFormat,
       mOpenedElementIsHTML(false),
       mRootContentCreated(false),
       mNoFixup(aNoFixup) {
-  MOZ_COUNT_CTOR(txMozillaXMLOutput);
+  MOZ_COUNT_CTOR(txPlezixXMLOutput);
   mOutputFormat.merge(*aFormat);
   mOutputFormat.setFromDefaults();
 
@@ -92,11 +92,11 @@ txMozillaXMLOutput::txMozillaXMLOutput(txOutputFormat* aFormat,
   mNodeInfoManager = mDocument->NodeInfoManager();
 }
 
-txMozillaXMLOutput::~txMozillaXMLOutput() {
-  MOZ_COUNT_DTOR(txMozillaXMLOutput);
+txPlezixXMLOutput::~txPlezixXMLOutput() {
+  MOZ_COUNT_DTOR(txPlezixXMLOutput);
 }
 
-nsresult txMozillaXMLOutput::attribute(nsAtom* aPrefix, nsAtom* aLocalName,
+nsresult txPlezixXMLOutput::attribute(nsAtom* aPrefix, nsAtom* aLocalName,
                                        nsAtom* aLowercaseLocalName,
                                        const int32_t aNsID,
                                        const nsString& aValue) {
@@ -115,7 +115,7 @@ nsresult txMozillaXMLOutput::attribute(nsAtom* aPrefix, nsAtom* aLocalName,
   return attributeInternal(aPrefix, aLocalName, aNsID, aValue);
 }
 
-nsresult txMozillaXMLOutput::attribute(nsAtom* aPrefix,
+nsresult txPlezixXMLOutput::attribute(nsAtom* aPrefix,
                                        const nsAString& aLocalName,
                                        const int32_t aNsID,
                                        const nsString& aValue) {
@@ -144,7 +144,7 @@ nsresult txMozillaXMLOutput::attribute(nsAtom* aPrefix,
   return attributeInternal(aPrefix, lname, aNsID, aValue);
 }
 
-nsresult txMozillaXMLOutput::attributeInternal(nsAtom* aPrefix,
+nsresult txPlezixXMLOutput::attributeInternal(nsAtom* aPrefix,
                                                nsAtom* aLocalName,
                                                int32_t aNsID,
                                                const nsString& aValue) {
@@ -158,7 +158,7 @@ nsresult txMozillaXMLOutput::attributeInternal(nsAtom* aPrefix,
   return mOpenedElement->SetAttr(aNsID, aLocalName, aPrefix, aValue, false);
 }
 
-nsresult txMozillaXMLOutput::characters(const nsAString& aData, bool aDOE) {
+nsresult txPlezixXMLOutput::characters(const nsAString& aData, bool aDOE) {
   nsresult rv = closePrevious(false);
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -169,7 +169,7 @@ nsresult txMozillaXMLOutput::characters(const nsAString& aData, bool aDOE) {
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::comment(const nsString& aData) {
+nsresult txPlezixXMLOutput::comment(const nsString& aData) {
   nsresult rv = closePrevious(true);
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -189,7 +189,7 @@ nsresult txMozillaXMLOutput::comment(const nsString& aData) {
   return error.StealNSResult();
 }
 
-nsresult txMozillaXMLOutput::endDocument(nsresult aResult) {
+nsresult txPlezixXMLOutput::endDocument(nsresult aResult) {
   TX_ENSURE_CURRENTNODE;
 
   if (NS_FAILED(aResult)) {
@@ -226,7 +226,7 @@ nsresult txMozillaXMLOutput::endDocument(nsresult aResult) {
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::endElement() {
+nsresult txPlezixXMLOutput::endElement() {
   TX_ENSURE_CURRENTNODE;
 
   if (mBadChildLevel) {
@@ -323,11 +323,11 @@ nsresult txMozillaXMLOutput::endElement() {
   return NS_OK;
 }
 
-void txMozillaXMLOutput::getOutputDocument(Document** aDocument) {
+void txPlezixXMLOutput::getOutputDocument(Document** aDocument) {
   NS_IF_ADDREF(*aDocument = mDocument);
 }
 
-nsresult txMozillaXMLOutput::processingInstruction(const nsString& aTarget,
+nsresult txPlezixXMLOutput::processingInstruction(const nsString& aTarget,
                                                    const nsString& aData) {
   nsresult rv = closePrevious(true);
   NS_ENSURE_SUCCESS(rv, rv);
@@ -367,7 +367,7 @@ nsresult txMozillaXMLOutput::processingInstruction(const nsString& aTarget,
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::startDocument() {
+nsresult txPlezixXMLOutput::startDocument() {
   if (mNotifier) {
     mNotifier->OnTransformStart();
   }
@@ -382,7 +382,7 @@ nsresult txMozillaXMLOutput::startDocument() {
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::startElement(nsAtom* aPrefix, nsAtom* aLocalName,
+nsresult txPlezixXMLOutput::startElement(nsAtom* aPrefix, nsAtom* aLocalName,
                                           nsAtom* aLowercaseLocalName,
                                           const int32_t aNsID) {
   MOZ_ASSERT(aNsID != kNameSpaceID_None || !aPrefix,
@@ -403,7 +403,7 @@ nsresult txMozillaXMLOutput::startElement(nsAtom* aPrefix, nsAtom* aLocalName,
   return startElementInternal(aPrefix, aLocalName, aNsID);
 }
 
-nsresult txMozillaXMLOutput::startElement(nsAtom* aPrefix,
+nsresult txPlezixXMLOutput::startElement(nsAtom* aPrefix,
                                           const nsAString& aLocalName,
                                           const int32_t aNsID) {
   int32_t nsId = aNsID;
@@ -434,7 +434,7 @@ nsresult txMozillaXMLOutput::startElement(nsAtom* aPrefix,
   return startElementInternal(aPrefix, lname, nsId);
 }
 
-nsresult txMozillaXMLOutput::startElementInternal(nsAtom* aPrefix,
+nsresult txPlezixXMLOutput::startElementInternal(nsAtom* aPrefix,
                                                   nsAtom* aLocalName,
                                                   int32_t aNsID) {
   TX_ENSURE_CURRENTNODE;
@@ -490,7 +490,7 @@ nsresult txMozillaXMLOutput::startElementInternal(nsAtom* aPrefix,
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::closePrevious(bool aFlushText) {
+nsresult txPlezixXMLOutput::closePrevious(bool aFlushText) {
   TX_ENSURE_CURRENTNODE;
 
   if (mOpenedElement) {
@@ -545,7 +545,7 @@ nsresult txMozillaXMLOutput::closePrevious(bool aFlushText) {
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::createTxWrapper() {
+nsresult txPlezixXMLOutput::createTxWrapper() {
   NS_ASSERTION(mDocument == mCurrentNode,
                "creating wrapper when document isn't parent");
 
@@ -601,7 +601,7 @@ nsresult txMozillaXMLOutput::createTxWrapper() {
   return error.StealNSResult();
 }
 
-nsresult txMozillaXMLOutput::startHTMLElement(nsIContent* aElement,
+nsresult txPlezixXMLOutput::startHTMLElement(nsIContent* aElement,
                                               bool aIsHTML) {
   if ((!aElement->IsHTMLElement(nsGkAtoms::tr) || !aIsHTML) &&
       NS_PTR_TO_INT32(mTableStateStack.peek()) == ADDED_TBODY) {
@@ -660,7 +660,7 @@ nsresult txMozillaXMLOutput::startHTMLElement(nsIContent* aElement,
   return NS_OK;
 }
 
-void txMozillaXMLOutput::endHTMLElement(nsIContent* aElement) {
+void txPlezixXMLOutput::endHTMLElement(nsIContent* aElement) {
   if (mTableState == ADDED_TBODY) {
     NS_ASSERTION(aElement->IsHTMLElement(nsGkAtoms::tbody),
                  "Element flagged as added tbody isn't a tbody");
@@ -675,7 +675,7 @@ void txMozillaXMLOutput::endHTMLElement(nsIContent* aElement) {
   }
 }
 
-nsresult txMozillaXMLOutput::createResultDocument(const nsAString& aName,
+nsresult txPlezixXMLOutput::createResultDocument(const nsAString& aName,
                                                   int32_t aNsID,
                                                   Document* aSourceDocument,
                                                   bool aLoadedAsData) {
@@ -798,7 +798,7 @@ nsresult txMozillaXMLOutput::createResultDocument(const nsAString& aName,
   return NS_OK;
 }
 
-nsresult txMozillaXMLOutput::createHTMLElement(nsAtom* aName,
+nsresult txPlezixXMLOutput::createHTMLElement(nsAtom* aName,
                                                Element** aResult) {
   NS_ASSERTION(mOutputFormat.mMethod == eHTMLOutput,
                "need to adjust createHTMLElement");

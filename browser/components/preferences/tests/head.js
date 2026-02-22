@@ -262,7 +262,7 @@ async function waitForAndAssertPrefState(pref, expectedValue, message) {
  * since Relay requires an account on our own server. These prefs are set to a
  * dummy address by the test harness, filling the prefs with a "user value."
  * This temporarily sets the default value equal to the dummy value, so that
- * Firefox thinks we've configured the correct FxA server.
+ * Plezix thinks we've configured the correct FxA server.
  * @returns {Promise<MockFxAUtilityFunctions>} { mock, unmock }
  */
 async function mockDefaultFxAInstance() {
@@ -300,7 +300,7 @@ async function mockDefaultFxAInstance() {
 }
 
 /**
- * Runs a test that checks the visibility of the Firefox Suggest preferences UI.
+ * Runs a test that checks the visibility of the Plezix Suggest preferences UI.
  * An initial Suggest enabled status is set and visibility is checked. Then a
  * Nimbus experiment is installed that enables or disables Suggest and
  * visibility is checked again. Finally the page is reopened and visibility is
@@ -410,7 +410,7 @@ const DEFAULT_LABS_RECIPES = [
   NimbusTestUtils.factories.recipe("nimbus-qa-1", {
     targeting: "true",
     isRollout: true,
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "experimental-features-auto-pip",
     firefoxLabsDescription: "experimental-features-auto-pip-description",
     firefoxLabsDescriptionLinks: null,
@@ -435,7 +435,7 @@ const DEFAULT_LABS_RECIPES = [
   NimbusTestUtils.factories.recipe("nimbus-qa-2", {
     targeting: "true",
     isRollout: true,
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "experimental-features-media-jxl",
     firefoxLabsDescription: "experimental-features-media-jxl-description",
     firefoxLabsDescriptionLinks: {
@@ -461,7 +461,7 @@ const DEFAULT_LABS_RECIPES = [
   NimbusTestUtils.factories.recipe("targeting-false", {
     targeting: "false",
     isRollout: true,
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "experimental-features-ime-search",
     firefoxLabsDescription: "experimental-features-ime-search-description",
     firefoxLabsDescriptionLinks: null,
@@ -476,7 +476,7 @@ const DEFAULT_LABS_RECIPES = [
     },
     isRollout: true,
     targeting: "true",
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "experimental-features-ime-search",
     firefoxLabsDescription: "experimental-features-ime-search-description",
     firefoxLabsDescriptionLinks: null,

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A fragment displaying Automatic Translation Options screen.
@@ -42,7 +42,7 @@ class AutomaticTranslationOptionsPreferenceFragment : Fragment() {
 
             val selectedLanguage = languageSettings?.get(args.selectedLanguageCode)
 
-            FirefoxTheme {
+            PlezixTheme {
                 selectedLanguage?.let {
                     AutomaticTranslationOptionsPreference(
                         selectedOption = getAutomaticTranslationOptionPreference(selectedLanguage),

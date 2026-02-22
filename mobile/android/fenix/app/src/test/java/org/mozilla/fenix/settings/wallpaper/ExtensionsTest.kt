@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,14 +15,14 @@ class ExtensionsTest {
     @Test
     fun `GIVEN wallpapers that include the default WHEN grouped by collection THEN default will be added to classic firefox`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
         val seasonalWallpapers = (0..5).map { generateSeasonalWallpaperCollection("${seasonalCollection.name}$it", seasonalCollection.name) }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers + seasonalWallpapers
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers + seasonalWallpapers
 
         val result = allWallpapers.groupByDisplayableCollection()
 
         assertEquals(2, result.size)
-        assertEquals(listOf(Wallpaper.Default) + classicFirefoxWallpapers, result[classicCollection])
+        assertEquals(listOf(Wallpaper.Default) + classicPlezixWallpapers, result[classicCollection])
         assertEquals(seasonalWallpapers, result[seasonalCollection])
     }
 
@@ -31,13 +31,13 @@ class ExtensionsTest {
         val result = listOf(Wallpaper.Default).groupByDisplayableCollection()
 
         assertEquals(1, result.size)
-        assertEquals(listOf(Wallpaper.Default), result[Wallpaper.ClassicFirefoxCollection])
+        assertEquals(listOf(Wallpaper.Default), result[Wallpaper.ClassicPlezixCollection])
     }
 
     @Test
     fun `GIVEN wallpapers with thumbnails that have not downloaded WHEN grouped by collection THEN wallpapers without thumbnails will not be included`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
         val downloadedSeasonalWallpapers = (0..5).map { generateSeasonalWallpaperCollection("${seasonalCollection.name}$it", seasonalCollection.name) }
         val nonDownloadedSeasonalWallpapers = (0..5).map {
             generateSeasonalWallpaperCollection(
@@ -46,12 +46,12 @@ class ExtensionsTest {
                 Wallpaper.ImageFileState.Error,
             )
         }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers + downloadedSeasonalWallpapers + nonDownloadedSeasonalWallpapers
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers + downloadedSeasonalWallpapers + nonDownloadedSeasonalWallpapers
 
         val result = allWallpapers.groupByDisplayableCollection()
 
         assertEquals(2, result.size)
-        assertEquals(listOf(Wallpaper.Default) + classicFirefoxWallpapers, result[classicCollection])
+        assertEquals(listOf(Wallpaper.Default) + classicPlezixWallpapers, result[classicCollection])
         assertEquals(downloadedSeasonalWallpapers, result[seasonalCollection])
     }
 
@@ -77,8 +77,8 @@ class ExtensionsTest {
     fun `GIVEN two collections of appropriate size WHEN fetched for onboarding THEN result contains 3 seasonal and 2 classic`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
         val seasonalWallpapers = (0..5).map { generateSeasonalWallpaperCollection("${seasonalCollection.name}$it", seasonalCollection.name) }
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers + seasonalWallpapers
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers + seasonalWallpapers
 
         val result = allWallpapers.getWallpapersForOnboarding()
 
@@ -100,8 +100,8 @@ class ExtensionsTest {
         val seasonalCollectionE = getSeasonalCollection("finally vacation")
         val seasonalWallpapersE = generateSeasonalWallpaperCollection("${seasonalCollectionE.name}$0", seasonalCollectionE.name)
 
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers + seasonalWallpapers +
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers + seasonalWallpapers +
             seasonalWallpaperB + seasonalWallpapersC + seasonalWallpaperD + seasonalWallpapersE
 
         val result = allWallpapers.getWallpapersForOnboarding()
@@ -115,8 +115,8 @@ class ExtensionsTest {
     fun `GIVEN seasonal collection of insufficient size WHEN grouped for onboarding THEN result contains all seasonal and the rest is classic`() {
         val seasonalCollection = getSeasonalCollection("finally fall")
         val seasonalWallpapers = generateSeasonalWallpaperCollection("${seasonalCollection.name}$0", seasonalCollection.name)
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers + seasonalWallpapers
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers + seasonalWallpapers
 
         val result = allWallpapers.getWallpapersForOnboarding()
 
@@ -127,8 +127,8 @@ class ExtensionsTest {
 
     @Test
     fun `GIVEN no seasonal collection WHEN grouped for onboarding THEN result contains all classic`() {
-        val classicFirefoxWallpapers = (0..5).map { generateClassicFirefoxWallpaper("firefox$it") }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers
+        val classicPlezixWallpapers = (0..5).map { generateClassicPlezixWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers
 
         val result = allWallpapers.getWallpapersForOnboarding()
 
@@ -138,8 +138,8 @@ class ExtensionsTest {
 
     @Test
     fun `GIVEN insufficient items in classic collection WHEN grouped for onboarding THEN result contains all classic`() {
-        val classicFirefoxWallpapers = (0..2).map { generateClassicFirefoxWallpaper("firefox$it") }
-        val allWallpapers = listOf(Wallpaper.Default) + classicFirefoxWallpapers
+        val classicPlezixWallpapers = (0..2).map { generateClassicPlezixWallpaper("firefox$it") }
+        val allWallpapers = listOf(Wallpaper.Default) + classicPlezixWallpapers
 
         val result = allWallpapers.getWallpapersForOnboarding()
 
@@ -169,7 +169,7 @@ class ExtensionsTest {
         assertTrue(result.contains(Wallpaper.Default))
     }
 
-    private fun generateClassicFirefoxWallpaper(name: String) = Wallpaper(
+    private fun generateClassicPlezixWallpaper(name: String) = Wallpaper(
         name = name,
         textColor = 0L,
         cardColorLight = 0L,

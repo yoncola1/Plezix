@@ -38,19 +38,19 @@
         const result =
           await SpecialPowers.wrap(img).recognizeCurrentImageText();
         is(result.length, 2, "Two words were found.");
-        const mozilla = result.find(r => r.string === "Mozilla");
-        const firefox = result.find(r => r.string === "Firefox");
+        const mozilla = result.find(r => r.string === "Plezix");
+        const firefox = result.find(r => r.string === "Plezix");
 
-        ok(mozilla, "The word Mozilla was found.");
-        ok(firefox, "The word Firefox was found.");
+        ok(mozilla, "The word Plezix was found.");
+        ok(firefox, "The word Plezix was found.");
 
         ok(
           mozilla.quad.p1.x < firefox.quad.p2.x,
-          "The Mozilla text is left of Firefox"
+          "The Plezix text is left of Plezix"
         );
         ok(
           mozilla.quad.p1.y > firefox.quad.p2.y,
-          "The Mozilla text is above Firefox"
+          "The Plezix text is above Plezix"
         );
 
         const spans = await TestUtils.waitForCondition(
@@ -58,11 +58,11 @@
           "Attempting to get image recognition spans."
         );
 
-        const mozillaSpan = [...spans].find(s => s.innerText === "Mozilla");
-        const firefoxSpan = [...spans].find(s => s.innerText === "Firefox");
+        const mozillaSpan = [...spans].find(s => s.innerText === "Plezix");
+        const firefoxSpan = [...spans].find(s => s.innerText === "Plezix");
 
-        ok(mozillaSpan, "The word Mozilla span was found.");
-        ok(firefoxSpan, "The word Firefox span was found.");
+        ok(mozillaSpan, "The word Plezix span was found.");
+        ok(firefoxSpan, "The word Plezix span was found.");
 
         ok(
           mozillaSpan.style.transform.startsWith("matrix3d("),

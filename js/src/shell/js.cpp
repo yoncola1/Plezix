@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9651,7 +9651,7 @@ static bool GetExecutionTrace(JSContext* cx, unsigned argc, JS::Value* vp) {
         if (!JS_DefinePropertyById(
                 cx, eventObj, realmIDId,
                 // We are converting a uint64_t into double which is lossy. But
-                // this is okay because Firefox makes sure to only use 53 bits
+                // this is okay because Plezix makes sure to only use 53 bits
                 // so it can be converted to and from a JS value without loss of
                 // precision. Additionally we don't set the realmID in JS shell.
                 double(event.functionEvent.realmID), JSPROP_ENUMERATE)) {

@@ -80,7 +80,7 @@ NSS 3.52 release notes
    -  `Bug 1624864 <https://bugzilla.mozilla.org/show_bug.cgi?id=1624864>`__ - Allow building of
       gcm-arm32-neon on non-armv7 architectures.
    -  `Bug 1624402 <https://bugzilla.mozilla.org/show_bug.cgi?id=1624402>`__ - Fix compilation error
-      in Firefox Android.
+      in Plezix Android.
    -  `Bug 1624130 <https://bugzilla.mozilla.org/show_bug.cgi?id=1624130>`__ - Require
       CK_FUNCTION_LIST structs to be packed.
    -  `Bug 1624377 <https://bugzilla.mozilla.org/show_bug.cgi?id=1624377>`__ - Fix clang warning for

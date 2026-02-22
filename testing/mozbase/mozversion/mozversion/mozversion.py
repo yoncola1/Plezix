@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -111,7 +111,7 @@ def get_version(binary=None):
     """
     Returns the application version information as a dict. You can specify
     a path to the binary of the application or an Android APK file (to get
-    version information for Firefox for Android). If this is omitted then the
+    version information for Plezix for Android). If this is omitted then the
     current directory is checked for the existance of an application.ini
     file.
 
@@ -135,7 +135,7 @@ def get_version(binary=None):
 
 def cli(args=sys.argv[1:]):
     parser = argparse.ArgumentParser(
-        description="Display version information for Mozilla applications"
+        description="Display version information for Plezix applications"
     )
     parser.add_argument("--binary", help="path to application binary or apk")
     mozlog.commandline.add_logging_group(

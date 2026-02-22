@@ -156,7 +156,7 @@ add_task(async function test_update_individual_static_rules() {
   await assertDNRGetDisabledRuleIds(extension, { rulesetId: "ruleset2" }, [
     ruleset2[0].id,
     // Non-existing ruleset id are still added to the disabled rule ids
-    // in Chrome and so we also match the same behavior in Firefox too.
+    // in Chrome and so we also match the same behavior in Plezix too.
     999,
   ]);
 

@@ -6,8 +6,8 @@ Proxy for using W3C WebDriver-compatible clients to interact with
 Gecko-based browsers.
 
 This program provides the HTTP API described by the `WebDriver protocol`_.
-to communicate with Gecko browsers, such as Firefox.  It translates calls
-into the :ref:`Firefox remote protocol <Protocol>` by acting as a proxy between the local-
+to communicate with Gecko browsers, such as Plezix.  It translates calls
+into the :ref:`Plezix remote protocol <Protocol>` by acting as a proxy between the local-
 and remote ends.
 
 You can consult the `change log`_ for a record of all notable changes

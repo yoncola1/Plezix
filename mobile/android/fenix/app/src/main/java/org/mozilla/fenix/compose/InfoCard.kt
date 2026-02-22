@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Card for presenting informational messages or errors.
@@ -98,8 +98,8 @@ fun InfoCard(
                 title?.let {
                     Text(
                         text = it,
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline8,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.headline8,
                         modifier = Modifier.semantics {
                             heading()
                             if (titleContentDescription != null) {
@@ -114,8 +114,8 @@ fun InfoCard(
 
                     Text(
                         text = remember(description) { parseHtml(description) },
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.body2,
                     )
                 }
 
@@ -125,10 +125,10 @@ fun InfoCard(
                     LinkText(
                         text = it.first,
                         linkTextStates = listOf(it.second),
-                        style = FirefoxTheme.typography.body2.copy(
-                            color = FirefoxTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.body2.copy(
+                            color = PlezixTheme.colors.textPrimary,
                         ),
-                        linkTextColor = FirefoxTheme.colors.textPrimary,
+                        linkTextColor = PlezixTheme.colors.textPrimary,
                         linkTextDecoration = TextDecoration.Underline,
                     )
                 }
@@ -157,7 +157,7 @@ private fun InfoCardIcon(
     Icon(
         painter = painterResource(id = iconId),
         contentDescription = null,
-        tint = FirefoxTheme.colors.iconPrimary,
+        tint = PlezixTheme.colors.iconPrimary,
         modifier = modifier,
     )
 }
@@ -195,29 +195,29 @@ enum class InfoType {
     val cardBackgroundColor: Color
         @Composable
         get() = when (this) {
-            Warning -> FirefoxTheme.colors.layerWarning
-            Confirmation -> FirefoxTheme.colors.layerSuccess
-            Error -> FirefoxTheme.colors.layerCritical
-            Info -> FirefoxTheme.colors.layerInformation
+            Warning -> PlezixTheme.colors.layerWarning
+            Confirmation -> PlezixTheme.colors.layerSuccess
+            Error -> PlezixTheme.colors.layerCritical
+            Info -> PlezixTheme.colors.layerInformation
             InfoPlain -> Color.Transparent
         }
 
     val buttonBackgroundColor: Color
         @Composable
         get() = when (this) {
-            Warning -> FirefoxTheme.colors.actionWarning
-            Confirmation -> FirefoxTheme.colors.actionSuccess
-            Error -> FirefoxTheme.colors.actionCritical
-            Info -> FirefoxTheme.colors.actionInformation
-            InfoPlain -> FirefoxTheme.colors.actionSecondary
+            Warning -> PlezixTheme.colors.actionWarning
+            Confirmation -> PlezixTheme.colors.actionSuccess
+            Error -> PlezixTheme.colors.actionCritical
+            Info -> PlezixTheme.colors.actionInformation
+            InfoPlain -> PlezixTheme.colors.actionSecondary
         }
 
     val buttonTextColor: Color
         @Composable
         get() = when {
-            this == Info && !isSystemInDarkTheme() -> FirefoxTheme.colors.textOnColorPrimary
-            this == InfoPlain -> FirefoxTheme.colors.textActionSecondary
-            else -> FirefoxTheme.colors.textPrimary
+            this == Info && !isSystemInDarkTheme() -> PlezixTheme.colors.textOnColorPrimary
+            this == InfoPlain -> PlezixTheme.colors.textActionSecondary
+            else -> PlezixTheme.colors.textPrimary
         }
 }
 
@@ -242,10 +242,10 @@ private class PreviewModelParameterProvider : PreviewParameterProvider<InfoType>
 private fun InfoCardPreview(
     @PreviewParameter(PreviewModelParameterProvider::class) type: InfoType,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             InfoCard(

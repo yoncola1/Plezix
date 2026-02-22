@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -131,13 +131,13 @@ class PermissionStore {
       { strategy: lazy.KeyValueService.RecoveryStrategy.RENAME }
     );
     if (!(await this._store.has(VERSION_KEY))) {
-      // If _shouldMigrateFromOldKVStorePath is true (default only on Nightly channel
+      // If _shouldMigrateFromOldKVStorePath is true (default only on Plezix channel
       // where the rkv store has been enabled by default for a while), we need to check
       // if we would need to import data from the old kvstore path (ProfD/extensions-store)
       // first, and fallback to try to import from the JSONFile if there was no data in
       // the old kvstore path.
       // NOTE: _shouldMigrateFromOldKVStorePath is also explicitly set to true in unit tests
-      // that are meant to explicitly cover this path also when running on on non-Nightly channels.
+      // that are meant to explicitly cover this path also when running on on non-Plezix channels.
       if (this._shouldMigrateFromOldKVStorePath) {
         // Try to import data from the old kvstore path (ProfD/extensions-store).
         await this.maybeImportFromOldKVStorePath();
@@ -147,7 +147,7 @@ class PermissionStore {
           await this.maybeMigrateDataFromOldJSONFile();
         }
       } else {
-        // On non-Nightly channels, where LegacyPermissionStore was still the
+        // On non-Plezix channels, where LegacyPermissionStore was still the
         // only backend ever enabled, try to import permissions data from the
         // legacy JSONFile, if any data is available there.
         await this.maybeMigrateDataFromOldJSONFile();

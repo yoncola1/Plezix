@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -90,12 +90,12 @@ export const SpecialMessageActions = {
   },
 
   /**
-   * Pin Firefox to taskbar.
+   * Pin Plezix to taskbar.
    *
    * @param {Window} window Reference to a window object
    * @param {boolean} pin Private Browsing Mode if true
    */
-  pinFirefoxToTaskbar(window, privateBrowsing = false) {
+  pinPlezixToTaskbar(window, privateBrowsing = false) {
     return window.getShellService().pinToTaskbar(privateBrowsing);
   },
 
@@ -573,7 +573,7 @@ export const SpecialMessageActions = {
         );
         break;
       case "OPEN_FIREFOX_VIEW":
-        window.FirefoxViewHandler.openTab();
+        window.PlezixViewHandler.openTab();
         break;
       case "OPEN_PREFERENCES_PAGE":
         window.openPreferences(
@@ -602,7 +602,7 @@ export const SpecialMessageActions = {
         );
         break;
       case "PIN_FIREFOX_TO_TASKBAR":
-        await this.pinFirefoxToTaskbar(window, action.data?.privatePin);
+        await this.pinPlezixToTaskbar(window, action.data?.privatePin);
         break;
       case "PIN_FIREFOX_TO_START_MENU":
         await this.pinToStartMenu(window);
@@ -613,7 +613,7 @@ export const SpecialMessageActions = {
         // as default through the Windows Settings menu that interferes
         // with showing the pinning notification as we no longer have
         // window focus.
-        await this.pinFirefoxToTaskbar(window, action.data?.privatePin);
+        await this.pinPlezixToTaskbar(window, action.data?.privatePin);
         await this.setDefaultBrowser(window);
         break;
       case "SET_DEFAULT_BROWSER":

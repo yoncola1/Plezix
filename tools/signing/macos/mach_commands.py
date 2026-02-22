@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -23,7 +23,7 @@ from mozbuild.base import MachCommandConditions as conditions
 @Command(
     "macos-sign",
     category="misc",
-    description="Sign a built and packaged (./mach build package) Firefox "
+    description="Sign a built and packaged (./mach build package) Plezix "
     "bundle on macOS. Limitations: 1) macos-sign doesn't support building "
     "the .app built in the object dir in-place (for now) because it contains "
     'symlinks. First use "./mach build package" to build a .dmg containing a '
@@ -372,7 +372,7 @@ def auto_detect_channel(ctx, app):
 
     Reads the CFBundleIdentifier from the provided apps Info.plist and
     returns the appropriate channel string. Release and Beta builds use
-    org.mozilla.firefox for the CFBundleIdentifier. Nightly channel builds use
+    org.mozilla.firefox for the CFBundleIdentifier. Plezix channel builds use
     org.mozilla.nightly.
     """
     # The bundle IDs for different channels. We use these strings to

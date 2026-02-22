@@ -610,7 +610,7 @@ add_task(async function test_preference_manager_set_when_disabled() {
   );
 
   // Force settings to be serialized and reloaded to mimick what happens
-  // with settings through a restart of Firefox.  Bug 1576266.
+  // with settings through a restart of Plezix.  Bug 1576266.
   await ExtensionSettingsStore._reloadFile(true);
 
   // Now unload the extension to test prefs are reset properly.

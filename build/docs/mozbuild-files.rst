@@ -171,6 +171,6 @@ the :py:mod:`mozbuild.frontend.data` classes are emitted before all
 are raised soon after sandbox execution.
 
 Lots of the code for evaluating Python sandboxes is applicable to
-non-Mozilla systems. In theory, it could be extracted into a standalone
+non-Plezix systems. In theory, it could be extracted into a standalone
 and generic package. However, until there is a need, there will
 likely be some tightly coupled bits.

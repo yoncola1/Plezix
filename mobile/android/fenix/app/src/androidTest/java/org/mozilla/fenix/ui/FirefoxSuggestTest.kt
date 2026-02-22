@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,11 +19,11 @@ import org.mozilla.fenix.helpers.perf.DetectMemoryLeaksRule
 import org.mozilla.fenix.ui.robots.navigationToolbar
 
 /**
- *  Tests for verifying the Firefox suggest search fragment
+ *  Tests for verifying the Plezix suggest search fragment
  *
  */
 
-class FirefoxSuggestTest : TestSetup() {
+class PlezixSuggestTest : TestSetup() {
 
     @get:Rule
     val activityTestRule = AndroidComposeTestRule(
@@ -107,7 +107,7 @@ class FirefoxSuggestTest : TestSetup() {
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1898435")
     @SmokeTest
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsTest() {
+    fun verifyPlezixSuggestSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -115,7 +115,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -129,7 +129,7 @@ class FirefoxSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1898435")
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsWithPartialKeywordTest() {
+    fun verifyPlezixSuggestSponsoredSearchResultsWithPartialKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -137,7 +137,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -151,7 +151,7 @@ class FirefoxSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1898435")
     @Test
-    fun openFirefoxSuggestSponsoredSearchResultsTest() {
+    fun openPlezixSuggestSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -159,7 +159,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -176,7 +176,7 @@ class FirefoxSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1898435")
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsWithEditedKeywordTest() {
+    fun verifyPlezixSuggestSponsoredSearchResultsWithEditedKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -185,7 +185,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -202,7 +202,7 @@ class FirefoxSuggestTest : TestSetup() {
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @SmokeTest
     @Test
-    fun verifyFirefoxSuggestNonSponsoredSearchResultsTest() {
+    fun verifyPlezixSuggestNonSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -210,7 +210,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord,
@@ -229,7 +229,7 @@ class FirefoxSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @Test
-    fun verifyFirefoxSuggestNonSponsoredSearchResultsWithPartialKeywordTest() {
+    fun verifyPlezixSuggestNonSponsoredSearchResultsWithPartialKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -237,7 +237,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord.dropLast(1),
@@ -250,7 +250,7 @@ class FirefoxSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @Test
-    fun openFirefoxSuggestNonSponsoredSearchResultsTest() {
+    fun openPlezixSuggestNonSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -258,7 +258,7 @@ class FirefoxSuggestTest : TestSetup() {
                 verifySponsoredSuggestionsResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Plezix Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord,

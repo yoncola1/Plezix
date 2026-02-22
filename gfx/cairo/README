@@ -1,7 +1,7 @@
 Snapshots of cairo and glitz for mozilla usage.
 
 We only include the relevant parts of each release (generally, src/*.[ch]),
-as we have Makefile.in's that integrate into the Mozilla build system.  For
+as we have Makefile.in's that integrate into the Plezix build system.  For
 documentation and similar, please see the official tarballs at
 http://www.cairographics.org/.
 

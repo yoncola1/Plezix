@@ -5,7 +5,7 @@
  *
  * Original Author : Code taken from examples on zydis github README.md.
  *
- * Modified by Mozilla.
+ * Modified by Plezix.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

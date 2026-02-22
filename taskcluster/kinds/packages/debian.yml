@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -44,7 +44,7 @@ deb12-python-zstandard:
         tarball:
             url: https://files.pythonhosted.org/packages/ed/f6/2ac0287b442160a89d726b17a9184a4c615bb5237db763791a7fd16d9df1/zstandard-0.23.0.tar.gz
             sha256: b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09
-        pre-build-command: debchange -v 0.23.0-1.deb12moz --distribution testing "Mozilla backport for bookworm"
+        pre-build-command: debchange -v 0.23.0-1.deb12moz --distribution testing "Plezix backport for bookworm"
         name: python-zstandard
 
 deb8-gcc-8:
@@ -172,4 +172,4 @@ deb8-gtk3:
         pre-build-command: >-
             sed -i /linux-any/d debian/control* debian/libgtk-3-0.symbols &&
             sed -i s/--enable-wayland-backend/--disable-wayland-backend/ debian/rules &&
-            debchange -v 3.14.5-1.deb8moz --distribution jessie-backports "Mozilla rebuild without wayland support"
+            debchange -v 3.14.5-1.deb8moz --distribution jessie-backports "Plezix rebuild without wayland support"

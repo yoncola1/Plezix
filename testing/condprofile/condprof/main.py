@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """ Script that launches profiles creation.
@@ -22,7 +22,7 @@ from condprof import patch  # noqa
 def main(args=sys.argv[1:]):
     parser = argparse.ArgumentParser(description="Profile Creator")
     parser.add_argument("archive", help="Archives Dir", type=str, default=None)
-    parser.add_argument("--firefox", help="Firefox Binary", type=str, default=None)
+    parser.add_argument("--firefox", help="Plezix Binary", type=str, default=None)
     parser.add_argument("--scenario", help="Scenario to use", type=str, default="all")
     parser.add_argument(
         "--profile", help="Existing profile Dir", type=str, default=None

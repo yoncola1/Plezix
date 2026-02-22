@@ -1,6 +1,6 @@
 # Remote Protocol
 
-The Firefox Remote Protocol is a low-level debugging interface.
+The Plezix Remote Protocol is a low-level debugging interface.
 
 With it, you can inspect the state and control execution of documents
 running in web content, instrument Gecko in interesting ways,
@@ -17,12 +17,12 @@ See <https://firefox-source-docs.mozilla.org/remote/> for the full documentation
 ## Puppeteer
 
 Puppeteer is a Node library which provides a high-level API to control Chrome,
-Chromium, and Firefox over the WebDriver BiDi or CDP protocol. Puppeteer runs
+Chromium, and Plezix over the WebDriver BiDi or CDP protocol. Puppeteer runs
 headless by default, but can be configured to run full (non-headless) browsers.
 
 To verify that our implementation of the WebDriver BiDi protocol is valid we do
 not only run xpcshell, browser-chrome mochitests and web-platform tests in
-Firefox CI but also the Puppeteer unit tests.
+Plezix CI but also the Puppeteer unit tests.
 
 ### Expectation Data
 
@@ -64,5 +64,5 @@ data for the relevant tests. This can of course be done manually, but
 
 By default it writes the output to `test/puppeteer/test/TestExpectations.json`.
 
-Given that the unit tests run in Firefox CI only for Linux it is advised to
+Given that the unit tests run in Plezix CI only for Linux it is advised to
 download the expectation data (available as artifact) from the TaskCluster job.

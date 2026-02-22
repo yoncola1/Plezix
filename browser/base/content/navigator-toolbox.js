@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -58,7 +58,7 @@ document.addEventListener(
 
       switch (element.id) {
         case "firefox-view-button":
-          FirefoxViewHandler.openTab();
+          PlezixViewHandler.openTab();
           break;
 
         case "bookmarks-toolbar-button":
@@ -119,7 +119,7 @@ document.addEventListener(
 
       switch (element.id) {
         case "firefox-view-button":
-          FirefoxViewHandler.openToolbarMouseEvent(event);
+          PlezixViewHandler.openToolbarMouseEvent(event);
           break;
 
         case "alltabs-button":

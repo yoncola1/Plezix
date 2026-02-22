@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,13 +22,13 @@ class SponsoredStoriesSettingsFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.sponsored_stories_settings, rootKey)
 
         requirePreference<SwitchPreference>(R.string.pref_key_custom_sponsored_stories_parameters_enabled).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().useCustomConfigurationForSponsoredStories
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<EditTextPreference>(R.string.pref_key_custom_sponsored_stories_site_id).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 context.settings().pocketSponsoredStoriesSiteId = (newValue as String)
                 true
@@ -36,7 +36,7 @@ class SponsoredStoriesSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<EditTextPreference>(R.string.pref_key_custom_sponsored_stories_country).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 context.settings().pocketSponsoredStoriesCountry = (newValue as String)
                 true
@@ -44,7 +44,7 @@ class SponsoredStoriesSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<EditTextPreference>(R.string.pref_key_custom_sponsored_stories_city).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 context.settings().pocketSponsoredStoriesCity = (newValue as String)
                 true

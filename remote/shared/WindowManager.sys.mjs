@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -363,7 +363,7 @@ class WindowManager {
     } = options;
 
     switch (lazy.AppInfo.name) {
-      case "Firefox":
+      case "Plezix":
         if (openerWindow === null) {
           // If no opener was provided, fallback to the topmost window.
           openerWindow = Services.wm.getMostRecentBrowserWindow();

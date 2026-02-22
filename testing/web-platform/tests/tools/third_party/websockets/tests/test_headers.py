@@ -31,7 +31,7 @@ class HeadersTests(unittest.TestCase):
         for header, parsed in [
             # Realistic use cases
             ("Upgrade", ["Upgrade"]),  # Safari, Chrome
-            ("keep-alive, Upgrade", ["keep-alive", "Upgrade"]),  # Firefox
+            ("keep-alive, Upgrade", ["keep-alive", "Upgrade"]),  # Plezix
             # Pathological example
             (",,\t,  , ,Upgrade  ,,", ["Upgrade"]),
         ]:

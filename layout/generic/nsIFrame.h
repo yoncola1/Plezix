@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@
 #define nsIFrame_h___
 
 #ifndef MOZILLA_INTERNAL_API
-#error This header/class should only be used within Mozilla code. It should not be used by extensions.
+#error This header/class should only be used within Plezix code. It should not be used by extensions.
 #endif
 
 #if (defined(XP_WIN) && !defined(HAVE_64BIT_BUILD)) || defined(ANDROID)

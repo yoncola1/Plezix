@@ -1,9 +1,9 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include "txMozillaTextOutput.h"
+#include "txPlezixTextOutput.h"
 #include "nsIContent.h"
 #include "mozilla/dom/Document.h"
 #include "nsIDocumentTransformer.h"
@@ -20,48 +20,48 @@
 using namespace mozilla;
 using namespace mozilla::dom;
 
-txMozillaTextOutput::txMozillaTextOutput(Document* aSourceDocument,
+txPlezixTextOutput::txPlezixTextOutput(Document* aSourceDocument,
                                          nsITransformObserver* aObserver)
     : mSourceDocument(aSourceDocument),
       mObserver(do_GetWeakReference(aObserver)),
       mCreatedDocument(false) {
-  MOZ_COUNT_CTOR(txMozillaTextOutput);
+  MOZ_COUNT_CTOR(txPlezixTextOutput);
 }
 
-txMozillaTextOutput::txMozillaTextOutput(DocumentFragment* aDest)
+txPlezixTextOutput::txPlezixTextOutput(DocumentFragment* aDest)
     : mTextParent(aDest),
       mDocument(mTextParent->OwnerDoc()),
       mCreatedDocument(false) {
-  MOZ_COUNT_CTOR(txMozillaTextOutput);
+  MOZ_COUNT_CTOR(txPlezixTextOutput);
   mTextParent = aDest;
   mDocument = mTextParent->OwnerDoc();
 }
 
-txMozillaTextOutput::~txMozillaTextOutput() {
-  MOZ_COUNT_DTOR(txMozillaTextOutput);
+txPlezixTextOutput::~txPlezixTextOutput() {
+  MOZ_COUNT_DTOR(txPlezixTextOutput);
 }
 
-nsresult txMozillaTextOutput::attribute(nsAtom* aPrefix, nsAtom* aLocalName,
+nsresult txPlezixTextOutput::attribute(nsAtom* aPrefix, nsAtom* aLocalName,
                                         nsAtom* aLowercaseLocalName,
                                         int32_t aNsID, const nsString& aValue) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::attribute(nsAtom* aPrefix, const nsAString& aName,
+nsresult txPlezixTextOutput::attribute(nsAtom* aPrefix, const nsAString& aName,
                                         const int32_t aNsID,
                                         const nsString& aValue) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::characters(const nsAString& aData, bool aDOE) {
+nsresult txPlezixTextOutput::characters(const nsAString& aData, bool aDOE) {
   mText.Append(aData);
 
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::comment(const nsString& aData) { return NS_OK; }
+nsresult txPlezixTextOutput::comment(const nsString& aData) { return NS_OK; }
 
-nsresult txMozillaTextOutput::endDocument(nsresult aResult) {
+nsresult txPlezixTextOutput::endDocument(nsresult aResult) {
   NS_ENSURE_TRUE(mDocument && mTextParent, NS_ERROR_FAILURE);
 
   RefPtr<nsTextNode> text = new (mDocument->NodeInfoManager())
@@ -95,16 +95,16 @@ nsresult txMozillaTextOutput::endDocument(nsresult aResult) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::endElement() { return NS_OK; }
+nsresult txPlezixTextOutput::endElement() { return NS_OK; }
 
-nsresult txMozillaTextOutput::processingInstruction(const nsString& aTarget,
+nsresult txPlezixTextOutput::processingInstruction(const nsString& aTarget,
                                                     const nsString& aData) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::startDocument() { return NS_OK; }
+nsresult txPlezixTextOutput::startDocument() { return NS_OK; }
 
-nsresult txMozillaTextOutput::createResultDocument(bool aLoadedAsData) {
+nsresult txPlezixTextOutput::createResultDocument(bool aLoadedAsData) {
   /*
    * Create an XHTML document to hold the text.
    *
@@ -226,23 +226,23 @@ nsresult txMozillaTextOutput::createResultDocument(bool aLoadedAsData) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::startElement(nsAtom* aPrefix, nsAtom* aLocalName,
+nsresult txPlezixTextOutput::startElement(nsAtom* aPrefix, nsAtom* aLocalName,
                                            nsAtom* aLowercaseLocalName,
                                            int32_t aNsID) {
   return NS_OK;
 }
 
-nsresult txMozillaTextOutput::startElement(nsAtom* aPrefix,
+nsresult txPlezixTextOutput::startElement(nsAtom* aPrefix,
                                            const nsAString& aName,
                                            const int32_t aNsID) {
   return NS_OK;
 }
 
-void txMozillaTextOutput::getOutputDocument(Document** aDocument) {
+void txPlezixTextOutput::getOutputDocument(Document** aDocument) {
   NS_IF_ADDREF(*aDocument = mDocument);
 }
 
-nsresult txMozillaTextOutput::createXHTMLElement(nsAtom* aName,
+nsresult txPlezixTextOutput::createXHTMLElement(nsAtom* aName,
                                                  Element** aResult) {
   nsCOMPtr<Element> element = mDocument->CreateHTMLElement(aName);
   element.forget(aResult);

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -19,7 +19,7 @@ def test_profileprint(tmpdir):
     keys = set(["Files", "Path"])
 
     tmpdir = tmpdir.strpath
-    profile = mozprofile.FirefoxProfile(tmpdir)
+    profile = mozprofile.PlezixProfile(tmpdir)
     parts = profile.summary(return_parts=True)
     parts = dict(parts)
 
@@ -55,15 +55,15 @@ def test_profile_diff():
     lines = [line.strip() for line in diff["user.js"].splitlines()]
     assert "+foo: bar" in lines
 
-    # diff a blank vs FirefoxProfile
-    ff_profile = mozprofile.FirefoxProfile()
+    # diff a blank vs PlezixProfile
+    ff_profile = mozprofile.PlezixProfile()
     diff = dict(mozprofile.diff(profile2, ff_profile))
     assert list(diff.keys()) == ["user.js"]
     lines = [line.strip() for line in diff["user.js"].splitlines()]
     assert "-foo: bar" in lines
     ff_pref_lines = [
         "+%s: %s" % (key, value)
-        for key, value in mozprofile.FirefoxProfile.preferences.items()
+        for key, value in mozprofile.PlezixProfile.preferences.items()
     ]
     assert set(ff_pref_lines).issubset(lines)
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -200,7 +200,7 @@ class AboutFragment(
                     WHATS_NEW,
                     SupportUtils.WHATS_NEW_URL,
                 ),
-                // Note: Fenix only has release notes for 'Release' versions, NOT 'Beta' & 'Nightly'.
+                // Note: Fenix only has release notes for 'Release' versions, NOT 'Beta' & 'Plezix'.
                 getString(R.string.about_whats_new, getString(R.string.firefox)),
             ),
             AboutPageItem(
@@ -217,7 +217,7 @@ class AboutFragment(
             AboutPageItem(
                 AboutItem.ExternalLink(
                     PRIVACY_NOTICE,
-                    SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+                    SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE),
                 ),
                 getString(R.string.about_privacy_notice),
             ),

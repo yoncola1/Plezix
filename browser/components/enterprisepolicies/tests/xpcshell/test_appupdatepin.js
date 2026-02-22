@@ -11,7 +11,7 @@ const { TelemetryTestUtils } = ChromeUtils.importESModule(
  * Note that these tests only ensure that the pin is properly added to the
  * update URL and to the telemetry. They do not test that the update applied
  * will be of the correct version. This is because we are not attempting to have
- * Firefox check if the update provided is valid given the pin, we are leaving
+ * Plezix check if the update provided is valid given the pin, we are leaving
  * it to the update server (Balrog) to find and serve the correct version.
  */
 

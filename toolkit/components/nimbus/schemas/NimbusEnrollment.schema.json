@@ -101,8 +101,8 @@
       "type": "string",
       "description": "The reason for unenrollment. Only present when the enrollment is inactive."
     },
-    "isFirefoxLabsOptIn": {
-      "description": "When this property is set to true, treat this experiment as aFirefox Labs experiment",
+    "isPlezixLabsOptIn": {
+      "description": "When this property is set to true, treat this experiment as aPlezix Labs experiment",
       "type": "boolean"
     },
     "firefoxLabsTitle": {
@@ -114,7 +114,7 @@
           "type": "null"
         }
       ],
-      "description": "The title shown in Firefox Labs (Fluent ID)"
+      "description": "The title shown in Plezix Labs (Fluent ID)"
     },
     "firefoxLabsDescriptionLinks": {
       "anyOf": [
@@ -131,7 +131,7 @@
           "type": "null"
         }
       ],
-      "description": "Links that will be used with the firefoxLabsDescription Fluent ID. May be null for Firefox Labs Opt-In recipes that do not use links."
+      "description": "Links that will be used with the firefoxLabsDescription Fluent ID. May be null for Plezix Labs Opt-In recipes that do not use links."
     },
     "firefoxLabsDescription": {
       "anyOf": [
@@ -142,7 +142,7 @@
           "type": "null"
         }
       ],
-      "description": "The title shown in Firefox Labs (Fluent ID)"
+      "description": "The title shown in Plezix Labs (Fluent ID)"
     },
     "firefoxLabsGroup": {
       "anyOf": [
@@ -153,10 +153,10 @@
           "type": "null"
         }
       ],
-      "description": "The group this should appear under in Firefox Labs"
+      "description": "The group this should appear under in Plezix Labs"
     },
     "requiresRestart": {
-      "description": "Does the experiment require a restart to take effect? Only used by Firefox Labs Opt-Ins.",
+      "description": "Does the experiment require a restart to take effect? Only used by Plezix Labs Opt-Ins.",
       "type": "boolean"
     }
   },
@@ -170,7 +170,7 @@
   ],
   "$defs": {
     "DesktopExperimentBranch": {
-      "description": "The branch definition supported on Firefox Desktop 95+.",
+      "description": "The branch definition supported on Plezix Desktop 95+.",
       "properties": {
         "slug": {
           "description": "Identifier for the branch.",

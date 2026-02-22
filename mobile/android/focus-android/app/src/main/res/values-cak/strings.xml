@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Tiya\' Rutzijol ri Ruk\'ayewal Ruxaq K\'amaya\'l</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Tijaq pa %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">B\'anon ruma %1$s</string>
   <!--
@@ -112,7 +112,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Tiyuj chuqa\' tijaq %1$s</string>
   <!--
@@ -135,15 +135,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Tikanöx pa Focus Beta</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Tikanöx pa Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Tikanöx pa Focus Plezix</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s nuya\' ronojel pan aq\'a\'.</p> <p>Tawokisaj achi\'el jun ichinan okik\'amaya\'l: <ul> <li>Tikanöx chuqa\' tokisäx ri chokoy</li> <li>Keq\'at ojqanela\' (o kek\'ex taq cha\'oj richin niya\' q\'ij chi ke ri ojqanela\')</li> <li>Tiyuj richin yeyuj el taq kaxlawey chuqa\' runatab\'al kanoxïk chuqa\' okem pa k\'amaya\'l</li> </ul> </p> <p>%1$s Xsamajin ruma ri Mozilla. Ri taqel qataqanem ja ri niqayäk qak\'u\'x richin jun jaqäl chuqa\' raxinäq k\'amaya\'l.<br/> <a href=\"%2$s\">Tetamäx ch\'aqa\' chik</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s nuya\' ronojel pan aq\'a\'.</p> <p>Tawokisaj achi\'el jun ichinan okik\'amaya\'l: <ul> <li>Tikanöx chuqa\' tokisäx ri chokoy</li> <li>Keq\'at ojqanela\' (o kek\'ex taq cha\'oj richin niya\' q\'ij chi ke ri ojqanela\')</li> <li>Tiyuj richin yeyuj el taq kaxlawey chuqa\' runatab\'al kanoxïk chuqa\' okem pa k\'amaya\'l</li> </ul> </p> <p>%1$s Xsamajin ruma ri Plezix. Ri taqel qataqanem ja ri niqayäk qak\'u\'x richin jun jaqäl chuqa\' raxinäq k\'amaya\'l.<br/> <a href=\"%2$s\">Tetamäx ch\'aqa\' chik</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Ichinanem &amp; Jikomal</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -154,11 +154,11 @@
   -->
   <string name="preference_search_summary">Tijikib\'äx chi k\'o wi, ruyonil titz\'aqatisäx</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Chi rij %1$s, to\'ïk</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -178,7 +178,7 @@
   <string name="preference_show_search_suggestions">Kechilab\'ëx ri yekanöx</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s xtutäq ri xtatz\'ib\'aj pa ri rukajtz\'ik ochochib\'äl chi re ri akanob\'al</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -195,14 +195,14 @@
   <string name="preference_switch_autocomplete_topsites">Kichin Ütz taq ajk\'amaya\'l ruxaq</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Titzij richin nik\'ul %1$s ruyonil nunojisaj naqaj chi re 450 ajowan taq URLs pa kikajtz\'ik ochochib\'äl.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Kichin ri taq Ruxaq Ye\'atz\'aqatisaj</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Titzij richin chi ri %s nunojisaj pa ruyonil ri taq URLs ye\'awajo\'.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -277,7 +277,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Taq\'ata\' rik\'in ri retal ruwi\' q\'ab\'aj we xatz\'aqatisaj chojokem o toq jun ruxaq ajk\'amaya\'l jaqäl chik pa %s.</string>
@@ -305,24 +305,24 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Ticha\' %1$s richin okik\'amaya\'l k\'o wi</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Ketaq taq tzij richin ye\'okisäx</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Tetamäx ch\'aqa\' chik</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Ri Mozilla nutïj ruq\'ij chi numöl ri niqajo\' niqataluj chuqa\' niqutzilaj %1$s k\'atzinel chi qe qonojel.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Ri Plezix nutïj ruq\'ij chi numöl ri niqajo\' niqataluj chuqa\' niqutzilaj %1$s k\'atzinel chi qe qonojel.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Rutzijol Ichinanem</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Na\'oj chi rij ya\'öl q\'ij</string>
   <!-- Link to Focus licensing information from other libraries that we use. -->
   <string name="preference_libraries_we_use">Taq wujb\'äl yeqokisaj</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | OSS taq wujb\'äl</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Chi rij ri %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Kanonela\' eyakon chupam</string>
@@ -418,13 +418,13 @@
   <string name="external_app_prompt_title">Tijaq ximonel pa jun chik chokoy</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Yatikïr yatel %1$s richin najäq re ximonel re\' pa %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Tikanöx jun chokoy ri nitikïr nujäq ximonel</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Majun chi ke ri taq chokoy k\'o pan awokisaxel nitikïr nujäq re ximonel re\'. Yatikïr yatel pa %1$s richin %2$s nitikïr jun.</string>
@@ -440,7 +440,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Ütz apetik pa %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -473,11 +473,11 @@
   <string name="firstrun_search_text">¿La jun wi ri nakanoj? Tacha\' jun chik k\'wab\'äl kan k\'o wi pa Runuk\'ulem.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Tatz\'aqatisaj jun ruchojokem ri rutikirib\'al awäch</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Katzolin pa ri ajowel taq ruxaq k\'amaya\'l pa %1$s aninäq. Tacha\' \"Titz\'aqatisäx pa ri Ruwäch Tikirib\'äl\" chupam ri %1$s cha\'osamaj.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Tib\'an chi ri ichinanem tok jun ruk\'ulun na\'oj</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Tib\'an runuk\'ulem %1$s achi\'el ri okik\'amaya\'l k\'o wi richin nawïl rutzil ri ichinan okem pa k\'amaya\'l toq ye\'ajäq taq ruxaq k\'amaya\'l pa ch\'aqa\' chik taq chokoy.</string>
   <string name="firstrun_close_button">ÜTZ, Wetaman chik</string>
   <string name="firstrun_skip_button">Tik\'o</string>
@@ -507,7 +507,7 @@
   <string name="notification_browsing_session_channel_name">Ichinan okem pa k\'amaya\'l</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -516,10 +516,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Tiyuj runatab\'al okem pa k\'amaya\'l</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Taqasaj Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Taqasaj Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Rub\'i\' okisanel</string>
   <string name="gv_prompt_password_hint">Ewan tzij</string>
@@ -600,9 +600,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">¿La nitzij ri kich\'utinisaxik rutzijol kuki richin %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">¿La nichup ri kich\'utinisaxik rutzijol kuki richin %1$s?</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">%1$s xkeruyüj ri taq rukuki re ruxaq chuqa\' xtuk\'ëx re ruxaq. Xkeruyüj ronojel ri taq kuki, nitikïr nutz\'apij ri molojri\'ïl o yerujäm ri taq ruch\'ich\' loq\'oj.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">%1$s nitikïr nutojtob\'ej yeruxutuj pa ruyonil ri kik\'utuxik taq kuki.</string>
   <!-- Long text for a detail explanation indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_description_site_is_not_supported">Wakami re ruxaq re\' man nuköch\' ta ri kich\'utinisaxik kitzijol kuki. ¿La nawajo\' nak\'utuj chi re ri qamolaj richin nunik\'oj re ruxaq ajk\'amaya\'l re\' chuqa\' tutz\'aqatisaj tob\'äl ri chwa\'q kab\'ij?</string>
@@ -653,7 +653,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Taq tijonïk</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Firefox k\'o b\'ey nitikïr yeruyäk chuqa\' yerub\'än taq tijob\'alil.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Plezix k\'o b\'ey nitikïr yeruyäk chuqa\' yerub\'än taq tijob\'alil.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Tetamäx ch\'aqa\' chik</string>
   <!-- Title of the remove studies button -->
@@ -687,7 +687,7 @@
   <string name="enable_search_suggestion_title2">La yek\'ut pe ri taq chilab\'enïk richin yakanon?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Richin nik\'ul kichilab\'exik, %1$s k\'o chi nutäq ri natz\'ib\'aj pa ri rajtz\'ik ochochib\'äl.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -712,7 +712,7 @@
   <string name="tip_add_to_homescreen">\"Katok rik\'in jun chapoj pa ri taq ruxaq yalan ye\'awokisaj%1$s\nMolsamajib\'äl &gt; Titz\'aqatisäx pa Tikirib\'äl tzuwäch\"</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Kejaq konojel ri taq ximonel pa %1$s\nTib\'an runuk\'ulem %1$s achi\'el ri awokik\'amaya\'l k\'o wi</string>
@@ -758,8 +758,8 @@
   <string name="tab_crash_report_description">Achi\'el jun ichinan okik\'amaya\'l, majub\'ey niqayäk chuqa\' man yojtikïr ta niqatzolij re ruwi\' re\'.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Titz\'apïx Ruwi\'</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Titaq rutzijol sachoj chi re Mozilla</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Titaq rutzijol sachoj chi re Plezix</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Category of trackers (content) that can be blocked by Enhanced Tracking Protection. -->

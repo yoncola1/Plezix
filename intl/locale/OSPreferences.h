@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ namespace intl {
  * Saying that, there are two exceptions to that paradigm.
  *
  * First one is normalization. We do intend to translate host environment
- * concepts to unified Intl/L10n vocabulary used by Mozilla.
+ * concepts to unified Intl/L10n vocabulary used by Plezix.
  * That means that we will format locale IDs, timezone names, currencies etc.
  * into a chosen format.
  *

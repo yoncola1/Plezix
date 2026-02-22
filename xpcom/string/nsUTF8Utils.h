@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef nsUTF8Utils_h_
@@ -9,7 +9,7 @@
 // NB: This code may be used from non-XPCOM code, in particular, the
 // standalone updater executable.  That is, this file may be used in
 // two ways: if MOZILLA_INTERNAL_API is defined, this file will
-// provide signatures for the Mozilla abstract string types. It will
+// provide signatures for the Plezix abstract string types. It will
 // use XPCOM assertion/debugging macros, etc.
 
 #include <type_traits>

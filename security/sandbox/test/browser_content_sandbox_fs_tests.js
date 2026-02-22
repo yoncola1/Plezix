@@ -563,13 +563,13 @@ async function testFileAccessLinuxOnly() {
 
   // Create a $HOME/.config/mozilla/ or $XDG_CONFIG_HOME/mozilla/ if none
   // exists and assert content process cannot access it
-  let configMozilla = GetSubdir(configDir, "mozilla");
+  let configPlezix = GetSubdir(configDir, "mozilla");
   const emptyFileName = ".test_run_browser_sandbox.tmp";
-  let emptyFile = configMozilla.clone();
+  let emptyFile = configPlezix.clone();
   emptyFile.appendRelativePath(emptyFileName);
 
-  let populateFakeConfigMozilla = async aPath => {
-    // called with configMozilla
+  let populateFakeConfigPlezix = async aPath => {
+    // called with configPlezix
     await IOUtils.makeDirectory(aPath, { permissions: 0o700 });
     await IOUtils.writeUTF8(emptyFile.path, "");
     ok(
@@ -578,7 +578,7 @@ async function testFileAccessLinuxOnly() {
     );
   };
 
-  let unpopulateFakeConfigMozilla = async aPath => {
+  let unpopulateFakeConfigPlezix = async aPath => {
     // called with emptyFile
     await IOUtils.remove(aPath);
     ok(!(await IOUtils.exists(aPath)), `Temp file ${aPath} was removed`);
@@ -599,22 +599,22 @@ async function testFileAccessLinuxOnly() {
     }
   };
 
-  await populateFakeConfigMozilla(configMozilla.path);
+  await populateFakeConfigPlezix(configPlezix.path);
 
   tests.push({
-    desc: `stat ${configDir.path}/mozilla (${configMozilla.path})`,
+    desc: `stat ${configDir.path}/mozilla (${configPlezix.path})`,
     ok: false,
     browser: webBrowser,
-    file: configMozilla,
+    file: configPlezix,
     minLevel: minHomeReadSandboxLevel(),
     func: statPath,
   });
 
   tests.push({
-    desc: `read ${configDir.path}/mozilla (${configMozilla.path})`,
+    desc: `read ${configDir.path}/mozilla (${configPlezix.path})`,
     ok: false,
     browser: webBrowser,
-    file: configMozilla,
+    file: configPlezix,
     minLevel: minHomeReadSandboxLevel(),
     func: readDir,
   });
@@ -635,7 +635,7 @@ async function testFileAccessLinuxOnly() {
     file: emptyFile,
     minLevel: minHomeReadSandboxLevel(),
     func: readFile,
-    cleanup: unpopulateFakeConfigMozilla,
+    cleanup: unpopulateFakeConfigPlezix,
   });
 
   // Only needed to perform cleanup

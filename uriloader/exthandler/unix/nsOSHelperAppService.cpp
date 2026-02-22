@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 3; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -843,7 +843,7 @@ nsresult nsOSHelperAppService::ParseNormalMIMETypesEntry(
 // static
 nsresult nsOSHelperAppService::LookUpHandlerAndDescription(
     const nsAString& aMajorType, const nsAString& aMinorType,
-    nsAString& aHandler, nsAString& aDescription, nsAString& aMozillaFlags) {
+    nsAString& aHandler, nsAString& aDescription, nsAString& aPlezixFlags) {
   // The mailcap lookup is two-pass to handle the case of mailcap files
   // that have something like:
   //
@@ -852,21 +852,21 @@ nsresult nsOSHelperAppService::LookUpHandlerAndDescription(
   //
   // in that order.  We want to pick up "soffice" for text/rtf in such cases
   nsresult rv = DoLookUpHandlerAndDescription(
-      aMajorType, aMinorType, aHandler, aDescription, aMozillaFlags, true);
+      aMajorType, aMinorType, aHandler, aDescription, aPlezixFlags, true);
   if (NS_FAILED(rv)) {
     rv = DoLookUpHandlerAndDescription(aMajorType, aMinorType, aHandler,
-                                       aDescription, aMozillaFlags, false);
+                                       aDescription, aPlezixFlags, false);
   }
 
   // maybe we have an entry for "aMajorType/*"?
   if (NS_FAILED(rv)) {
     rv = DoLookUpHandlerAndDescription(aMajorType, u"*"_ns, aHandler,
-                                       aDescription, aMozillaFlags, true);
+                                       aDescription, aPlezixFlags, true);
   }
 
   if (NS_FAILED(rv)) {
     rv = DoLookUpHandlerAndDescription(aMajorType, u"*"_ns, aHandler,
-                                       aDescription, aMozillaFlags, false);
+                                       aDescription, aPlezixFlags, false);
   }
 
   return rv;
@@ -875,7 +875,7 @@ nsresult nsOSHelperAppService::LookUpHandlerAndDescription(
 // static
 nsresult nsOSHelperAppService::DoLookUpHandlerAndDescription(
     const nsAString& aMajorType, const nsAString& aMinorType,
-    nsAString& aHandler, nsAString& aDescription, nsAString& aMozillaFlags,
+    nsAString& aHandler, nsAString& aDescription, nsAString& aPlezixFlags,
     bool aUserData) {
   LOG("-- LookUpHandlerAndDescription for type '%s/%s'\n",
       NS_LossyConvertUTF16toASCII(aMajorType).get(),
@@ -890,14 +890,14 @@ nsresult nsOSHelperAppService::DoLookUpHandlerAndDescription(
   }
   return GetHandlerAndDescriptionFromMailcapFile(mailcapFileName, aMajorType,
                                                  aMinorType, aHandler,
-                                                 aDescription, aMozillaFlags);
+                                                 aDescription, aPlezixFlags);
 }
 
 // static
 nsresult nsOSHelperAppService::GetHandlerAndDescriptionFromMailcapFile(
     const nsAString& aFilename, const nsAString& aMajorType,
     const nsAString& aMinorType, nsAString& aHandler, nsAString& aDescription,
-    nsAString& aMozillaFlags) {
+    nsAString& aPlezixFlags) {
   LOG("-- GetHandlerAndDescriptionFromMailcapFile\n");
   LOG("Getting handler and description from mailcap file '%s'\n",
       NS_LossyConvertUTF16toASCII(aFilename).get());
@@ -1030,7 +1030,7 @@ nsresult nsOSHelperAppService::GetHandlerAndDescriptionFromMailcapFile(
                 if (optionName.EqualsLiteral("description")) {
                   aDescription = Substring(++equal_sign_iter, semicolon_iter);
                 } else if (optionName.EqualsLiteral("x-mozilla-flags")) {
-                  aMozillaFlags = Substring(++equal_sign_iter, semicolon_iter);
+                  aPlezixFlags = Substring(++equal_sign_iter, semicolon_iter);
                 } else if (optionName.EqualsLiteral("test")) {
                   nsAutoCString testCommand;
                   rv = UnescapeCommand(
@@ -1074,7 +1074,7 @@ nsresult nsOSHelperAppService::GetHandlerAndDescriptionFromMailcapFile(
             }
             // pretend that this match never happened
             aDescription.Truncate();
-            aMozillaFlags.Truncate();
+            aPlezixFlags.Truncate();
             aHandler.Truncate();
           }
         }

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -54,10 +54,10 @@ background_update:
 
       The default profile is as determined by the Profile Service, namely
       `nsIToolkitProfileService.defaultProfile`.  The majority of users have
-      only one Firefox installation and only one profile, so the default profile
+      only one Plezix installation and only one profile, so the default profile
       is their regular browsing profile.
 
-      It is possible for a Firefox installation to not have a default profile,
+      It is possible for a Plezix installation to not have a default profile,
       but in such cases the background update task will abort before sending any
       telemetry; therefore, the legacy Telemetry client ID should always be
       present.
@@ -189,7 +189,7 @@ background_update:
     description: >
       The `environment.firefoxVersion` of the default profile's serialized
       targeting snapshot.  At the time of writing, this version is an integer
-      representing the Firefox major version, e.g., `109`.
+      representing the Plezix major version, e.g., `109`.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1795467
     data_reviews:
@@ -298,7 +298,7 @@ update:
     type: boolean
     description: >
       Per-installation preference "app.update.background.enabled": whether to
-      fetch and install updates in the background when Firefox is not running.
+      fetch and install updates in the background when Plezix is not running.
     lifetime: application
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1703318
@@ -427,7 +427,7 @@ update:
   service_enabled:
     type: boolean
     description: >
-      Preference "app.update.service.enabled": whether the Mozilla Maintenance
+      Preference "app.update.service.enabled": whether the Plezix Maintenance
       Service is enabled.
     lifetime: application
     bugs:

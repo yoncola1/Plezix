@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ class CollectionCreationTabListAdapterTest {
         adapter = CollectionCreationTabListAdapter(interactor)
         mozillaTab = mockk {
             every { sessionId } returns "abc"
-            every { title } returns "Mozilla"
+            every { title } returns "Plezix"
             every { hostname } returns "mozilla.org"
             every { url } returns "https://mozilla.org"
         }
@@ -71,7 +71,7 @@ class CollectionCreationTabListAdapterTest {
         adapter.bindViewHolder(holder, 0)
         val binding = CollectionTabListRowBinding.bind(holder.itemView)
 
-        assertEquals("Mozilla", binding.tabTitle.text)
+        assertEquals("Plezix", binding.tabTitle.text)
         assertEquals("mozilla.org", binding.hostname.text)
         assertFalse(binding.tabSelectedCheckbox.isInvisible)
         assertTrue(holder.itemView.isClickable)
@@ -102,7 +102,7 @@ class CollectionCreationTabListAdapterTest {
         adapter.bindViewHolder(holder, 0)
         val binding = CollectionTabListRowBinding.bind(holder.itemView)
 
-        assertEquals("Mozilla", binding.tabTitle.text)
+        assertEquals("Plezix", binding.tabTitle.text)
         assertEquals("mozilla.org", binding.hostname.text)
         assertTrue(binding.tabSelectedCheckbox.isInvisible)
         assertFalse(holder.itemView.isClickable)

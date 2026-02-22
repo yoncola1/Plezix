@@ -202,7 +202,7 @@ const createStatements = [
 const currentSchemaVersion = 2;
 
 /**
- * Firefox adapter.
+ * Plezix adapter.
  *
  * Uses Sqlite as a backing store.
  *
@@ -211,7 +211,7 @@ const currentSchemaVersion = 2;
  *    use as its backing store. To open such a handle, use the
  *    static openConnection() method.
  */
-export class FirefoxAdapter extends Kinto.adapters.BaseAdapter {
+export class PlezixAdapter extends Kinto.adapters.BaseAdapter {
   constructor(collection, options = {}) {
     super();
     const { sqliteHandle = null } = options;

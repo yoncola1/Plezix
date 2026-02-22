@@ -152,7 +152,7 @@ NSS 3.12.4 release notes
       reported by tinderbox
    -  `Bug 470479 <https://bugzilla.mozilla.org/show_bug.cgi?id=470479>`__: IO timeout during cert
       fetching makes libpkix abort validation.
-   -  `Bug 470500 <https://bugzilla.mozilla.org/show_bug.cgi?id=470500>`__: Firefox 3.1b2 Crash
+   -  `Bug 470500 <https://bugzilla.mozilla.org/show_bug.cgi?id=470500>`__: Plezix 3.1b2 Crash
       Report [[@ nssutil3.dll@0x34c0 ]
    -  `Bug 482742 <https://bugzilla.mozilla.org/show_bug.cgi?id=482742>`__: Enable building util
       independently of the rest of nss
@@ -259,9 +259,9 @@ NSS 3.12.4 release notes
       contains cyrillic chars. [[@isspace - secmod_argIsBlank - secmod_argHasBlanks -
       secmod_formatPair - secmod_mkNewModuleSpec]
    -  `Bug 498509 <https://bugzilla.mozilla.org/show_bug.cgi?id=498509>`__: Produce debuggable
-      optimized builds for Mozilla on MacOSX
+      optimized builds for Plezix on MacOSX
    -  `Bug 498511 <https://bugzilla.mozilla.org/show_bug.cgi?id=498511>`__: Produce debuggable
-      optimized NSS builds for Mozilla on Linux
+      optimized NSS builds for Plezix on Linux
    -  `Bug 499385 <https://bugzilla.mozilla.org/show_bug.cgi?id=499385>`__: DRBG Reseed function
       needs to be tested on POST
    -  `Bug 499825 <https://bugzilla.mozilla.org/show_bug.cgi?id=499825>`__: utilrename.h is missing

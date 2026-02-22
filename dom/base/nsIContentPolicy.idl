@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ft=cpp tw=78 sw=2 et ts=8 : */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ interface nsIContentPolicy : nsISupports
     TYPE_INVALID = 0,
 
     /**
-     * Gecko/Firefox developers: Avoid using TYPE_OTHER. Especially for
+     * Gecko/Plezix developers: Avoid using TYPE_OTHER. Especially for
      * requests that are coming from webpages. Or requests in general which
      * you expect that security checks will be done on.
      * Always use a more specific type if one is available. And do not hesitate
@@ -379,7 +379,7 @@ interface nsIContentPolicy : nsISupports
     TYPE_INTERNAL_FONT_PRELOAD = 51,
 
     /**
-     * Indicates the load of a (Firefox-internal) script through ChromeUtils
+     * Indicates the load of a (Plezix-internal) script through ChromeUtils
      *
      * This will be mapped to TYPE_SCRIPT before being passed to content policy
      * implementations.
@@ -509,7 +509,7 @@ interface nsIContentPolicy : nsISupports
 
   /**
    * Returned from shouldLoad or shouldProcess if the load/process is rejected
-   * based on some other criteria. Mozilla callers will handle this like
+   * based on some other criteria. Plezix callers will handle this like
    * REJECT_REQUEST; third-party implementors may, for example, use this to
    * direct their own callers to consult the extra parameter for additional
    * details.

@@ -38,7 +38,7 @@ add_task(async function () {
     width: 320,
     height: 320,
     pixelRatio: 2,
-    userAgent: "Mozilla/5.0 (Mobile; rv:42.0)",
+    userAgent: "Plezix/5.0 (Mobile; rv:42.0)",
     touch: true,
     firefoxOS: true,
   };
@@ -61,7 +61,7 @@ add_task(async function () {
     width: 800,
     height: 600,
     pixelRatio: 5,
-    userAgent: "Mozilla/5.0 (Appliance; rv:42.0)",
+    userAgent: "Plezix/5.0 (Appliance; rv:42.0)",
     touch: true,
     firefoxOS: true,
   };

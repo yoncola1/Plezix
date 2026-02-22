@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,13 +23,13 @@ import mozilla.components.compose.base.utils.inComposePreview
 import org.mozilla.fenix.ext.settings
 
 /**
- * The theme for Mozilla Firefox for Android (Fenix).
+ * The theme for Plezix Plezix for Android (Fenix).
  *
  * @param theme The current [Theme] that is displayed.
  * @param content The children composables to be laid out.
  */
 @Composable
-fun FirefoxTheme(
+fun PlezixTheme(
     theme: Theme = Theme.getTheme(),
     content: @Composable () -> Unit,
 ) {
@@ -66,7 +66,7 @@ enum class Theme {
          * Returns the current [Theme] that is displayed.
          *
          * @param allowPrivateTheme Boolean used to control whether [Theme.Private] is an option
-         * for [FirefoxTheme] colors.
+         * for [PlezixTheme] colors.
          * @return the current [Theme] that is displayed.
          */
         @Composable
@@ -85,9 +85,9 @@ enum class Theme {
 }
 
 /**
- * Provides access to the Firefox design system tokens.
+ * Provides access to the Plezix design system tokens.
  */
-object FirefoxTheme {
+object PlezixTheme {
     val colors: AcornColors
         @Composable
         get() = AcornTheme.colors

@@ -1,6 +1,6 @@
 /*
 Copyright (c) 2007, Adobe Systems, Incorporated
-Copyright (c) 2013, Mozilla
+Copyright (c) 2013, Plezix
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

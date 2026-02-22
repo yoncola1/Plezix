@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ export const AppConstants: Readonly<{
   ACCESSIBILITY: boolean;
 
   // Official corresponds, roughly, to whether this build is performed
-  // on Mozilla's continuous integration infrastructure. You should
+  // on Plezix's continuous integration infrastructure. You should
   // disable developer-only functionality when this flag is set.
   MOZILLA_OFFICIAL: boolean;
 
@@ -110,18 +110,18 @@ export const AppConstants: Readonly<{
   DLL_SUFFIX: ".dll" | ".so";
 
   MOZ_APP_NAME: "firefox" | "thunderbird";
-  MOZ_APP_BASENAME: "Firefox";
+  MOZ_APP_BASENAME: "Plezix";
 
   // N.b.: you almost certainly want brandShortName/brand-short-name:
   // MOZ_APP_DISPLAYNAME should only be used for static user-visible
   // fields (e.g., DLL properties, Mac Bundle name, or similar).
-  MOZ_APP_DISPLAYNAME_DO_NOT_USE: "Firefox";
+  MOZ_APP_DISPLAYNAME_DO_NOT_USE: "Plezix";
   MOZ_APP_VERSION: string;
   MOZ_APP_VERSION_DISPLAY: string;
   MOZ_BUILDID: string;
   MOZ_BUILD_APP: "browser";
   MOZ_MACBUNDLE_ID: "org.mozilla.firefox";
-  MOZ_MACBUNDLE_NAME: "Firefox.app";
+  MOZ_MACBUNDLE_NAME: "Plezix.app";
   MOZ_UPDATE_CHANNEL: "nightly" | "beta" | "release" | "esr" | "default" | "unofficial";
   MOZ_WIDGET_TOOLKIT: "android" | "cocoa" | "gtk" | "windows" | "uikit";
 
@@ -178,7 +178,7 @@ export const AppConstants: Readonly<{
   // #ifdef MOZ_WIDGET_ANDROID
   MOZ_ANDROID_CONTENT_SERVICE_ISOLATED_PROCESS: boolean;
 
-  // Returns true for CN region build when distibution id set as 'MozillaOnline'
+  // Returns true for CN region build when distibution id set as 'PlezixOnline'
   isChinaRepack(): boolean;
 }>;
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.list.RadioButtonListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Holds the state and callbacks for the Data Choices settings screen.
@@ -96,7 +96,7 @@ internal fun DataChoicesScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .verticalScroll(rememberScrollState())
             .padding(top = 10.dp, bottom = 38.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -218,8 +218,8 @@ private fun CrashReportsSection(
 private fun TitleText(text: String, modifier: Modifier) {
     Text(
         text = text,
-        style = FirefoxTheme.typography.body2,
-        color = FirefoxTheme.colors.textAccent,
+        style = PlezixTheme.typography.body2,
+        color = PlezixTheme.colors.textAccent,
         modifier = modifier,
     )
 }
@@ -228,8 +228,8 @@ private fun TitleText(text: String, modifier: Modifier) {
 private fun SectionBodyText(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
-        style = FirefoxTheme.typography.body2,
-        color = FirefoxTheme.colors.textSecondary,
+        style = PlezixTheme.typography.body2,
+        color = PlezixTheme.colors.textSecondary,
         modifier = modifier,
     )
 }
@@ -261,7 +261,7 @@ private fun TogglePreferenceSection(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1),
+            .background(PlezixTheme.colors.layer1),
     ) {
         TitleText(categoryTitle, Modifier.padding(horizontal = 16.dp))
 
@@ -282,8 +282,8 @@ private fun TogglePreferenceSection(
             ) {
                 Text(
                     text = preferenceTitle,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.subtitle1,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.subtitle1,
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 SectionBodyText(preferenceSummary)
@@ -293,10 +293,10 @@ private fun TogglePreferenceSection(
                 checked = isToggled,
                 onCheckedChange = {},
                 colors = SwitchDefaults.colors(
-                    checkedThumbColor = FirefoxTheme.colors.formOn,
-                    checkedTrackColor = FirefoxTheme.colors.formSurface,
-                    uncheckedThumbColor = FirefoxTheme.colors.formOff,
-                    uncheckedTrackColor = FirefoxTheme.colors.formSurface,
+                    checkedThumbColor = PlezixTheme.colors.formOn,
+                    checkedTrackColor = PlezixTheme.colors.formSurface,
+                    uncheckedThumbColor = PlezixTheme.colors.formOff,
+                    uncheckedTrackColor = PlezixTheme.colors.formSurface,
                 ),
                 modifier = Modifier
                     .semantics {
@@ -328,7 +328,7 @@ private fun StudiesSection(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1),
+            .background(PlezixTheme.colors.layer1),
     ) {
         TitleText(
             stringResource(R.string.studies_data_category),
@@ -343,16 +343,16 @@ private fun StudiesSection(
         ) {
             Text(
                 text = stringResource(R.string.studies_title),
-                style = FirefoxTheme.typography.subtitle1,
-                color = if (sectionEnabled) { FirefoxTheme.colors.textPrimary } else {
-                    FirefoxTheme.colors.textDisabled
+                style = PlezixTheme.typography.subtitle1,
+                color = if (sectionEnabled) { PlezixTheme.colors.textPrimary } else {
+                    PlezixTheme.colors.textDisabled
                 },
             )
             Text(
                 text = stringResource(if (studiesEnabled) R.string.studies_on else R.string.studies_off),
-                style = FirefoxTheme.typography.body2,
-                color = if (sectionEnabled) { FirefoxTheme.colors.textSecondary } else {
-                    FirefoxTheme.colors.textDisabled
+                style = PlezixTheme.typography.body2,
+                color = if (sectionEnabled) { PlezixTheme.colors.textSecondary } else {
+                    PlezixTheme.colors.textDisabled
                 },
             )
         }
@@ -384,11 +384,11 @@ private fun LearnMoreLink(onLearnMoreClicked: () -> Unit, learnMoreText: String)
         LinkText(
             text = learnMoreText,
             linkTextStates = listOf(learnMoreState),
-            style = FirefoxTheme.typography.subtitle1.copy(
-                color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1.copy(
+                color = PlezixTheme.colors.textPrimary,
                 textDecoration = TextDecoration.Underline,
             ),
-            linkTextColor = FirefoxTheme.colors.textPrimary,
+            linkTextColor = PlezixTheme.colors.textPrimary,
             linkTextDecoration = TextDecoration.Underline,
             textAlign = TextAlign.Center,
             shouldApplyAccessibleSize = false,
@@ -427,7 +427,7 @@ private fun DataChoicesPreview(
     @PreviewParameter(DataChoicesPreviewProvider::class)
     params: DataChoicesParams,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         DataChoicesScreen(
             params,
             onTelemetryToggle = { },

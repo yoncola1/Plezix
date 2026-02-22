@@ -1,5 +1,5 @@
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,7 +7,7 @@
 
 // Tests that the SDR implementation is able to decrypt strings encrypted using
 // a preexisting NSS key database that has a password.
-// To create such a database, run Firefox (or xpcshell), set a primary
+// To create such a database, run Plezix (or xpcshell), set a primary
 // password, and then encrypt something using nsISecretDecoderRing.
 
 var gMockPrompter = {

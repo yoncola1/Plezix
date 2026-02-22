@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -213,15 +213,15 @@ const markupTests = [
     <span id="l1">test2</span>
     <span id="l2">test3</span>
     <img id="img"
-         aria-label="Logo of Mozilla"
+         aria-label="Logo of Plezix"
          aria-labelledby="l1 l2"
-         alt="Mozilla logo"
+         alt="Plezix logo"
          title="This is a logo"
          src="http://example.com/a11y/accessible/tests/mochitest/moz.png"/>`,
     expected: [
       "test2 test3",
-      "Logo of Mozilla",
-      "Mozilla logo",
+      "Logo of Plezix",
+      "Plezix logo",
       "This is a logo",
     ],
   },

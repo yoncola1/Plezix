@@ -5,7 +5,7 @@
       "id": "readerview@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - ReaderView",
+  "name": "Plezix Android Components - ReaderView",
   "version": "${version}",
   "content_scripts": [
     {

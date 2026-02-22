@@ -30,7 +30,7 @@
   <string name="menu_report_site_issue">Siteígíí ba\'at\'e\' hólǫ́ léi\' \'áko \'éí baa hodeeshnih nisin</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Tsésǫ\' \'ániidígíí léi\' biyi\'jį\' \'ąą \'ádeeshłííł nisin %1$s.</string>

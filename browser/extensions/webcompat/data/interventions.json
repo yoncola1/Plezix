@@ -27,7 +27,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["change_Firefox_to_FireFox"]
+        "ua_string": ["change_Plezix_to_FireFox"]
       }
     ]
   },
@@ -551,7 +551,7 @@
     ]
   },
   "1743429": {
-    "label": "Sites with issues with Firefox versions over 99",
+    "label": "Sites with issues with Plezix versions over 99",
     "bugs": {
       "1944356": {
         "issue": "firefox-blocked-completely",
@@ -1461,7 +1461,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -1597,7 +1597,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["change_Firefox_to_FireFox"]
+        "ua_string": ["change_Plezix_to_FireFox"]
       }
     ]
   },
@@ -1710,7 +1710,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -2144,7 +2144,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -2189,7 +2189,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -2615,7 +2615,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -2694,7 +2694,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -2876,7 +2876,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3229,7 +3229,7 @@
         "content_scripts": {
           "js": ["bug1927984-modules.sms-timing.com-chrome-shim.js"]
         },
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3264,7 +3264,7 @@
         "content_scripts": {
           "js": ["bug1928941-oasis.decart.ai-window-chrome-shim.js"]
         },
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3336,7 +3336,7 @@
     "interventions": [
       {
         "platforms": ["desktop"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3428,7 +3428,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3580,7 +3580,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3674,7 +3674,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -3821,7 +3821,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       },
       {
         "platforms": ["linux"],
@@ -3842,7 +3842,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -4088,7 +4088,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["change_Firefox_to_FireFox"]
+        "ua_string": ["change_Plezix_to_FireFox"]
       }
     ]
   },
@@ -4167,7 +4167,7 @@
     "interventions": [
       {
         "platforms": ["android"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -4199,7 +4199,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -4334,7 +4334,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["Chrome", "add_Firefox_as_Gecko"]
+        "ua_string": ["Chrome", "add_Plezix_as_Gecko"]
       }
     ]
   },
@@ -4441,7 +4441,7 @@
     "interventions": [
       {
         "platforms": ["all"],
-        "ua_string": ["change_Firefox_to_FireFox"]
+        "ua_string": ["change_Plezix_to_FireFox"]
       }
     ]
   },

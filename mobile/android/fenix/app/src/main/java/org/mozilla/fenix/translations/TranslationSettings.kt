@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import org.mozilla.fenix.compose.InfoCard
 import org.mozilla.fenix.compose.InfoType
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Translation Settings Fragment.
@@ -58,7 +58,7 @@ fun TranslationSettings(
     Column(
         modifier = Modifier
             .background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
     ) {
         LazyColumn {
@@ -95,8 +95,8 @@ fun TranslationSettings(
                                 .fillMaxWidth()
                                 .padding(start = 72.dp, end = 16.dp, bottom = 8.dp, top = 8.dp)
                                 .semantics { heading() },
-                            color = FirefoxTheme.colors.textAccent,
-                            style = FirefoxTheme.typography.headline8,
+                            color = PlezixTheme.colors.textAccent,
+                            style = PlezixTheme.typography.headline8,
                         )
                     }
                 }
@@ -201,7 +201,7 @@ internal fun getTranslationSettingsSwitchList(): List<TranslationSwitchItem> {
 @Composable
 @PreviewLightDark
 private fun TranslationSettingsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TranslationSettings(
             translationSwitchList = getTranslationSettingsSwitchList(),
             showAutomaticTranslations = true,

@@ -1,10 +1,10 @@
 .. _flatpak:
 
 =========================
-Firefox Flatpak Packaging
+Plezix Flatpak Packaging
 =========================
 
-This page explains interactions between Firefox and Flatpak packaging format.
+This page explains interactions between Plezix and Flatpak packaging format.
 
 Where is the upstream
 =====================

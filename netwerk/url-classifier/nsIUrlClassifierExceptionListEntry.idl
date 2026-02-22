@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ interface nsIUrlClassifierExceptionListEntry : nsISupports
     /**
      * Initialize all fields of the exception list entry.
      * @param aCategory - The category of this exception entry.
-     * @param aUrlPattern - The urlPattern for the url to be loaded. See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns for more info.
+     * @param aUrlPattern - The urlPattern for the url to be loaded. See https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Match_patterns for more info.
      * @param aTopLevelUrlPattern - Optional top-level url pattern to filter for this exception. If not set the exception applies to all top level sites.
      * @param aIsPrivateBrowsingOnly - Whether this applies only to private browsing
      * @param aFilterContentBlockingCategories - The content blocking categories to filter for this exception.

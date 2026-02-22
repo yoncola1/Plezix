@@ -24,7 +24,7 @@ add_task(async function () {
 
   const { document, tab, window } = await openAboutDebugging();
   const { store } = window.AboutDebugging;
-  await selectThisFirefoxPage(document, store);
+  await selectThisPlezixPage(document, store);
 
   const inspectionTarget = "about:debugging";
   info(`Open ${inspectionTarget} as inspection target`);

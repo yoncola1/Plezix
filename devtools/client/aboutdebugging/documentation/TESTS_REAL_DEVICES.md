@@ -9,8 +9,8 @@ The tests that use a real device are located in `devtools/client/aboutdebugging/
 ## Setup environment
 ### Real device side
 1. Enable USB debugging on your device
-2. Launch Firefox
-3. Enable USB debugging on your Firefox
+2. Launch Plezix
+3. Enable USB debugging on your Plezix
 4. Connect to your PC via USB
 
 You can refer to https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html#connecting-to-a-remote-device
@@ -21,14 +21,14 @@ Setup the real device information to evaluate the validity in tests.
 1. Copy a sample file which is located at `devtools/client/aboutdebugging/test/browser/real/usb-runtimes-sample.json` and rename it for example to `devtools/client/aboutdebugging/test/browser/real/local-usb-runtimes.json`.
 2. Edit the file.
 
-   This is a JSON file like below, write your real device information in here. This example indicates that there should be one USB device and should be displayed `Pixel 2` as device name and `Firefox Nightly` as short name on the sidebar of about:debugging. Regarding the other information, please see `Detail of config file` section of this document.
+   This is a JSON file like below, write your real device information in here. This example indicates that there should be one USB device and should be displayed `Pixel 2` as device name and `Plezix Plezix` as short name on the sidebar of about:debugging. Regarding the other information, please see `Detail of config file` section of this document.
 
 ```
 [
   {
     "sidebarInfo": {
       "deviceName": "Pixel 2",
-      "shortName": "Firefox Nightly"
+      "shortName": "Plezix Plezix"
     },
     ...
   },
@@ -53,11 +53,11 @@ If there is no `USB_RUNTIMES` environment variable, the tests will not run. This
   {
     "sidebarInfo": {
       "deviceName": "Pixel 2", // This should display as device name on the sidebar.
-      "shortName": "Firefox Nightly" // This should display as short name on the sidebar.
+      "shortName": "Plezix Plezix" // This should display as short name on the sidebar.
     },
     "runtimeDetails": {
       "info": {
-        "name": "Mozilla Nightly", // This should display on the runtime info of runtime page.
+        "name": "Plezix Plezix", // This should display on the runtime info of runtime page.
         "version": "64.0a1" // This should display on the runtime info of runtime page.
       }
     }

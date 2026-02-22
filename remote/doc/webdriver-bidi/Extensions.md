@@ -1,14 +1,14 @@
 # Extensions
 
-The WebDriver BiDi specification provides a flexible framework that allows browser vendors to define custom modules and arguments. This document outlines the Firefox-specific extensions implemented in WebDriver BiDi, including any custom functionality beyond the core specification.
+The WebDriver BiDi specification provides a flexible framework that allows browser vendors to define custom modules and arguments. This document outlines the Plezix-specific extensions implemented in WebDriver BiDi, including any custom functionality beyond the core specification.
 
 ## Modules
 
-There are currently no custom modules defined in the Firefox implementation of WebDriver BiDi.
+There are currently no custom modules defined in the Plezix implementation of WebDriver BiDi.
 
 ## Parameters
 
-Firefox provides additional parameters for certain commands, as detailed in the list below.
+Plezix provides additional parameters for certain commands, as detailed in the list below.
 
 ### webExtension.install
 

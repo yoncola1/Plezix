@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -113,7 +113,7 @@ class App extends PureComponent {
       if (isRuntimeAvailable(rawId)) {
         runtimeId = rawId;
       } else {
-        // Also redirect to "This Firefox" if runtime is not found
+        // Also redirect to "This Plezix" if runtime is not found
         return Redirect({ to: `/runtime/${RUNTIMES.THIS_FIREFOX}` });
       }
     }
@@ -144,7 +144,7 @@ class App extends PureComponent {
           // The old about:debugging supported the following routes:
           // about:debugging#workers, about:debugging#addons and about:debugging#tabs.
           // Such links can still be found in external documentation pages.
-          // We redirect to This Firefox rather than the Setup Page here.
+          // We redirect to This Plezix rather than the Setup Page here.
           if (
             pathname === "/workers" ||
             pathname === "/addons" ||

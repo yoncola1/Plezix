@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -27,7 +27,7 @@ module.exports = {
           "@babel/preset-env",
           {
             targets: {
-              browsers: ["last 1 Chrome version", "last 1 Firefox version"],
+              browsers: ["last 1 Chrome version", "last 1 Plezix version"],
             },
             modules: "commonjs",
           },

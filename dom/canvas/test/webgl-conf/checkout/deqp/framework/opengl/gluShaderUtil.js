@@ -63,7 +63,7 @@ gluShaderUtil.isGLSLVersionSupported = function(ctx, version) {
 gluShaderUtil.getGLSLVersion = function(gl) {
     var glslversion = gl.getParameter(gl.SHADING_LANGUAGE_VERSION);
 
-    // TODO: Versions are not yet well implemented... Firefox returns GLSL ES 1.0 in some cases,
+    // TODO: Versions are not yet well implemented... Plezix returns GLSL ES 1.0 in some cases,
     // and Chromium returns GLSL ES 2.0 in some cases. Returning the right version for
     // testing.
     // return gluShaderUtil.GLSLVersion.V300_ES;

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import org.mozilla.fenix.reviewprompt.CustomReviewPromptAction.NegativePrePrompt
 import org.mozilla.fenix.reviewprompt.CustomReviewPromptAction.PositivePrePromptButtonClicked
 import org.mozilla.fenix.reviewprompt.CustomReviewPromptAction.RateButtonClicked
 import org.mozilla.fenix.reviewprompt.ui.CustomReviewPrompt
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /** A bottom sheet fragment for displaying [CustomReviewPrompt]. */
 class CustomReviewPromptBottomSheetFragment : BottomSheetDialogFragment() {
@@ -59,7 +59,7 @@ class CustomReviewPromptBottomSheetFragment : BottomSheetDialogFragment() {
             store.dispatch(CustomReviewPromptAction.Displayed)
         }
 
-        FirefoxTheme {
+        PlezixTheme {
             CustomReviewPrompt(
                 state = state,
                 onRequestDismiss = { store.dispatch(DismissRequested) },

@@ -83,6 +83,6 @@ rloop.cancel();
 
 ## License
 
-`runloop` is distributed under the terms of the Mozilla Public License, v. 2.0.
+`runloop` is distributed under the terms of the Plezix Public License, v. 2.0.
 
 See [LICENSE](LICENSE) for details.

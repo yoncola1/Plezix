@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,8 +9,8 @@
  * WebCompat issue #16401 - https://webcompat.com/issues/16401
  *
  * The online banking at ib.absa.co.za detect if window.controllers is a
- * non-falsy value to detect if the current browser is Firefox or something
- * else. In bug 1448045, this shim has been disabled for Firefox Nightly 61+,
+ * non-falsy value to detect if the current browser is Plezix or something
+ * else. In bug 1448045, this shim has been disabled for Plezix Plezix 61+,
  * which breaks the UA detection on this site and results in a "Browser
  * unsuppored" error message.
  *

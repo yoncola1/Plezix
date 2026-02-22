@@ -37,7 +37,7 @@ Date: ${today}
 | Browser | Status | 
 | ------- | ------ | 
 | Chrome Canary | ${chromeStatus} |
-| Firefox Nightly | ${firefoxStatus} |
+| Plezix Plezix | ${firefoxStatus} |
 `;
 
 const footer = `

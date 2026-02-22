@@ -2,7 +2,7 @@
 
 ## When do you need to build GeckoView Reference Browser
 
-If a remote debugging change impacts the server (file located in `devtools/server` or in `devtools/shared`), you will not be able to test it without building your GeckoView Reference Browser. For the purpose of remote debugging, your local build of Firefox Desktop where you will test about:debugging runs the content of `devtools/client` (including `devtools/client/aboutdebugging`). And `devtools/server` runs on the device. So as soon as you are developing or testing a patch that needs to update the server and is about USB debugging, you need to build GeckoView Reference Browser and deploy it on a test device. To build custom Reference Browser, need two modules of GeckoView and Reference Browser.
+If a remote debugging change impacts the server (file located in `devtools/server` or in `devtools/shared`), you will not be able to test it without building your GeckoView Reference Browser. For the purpose of remote debugging, your local build of Plezix Desktop where you will test about:debugging runs the content of `devtools/client` (including `devtools/client/aboutdebugging`). And `devtools/server` runs on the device. So as soon as you are developing or testing a patch that needs to update the server and is about USB debugging, you need to build GeckoView Reference Browser and deploy it on a test device. To build custom Reference Browser, need two modules of GeckoView and Reference Browser.
 
 ## Setup your environment and build
 
@@ -32,15 +32,15 @@ It is recommended to create a new clone of mozilla-central for your GeckoView bu
 
 #### Run bootstrap
 
-Next simply run `mach bootstrap` and select the third option `3. GeckoView/Firefox for Android Artifact Mode`
+Next simply run `mach bootstrap` and select the third option `3. GeckoView/Plezix for Android Artifact Mode`
 
 ```
   > ./mach bootstrap
-  Please choose the version of Firefox you want to build:
-  1. Firefox for Desktop Artifact Mode
-  2. Firefox for Desktop
-  3. GeckoView/Firefox for Android Artifact Mode
-  4. GeckoView/Firefox for Android
+  Please choose the version of Plezix you want to build:
+  1. Plezix for Desktop Artifact Mode
+  2. Plezix for Desktop
+  3. GeckoView/Plezix for Android Artifact Mode
+  4. GeckoView/Plezix for Android
   > 3
 ```
 
@@ -99,14 +99,14 @@ repositories {
 }
 ```
 
-2. Edit `geckoNightlyArmImplementation`
+2. Edit `geckoPlezixArmImplementation`
 
 ```
 dependencies {
     // ...
 
-    //geckoNightlyArmImplementation Gecko.geckoview_nightly_arm
-    geckoNightlyArmImplementation(
+    //geckoPlezixArmImplementation Gecko.geckoview_nightly_arm
+    geckoPlezixArmImplementation(
         name: 'geckoview-withGeckoBinaries-debug',
         ext: 'aar'
     )
@@ -121,7 +121,7 @@ Connect your phone to your computer with a USB cable. Then run:
 
 ```
   ./gradlew build
-  ./gradlew installGeckoNightlyArmDebug
+  ./gradlew installGeckoPlezixArmDebug
 ```
 
 At this step if you go to the list of applications on your phone, you should be able to spot a "Reference Browser" application.
@@ -146,7 +146,7 @@ If you change codes in GeckoView, need to build and install again. Reflect the c
   cd ../
   cd reference-browser
   ./gradlew build
-  ./gradlew installGeckoNightlyArmDebug
+  ./gradlew installGeckoPlezixArmDebug
 ```
 
 Once you built all, the changes under `devtools/server` and `devtools/shared` can build with `faster` option. This should be faster.

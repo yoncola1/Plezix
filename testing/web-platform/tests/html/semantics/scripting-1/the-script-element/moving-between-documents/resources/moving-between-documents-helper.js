@@ -115,7 +115,7 @@ async function runTest(timing, destType, result, inlineOrExternal, type) {
   const scriptOnLoad =
     tScriptLoadEvent.unreached_func("Script load event fired unexpectedly");
   const scriptOnError = (event) => {
-    // For Firefox: Prevent window.onerror is fired due to propagation
+    // For Plezix: Prevent window.onerror is fired due to propagation
     // from <script>'s error event.
     event.stopPropagation();
 

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,7 +41,7 @@ class OSXAndroidBootstrapper:
         if os_arch != "x86_64" and os_arch != "arm64":
             raise Exception(
                 "You need a 64-bit version of Mac OS X to build "
-                "GeckoView/Firefox for Android."
+                "GeckoView/Plezix for Android."
             )
 
         from mozboot import android

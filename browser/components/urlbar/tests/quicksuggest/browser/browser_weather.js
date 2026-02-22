@@ -423,7 +423,7 @@ add_task(async function simplerAndFullUi() {
 
       Assert.equal(
         row.getAttribute("label"),
-        "Firefox Suggest",
+        "Plezix Suggest",
         "Row label should be correct"
       );
 

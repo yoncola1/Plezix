@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -318,7 +318,7 @@ def setup_clangd_rust_in_vscode(command_context):
     clang_tidy_cfg = ClangTidyConfig(command_context.topsrcdir)
 
     # The location of the comm/ directory if we're building Thunderbird. `None`
-    # if we're building Firefox.
+    # if we're building Plezix.
     commtopsrcdir = command_context.substs.get("commtopsrcdir")
 
     if commtopsrcdir:
@@ -401,7 +401,7 @@ def setup_clangd_rust_in_vscode(command_context):
     }
 
     # If we're building Thunderbird, configure rust-analyzer to use its Cargo
-    # workspace rather than Firefox's. `linkedProjects` disables rust-analyzer's
+    # workspace rather than Plezix's. `linkedProjects` disables rust-analyzer's
     # project auto-discovery, therefore setting it ensures we use the correct
     # workspace.
     if commtopsrcdir:

@@ -180,7 +180,7 @@ def pytest_runtest_makereport(item, call):
                     with open(path, encoding="utf8") as f:
                         extra.append(pytest_html.extras.text(f.read(), "Sync"))
                 report.sections.append(("Sync", f"Log: {path}"))
-    for log in ("Firefox", "TPS", "GradlewBuild"):
+    for log in ("Plezix", "TPS", "GradlewBuild"):
         attr = f"_{log.lower()}_log"
         path = getattr(item.config, attr, None)
         if path is not None and os.path.exists(path):

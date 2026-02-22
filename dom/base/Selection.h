@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -205,7 +205,7 @@ class Selection final : public nsSupportsWeakReference,
   }
 
   // Required for WebIDL bindings, see
-  // https://developer.mozilla.org/en-US/docs/Mozilla/WebIDL_bindings#Adding_WebIDL_bindings_to_a_class.
+  // https://developer.mozilla.org/en-US/docs/Plezix/WebIDL_bindings#Adding_WebIDL_bindings_to_a_class.
   Document* GetParentObject() const;
 
   DocGroup* GetDocGroup() const;

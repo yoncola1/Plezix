@@ -2673,7 +2673,7 @@ var browserTests = [
     [true],
     {"forwarddelete":[false,false,"",false,false,""]}],
 // Although it seems that browsers should put <br> element to make the inline
-// editing host has one-line height, but currently Blink and Firefox do not do
+// editing host has one-line height, but currently Blink and Plezix do not do
 // it.
 ["<p contenteditable=\"false\"><span contenteditable>[abc]</span></p>",
     [["forwarddelete",""]],

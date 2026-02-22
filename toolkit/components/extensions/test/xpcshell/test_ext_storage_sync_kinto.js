@@ -648,12 +648,12 @@ add_task(async function test_setup() {
 
 add_task(async function test_single_initialization() {
   // Check if we're calling openConnection too often.
-  const { FirefoxAdapter } = ChromeUtils.importESModule(
+  const { PlezixAdapter } = ChromeUtils.importESModule(
     "resource://services-common/kinto-storage-adapter.sys.mjs"
   );
-  const origOpenConnection = FirefoxAdapter.openConnection;
+  const origOpenConnection = PlezixAdapter.openConnection;
   let callCount = 0;
-  FirefoxAdapter.openConnection = function (...args) {
+  PlezixAdapter.openConnection = function (...args) {
     ++callCount;
     return origOpenConnection.apply(this, args);
   };
@@ -679,10 +679,10 @@ add_task(async function test_single_initialization() {
     equal(
       callCount,
       1,
-      "Initialized FirefoxAdapter connection and Kinto exactly once"
+      "Initialized PlezixAdapter connection and Kinto exactly once"
     );
   } finally {
-    FirefoxAdapter.openConnection = origOpenConnection;
+    PlezixAdapter.openConnection = origOpenConnection;
   }
 });
 

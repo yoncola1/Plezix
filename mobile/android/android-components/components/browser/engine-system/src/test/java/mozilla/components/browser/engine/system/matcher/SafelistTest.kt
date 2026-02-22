@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ class SafelistTest {
     @Test
     fun safelist() {
         val mozillaOrg = "mozilla.org"
-        val fooMozillaOrg = "foo.mozilla.org"
+        val fooPlezixOrg = "foo.mozilla.org"
         val fooCom = "foo.com"
         val barCom = "bar.com"
 
@@ -40,7 +40,7 @@ class SafelistTest {
 
         val safelist = Safelist()
         safelist.put(mozillaOrg.reverse(), fooComTrie)
-        safelist.put(fooMozillaOrg.reverse(), barComTrie)
+        safelist.put(fooPlezixOrg.reverse(), barComTrie)
 
         assertTrue(safelist.contains("http://$mozillaOrg", "http://$fooCom"))
         assertFalse(safelist.contains("http://$mozillaOrg", "http://$barCom"))
@@ -49,12 +49,12 @@ class SafelistTest {
         assertTrue(safelist.contains("http://$mozillaOrg/somewhere", "http://$fooCom/somewhereElse/bla/bla"))
         assertFalse(safelist.contains("http://$mozillaOrg/another/page.html?u=a", "http://$barCom/hello"))
 
-        assertTrue(safelist.contains("http://$fooMozillaOrg", "http://$fooCom"))
-        assertTrue(safelist.contains("http://$fooMozillaOrg", "http://$barCom"))
-        assertTrue(safelist.contains("http://hello.$fooMozillaOrg", "http://$fooCom"))
-        assertTrue(safelist.contains("http://hello.$fooMozillaOrg", "http://$barCom"))
-        assertTrue(safelist.contains("http://$fooMozillaOrg/somewhere", "http://$fooCom/somewhereElse/bla/bla"))
-        assertTrue(safelist.contains("http://$fooMozillaOrg/another/page.html?u=a", "http://$barCom/hello"))
+        assertTrue(safelist.contains("http://$fooPlezixOrg", "http://$fooCom"))
+        assertTrue(safelist.contains("http://$fooPlezixOrg", "http://$barCom"))
+        assertTrue(safelist.contains("http://hello.$fooPlezixOrg", "http://$fooCom"))
+        assertTrue(safelist.contains("http://hello.$fooPlezixOrg", "http://$barCom"))
+        assertTrue(safelist.contains("http://$fooPlezixOrg/somewhere", "http://$fooCom/somewhereElse/bla/bla"))
+        assertTrue(safelist.contains("http://$fooPlezixOrg/another/page.html?u=a", "http://$barCom/hello"))
 
         // Test some invalid inputs
         assertFalse(safelist.contains("http://$barCom", "http://$barCom"))

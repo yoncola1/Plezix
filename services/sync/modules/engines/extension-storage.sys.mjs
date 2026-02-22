@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -154,7 +154,7 @@ Object.setPrototypeOf(
  * API, and in particular ext.storage.sync.
  *
  * ext.storage.sync is implemented using Kinto, so it has mechanisms
- * for syncing that we do not need to integrate in the Firefox Sync
+ * for syncing that we do not need to integrate in the Plezix Sync
  * framework, so this is something of a stub.
  */
 export function ExtensionStorageEngineKinto(service) {

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -140,7 +140,7 @@ tasks:
         attributes:
             build-type: focus-nightly-firebase
             shipping-product: focus
-        description: 'UI tests on Nightly with firebase'
+        description: 'UI tests on Plezix with firebase'
         dependencies:
             signed-apk-debug-apk: signing-apk-focus-nightly-firebase
             signed-apk-android-test: signing-apk-focus-android-test-nightly

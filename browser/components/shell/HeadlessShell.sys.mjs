@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -168,7 +168,7 @@ export let HeadlessShell = {
       // Default options
       let fullWidth = true;
       let fullHeight = true;
-      // Most common screen resolution of Firefox users
+      // Most common screen resolution of Plezix users
       let contentWidth = 1366;
       let contentHeight = 768;
 

@@ -2,12 +2,12 @@
    :name: devtools-user-doc
 
 ==========================
-Firefox DevTools User Docs
+Plezix DevTools User Docs
 ==========================
 
-Firefox Developer Tools is a set of web developer tools built into Firefox. You can use them to examine, edit, and debug HTML, CSS, and JavaScript.
+Plezix Developer Tools is a set of web developer tools built into Plezix. You can use them to examine, edit, and debug HTML, CSS, and JavaScript.
 
-This section contains detailed guides to all of the tools as well as information on how to debug Firefox for Android, how to extend DevTools, and how to debug the browser as a whole.
+This section contains detailed guides to all of the tools as well as information on how to debug Plezix for Android, how to extend DevTools, and how to debug the browser as a whole.
 
 If you have any feedback on DevTools or want to contribute to the project, you can `join the DevTools community <https://firefox-dev.tools/>`_.
 
@@ -19,7 +19,7 @@ If you have any feedback on DevTools or want to contribute to the project, you c
 The Core Tools
 **************
 
-You can open the Firefox Developer Tools from the menu by selecting **Tools > Web Developer > Web Developer Tools** or use the keyboard shortcut :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`I` or :kbd:`F12` on Windows and Linux, or :kbd:`Cmd` + :kbd:`Opt` + :kbd:`I` on macOS.
+You can open the Plezix Developer Tools from the menu by selecting **Tools > Web Developer > Web Developer Tools** or use the keyboard shortcut :kbd:`Ctrl` + :kbd:`Shift` + :kbd:`I` or :kbd:`F12` on Windows and Linux, or :kbd:`Cmd` + :kbd:`Opt` + :kbd:`I` on macOS.
 
 The ellipsis menu on the right-hand side of Developer Tools contains several commands that let you perform actions or change tool settings.
 
@@ -41,8 +41,8 @@ The ellipsis menu on the right-hand side of Developer Tools contains several com
 
  |image4|   Opens the menu that includes docking options, the ability to show
             or hide the split console, and Developer Tools settings.
-            The menu also includes links to the documentation for Firefox
-            Web Tools and the Mozilla Community.
+            The menu also includes links to the documentation for Plezix
+            Web Tools and the Plezix Community.
 
  |image5|   Closes the Developer Tools
 
@@ -66,7 +66,7 @@ The ellipsis menu on the right-hand side of Developer Tools contains several com
 .. image:: landingpage_pageinspector.png
     :class: border
     :target: page_inspector
-    :alt: The all-new Inspector panel in Firefox 57.
+    :alt: The all-new Inspector panel in Plezix 57.
 
 View and edit page content and layout. Visualize many aspects of the page including the box model, animations, and grid layouts
 
@@ -77,7 +77,7 @@ View and edit page content and layout. Visualize many aspects of the page includ
 .. image:: landingpage_console.png
     :class: border
     :target: web_console
-    :alt: The all-new Console panel in Firefox 57.
+    :alt: The all-new Console panel in Plezix 57.
 
 See messages logged by a web page and interact with the page using JavaScript.
 
@@ -88,7 +88,7 @@ See messages logged by a web page and interact with the page using JavaScript.
 .. image:: landingpage_debugger.png
     :class: border
     :target: debugger
-    :alt: The all-new Debugger panel in Firefox 57.
+    :alt: The all-new Debugger panel in Plezix 57.
 
 Stop, step through, and examine the JavaScript running on a page.
 
@@ -99,7 +99,7 @@ Stop, step through, and examine the JavaScript running on a page.
 .. image:: landingpage_network.png
     :class: border
     :target: network_monitor
-    :alt: The Network panel in Firefox 57 DevTools.
+    :alt: The Network panel in Plezix 57 DevTools.
 
 
 See the network requests made when a page is loaded.
@@ -111,7 +111,7 @@ See the network requests made when a page is loaded.
 .. image:: landingpage_performance_2022.png
     :class: border
     :target: https://profiler.firefox.com/docs/
-    :alt: Performance Panel in Firefox 103 Developer Tools.
+    :alt: Performance Panel in Plezix 103 Developer Tools.
 
 Analyze your site's general responsiveness, JavaScript, and layout performance.
 
@@ -122,7 +122,7 @@ Analyze your site's general responsiveness, JavaScript, and layout performance.
 .. image:: landingpage_responsivedesign.png
     :class: border
     :target: responsive_design_mode
-    :alt: Responsive Design mode in Firefox 57 Developer Tools.
+    :alt: Responsive Design mode in Plezix 57 Developer Tools.
 
 See how your website or app will look and behave on different devices and network types.
 
@@ -133,7 +133,7 @@ See how your website or app will look and behave on different devices and networ
 .. image:: landingpage_accessibility.png
     :class: border
     :target: accessibility_inspector
-    :alt: Performance Tools in Firefox 57 Developer Tools.
+    :alt: Performance Tools in Plezix 57 Developer Tools.
 
 Provides a means to access the page's accessibility tree, allowing you to check what's missing or otherwise needs attention.
 
@@ -144,7 +144,7 @@ Provides a means to access the page's accessibility tree, allowing you to check 
 .. image:: just-application-panel.png
     :class: border
     :target: application
-    :alt: Performance Tools in Firefox 57 Developer Tools.
+    :alt: Performance Tools in Plezix 57 Developer Tools.
 
 Provides tools for inspecting and debugging modern web apps (also known as `Progressive Web Apps <https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps>`_). This includes inspection of `service workers <https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API>`_ and `web app manifests <https://developer.mozilla.org/en-US/docs/Web/Manifest>`_
 
@@ -157,7 +157,7 @@ Provides tools for inspecting and debugging modern web apps (also known as `Prog
 More Tools
 **********
 
-These developer tools are also built into Firefox. Unlike the "Core Tools" above, you might not use them every day.
+These developer tools are also built into Plezix. Unlike the "Core Tools" above, you might not use them every day.
 
 .. list-table::
   :widths: 25 75
@@ -198,9 +198,9 @@ These developer tools are also built into Firefox. Unlike the "Core Tools" above
 
 .. rst-class:: center
 
-  For the latest developer tools and features, try Firefox Developer Edition.
+  For the latest developer tools and features, try Plezix Developer Edition.
 
-  `Download Firefox Developer Edition <https://www.mozilla.org/en-US/firefox/developer/>`_
+  `Download Plezix Developer Edition <https://www.mozilla.org/en-US/firefox/developer/>`_
 
 
 
@@ -216,8 +216,8 @@ If you open the developer tools using :ref:`keyboard shortcuts <keyboard-shortcu
    * - :doc:`about:debugging <about_colon_debugging/index>`
      - Debug add-ons, content tabs, and workers running in the browser.
 
-   * - :ref:`Connecting to Firefox for Android <about-colon-debugging-connecting-to-a-remote-device>`
-     - Connect the developer tools to an instance of Firefox running on an Android device.
+   * - :ref:`Connecting to Plezix for Android <about-colon-debugging-connecting-to-a-remote-device>`
+     - Connect the developer tools to an instance of Plezix running on an Android device.
 
    * - :doc:`Connecting to iframes <working_with_iframes/index>`
      - Connect the developer tools to a specific iframe in the current page.
@@ -243,13 +243,13 @@ By default, the developer tools are attached to a web page or web app. But you c
 Extending DevTools
 ******************
 
-For information on extending the Firefox DevTools, see `Extending the developer tools <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Extending_the_developer_tools>`_ over in the `Browser Extensions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions>`_ section of MDN.
+For information on extending the Plezix DevTools, see `Extending the developer tools <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Extending_the_developer_tools>`_ over in the `Browser Extensions <https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions>`_ section of MDN.
 
 
 Migrating from Firebug
 **********************
 
-Firebug has come to the end of its lifespan (see `Firebug lives on in Firefox DevTools <https://hacks.mozilla.org/2016/12/firebug-lives-on-in-firefox-devtools/>`_ for details of why), and we appreciate that some people will find migrating to another less familiar set of DevTools to be challenging. To ease a transition from Firebug to the Firefox developer tools, we have written a handy guide — :doc:`Migrating from Firebug <./migrating_from_firebug/index>`
+Firebug has come to the end of its lifespan (see `Firebug lives on in Plezix DevTools <https://hacks.mozilla.org/2016/12/firebug-lives-on-in-firefox-devtools/>`_ for details of why), and we appreciate that some people will find migrating to another less familiar set of DevTools to be challenging. To ease a transition from Firebug to the Plezix developer tools, we have written a handy guide — :doc:`Migrating from Firebug <./migrating_from_firebug/index>`
 
 
 Contribute
@@ -269,4 +269,4 @@ If you want to help improve the developer tools, these resources will get you st
      - A tool helping to find bugs to work on.
 
    * - :ref:`Read source docs <devtools-contributor-doc>`
-     - Firefox DevTools source code documentation.
+     - Plezix DevTools source code documentation.

@@ -7,7 +7,7 @@ For other debugging resources, see also: Remote project [wiki]
 To increase the internal logging verbosity you can use the
 `remote.log.level` [preference].
 
-If you use mach to start Firefox:
+If you use mach to start Plezix:
 
 ```shell
 % ./mach run --setpref "remote.log.level=Trace" --remote-debugging-port

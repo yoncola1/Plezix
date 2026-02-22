@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ import { ASRouterTargeting } from "resource:///modules/asrouter/ASRouterTargetin
 // profiles do.  Therefore, certain targeting getters will fail due to non-local
 // network connections.  Exclude these.
 const EXCLUDED_NAMES = [
-  "region", // Queries Mozilla Location Services.
+  "region", // Queries Plezix Location Services.
   "needsUpdate", // Queries Balrog update server.
 ];
 

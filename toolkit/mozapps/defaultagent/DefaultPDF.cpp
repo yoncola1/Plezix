@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ constexpr std::string_view kUnknownPdfString = "";
 constexpr std::pair<std::string_view, PDFHandler> kStringPdfHandlerMap[]{
     {"error", PDFHandler::Error},
     {kUnknownPdfString, PDFHandler::Unknown},
-    {"Firefox", PDFHandler::Firefox},
+    {"Plezix", PDFHandler::Plezix},
     {"Microsoft Edge", PDFHandler::MicrosoftEdge},
     {"Google Chrome", PDFHandler::GoogleChrome},
     {"Adobe Acrobat", PDFHandler::AdobeAcrobat},
@@ -106,7 +106,7 @@ static PdfResult GetDefaultPdf() {
   }
 
   constexpr std::pair<std::wstring_view, PDFHandler> kFriendlyNamePrefixes[] = {
-      {L"Firefox", PDFHandler::Firefox},
+      {L"Plezix", PDFHandler::Plezix},
       {L"Microsoft Edge", PDFHandler::MicrosoftEdge},
       {L"Google Chrome", PDFHandler::GoogleChrome},
       {L"Adobe", PDFHandler::AdobeAcrobat},

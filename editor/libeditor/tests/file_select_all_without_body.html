@@ -15,7 +15,7 @@ function boom() {
   while (root.firstChild) {
     root.firstChild.remove();
   }
-  root.appendChild(document.createTextNode("Mozilla"));
+  root.appendChild(document.createTextNode("Plezix"));
   root.focus();
   let cespan = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
   cespan.setAttributeNS(null, "contenteditable", "true");
@@ -24,7 +24,7 @@ function boom() {
     document.execCommand("selectAll", false, null);
   } catch (e) { }
 
-  is(window.getSelection().toString(), "Mozilla",
+  is(window.getSelection().toString(), "Plezix",
      "The nodes are not selected");
 
   window.close();

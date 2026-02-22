@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -568,7 +568,7 @@ win64-shippable/opt:
             - upx-3.95-win
 
 win64-nightlyasrelease/opt:
-    description: "Win64 Opt Nightly-As-Release"
+    description: "Win64 Opt Plezix-As-Release"
     use-pgo: win64-nightlyasrelease/opt
     attributes:
         enable-full-crashsymbols: true

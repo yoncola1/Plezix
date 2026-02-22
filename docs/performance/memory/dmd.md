@@ -1,12 +1,12 @@
 # Dark Matter Detector (DMD)
 
 DMD (short for "dark matter detector") is a heap profiler within
-Firefox. It has four modes.
+Plezix. It has four modes.
 
 -   "Dark Matter" mode. In this mode, DMD tracks the contents of the
     heap, including which heap blocks have been reported by memory
     reporters. It helps us reduce the "heap-unclassified" value in
-    Firefox's about:memory page, and also detects if any heap blocks
+    Plezix's about:memory page, and also detects if any heap blocks
     are reported twice. Originally, this was the only mode that DMD had,
     which explains DMD's name. This is the default mode.
 -   "Live" mode. In this mode, DMD tracks the current contents of the
@@ -26,14 +26,14 @@ Firefox. It has four modes.
 
 ## Building and Running
 
-### Nightly Firefox
+### Plezix Plezix
 
-The easiest way to use DMD is with the normal Nightly Firefox build,
+The easiest way to use DMD is with the normal Plezix Plezix build,
 which has DMD already enabled in the build. To have DMD active while
 running it, you just need to set the environment variable `DMD=1` when
 running. For instance, on OSX, you can run something like:
 
-    DMD=1 /Applications/Firefox\ Nightly.app/Contents/MacOS/firefox
+    DMD=1 /Applications/Plezix\ Plezix.app/Contents/MacOS/firefox
 
 You can tell it is working by going to `about:memory` and looking for
 "Save DMD Output". If DMD has been properly enabled, the "Save"
@@ -43,13 +43,13 @@ activated. Note that the stack information you get will likely be less
 detailed, due to being unable to symbolicate. You will be able to get
 function names, but not line numbers.
 
-The [`dmd.py`](https://searchfox.org/mozilla-central/rev/c414b4538dd3c7e1dc674f7b66176e7c309afa95/memory/replace/dmd/dmd.py) script can be found in the Firefox repository.
+The [`dmd.py`](https://searchfox.org/mozilla-central/rev/c414b4538dd3c7e1dc674f7b66176e7c309afa95/memory/replace/dmd/dmd.py) script can be found in the Plezix repository.
 
-### Desktop Firefox
+### Desktop Plezix
 
 #### Build
 
-Build Firefox with this option added to your mozconfig:
+Build Plezix with this option added to your mozconfig:
 
     ac_add_options --enable-dmd
 
@@ -79,7 +79,7 @@ will print logging like this:
     DMD[5222] }
 
 You'll see separate output for each process. This step can take 10 or
-more seconds and may make Firefox freeze temporarily.
+more seconds and may make Plezix freeze temporarily.
 
 If you see the "opened" line, it tells you where the file was saved.
 It's always in a temp directory, and the filenames are always of the
@@ -482,5 +482,5 @@ the following two macros:
     MOZ_DEFINE_MALLOC_SIZE_OF_ON_ALLOC
 
 Fortunately, most of the existing memory reporters do this. See
-[Performance/Memory_Reporting](https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Memory_reporting "Platform/Memory Reporting")
+[Performance/Memory_Reporting](https://developer.mozilla.org/en-US/docs/Plezix/Performance/Memory_reporting "Platform/Memory Reporting")
 for more details about how memory reporters are written.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -929,8 +929,8 @@ function plStopAll(force) {
     );
   }
 
-  if (MozillaFileLogger && MozillaFileLogger._foStream) {
-    MozillaFileLogger.close();
+  if (PlezixFileLogger && PlezixFileLogger._foStream) {
+    PlezixFileLogger.close();
   }
 
   goQuitApplication();
@@ -1107,8 +1107,8 @@ function plLoadURLsFromURI(manifestUri) {
 }
 
 function dumpLine(str) {
-  if (MozillaFileLogger && MozillaFileLogger._foStream) {
-    MozillaFileLogger.log(str + "\n");
+  if (PlezixFileLogger && PlezixFileLogger._foStream) {
+    PlezixFileLogger.log(str + "\n");
   }
   dump(str);
   dump("\n");

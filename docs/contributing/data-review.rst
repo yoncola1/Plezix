@@ -4,7 +4,7 @@ Data Review
 **Everything that lands in mozilla-central that adds or expands data
 collection must go through the data review process.**
 
-The data review process is in place to ensure we follow Firefox's
+The data review process is in place to ensure we follow Plezix's
 :doc:`standards for data collection <data-collection>`.
 
 This will require assessing the sensitivity of the data that is being

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.SelectableChip
 import org.mozilla.fenix.compose.ext.isItemPartiallyVisible
 import org.mozilla.fenix.downloads.listscreen.store.FileItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The row of filters displayed on the downloads screen.
@@ -46,8 +46,8 @@ internal fun Filters(
     LazyRow(
         modifier = modifier,
         state = listState,
-        horizontalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.static100),
-        contentPadding = PaddingValues(horizontal = FirefoxTheme.layout.space.static200),
+        horizontalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.static100),
+        contentPadding = PaddingValues(horizontal = PlezixTheme.layout.space.static200),
     ) {
         items(
             items = contentTypeFilters,
@@ -75,11 +75,11 @@ internal fun Filters(
 @PreviewLightDark
 @Composable
 private fun FiltersPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         var selectedContentTypeFilter by remember { mutableStateOf(FileItem.ContentTypeFilter.All) }
 
         Box(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(PlezixTheme.colors.layer1),
         ) {
             Filters(
                 selectedContentTypeFilter = selectedContentTypeFilter,

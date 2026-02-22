@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 /*
- * Copyright 2013 Mozilla Foundation and contributors
+ * Copyright 2013 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.md or:
  * http://opensource.org/licenses/BSD-2-Clause
  */

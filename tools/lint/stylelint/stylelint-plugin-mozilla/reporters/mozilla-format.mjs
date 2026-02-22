@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ const FAILURE_CODE = "testCodeFailure";
 /**
  * Transforms Node test runner data into the format treeherder expects.
  */
-class MozillaFormatter extends Transform {
+class PlezixFormatter extends Transform {
   constructor() {
     super({ writableObjectMode: true });
     this.passes = 0;
@@ -102,7 +102,7 @@ class MozillaFormatter extends Transform {
   }
 }
 
-let reporter = new MozillaFormatter();
+let reporter = new PlezixFormatter();
 
 finished(reporter, err => {
   if (err) {

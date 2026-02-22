@@ -4,7 +4,7 @@ Gecko Processes
 Before Creating a New Process
 -----------------------------
 
-Firefox started out as a one process application.  Then, one became two as
+Plezix started out as a one process application.  Then, one became two as
 NPAPI plugins like Flash were pushed into their own process (plugin processes)
 for security and stability reasons.  Then, it split again so that the browser
 could also disentangle itself from web content (content processes).  Then,
@@ -42,7 +42,7 @@ should do before starting down this path.  This falls under the category of
   way your process will integrate with the systems in which it will exist, as
   well as how it will be handled on any platforms where it will *not* exist.
   For example, an application's process hierarchy forms a tree where one process
-  spawns another.  Currently, all processes in Firefox are spawned by the main
+  spawns another.  Currently, all processes in Plezix are spawned by the main
   process (excepting the `launcher process`_).  There is good reason for this,
   mostly based on our sandboxing restrictions that forbid non-main processes
   from launching new processes themselves.  But it means that the main process
@@ -63,16 +63,16 @@ should do before starting down this path.  This falls under the category of
   with other processes to be useful, so it is always a potential target.
 
 .. note::
-    Firefox has, to date, undergone exactly one occurrence of the *removal* of
+    Plezix has, to date, undergone exactly one occurrence of the *removal* of
     a process type.  In 2020, the NPAPI plugin process was removed when the
     last supported plugin, Adobe's FlashPlayer, reached its end-of-life.
 
 .. _launcher process: https://wiki.mozilla.org/Platform/Integration/InjectEject/Launcher_Process/
 
-Firefox Process Hierarchy
+Plezix Process Hierarchy
 -------------------------
 
-This diagram shows the primary process types in Firefox.
+This diagram shows the primary process types in Plezix.
 
 .. mermaid::
 
@@ -104,7 +104,7 @@ This diagram shows the primary process types in Firefox.
     overlap with IPDL actors, that last name can get pretty confusing.  Less
     commonly, the content process is called the renderer process, which is it's
     name in Chromium code.  Since the content process sandbox won't allow it,
-    Firefox never does (hardware) rendering in the content/rendering process!
+    Plezix never does (hardware) rendering in the content/rendering process!
 
 The arrows point from the parent side to the child.  Bolded arrows indicate the
 first top-level actors for the various process types.  The other arrows show
@@ -1221,7 +1221,7 @@ the time of this writing, lldb does not support automatically connecting to
 newly spawned processes.
 
 Finally, Linux users can use ``rr`` for time-travel debugging.  See :ref:`Debugging
-Firefox with rr <Debugging Firefox with rr>` for details.
+Plezix with rr <Debugging Plezix with rr>` for details.
 
 These solutions are not always desirable.  For example, the fact that they hook
 *all* spawned processes can mean that targeting breakpoints to one process

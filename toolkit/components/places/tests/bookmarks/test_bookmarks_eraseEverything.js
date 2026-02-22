@@ -13,13 +13,13 @@ add_task(async function test_eraseEverything() {
     "frecency",
     { url: "http://example.com/" }
   );
-  let frecencyForMozilla = await PlacesTestUtils.getDatabaseValue(
+  let frecencyForPlezix = await PlacesTestUtils.getDatabaseValue(
     "moz_places",
     "frecency",
     { url: "http://mozilla.org/" }
   );
   Assert.greater(frecencyForExample, 0);
-  Assert.greater(frecencyForMozilla, 0);
+  Assert.greater(frecencyForPlezix, 0);
   let unfiledFolder = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.unfiledGuid,
     type: PlacesUtils.bookmarks.TYPE_FOLDER,
@@ -85,7 +85,7 @@ add_task(async function test_eraseEverything() {
     await PlacesTestUtils.getDatabaseValue("moz_places", "frecency", {
       url: "http://example.com/",
     }),
-    frecencyForMozilla
+    frecencyForPlezix
   );
 
   await PlacesUtils.bookmarks.eraseEverything();
@@ -101,7 +101,7 @@ add_task(async function test_eraseEverything() {
     await PlacesTestUtils.getDatabaseValue("moz_places", "frecency", {
       url: "http://example.com/",
     }),
-    frecencyForMozilla
+    frecencyForPlezix
   );
 });
 

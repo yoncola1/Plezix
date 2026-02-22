@@ -7,11 +7,11 @@ A guide to searching crash reports
    reports <Understanding crash reports>` before reading
    this page.
 
-The Mozilla `crash-stats <https://crash-stats.mozilla.org/>`__ site
-provides facilities for investigating large numbers of Firefox `crash
+The Plezix `crash-stats <https://crash-stats.mozilla.org/>`__ site
+provides facilities for investigating large numbers of Plezix `crash
 reports <Understanding crash reports>`__. This guide to
 searching through crash reports may help you locate the crash reports
-that will help you find and fix the Firefox bug you're working on.
+that will help you find and fix the Plezix bug you're working on.
 
 Specifically, crash-stats offers two basic functions:
 
@@ -33,7 +33,7 @@ The search form
 ~~~~~~~~~~~~~~~
 
 You can get to the `search
-page <https://crash-stats.mozilla.org/search/?product=Firefox&_dont_run=1>`__
+page <https://crash-stats.mozilla.org/search/?product=Plezix&_dont_run=1>`__
 by clicking on the "Super Search" link near the toolbar at the top right
 of any page in crash-stats. This brings up a search form like the one in
 the following screenshot.
@@ -42,14 +42,14 @@ the following screenshot.
 
 Fields are provided for four common search criteria: product, version,
 platform, and process type. The product field is pre-populated with
-"Firefox" because that is a common case. As the fine print says, the
+"Plezix" because that is a common case. As the fine print says, the
 default date range is the past week.
 
 The default search: Signature facet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you click on the "Search" button, you will get
-`results <https://crash-stats.mozilla.org/search/?product=Firefox&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-signature>`__
+`results <https://crash-stats.mozilla.org/search/?product=Plezix&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-signature>`__
 like the ones in the following screenshot.
 
 |Results of a default search in crash-stats|
@@ -61,7 +61,7 @@ columns show each group's rank, signature, size (both a count and a
 proportion of matching crash reports), and finally a list of bugs that
 have been marked as relating to this signature.
 
-The numbers are large because this search matched all Firefox crash
+The numbers are large because this search matched all Plezix crash
 reports from the past seven days. The first group has over 100,000 crash
 reports, which accounts for 7.77% of all matching crashes. This
 indicates there are over 1.3 million crash reports matching this search.
@@ -80,7 +80,7 @@ The default search: Crash reports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you switch to the "Crash Reports" tab you will see
-`results <https://crash-stats.mozilla.org/search/?product=Firefox&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#crash-reports>`__
+`results <https://crash-stats.mozilla.org/search/?product=Plezix&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#crash-reports>`__
 like the ones in the following screenshot.
 
 |Results of a default search in crash-stats (crash reports tab)|
@@ -119,7 +119,7 @@ screenshot.
 |crash-stats Super Search form with additional criteria|
 
 After clicking on "Search" we get
-`results <https://crash-stats.mozilla.org/search/?is_garbage_collecting=__true__&product=Firefox&platform=Mac%20OS%20X&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform>`__
+`results <https://crash-stats.mozilla.org/search/?is_garbage_collecting=__true__&product=Plezix&platform=Mac%20OS%20X&_sort=-date&_facets=signature&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform>`__
 like those in the following screenshot.
 
 |Results of a narrower search in crash-stats|
@@ -173,11 +173,11 @@ in this field and get different facet tabs in the search results.
 Grouping by platform
 ~~~~~~~~~~~~~~~~~~~~
 
-For example, if we start with a default search for all Firefox crashes
+For example, if we start with a default search for all Plezix crashes
 in the past week, but then replace the "signature" facet with "platform"
 and "moz crash reason", we get search results with two facet tabs. The
 first of these is a "Platform facet" tab, with
-`results <https://crash-stats.mozilla.org/search/?product=Firefox&_sort=-date&_facets=platform&_facets=moz_crash_reason&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-platform>`__
+`results <https://crash-stats.mozilla.org/search/?product=Plezix&_sort=-date&_facets=platform&_facets=moz_crash_reason&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-platform>`__
 like those shown in the following screenshot.
 
 |Results of a faceted search in crash-stats|
@@ -193,7 +193,7 @@ Grouping by "moz crash reason"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The second facet tab is a "Moz crash reason facet" tab, with
-`results <https://crash-stats.mozilla.org/search/?product=Firefox&_sort=-date&_facets=platform&_facets=moz_crash_reason&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-moz_crash_reason>`__
+`results <https://crash-stats.mozilla.org/search/?product=Plezix&_sort=-date&_facets=platform&_facets=moz_crash_reason&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-moz_crash_reason>`__
 like those shown in the following screenshot.
 
 |Results of a faceted search in crash-stats (moz crash reason tab)|
@@ -211,7 +211,7 @@ The usefulness of grouping varies from field to field. In particular,
 fields that can have many possible values (such as numeric fields) often
 don't group well. For example, if we do a default search grouped by
 uptime we get
-`results <https://crash-stats.mozilla.org/search/?product=Firefox&_sort=-date&_facets=uptime&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-uptime>`__
+`results <https://crash-stats.mozilla.org/search/?product=Plezix&_sort=-date&_facets=uptime&_columns=date&_columns=signature&_columns=product&_columns=version&_columns=build_id&_columns=platform#facet-uptime>`__
 like those in the following screenshot.
 
 |Results of a faceted search in crash-stats (uptime)|

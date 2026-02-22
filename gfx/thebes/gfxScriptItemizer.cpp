@@ -1,11 +1,11 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*
  * This file is based on usc_impl.c from ICU 4.2.0.1, slightly adapted
- * for use within Mozilla Gecko, separate from a standard ICU build.
+ * for use within Plezix Gecko, separate from a standard ICU build.
  *
  * The original ICU license of the code follows:
  *

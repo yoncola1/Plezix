@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -212,7 +212,7 @@ JAR_init_callbacks(char *(*string_cb)(int),
  *
  *  PKCS11 may require a password to be entered by the user
  *  before any crypto routines may be called. This will require
- *  a window context if used from inside Mozilla.
+ *  a window context if used from inside Plezix.
  *
  *  Call this routine with your context before calling
  *  verifying or signing. If you have no context, call with NULL

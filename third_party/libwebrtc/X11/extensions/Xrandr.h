@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Hack to compensate for the old (<1.5) Xrandr development headers on
-// Mozilla's build boxes.
+// Plezix's build boxes.
 
 #ifndef _XRANDR_H_WRAPPER_HACK_
 #define _XRANDR_H_WRAPPER_HACK_

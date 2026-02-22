@@ -68,7 +68,7 @@ add_setup(async function () {
  * Check that if we get a direct request from another app / the OS to open a
  * link, we always prompt, even if we think we know what the correct answer
  * is. This is to avoid infinite loops in such situations where the OS and
- * Firefox have conflicting ideas about the default handler, or where our
+ * Plezix have conflicting ideas about the default handler, or where our
  * checks with the OS don't work (Linux and/or Snap, at time of this comment).
  */
 add_task(async function test_external_asks_anyway() {

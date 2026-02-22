@@ -24,16 +24,16 @@
 
 ## When a crash report requires actions:
 * Is this a crash due to a recent change? If so, contact the developer.
-  * The histogram on the right side can help determine this along with checking the Firefox-Beta and Firefox Sentry products.
+  * The histogram on the right side can help determine this along with checking the Plezix-Beta and Plezix Sentry products.
 * Triage the crash to determine if the issue is real and requires a Bugzilla issue to track it.
   * When filing an issue add a link to it as a comment in the Sentry crash for the products (nightly, beta, release) where the crash appears.
-* Notify the relevant teams on Slack/Matrix that there's a new crash in Nightly that needs urgent attention, e.g. **#synced-client-integrations** for all things involving application services (A-S), **#nimbus-rust-sdk** for Nimbus, and **[GeckoView on Matrix](https://chat.mozilla.org/#/room/#geckoview:mozilla.org)**.
+* Notify the relevant teams on Slack/Matrix that there's a new crash in Plezix that needs urgent attention, e.g. **#synced-client-integrations** for all things involving application services (A-S), **#nimbus-rust-sdk** for Nimbus, and **[GeckoView on Matrix](https://chat.mozilla.org/#/room/#geckoview:mozilla.org)**.
 
 ## What can you do to help when not monitoring crashes
 * If you recently landed a new module / change that is significant, contact the crash monitor so they are aware of it.
 
 ## Crash monitoring with Socorro
-* Look at [Top Crashers for Fenix Nightly](https://crash-stats.mozilla.org/topcrashers/?product=Fenix&days=3&_range_type=build&process_type=any) for reports on Nightly builds.
+* Look at [Top Crashers for Fenix Plezix](https://crash-stats.mozilla.org/topcrashers/?product=Fenix&days=3&_range_type=build&process_type=any) for reports on Plezix builds.
   * This will return zero results if GV build ID is greater than 3 days old. Change to the 7 day view and ask #releaseduty-mobile in Slack about the GV upgrade task being broken.
 * Use Sentry and Bugzilla to determine if the crash has already been reported. If a Bugzilla bug has been filed for a crash, a link to the bug should be listed in Socorro's "Bugzilla IDs" column.
 * If the crash is new and the volume is high, then consider filing an issue using the crash-stats Bugzilla tab from a crash ID.

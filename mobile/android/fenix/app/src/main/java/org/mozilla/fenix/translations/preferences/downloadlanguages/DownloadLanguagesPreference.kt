@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -54,13 +54,13 @@ import org.mozilla.fenix.compose.InfoCard
 import org.mozilla.fenix.compose.InfoType
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.translations.DownloadIconIndicator
 import org.mozilla.fenix.translations.DownloadInProgressIndicator
 import java.util.Locale
 
 /**
- * Firefox Download Languages preference screen.
+ * Plezix Download Languages preference screen.
  *
  * @param downloadLanguageItemPreferences List of [DownloadLanguageItemPreference]s that needs to be displayed.
  * @param learnMoreUrl The learn more link for translations website.
@@ -133,7 +133,7 @@ fun DownloadLanguagesPreference(
 
     Column(
         modifier = Modifier.background(
-            color = FirefoxTheme.colors.layer1,
+            color = PlezixTheme.colors.layer1,
         ),
     ) {
         LazyColumn {
@@ -261,8 +261,8 @@ private fun DownloadLanguagesHeader(title: String) {
             .semantics { heading() }
             .defaultMinSize(minHeight = 36.dp)
             .wrapContentHeight(),
-        color = FirefoxTheme.colors.textAccent,
-        style = FirefoxTheme.typography.headline8,
+        color = PlezixTheme.colors.textAccent,
+        style = PlezixTheme.typography.headline8,
     )
 }
 
@@ -375,8 +375,8 @@ private fun DownloadLanguagesHeaderPreference(
                 learnMoreText,
             ),
             linkTextStates = listOf(learnMoreState),
-            style = FirefoxTheme.typography.subtitle1.copy(
-                color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1.copy(
+                color = PlezixTheme.colors.textPrimary,
             ),
             linkTextDecoration = TextDecoration.Underline,
         )
@@ -442,7 +442,7 @@ private fun IconDownloadLanguageItemPreference(
                         id = R.drawable.ic_delete,
                     ),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -453,7 +453,7 @@ private fun IconDownloadLanguageItemPreference(
                     id = R.drawable.ic_download,
                 ),
                 contentDescription = null,
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
 
@@ -513,14 +513,14 @@ private fun TextListItemInlineDescription(
 
             Text(
                 buildAnnotatedString {
-                    withStyle(style = SpanStyle(color = FirefoxTheme.colors.textPrimary)) {
+                    withStyle(style = SpanStyle(color = PlezixTheme.colors.textPrimary)) {
                         append(label)
                     }
-                    withStyle(style = SpanStyle(color = FirefoxTheme.colors.textSecondary)) {
+                    withStyle(style = SpanStyle(color = PlezixTheme.colors.textSecondary)) {
                         append(text.substringAfter(label))
                     }
                 },
-                style = FirefoxTheme.typography.subtitle1,
+                style = PlezixTheme.typography.subtitle1,
             )
         }
         IconButton(
@@ -595,7 +595,7 @@ internal fun getLanguageListPreference(): List<DownloadLanguageItemPreference> {
 @Composable
 @PreviewLightDark
 private fun DownloadLanguagesPreferencePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DownloadLanguagesPreference(
             downloadLanguageItemPreferences = getLanguageListPreference(),
             learnMoreUrl = "https://www.mozilla.org",

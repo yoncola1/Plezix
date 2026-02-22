@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
 
 const kClsidTestShellEx = "{10a9521e-0205-4cc7-93a1-62f30a9a54b3}";
-const kFriendlyName = "Minimum Shell Extension for Firefox testing";
+const kFriendlyName = "Minimum Shell Extension for Plezix testing";
 const kExtensionSubkeys = [".zzz\\shellex\\IconHandler"];
 const kExtensionModuleName = "TestShellEx.dll";
 const kUserBlockedModuleName = "TestDllBlocklist_UserBlocked.dll";

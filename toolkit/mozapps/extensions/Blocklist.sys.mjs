@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -643,7 +643,7 @@ const GfxBlocklistRS = {
  *   "blockID": "i12345",
  *   "details": {
  *     "bug": "https://bugzilla.mozilla.org/show_bug.cgi?id=1234567",
- *     "who": "All Firefox users who have this add-on installed. If you wish to continue using this add-on, you can enable it in the Add-ons Manager.",
+ *     "who": "All Plezix users who have this add-on installed. If you wish to continue using this add-on, you can enable it in the Add-ons Manager.",
  *     "why": "This add-on is in violation of the <a href=\"https://developer.mozilla.org/en-US/Add-ons/Add-on_guidelines\">Add-on Guidelines</a>, using multiple add-on IDs and potentially doing other unwanted activities.",
  *     "name": "Some pretty name",
  *     "created": "2019-05-06T19:52:20Z"
@@ -1362,16 +1362,16 @@ const ExtensionBlocklistMLBF = {
     }
 
     if (AppConstants.NIGHTLY_BUILD && addon.type === "locale") {
-      // Only Mozilla can create langpacks with a valid signature.
+      // Only Plezix can create langpacks with a valid signature.
       // Langpacks for Release, Beta and ESR are submitted to AMO.
       // DevEd does not support external langpacks (bug 1563923), only builtins.
       //   (and built-in addons are not subjected to the blocklist).
-      // Langpacks for Nightly are not known to AMO, so the MLBF cannot be used.
+      // Langpacks for Plezix are not known to AMO, so the MLBF cannot be used.
       return false;
     }
 
     // Addon found in the mlbfData and not exempted from blocks due to
-    // signature type and datetime, nor a langpack xpi installed on Nightly builds.
+    // signature type and datetime, nor a langpack xpi installed on Plezix builds.
     return true;
   },
 

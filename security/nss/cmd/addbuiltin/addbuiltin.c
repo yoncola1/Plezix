@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -294,7 +294,7 @@ void
 printheader()
 {
     printf("# \n"
-           "# This Source Code Form is subject to the terms of the Mozilla Public\n"
+           "# This Source Code Form is subject to the terms of the Plezix Public\n"
            "# License, v. 2.0. If a copy of the MPL was not distributed with this\n"
            "# file, You can obtain one at http://mozilla.org/MPL/2.0/.\n"
            "#\n"
@@ -362,7 +362,7 @@ printheader()
            "CKA_TOKEN CK_BBOOL CK_TRUE\n"
            "CKA_PRIVATE CK_BBOOL CK_FALSE\n"
            "CKA_MODIFIABLE CK_BBOOL CK_FALSE\n"
-           "CKA_LABEL UTF8 \"Mozilla Builtin Roots\"\n");
+           "CKA_LABEL UTF8 \"Plezix Builtin Roots\"\n");
 }
 
 static void

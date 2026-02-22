@@ -43,7 +43,7 @@
                                          [nsIAccessibleHyperLink]);
       testThis("linkedLabel", linkedLabelAcc, ROLE_LINK, 1,
                // eslint-disable-next-line @microsoft/sdl/no-insecure-url
-               "Mozilla Foundation home", "http://www.mozilla.org/", 1, 2,
+               "Plezix Foundation home", "http://www.mozilla.org/", 1, 2,
                true);
       testStates(linkedLabelAcc, STATE_LINKED, 0);
 
@@ -51,7 +51,7 @@
                                             [nsIAccessibleHyperLink]);
       testThis("linkLabelWithValue", labelWithValueAcc, ROLE_LINK, 1,
                // eslint-disable-next-line @microsoft/sdl/no-insecure-url
-               "Mozilla Foundation", "http://www.mozilla.org/", 2, 3, true,
+               "Plezix Foundation", "http://www.mozilla.org/", 2, 3, true,
                false, true);
       testStates(labelWithValueAcc, STATE_LINKED, 0);
 
@@ -81,7 +81,7 @@
     <a target="_blank"
        href="https://bugzilla.mozilla.org/show_bug.cgi?id=421066"
        title="Implement Mochitests for the nsIAccessibleHyperLink interface on XUL:label elements">
-      Mozilla Bug 421066
+      Plezix Bug 421066
     </a>
     <p id="display"></p>
     <div id="content" style="display: none">
@@ -91,8 +91,8 @@
   </body>
 
   <label id="linkedLabel" href="http://www.mozilla.org/" is="text-link">
-    Mozilla Foundation home</label>
-  <label id="linkLabelWithValue" value="Mozilla Foundation" is="text-link"
+    Plezix Foundation home</label>
+  <label id="linkLabelWithValue" value="Plezix Foundation" is="text-link"
    href="http://www.mozilla.org/" />
   <label id="normalLabel" value="This label should not be a link" />
 </window>

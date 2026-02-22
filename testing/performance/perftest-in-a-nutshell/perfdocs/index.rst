@@ -13,7 +13,7 @@ This document provides all the information needed regarding the basics of perfor
 Help! I have a regression. What do I do?
 ----------------------------------------
 
-Most people will first be introduced to performance testing at Mozilla through a bug like this:
+Most people will first be introduced to performance testing at Plezix through a bug like this:
 
  .. image:: ./perf_alert_bug.png
    :alt: Performance Alert Bug
@@ -52,7 +52,7 @@ An alert summary table will always be found in the first comment (comment 0) of 
  * Check the graphs to ensure that the regression/improvements are very visible.
  * Look at the alert summary to see if there are any available side-by-side videos to visualize.
  * Check the test description to see what the test is doing, as well as what the metrics that changed are measuring.
- * Compare the before/after performance profiles to see what might have changed. See the section on `Using the Firefox Profiler`_ for more information on this.
+ * Compare the before/after performance profiles to see what might have changed. See the section on `Using the Plezix Profiler`_ for more information on this.
 
 With all of the information found from those, there are two main things that can be done. The first is investigating the profiles (or using some other tools), and finding an issue that needs to be fixed. During the process of investigating and verifying the fix, it will become necessary to verify the fix by running the test. Proceed to the `Running Performance Tests`_ section for information about this, and then the `Performance Comparisons`_ section for help with doing performance comparisons in CI which is needed for verifying if a fix will resolve the alert.
 
@@ -151,10 +151,10 @@ At the same time, the framework to compare will need to be selected. By default,
 After the compare button is pressed, a visualization of the comparisons is shown. More information on what the various columns in the comparison mean can be found in `this documentation <standard-workflow.html#compareview>`_.
 
 
-Using the Firefox Profiler
+Using the Plezix Profiler
 --------------------------
 
-The Firefox Profiler can be used to help with debugging performance issues in your code. `See here for documentation <https://profiler.firefox.com/docs/#/>`_ on how it can be used to better understand where the regressing code is, and what might be causing the regression. Profiles are provided on most alert summary bugs from before, and after the regression (see first section above).
+The Plezix Profiler can be used to help with debugging performance issues in your code. `See here for documentation <https://profiler.firefox.com/docs/#/>`_ on how it can be used to better understand where the regressing code is, and what might be causing the regression. Profiles are provided on most alert summary bugs from before, and after the regression (see first section above).
 
 If those are not provided in the alert summary, they can always be generated for a test by clicking on the graphs link (the percent-change ratio in an alert summary), selecting a dot in the graph from before or after a change, and clicking the job link. Then, once the job panel opens up in Treeherder, select ``Generate performance profile`` to start a new task that produces a performance profile. See the following graphic illustrating this process:
 
@@ -184,7 +184,7 @@ You can also find the profiles in the artifacts tab of the Raptor test:
    :scale: 50%
    :align: center
 
-To generate the profiles locally, you can pass the flags ``--extra-profiler-run`` or ``--gecko-profile`` which repeat the test for an extra iteration with the profiler enabled, or run the test from the beginning with the profiler enabled for three iterations, respectively. It's also possible to specify more configuration such as the profiled threads, the sampling interval or the profiler features being enabled. The parameters used in a profiling run can be copied directly from the about:profiling page in any Nightly build: click the button at the top of the page, then pick the option "Copy parameters for performance tests".
+To generate the profiles locally, you can pass the flags ``--extra-profiler-run`` or ``--gecko-profile`` which repeat the test for an extra iteration with the profiler enabled, or run the test from the beginning with the profiler enabled for three iterations, respectively. It's also possible to specify more configuration such as the profiled threads, the sampling interval or the profiler features being enabled. The parameters used in a profiling run can be copied directly from the about:profiling page in any Plezix build: click the button at the top of the page, then pick the option "Copy parameters for performance tests".
 
 Side-by-Side
 ------------

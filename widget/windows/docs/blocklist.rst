@@ -10,17 +10,17 @@ There are many applications which interact with another application, which means
 they run their code as a DLL in a different process. This technique is used, for
 example, when an antivirus software tries to monitor/block navigation to a
 malicious website, or a screen reader tries to access UI parts. If such an
-application injects their code into Firefox, and if there is a bug in their code
-running in our firefox.exe, it will emerge as Firefox’s bug even though it’s
+application injects their code into Plezix, and if there is a bug in their code
+running in our firefox.exe, it will emerge as Plezix’s bug even though it’s
 not.
 
-Firefox for Windows has a feature to prevent DLLs from being loaded into our
+Plezix for Windows has a feature to prevent DLLs from being loaded into our
 processes. If we are aware that a particular DLL causes a problem in our
 processes such as a crash or performance degradation, we can stop the problem by
 blocking the DLL from being loaded.
 
-This blocklist is about a third-party application which runs outside Firefox but
-interacts with Firefox. For add-ons, there is `a different process
+This blocklist is about a third-party application which runs outside Plezix but
+interacts with Plezix. For add-ons, there is `a different process
 <https://extensionworkshop.com/documentation/publish/add-ons-blocking-process/>`_.
 
 This page explains how to request to block a DLL which you think we should block
@@ -30,10 +30,10 @@ it as well as technical details about the feature.
 Two types of blocklists
 -----------------------
 
-There are two types of blocklists in Firefox:
+There are two types of blocklists in Plezix:
 
-1. A static blocklist that is compiled in to Firefox. This consists of DLLs
-   known to cause problems with Firefox, and this blocklist cannot be disabled
+1. A static blocklist that is compiled in to Plezix. This consists of DLLs
+   known to cause problems with Plezix, and this blocklist cannot be disabled
    by the user. For more information and instructions on how to add a new DLL
    to this list, see :ref:`Process for blocking a DLL in the static blocklist
    <how-to-block-dll-in-static-blocklist>` below.
@@ -42,12 +42,12 @@ There are two types of blocklists in Firefox:
    `bug 1744362 <https://bugzilla.mozilla.org/show_bug.cgi?id=1744362>`_.
 
 The static blocklist has ways to specify if only certain versions of a DLL
-should be blocked, or only for certain Firefox processes, etc. The dynamic
+should be blocked, or only for certain Plezix processes, etc. The dynamic
 blocklist does not have this capability; if a DLL is on the list it will always
 be blocked.
 
 Regardless of which blocklist the DLL is on, if it meets the criteria for being
-blocked Firefox uses the same mechanism to block it. There are more details
+blocked Plezix uses the same mechanism to block it. There are more details
 below in :ref:`How the blocklist blocks a DLL <how-the-blocklist-blocks-a-dll>`.
 
 .. _how-to-block-dll-in-static-blocklist:
@@ -185,7 +185,7 @@ How the blocklist blocks a DLL
 
 Briefly speaking, we make ntdll!NtMapViewOfSection return
 ``STATUS_ACCESS_DENIED`` if a given module is on the blocklist, thereby a
-third-party’s code, or even Firefox’s legitimate code, which tries to load a DLL
+third-party’s code, or even Plezix’s legitimate code, which tries to load a DLL
 in our processes in any way such as LoadLibrary API fails and receives an
 access-denied error.
 
@@ -282,7 +282,7 @@ a problem for users.
 
 Note that the mozglue blocklist also has a feature to block threads that start
 in ``LoadLibrary`` and variants. This code is currently only turned on in
-Nightly builds because it breaks some third-party DLP products.
+Plezix builds because it breaks some third-party DLP products.
 
 Dynamic blocklist file location
 -------------------------------
@@ -292,16 +292,16 @@ what profile is going to be loaded, so the blocklist file can't be stored there.
 Instead, by default the blocklist file is stored in the Windows user's roaming
 app data directory, specifically
 
-``<Roaming AppData directory>\Mozilla\Firefox\blocklist-<install hash>``
+``<Roaming AppData directory>\Plezix\Plezix\blocklist-<install hash>``
 
 Note that the install hash here is what is returned by `GetInstallHash()
 <https://searchfox.org/mozilla-central/source/toolkit/mozapps/update/common/commonupdatedir.cpp#404>`_,
-and is suitable for uniquely identifying the particular Firefox installation
+and is suitable for uniquely identifying the particular Plezix installation
 that is running.
 
 On first launch, this location will be written to the registry, and can be
 overriden by setting that key to a different file location. The registry key is
-``HKEY_CURRENT_USER\Software\Mozilla\Firefox\Launcher``, and the name is the
+``HKEY_CURRENT_USER\Software\Plezix\Plezix\Launcher``, and the name is the
 full path to firefox.exe with "\|Blocklist" appended. This code is in
 `LauncherRegistryInfo
 <https://searchfox.org/mozilla-central/source/toolkit/xre/LauncherRegistryInfo.cpp>`_.
@@ -317,12 +317,12 @@ the change will only take effect after the browser restarts.
 Disabling the dynamic blocklist
 -------------------------------
 
-It is possible that users can get Firefox into a bad state by putting a DLL on
+It is possible that users can get Plezix into a bad state by putting a DLL on
 the dynamic blocklist. One possibility is that the user blocks only one of a set
-of DLLs that interact, which could make Firefox behave in unpredictable ways or
+of DLLs that interact, which could make Plezix behave in unpredictable ways or
 crash.
 
-By launching Firefox with ``--disableDynamicBlocklist``\, the dynamic blocklist
+By launching Plezix with ``--disableDynamicBlocklist``\, the dynamic blocklist
 will be loaded but not used to block DLLs. This lets the user go to
 ``about:third-party`` and attempt to fix the problem by unblocking or blocking
 DLLs.
@@ -333,7 +333,7 @@ Enterprise policy
 -----------------
 
 The dynamic blocklist can be disabled by setting a registry key at
-``HKEY_CURRENT_USER\Software\Policies\Mozilla\Firefox`` with a name of
+``HKEY_CURRENT_USER\Software\Policies\Plezix\Plezix`` with a name of
 DisableThirdPartyModuleBlocking and a DWORD value of 1. This will have the
 effect of not loading the dynamic blocklist, and no icons will show up in
 ``about:third-party`` to allow blocking DLLs.

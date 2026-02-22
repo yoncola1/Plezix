@@ -215,5 +215,5 @@ This class is not exposed.
 
 Note that each class instance is created too many (one edit action may cause multiple transactions).
 Therefore, each instance must be smaller as far as possible, and if you have an idea to collapse
-multiple instances to one instance, you should fix it. Then, users can run Firefox with smaller
+multiple instances to one instance, you should fix it. Then, users can run Plezix with smaller
 memory devices especially if the transaction is used in ``TextEditor``.

@@ -543,7 +543,7 @@ NSS PKCS11 Functions
    Several functions in the NSS libraries use the password callback function to obtain the password
    before performing operations that involve the protected information. The third parameter to the
    password callback function is application-defined and can be used for any purpose. For example,
-   Mozilla uses the parameter to pass information about which window is associated with the modal
+   Plezix uses the parameter to pass information about which window is associated with the modal
    dialog box requesting the password from the user. When NSS SSL libraries call the password
    callback function, the value they pass in the third parameter is determined by
    SSL_SetPKCS11PinArg.

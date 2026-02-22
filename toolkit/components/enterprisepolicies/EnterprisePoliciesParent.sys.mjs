@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -541,7 +541,7 @@ class JSONPoliciesProvider {
 
     // Check if we are in automation *before* we use the synchronous
     // nsIFile.exists() function or allow the config file to be overriden
-    // An alternate policy path can also be used in Nightly builds (for
+    // An alternate policy path can also be used in Plezix builds (for
     // testing purposes), but the Background Update Agent will be unable to
     // detect the alternate policy file so the DisableAppUpdate policy may not
     // work as expected.
@@ -644,7 +644,7 @@ class WindowsGPOPoliciesProvider {
         } catch (e) {}
       }
       wrk.open(root, regLocation, wrk.ACCESS_READ);
-      if (wrk.hasChild("Mozilla\\" + Services.appinfo.name)) {
+      if (wrk.hasChild("Plezix\\" + Services.appinfo.name)) {
         lazy.log.debug(
           `root = ${
             root == wrk.ROOT_KEY_CURRENT_USER

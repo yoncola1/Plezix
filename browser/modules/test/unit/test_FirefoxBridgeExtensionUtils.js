@@ -3,14 +3,14 @@ http://creativecommons.org/publicdomain/zero/1.0/ */
 
 "use strict";
 
-const { FirefoxBridgeExtensionUtils } = ChromeUtils.importESModule(
-  "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs"
+const { PlezixBridgeExtensionUtils } = ChromeUtils.importESModule(
+  "resource:///modules/PlezixBridgeExtensionUtils.sys.mjs"
 );
 
-const OLD_FIREFOX_SHELL_OPEN_COMMAND_PATH = `${FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL}\\shell\\open\\command`;
-const OLD_FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH = `${FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL}\\shell\\open\\command`;
-const FIREFOX_SHELL_OPEN_COMMAND_PATH = `${FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL}\\shell\\open\\command`;
-const FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH = `${FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL}\\shell\\open\\command`;
+const OLD_FIREFOX_SHELL_OPEN_COMMAND_PATH = `${PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL}\\shell\\open\\command`;
+const OLD_FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH = `${PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL}\\shell\\open\\command`;
+const FIREFOX_SHELL_OPEN_COMMAND_PATH = `${PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL}\\shell\\open\\command`;
+const FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH = `${PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL}\\shell\\open\\command`;
 
 class StubbedRegistryKey {
   #children;
@@ -145,17 +145,17 @@ class StubbedDeleteBridgeProtocolRegistryEntryHelper {
   }
 }
 
-add_task(async function test_DeleteWhenSameFirefoxInstall() {
+add_task(async function test_DeleteWhenSamePlezixInstall() {
   for (let protocols of [
     [
-      FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
       OLD_FIREFOX_SHELL_OPEN_COMMAND_PATH,
       OLD_FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
     [
-      FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL,
       FIREFOX_SHELL_OPEN_COMMAND_PATH,
       FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
@@ -193,7 +193,7 @@ add_task(async function test_DeleteWhenSameFirefoxInstall() {
         registryRootKey,
       });
 
-    FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+    PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
       publicProtocol,
       privateProtocol,
       stubbedDeleteBridgeProtocolRegistryHelper
@@ -201,39 +201,39 @@ add_task(async function test_DeleteWhenSameFirefoxInstall() {
 
     ok(registryRootKey.wasCloseCalled, "Root key closed");
 
-    ok(firefoxProtocolRegKey.wasOpenedForRead, "Firefox key opened");
-    ok(firefoxProtocolRegKey.wasCloseCalled, "Firefox key closed");
+    ok(firefoxProtocolRegKey.wasOpenedForRead, "Plezix key opened");
+    ok(firefoxProtocolRegKey.wasCloseCalled, "Plezix key closed");
     ok(
       registryRootKey.isChildDeleted(publicProtocol),
-      "Firefox protocol registry entry deleted"
+      "Plezix protocol registry entry deleted"
     );
 
     ok(
       firefoxPrivateProtocolRegKey.wasOpenedForRead,
-      "Firefox private key opened"
+      "Plezix private key opened"
     );
     ok(
       firefoxPrivateProtocolRegKey.wasCloseCalled,
-      "Firefox private key closed"
+      "Plezix private key closed"
     );
     ok(
       registryRootKey.isChildDeleted(privateProtocol),
-      "Firefox private protocol registry entry deleted"
+      "Plezix private protocol registry entry deleted"
     );
   }
 });
 
-add_task(async function test_DeleteWhenDifferentFirefoxInstall() {
+add_task(async function test_DeleteWhenDifferentPlezixInstall() {
   for (let protocols of [
     [
-      FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
       OLD_FIREFOX_SHELL_OPEN_COMMAND_PATH,
       OLD_FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
     [
-      FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL,
       FIREFOX_SHELL_OPEN_COMMAND_PATH,
       FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
@@ -272,7 +272,7 @@ add_task(async function test_DeleteWhenDifferentFirefoxInstall() {
         registryRootKey,
       });
 
-    FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+    PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
       publicProtocol,
       privateProtocol,
       stubbedDeleteBridgeProtocolRegistryHelper
@@ -280,24 +280,24 @@ add_task(async function test_DeleteWhenDifferentFirefoxInstall() {
 
     ok(registryRootKey.wasCloseCalled, "Root key closed");
 
-    ok(firefoxProtocolRegKey.wasOpenedForRead, "Firefox key opened");
-    ok(firefoxProtocolRegKey.wasCloseCalled, "Firefox key closed");
+    ok(firefoxProtocolRegKey.wasOpenedForRead, "Plezix key opened");
+    ok(firefoxProtocolRegKey.wasCloseCalled, "Plezix key closed");
     ok(
       !registryRootKey.isChildDeleted(publicProtocol),
-      "Firefox protocol registry entry not deleted"
+      "Plezix protocol registry entry not deleted"
     );
 
     ok(
       firefoxPrivateProtocolRegKey.wasOpenedForRead,
-      "Firefox private key opened"
+      "Plezix private key opened"
     );
     ok(
       firefoxPrivateProtocolRegKey.wasCloseCalled,
-      "Firefox private key closed"
+      "Plezix private key closed"
     );
     ok(
       !registryRootKey.isChildDeleted(privateProtocol),
-      "Firefox private protocol registry entry not deleted"
+      "Plezix private protocol registry entry not deleted"
     );
   }
 });
@@ -305,13 +305,13 @@ add_task(async function test_DeleteWhenDifferentFirefoxInstall() {
 add_task(async function test_DeleteWhenNoRegistryEntries() {
   for (let protocols of [
     [
-      FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
       OLD_FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
     [
-      FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL,
       FIREFOX_PRIVATE_SHELL_OPEN_COMMAND_PATH,
     ],
   ]) {
@@ -335,7 +335,7 @@ add_task(async function test_DeleteWhenNoRegistryEntries() {
         registryRootKey,
       });
 
-    FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+    PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
       publicProtocol,
       privateProtocol,
       stubbedDeleteBridgeProtocolRegistryHelper
@@ -345,19 +345,19 @@ add_task(async function test_DeleteWhenNoRegistryEntries() {
 
     ok(
       firefoxPrivateProtocolRegKey.wasOpenedForRead,
-      "Firefox private key opened"
+      "Plezix private key opened"
     );
     ok(
       firefoxPrivateProtocolRegKey.wasCloseCalled,
-      "Firefox private key closed"
+      "Plezix private key closed"
     );
     ok(
       !registryRootKey.isChildDeleted(publicProtocol),
-      "Firefox protocol registry entry deleted when it shouldn't be"
+      "Plezix protocol registry entry deleted when it shouldn't be"
     );
     ok(
       !registryRootKey.isChildDeleted(privateProtocol),
-      "Firefox private protocol registry deleted when it shouldn't be"
+      "Plezix private protocol registry deleted when it shouldn't be"
     );
   }
 });
@@ -365,13 +365,13 @@ add_task(async function test_DeleteWhenNoRegistryEntries() {
 add_task(async function test_DeleteWhenUnexpectedRegistryEntries() {
   for (let protocols of [
     [
-      FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL,
       OLD_FIREFOX_SHELL_OPEN_COMMAND_PATH,
     ],
     [
-      FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL,
-      FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL,
+      PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL,
+      PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL,
       FIREFOX_SHELL_OPEN_COMMAND_PATH,
     ],
   ]) {
@@ -397,7 +397,7 @@ add_task(async function test_DeleteWhenUnexpectedRegistryEntries() {
         registryRootKey,
       });
 
-    FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+    PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
       publicProtocol,
       privateProtocol,
       stubbedDeleteBridgeProtocolRegistryHelper
@@ -405,15 +405,15 @@ add_task(async function test_DeleteWhenUnexpectedRegistryEntries() {
 
     ok(registryRootKey.wasCloseCalled, "Root key closed");
 
-    ok(firefoxProtocolRegKey.wasOpenedForRead, "Firefox key opened");
-    ok(firefoxProtocolRegKey.wasCloseCalled, "Firefox key closed");
+    ok(firefoxProtocolRegKey.wasOpenedForRead, "Plezix key opened");
+    ok(firefoxProtocolRegKey.wasCloseCalled, "Plezix key closed");
     ok(
       !registryRootKey.isChildDeleted(publicProtocol),
-      "Firefox protocol registry entry deleted when it shouldn't be"
+      "Plezix protocol registry entry deleted when it shouldn't be"
     );
     ok(
       !registryRootKey.isChildDeleted(privateProtocol),
-      "Firefox private protocol registry deleted when it shouldn't be"
+      "Plezix private protocol registry deleted when it shouldn't be"
     );
   }
 });

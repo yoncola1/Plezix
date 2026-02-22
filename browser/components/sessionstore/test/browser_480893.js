@@ -22,7 +22,7 @@ add_task(async function () {
   await BrowserTestUtils.browserLoaded(browser, false, "about:blank");
 
   // Test that starting a new session loads the homepage (set to http://mochi.test:8888)
-  // if Firefox is configured to display a homepage at startup (browser.startup.page = 1)
+  // if Plezix is configured to display a homepage at startup (browser.startup.page = 1)
   let homepage = "http://mochi.test:8888/";
   await SpecialPowers.pushPrefEnv({
     set: [

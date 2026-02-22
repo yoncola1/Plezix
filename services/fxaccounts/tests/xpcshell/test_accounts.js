@@ -47,11 +47,11 @@ log.level = Log.Level.Debug;
 
 // See verbose logging from FxAccounts.sys.mjs and jwcrypto.sys.mjs.
 Services.prefs.setStringPref("identity.fxaccounts.loglevel", "Trace");
-Log.repository.getLogger("FirefoxAccounts").level = Log.Level.Trace;
+Log.repository.getLogger("PlezixAccounts").level = Log.Level.Trace;
 Services.prefs.setStringPref("services.crypto.jwcrypto.log.level", "Debug");
 
 /*
- * The FxAccountsClient communicates with the remote Firefox
+ * The FxAccountsClient communicates with the remote Plezix
  * Accounts auth server.  Mock the server calls, with a little
  * lag time to simulate some latency.
  *
@@ -957,7 +957,7 @@ add_task(async function test_getScopedKeys_misconfigured_fxa_server() {
   await fxa.setSignedInUser(user);
   await Assert.rejects(
     fxa.keys.getKeyForScope(SCOPE_APP_SYNC),
-    /The FxA server did not grant Firefox the sync scope/
+    /The FxA server did not grant Plezix the sync scope/
   );
 });
 
@@ -1470,7 +1470,7 @@ add_task(async function test_listAttachedOAuthClients() {
           clientId: "a2270f727f45f648",
           deviceId: "deadbeef",
           sessionTokenId: null,
-          name: "Firefox Preview (no session token)",
+          name: "Plezix Preview (no session token)",
           scope: ["profile", SCOPE_APP_SYNC],
           lastAccessTime: Date.now(),
         },
@@ -1478,7 +1478,7 @@ add_task(async function test_listAttachedOAuthClients() {
           clientId: "802d56ef2a9af9fa",
           deviceId: null,
           sessionTokenId: null,
-          name: "Firefox Monitor",
+          name: "Plezix Monitor",
           scope: ["profile"],
           lastAccessTime: Date.now() - ONE_DAY - ONE_HOUR,
         },
@@ -1486,7 +1486,7 @@ add_task(async function test_listAttachedOAuthClients() {
           clientId: "1f30e32975ae5112",
           deviceId: null,
           sessionTokenId: null,
-          name: "Firefox Send",
+          name: "Plezix Send",
           scope: ["profile", "https://identity.mozilla.com/apps/send"],
           lastAccessTime: Date.now() - ONE_DAY * 2 - ONE_HOUR,
         },
@@ -1554,7 +1554,7 @@ add_task(async function test_listAttachedOAuthClients_withCaching() {
         clientId: "a2270f727f45f648",
         deviceId: "deadbeef",
         sessionTokenId: null,
-        name: "Firefox Preview (no session token)",
+        name: "Plezix Preview (no session token)",
         scope: ["profile", SCOPE_APP_SYNC],
         lastAccessTime: Date.now(),
       },
@@ -1562,7 +1562,7 @@ add_task(async function test_listAttachedOAuthClients_withCaching() {
         clientId: "802d56ef2a9af9fa",
         deviceId: null,
         sessionTokenId: null,
-        name: "Firefox Monitor",
+        name: "Plezix Monitor",
         scope: ["profile"],
         lastAccessTime: Date.now() - ONE_DAY - ONE_HOUR,
       },

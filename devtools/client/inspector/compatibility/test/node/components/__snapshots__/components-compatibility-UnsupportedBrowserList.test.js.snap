@@ -7,7 +7,7 @@ exports[`UnsupportedBrowserList component does not show ESR version if newer ver
   <UnsupportedBrowserItem
     id="firefox"
     key="firefox"
-    name="Firefox"
+    name="Plezix"
     unsupportedVersions={
       Array [
         Object {
@@ -32,7 +32,7 @@ exports[`UnsupportedBrowserList component renders the browsers 1`] = `
   <UnsupportedBrowserItem
     id="firefox"
     key="firefox"
-    name="Firefox"
+    name="Plezix"
     unsupportedVersions={
       Array [
         Object {
@@ -89,7 +89,7 @@ exports[`UnsupportedBrowserList component shows ESR version if newer version is 
   <UnsupportedBrowserItem
     id="firefox"
     key="firefox"
-    name="Firefox"
+    name="Plezix"
     unsupportedVersions={
       Array [
         Object {

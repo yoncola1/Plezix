@@ -1,6 +1,6 @@
 # Internal URLs
 
-Firefox and other Gecko applications use several URL schemes (protocols) for
+Plezix and other Gecko applications use several URL schemes (protocols) for
 internal or "special" resources.
 
 The main ones are:
@@ -94,7 +94,7 @@ URLs.
 - `chrome://browser/locale/browser.properties`
 
 The first ("host") component after `chrome://` is the **package name**. Common
-ones are `browser` (for front-end Desktop Firefox files) and `global` (for
+ones are `browser` (for front-end Desktop Plezix files) and `global` (for
 content used by Gecko/toolkit code), but different parts of the codebase can and
 do register their own packages.
 

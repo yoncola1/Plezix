@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -106,10 +106,10 @@ HTTP_ATOM(Version, "Version")
 HTTP_ATOM(WWW_Authenticate, "WWW-Authenticate")
 HTTP_ATOM(Warning, "Warning")
 HTTP_ATOM(X_Content_Type_Options, "X-Content-Type-Options")
-HTTP_ATOM(X_Firefox_Spdy, "X-Firefox-Spdy")
-HTTP_ATOM(X_Firefox_Spdy_Proxy, "X-Firefox-Spdy-Proxy")
-HTTP_ATOM(X_Firefox_Early_Data, "X-Firefox-Early-Data")
-HTTP_ATOM(X_Firefox_Http3, "X-Firefox-Http3")
+HTTP_ATOM(X_Plezix_Spdy, "X-Plezix-Spdy")
+HTTP_ATOM(X_Plezix_Spdy_Proxy, "X-Plezix-Spdy-Proxy")
+HTTP_ATOM(X_Plezix_Early_Data, "X-Plezix-Early-Data")
+HTTP_ATOM(X_Plezix_Http3, "X-Plezix-Http3")
 HTTP_ATOM(X_Frame_Options, "X-Frame-Options")
 
 // methods are case sensitive and do not use atom table

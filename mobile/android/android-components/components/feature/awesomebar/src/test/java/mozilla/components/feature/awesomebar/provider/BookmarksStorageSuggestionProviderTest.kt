@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ class BookmarksStorageSuggestionProviderTest {
         "123",
         "456",
         null,
-        "Mozilla",
+        "Plezix",
         "http://www.mozilla.org",
         0,
         0,
@@ -209,7 +209,7 @@ class BookmarksStorageSuggestionProviderTest {
 
         bookmarks.addItem("Other", "https://mozilla.com/firefox", newItem.title!!, null)
         bookmarks.addItem("Test", "https://mozilla.com/focus", newItem.title!!, null)
-        bookmarks.addItem("Mozilla", "https://mozilla.org/firefox", newItem.title!!, null)
+        bookmarks.addItem("Plezix", "https://mozilla.org/firefox", newItem.title!!, null)
 
         val suggestions = provider.onInputChanged("moz")
 

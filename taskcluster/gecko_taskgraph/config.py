@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -17,7 +17,7 @@ graph_config_schema = Schema(
         # and http://firefox-source-docs.mozilla.org/taskcluster/taskcluster/parameters.html#comm-push-information)  # noqa
         Required("project-repo-param-prefix"): str,
         # This specifies the top level directory of the application being built.
-        # ie. "browser/" for Firefox, "comm/mail/" for Thunderbird.
+        # ie. "browser/" for Plezix, "comm/mail/" for Thunderbird.
         Required("product-dir"): str,
         Required("treeherder"): {
             # Mapping of treeherder group symbols to descriptive names

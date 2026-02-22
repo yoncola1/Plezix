@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -185,61 +185,61 @@ bool IsDebugFile(platform_handle_t aFileID) {
 
 extern "C" {
 
-void MozillaRegisterDebugHandle(platform_handle_t aHandle) {
+void PlezixRegisterDebugHandle(platform_handle_t aHandle) {
   DebugFilesAutoLock lockedScope;
   FdList& DebugFileIDs = getDebugFileIDs();
   MOZ_ASSERT(!DebugFileIDs.Contains(aHandle));
   DebugFileIDs.Add(aHandle);
 }
 
-void MozillaRegisterDebugFD(int aFd) {
+void PlezixRegisterDebugFD(int aFd) {
   mozilla::Maybe<platform_handle_t> handle = FileDescriptorToHandle(aFd);
   if (!handle.isSome()) {
     return;
   }
-  MozillaRegisterDebugHandle(handle.value());
+  PlezixRegisterDebugHandle(handle.value());
 }
 
-void MozillaRegisterDebugFILE(FILE* aFile) {
+void PlezixRegisterDebugFILE(FILE* aFile) {
   int fd = fileno(aFile);
   if (fd == 1 || fd == 2) {
     return;
   }
-  MozillaRegisterDebugFD(fd);
+  PlezixRegisterDebugFD(fd);
 }
 
-void MozillaUnRegisterDebugHandle(platform_handle_t aHandle) {
+void PlezixUnRegisterDebugHandle(platform_handle_t aHandle) {
   DebugFilesAutoLock lockedScope;
   FdList& DebugFileIDs = getDebugFileIDs();
   MOZ_ASSERT(DebugFileIDs.Contains(aHandle));
   DebugFileIDs.Remove(aHandle);
 }
 
-void MozillaUnRegisterDebugFD(int aFd) {
+void PlezixUnRegisterDebugFD(int aFd) {
   mozilla::Maybe<platform_handle_t> handle = FileDescriptorToHandle(aFd);
   if (!handle.isSome()) {
     return;
   }
-  MozillaUnRegisterDebugHandle(handle.value());
+  PlezixUnRegisterDebugHandle(handle.value());
 }
 
-void MozillaUnRegisterDebugFILE(FILE* aFile) {
+void PlezixUnRegisterDebugFILE(FILE* aFile) {
   int fd = fileno(aFile);
   if (fd == 1 || fd == 2) {
     return;
   }
   fflush(aFile);
-  MozillaUnRegisterDebugFD(fd);
+  PlezixUnRegisterDebugFD(fd);
 }
 
 }  // extern "C"
 
 #ifdef MOZ_REPLACE_MALLOC
 void mozilla::DebugFdRegistry::RegisterHandle(platform_handle_t aHandle) {
-  MozillaRegisterDebugHandle(aHandle);
+  PlezixRegisterDebugHandle(aHandle);
 }
 
 void mozilla::DebugFdRegistry::UnRegisterHandle(platform_handle_t aHandle) {
-  MozillaUnRegisterDebugHandle(aHandle);
+  PlezixUnRegisterDebugHandle(aHandle);
 }
 #endif

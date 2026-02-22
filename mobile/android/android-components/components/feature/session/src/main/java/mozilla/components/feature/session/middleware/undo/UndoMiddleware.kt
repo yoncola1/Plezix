@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import mozilla.components.lib.state.MiddlewareContext
 import mozilla.components.lib.state.Store
 import mozilla.components.support.base.log.logger.Logger
 import java.util.UUID
-import mozilla.components.support.base.coroutines.Dispatchers as MozillaDispatchers
+import mozilla.components.support.base.coroutines.Dispatchers as PlezixDispatchers
 
 /**
  * [Middleware] implementation that adds removed tabs to [BrowserState.undoHistory] for a short
@@ -35,7 +35,7 @@ import mozilla.components.support.base.coroutines.Dispatchers as MozillaDispatch
 class UndoMiddleware(
     private val clearAfterMillis: Long = 5000, // For comparison: a LENGTH_LONG Snackbar takes 2750.
     private val mainScope: CoroutineScope = CoroutineScope(Dispatchers.Main),
-    private val waitScope: CoroutineScope = CoroutineScope(MozillaDispatchers.Cached),
+    private val waitScope: CoroutineScope = CoroutineScope(PlezixDispatchers.Cached),
 ) : Middleware<BrowserState, BrowserAction> {
     private val logger = Logger("UndoMiddleware")
     private var clearJob: Job? = null

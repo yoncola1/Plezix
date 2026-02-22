@@ -9,7 +9,7 @@
 // This file expects the following files to be loaded.
 /* import-globals-from LogController.js */
 /* import-globals-from MemoryStats.js */
-/* import-globals-from MozillaLogger.js */
+/* import-globals-from PlezixLogger.js */
 
 /* eslint-disable no-unsanitized/property */
 
@@ -305,7 +305,7 @@ TestRunner.setFailureFile = function (fileName) {
 
 TestRunner.generateFailureList = function () {
   if (TestRunner._failureFile) {
-    var failures = new MozillaFileLogger(TestRunner._failureFile);
+    var failures = new PlezixFileLogger(TestRunner._failureFile);
     failures.log(JSON.stringify(TestRunner._failedTests));
     failures.close();
   }

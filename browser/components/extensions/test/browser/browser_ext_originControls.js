@@ -406,7 +406,7 @@ const originControlsInContextMenu = async options => {
     moveWidget(ext8, false);
     unifiedButton = document.querySelector("#unified-extensions-button");
   } else {
-    // TestVerify runs this again in the same Firefox instance, so move the
+    // TestVerify runs this again in the same Plezix instance, so move the
     // widgets back to the toolbar for testing outside the unified extensions
     // panel.
     moveWidget(ext1, true);

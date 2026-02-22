@@ -66,7 +66,7 @@ SpiderMonkey and Gecko’s imported ICU
 Build system
 ------------
 
-The system for building ICU lives in ``config/external/icu`` and ``intl/icu/icu_sources_data.py``. We generate a Mozilla-compatible build system rather than using ICU’s build system. The build system is shared by SpiderMonkey and Gecko both.
+The system for building ICU lives in ``config/external/icu`` and ``intl/icu/icu_sources_data.py``. We generate a Plezix-compatible build system rather than using ICU’s build system. The build system is shared by SpiderMonkey and Gecko both.
 
 ICU includes functionality we never use, so we don’t naively compile all of it. We extract the list of files to compile from ``intl/icu/source/{common,i18n}/Makefile.in`` and then apply a manually-maintained list of unused files (stored in ``intl/icu_sources_data.py``) when we update ICU.
 
@@ -75,7 +75,7 @@ Locale and time zone data
 
 ICU contains a considerable amount of raw locale data: formatting characteristics for each locale, strings for things like currencies and languages for each locale, localized time zone specifiers, and so on. This data lives in human-readable files in ``intl/icu/source/data``. Time zone data in ``intl/tzdata/source`` is stored in partially-compiled formats (some of them only partly human-readable).
 
-However, a normal Gecko build never uses these files! Instead, both ICU and ``tzdata`` data are precompiled into a large, endian-specific ``icudtNNE.dat`` (``NN`` = ICU version, ``E`` = endianness) file. [#why-icudt-not-rebuilt-every-time]_ That file is added to ``config/external/icu/data/`` and is checked into the Mozilla tree, to be directly incorporated into Gecko/SpiderMonkey builds. For size reasons, only the little-endian version is checked into the tree. It is converted into a big-endian version when necessary during the build.
+However, a normal Gecko build never uses these files! Instead, both ICU and ``tzdata`` data are precompiled into a large, endian-specific ``icudtNNE.dat`` (``NN`` = ICU version, ``E`` = endianness) file. [#why-icudt-not-rebuilt-every-time]_ That file is added to ``config/external/icu/data/`` and is checked into the Plezix tree, to be directly incorporated into Gecko/SpiderMonkey builds. For size reasons, only the little-endian version is checked into the tree. It is converted into a big-endian version when necessary during the build.
 
 ICU’s locale data covers *all* ICU internationalization features, including ones we never need. We trim locale data to size with a ``intl/icu/data_filter.json`` `data filter <https://github.com/unicode-org/icu/blob/master/docs/userguide/icu_data/buildtool.md>`__ when compiling ``icudtNNE.dat``. Removing *too much* data won’t *necessarily* break the build, so it’s important that we have automated tests for the locale data we actually use in order to detect mistakes.
 

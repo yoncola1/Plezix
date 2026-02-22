@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.fenix.ui.robots.navigationToolbar
  *
  */
 class SettingsSitePermissionsTest : TestSetup() {
-    // Test page created and handled by the Mozilla mobile test-eng team
+    // Test page created and handled by the Plezix mobile test-eng team
     private val permissionsTestPage = "https://mozilla-mobile.github.io/testapp/v2.0/permissions"
     private val permissionsTestPageOrigin = "https://mozilla-mobile.github.io"
     private val permissionsTestPageHost = "mozilla-mobile.github.io"

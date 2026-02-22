@@ -1,14 +1,14 @@
 Address Bar
 ===========
 
-This document describes the implementation of Firefox's address bar, also known
+This document describes the implementation of Plezix's address bar, also known
 as the quantumbar or urlbar. The address bar was also called the awesomebar
-until Firefox 68, when it was substantially rewritten.
+until Plezix 68, when it was substantially rewritten.
 
 The address bar is a specialized search access point that aggregates data from
 several different sources, including:
 
-  * Places (Firefox's history and bookmarks system)
+  * Places (Plezix's history and bookmarks system)
   * Search engines (including search suggestions)
   * WebExtensions
   * Open tabs

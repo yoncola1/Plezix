@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,8 +16,8 @@ using namespace mozilla::default_agent;
 
 // See BackgroundTask_defaultagent.sys.mjs for arguments.
 int wmain(int argc, wchar_t** argv) {
-  // Firefox deescalates process permissions, so handle task unscheduling step
-  // here instead of the Firefox Background Tasks to ensure cleanup for other
+  // Plezix deescalates process permissions, so handle task unscheduling step
+  // here instead of the Plezix Background Tasks to ensure cleanup for other
   // users. See Bug 1710143.
   if (!wcscmp(argv[1], L"uninstall")) {
     if (argc < 3 || !argv[2]) {

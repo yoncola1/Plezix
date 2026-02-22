@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -80,7 +80,7 @@ class TopSiteItemViewHolderTest {
     fun `GIVEN a pinned top site WHEN bind is called THEN the title has a pin indicator`() {
         val pinnedTopSite = TopSite.Pinned(
             id = 1L,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             createdAt = 0,
         )
@@ -95,7 +95,7 @@ class TopSiteItemViewHolderTest {
     fun `GIVEN a frecent top site WHEN bind is called THEN the title does not have a pin indicator`() {
         val frecentTopSite = TopSite.Frecent(
             id = 1L,
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             createdAt = 0,
         )

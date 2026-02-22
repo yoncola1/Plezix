@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE_PRIVATE_BROWSING_LEARN_MORE_LINK
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Total Private Browsing Mode homepage informational card.
@@ -49,15 +49,15 @@ fun PrivateBrowsingDescription(
             .clip(shape = RoundedCornerShape(8.dp))
             .fillMaxWidth()
             .wrapContentHeight()
-            .background(FirefoxTheme.colors.layer2),
+            .background(PlezixTheme.colors.layer2),
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
         ) {
             Text(
                 text = stringResource(id = R.string.felt_privacy_desc_card_title),
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -81,10 +81,10 @@ fun PrivateBrowsingDescription(
                             onClick = { onLearnMoreClick() },
                         ),
                     ),
-                    style = FirefoxTheme.typography.body2.copy(
-                        color = FirefoxTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2.copy(
+                        color = PlezixTheme.colors.textPrimary,
                     ),
-                    linkTextColor = FirefoxTheme.colors.textPrimary,
+                    linkTextColor = PlezixTheme.colors.textPrimary,
                     linkTextDecoration = TextDecoration.Underline,
                 )
             }
@@ -95,9 +95,9 @@ fun PrivateBrowsingDescription(
 @Composable
 @Preview
 private fun FeltPrivacyModeDescriptionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1)
+            modifier = Modifier.background(PlezixTheme.colors.layer1)
                 .fillMaxSize(),
         ) {
             PrivateBrowsingDescription(

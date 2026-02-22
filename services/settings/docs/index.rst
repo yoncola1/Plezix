@@ -4,7 +4,7 @@
 Remote Settings
 ===============
 
-The :searchfox:`remote-settings.sys.mjs <services/settings/remote-settings.sys.mjs>` module offers the ability to fetch remote settings that are kept in sync with Mozilla servers.
+The :searchfox:`remote-settings.sys.mjs <services/settings/remote-settings.sys.mjs>` module offers the ability to fetch remote settings that are kept in sync with Plezix servers.
 
 
 Usage
@@ -197,7 +197,7 @@ The JSON dump will serve as the default dataset for ``.get()``, instead of doing
 #. Add the filename to the relevant ``FINAL_TARGET_FILES`` list in ``services/settings/dumps/main/moz.build``
 
   * Please consider the application(s) where the collection is used and only include the dump file in the relevant builds.
-  * If it is only for Firefox desktop, i.e. ``browser/``, then add it to a build-specific browser section.
+  * If it is only for Plezix desktop, i.e. ``browser/``, then add it to a build-specific browser section.
   * If it is for all applications, i.e. outside of ``browser/`` are other specific area, then add it to the global section.
 
 Now, when ``RemoteSettings("some-key").get()`` is called from an empty profile, the ``some-key.json`` file is going to be loaded before the results are returned.
@@ -218,7 +218,7 @@ Packaging attachments
 Attachments are not included in the JSON dumps by default. You may choose to package the attachment
 with the client, for example if it is important to have the data available at the first startup
 without requiring network activity. Or if most users would download the attachment anyway.
-Only package attachments if needed, since they increase the file size of the Firefox installer.
+Only package attachments if needed, since they increase the file size of the Plezix installer.
 
 To package an attachment for consumers of the `download()` method:
 
@@ -332,7 +332,7 @@ It basically consists in:
 And once done:
 
 #. Create, modify or delete entries and let reviewers approve the changes
-#. Wait for Firefox to pick-up the changes for your settings key
+#. Wait for Plezix to pick-up the changes for your settings key
 
 
 Global Notifications

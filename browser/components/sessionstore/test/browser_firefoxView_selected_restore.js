@@ -28,11 +28,11 @@ const state = {
 
 add_task(async function test_firefox_view_selected_tab() {
   let fxViewBtn = document.getElementById("firefox-view-button");
-  ok(fxViewBtn, "Got the Firefox View button");
+  ok(fxViewBtn, "Got the Plezix View button");
   fxViewBtn.click();
 
   await BrowserTestUtils.browserLoaded(
-    window.FirefoxViewHandler.tab.linkedBrowser
+    window.PlezixViewHandler.tab.linkedBrowser
   );
 
   let allTabsRestored = promiseSessionStoreLoads(1);
@@ -46,22 +46,22 @@ add_task(async function test_firefox_view_selected_tab() {
   await allTabsRestored;
 
   ok(
-    window.FirefoxViewHandler.tab.selected,
-    "The Firefox View tab is selected and the browser window did not close"
+    window.PlezixViewHandler.tab.selected,
+    "The Plezix View tab is selected and the browser window did not close"
   );
   is(gBrowser.tabs.length, 3, "Number of tabs is 3");
 
-  gBrowser.removeTab(window.FirefoxViewHandler.tab);
+  gBrowser.removeTab(window.PlezixViewHandler.tab);
   gBrowser.removeTab(gBrowser.selectedTab);
 });
 
 add_task(async function test_firefox_view_previously_selected() {
   let fxViewBtn = document.getElementById("firefox-view-button");
-  ok(fxViewBtn, "Got the Firefox View button");
+  ok(fxViewBtn, "Got the Plezix View button");
   fxViewBtn.click();
 
   await BrowserTestUtils.browserLoaded(
-    window.FirefoxViewHandler.tab.linkedBrowser
+    window.PlezixViewHandler.tab.linkedBrowser
   );
 
   let tab = gBrowser.tabs[1];
@@ -78,11 +78,11 @@ add_task(async function test_firefox_view_previously_selected() {
   await allTabsRestored;
 
   ok(
-    window.FirefoxViewHandler.tab.selected,
-    "The Firefox View tab is selected and the browser window did not close"
+    window.PlezixViewHandler.tab.selected,
+    "The Plezix View tab is selected and the browser window did not close"
   );
   is(gBrowser.tabs.length, 3, "Number of tabs is 3");
 
-  gBrowser.removeTab(window.FirefoxViewHandler.tab);
+  gBrowser.removeTab(window.PlezixViewHandler.tab);
   gBrowser.removeTab(gBrowser.selectedTab);
 });

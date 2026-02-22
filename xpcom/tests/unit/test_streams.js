@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,8 +57,8 @@ function test_binary_streams() {
   Assert.equal(is.readFloat(), 2.5);
   //  os.writeDouble(Math.SQRT2);
   //  do_check_eq(is.readDouble(), Math.SQRT2);
-  os.writeStringZ("Mozilla");
-  Assert.equal(is.readCString(), "Mozilla");
+  os.writeStringZ("Plezix");
+  Assert.equal(is.readCString(), "Plezix");
   os.writeWStringZ("Gecko");
   Assert.equal(is.readString(), "Gecko");
   os.writeBytes(HelloStr, HelloStr.length);
@@ -93,7 +93,7 @@ function test_binary_streams() {
   os.write64(HugeNum);
   os.writeFloat(2.5);
   //  os.writeDouble(Math.SQRT2);
-  os.writeStringZ("Mozilla");
+  os.writeStringZ("Plezix");
   os.writeWStringZ("Gecko");
   os.writeBytes(HelloStr, HelloStr.length);
   os.writeByteArray(HelloArray);
@@ -112,7 +112,7 @@ function test_binary_streams() {
   Assert.equal(is.read64(), HugeNum);
   Assert.equal(is.readFloat(), 2.5);
   //  do_check_eq(is.readDouble(), Math.SQRT2);
-  Assert.equal(is.readCString(), "Mozilla");
+  Assert.equal(is.readCString(), "Plezix");
   Assert.equal(is.readString(), "Gecko");
   // Remember, we wrote HelloStr twice - once as a string, and then as an array.
   Assert.equal(is.available(), HelloStr.length * 2);

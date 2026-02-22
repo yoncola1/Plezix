@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -10,11 +10,11 @@
 # script on Linux, or with -exported_symbols_list on OS X.
 #
 # The NSS build system processes them using a series of sed replacements,
-# but the Mozilla build system is already running a Python script to generate
+# but the Plezix build system is already running a Python script to generate
 # the file so it's simpler to just do the replacement in Python.
 #
-# One difference between the NSS build system and Mozilla's is that
-# Mozilla's supports building on Linux for Windows using MinGW. MinGW
+# One difference between the NSS build system and Plezix's is that
+# Plezix's supports building on Linux for Windows using MinGW. MinGW
 # expects all lines containing ;+ removed and all ;- tokens removed.
 
 import buildconfig

@@ -36,7 +36,7 @@ const arrowLeft = async tabList => {
 };
 
 add_task(async function test_pin_unpin_open_tab() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
 
@@ -158,7 +158,7 @@ add_task(async function test_indicator_pinned_tabs_with_keyboard() {
   await add_new_tab(URLs[0]);
   await add_new_tab(URLs[1]);
   await add_new_tab(pageWithSound);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
 
@@ -192,7 +192,7 @@ add_task(async function test_indicator_pinned_tabs_with_keyboard() {
 
     // Pin 2 of 5 tabs
     browser.ownerGlobal.gBrowser.tabs.forEach((tab, i) => {
-      if (i > 2 && tab != browser.ownerGlobal.FirefoxViewHandler.tab) {
+      if (i > 2 && tab != browser.ownerGlobal.PlezixViewHandler.tab) {
         browser.ownerGlobal.gBrowser.pinTab(tab);
       }
     });
@@ -304,7 +304,7 @@ add_task(async function test_indicator_pinned_tabs_with_keyboard() {
 });
 
 add_task(async function test_mute_unmute_pinned_tab() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
 
@@ -375,7 +375,7 @@ add_task(async function test_mute_unmute_pinned_tab() {
 });
 
 add_task(async function test_mute_unmute_with_context_menu() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
 

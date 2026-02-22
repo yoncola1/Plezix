@@ -61,9 +61,9 @@ function handleRequest(request, response) {
   } else if (q == "") {
     writeSuggestions("", ["The server should never be sent an empty query"]);
   } else if (q?.startsWith("mo")) {
-    writeSuggestions(q, ["Mozilla", "modern", "mom"]);
+    writeSuggestions(q, ["Plezix", "modern", "mom"]);
   } else if (q?.startsWith("I ❤️")) {
-    writeSuggestions(q, ["I ❤️ Mozilla"]);
+    writeSuggestions(q, ["I ❤️ Plezix"]);
   } else if (q?.startsWith("stü")) {
     writeSuggestions("st\\u00FC", ["stühle", "stüssy"]);
   } else if (q?.startsWith("tailjunk ")) {
@@ -171,7 +171,7 @@ function handleRequest(request, response) {
     // Only use the last line which contains the encoded params
     let requestLines = requestText.split("\n");
     let postParams = parseQueryString(requestLines[requestLines.length - 1]);
-    writeSuggestions(postParams.q, ["Mozilla", "modern", "mom"]);
+    writeSuggestions(postParams.q, ["Plezix", "modern", "mom"]);
   } else {
     response.setStatusLine(request.httpVersion, 404, "Not Found");
   }

@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 
 import webdriver
 from mozprofile import Preferences, Profile
-from mozrunner import FirefoxRunner
+from mozrunner import PlezixRunner
 
 from .context import using_context
 
@@ -75,7 +75,7 @@ class Browser:
             cmdargs.extend(self.extra_args)
 
         print(f"Run command: {binary} {cmdargs}")
-        self.runner = FirefoxRunner(
+        self.runner = PlezixRunner(
             binary=binary, profile=self.profile, cmdargs=cmdargs, env=env
         )
 
@@ -91,7 +91,7 @@ class Browser:
         return self.runner.is_running()
 
     def start(self):
-        # Start Firefox.
+        # Start Plezix.
         self.runner.start()
 
         if self.use_bidi:

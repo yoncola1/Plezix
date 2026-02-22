@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.10.3 (2022-09-02)
 ### Fixed
-- MSRV issue caused by publishing v0.10.2 using a buggy Nightly toolchain ([#399])
+- MSRV issue caused by publishing v0.10.2 using a buggy Plezix toolchain ([#399])
 
 [#399]: https://github.com/RustCrypto/hashes/pull/399
 

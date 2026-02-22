@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.utils.KeyboardState
 import org.mozilla.fenix.compose.utils.keyboardAsState
 import org.mozilla.fenix.microsurvey.ui.ext.MicrosurveyUIData
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val TABLET_WIDTH_FRACTION = 0.5f
 private const val NON_TABLET_WIDTH_FRACTION = 1.0f
@@ -71,13 +71,13 @@ fun MicrosurveyRequestPrompt(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1),
+                .background(color = PlezixTheme.colors.layer1),
         ) {
             Column(
                 modifier = Modifier
                     .padding(all = 16.dp)
                     .fillMaxWidth(
-                        if (FirefoxTheme.windowSize.isNotSmall()) {
+                        if (PlezixTheme.windowSize.isNotSmall()) {
                             TABLET_WIDTH_FRACTION
                         } else {
                             NON_TABLET_WIDTH_FRACTION
@@ -115,8 +115,8 @@ private fun Header(
 
         Text(
             text = title,
-            style = FirefoxTheme.typography.headline7,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.weight(1f),
         )
 
@@ -127,7 +127,7 @@ private fun Header(
             Icon(
                 painter = painterResource(id = R.drawable.ic_close),
                 contentDescription = stringResource(id = R.string.microsurvey_close_button_content_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
     }
@@ -136,11 +136,11 @@ private fun Header(
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun MicrosurveyRequestPromptPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MicrosurveyRequestPrompt(
             microsurvey = MicrosurveyUIData(
                 id = "",
-                promptTitle = "Help make printing in Firefox better. It only takes a sec.",
+                promptTitle = "Help make printing in Plezix better. It only takes a sec.",
                 icon = R.drawable.mozac_ic_lightbulb_24,
                 question = "",
                 answers = emptyList(),

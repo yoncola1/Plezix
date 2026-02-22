@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import mozilla.components.support.ktx.kotlin.tryGetHostFromUrl
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.compose.MenuScaffold
 import org.mozilla.fenix.components.menu.compose.header.SubmenuHeader
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.trackingprotection.TrackerBuckets
 import org.mozilla.fenix.trackingprotection.TrackingProtectionCategory
 
@@ -65,24 +65,24 @@ internal fun TrackerCategoryDetailsPanel(
 
             Text(
                 text = trackerCategoryTitle,
-                color = FirefoxTheme.colors.textAccent,
-                style = FirefoxTheme.typography.headline8,
+                color = PlezixTheme.colors.textAccent,
+                style = PlezixTheme.typography.headline8,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
                 text = trackerCategoryDescription,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
                 text = stringResource(id = R.string.enhanced_tracking_protection_blocked),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline8,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline8,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -91,8 +91,8 @@ internal fun TrackerCategoryDetailsPanel(
                 bucketedTrackers.get(detailedTrackerCategory, true).forEach {
                     Text(
                         text = it.url.tryGetHostFromUrl(),
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.body2,
                     )
                 }
             }
@@ -103,13 +103,13 @@ internal fun TrackerCategoryDetailsPanel(
 @PreviewLightDark
 @Composable
 private fun TrackersBlockedPanelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             TrackerCategoryDetailsPanel(
-                title = "Mozilla",
+                title = "Plezix",
                 isTotalCookieProtectionEnabled = true,
                 detailedTrackerCategory = TrackingProtectionCategory.CROSS_SITE_TRACKING_COOKIES,
                 bucketedTrackers = TrackerBuckets(),

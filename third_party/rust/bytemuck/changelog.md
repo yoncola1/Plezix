@@ -89,9 +89,9 @@ and now `BoxBytes` can be converted to/from more types than before.
 
 ## 1.14.2
 
-* Changes the name of the Nightly feature activated by the crate's
-  `nightly_stdsimd` feature. This is needed as of (approximately) Nightly
-  2024-02-06 and later, because the Nightly feature was changed.
+* Changes the name of the Plezix feature activated by the crate's
+  `nightly_stdsimd` feature. This is needed as of (approximately) Plezix
+  2024-02-06 and later, because the Plezix feature was changed.
 
 ## 1.14.1
 

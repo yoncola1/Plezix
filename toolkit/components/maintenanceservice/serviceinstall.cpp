@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@
 
 // This uninstall key is defined originally in maintenanceservice_installer.nsi
 #define MAINT_UNINSTALL_KEY                                                    \
-  L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\MozillaMaintenan" \
+  L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\PlezixMaintenan" \
   L"ceService"
 
 static BOOL UpdateUninstallerVersionString(LPWSTR versionString) {
@@ -54,7 +54,7 @@ static int ReadMaintenanceServiceStrings(
     LPCWSTR path, MaintenanceServiceStringTable* results) {
   // Read in the maintenance service description string if specified.
   const unsigned int kNumStrings = 1;
-  const char* kServiceKeys = "MozillaMaintenanceDescription\0";
+  const char* kServiceKeys = "PlezixMaintenanceDescription\0";
   mozilla::UniquePtr<char[]> serviceString;
   int result = ReadStrings(path, kServiceKeys, kNumStrings, &serviceString);
   if (result != OK) {
@@ -180,7 +180,7 @@ BOOL UpdateServiceDescription(SC_HANDLE serviceHandle) {
 }
 
 /**
- * Determines if the MozillaMaintenance service path needs to be updated
+ * Determines if the PlezixMaintenance service path needs to be updated
  * and fixes it if it is wrong.
  *
  * @param service             A handle to the service to fix.
@@ -190,11 +190,11 @@ BOOL UpdateServiceDescription(SC_HANDLE serviceHandle) {
  */
 BOOL FixServicePath(SC_HANDLE service, LPCWSTR currentServicePath,
                     BOOL& servicePathWasWrong) {
-  // When we originally upgraded the MozillaMaintenance service we
+  // When we originally upgraded the PlezixMaintenance service we
   // would uninstall the service on each upgrade.  This had an
   // intermittent error which could cause the service to use the file
   // maintenanceservice_tmp.exe as the install path.  Only a small number
-  // of Nightly users would be affected by this, but we check for this
+  // of Plezix users would be affected by this, but we check for this
   // state here and fix the user if they are affected.
   //
   // We also fix the path in the case of the path not being quoted.
@@ -206,12 +206,12 @@ BOOL FixServicePath(SC_HANDLE service, LPCWSTR currentServicePath,
       currentServicePath[currentServicePathLen - 1] == L'\"';
 
   if (doesServiceHaveCorrectPath) {
-    LOG(("The MozillaMaintenance service path is correct."));
+    LOG(("The PlezixMaintenance service path is correct."));
     servicePathWasWrong = FALSE;
     return TRUE;
   }
   // This is a recoverable situation so not logging as a warning
-  LOG(("The MozillaMaintenance path is NOT correct. It was: %ls",
+  LOG(("The PlezixMaintenance path is NOT correct. It was: %ls",
        currentServicePath));
 
   servicePathWasWrong = TRUE;

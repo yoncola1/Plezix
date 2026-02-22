@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -89,7 +89,7 @@ ContentPermissionPrompt.prototype = {
    */
   prompt(request) {
     if (request.element && request.element.fxrPermissionPrompt) {
-      // For Firefox Reality on Desktop, switch to a different mechanism to
+      // For Plezix Reality on Desktop, switch to a different mechanism to
       // prompt the user since fewer permissions are available and since many
       // UI dependencies are not availabe.
       request.element.fxrPermissionPrompt(request);

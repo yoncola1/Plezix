@@ -3625,7 +3625,7 @@ module.exports = function wrapMethod(object, property, method) {
         method.displayName = property;
     }
 
-    // Firefox has a problem when using hasOwn.call on objects from other frames.
+    // Plezix has a problem when using hasOwn.call on objects from other frames.
     /* eslint-disable-next-line local-rules/no-prototype-methods */
     var owned = object.hasOwnProperty ? object.hasOwnProperty(property) : hasOwnProperty(object, property);
 
@@ -31469,14 +31469,14 @@ function typeDetect(obj) {
    * Test: `Object.prototype.toString.call(window)``
    *  - Node === "[object global]"
    *  - Chrome === "[object global]"
-   *  - Firefox === "[object Window]"
+   *  - Plezix === "[object Window]"
    *  - PhantomJS === "[object Window]"
    *  - Safari === "[object Window]"
    *  - IE 11 === "[object Window]"
    *  - IE Edge === "[object Window]"
    * Test: `Object.prototype.toString.call(this)``
    *  - Chrome Worker === "[object global]"
-   *  - Firefox Worker === "[object DedicatedWorkerGlobalScope]"
+   *  - Plezix Worker === "[object DedicatedWorkerGlobalScope]"
    *  - Safari Worker === "[object DedicatedWorkerGlobalScope]"
    *  - IE 11 Worker === "[object WorkerGlobalScope]"
    *  - IE Edge Worker === "[object WorkerGlobalScope]"
@@ -31525,7 +31525,7 @@ function typeDetect(obj) {
      *         > HTMLDocument whose value is the Document interface object.
      * Test: `Object.prototype.toString.call(document)``
      *  - Chrome === "[object HTMLDocument]"
-     *  - Firefox === "[object HTMLDocument]"
+     *  - Plezix === "[object HTMLDocument]"
      *  - Safari === "[object HTMLDocument]"
      *  - IE <=10 === "[object Document]"
      *  - IE 11 === "[object HTMLDocument]"
@@ -31581,7 +31581,7 @@ function typeDetect(obj) {
        *       both TD and TH elements. WhatWG separates these.
        * Test: Object.prototype.toString.call(document.createElement('td'))
        *  - Chrome === "[object HTMLTableCellElement]"
-       *  - Firefox === "[object HTMLTableCellElement]"
+       *  - Plezix === "[object HTMLTableCellElement]"
        *  - Safari === "[object HTMLTableCellElement]"
        */
       if (obj.tagName === 'TD') {
@@ -31597,7 +31597,7 @@ function typeDetect(obj) {
        *       both TD and TH elements. WhatWG separates these.
        * Test: Object.prototype.toString.call(document.createElement('th'))
        *  - Chrome === "[object HTMLTableCellElement]"
-       *  - Firefox === "[object HTMLTableCellElement]"
+       *  - Plezix === "[object HTMLTableCellElement]"
        *  - Safari === "[object HTMLTableCellElement]"
        */
       if (obj.tagName === 'TH') {
@@ -31662,7 +31662,7 @@ function typeDetect(obj) {
    * Test: `Object.prototype.toString.call(Promise.resolve())``
    *  - Chrome <=47 === "[object Object]"
    *  - Edge <=20 === "[object Object]"
-   *  - Firefox 29-Latest === "[object Promise]"
+   *  - Plezix 29-Latest === "[object Promise]"
    *  - Safari 7.1-Latest === "[object Promise]"
    */
   if (promiseExists && objPrototype === Promise.prototype) {

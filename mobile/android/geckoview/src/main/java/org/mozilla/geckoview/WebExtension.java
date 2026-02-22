@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -173,7 +173,7 @@ public class WebExtension {
    * SessionController#setMessageDelegate}.
    *
    * <p>See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_messaging">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Native_messaging">
    * WebExtensions/Native_messaging </a>
    *
    * @param messageDelegate handles messaging between the WebExtension and the app. To send a
@@ -226,7 +226,7 @@ public class WebExtension {
    * This delegate is used to handle calls from the |browsingData| WebExtension API.
    *
    * <p>See also: <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browsingData">
    * WebExtensions/API/browsingData </a>
    */
   @UiThread
@@ -236,7 +236,7 @@ public class WebExtension {
      * browser.
      *
      * <p>See also: <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browsingData/settings">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browsingData/settings">
      * WebExtensions/API/browsingData/settings </a>
      */
     @UiThread
@@ -439,7 +439,7 @@ public class WebExtension {
    * Port object that can be used for bidirectional communication with a WebExtension.
    *
    * <p>See also: <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/Port">
    * WebExtensions/API/runtime/Port </a>.
    *
    * @see MessageDelegate#onConnect
@@ -583,7 +583,7 @@ public class WebExtension {
   /**
    * This delegate is invoked whenever an extension uses the `tabs` WebExtension API to modify the
    * state of a tab. See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
    */
   public interface SessionTabDelegate {
     /**
@@ -592,7 +592,7 @@ public class WebExtension {
      * GeckoResult.ALLOW or GeckoResult.DENY in case tab cannot be closed.
      *
      * <p>See also: <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/remove">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/remove">
      * WebExtensions/API/tabs/remove</a>
      *
      * @param source An instance of {@link WebExtension}
@@ -612,7 +612,7 @@ public class WebExtension {
      * GeckoResult.ALLOW.
      *
      * <p>See also: <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/update">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/update">
      * WebExtensions/API/tabs/update</a>
      *
      * @param extension The extension that requested to update the tab.
@@ -638,7 +638,7 @@ public class WebExtension {
    * <p>Whenever a field is not passed in by the extension that value will be <code>null</code>.
    *
    * <p>See also: <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/update">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/update">
    * WebExtensions/API/tabs/update </a>.
    */
   public static class UpdateTabDetails {
@@ -690,7 +690,7 @@ public class WebExtension {
 
   /**
    * Provides details about creating a tab with <code>tabs.create</code>. See also: <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/create">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs/create">
    * WebExtensions/API/tabs/create </a>.
    *
    * <p>Whenever a field is not passed in by the extension that value will be <code>null</code>.
@@ -757,7 +757,7 @@ public class WebExtension {
   /**
    * This delegate is invoked whenever an extension uses the `tabs` WebExtension API and the request
    * is not specific to an existing tab, e.g. when creating a new tab. See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
    */
   public interface TabDelegate {
     /**
@@ -794,7 +794,7 @@ public class WebExtension {
    * Get the tab delegate for this extension.
    *
    * <p>See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
    *
    * @return The {@link TabDelegate} instance for this extension.
    */
@@ -809,7 +809,7 @@ public class WebExtension {
    * tries to modify the tabs state using the `tabs` WebExtension API.
    *
    * <p>See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/tabs">WebExtensions/API/tabs</a>.
    *
    * @param delegate the {@link TabDelegate} instance for this extension.
    */
@@ -1117,7 +1117,7 @@ public class WebExtension {
    * Describes the sender of a message from a WebExtension.
    *
    * <p>See also: <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/MessageSender">
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/MessageSender">
    * WebExtensions/API/runtime/MessageSender</a>
    */
   @UiThread
@@ -1219,10 +1219,10 @@ public class WebExtension {
    *
    * <ul>
    *   <li><a target=_blank
-   *       href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction">
+   *       href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction">
    *       WebExtensions/API/browserAction </a>
    *   <li><a target=_blank
-   *       href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction">
+   *       href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction">
    *       WebExtensions/API/pageAction </a>
    * </ul>
    */
@@ -1232,9 +1232,9 @@ public class WebExtension {
      * Title of this Action.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/getTitle">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction/getTitle">
      * pageAction/getTitle</a>, <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getTitle">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/getTitle">
      * browserAction/getTitle</a>
      */
     public final @Nullable String title;
@@ -1243,9 +1243,9 @@ public class WebExtension {
      * Icon for this Action.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setIcon">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction/setIcon">
      * pageAction/setIcon</a>, <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/setIcon">
      * browserAction/setIcon</a>
      */
     public final @Nullable Image icon;
@@ -1258,9 +1258,9 @@ public class WebExtension {
      * </code>.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction/show">
      * pageAction/show</a>, <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/enabled">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/enabled">
      * browserAction/enabled</a>
      */
     public final @Nullable Boolean enabled;
@@ -1269,7 +1269,7 @@ public class WebExtension {
      * Badge text for this action.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeText">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/getBadgeText">
      * browserAction/getBadgeText</a>
      */
     public final @Nullable String badgeText;
@@ -1281,7 +1281,7 @@ public class WebExtension {
      * android.widget.TextView#setBackgroundColor(int)} and similar methods.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor">
      * browserAction/getBadgeBackgroundColor</a>
      */
     public final @Nullable Integer badgeBackgroundColor;
@@ -1293,7 +1293,7 @@ public class WebExtension {
      * android.widget.TextView#setTextColor(int)} and similar methods.
      *
      * <p>See also: <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeTextColor">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction/getBadgeTextColor">
      * browserAction/getBadgeTextColor</a>
      */
     public final @Nullable Integer badgeTextColor;
@@ -1487,9 +1487,9 @@ public class WebExtension {
      * registered or the properties of the Action are updated.
      *
      * <p>See also <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction">
      * WebExtensions/API/browserAction </a>, <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/browser_action">
      * WebExtensions/manifest.json/browser_action </a>.
      *
      * @param extension The extension that defined this browser action.
@@ -1511,9 +1511,9 @@ public class WebExtension {
      * or the properties of the Action are updated.
      *
      * <p>See also <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction">
      * WebExtensions/API/pageAction </a>, <a target=_blank
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/page_action">
      * WebExtensions/manifest.json/page_action </a>.
      *
      * @param extension The extension that defined this page action.
@@ -1750,7 +1750,7 @@ public class WebExtension {
    * Describes the signed status for a {@link WebExtension}.
    *
    * <p>See <a href="https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox">Add-on signing
-   * in Firefox. </a>
+   * in Plezix. </a>
    */
   public static class SignedStateFlags {
     // Keep in sync with AddonManager.sys.mjs
@@ -1772,7 +1772,7 @@ public class WebExtension {
     /** This extension is a system add-on. */
     public static final int SYSTEM = 3;
 
-    /** This extension is signed with a "Mozilla Extensions" certificate. */
+    /** This extension is signed with a "Plezix Extensions" certificate. */
     public static final int PRIVILEGED = 4;
 
     /* package */ static final int LAST = PRIVILEGED;
@@ -1886,7 +1886,7 @@ public class WebExtension {
      * Required permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
      * API permissions </a>.
      */
     public final @NonNull String[] requiredPermissions;
@@ -1895,7 +1895,7 @@ public class WebExtension {
      * Required origin permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
      * Host permissions </a>.
      */
     public final @NonNull String[] requiredOrigins;
@@ -1907,7 +1907,7 @@ public class WebExtension {
      * Optional permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
      * API permissions </a>.
      */
     public final @NonNull String[] optionalPermissions;
@@ -1916,7 +1916,7 @@ public class WebExtension {
      * Granted optional permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#API_permissions">
      * API permissions </a>.
      */
     public final @NonNull String[] grantedOptionalPermissions;
@@ -1925,7 +1925,7 @@ public class WebExtension {
      * Optional origin permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
      * Host permissions </a>.
      */
     public final @NonNull String[] optionalOrigins;
@@ -1934,7 +1934,7 @@ public class WebExtension {
      * Granted optional origin permissions for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions">
      * Host permissions </a>.
      */
     public final @NonNull String[] grantedOptionalOrigins;
@@ -1949,7 +1949,7 @@ public class WebExtension {
      * Branding name for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/name">
      * manifest.json/name </a>
      */
     public final @Nullable String name;
@@ -1959,7 +1959,7 @@ public class WebExtension {
      * GeckoView language setting.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/description">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/description">
      * manifest.json/description </a>
      */
     public final @Nullable String description;
@@ -1989,7 +1989,7 @@ public class WebExtension {
      * Version string for this extension.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/version">
      * manifest.json/version </a>
      */
     public final @NonNull String version;
@@ -1998,7 +1998,7 @@ public class WebExtension {
      * Creator name as provided in the manifest.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer">
      * manifest.json/developer </a>
      */
     public final @Nullable String creatorName;
@@ -2007,7 +2007,7 @@ public class WebExtension {
      * Creator url as provided in the manifest.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer">
      * manifest.json/developer </a>
      */
     public final @Nullable String creatorUrl;
@@ -2016,7 +2016,7 @@ public class WebExtension {
      * Homepage url as provided in the manifest.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/homepage_url">
      * manifest.json/homepage_url </a>
      */
     public final @Nullable String homepageUrl;
@@ -2025,7 +2025,7 @@ public class WebExtension {
      * Options page as provided in the manifest.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/options_ui">
      * manifest.json/options_ui </a>
      */
     public final @Nullable String optionsPageUrl;
@@ -2034,7 +2034,7 @@ public class WebExtension {
      * Whether the options page should be open in a Tab or not.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui#Syntax">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/options_ui#Syntax">
      * manifest.json/options_ui#Syntax </a>
      */
     public final boolean openOptionsPageInTab;
@@ -2059,7 +2059,7 @@ public class WebExtension {
      * Signed status for this extension.
      *
      * <p>See <a href="https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox">Add-on
-     * signing in Firefox. </a>.
+     * signing in Plezix. </a>.
      */
     public final @SignedState int signedState;
 
@@ -2107,7 +2107,7 @@ public class WebExtension {
      * Indicates how the extension works with private browsing windows.
      *
      * <p>See <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/incognito">
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/incognito">
      * manifest.json/incognito </a>
      */
     public final @Nullable String incognito;
@@ -2241,7 +2241,7 @@ public class WebExtension {
 
   /**
    * Flags to determine which contexts a menu item should be shown in. See <a
-   * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/ContextType>
+   * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/ContextType>
    * menus.ContextType</a>.
    */
   static class Context {
@@ -2273,7 +2273,7 @@ public class WebExtension {
    * Represents an addition to the context menu by an extension.
    *
    * <p>In the <a
-   * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus>menus</a>
+   * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus>menus</a>
    * API, all elements added by one extension should be collapsed under one header. This class
    * represents all of one extension's menu items, as well as the icon that should be used with that
    * header.
@@ -2347,7 +2347,7 @@ public class WebExtension {
        * This represents a menu item that just displays a label.
        *
        * <p>See <a
-       * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/ItemType>
+       * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/ItemType>
        * menus.ItemType.normal</a>
        */
       static final int NORMAL = 0;
@@ -2356,7 +2356,7 @@ public class WebExtension {
        * This represents a menu item that can be selected and deselected.
        *
        * <p>See <a
-       * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/ItemType>
+       * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/ItemType>
        * menus.ItemType.checkbox</a>
        */
       static final int CHECKBOX = 1;
@@ -2366,7 +2366,7 @@ public class WebExtension {
        * extension that are of type radio are part of one radio group.
        *
        * <p>See <a
-       * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/ItemType>
+       * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/ItemType>
        * menus.ItemType.radio</a>
        */
       static final int RADIO = 2;
@@ -2375,7 +2375,7 @@ public class WebExtension {
        * This represents a line separating elements.
        *
        * <p>See <a
-       * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/ItemType>
+       * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/ItemType>
        * menus.ItemType.separator</a>
        */
       static final int SEPARATOR = 3;
@@ -2385,7 +2385,7 @@ public class WebExtension {
      * Direct children for this menu item. These should be displayed as a sub-menu.
      *
      * <p>See <a
-     * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/create>
+     * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/create>
      * createProperties.parentId</a>
      */
     final @Nullable List<MenuItem> children;
@@ -2395,7 +2395,7 @@ public class WebExtension {
 
     /**
      * The id of this menu item. See <a
-     * href=https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus/create>
+     * href=https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/menus/create>
      * createProperties.id</a>
      */
     final @Nullable String id;
@@ -2473,7 +2473,7 @@ public class WebExtension {
    * extension tries to use the `downloads` WebExtension API.
    *
    * <p>See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads">WebExtensions/API/downloads</a>.
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads">WebExtensions/API/downloads</a>.
    *
    * @param delegate the {@link DownloadDelegate} instance for this extension.
    */
@@ -2486,7 +2486,7 @@ public class WebExtension {
    * Get the download delegate for this extension.
    *
    * <p>See also <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads">WebExtensions
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads">WebExtensions
    * downloads API</a>.
    *
    * @return The {@link DownloadDelegate} instance for this extension.
@@ -2499,7 +2499,7 @@ public class WebExtension {
 
   /**
    * Represents a download for <a
-   * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads">downloads
+   * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads">downloads
    * API</a> Instantiate using {@link WebExtensionController#createDownload}
    */
   public static class Download {
@@ -2522,7 +2522,7 @@ public class WebExtension {
 
     /**
      * Updates the download state. This will trigger a call to <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/onChanged">downloads.onChanged</a>
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads/onChanged">downloads.onChanged</a>
      * event to the corresponding `DownloadItem` on the extension side.
      *
      * @param data - current metadata associated with the download. {@link Download.Info}
@@ -2683,7 +2683,7 @@ public class WebExtension {
 
     /**
      * Interface for communicating the state of downloads to Web Extensions. See also <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem">WebExtensions/API/downloads/DownloadItem</a>
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads/DownloadItem">WebExtensions/API/downloads/DownloadItem</a>
      */
     public interface Info {
 
@@ -2717,7 +2717,7 @@ public class WebExtension {
 
       /**
        * @return One of <a
-       *     href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/InterruptReason">Interrupt
+       *     href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads/InterruptReason">Interrupt
        *     Reason</a> constants denoting the error reason.
        */
       @Nullable
@@ -2863,7 +2863,7 @@ public class WebExtension {
 
     /**
      * The action you want taken if there is a filename conflict, as defined <a
-     * href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/FilenameConflictAction">here</a>
+     * href="https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/downloads/FilenameConflictAction">here</a>
      */
     public final @ConflictActionFlags int conflictActionFlag;
 

@@ -12,7 +12,7 @@ add_task(async function test_value_combo() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
         dateAdded: new Date(now),
       },
@@ -31,7 +31,7 @@ add_task(async function test_value_combo() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },
@@ -61,7 +61,7 @@ add_task(async function test_value_combo() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla home page",
+        title: "Plezix home page",
         bmkUri: "https://mozilla.org",
         tags: ["browsers"],
       },
@@ -75,7 +75,7 @@ add_task(async function test_value_combo() {
         id: "fxBmk_______",
         parentid: "toolbar",
         type: "bookmark",
-        title: "Get Firefox",
+        title: "Get Plezix",
         bmkUri: "http://getfirefox.com",
         tags: ["taggy", "browsers"],
         dateAdded: now,
@@ -175,7 +175,7 @@ add_task(async function test_value_combo() {
         index: 0,
         type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
         urlHref: "http://getfirefox.com/",
-        title: "Get Firefox",
+        title: "Get Plezix",
         guid: "fxBmk_______",
         parentGuid: PlacesUtils.bookmarks.toolbarGuid,
         source: PlacesUtils.bookmarks.SOURCES.SYNC,
@@ -253,7 +253,7 @@ add_task(async function test_value_combo() {
       name: "bookmark-title-changed",
       params: {
         itemId: localItemIds.get("mozBmk______"),
-        title: "Mozilla home page",
+        title: "Plezix home page",
         guid: "mozBmk______",
         parentGuid: PlacesUtils.bookmarks.menuGuid,
       },
@@ -261,16 +261,16 @@ add_task(async function test_value_combo() {
   ]);
 
   let fxBmk = await PlacesUtils.bookmarks.fetch("fxBmk_______");
-  ok(fxBmk, "New Firefox bookmark should exist");
+  ok(fxBmk, "New Plezix bookmark should exist");
   equal(
     fxBmk.parentGuid,
     PlacesUtils.bookmarks.toolbarGuid,
-    "Should add Firefox bookmark to toolbar"
+    "Should add Plezix bookmark to toolbar"
   );
   let fxTags = PlacesUtils.tagging.getTagsForURI(
     Services.io.newURI("http://getfirefox.com")
   );
-  deepEqual(fxTags, ["browsers", "taggy"], "Should tag new Firefox bookmark");
+  deepEqual(fxTags, ["browsers", "taggy"], "Should tag new Plezix bookmark");
 
   let folder = await PlacesUtils.bookmarks.fetch("tFolder_____");
   ok(folder, "New folder should exist");
@@ -297,13 +297,13 @@ add_task(async function test_value_combo() {
   let updatedBmk = await PlacesUtils.bookmarks.fetch("mozBmk______");
   equal(
     updatedBmk.title,
-    "Mozilla home page",
-    "Should rename Mozilla bookmark"
+    "Plezix home page",
+    "Should rename Plezix bookmark"
   );
   equal(
     updatedBmk.parentGuid,
     PlacesUtils.bookmarks.menuGuid,
-    "Should not move Mozilla bookmark"
+    "Should not move Plezix bookmark"
   );
 
   await storeChangesInMirror(buf, changesToUpload);

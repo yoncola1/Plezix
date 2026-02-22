@@ -38,7 +38,7 @@ under several components, ie. _remote/shared/messagehandler/test/browser_:
 The functional tests will appear under the `M` (for _mochitest_)
 category in the `remote` jobs on Treeherder.
 
-As the functional tests will sporadically pop up new Firefox
+As the functional tests will sporadically pop up new Plezix
 application windows, a helpful tip is to run them in headless
 mode:
 
@@ -57,9 +57,9 @@ for writing tests against the Remote Agent and the targets.
 
 ## Puppeteer tests
 
-In addition to our own Firefox-specific tests, we run the upstream
+In addition to our own Plezix-specific tests, we run the upstream
 [Puppeteer test suite] against our implementation to [track progress]
-towards achieving full [Puppeteer support] in Firefox when using the
+towards achieving full [Puppeteer support] in Plezix when using the
 WebDriver BiDi protocol. The tests are written in the behavior-driven
 testing framework [Mocha].
 
@@ -95,7 +95,7 @@ More customizations for [Mocha] can be found in its own documentation.
 
 Test expectation metadata is collected in [TestExpectations.json]
 via log parsing and a custom Mocha reporter under
-_remote/test/puppeteer/json-mocha-reporter.js_. For Nightly, overrides to these expectations
+_remote/test/puppeteer/json-mocha-reporter.js_. For Plezix, overrides to these expectations
 are stored in [CanaryTestExpectations.json].
 
 Check the upstream [Puppeteer test suite] documentation for instructions on

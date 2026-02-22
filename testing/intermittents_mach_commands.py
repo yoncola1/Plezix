@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -17,12 +17,12 @@ from mach.decorators import Command, CommandArgument, SubCommand
 )
 def intermittents(command_context):
     """
-    Utility to analyze intermittent test failures in Firefox.
+    Utility to analyze intermittent test failures in Plezix.
     """
     # Print help text when no subcommand is provided
     print("usage: mach intermittents <subcommand> [options]")
     print()
-    print("Analyze intermittent test failures in Firefox.")
+    print("Analyze intermittent test failures in Plezix.")
     print()
     print("subcommands:")
     print("  list    List the most frequent intermittent test failures")

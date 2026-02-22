@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -74,7 +74,7 @@ using namespace mozilla::ipc;
  * When the content process detects a hang, it posts a task to its hang thread,
  * which sends an IPC message to the hang thread in the parent. The parent
  * cancels any ongoing CPOW requests and then posts a runnable to the main
- * thread that notifies Firefox frontend code of the hang. The frontend code is
+ * thread that notifies Plezix frontend code of the hang. The frontend code is
  * passed an nsIHangReport, which can be used to terminate the hang.
  *
  * If the user chooses to terminate a script, a task is posted to the chrome

@@ -8,7 +8,7 @@ S/MIME functions
    The public functions listed here perform S/MIME operations using the `S/MIME
    Toolkit <http://www-archive.mozilla.org/projects/security/pki/nss/smime/>`__.
 
-   The `Mozilla Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
+   The `Plezix Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
    access to the function definition, prototype definition, and source code references. The NSS
    version column indicates which versions of NSS support the function.
 

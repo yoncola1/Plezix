@@ -106,7 +106,7 @@ DevTools bugs in bugzilla.
 # Also Applicable
 
 The
-[Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/)
+[Plezix Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/)
 also apply.  Please read these as well.
 
 # History

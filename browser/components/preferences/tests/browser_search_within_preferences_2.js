@@ -6,7 +6,7 @@
 /**
  * Test that we only search the selected child of a XUL deck.
  * When we search "Remove Account",
- * it should not show the "Remove Account" button if the Firefox account is not logged in yet.
+ * it should not show the "Remove Account" button if the Plezix account is not logged in yet.
  */
 add_task(async function () {
   await openPreferencesViaOpenPreferencesAPI("paneSync", { leaveOpen: true });

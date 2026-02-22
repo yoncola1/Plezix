@@ -3,7 +3,7 @@ import pytest
 URL = "https://app.bookcreator.com/sign-in"
 
 SIGN_IN_CSS = ".sign-in-button"
-UNSUPPORTED_TEXT = "Firefox is not an officially supported browser"
+UNSUPPORTED_TEXT = "Plezix is not an officially supported browser"
 
 
 # We can't test on the android emulator as phone-

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -64,7 +64,7 @@ async function readJarDirectory(jarPath, installToDirPath) {
     // unable to execute or uninstall them.
     await IOUtils.setPermissions(destPath, 0o700);
     if (IOUtils.delMacXAttr) {
-      // If we're on MacOS Firefox will add the quarantine xattr to files it
+      // If we're on MacOS Plezix will add the quarantine xattr to files it
       // downloads. In this case we want to clear that xattr so we can load
       // the CDM.
       try {

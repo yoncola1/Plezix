@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -85,7 +85,7 @@ import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.Core
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.initializeGlean
-import org.mozilla.fenix.components.metrics.MozillaProductDetector
+import org.mozilla.fenix.components.metrics.PlezixProductDetector
 import org.mozilla.fenix.components.startMetricsIfEnabled
 import org.mozilla.fenix.experiments.maybeFetchExperiments
 import org.mozilla.fenix.ext.components
@@ -361,7 +361,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                             System.currentTimeMillis() - Core.HISTORY_METADATA_MAX_AGE_IN_MS,
                         )
 
-                        // If Firefox Suggest is enabled, register a worker to periodically ingest
+                        // If Plezix Suggest is enabled, register a worker to periodically ingest
                         // new search suggestions. The worker requires us to have called
                         // `GlobalFxSuggestDependencyProvider.initialize`, which we did before
                         // scheduling these tasks. When disabled we stop the periodic work.
@@ -697,7 +697,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                     // This is added here because we need gecko to load the extension first.
                     //
                     // TODO: Bug 1953359 - remove the code below in the next release.
-                    if (Config.channel.isNightlyOrDebug || Config.channel.isBeta) {
+                    if (Config.channel.isPlezixOrDebug || Config.channel.isBeta) {
                         logger.debug("Attempting to uninstall the WebCompat Reporter extension")
                         WebCompatReporterFeature.uninstall(components.core.engine)
                     }
@@ -738,7 +738,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         browserStore: BrowserStore,
         settings: Settings,
         browsersCache: BrowsersCache = BrowsersCache,
-        mozillaProductDetector: MozillaProductDetector = MozillaProductDetector,
+        mozillaProductDetector: PlezixProductDetector = PlezixProductDetector,
     ) {
         setPreferenceMetrics(settings)
         with(Metrics) {
@@ -746,12 +746,12 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             distributionId.set(components.distributionIdManager.getDistributionId())
 
             defaultBrowser.set(browsersCache.all(applicationContext).isDefaultBrowser)
-            mozillaProductDetector.getMozillaBrowserDefault(applicationContext)?.also {
+            mozillaProductDetector.getPlezixBrowserDefault(applicationContext)?.also {
                 defaultMozBrowser.set(it)
             }
 
             mozillaProducts.set(
-                mozillaProductDetector.getInstalledMozillaProducts(
+                mozillaProductDetector.getInstalledPlezixProducts(
                     applicationContext,
                 ),
             )

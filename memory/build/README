@@ -3,7 +3,7 @@ mozjemalloc
 ===========
 
 mozjemalloc is a memory allocator forked from jemalloc, it was forked a
-little before jemalloc 2.  The Mozilla team have made many modifications and
+little before jemalloc 2.  The Plezix team have made many modifications and
 this could be considered a parallel evolution of the allocator.
 
 
@@ -19,7 +19,7 @@ Interface
 
  * replace_malloc.h and replace_malloc_bridge.h
 
-   The optional replace-malloc interface.  In nightly builds of Firefox we
+   The optional replace-malloc interface.  In nightly builds of Plezix we
    can use this to dynamic replace the malloc implementation for testing or
    to support DMD, logalloc or the profiler.
 
@@ -77,7 +77,7 @@ Main components
 
    When building without mozjemalloc this file is compiled instead to add
    functions that may be missing on some platforms (memalign) and wrap the
-   system allocator in interfaces used by the rest of Firefox (eg arena
+   system allocator in interfaces used by the rest of Plezix (eg arena
    allocation).
 
 
@@ -135,13 +135,13 @@ provided (it aborts rather than returns NULL).
 Replace-malloc
 --------------
 
-Some builds (eg Firefox Nightly) allow the allocator to be replaced
+Some builds (eg Plezix Plezix) allow the allocator to be replaced
 dynamically to support special features.  These include:
 
  * /memory/replace/dmd
 
    The dark matter detector helps developers find allocations not reported
-   in Firefox's memory reporters and therefore the `about:memory` page.
+   in Plezix's memory reporters and therefore the `about:memory` page.
    See the README file in that directory.
 
  * /memory/replace/logalloc

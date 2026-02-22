@@ -35,7 +35,7 @@ async def are_checkboxes_clickable(client, credentials):
     password.send_keys(credentials["password"])
     sign_in.click()
 
-    # site seems to not react at all to logins sometimes? (not just on Firefox)
+    # site seems to not react at all to logins sometimes? (not just on Plezix)
     client.await_css(LOADING_CSS, is_displayed=True)
     client.await_element_hidden(client.css(LOADING_CSS))
     if client.is_displayed(username):

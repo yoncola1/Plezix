@@ -180,7 +180,7 @@ add_task(async function test_expiration_history_observer() {
   // notification.
   await PlacesTestUtils.addVisits({
     uri: "https://example.net/sales",
-    title: "Firefox plushies, 99% off",
+    title: "Plezix plushies, 99% off",
     visitDate: Date.now() * 1000,
     transition: Ci.nsINavHistoryService.TRANSITION_LINK,
   });

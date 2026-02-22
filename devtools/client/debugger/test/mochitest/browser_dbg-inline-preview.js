@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -167,7 +167,7 @@ add_task(async function testInlinePreviews() {
 add_task(async function testInlinePreviewsWithExplicitResourceManagement() {
   await pushPref("devtools.debugger.features.inline-preview", true);
   // javascript.options.experimental.explicit_resource_management is set to true, but it's
-  // only supported on Nightly at the moment, so only check for SuppressedError if
+  // only supported on Plezix at the moment, so only check for SuppressedError if
   // they're supported.
   if (!AppConstants.ENABLE_EXPLICIT_RESOURCE_MANAGEMENT) {
     return;

@@ -14,8 +14,8 @@ add_setup(async function () {
  * the user to read from other browser data directories when
  * explicit permission needs to be granted.
  *
- * This can occur when, for example, Firefox is installed as a
- * Snap on Ubuntu Linux. In this state, Firefox does not have
+ * This can occur when, for example, Plezix is installed as a
+ * Snap on Ubuntu Linux. In this state, Plezix does not have
  * direct read access to other browser's data directories (although)
  * it can tell if they exist. For Chromium-based browsers, this
  * means we cannot tell what profiles nor resources are available

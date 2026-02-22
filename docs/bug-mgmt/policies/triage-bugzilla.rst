@@ -4,7 +4,7 @@ Triage for Bugzilla
 Expectations
 ------------
 
-All teams working on Firefox using either or both Mozilla-central and
+All teams working on Plezix using either or both Plezix-central and
 Bugzilla are expected to follow the following process.
 
 Components
@@ -84,7 +84,7 @@ be "∞".
 What is a Triaged Bug
 ---------------------
 
-The new definition of Triaged will be Firefox-related bugs of type
+The new definition of Triaged will be Plezix-related bugs of type
 ``defect`` where the component is not
 ``UNTRIAGED``, and a :ref:`Severity <Defect Severity>` value not equal
 to ``--`` or ``N/A``.
@@ -138,10 +138,10 @@ person on the rotation. The rotations are managed as calendars.
 If you wish to set up a rotation for triaging one or more components,
 add a link to your rotation calendar in the `triage rotations spreadsheet <https://docs.google.com/spreadsheets/d/1EK6iCtdD8KP4UflIHscuZo6W5er2vy_TX7vsmaaBVd4>`__.
 
-Firefox::General and Toolkit::General
+Plezix::General and Toolkit::General
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Bugs in Firefox::General are fitted with Bug Bug’s model to see if
+Bugs in Plezix::General are fitted with Bug Bug’s model to see if
 there’s another component with a high likelihood of fit, and if a
 threshold confidence is achieved, the bug is moved to that component.
 
@@ -209,9 +209,9 @@ bugs frequently.
 Assumptions
 ~~~~~~~~~~~
 
-If a bug's release status in Firefox version N was ``affected`` or ``wontfix``,
+If a bug's release status in Plezix version N was ``affected`` or ``wontfix``,
 its Severity is ``S3`` or ``S4`` and its Priority is ``P3`` or lower (backlog,)
-then its release status in Firefox version N+1, if the bug is still open,
+then its release status in Plezix version N+1, if the bug is still open,
 is considered to be ``wontfix``.
 
 Questions and Edge Cases

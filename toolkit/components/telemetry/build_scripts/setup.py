@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -10,7 +10,7 @@ with open("README.md") as fh:
     long_description = fh.read()
 
 setup(
-    author="Mozilla Telemetry Team",
+    author="Plezix Telemetry Team",
     author_email="telemetry-client-dev@mozilla.com",
     url=(
         "https://firefox-source-docs.mozilla.org/"
@@ -25,7 +25,7 @@ setup(
     version=VERSION,
     classifiers=[
         "Topic :: Software Development :: Build Tools",
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)",
         "Programming Language :: Python :: 2.7",
     ],
     keywords=["mozilla", "telemetry", "parsers"],

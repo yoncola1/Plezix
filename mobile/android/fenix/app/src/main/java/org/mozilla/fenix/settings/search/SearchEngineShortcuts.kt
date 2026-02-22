@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ import mozilla.components.compose.base.menu.MenuItem.FixedItem.Level
 import mozilla.components.compose.base.text.Text
 import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Top-level UI for search shortcuts settings.
@@ -80,7 +80,7 @@ fun SearchEngineShortcuts(
 
     LazyColumn(
         modifier = Modifier
-            .background(color = FirefoxTheme.colors.layer1)
+            .background(color = PlezixTheme.colors.layer1)
             .fillMaxSize(),
     ) {
         item {
@@ -119,10 +119,10 @@ private fun Title(title: String) {
     ) {
         Text(
             text = title,
-            color = FirefoxTheme.colors.textAccent,
+            color = PlezixTheme.colors.textAccent,
             fontWeight = FontWeight.W400,
             modifier = Modifier.padding(horizontal = 16.dp),
-            style = FirefoxTheme.typography.headline8,
+            style = PlezixTheme.typography.headline8,
         )
     }
 }
@@ -149,8 +149,8 @@ private fun SearchItem(
             checked = isEnabled,
             onCheckedChange = { onCheckboxClicked.invoke(engine, it) },
             colors = CheckboxDefaults.colors(
-                checkedColor = FirefoxTheme.colors.formSelected,
-                uncheckedColor = FirefoxTheme.colors.formDefault,
+                checkedColor = PlezixTheme.colors.formSelected,
+                uncheckedColor = PlezixTheme.colors.formDefault,
             ),
         )
 
@@ -175,8 +175,8 @@ private fun SearchItem(
                 .padding(vertical = 8.dp)
                 .weight(1f),
             text = name,
-            style = FirefoxTheme.typography.subtitle1,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1,
+            color = PlezixTheme.colors.textPrimary,
         )
 
         if (engine.type == SearchEngine.Type.CUSTOM) {
@@ -192,7 +192,7 @@ private fun SearchItem(
                     Icon(
                         painter = painterResource(id = R.drawable.ic_menu),
                         contentDescription = stringResource(id = R.string.content_description_menu),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
 
                     DropdownMenu(
@@ -241,7 +241,7 @@ private fun AddEngineButton(
             contentDescription = stringResource(
                 id = R.string.search_engine_add_custom_search_engine_button_content_description,
             ),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = PlezixTheme.colors.iconPrimary,
         )
 
         Spacer(modifier = Modifier.width(16.dp))
@@ -252,8 +252,8 @@ private fun AddEngineButton(
                 .padding(vertical = 8.dp)
                 .weight(1f),
             text = stringResource(id = R.string.search_engine_add_custom_search_engine_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.subtitle1,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1,
         )
 
         Spacer(modifier = Modifier.width(16.dp))
@@ -263,7 +263,7 @@ private fun AddEngineButton(
 @PreviewLightDark
 @Composable
 private fun SearchEngineShortcutsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         SearchEngineShortcuts(
             categoryTitle = stringResource(id = R.string.preferences_category_engines_in_search_menu),
             store = BrowserStore(

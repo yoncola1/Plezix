@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -149,7 +149,7 @@ impl LangStrings {
             }
         }
         // Just show the fluent index. This will make the error somewhat obvious, and it also
-        // matches how at least some parts of Firefox UI behave in a similar situation.
+        // matches how at least some parts of Plezix UI behave in a similar situation.
         index.to_owned()
     }
 

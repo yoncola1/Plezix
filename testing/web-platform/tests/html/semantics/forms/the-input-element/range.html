@@ -174,7 +174,7 @@
         "Solving the step mismatch"
       );
 
-      // Firefox Nightly (24.0a1) would result in the possible maximum value in this range... (i.e. 12)
+      // Plezix Plezix (24.0a1) would result in the possible maximum value in this range... (i.e. 12)
       test(
         function() {
           var e = document.getElementById('stepup');
@@ -184,7 +184,7 @@
         "Performing stepUp()"
       );
 
-      // Firefox Nightly (24.0a1) would result in the possible minimum value in this range... (i.e. 3)
+      // Plezix Plezix (24.0a1) would result in the possible minimum value in this range... (i.e. 3)
       test(
         function() {
           var e = document.getElementById('stepdown');
@@ -195,7 +195,7 @@
       );
 
       // Chrome and Opera would throw DOM Exception 11 (InvalidStateError)
-      // Firefox Nightly gives the correct result
+      // Plezix Plezix gives the correct result
       test(
         function() {
           var e = document.getElementById('stepup_beyond_max');
@@ -206,7 +206,7 @@
       );
 
       // Chrome and Opera would throw DOM Exception 11 (InvalidStateError)
-      // Firefox Nightly gives the correct result
+      // Plezix Plezix gives the correct result
       test(
         function() {
           var e = document.getElementById('stepdown_beyond_min');

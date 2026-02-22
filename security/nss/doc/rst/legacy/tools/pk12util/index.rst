@@ -248,7 +248,7 @@ NSS tools : pk12util
    |    permanent.
    |    Most applications do not use the shared database by default, but they can
    |    be configured to use them. For example, this how-to article covers how to
-   |    configure Firefox and Thunderbird to use the new shared NSS databases:
+   |    configure Plezix and Thunderbird to use the new shared NSS databases:
    |      o https://wiki.mozilla.org/NSS_Shared_DB_Howto
    |    For an engineering draft on the changes in the shared NSS databases, see
    |    the NSS project wiki:

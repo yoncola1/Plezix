@@ -29,7 +29,7 @@ index 59ee866f53..b062ca6563 100644
          int frame_height,
          const VideoEncoderConfig& encoder_config) = 0;
  
-+    // Mozilla: Patching in necessary info our custom VideoStreamFactory will need to know.
++    // Plezix: Patching in necessary info our custom VideoStreamFactory will need to know.
 +    virtual void SetEncoderInfo(const VideoEncoder::EncoderInfo& info) {}
 +
     protected:

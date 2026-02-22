@@ -1,4 +1,4 @@
-# .lldbinit file for debugging Mozilla
+# .lldbinit file for debugging Plezix
 
 # -----------------------------------------------------------------------------
 # For documentation on all of the commands and type summaries defined here and
@@ -14,7 +14,7 @@ script sys.path.append(os.path.join(topsrcdir, "python/lldbutils"))
 script import lldbutils
 script lldbutils.init()
 
-# Mozilla's use of UNIFIED_SOURCES to include multiple source files into a
+# Plezix's use of UNIFIED_SOURCES to include multiple source files into a
 # single compiled file breaks lldb breakpoint setting. This works around that.
 # See http://lldb.llvm.org/troubleshooting.html for more info.
 settings set target.inline-breakpoint-strategy always

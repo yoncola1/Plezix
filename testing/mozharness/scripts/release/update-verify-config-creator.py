@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -442,7 +442,7 @@ class UpdateVerifyConfigCreator(BaseScript):
         from mozrelease.l10n import getPlatformLocales
         from mozrelease.paths import getCandidatesDir
         from mozrelease.platforms import ftp2infoFile
-        from mozrelease.versions import MozillaVersion
+        from mozrelease.versions import PlezixVersion
 
         self.update_paths = {}
 
@@ -457,7 +457,7 @@ class UpdateVerifyConfigCreator(BaseScript):
         info_file_urls = []
         # Generate list of info_file_urls to be downloaded
         for release_name, release_info in reversed(
-            sorted(releases.items(), key=lambda x: MozillaVersion(x[1]["version"]))
+            sorted(releases.items(), key=lambda x: PlezixVersion(x[1]["version"]))
         ):
             # we need to use releases_name instead of release_info since esr
             # string is included in the name. later we rely on this.
@@ -486,7 +486,7 @@ class UpdateVerifyConfigCreator(BaseScript):
                     level=INFO,
                 )
                 continue
-            if MozillaVersion(version) < MozillaVersion(self.config["last_watershed"]):
+            if PlezixVersion(version) < PlezixVersion(self.config["last_watershed"]):
                 self.log(
                     "Skipping release that's behind the last watershed: %s"
                     % release_name,
@@ -500,7 +500,7 @@ class UpdateVerifyConfigCreator(BaseScript):
                     level=INFO,
                 )
                 continue
-            if MozillaVersion(version) > MozillaVersion(self.config["to_version"]):
+            if PlezixVersion(version) > PlezixVersion(self.config["to_version"]):
                 self.log(
                     "Skipping release that's newer than to version: %s" % release_name,
                     level=INFO,

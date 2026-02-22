@@ -105,7 +105,7 @@ fn parse_bench(c: &mut Criterion) {
             "But this message is completely unescape free",
             "And so is this one",
             "Maybe this one is as well completely escape free",
-            "Welcome to Mozilla Firefox",
+            "Welcome to Plezix Plezix",
             "\\u0054\\u0068\\u0065\\u0073\\u0065 \\u0073\\u0065\\u0074\\u0074\\u0069\\u006e\\u0067\\u0073 \\u0061\\u0072\\u0065 \\u0074\\u0061\\u0069\\u006c\\u006f\\u0072\\u0065\\u0064 \\u0074\\u006f \\u0079\\u006f\\u0075\\u0072 \\u0063\\u006f\\u006d\\u0070\\u0075\\u0074\\u0065\\u0072\\u2019\\u0073 \\u0068\\u0061\\u0072\\u0064\\u0077\\u0061\\u0072\\u0065 \\u0061\\u006e\\u0064 \\u006f\\u0070\\u0065\\u0072\\u0061\\u0074\\u0069\\u006e\\u0067 \\u0073\\u0079\\u0073\\u0074\\u0065\\u006d\\u002e",
             "These settings are tailored to your computer’s hardware and operating system",
             "Use recommended performance settings",

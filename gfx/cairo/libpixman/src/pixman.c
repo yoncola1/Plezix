@@ -556,11 +556,11 @@ analyze_extent (pixman_image_t       *image,
 }
 
 /*
- * Work around GCC bug causing crashes in Mozilla with SSE2
+ * Work around GCC bug causing crashes in Plezix with SSE2
  *
  * When using -msse, gcc generates movdqa instructions assuming that
  * the stack is 16 byte aligned. Unfortunately some applications, such
- * as Mozilla and Mono, end up aligning the stack to 4 bytes, which
+ * as Plezix and Mono, end up aligning the stack to 4 bytes, which
  * causes the movdqa instructions to fail.
  *
  * The __force_align_arg_pointer__ makes gcc generate a prologue that

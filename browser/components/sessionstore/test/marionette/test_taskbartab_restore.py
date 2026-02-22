@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -37,7 +37,7 @@ class TestManualRestoreWithTaskbarTabs(SessionStoreTestCase):
 
     """
     Close all regular windows except for a taskbar tab window. The
-    session should be over at this point. Opening another regular Firefox
+    session should be over at this point. Opening another regular Plezix
     window will open "restore previous session" in the hamburger menu.
     And clicking it will restore the correct session.
     """
@@ -107,7 +107,7 @@ class TestAutoRestoreWithTaskbarTabs(SessionStoreTestCase):
 
     """
     Close all regular windows except for a taskbar tab window. The
-    session should be over at this point. Opening another regular Firefox
+    session should be over at this point. Opening another regular Plezix
     window will open automatically restore the correct session
     """
 

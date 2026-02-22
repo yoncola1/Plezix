@@ -15,8 +15,8 @@ Since version 132, telemetry pings can be tested via the Glean Debug Tools featu
 
 1. Click on the 3 dot menu.
 2. Click on "Settings" / settings icon (if menu redesign is enabled).
-3. Scroll down and click on "About Firefox".
-4. Click on the Firefox logo 5 times to enable debug menu.
+3. Scroll down and click on "About Plezix".
+4. Click on the Plezix logo 5 times to enable debug menu.
 5. Go back to settings.
 6. Click on secret settings.
 7. Toggle on "Enable Debug Drawer".

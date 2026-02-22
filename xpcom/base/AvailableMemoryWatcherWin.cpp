@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -372,7 +372,7 @@ nsAvailableMemoryWatcher::GetName(nsACString& aName) {
 }
 
 // Observer service callback, used to stop the polling timer when the user
-// stops interacting with Firefox and resuming it when they interact again.
+// stops interacting with Plezix and resuming it when they interact again.
 // Also used to shut down the service if the application is quitting.
 NS_IMETHODIMP
 nsAvailableMemoryWatcher::Observe(nsISupports* aSubject, const char* aTopic,

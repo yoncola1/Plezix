@@ -1,5 +1,5 @@
 FROM $DOCKER_IMAGE_PARENT
-MAINTAINER Mozilla Releng <release@mozilla.com>
+MAINTAINER Plezix Releng <release@mozilla.com>
 
 VOLUME /builds/worker/workspace
 

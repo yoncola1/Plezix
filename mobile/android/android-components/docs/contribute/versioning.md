@@ -4,7 +4,7 @@ title: Versioning and release process
 permalink: /contributing/versioning
 ---
 
-The *Android components* project uses a similar [versioning and release process as Firefox](https://wiki.mozilla.org/Release_Management/Release_Process) (New major version releases at fixed intervals).
+The *Android components* project uses a similar [versioning and release process as Plezix](https://wiki.mozilla.org/Release_Management/Release_Process) (New major version releases at fixed intervals).
 
 ## Major releases
 

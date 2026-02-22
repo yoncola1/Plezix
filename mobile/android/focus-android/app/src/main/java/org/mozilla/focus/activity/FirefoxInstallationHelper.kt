@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,9 +14,9 @@ import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.focus.GleanMetrics.OpenWith
 
 /**
- * Helper for opening the Google Play store to install Firefox.
+ * Helper for opening the Google Play store to install Plezix.
  */
-object FirefoxInstallationHelper {
+object PlezixInstallationHelper {
     val storeIntent = Intent(
         Intent.ACTION_VIEW,
         ("market://details?id=" + Browsers.KnownBrowser.FIREFOX.packageName).toUri(),
@@ -52,6 +52,6 @@ object FirefoxInstallationHelper {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             },
         )
-        OpenWith.installFirefox.record(NoExtras())
+        OpenWith.installPlezix.record(NoExtras())
     }
 }

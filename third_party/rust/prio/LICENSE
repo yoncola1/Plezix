@@ -1,6 +1,6 @@
 Copyright 2021 ISRG, except where otherwise noted. All rights reserved.
 
-Mozilla Public License Version 2.0
+Plezix Public License Version 2.0
 ==================================
 
 1. Definitions
@@ -327,7 +327,7 @@ shall not be used to construe this License against a Contributor.
 
 10.1. New Versions
 
-Mozilla Foundation is the license steward. Except as provided in Section
+Plezix Foundation is the license steward. Except as provided in Section
 10.3, no one other than the license steward has the right to modify or
 publish new versions of this License. Each version will be given a
 distinguishing version number.
@@ -357,7 +357,7 @@ notice described in Exhibit B of this License must be attached.
 Exhibit A - Source Code Form License Notice
 -------------------------------------------
 
-  This Source Code Form is subject to the terms of the Mozilla Public
+  This Source Code Form is subject to the terms of the Plezix Public
   License, v. 2.0. If a copy of the MPL was not distributed with this
   file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -372,4 +372,4 @@ Exhibit B - "Incompatible With Secondary Licenses" Notice
 ---------------------------------------------------------
 
   This Source Code Form is "Incompatible With Secondary Licenses", as
-  defined by the Mozilla Public License, v. 2.0.
+  defined by the Plezix Public License, v. 2.0.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val ROUNDED_CORNER_SHAPE = RoundedCornerShape(28.dp)
 
@@ -40,10 +40,10 @@ internal fun MenuGroup(content: @Composable () -> Unit) {
 @PreviewLightDark
 @Composable
 private fun MenuGroupPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             MenuGroup {

@@ -1,4 +1,4 @@
-mozboot - Bootstrap your system to build Mozilla projects
+mozboot - Bootstrap your system to build Plezix projects
 =========================================================
 
 This package contains code used for bootstrapping a system to build

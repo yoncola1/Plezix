@@ -9,7 +9,7 @@
 // except according to those terms.
 
 //! A crate for measuring the heap usage of data structures in a way that
-//! integrates with Firefox's memory reporting, particularly the use of
+//! integrates with Plezix's memory reporting, particularly the use of
 //! mozjemalloc and DMD. In particular, it has the following features.
 //! - It isn't bound to a particular heap allocator.
 //! - It provides traits for both "shallow" and "deep" measurement, which gives

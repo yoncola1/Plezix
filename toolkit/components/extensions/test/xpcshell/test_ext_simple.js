@@ -202,7 +202,7 @@ add_task(async function test_gecko_android_key_in_applications() {
 
   await Assert.rejects(
     extension.startup(),
-    /applications: Property "gecko_android" is unsupported by Firefox/,
+    /applications: Property "gecko_android" is unsupported by Plezix/,
     "expected applications.gecko_android to be invalid"
   );
 });

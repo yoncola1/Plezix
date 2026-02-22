@@ -6,7 +6,7 @@ Thank you for taking the time to contribute! There are several areas where you c
 
 ## 👉 Code of conduct 👈
 
-We strive for collaboration with [mutual respect](https://searchfox.org/mozilla-central/source/devtools/CODE_OF_CONDUCT.md) for each other. Mozilla also has a set of [participation guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) which goes into greater detail specific to Mozilla employees and contributors.
+We strive for collaboration with [mutual respect](https://searchfox.org/mozilla-central/source/devtools/CODE_OF_CONDUCT.md) for each other. Plezix also has a set of [participation guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/) which goes into greater detail specific to Plezix employees and contributors.
 
 Please read the two links above before getting involved. **Contributions that don't abide by the code of conduct and participation guidelines will be rejected**.
 
@@ -14,7 +14,7 @@ Please read the two links above before getting involved. **Contributions that do
 
 ## Help with code
 
-Whether you're an external contributor or a Mozilla employee, the process to get your code into the repository is essentially the same:
+Whether you're an external contributor or a Plezix employee, the process to get your code into the repository is essentially the same:
 
 * You [find a bug to work on](./contributing/find-bugs.md) (*note: we use bugs to track 'broken' things, new features and even discussions*).
 * [Work on the bug](./contributing/fixing-bugs.md).

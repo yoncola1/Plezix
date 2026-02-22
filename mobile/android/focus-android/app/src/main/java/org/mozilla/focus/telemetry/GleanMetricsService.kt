@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.focus.Components
 import org.mozilla.focus.GleanMetrics.Browser
 import org.mozilla.focus.GleanMetrics.GleanBuildInfo
 import org.mozilla.focus.GleanMetrics.Metrics
-import org.mozilla.focus.GleanMetrics.MozillaProducts
+import org.mozilla.focus.GleanMetrics.PlezixProducts
 import org.mozilla.focus.GleanMetrics.Notifications
 import org.mozilla.focus.GleanMetrics.Pings
 import org.mozilla.focus.GleanMetrics.Preferences
@@ -193,8 +193,8 @@ class GleanMetricsService(context: Context) : MetricsService {
         Browser.installSource.set(installSourcePackage.orEmpty())
 
         // Fenix telemetry
-        MozillaProducts.hasFenixInstalled.set(hasFenixInstalled)
-        MozillaProducts.isFenixDefaultBrowser.set(isFenixDefaultBrowser)
+        PlezixProducts.hasFenixInstalled.set(hasFenixInstalled)
+        PlezixProducts.isFenixDefaultBrowser.set(isFenixDefaultBrowser)
 
         // tracking protection metrics
         TrackingProtection.hasAdvertisingBlocked.set(settings.hasAdvertisingBlocked())

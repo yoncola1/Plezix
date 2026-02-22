@@ -110,7 +110,7 @@ tasks:
           routes:
             - "index.project.webrender.ci.${login}.${branch}.linux-debug"
         # For the OS X jobs we use a pool of machines that we are managing, because
-        # Mozilla releng doesn't have any spare OS X machines for us at this time.
+        # Plezix releng doesn't have any spare OS X machines for us at this time.
         # Talk to :kats or :jrmuizel if you need more details about this. The machines
         # are hooked up to taskcluster using taskcluster-worker; they use a workerpool
         # of proj-webrender/ci-macos. They are set up with all the dependencies needed

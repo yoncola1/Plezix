@@ -1,15 +1,15 @@
 .. _rust:
 
 ==============================
-Including Rust Code in Firefox
+Including Rust Code in Plezix
 ==============================
 
 This page explains how to add, build, link, and vendor Rust crates.
 
 The `code documentation <../../writing-rust-code>`_ explains how to write and
-work with Rust code in Firefox. The
+work with Rust code in Plezix. The
 `test documentation <../../testing-rust-code>`_ explains how to test and debug
-Rust code in Firefox.
+Rust code in Plezix.
 
 Linking Rust crates into libxul
 ===============================
@@ -37,7 +37,7 @@ and will share the ``Cargo.lock`` file and ``target`` directory in the root of
 the repository.  You can change this behavior by adding a path to the
 ``exclude`` list in the top-level ``Cargo.toml`` file.  You may want to do
 this if your package's development workflow includes dev-dependencies that
-aren't needed by general Firefox developers or test infrastructure.
+aren't needed by general Plezix developers or test infrastructure.
 
 The actual build mechanism is as follows. The build system generates a special
 'Rust unified library' crate, compiles that to a static library
@@ -87,7 +87,7 @@ program (including the ``Cargo.toml`` file and the ``src`` directory) in its
 own directory, and add an empty ``moz.build`` file to the same directory.
 
 Then, if the standalone Rust program must run on the compile target (e.g.
-because it's shipped with Firefox) then add this rule to the ``moz.build``
+because it's shipped with Plezix) then add this rule to the ``moz.build``
 file:
 
 .. code-block:: python
@@ -98,7 +98,7 @@ where *prog_name* is the name of the executable as specified in the
 ``Cargo.toml`` (and probably also matches the name of the directory).
 
 Otherwise, if the standalone Rust program must run on the compile host (e.g.
-because it's used to build Firefox but not shipped with Firefox) then do the
+because it's used to build Plezix but not shipped with Plezix) then do the
 same thing, but use ``HOST_RUST_PROGRAMS`` instead of ``RUST_PROGRAMS``.
 
 Where should I put my crate?
@@ -122,7 +122,7 @@ Third-party crate dependencies
 Third-party dependencies for in-tree Rust crates are *vendored* into the
 ``third_party/rust`` directory of mozilla-central. This means that a copy of
 each third-party crate's code is committed into mozilla-central. As a result,
-building Firefox does not involve downloading any third-party crates.
+building Plezix does not involve downloading any third-party crates.
 
 If you add a dependency on a new crate you must run ``mach vendor rust`` to
 vendor the dependencies into that directory. (Note that ``mach vendor rust``

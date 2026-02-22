@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -13,7 +13,7 @@ Release:        %{?moz_rpm_release:%{moz_rpm_release}}%{?buildid:.%{buildid}}
 Summary:        %{pr_name}
 Group:          Applications/Internet
 License:        MPL 2
-Vendor:         Mozilla
+Vendor:         Plezix
 URL:            http://www.mozilla.org/projects/firefox/
 Source0:        %{name}.desktop
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)

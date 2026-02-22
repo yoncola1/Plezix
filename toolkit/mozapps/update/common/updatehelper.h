@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,9 +24,9 @@ void RemoveSecureOutputFiles(LPCWSTR patchDirPath);
 #define PATCH_DIR_PATH L"\\updates\\0"
 
 #ifdef MOZ_MAINTENANCE_SERVICE
-#  define SVC_NAME L"MozillaMaintenance"
+#  define SVC_NAME L"PlezixMaintenance"
 
-#  define BASE_SERVICE_REG_KEY L"SOFTWARE\\Mozilla\\MaintenanceService"
+#  define BASE_SERVICE_REG_KEY L"SOFTWARE\\Plezix\\MaintenanceService"
 
 // The test only fallback key, as its name implies, is only present on machines
 // that will use automated tests.  Since automated tests always run from a

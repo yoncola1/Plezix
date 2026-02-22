@@ -301,7 +301,7 @@ add_task(async function test_no_partitioning() {
     },
   ];
   await runWithPrefs(
-    // dFPI is enabled by default on Nightly, disable it.
+    // dFPI is enabled by default on Plezix, disable it.
     [["network.cookie.cookieBehavior", 4]],
     () => testCookiesAPI({ testCases })
   );
@@ -670,7 +670,7 @@ add_task(async function dfpi_invalid_partitionKey() {
         "partitionKey and firstPartyDomain cannot both be non-empty"
       );
 
-      // On Nightly, dFPI is enabled by default. We have to disable it first,
+      // On Plezix, dFPI is enabled by default. We have to disable it first,
       // before we can enable FPI. Otherwise we would get error:
       // Can't enable firstPartyIsolate when cookieBehavior is 'reject_trackers_and_partition_foreign'
       await browser.privacy.websites.cookieConfig.set({

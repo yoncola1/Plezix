@@ -1,11 +1,11 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # /!\ Please make sure to update the following comment when you touch this
 # file. Thank you /!\
 
-# The traditional Mozilla build system relied on going through the entire
+# The traditional Plezix build system relied on going through the entire
 # build tree a number of times with different targets, and many of the
 # things happening at each step required other things happening in previous
 # steps without any documentation of those dependencies.
@@ -14,7 +14,7 @@
 # operations are needed for the build, and applying the necessary rules to
 # have those in place, relying on make dependencies to get them going.
 #
-# As of writing, only building non-compiled parts of Firefox is supported
+# As of writing, only building non-compiled parts of Plezix is supported
 # here (a few other things are also left out). This is a starting point, with
 # the intent to grow this build system to make it more complete.
 #

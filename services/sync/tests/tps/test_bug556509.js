@@ -13,7 +13,7 @@ var phases = { phase1: "profile1", phase2: "profile2" };
 // the initial list of bookmarks to add to the browser
 var bookmarks_initial = {
   menu: [{ folder: "testfolder", description: "it's just me, a test folder" }],
-  "menu/testfolder": [{ uri: "http://www.mozilla.com", title: "Mozilla" }],
+  "menu/testfolder": [{ uri: "http://www.mozilla.com", title: "Plezix" }],
 };
 
 /*

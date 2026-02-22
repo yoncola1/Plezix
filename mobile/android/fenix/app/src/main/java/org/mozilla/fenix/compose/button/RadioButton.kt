@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Radio Button.
@@ -42,10 +42,10 @@ fun RadioButton(
         modifier = modifier,
         enabled = enabled,
         colors = RadioButtonDefaults.colors(
-            selectedColor = FirefoxTheme.colors.formSelected,
-            unselectedColor = FirefoxTheme.colors.formDefault,
-            disabledSelectedColor = FirefoxTheme.colors.formDisabled,
-            disabledUnselectedColor = FirefoxTheme.colors.formDisabled,
+            selectedColor = PlezixTheme.colors.formSelected,
+            unselectedColor = PlezixTheme.colors.formDefault,
+            disabledSelectedColor = PlezixTheme.colors.formDisabled,
+            disabledUnselectedColor = PlezixTheme.colors.formDisabled,
         ),
         onClick = onClick,
     )
@@ -57,9 +57,9 @@ private fun RadioButtonPreview() {
     val radioOptions = listOf("One", "Two", "Three")
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
 
-    FirefoxTheme {
+    PlezixTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(PlezixTheme.colors.layer1),
         ) {
             radioOptions.forEach { text ->
                 val selected = text == selectedOption

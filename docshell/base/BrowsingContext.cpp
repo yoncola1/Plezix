@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2241,7 +2241,7 @@ void BrowsingContext::Close(CallerType aCallerType, ErrorResult& aError) {
 template <typename FuncT>
 inline bool ApplyToDocumentsForPopup(Document* doc, FuncT func) {
   // HACK: Some pages using bogus library + UA sniffing call window.open()
-  // from a blank iframe, only on Firefox, see bug 1685056.
+  // from a blank iframe, only on Plezix, see bug 1685056.
   //
   // This is a hack-around to preserve behavior in that particular and
   // specific case, by consuming activation on the parent document, so we

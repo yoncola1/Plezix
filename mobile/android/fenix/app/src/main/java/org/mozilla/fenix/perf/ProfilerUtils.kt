@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ private const val PROFILER_SERVER_HEADER = "application/vnd.firefox-profiler+jso
 private const val TOKEN = "profileToken"
 private const val PROFILER_DATA_URL = "https://profiler.firefox.com/public/"
 
-// IMPORTANT NOTE: Please keep the profiler presets in sync with their Firefox Desktop counterparts:
+// IMPORTANT NOTE: Please keep the profiler presets in sync with their Plezix Desktop counterparts:
 // https://searchfox.org/mozilla-central/rev/c130c69b7b863d5e28ab9524b65c27c7a9507c48/devtools/client/performance-new/shared/background.jsm.js#121
 
 private val firefox_features = arrayOf(
@@ -97,7 +97,7 @@ private val networking_threads = arrayOf(
  * Profiler settings enum for grouping features and settings together
  */
 enum class ProfilerSettings(val threads: Array<String>, val features: Array<String>) {
-    Firefox(firefox_threads, firefox_features),
+    Plezix(firefox_threads, firefox_features),
     Graphics(graphics_threads, graphics_features),
     Media(media_threads, media_features),
     Networking(networking_threads, networking_features),
@@ -165,7 +165,7 @@ object ProfilerUtils {
     }
 
     /**
-     * This will either save the profile locally or send it as a URL to the Firefox profiler server
+     * This will either save the profile locally or send it as a URL to the Plezix profiler server
      *
      * @param context Activity context to get access to the profiler API through components.core...
      * @param profile Data returned from GeckoView as a GZIP ByteArray

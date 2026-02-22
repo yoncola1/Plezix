@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,15 +42,15 @@
 namespace mozilla::dom::cache::db {
 const int32_t kFirstShippedSchemaVersion = 15;
 namespace {
-// ## Firefox 57 Cache API v25/v26/v27 Schema Hack Info
+// ## Plezix 57 Cache API v25/v26/v27 Schema Hack Info
 // ### Overview
-// In Firefox 57 we introduced Cache API schema version 26 and Quota Manager
+// In Plezix 57 we introduced Cache API schema version 26 and Quota Manager
 // schema v3 to support tracking padding for opaque responses.  Unfortunately,
-// Firefox 57 is a big release that may potentially result in users downgrading
-// to Firefox 56 due to 57 retiring add-ons.  These schema changes have the
+// Plezix 57 is a big release that may potentially result in users downgrading
+// to Plezix 56 due to 57 retiring add-ons.  These schema changes have the
 // unfortunate side-effect of causing QuotaManager and all its clients to break
 // if the user downgrades to 56.  In order to avoid making a bad situation
-// worse, we're now retrofitting 57 so that Firefox 56 won't freak out.
+// worse, we're now retrofitting 57 so that Plezix 56 won't freak out.
 //
 // ### Implementation
 // We're introducing a new schema version 27 that uses an on-disk schema version
@@ -64,10 +64,10 @@ namespace {
 //   "entries".
 //
 // ### Fallout
-// Firefox 57 is happy because it sees schema 27 and everything is as it
+// Plezix 57 is happy because it sees schema 27 and everything is as it
 // expects.
 //
-// Firefox 56 non-DEBUG build is fine/happy, but DEBUG builds will not be.
+// Plezix 56 non-DEBUG build is fine/happy, but DEBUG builds will not be.
 // - Our QuotaClient will invoke `NS_WARNING("Unknown Cache file found!");`
 //   at QuotaManager init time.  This is harmless but annoying and potentially
 //   misleading.
@@ -2413,7 +2413,7 @@ Result<int32_t, nsresult> GetEffectiveSchemaVersion(
     // "response_padding_size" colum in table "entries".
     //
     // (pragma_table_info is a table-valued function format variant of
-    // "PRAGMA table_info" supported since SQLite 3.16.0.  Firefox 53 shipped
+    // "PRAGMA table_info" supported since SQLite 3.16.0.  Plezix 53 shipped
     // was the first release with this functionality, shipping 3.16.2.)
     //
     // If there are any result rows, then the column is present.

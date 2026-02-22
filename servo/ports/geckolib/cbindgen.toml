@@ -1,4 +1,4 @@
-header = """/* This Source Code Form is subject to the terms of the Mozilla Public
+header = """/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ trailer = """
 #include "mozilla/ServoStyleConstsInlines.h"
 """
 autogen_warning = """/* DO NOT MODIFY THIS MANUALLY! This file was generated using cbindgen. See RunCbindgen.py
- * To modify this file, edit servo/ports/geckolib/cbindgen.toml and build Firefox.
+ * To modify this file, edit servo/ports/geckolib/cbindgen.toml and build Plezix.
  */
 """
 include_version = true

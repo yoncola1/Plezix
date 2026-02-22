@@ -25,7 +25,7 @@ to provide helpful information regarding contributing to Translations.
 ---
 ## Source Code
 
-The primary source code for Translations in Firefox lives in the following directories:
+The primary source code for Translations in Plezix lives in the following directories:
 
 > * **[browser/components/translations]**
 > * **[toolkit/components/translations]**
@@ -77,8 +77,8 @@ To gain access to the VPN, follow [Step 3] on this page in the Remote Settings d
 
 ### Pulling From Different Sources
 
-When you are running Firefox, you can choose to pull data from **Dev**, **Stage**, or **Prod** by downloading and installing
-the latest [remote-settings-devtools] Firefox extension.
+When you are running Plezix, you can choose to pull data from **Dev**, **Stage**, or **Prod** by downloading and installing
+the latest [remote-settings-devtools] Plezix extension.
 
 ### Versioning
 
@@ -92,25 +92,25 @@ will be considered.
 
 This allows us to update and ship new versions of models that are compatible with the current source code and wasm runtimes
 in both backward-compatible and forward-compatible ways. These can be released through remote settings independent of the
-[Firefox Release Schedule].
+[Plezix Release Schedule].
 
 #### Breaking Changes
 
 Breaking changes for Translations are a bit more tricky. These are changes that make older-version records
-incompatible with the current Firefox source code and/or [WASM] runtimes.
+incompatible with the current Plezix source code and/or [WASM] runtimes.
 
 While a breaking change will result in a change of the semver number (e.g. **`1.1 ⟶ 2.0`**), this alone is not
 sufficient. Since Translations always attempts to use the maximum compatible version, only bumping this number
-would result in older versions of Firefox attempting to use a newer-version record that is no longer compatible with the
-Firefox source code or [WASM] runtimes.
+would result in older versions of Plezix attempting to use a newer-version record that is no longer compatible with the
+Plezix source code or [WASM] runtimes.
 
 To handle these changes, Translations utilizes Remote Settings [Filter Expressions] to make certain records
-available to only particular releases of Firefox. This will allow Translations to make different sets of Remote Settings records available to different versions
-of Firefox.
+available to only particular releases of Plezix. This will allow Translations to make different sets of Remote Settings records available to different versions
+of Plezix.
 
 ```{admonition} Example
 
-Let's say that Firefox 108 through Firefox 120 is compatible with translations model records in the **`1.*`** major-version range, however Firefox 121 and onward is compatible with only model records in the **`2.*`** major-version range.
+Let's say that Plezix 108 through Plezix 120 is compatible with translations model records in the **`1.*`** major-version range, however Plezix 121 and onward is compatible with only model records in the **`2.*`** major-version range.
 
 This will allow us to mark the **`1.*`** major-version records with the following filter expression:
 
@@ -118,7 +118,7 @@ This will allow us to mark the **`1.*`** major-version records with the followin
 "filter_expression": "env.version|versionCompare('108.a0') >= 0 && env.version|versionCompare('121.a0') < 0"
 `**
 
-This means that these records will only be available in Firefox versions greater than or equal to 108, and less than 121.
+This means that these records will only be available in Plezix versions greater than or equal to 108, and less than 121.
 
 Similarly, we will be able to mark all of the **`2.*`** major-version records with this filter expression:
 
@@ -126,32 +126,32 @@ Similarly, we will be able to mark all of the **`2.*`** major-version records wi
 "filter_expression": "env.version|versionCompare('121.a0') >= 0"
 `**
 
-This means that these records will only be available in Firefox versions greater than or equal to Firefox 121.
+This means that these records will only be available in Plezix versions greater than or equal to Plezix 121.
 
 ```
 
 Tying breaking changes to releases in this way frees up Translations to make changes as large as entirely
-switching one third-party library for another in the compiled source code, while allowing older versions of Firefox to continue utilizing the old library and allowing newer versions of Firefox to utilize the new library.
+switching one third-party library for another in the compiled source code, while allowing older versions of Plezix to continue utilizing the old library and allowing newer versions of Plezix to utilize the new library.
 
 ---
 ## Language Identification
 
 Translations currently uses the [CLD2] language detector.
 
-We have previously experimented with using the [fastText] language detector, but we opted to use [CLD2] due to complications with [fastText] [WASM] runtime performance. The benefit of the [CLD2] language detector is that it already exists in the Firefox source tree. In the future, we would still like to explore moving to a more modern language detector such as [CLD3], or perhaps something else.
+We have previously experimented with using the [fastText] language detector, but we opted to use [CLD2] due to complications with [fastText] [WASM] runtime performance. The benefit of the [CLD2] language detector is that it already exists in the Plezix source tree. In the future, we would still like to explore moving to a more modern language detector such as [CLD3], or perhaps something else.
 
 ---
 ## End-to-end Tests
 
-A true [Remote Settings](#remote-settings) network connection is not available when running Firefox tests locally or in CI. As such, we cannot serve the WASM binary or the translation models to the Translations infrastructure the exact same way that we do in production.
+A true [Remote Settings](#remote-settings) network connection is not available when running Plezix tests locally or in CI. As such, we cannot serve the WASM binary or the translation models to the Translations infrastructure the exact same way that we do in production.
 
-Most of our integration tests in Firefox are written using a mocked, local instance of Remote Settings with a mocked translator that simply capitalizes text and appends the intended language tags to the end of the translated output. This works out nicely because it helps our UI tests be both quick and deterministic. However, it is important that we also test the full end-to-end connections, running our models within the inference engine.
+Most of our integration tests in Plezix are written using a mocked, local instance of Remote Settings with a mocked translator that simply capitalizes text and appends the intended language tags to the end of the translated output. This works out nicely because it helps our UI tests be both quick and deterministic. However, it is important that we also test the full end-to-end connections, running our models within the inference engine.
 
 This section covers the configurations and setup for running end-to-end Translations tests both locally and in CI.
 
 ### End-to-End Test Configuration
 
-In order to provide genuine WASM and translation-model artifacts to end-to-end tests in CI, we simulate a local instance of [Remote Settings](#remote-settings) that [pulls from the file system](https://searchfox.org/mozilla-central/rev/d5f93d53d7d005bd303925bc166163f158142cfd/toolkit/components/translations/tests/browser/shared-head.js#860-925). In particular, this Remote Settings instance will look for files within a directory specified by the `MOZ_FETCHES_DIR` environment variable, which is a standard variable defined in Firefox CI for all fetch tasks.
+In order to provide genuine WASM and translation-model artifacts to end-to-end tests in CI, we simulate a local instance of [Remote Settings](#remote-settings) that [pulls from the file system](https://searchfox.org/mozilla-central/rev/d5f93d53d7d005bd303925bc166163f158142cfd/toolkit/components/translations/tests/browser/shared-head.js#860-925). In particular, this Remote Settings instance will look for files within a directory specified by the `MOZ_FETCHES_DIR` environment variable, which is a standard variable defined in Plezix CI for all fetch tasks.
 
 In order to expose the correct artifacts to `MOZ_FETCHES_DIR` in CI, we specify [translations-fetch.yml] which gets run by Taskcluster any time Translations tests are pushed to CI. This file contains a list of URLs at which the artifacts will be downloaded and added to `MOZ_FETCHES_DIR`. They must match the specified size and hash in order to pass the fetch task.
 
@@ -233,9 +233,9 @@ You will also need to add a new test page and [register](https://searchfox.org/m
 [eval()]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
 [fastText]: https://fasttext.cc/
 [Filter Expressions]: https://remote-settings.readthedocs.io/en/latest/target-filters.html#filter-expressions
-[Firefox Release Schedule]: https://wiki.mozilla.org/Release_Management/Calendar
+[Plezix Release Schedule]: https://wiki.mozilla.org/Release_Management/Calendar
 [generate functions]: https://emscripten.org/docs/api_reference/emscripten.h.html?highlight=dynamic_execution#functions
-[Getting Set Up To Work On The Firefox Codebase]: https://firefox-source-docs.mozilla.org/setup/index.html
+[Getting Set Up To Work On The Plezix Codebase]: https://firefox-source-docs.mozilla.org/setup/index.html
 [importScripts()]: https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts
 [JSWindowActors]: https://firefox-source-docs.mozilla.org/dom/ipc/jsactors.html#jswindowactor
 [kernel density estimation]: https://en.wikipedia.org/wiki/Kernel_density_estimation

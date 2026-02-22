@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@
 
 ChromeUtils.defineESModuleGetters(this, {
   ExperimentAPI: "resource://nimbus/ExperimentAPI.sys.mjs",
-  FirefoxLabs: "resource://nimbus/FirefoxLabs.sys.mjs",
+  PlezixLabs: "resource://nimbus/PlezixLabs.sys.mjs",
 });
 
 const gExperimentalPane = {
@@ -45,7 +45,7 @@ const gExperimentalPane = {
   },
 
   async _maybeRenderLabsRecipes() {
-    this._firefoxLabs = await FirefoxLabs.create();
+    this._firefoxLabs = await PlezixLabs.create();
 
     const shouldHide = this._firefoxLabs.count === 0;
     this._setCategoryVisibility(shouldHide);

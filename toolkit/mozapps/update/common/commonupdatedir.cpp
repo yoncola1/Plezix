@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*
- * This file does not use many of the features Firefox provides such as
+ * This file does not use many of the features Plezix provides such as
  * nsAString and nsIFile because code in this file will be included not only
- * in Firefox, but also in the Mozilla Maintenance Service, the Mozilla
+ * in Plezix, but also in the Plezix Maintenance Service, the Plezix
  * Maintenance Service installer, and TestAUSHelper.
  */
 
@@ -33,19 +33,19 @@
 #ifdef XP_WIN
 // This is the name of the old update directory
 // (i.e. C:\ProgramData\<OLD_ROOT_UPDATE_DIR_NAME>)
-#  define OLD_ROOT_UPDATE_DIR_NAME "Mozilla"
+#  define OLD_ROOT_UPDATE_DIR_NAME "Plezix"
 // This is the name of the current update directory
 // (i.e. C:\ProgramData\<ROOT_UPDATE_DIR_NAME>)
 // It is really important that we properly set the permissions on this
 // directory at creation time. Thus, it is really important that this code be
 // the creator of this directory. We had many problems with the old update
-// directory having been previously created by old versions of Firefox. To avoid
+// directory having been previously created by old versions of Plezix. To avoid
 // this problem in the future, we are including a UUID in the root update
 // directory name to attempt to ensure that it will be created by this code and
 // won't already exist with the wrong permissions.
-#  define ROOT_UPDATE_DIR_NAME "Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38"
-// This describes the directory between the "Mozilla" directory and the install
-// path hash (i.e. C:\ProgramData\Mozilla\<UPDATE_PATH_MID_DIR_NAME>\<hash>)
+#  define ROOT_UPDATE_DIR_NAME "Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38"
+// This describes the directory between the "Plezix" directory and the install
+// path hash (i.e. C:\ProgramData\Plezix\<UPDATE_PATH_MID_DIR_NAME>\<hash>)
 #  define UPDATE_PATH_MID_DIR_NAME "updates"
 
 enum class WhichUpdateDir {
@@ -381,7 +381,7 @@ static HRESULT MakeDir(const SimpleAutoString& path, const AutoPerms& perms);
 
 /**
  * Returns a hash of the install path, suitable for uniquely identifying the
- * particular Firefox installation that is running.
+ * particular Plezix installation that is running.
  *
  * This function includes a compatibility mode that should NOT be used except by
  * GetUserUpdateDirectory. Previous implementations of this function could
@@ -542,7 +542,7 @@ static HRESULT GetUpdateDirectory(const wchar_t* installPath,
   }
 
   // Generate the base path
-  // (C:\ProgramData\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38)
+  // (C:\ProgramData\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38)
   SimpleAutoString basePath;
   size_t basePathLen =
       wcslen(baseDirParentPath) + 1 /* path separator */ + baseDir.Length();
@@ -560,7 +560,7 @@ static HRESULT GetUpdateDirectory(const wchar_t* installPath,
   }
 
   // Generate what we are going to call the mid-path
-  // (C:\ProgramData\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38\updates)
+  // (C:\ProgramData\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38\updates)
   const wchar_t midPathDirName[] = NS_T(UPDATE_PATH_MID_DIR_NAME);
   size_t midPathLen =
       basePath.Length() + 1 /* path separator */ + wcslen(midPathDirName);
@@ -576,7 +576,7 @@ static HRESULT GetUpdateDirectory(const wchar_t* installPath,
   // The Windows installer caches this hash value in the registry
   bool gotHash = false;
   SimpleAutoString regPath;
-  regPath.AutoAllocAndAssignSprintf(L"SOFTWARE\\Mozilla\\%S\\TaskBarIDs",
+  regPath.AutoAllocAndAssignSprintf(L"SOFTWARE\\Plezix\\%S\\TaskBarIDs",
                                     MOZ_APP_BASENAME);
   if (regPath.Length() != 0) {
     gotHash = GetCachedHash(reinterpret_cast<const char16_t*>(installPath),

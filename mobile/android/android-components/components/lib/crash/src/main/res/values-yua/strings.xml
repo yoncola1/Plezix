@@ -2,10 +2,10 @@
 <resources>
   <!-- Label of the button closing the crash reporter dialog. -->
   <string name="mozac_lib_crash_dialog_button_close">K\'aal</string>
-  <!-- Label of the button closing the crash reporter dialog and restarting the app. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Label of the button closing the crash reporter dialog and restarting the app. %1$s is the name of the app (for example "Plezix"). -->
   <string name="mozac_lib_crash_dialog_button_restart">Ka\'a chúunuj %1$s</string>
   <!-- Name of the "notification channel" used for displaying a notification when the app crashed and we can't show a prompt. See https://developer.android.com/training/notify-user/channels -->
   <string name="mozac_lib_crash_channel">Ku lúubul</string>
-  <!-- Label of a notification action/button that will send the crash report to Mozilla. -->
+  <!-- Label of a notification action/button that will send the crash report to Plezix. -->
   <string name="mozac_lib_crash_notification_action_report">Reporrte</string>
 </resources>

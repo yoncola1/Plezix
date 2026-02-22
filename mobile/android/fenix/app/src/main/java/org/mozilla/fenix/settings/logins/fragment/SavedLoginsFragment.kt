@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ import org.mozilla.fenix.settings.logins.ui.LoginsState
 import org.mozilla.fenix.settings.logins.ui.LoginsStore
 import org.mozilla.fenix.settings.logins.ui.SavedLoginsScreen
 import org.mozilla.fenix.settings.logins.view.SavedLoginsListView
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 @SuppressWarnings("TooManyFunctions")
 class SavedLoginsFragment : SecureFragment(), MenuProvider {
@@ -216,7 +216,7 @@ class SavedLoginsFragment : SecureFragment(), MenuProvider {
                     store
                 }
                 setContent {
-                    FirefoxTheme {
+                    PlezixTheme {
                         SavedLoginsScreen(buildStore = buildStore)
                     }
                 }

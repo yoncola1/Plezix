@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2787,7 +2787,7 @@ fn generate_capture_path(path: *const c_char, moz_revision: *const c_char) -> Op
     // storage so that (a) it can be written without requiring permissions
     // and (b) it can be pulled off via `adb pull`. This env var is set
     // in GeckoLoader.java.
-    // When running in Firefox CI, the MOZ_UPLOAD_DIR variable is set to a path
+    // When running in Plezix CI, the MOZ_UPLOAD_DIR variable is set to a path
     // that taskcluster will export artifacts from, so let's put it there.
     let mut path = if let Ok(storage_path) = env::var("PUBLIC_STORAGE") {
         PathBuf::from(storage_path).join(local_dir)

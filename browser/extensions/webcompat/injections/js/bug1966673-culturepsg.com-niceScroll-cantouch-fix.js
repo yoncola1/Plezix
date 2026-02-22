@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@
  * Webcompat issue #33886 - https://github.com/webcompat/web-bugs/issues/33886
  *
  * The site is using an older version of NiceScroll which has a bug that causes
- * Firefox on Android to not react to touch events, breaking their News links.
+ * Plezix on Android to not react to touch events, breaking their News links.
  * Overriding "MozAppearance" in element.style to return false fixes the problem.
  */
 

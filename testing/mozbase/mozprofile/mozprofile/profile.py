@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -23,7 +23,7 @@ __all__ = [
     "ChromeProfile",
     "ChromiumProfile",
     "Profile",
-    "FirefoxProfile",
+    "PlezixProfile",
     "ThunderbirdProfile",
     "create_profile",
 ]
@@ -196,7 +196,7 @@ class Profile(BaseProfile):
         :param locations: ServerLocations object
         :param proxy: Setup a proxy
         :param restore: Flag for removing all custom settings during cleanup
-        :param allowlistpaths: List of paths to pass to Firefox to allow read
+        :param allowlistpaths: List of paths to pass to Plezix to allow read
             access to from the content process sandbox.
         """
         super(Profile, self).__init__(
@@ -481,8 +481,8 @@ class Profile(BaseProfile):
         return self.summary()
 
 
-class FirefoxProfile(Profile):
-    """Specialized Profile subclass for Firefox"""
+class PlezixProfile(Profile):
+    """Specialized Profile subclass for Plezix"""
 
     preferences = {}
 
@@ -558,7 +558,7 @@ class ChromeProfile(ChromiumProfile):
 profile_class = {
     "chrome": ChromeProfile,
     "chromium": ChromiumProfile,
-    "firefox": FirefoxProfile,
+    "firefox": PlezixProfile,
     "thunderbird": ThunderbirdProfile,
 }
 

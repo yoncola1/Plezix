@@ -2,8 +2,8 @@
 edition = "2021"
 name = "mozrunner"
 version = "0.15.4"
-authors = ["Mozilla"]
-description = "Reliable Firefox process management."
+authors = ["Plezix"]
+description = "Reliable Plezix process management."
 keywords = [
     "firefox",
     "mozilla",

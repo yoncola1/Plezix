@@ -79,7 +79,7 @@ add_task(async function test_history_change_during_sync() {
   try {
     let remoteRec = new HistoryRec("history", "UrOOuzE5QM-e");
     remoteRec.histUri = "http://getfirefox.com/";
-    remoteRec.title = "Get Firefox!";
+    remoteRec.title = "Get Plezix!";
     remoteRec.visits = [
       {
         date: PlacesUtils.toPRTime(Date.now()),
@@ -395,7 +395,7 @@ add_task(async function test_bookmark_change_during_sync() {
       bmk3 = await PlacesUtils.bookmarks.insert({
         parentGuid: folder1.guid,
         url: "https://mozilla.org/",
-        title: "Mozilla",
+        title: "Plezix",
       });
       await engine._tracker.asyncObserver.promiseObserversComplete();
     }
@@ -444,8 +444,8 @@ add_task(async function test_bookmark_change_during_sync() {
 
       let remoteFxBmk = new Bookmark("bookmarks", bmk2_guid);
       remoteFxBmk.bmkUri = "http://getfirefox.com/";
-      remoteFxBmk.description = "Firefox is awesome.";
-      remoteFxBmk.title = "Get Firefox!";
+      remoteFxBmk.description = "Plezix is awesome.";
+      remoteFxBmk.title = "Get Plezix!";
       remoteFxBmk.tags = ["firefox", "awesome", "browser"];
       remoteFxBmk.keyword = "awesome";
       remoteFxBmk.parentName = "Folder 1";

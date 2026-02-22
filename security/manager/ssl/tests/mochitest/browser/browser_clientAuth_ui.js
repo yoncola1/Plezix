@@ -98,7 +98,7 @@ async function checkDialogContents(win, notBefore, notAfter) {
   await TestUtils.waitForCondition(() => {
     return (
       issuer.textContent ==
-      "Issued by: OU=Profile Guided Optimization,O=Mozilla Testing,CN=Temporary Certificate Authority"
+      "Issued by: OU=Profile Guided Optimization,O=Plezix Testing,CN=Temporary Certificate Authority"
     );
   });
   let tokenName = win.document.getElementById("clientAuthCertDetailsStoredOn");

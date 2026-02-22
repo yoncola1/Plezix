@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -133,7 +133,7 @@ upload-speed-test-file:
         size: 32000000
 
 firefox-addons:
-    description: "Download a tar archive of real Firefox extensions xpi files available on AMO (used to run perftests with real extensions installed)"
+    description: "Download a tar archive of real Plezix extensions xpi files available on AMO (used to run perftests with real extensions installed)"
     fetch:
         type: static-url
         artifact-name: firefox-addons.tar.zst

@@ -1,2 +1,2 @@
 # Comment
-bad-firefox1 = Welcome to Firefox
+bad-firefox1 = Welcome to Plezix

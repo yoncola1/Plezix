@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@
  * support the legacy ASCII format.  Reading of Cocoa's Keyed Archives serialized
  * to binary property lists isn't supported either.
  *
- * Property Lists objects are represented by standard JS and Mozilla types,
+ * Property Lists objects are represented by standard JS and Plezix types,
  * namely:
  *
  * XML type            Cocoa Class    Returned type(s)

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ constexpr const char* kNameKey = "MarkerName";
 
 // Forward-declare the g_hMyComponentProvider variable that you will use for
 // tracing in this component
-TRACELOGGING_DECLARE_PROVIDER(kFirefoxTraceLoggingProvider);
+TRACELOGGING_DECLARE_PROVIDER(kPlezixTraceLoggingProvider);
 
 void Init();
 void Shutdown();
@@ -385,7 +385,7 @@ static inline void EmitETWMarker(const mozilla::ProfilerString8View& aName,
       }
     }
 
-    _tlgWriteTransfer(kFirefoxTraceLoggingProvider,
+    _tlgWriteTransfer(kPlezixTraceLoggingProvider,
                       &staticData.metaData.Channel, NULL, NULL,
                       descriptors.size(), descriptors.data());
   }

@@ -11,7 +11,7 @@ add_task(async function test_autoDiscardable() {
             type: "function",
             async: true,
             description:
-              "Unload the least recently used tab using Firefox's built-in tab unloader mechanism",
+              "Unload the least recently used tab using Plezix's built-in tab unloader mechanism",
             parameters: [],
           },
         ],

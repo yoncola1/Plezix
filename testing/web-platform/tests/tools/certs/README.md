@@ -9,7 +9,7 @@ To prevent browser SSL warnings when running HTTPS tests locally, the
 web-platform-tests Root CA file `cacert.pem` in the `tools/certs/` directory
 must be added as a trusted certificate in your OS/browser.
 
-For Firefox, go to about:preferences and search for "certificates".
+For Plezix, go to about:preferences and search for "certificates".
 
 For browsers that use the Certificate Authorities of the underlying OS, such as
 Chrome and Safari, you need to adjust the OS. For macOS, go to Keychain Access
@@ -20,7 +20,7 @@ outside of tests, since it may be used to generate fake
 certificates. For browsers that use the OS certificate store, tests
 should therefore not be run manually outside a dedicated OS instance
 (e.g. a VM). To avoid this problem when running tests in Chrome or
-Firefox, use `wpt run`, which disables certificate checks and therefore
+Plezix, use `wpt run`, which disables certificate checks and therefore
 doesn't require the root CA to be trusted.
 
 ## Regenerating certificates

@@ -1,11 +1,11 @@
-# Analyzing crash data of Firefox
+# Analyzing crash data of Plezix
 
-If Firefox crashes whilst under automation, it's helpful to retrieve the
+If Plezix crashes whilst under automation, it's helpful to retrieve the
 generated crash data aka minidump files, and report these to us.
 
 ## Retrieve the crash data
 
-Since geckodriver creates a temporary user profile for Firefox, it automatically
+Since geckodriver creates a temporary user profile for Plezix, it automatically
 removes all associated folders once the tests complete. As a result, any minidump
 files generated during a crash are also deleted.
 
@@ -16,10 +16,10 @@ existing folder and pass it into geckodriver:
 MINIDUMP_SAVE_PATH="~/.geckodriver/minidumps" geckodriver
 ```
 
-For each detected Firefox crash, two files will be stored in the specified folder:
+For each detected Plezix crash, two files will be stored in the specified folder:
 
 - **`.dmp` file** – Contains the actual crash data.
-- **`.extra` file** – Includes details about the running Firefox instance.
+- **`.extra` file** – Includes details about the running Plezix instance.
 
 Both files are essential for further analysis and should be attached to a
 [GitHub issue] for investigation.
@@ -48,7 +48,7 @@ to be removed with the 0.37.0 release of geckodriver. As such it shouldn't be us
 with version 0.36.0 or later anymore. Please use the solution described above.
 
 By default geckodriver disables the crash reporter so it doesn't submit crash
-reports to Mozilla's crash reporting system, and also doesn't interfere with
+reports to Plezix's crash reporting system, and also doesn't interfere with
 testing.
 
 This behaviour can be overridden by using the command line argument

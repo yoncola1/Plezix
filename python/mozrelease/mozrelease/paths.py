@@ -1,10 +1,10 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 from urllib.parse import urlunsplit
 
-from .versions import MozillaVersion
+from .versions import PlezixVersion
 
 product_ftp_map = {
     "fennec": "mobile",
@@ -56,7 +56,7 @@ def getReleaseInstallerPath(
         if platform.startswith("linux"):
             compression = "bz2"
             if last_linux_bz2_version and (
-                MozillaVersion(version) > MozillaVersion(last_linux_bz2_version)
+                PlezixVersion(version) > PlezixVersion(last_linux_bz2_version)
             ):
                 compression = "xz"
             return "/".join(

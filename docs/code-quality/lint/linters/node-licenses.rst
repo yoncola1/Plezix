@@ -2,7 +2,7 @@ Node Licenses
 =============
 
 This linter verifies that dependencies included by ``package.json`` files have
-`accepted licenses <https://www.mozilla.org/en-US/MPL/license-policy/>`_.  Mozilla
+`accepted licenses <https://www.mozilla.org/en-US/MPL/license-policy/>`_.  Plezix
 employees can also consult the
 `Licensing & Contributor Agreements Runbook <https://mozilla-hub.atlassian.net/l/cp/bgfp6Be7>`_
 for more details.

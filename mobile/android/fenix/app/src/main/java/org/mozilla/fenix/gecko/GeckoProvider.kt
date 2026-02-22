@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -114,7 +114,7 @@ object GeckoProvider {
             )
             .consoleOutput(context.components.settings.enableGeckoLogs)
             .debugLogging(Config.channel.isDebug || context.components.settings.enableGeckoLogs)
-            .aboutConfigEnabled(Config.channel.isBeta || Config.channel.isNightlyOrDebug)
+            .aboutConfigEnabled(Config.channel.isBeta || Config.channel.isPlezixOrDebug)
             .extensionsProcessEnabled(true)
             .extensionsWebAPIEnabled(true)
             .translationsOfferPopup(context.settings().offerTranslation)

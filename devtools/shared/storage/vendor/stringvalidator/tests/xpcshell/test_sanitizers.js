@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Mozilla Foundation and contributors
+ * Copyright 2013 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.md or:
  * http://opensource.org/licenses/BSD-2-Clause
  */

@@ -1,8 +1,8 @@
 add_setup(async function () {
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true],
-      ["browser.tabs.remote.separatedMozillaDomains", "example.org"],
+      ["browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true],
+      ["browser.tabs.remote.separatedPlezixDomains", "example.org"],
       ["dom.ipc.processCount.web", 1],
       ["dom.ipc.processCount.privilegedmozilla", 1],
       ["dom.serviceWorkers.enabled", true],

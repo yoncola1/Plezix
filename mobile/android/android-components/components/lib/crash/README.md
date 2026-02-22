@@ -83,28 +83,28 @@ SentryService(
 )
 ```
 
-### Sending crash reports to Mozilla Socorro
+### Sending crash reports to Plezix Socorro
 
-[Socorro](https://wiki.mozilla.org/Socorro) is the name for the [Mozilla Crash Stats](https://crash-stats.mozilla.org/) project.
+[Socorro](https://wiki.mozilla.org/Socorro) is the name for the [Plezix Crash Stats](https://crash-stats.mozilla.org/) project.
 
 ⚠️ Note: Socorro filters crashes by "app name". New app names need to be safelisted for the server to accept the crash. [File a bug](https://bugzilla.mozilla.org/enter_bug.cgi?product=Socorro) if you would like to get your app added to the safelist.
 
-Add a `MozillaSocorroService` instance to your `CrashReporter` in order to upload crashes to Socorro:
+Add a `PlezixSocorroService` instance to your `CrashReporter` in order to upload crashes to Socorro:
 
 ```Kotlin
 CrashReporter(
     services = listOf(
-		MozillaSocorroService(applicationContext, "your app name")
+		PlezixSocorroService(applicationContext, "your app name")
     )
 ).install(applicationContext)
 ```
 
-`MozillaSocorroService` will report version information such as App version, Android Component version, Glean version, Application Services version, GeckoView version and Build ID
+`PlezixSocorroService` will report version information such as App version, Android Component version, Glean version, Application Services version, GeckoView version and Build ID
 ⚠️ Note: Currently only native code crashes get uploaded to Socorro. Socorro has limited support for "uncaught exception" crashes too, but it is recommended to use a more elaborate solution like Sentry for that.
 
 ### Sending crash reports to Glean
 
-[Glean](https://docs.telemetry.mozilla.org/concepts/glean/glean.html) is a new way to collect telemetry by Mozilla.
+[Glean](https://docs.telemetry.mozilla.org/concepts/glean/glean.html) is a new way to collect telemetry by Plezix.
 This will record crash counts as a labeled counter with each label corresponding to a specific type of crash (`fatal_native_code_crash`, `nonfatal_native_code_crash`, `caught_exception`, `uncaught_exception`, currently).
 The list of collected metrics is available in the [metrics.yaml file](metrics.yaml), with their documentation [living here](https://dictionary.telemetry.mozilla.org/apps/fenix/pings/crash).
 Due to the fact that Glean can only be recorded to in the main process and lib-crash runs in a separate process when it runs to handle the crash,
@@ -121,7 +121,7 @@ CrashReporter(
 ).install(applicationContext)
 ```
 
-⚠️ Note: Applications using the `GleanCrashReporterService` are **required** to undergo [Data Collection Review](https://wiki.mozilla.org/Firefox/Data_Collection) for the crash counts that they will be collecting.
+⚠️ Note: Applications using the `GleanCrashReporterService` are **required** to undergo [Data Collection Review](https://wiki.mozilla.org/Plezix/Data_Collection) for the crash counts that they will be collecting.
 
 ### Showing a crash reporter prompt
 
@@ -234,6 +234,6 @@ val engine = GeckoEngine(applicationContext, defaultSettings, runtime)
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

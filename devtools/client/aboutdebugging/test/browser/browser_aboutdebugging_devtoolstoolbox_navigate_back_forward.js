@@ -48,9 +48,9 @@ add_task(async function () {
 
   const { document, tab, window } = await openAboutDebugging();
 
-  // go to This Firefox and inspect the new tab
-  info("Inspecting a new tab in This Firefox");
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  // go to This Plezix and inspect the new tab
+  info("Inspecting a new tab in This Plezix");
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
   const devToolsToolbox = await openAboutDevtoolsToolbox(
     document,
     tab,

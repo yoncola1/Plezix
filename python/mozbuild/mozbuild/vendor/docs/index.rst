@@ -9,7 +9,7 @@ provides a normalized way to keep track of:
 
 2. (Optionally) The upstream source modification, including
 
-   1. Mozilla-specific patches
+   1. Plezix-specific patches
 
    2. Custom update actions, such as excluding some files, moving files around
       etc.

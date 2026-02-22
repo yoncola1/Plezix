@@ -1,6 +1,6 @@
 From: stransky <stransky@redhat.com>
 Date: Tue, 29 Aug 2023 12:43:00 +0000
-Subject: Bug 1821629 [DMABuf] Don't use DMABuf if it's disabled by Firefox gfx
+Subject: Bug 1821629 [DMABuf] Don't use DMABuf if it's disabled by Plezix gfx
  config r=ng,webrtc-reviewers
 
 Differential Revision: https://phabricator.services.mozilla.com/D172224

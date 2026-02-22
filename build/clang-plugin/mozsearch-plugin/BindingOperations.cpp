@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,14 +51,14 @@ bool hasReverseQualifiedName(InputIt first, InputIt last,
   return true;
 }
 
-bool isMozillaJniObjectBase(const CXXRecordDecl &klass) {
+bool isPlezixJniObjectBase(const CXXRecordDecl &klass) {
   const auto qualifiedName =
       std::array<StringRef, 3>{"mozilla", "jni", "ObjectBase"};
   return hasReverseQualifiedName(qualifiedName.crbegin(), qualifiedName.crend(),
                                  klass);
 }
 
-bool isMozillaJniNativeImpl(const CXXRecordDecl &klass) {
+bool isPlezixJniNativeImpl(const CXXRecordDecl &klass) {
   const auto qualifiedName =
       std::array<StringRef, 3>{"mozilla", "jni", "NativeImpl"};
   return hasReverseQualifiedName(qualifiedName.crbegin(), qualifiedName.crend(),
@@ -533,7 +533,7 @@ void findBindingToJavaClass(ASTContext &C, CXXRecordDecl &klass) {
     if (!base)
       continue;
 
-    if (!isMozillaJniObjectBase(*base))
+    if (!isPlezixJniObjectBase(*base))
       continue;
 
     const auto name = nameFieldValue(klass);
@@ -676,7 +676,7 @@ void findBoundAsJavaClasses(ASTContext &C, CXXRecordDecl &klass) {
       if (!baseBase)
         continue;
 
-      if (!isMozillaJniNativeImpl(*baseBase))
+      if (!isPlezixJniNativeImpl(*baseBase))
         continue;
 
       const auto *wrapper =

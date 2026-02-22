@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -260,7 +260,7 @@ export class AdsFeed {
   }
 
   /**
-   * Fetch data from the Mozilla Ad Routing Service (MARS) unified ads API
+   * Fetch data from the Plezix Ad Routing Service (MARS) unified ads API
    * This function is designed to get whichever ads types are needed (tiles, spocs)
    * @param {array} supportedAdTypes
    * @returns {object} Response object containing ad information from MARS

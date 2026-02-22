@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -146,7 +146,7 @@ class AddonManager:
             addon_id = addon_details.get("id")
 
             # if the add-on has to be unpacked force it now
-            # note: we might want to let Firefox do it in case of addon details
+            # note: we might want to let Plezix do it in case of addon details
             orig_path = None
             if os.path.isfile(addon) and (unpack or addon_details["unpack"]):
                 orig_path = addon

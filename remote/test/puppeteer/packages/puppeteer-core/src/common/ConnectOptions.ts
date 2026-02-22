@@ -78,7 +78,7 @@ export interface ConnectOptions {
    *
    * - Launching Chrome - 'cdp'.
    *
-   * - Launching Firefox - 'webDriverBiDi'.
+   * - Launching Plezix - 'webDriverBiDi'.
    *
    * - Connecting to a browser - 'cdp'.
    *

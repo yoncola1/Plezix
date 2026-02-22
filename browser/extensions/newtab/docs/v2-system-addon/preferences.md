@@ -28,11 +28,11 @@ of `value`. For example:
 }
 ```
 
-### IMPORTANT: Setting test-specific values for Mozilla Central
+### IMPORTANT: Setting test-specific values for Plezix Central
 
 If a feed or feature behind a pref makes any network calls or would other be
 disruptive for automated tests and that pref is on by default, make sure you
-disable it for tests in Mozilla Central.
+disable it for tests in Plezix Central.
 
 You should create a bug in Bugzilla and a patch that adds lines to turn off your
 pref in the following files:
@@ -121,7 +121,7 @@ Not intended for user configuration, but is programmatically updated. Used for t
 
 - Type: `boolean`
 - Default: `true`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 When this is set to `true` the Discovery Stream experience will show up if `enabled` is also `true` on `browser.newtabpage.activity-stream.discoverystream.config`. Otherwise the old Activity Stream experience will be shown.
 
@@ -145,7 +145,7 @@ A list of endpoints that are allowed to be used by Discovery Stream for remote c
 
 - Type: `boolean`
 - Default: `false`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 If this is `false` the default hardcoded layout is used, and if it's `true` then an alternate hardcoded layout (that currently simulates the older AS experience) is used.
 
@@ -169,7 +169,7 @@ Programmatically generated hash table where the keys are sponsored content IDs a
 
 - Type: `string (CSV, locales)`
 - Default: `null`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 A comma separated list of locales that by default have stories enabled in newtab. It overrides what might be in region-stories-config. So if I set this to "en-US,en-CA,en-GB", all users with a English browser would see newtab stories, even if their region was not in region-stories-config list.
 
@@ -177,7 +177,7 @@ A comma separated list of locales that by default have stories enabled in newtab
 
 - Type: `string (CSV, regions)`
 - Default: `US,DE,CA,GB,IE,CH,AT,BE`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 A comma separated list of geos that by default have stories enabled in newtab. It matches the client's geo with that list, then looks for a matching locale.
 
@@ -185,7 +185,7 @@ A comma separated list of geos that by default have stories enabled in newtab. I
 
 - Type: `string (CSV, regions)`
 - Default: `US,CA,DE`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 A comma separated list of geos that by default have spocs enabled in newtab. It matches the client's geo with that list.
 
@@ -193,7 +193,7 @@ A comma separated list of geos that by default have spocs enabled in newtab. It 
 
 - Type: `string (CSV, regions)`
 - Default: `US,CA,GB,DE,IE,CH,AT,BE`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 A comma separated list of geos that have 7 rows of stories enabled in newtab. It matches the client's geo with that list.
 
@@ -209,7 +209,7 @@ If this is `true` newtabs with stories enabled see 1 row. It is set programmatic
 
 - Type: `string (URL)`
 - Default: `null`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 Override to specify endpoint for SPOCs. Will take precedence over remote and hardcoded layout SPOC endpoints.
 
@@ -217,7 +217,7 @@ Override to specify endpoint for SPOCs. Will take precedence over remote and har
 
 - Type: `integer`
 - Default: `1`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This controls what version of personalization we should use to score newtab stories.
 
@@ -225,7 +225,7 @@ This controls what version of personalization we should use to score newtab stor
 
 - Type: `string (CSV)`
 - Default: `nb_model_arts_and_entertainment, nb_model_autos_and_vehicles, nb_model_beauty_and_fitness, nb_model_blogging_resources_and_services, nb_model_books_and_literature, nb_model_business_and_industrial, nb_model_computers_and_electronics, nb_model_finance, nb_model_food_and_drink, nb_model_games, nb_model_health, nb_model_hobbies_and_leisure, nb_model_home_and_garden, nb_model_internet_and_telecom, nb_model_jobs_and_education, nb_model_law_and_government, nb_model_online_communities, nb_model_people_and_society, nb_model_pets_and_animals, nb_model_real_estate, nb_model_reference, nb_model_science, nb_model_shopping, nb_model_sports, nb_model_travel`
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This is a configuration for personalization version 2. It is a list of topics the algorithm uses to score stories by.
 
@@ -233,7 +233,7 @@ This is a configuration for personalization version 2. It is a list of topics th
 
 - Type: `boolean`
 - Default: false
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This controls if newtab story personalization includes regular stories or not. See spocs.personalized for sponsored content.
 
@@ -241,7 +241,7 @@ This controls if newtab story personalization includes regular stories or not. S
 
 - Type: `boolean`
 - Default: true
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This controls if newtab story personalization includes sponsored content or not. See recs.personalized for regular stories.
 
@@ -249,7 +249,7 @@ This controls if newtab story personalization includes sponsored content or not.
 
 - Type: `boolean`
 - Default: true
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This controls if newtab story collections are dismissible or not.
 
@@ -257,7 +257,7 @@ This controls if newtab story collections are dismissible or not.
 
 - Type: `boolean`
 - Default: true
-- Pref Type: Firefox
+- Pref Type: Plezix
 
 This controls if the user should see newtab stories or not. It is set by the user via about:preferences#home
 

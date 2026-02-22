@@ -1,7 +1,7 @@
 [package]
 name = "marionette"
 version = "0.7.0"
-authors = ["Mozilla"]
+authors = ["Plezix"]
 description = "Library implementing the client side of Gecko's Marionette remote automation protocol."
 edition = "2018"
 keywords = ["mozilla", "firefox", "marionette", "webdriver"]

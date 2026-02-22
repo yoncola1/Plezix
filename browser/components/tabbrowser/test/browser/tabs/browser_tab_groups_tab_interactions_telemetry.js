@@ -1,15 +1,15 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 const {
-  openFirefoxViewTab,
-  closeFirefoxViewTab,
-  init: FirefoxViewTestUtilsInit,
+  openPlezixViewTab,
+  closePlezixViewTab,
+  init: PlezixViewTestUtilsInit,
 } = ChromeUtils.importESModule(
-  "resource://testing-common/FirefoxViewTestUtils.sys.mjs"
+  "resource://testing-common/PlezixViewTestUtils.sys.mjs"
 );
-FirefoxViewTestUtilsInit(this);
+PlezixViewTestUtilsInit(this);
 
 const { TabStateFlusher } = ChromeUtils.importESModule(
   "resource:///modules/sessionstore/TabStateFlusher.sys.mjs"
@@ -166,7 +166,7 @@ add_task(async function test_tabInteractionsBasic() {
 add_task(async function test_tabInteractionsClose() {
   let initialTab = window.gBrowser.tabs[0];
   await resetTelemetry();
-  FirefoxViewTestUtilsInit(this, window);
+  PlezixViewTestUtilsInit(this, window);
 
   let tabs = Array.from({ length: 5 }, () => {
     return BrowserTestUtils.addTab(window.gBrowser, "https://example.com", {
@@ -205,7 +205,7 @@ add_task(async function test_tabInteractionsClose() {
   info(
     "Test that closing a tab via firefox view calls tab_interactions.close_tab_other"
   );
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const openTabs = viewTab.linkedBrowser.contentDocument
       .querySelector("named-deck > view-recentbrowsing view-opentabs")
       .shadowRoot.querySelector("view-opentabs-card").tabList.rowEls;
@@ -213,7 +213,7 @@ add_task(async function test_tabInteractionsClose() {
     tabElement.shadowRoot.querySelector("moz-button.dismiss-button").click();
     await assertMetricFoundFor("close_tab_other", 3);
   });
-  await closeFirefoxViewTab(window);
+  await closePlezixViewTab(window);
 
   window.gBrowser.removeAllTabsBut(initialTab);
   await resetTelemetry();
@@ -302,7 +302,7 @@ add_task(async function test_tabInteractionsCloseViaAnotherTabContext() {
 add_task(async function test_tabInteractionsCloseTabOverflowMenu() {
   let initialTab = window.gBrowser.tabs[0];
   await resetTelemetry();
-  FirefoxViewTestUtilsInit(this, window);
+  PlezixViewTestUtilsInit(this, window);
 
   let tab = BrowserTestUtils.addTab(window.gBrowser, "https://example.com", {
     skipAnimation: true,

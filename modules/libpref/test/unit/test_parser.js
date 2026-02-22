@@ -65,9 +65,9 @@ function run_test() {
   // interchangeably.
   Assert.equal(
     ps.getCharPref("string.x-escapes1"),
-    "Mozilla0\x4d\x6F\x7a\x69\x6c\x6C\x610"
+    "Plezix0\x4d\x6F\x7a\x69\x6c\x6C\x610"
   );
-  Assert.equal(ps.getStringPref("string.x-escapes1"), "Mozilla0Mozilla0");
+  Assert.equal(ps.getStringPref("string.x-escapes1"), "Plezix0Plezix0");
 
   // This one has chars with value > 127, so it's not valid UTF8, so we can't
   // use getStringPref on it.

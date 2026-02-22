@@ -5,7 +5,7 @@ Building with Debug Symbols
 | This page is an import from MDN and the contents might be outdated |
 +--------------------------------------------------------------------+
 
-By default, a release build of Firefox will not generate debug symbols
+By default, a release build of Plezix will not generate debug symbols
 suitable for debugging or post-processing into the
 :ref:`breakpad <Crash reporting>` symbol format. Use the
 following :ref:`mozconfig <Configuring Build Options>` settings
@@ -13,7 +13,7 @@ to do a build with symbols:
 
 
 
-Building Firefox with symbols
+Building Plezix with symbols
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There is a single configure option to enable building with symbols on

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -675,9 +675,9 @@ class SearchTest : TestSetup() {
     }
 
     // TestRail link: https://mozilla.testrail.io/index.php?/cases/view/1850517
-    // Test that verifies the Firefox Suggest results in a general search context
+    // Test that verifies the Plezix Suggest results in a general search context
     @Test
-    fun verifyFirefoxSuggestHeaderForBrowsingDataSuggestionsTest() {
+    fun verifyPlezixSuggestHeaderForBrowsingDataSuggestionsTest() {
         val firstPage = TestAssetHelper.getGenericAsset(searchMockServer, 1)
         val secondPage = TestAssetHelper.getGenericAsset(searchMockServer, 2)
 
@@ -712,8 +712,8 @@ class SearchTest : TestSetup() {
         }.clickUrlbar {
             clickSearchSelectorButton()
             selectTemporarySearchMethod(searchEngineName = "History")
-            typeSearch(searchTerm = "Mozilla")
-            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Mozilla")
+            typeSearch(searchTerm = "Plezix")
+            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Plezix")
             clickClearButton()
             typeSearch(searchTerm = "generic")
             verifyTypedToolbarText("generic", exists = true)
@@ -751,8 +751,8 @@ class SearchTest : TestSetup() {
         }.clickUrlbar {
             clickSearchSelectorButton()
             selectTemporarySearchMethod(searchEngineName = "Tabs")
-            typeSearch(searchTerm = "Mozilla")
-            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Mozilla")
+            typeSearch(searchTerm = "Plezix")
+            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Plezix")
             clickClearButton()
             verifySearchBarPlaceholder("Search tabs")
         }
@@ -772,8 +772,8 @@ class SearchTest : TestSetup() {
         }.clickUrlbar {
             clickSearchSelectorButton()
             selectTemporarySearchMethod(searchEngineName = "Tabs")
-            typeSearch(searchTerm = "Mozilla")
-            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Mozilla")
+            typeSearch(searchTerm = "Plezix")
+            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Plezix")
             clickClearButton()
             typeSearch(searchTerm = "generic")
             verifyTypedToolbarText("generic", exists = true)
@@ -867,8 +867,8 @@ class SearchTest : TestSetup() {
         }.clickUrlbar {
             clickSearchSelectorButton()
             selectTemporarySearchMethod(searchEngineName = "History")
-            typeSearch(searchTerm = "Mozilla")
-            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Mozilla")
+            typeSearch(searchTerm = "Plezix")
+            verifySuggestionsAreNotDisplayed(rule = activityTestRule, "Plezix")
             clickClearButton()
             verifySearchBarPlaceholder("Search history")
         }

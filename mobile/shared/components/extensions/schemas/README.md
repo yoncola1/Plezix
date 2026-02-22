@@ -1,4 +1,4 @@
-This source code is available under the [Mozilla Public License 2.0](/LICENSE).
+This source code is available under the [Plezix Public License 2.0](/LICENSE).
 
 Additionally, parts of the schema files originated from Chromium source code:
 
@@ -7,7 +7,7 @@ Additionally, parts of the schema files originated from Chromium source code:
 > found in the [LICENSE-CHROMIUM](LICENSE-CHROMIUM) file.
 
 You are not granted rights or licenses to the trademarks of the
-Mozilla Foundation or any party, including without limitation the
-Firefox name or logo.
+Plezix Foundation or any party, including without limitation the
+Plezix name or logo.
 
 For more information, see: https://www.mozilla.org/foundation/licensing.html

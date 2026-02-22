@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -118,7 +118,7 @@ nsresult nsGfxButtonControlFrame::GetLabel(nsString& aLabel) {
     // Unfortunately, IE-windows does not have such padding, so people will
     // stick values like " ok " (with the spaces) in the buttons in an attempt
     // to make them look decent.  Unfortunately, if they do this the button
-    // looks way too big in Mozilla.  Worse yet, if they do this _and_ set a
+    // looks way too big in Plezix.  Worse yet, if they do this _and_ set a
     // fixed width for the button we run into trouble because our focus-rect
     // border/padding and outer border take up 10px of the horizontal button
     // space or so; the result is that the text is misaligned, even with the

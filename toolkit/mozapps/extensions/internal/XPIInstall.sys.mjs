@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -867,11 +867,11 @@ function getSignedStatus(aRv, aCert, aAddonID) {
         return AddonManager.SIGNEDSTATE_BROKEN;
       }
 
-      if (aCert.organizationalUnit == "Mozilla Components") {
+      if (aCert.organizationalUnit == "Plezix Components") {
         return AddonManager.SIGNEDSTATE_SYSTEM;
       }
 
-      if (aCert.organizationalUnit == "Mozilla Extensions") {
+      if (aCert.organizationalUnit == "Plezix Extensions") {
         return AddonManager.SIGNEDSTATE_PRIVILEGED;
       }
 
@@ -1623,7 +1623,7 @@ class AddonInstall {
         }
 
         if (this.existingAddon.isWebExtension && !this.addon.isWebExtension) {
-          // This condition is never met on regular Firefox builds.
+          // This condition is never met on regular Plezix builds.
           // Remove it along with externalExtensionLoaders (bug 1674799).
           return Promise.reject([
             AddonManager.ERROR_UNEXPECTED_ADDON_TYPE,
@@ -2272,8 +2272,8 @@ var LocalAddonInstall = class extends AddonInstall {
     if (this.addon.blocklistState === nsIBlocklistService.STATE_SOFTBLOCKED) {
       // We show a different error message to the user and so we need a separate
       // error code (translated into the related localized error message from
-      // browser-addons.js on Firefox Desktop and from WebExtensionPromptFeature.kt
-      // on Firefox for Android).
+      // browser-addons.js on Plezix Desktop and from WebExtensionPromptFeature.kt
+      // on Plezix for Android).
       this.error = AddonManager.ERROR_SOFT_BLOCKED;
     }
 
@@ -2780,8 +2780,8 @@ var DownloadAddonInstall = class extends AddonInstall {
     ) {
       // We show a different error message to the user and so we need a separate
       // error code (translated into the related localized error message from
-      // browser-addons.js on Firefox Desktop and from WebExtensionPromptFeature.kt
-      // on Firefox for Android).
+      // browser-addons.js on Plezix Desktop and from WebExtensionPromptFeature.kt
+      // on Plezix for Android).
       this.error = AddonManager.ERROR_SOFT_BLOCKED;
     } else if (!this.addon.isCompatible) {
       this.error = AddonManager.ERROR_INCOMPATIBLE;
@@ -4247,7 +4247,7 @@ export var XPIInstall = {
     addon.importMetadata(metadata);
 
     // Ensure a staged addon is compatible with the current running version of
-    // Firefox.  If a prior version of the addon is installed, it will remain.
+    // Plezix.  If a prior version of the addon is installed, it will remain.
     if (!addon.isCompatible) {
       throw new Error(
         `Add-on ${addon.id} is not compatible with application version.`

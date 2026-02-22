@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This Source Code Form is subject to the terms of the Mozilla Public
+<!-- This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
     <!--
-        Firefox colors are bold, vibrant and attractive. They enhance the experience by providing
+        Plezix colors are bold, vibrant and attractive. They enhance the experience by providing
         visual clues and by bringing attention to primary actions.
 
          The color palette includes primary and secondary colors that can be used for interfaces and illustrations.
@@ -14,7 +14,7 @@
 
 	<!--
 		Blue
-		Firefox Blue is one of our primary colors. We use blue as accent color for highlighting buttons, links and active states like the current tab in Firefox for desktop.
+		Plezix Blue is one of our primary colors. We use blue as accent color for highlighting buttons, links and active states like the current tab in Plezix for desktop.
 	-->
 	<color name="photonBlue05">#ffaaf2ff</color>
 	<color name="photonBlue10">#ff80ebff</color>
@@ -31,7 +31,7 @@
 
 	<!--
 		Magenta
-		Firefox Magenta is one of our primary colors. We currently have no common usage for it.
+		Plezix Magenta is one of our primary colors. We currently have no common usage for it.
 
 		In the future, Magenta should be redefined into Pink wherever possible.
 	-->

@@ -1,12 +1,12 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
 /**
  * The SimpleGestureEvent interface is the datatype for all
- * Mozilla-specific simple gesture events in the Document Object Model.
+ * Plezix-specific simple gesture events in the Document Object Model.
  *
  * The following events are generated:
  *

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,14 +31,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = unitLambda,
-            onMakeFirefoxDefaultSkipClick = unitLambda,
+            onMakePlezixDefaultClick = unitLambda,
+            onMakePlezixDefaultSkipClick = unitLambda,
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -68,14 +68,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = unitLambda,
             onSignInSkipClick = unitLambda,
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -105,14 +105,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = unitLambda,
             onNotificationPermissionSkipClick = unitLambda,
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -142,14 +142,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = unitLambda,
-            onAddFirefoxWidgetSkipClick = unitLambda,
+            onAddPlezixWidgetClick = unitLambda,
+            onAddPlezixWidgetSkipClick = unitLambda,
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -192,14 +192,14 @@ class OnboardingMapperTest {
 
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = unitLambda,
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -236,14 +236,14 @@ class OnboardingMapperTest {
 
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = {},
             onTermsOfServiceButtonClick = {},
@@ -298,14 +298,14 @@ class OnboardingMapperTest {
 
         val actualPageState = mapToOnboardingPageState(
             onboardingPageUiData = pageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddPlezixWidgetClick = {},
+            onAddPlezixWidgetSkipClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeClick = unitLambda,
             onTermsOfServiceButtonClick = {},

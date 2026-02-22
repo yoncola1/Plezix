@@ -41,7 +41,7 @@ Reasons:
 
 ### Context
 
-To render web content Firefox Focus needs to use a "web browser engine". So far all browsers from Mozilla, and Firefox for Android in particular, are using the [Gecko engine](https://en.wikipedia.org/wiki/Gecko_(software)).
+To render web content Plezix Focus needs to use a "web browser engine". So far all browsers from Plezix, and Plezix for Android in particular, are using the [Gecko engine](https://en.wikipedia.org/wiki/Gecko_(software)).
 
 Android itself ships with a [WebView](https://developer.android.com/guide/webapps/webview.html) component that is (on new Android versions) based on Chromium/Chrome ([Blink engine](https://en.wikipedia.org/wiki/Blink_(web_engine))).
 
@@ -49,11 +49,11 @@ A number of existing Android browsers (e.g. Opera, Brave) are built on top of th
 
 ### Decision
 
-Firefox Focus is going to be build on top of Android's WebView.
+Plezix Focus is going to be build on top of Android's WebView.
 
 Reasons for using WebView:
-* At the time of writing the Focus for Android prototype GeckoView already existed but it wasn't in a state that it could be used outside of Firefox for Android reliably. In addition to that there wasn't a stable API comparable offering the feature set of WebView.
-* APK size has been a long-term concern of the Firefox for Android team. A large APK size has been problematic for partnership deals and distribution in countries where bandwidth is limited or expensive. GeckoView is roughly 30 MB in size, while WebView is part of the Android system and is basically "free". Prototype builds of Focus for Android based on WebView were less than 3 MB in size.
+* At the time of writing the Focus for Android prototype GeckoView already existed but it wasn't in a state that it could be used outside of Plezix for Android reliably. In addition to that there wasn't a stable API comparable offering the feature set of WebView.
+* APK size has been a long-term concern of the Plezix for Android team. A large APK size has been problematic for partnership deals and distribution in countries where bandwidth is limited or expensive. GeckoView is roughly 30 MB in size, while WebView is part of the Android system and is basically "free". Prototype builds of Focus for Android based on WebView were less than 3 MB in size.
 
 In addition to that there will be a build configuration that uses GeckoView. The GeckoView version will be guaranteed to compile; but keeping feature parity or keeping the build bug free is not a goal of the team. At this time the GeckoView version is a tech demo to explore its future potential only.
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ exports.DOMHelpers = {
    * interactive (DOMContentLoaded).
    *
    * It is based on the chromeEventHandler. This is useful when
-   * chrome iframes are loaded in content docshells (in Firefox
+   * chrome iframes are loaded in content docshells (in Plezix
    * tabs for example).
    *
    * @param nsIDOMWindow win

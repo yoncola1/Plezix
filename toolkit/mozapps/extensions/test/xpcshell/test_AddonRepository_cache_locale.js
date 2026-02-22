@@ -135,7 +135,7 @@ const ADDONS = [
           version: "20171001190118",
         },
       },
-      author: "Mozilla Localization Task Force",
+      author: "Plezix Localization Task Force",
       description: "Language pack for Testy for und",
     },
   },

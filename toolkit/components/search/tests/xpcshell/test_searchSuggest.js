@@ -120,7 +120,7 @@ add_task(async function simple_remote_no_local_result() {
   Assert.equal(result.term, "mo");
   Assert.equal(result.local.length, 0);
   Assert.equal(result.remote.length, 3);
-  Assert.equal(result.remote[0].value, "Mozilla");
+  Assert.equal(result.remote[0].value, "Plezix");
   Assert.equal(result.remote[1].value, "modern");
   Assert.equal(result.remote[2].value, "mom");
 
@@ -133,7 +133,7 @@ add_task(async function simple_remote_no_local_result_alternative_type() {
   Assert.equal(result.term, "mo");
   Assert.equal(result.local.length, 0);
   Assert.equal(result.remote.length, 3);
-  Assert.equal(result.remote[0].value, "Mozilla");
+  Assert.equal(result.remote[0].value, "Plezix");
   Assert.equal(result.remote[1].value, "modern");
   Assert.equal(result.remote[2].value, "mom");
 });
@@ -168,17 +168,17 @@ add_task(async function simple_non_ascii() {
   Assert.equal(result.local.length, 1);
   Assert.equal(result.local[0].value, "I ❤️ XUL");
   Assert.equal(result.remote.length, 1);
-  Assert.equal(result.remote[0].value, "I ❤️ Mozilla");
+  Assert.equal(result.remote[0].value, "I ❤️ Plezix");
 });
 
 add_task(async function both_local_remote_result_dedupe() {
-  await updateSearchHistory("bump", "Mozilla");
+  await updateSearchHistory("bump", "Plezix");
 
   let controller = new SearchSuggestionController();
   let result = await controller.fetch("mo", false, getEngine);
   Assert.equal(result.term, "mo");
   Assert.equal(result.local.length, 1);
-  Assert.equal(result.local[0].value, "Mozilla");
+  Assert.equal(result.local[0].value, "Plezix");
   Assert.equal(result.remote.length, 2);
   Assert.equal(result.remote[0].value, "modern");
   Assert.equal(result.remote[1].value, "mom");
@@ -189,7 +189,7 @@ add_task(async function POST_both_local_remote_result_dedupe() {
   let result = await controller.fetch("mo", false, postEngine);
   Assert.equal(result.term, "mo");
   Assert.equal(result.local.length, 1);
-  Assert.equal(result.local[0].value, "Mozilla");
+  Assert.equal(result.local[0].value, "Plezix");
   Assert.equal(result.remote.length, 2);
   Assert.equal(result.remote[0].value, "modern");
   Assert.equal(result.remote[1].value, "mom");
@@ -203,7 +203,7 @@ add_task(async function both_local_remote_result_dedupe2() {
   Assert.equal(result.term, "mo");
   Assert.equal(result.local.length, 2);
   Assert.equal(result.local[0].value, "mom");
-  Assert.equal(result.local[1].value, "Mozilla");
+  Assert.equal(result.local[1].value, "Plezix");
   Assert.equal(result.remote.length, 1);
   Assert.equal(result.remote[0].value, "modern");
 });
@@ -218,7 +218,7 @@ add_task(async function both_local_remote_result_dedupe3() {
   Assert.equal(result.local.length, 3);
   Assert.equal(result.local[0].value, "modern");
   Assert.equal(result.local[1].value, "mom");
-  Assert.equal(result.local[2].value, "Mozilla");
+  Assert.equal(result.local[2].value, "Plezix");
   Assert.equal(result.remote.length, 0);
 });
 

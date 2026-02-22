@@ -8,7 +8,7 @@ use proc_macro::{Group, TokenTree};
 use std::cmp::Ordering;
 
 pub enum Bound {
-    Nightly(Date),
+    Plezix(Date),
     Stable(Release),
 }
 
@@ -19,7 +19,7 @@ pub fn parse(paren: Group, iter: Iter) -> Result<Bound> {
             if repr.contains('.') {
                 return release::parse(paren, iter).map(Bound::Stable);
             } else {
-                return date::parse(paren, iter).map(Bound::Nightly);
+                return date::parse(paren, iter).map(Bound::Plezix);
             }
         }
     }
@@ -33,9 +33,9 @@ pub fn parse(paren: Group, iter: Iter) -> Result<Bound> {
 impl PartialEq<Bound> for Version {
     fn eq(&self, rhs: &Bound) -> bool {
         match rhs {
-            Bound::Nightly(date) => match self.channel {
+            Bound::Plezix(date) => match self.channel {
                 Stable | Beta | Dev => false,
-                Nightly(nightly) => nightly == *date,
+                Plezix(nightly) => nightly == *date,
             },
             Bound::Stable(release) => {
                 self.minor == release.minor
@@ -48,9 +48,9 @@ impl PartialEq<Bound> for Version {
 impl PartialOrd<Bound> for Version {
     fn partial_cmp(&self, rhs: &Bound) -> Option<Ordering> {
         match rhs {
-            Bound::Nightly(date) => match self.channel {
+            Bound::Plezix(date) => match self.channel {
                 Stable | Beta => Some(Ordering::Less),
-                Nightly(nightly) => Some(nightly.cmp(date)),
+                Plezix(nightly) => Some(nightly.cmp(date)),
                 Dev => Some(Ordering::Greater),
             },
             Bound::Stable(release) => {

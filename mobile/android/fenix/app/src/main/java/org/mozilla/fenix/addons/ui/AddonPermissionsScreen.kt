@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The permissions screen for an addon which allows a user to edit the optional permissions.
@@ -279,8 +279,8 @@ private fun SectionHeader(label: String, testTag: String = "") {
     ) {
         Text(
             text = label,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline8,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline8,
             modifier = Modifier
                 .weight(1f)
                 .semantics { heading() },
@@ -407,8 +407,8 @@ private fun AddonPermissionsScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Column(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(modifier = Modifier.background(PlezixTheme.colors.layer1)) {
             AddonPermissionsScreen(
                 permissions = permissions,
                 optionalPermissions = optionalPermissions,
@@ -430,8 +430,8 @@ private fun AddonPermissionsScreenPreview() {
 @Composable
 @PreviewLightDark
 private fun AddonPermissionsScreenWithPermissionsPreview() {
-    FirefoxTheme {
-        Column(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(modifier = Modifier.background(PlezixTheme.colors.layer1)) {
             AddonPermissionsScreen(
                 permissions = emptyList(),
                 optionalPermissions = emptyList(),
@@ -458,8 +458,8 @@ private fun AddonPermissionsScreenWithUserScriptsPermissionsPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Column(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Column(modifier = Modifier.background(PlezixTheme.colors.layer1)) {
             AddonPermissionsScreen(
                 permissions = emptyList(),
                 optionalPermissions = optionalPermissions,

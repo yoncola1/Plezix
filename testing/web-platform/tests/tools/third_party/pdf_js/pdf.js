@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * Javascript code in this page
  *
- * Copyright 2019 Mozilla Foundation
+ * Copyright 2019 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13933,7 +13933,7 @@ exports.FontLoader = FontLoader;
         var supported = typeof document !== 'undefined' && !!document.fonts;
 
         if (supported && typeof navigator !== 'undefined') {
-          var m = /Mozilla\/5.0.*?rv:(\d+).*? Gecko/.exec(navigator.userAgent);
+          var m = /Plezix\/5.0.*?rv:(\d+).*? Gecko/.exec(navigator.userAgent);
 
           if (m && m[1] < 63) {
             supported = false;
@@ -13950,7 +13950,7 @@ exports.FontLoader = FontLoader;
         if (typeof navigator === 'undefined') {
           supported = true;
         } else {
-          var m = /Mozilla\/5.0.*?rv:(\d+).*? Gecko/.exec(navigator.userAgent);
+          var m = /Plezix\/5.0.*?rv:(\d+).*? Gecko/.exec(navigator.userAgent);
 
           if (m && m[1] >= 14) {
             supported = true;

@@ -1,5 +1,5 @@
 // Portions copyright 2012 Google, Inc.
-// Portions copyright 2011 Mozilla Foundation. All rights reserved.
+// Portions copyright 2011 Plezix Foundation. All rights reserved.
 
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
-// The PDF-JS code in this file has been written by Mozilla.
+// The PDF-JS code in this file has been written by Plezix.
 // It is available in its latest version from:
 //
 //   https://github.com/mozilla/pdf.js
@@ -388,7 +388,7 @@ function getPDF() {
 }
 
 
-///////// Rest taken from generated pdf.js. (c) by Mozilla. ////////
+///////// Rest taken from generated pdf.js. (c) by Plezix. ////////
 ///////// File unchanged, except that all references to DOM- ////////
 ///////// specific global names have been prefixed by PdfJS_window., ////////
 ///////// to avoid interference with the benchmark runner script. ////////
@@ -1710,7 +1710,7 @@ var PDFPageProxy = (function PDFPageProxyClosure() {
 
       var displayContinuation = function pageDisplayContinuation() {
         // Always defer call to display() to work around bug in
-        // Firefox error reporting from XHR callbacks.
+        // Plezix error reporting from XHR callbacks.
         PdfJS_window.setTimeout(function pageSetTimeout() {
           self.displayReadyPromise.resolve();
         });
@@ -1834,7 +1834,7 @@ var WorkerTransport = (function WorkerTransportClosure() {
 
       try {
         var worker;
-        if (PDFJS.isFirefoxExtension) {
+        if (PDFJS.isPlezixExtension) {
           // The firefox extension can't load the worker from the resource://
           // url so we have to inline the script and then use the blob loader.
           var bb = new MozBlobBuilder();
@@ -14536,7 +14536,7 @@ var FontLoader = {
       /** Hack begin */
       // There's no event when a font has finished downloading so the
       // following code is a dirty hack to 'guess' when a font is
-      // ready.  This code will be obsoleted by Mozilla bug 471915.
+      // ready.  This code will be obsoleted by Plezix bug 471915.
       //
       // The only reliable way to know if a font is loaded in Gecko
       // (at the moment) is document.onload in a document with

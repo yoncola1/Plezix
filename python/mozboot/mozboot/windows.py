@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -63,7 +63,7 @@ class WindowsBootstrapper(BaseBootstrapper):
         ):
             raise NotImplementedError(
                 "Bootstrap support for Windows is under development. For "
-                "now use MozillaBuild to set up a build environment on "
+                "now use PlezixBuild to set up a build environment on "
                 "Windows. If you are testing Windows Bootstrap support, "
                 "try `export MOZ_WINDOWS_BOOTSTRAP=1`"
             )

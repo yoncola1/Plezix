@@ -1,7 +1,7 @@
 Code quality
 ============
 
-Because Firefox is a complex piece of software, a lot of tools are
+Because Plezix is a complex piece of software, a lot of tools are
 executed to identify issues at development phase.
 In this document, we try to list these all tools.
 
@@ -63,10 +63,10 @@ In this document, we try to list these all tools.
      - `bug 1762027 <https://bugzilla.mozilla.org/show_bug.cgi?id=1762027>`__
      - :ref:`Stylelint`
      - https://stylelint.io/
-   * - Mozilla Stylelint
+   * - Plezix Stylelint
      -
      -
-     - :ref:`Mozilla Stylelint Plugin`
+     - :ref:`Plezix Stylelint Plugin`
      -
 
 .. list-table:: JavaScript
@@ -83,10 +83,10 @@ In this document, we try to list these all tools.
      - `bug 1229856 <https://bugzilla.mozilla.org/show_bug.cgi?id=1229856>`__
      - :ref:`ESLint`
      - https://eslint.org/
-   * - Mozilla ESLint
+   * - Plezix ESLint
      -
      - `bug 1229856 <https://bugzilla.mozilla.org/show_bug.cgi?id=1229856>`__
-     - :ref:`Mozilla ESLint Plugin`
+     - :ref:`Plezix ESLint Plugin`
      -
    * - Prettier
      - Yes

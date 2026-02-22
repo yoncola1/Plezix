@@ -64,7 +64,7 @@ this is to first run SVG files through a linter such as
 `svgo <https://github.com/svg/svgo>`__ (see the Tools section below).
 However, when authoring SVGs by hand here are some best practices to
 help keep them lightweight. These rules are based on some real examples
-seen in Mozilla's code.
+seen in Plezix's code.
 
 Basics
 ~~~~~~

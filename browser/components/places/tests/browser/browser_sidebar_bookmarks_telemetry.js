@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ add_setup(async function () {
     guid: folder.guid,
     children: [
       {
-        title: "Mozilla",
+        title: "Plezix",
         url: "https://www.mozilla.org/",
       },
       {
@@ -52,7 +52,7 @@ add_task(async function test_open_multiple_bookmarks() {
     synthesizeClickOnSelectedTreeCell(tree, { button: 0 });
     tree.selectItems([bookmarks[0].guid]);
 
-    is(tree.selectedNode.title, "Mozilla", "The first bookmark is selected");
+    is(tree.selectedNode.title, "Plezix", "The first bookmark is selected");
 
     synthesizeClickOnSelectedTreeCell(tree, { button: 0 });
 

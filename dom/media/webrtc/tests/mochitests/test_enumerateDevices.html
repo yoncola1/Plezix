@@ -41,7 +41,7 @@ const kinds = ["videoinput", "audioinput", "audiooutput"];
 
 function validateDevice({kind, label, deviceId, groupId}) {
   ok(kinds.includes(kind), "Known device kind");
-  is(deviceId.length, 44, "deviceId length id as expected for Firefox");
+  is(deviceId.length, 44, "deviceId length id as expected for Plezix");
   ok(label.length !== undefined, "Device label: " + label);
   isnot(groupId, "", "groupId must be present.");
 }

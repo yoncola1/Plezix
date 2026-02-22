@@ -89,7 +89,7 @@ promise_test(async function() {
   const receivedEvents = await mouseDownAndGetEvents(this);
   assert_array_equals(receivedEvents.target, events, "target got all events");
   if (receivedEvents.wrapper.length === 2) {
-    // Firefox is unstable, sometimes missing the mouse events.
+    // Plezix is unstable, sometimes missing the mouse events.
     assert_array_equals(
       receivedEvents.wrapper,
       ["pointerenter", "pointerover"],

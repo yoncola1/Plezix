@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ import org.mozilla.fenix.components.appstate.setup.checklist.checklistItemsAreGr
 import org.mozilla.fenix.components.appstate.setup.checklist.getSetupChecklistSubtitle
 import org.mozilla.fenix.components.appstate.setup.checklist.getSetupChecklistTitle
 import org.mozilla.fenix.home.sessioncontrol.SetupChecklistInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val elevation = AcornLayout.AcornElevation.xLarge
 private val shapeChecklist = RoundedCornerShape(size = AcornLayout.AcornCorner.large)
@@ -56,7 +56,7 @@ fun SetupChecklist(setupChecklistState: SetupChecklistState, interactor: SetupCh
     Card(
         modifier = Modifier.padding(16.dp),
         shape = shapeChecklist,
-        colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer1),
         elevation = CardDefaults.cardElevation(defaultElevation = elevation),
     ) {
         Column(
@@ -97,8 +97,8 @@ private fun Header(state: SetupChecklistState) {
                 context = context,
                 allTasksCompleted = progress.allTasksCompleted(),
             ),
-            style = FirefoxTheme.typography.headline7,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.semantics { heading() },
         )
 
@@ -110,8 +110,8 @@ private fun Header(state: SetupChecklistState) {
             ?.let {
                 Text(
                     text = it,
-                    style = FirefoxTheme.typography.body2,
-                    color = FirefoxTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
                 )
             }
 
@@ -135,7 +135,7 @@ private fun RemoveChecklistButton(interactor: SetupChecklistInteractor) {
         ) {
             PrimaryButton(
                 text = stringResource(R.string.setup_checklist_button_remove),
-                modifier = Modifier.width(width = FirefoxTheme.layout.size.maxWidth.small),
+                modifier = Modifier.width(width = PlezixTheme.layout.size.maxWidth.small),
                 onClick = { interactor.onRemoveChecklistButtonClicked() },
             )
         }
@@ -227,12 +227,12 @@ private fun createPreviewGroups() = listOf(
 private fun SetupChecklistPreview(
     @PreviewParameter(SetupChecklistPreviewParameterProvider::class) initialState: SetupChecklistState,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         Spacer(Modifier.height(16.dp))
 
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .fillMaxHeight()
                 .padding(16.dp),
         ) {

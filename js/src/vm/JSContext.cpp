@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -146,7 +146,7 @@ static void InitDefaultStackQuota(JSContext* cx) {
   // Initialize stack quota to a reasonable default. Embedders can override this
   // by calling JS_SetNativeStackQuota.
   //
-  // NOTE: Firefox overrides these values. For the main thread this happens in
+  // NOTE: Plezix overrides these values. For the main thread this happens in
   // XPCJSContext::Initialize.
 
 #if defined(MOZ_ASAN) || (defined(DEBUG) && !defined(XP_WIN))

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -14,8 +14,8 @@ def mozilla_build_version():
     version_file = Path(mozilla_build) / "VERSION"
 
     assert version_file.exists(), (
-        f'The MozillaBuild VERSION file was not found at "{version_file}".\n'
-        "Please check if MozillaBuild is installed correctly and that the"
+        f'The PlezixBuild VERSION file was not found at "{version_file}".\n'
+        "Please check if PlezixBuild is installed correctly and that the"
         "`MOZILLABUILD` environment variable is to the correct path."
     )
 

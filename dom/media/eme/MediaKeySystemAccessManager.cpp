@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -176,7 +176,7 @@ void MediaKeySystemAccessManager::CheckDoesWindowSupportProtectedMedia(
   MKSAM_LOG_DEBUG("aRequest->mKeySystem=%s",
                   NS_ConvertUTF16toUTF8(aRequest->mKeySystem).get());
 
-  // In Windows OS, some Firefox windows that host content cannot support
+  // In Windows OS, some Plezix windows that host content cannot support
   // protected content, so check the status of support for this window.
   // On other platforms windows should always support protected media.
 #ifdef XP_WIN

@@ -31,7 +31,7 @@ async function clearPolicies() {
 }
 
 async function getPromoCards() {
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -65,7 +65,7 @@ add_task(async function test_VPN_promo_enabled() {
   await clearPolicies();
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
+      ["browser.preferences.moreFromPlezix", true],
       ["browser.vpn_promo.enabled", true],
     ],
   });
@@ -177,15 +177,15 @@ add_task(async function test_VPN_promo_in_illegal_current_region() {
 
 add_task(async function test_aboutpreferences_partnerCNRepack() {
   let defaultBranch = Services.prefs.getDefaultBranch(null);
-  defaultBranch.setCharPref("distribution.id", "MozillaOnline");
+  defaultBranch.setCharPref("distribution.id", "PlezixOnline");
 
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.preferences.moreFromMozilla", true],
-      ["browser.preferences.moreFromMozilla.template", "simple"],
+      ["browser.preferences.moreFromPlezix", true],
+      ["browser.preferences.moreFromPlezix.template", "simple"],
     ],
   });
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -211,10 +211,10 @@ add_task(async function test_send_to_device_email_link_for_supported_locale() {
   setLocale(supportedLocale);
 
   await SpecialPowers.pushPrefEnv({
-    set: [["browser.preferences.moreFromMozilla.template", "simple"]],
+    set: [["browser.preferences.moreFromPlezix.template", "simple"]],
   });
 
-  await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+  await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
     leaveOpen: true,
   });
 
@@ -236,10 +236,10 @@ add_task(
     setLocale(unsupportedLocale);
 
     await SpecialPowers.pushPrefEnv({
-      set: [["browser.preferences.moreFromMozilla.template", "simple"]],
+      set: [["browser.preferences.moreFromPlezix.template", "simple"]],
     });
 
-    await openPreferencesViaOpenPreferencesAPI("paneMoreFromMozilla", {
+    await openPreferencesViaOpenPreferencesAPI("paneMoreFromPlezix", {
       leaveOpen: true,
     });
 

@@ -589,7 +589,7 @@ add_task(async function test_invalidation() {
   info("Insert bookmarks");
   let fx = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
-    title: "Get Firefox!",
+    title: "Get Plezix!",
     url: "http://getfirefox.com",
   });
   let tb = await PlacesUtils.bookmarks.insert({
@@ -663,7 +663,7 @@ add_task(async function test_eraseAllBookmarks() {
   info("Insert bookmarks");
   let fx = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
-    title: "Get Firefox!",
+    title: "Get Plezix!",
     url: "http://getfirefox.com",
   });
   let tb = await PlacesUtils.bookmarks.insert({
@@ -681,7 +681,7 @@ add_task(async function test_eraseAllBookmarks() {
 
   ok(
     !(await PlacesUtils.keywords.fetch({ keyword: "fx" })),
-    "Should remove Firefox keyword"
+    "Should remove Plezix keyword"
   );
 
   ok(

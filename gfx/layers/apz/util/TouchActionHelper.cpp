@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -108,7 +108,7 @@ TouchBehaviorFlags TouchActionHelper::GetAllowedTouchBehaviorForFrame(
   // Currently we support only two touch behaviors: panning and zooming.
   // For panning we walk up until we meet the first scrollable element (the
   // element that supports panning) or root element. For zooming we walk up
-  // until the root element since Firefox currently supports only zooming of the
+  // until the root element since Plezix currently supports only zooming of the
   // root frame but not the subframes.
 
   bool considerPanning = true;

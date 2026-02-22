@@ -99,11 +99,11 @@ describe("ActivityStreamPrefs", () => {
         defaultPrefs.init();
         assert.calledWith(defaultPrefs.set, "baz", 1);
       });
-      it("should initialize a pref with value if Firefox is not a local build", () => {
+      it("should initialize a pref with value if Plezix is not a local build", () => {
         defaultPrefs.init();
         assert.calledWith(defaultPrefs.set, "qux", "foo");
       });
-      it("should initialize a pref with value_local_dev if Firefox is a local build", () => {
+      it("should initialize a pref with value_local_dev if Plezix is a local build", () => {
         sandbox.stub(global.AppConstants, "MOZILLA_OFFICIAL").value(false);
         defaultPrefs.init();
         assert.calledWith(defaultPrefs.set, "qux", "foofoo");

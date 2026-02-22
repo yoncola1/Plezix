@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import org.mozilla.fenix.databinding.FragmentShareBinding
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.nimbus.FxNimbus
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 class ShareFragment : AppCompatDialogFragment() {
@@ -89,7 +89,7 @@ class ShareFragment : AppCompatDialogFragment() {
                 sendTabUseCases = SendTabUseCases(accountManager),
                 saveToPdfUseCase = requireComponents.useCases.sessionUseCases.saveToPdf,
                 printUseCase = requireComponents.useCases.sessionUseCases.printContent,
-                sentFromFirefoxManager = requireComponents.core.sentFromFirefoxManager,
+                sentFromPlezixManager = requireComponents.core.sentFromPlezixManager,
                 recentAppsStorage = RecentAppsStorage(requireContext()),
                 viewLifecycleScope = viewLifecycleOwner.lifecycleScope,
             ) { result ->
@@ -122,7 +122,7 @@ class ShareFragment : AppCompatDialogFragment() {
         shareToAppsView = ShareToAppsView(binding.appsShareLayout, shareInteractor)
 
         binding.savePdf.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            PlezixTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 SaveToPDFItem {
                     shareInteractor.onSaveToPDF(tabId = args.sessionId)
                 }
@@ -132,7 +132,7 @@ class ShareFragment : AppCompatDialogFragment() {
         FxNimbus.features.print.recordExposure()
         if (FxNimbus.features.print.value().sharePrintEnabled) {
             binding.print.setContent {
-                FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+                PlezixTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                     PrintItem {
                         shareInteractor.onPrint(tabId = args.sessionId)
                     }

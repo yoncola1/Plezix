@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
-//! ## Firefox Version Comparison
-//! This module was ported from the Firefox Desktop implementation. You can find the Desktop implementation
+//! ## Plezix Version Comparison
+//! This module was ported from the Plezix Desktop implementation. You can find the Desktop implementation
 //! in [this C++ file](https://searchfox.org/mozilla-central/rev/468a65168dd0bc3c7d602211a566c16e66416cce/xpcom/base/nsVersionComparator.cpp)
 //! There's also some more documentation in the [IDL](https://searchfox.org/mozilla-central/rev/468a65168dd0bc3c7d602211a566c16e66416cce/xpcom/base/nsIVersionComparator.idl#9-31)
 //!
@@ -46,7 +46,7 @@
 //! 1. An empty `str_b` is always **greater** than a `str_b` with a value. For example, `93` > `93pre`
 //!
 //! ## Example version comparisons
-//! The following comparisons are taken directly from [the brief documentation in Mozilla-Central](https://searchfox.org/mozilla-central/rev/468a65168dd0bc3c7d602211a566c16e66416cce/xpcom/base/nsIVersionComparator.idl#9-31)
+//! The following comparisons are taken directly from [the brief documentation in Plezix-Central](https://searchfox.org/mozilla-central/rev/468a65168dd0bc3c7d602211a566c16e66416cce/xpcom/base/nsIVersionComparator.idl#9-31)
 //! ```
 //! use firefox_versioning::version::Version;
 //! let v1 = Version::try_from("1.0pre1").unwrap();

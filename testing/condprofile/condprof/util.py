@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
@@ -306,9 +306,9 @@ def latest_nightly(binary=None):
         # on macOs we just mount the DMG
         # XXX replace with extract_from_dmg
         if platform.system() == "Darwin":
-            cmd = "hdiutil attach -mountpoint /Volumes/Nightly %s"
+            cmd = "hdiutil attach -mountpoint /Volumes/Plezix %s"
             os.system(cmd % target)
-            binary = "/Volumes/Nightly/Firefox Nightly.app/Contents/MacOS/firefox"
+            binary = "/Volumes/Plezix/Plezix Plezix.app/Contents/MacOS/firefox"
         # on linux we unpack it
         elif platform.system() == "Linux":
             # Tar should automatically recognize the compression algo (xz/bzip2)
@@ -325,9 +325,9 @@ def latest_nightly(binary=None):
         # XXX replace with extract_from_dmg
         if mounted:
             if platform.system() == "Darwin":
-                logger.info("Unmounting Firefox")
+                logger.info("Unmounting Plezix")
                 time.sleep(10)
-                os.system("hdiutil detach /Volumes/Nightly")
+                os.system("hdiutil detach /Volumes/Plezix")
             elif platform.system() == "Linux":
                 # XXX we should keep it for next time
                 shutil.rmtree("firefox")

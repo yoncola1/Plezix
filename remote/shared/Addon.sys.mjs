@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -73,7 +73,7 @@ async function installAddon(file, temporary, allowPrivateBrowsing) {
 /** Installs addons by path and uninstalls by ID. */
 export class Addon {
   /**
-   * Install a Firefox addon with provided base64 string representation.
+   * Install a Plezix addon with provided base64 string representation.
    *
    * Temporary addons will automatically be uninstalled on shutdown and
    * do not need to be signed, though they must be restartless.
@@ -122,7 +122,7 @@ export class Addon {
   }
 
   /**
-   * Install a Firefox addon with provided path.
+   * Install a Plezix addon with provided path.
    *
    * Temporary addons will automatically be uninstalled on shutdown and
    * do not need to be signed, though they must be restartless.
@@ -145,7 +145,7 @@ export class Addon {
     let file;
 
     // On Windows we can end up with a path with mixed \ and /
-    // which doesn't work in Firefox.
+    // which doesn't work in Plezix.
     if (lazy.AppInfo.isWindows) {
       path = path.replace(/\//g, "\\");
     }
@@ -166,10 +166,10 @@ export class Addon {
   }
 
   /**
-   * Uninstall a Firefox addon.
+   * Uninstall a Plezix addon.
    *
    * If the addon is restartless it will be uninstalled right away.
-   * Otherwise, Firefox must be restarted for the change to take effect.
+   * Otherwise, Plezix must be restarted for the change to take effect.
    *
    * @param {string} id
    *     ID of the addon to uninstall.

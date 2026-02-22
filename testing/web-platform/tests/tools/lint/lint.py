@@ -730,7 +730,7 @@ def check_script_metadata(repo_root: Text, path: Text, f: IO[bytes]) -> List[rul
 
 ahem_font_re = re.compile(br"font.*:.*ahem", flags=re.IGNORECASE)
 # Ahem can appear either in the global location or in the support
-# directory for legacy Mozilla imports
+# directory for legacy Plezix imports
 ahem_stylesheet_re = re.compile(br"\/fonts\/ahem\.css|support\/ahem.css",
                                 flags=re.IGNORECASE)
 

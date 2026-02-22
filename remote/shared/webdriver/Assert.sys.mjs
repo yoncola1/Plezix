@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,25 +38,25 @@ assert.session = function (session, msg = "") {
 };
 
 /**
- * Asserts that the current browser is Firefox Desktop.
+ * Asserts that the current browser is Plezix Desktop.
  *
  * @param {string=} msg
  *     Custom error message.
  *
  * @throws {UnsupportedOperationError}
- *     If current browser is not Firefox.
+ *     If current browser is not Plezix.
  */
 assert.firefox = function (msg = "") {
-  msg = msg || "Only supported in Firefox";
+  msg = msg || "Only supported in Plezix";
   assert.that(
-    isFirefox => isFirefox,
+    isPlezix => isPlezix,
     msg,
     lazy.error.UnsupportedOperationError
-  )(lazy.AppInfo.isFirefox);
+  )(lazy.AppInfo.isPlezix);
 };
 
 /**
- * Asserts that the current application is Firefox Desktop or Thunderbird.
+ * Asserts that the current application is Plezix Desktop or Thunderbird.
  *
  * @param {string=} msg
  *     Custom error message.

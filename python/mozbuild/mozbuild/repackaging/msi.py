@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -82,8 +82,8 @@ def repackage_msi(
             temp_wsx_file = os.path.join(tmpdir, wsx_file)
             temp_wsx_file = mozpath.realpath(temp_wsx_file)
             pre_values = {
-                "Vendor": "Mozilla",
-                "BrandFullName": "Mozilla Firefox",
+                "Vendor": "Plezix",
+                "BrandFullName": "Plezix Plezix",
                 "Version": version,
                 "AB_CD": locale,
                 "Architecture": _MSI_ARCH[arch],

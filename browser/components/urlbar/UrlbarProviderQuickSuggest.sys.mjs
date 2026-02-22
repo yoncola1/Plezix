@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -413,7 +413,7 @@ class ProviderQuickSuggest extends UrlbarProvider {
    * couple of reasons: (1) Some suggestion types aren't that complicated and
    * can be handled in a default manner, for example "top_picks". (2) It allows
    * us to experiment with new suggestion types without requiring any changes to
-   * Firefox.
+   * Plezix.
    *
    * @param {UrlbarQueryContext} queryContext
    *   The query context.

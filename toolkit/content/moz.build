@@ -1,6 +1,6 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -62,7 +62,7 @@ with Files("tests/browser/*silent*"):
     BUG_COMPONENT = ("Core", "Audio/Video: Playback")
 
 with Files("tests/browser/*1170531*"):
-    BUG_COMPONENT = ("Firefox", "Menus")
+    BUG_COMPONENT = ("Plezix", "Menus")
 
 with Files("tests/browser/*1198465*"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
@@ -80,16 +80,16 @@ with Files("tests/browser/browser_content_url_annotation.js"):
     BUG_COMPONENT = ("Toolkit", "Crash Reporting")
 
 with Files("tests/browser/browser_default_image_filename.js"):
-    BUG_COMPONENT = ("Firefox", "File Handling")
+    BUG_COMPONENT = ("Plezix", "File Handling")
 
 with Files("tests/browser/*caret*"):
-    BUG_COMPONENT = ("Firefox", "Keyboard Navigation")
+    BUG_COMPONENT = ("Plezix", "Keyboard Navigation")
 
 with Files("tests/browser/*find*"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
 
 with Files("tests/browser/browser_isSynthetic.js"):
-    BUG_COMPONENT = ("Firefox", "Tabbed Browser")
+    BUG_COMPONENT = ("Plezix", "Tabbed Browser")
 
 with Files("tests/browser/*mediaPlayback*"):
     BUG_COMPONENT = ("Toolkit", "UI Widgets")
@@ -98,7 +98,7 @@ with Files("tests/browser/*mute*"):
     BUG_COMPONENT = ("Toolkit", "UI Widgets")
 
 with Files("tests/browser/*save*"):
-    BUG_COMPONENT = ("Firefox", "File Handling")
+    BUG_COMPONENT = ("Plezix", "File Handling")
 
 with Files("tests/browser/*scroll*"):
     BUG_COMPONENT = ("Toolkit", "UI Widgets")
@@ -146,9 +146,9 @@ with Files("tests/chrome/*451540*"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
 
 with Files("tests/chrome/*557987*"):
-    BUG_COMPONENT = ("Firefox", "Menus")
+    BUG_COMPONENT = ("Plezix", "Menus")
 with Files("tests/chrome/*562554*"):
-    BUG_COMPONENT = ("Firefox", "Menus")
+    BUG_COMPONENT = ("Plezix", "Menus")
 
 with Files("tests/chrome/*findbar*"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
@@ -175,7 +175,7 @@ with Files("tests/widgets/*898940*"):
     BUG_COMPONENT = ("Toolkit", "Video/Audio Controls")
 
 with Files("tests/widgets/*contextmenu*"):
-    BUG_COMPONENT = ("Firefox", "Menus")
+    BUG_COMPONENT = ("Plezix", "Menus")
 
 with Files("tests/widgets/*editor*"):
     BUG_COMPONENT = ("Core", "XUL")
@@ -201,13 +201,13 @@ with Files("TopLevelVideoDocument.js"):
     BUG_COMPONENT = ("Toolkit", "Video/Audio Controls")
 
 with Files("about*"):
-    BUG_COMPONENT = ("Firefox", "General")
+    BUG_COMPONENT = ("Plezix", "General")
 
 with Files("aboutGlean.*"):
     BUG_COMPONENT = ("Toolkit", "Telemetry")
 
 with Files("aboutNetError*"):
-    BUG_COMPONENT = ("Firefox", "Security")
+    BUG_COMPONENT = ("Plezix", "Security")
 
 with Files("aboutNetworking*"):
     BUG_COMPONENT = ("Core", "Networking")
@@ -228,13 +228,13 @@ with Files("aboutTelemetry*"):
     BUG_COMPONENT = ("Toolkit", "Telemetry")
 
 with Files("autocomplete.css"):
-    BUG_COMPONENT = ("Firefox", "Search")
+    BUG_COMPONENT = ("Plezix", "Search")
 
 with Files("browser-*.js"):
     BUG_COMPONENT = ("Toolkit", "General")
 
 with Files("buildconfig.html"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("contentAreaUtils.js"):
     BUG_COMPONENT = ("Toolkit", "General")
@@ -252,7 +252,7 @@ with Files("plugins*"):
     BUG_COMPONENT = ("Toolkit", "UI Widgets")
 
 with Files("resetProfile*"):
-    BUG_COMPONENT = ("Firefox", "Migration")
+    BUG_COMPONENT = ("Plezix", "Migration")
 
 with Files("timepicker*"):
     BUG_COMPONENT = ("Toolkit", "UI Widgets")

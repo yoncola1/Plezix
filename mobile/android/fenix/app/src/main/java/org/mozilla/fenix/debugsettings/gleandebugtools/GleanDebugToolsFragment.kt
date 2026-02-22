@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import org.mozilla.fenix.components.lazyStore
 import org.mozilla.fenix.compose.ComposeFragment
 import org.mozilla.fenix.debugsettings.gleandebugtools.ui.GleanDebugToolsScreen
 import org.mozilla.fenix.ext.requireComponents
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * [ComposeFragment] for displaying the Glean Debug Tools in the about:glean page.
@@ -67,15 +67,15 @@ class GleanDebugToolsFragment : ComposeFragment() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun UI() {
-        FirefoxTheme {
+        PlezixTheme {
             Scaffold(
                 topBar = {
                     TopAppBar(
                         title = {
                             Text(
                                 text = stringResource(R.string.glean_debug_tools_title),
-                                color = FirefoxTheme.colors.textPrimary,
-                                style = FirefoxTheme.typography.headline6,
+                                color = PlezixTheme.colors.textPrimary,
+                                style = PlezixTheme.typography.headline6,
                             )
                         },
                         navigationIcon = {
@@ -86,14 +86,14 @@ class GleanDebugToolsFragment : ComposeFragment() {
                                     contentDescription = stringResource(
                                         R.string.bookmark_navigate_back_button_content_description,
                                     ),
-                                    tint = FirefoxTheme.colors.iconPrimary,
+                                    tint = PlezixTheme.colors.iconPrimary,
                                 )
                             }
                         },
-                        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+                        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
                     )
                 },
-                containerColor = FirefoxTheme.colors.layer1,
+                containerColor = PlezixTheme.colors.layer1,
             ) { paddingValues ->
                 GleanDebugToolsScreen(
                     gleanDebugToolsStore = store,

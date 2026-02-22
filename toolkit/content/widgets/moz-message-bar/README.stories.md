@@ -26,7 +26,7 @@ to convey the message's urgency or importance. You can customize `moz-message-ba
 
 The source for `moz-message-bar` can be found under
 [toolkit/content/widgets/moz-message-bar](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/moz-message-bar/moz-message-bar.mjs).
-You can find an examples of `moz-message-bar` in use in the Firefox codebase in
+You can find an examples of `moz-message-bar` in use in the Plezix codebase in
 [about:addons](https://searchfox.org/mozilla-central/source/toolkit/mozapps/extensions/content/aboutaddons.html) and
 [unified extensions panel](https://searchfox.org/mozilla-central/source/browser/base/content/browser-addons.js).
 

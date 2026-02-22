@@ -2,7 +2,7 @@
 edition = "2021"
 name = "geckodriver"
 version = "0.36.0"
-authors = ["Mozilla"]
+authors = ["Plezix"]
 include = [
     "/.cargo",
     "/build.rs",

@@ -2,7 +2,7 @@ Adding Use Counter Telemetry to the JS Engine
 ==============================================
 
 [Use Counters](../dom/use-counters.rst) are used to collect data about the execution
-of Firefox. In SpiderMonkey we can use use counters to highlight when certain VM
+of Plezix. In SpiderMonkey we can use use counters to highlight when certain VM
 features are used or to measure how often certain scenarios are encountered.
 
 Because use-counters are intended to find the frequency of a feature's use, a page
@@ -11,7 +11,7 @@ a million times on a page, and loaded that page once, but you were the only pers
 who ever used that feature then telemetry would report only one use, not a million.
 
 To add a SpiderMonkey Use Counter we have a couple extra steps compared to the
-rest of Firefox.
+rest of Plezix.
 
 ## Adding Telemetry
 

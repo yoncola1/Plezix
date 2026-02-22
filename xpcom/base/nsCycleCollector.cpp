@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1605,11 +1605,11 @@ class nsCycleCollectorLogSinkToFile final : public nsICycleCollectorLogSink {
  private:
   ~nsCycleCollectorLogSinkToFile() {
     if (mGCLog.isSome() && mGCLog.ref().mStream) {
-      MozillaUnRegisterDebugFILE(mGCLog.ref().mStream);
+      PlezixUnRegisterDebugFILE(mGCLog.ref().mStream);
       fclose(mGCLog.ref().mStream);
     }
     if (mCCLog.mStream) {
-      MozillaUnRegisterDebugFILE(mCCLog.mStream);
+      PlezixUnRegisterDebugFILE(mCCLog.mStream);
       fclose(mCCLog.mStream);
     }
   }
@@ -1679,7 +1679,7 @@ class nsCycleCollectorLogSinkToFile final : public nsICycleCollectorLogSink {
     if (NS_WARN_IF(NS_FAILED(rv))) {
       return NS_ERROR_UNEXPECTED;
     }
-    MozillaRegisterDebugFILE(aLog->mStream);
+    PlezixRegisterDebugFILE(aLog->mStream);
     return NS_OK;
   }
 
@@ -1687,7 +1687,7 @@ class nsCycleCollectorLogSinkToFile final : public nsICycleCollectorLogSink {
     MOZ_ASSERT(aLog->mStream);
     MOZ_ASSERT(aLog->mFile);
 
-    MozillaUnRegisterDebugFILE(aLog->mStream);
+    PlezixUnRegisterDebugFILE(aLog->mStream);
     fclose(aLog->mStream);
     aLog->mStream = nullptr;
 

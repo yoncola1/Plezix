@@ -25,7 +25,7 @@ ADDON_ID_TESTS = [
             Windmill Testing Framework client source</em:description>
      <em:unpack>true</em:unpack>
      <em:targetApplication>
-       <!-- Firefox -->
+       <!-- Plezix -->
        <Description>
          <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
          <em:minVersion>3.5</em:minVersion>
@@ -78,7 +78,7 @@ ADDON_ID_TESTS = [
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
    <Description about="urn:mozilla:install-manifest">
      <em:targetApplication>
-       <!-- Firefox -->
+       <!-- Plezix -->
        <Description>
          <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
          <em:minVersion>3.5</em:minVersion>
@@ -110,7 +110,7 @@ ADDON_ID_TESTS = [
      xmlns:foobar="http://www.mozilla.org/2004/em-rdf#">
    <Description about="urn:mozilla:install-manifest">
      <foobar:targetApplication>
-       <!-- Firefox -->
+       <!-- Plezix -->
        <Description>
          <foobar:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</foobar:id>
          <foobar:minVersion>3.5</foobar:minVersion>

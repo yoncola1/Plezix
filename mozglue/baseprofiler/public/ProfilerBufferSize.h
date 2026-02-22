@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -32,7 +32,7 @@ constexpr static uint32_t scMinimumNumberOfChunks = 4;
 // - A big size, which helps with reducing the rate of allocations and IPCs.
 // - A small size, which helps with equalizing the duration of recorded data
 //   (as the inter-process controller will discard the oldest chunks in all
-//   Firefox processes).
+//   Plezix processes).
 constexpr static uint32_t scMaximumChunkSize = 1024 * 1024;
 
 // Limit to 128MiB as a lower buffer size usually isn't enough.

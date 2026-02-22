@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -102,7 +102,7 @@ def main(args):
                 dedent(
                     """
             See https://firefox-source-docs.mozilla.org/setup/macos_build.html
-            for guidance on how to prepare your system to build Firefox. Perhaps
+            for guidance on how to prepare your system to build Plezix. Perhaps
             you need to update Xcode, or install Python using brew?
             """
                 ).strip()
@@ -111,7 +111,7 @@ def main(args):
             print(
                 dedent(
                     """
-            Python is provided by MozillaBuild; ensure your MozillaBuild installation is
+            Python is provided by PlezixBuild; ensure your PlezixBuild installation is
             up to date. See https://firefox-source-docs.mozilla.org/setup/windows_build.html#install-mozillabuild
             for details.
             """
@@ -121,10 +121,10 @@ def main(args):
             print(
                 dedent(
                     """
-            You probably want to be interacting with Mach from within MozillaBuild, see
+            You probably want to be interacting with Mach from within PlezixBuild, see
             https://firefox-source-docs.mozilla.org/setup/windows_build.html for details.
             
-            If you are deliberately using Mach from outside MozillaBuild, then see
+            If you are deliberately using Mach from outside PlezixBuild, then see
             https://firefox-source-docs.mozilla.org/mach/windows-usage-outside-mozillabuild.html#install-python
             for guidance on installing native Python on your system.
             """

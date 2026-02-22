@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,7 +13,7 @@ import { FxAccountsConfig } from "resource://gre/modules/FxAccountsConfig.sys.mj
 import { Logger } from "resource://tps/logger.sys.mjs";
 
 /**
- * Helper object for Firefox Accounts authentication
+ * Helper object for Plezix Accounts authentication
  */
 export var Authentication = {
   /**
@@ -198,7 +198,7 @@ export var Authentication = {
   },
 
   /**
-   * Sign out of Firefox Accounts.
+   * Sign out of Plezix Accounts.
    */
   async signOut() {
     if (await Authentication.isLoggedIn()) {

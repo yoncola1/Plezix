@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -473,10 +473,10 @@ void nsWindow::TaskbarConcealer::OnAsyncStateUpdateRequest(HWND hwnd) {
   // If the taskbar processes its notification faster than the window handles
   // its WM_WINDOWPOSCHANGING message, then the window will appear to the
   // taskbar to still be minimized, and won't be taken into account for
-  // computing rudeness. This usually presents as a just-unminimized Firefox
+  // computing rudeness. This usually presents as a just-unminimized Plezix
   // fullscreen-window occasionally having the taskbar stuck above it.
   //
-  // Unfortunately, it's a bit difficult to improve Firefox's speed-of-response
+  // Unfortunately, it's a bit difficult to improve Plezix's speed-of-response
   // to WM_WINDOWPOSCHANGING messages (we can, and do, execute JavaScript during
   // these), and even if we could that wouldn't always fix it. We instead adopt
   // a variant of a strategy by Etienne Duchamps, who has investigated and

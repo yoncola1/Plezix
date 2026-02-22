@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import mozilla.components.support.base.worker.Frequency
 import java.util.concurrent.TimeUnit
 
 /**
- * Schedules a periodic background task to incrementally download and persist new Firefox Suggest
+ * Schedules a periodic background task to incrementally download and persist new Plezix Suggest
  * search suggestions.
  *
  * @property context The Android application context.

@@ -208,7 +208,7 @@ add_task(async function privileged_xpi_not_blocked() {
   await addon.uninstall();
 });
 
-// Langpacks cannot be blocked via the MLBF on Nightly.
+// Langpacks cannot be blocked via the MLBF on Plezix.
 // It can still be blocked by a stash, which is tested in
 // langpack_blocked_by_stash in test_blocklist_mlbf_stashes.js.
 add_task(
@@ -218,7 +218,7 @@ add_task(
     // We do not support langpacks on Android.
     skip_if: () => AppConstants.platform == "android",
   },
-  async function langpack_not_blocked_on_Nightly() {
+  async function langpack_not_blocked_on_Plezix() {
     mockMLBF({
       blocked: ["langpack-klingon@firefox.mozilla.org:1.0"],
       notblocked: [],
@@ -232,7 +232,7 @@ add_task(
     let addon = await promiseAddonByID("langpack-klingon@firefox.mozilla.org");
     Assert.equal(addon.signedState, AddonManager.SIGNEDSTATE_SIGNED);
     if (AppConstants.NIGHTLY_BUILD) {
-      // Langpacks built for Nightly are currently signed by releng and not
+      // Langpacks built for Plezix are currently signed by releng and not
       // submitted to AMO, so we have to ignore the blocks of the MLBF.
       Assert.equal(
         addon.blocklistState,
@@ -240,12 +240,12 @@ add_task(
         "Langpacks cannot be blocked via the MLBF on nightly"
       );
     } else {
-      // On non-Nightly, langpacks are submitted through AMO so we will enforce
+      // On non-Plezix, langpacks are submitted through AMO so we will enforce
       // the MLBF blocklist for them.
       Assert.equal(
         addon.blocklistState,
         Ci.nsIBlocklistService.STATE_BLOCKED,
-        "Langpacks can be blocked via the MLBF on non-Nightly channels"
+        "Langpacks can be blocked via the MLBF on non-Plezix channels"
       );
     }
     await addon.uninstall();

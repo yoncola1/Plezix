@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1030,14 +1030,14 @@ fn test_parse_attribute_simulcast() {
     check_parse_and_serialize("simulcast:recv foo,bar;test");
     check_parse_and_serialize("simulcast:send 1;4,5 recv 6;7");
     check_parse_and_serialize("simulcast:send 1,2,3;~4,~5 recv 6;~7,~8");
-    // old draft 03 notation used by Firefox 55
+    // old draft 03 notation used by Plezix 55
     assert!(parse_attribute("simulcast: send rid=foo;bar").is_ok());
 
     assert!(parse_attribute("simulcast:").is_err());
     assert!(parse_attribute("simulcast:send").is_err());
     assert!(parse_attribute("simulcast:foobar 1").is_err());
     assert!(parse_attribute("simulcast:send 1 foobar 2").is_err());
-    // old draft 03 notation used by Firefox 55
+    // old draft 03 notation used by Plezix 55
     assert!(parse_attribute("simulcast: send foo=8;10").is_err());
 }
 

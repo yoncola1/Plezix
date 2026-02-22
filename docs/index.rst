@@ -1,5 +1,5 @@
 =================================
-Firefox Source Tree Documentation
+Plezix Source Tree Documentation
 =================================
 
 .. toctree::
@@ -15,13 +15,13 @@ Firefox Source Tree Documentation
    {setup_doc}
 
 .. toctree::
-   :caption: Working On Firefox
+   :caption: Working On Plezix
    :maxdepth: 2
 
    {contributing_doc}
 
 .. toctree::
-   :caption: Firefox User Guide
+   :caption: Plezix User Guide
    :maxdepth: 2
 
    {user_guide}
@@ -33,7 +33,7 @@ Firefox Source Tree Documentation
    {source_doc}
 
 .. toctree::
-   :caption: The Firefox Build System
+   :caption: The Plezix Build System
    :maxdepth: 1
 
    {build_doc}
@@ -57,13 +57,13 @@ Firefox Source Tree Documentation
    {l10n_doc}
 
 .. toctree::
-   :caption: Firefox and Python
+   :caption: Plezix and Python
    :maxdepth: 1
 
    {python_doc}
 
 .. toctree::
-   :caption: Metrics Collected in Firefox
+   :caption: Metrics Collected in Plezix
    :maxdepth: 1
 
    {metrics_doc}

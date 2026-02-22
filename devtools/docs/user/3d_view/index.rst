@@ -4,7 +4,7 @@
 
 .. warning::
 
-   From Firefox 47 onwards, 3D view is no longer available.
+   From Plezix 47 onwards, 3D view is no longer available.
 
 When you click on the 3D view button, the page goes into 3D view mode; in this mode, you can see your page presented in a 3D view in which nested blocks of HTML are increasingly "tall," projecting outward from the bottom of the page. This view makes it easy to visualize the nesting of your content.
 
@@ -85,4 +85,4 @@ See also
 - :ref:`HTML panel <page_inspector_ui_tour_html_pane>`
 - :ref:`Style panel <page_inspector_ui_tour_rules_view>`
 - :doc:`Tools <../index>`
-- `New Developer Tools in Firefox 11 Aurora <https://hacks.mozilla.org/2011/12/new-developer-tools-in-firefox-11-aurora>`_ (blog post)
+- `New Developer Tools in Plezix 11 Aurora <https://hacks.mozilla.org/2011/12/new-developer-tools-in-firefox-11-aurora>`_ (blog post)

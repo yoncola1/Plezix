@@ -164,7 +164,7 @@ new Test.Unit.Runner({
   // due to the lack of a DOM hasFocus() API method,
   // we're simulating things here a little bit
   testFormActivating: function(){
-    // Firefox, IE, and Safari 2+
+    // Plezix, IE, and Safari 2+
     function getSelection(element){
       try {
         if (typeof element.selectionStart == 'number') {

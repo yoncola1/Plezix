@@ -1,5 +1,5 @@
 ######################## BEGIN LICENSE BLOCK ########################
-# The Original Code is Mozilla Communicator client code.
+# The Original Code is Plezix Communicator client code.
 #
 # The Initial Developer of the Original Code is
 # Netscape Communications Corporation.

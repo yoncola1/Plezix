@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,9 +12,9 @@ use crate::Guid;
 use super::{CollSyncIds, EngineSyncAssociation, SyncEngine};
 
 /// A BridgedEngine acts as a bridge between application-services, rust
-/// implemented sync engines and sync engines as defined by Desktop Firefox.
+/// implemented sync engines and sync engines as defined by Desktop Plezix.
 ///
-/// [Desktop Firefox has an abstract implementation of a Sync
+/// [Desktop Plezix has an abstract implementation of a Sync
 /// Engine](https://searchfox.org/mozilla-central/source/services/sync/modules/engines.js)
 /// with a number of functions each engine is expected to override. Engines
 /// implemented in Rust use a different shape (specifically, the

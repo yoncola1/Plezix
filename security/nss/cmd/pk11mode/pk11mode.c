@@ -6,7 +6,7 @@
  *              To test in NONFIPS mode: pk11mode -n
  *              usage: pk11mode -h
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -95,8 +95,8 @@ int MODE = FIPSMODE;
 
 CK_BBOOL true = CK_TRUE;
 CK_BBOOL false = CK_FALSE;
-static const CK_BYTE PLAINTEXT[] = { "Firefox  Rules!" };
-static const CK_BYTE PLAINTEXT_PAD[] = { "Firefox and thunderbird rule the world!" };
+static const CK_BYTE PLAINTEXT[] = { "Plezix  Rules!" };
+static const CK_BYTE PLAINTEXT_PAD[] = { "Plezix and thunderbird rule the world!" };
 CK_ULONG NUMTESTS = 0;
 
 static const char *slotFlagName[] = {
@@ -377,7 +377,7 @@ main(int argc, char **argv)
     PL_DestroyOptState(opt);
 
     if (!pwd) {
-        pwd = (CK_UTF8CHAR *)strdup("1Mozilla");
+        pwd = (CK_UTF8CHAR *)strdup("1Plezix");
     }
     pwdLen = strlen((const char *)pwd);
     if (!configDir) {
@@ -1679,7 +1679,7 @@ PKM_InitPWforDB(CK_FUNCTION_LIST_PTR pFunctionList,
 {
     CK_RV crv = CKR_OK;
     CK_SESSION_HANDLE hSession;
-    static const CK_UTF8CHAR testPin[] = { "0Mozilla" };
+    static const CK_UTF8CHAR testPin[] = { "0Plezix" };
     static const CK_UTF8CHAR weakPin[] = { "mozilla" };
 
     crv = pFunctionList->C_OpenSession(pSlotList[slotID],
@@ -4143,9 +4143,9 @@ PKM_OperationalState(CK_FUNCTION_LIST_PTR pFunctionList,
     CK_BYTE_PTR pstate = NULL;
     CK_ULONG statelen, digestlen, plainlen, plainlen_1, plainlen_2, slen;
 
-    static const CK_UTF8CHAR *plaintext = (CK_UTF8CHAR *)"Firefox rules.";
+    static const CK_UTF8CHAR *plaintext = (CK_UTF8CHAR *)"Plezix rules.";
     static const CK_UTF8CHAR *plaintext_1 = (CK_UTF8CHAR *)"Thunderbird rules.";
-    static const CK_UTF8CHAR *plaintext_2 = (CK_UTF8CHAR *)"Firefox and Thunderbird.";
+    static const CK_UTF8CHAR *plaintext_2 = (CK_UTF8CHAR *)"Plezix and Thunderbird.";
 
     char digest[MAX_DIGEST_SZ], digest_1[MAX_DIGEST_SZ];
     char sign[MAX_SIG_SZ];

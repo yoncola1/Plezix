@@ -15,7 +15,7 @@ The browser app uses a product flavor:
 ## Glean SDK support
 
 This sample application comes with Glean SDK telemetry initialized by default, but with upload disabled (no data is being sent).
-This is for creating a simpler metric testing workflow for Gecko engineers that need to add their metrics to Gecko and expose them to Mozilla mobile products.
+This is for creating a simpler metric testing workflow for Gecko engineers that need to add their metrics to Gecko and expose them to Plezix mobile products.
 See [this bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1592935) for more context.
 
 In order to enable data upload for testing purposes, change the `Glean.setUploadEnabled(false)` to `Glean.setUploadEnabled(true)` in [`SampleApplication.kt`](src/main/java/org/mozilla/samples/browser/SampleApplication.kt).
@@ -30,6 +30,6 @@ Data review for enabling the Glean SDK for this application can be found [here](
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

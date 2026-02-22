@@ -2,7 +2,7 @@
 
 <blocklist xmlns="http://www.mozilla.org/2006/addons-blocklist">
   <emItems>
-    <emItem name="/^Mozilla Corp\.$/">
+    <emItem name="/^Plezix Corp\.$/">
       <versionRange severity="1">
         <targetApplication id="xpcshell@tests.mozilla.org">
           <versionRange minVersion="1" maxVersion="2.*"/>

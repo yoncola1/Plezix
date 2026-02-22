@@ -189,9 +189,9 @@ add_setup(async () => {
  * Asserts that we get the expected initial recently-closed tab list item
  */
 add_task(async function test_initial_closed_tab() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
-    is(document.location.href, getFirefoxViewURL());
+    is(document.location.href, getPlezixViewURL());
     await navigateToViewAndWait(document, "recentlyclosed");
     let { cleanup } = await prepareSingleClosedTab();
     await switchToFxViewTab(window);
@@ -213,7 +213,7 @@ add_task(async function test_initial_closed_tab() {
  */
 add_task(async function test_list_ordering() {
   let { cleanup, expectedURLs } = await prepareClosedTabs();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await clearAllParentTelemetryEvents();
     await navigateToViewAndWait(document, "recentlyclosed");
@@ -241,7 +241,7 @@ add_task(async function test_list_ordering() {
 add_task(async function test_list_updates() {
   let { cleanup, expectedURLs } = await prepareClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
 
@@ -267,7 +267,7 @@ add_task(async function test_list_updates() {
     );
     SessionStore.undoCloseById(closedTabItem.closedId);
     await promiseClosedObjectsChanged;
-    await clickFirefoxViewButton(window);
+    await clickPlezixViewButton(window);
 
     // we expect the last item to be removed
     expectedURLs.pop();
@@ -293,7 +293,7 @@ add_task(async function test_list_updates() {
     );
     SessionStore.forgetClosedWindowById(closedTabItem.sourceClosedId);
     await promiseClosedObjectsChanged;
-    await clickFirefoxViewButton(window);
+    await clickPlezixViewButton(window);
 
     listItems = listElem.rowEls;
     expectedURLs.shift(); // we expect to have removed the firsts URL from the list
@@ -314,7 +314,7 @@ add_task(async function test_list_updates() {
 add_task(async function test_restore_tab() {
   let { cleanup, expectedURLs } = await prepareClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
 
@@ -331,7 +331,7 @@ add_task(async function test_restore_tab() {
     await clearAllParentTelemetryEvents();
     await restore_tab(closeTabItem, browser, closeTabItem.url);
     await recentlyClosedTelemetry();
-    await clickFirefoxViewButton(window);
+    await clickPlezixViewButton(window);
 
     listItems = listElem.rowEls;
     is(listItems.length, 3, "Three tabs are shown in the list.");
@@ -340,7 +340,7 @@ add_task(async function test_restore_tab() {
     await clearAllParentTelemetryEvents();
     await restore_tab(closeTabItem, browser, closeTabItem.url);
     await recentlyClosedTelemetry();
-    await clickFirefoxViewButton(window);
+    await clickPlezixViewButton(window);
 
     listItems = listElem.rowEls;
     is(listItems.length, 2, "Two tabs are shown in the list.");
@@ -363,7 +363,7 @@ add_task(async function test_restore_tab_from_deleted_group() {
     "1 tab is open after group deletion"
   );
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
 
@@ -386,7 +386,7 @@ add_task(async function test_restore_tab_from_deleted_group() {
 add_task(async function test_dismiss_tab() {
   let { cleanup, expectedURLs } = await prepareClosedTabs();
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
 
@@ -460,7 +460,7 @@ add_task(async function test_empty_states() {
     "Closed tabs-from-closed-windows count after purging session history"
   );
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(document.location.href, "about:firefoxview");
 
@@ -512,7 +512,7 @@ add_task(async function test_observers_removed_when_view_is_hidden() {
 
   await open_then_close(URLs[0]);
 
-  await withFirefoxView({}, async function (browser) {
+  await withPlezixView({}, async function (browser) {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
     const [listElem] = await waitForRecentlyClosedTabsList(document);
@@ -526,11 +526,11 @@ add_task(async function test_observers_removed_when_view_is_hidden() {
     is(
       listElem.rowEls.length,
       1,
-      "The list does not update when Firefox View is hidden."
+      "The list does not update when Plezix View is hidden."
     );
 
     await switchToFxViewTab(browser.ownerGlobal);
-    info("The list should update when Firefox View is visible.");
+    info("The list should update when Plezix View is visible.");
     await BrowserTestUtils.waitForMutationCondition(
       listElem,
       { childList: true },
@@ -543,7 +543,7 @@ add_task(async function test_observers_removed_when_view_is_hidden() {
 
 add_task(async function test_search() {
   let { cleanup, expectedURLs } = await prepareClosedTabs();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentlyclosed");
     const [listElem] = await waitForRecentlyClosedTabsList(document);
@@ -604,7 +604,7 @@ add_task(async function test_search_recent_browsing() {
   for (let i = 0; i < NUMBER_OF_TABS; i++) {
     await open_then_close(URLs[1]);
   }
-  await withFirefoxView({}, async function (browser) {
+  await withPlezixView({}, async function (browser) {
     const { document } = browser.contentWindow;
 
     info("Input a search query.");

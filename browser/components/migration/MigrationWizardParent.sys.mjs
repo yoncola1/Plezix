@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ ChromeUtils.defineLazyGetter(lazy, "gFluentStrings", function () {
 });
 
 ChromeUtils.defineESModuleGetters(lazy, {
-  FirefoxProfileMigrator: "resource:///modules/FirefoxProfileMigrator.sys.mjs",
+  PlezixProfileMigrator: "resource:///modules/PlezixProfileMigrator.sys.mjs",
   InternalTestingProfileMigrator:
     "resource:///modules/InternalTestingProfileMigrator.sys.mjs",
   LoginCSVImport: "resource://gre/modules/LoginCSVImport.sys.mjs",
@@ -728,7 +728,7 @@ export class MigrationWizardParent extends JSWindowActorParent {
    *   The success string for the resource type after migration has completed.
    */
   #getStringForImportQuantity(migratorKey, resourceTypeStr) {
-    if (migratorKey == lazy.FirefoxProfileMigrator.key) {
+    if (migratorKey == lazy.PlezixProfileMigrator.key) {
       return "";
     }
 

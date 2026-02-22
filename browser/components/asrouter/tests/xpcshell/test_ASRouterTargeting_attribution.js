@@ -80,7 +80,7 @@ add_task(async function check_enterprise_targeting() {
 
   await EnterprisePolicyTesting.setupPolicyEngineWithJson({
     policies: {
-      DisableFirefoxStudies: {
+      DisablePlezixStudies: {
         Value: true,
       },
     },

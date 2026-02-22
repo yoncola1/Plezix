@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ webidl DocumentFragment;
 webidl Element;
 
 /**
- * Non-Web HTML parser functionality to Firefox extensions and XULRunner apps.
+ * Non-Web HTML parser functionality to Plezix extensions and XULRunner apps.
  * Don't use this from within Gecko--use nsContentUtils, nsTreeSanitizer, etc.
  * directly instead.
  */

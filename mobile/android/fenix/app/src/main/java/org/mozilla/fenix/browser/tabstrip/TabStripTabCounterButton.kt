@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import mozilla.components.compose.base.menu.DropdownMenu
 import mozilla.components.compose.base.menu.MenuItem
 import mozilla.components.ui.tabcounter.TabCounter
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A button showing number of tabs in the tab strip, encapsulating [TabCounter] and [DropdownMenu].
@@ -92,26 +92,26 @@ fun TabStripTabCounterButton(
 @PreviewLightDark
 @Composable
 private fun TabStripTabCounterButtonPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(FirefoxTheme.colors.layer1)
-                .padding(FirefoxTheme.layout.space.dynamic400),
-            verticalArrangement = Arrangement.spacedBy(FirefoxTheme.layout.space.dynamic400),
+                .background(PlezixTheme.colors.layer1)
+                .padding(PlezixTheme.layout.space.dynamic400),
+            verticalArrangement = Arrangement.spacedBy(PlezixTheme.layout.space.dynamic400),
         ) {
             Text(
                 text = "TabStripTabCounterButton",
-                style = FirefoxTheme.typography.body1,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body1,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Text(
                 text = """
                     Clicking the button will increment the tab count. Long press the button to open the dropdown menu.
                 """.trimIndent(),
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.caption,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             var privacyBadgeVisible by remember { mutableStateOf(false) }
@@ -127,7 +127,7 @@ private fun TabStripTabCounterButtonPreview() {
                 ).map { it.toMenuItem() },
                 modifier = Modifier
                     .align(Alignment.End)
-                    .background(FirefoxTheme.colors.layer2),
+                    .background(PlezixTheme.colors.layer2),
                 onClick = { tabCount++ },
                 privacyBadgeVisible = privacyBadgeVisible,
             )

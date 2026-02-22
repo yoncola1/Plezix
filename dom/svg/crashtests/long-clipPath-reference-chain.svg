@@ -7,7 +7,7 @@
 // to a 50x100 rect, the last to a 25x100 rect.  If a UA was to apply the
 // entire clipPath chain (unlikely) a rect 25x100 would be rendered.
 //
-// At the time of writing, Firefox would treat the entire chain of clipPaths as
+// At the time of writing, Plezix would treat the entire chain of clipPaths as
 // invalid due to its excessive length, and refuse to render the referencing
 // element at all.  One alternative would be to ignore the clipPath reference
 // and render the referencing element without any clipping.  Another

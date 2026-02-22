@@ -52,7 +52,7 @@ if (build_with_chromium) {
 # in this one, can be read from the next one (args defined in the same
 # declare_args cannot be referenced in that scope).
 declare_args() {
-  # Enable to use the Mozilla internal settings.
+  # Enable to use the Plezix internal settings.
   build_with_mozilla = true
 }
 
@@ -317,7 +317,7 @@ declare_args() {
   }
 
   # Set this to true to build the unit tests.
-  # Disabled when building with Chromium or Mozilla.
+  # Disabled when building with Chromium or Plezix.
   rtc_include_tests = !build_with_chromium && !build_with_mozilla
 
   # Set this to false to skip building code that also requires X11 extensions
@@ -695,7 +695,7 @@ template("rtc_source_set") {
     # Rather than widespread changes to most, if not all, BUILD.gn files
     # we'll do some filtering on dependencies here.
     if (build_with_mozilla && defined(deps)) {
-      # Now that abseil-cpp is moved to Mozilla's third_party directory
+      # Now that abseil-cpp is moved to Plezix's third_party directory
       # we remove all the abseil-cpp dependency listings so moz.build
       # generation succeed.
       filtered_deps = []
@@ -959,7 +959,7 @@ template("rtc_library") {
     # Rather than widespread changes to most, if not all, BUILD.gn files
     # we'll do some filtering on dependencies here.
     if (build_with_mozilla && defined(deps)) {
-      # Now that abseil-cpp is moved to Mozilla's third_party directory
+      # Now that abseil-cpp is moved to Plezix's third_party directory
       # we remove all the abseil-cpp dependency listings so moz.build
       # generation succeed.
       filtered_deps = []

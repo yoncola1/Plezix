@@ -10,7 +10,7 @@ function parseQuery(query, key) {
   return false;
 }
 
-// Return the first few bytes in a short byte range response. When Firefox
+// Return the first few bytes in a short byte range response. When Plezix
 // requests subsequent bytes in a second range request, respond with a
 // redirect. Requests after the first redirected are serviced as expected.
 function handleRequest(request, response) {

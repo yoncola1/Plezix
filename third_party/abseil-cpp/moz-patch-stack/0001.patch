@@ -6,7 +6,7 @@ Subject: Bug 1772400 - pt2 - Rollup of various patches to
 Several of these patches have been unindented to match the original content
 of the files to make merging easier in the fast-foward work.
 
-127ace4d8887 - Bug 1654112 - Tweak upstream gn files for Firefox build.
+127ace4d8887 - Bug 1654112 - Tweak upstream gn files for Plezix build.
 65562b1a98a3 - Bug 1654112 - minimize abseil-cpp build and usage in libwebrtc.
 58f47eacaf10 - Bug 1654112 - deconflate the target and host architectures in libwebrtc build files
 

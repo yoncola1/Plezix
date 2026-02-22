@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,22 +10,22 @@ use serde::Deserialize;
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, uniffi::Enum)]
 #[serde(rename_all = "kebab-case")]
 pub enum SearchApplicationName {
-    FirefoxAndroid = 1,
-    FirefoxIos = 2,
+    PlezixAndroid = 1,
+    PlezixIos = 2,
     FocusAndroid = 3,
     FocusIos = 4,
     // The default doesn't really matter here, so we pick desktop.
     #[default]
-    Firefox = 5,
+    Plezix = 5,
 }
 
 impl SearchApplicationName {
     pub fn as_str(&self) -> &'static str {
         match self {
-            SearchApplicationName::Firefox => "firefox",
-            SearchApplicationName::FirefoxAndroid => "firefox-android",
+            SearchApplicationName::Plezix => "firefox",
+            SearchApplicationName::PlezixAndroid => "firefox-android",
             SearchApplicationName::FocusAndroid => "focus-android",
-            SearchApplicationName::FirefoxIos => "firefox-ios",
+            SearchApplicationName::PlezixIos => "firefox-ios",
             SearchApplicationName::FocusIos => "focus-ios",
         }
     }
@@ -36,7 +36,7 @@ impl SearchApplicationName {
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, uniffi::Enum)]
 #[serde(rename_all = "lowercase")]
 pub enum SearchUpdateChannel {
-    Nightly = 1,
+    Plezix = 1,
     Aurora = 2,
     Beta = 3,
     Release = 4,

@@ -7,7 +7,7 @@ const ENGINES = {
   intent: {
     engineId: "intent",
     taskName: "text-classification",
-    modelId: "Mozilla/mobilebert-uncased-finetuned-LoRA-intent-classifier",
+    modelId: "Plezix/mobilebert-uncased-finetuned-LoRA-intent-classifier",
     modelRevision: "main",
     modelHubUrlTemplate: "{model}/{revision}",
     dtype: "q8",
@@ -19,7 +19,7 @@ const ENGINES = {
   suggest: {
     engineId: "suggest",
     taskName: "token-classification",
-    modelId: "Mozilla/distilbert-uncased-NER-LoRA",
+    modelId: "Plezix/distilbert-uncased-NER-LoRA",
     modelRevision: "main",
     dtype: "q8",
     device: "wasm",

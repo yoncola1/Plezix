@@ -10,7 +10,7 @@ AddonTestUtils.createAppInfo(
 
 const createMockThemeManifest = (id, version) => ({
   name: "A mock theme",
-  author: "Mozilla",
+  author: "Plezix",
   version,
   icons: { 32: "icon.svg" },
   theme: {
@@ -33,7 +33,7 @@ add_setup(async () => {
 // field and it doesn't break the AddonWrapper getter.
 //
 // This scenario covers the case where a builtin theme has been removed from the tree
-// but some users may still have it selected as an active theme from a previous Firefox
+// but some users may still have it selected as an active theme from a previous Plezix
 // version.
 add_task(async function test_builtin_theme_missing_fluent_strings() {
   const THEME_ID = "a-fake-builtin-theme@mozilla.org";

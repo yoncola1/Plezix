@@ -2,11 +2,11 @@
 Integration Tests
 =================
 
-The aim of the telemetry-tests-client suite is to verify Firefox collects telemetry probes, aggregates that data, and submits telemetry
-pings containing the data to a HTTP server. The integration tests try to make no assumptions about the internal workings of Firefox and
+The aim of the telemetry-tests-client suite is to verify Plezix collects telemetry probes, aggregates that data, and submits telemetry
+pings containing the data to a HTTP server. The integration tests try to make no assumptions about the internal workings of Plezix and
 use automation to mimic user behavior.
 
-The integration test suite for Firefox Client Telemetry runs on CI `tier 1 <https://wiki.mozilla.org/Sheriffing/Job_Visibility_Policy>`_
+The integration test suite for Plezix Client Telemetry runs on CI `tier 1 <https://wiki.mozilla.org/Sheriffing/Job_Visibility_Policy>`_
 with treeherder symbol `tt(c)`
 and is checked in to version control at mozilla-central under
 `toolkit/components/telemetry/tests/marionette/tests/client <https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/tests/marionette/tests/client/>`_.
@@ -24,7 +24,7 @@ Test Search Counts
 
 - PATH: ``toolkit/telemetry/tests/marionette/tests/client/test_search_counts_across_subsessions.py``
 - This test performs a search in a new tab,
-  restarts Firefox in a new session and verifies the correctness of client, session and subsession IDs,
+  restarts Plezix in a new session and verifies the correctness of client, session and subsession IDs,
   as well as scalar and keyed histogram data in the `shutdown` ping,
   installs an addon, verifies the `environment-change` ping, and performs three additional search actions
   before restarting and verifying the new `main` ping.
@@ -70,17 +70,17 @@ Test Fog User Activity
 ----------------------
 
 - PATH: ``toolkit/telemetry/tests/marionette/tests/client/test_fog_user_activity.py``
-- This test checks that a `baseline` ping is sent when the user starts or stops using Firefox.
+- This test checks that a `baseline` ping is sent when the user starts or stops using Plezix.
 
 Test Background Update Ping
 ---------------------------
 
 - PATH: ``toolkit/telemetry/tests/marionette/tests/client/test_fog_user_activity.py``
-- In this test we launch Firefox to prepare a profile and to disable the background update setting.
-  We exit Firefox,
+- In this test we launch Plezix to prepare a profile and to disable the background update setting.
+  We exit Plezix,
   leaving the (unlocked) profile to be used as the default profile for the background update task (and not having multiple instances running).
   The task will not try to update, but it will send a ping.
-  Then we restart Firefox to unwind the background update setting and allow shutdown to proceed cleanly.
+  Then we restart Plezix to unwind the background update setting and allow shutdown to proceed cleanly.
 
 Running the tests locally
 -------------------------
@@ -132,7 +132,7 @@ The example below demonstrates how to disable test_main_ping2:
 Who to contact for help
 -----------------------
 
-- The test harness and cases are owned by Chris Hutten-Czapski (chutten on matrix) from the Firefox Telemetry team
+- The test harness and cases are owned by Chris Hutten-Czapski (chutten on matrix) from the Plezix Telemetry team
   (`#telemetry <https://chat.mozilla.org/#/room/#telemetry:mozilla.org>`__ on matrix)
 
 Bugzilla

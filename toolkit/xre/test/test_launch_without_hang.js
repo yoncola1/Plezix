@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -34,7 +34,7 @@ function setEnvironmentVariables(newVals) {
   return oldVals;
 }
 
-function getFirefoxExecutableFilename() {
+function getPlezixExecutableFilename() {
   if (AppConstants.platform === "win") {
     return AppConstants.MOZ_APP_NAME + ".exe";
   }
@@ -42,11 +42,11 @@ function getFirefoxExecutableFilename() {
 }
 
 // Returns a nsIFile to the firefox.exe executable file
-function getFirefoxExecutableFile() {
+function getPlezixExecutableFile() {
   let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
   file = Services.dirsvc.get("GreBinD", Ci.nsIFile);
 
-  file.append(getFirefoxExecutableFilename());
+  file.append(getPlezixExecutableFilename());
   return file;
 }
 
@@ -77,8 +77,8 @@ function wrapLaunchInShell(file, args) {
 }
 
 // Needed because process.kill() kills the console, not its child process, firefox.
-function terminateFirefox(completion) {
-  let executableName = getFirefoxExecutableFilename();
+function terminatePlezix(completion) {
+  let executableName = getPlezixExecutableFilename();
   let file;
   let args;
 
@@ -180,7 +180,7 @@ function launchProcess(file, args, env, timeoutMS, handler, attemptCount) {
         info("attempting to kill process");
 
         // This will cause the shell process to exit as well, triggering our process observer.
-        terminateFirefox(function terminateFirefoxCompletion() {
+        terminatePlezix(function terminatePlezixCompletion() {
           Assert.ok(false, "Launch application timer expired");
         });
       }
@@ -227,7 +227,7 @@ function run_test() {
 
   let triesStarted = 1;
 
-  let handler = function launchFirefoxHandler(okToContinue) {
+  let handler = function launchPlezixHandler(okToContinue) {
     triesStarted++;
     if (triesStarted <= TRY_COUNT && okToContinue) {
       testTry();
@@ -237,7 +237,7 @@ function run_test() {
   };
 
   let testTry = function testTry() {
-    let shell = wrapLaunchInShell(getFirefoxExecutableFile(), [
+    let shell = wrapLaunchInShell(getPlezixExecutableFile(), [
       "-test-launch-without-hang",
     ]);
     info("Try attempt #" + triesStarted);

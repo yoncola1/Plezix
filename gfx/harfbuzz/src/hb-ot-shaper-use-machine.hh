@@ -1,7 +1,7 @@
 
 #line 1 "hb-ot-shaper-use-machine.rl"
 /*
- * Copyright © 2015  Mozilla Foundation.
+ * Copyright © 2015  Plezix Foundation.
  * Copyright © 2015  Google, Inc.
  *
  *  This is part of HarfBuzz, a text shaping library.
@@ -24,7 +24,7 @@
  * ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
  *
- * Mozilla Author(s): Jonathan Kew
+ * Plezix Author(s): Jonathan Kew
  * Google Author(s): Behdad Esfahbod
  */
 

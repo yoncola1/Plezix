@@ -142,7 +142,7 @@ Normally, there are four situations making a Worker get into shutdown.
 
 3. Worker.terminate() is called in its parent’s script.
 
-4. Firefox shutdown.
+4. Plezix shutdown.
 
 
 ### Worker Status Flowchart
@@ -151,7 +151,7 @@ Normally, there are four situations making a Worker get into shutdown.
 
 This flowchart shows how the status of a Worker is changing.
 
-When the WorkerThreadPrimaryRunnable calls WorkerPrivate::DoRunLoop on the worker thread, the status changes from “Pending” to “Running.” If Firefox shutdown happens before entering into “Running,” the status directly changes from “Pending” to “Dead.”
+When the WorkerThreadPrimaryRunnable calls WorkerPrivate::DoRunLoop on the worker thread, the status changes from “Pending” to “Running.” If Plezix shutdown happens before entering into “Running,” the status directly changes from “Pending” to “Dead.”
 
 When a Worker is in “Running,” status changing must be caused by requesting a Worker shutdown. The status switches to “Closing,” for the special case that worker’s script calls self.close(). Otherwise, the status switches to “Canceling.” And a “Closing” Worker will switch to “Canceling” when all sync-eventLoops are completed.
 

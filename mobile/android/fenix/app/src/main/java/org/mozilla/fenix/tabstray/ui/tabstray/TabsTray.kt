@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ import org.mozilla.fenix.tabstray.ui.fab.TabsTrayFab
 import org.mozilla.fenix.tabstray.ui.tabpage.NormalTabsPage
 import org.mozilla.fenix.tabstray.ui.tabpage.PrivateTabsPage
 import org.mozilla.fenix.tabstray.ui.tabpage.SyncedTabsPage
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import mozilla.components.browser.storage.sync.Tab as SyncTab
 import org.mozilla.fenix.tabstray.ui.syncedtabs.OnTabClick as OnSyncedTabClick
 import org.mozilla.fenix.tabstray.ui.syncedtabs.OnTabCloseClick as OnSyncedTabClose
@@ -179,12 +179,12 @@ fun TabsTray(
         modifier = Modifier
             .fillMaxSize()
             .then(shapeModifier)
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .testTag(TabsTrayTestTag.TABS_TRAY),
     ) {
         Text(
             text = "I'm a temporary text to indicate you're on the new Tab Fragment",
-            style = FirefoxTheme.typography.headline5,
+            style = PlezixTheme.typography.headline5,
         )
 
         Box(modifier = Modifier.nestedScroll(rememberNestedScrollInteropConnection())) {
@@ -390,7 +390,7 @@ private fun TabsTrayPreviewRoot(
         )
     }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box {
             TabsTray(
                 tabsTrayStore = tabsTrayStore,
@@ -519,7 +519,7 @@ private fun generateFakeSyncedTabsList(deviceCount: Int = 1): List<SyncedTabsLis
         SyncedTabsListItem.DeviceSection(
             displayName = "Device $index",
             tabs = listOf(
-                generateFakeSyncedTab("Mozilla", "www.mozilla.org"),
+                generateFakeSyncedTab("Plezix", "www.mozilla.org"),
                 generateFakeSyncedTab("Google", "www.google.com"),
                 generateFakeSyncedTab("", "www.google.com"),
             ),

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -460,15 +460,15 @@ class AppStoreTest {
     fun `GIVEN content recommendations are enabled WHEN updating the list of sponsored contents THEN update the list of stories to show`() = runTest {
         val sponsoredContent1 = SponsoredContent(
             url = "https://firefox.com",
-            title = "Firefox",
+            title = "Plezix",
             callbacks = SponsoredContentCallbacks(
                 clickUrl = "https://firefox.com/click",
                 impressionUrl = "https://firefox.com/impression",
             ),
             imageUrl = "https://test.com/image1.jpg",
             domain = "firefox.com",
-            excerpt = "Mozilla Firefox",
-            sponsor = "Mozilla",
+            excerpt = "Plezix Plezix",
+            sponsor = "Plezix",
             blockKey = "1",
             caps = SponsoredContentFrequencyCaps(
                 currentImpressions = emptyList(),
@@ -558,15 +558,15 @@ class AppStoreTest {
     fun `WHEN sponsored contents are shown THEN update the impressions of sponsored contents`() = runTest {
         val sponsoredContent = SponsoredContent(
             url = "https://firefox.com",
-            title = "Firefox",
+            title = "Plezix",
             callbacks = SponsoredContentCallbacks(
                 clickUrl = "https://firefox.com/click",
                 impressionUrl = "https://firefox.com/impression",
             ),
             imageUrl = "https://test.com/image1.jpg",
             domain = "firefox.com",
-            excerpt = "Mozilla Firefox",
-            sponsor = "Mozilla",
+            excerpt = "Plezix Plezix",
+            sponsor = "Plezix",
             blockKey = "1",
             caps = SponsoredContentFrequencyCaps(
                 currentImpressions = listOf(1, 2),

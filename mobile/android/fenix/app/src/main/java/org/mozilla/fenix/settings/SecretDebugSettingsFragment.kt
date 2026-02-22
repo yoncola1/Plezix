@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.distributions.DefaultDistributionProviderChecker
 import org.mozilla.fenix.distributions.LegacyDistributionProviderChecker
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 class SecretDebugSettingsFragment : Fragment() {
 
@@ -46,7 +46,7 @@ class SecretDebugSettingsFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     SecretDebugSettingsScreen()
                 }
             }
@@ -99,48 +99,48 @@ private fun DebugInfo(
     ) {
         Text(
             text = stringResource(R.string.debug_info_region_home),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = regionState.home,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = stringResource(R.string.debug_info_region_current),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = regionState.current,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
 
         Text(
             text = stringResource(R.string.debug_info_distribution_id),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = distributionId,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
 
         Text(
             text = stringResource(R.string.debug_info_play_referrer),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = playInstallReferrer,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
 
@@ -154,7 +154,7 @@ private fun DebugInfo(
         ) {
             Text(
                 text = stringResource(R.string.debug_info_run_query_provider_test),
-                color = FirefoxTheme.colors.textOnColorPrimary,
+                color = PlezixTheme.colors.textOnColorPrimary,
             )
         }
     }

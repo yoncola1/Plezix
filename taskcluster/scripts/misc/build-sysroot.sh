@@ -9,7 +9,7 @@ shift
 sysroot=$(basename $TOOLCHAIN_ARTIFACT)
 sysroot=${sysroot%%.*}
 
-# To repackage Firefox as a .deb package
+# To repackage Plezix as a .deb package
 # we bootstrap jessie systems on a bullseye image.
 # To keep the build and repackage environments
 # consistent the build baseline used here (jessie) should be

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -222,7 +222,7 @@ class MOZ_RAII AutoGeckoProfilerEntry {
  * Use this RAII class to add Gecko Profiler label frames for methods of the
  * JavaScript builtin API.
  * These frames will be exposed to JavaScript developers (ie they won't be
- * filtered out when using the "JavaScript" filtering option in the Firefox
+ * filtered out when using the "JavaScript" filtering option in the Plezix
  * Profiler UI).
  * Technical note: the label and dynamicString values will be joined with a dot
  * separator if dynamicString is present.
@@ -237,7 +237,7 @@ class MOZ_RAII AutoJSMethodProfilerEntry : public AutoGeckoProfilerEntry {
  * Use this RAII class to add Gecko Profiler label frames for constructors of
  * the JavaScript builtin API.
  * These frames will be exposed to JavaScript developers (ie they won't be
- * filtered out when using the "JavaScript" filtering option in the Firefox
+ * filtered out when using the "JavaScript" filtering option in the Plezix
  * Profiler UI).
  * Technical note: the word "constructor" will be appended to the label (with a
  * space separator).

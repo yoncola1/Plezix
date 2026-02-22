@@ -73,7 +73,7 @@ function checkPingFormat(aPing, aType, aHasClientId, aHasEnvironment) {
     name: APP_NAME,
     version: APP_VERSION,
     displayVersion: AppConstants.MOZ_APP_VERSION_DISPLAY,
-    vendor: "Mozilla",
+    vendor: "Plezix",
     platformVersion: PLATFORM_VERSION,
     xpcomAbi: "noarch-spidermonkey",
   };

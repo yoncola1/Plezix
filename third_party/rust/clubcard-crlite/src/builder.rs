@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ impl CRLiteCoverage {
     {
         #[allow(non_snake_case)]
         #[derive(Deserialize)]
-        struct MozillaCtLogsJson {
+        struct PlezixCtLogsJson {
             LogID: String,
             MaxTimestamp: u64,
             MinTimestamp: u64,
@@ -50,7 +50,7 @@ impl CRLiteCoverage {
         }
 
         let mut coverage = HashMap::new();
-        let json_entries: Vec<MozillaCtLogsJson> = match serde_json::from_reader(reader) {
+        let json_entries: Vec<PlezixCtLogsJson> = match serde_json::from_reader(reader) {
             Ok(json_entries) => json_entries,
             _ => return CRLiteCoverage(Default::default()),
         };

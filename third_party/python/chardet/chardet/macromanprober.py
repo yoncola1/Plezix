@@ -1,6 +1,6 @@
 ######################## BEGIN LICENSE BLOCK ########################
 # This code was modified from latin1prober.py by Rob Speer <rob@lumino.so>.
-# The Original Code is Mozilla Universal charset detector code.
+# The Original Code is Plezix Universal charset detector code.
 #
 # The Initial Developer of the Original Code is
 # Netscape Communications Corporation.

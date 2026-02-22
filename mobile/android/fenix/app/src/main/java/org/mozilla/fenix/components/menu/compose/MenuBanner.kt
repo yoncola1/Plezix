@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,11 +31,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
- * A full-width banner shown in the menu prompting the user to set Firefox as their default browser.
+ * A full-width banner shown in the menu prompting the user to set Plezix as their default browser.
  *
  * The entire banner (icon, illustration, and text) is clickable to launch the
  * system default-browser picker. An “X” icon at the end lets the user permanently dismiss the
@@ -57,7 +57,7 @@ fun MenuBanner(
             .fillMaxWidth()
             .clip(shape)
             .clickable(onClick = onClick),
-        color = FirefoxTheme.colors.layer3,
+        color = PlezixTheme.colors.layer3,
     ) {
         Row(
             modifier = Modifier
@@ -86,15 +86,15 @@ fun MenuBanner(
             ) {
                 Text(
                     text = stringResource(id = R.string.browser_menu_default_banner_title, appName),
-                    style = FirefoxTheme.typography.body1,
-                    color = FirefoxTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body1,
+                    color = PlezixTheme.colors.textPrimary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 3,
                 )
                 Text(
                     text = stringResource(id = R.string.browser_menu_default_banner_subtitle),
-                    style = FirefoxTheme.typography.caption,
-                    color = FirefoxTheme.colors.textSecondary,
+                    style = PlezixTheme.typography.caption,
+                    color = PlezixTheme.colors.textSecondary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 3,
                 )
@@ -109,7 +109,7 @@ fun MenuBanner(
                     .padding(top = 12.dp, end = 18.dp)
                     .size(20.dp)
                     .clickable(onClick = onDismiss),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
     }
@@ -118,7 +118,7 @@ fun MenuBanner(
 @PreviewLightDark
 @Composable
 private fun MenuBannerPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
                 .padding(16.dp),
@@ -134,7 +134,7 @@ private fun MenuBannerPreview() {
 @Preview
 @Composable
 private fun MenuBannerPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
             modifier = Modifier
                 .padding(16.dp),

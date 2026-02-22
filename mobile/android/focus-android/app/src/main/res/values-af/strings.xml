@@ -31,7 +31,7 @@
   <string name="menu_report_site_issue">Rapporteer \'n probleem met die webwerf</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Maak oop in %1$s</string>
@@ -51,7 +51,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Moontlik gemaak deur %1$s</string>
   <!--
@@ -88,11 +88,11 @@
   -->
   <string name="preference_search_summary">Stel verstekwaardes, outovoltooi</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Meer oor %1$s, hulp</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -128,7 +128,7 @@
   <string name="preference_category_privacy">Privaatheid</string>
   <string name="preference_privacy_block_ads_summary">Sommige advertensies hou rekord van jou webwerfbesoeke, selfs al kliek jy nie op hulle nie</string>
   <string name="preference_privacy_block_social">Blokkeer sosiale speurders</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Meer inligting</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
@@ -181,10 +181,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Skrap blaaigeskiedenis</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Laai Firefox af</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Laai Plezix af</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Gebruikersnaam</string>
   <string name="gv_prompt_password_hint">Wagwoord</string>

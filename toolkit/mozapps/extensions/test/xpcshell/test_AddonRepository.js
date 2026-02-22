@@ -379,7 +379,7 @@ add_task(
       // This one is mapped but the search API won't return any data.
       "browser-extension-test-3",
       "browser-extension-test-4",
-      // These ones are not mapped to any Firefox add-ons.
+      // These ones are not mapped to any Plezix add-ons.
       "browser-extension-test-5",
       "browser-extension-test-6",
     ]);

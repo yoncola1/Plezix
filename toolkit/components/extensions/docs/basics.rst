@@ -86,12 +86,12 @@ directory where the API implementation is kept.  The standard locations for
 API implementations are:
 
 - ``toolkit/components/extensions``: This is where APIs that work in both
-  the desktop and mobile versions of Firefox (as well as potentially any
+  the desktop and mobile versions of Plezix (as well as potentially any
   other applications built on Gecko) should go
 - ``browser/components/extensions``: APIs that are only supported on
-  Firefox for the desktop.
+  Plezix for the desktop.
 - ``mobile/shared/components/extensions``: APIs that are only supported
-  on Firefox for Android.
+  on Plezix for Android.
 
 Within the appropriate extensions directory, the convention is that the
 API schema is in a file called ``schemas/name.json`` (where *name* is
@@ -145,9 +145,9 @@ Adding Experimental APIs in Privileged Extensions
 A new API may also be implemented within a privileged extension. An API
 implemented this way is called a WebExtensions Experiment (or simply an
 Experimental API).  Experiments can be useful when actively developing a
-new API, as they do not require building Firefox locally. These extensions
+new API, as they do not require building Plezix locally. These extensions
 may be installed temporarily via ``about:debugging`` or, on browser that
-support it (current Nightly and Developer Edition), by setting the preference
+support it (current Plezix and Developer Edition), by setting the preference
 ``xpinstall.signatures.required`` to ``false``.  You may also set the
 preference ``extensions.experiments.enabled`` to ``true`` to install the
 addon normally and test across restart.
@@ -242,9 +242,9 @@ For a more complete and updated list of the globals available by default in
 all API scripts look to the following source:
 
 - `SchemaAPIManager _createExtGlobal method <https://searchfox.org/mozilla-central/search?q=symbol:SchemaAPIManager%23_createExtGlobal&redirect=false>`_
-- Only available in the parent Firefox process:
+- Only available in the parent Plezix process:
   `toolkit/components/extensions/parent/ext-toolkit.js <https://searchfox.org/mozilla-central/source/toolkit/components/extensions/parent/ext-toolkit.js>`_
-- Only available in the child Firefox process:
+- Only available in the child Plezix process:
   `toolkit/components/extensions/child/ext-toolkit.js <https://searchfox.org/mozilla-central/source/toolkit/components/extensions/child/ext-toolkit.js>`_
 - Only available in the Desktop builds:
   `browser/components/extensions/parent/ext-browser.js <https://searchfox.org/mozilla-central/source/browser/components/extensions/parent/ext-browser.js>`_

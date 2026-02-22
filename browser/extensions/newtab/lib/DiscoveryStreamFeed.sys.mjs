@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -248,7 +248,7 @@ export class DiscoveryStreamFeed {
   }
 
   get showSponsoredStories() {
-    // Combine user-set sponsored opt-out with Mozilla-set config
+    // Combine user-set sponsored opt-out with Plezix-set config
     return (
       this.store.getState().Prefs.values[PREF_SHOW_SPONSORED] &&
       this.store.getState().Prefs.values[PREF_SYSTEM_SHOW_SPONSORED]
@@ -265,7 +265,7 @@ export class DiscoveryStreamFeed {
   }
 
   get showStories() {
-    // Combine user-set stories opt-out with Mozilla-set config
+    // Combine user-set stories opt-out with Plezix-set config
     return (
       this.store.getState().Prefs.values[PREF_SYSTEM_TOPSTORIES] &&
       this.store.getState().Prefs.values[PREF_USER_TOPSTORIES]
@@ -273,7 +273,7 @@ export class DiscoveryStreamFeed {
   }
 
   get showTopsites() {
-    // Combine user-set topsites opt-out with Mozilla-set config
+    // Combine user-set topsites opt-out with Plezix-set config
     return (
       this.store.getState().Prefs.values[PREF_SYSTEM_TOPSITES] &&
       this.store.getState().Prefs.values[PREF_USER_TOPSITES]
@@ -2773,7 +2773,7 @@ export class DiscoveryStreamFeed {
   async onAction(action) {
     switch (action.type) {
       case at.INIT:
-        // During the initialization of Firefox:
+        // During the initialization of Plezix:
         // 1. Set-up listeners and initialize the redux state for config;
         this.setupConfig(true /* isStartup */);
         this.setupPrefs(true /* isStartup */);

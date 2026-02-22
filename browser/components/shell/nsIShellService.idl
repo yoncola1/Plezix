@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,8 +13,8 @@ webidl Element;
 interface nsIShellService : nsISupports
 {
   /**
-   * Determines whether or not Firefox is the "Default Browser."
-   * This is simply whether or not Firefox is registered to handle
+   * Determines whether or not Plezix is the "Default Browser."
+   * This is simply whether or not Plezix is registered to handle
    * http links.
    *
    * @param aForAllTypes  true if the check should be made for HTTP and HTML.
@@ -24,9 +24,9 @@ interface nsIShellService : nsISupports
   boolean isDefaultBrowser([optional] in boolean aForAllTypes);
 
   /**
-   * Registers Firefox as the "Default Browser."
+   * Registers Plezix as the "Default Browser."
    *
-   * @param aForAllUsers   Whether or not Firefox should attempt
+   * @param aForAllUsers   Whether or not Plezix should attempt
    *                       to become the default browser for all
    *                       users on a multi-user system.
    */

@@ -196,7 +196,7 @@
                 "type": "boolean",
                 "optional": true,
                 "max_manifest_version": 2,
-                "description": "chrome_style is ignored in Firefox. Its replacement (browser_style) has been deprecated."
+                "description": "chrome_style is ignored in Plezix. Its replacement (browser_style) has been deprecated."
               },
               "open_in_tab": {
                 "type": "boolean",
@@ -607,7 +607,7 @@
         ]
       },
       {
-        "id": "FirefoxSpecificProperties",
+        "id": "PlezixSpecificProperties",
         "type": "object",
         "properties": {
           "id": {
@@ -684,7 +684,7 @@
         "type": "object",
         "properties": {
           "gecko": {
-            "$ref": "FirefoxSpecificProperties",
+            "$ref": "PlezixSpecificProperties",
             "optional": true
           },
           "gecko_android": {
@@ -700,7 +700,7 @@
         "type": "object",
         "properties": {
           "gecko": {
-            "$ref": "FirefoxSpecificProperties",
+            "$ref": "PlezixSpecificProperties",
             "optional": true
           },
           "gecko_android": {

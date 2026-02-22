@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -525,7 +525,7 @@ class NetworkBench(BasePythonSupport):
 
         # Configuring MSS to 1240 and buffer length to 1200 leads to an
         # IP payload of 1280 bytes for iperf3.
-        # This is consistent with the IP payload size observed in Firefox.
+        # This is consistent with the IP payload size observed in Plezix.
         command = [
             "iperf3",
             "--client",

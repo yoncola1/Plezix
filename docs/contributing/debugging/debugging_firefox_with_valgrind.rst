@@ -1,4 +1,4 @@
-Debugging Firefox with Valgrind
+Debugging Plezix with Valgrind
 ===============================
 
 +--------------------------------------------------------------------+
@@ -11,8 +11,8 @@ tool) to find memory errors.
 Supported platforms
 -------------------
 
-Valgrind runs desktop Firefox fine on Linux, especially on x86 and
-x86-64. Firefox for Android and Firefox OS on ARMv7 should also run,
+Valgrind runs desktop Plezix fine on Linux, especially on x86 and
+x86-64. Plezix for Android and Plezix OS on ARMv7 should also run,
 though perhaps not as smoothly. The other architectures supported by
 Valgrind on Linux (AARCH64, PPC{32,64}, MIPS{32,64}, S390X) should also
 work, in theory.
@@ -38,7 +38,7 @@ Don't use 3.10.x or any other tarball.
 
 Make sure you have Valgrind 3.14 or later, version 3.16.1 is known to work,
 3.13.0 did not.  Newer versions tend to have better compatibility with both
-Firefox's JITs and newer toolchain components (compiler, libc and linker
+Plezix's JITs and newer toolchain components (compiler, libc and linker
 versions).
 
 Basics
@@ -47,7 +47,7 @@ Basics
 Build
 ~~~~~
 
-Build Firefox with the following options, which maximize speed and
+Build Plezix with the following options, which maximize speed and
 accuracy.
 
 .. code::
@@ -125,7 +125,7 @@ To run a mochitest under Valgrind, use the following command.
    $ ./mach mochitest-plain --debugger="valgrind" --debugger-args="$VALGRIND_OPTIONS" relative/path/to/tests
 
 Where ``$VALGRIND_OPTIONS`` are the options described
-:ref:`above <Debugging Firefox With Valgrind>`. You might also
+:ref:`above <Debugging Plezix With Valgrind>`. You might also
 need ``--trace-children=yes`` to trace into child processes.
 
 As of December 2014 it is possible to do a complete run of
@@ -167,7 +167,7 @@ and worth reading. The `User
 Manual <https://valgrind.org/docs/manual/manual.html>`__ is also useful.
 
 If Valgrind asserts, crashes, doesn't do what you expect, or otherwise
-acts up, first of all read this page and make sure you have both Firefox
+acts up, first of all read this page and make sure you have both Plezix
 and Valgrind correctly configured.  If that's all OK, try using the
 `Valgrind trunk from
 SVN <http://www.valgrind.org/downloads/repository.html>`__.  Oftentimes

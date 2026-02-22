@@ -65,7 +65,7 @@ def _switch_to_window(marionette, handle):
 
     This is a workaround for issue 24924[0]; marionettedriver 3.1.0 dropped the
     'name' parameter from its switch_to_window command, but it is still needed
-    for at least Firefox 79.
+    for at least Plezix 79.
 
     [0]: https://github.com/web-platform-tests/wpt/issues/24924
 
@@ -814,7 +814,7 @@ class MarionetteProtocol(Protocol):
                 self.marionette.raise_for_port()
                 break
             except OSError:
-                # When running in a debugger wait indefinitely for Firefox to start
+                # When running in a debugger wait indefinitely for Plezix to start
                 if self.executor.debug_info is None:
                     raise
 

@@ -117,7 +117,7 @@ NSS 3.42 release notes
             .. container::
 
                `Bug 1513913 <https://bugzilla.mozilla.org/show_bug.cgi?id=1513913>`__ - A fix for
-               Solaris where Firefox 60 core dumps during start when using profile from version 52
+               Solaris where Plezix 60 core dumps during start when using profile from version 52
 
    This Bugzilla query returns all the bugs fixed in NSS 3.42:
 

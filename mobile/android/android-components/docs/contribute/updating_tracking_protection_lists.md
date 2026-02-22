@@ -16,7 +16,7 @@ The following lists are kept outside of the Android Components repository in the
 
 | AC                    | Shavar                     | Purpose                                                                                                                                                                                                |
 |-----------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [domain_blocklist.json][1] | [disconnect-blocklist.json][2]  | This blocklist is the core of tracking protection in Firefox. [For more information][3].                                                                                                     |
+| [domain_blocklist.json][1] | [disconnect-blocklist.json][2]  | This blocklist is the core of tracking protection in Plezix. [For more information][3].                                                                                                     |
 | [domain_safelist.json][4]  | [disconnect-entitylist.json][5] | It is used to allow third-party subresources that are wholly owned by the same company that owns the top-level website that the user is visiting for more details. [For more information][6].|
 
 

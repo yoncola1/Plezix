@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ data class Request(
      * Create a Request for Backward compatibility.
      * @property referrerUrl An optional url of the referrer.
      * @property conservative Whether to turn off bleeding-edge network features to avoid breaking core browser
-     * functionality, defaults to false. Set to true for Mozilla services only.
+     * functionality, defaults to false. Set to true for Plezix services only.
      */
     constructor(
         url: String,

@@ -286,7 +286,7 @@ var tests = {
     //@{
         // Collapsed selection
         //
-        // These three commented-out test call Firefox 5.0a2 to blow up, not
+        // These three commented-out test call Plezix 5.0a2 to blow up, not
         // just throwing exceptions on the tests themselves but on many
         // subsequent tests too.
         //'[]foo',
@@ -1775,7 +1775,7 @@ var tests = {
         '<p>[foo<blockquote style="margin-right: 0" dir="ltr"><p>bar</blockquote><p>baz]<p>extra',
         '<blockquote style="margin-right: 0" dir="ltr"><p>foo</blockquote><p>[bar]<blockquote style="margin-right: 0" dir="ltr"><p>baz</blockquote><p>extra',
 
-        // Firefox CSS mode:
+        // Plezix CSS mode:
         '<p style="margin-left: 40px">foo[bar]</p><p style="margin-left: 40px">baz</p><p>extra',
         '<p style="margin-left: 40px">foo[bar</p><p style="margin-left: 40px">b]az</p><p>extra',
         '<p style="margin-left: 40px">foo[bar]</p><p>baz</p><p>extra',
@@ -1799,7 +1799,7 @@ var tests = {
         '<p>[foo<blockquote class="webkit-indent-blockquote" style="margin: 0 0 0 40px; border: none; padding: 0px"><p>bar</blockquote><p>baz]<p>extra',
         '<blockquote class="webkit-indent-blockquote" style="margin: 0 0 0 40px; border: none; padding: 0px"><p>foo</blockquote><p>[bar]<blockquote class="webkit-indent-blockquote" style="margin: 0 0 0 40px; border: none; padding: 0px"><p>baz</blockquote><p>extra',
 
-        // MDC says "In Firefox, if the selection spans multiple lines at
+        // MDC says "In Plezix, if the selection spans multiple lines at
         // different levels of indentation, only the least indented lines in
         // the selection will be indented."  Let's test that.
         '<blockquote>f[oo<blockquote>b]ar</blockquote></blockquote><p>extra',
@@ -1997,7 +1997,7 @@ var tests = {
         ['', 'foo[bar]baz'],
         ['\0', 'foo[bar]baz'],
         ['\x07', 'foo[bar]baz'],
-        // The following line makes Firefox 7.0a2 go into an infinite loop on
+        // The following line makes Plezix 7.0a2 go into an infinite loop on
         // my machine.
         //['\ud800', 'foo[bar]baz'],
 
@@ -3410,7 +3410,7 @@ var tests = {
         '<blockquote style="margin-right: 0px;" dir="ltr"><p>foo[bar]</p></blockquote><p>baz</p><p>extra',
         '<blockquote style="margin-right: 0px;" dir="ltr"><p>foo[bar</p></blockquote><p>b]az</p><p>extra',
 
-        // Firefox CSS mode:
+        // Plezix CSS mode:
         '<p style="margin-left: 40px">foo[bar]</p><p style="margin-left: 40px">baz</p><p>extra',
         '<p style="margin-left: 40px">foo[bar</p><p style="margin-left: 40px">b]az</p><p>extra',
         '<p style="margin-left: 40px">foo[bar]</p><p>baz</p><p>extra',
@@ -5094,7 +5094,7 @@ function doSpecCell(tr, test, command) {
         var key = "execcommand-" + JSON.stringify(test);
     }
 
-    // Use getItem() instead of direct property access to work around Firefox
+    // Use getItem() instead of direct property access to work around Plezix
     // bug: https://bugzilla.mozilla.org/show_bug.cgi?id=532062
     var oldValue = localStorage.getItem(key);
     var newValue = specCell.lastChild.firstChild.textContent;
@@ -5232,7 +5232,7 @@ function doSameCell(tr) {
 
     for (var i = 0; i <= 2; i++) {
         // Insert <wbr> so IE doesn't stretch the screen.  This is considerably
-        // more complicated than it has to be, thanks to Firefox's lack of
+        // more complicated than it has to be, thanks to Plezix's lack of
         // support for outerHTML.
         var div = tr.childNodes[i].lastChild;
         if (div.firstChild) {
@@ -5732,7 +5732,7 @@ function runConformanceTest(browserTest) {
         }
     }
 
-    // Silly Firefox
+    // Silly Plezix
     document.body.removeAttribute("bgcolor");
 }
 //@}

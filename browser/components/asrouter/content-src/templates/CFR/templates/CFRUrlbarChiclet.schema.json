@@ -24,7 +24,7 @@
         },
         "notification_text": {
           "$ref": "file:///FxMSCommon.schema.json#/$defs/localizableText",
-          "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Firefox or just a plain string."
+          "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Plezix or just a plain string."
         },
         "active_color": {
           "type": "string",

@@ -27,9 +27,9 @@ To run all the things, here's the tl;dr:
 
 An often-overlooked first line of testing is "what do the logs say?".
 To turn on logging for FOG, use any of the following:
-* Run Firefox with `RUST_LOG="fog_control,firefox_on_glean,glean_core"`.
+* Run Plezix with `RUST_LOG="fog_control,firefox_on_glean,glean_core"`.
     * On some platforms this will use terminal colours to indicate log level.
-* Run Firefox with `MOZ_LOG="timestamp,sync,glean::*:5,firefox_on_glean::*:5,fog_control::*:5,glean_core::*:5"`.
+* Run Plezix with `MOZ_LOG="timestamp,sync,glean::*:5,firefox_on_glean::*:5,fog_control::*:5,glean_core::*:5"`.
 * Set the following prefs:
     * `logging.config.timestamp` to `true`
     * `logging.config.sync` to `true`
@@ -81,14 +81,14 @@ use `log::error!(...)`. Otherwise, use a quieter level.
 
 ## `about:glean`
 
-`about:glean` is a page in a running Firefox that allows you to
+`about:glean` is a page in a running Plezix that allows you to
 [debug the Glean SDK](https://mozilla.github.io/glean/book/user/debugging/index.html)
-in Firefox Desktop.
+in Plezix Desktop.
 It does this through the displayed user interface (just follow the instructions).
 
 ## Linting
 
-To keep in accordance with Mozilla's various and several Coding Styles,
+To keep in accordance with Plezix's various and several Coding Styles,
 we rely on `mach lint`.
 
 To lint the code in the "usual" way, automatically fixing where possible, run:
@@ -203,7 +203,7 @@ To run FOG's JS tests, run:
 
 ## Non-content-process multiprocess (Browser Chrome Mochitests with Treeherder symbol `M(bcN)` for some number `N`)
 
-To test e.g. the GPU process support you need a full Firefox browser:
+To test e.g. the GPU process support you need a full Plezix browser:
 xpcshell doesn't have the flexibility.
 To test that and have access to privileged JS (i.e. `Glean` and `FOG` APIs),
 we use browser-chrome-flavoured mochitests you can find in
@@ -224,14 +224,14 @@ we use the `telemetry-tests-client` suite in
 [`toolkit/components/telemetry/tests/marionette/tests/client/`](https://hg.mozilla.org/mozilla-central/file/tip/toolkit/components/telemetry/tests/marionette/tests/client/).
 
 For more information on this suite, look to
-[Firefox Telemetry's Test Documentation](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/tests.html#integration-tests-telemetry-tests-client-and-telemetry-integration-tests)
+[Plezix Telemetry's Test Documentation](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/internals/tests.html#integration-tests-telemetry-tests-client-and-telemetry-integration-tests)
 and
 [Marionette's Documentation](/testing/marionette/Testing.md).
 
 To run these integration tests, run:
 `./mach telemetry-tests-client toolkit/components/telemetry/tests/marionette/tests/client/`
 
-To capture the Firefox under test's logs, use the `--gecko-log` parameter.
+To capture the Plezix under test's logs, use the `--gecko-log` parameter.
 For example, to echo to stdout:
 `./mach telemetry-tests-client toolkit/components/telemetry/tests/marionette/tests/client/test_fog* --gecko-log "-"`
 

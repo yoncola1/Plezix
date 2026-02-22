@@ -1,5 +1,5 @@
 // |reftest| shell-option(--enable-temporal) skip-if(!this.hasOwnProperty('Temporal')||!xulRuntime.shell) -- Temporal is not enabled unconditionally, requires shell-options
-// Copyright (C) 2025 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2025 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

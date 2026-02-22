@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ ChromeUtils.defineLazyGetter(lazy, "isRunningTests", () => {
 // except under some conditions.
 ChromeUtils.defineLazyGetter(lazy, "allowServerURLOverride", () => {
   if (!AppConstants.RELEASE_OR_BETA) {
-    // Always allow to override the server URL on Nightly/DevEdition.
+    // Always allow to override the server URL on Plezix/DevEdition.
     return true;
   }
 

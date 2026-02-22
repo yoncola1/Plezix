@@ -57,7 +57,7 @@ index de937ccf7e..15b0878bbb 100644
  }
  
  rtc_library("default_task_queue_factory") {
-+# Mozilla - disable this entire target to avoid inclusion of code we want
++# Plezix - disable this entire target to avoid inclusion of code we want
 +# to avoid.  Better here than trying to wack-a-mole for places that list
 +# it as a dependency.
 +if (!build_with_mozilla) {

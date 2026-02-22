@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,21 +52,21 @@ import org.mozilla.fenix.onboarding.WidgetPinnedReceiver.WidgetPinnedState
 import org.mozilla.fenix.onboarding.store.OnboardingAction.OnboardingThemeAction
 import org.mozilla.fenix.onboarding.store.OnboardingAction.OnboardingToolbarAction
 import org.mozilla.fenix.onboarding.store.OnboardingStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A screen for displaying onboarding.
  *
  * @param pagesToDisplay List of pages to be displayed in onboarding pager ui.
- * @param onMakeFirefoxDefaultClick Invoked when positive button on default browser page is clicked.
+ * @param onMakePlezixDefaultClick Invoked when positive button on default browser page is clicked.
  * @param onSkipDefaultClick Invoked when negative button on default browser page is clicked.
  * @param onSignInButtonClick Invoked when the positive button on the sign in page is clicked.
  * @param onSkipSignInClick Invoked when the negative button on the sign in page is clicked.
  * @param onNotificationPermissionButtonClick Invoked when positive button on notification page is
  * clicked.
  * @param onSkipNotificationClick Invoked when negative button on notification page is clicked.
- * @param onAddFirefoxWidgetClick Invoked when positive button on add search widget page is clicked.
- * @param onSkipFirefoxWidgetClick Invoked when negative button on add search widget page is clicked.
+ * @param onAddPlezixWidgetClick Invoked when positive button on add search widget page is clicked.
+ * @param onSkipPlezixWidgetClick Invoked when negative button on add search widget page is clicked.
  * @param onboardingStore The store which contains all the state related to the add-ons onboarding screen.
  * @param termsOfServiceEventHandler Invoked when the primary button on the terms of service page is clicked.
  * @param onCustomizeToolbarClick Invoked when positive button customize toolbar page is clicked.
@@ -83,14 +83,14 @@ import org.mozilla.fenix.theme.FirefoxTheme
 @Suppress("LongParameterList", "LongMethod")
 fun OnboardingScreen(
     pagesToDisplay: MutableList<OnboardingPageUiData>,
-    onMakeFirefoxDefaultClick: () -> Unit,
+    onMakePlezixDefaultClick: () -> Unit,
     onSkipDefaultClick: () -> Unit,
     onSignInButtonClick: () -> Unit,
     onSkipSignInClick: () -> Unit,
     onNotificationPermissionButtonClick: () -> Unit,
     onSkipNotificationClick: () -> Unit,
-    onAddFirefoxWidgetClick: () -> Unit,
-    onSkipFirefoxWidgetClick: () -> Unit,
+    onAddPlezixWidgetClick: () -> Unit,
+    onSkipPlezixWidgetClick: () -> Unit,
     onboardingStore: OnboardingStore? = null,
     termsOfServiceEventHandler: OnboardingTermsOfServiceEventHandler,
     onCustomizeToolbarClick: () -> Unit,
@@ -192,11 +192,11 @@ fun OnboardingScreen(
     OnboardingContent(
         pagesToDisplay = pagesToDisplay,
         pagerState = pagerState,
-        onMakeFirefoxDefaultClick = {
+        onMakePlezixDefaultClick = {
             scrollToNextPageOrDismiss()
-            onMakeFirefoxDefaultClick()
+            onMakePlezixDefaultClick()
         },
-        onMakeFirefoxDefaultSkipClick = {
+        onMakePlezixDefaultSkipClick = {
             scrollToNextPageOrDismiss()
             onSkipDefaultClick()
         },
@@ -216,16 +216,16 @@ fun OnboardingScreen(
             scrollToNextPageOrDismiss()
             onSkipNotificationClick()
         },
-        onAddFirefoxWidgetClick = {
+        onAddPlezixWidgetClick = {
             if (isWidgetPinnedState) {
                 scrollToNextPageOrDismiss()
             } else {
-                onAddFirefoxWidgetClick()
+                onAddPlezixWidgetClick()
             }
         },
-        onSkipFirefoxWidgetClick = {
+        onSkipPlezixWidgetClick = {
             scrollToNextPageOrDismiss()
-            onSkipFirefoxWidgetClick()
+            onSkipPlezixWidgetClick()
         },
         onCustomizeToolbarButtonClick = {
             scrollToNextPageOrDismiss()
@@ -277,14 +277,14 @@ private fun scrollToNextCardFromSignIn(
 private fun OnboardingContent(
     pagesToDisplay: List<OnboardingPageUiData>,
     pagerState: PagerState,
-    onMakeFirefoxDefaultClick: () -> Unit,
-    onMakeFirefoxDefaultSkipClick: () -> Unit,
+    onMakePlezixDefaultClick: () -> Unit,
+    onMakePlezixDefaultSkipClick: () -> Unit,
     onSignInButtonClick: () -> Unit,
     onSignInSkipClick: () -> Unit,
     onNotificationPermissionButtonClick: () -> Unit,
     onNotificationPermissionSkipClick: () -> Unit,
-    onAddFirefoxWidgetClick: () -> Unit,
-    onSkipFirefoxWidgetClick: () -> Unit,
+    onAddPlezixWidgetClick: () -> Unit,
+    onSkipPlezixWidgetClick: () -> Unit,
     onboardingStore: OnboardingStore? = null,
     onCustomizeToolbarButtonClick: () -> Unit,
     onCustomizeThemeButtonClick: () -> Unit,
@@ -298,7 +298,7 @@ private fun OnboardingContent(
 
     Column(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .statusBarsPadding(),
     ) {
         HorizontalPager(
@@ -311,14 +311,14 @@ private fun OnboardingContent(
             val pageUiState = pagesToDisplay[pageIndex]
             val onboardingPageState = mapToOnboardingPageState(
                 onboardingPageUiData = pageUiState,
-                onMakeFirefoxDefaultClick = onMakeFirefoxDefaultClick,
-                onMakeFirefoxDefaultSkipClick = onMakeFirefoxDefaultSkipClick,
+                onMakePlezixDefaultClick = onMakePlezixDefaultClick,
+                onMakePlezixDefaultSkipClick = onMakePlezixDefaultSkipClick,
                 onSignInButtonClick = onSignInButtonClick,
                 onSignInSkipClick = onSignInSkipClick,
                 onNotificationPermissionButtonClick = onNotificationPermissionButtonClick,
                 onNotificationPermissionSkipClick = onNotificationPermissionSkipClick,
-                onAddFirefoxWidgetClick = onAddFirefoxWidgetClick,
-                onAddFirefoxWidgetSkipClick = onSkipFirefoxWidgetClick,
+                onAddPlezixWidgetClick = onAddPlezixWidgetClick,
+                onAddPlezixWidgetSkipClick = onSkipPlezixWidgetClick,
                 onCustomizeToolbarButtonClick = onCustomizeToolbarButtonClick,
                 onCustomizeThemeClick = onCustomizeThemeButtonClick,
                 onTermsOfServiceButtonClick = onAgreeAndConfirmTermsOfService,
@@ -336,8 +336,8 @@ private fun OnboardingContent(
 
         PagerIndicator(
             pagerState = pagerState,
-            activeColor = FirefoxTheme.colors.actionPrimary,
-            inactiveColor = FirefoxTheme.colors.actionSecondary,
+            activeColor = PlezixTheme.colors.actionPrimary,
+            inactiveColor = PlezixTheme.colors.actionSecondary,
             leaveTrail = true,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -440,20 +440,20 @@ private class DisableForwardSwipeNestedScrollConnection(
 @Composable
 private fun OnboardingScreenPreview() {
     val pageCount = defaultPreviewPages().size
-    FirefoxTheme {
+    PlezixTheme {
         OnboardingContent(
             pagesToDisplay = defaultPreviewPages(),
             pagerState = rememberPagerState(initialPage = 0) {
                 pageCount
             },
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakePlezixDefaultClick = {},
+            onMakePlezixDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onSkipFirefoxWidgetClick = {},
+            onAddPlezixWidgetClick = {},
+            onSkipPlezixWidgetClick = {},
             onCustomizeToolbarButtonClick = {},
             onCustomizeThemeButtonClick = {},
             onAgreeAndConfirmTermsOfService = {},

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import org.mozilla.fenix.ui.robots.navigationToolbar
 /**
  * Tests Top Sites functionality
  *
- * - Verifies 'Add to Firefox Home' UI functionality
+ * - Verifies 'Add to Plezix Home' UI functionality
  * - Verifies 'Top Sites' context menu UI functionality
  * - Verifies 'Top Site' usage UI functionality
  * - Verifies existence of default top sites available on the home-screen
@@ -58,7 +58,7 @@ class TopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenuFully()
             verifyAddToShortcutsButton(shouldExist = true)
-        }.addToFirefoxHome {
+        }.addToPlezixHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreen(activityIntentTestRule) {
             verifyExistingTopSitesList(activityIntentTestRule)

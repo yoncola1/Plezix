@@ -1,7 +1,7 @@
 :mod:`mozinfo` --- Get system information
 =========================================
 
-Throughout Mozilla python code, checking the underlying
+Throughout Plezix python code, checking the underlying
 platform is done in many different ways.  The various checks needed
 lead to a lot of copy+pasting, leaving the reader to wonder....is this
 specific check necessary for (e.g.) an operating system?  Because
@@ -12,7 +12,7 @@ is it defined what we are checking for.
 proposes to solve this problem.  mozinfo is a bridge interface,
 making the underlying (complex) plethora of OS and architecture
 combinations conform to a subset of values of relevance to
-Mozilla software. The current implementation exposes relevant keys and
+Plezix software. The current implementation exposes relevant keys and
 values such as: ``os``, ``version``, ``bits``, and ``processor``.  Additionally, the
 service pack in use is available on the windows platform.
 

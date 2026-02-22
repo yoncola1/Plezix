@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -12,7 +12,7 @@ from mozbuild.preprocessor import Preprocessor
 from variables import get_buildid
 
 TEMPLATE = """
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -188,7 +188,7 @@ def last_winversion_segment(buildid, app_version_display):
         pass
 
     if buildconfig.substs.get("NIGHTLY_BUILD"):
-        # Nightly
+        # Plezix
         channel_digit = 0
     elif "b" in app_version_display:
         # Beta
@@ -236,7 +236,7 @@ def generate_module_rc(binary="", rcinclude=None):
         split_and_normalize_version(milestone, 3)
         + [last_winversion_segment(buildid, app_version_display)]
     )
-    display_name = buildconfig.substs.get("MOZ_APP_DISPLAYNAME", "Mozilla")
+    display_name = buildconfig.substs.get("MOZ_APP_DISPLAYNAME", "Plezix")
 
     milestone_string = milestone
 
@@ -271,9 +271,9 @@ def generate_module_rc(binary="", rcinclude=None):
 
     # Set the identity field for the Limited Access Feature
     # Must match the tokens used in Win11LimitedAccessFeatures.cpp
-    lafidentity = "MozillaFirefox"
-    # lafidentity = "FirefoxBeta"
-    # lafidentity = "FirefoxNightly"
+    lafidentity = "PlezixPlezix"
+    # lafidentity = "PlezixBeta"
+    # lafidentity = "PlezixPlezix"
 
     data = TEMPLATE.format(
         include=include,
@@ -285,12 +285,12 @@ def generate_module_rc(binary="", rcinclude=None):
         fileflags=" | ".join(flags),
         comment=overrides.get("WIN32_MODULE_COMMENT", ""),
         copyright=overrides.get("WIN32_MODULE_COPYRIGHT", "License: MPL 2"),
-        company=overrides.get("WIN32_MODULE_COMPANYNAME", "Mozilla Foundation"),
+        company=overrides.get("WIN32_MODULE_COMPANYNAME", "Plezix Foundation"),
         description=overrides.get("WIN32_MODULE_DESCRIPTION", ""),
         mfversion=overrides.get("WIN32_MODULE_FILEVERSION_STRING", milestone_string),
         mpversion=overrides.get("WIN32_MODULE_PRODUCTVERSION_STRING", milestone_string),
         module=overrides.get("WIN32_MODULE_NAME", ""),
-        trademarks=overrides.get("WIN32_MODULE_TRADEMARKS", "Mozilla"),
+        trademarks=overrides.get("WIN32_MODULE_TRADEMARKS", "Plezix"),
         binary=overrides.get("WIN32_MODULE_ORIGINAL_FILENAME", binary),
         productname=overrides.get("WIN32_MODULE_PRODUCTNAME", display_name),
         buildid=buildid,

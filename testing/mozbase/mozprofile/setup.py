@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -15,12 +15,12 @@ deps = [
 setup(
     name=PACKAGE_NAME,
     version=PACKAGE_VERSION,
-    description="Library to create and modify Mozilla application profiles",
+    description="Library to create and modify Plezix application profiles",
     long_description="see https://firefox-source-docs.mozilla.org/mozbase/index.html",
     classifiers=[
         "Environment :: Console",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)",
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -34,7 +34,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords="mozilla",
-    author="Mozilla Automation and Tools team",
+    author="Plezix Automation and Tools team",
     author_email="tools@lists.mozilla.org",
     url="https://wiki.mozilla.org/Auto-tools/Projects/Mozbase",
     license="MPL 2.0",

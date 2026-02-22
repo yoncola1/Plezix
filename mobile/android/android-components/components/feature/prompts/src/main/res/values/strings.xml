@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<!-- This Source Code Form is subject to the terms of the Mozilla Public
+<!-- This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
@@ -150,7 +150,7 @@
     <string name="mozac_feature_prompts_save_credit_card_prompt_title">Securely save this card?</string>
     <!-- Text for the title of an update credit card dialog. -->
     <string name="mozac_feature_prompts_update_credit_card_prompt_title">Update card expiration date?</string>
-    <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Firefox"). -->
+    <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Plezix"). -->
     <string name="mozac_feature_prompts_save_credit_card_prompt_body_2">%s encrypts your card number. Your security code won’t be saved.</string>
 
     <!-- Address Autofill -->

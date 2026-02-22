@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,14 +8,14 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Data Loss Prevention'
+  - 'Plezix :: Data Loss Prevention'
 
 # The following metrics are used to track the usage of the Data Loss Prevention feature.
 
 content_analysis:
   connection_attempt:
     type: counter
-    description: Recorded when Firefox attempts to
+    description: Recorded when Plezix attempts to
      connect to the DLP agent.
     bugs:
       - https://bugzil.la/1963385
@@ -30,7 +30,7 @@ content_analysis:
       - dparks@mozilla.com
   connection_attempt_retry:
     type: counter
-    description: Recorded when Firefox attempts to
+    description: Recorded when Plezix attempts to
      retry connecting to the DLP agent (because a previous
      attempt to communicate with the agent failed).
     bugs:
@@ -46,7 +46,7 @@ content_analysis:
       - dparks@mozilla.com
   connection_failure:
     type: labeled_counter
-    description: Recorded when Firefox fails to connect to the DLP
+    description: Recorded when Plezix fails to connect to the DLP
      agent. The label is the nsresult that was returned by the
      connection attempt.
     bugs:
@@ -62,7 +62,7 @@ content_analysis:
       - dparks@mozilla.com
   agent_name:
     type: string
-    description: The name of the DLP agent that Firefox is
+    description: The name of the DLP agent that Plezix is
      connected to. This is set via enterprise policy.
     bugs:
       - https://bugzil.la/1963385

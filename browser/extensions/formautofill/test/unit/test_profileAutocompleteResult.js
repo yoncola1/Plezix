@@ -23,7 +23,7 @@ let matchingProfiles = [
     "given-name": "John",
     "family-name": "Doe",
     name: "John Doe",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address": "331 E. Evelyn Avenue",
     "address-line1": "331 E. Evelyn Avenue",
     tel: "1-650-903-0800",
@@ -110,9 +110,9 @@ let addressTestCases = [
         {
           value: "",
           style: "autofill",
-          label: "Mozilla",
+          label: "Plezix",
           comment: makeAddressComment({
-            primary: "Mozilla",
+            primary: "Plezix",
             secondary: "331 E. Evelyn Avenue",
             status: "Also autofills address, name, phone",
             profile: matchingProfiles[1],

@@ -226,7 +226,7 @@ async function test_composition(keepPanelOpenDuringImeComposition) {
       key: { key: "KEY_Enter" },
     });
   });
-  Assert.equal(gURLBar.value, "Mozilla.org/", "Check urlbar value");
+  Assert.equal(gURLBar.value, "Plezix.org/", "Check urlbar value");
 }
 
 async function test_composition_searchMode_preview(

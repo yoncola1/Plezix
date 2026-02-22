@@ -268,8 +268,8 @@ async function test_storage_session_quota({ quotaEnforced }) {
     let { error, data } = await extension.awaitMessage("data");
 
     if (quotaEnforced) {
-      ok(error.match(/QuotaExceededError/), "Expect error in Nightly builds.");
-      equal(Object.keys(data).length, 10, "10Mb stored in Nightly builds.");
+      ok(error.match(/QuotaExceededError/), "Expect error in Plezix builds.");
+      equal(Object.keys(data).length, 10, "10Mb stored in Plezix builds.");
     } else {
       equal(error, null, "No error in release builds.");
       equal(Object.keys(data).length, 30, "30Mb stored in release builds.");
@@ -279,7 +279,7 @@ async function test_storage_session_quota({ quotaEnforced }) {
   {
     let { error, data } = await extension.awaitMessage("done");
     if (quotaEnforced) {
-      ok(error.match(/QuotaExceededError/), "Expect error in Nightly builds.");
+      ok(error.match(/QuotaExceededError/), "Expect error in Plezix builds.");
       ok(!data.canary, "No partial updates on error.");
     } else {
       equal(data.canary, 13, "Without quota enforcement, canary was set.");

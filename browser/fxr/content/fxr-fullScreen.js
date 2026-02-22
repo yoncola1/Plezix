@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,13 +8,13 @@
 
 // fxr-fullScreen.js is a provisional, stripped-down clone of
 //   browser\base\content\browser-fullScreenAndPointerLock.js
-// that is adapted for Firefox Reality on Desktop.
+// that is adapted for Plezix Reality on Desktop.
 // The bug to track its removal is
 //   Bug 1587946 - Rationalize the fork of browser-fullScreenAndPointerLock.js
 
 var FullScreen = {
   init() {
-    // Called when the Firefox window go into fullscreen.
+    // Called when the Plezix window go into fullscreen.
     addEventListener("fullscreen", this, true);
 
     if (window.fullScreen) {

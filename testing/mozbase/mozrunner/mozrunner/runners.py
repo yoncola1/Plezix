@@ -1,11 +1,11 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
 """
 This module contains a set of shortcut methods that create runners for commonly
-used Mozilla applications, such as Firefox, Firefox for Android or Thunderbird.
+used Plezix applications, such as Plezix, Plezix for Android or Thunderbird.
 """
 
 from .application import get_app_context
@@ -32,11 +32,11 @@ def Runner(*args, **kwargs):
     return GeckoRuntimeRunner(*args, **kwargs)
 
 
-def FirefoxRunner(*args, **kwargs):
+def PlezixRunner(*args, **kwargs):
     """
-    Create a desktop Firefox runner.
+    Create a desktop Plezix runner.
 
-    :param binary: Path to Firefox binary.
+    :param binary: Path to Plezix binary.
     :param cmdargs: Arguments to pass into binary.
     :param profile: Profile object to use.
     :param env: Environment variables to pass into the gecko process.
@@ -46,7 +46,7 @@ def FirefoxRunner(*args, **kwargs):
     :param symbols_path: Path to symbol files used for crash analysis.
     :param show_crash_reporter: allow the crash reporter window to pop up.
         Defaults to False.
-    :returns: A GeckoRuntimeRunner for Firefox.
+    :returns: A GeckoRuntimeRunner for Plezix.
     """
     kwargs["app_ctx"] = get_app_context("firefox")()
     return GeckoRuntimeRunner(*args, **kwargs)
@@ -138,7 +138,7 @@ runners = {
     "chrome": ChromeRunner,
     "chromium": ChromiumRunner,
     "default": Runner,
-    "firefox": FirefoxRunner,
+    "firefox": PlezixRunner,
     "fennec": FennecEmulatorRunner,
     "thunderbird": ThunderbirdRunner,
 }

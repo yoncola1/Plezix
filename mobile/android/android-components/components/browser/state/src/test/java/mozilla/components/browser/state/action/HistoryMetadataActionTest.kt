@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ class HistoryMetadataActionTest {
         )
         val historyMetadata2 = HistoryMetadataKey(
             url = tab2.content.url,
-            searchTerm = "download Firefox",
+            searchTerm = "download Plezix",
             referrerUrl = "https://google.com/?q=download+firefox",
         )
 

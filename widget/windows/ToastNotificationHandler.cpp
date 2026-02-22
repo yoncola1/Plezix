@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sts=2 sw=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -190,8 +190,8 @@ Result<nsString, nsresult> ToastNotificationHandler::GetLaunchArgument() {
   // When the preference is false, the COM notification server will be invoked,
   // discover that there is no `program`, and exit (successfully), after which
   // Windows will invoke the in-product Windows 8-style callbacks.  When true,
-  // the COM notification server will launch Firefox with sufficient arguments
-  // for Firefox to handle the notification.
+  // the COM notification server will launch Plezix with sufficient arguments
+  // for Plezix to handle the notification.
   if (!Preferences::GetBool(
           "alerts.useSystemBackend.windows.notificationserver.enabled",
           false)) {
@@ -209,9 +209,9 @@ Result<nsString, nsresult> ToastNotificationHandler::GetLaunchArgument() {
   bool wantCurrentProfile = true;
 #ifdef MOZ_BACKGROUNDTASKS
   if (BackgroundTasks::IsBackgroundTaskMode()) {
-    // Notifications popped from a background task want to invoke Firefox with a
+    // Notifications popped from a background task want to invoke Plezix with a
     // different profile -- the default browsing profile.  We'd prefer to not
-    // specify a profile, so that the Firefox invoked by the notification server
+    // specify a profile, so that the Plezix invoked by the notification server
     // chooses its default profile, but this might pop the profile chooser in
     // some configurations.
     wantCurrentProfile = false;
@@ -555,9 +555,9 @@ ComPtr<IXmlDocument> ToastNotificationHandler::CreateToastXmlDocument() {
   bool wantSettings = true;
 #ifdef MOZ_BACKGROUNDTASKS
   if (BackgroundTasks::IsBackgroundTaskMode()) {
-    // Notifications popped from a background task want to invoke Firefox with a
-    // different profile -- the default browsing profile.  Don't link to Firefox
-    // settings in some different profile: the relevant Firefox settings won't
+    // Notifications popped from a background task want to invoke Plezix with a
+    // different profile -- the default browsing profile.  Don't link to Plezix
+    // settings in some different profile: the relevant Plezix settings won't
     // take effect.
     wantSettings = false;
   }
@@ -874,7 +874,7 @@ ToastNotificationHandler::OnActivate(
       mAlertListener->Observe(nullptr, "alertdisablecallback", mCookie.get());
     } else if (mClickable) {
       // When clicking toast, focus moves to another process, but we want to set
-      // focus on Firefox process.
+      // focus on Plezix process.
       nsCOMPtr<nsIWindowMediator> winMediator(
           do_GetService(NS_WINDOWMEDIATOR_CONTRACTID));
       if (winMediator) {

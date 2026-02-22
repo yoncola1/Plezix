@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,7 +30,7 @@ import androidx.core.graphics.drawable.toBitmap
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.feature.downloads.ui.DownloaderApp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Creates and configures an [AlertDialog] for allowing the user to choose a third-party
@@ -55,7 +55,7 @@ internal fun createDownloadAppDialog(
 
     val composeView = ComposeView(context).apply {
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 DownloaderAppList(
                     apps = downloaderApps,
                     onAppSelected = { selectedApp ->
@@ -119,8 +119,8 @@ internal fun DownloaderAppItem(
         Spacer(Modifier.width(16.dp))
         Text(
             text = appName,
-            style = FirefoxTheme.typography.subtitle1,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.weight(1f),
         )
     }
@@ -131,10 +131,10 @@ internal fun DownloaderAppItem(
 internal fun DownloaderAppItemPreview() {
     val placeholderBitmap = ImageBitmap(width = 40, height = 40, colorSpace = ColorSpaces.Srgb)
 
-    FirefoxTheme {
+    PlezixTheme {
         DownloaderAppItem(
             iconBitmap = placeholderBitmap,
-            appName = "Firefox Nightly Downloader",
+            appName = "Plezix Plezix Downloader",
             onAppSelected = { },
             modifier = Modifier.padding(vertical = 4.dp),
         )

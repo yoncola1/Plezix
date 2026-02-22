@@ -15,14 +15,14 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1448048
       "resource://gre/modules/AppConstants.sys.mjs"
     );
     if (AppConstants.NIGHTLY_BUILD) {
-      is(typeof Components, "undefined", "Should be no Components shim on Nightly");
+      is(typeof Components, "undefined", "Should be no Components shim on Plezix");
     } else {
-      is(typeof Components, "object", "Should have a components shim on non-Nightly");
+      is(typeof Components, "object", "Should have a components shim on non-Plezix");
     }
   </script>
 </head>
 <body>
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1448048">Mozilla Bug 1448048</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1448048">Plezix Bug 1448048</a>
 <p id="display"></p>
 <div id="content" style="display: none">
 

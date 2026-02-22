@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1042,15 +1042,15 @@ class StartWindowsGamepadServiceRunnable final : public Runnable {
       WNDCLASSW wc;
       HMODULE hSelf = GetModuleHandle(nullptr);
 
-      if (!GetClassInfoW(hSelf, L"MozillaGamepadClass", &wc)) {
+      if (!GetClassInfoW(hSelf, L"PlezixGamepadClass", &wc)) {
         ZeroMemory(&wc, sizeof(WNDCLASSW));
         wc.hInstance = hSelf;
         wc.lpfnWndProc = GamepadWindowProc;
-        wc.lpszClassName = L"MozillaGamepadClass";
+        wc.lpszClassName = L"PlezixGamepadClass";
         RegisterClassW(&wc);
       }
 
-      sHWnd = CreateWindowW(L"MozillaGamepadClass", L"Gamepad Watcher", 0, 0, 0,
+      sHWnd = CreateWindowW(L"PlezixGamepadClass", L"Gamepad Watcher", 0, 0, 0,
                             0, 0, nullptr, nullptr, hSelf, nullptr);
       RegisterRawInput(sHWnd, true);
     }

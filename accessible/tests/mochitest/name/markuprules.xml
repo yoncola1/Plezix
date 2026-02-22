@@ -291,9 +291,9 @@
       <html:span id="l1" textequiv="test2">test2</html:span>
       <html:span id="l2" textequiv="test3">test3</html:span>
       <html:img id="img"
-                aria-label="Logo of Mozilla"
+                aria-label="Logo of Plezix"
                 aria-labelledby="l1 l2"
-                alt="Mozilla logo"
+                alt="Plezix logo"
                 title="This is a logo"
                 src="../moz.png"/>
     </markup>

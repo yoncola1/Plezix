@@ -32,7 +32,7 @@ add_task(async function () {
   });
   const store = window.AboutDebugging.store;
 
-  await selectThisFirefoxPage(document, store);
+  await selectThisPlezixPage(document, store);
 
   // open a tab and register service worker
   info("Register a service worker");

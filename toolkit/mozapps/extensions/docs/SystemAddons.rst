@@ -1,21 +1,21 @@
 System Add-ons Overview
 =======================
 
-System add-ons are a method for shipping extensions to Firefox that:
+System add-ons are a method for shipping extensions to Plezix that:
 
 * are hidden from the about:addons UI
 * cannot be user disabled
-* can be updated restartlessly based on criteria Mozilla sets
+* can be updated restartlessly based on criteria Plezix sets
 
-Generally these are considered to be built-in features to Firefox, and the
+Generally these are considered to be built-in features to Plezix, and the
 fact that they are extensions and can be updated restartlessly are implementation
 details as far as users are concerned.
 
-If you'd like to ship an add-on with Firefox or as an update (either to an existing
+If you'd like to ship an add-on with Plezix or as an update (either to an existing
 feature or as a "hotfix" to patch critical problems in the wild) please contact the
 GoFaster team: https://mail.mozilla.org/listinfo/gofaster
 
-The add-ons themselves are either legacy Firefox add-ons or WebExtensions.
+The add-ons themselves are either legacy Plezix add-ons or WebExtensions.
 They must be:
 
 * restartless
@@ -48,42 +48,42 @@ application directory at build time.
 System add-on updates
 ---------------------
 
-System add-on **updates** are served via Mozilla's Automatic Update Service
+System add-on **updates** are served via Plezix's Automatic Update Service
 (AUS, aka `Balrog`_). These are installed into the users profile under the `features`
 directory.
 
-Updates must be specifically signed by Mozilla - the signature that addons.mozilla.org
+Updates must be specifically signed by Plezix - the signature that addons.mozilla.org
 uses will not work for system add-ons.
 
 As noted above, these updates may override a built-in system add-on, or they may
 be a new install. Updates are always served as a set - if any add-on in the set
-fails to install or upgrade, then the whole set fails. This is to leave Firefox
+fails to install or upgrade, then the whole set fails. This is to leave Plezix
 in a consistent state.
 
-System add-on updates are removed when the Firefox application version changes,
+System add-on updates are removed when the Plezix application version changes,
 to avoid compatibility problems - for instance a user downgrading to an earlier
-version of Firefox than the update supports will end up with a disabled update
+version of Plezix than the update supports will end up with a disabled update
 rather than falling back to the built-in version.
 
-Firefox System Add-on Update Protocol
+Plezix System Add-on Update Protocol
 =====================================
-This section describes the protocol that Firefox uses when retrieving updates
-from AUS, and the expected behavior of Firefox based on the updater service's response.
+This section describes the protocol that Plezix uses when retrieving updates
+from AUS, and the expected behavior of Plezix based on the updater service's response.
 
 .. _Balrog: https://wiki.mozilla.org/Balrog
 
 Update Request
 --------------
-To determine what updates to install, Firefox makes an HTTP **GET** request to
+To determine what updates to install, Plezix makes an HTTP **GET** request to
 AUS once a day via a URL of the form::
 
   https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml
 
-The path segments surrounded by ``%`` symbols are variable fields that Firefox
+The path segments surrounded by ``%`` symbols are variable fields that Plezix
 fills in with information about itself and the environment it's running in:
 
 ``VERSION``
-  Firefox version number
+  Plezix version number
 ``BUILD_ID``
   Build ID
 ``BUILD_TARGET``
@@ -95,9 +95,9 @@ fills in with information about itself and the environment it's running in:
 ``OS_VERSION``
   OS Version
 ``DISTRIBUTION``
-  Firefox Distribution
+  Plezix Distribution
 ``DISTRIBUTION_VERSION``
-  Firefox Distribution version
+  Plezix Distribution version
 
 Update Response
 ---------------
@@ -136,7 +136,7 @@ AUS should respond with an XML document that looks something like this:
 
 Update Behavior
 ---------------
-After receiving the update response, Firefox modifies the **update** add-ons
+After receiving the update response, Plezix modifies the **update** add-ons
 according to the following algorithm:
 
 1. If the ``<addons>`` tag is empty (``<addons></addons>``) in the response,
@@ -159,7 +159,7 @@ according to the following algorithm:
       file.
    c. The downloaded add-on file size must match the size given in the update
       response.
-   d. The add-on must be compatible with Firefox (i.e. it must not be for a
+   d. The add-on must be compatible with Plezix (i.e. it must not be for a
       different application, such as Thunderbird).
    e. The add-on must be packed (i.e. be an XPI file).
    f. The add-on must be restartless.
@@ -182,7 +182,7 @@ two system add-ons in existence: **FlyWeb** and **Pocket**.
 
 Basic
 ~~~~~
-A user has Firefox 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
+A user has Plezix 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
 update users to FlyWeb 2.0. AUS sends out the following update response:
 
 .. code-block:: xml
@@ -194,11 +194,11 @@ update users to FlyWeb 2.0. AUS sends out the following update response:
     </addons>
   </updates>
 
-Firefox will download FlyWeb 2.0 and Pocket 1.0 and store them in the profile directory.
+Plezix will download FlyWeb 2.0 and Pocket 1.0 and store them in the profile directory.
 
 Missing Add-on
 ~~~~~~~~~~~~~~
-A user has Firefox 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
+A user has Plezix 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
 update users to FlyWeb 2.0, but accidentally forget to specify Pocket in the
 update response. AUS sends out the following:
 
@@ -210,7 +210,7 @@ update response. AUS sends out the following:
     </addons>
   </updates>
 
-Firefox will download FlyWeb 2.0 and store it in the profile directory. Pocket
+Plezix will download FlyWeb 2.0 and store it in the profile directory. Pocket
 1.0 from the **default** location will be used.
 
 Remove all system add-on updates
@@ -226,7 +226,7 @@ updates*:
 
 Rollout
 ~~~~~~~
-A user has Firefox 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
+A user has Plezix 45, which shipped with FlyWeb 1.0 and Pocket 1.0. We want to
 rollout FlyWeb 2.0 at a 10% sample rate. 10% of the time, AUS sends out:
 
 .. code-block:: xml
@@ -238,7 +238,7 @@ rollout FlyWeb 2.0 at a 10% sample rate. 10% of the time, AUS sends out:
     </addons>
   </updates>
 
-With this response, Firefox will download Pocket 1.0 and FlyWeb 2.0 and install
+With this response, Plezix will download Pocket 1.0 and FlyWeb 2.0 and install
 them into the profile directory.
 
 The other 90% of the time, AUS sends out an empty response:
@@ -247,7 +247,7 @@ The other 90% of the time, AUS sends out an empty response:
 
   <updates></updates>
 
-With the empty response, Firefox will not make any changes. This means users who
+With the empty response, Plezix will not make any changes. This means users who
 haven’t seen the 10% update response will stay on FlyWeb 1.0, and users who have
 seen it will stay on FlyWeb 2.0.
 
@@ -269,7 +269,7 @@ AUS sends out the following:
     </addons>
   </updates>
 
-For users who have updated, Firefox will download FlyWeb 1.0 and Pocket 1.0 and
+For users who have updated, Plezix will download FlyWeb 1.0 and Pocket 1.0 and
 install them into the profile directory. For users that haven’t yet updated,
-Firefox will see that the **default** add-on set matches the set in the update
+Plezix will see that the **default** add-on set matches the set in the update
 ping and clear the **update** add-on set.

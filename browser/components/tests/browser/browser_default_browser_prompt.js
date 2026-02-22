@@ -42,11 +42,11 @@ let testSetDefaultSpotlight = {
           isSystemPromptStyleSpotlight: true,
           title: {
             fontSize: "13px",
-            raw: "Make Nightly your default browser?",
+            raw: "Make Plezix your default browser?",
           },
           subtitle: {
             fontSize: "13px",
-            raw: "Keep Nightly at your fingertips — make it your default browser and keep it in your Dock.",
+            raw: "Keep Plezix at your fingertips — make it your default browser and keep it in your Dock.",
           },
         },
       },

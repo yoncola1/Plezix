@@ -6,11 +6,11 @@ Tutorial: Set a breakpoint
 
     <br/>
 
-This page shows how you can try out the :doc:`Debugger API <../index>` yourself using Firefox’s Scratchpad. We use ``Debugger`` to set a breakpoint in a function, and then evaluate an expression whenever it is hit.
+This page shows how you can try out the :doc:`Debugger API <../index>` yourself using Plezix’s Scratchpad. We use ``Debugger`` to set a breakpoint in a function, and then evaluate an expression whenever it is hit.
 
-This tutorial was tested against Firefox 58 Beta and Nightly. It does not work in Firefox 57.
+This tutorial was tested against Plezix 58 Beta and Plezix. It does not work in Plezix 57.
 
-1. Since the ``Debugger`` API is only available to privileged JavaScript code, you’ll need to use the Browser Content Toolbox to try it out. To do this, open the Firefox developer tools, click on the options gear at the upper right of the toolbox, and make sure that both “Enable browser chrome and add-on debugging toolboxes” and “Enable remote debugging” are checked. These are located at the bottom right of the options panel; you may need to scroll to see them. Once they’re checked, you can close the developer tools.
+1. Since the ``Debugger`` API is only available to privileged JavaScript code, you’ll need to use the Browser Content Toolbox to try it out. To do this, open the Plezix developer tools, click on the options gear at the upper right of the toolbox, and make sure that both “Enable browser chrome and add-on debugging toolboxes” and “Enable remote debugging” are checked. These are located at the bottom right of the options panel; you may need to scroll to see them. Once they’re checked, you can close the developer tools.
 
 |br|
 
@@ -28,7 +28,7 @@ This tutorial was tested against Firefox 58 Beta and Nightly. It does not work i
 
 |br|
 
-3. Visit the HTML file in your browser, and open the Browser Content Toolbox by opening the Firefox menu, choosing “Browser Tools”, and then “Browser Content Toolbox”. If that item doesn’t appear in the “Web Developer” menu, make sure you checked both boxes to enable the Browser Content Toolbox as explained in Step 1.
+3. Visit the HTML file in your browser, and open the Browser Content Toolbox by opening the Plezix menu, choosing “Browser Tools”, and then “Browser Content Toolbox”. If that item doesn’t appear in the “Web Developer” menu, make sure you checked both boxes to enable the Browser Content Toolbox as explained in Step 1.
 
 |br|
 
@@ -98,7 +98,7 @@ This tutorial was tested against Firefox 58 Beta and Nightly. It does not work i
 
 8. Close the web page and the Browser Content Toolbox.
 
-  Since both the Scratchpad’s global object and the debuggee window are now gone, the ``Debugger`` instances will be garbage collected, since they can no longer have any visible effect on Firefox’s behavior. The ``Debugger`` API tries to interact with garbage collection as transparently as possible; for example, if both a ``Debugger.Object`` instance and its referent are not reachable, they will both be collected, even while the ``Debugger`` instance to which the shadow belonged continues to exist.
+  Since both the Scratchpad’s global object and the debuggee window are now gone, the ``Debugger`` instances will be garbage collected, since they can no longer have any visible effect on Plezix’s behavior. The ``Debugger`` API tries to interact with garbage collection as transparently as possible; for example, if both a ``Debugger.Object`` instance and its referent are not reachable, they will both be collected, even while the ``Debugger`` instance to which the shadow belonged continues to exist.
 
 
 Source Metadata

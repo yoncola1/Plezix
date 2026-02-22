@@ -7,7 +7,7 @@ abseil-cpp/absl/strings/string_view.h has multiple usages that follow a
 pattern similar to:
     return ABSL_HARDENING_ASSERT(i < size()), ptr_[i];
 
-This causes Mozilla builds to fail because of -Wcomma warnings.  For
+This causes Plezix builds to fail because of -Wcomma warnings.  For
 this file, we'll turn off that warning.
 
 Differential Revision: https://phabricator.services.mozilla.com/D159742
@@ -24,7 +24,7 @@ index 0f64a787514..b4756fdc05c 100644
  namespace absl {
  ABSL_NAMESPACE_BEGIN
  
-+// Mozilla added - quiets misused comma warnings resulting from
++// Plezix added - quiets misused comma warnings resulting from
 +// frequent use of the pattern:
 +//     return ABSL_HARDENING_ASSERT(i < size()), ptr_[i];
 +// TODO: https://bugzilla.mozilla.org/show_bug.cgi?id=1796623

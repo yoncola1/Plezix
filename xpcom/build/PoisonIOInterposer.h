@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,22 +24,22 @@ MOZ_BEGIN_EXTERN_C
  * when one of them links the static CRT). In such cases, giving file
  * descriptors or FILEs
  * doesn't work because _get_osfhandle fails with "invalid parameter". */
-void MozillaRegisterDebugHandle(platform_handle_t aHandle);
+void PlezixRegisterDebugHandle(platform_handle_t aHandle);
 
 /** Register file descriptor to be ignored by poisoning IO interposer */
-void MozillaRegisterDebugFD(int aFd);
+void PlezixRegisterDebugFD(int aFd);
 
 /** Register file to be ignored by poisoning IO interposer */
-void MozillaRegisterDebugFILE(FILE* aFile);
+void PlezixRegisterDebugFILE(FILE* aFile);
 
 /** Unregister file handle from being ignored by poisoning IO interposer */
-void MozillaUnRegisterDebugHandle(platform_handle_t aHandle);
+void PlezixUnRegisterDebugHandle(platform_handle_t aHandle);
 
 /** Unregister file descriptor from being ignored by poisoning IO interposer */
-void MozillaUnRegisterDebugFD(int aFd);
+void PlezixUnRegisterDebugFD(int aFd);
 
 /** Unregister file from being ignored by poisoning IO interposer */
-void MozillaUnRegisterDebugFILE(FILE* aFile);
+void PlezixUnRegisterDebugFILE(FILE* aFile);
 
 MOZ_END_EXTERN_C
 

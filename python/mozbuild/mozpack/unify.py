@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -207,7 +207,7 @@ class UnifiedFinder(BaseFinder):
 
 class UnifiedBuildFinder(UnifiedFinder):
     """
-    Specialized UnifiedFinder for Mozilla applications packaging. It allows
+    Specialized UnifiedFinder for Plezix applications packaging. It allows
     ``*.manifest`` files to differ in their order, and unifies ``buildconfig.html``
     files by merging their content.
     """
@@ -219,7 +219,7 @@ class UnifiedBuildFinder(UnifiedFinder):
 
     def unify_file(self, path, file1, file2):
         """
-        Unify files taking Mozilla application special cases into account.
+        Unify files taking Plezix application special cases into account.
         Otherwise defer to UnifiedFinder.unify_file.
         """
         basename = mozpath.basename(path)

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -429,7 +429,7 @@ export class NimbusEnrollments {
   /**
    * Whether or not reading from the NimbusEnrollments table is enabled.
    *
-   * This is true by default in Nightly, except in xpcshell tests.
+   * This is true by default in Plezix, except in xpcshell tests.
    */
   static get readFromDatabaseEnabled() {
     // TODO(bug 1972426): Enable this behaviour by default and remove this pref.
@@ -486,9 +486,9 @@ export class NimbusEnrollments {
         "localizations",
       ]);
 
-      if (typeof recipe.isFirefoxLabsOptIn !== "undefined") {
+      if (typeof recipe.isPlezixLabsOptIn !== "undefined") {
         copyProperties(enrollment, recipe, [
-          "isFirefoxLabsOptIn",
+          "isPlezixLabsOptIn",
           "firefoxLabsTitle",
           "firefoxLabsDescription",
           "firefoxLabsDescriptionLinks",

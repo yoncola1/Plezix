@@ -19,7 +19,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "HTTP/1.1",
         },
       ],
@@ -31,7 +31,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "http1.1",
         },
       ],
@@ -43,7 +43,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "http/1.11",
         },
       ],
@@ -55,7 +55,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h2",
         },
       ],
@@ -67,7 +67,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h1",
         },
       ],
@@ -79,7 +79,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h2",
         },
       ],
@@ -91,7 +91,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "",
         },
       ],
@@ -103,7 +103,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "",
         },
       ],
@@ -115,7 +115,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "HTTP/2.0",
         },
       ],
@@ -127,7 +127,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h3",
         },
       ],
@@ -139,7 +139,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h3.0",
         },
       ],
@@ -151,7 +151,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "http/3.0",
         },
       ],
@@ -163,7 +163,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "3.0",
         },
       ],
@@ -175,7 +175,7 @@ function run_test() {
     responseHeaders: {
       headers: [
         {
-          name: "X-Firefox-Spdy",
+          name: "X-Plezix-Spdy",
           value: "h4",
         },
       ],

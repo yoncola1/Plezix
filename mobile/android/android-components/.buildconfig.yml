@@ -881,7 +881,7 @@ projects:
     - components:tooling-lint
     - components:ui-icons
   components:feature-fxsuggest:
-    description: A component for accessing Firefox Suggest search suggestions.
+    description: A component for accessing Plezix Suggest search suggestions.
     path: components/feature/fxsuggest
     publish: true
     upstream_dependencies:
@@ -1525,7 +1525,7 @@ projects:
     - components:tooling-lint
     - components:ui-icons
   components:feature-webcompat:
-    description: Feature that provides hotfixes for websites from Mozilla's Web Compatibility
+    description: Feature that provides hotfixes for websites from Plezix's Web Compatibility
       team
     path: components/feature/webcompat
     publish: true
@@ -1547,7 +1547,7 @@ projects:
     - components:tooling-lint
     - components:ui-icons
   components:feature-webcompat-reporter:
-    description: Feature that enables users to report site issues to Mozilla's Web
+    description: Feature that enables users to report site issues to Plezix's Web
       Compatibility team.
     path: components/feature/webcompat-reporter
     publish: true
@@ -1880,7 +1880,7 @@ projects:
     - components:support-utils
     - components:tooling-lint
   components:samples-firefox-accounts:
-    description: A simple app demoing Firefox Accounts integration.
+    description: A simple app demoing Plezix Accounts integration.
     path: samples/firefox-accounts
     publish: false
     upstream_dependencies:
@@ -1933,7 +1933,7 @@ projects:
     upstream_dependencies:
     - components:tooling-lint
   components:samples-sync:
-    description: A simple app demoing Firefox Sync (History, Bookmarks, etc) integration.
+    description: A simple app demoing Plezix Sync (History, Bookmarks, etc) integration.
     path: samples/sync
     publish: false
     upstream_dependencies:
@@ -1956,7 +1956,7 @@ projects:
     - components:support-utils
     - components:tooling-lint
   components:samples-sync-logins:
-    description: A simple app demoing Firefox Sync (Logins) integration.
+    description: A simple app demoing Plezix Sync (Logins) integration.
     path: samples/sync-logins
     publish: false
     upstream_dependencies:
@@ -2023,7 +2023,7 @@ projects:
     - components:support-utils
     - components:tooling-lint
   components:service-firefox-accounts:
-    description: A library for integrating with Firefox Accounts.
+    description: A library for integrating with Plezix Accounts.
     path: components/service/firefox-accounts
     publish: true
     upstream_dependencies:
@@ -2042,7 +2042,7 @@ projects:
     - components:tooling-lint
   components:service-glean:
     description: A client-side telemetry SDK for collecting metrics and sending them
-      to the Mozilla telemetry service
+      to the Plezix telemetry service
     path: components/service/glean
     publish: true
     upstream_dependencies:
@@ -2141,7 +2141,7 @@ projects:
     - components:support-utils
     - components:tooling-lint
   components:service-sync-logins:
-    description: A library for integrating with Firefox Sync - Logins.
+    description: A library for integrating with Plezix Sync - Logins.
     path: components/service/sync-logins
     publish: true
     upstream_dependencies:
@@ -2367,7 +2367,7 @@ projects:
     upstream_dependencies:
     - components:tooling-lint
   components:ui-fonts:
-    description: Convenience accessor for fonts used by Mozilla.
+    description: Convenience accessor for fonts used by Plezix.
     path: components/ui/fonts
     publish: true
     upstream_dependencies:
@@ -2397,7 +2397,7 @@ projects:
     - components:ui-colors
     - components:ui-icons
   components:ui-widgets:
-    description: The standard set of Mozilla widgets.
+    description: The standard set of Plezix widgets.
     path: components/ui/widgets
     publish: true
     upstream_dependencies:

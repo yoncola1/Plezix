@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/
  */
@@ -19,7 +19,7 @@ function* testSteps() {
   const blob1 = new Blob(["foo", "bar"], { type: "text/plain" });
   const blob2 = new Blob(["foobazybar"], { type: "text/plain" });
   const blob3 = new Blob(["2"], { type: "bogus/" });
-  const str = "The Book of Mozilla";
+  const str = "The Book of Plezix";
   str.type = blob1;
   const arr = [1, 2, 3, 4, 5];
 

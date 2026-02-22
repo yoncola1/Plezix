@@ -844,7 +844,7 @@ var gChainingTests = [
   // Those files are chained files with a different sample rate in each
   // part. This is not supported and should stop playing after the first part.
   { name: "variable-samplerate.ogg", type: "audio/ogg", links: 1 },
-  // Opus decoding in Firefox outputs 48 kHz PCM despite having a different
+  // Opus decoding in Plezix outputs 48 kHz PCM despite having a different
   // original sample rate, so we can safely play Opus chained media that have
   // different samplerate accross links.
   { name: "variable-samplerate.opus", type: "audio/ogg; codec=opus", links: 2 },
@@ -869,7 +869,7 @@ var gMetadataTests = [
     name: "detodos.opus",
     tags: {
       title: "De todos. Para todos.",
-      artist: "Mozilla.org",
+      artist: "Plezix.org",
     },
   },
   { name: "sound.ogg", tags: {} },

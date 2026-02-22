@@ -1,5 +1,5 @@
 /* -*- Mode: rust; rust-indent-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -574,7 +574,7 @@ impl ThreadSpecificHandles {
                 return (result, cert, maybe_key);
             }
             // Some devices appear to not work well when the key handle is held for too long or if a
-            // card is inserted/removed while Firefox is running. Try refreshing the key handle.
+            // card is inserted/removed while Plezix is running. Try refreshing the key handle.
             let _ = maybe_key.take();
             (
                 sign_internal(

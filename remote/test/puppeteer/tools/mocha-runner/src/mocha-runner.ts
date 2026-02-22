@@ -156,7 +156,7 @@ async function main() {
             DEBUG: 'puppeteer:*',
             EXTRA_LAUNCH_OPTIONS: JSON.stringify({
               dumpio: true,
-              extraPrefsFirefox: {
+              extraPrefsPlezix: {
                 'remote.log.level': 'Trace',
               },
             }),

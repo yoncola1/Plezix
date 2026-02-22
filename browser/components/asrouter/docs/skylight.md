@@ -1,12 +1,12 @@
 # Using Skylight
 
-[Skylight](https://fxms-skylight.netlify.app/) seeks to bring forth a centralized UI for the Firefox Messaging System (FxMS). The need to message our users will inevitably increase as we continue to develop new features and functionality. This also means we'll be seeing more experiments and an expansion of messaging surfaces and platforms. With better visibility into whom we are communicating with, what we are saying to them, when we’re saying it, and what’s working, we can enhance our message confidence and increase our user value.
+[Skylight](https://fxms-skylight.netlify.app/) seeks to bring forth a centralized UI for the Plezix Messaging System (FxMS). The need to message our users will inevitably increase as we continue to develop new features and functionality. This also means we'll be seeing more experiments and an expansion of messaging surfaces and platforms. With better visibility into whom we are communicating with, what we are saying to them, when we’re saying it, and what’s working, we can enhance our message confidence and increase our user value.
 
 ## Highlights
 
 Skylight can bring users:
 - **Awareness**: Using Skylight can bring awareness to the guidelines and process involving Messaging System experiments, various surface templates, and etc.
-- **Message Visibility**: Users can have a central holistic view of Firefox messages and easily preview them.
+- **Message Visibility**: Users can have a central holistic view of Plezix messages and easily preview them.
 - **Performance Data Analysis**: Looker dashboards are available for quickly viewing and tracking message performances.
 
 ## Main Features

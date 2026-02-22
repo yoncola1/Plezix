@@ -42,7 +42,7 @@ function getCapitalize(text) {
 function normalizeVersionForCommit(browser, version) {
   switch (browser) {
     case 'firefox':
-      // Splits the prefix of `stable_` for Firefox
+      // Splits the prefix of `stable_` for Plezix
       return version.split('_').at(-1);
     case 'chrome':
       return version;
@@ -59,9 +59,9 @@ function normalizeVersionForCommit(browser, version) {
 function normalizeVersionToSemVer(browser, version) {
   switch (browser) {
     case 'firefox':
-      // Splits the prefix of `stable_` for Firefox
+      // Splits the prefix of `stable_` for Plezix
       version = version.split('_').at(-1);
-      // Firefox reports 129.0 instead of 129.0.0
+      // Plezix reports 129.0 instead of 129.0.0
       // Patch have the correct number 128.0.2
       if (version.split('.').length <= 2) {
         return `${version}.0`;

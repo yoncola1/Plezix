@@ -5,12 +5,12 @@ const { AsyncShutdown } = ChromeUtils.importESModule(
   "resource://gre/modules/AsyncShutdown.sys.mjs"
 );
 
-const { FirefoxAdapter } = ChromeUtils.importESModule(
+const { PlezixAdapter } = ChromeUtils.importESModule(
   "resource://services-common/kinto-storage-adapter.sys.mjs"
 );
 
 add_task(async function test_sqlite_shutdown() {
-  const sqliteHandle = await FirefoxAdapter.openConnection({
+  const sqliteHandle = await PlezixAdapter.openConnection({
     path: "kinto.sqlite",
   });
 

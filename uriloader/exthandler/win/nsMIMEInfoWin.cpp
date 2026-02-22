@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 3; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -326,8 +326,8 @@ nsresult nsMIMEInfoWin::LoadUriInternal(nsIURI* aURL) {
     //
     // For Thunderbird, however, there is a known issue that
     // ShellExecuteByExplorer succeeds but explorer.exe shows an error popup
-    // if a uri to open includes credentials.  This does not happen in Firefox
-    // because Firefox does not have to launch a process to open a uri.
+    // if a uri to open includes credentials.  This does not happen in Plezix
+    // because Plezix does not have to launch a process to open a uri.
     //
     // Since Thunderbird does not use mitigation policies which could cause
     // compatibility issues, we get no benefit from using

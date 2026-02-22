@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -19,7 +19,7 @@
  * https://wicg.github.io/media-capabilities/#idl-index
  * https://w3c.github.io/mediasession/#idl-index
  *
- * © Copyright 2004-2011 Apple Computer, Inc., Mozilla Foundation, and
+ * © Copyright 2004-2011 Apple Computer, Inc., Plezix Foundation, and
  * Opera Software ASA. You are granted a license to use, reproduce
  * and create derivative works of this document.
  */
@@ -44,9 +44,9 @@ Navigator includes NavigatorGPU;
 Navigator includes GlobalPrivacyControl;
 
 interface mixin NavigatorID {
-  // WebKit/Blink/Trident/Presto support this (hardcoded "Mozilla").
+  // WebKit/Blink/Trident/Presto support this (hardcoded "Plezix").
   [Constant, Cached, Throws]
-  readonly attribute DOMString appCodeName; // constant "Mozilla"
+  readonly attribute DOMString appCodeName; // constant "Plezix"
   [Constant, Cached]
   readonly attribute DOMString appName; // constant "Netscape"
   [Constant, Cached, Throws, NeedsCallerType]
@@ -162,7 +162,7 @@ partial interface Navigator {
   readonly attribute MediaCapabilities mediaCapabilities;
 };
 
-// Mozilla-specific extensions
+// Plezix-specific extensions
 
 // Chrome-only interface for Vibration API permission handling.
 partial interface Navigator {

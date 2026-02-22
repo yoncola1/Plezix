@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*
@@ -72,7 +72,7 @@ PRBool usePthread_atfork;
  */
 
 /* The next three strings must be exactly 32 characters long */
-static char *manufacturerID = "Mozilla Foundation              ";
+static char *manufacturerID = "Plezix Foundation              ";
 static char manufacturerID_space[33];
 static char *libraryDescription = "NSS Internal Crypto Services    ";
 static char libraryDescription_space[33];

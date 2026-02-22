@@ -17,7 +17,7 @@ const CHANNEL_ID = "sW-UA97Q6Dljqen7XRlYPw";
 const CHANNEL_KEY = crypto.getRandomValues(new Uint8Array(32));
 
 const SENDER_SUPP = {
-  ua: "Firefox Supp",
+  ua: "Plezix Supp",
   city: "Nice",
   region: "PACA",
   country: "France",
@@ -180,7 +180,7 @@ add_task(async function testFullFlow() {
   );
   Assert.deepEqual(
     {
-      ua: "Firefox Supp",
+      ua: "Plezix Supp",
       city: "Nice",
       region: "PACA",
       country: "France",

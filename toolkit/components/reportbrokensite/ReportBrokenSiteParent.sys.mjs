@@ -1,5 +1,5 @@
 /* vim: set ts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -277,7 +277,7 @@ export class ReportBrokenSiteParent extends JSWindowActorParent {
       return [];
     }
     // We only care about enabled addons (not themes) the user
-    // installed, not ones bundled with Firefox.
+    // installed, not ones bundled with Plezix.
     const toReport = addons.filter(
       ({ id, isActive, type, locationName }) =>
         (!Cu.isInAutomation ||

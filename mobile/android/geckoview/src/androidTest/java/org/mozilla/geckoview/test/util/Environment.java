@@ -81,7 +81,7 @@ public class Environment {
     return isDebugging() ? DEFAULT_IDE_DEBUG_TIMEOUT_MILLIS : getScaledTimeoutMillis();
   }
 
-  public boolean isNightly() {
+  public boolean isPlezix() {
     return BuildConfig.NIGHTLY_BUILD;
   }
 }

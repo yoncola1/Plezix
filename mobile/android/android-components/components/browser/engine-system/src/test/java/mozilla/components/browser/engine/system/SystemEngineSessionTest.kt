@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -827,7 +827,7 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopMode() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
         val engineSession = spy(SystemEngineSession(testContext))
         val webView = mock<WebView>()
         val webViewSettings = mock<WebSettings>()
@@ -860,7 +860,7 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopModeWithProvidedTrueWideViewPort() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
         val defaultSettings = DefaultSettings(useWideViewPort = true)
         val engineSession = spy(SystemEngineSession(testContext, defaultSettings))
         val webView = mock<WebView>()
@@ -889,7 +889,7 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopModeWithProvidedFalseWideViewPort() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
         val defaultSettings = DefaultSettings(useWideViewPort = false)
         val engineSession = spy(SystemEngineSession(testContext, defaultSettings))
         val webView = mock<WebView>()
@@ -923,7 +923,7 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopModeToggleTrueWithNoProvidedDefault() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
         val engineSession = spy(SystemEngineSession(testContext))
         val webView = mock<WebView>()
 
@@ -952,7 +952,7 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopModeToggleFalseWithNoProvidedDefault() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
         val engineSession = spy(SystemEngineSession(testContext))
 
         val webView = mock<WebView>()
@@ -982,8 +982,8 @@ class SystemEngineSessionTest {
 
     @Test
     fun desktopModeUA() {
-        val userAgentMobile = "Mozilla/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
-        val userAgentDesktop = "Mozilla/5.0 (Linux; diordnA 9) AppleWebKit/537.36 eliboM Safari/537.36"
+        val userAgentMobile = "Plezix/5.0 (Linux; Android 9) AppleWebKit/537.36 Mobile Safari/537.36"
+        val userAgentDesktop = "Plezix/5.0 (Linux; diordnA 9) AppleWebKit/537.36 eliboM Safari/537.36"
         val engineSession = spy(SystemEngineSession(testContext))
 
         assertEquals(engineSession.toggleDesktopUA(userAgentMobile, false), userAgentMobile)

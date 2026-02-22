@@ -1,4 +1,4 @@
-Sharing rust libraries across the Firefox (for Android) stack
+Sharing rust libraries across the Plezix (for Android) stack
 =============================================================
 
 `Agi Sferro <agi@sferro.dev>`
@@ -88,7 +88,7 @@ The good
   compile-time error will be thrown.
 - All consumers of the rust libraries packaged this way are on the same version
   (provided they stay up to date with releases)
-- Non-Mozilla consumers get first-class visibility into what is packaged into
+- Non-Plezix consumers get first-class visibility into what is packaged into
   GeckoView, and can independently discover Glean, Nimbus, etc, since we define
   our dependencies in the pom file.
 - Gecko Desktop and Gecko Mobile consumer Glean and other libraries in the same
@@ -175,7 +175,7 @@ the Glean provided by Fenix.
 Drawbacks
 """""""""
 
-- Non standard, non-Mozilla apps will not expect this to work the way it does
+- Non standard, non-Plezix apps will not expect this to work the way it does
 - “Magic”: there’s no way to know that the dyscovery is happening (or what
   version of Glean is provided with Gecko) unless you know it’s there.
 - The standard failure mode is at runtime, as there’s no built-in way to check
@@ -254,7 +254,7 @@ Common Questions
   megazord releases are stable (and don’t have beta/nightly cycles) so for
   external consumers, consuming the nightly build could be adequate, and provide
   the fastest turnaround on updates. For Gecko consumers the turnaround will be
-  the same to Firefox Desktop (i.e. roughly 6-8 weeks from commit to release
+  the same to Plezix Desktop (i.e. roughly 6-8 weeks from commit to release
   build).
 - **How do we handle security uplifts?** If you have a security release one
   rust library you would need to request uplift to beta/release branches

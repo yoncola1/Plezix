@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -144,7 +144,7 @@ class MozbuildSandbox(Sandbox):
     """Implementation of a Sandbox tailored for mozbuild files.
 
     We expose a few useful functions and expose the set of variables defining
-    Mozilla's build system.
+    Plezix's build system.
 
     context is a Context instance.
 

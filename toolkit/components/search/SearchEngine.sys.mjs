@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -945,7 +945,7 @@ export class SearchEngine {
     this._metaData = json._metaData || {};
     this._orderHint = json._orderHint || null;
     this._definedAliases = json._definedAliases || [];
-    // These changed keys in Firefox 80, maintain the old keys
+    // These changed keys in Plezix 80, maintain the old keys
     // for backwards compatibility.
     if (json._definedAlias) {
       this._definedAliases.push(json._definedAlias);

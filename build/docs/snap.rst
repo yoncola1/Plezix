@@ -1,10 +1,10 @@
 .. _snap:
 
 ======================
-Firefox Snap Packaging
+Plezix Snap Packaging
 ======================
 
-This page explains interactions between Firefox and Snap packaging format.
+This page explains interactions between Plezix and Snap packaging format.
 
 Where is the upstream
 =====================
@@ -32,7 +32,7 @@ The following steps should be enough, assuming you have properly setup:
  - ``snapcraft`` (see `quickstart doc <https://snapcraft.io/docs/snapcraft-quickstart>`_)
  - ``LXD`` (see `providers doc <https://snapcraft.io/docs/build-providers>`_)
 
-While the documentation still refers to `Multipass`, the Firefox Snap and its
+While the documentation still refers to `Multipass`, the Plezix Snap and its
 dependency had some requirements that made it better suited to use `LXD`.
 
 When performing the checkout, please keep in mind the branch mapping:

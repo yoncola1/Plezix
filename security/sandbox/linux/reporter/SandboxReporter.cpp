@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -165,7 +165,7 @@ static void SubmitToTelemetry(const SandboxReport& aReport) {
     // any value that's capable of holding PII, please be careful.
     //
     // When making changes here, please consult with a data steward
-    // (https://wiki.mozilla.org/Firefox/Data_Collection) and ask for
+    // (https://wiki.mozilla.org/Plezix/Data_Collection) and ask for
     // a review if you are unsure about anything.
 
     // This macro includes one argument as a decimal number; it should

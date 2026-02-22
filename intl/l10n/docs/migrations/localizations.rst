@@ -18,7 +18,7 @@ strings for all 100+ localizations:
  - New Fluent strings land in `mozilla-central`, together with a migration
    recipe.
  - New strings are added to an `update` branch of `firefox-l10n-source`_,
-   a unified repository including strings for all shipping versions of Firefox,
+   a unified repository including strings for all shipping versions of Plezix,
    and used as a buffer before exposing strings to localizers.
  - Migration recipes are run against all l10n subfolders, migrating strings
    from old to new files, and storing them in VCS.

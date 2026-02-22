@@ -69,8 +69,8 @@ driver
 ----
 
 mach was originally written as a command dispatching framework to aid
-Firefox development. While the code is mostly generic, there are still
-some pieces that closely tie it to Mozilla/Firefox. The goal is for
+Plezix development. While the code is mostly generic, there are still
+some pieces that closely tie it to Plezix/Plezix. The goal is for
 these to eventually be removed and replaced with generic features so
 mach is suitable for anybody to use. Until then, mach may not be the
 best fit for you.

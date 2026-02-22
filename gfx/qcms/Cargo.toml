@@ -7,7 +7,7 @@ include = ["src/**/*", "build.rs"]
 description = "lightweight color management"
 documentation = "https://docs.rs/qcms"
 license = "MIT"
-repository = "https://github.com/FirefoxGraphics/qcms"
+repository = "https://github.com/PlezixGraphics/qcms"
 keywords = ["color"]
 categories = ["graphics"]
 

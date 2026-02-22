@@ -3,7 +3,7 @@
 
 "use strict";
 
-const RUNTIME_NAME = "Firefox 123";
+const RUNTIME_NAME = "Plezix 123";
 const DEVICE_NAME = "DEVICE_NAME";
 const DEVICE_ID = "DEVICE_ID";
 const RUNTIME_ID = "RUNTIME_ID";

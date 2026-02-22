@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.compose.list.RadioButtonListItem
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Addresses UI for the debug drawer that displays various addresses related tools.
@@ -104,8 +104,8 @@ private fun AddressesContent(
     ) {
         Text(
             text = stringResource(R.string.debug_drawer_addresses_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline5,
         )
 
         Spacer(Modifier.height(16.dp))
@@ -133,8 +133,8 @@ private fun DebugLocalesToEnableSection(
 ) {
     Text(
         text = stringResource(R.string.debug_drawer_addresses_debug_locales_header),
-        color = FirefoxTheme.colors.textSecondary,
-        style = FirefoxTheme.typography.headline7,
+        color = PlezixTheme.colors.textSecondary,
+        style = PlezixTheme.typography.headline7,
     )
 
     Column {
@@ -161,8 +161,8 @@ private fun AddressesManagementSection(
     Column {
         Text(
             text = stringResource(R.string.debug_drawer_addresses_management_header),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.headline7,
         )
 
         Column {
@@ -229,9 +229,9 @@ private fun List<DebugLocaleEnabledState>.updateLocaleEnabled(localeToUpdate: De
 @Composable
 @PreviewLightDark
 private fun AddressesScreenPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer1),
         ) {
             AddressesTools(
                 debugLocalesRepository = FakeAddressesDebugLocalesRepository(),

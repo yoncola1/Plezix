@@ -72,8 +72,8 @@ add_task(
         ).textContent;
         Assert.equal(
           buttonText,
-          "Download Firefox Klar",
-          "The promo button text reads 'Download Firefox Klar'"
+          "Download Plezix Klar",
+          "The promo button text reads 'Download Plezix Klar'"
         );
       });
       await BrowserTestUtils.closeWindow(win);

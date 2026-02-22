@@ -1,7 +1,7 @@
 Taskcluster Configuration
 =========================
 
-Taskcluster requires configuration of many resources to correctly support Firefox CI.
+Taskcluster requires configuration of many resources to correctly support Plezix CI.
 Many of those span multiple projects (branches) instead of riding the trains.
 
 Global Settings
@@ -22,7 +22,7 @@ This tool automatically annotates all managed resources with "DO NOT EDIT", warn
 Changing Configuration
 ----------------------
 
-To change Taskcluster configuration, make patches to `fxci-config`_, using the Firefox Build System :: Task Configuration Bugzilla component.
+To change Taskcluster configuration, make patches to `fxci-config`_, using the Plezix Build System :: Task Configuration Bugzilla component.
 The resulting configuration is applied upon landing.
 
 See also the `releng documentation`_.

@@ -321,7 +321,7 @@ add_task(async function test_signedTypes_stored_in_addonDB() {
   };
 
   // Shutdown the AddonManager and tamper the AddonDB to confirm XPIProvider.checkForChanges
-  // calls originated internally when opening a profile created from a previous Firefox version
+  // calls originated internally when opening a profile created from a previous Plezix version
   // is going to populate the new signedTypes property.
   info(
     "Check that XPIProvider.checkForChanges(true) will recompute missing signedTypes properties"

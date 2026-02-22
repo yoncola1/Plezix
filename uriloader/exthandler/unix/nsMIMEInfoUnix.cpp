@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 3; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ nsresult nsMIMEInfoUnix::LoadUriInternal(nsIURI* aURI) {
 }
 
 NS_IMETHODIMP nsMIMEInfoUnix::GetDefaultExecutable(nsIFile** aExecutable) {
-  // This needs to be implemented before FirefoxBridge will work on Linux.
+  // This needs to be implemented before PlezixBridge will work on Linux.
   // To implement this and be consistent, GetHasDefaultHandler and
   // LaunchDefaultWithFile should probably be made to be consistent.
   // Right now, they aren't. GetHasDefaultHandler reports true in cases

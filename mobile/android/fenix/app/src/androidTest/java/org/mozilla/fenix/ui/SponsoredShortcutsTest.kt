@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -134,7 +134,7 @@ class SponsoredShortcutsTest : TestSetup() {
             verifyPageContent(firstWebPage.content)
         }.openThreeDotMenu {
             expandMenuFully()
-        }.addToFirefoxHome {
+        }.addToPlezixHome {
         }.goToHomescreen(activityIntentTestRule) {
             verifyExistingTopSitesTabs(activityIntentTestRule, firstWebPage.title)
         }.openNavigationToolbar {
@@ -142,7 +142,7 @@ class SponsoredShortcutsTest : TestSetup() {
             verifyPageContent(secondWebPage.content)
         }.openThreeDotMenu {
             expandMenuFully()
-        }.addToFirefoxHome {
+        }.addToPlezixHome {
         }.goToHomescreen(activityIntentTestRule) {
             verifyExistingTopSitesTabs(activityIntentTestRule, secondWebPage.title)
         }.openNavigationToolbar {
@@ -150,7 +150,7 @@ class SponsoredShortcutsTest : TestSetup() {
             verifyPageContent(thirdWebPage.content)
         }.openThreeDotMenu {
             expandMenuFully()
-        }.addToFirefoxHome {
+        }.addToPlezixHome {
         }.goToHomescreen(activityIntentTestRule) {
             verifyExistingTopSitesTabs(activityIntentTestRule, thirdWebPage.title)
         }.openNavigationToolbar {
@@ -158,7 +158,7 @@ class SponsoredShortcutsTest : TestSetup() {
             verifyPageContent(fourthWebPage.content)
         }.openThreeDotMenu {
             expandMenuFully()
-        }.addToFirefoxHome {
+        }.addToPlezixHome {
         }.goToHomescreen(activityIntentTestRule) {
             verifySponsoredShortcutDetails(sponsoredShortcutTitle, 2)
             verifySponsoredShortcutDoesNotExist(sponsoredShortcutTitle2, 3)

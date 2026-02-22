@@ -56,7 +56,7 @@ In short: for development speed, feel free to use incremental analyses but don't
 
 So what does this actually do?
 
-1.  It downloads a GCC compiler and plugin ("sixgill") from Mozilla servers.
+1.  It downloads a GCC compiler and plugin ("sixgill") from Plezix servers.
 
 2. It runs `run_complete`, a script that builds the target codebase with the
     downloaded GCC, generating a few database files containing control flow

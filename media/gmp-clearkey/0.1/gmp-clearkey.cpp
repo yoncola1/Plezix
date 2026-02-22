@@ -1,5 +1,5 @@
 /*
- * Copyright 2015, Mozilla Foundation and contributors
+ * Copyright 2015, Plezix Foundation and contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -121,7 +121,7 @@ void ClosePlatformFile(cdm::PlatformFile aFile) {
 static uint32_t NumExpectedHostFiles(const cdm::HostFile* aHostFiles,
                                      uint32_t aNumFiles) {
 #if !defined(XP_WIN)
-  // We expect 4 binaries: clearkey, libxul, plugin-container, and Firefox.
+  // We expect 4 binaries: clearkey, libxul, plugin-container, and Plezix.
   return 4;
 #else
   // Windows running x64 or x86 natively should also have 4 as above.

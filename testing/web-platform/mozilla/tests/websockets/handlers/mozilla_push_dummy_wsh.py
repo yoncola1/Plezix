@@ -1,29 +1,29 @@
 #!/usr/bin/python
 
 """
-A dummy push server that emits dummy push subscription such that Firefox can
+A dummy push server that emits dummy push subscription such that Plezix can
 understand it, but without any data storage nor validation.
 
 How it works:
-1. Firefox will establish a websocket connection with the dummy server via
+1. Plezix will establish a websocket connection with the dummy server via
    PushServiceWebSocket.sys.mjs.
    The initial connection will also start up an HTTPS server that works
    as a push endpoint.
 2. A push subscription from a test via Push API will send messageType=register,
    which will generate a URL that points to the HTTPS server. It exposes
    channel ID as a URL parameter, and the server will pass through that parameter
-   to Firefox so that it can map it to each push subscription.
-3. message=unregister will be sent from Firefox when unsubscription happens,
+   to Plezix so that it can map it to each push subscription.
+3. message=unregister will be sent from Plezix when unsubscription happens,
    but the dummy server doesn't process that as it doesn't even remember any
    subscription (it just passes through the channel ID and that's it).
 
 
 Caveat:
-* It sends CORS headers but that behavior is only observed in Firefox's push server
+* It sends CORS headers but that behavior is only observed in Plezix's push server
 (autopush-rs).
 * The dummy server doesn't throw any error on an invalid VAPID.
-* It assumes that Firefox will use websocket to connect to the push server, which is
-  not true on Firefox for Android as it uses Google FCM.
+* It assumes that Plezix will use websocket to connect to the push server, which is
+  not true on Plezix for Android as it uses Google FCM.
   (See https://firefox-source-docs.mozilla.org/mobile/android/fenix/Firebase-Cloud-Messaging-for-WebPush.html)
 """
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Beta label.
@@ -35,10 +35,10 @@ fun BetaLabel(modifier: Modifier = Modifier) {
 
     if (isSystemInDarkTheme()) {
         borderColor = PhotonColors.LightGrey10
-        textColor = FirefoxTheme.colors.textActionPrimary
+        textColor = PlezixTheme.colors.textActionPrimary
     } else {
-        borderColor = FirefoxTheme.colors.actionTertiary
-        textColor = FirefoxTheme.colors.textSecondary
+        borderColor = PlezixTheme.colors.actionTertiary
+        textColor = PlezixTheme.colors.textSecondary
     }
 
     Card(
@@ -51,7 +51,7 @@ fun BetaLabel(modifier: Modifier = Modifier) {
             text = stringResource(R.string.beta_feature),
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
             color = textColor,
-            style = FirefoxTheme.typography.body2,
+            style = PlezixTheme.typography.body2,
         )
     }
 }
@@ -59,10 +59,10 @@ fun BetaLabel(modifier: Modifier = Modifier) {
 @PreviewLightDark
 @Composable
 private fun HeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2)
+                .background(color = PlezixTheme.colors.layer2)
                 .padding(16.dp),
         ) {
             BetaLabel()

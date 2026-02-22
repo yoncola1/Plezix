@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,7 +13,7 @@ import mozilla.components.browser.state.state.BrowserState
 import mozilla.components.feature.tab.collections.TabCollection
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.components.appstate.AppState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 
 /**
@@ -109,10 +109,10 @@ data class CollectionColors(
          */
         @Composable
         fun colors(
-            buttonBackgroundColor: Color = FirefoxTheme.colors.actionPrimary,
-            buttonTextColor: Color = FirefoxTheme.colors.iconActionPrimary,
-            titleTextColor: Color = FirefoxTheme.colors.textPrimary,
-            descriptionTextColor: Color = FirefoxTheme.colors.textSecondary,
+            buttonBackgroundColor: Color = PlezixTheme.colors.actionPrimary,
+            buttonTextColor: Color = PlezixTheme.colors.iconActionPrimary,
+            titleTextColor: Color = PlezixTheme.colors.textPrimary,
+            descriptionTextColor: Color = PlezixTheme.colors.textSecondary,
         ) = CollectionColors(
             buttonBackgroundColor = buttonBackgroundColor,
             buttonTextColor = buttonTextColor,
@@ -130,22 +130,22 @@ data class CollectionColors(
             val titleTextColor: Color
             val descriptionTextColor: Color
             if (textColor == null) {
-                titleTextColor = FirefoxTheme.colors.textPrimary
-                descriptionTextColor = FirefoxTheme.colors.textSecondary
+                titleTextColor = PlezixTheme.colors.textPrimary
+                descriptionTextColor = PlezixTheme.colors.textSecondary
             } else {
                 val color = Color(textColor)
                 titleTextColor = color
                 descriptionTextColor = color
             }
 
-            var buttonColor = FirefoxTheme.colors.actionPrimary
-            var buttonTextColor = FirefoxTheme.colors.textActionPrimary
+            var buttonColor = PlezixTheme.colors.actionPrimary
+            var buttonTextColor = PlezixTheme.colors.textActionPrimary
 
             wallpaperState.ComposeRunIfWallpaperCardColorsAreAvailable { _, _ ->
-                buttonColor = FirefoxTheme.colors.layer1
+                buttonColor = PlezixTheme.colors.layer1
 
                 if (!isSystemInDarkTheme()) {
-                    buttonTextColor = FirefoxTheme.colors.textActionSecondary
+                    buttonTextColor = PlezixTheme.colors.textActionSecondary
                 }
             }
 

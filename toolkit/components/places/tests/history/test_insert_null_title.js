@@ -17,7 +17,7 @@ async function fetchTitle(url) {
 
 add_task(async function () {
   const url = "http://mozilla.com";
-  let title = "Mozilla";
+  let title = "Plezix";
 
   info("Insert a visit with a title");
   let result = await PlacesUtils.history.insert({

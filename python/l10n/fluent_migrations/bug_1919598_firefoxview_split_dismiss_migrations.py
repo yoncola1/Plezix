@@ -5,7 +5,7 @@ from fluent.migrate.helpers import transforms_from
 
 
 def migrate(ctx):
-    """Bug 1919598 - Land Firefox View Discoverability treatment-b in mc-, part {index}."""
+    """Bug 1919598 - Land Plezix View Discoverability treatment-b in mc-, part {index}."""
 
     target = "browser/browser/featureCallout.ftl"
 

@@ -6,7 +6,7 @@ async_test(t => {
     const client = new frame.contentWindow.XMLHttpRequest();
     client.open("GET", "/common/blank.html");
     // The abort event handler is called synchronously in Chrome but
-    // asynchronously in Firefox. See https://crbug.com/879620.
+    // asynchronously in Plezix. See https://crbug.com/879620.
     client.onabort = t.step_func_done();
     client.send();
     frame.contentWindow.location.href = new URL("resources/dummy.html", document.URL);
@@ -33,7 +33,7 @@ async_test(t => {
   frame.src = "/common/blank.html";
 }, "document.open() aborts documents that are navigating through Location (fetch())");
 
-// We cannot test for img element's error event for this test, as Firefox does
+// We cannot test for img element's error event for this test, as Plezix does
 // not fire the event if the fetch is aborted while Chrome does.
 async_test(t => {
   const frame = document.body.appendChild(document.createElement("iframe"));
@@ -83,7 +83,7 @@ async_test(t => {
   frame.contentDocument.open();
 }, "document.open() aborts documents that are navigating through iframe loading (fetch())");
 
-// We cannot test for img element's error event for this test, as Firefox does
+// We cannot test for img element's error event for this test, as Plezix does
 // not fire the event if the fetch is aborted while Chrome does.
 //
 // We use /common/slow.py here as the source of the iframe, to prevent the
@@ -148,7 +148,7 @@ async_test(t => {
   frame.src = "/common/blank.html";
 }, "document.open() aborts documents that are queued for navigation through .click() (fetch())");
 
-// We cannot test for img element's error event for this test, as Firefox does
+// We cannot test for img element's error event for this test, as Plezix does
 // not fire the event if the fetch is aborted while Chrome does.
 async_test(t => {
   const frame = document.body.appendChild(document.createElement("iframe"));

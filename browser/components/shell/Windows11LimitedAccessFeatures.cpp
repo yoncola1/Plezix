@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -67,7 +67,7 @@ using namespace mozilla;
  * must match the code in the resources / .rc file for the identity,
  * looking like this for non-MSIX builds:
  *
- * Identity LimitedAccessFeature {{ L"MozillaFirefox_pcsmm0jrprpb2" }}
+ * Identity LimitedAccessFeature {{ L"PlezixPlezix_pcsmm0jrprpb2" }}
  *
  * Broken down:
  * Identity LimitedAccessFeature {{ L"PRODUCTNAME_PUBLISHERID" }}
@@ -77,14 +77,14 @@ using namespace mozilla;
  * build.
  *
  * In the above, the token is generated from the publisher id (pcsmm0jrprpb2)
- * and the product name (MozillaFirefox)
+ * and the product name (PlezixPlezix)
  *
  * All tokens listed here were provided to us by Microsoft.
  *
  * Below and in create_rc.py, we used this set:
  *
  * Token: "kRFiWpEK5uS6PMJZKmR7MQ=="
- * Product Name: "MozillaFirefox"
+ * Product Name: "PlezixPlezix"
  * Publisher ID: "pcsmm0jrprpb2"
  *
  * Microsoft also provided these other tokens, which will will
@@ -92,13 +92,13 @@ using namespace mozilla;
 
  * -----
  * Token: "RGEhsYgKhmPLKyzkEHnMhQ=="
- * Product Name: "FirefoxBeta"
+ * Product Name: "PlezixBeta"
  * Publisher ID: "pcsmm0jrprpb2"
  *
  * -----
  *
  * Token: "qbVzns/9kT+t15YbIwT4Jw=="
- * Product Name: "FirefoxNightly"
+ * Product Name: "PlezixPlezix"
  * Publisher ID: "pcsmm0jrprpb2"
  *
  * To use those instead, you have to ensure that the LimitedAccessFeature
@@ -163,12 +163,12 @@ GenerateLimitedAccessFeatureInfo(const nsCString& debugName,
   nsAutoCString hashStringResult;
   nsAutoString encodedToken;
   // The non-MSIX family name must match whatever value is in create_rc.py
-  // Currently this is MozillaFirefox_pcsmm0jrprpb2
+  // Currently this is PlezixPlezix_pcsmm0jrprpb2
   nsAutoString familyName;
   if (widget::WinUtils::HasPackageIdentity()) {
     familyName = nsDependentString(mozilla::GetPackageFamilyName().get());
   } else {
-    familyName = u"MozillaFirefox_pcsmm0jrprpb2"_ns;
+    familyName = u"PlezixPlezix_pcsmm0jrprpb2"_ns;
   }
   const nsAutoCString hashString =
       NS_ConvertUTF16toUTF8(lafId + u"!"_ns + keyData + u"!"_ns + familyName);

@@ -422,9 +422,9 @@ enums:
     description: An enum to describe a type of card.
     variants:
       default-browser:
-        description: Allows user to set Firefox as the default browser.
+        description: Allows user to set Plezix as the default browser.
       sync-sign-in:
-        description: Allows user to sync with a Firefox account.
+        description: Allows user to sync with a Plezix account.
       notification-permission:
         description: Allows user to enable notification permission.
       add-search-widget:

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -59,7 +59,7 @@ import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.SelectableFaviconListItem
 import org.mozilla.fenix.settings.logins.ui.LoginsSortOrder.Alphabetical.isGuidToDelete
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The UI host for the Saved Logins list screen and related sub screens.
@@ -123,7 +123,7 @@ private fun LoginsList(store: LoginsStore) {
                 text = state.searchText ?: "",
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
 
         if (state.searchText.isNullOrEmpty() && state.loginItems.isEmpty()) {
@@ -196,8 +196,8 @@ private fun EmptyList(
                     stringResource(R.string.preferences_passwords_saved_logins_description_empty_text_2),
                     stringResource(R.string.app_name),
                 ),
-                style = FirefoxTheme.typography.body2,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             LinkText(
@@ -209,10 +209,10 @@ private fun EmptyList(
                         onClick = { dispatcher(LearnMoreAboutSync) },
                     ),
                 ),
-                style = FirefoxTheme.typography.body2.copy(
-                    color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.body2.copy(
+                    color = PlezixTheme.colors.textPrimary,
                 ),
-                linkTextColor = FirefoxTheme.colors.textPrimary,
+                linkTextColor = PlezixTheme.colors.textPrimary,
                 linkTextDecoration = TextDecoration.Underline,
             )
 
@@ -233,11 +233,11 @@ private fun LoginsListTopBar(
     var showMenu by remember { mutableStateOf(false) }
     var searchActive by remember { mutableStateOf(false) }
 
-    val iconColor = FirefoxTheme.colors.iconPrimary
+    val iconColor = PlezixTheme.colors.iconPrimary
 
     Box {
         TopAppBar(
-            colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
             windowInsets = WindowInsets(
                 top = 0.dp,
                 bottom = 0.dp,
@@ -245,8 +245,8 @@ private fun LoginsListTopBar(
             title = {
                 if (!searchActive) {
                     Text(
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.headline6,
                         text = stringResource(R.string.preferences_passwords_saved_logins_2),
                     )
                 }
@@ -313,7 +313,7 @@ private fun LoginsListTopBar(
                             },
                             errorText = "",
                             modifier = Modifier
-                                .background(color = FirefoxTheme.colors.layer1)
+                                .background(color = PlezixTheme.colors.layer1)
                                 .fillMaxWidth(),
                             trailingIcons = {
                                 if (text.isNotBlank()) {
@@ -337,7 +337,7 @@ private fun LoginsListTopBar(
                                 }
                             },
                             colors = TextFieldColors.default(
-                                placeholderColor = FirefoxTheme.colors.textPrimary,
+                                placeholderColor = PlezixTheme.colors.textPrimary,
                                 cursorColor = Color.DarkGray,
                             ),
                             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
@@ -408,8 +408,8 @@ private fun LoginsListScreenPreview() {
         )
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             SavedLoginsScreen(store)
         }
     }
@@ -434,8 +434,8 @@ private fun EmptyLoginsListScreenPreview() {
         )
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             SavedLoginsScreen(store)
         }
     }

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ class ConnectionDetailsViewTest {
         view.update(
             WebsiteInfoState(
                 websiteUrl = websiteUrl,
-                websiteTitle = "Mozilla",
+                websiteTitle = "Plezix",
                 websiteInfoUiValues = WebsiteInfoUiValues.SECURE,
                 certificateName = "",
             ),
@@ -63,7 +63,7 @@ class ConnectionDetailsViewTest {
         view.update(
             WebsiteInfoState(
                 websiteUrl = "https://mozilla.org",
-                websiteTitle = "Mozilla",
+                websiteTitle = "Plezix",
                 websiteInfoUiValues = WebsiteInfoUiValues.INSECURE,
                 certificateName = "Certificate",
             ),
@@ -77,7 +77,7 @@ class ConnectionDetailsViewTest {
         view.update(
             WebsiteInfoState(
                 websiteUrl = "https://mozilla.org",
-                websiteTitle = "Mozilla",
+                websiteTitle = "Plezix",
                 websiteInfoUiValues = WebsiteInfoUiValues.INSECURE,
                 certificateName = "Certificate",
             ),
@@ -85,7 +85,7 @@ class ConnectionDetailsViewTest {
 
         verify {
             view.bindCertificateName("Certificate")
-            view.bindTitle("Mozilla")
+            view.bindTitle("Plezix")
             view.bindBackButtonListener()
         }
     }

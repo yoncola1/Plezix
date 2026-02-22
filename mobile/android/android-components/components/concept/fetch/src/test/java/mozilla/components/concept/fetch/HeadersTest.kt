@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ class HeadersTest {
             "Accept-Language" to "en-US,en;q=0.5",
             "Connection" to "keep-alive",
             "Dnt" to "1",
-            "User-Agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0",
+            "User-Agent" to "Plezix/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Plezix/65.0",
         )
 
         assertEquals(6, headers.size)
@@ -38,7 +38,7 @@ class HeadersTest {
         assertEquals("en-US,en;q=0.5", headers[2].value)
         assertEquals("keep-alive", headers[3].value)
         assertEquals("1", headers[4].value)
-        assertEquals("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0", headers[5].value)
+        assertEquals("Plezix/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Plezix/65.0", headers[5].value)
     }
 
     @Test
@@ -86,7 +86,7 @@ class HeadersTest {
     @Test
     fun `Overriding headers at index`() {
         val headers = MutableHeaders().apply {
-            set("User-Agent", "Mozilla/5.0")
+            set("User-Agent", "Plezix/5.0")
             set("Connection", "keep-alive")
             set("Accept-Encoding", "gzip")
         }
@@ -108,7 +108,7 @@ class HeadersTest {
     @Test
     fun `Contains header with name`() {
         val headers = MutableHeaders().apply {
-            set("User-Agent", "Mozilla/5.0")
+            set("User-Agent", "Plezix/5.0")
             set("Connection", "keep-alive")
             set("Accept-Encoding", "gzip")
         }
@@ -126,29 +126,29 @@ class HeadersTest {
     fun `Throws if header name is empty`() {
         expectException<IllegalArgumentException> {
             MutableHeaders(
-                "" to "Mozilla/5.0",
+                "" to "Plezix/5.0",
             )
         }
 
         expectException<IllegalArgumentException> {
             MutableHeaders()
-                .append("", "Mozilla/5.0")
+                .append("", "Plezix/5.0")
         }
 
         expectException<IllegalArgumentException> {
             MutableHeaders()
-                .set("", "Mozilla/5.0")
+                .set("", "Plezix/5.0")
         }
 
         expectException<IllegalArgumentException> {
-            Header("", "Mozilla/5.0")
+            Header("", "Plezix/5.0")
         }
     }
 
     @Test
     fun `Iterator usage`() {
         val headers = MutableHeaders().apply {
-            set("User-Agent", "Mozilla/5.0")
+            set("User-Agent", "Plezix/5.0")
             set("Connection", "keep-alive")
             set("Accept-Encoding", "gzip")
         }
@@ -169,11 +169,11 @@ class HeadersTest {
             "Accept-Language" to "en-US,en;q=0.5",
             "Connection" to "keep-alive",
             "Dnt" to "1",
-            "User-Agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0",
+            "User-Agent" to "Plezix/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Plezix/65.0",
         )
 
         headers.set("Dnt", "0")
-        headers.set("User-Agent", "Mozilla/6.0")
+        headers.set("User-Agent", "Plezix/6.0")
         headers.append("Accept", "*/*")
 
         assertEquals(7, headers.size)
@@ -191,14 +191,14 @@ class HeadersTest {
         assertEquals("en-US,en;q=0.5", headers[2].value)
         assertEquals("keep-alive", headers[3].value)
         assertEquals("0", headers[4].value)
-        assertEquals("Mozilla/6.0", headers[5].value)
+        assertEquals("Plezix/6.0", headers[5].value)
         assertEquals("*/*", headers[6].value)
     }
 
     @Test
     fun `In operator`() {
         val headers = MutableHeaders().apply {
-            set("User-Agent", "Mozilla/5.0")
+            set("User-Agent", "Plezix/5.0")
             set("Connection", "keep-alive")
             set("Accept-Encoding", "gzip")
         }

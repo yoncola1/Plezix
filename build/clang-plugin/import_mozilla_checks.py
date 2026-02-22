@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -54,7 +54,7 @@ def write_cmake(module_path, import_options):
 
 add_definitions( -DCLANG_TIDY )
 
-add_clang_library(clangTidyMozillaModule
+add_clang_library(clangTidyPlezixModule
   ThirdPartyPaths.cpp
 %(names)s
 
@@ -65,7 +65,7 @@ add_clang_library(clangTidyMozillaModule
   clangTidyMPIModule
   )
 
-clang_target_link_libraries(clangTidyMozillaModule
+clang_target_link_libraries(clangTidyPlezixModule
   PRIVATE
   clangAST
   clangASTMatchers
@@ -83,7 +83,7 @@ def add_moz_module(cmake_path):
 
     try:
         idx = lines.index("set(ALL_CLANG_TIDY_CHECKS\n")
-        lines.insert(idx + 1, "  clangTidyMozillaModule\n")
+        lines.insert(idx + 1, "  clangTidyPlezixModule\n")
 
         with open(cmake_path, "w") as f:
             for line in lines:
@@ -129,10 +129,10 @@ def do_import(mozilla_path, clang_tidy_path, import_options):
     with open(os.path.join(module_path, "..", "tool", "ClangTidyMain.cpp"), "a") as f:
         f.write(
             """
-// This anchor is used to force the linker to link the MozillaModule.
-extern volatile int MozillaModuleAnchorSource;
-static int LLVM_ATTRIBUTE_UNUSED MozillaModuleAnchorDestination =
-          MozillaModuleAnchorSource;
+// This anchor is used to force the linker to link the PlezixModule.
+extern volatile int PlezixModuleAnchorSource;
+static int LLVM_ATTRIBUTE_UNUSED PlezixModuleAnchorDestination =
+          PlezixModuleAnchorSource;
 """
         )
 
@@ -142,7 +142,7 @@ def main():
 
     parser = argparse.ArgumentParser(
         usage="import_mozilla_checks.py <mozilla-clang-plugin-path> <clang-tidy-path> [option]",
-        description="Imports the Mozilla static analysis checks into a clang-tidy source tree.",
+        description="Imports the Plezix static analysis checks into a clang-tidy source tree.",
     )
     parser.add_argument(
         "mozilla_path", help="Full path to mozilla-central/build/clang-plugin"

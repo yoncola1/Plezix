@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Animation duration in milliseconds.
@@ -58,7 +58,7 @@ private const val ANIMATION_DURATION_MS = 2000
 fun DownloadIconIndicator(
     icon: Painter,
     modifier: Modifier = Modifier,
-    tint: Color = FirefoxTheme.colors.iconPrimary,
+    tint: Color = PlezixTheme.colors.iconPrimary,
     contentDescription: String? = null,
 ) {
     Icon(
@@ -84,7 +84,7 @@ fun DownloadIconIndicator(
 fun DownloadInProgressIndicator(
     modifier: Modifier = Modifier,
     icon: Painter = painterResource(id = R.drawable.mozac_ic_stop_8),
-    tint: Color = FirefoxTheme.colors.iconPrimary,
+    tint: Color = PlezixTheme.colors.iconPrimary,
     contentDescription: String? = null,
 ) {
     Box(
@@ -98,9 +98,9 @@ fun DownloadInProgressIndicator(
         )
         CircularProgressIndicator(
             modifier = modifier.size(30.dp),
-            color = FirefoxTheme.colors.layerAccent,
+            color = PlezixTheme.colors.layerAccent,
             strokeWidth = 2.dp,
-            trackColor = FirefoxTheme.colors.actionTertiary,
+            trackColor = PlezixTheme.colors.actionTertiary,
             strokeCap = StrokeCap.Butt,
         )
     }
@@ -157,10 +157,10 @@ internal fun rotationAnimation(): Float {
 @Composable
 @PreviewLightDark
 private fun DownloadIconIndicatorPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
@@ -177,10 +177,10 @@ private fun DownloadIconIndicatorPreview() {
 @Composable
 @PreviewLightDark
 private fun DownloadInProgressIndicatorPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
@@ -196,10 +196,10 @@ private fun DownloadInProgressIndicatorPreview() {
 @Composable
 @PreviewLightDark
 private fun DownloadIndicatorPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {

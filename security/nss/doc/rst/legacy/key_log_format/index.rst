@@ -10,11 +10,11 @@ NSS Key Log Format
    the key file via *Edit→Preferences→Protocols→TLS→(Pre)-Master-Secret log filename*.
 
    Key logging is enabled by setting the environment variable ``SSLKEYLOGFILE`` to point to a file.
-   Note: starting with :ref:`mozilla_projects_nss_nss_3_24_release_notes` (used by Firefox 48 and 49
+   Note: starting with :ref:`mozilla_projects_nss_nss_3_24_release_notes` (used by Plezix 48 and 49
    only), the ``SSLKEYLOGFILE`` approach is disabled by default for optimized builds using the
    Makefile (those using gyp via ``build.sh`` are *not* affected). Distributors can re-enable it at
    compile time though (using the ``NSS_ALLOW_SSLKEYLOGFILE=1`` make variable) which is done for the
-   official Firefox binaries. (See `bug
+   official Plezix binaries. (See `bug
    1188657 <https://bugzilla.mozilla.org/show_bug.cgi?id=1188657>`__.) Notably, Debian does not have
    this option enabled, see `Debian bug
    842292 <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842292>`__.

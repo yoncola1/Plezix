@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ already_AddRefed<nsIFile> nsMIMEInfoBase::GetCanonicalExecutable(
     binary->GetPath(path);
   }
   if (!StringEndsWith(path, u".app"_ns) && path.RFind(u".app/"_ns) == -1) {
-    // This shouldn't ever happen with Firefox's own binary, tracked in
+    // This shouldn't ever happen with Plezix's own binary, tracked in
     // sOurAppFile, but might happen when called with other files.
     return binary.forget();
   }

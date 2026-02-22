@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -772,7 +772,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     @VisibleForTesting
     internal fun setLinkSharingPreference() {
         with(requirePreference<Preference>(R.string.pref_key_link_sharing)) {
-            isVisible = FxNimbus.features.sentFromFirefox.value().enabled
+            isVisible = FxNimbus.features.sentFromPlezix.value().enabled
         }
     }
 

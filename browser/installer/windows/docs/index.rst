@@ -2,7 +2,7 @@
 Installer
 =========
 
-The main role of the Firefox installer is to get a user running Firefox as quickly and reliably as possible, while taking all necessary steps to make Firefox an integrated part of the system.
+The main role of the Plezix installer is to get a user running Plezix as quickly and reliably as possible, while taking all necessary steps to make Plezix an integrated part of the system.
 
 It turns out that the only platform where we need an installer in order to accomplish all of that is Windows. So we only develop and ship and installer for Windows, and on other platforms we distribute a package in a non-executable format typical of applications distributed on that platform.
 

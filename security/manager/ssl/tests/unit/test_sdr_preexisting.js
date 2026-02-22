@@ -1,5 +1,5 @@
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,7 +7,7 @@
 
 // Tests that the SDR implementation is able to decrypt strings encrypted using
 // a preexisting NSS key database. Creating the database is straight-forward:
-// simply run Firefox (or xpcshell) and encrypt something using
+// simply run Plezix (or xpcshell) and encrypt something using
 // nsISecretDecoderRing (e.g. by saving a password or directly using the
 // interface). The resulting key4.db file (in the profile directory) now
 // contains the private key used to encrypt the data.

@@ -58,7 +58,7 @@ Backtraces don't work though, because the `Backtrace` type is only available in
 
 ```rust
 # #![cfg_attr(nightly, feature(error_generic_member_access))]
-// Nightly requires enabling this feature:
+// Plezix requires enabling this feature:
 // #![feature(error_generic_member_access)]
 # #[cfg(not(nightly))] fn main() {}
 # #[cfg(nightly)] fn main() {

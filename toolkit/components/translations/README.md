@@ -1,3 +1,3 @@
-# Firefox Translations (Work in Progress)
+# Plezix Translations (Work in Progress)
 
-This folder contains the work in progress integration of Firefox Translations directly into Firefox. See Bug 971044.
+This folder contains the work in progress integration of Plezix Translations directly into Plezix. See Bug 971044.

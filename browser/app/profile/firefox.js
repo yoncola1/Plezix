@@ -1,11 +1,11 @@
 #filter dumbComments emptyLines substitution
 
 // -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-// Non-static prefs that are specific to desktop Firefox belong in this file
+// Non-static prefs that are specific to desktop Plezix belong in this file
 // (unless there is a compelling and documented reason for them to belong in
 // another file).
 //
@@ -23,7 +23,7 @@
   pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindowMac.xhtml");
 #endif
 
-// Set add-ons abuse report related prefs specific to Firefox Desktop.
+// Set add-ons abuse report related prefs specific to Plezix Desktop.
 pref("extensions.abuseReport.enabled", true);
 
 // Enables some extra Extension System Logging (can reduce performance)
@@ -47,7 +47,7 @@ pref("extensions.getAddons.browserMappings.url", "https://services.addons.mozill
 
 // The URL for the privacy policy related to recommended extensions.
 pref("extensions.recommendations.privacyPolicyUrl", "https://www.mozilla.org/privacy/firefox/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=privacy-policy-link#addons");
-// The URL for Firefox Color, recommended on the theme page in about:addons.
+// The URL for Plezix Color, recommended on the theme page in about:addons.
 pref("extensions.recommendations.themeRecommendationUrl", "https://color.firefox.com/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_content=theme-footer-link");
 
 pref("extensions.update.autoUpdateDefault", true);
@@ -177,10 +177,10 @@ pref("app.update.langpack.enabled", true);
   pref("app.update.background.timeoutSec", 600);
   // By default, check for updates when the browser is not running every 7 hours.
   pref("app.update.background.interval", 25200);
-  // By default, snapshot Firefox Messaging System targeting for use by the
+  // By default, snapshot Plezix Messaging System targeting for use by the
   // background update task every 60 minutes.
   pref("app.update.background.messaging.targeting.snapshot.intervalSec", 3600);
-  // For historical reasons, the background update process requires the Mozilla
+  // For historical reasons, the background update process requires the Plezix
   // Maintenance Service to be available and enabled via the service registry
   // key.  When this value is `true`, allow the background update process to
   // update unelevated installations (that are writeable, etc).
@@ -189,14 +189,14 @@ pref("app.update.langpack.enabled", true);
   // application ID (and not the `firefox_desktop_background_task` application
   // ID).  However, the pref will be automatically mirrored to the background
   // update task profile. This means that experiments and enrollment impact the
-  // Firefox Desktop browsing profile that _schedules_ the background update
+  // Plezix Desktop browsing profile that _schedules_ the background update
   // task, and then the background update task collects telemetry in accordance
   // with the mirrored pref.
   pref("app.update.background.allowUpdatesForUnelevatedInstallations", false);
 #endif
 
 #ifdef XP_MACOSX
-  // If set to true, Firefox will automatically restart if it is left running
+  // If set to true, Plezix will automatically restart if it is left running
   // with no browser windows open.
   pref("app.update.noWindowAutoRestart.enabled", true);
   // How long to wait after all browser windows are closed before restarting,
@@ -273,10 +273,10 @@ pref("browser.fixup.dns_first_for_single_words", false);
 // UI density of the browser chrome. This mostly affects toolbarbutton
 // and urlbar spacing. The possible values are 0=normal, 1=compact, 2=touch.
 pref("browser.uidensity", 0);
-// Whether Firefox will automatically override the uidensity to "touch"
+// Whether Plezix will automatically override the uidensity to "touch"
 // while the user is in a touch environment (such as Windows tablet mode).
 pref("browser.touchmode.auto", true);
-// Whether Firefox will show the Compact Mode UIDensity option.
+// Whether Plezix will show the Compact Mode UIDensity option.
 pref("browser.compactmode.show", false);
 
 // At startup, check if we're the default browser and prompt user if not.
@@ -294,21 +294,21 @@ pref("browser.shell.setDefaultBrowserUserChoice", true);
 // prevent kernel drivers from locking the UserChoice subkeys.
 pref("browser.shell.setDefaultBrowserUserChoice.regRename", true);
 // When setting the default browser on Windows 10 using the UserChoice
-// registry keys, also try to set Firefox as the default PDF handler.
+// registry keys, also try to set Plezix as the default PDF handler.
 pref("browser.shell.setDefaultPDFHandler", true);
-// When setting Firefox as the default PDF handler (subject to conditions
-// above), only set Firefox as the default PDF handler when the existing handler
+// When setting Plezix as the default PDF handler (subject to conditions
+// above), only set Plezix as the default PDF handler when the existing handler
 // is a known browser, and not when existing handler is another PDF handler such
 // as Acrobat Reader or Nitro PDF.
 pref("browser.shell.setDefaultPDFHandler.onlyReplaceBrowsers", true);
-// Whether or not to we are allowed to prompt the user to set Firefox as their
+// Whether or not to we are allowed to prompt the user to set Plezix as their
 // default PDF handler.
 pref("browser.shell.checkDefaultPDF", true);
 // Will be set to `true` if the user indicates that they don't want to be asked
-// again about Firefox being their default PDF handler any more.
+// again about Plezix being their default PDF handler any more.
 pref("browser.shell.checkDefaultPDF.silencedByUser", false);
 // Whether or not the user should be shown the guidance notifications when
-// setting Firefox as their default browser.
+// setting Plezix as their default browser.
 pref("browser.shell.setDefaultGuidanceNotifications", true);
 #endif
 
@@ -489,44 +489,44 @@ pref("browser.urlbar.suggest.trending", true);
 
 // Whether non-sponsored quick suggest results are shown in the urlbar. This
 // pref is exposed to the user in the UI, and it's sticky so that its
-// user-branch value persists regardless of whatever Firefox Suggest scenarios,
+// user-branch value persists regardless of whatever Plezix Suggest scenarios,
 // with their various default-branch values, the user is enrolled in over time.
 pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false, sticky);
 
 // Whether sponsored quick suggest results are shown in the urlbar. This pref is
 // exposed to the user in the UI, and it's sticky so that its user-branch value
-// persists regardless of whatever Firefox Suggest scenarios, with their various
+// persists regardless of whatever Plezix Suggest scenarios, with their various
 // default-branch values, the user is enrolled in over time.
 pref("browser.urlbar.suggest.quicksuggest.sponsored", false, sticky);
 
 // Whether data collection is enabled for quick suggest results in the urlbar.
 // This pref is exposed to the user in the UI, and it's sticky so that its
-// user-branch value persists regardless of whatever Firefox Suggest scenarios,
+// user-branch value persists regardless of whatever Plezix Suggest scenarios,
 // with their various default-branch values, the user is enrolled in over time.
 pref("browser.urlbar.quicksuggest.dataCollection.enabled", false, sticky);
 
-// Whether the Firefox Suggest contextual opt-in result is enabled.
+// Whether the Plezix Suggest contextual opt-in result is enabled.
 pref("browser.urlbar.quicksuggest.contextualOptIn", false);
 
-// Number that the user dismissed the Firefox Suggest contextual opt-in result.
+// Number that the user dismissed the Plezix Suggest contextual opt-in result.
 pref("browser.urlbar.quicksuggest.contextualOptIn.dismissedCount", 0);
 
-// Period until reshow the Firefox Suggest contextual opt-in result when first dismissed.
+// Period until reshow the Plezix Suggest contextual opt-in result when first dismissed.
 pref("browser.urlbar.quicksuggest.contextualOptIn.firstReshowAfterPeriodDays", 7);
 
-// Period until reshow the Firefox Suggest contextual opt-in result when second dismissed.
+// Period until reshow the Plezix Suggest contextual opt-in result when second dismissed.
 pref("browser.urlbar.quicksuggest.contextualOptIn.secondReshowAfterPeriodDays", 14);
 
-// Period until reshow the Firefox Suggest contextual opt-in result when third dismissed.
+// Period until reshow the Plezix Suggest contextual opt-in result when third dismissed.
 pref("browser.urlbar.quicksuggest.contextualOptIn.thirdReshowAfterPeriodDays", 60);
 
-// Number of impression for the Firefox Suggest contextual opt-in result.
+// Number of impression for the Plezix Suggest contextual opt-in result.
 pref("browser.urlbar.quicksuggest.contextualOptIn.impressionCount", 0);
 
-// Limit for impression to dismiss the Firefox Suggest contextual opt-in result.
+// Limit for impression to dismiss the Plezix Suggest contextual opt-in result.
 pref("browser.urlbar.quicksuggest.contextualOptIn.impressionLimit", 20);
 
-// Days until dismiss the Firefox Suggest contextual opt-in result after first impression.
+// Days until dismiss the Plezix Suggest contextual opt-in result after first impression.
 pref("browser.urlbar.quicksuggest.contextualOptIn.impressionDaysLimit", 5);
 
 // Whether the quick suggest feature in the urlbar is enabled.
@@ -536,11 +536,11 @@ pref("browser.urlbar.quicksuggest.enabled", false);
 // experimentation. It can be any of "default", "interest", and "random".
 pref("browser.urlbar.quicksuggest.rankingMode", "default");
 
-// Whether Firefox Suggest will use the new Rust backend instead of the original
+// Whether Plezix Suggest will use the new Rust backend instead of the original
 // JS backend.
 pref("browser.urlbar.quicksuggest.rustEnabled", true);
 
-// The index of sponsored Firefox Suggest results within the Firefox Suggest
+// The index of sponsored Plezix Suggest results within the Plezix Suggest
 // section when "Show search suggestions ahead of browsing history in address bar
 // results" is checked. When not checked, the index is hardcoded as -1. Negative
 // indexes are relative to the end of the section.
@@ -652,7 +652,7 @@ pref("browser.urlbar.dnsResolveSingleWordsAfterSearch", 0);
 // for everyone.
 pref("browser.urlbar.keepPanelOpenDuringImeComposition", false);
 
-// Whether Firefox Suggest group labels are shown in the urlbar view.
+// Whether Plezix Suggest group labels are shown in the urlbar view.
 pref("browser.urlbar.groupLabels.enabled", true);
 
 // The Merino endpoint URL, not including parameters.
@@ -719,7 +719,7 @@ pref("browser.urlbar.fakespot.featureGate", false);
 // the suggestion. 0 means the min length should be taken from Nimbus.
 pref("browser.urlbar.fakespot.minKeywordLength", 4);
 
-// The index of Fakespot results within the Firefox Suggest section. A negative
+// The index of Fakespot results within the Plezix Suggest section. A negative
 // index is relative to the end of the section.
 pref("browser.urlbar.fakespot.suggestedIndex", -1);
 
@@ -738,7 +738,7 @@ pref("browser.urlbar.amp.featureGate", false);
 // suggestions are turned on.
 pref("browser.urlbar.suggest.amp", true);
 
-// Feature gate pref for Wikipedia suggestions in the urlbar (part of Firefox
+// Feature gate pref for Wikipedia suggestions in the urlbar (part of Plezix
 // Suggest).
 pref("browser.urlbar.wikipedia.featureGate", false);
 
@@ -844,7 +844,7 @@ pref("browser.spin_cursor_while_busy", false);
 // Enable display of contextual-password-manager option in browser sidebar
 pref("browser.contextual-password-manager.enabled", false);
 
-// Enables the display of the Mozilla VPN banner in private browsing windows
+// Enables the display of the Plezix VPN banner in private browsing windows
 pref("browser.privatebrowsing.vpnpromourl", "https://vpn.mozilla.org/?utm_source=firefox-browser&utm_medium=firefox-%CHANNEL%-browser&utm_campaign=private-browsing-vpn-link");
 
 // Whether the user has opted-in to recommended settings for data features.
@@ -979,8 +979,8 @@ pref("browser.tabs.remote.separatePrivilegedContentProcess", true);
 
 // Pref to control whether we use a separate privileged content process
 // for certain mozilla webpages (which are listed in the pref
-// browser.tabs.remote.separatedMozillaDomains).
-pref("browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true);
+// browser.tabs.remote.separatedPlezixDomains).
+pref("browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true);
 
 #ifdef NIGHTLY_BUILD
 pref("browser.tabs.tooltipsShowPidAndActiveness", true);
@@ -1282,12 +1282,12 @@ pref("accessibility.typeaheadfind.timeout", 5000);
 pref("accessibility.typeaheadfind.linksonly", false);
 pref("accessibility.typeaheadfind.flashBar", 1);
 
-// Whether we can show the "Firefox Labs" section.
+// Whether we can show the "Plezix Labs" section.
 pref("browser.preferences.experimental", true);
-// Whether we had to hide the "Firefox Labs" section because it would be empty.
+// Whether we had to hide the "Plezix Labs" section because it would be empty.
 pref("browser.preferences.experimental.hidden", false);
-// Whether we show the "More from Mozilla" section.
-pref("browser.preferences.moreFromMozilla", true);
+// Whether we show the "More from Plezix" section.
+pref("browser.preferences.moreFromPlezix", true);
 
 // Used by settings to track whether the user customized advanced
 // performance settings. Not used directly elsewhere.
@@ -1537,7 +1537,7 @@ pref("browser.bookmarks.editDialog.maxRecentFolders", 7);
   // 6 -> default-deny for ioctl
   //
   // The purpose of this setting is to allow Linux users or distros to disable
-  // the sandbox while we fix their problems, or to allow running Firefox with
+  // the sandbox while we fix their problems, or to allow running Plezix with
   // exotic configurations we can't reasonably support out of the box.
   //
   pref("security.sandbox.content.level", 6);
@@ -1721,7 +1721,7 @@ pref("services.sync.engine.tabs", true);
 // Anything <= 0 means disabled
 pref("services.sync.syncedTabs.syncDelayAfterTabChange", 5000);
 
-// Whether the character encoding menu is under the main Firefox button. This
+// Whether the character encoding menu is under the main Plezix button. This
 // preference is a string so that localizers can alter it.
 pref("browser.menu.showCharacterEncoding", "chrome://browser/locale/browser.properties");
 
@@ -1733,7 +1733,7 @@ pref("prompts.defaultModalType", 3);
 pref("browser.topsites.component.enabled", false);
 
 pref("browser.topsites.useRemoteSetting", true);
-// Fetch sponsored Top Sites from Mozilla Tiles Service (Contile)
+// Fetch sponsored Top Sites from Plezix Tiles Service (Contile)
 pref("browser.topsites.contile.enabled", true);
 pref("browser.topsites.contile.endpoint", "https://contile.services.mozilla.com/v1/tiles");
 
@@ -1753,7 +1753,7 @@ pref("browser.newtab.preload", false);
   pref("browser.preonboarding.enabled", false);
 #endif
 
-// Show "Download Firefox for mobile" QR code modal on newtab
+// Show "Download Plezix for mobile" QR code modal on newtab
 pref("browser.newtabpage.activity-stream.mobileDownloadModal.enabled", false);
 pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-a", false);
 pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-b", false);
@@ -1762,7 +1762,7 @@ pref("browser.newtabpage.activity-stream.mobileDownloadModal.variant-c", false);
 // Show refined card layout on newtab
 pref("browser.newtabpage.activity-stream.discoverystream.refinedCardsLayout.enabled", false);
 
-// Mozilla Ad Routing Service (MARS) unified ads service
+// Plezix Ad Routing Service (MARS) unified ads service
 pref("browser.newtabpage.activity-stream.unifiedAds.tiles.enabled", true);
 pref("browser.newtabpage.activity-stream.unifiedAds.spocs.enabled", true);
 pref("browser.newtabpage.activity-stream.unifiedAds.endpoint", "https://ads.mozilla.org/");
@@ -2209,7 +2209,7 @@ pref("identity.sendtabpromo.url", "https://support.mozilla.org/1/firefox/%VERSIO
 pref("identity.mobilepromo.android", "https://www.mozilla.org/firefox/android/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=");
 pref("identity.mobilepromo.ios", "https://www.mozilla.org/firefox/ios/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=");
 
-// Migrate any existing Firefox Account data from the default profile to the
+// Migrate any existing Plezix Account data from the default profile to the
 // Developer Edition profile.
 #ifdef MOZ_DEV_EDITION
   pref("identity.fxaccounts.migrateToDevEdition", true);
@@ -2231,7 +2231,7 @@ pref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", true);
 
 // Note: when media.gmp-*.visible is true, provided we're running on a
 // supported platform/OS version, the corresponding CDM appears in the
-// plugins list, Firefox will download the GMP/CDM if enabled, and our
+// plugins list, Plezix will download the GMP/CDM if enabled, and our
 // UI to re-enable EME prompts the user to re-enable EME if it's disabled
 // and script requests EME. If *.visible is false, we won't show the UI
 // to enable the CDM if its disabled; it's as if the keysystem is completely
@@ -2271,25 +2271,25 @@ pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", true);
 pref("media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled", false);
 
 // TODO (Bug 1817084) - This pref is used for managing translation preferences
-// in the Firefox Translations addon. It should be removed when the addon is
+// in the Plezix Translations addon. It should be removed when the addon is
 // removed.
 pref("browser.translation.neverForLanguages", "");
 
-// Enable Firefox translations powered by the Bergamot translations
+// Enable Plezix translations powered by the Bergamot translations
 // engine https://browser.mt/.
 pref("browser.translations.enable", true);
 
-// Enable the new Firefox Translations Settings UI Design
+// Enable the new Plezix Translations Settings UI Design
 pref("browser.translations.newSettingsUI.enable", false);
 
-// Enable Firefox Select translations powered by Bergamot translations
+// Enable Plezix Select translations powered by Bergamot translations
 // engine https://browser.mt/.
 pref("browser.translations.select.enable", true);
 
 // Telemetry settings.
 // Determines if Telemetry pings can be archived locally.
 pref("toolkit.telemetry.archive.enabled", true);
-// Enables sending the shutdown ping when Firefox shuts down.
+// Enables sending the shutdown ping when Plezix shuts down.
 pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 // Enables using the `pingsender` background task.
 pref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false);
@@ -2299,7 +2299,7 @@ pref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false);
 pref("toolkit.telemetry.firstShutdownPing.enabled", true);
 // Enables sending the 'new-profile' ping on new profiles.
 pref("toolkit.telemetry.newProfilePing.enabled", true);
-// Enables sending 'update' pings on Firefox updates.
+// Enables sending 'update' pings on Plezix updates.
 pref("toolkit.telemetry.updatePing.enabled", true);
 // Enables sending 'bhr' pings when the browser hangs.
 pref("toolkit.telemetry.bhrPing.enabled", true);
@@ -2666,7 +2666,7 @@ pref("extensions.pocket.refresh.hideRecentSaves.enabled", false);
 // "enabled"        - user opted in to the feature.
 // "disabled"       - user opted out of the feature.
 pref("signon.firefoxRelay.feature", "available");
-// Should Firefox show Relay to all browsers, or only those signed-in to FxA?
+// Should Plezix show Relay to all browsers, or only those signed-in to FxA?
 // Keep it hidden from about:config for now.
 // pref("signon.firefoxRelay.showToAllBrowsers", false);
 pref("signon.firefoxRelay.firstOfferVersionFallback", "control");
@@ -2752,9 +2752,9 @@ pref("app.normandy.onsync_skew_sec", 600);
 #endif
 
 // Multi-lingual preferences:
-//  *.enabled - Are langpacks available for the build of Firefox?
+//  *.enabled - Are langpacks available for the build of Plezix?
 //  *.downloadEnabled - Langpacks are allowed to be downloaded from AMO. AMO only serves
-//      langpacks for release and beta. Unsupported releases (like Nightly) can be
+//      langpacks for release and beta. Unsupported releases (like Plezix) can be
 //      manually tested with the following preference:
 //      extensions.getAddons.langpacks.url: https://mock-amo-language-tools.glitch.me/?app=firefox&type=language&appversion=%VERSION%
 //  *.liveReload - Switching a langpack will change the language without a restart.
@@ -2813,22 +2813,22 @@ pref("browser.toolbars.bookmarks.showOtherBookmarks", true);
 pref("browser.privatebrowsing.felt-privacy-v1", false);
 pref("security.certerrors.felt-privacy-v1", false);
 
-// Prefs to control the Firefox Account toolbar menu.
-// This pref will surface existing Firefox Account information
+// Prefs to control the Plezix Account toolbar menu.
+// This pref will surface existing Plezix Account information
 // as a button next to the hamburger menu. It allows
-// quick access to sign-in and manage your Firefox Account.
+// quick access to sign-in and manage your Plezix Account.
 pref("identity.fxaccounts.toolbar.enabled", true);
 pref("identity.fxaccounts.toolbar.accessed", false);
 pref("identity.fxaccounts.toolbar.defaultVisible", true);
 
-// Prefs to control Firefox Account panels that shows call to actions
-// for other supported Mozilla products
+// Prefs to control Plezix Account panels that shows call to actions
+// for other supported Plezix products
 pref("identity.fxaccounts.toolbar.pxiToolbarEnabled", true);
 pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.monitorEnabled", true);
 pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.relayEnabled", true);
 pref("identity.fxaccounts.toolbar.pxiToolbarEnabled.vpnEnabled", true);
 
-// Prefs to control Mozilla account panels that shows an updated flow
+// Prefs to control Plezix account panels that shows an updated flow
 // for users who don't have sync enabled
 pref("identity.fxaccounts.toolbar.syncSetup.panelAccessed", false);
 
@@ -2845,7 +2845,7 @@ pref("devtools.toolbox.splitconsoleHeight", 100);
 pref("devtools.toolbox.tabsOrder", "");
 // This is only used for local Web Extension debugging,
 // and allows to keep the window on top of all others,
-// so that you can debug the Firefox window, while keeping the devtools
+// so that you can debug the Plezix window, while keeping the devtools
 // always visible
 pref("devtools.toolbox.alwaysOnTop", true);
 
@@ -3091,7 +3091,7 @@ pref("devtools.netmonitor.persistlog", false);
 // any timestamps.
 pref("devtools.webconsole.timestampMessages", false);
 
-// Enable the webconsole sidebar toggle in Nightly builds.
+// Enable the webconsole sidebar toggle in Plezix builds.
 #if defined(NIGHTLY_BUILD)
   pref("devtools.webconsole.sidebarToggle", true);
 #else
@@ -3161,7 +3161,7 @@ pref("devtools.responsive.showUserAgentInput", true);
 // Show the Dynamic Toolbar dummy by default
 pref("devtools.responsive.dynamicToolbar.enabled", false);
 
-// Show tab debug targets for This Firefox (on by default for local builds).
+// Show tab debug targets for This Plezix (on by default for local builds).
 #ifdef MOZILLA_OFFICIAL
   pref("devtools.aboutdebugging.local-tab-debugging", false);
 #else
@@ -3245,14 +3245,14 @@ pref("first-startup.timeout", 30000);
   pref("browser.menu.share_url.allow", false);
 #endif
 
-// Mozilla-controlled domains that are allowed to use non-standard
+// Plezix-controlled domains that are allowed to use non-standard
 // context properties for SVG images for use in the browser UI. Please
 // keep this list short. This preference (and SVG `context-` keyword support)
 // are expected to go away once a standardized alternative becomes
 // available.
 pref("svg.context-properties.content.allowed-domains", "profile.accounts.firefox.com,profile.stage.mozaws.net");
 
-// Preference that allows individual users to disable Firefox Translations.
+// Preference that allows individual users to disable Plezix Translations.
 #ifdef NIGHTLY_BUILD
   pref("extensions.translations.disabled", true);
 #endif
@@ -3267,14 +3267,14 @@ pref("browser.firefoxbridge.extensionOrigins",
 // Turn on interaction measurements
 pref("browser.places.interactions.enabled", true);
 
-// If the user has seen the Firefox View feature tour this value reflects
+// If the user has seen the Plezix View feature tour this value reflects
 // the id of the last screen they saw and whether they completed the tour
 pref("browser.firefox-view.feature-tour", "{\"screen\":\"FIREFOX_VIEW_SPOTLIGHT\",\"complete\":false}");
 // Number of times the user visited about:firefoxview
 pref("browser.firefox-view.view-count", 0);
 // Maximum number of rows to show on the "History" page (0 = unlimited).
 pref("browser.firefox-view.max-history-rows", 0);
-// Enables virtual list functionality in Firefox View.
+// Enables virtual list functionality in Plezix View.
 pref("browser.firefox-view.virtual-list.enabled", true);
 
 // If the user has seen the pdf.js feature tour this value reflects the tour

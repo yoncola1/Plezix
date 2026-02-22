@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,13 +33,13 @@ preprocessors[PATHS.testFilesPattern] = [
 
 module.exports = function (config) {
   const isTDD = config.tdd;
-  const browsers = isTDD ? ["Firefox"] : ["FirefoxHeadless"]; // require("karma-firefox-launcher")
+  const browsers = isTDD ? ["Plezix"] : ["PlezixHeadless"]; // require("karma-firefox-launcher")
   config.set({
     singleRun: !isTDD,
     browsers,
     customLaunchers: {
-      FirefoxHeadless: {
-        base: "Firefox",
+      PlezixHeadless: {
+        base: "Plezix",
         flags: ["--headless"],
       },
     },

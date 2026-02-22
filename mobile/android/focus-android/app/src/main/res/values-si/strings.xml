@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">අඩවියේ දෝෂ වාර්තාව</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s හි අරින්න</string>
@@ -76,7 +76,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">%s මගින් බලගැන්වේ</string>
   <!--
@@ -118,7 +118,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">මකා දමා %1$s අරින්න</string>
   <!--
@@ -141,12 +141,12 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">ෆෝකස් බීටා හි සොයන්න</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
   <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">ෆෝකස් නයිට්ලි හි සොයන්න</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
   <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s ඔබව පාලනයේ තබයි.</p> <p>පෞද්. අතිරික්සුවක් ලෙස යොදාගන්න: <ul> <li>යෙදුමෙහි සොයන්න සහ පිරික්සන්න</li> <li>ලුහුබැඳීම් අවහිර කරන්න (හෝ සැකසුම් තුළින් ඉඩ දෙන්න)</li> <li>දත්තකඩ මෙන්ම සෙවුම් හා පිරික්සුම් ඉතිහාසය ඉවත් කිරීමට මකන්න</li> </ul> </p> <p>මොසිල්ලා හරහා %1$s නිෂ්පාදනය කෙරේ. හිතකර, විවෘත අන්තර්ජාලයකට පිහිටාධාර සැපයීම අපගේ මෙහෙවරයි.<br/> <a href=\"%2$s\">තව දැනගන්න</a></p>]]></string>
@@ -160,11 +160,11 @@
   -->
   <string name="preference_search_summary">පෙරනිමි සකසන්න, ස්වයං පිරවීම</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s ගැන, උදව්</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -184,7 +184,7 @@
   <string name="preference_show_search_suggestions">සෙවුම් යෝජනා ගන්න</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">ඔබ ලිපින තීරුවේ ලියන දෑ ඔබගේ සෙවුම් යන්ත්‍රයට %1$s හරහා යවයි</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -201,14 +201,14 @@
   <string name="preference_switch_autocomplete_topsites">ප්‍රචලිත අඩවි සඳහා</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">ලිපින තීරුවේ %s ජනප්‍රිය ඒ.ස.නි. 450 කට වඩා ස්වයං පිරවීමට සබල කරන්න.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">එක් කරන අඩවි සඳහා</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">%s ඔබගේ ප්‍රියතම ඒ.ස.නි. ස්වයං පිරවීම සබල කරන්න.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -283,7 +283,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">ඔබ කෙටිමං එක් කර ඇත්නම් හෝ අඩවියක් දැනටමත් %s තුළ විවෘතව තිබෙන විට ඇඟිලි සටහන භාවිතයෙන් අගුළු හරින්න.</string>
@@ -311,14 +311,14 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s පෙරනිමි අතිරික්සුව කරන්න</string>
   <string name="preference_category_mozilla">මොසිල්ලා</string>
   <string name="preference_mozilla_telemetry2">භාවිත දත්ත යවන්න</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">තව දැනගන්න</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="preference_mozilla_telemetry_summary2">සැමට %1$s වැඩිදියුණු කර දීමට හා සැපයීමට අවශ්‍ය දෑ පමණක් රැස් කර ගැනීමට මොසිල්ලා උත්සාහ කරයි.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preference_daily_usage_ping_title">දෛනික භාවිත හැඬවීම</string>
@@ -332,9 +332,9 @@
   <string name="preference_libraries_we_use">අපි භාවිතා කරන එකතු</string>
   <!-- Link to Focus Crash reports list. -->
   <string name="preference_crashes">බිඳවැටීම්</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | OSS එකතු</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s ගැන</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">ස්ථාපිත සෙවුම් යන්ත්‍ර</string>
@@ -430,13 +430,13 @@
   <string name="external_app_prompt_title">අන් යෙදුමක සබැඳිය අරින්න</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">මෙම සබැඳිය %2$s හි විවෘත කිරීමට %1$s හැර යාමට හැකිය.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">සබැඳිය විවෘත කළ හැකි යෙදුමක් සොයන්න</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">ඔබගේ උපාංගයේ තිබෙන යෙදුම් කිසිවකට මෙම සබැඳිය විවෘත කළ නොහැකිය. %2$s හි යෙදුමක් සොයා ගැනීම සඳහා %1$s හැර යාමට හැකිය.</string>
@@ -452,7 +452,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">%1$s වෙත පිළිගනිමු</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -509,11 +509,11 @@
   <string name="firstrun_search_text">වෙනස් දෙයක් සොයනවාද? සැකසුම් තුළ වෙනත් පෙරනිමි සෙවුම් යන්ත්‍රයක් තෝරන්න.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">ඔබගේ මුල් තිරයට කෙටිමං එක් කරන්න</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">ඉක්මනින් %1$s තුළ ඔබගේ ප්‍රියතම අඩවි වෙත ආපසු යන්න. %1$s වට්ටෝරුවෙන් \"මුල් තිරයට යොදන්න\" තෝරන්න.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">පෞද්ගලිකත්‍වය පුරුද්දක් කරගන්න</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">ඔබගේ පෙරනිමි අතිරික්සුව ලෙස %1$s සකසා ඔබ වෙනත් යෙදුම්වලින් වියමන පිටු විවෘත කරන විට පෞද්ගලික පිරික්සුමෙහි ප්‍රතිලාභ අත්විඳින්න.</string>
   <string name="firstrun_close_button">හරි, තේරුණා!</string>
   <string name="firstrun_skip_button">මඟහරින්න</string>
@@ -543,7 +543,7 @@
   <string name="notification_browsing_session_channel_name">පෞද්. පිරික්සුම් වාරය</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -554,7 +554,7 @@
   <!-- Label for the option in the Focus "tabs tray" to clos the other tabs except the current tab. -->
   <string name="tabs_tray_action_erase_other">අන් පටිති වසන්න</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
   <string name="download_firefox" tools:ignore="BrandUsage">ෆයර්ෆොක්ස් බාගන්න</string>
@@ -638,9 +638,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">%1$s සඳහා දත්තකඩ පතාක අවකරණය සක්‍රිය කරන්නද?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">%1$s සඳහා දත්තකඩ පතාක අවකරණය අක්‍රිය කරන්නද?</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">%1$s මෙම අඩවියේ දත්තකඩ ඉවත් කර පිටුව නැවුම් කරයි. සියළුම දත්තකඩ මැකීමෙන් බඩු කරත්ත හිස් වීමට හෝ ඔබව නික්මවීමට ඉඩ ඇත.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">%1$s මඟින් දත්තකඩ ඉල්ලීම් ස්වයංක්‍රීයව ඉවතලීමට හැකිය.</string>
   <!-- Long text for a detail explanation indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_description_site_is_not_supported">මෙම අඩවිය දැනට දත්තකඩ පතාක අවකරණයට සහාය නොදක්වයි. මෙම වියමන අඩවිය සමාලෝචනය කර අනාගතයේදී සහාය දක්වන ලෙස අපගේ කණ්ඩායමට දැන්වීමට කැමතිද?</string>
@@ -739,7 +739,7 @@
   <string name="enable_search_suggestion_title2">සෙවුම් යෝජනා පෙන්වන්නද?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">යෝජනා ලබා ගැනීමට, ඔබ ලිපින තීරුවේ ලියන දෑ සෙවුම් යන්ත්‍රය වෙත යැවීම %1$s මගින් සිදු කළ යුතුය.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -764,7 +764,7 @@
   <string name="tip_add_to_homescreen">ඔබ නිතර භාවිතා කරන අඩවි වෙත එක් තට්ටුවකින් ප්‍රවේශ වන්න%1$s වට්ටෝරුව &gt; මුල් තිරයට දමන්න</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">සෑම සබැඳියක්ම %1$s\nහි විවෘත කරන්න %1$s පෙරනිමි අතිරික්සුව ලෙස සකසන්න</string>
@@ -814,7 +814,7 @@
   <string name="tab_crash_report_description">පෞද්. අතිරික්සුවක් බැවින් සුරැකීමට හෝ මෙම පටිත්ත ප්‍රත්‍යර්පණය කළ නොහැකිය.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">පටිත්ත වසන්න</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
   <string name="crash_report_send_crash_label">මොසිල්ලා වෙත බිඳ වැටීම් වාර්තාව යවන්න</string>
   <!-- Tracking protection bottom sheet -->
 
@@ -876,7 +876,7 @@
   <!-- The title of the error page for websites that do not support HTTPS when HTTPS-Only is turned on -->
   <string name="errorpage_httpsonly_title2">අඩවිය HTTPS සඳහා සහය නොදක්වයි</string>
   <!--
-    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"),
+    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"),
     %2$s is a URL to a support article. Contains a button that will redirect the user to Privacy & Security Screen.
   -->
   <string name="errorpage_httpsonly_message2" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[වැඩි ආරක්‍ෂාවක් සඳහා %1$s හැකි සෑම විටම HTTPS සම්බන්ධතාවක් භාවිතයට උත්සාහ කරයි. <a href=\"%2$s\">තව දැනගන්න</a> <br/><br/> සැකසුම් > පෞද්ගලිකත්‍වය හා ආරක්‍ෂාව > ආරක්‍ෂාව හරහා සැකසුම වෙනස් කරන්න.]]></string>

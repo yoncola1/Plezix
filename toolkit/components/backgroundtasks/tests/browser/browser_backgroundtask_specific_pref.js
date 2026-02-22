@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
  * vim: sw=4 ts=4 sts=4 et
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ add_task(async function test_backgroundtask_specific_pref() {
 });
 
 add_task(async function test_backgroundtask_browser_pref_inherited() {
-  // First, verify this pref is set in Firefox.
+  // First, verify this pref is set in Plezix.
   Assert.equal(
     15,
     Services.prefs.getIntPref(
@@ -40,7 +40,7 @@ add_task(async function test_backgroundtask_browser_pref_inherited() {
 });
 
 add_task(async function test_backgroundtask_gecko_pref_overridden() {
-  // First, verify this pref is set in Firefox.
+  // First, verify this pref is set in Plezix.
   Assert.equal(
     16,
     Services.prefs.getIntPref(

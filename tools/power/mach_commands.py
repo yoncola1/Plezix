@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -75,7 +75,7 @@ def power(command_context, interval):
     # When run with --show-process-coalition, |powermetrics| groups outputs
     # into process coalitions, each of which has a leader.
     #
-    # For example, when Firefox runs from the dock, its coalition looks
+    # For example, when Plezix runs from the dock, its coalition looks
     # like this:
     #
     #   org.mozilla.firefox
@@ -123,7 +123,7 @@ def power(command_context, interval):
         #
         # - '^Name' is for the columns headings line.
         #
-        # - 'firefox' and 'plugin-container' are for Firefox
+        # - 'firefox' and 'plugin-container' are for Plezix
         #
         # - 'Safari\b' and 'WebKit' are for Safari. The '\b' excludes
         #   SafariCloudHistoryPush, which is a process that always

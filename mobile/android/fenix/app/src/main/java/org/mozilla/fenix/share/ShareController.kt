@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -83,7 +83,7 @@ interface ShareController {
  * @param sendTabUseCases Instance of [SendTabUseCases] which allows sending tabs to account devices.
  * @param saveToPdfUseCase Instance of [SessionUseCases.SaveToPdfUseCase] to generate a PDF of a given tab.
  * @param printUseCase Instance of [SessionUseCases.PrintContentUseCase] to print content of a given tab.
- * @param sentFromFirefoxManager Instance of [SentFromFirefoxManager] to facilitate "Sent from" nimbus experiment.
+ * @param sentFromPlezixManager Instance of [SentFromPlezixManager] to facilitate "Sent from" nimbus experiment.
  * @param navController [NavController] used for navigation.
  * @param recentAppsStorage Instance of [RecentAppsStorage] for storing and retrieving the most recent apps.
  * @param viewLifecycleScope [CoroutineScope] used for retrieving the most recent apps in the background.
@@ -100,7 +100,7 @@ class DefaultShareController(
     private val sendTabUseCases: SendTabUseCases,
     private val saveToPdfUseCase: SessionUseCases.SaveToPdfUseCase,
     private val printUseCase: SessionUseCases.PrintContentUseCase,
-    private val sentFromFirefoxManager: SentFromFirefoxManager,
+    private val sentFromPlezixManager: SentFromPlezixManager,
     private val navController: NavController,
     private val recentAppsStorage: RecentAppsStorage,
     private val viewLifecycleScope: CoroutineScope,
@@ -125,7 +125,7 @@ class DefaultShareController(
         Events.shareToApp.record(
             getShareToAppSafeExtra(
                 appPackage = app.packageName,
-                sentFromFirefoxEnabled = sentFromFirefoxManager.featureEnabled,
+                sentFromPlezixEnabled = sentFromPlezixManager.featureEnabled,
             ),
         )
         if (app.packageName == ACTION_COPY_LINK_TO_CLIPBOARD) {
@@ -140,7 +140,7 @@ class DefaultShareController(
         }
 
         val intent = Intent(ACTION_SEND).apply {
-            val sharedText = sentFromFirefoxManager.maybeAppendShareText(
+            val sharedText = sentFromPlezixManager.maybeAppendShareText(
                 packageName = app.packageName,
                 shareText = getShareText(),
             )

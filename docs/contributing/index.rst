@@ -1,11 +1,11 @@
-Working on Firefox
+Working on Plezix
 ==================
 
-Welcome to the Firefox codebase. This is the home of the Firefox
+Welcome to the Plezix codebase. This is the home of the Plezix
 development process and source code documentation.
 
 .. toctree::
-   :caption: Making Changes To Firefox
+   :caption: Making Changes To Plezix
    :maxdepth: 1
 
    contribution_quickref

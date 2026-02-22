@@ -21,7 +21,7 @@ add_task(async function testPreferenceUpdatedAfterInstallingExtension() {
     Services.prefs.clearUserPref(LAST_DIR_PREF);
   });
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtension(EXTENSION_PATH, EXTENSION_NAME, document);
 
@@ -42,7 +42,7 @@ add_task(async function testPreferenceRetrievedWhenInstallingExtension() {
   await pushPref(LAST_DIR_PREF, selectedDir);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   const MockFilePicker = SpecialPowers.MockFilePicker;
   MockFilePicker.init(window.browsingContext);

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ add_task(async function () {
 
   // Open the Browser Console
   const hud = await BrowserConsoleManager.toggleBrowserConsole();
-  // Set a filter to have predictable results, otherwise we may get messages from Firefox
+  // Set a filter to have predictable results, otherwise we may get messages from Plezix
   // polluting the test.
   await setFilterState(hud, { text: FILTER_PREFIX });
 

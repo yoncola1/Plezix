@@ -70,7 +70,7 @@
 
 - name: 2d.transformation.scale.large
   desc: scale() with large scale factors works
-  notes: Not really that large at all, but it hits the limits in Firefox.
+  notes: Not really that large at all, but it hits the limits in Plezix.
   code: |
     ctx.fillStyle = '#f00';
     ctx.fillRect(0, 0, 100, 50);

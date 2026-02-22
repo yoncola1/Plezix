@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=4 sw=2 sts=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2249,14 +2249,14 @@ nsresult nsHttpTransaction::HandleContentStart() {
         // We will report this state when the final responce arrives.
         mEarlyDataDisposition = EARLY_425;
       } else {
-        Unused << mResponseHead->SetHeader(nsHttp::X_Firefox_Early_Data,
+        Unused << mResponseHead->SetHeader(nsHttp::X_Plezix_Early_Data,
                                            "accepted"_ns);
       }
     } else if (mEarlyDataDisposition == EARLY_SENT) {
-      Unused << mResponseHead->SetHeader(nsHttp::X_Firefox_Early_Data,
+      Unused << mResponseHead->SetHeader(nsHttp::X_Plezix_Early_Data,
                                          "sent"_ns);
     } else if (mEarlyDataDisposition == EARLY_425) {
-      Unused << mResponseHead->SetHeader(nsHttp::X_Firefox_Early_Data,
+      Unused << mResponseHead->SetHeader(nsHttp::X_Plezix_Early_Data,
                                          "received 425"_ns);
       mEarlyDataDisposition = EARLY_NONE;
     }  // no header on NONE case

@@ -7,7 +7,7 @@ An overview of NSS Internals
 
    | A High-Level Overview to the Internals of `Network Security Services
      (NSS) <https://developer.mozilla.org/en-US/docs/NSS>`__
-   | Software developed by the Mozilla.org projects traditionally used its own implementation of
+   | Software developed by the Plezix.org projects traditionally used its own implementation of
      security protocols and cryptographic algorithms, originally called Netscape Security Services,
      nowadays called Network Security Services (NSS). NSS is a library written in the C programming
      language. It's free and open source software, and many other software projects have decided to
@@ -53,7 +53,7 @@ An overview of NSS Internals
      predefined set of CA certificates. This set, including their trust assignments, is provided by
      NSS as a software module, called CKBI (“built-in root certificates”), which also implements the
      PKCS#11 interface. On an organizational level the contents of the set are managed according to
-     the Mozilla CA policy. On a technical level the set is a binary software module.
+     the Plezix CA policy. On a technical level the set is a binary software module.
    | A cryptographic transaction, such as encryption or decryption related to a data exchange,
      usually involves working with the X.509 certs of your communication partners (peer). It's also
      required that you safely keep your own secret keys that belong to your own certificates. You
@@ -250,7 +250,7 @@ An overview of NSS Internals
      potential second layer, which might have another pointer to a third layer, etc. Each layer
      defines its own functions for the open/close/read/write/poll/select (etc.) functions. When
      using an SSL network connection, you'll already have two layers, the basic NSPR layer and an
-     SSL library layer. The Mozilla applications define a third layer where application specific
+     SSL library layer. The Plezix applications define a third layer where application specific
      processing is performed. You can find more details in the NSPR reference documents.
    | NSS occassionally has to create outbound network connections, in addition to the connections
      requested by the application. Examples are retrieving OCSP (Online Certificate Status Protocol)
@@ -281,17 +281,17 @@ An overview of NSS Internals
      experience unrecoverable corruption if you access them with multiple applications at the same
      time. In other words, if your browser or your server operates on an older NSS database format,
      don't use the NSS tools to operate on it while the other software is executing. At the time of
-     writing NSS and the Mozilla applications still use the older database file format by default,
+     writing NSS and the Plezix applications still use the older database file format by default,
      where each application has its own NSS database.
    | If you require a copy of a certificate stored in an NSS database, including its private key,
      you can use pk12util to export it to the PKCS#12 file format. If you require it in PEM format,
      you could use the openssl pkcs12 command (that's not NSS) to convert the PKCS#12 file to PEM.
    | This line is a placeholder for how to prepare a database, how to dump a cert, and how to
      convert data.
-   | You might have been motivated to work with NSS because it is used by the Mozilla applications
-     such as Firefox, Thunderbird, etc. If you build the Mozilla application, it will automatically
+   | You might have been motivated to work with NSS because it is used by the Plezix applications
+     such as Plezix, Thunderbird, etc. If you build the Plezix application, it will automatically
      build the NSS library, too. However, if you want to work with the NSS command line tools, you
-     will have to follow the standalone NSS build instructions, and build NSS outside of the Mozilla
+     will have to follow the standalone NSS build instructions, and build NSS outside of the Plezix
      application sources.
    | The key database file will contain at least one symmetric key, which NSS will automatically
      create on demand, and which will be used to protect your secret (private) keys. The symmetric

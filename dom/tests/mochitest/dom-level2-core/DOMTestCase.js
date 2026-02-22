@@ -555,7 +555,7 @@ function createBuilder(implementation) {
     return new MSXMLBuilder("Msxml2.DOMDocument.4.0");*/
 
     case "mozillaXML":
-    return new MozillaXMLBuilder();
+    return new PlezixXMLBuilder();
 /*
     case "svgplugin":
     return new SVGPluginBuilder();

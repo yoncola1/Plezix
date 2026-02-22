@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,9 +37,9 @@ enum class ReferrerPolicy : uint8_t;
 }  // namespace mozilla
 
 /**
- * txMozillaXSLTProcessor is a front-end to the XSLT Processor.
+ * txPlezixXSLTProcessor is a front-end to the XSLT Processor.
  */
-class txMozillaXSLTProcessor final : public nsIDocumentTransformer,
+class txPlezixXSLTProcessor final : public nsIDocumentTransformer,
                                      public nsStubMutationObserver,
                                      public nsWrapperCache {
  public:
@@ -51,13 +51,13 @@ class txMozillaXSLTProcessor final : public nsIDocumentTransformer,
           OwningXSLTParameterValue;
 
   /**
-   * Creates a new txMozillaXSLTProcessor
+   * Creates a new txPlezixXSLTProcessor
    */
-  txMozillaXSLTProcessor();
+  txPlezixXSLTProcessor();
 
   // nsISupports interface
   NS_DECL_CYCLE_COLLECTING_ISUPPORTS
-  NS_DECL_CYCLE_COLLECTION_WRAPPERCACHE_CLASS_AMBIGUOUS(txMozillaXSLTProcessor,
+  NS_DECL_CYCLE_COLLECTION_WRAPPERCACHE_CLASS_AMBIGUOUS(txPlezixXSLTProcessor,
                                                         nsIDocumentTransformer)
 
   // nsIDocumentTransformer interface
@@ -89,7 +89,7 @@ class txMozillaXSLTProcessor final : public nsIDocumentTransformer,
 
   mozilla::dom::DocGroup* GetDocGroup() const;
 
-  static already_AddRefed<txMozillaXSLTProcessor> Constructor(
+  static already_AddRefed<txPlezixXSLTProcessor> Constructor(
       const mozilla::dom::GlobalObject& aGlobal);
 
   void ImportStylesheet(nsINode& aStylesheet, mozilla::ErrorResult& aRv);
@@ -133,11 +133,11 @@ class txMozillaXSLTProcessor final : public nsIDocumentTransformer,
  private:
   friend class nsTransformBlockerEvent;
 
-  explicit txMozillaXSLTProcessor(nsISupports* aOwner);
+  explicit txPlezixXSLTProcessor(nsISupports* aOwner);
   /**
-   * Default destructor for txMozillaXSLTProcessor
+   * Default destructor for txPlezixXSLTProcessor
    */
-  ~txMozillaXSLTProcessor();
+  ~txPlezixXSLTProcessor();
 
   nsresult DoTransform();
   void notifyError();
@@ -168,12 +168,12 @@ class txMozillaXSLTProcessor final : public nsIDocumentTransformer,
   State mState = State::None;
 };
 
-extern nsresult TX_LoadSheet(nsIURI* aUri, txMozillaXSLTProcessor* aProcessor,
+extern nsresult TX_LoadSheet(nsIURI* aUri, txPlezixXSLTProcessor* aProcessor,
                              mozilla::dom::Document* aLoaderDocument,
                              mozilla::dom::ReferrerPolicy aReferrerPolicy);
 
 extern nsresult TX_CompileStylesheet(nsINode* aNode,
-                                     txMozillaXSLTProcessor* aProcessor,
+                                     txPlezixXSLTProcessor* aProcessor,
                                      txStylesheet** aStylesheet);
 
 #endif

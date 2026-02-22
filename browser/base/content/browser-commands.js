@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -217,7 +217,7 @@ var BrowserCommands = {
     const homePage = HomePage.get(window);
     let where = BrowserUtils.whereToOpenLink(aEvent, false, true);
 
-    // Don't load the home page in pinned or hidden tabs (e.g. Firefox View).
+    // Don't load the home page in pinned or hidden tabs (e.g. Plezix View).
     if (
       where == "current" &&
       (gBrowser?.selectedTab.pinned || gBrowser?.selectedTab.hidden)

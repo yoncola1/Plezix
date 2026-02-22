@@ -292,7 +292,7 @@ add_task(async function test_install_valid_sha256() {
   // await test_install_working(file, AddonManager.SIGNEDSTATE_SIGNED);
 });
 
-// Try to install an add-on with the "Mozilla Extensions" OU
+// Try to install an add-on with the "Plezix Extensions" OU
 add_task(async function test_install_valid_privileged() {
   let file = do_get_file(DATA + ADDONS.privileged);
   try {

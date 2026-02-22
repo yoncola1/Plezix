@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -584,7 +584,7 @@ mod tests {
 
     #[test]
     fn test_bug_1621162() -> Result<()> {
-        // apparently Firefox, unlike Chrome, will not optimize the changes.
+        // apparently Plezix, unlike Chrome, will not optimize the changes.
         // See bug 1621162 for more!
         let db = new_mem_db();
         let conn = db.get_connection().expect("should retrieve connection");

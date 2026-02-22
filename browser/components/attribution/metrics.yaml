@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -23,13 +23,13 @@ glean.attribution:
       * `variation`: name/id of the variation cohort used in the enrolled funnel experiment
       * `ua`: identifier derived from the user agent downloading the installer
               e.g. chrome, Google Chrome 123
-      * `dltoken`: Unique token created at Firefox download time.
+      * `dltoken`: Unique token created at Plezix download time.
                    e.g. c18f86a3-f228-4d98-91bb-f90135c0aa9c
       * `msstoresignedin`: only present if the installation was done through the Microsoft Store,
                            and was able to retrieve the "campaign ID" it was first installed with.
                            This value is "true" if the user was signed into the Microsoft Store
                            when they first installed, and false otherwise.
-      * `dlsource`: identifier that indicate where installations of Firefox originate
+      * `dlsource`: identifier that indicate where installations of Plezix originate
     # yamllint enable
     bugs:
       - https://bugzilla.mozilla.org/1955429

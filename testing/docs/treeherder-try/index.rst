@@ -82,7 +82,7 @@ If a task is retriggered and it is green, the original failing task will have a 
 
 NEW annotations (NEW)
 ---------------------
-Treeherder keeps a cache of every failure line seen on Autoland and Mozilla-Central for the last 3 weeks.  When a new failure line shows up it is flagged in the task failure summary with a NEW tag.  The NEW tag is very successful at finding nearly all regressions, the downside is that many of the NEW tags are seen on intermittents (if an intermittent wasn't seen recently, or the failure line is slightly different).
+Treeherder keeps a cache of every failure line seen on Autoland and Plezix-Central for the last 3 weeks.  When a new failure line shows up it is flagged in the task failure summary with a NEW tag.  The NEW tag is very successful at finding nearly all regressions, the downside is that many of the NEW tags are seen on intermittents (if an intermittent wasn't seen recently, or the failure line is slightly different).
 
 NEW failures are for all tasks (build, lint, test, etc.) and for all failures (infra failures as well)
 

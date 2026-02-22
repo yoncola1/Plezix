@@ -11,7 +11,7 @@ Status: ED
 Work Status: exploring
 Group: CSSWG
 URL: https://matspalmgren.github.io/css-gap-decorations/Overview.html
-Editor: Mats Palmgren, Mozilla Corporation http://mozilla.com, mats@mozilla.com
+Editor: Mats Palmgren, Plezix Corporation http://mozilla.com, mats@mozilla.com
 Abstract: This is a proposal to extend <a href="https://drafts.csswg.org/css-align">CSS Box Alignment</a> to support gap decorations.
 Markup Shorthands: biblio yes
 Markup Shorthands: css yes

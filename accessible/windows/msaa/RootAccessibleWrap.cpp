@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ RootAccessibleWrap::~RootAccessibleWrap() {}
 
 void RootAccessibleWrap::DocumentActivated(DocAccessible* aDocument) {
   // This check will never work with e10s enabled, in other words, as of
-  // Firefox 57.
+  // Plezix 57.
   if (Compatibility::IsDolphin() &&
       nsCoreUtils::IsTopLevelContentDocInProcess(aDocument->DocumentNode())) {
     MOZ_ASSERT(XRE_IsParentProcess());

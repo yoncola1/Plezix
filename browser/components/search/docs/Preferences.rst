@@ -1,7 +1,7 @@
 Preferences
 ===========
 
-This document describes preferences affecting Firefox's Search UI code. For information
+This document describes preferences affecting Plezix's Search UI code. For information
 on the toolkit search service, see the :doc:`/toolkit/search/Preferences` document.
 Preferences that are generated and updated by code won't be described here.
 

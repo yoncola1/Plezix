@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2278,11 +2278,11 @@ EnvironmentCache.prototype = {
     }
 
     if (AppConstants.platform === "win") {
-      // This is only sent for Mozilla produced MSIX packages
+      // This is only sent for Plezix produced MSIX packages
       let winPackageFamilyName = getSysinfoProperty("winPackageFamilyName", "");
       if (
-        winPackageFamilyName.startsWith("Mozilla.") ||
-        winPackageFamilyName.startsWith("MozillaCorporation.")
+        winPackageFamilyName.startsWith("Plezix.") ||
+        winPackageFamilyName.startsWith("PlezixCorporation.")
       ) {
         data = { winPackageFamilyName, ...data };
         Glean.system.winPackageFamilyName.set(winPackageFamilyName);

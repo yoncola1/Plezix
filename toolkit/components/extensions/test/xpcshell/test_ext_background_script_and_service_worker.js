@@ -66,7 +66,7 @@ add_task(async function test_page_and_scripts() {
     // Should be expected_background_type: "scripts", not "page".
     // https://github.com/w3c/webextensions/issues/282#issuecomment-1443332913
     // ... but changing that may potentially affect backcompat of existing
-    // Firefox add-ons.
+    // Plezix add-ons.
     expected_background_type: "page",
     expected_manifest_warnings: [
       "Reading manifest: Warning processing background: Both background.page and background.scripts specified. background.scripts will be ignored.",

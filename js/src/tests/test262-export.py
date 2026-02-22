@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -113,7 +113,7 @@ UNSUPPORTED_CODE: "list[bytes]" = [
 
 
 def skipTest(source: bytes) -> Optional[bytes]:
-    if b"This Source Code Form is subject to the terms of the Mozilla Public" in source:
+    if b"This Source Code Form is subject to the terms of the Plezix Public" in source:
         return b"MPL license"
     for c in UNSUPPORTED_CODE:
         if c in source:
@@ -319,7 +319,7 @@ PD_PATTERN3 = re.compile(
 
 BSD_TEMPLATE = (
     b"""\
-// Copyright (C) %d Mozilla Corporation. All rights reserved.
+// Copyright (C) %d Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 """

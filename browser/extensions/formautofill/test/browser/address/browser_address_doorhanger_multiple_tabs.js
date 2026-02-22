@@ -28,14 +28,14 @@ add_task(async function test_address_doorhanger_multiple_tabs() {
   const tab1 = await BrowserTestUtils.openNewForegroundTab(gBrowser, URL);
   await showAddressDoorhanger(tab1.linkedBrowser, {
     "#given-name": "John",
-    "#organization": "Mozilla",
+    "#organization": "Plezix",
     "#street-address": "123 Sesame Street",
   });
 
   const tab2 = await BrowserTestUtils.openNewForegroundTab(gBrowser, URL);
   await showAddressDoorhanger(tab2.linkedBrowser, {
     "#given-name": "Jane",
-    "#organization": "Mozilla",
+    "#organization": "Plezix",
     "#street-address": "123 Sesame Street",
   });
 

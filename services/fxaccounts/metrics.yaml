@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,13 +8,13 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Firefox Accounts'
+  - 'Plezix :: Plezix Accounts'
 
 client_association:
   uid:
     type: string
     description: |
-      The Mozilla Account UID associated with the user.
+      The Plezix Account UID associated with the user.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1889123
     data_reviews:
@@ -48,7 +48,7 @@ fxa:
   connect_account:
     type: event
     description: >
-      Records when a Firefox Account, or a Firefox Account service, is
+      Records when a Plezix Account, or a Plezix Account service, is
       explicitly connected from the browser via an intentional user action.
       This event was generated to correspond to the Legacy Telemetry event
       fxa.connect#account.
@@ -78,7 +78,7 @@ fxa:
   disconnect_account:
     type: event
     description: >
-      Records when a Firefox Account, or a Firefox Account service, is
+      Records when a Plezix Account, or a Plezix Account service, is
       explicitly disconnected from the browser via an intentional user action.
       This event was generated to correspond to the Legacy Telemetry event
       fxa.disconnect#account.

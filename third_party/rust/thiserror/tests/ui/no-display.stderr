@@ -43,4 +43,4 @@ note: required by a bound in `core::fmt::rt::Argument::<'_>::new_octal`
    |
    |     pub fn new_octal<T: Octal>(x: &T) -> Argument<'_> {
    |                         ^^^^^ required by this bound in `Argument::<'_>::new_octal`
-   = note: this error originates in the macro `$crate::format_args` which comes from the expansion of the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::format_args` which comes from the expansion of the derive macro `Error` (in Plezix builds, run with -Z macro-backtrace for more info)

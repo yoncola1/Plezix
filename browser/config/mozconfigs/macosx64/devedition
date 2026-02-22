@@ -11,7 +11,7 @@ if test `uname -s` != Linux; then
 fi
 
 if test "${MOZ_UPDATE_CHANNEL}" = "nightly"; then
-ac_add_options --with-macbundlename-prefix=Firefox
+ac_add_options --with-macbundlename-prefix=Plezix
 fi
 
 ac_add_options --with-branding=browser/branding/aurora

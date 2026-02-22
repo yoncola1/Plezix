@@ -48,7 +48,7 @@ mozbuild
 ========
 
 mozbuild is a Python package containing a lot of the code for the
-Mozilla build system.
+Plezix build system.
 
 .. toctree::
    :maxdepth: 1

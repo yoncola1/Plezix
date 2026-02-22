@@ -1,6 +1,6 @@
 # Telemetry
 
-Fenix uses Mozilla's telemetry service (Glean) to measure feature performance and engagement.
+Fenix uses Plezix's telemetry service (Glean) to measure feature performance and engagement.
 
 ## Glean pings and metrics
 
@@ -10,4 +10,4 @@ Additional metrics or pings defined by Fenix are documented in the [Glean Dictio
 
 ## Crash reporting
 
-See [here](https://github.com/mozilla-mobile/fenix/blob/main/docs/crash-reporting.md) for details on crash reporting in Firefox for Android.
+See [here](https://github.com/mozilla-mobile/fenix/blob/main/docs/crash-reporting.md) for details on crash reporting in Plezix for Android.

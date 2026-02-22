@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -216,7 +216,7 @@
 
 !macroend
 
-; Modified version of the following MUI macros to support Mozilla localization.
+; Modified version of the following MUI macros to support Plezix localization.
 ; MUI_LANGUAGE
 ; MUI_LANGUAGEFILE_BEGIN
 ; MOZ_MUI_LANGUAGEFILE_END
@@ -538,7 +538,7 @@
 
       ; Add our subdirectory, this is hardcoded as grandparent of the update directory in
       ; several other places.
-      StrCpy $0 "$0\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38"
+      StrCpy $0 "$0\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38"
 
       Exch $0   ; Restore original $0 and put our $0 on the stack.
     FunctionEnd
@@ -1205,7 +1205,7 @@
  *
  * @param   _KEY ($R1)
  *          Sub key containing all the installer prefs
- *          Usually "Software\Mozilla\${AppName}"
+ *          Usually "Software\Plezix\${AppName}"
  * @param   _PREF ($R2)
  *          Name of the pref to look up
  * @return  _RESULT ($R3)
@@ -1670,7 +1670,7 @@
  * registry hive so you must call SetShellVarContext first.
  *
  * @param   _KEY
- *          The registry subkey (typically this will be Software\Mozilla).
+ *          The registry subkey (typically this will be Software\Plezix).
  * @return  _RESULT
  *          false if a second install isn't found, path to the main exe if a
  *          second install is found.
@@ -1788,7 +1788,7 @@
  * first.
  *
  * @param   _KEY
- *          The registry subkey (typically this will be Software\Mozilla\App Name).
+ *          The registry subkey (typically this will be Software\Plezix\App Name).
  * @return  _RESULT
  *          false if a single install location for this app name isn't found,
  *          path to the install directory if a single install location is found.
@@ -1904,7 +1904,7 @@
  * The shell context and the registry view should already have been set.
  *
  * @param   _KEY
- *          The registry subkey (typically Software\Mozilla\App Name).
+ *          The registry subkey (typically Software\Plezix\App Name).
  * @return  _RESULT
  *          path to the install directory of the first location found, or
  *          the string "false" if no existing installation was found.
@@ -2285,10 +2285,10 @@
 * In:  "C:\PROGRA~1\MOZILL~1\FIREFOX.EXE" -flag "%1"
 * Out: C:\PROGRA~1\MOZILL~1\FIREFOX.EXE
 *
-* In:  "C:\Program Files\Mozilla Firefox\firefox.exe" -flag "%1"
-* In:  C:\Program Files\Mozilla Firefox\firefox.exe,0
-* In:  "C:\Program Files\Mozilla Firefox\firefox.exe"
-* Out: C:\Program Files\Mozilla Firefox\firefox.exe
+* In:  "C:\Program Files\Plezix Plezix\firefox.exe" -flag "%1"
+* In:  C:\Program Files\Plezix Plezix\firefox.exe,0
+* In:  "C:\Program Files\Plezix Plezix\firefox.exe"
+* Out: C:\Program Files\Plezix Plezix\firefox.exe
 *
 * @param   _IN_PATH
 *          The string containing the path.
@@ -2606,7 +2606,7 @@
  * call SetShellVarContext first.
  *
  * @param   _KEY
- *          The registry subkey (typically this will be Software\Mozilla).
+ *          The registry subkey (typically this will be Software\Plezix).
  *
  * $0  = loop counter
  * $1  = temporary value used for string searches
@@ -2853,7 +2853,7 @@
  *
  * @param   _KEY ($R1)
  *          The registry subkey
- *          (typically this will be Software\Mozilla\${AppName}).
+ *          (typically this will be Software\Plezix\${AppName}).
  */
 !macro RegCleanPrefs
   !ifndef ${_MOZFUNC_UN}RegCleanPrefs
@@ -3585,13 +3585,13 @@
           ; inside the maintenance service path. There are several files named
           ; with the install hash and an extension indicating the kind of file.
           ; so use a wildcard to delete them all.
-          Delete "$PROGRAMFILES32\Mozilla Maintenance Service\UpdateLogs\$R1.*"
+          Delete "$PROGRAMFILES32\Plezix Maintenance Service\UpdateLogs\$R1.*"
 
           ; If the UpdateLogs directory is now empty, then delete it.
           ; The Maintenance Service uninstaller should do this, but it may not
           ; be up to date enough because of bug 1665193, so doing this here as
           ; well lets us make sure it really happens.
-          RmDir "$PROGRAMFILES32\Mozilla Maintenance Service\UpdateLogs"
+          RmDir "$PROGRAMFILES32\Plezix Maintenance Service\UpdateLogs"
         ${EndIf}
       ${EndIf}
 
@@ -3894,28 +3894,28 @@
  * [SMPROGRAMS] -- this section is optional and largely irrelevant these days
  * ; RelativePath is the directory relative from the Start Menu
  * ; Programs directory.
- * RelativePath=Mozilla App
+ * RelativePath=Plezix App
  * ; Shortcut1 is the first shortcut, Shortcut2 is the second shortcut, and so
  * ; on. There must not be a break in the sequence of the numbers.
- * Shortcut1=Mozilla App.lnk
- * Shortcut2=Mozilla App (Safe Mode).lnk
+ * Shortcut1=Plezix App.lnk
+ * Shortcut2=Plezix App (Safe Mode).lnk
  * [DESKTOP]
  * ; Shortcut1 is the first shortcut, Shortcut2 is the second shortcut, and so
  * ; on. There must not be a break in the sequence of the numbers.
- * Shortcut1=Mozilla App.lnk
- * Shortcut2=Mozilla App (Safe Mode).lnk
+ * Shortcut1=Plezix App.lnk
+ * Shortcut2=Plezix App (Safe Mode).lnk
  * [QUICKLAUNCH]
  * ; Shortcut1 is the first shortcut, Shortcut2 is the second shortcut, and so
  * ; on. There must not be a break in the sequence of the numbers for the
  * ; suffix.
- * Shortcut1=Mozilla App.lnk
- * Shortcut2=Mozilla App (Safe Mode).lnk
+ * Shortcut1=Plezix App.lnk
+ * Shortcut2=Plezix App (Safe Mode).lnk
  * [STARTMENU]
  * ; Shortcut1 is the first shortcut, Shortcut2 is the second shortcut, and so
  * ; on. There must not be a break in the sequence of the numbers for the
  * ; suffix.
- * Shortcut1=Mozilla App.lnk
- * Shortcut2=Mozilla App (Safe Mode).lnk
+ * Shortcut1=Plezix App.lnk
+ * Shortcut2=Plezix App (Safe Mode).lnk
  *
  * $R4 = return value from ShellLink::GetShortCutWorkingDirectory
  * $R5 = return value from ShellLink::GetShortCutTarget and
@@ -3925,7 +3925,7 @@
  * $R8 = return filename from FindFirst / FindNext
  * $R9 = long path to the shortcut log ini file and path to the ProgramData
  *       directory that the application stores additional shortcut logs in
- *       (Typically c:\ProgramData\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38)
+ *       (Typically c:\ProgramData\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38)
  */
 !macro DeleteShortcuts
 
@@ -4014,7 +4014,7 @@
       ${${_MOZFUNC_UN}GetCommonDirectory} $R9
       ; Shortcut logs created by an application are in a different directory,
       ; and named after both the application and the user SID, eg:
-      ; Firefox_S-1-5-21-1004336348-1177238915-682003330-512_shortcuts.ini
+      ; Plezix_S-1-5-21-1004336348-1177238915-682003330-512_shortcuts.ini
       FindFirst $R6 $R8 "$R9\*_shortcuts.ini"
       ${DoUntil} ${Errors}
         ${If} ${FileExists} "$R9\$R8"
@@ -5657,7 +5657,7 @@
 !ifmacrodef InitHashAppModelId
       ; setup the application model id registration value
       !ifdef AppName
-      ${InitHashAppModelId} "$INSTDIR" "Software\Mozilla\${AppName}\TaskBarIDs"
+      ${InitHashAppModelId} "$INSTDIR" "Software\Plezix\${AppName}\TaskBarIDs"
       !endif
 !endif
 
@@ -5880,12 +5880,12 @@
         ; And verify that if we need to, we're going to clean up the registry
         ; correctly.
         ${If} "$R4" == "mms"
-          WriteRegStr HKLM "Software\Mozilla" "${BrandShortName}InstallerTest" "Write Test"
+          WriteRegStr HKLM "Software\Plezix" "${BrandShortName}InstallerTest" "Write Test"
           ${If} ${Errors}
             ; Nothing initialized so no need to call OnEndCommon
             Quit
           ${Endif}
-          DeleteRegValue HKLM "Software\Mozilla" "${BrandShortName}InstallerTest"
+          DeleteRegValue HKLM "Software\Plezix" "${BrandShortName}InstallerTest"
         ${EndIf}
       !endif
 
@@ -5994,20 +5994,20 @@
       ${If} ${IsNativeAMD64}
       ${OrIf} ${IsNativeARM64}
         SetRegView 64
-        ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+        ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
         SetRegView lastused
       ${EndIf}
 
       StrCmp "$R9" "false" +1 finish_get_install_dir
 
       SetRegView 32
-      ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+      ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
       SetRegView lastused
 
       StrCmp "$R9" "false" +1 finish_get_install_dir
 
       SetShellVarContext current  ; Set SHCTX to HKCU
-      ${GetSingleInstallPath} "Software\Mozilla\${BrandFullNameInternal}" $R9
+      ${GetSingleInstallPath} "Software\Plezix\${BrandFullNameInternal}" $R9
 
       finish_get_install_dir:
       StrCmp "$R9" "false" +2 +1
@@ -7662,7 +7662,7 @@
  *          The main application executable path
  * @param   _REG_PATH
  *          The HKLM/HKCU agnostic registry path where the key hash should
- *          be stored. ex: "Software\Mozilla\Firefox\TaskBarIDs"
+ *          be stored. ex: "Software\Plezix\Plezix\TaskBarIDs"
  * @result  (Var) $AppUserModelID and $AppUserModelIDPrivate contain the
  *          app model id and the private app model id, respectively.
  */
@@ -7782,11 +7782,11 @@
   StrCpy $R0 ""
   ; Look for an install-specific profile, which might be listed as
   ; either a relative or an absolute path (installs.ini doesn't say which).
-  ${If} ${FileExists} "$APPDATA\Mozilla\Firefox\installs.ini"
+  ${If} ${FileExists} "$APPDATA\Plezix\Plezix\installs.ini"
     ClearErrors
-    ReadINIStr $1 "$APPDATA\Mozilla\Firefox\installs.ini" "$AppUserModelID" "Default"
+    ReadINIStr $1 "$APPDATA\Plezix\Plezix\installs.ini" "$AppUserModelID" "Default"
     ${IfNot} ${Errors}
-      ${${_MOZFUNC_UN}GetLongPath} "$APPDATA\Mozilla\Firefox\$1" $2
+      ${${_MOZFUNC_UN}GetLongPath} "$APPDATA\Plezix\Plezix\$1" $2
       ${If} ${FileExists} $2
         StrCpy $R0 $2
       ${Else}

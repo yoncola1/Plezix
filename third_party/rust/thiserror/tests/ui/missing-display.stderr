@@ -13,4 +13,4 @@ note: required by a bound in `std::error::Error`
   |
   | pub trait Error: Debug + Display {
   |                          ^^^^^^^ required by this bound in `Error`
-  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the derive macro `Error` (in Plezix builds, run with -Z macro-backtrace for more info)

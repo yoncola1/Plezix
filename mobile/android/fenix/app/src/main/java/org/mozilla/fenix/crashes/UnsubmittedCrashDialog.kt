@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ import kotlinx.coroutines.launch
 import mozilla.components.lib.crash.store.CrashAction
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Dialog to request whether a user wants to submit crashes that have not been reported.
@@ -61,7 +61,7 @@ class UnsubmittedCrashDialog(
                 .setView(
                     ComposeView(activity).apply {
                         setContent {
-                            FirefoxTheme {
+                            PlezixTheme {
                                 CrashCard(
                                     dismiss = ::dismiss,
                                     dispatcher = dispatcher,
@@ -121,8 +121,8 @@ private fun CrashCard(
             text = msg,
             modifier = Modifier
                 .semantics { heading() },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline5,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -132,14 +132,14 @@ private fun CrashCard(
                 Checkbox(
                     checked = checkboxChecked,
                     colors = CheckboxDefaults.colors(
-                        checkedColor = FirefoxTheme.colors.formSelected,
-                        uncheckedColor = FirefoxTheme.colors.formDefault,
+                        checkedColor = PlezixTheme.colors.formSelected,
+                        uncheckedColor = PlezixTheme.colors.formDefault,
                     ),
                     onCheckedChange = { checkboxChecked = it },
                 )
                 Text(
                     text = stringResource(R.string.unsubmitted_crash_dialog_checkbox_label),
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                 )
             }
         }
@@ -152,7 +152,7 @@ private fun CrashCard(
             ) {
                 Text(
                     text = stringResource(R.string.unsubmitted_crash_requested_by_devs_learn_more).uppercase(),
-                    color = FirefoxTheme.colors.actionPrimary,
+                    color = PlezixTheme.colors.actionPrimary,
                     modifier = Modifier.clickable {
                         if (cardContext != null) {
                             CoroutineScope(Dispatchers.Main).launch {
@@ -167,7 +167,7 @@ private fun CrashCard(
                 )
                 Text(
                     text = stringResource(R.string.unsubmitted_crash_requested_by_devs_dialog_never_button).uppercase(),
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                     modifier = Modifier.clickable {
                         dispatcher(CrashAction.CancelForEverTapped)
                         dismiss()
@@ -184,7 +184,7 @@ private fun CrashCard(
         ) {
             Text(
                 text = stringResource(R.string.unsubmitted_crash_dialog_negative_button).uppercase(),
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 modifier = Modifier.clickable {
                     dispatcher(CrashAction.CancelTapped)
                     dismiss()
@@ -192,7 +192,7 @@ private fun CrashCard(
             )
             Text(
                 text = stringResource(R.string.unsubmitted_crash_dialog_positive_button).uppercase(),
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 modifier = Modifier.clickable {
                     dispatcher(CrashAction.ReportTapped(!requestedByDevs && checkboxChecked, crashIDs))
                     dismiss()
@@ -205,8 +205,8 @@ private fun CrashCard(
 @PreviewLightDark
 @Composable
 private fun CrashDialogPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             CrashCard(
                 dismiss = {},
                 dispatcher = {},

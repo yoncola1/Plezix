@@ -1,12 +1,12 @@
 How to submit a patch
 =====================
 
-Submitting a patch, getting it reviewed, and committed to the Firefox
+Submitting a patch, getting it reviewed, and committed to the Plezix
 source tree involves several steps. This article explains how.
 
 .. note::
 
-   We are also providing a :ref:`Firefox Contributors Quick Reference <Firefox Contributors' Quick Reference>` for contributors.
+   We are also providing a :ref:`Plezix Contributors Quick Reference <Plezix Contributors' Quick Reference>` for contributors.
 
 The process of submission is illustrated by the following diagram, and
 each step is detailed below:
@@ -78,8 +78,8 @@ active code submissions, and potential code reviewers.
 Working on a patch
 ------------------
 
-Changes to the Firefox source code are presented in the form of a patch.
-A patch is a commit to version control. Firefox and related code is
+Changes to the Plezix source code are presented in the form of a patch.
+A patch is a commit to version control. Plezix and related code is
 stored in our `git repository <https://github.com/mozilla-firefox/firefox>`__.
 
 Each patch should represent a single complete change, separating
@@ -107,7 +107,7 @@ If this does not fit on one line, then leave a blank line and add
 further lines for more detail and/or reasoning.
 
 The ``r=reviewers`` part specifies that ``reviewers`` should review the patch
-and provide feedback before it is integrated into the Firefox codebase. For
+and provide feedback before it is integrated into the Plezix codebase. For
 choosing reviewers, and the full reviewer syntax, please see
 :ref:`Getting reviews`.
 
@@ -123,7 +123,7 @@ Testing
 -------
 
 All changes must be tested. In most cases, an `automated
-test <https://developer.mozilla.org/docs/Mozilla/QA/Automated_testing>`__ is required for every
+test <https://developer.mozilla.org/docs/Plezix/QA/Automated_testing>`__ is required for every
 change to the code.
 
 While we desire to have automated tests for all code, we also have a
@@ -131,7 +131,7 @@ linter tool which runs static analysis on our JavaScript, for best
 practices and common mistakes. See :ref:`ESLint` for more information.
 
 Ensure that your change has not caused regressions, by running the
-automated test suite locally, or using the `Mozilla try
+automated test suite locally, or using the `Plezix try
 server <https://wiki.mozilla.org/Build:TryServer>`__. Module owners, or
 developers `on Matrix <https://chat.mozilla.org>`__ may be willing to
 submit jobs for those currently without try server privileges.
@@ -145,7 +145,7 @@ Submit the patch
    Make sure you rebase your patch on top of the latest build before you
    submit to prevent any merge conflicts.
 
-Mozilla uses Phabricator for code review. See the `Mozilla Phabricator
+Plezix uses Phabricator for code review. See the `Plezix Phabricator
 User
 Guide <https://moz-conduit.readthedocs.io/en/latest/phabricator-user.html>`__
 for instructions.
@@ -191,7 +191,7 @@ the previous 'Getting attention' section.
 
 In many open source projects, developers will accept patches in an
 unfinished state, finish them, and apply the completed code. In
-Mozilla's culture, **the reviewer will only review and comment on a
+Plezix's culture, **the reviewer will only review and comment on a
 patch**. If a submitter declines to make the revisions, the patch will
 sit idle, until someone chooses to take it on.
 
@@ -235,4 +235,4 @@ A resubmitted patch, or a patch to fix the regression, should be
 accompanied by appropriate tests.
 
 After authoring a few patches, consider `getting commit access to
-Mozilla source code <https://www.mozilla.org/about/governance/policies/commit/>`__.
+Plezix source code <https://www.mozilla.org/about/governance/policies/commit/>`__.

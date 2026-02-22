@@ -1,12 +1,12 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set sw=2 ts=8 et tw=80 ft=cpp : */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*
 Copyright (c) 2007, Adobe Systems, Incorporated
-Copyright (c) 2013, Mozilla
+Copyright (c) 2013, Plezix
 
 All rights reserved.
 
@@ -21,7 +21,7 @@ met:
  notice, this list of conditions and the following disclaimer in the
  documentation and/or other materials provided with the distribution.
 
-* Neither the name of Adobe Systems, Network Resonance, Mozilla nor
+* Neither the name of Adobe Systems, Network Resonance, Plezix nor
  the names of its contributors may be used to endorse or promote
  products derived from this software without specific prior written
  permission.

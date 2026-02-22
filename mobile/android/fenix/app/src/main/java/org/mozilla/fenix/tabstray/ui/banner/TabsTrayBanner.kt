@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ import org.mozilla.fenix.tabstray.TabsTrayStore
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
 import org.mozilla.fenix.tabstray.ext.getMenuItems
 import org.mozilla.fenix.tabstray.ui.tabstray.TabsTray
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import kotlin.math.max
 
 private val ICON_SIZE = 24.dp
@@ -237,11 +237,11 @@ private fun TabPageBanner(
     onTabPageIndicatorClicked: (Page) -> Unit,
     onDismissClick: () -> Unit,
 ) {
-    val selectedColor = FirefoxTheme.colors.iconActive
-    val inactiveColor = FirefoxTheme.colors.iconPrimaryInactive
+    val selectedColor = PlezixTheme.colors.iconActive
+    val inactiveColor = PlezixTheme.colors.iconPrimaryInactive
     var showMenu by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    Column(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.bottom_sheet_handle_top_margin)))
 
         BottomSheetHandle(
@@ -342,7 +342,7 @@ private fun TabPageBanner(
                 Icon(
                     painter = painterResource(R.drawable.ic_menu),
                     contentDescription = stringResource(id = R.string.open_tabs_menu),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -374,31 +374,31 @@ private fun MultiSelectBanner(
         }
     }
     val buttonTint = if (buttonsEnabled) {
-        FirefoxTheme.colors.iconOnColor
+        PlezixTheme.colors.iconOnColor
     } else {
-        FirefoxTheme.colors.iconOnColorDisabled
+        PlezixTheme.colors.iconOnColorDisabled
     }
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(88.dp)
-            .background(color = FirefoxTheme.colors.layerAccent),
+            .background(color = PlezixTheme.colors.layerAccent),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(onClick = onExitSelectModeClick) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_close),
                 contentDescription = stringResource(id = R.string.tab_tray_close_multiselect_content_description),
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = PlezixTheme.colors.iconOnColor,
             )
         }
 
         Text(
             text = stringResource(R.string.tab_tray_multi_select_title, selectedTabCount),
             modifier = Modifier.testTag(TabsTrayTestTag.SELECTION_COUNTER),
-            style = FirefoxTheme.typography.headline6,
-            color = FirefoxTheme.colors.textOnColorPrimary,
+            style = PlezixTheme.typography.headline6,
+            color = PlezixTheme.colors.textOnColorPrimary,
         )
 
         Spacer(modifier = Modifier.weight(1.0f))
@@ -530,7 +530,7 @@ private fun TabsTrayBannerPreviewRoot(
         )
     }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(modifier = Modifier.size(400.dp)) {
             TabsTrayBanner(
                 selectedPage = selectedPage,

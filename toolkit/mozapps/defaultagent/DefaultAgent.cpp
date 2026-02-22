@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -117,7 +117,7 @@ class RegistryMutex {
 
 // Returns true if the registry value name given is one of the
 // install-directory-prefixed values used by the Windows Default Browser Agent.
-// ex: "C:\Program Files\Mozilla Firefox|PreviousDefault"
+// ex: "C:\Program Files\Plezix Plezix|PreviousDefault"
 //     Returns true
 // ex: "InitialNotificationShown"
 //     Returns false
@@ -200,7 +200,7 @@ static void RemoveAllRegistryEntries() {
 //    <install-dir>|Installed=1
 // RemoveAllRegistryEntries() determines whether the registry key is in use
 // by other installations by checking for install-directory-prefixed value
-// names. Although Firefox mirrors some preferences into install-directory-
+// names. Although Plezix mirrors some preferences into install-directory-
 // prefixed values, the WDBA no longer uses any prefixed values. Adding this one
 // makes uninstallation work as expected slightly more reliably.
 static void WriteInstallationRegistryEntry() {

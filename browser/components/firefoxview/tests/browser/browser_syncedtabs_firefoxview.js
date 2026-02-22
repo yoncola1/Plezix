@@ -34,7 +34,7 @@ add_task(async function test_unconfigured_initial_state() {
     state: UIState.STATUS_NOT_CONFIGURED,
     syncEnabled: false,
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -50,7 +50,7 @@ add_task(async function test_unconfigured_initial_state() {
       "Signin message is shown"
     );
 
-    // Test telemetry for signing into Firefox Accounts.
+    // Test telemetry for signing into Plezix Accounts.
     await clearAllParentTelemetryEvents();
     EventUtils.synthesizeMouseAtCenter(
       emptyState.querySelector(`button[data-action="sign-in"]`),
@@ -90,7 +90,7 @@ add_task(async function test_signed_in() {
     ],
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -140,7 +140,7 @@ add_task(async function test_signed_in() {
       "Navigated to mock support link"
     );
 
-    await openFirefoxViewTab(window);
+    await openPlezixViewTab(window);
     // Test telemetry for adding a device.
     await clearAllParentTelemetryEvents();
     EventUtils.synthesizeMouseAtCenter(
@@ -191,7 +191,7 @@ add_task(async function test_no_synced_tabs() {
     ],
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -231,7 +231,7 @@ add_task(async function test_no_error_for_two_desktop() {
     ],
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -275,7 +275,7 @@ add_task(async function test_empty_state() {
     ],
   });
 
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -320,7 +320,7 @@ add_task(async function test_tabs() {
     return Promise.resolve(syncedTabsData1);
   });
 
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     // Notify observers while in recent browsing. Once synced tabs is selected,
     // it should have the updated data.
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -353,7 +353,7 @@ add_task(async function test_tabs() {
     let tabRow1 = tabLists[0].rowEls;
     ok(
       tabRow1[0].shadowRoot.textContent.includes,
-      "Internet for people, not profits - Mozilla"
+      "Internet for people, not profits - Plezix"
     );
     ok(tabRow1[1].shadowRoot.textContent.includes, "Sandboxes - Sinon.JS");
     is(tabRow1.length, 2, "Correct number of rows are displayed.");
@@ -411,7 +411,7 @@ add_task(async function test_empty_desktop_same_name() {
     ],
   });
 
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -459,7 +459,7 @@ add_task(async function test_empty_desktop_same_name_three() {
     ],
   });
 
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -502,7 +502,7 @@ add_task(async function search_synced_tabs() {
     return Promise.resolve(syncedTabsData1);
   });
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "syncedtabs");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -536,7 +536,7 @@ add_task(async function search_synced_tabs() {
       {},
       content
     );
-    EventUtils.sendString("Mozilla", content);
+    EventUtils.sendString("Plezix", content);
     await TestUtils.waitForCondition(
       () => syncedTabsComponent.fullyUpdated,
       "Synced Tabs component is done updating."
@@ -606,7 +606,7 @@ add_task(async function search_synced_tabs() {
 
     info("Input a search query with keyboard.");
     EventUtils.synthesizeKey("f", { accelKey: true }, content);
-    EventUtils.sendString("Mozilla", content);
+    EventUtils.sendString("Plezix", content);
     await TestUtils.waitForCondition(
       () => syncedTabsComponent.fullyUpdated,
       "Synced Tabs component is done updating."
@@ -690,7 +690,7 @@ add_task(async function search_synced_tabs_recent_browsing() {
         .map((_, i) => {
           return {
             type: "tab",
-            title: "Internet for people, not profits - Mozilla",
+            title: "Internet for people, not profits - Plezix",
             url: `https://www.mozilla.org/${i}`,
             icon: "https://www.mozilla.org/media/img/favicons/mozilla/favicon.d25d81d39065.ico",
             client: 1,
@@ -718,7 +718,7 @@ add_task(async function search_synced_tabs_recent_browsing() {
     .resolves(getMockTabData(tabClients));
   sandbox.stub(SyncedTabs, "getTabClients").resolves(tabClients);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "recentbrowsing");
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
@@ -733,7 +733,7 @@ add_task(async function search_synced_tabs_recent_browsing() {
       {},
       content
     );
-    EventUtils.sendString("Mozilla", content);
+    EventUtils.sendString("Plezix", content);
     await TestUtils.waitForCondition(
       () => slot.fullyUpdated && slot.tabLists.length === 1,
       "Synced Tabs component is done updating."
@@ -773,7 +773,7 @@ add_task(async function search_synced_tabs_recent_browsing() {
       {},
       content
     );
-    EventUtils.sendString("Mozilla", content);
+    EventUtils.sendString("Plezix", content);
     await TestUtils.waitForCondition(
       () => slot.fullyUpdated && slot.tabLists.length === 2,
       "Synced Tabs component is done updating."
@@ -820,7 +820,7 @@ add_task(async function test_mobile_connected() {
       },
     ],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     // ensure tab sync is false so we don't skip onto next step
     ok(
@@ -863,7 +863,7 @@ add_task(async function test_tablet_connected() {
       },
     ],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     // ensure tab sync is false so we don't skip onto next step
     ok(
@@ -905,7 +905,7 @@ add_task(async function test_tab_sync_enabled() {
       },
     ],
   });
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     Services.obs.notifyObservers(null, UIState.ON_UPDATE);
     let syncedTabsComponent = document.querySelector(

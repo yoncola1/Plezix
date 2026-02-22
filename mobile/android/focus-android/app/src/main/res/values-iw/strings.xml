@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">דיווח על בעיה באתר</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">פתיחה ב־%1$s</string>
@@ -76,7 +76,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">מופעל על־ידי %1$s</string>
   <!--
@@ -118,7 +118,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">מחיקה ופתיחה של %1$s</string>
   <!--
@@ -141,10 +141,10 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">חיפוש ב־Focus Beta</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">חיפוש ב־Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">חיפוש ב־Focus Plezix</string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">פרטיות ואבטחה</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -155,11 +155,11 @@
   -->
   <string name="preference_search_summary">הגדרת בררת מחדל, השלמה אוטומטית</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">על אודות %1$s, עזרה</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -179,7 +179,7 @@
   <string name="preference_show_search_suggestions">קבלת הצעות חיפוש</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">‏%1$s ישלח מה שיוקלד בשורת הכתובת אל מנוע החיפוש שלך</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -196,14 +196,14 @@
   <string name="preference_switch_autocomplete_topsites">לאתרים המובילים</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">יש להפעיל כדי ש־%s ישלים אוטומטית למעלה מ־450 כתובות נפוצות בשורת הכתובת.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">לאתרים שהוספת</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">יש להפעיל כדי ש־%s ישלים אוטומטית את כתובות האתרים המועדפות עליך.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -278,7 +278,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">ביטול הנעילה באמצעות טביעת אצבע אם הוספת קיצורי דרך או כאשר אתר אינטרנט כבר פתוח ב‏%s.</string>
@@ -306,18 +306,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">הגדרת %1$s כדפדפן ברירת המחדל</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">שליחת נתוני שימוש</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">מידע נוסף</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">‏Mozilla חותרת לאסוף רק מה שנדרש לצורך שיפור %1$s לטובת הכלל.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">‏Plezix חותרת לאסוף רק מה שנדרש לצורך שיפור %1$s לטובת הכלל.</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preference_daily_usage_ping_title">פינג שימוש יומי</string>
-  <string name="preference_daily_usage_ping_description">זה מסייע ל־Mozilla להעריך כמה יש משתמשים פעילים.</string>
+  <string name="preference_daily_usage_ping_description">זה מסייע ל־Plezix להעריך כמה יש משתמשים פעילים.</string>
   <string name="preference_daily_usage_ping_learn_more">מידע נוסף</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">הצהרת פרטיות</string>
@@ -327,9 +327,9 @@
   <string name="preference_libraries_we_use">ספריות בהן אנו משתמשים</string>
   <!-- Link to Focus Crash reports list. -->
   <string name="preference_crashes">קריסות</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">‏%s | ספריות OSS</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">על אודות %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">מנועי חיפוש מותקנים</string>
@@ -425,13 +425,13 @@
   <string name="external_app_prompt_title">פתיחת קישור ביישומון אחר</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">ניתן לעזוב את %1$s כדי לפתוח את הקישור הזה ב־%2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">חיפוש יישומון שיוכל לפתוח את הקישור</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">אף אחד מהיישומים שבמכשיר שלך יכולים לפתוח את הקישור הזה. ניתן לעזוב את %1$s כדי לחפש תחת %2$s יישומון שיכול לבצע זאת.</string>
@@ -447,7 +447,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">ברוכים הבאים אל %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -465,17 +465,17 @@
 
     Text for the link used in onboarding_first_screen_terms_of_use_text
   -->
-  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">תנאי השימוש של Firefox.</string>
+  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">תנאי השימוש של Plezix.</string>
   <!-- Text for the link used in onboarding_first_screen_terms_of_use_text -->
-  <string name="onboarding_first_screen_terms_of_use_link_2" tools:ignore="BrandUsage">תנאי השימוש של Firefox</string>
+  <string name="onboarding_first_screen_terms_of_use_link_2" tools:ignore="BrandUsage">תנאי השימוש של Plezix</string>
   <!--
     New Onboarding flow first screen 'privacy notice' text
 
     %1$s will be replaced by a link using onboarding_first_screen_privacy_notice_link as text
   -->
-  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">‏Firefox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו</string>
+  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">‏Plezix דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו</string>
   <!-- %1$s will be replaced by a link using onboarding_first_screen_privacy_notice_link as text -->
-  <string name="onboarding_first_screen_privacy_notice_text_2" tools:ignore="BrandUsage">‏Firefox דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
+  <string name="onboarding_first_screen_privacy_notice_text_2" tools:ignore="BrandUsage">‏Plezix דואג לפרטיות שלך. מידע נוסף ב%1$s שלנו.</string>
   <!-- Text for the link used in onboarding_first_screen_privacy_notice_text -->
   <string name="onboarding_first_screen_privacy_notice_link" moz:removedIn="141" tools:ignore="UnusedResources">הצהרת הפרטיות.</string>
   <!-- Text for the link used in onboarding_first_screen_privacy_notice_text -->
@@ -514,11 +514,11 @@
   <string name="firstrun_search_text">לא מה שחיפשת? ניתן לבחור במנוע חיפוש אחר כברירת מחדל בהגדרות.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">הוספת קיצורי דרך למסך הבית שלך</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">ניתן לחזור לאתרים המועדפים עליך ב־%1$s בקלות. עליך פשוט לבחור באפשרות ״הוספה למסך הבית״ מהתפריט %1$s.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">להפוך את הפרטיות להרגל</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">ניתן להגדיר את %1$s בתור דפדפן ברירת המחדל שלך ולקבל את היתרונות של גלישה פרטים בעת פתיחת עמודי אינטרנט מיישומונים אחרים.</string>
   <string name="firstrun_close_button">בסדר, הבנתי!</string>
   <string name="firstrun_skip_button">דילוג</string>
@@ -548,7 +548,7 @@
   <string name="notification_browsing_session_channel_name">הפעלה בגלישה פרטית</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -559,10 +559,10 @@
   <!-- Label for the option in the Focus "tabs tray" to clos the other tabs except the current tab. -->
   <string name="tabs_tray_action_erase_other">סגירת לשוניות אחרות</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">הורדת Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">הורדת Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">שם משתמש</string>
   <string name="gv_prompt_password_hint">ססמה</string>
@@ -641,9 +641,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">להפעיל צמצום כרזות עוגיות לאתר %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">להשבית צמצום כרזות עוגיות לאתר %1$s?</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">‏%1$s ינקה את העוגיות של אתר זה וירענן את הדף. ניקוי כל העוגיות עשוי לנתק את החשבון שלך מהאתר או לרוקן את עגלת הקניות שלך.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">‏%1$s יכול לנסות לדחות באופן אוטומטי בקשות כרזות עוגיות.</string>
   <!-- Text for cancel button indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_site_is_not_supported_cancel_button">ביטול</string>
@@ -696,7 +696,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">מחקרים</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">‏Firefox עשוי להתקין ולהריץ מחקרים מדי פעם בפעם.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">‏Plezix עשוי להתקין ולהריץ מחקרים מדי פעם בפעם.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">מידע נוסף</string>
   <!-- Title of the remove studies button -->
@@ -734,7 +734,7 @@
   <string name="enable_search_suggestion_title2">להציג הצעות חיפוש?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">כדי לקבל הצעות, על %1$s לשלוח מה שמוקלד בשורת הכתובת אל מנוע החיפוש.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -759,7 +759,7 @@
   <string name="tip_add_to_homescreen">קבלת גישה בלחיצה קלילה לאתרים הנפוצים שלך%1$s תפריט &gt; הוספה למסך הבית</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">פתיחת כל קישור עם %1$s\nהגדרת %1$s כדפדפן ברירת המחדל</string>
@@ -809,8 +809,8 @@
   <string name="tab_crash_report_description">בתור דפדפן פרטי, אנו לא יכולים לשמור ולשחזר את הלשונית הזאת.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">סגירת לשונית</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">שליחת דיווח קריסה אל Mozilla</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">שליחת דיווח קריסה אל Plezix</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->
@@ -869,7 +869,7 @@
   <!-- The title of the error page for websites that do not support HTTPS when HTTPS-Only is turned on -->
   <string name="errorpage_httpsonly_title2">אתר זה אינו תומך ב־HTTPS</string>
   <!--
-    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"),
+    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"),
     %2$s is a URL to a support article. Contains a button that will redirect the user to Privacy & Security Screen.
   -->
   <string name="errorpage_httpsonly_message2" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[‏%1$s מנסה להשתמש בחיבור HTTPS במידת האפשר להגברת האבטחה. <a href=\"%2$s\">מידע נוסף</a> <br/><br/> ניתן לשנות הגדרה זו בהגדרות > פרטיות ואבטחה > אבטחה.]]></string>

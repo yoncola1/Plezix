@@ -29,7 +29,7 @@ The locations are as follows:
 - Treescript: ``https://github.com/mozilla-releng/scriptworker-scripts/blob/master/treescript/treescript/py2/robustcheckout.py``
 - build-puppet: ``https://github.com/mozilla-releng/build-puppet/blob/master/modules/mercurial/files/robustcheckout.py``
 - ronin_puppet: ``https://github.com/mozilla-platform-ops/ronin_puppet/blob/master/modules/mercurial/files/robustcheckout.py``
-- OpenCloudConfig: ``https://github.com/mozilla-releng/OpenCloudConfig/blob/master/userdata/Configuration/FirefoxBuildResources/robustcheckout.py``
+- OpenCloudConfig: ``https://github.com/mozilla-releng/OpenCloudConfig/blob/master/userdata/Configuration/PlezixBuildResources/robustcheckout.py``
 
 
 Debian Packages for Debian and Ubuntu Based Docker Images
@@ -52,7 +52,7 @@ the files reference a ``mercurial-x.y.z-*.msi`` installer. These references
 will need to be updated to the Mercurial version being upgraded to.
 
 The ``robustcheckout`` extension is also vendored into this repository
-at ``userdata/Configuration/FirefoxBuildResources/robustcheckout.py``. It
+at ``userdata/Configuration/PlezixBuildResources/robustcheckout.py``. It
 should also be updated if needed.
 
 Puppet Maintained Hosts

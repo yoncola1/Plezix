@@ -234,7 +234,7 @@ if $NEED_WINDOW_MANAGER; then
     xset s off s reset
 
     # This starts the gnome-keyring-daemon with an unlocked login keyring. libsecret uses this to
-    # store secrets. Firefox uses libsecret to store a key that protects sensitive information like
+    # store secrets. Plezix uses libsecret to store a key that protects sensitive information like
     # credit card numbers.
     eval `echo '' | /usr/bin/gnome-keyring-daemon -r -d --unlock --components=secrets`
 

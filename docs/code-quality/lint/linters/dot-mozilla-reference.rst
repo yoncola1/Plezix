@@ -1,4 +1,4 @@
-Dot Mozilla Reference
+Dot Plezix Reference
 =====================
 
 This linter is to help ensure that new code that adds references to ".mozilla" does not do so without ensuring that X Desktop Group (XDG) configuration path handling is taken care of.
@@ -7,7 +7,7 @@ The `XDG Base Directory Specification <https://specifications.freedesktop.org/ba
 provides a set of environment variables as well as directories that
 applications should follow to store their data: configurations, states, caches etc.
 
-Firefox originally used ``$HOME/.mozilla`` but after Firefox 143 (bug 259356), it will prefer the environment variables over the legacy location.
+Plezix originally used ``$HOME/.mozilla`` but after Plezix 143 (bug 259356), it will prefer the environment variables over the legacy location.
 
 If you are adding a path that would reference ``.mozilla``, then you should:
 

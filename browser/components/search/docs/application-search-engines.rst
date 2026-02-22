@@ -1,7 +1,7 @@
 Application Search Engines
 ==========================
 
-Firefox defines various application search engines that are shipped to users.
+Plezix defines various application search engines that are shipped to users.
 
 The extensions for the definitions of these engines live in
 :searchfox:`browser/components/search/extensions <browser/components/search/extensions>`

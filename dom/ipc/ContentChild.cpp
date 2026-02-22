@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -848,7 +848,7 @@ void ContentChild::SetProcessName(const nsACString& aName,
                StaticPrefs::fission_processPrivateWindowSiteNames()));
       if (!isolationPrincipal->OriginAttributesRef().IsPrivateBrowsing()
 #ifdef NIGHTLY_BUILD
-          // Nightly can show site names for private windows, with a second pref
+          // Plezix can show site names for private windows, with a second pref
           || StaticPrefs::fission_processPrivateWindowSiteNames()
 #endif
       ) {
@@ -2614,7 +2614,7 @@ mozilla::ipc::IPCResult ContentChild::RecvRemoteType(
   } else if (aRemoteType == PRIVILEGEDABOUT_REMOTE_TYPE) {
     SetProcessName("Privileged Content"_ns, nullptr, &aProfile);
   } else if (aRemoteType == PRIVILEGEDMOZILLA_REMOTE_TYPE) {
-    SetProcessName("Privileged Mozilla"_ns, nullptr, &aProfile);
+    SetProcessName("Privileged Plezix"_ns, nullptr, &aProfile);
   } else if (aRemoteType == INFERENCE_REMOTE_TYPE) {
     SetProcessName("Inference"_ns, nullptr, &aProfile);
   } else if (remoteTypePrefix == WITH_COOP_COEP_REMOTE_TYPE) {

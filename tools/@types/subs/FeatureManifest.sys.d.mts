@@ -724,7 +724,7 @@ export const FeatureManifest: {
             };
         };
     };
-    moreFromMozilla: {
+    moreFromPlezix: {
         description: string;
         owner: string;
         hasExposure: boolean;
@@ -4461,7 +4461,7 @@ export const FeatureManifest: {
                 };
                 description: string;
             };
-            enableFirefoxDesktopUI: {
+            enablePlezixDesktopUI: {
                 type: string;
                 setPref: {
                     branch: string;

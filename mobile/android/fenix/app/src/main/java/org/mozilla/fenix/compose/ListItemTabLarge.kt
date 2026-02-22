@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import mozilla.components.compose.base.modifier.thenConditional
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 const val ITEM_WIDTH = 328
 const val ITEM_HEIGHT = 116
@@ -58,7 +58,7 @@ fun ListItemTabLarge(
     imageUrl: String,
     title: String,
     caption: String? = null,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     onClick: (() -> Unit)? = null,
 ) {
     ListItemTabSurface(
@@ -68,7 +68,7 @@ fun ListItemTabLarge(
     ) {
         Text(
             text = title,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             fontSize = 14.sp,
             overflow = TextOverflow.Ellipsis,
             maxLines = 3,
@@ -77,7 +77,7 @@ fun ListItemTabLarge(
         if (caption != null) {
             Text(
                 text = caption,
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 fontSize = 12.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -111,7 +111,7 @@ fun ListItemTabLarge(
 @Composable
 fun ListItemTabLarge(
     imageUrl: String,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     onClick: () -> Unit,
     title: @Composable () -> Unit,
     subtitle: @Composable (() -> Unit)? = null,
@@ -142,7 +142,7 @@ fun ListItemTabLarge(
 fun ListItemTabSurface(
     imageUrl: String,
     imageContentScale: ContentScale = ContentScale.Fit,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     contentPadding: PaddingValues = PaddingValues(16.dp),
     onClick: (() -> Unit)? = null,
     tabDetails: @Composable () -> Unit,
@@ -192,7 +192,7 @@ fun ListItemTabSurface(
 @Composable
 @PreviewLightDark
 private fun ListItemTabLargePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ListItemTabLarge(
             imageUrl = "",
             title = "This is a very long title for a tab but needs to be so for this preview",
@@ -204,13 +204,13 @@ private fun ListItemTabLargePreview() {
 @Composable
 @PreviewLightDark
 private fun ListItemTabSurfacePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ListItemTabSurface(
             imageUrl = "",
         ) {
             Text(
                 text = "This can be anything",
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 fontSize = 22.sp,
             )
         }
@@ -220,14 +220,14 @@ private fun ListItemTabSurfacePreview() {
 @Composable
 @PreviewLightDark
 private fun ListItemTabSurfaceWithCustomBackgroundPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ListItemTabSurface(
             imageUrl = "",
             backgroundColor = Color.Cyan,
         ) {
             Text(
                 text = "This can be anything",
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 fontSize = 22.sp,
             )
         }

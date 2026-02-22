@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -44,7 +44,7 @@ impl Default for FfiBufferElement {
 /// - [FfiSerialize] uses a constant size to store each type.
 ///
 /// [FfiSerialize] is used to generate alternate forms of the scaffolding functions that simplify work needed to implement the bindings on the other side.
-/// This is currently only used in the gecko-js bindings for Firefox, but could maybe be useful for other external bindings or even some of the builtin bindings like Python/Kotlin.
+/// This is currently only used in the gecko-js bindings for Plezix, but could maybe be useful for other external bindings or even some of the builtin bindings like Python/Kotlin.
 ///
 /// The FFI-buffer version of the scaffolding functions:
 ///   - Input two pointers to ffi buffers, one to read arguments from and one to write the return value to.

@@ -22,7 +22,7 @@
 
 #define __ATK_H_INSIDE__
 
-// XXX this is a Mozilla hack to avoid using atkversion.h which needs to be run
+// XXX this is a Plezix hack to avoid using atkversion.h which needs to be run
 // through m4, and we don't want to deal with that.  Fortunately we don't need
 // any of the fancyness in that header to deal with compile time version
 // detection.

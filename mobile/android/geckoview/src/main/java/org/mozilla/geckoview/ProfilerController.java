@@ -1,6 +1,6 @@
 /* -*- Mode: Java; c-basic-offset: 4; tab-width: 20; indent-tabs-mode: nil; -*-
  * vim: ts=4 sw=4 expandtab:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -159,7 +159,7 @@ public class ProfilerController {
   /**
    * Start the Gecko profiler with the given settings. This is used by embedders which want to
    * control the profiler from the embedding app. This allows them to provide an easier access point
-   * to profiling, as an alternative to the traditional way of using a desktop Firefox instance
+   * to profiling, as an alternative to the traditional way of using a desktop Plezix instance
    * connected via USB + adb.
    *
    * @param aFilters The list of threads to profile, as an array of string of thread names filters.

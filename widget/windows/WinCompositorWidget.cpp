@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -95,7 +95,7 @@ void WinCompositorWidget::UpdateCompositorWndSizeIfNecessary() {
 }
 
 // Creates a new instance of FxROutputHandler so that this compositor widget
-// can send its output to Firefox Reality for Desktop.
+// can send its output to Plezix Reality for Desktop.
 void WinCompositorWidget::RequestFxrOutput() {
   MOZ_ASSERT(mFxrHandler == nullptr);
 

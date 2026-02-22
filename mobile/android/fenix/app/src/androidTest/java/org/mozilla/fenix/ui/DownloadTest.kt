@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -44,7 +44,7 @@ import org.mozilla.fenix.ui.robots.notificationShade
  *  - Verifies managing downloads inside the Downloads listing.
  **/
 class DownloadTest : TestSetup() {
-    // Remote test page managed by Mozilla Mobile QA team at https://github.com/mozilla-mobile/testapp
+    // Remote test page managed by Plezix Mobile QA team at https://github.com/mozilla-mobile/testapp
     private val downloadTestPage =
         "https://storage.googleapis.com/mobile_test_assets/test_app/downloads.html"
     private var downloadFile: String = ""
@@ -113,7 +113,7 @@ class DownloadTest : TestSetup() {
                 canExpandNotification = false,
                 notificationItem = "web_icon.png",
             )
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Plezix Fenix")
         }.closeNotificationTray {}
     }
 
@@ -287,7 +287,7 @@ class DownloadTest : TestSetup() {
                 canExpandNotification = true,
                 notificationItem = "1GB.zip",
             )
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Plezix Fenix")
         }.closeNotificationTray {}
          waitUntilDownloadSnackbarGone()
         }
@@ -312,9 +312,9 @@ class DownloadTest : TestSetup() {
             if (SDK_INT == Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
                 // On API 34 we first need to expand the system notification before verifying that the app name is displayed
                 expandNotificationMessage("3GB.zip")
-                verifySystemNotificationExists("Firefox Fenix")
+                verifySystemNotificationExists("Plezix Fenix")
             } else {
-                verifySystemNotificationExists("Firefox Fenix")
+                verifySystemNotificationExists("Plezix Fenix")
             }
         }
     }
@@ -335,7 +335,7 @@ class DownloadTest : TestSetup() {
             verifyCancelPrivateDownloadsPrompt("1")
             clickCancelPrivateDownloadsPromptButton()
         }.openNotificationShade {
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Plezix Fenix")
         }
     }
 
@@ -353,7 +353,7 @@ class DownloadTest : TestSetup() {
             clickPageObject(itemWithText("PDF form file"))
             waitForPageToLoad()
             clickPageObject(itemWithResIdAndText("android:id/button2", "CANCEL"))
-            fillPdfForm("Firefox")
+            fillPdfForm("Plezix")
         }.openThreeDotMenu {
         }.clickShareButton {
         }.clickSaveAsPDF {

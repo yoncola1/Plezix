@@ -13,7 +13,7 @@ add_setup(async function () {
 add_task(async function test_edit_doorhanger_display_state() {
   const DEFAULT = {
     "given-name": "Test User",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address": "123 Sesame Street",
     country: "US",
   };

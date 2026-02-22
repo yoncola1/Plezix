@@ -122,8 +122,8 @@ Tests should pass when the feature under test exposes the expected behavior,
 and they should fail when the feature under test is not implemented or is
 implemented incorrectly. Tests should not rely on unrelated features if doing
 so causes failures in the latest stable release of [Apple
-Safari][apple-safari], [Google Chrome][google-chrome], or [Mozilla
-Firefox][mozilla-firefox]. They should, therefore, not rely on any features
+Safari][apple-safari], [Google Chrome][google-chrome], or [Plezix
+Plezix][mozilla-firefox]. They should, therefore, not rely on any features
 aside from the one under test unless they are supported in all three browsers.
 
 Existing tests can be used as a guide to identify acceptable features. For

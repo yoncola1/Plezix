@@ -31,7 +31,7 @@ perftest_browser_xhtml_dom.js
 
 browser/components/translations/tests/browser
 ---------------------------------------------
-Performance tests for Translations models on Firefox Desktop
+Performance tests for Translations models on Plezix Desktop
 
 browser_translations_perf_es_en.js
 ==================================
@@ -394,9 +394,9 @@ perftest_WPT_firefox_init_file.js
 :owner: Performance Testing Team
 :name: webpagetest-firefox
 
-**Run webpagetest performance pageload tests on Firefox against Alexa top 50 websites**
+**Run webpagetest performance pageload tests on Plezix against Alexa top 50 websites**
 
-This mozperftest gets webpagetest to run pageload tests on Firefox against the 50 most popular websites and provide data. The full list of data returned from webpagetest: firstContentfulPaint, timeToContentfulPaint, visualComplete90, firstPaint, visualComplete99, visualComplete, SpeedIndex, bytesIn, bytesOut, TTFB, fullyLoadedCPUms, fullyLoadedCPUpct, domElements, domContentLoadedEventStart, domContentLoadedEventEnd, loadEventStart, loadEventEnd
+This mozperftest gets webpagetest to run pageload tests on Plezix against the 50 most popular websites and provide data. The full list of data returned from webpagetest: firstContentfulPaint, timeToContentfulPaint, visualComplete90, firstPaint, visualComplete99, visualComplete, SpeedIndex, bytesIn, bytesOut, TTFB, fullyLoadedCPUms, fullyLoadedCPUpct, domElements, domContentLoadedEventStart, domContentLoadedEventEnd, loadEventStart, loadEventEnd
 
 
 toolkit/components/ml/tests/browser

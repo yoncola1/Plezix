@@ -19,7 +19,7 @@ describe("UnsupportedBrowserItem component", () => {
     const item = shallow(
       BrowserItem({
         id: "firefox",
-        name: "Firefox",
+        name: "Plezix",
         version: "113",
         unsupportedVersions: [
           {

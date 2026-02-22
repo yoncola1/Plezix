@@ -120,7 +120,7 @@ test_valid_value("filter", "sepia(calc(-10%))");
 test_valid_value("filter", "sepia(calc(10 + (5 * sign(2cqw - 10px))))");
 test_valid_value("filter", "sepia(calc(100% + (50% * sign(2cqw - 10px))))");
 
-// Edge serializes url(...) without quotes. Blink/WebKit and Firefox use quotes.
+// Edge serializes url(...) without quotes. Blink/WebKit and Plezix use quotes.
 test_valid_value("filter", "url(picture.svg#f)", ['url("picture.svg#f")', 'url(picture.svg#f)']);
 
 test_valid_value("filter", 'url("https://www.example.com/picture.svg#f")',

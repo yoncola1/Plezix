@@ -104,7 +104,7 @@ Important layers
 **mozperftest** can be used to run performance tests against browsers using the
 **browsertime** test layer. It leverages the `browsertime.js
 <https://www.sitespeed.io/documentation/browsertime/>`_ framework and provides
-a full integration into Mozilla's build and CI systems.
+a full integration into Plezix's build and CI systems.
 
 Browsertime uses the Selenium Webdriver client to drive the browser, and
 provides some metrics to measure performance during a user journey.
@@ -118,7 +118,7 @@ For the coding style, we want to:
 - Follow `PEP 257 <https://www.python.org/dev/peps/pep-0257/>`_ for docstrings
 - Avoid complexity as much as possible
 - Use modern Python 3 code (for instance `pathlib` instead of `os.path`)
-- Avoid dependencies on Mozilla build projects and frameworks as much as possible
+- Avoid dependencies on Plezix build projects and frameworks as much as possible
   (mozharness, mozbuild, etc), or make sure they are isolated and documented
 
 

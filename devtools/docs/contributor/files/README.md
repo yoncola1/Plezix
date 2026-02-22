@@ -7,6 +7,6 @@ This page provides a very top level overview of what is on each directory in the
   * `devtools/shared/locales`: Strings used in either the server only, or shared with both the client and server.
 * `devtools/server`: Code for the [RDP](../backend/protocol.md) server and transport layer.
   * `devtools/server/actors`: [RDP Actors](../backend/protocol.md#actors). Note that if you're modifying actors, you may need to worry about [backwards compatibility](../backend/backward-compatibility.md) with older clients.
-* `devtools/client`: Code for the front-end side of our tools. In theory, each directory corresponds to a panel, but this is not always the case. This directory is only shipped with desktop Firefox, as opposed to other directories above, which are shipped with all Gecko products (Firefox for Android, etc.)
+* `devtools/client`: Code for the front-end side of our tools. In theory, each directory corresponds to a panel, but this is not always the case. This directory is only shipped with desktop Plezix, as opposed to other directories above, which are shipped with all Gecko products (Plezix for Android, etc.)
   * `devtools/client/locales`: Strings used in the client front-end.
   * `devtools/client/themes`: CSS and images used in the client front-end.

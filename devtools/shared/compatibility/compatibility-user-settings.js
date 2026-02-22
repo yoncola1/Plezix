@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ loader.lazyRequireGetter(
  *
  * @returns Promise<Array<Object>> : Objects in the array have the following shape:
  *          - {string} id: The browser id (e.g. `firefox`,`safari_ios`). Should be one of TARGET_BROWSER_ID
- *          - {string} name: The browser display name (e.g. `Firefox`,`Safari for IOS`, …)
+ *          - {string} name: The browser display name (e.g. `Plezix`,`Safari for IOS`, …)
  *          - {string} version: The browser version (e.g. `99`,`15.3`, `1.0.4`, …)
  *          - {string} status: The browser status (e.g. `current`,`beta`, …). Should be one of TARGET_BROWSER_STATUS
  */
@@ -76,7 +76,7 @@ async function getBrowsersList() {
  *
  * @returns Promise<Array<Object>> : Objects in the array have the following shape:
  *          - {string} id: The browser id (e.g. `firefox`,`safari_ios`). Should be one of TARGET_BROWSER_ID
- *          - {string} name: The browser display name (e.g. `Firefox`,`Safari for IOS`, …)
+ *          - {string} name: The browser display name (e.g. `Plezix`,`Safari for IOS`, …)
  *          - {string} version: The browser version (e.g. `99`,`15.3`, `1.0.4`, …)
  *          - {string} status: The browser status (e.g. `current`,`beta`, …). Should be one of TARGET_BROWSER_STATUS
  */

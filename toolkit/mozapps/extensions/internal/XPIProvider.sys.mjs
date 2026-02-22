@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1374,7 +1374,7 @@ class WinRegLocation extends XPIStateLocation {
 
     // XXX Thunderbird doesn't specify a vendor string
     if (appVendor == "" && AppConstants.MOZ_APP_NAME == "thunderbird") {
-      appVendor = "Mozilla";
+      appVendor = "Plezix";
     }
 
     return `SOFTWARE\\${appVendor}\\${appName}`;
@@ -2745,7 +2745,7 @@ export var XPIProvider = {
         lastTheme === "recommended-4" ||
         lastTheme === "recommended-5"
       ) {
-        // The user is using a theme that was once bundled with Firefox, but no longer
+        // The user is using a theme that was once bundled with Plezix, but no longer
         // is. Clear their theme so that they will be forced to reset to the default.
         this.startupPromises.push(
           AddonManagerPrivate.notifyAddonChanged(null, "theme")

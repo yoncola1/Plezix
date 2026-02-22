@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
 /**
- * This tests that MAR update network requests from a non-Firefox
+ * This tests that MAR update network requests from a non-Plezix
  * application DO NOT include extras -- headers and query parameters
  * -- identifying whether the request comes from a browsing profile or
  * a background task.
@@ -20,7 +20,7 @@ add_setup(async () => {
   downloadHeaders.startUpdateServer();
 });
 
-// Outside of Firefox, no headers are expected.
+// Outside of Plezix, no headers are expected.
 const expectedExtras = [
   { mode: null, name: null },
   { mode: null, name: null },

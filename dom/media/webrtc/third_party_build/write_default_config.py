@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import argparse
@@ -10,7 +10,7 @@ import lookup_branch_head
 
 text = """#!/bin/bash
 
-# Edit {path-to} to match the location of your copy of Mozilla's
+# Edit {path-to} to match the location of your copy of Plezix's
 # fork of libwebrtc (at https://github.com/mozilla/libwebrtc).
 export MOZ_LIBWEBRTC_SRC=$$STATE_DIR/moz-libwebrtc
 

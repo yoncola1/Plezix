@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -13,10 +13,10 @@ text-no-interventions = No interventions are being used
 text-page-title = Web Compatibility
 
 ## Do not translate "SmartBlock". For reference, SmartBlock is a feature
-## of Firefox anti-tracking which fixes website breakage caused when
+## of Plezix anti-tracking which fixes website breakage caused when
 ## trackers are blocked, by acting just enough like those trackers to fix the
 ## breakage. SmartBlock also contains special fixes for sites broken by
-## Firefox's Total Cookie Protection feature.
+## Plezix's Total Cookie Protection feature.
 
 label-smartblock = SmartBlock Fixes
 text-no-smartblock = No SmartBlock fixes are being used

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -153,7 +153,7 @@ class DefaultBrowserToolbarControllerTest {
 
     @Test
     fun handleBrowserToolbarPaste() {
-        val pastedText = "Mozilla"
+        val pastedText = "Plezix"
         val controller = createController()
         controller.handleToolbarPaste(pastedText)
 
@@ -167,7 +167,7 @@ class DefaultBrowserToolbarControllerTest {
 
     @Test
     fun handleBrowserToolbarPaste_useNewSearchExperience() {
-        val pastedText = "Mozilla"
+        val pastedText = "Plezix"
         val controller = createController()
         controller.handleToolbarPaste(pastedText)
 
@@ -181,7 +181,7 @@ class DefaultBrowserToolbarControllerTest {
 
     @Test
     fun handleBrowserToolbarPasteAndGoSearch() {
-        val pastedText = "Mozilla"
+        val pastedText = "Plezix"
 
         val controller = createController()
         controller.handleToolbarPasteAndGo(pastedText)

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ import org.mozilla.fenix.GleanMetrics.CookieBanners
 import org.mozilla.fenix.R
 import org.mozilla.fenix.browser.tabstrip.isTabStripEnabled
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.Settings
 
 /**
@@ -164,7 +164,7 @@ class BrowserToolbarCFRPresenter(
                 CookieBanners.cfrDismissal.record(NoExtras())
             },
             text = {
-                FirefoxTheme {
+                PlezixTheme {
                     Column {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -172,7 +172,7 @@ class BrowserToolbarCFRPresenter(
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_cookies_disabled),
                                 contentDescription = null,
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
@@ -180,14 +180,14 @@ class BrowserToolbarCFRPresenter(
                                     R.string.cookie_banner_cfr_title,
                                     context.getString(R.string.firefox),
                                 ),
-                                color = FirefoxTheme.colors.textOnColorPrimary,
-                                style = FirefoxTheme.typography.subtitle2,
+                                color = PlezixTheme.colors.textOnColorPrimary,
+                                style = PlezixTheme.typography.subtitle2,
                             )
                         }
                         Text(
                             text = context.getString(R.string.cookie_banner_cfr_message),
-                            color = FirefoxTheme.colors.textOnColorPrimary,
-                            style = FirefoxTheme.typography.body2,
+                            color = PlezixTheme.colors.textOnColorPrimary,
+                            style = PlezixTheme.typography.body2,
                             modifier = Modifier.padding(top = 2.dp),
                         )
                     }
@@ -226,12 +226,12 @@ class BrowserToolbarCFRPresenter(
                 popup = null
             },
             text = {
-                FirefoxTheme {
+                PlezixTheme {
                     Column {
                         Text(
                             text = context.getString(R.string.address_bar_swipe_cfr_message_2),
-                            color = FirefoxTheme.colors.textOnColorPrimary,
-                            style = FirefoxTheme.typography.body2,
+                            color = PlezixTheme.colors.textOnColorPrimary,
+                            style = PlezixTheme.typography.body2,
                             modifier = Modifier.padding(top = 2.dp),
                         )
                     }

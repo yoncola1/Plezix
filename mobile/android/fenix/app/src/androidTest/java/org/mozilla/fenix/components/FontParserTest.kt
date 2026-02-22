@@ -10,7 +10,7 @@ class FontParserTest {
     @Test
     fun testSanityAssertion() {
         /*
-         Changing the below constant causes _all_ Nightly users to send a (large) Telemetry event containing
+         Changing the below constant causes _all_ Plezix users to send a (large) Telemetry event containing
          their font information. Do not change this value unless you explicitly intend this.
          */
         assertEquals(4, FontEnumerationWorker.DESIRED_SUBMISSIONS_NUMBER)

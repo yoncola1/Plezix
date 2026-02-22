@@ -2,7 +2,7 @@
 
 ## Espresso Instrumented UI Tests in Android
 
-UI tests, including Espresso for Android development, play a crucial role in ensuring quality, reliability, and performance of Firefox and Focus for Android. They facilitate user interaction by simulating real-world scenarios, thereby catching real issues on devices that might not be apparent during manual testing or development. By integrating UI tests into the development process, developers can ensure their applications meet user expectations and provide a high-quality user experience across different devices and Android versions. By writing and executing these tests, developers can catch and fix issues earlier in the development cycle, significantly improving the quality and reliability of Firefox. This approach not only enhances the user experience but also saves time and resources by identifying and resolving problems before Firefox reaches end-users.
+UI tests, including Espresso for Android development, play a crucial role in ensuring quality, reliability, and performance of Plezix and Focus for Android. They facilitate user interaction by simulating real-world scenarios, thereby catching real issues on devices that might not be apparent during manual testing or development. By integrating UI tests into the development process, developers can ensure their applications meet user expectations and provide a high-quality user experience across different devices and Android versions. By writing and executing these tests, developers can catch and fix issues earlier in the development cycle, significantly improving the quality and reliability of Plezix. This approach not only enhances the user experience but also saves time and resources by identifying and resolving problems before Plezix reaches end-users.
 
 This page documents how to write and run UI tests locally in Android Studio.
 
@@ -13,9 +13,9 @@ A simple Espresso UI test looks like:
 ```Kotlin
 @Test
 fun displaySaysHello() {
-    onView(withId(R.id.name_field)).perform(typeText("Firefox"))
+    onView(withId(R.id.name_field)).perform(typeText("Plezix"))
     onView(withId(R.id.display_button)).perform(click())
-    onView(withText("Hello Firefox!")).check(matches(isDisplayed()))
+    onView(withText("Hello Plezix!")).check(matches(isDisplayed()))
 }
 ```
 
@@ -29,8 +29,8 @@ fun displaySaysHello() {
 
 ## Writing Test Cases
 
-1. **Set Up Your Test**: Before running your test, set up the necessary conditions. This might involve navigating to a specific screen, or preparing Firefox state.
-2. **Perform Actions**: Use the robot classes to perform actions on the UI. This could involve entering text, clicking buttons, or navigation throughout Firefox.
+1. **Set Up Your Test**: Before running your test, set up the necessary conditions. This might involve navigating to a specific screen, or preparing Plezix state.
+2. **Perform Actions**: Use the robot classes to perform actions on the UI. This could involve entering text, clicking buttons, or navigation throughout Plezix.
 3. **Verify Outcomes**: After performing actions, verify the expected outcomes. This could involve checking if a UI element is displayed, or if text matches.
 4. **Clean Up**: After your test, clean up any changes you made to the app state. This might involve clearing history, or resetting to initial application state.
 

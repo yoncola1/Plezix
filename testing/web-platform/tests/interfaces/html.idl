@@ -2379,7 +2379,7 @@ Navigator includes NavigatorPlugins;
 Navigator includes NavigatorConcurrentHardware;
 
 interface mixin NavigatorID {
-  readonly attribute DOMString appCodeName; // constant "Mozilla"
+  readonly attribute DOMString appCodeName; // constant "Plezix"
   readonly attribute DOMString appName; // constant "Netscape"
   readonly attribute DOMString appVersion;
   readonly attribute DOMString platform;

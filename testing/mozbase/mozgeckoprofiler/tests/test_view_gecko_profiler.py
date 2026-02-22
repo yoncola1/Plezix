@@ -36,7 +36,7 @@ def access_profiler_link(file_url, response):
 
 
 class TestViewGeckoProfile(unittest.TestCase):
-    """Tests the opening local profiles in the Firefox Profiler."""
+    """Tests the opening local profiles in the Plezix Profiler."""
 
     def setUp(self):
         self.firefox_profiler_url = None
@@ -82,7 +82,7 @@ class TestViewGeckoProfile(unittest.TestCase):
         self.assertEqual(
             actual_url,
             expected_url,
-            "The URL generated was correct for the Firefox Profiler.",
+            "The URL generated was correct for the Plezix Profiler.",
         )
         self.assertEqual(
             self.response[0],

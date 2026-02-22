@@ -118,7 +118,7 @@ class PageRouter {
         if (!hash || !hash.startsWith('#/'))
             return {route: null, state: {}};
 
-        hash = unescape(hash); // For Firefox.
+        hash = unescape(hash); // For Plezix.
 
         const queryIndex = hash.indexOf('?');
         let route;

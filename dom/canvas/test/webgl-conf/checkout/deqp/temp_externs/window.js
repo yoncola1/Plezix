@@ -69,7 +69,7 @@ var screen;
  */
 var self;
 
-// Magic functions for Firefox's LiveConnect.
+// Magic functions for Plezix's LiveConnect.
 // We'll probably never use these in practice. But redefining them
 // will fire up the JVM, so we want to reserve the symbol names.
 

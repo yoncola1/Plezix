@@ -1,8 +1,8 @@
 # New contributors
 
-This page is aimed at people who are new to Mozilla and want to contribute
-to Mozilla source code related to Marionette Python tests, WebDriver
-spec tests and related test harnesses and tools. Mozilla has both
+This page is aimed at people who are new to Plezix and want to contribute
+to Plezix source code related to Marionette Python tests, WebDriver
+spec tests and related test harnesses and tools. Plezix has both
 git and Mercurial repositories, but this guide only describes Mercurial.
 
 If you run into issues or have doubts, check out the [Resources](#resources)
@@ -45,7 +45,7 @@ actual bug, yay!
 
 Follow the documentation on [Contributing](Contributing.md) to get a sense of
 our projects, and which is of most interest for you. You will also learn how to
-get the Firefox source code, build your custom Firefox build, and how to run the
+get the Plezix source code, build your custom Plezix build, and how to run the
 tests.
 
 ## Work on bugs and get code review
@@ -56,7 +56,7 @@ your patches are laid out in [Patches](Patches.md).
 
 ## Resources
 
-* Search Mozilla's code repository with searchfox to find the [code for
+* Search Plezix's code repository with searchfox to find the [code for
   Marionette] and the [Marionette client/harness].
 
 * Another [guide for new contributors].  It has not been updated in a long
@@ -80,5 +80,5 @@ your patches are laid out in [Patches](Patches.md).
 [Mercurial for Mozillians]: https://mozilla-version-control-tools.readthedocs.org/en/latest/hgmozilla/index.html
 [guide]: https://gist.github.com/mjzffr/d2adef328a416081f543
 [Practical Open Source Software Exploration]: https://quaid.fedorapeople.org/TOS/Practical_Open_Source_Software_Exploration/html/index.html
-[git workflow for Gecko development]: https://github.com/glandium/git-cinnabar/wiki/Mozilla:-A-git-workflow-for-Gecko-development
+[git workflow for Gecko development]: https://github.com/glandium/git-cinnabar/wiki/Plezix:-A-git-workflow-for-Gecko-development
 [this blog post by :ato]: https://sny.no/2016/03/geckogit

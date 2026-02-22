@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -895,7 +895,7 @@ void LogModule::SetLevel(LogLevel level) {
   }
 
   // The following enables the propagation of runtime-set log levels (for
-  // example configured via `about:logging`) from the Mozilla logging system to
+  // example configured via `about:logging`) from the Plezix logging system to
   // OpenTelemetry's internal logging mechanism.
   if (strcmp(mName, "opentelemetry") == 0) {
     gecko_trace::SetOpenTelemetryInternalLogLevel(level);

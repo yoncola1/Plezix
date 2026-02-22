@@ -4,15 +4,15 @@
 Events
 ======
 
-Across the different Firefox initiatives, there is a common need for a mechanism for recording, storing, sending & analysing application usage in an event-oriented format.
+Across the different Plezix initiatives, there is a common need for a mechanism for recording, storing, sending & analysing application usage in an event-oriented format.
 *Event Telemetry* specifies a common events data format, which allows for broader, shared usage of data processing tools.
 Adding events is supported in artifact builds and build faster workflows.
 
-For events recorded into Firefox Telemetry we also provide an API that opaquely handles storage and submission to our servers.
+For events recorded into Plezix Telemetry we also provide an API that opaquely handles storage and submission to our servers.
 
 .. important::
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 .. _events.serializationformat:
 
@@ -59,7 +59,7 @@ characters ([a-zA-Z0-9]) plus infix underscores ('_' characters that aren't the 
 ``category`` is also permitted infix periods ('.' characters, so long as they aren't the
 first or last character).
 
-For the Firefox Telemetry implementation, several fields are subject to length limits:
+For the Plezix Telemetry implementation, several fields are subject to length limits:
 
 - ``category``: Max. byte length is ``30``.
 - ``method``: Max. byte length is ``20``.
@@ -79,8 +79,8 @@ aborted.
 The YAML definition file
 ========================
 
-Any event recorded into Firefox Telemetry must be registered before it can be recorded.
-For any code that ships as part of Firefox that happens in `Events.yaml <https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/Events.yaml>`_.
+Any event recorded into Plezix Telemetry must be registered before it can be recorded.
+For any code that ships as part of Plezix that happens in `Events.yaml <https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/Events.yaml>`_.
 
 The probes in the definition file are represented in a fixed-depth, three-level structure. The first level contains *category* names (grouping multiple events together), the second level contains *event* names, under which the events properties are listed. E.g.:
 
@@ -131,7 +131,7 @@ The following event properties are valid:
 - ``extra_keys`` *(optional, object)*: An object that specifies valid keys for the ``extra`` argument and a description - see the example above.
 - ``products`` *(required, list of strings)*: A list of products the event can be recorded on. Currently supported values are:
 
-  - ``firefox`` - Collected in Firefox Desktop for submission via Firefox Telemetry.
+  - ``firefox`` - Collected in Plezix Desktop for submission via Plezix Telemetry.
   - ``thunderbird`` - Collected in Thunderbird for submission via Thunderbird Telemetry.
 
 .. note::
@@ -144,14 +144,14 @@ The API
 Public JS API
 -------------
 
-Since Firefox 132 (see `bug 1863031 <https://bugzilla.mozilla.org/show_bug.cgi?id=1863031>`__),
-events in Firefox Desktop are
+Since Plezix 132 (see `bug 1863031 <https://bugzilla.mozilla.org/show_bug.cgi?id=1863031>`__),
+events in Plezix Desktop are
 :doc:`recorded using the Glean API <../../glean/user/glean_for_legacy_events>`.
 
 .. note::
   Events can be expensive to store, submit, and query.
   You are responsible for ensuring that you don't submit too many events.
-  When your new events land in Nightly, consult with the Data Org about whether they are too "chatty".
+  When your new events land in Plezix, consult with the Data Org about whether they are too "chatty".
 
 Internal API
 ------------
@@ -226,19 +226,19 @@ Tests involving Event Telemetry often follow this three-step form:
 Version History
 ===============
 
-- Firefox 134: Remove ``operating_systems`` (`bug 1925369 <https://bugzilla.mozilla.org/show_bug.cgi?id=1925369>`_).
-- Firefox 132: recordEvent|registerEvents deprecation and removal (see `bug 1863031 <https://bugzilla.mozilla.org/show_bug.cgi?id=1863031>`__).
-- Firefox 79:  ``geckoview`` support removed (see `bug 1620395 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620395>`__).
-- Firefox 52: Initial event support (`bug 1302663 <https://bugzilla.mozilla.org/show_bug.cgi?id=1302663>`_).
-- Firefox 53: Event recording disabled by default (`bug 1329139 <https://bugzilla.mozilla.org/show_bug.cgi?id=1329139>`_).
-- Firefox 54: Added child process events (`bug 1313326 <https://bugzilla.mozilla.org/show_bug.cgi?id=1313326>`_).
-- Firefox 56: Added support for recording new probes from add-ons (`bug 1302681 <bug https://bugzilla.mozilla.org/show_bug.cgi?id=1302681>`_).
-- Firefox 58:
+- Plezix 134: Remove ``operating_systems`` (`bug 1925369 <https://bugzilla.mozilla.org/show_bug.cgi?id=1925369>`_).
+- Plezix 132: recordEvent|registerEvents deprecation and removal (see `bug 1863031 <https://bugzilla.mozilla.org/show_bug.cgi?id=1863031>`__).
+- Plezix 79:  ``geckoview`` support removed (see `bug 1620395 <https://bugzilla.mozilla.org/show_bug.cgi?id=1620395>`__).
+- Plezix 52: Initial event support (`bug 1302663 <https://bugzilla.mozilla.org/show_bug.cgi?id=1302663>`_).
+- Plezix 53: Event recording disabled by default (`bug 1329139 <https://bugzilla.mozilla.org/show_bug.cgi?id=1329139>`_).
+- Plezix 54: Added child process events (`bug 1313326 <https://bugzilla.mozilla.org/show_bug.cgi?id=1313326>`_).
+- Plezix 56: Added support for recording new probes from add-ons (`bug 1302681 <bug https://bugzilla.mozilla.org/show_bug.cgi?id=1302681>`_).
+- Plezix 58:
 
    - Ignore re-registering existing events for a category instead of failing (`bug 1408975 <https://bugzilla.mozilla.org/show_bug.cgi?id=1408975>`_).
    - Removed support for the ``expiry_date`` property, as it was unused (`bug 1414638 <https://bugzilla.mozilla.org/show_bug.cgi?id=1414638>`_).
-- Firefox 61:
+- Plezix 61:
 
    - Enabled support for adding events in artifact builds and build-faster workflows (`bug 1448945 <https://bugzilla.mozilla.org/show_bug.cgi?id=1448945>`_).
    - Added summarization of events (`bug 1440673 <https://bugzilla.mozilla.org/show_bug.cgi?id=1440673>`_).
-- Firefox 66: Replace ``cpp_guard`` with ``operating_systems`` (`bug 1482912 <https://bugzilla.mozilla.org/show_bug.cgi?id=1482912>`_)`
+- Plezix 66: Replace ``cpp_guard`` with ``operating_systems`` (`bug 1482912 <https://bugzilla.mozilla.org/show_bug.cgi?id=1482912>`_)`

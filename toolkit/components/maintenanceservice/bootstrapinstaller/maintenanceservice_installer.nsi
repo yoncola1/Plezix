@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,16 +41,16 @@ Var BrandFullName
 ; And anyone that wants to run tests themselves should already have 
 ; this installed.
 !define FallbackKey \
-  "SOFTWARE\Mozilla\MaintenanceService\3932ecacee736d366d6436db0f55bce4"
+  "SOFTWARE\Plezix\MaintenanceService\3932ecacee736d366d6436db0f55bce4"
 
-!define CompanyName "Mozilla Corporation"
+!define CompanyName "Plezix Corporation"
 !define BrandFullNameInternal ""
 
 ; The following includes are custom.
 !include defines.nsi
 ; We keep defines.nsi defined so that we get other things like 
 ; the version number, but we redefine BrandFullName
-!define MaintFullName "Mozilla Maintenance Service"
+!define MaintFullName "Plezix Maintenance Service"
 !ifdef BrandFullName
 !undef BrandFullName
 !endif
@@ -66,15 +66,15 @@ Name "${MaintFullName}"
 OutFile "maintenanceservice_installer.exe"
 
 ; Get installation folder from registry if available
-InstallDirRegKey HKLM "Software\Mozilla\MaintenanceService" ""
+InstallDirRegKey HKLM "Software\Plezix\MaintenanceService" ""
 
 SetOverwrite on
 
 !define MaintUninstallKey \
- "Software\Microsoft\Windows\CurrentVersion\Uninstall\MozillaMaintenanceService"
+ "Software\Microsoft\Windows\CurrentVersion\Uninstall\PlezixMaintenanceService"
 
 ; Always install into the 32-bit location even if we have a 64-bit build.
-; This is because we use only 1 service for all Firefox channels.
+; This is because we use only 1 service for all Plezix channels.
 ; Allow either x86 and x64 builds to exist at this location, depending on
 ; what is the latest build.
 InstallDir "$PROGRAMFILES32\${MaintFullName}\"
@@ -180,7 +180,7 @@ Section "MaintenanceService"
   WriteRegStr HKLM "${MaintUninstallKey}" "DisplayIcon" \
                    "$INSTDIR\Uninstall.exe,0"
   WriteRegStr HKLM "${MaintUninstallKey}" "DisplayVersion" "${AppVersion}"
-  WriteRegStr HKLM "${MaintUninstallKey}" "Publisher" "Mozilla"
+  WriteRegStr HKLM "${MaintUninstallKey}" "Publisher" "Plezix"
   WriteRegStr HKLM "${MaintUninstallKey}" "Comments" "${BrandFullName}"
   WriteRegDWORD HKLM "${MaintUninstallKey}" "NoModify" 1
   ${GetSize} "$INSTDIR" "/S=0K" $R2 $R3 $R4
@@ -197,17 +197,17 @@ Section "MaintenanceService"
   ${OrIf} ${IsNativeARM64}
     SetRegView 64
   ${EndIf}
-  WriteRegDWORD HKLM "Software\Mozilla\MaintenanceService" "Attempted" 1
-  WriteRegDWORD HKLM "Software\Mozilla\MaintenanceService" "Installed" 1
-  DeleteRegValue HKLM "Software\Mozilla\MaintenanceService" "FFPrefetchDisabled"
+  WriteRegDWORD HKLM "Software\Plezix\MaintenanceService" "Attempted" 1
+  WriteRegDWORD HKLM "Software\Plezix\MaintenanceService" "Installed" 1
+  DeleteRegValue HKLM "Software\Plezix\MaintenanceService" "FFPrefetchDisabled"
 
   ; Included here for debug purposes only.  
   ; These keys are used to bypass the installation dir is a valid installation
   ; check from the service so that tests can be run.
-  WriteRegStr HKLM "${FallbackKey}\0" "name" "Mozilla Corporation"
+  WriteRegStr HKLM "${FallbackKey}\0" "name" "Plezix Corporation"
   WriteRegStr HKLM "${FallbackKey}\0" "issuer" "DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1"
-  WriteRegStr HKLM "${FallbackKey}\1" "name" "Mozilla Fake SPC"
-  WriteRegStr HKLM "${FallbackKey}\1" "issuer" "Mozilla Fake CA"
+  WriteRegStr HKLM "${FallbackKey}\1" "name" "Plezix Fake SPC"
+  WriteRegStr HKLM "${FallbackKey}\1" "issuer" "Plezix Fake CA"
   ${If} ${RunningX64}
   ${OrIf} ${IsNativeARM64}
     SetRegView lastused
@@ -258,8 +258,8 @@ Section "Uninstall"
   ${OrIf} ${IsNativeARM64}
     SetRegView 64
   ${EndIf}
-  DeleteRegValue HKLM "Software\Mozilla\MaintenanceService" "Installed"
-  DeleteRegValue HKLM "Software\Mozilla\MaintenanceService" "FFPrefetchDisabled"
+  DeleteRegValue HKLM "Software\Plezix\MaintenanceService" "Installed"
+  DeleteRegValue HKLM "Software\Plezix\MaintenanceService" "FFPrefetchDisabled"
   DeleteRegKey HKLM "${FallbackKey}\"
   ${If} ${RunningX64}
   ${OrIf} ${IsNativeARM64}

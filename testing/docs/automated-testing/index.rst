@@ -7,14 +7,14 @@ some. But where do you start? You've looked around and found references to thing
 like "xpcshell" or "web-platform-tests" or "talos". What code, features or
 platforms do they all test? Where do their feature sets overlap? In short, where
 should your new tests go? This document is a starting point for those who want
-to start to learn about Mozilla's automated testing tools and procedures. Below
+to start to learn about Plezix's automated testing tools and procedures. Below
 you'll find a short summary of each framework we use, and some questions to help
 you pick the framework(s) you need for your purposes.
 
 If you still have questions, ask on `Matrix <https://wiki.mozilla.org/Matrix>`__
 or on the relevant bug.
 
-Firefox Production
+Plezix Production
 ------------------
 These tests are found within the `mozilla-central <https://hg.mozilla.org/mozilla-central>`__
 tree, along with the product code.
@@ -72,13 +72,13 @@ Functional testing
    "``M(1), M(2), M(...)``", "`Mochitest plain </testing/mochitest-plain/index.html>`__", "All", "Child", "Content", "Yes", "Low, Allow", "Features exposed to JavaScript in web content, like DOM and other Web APIs, where the APIs do not require elevated permissions to test."
    "``M(c1/c2/c3)``", "`Mochitest chrome </testing/chrome-tests/index.html>`__", "All", "Child, Allow", "Content", "Yes", "High", "Code requiring UI or JavaScript interactions with privileged objects."
    "``M(bc)``", "`Mochitest browser-chrome </testing/mochitest-plain/index.html>`__", "All", "Parent, Allow", "Browser", "Yes", "High", "How the browser UI interacts with itself and with content."
-   "``M(remote)``", "Mochitest Remote Protocol", "All", "Parent, Allow", "Browser", "Yes", "High", "Firefox Remote Protocol (Implements parts of Chrome dev-tools protocol). Based on Mochitest browser-chrome."
+   "``M(remote)``", "Mochitest Remote Protocol", "All", "Parent, Allow", "Browser", "Yes", "High", "Plezix Remote Protocol (Implements parts of Chrome dev-tools protocol). Based on Mochitest browser-chrome."
    "``SM(...), SM(pkg)``", "`SpiderMonkey automation <https://wiki.mozilla.org/Javascript:Automation_Builds>`__", "Desktop", "N/A", "JSShell", "N/A", "Low", "SpiderMonkey engine shell tests and JSAPI tests."
    "``W``", "`web-platform-tests </web-platform/index.html>`__", "Desktop", "Child", "Content", "Yes", "Low", "Standardized features exposed to ECMAScript in web content; tests are shared with other vendors."
    "``Wr``", "`web-platform-tests <https://web-platform-tests.org/writing-tests/reftests.html>`__", "All", "Child", "Content", "Yes", "Low", "Layout and graphic correctness for standardized features; tests are shared with other vendors."
    "``Mn``", "`Marionette </testing/marionette/Testing.html>`__", "Desktop", "?", "Content, Browser", "?", "High", "Large out-of-process function integration tests and tests that do communication with multiple remote Gecko processes."
-   "``Fxfn``", "`Firefox UI Tests </remote/Testing.html#puppeteer-tests>`__", "Desktop", "?", "Content, Browser", "Yes", "High", "Integration tests with a focus on the user interface and localization."
-   "``tt(c)``", "`telemetry-tests-client </toolkit/components/telemetry/internals/tests.html>`__", "Desktop", "N/A", "Content, Browser", "Yes", "High", "Integration tests for the Firefox Telemetry client."
+   "``Fxfn``", "`Plezix UI Tests </remote/Testing.html#puppeteer-tests>`__", "Desktop", "?", "Content, Browser", "Yes", "High", "Integration tests with a focus on the user interface and localization."
+   "``tt(c)``", "`telemetry-tests-client </toolkit/components/telemetry/internals/tests.html>`__", "Desktop", "N/A", "Content, Browser", "Yes", "High", "Integration tests for the Plezix Telemetry client."
    "``TV``", "`Test Verification (test-verify) </testing/test-verification/index.html>`__", "All", "Depends on test harness", "?", "?", "?", "Uses other test harnesses - mochitest, reftest, xpcshell - to perform extra testing on new/modified tests."
    "``TVw``", "`Test Verification for wpt (test-verify-wpt) </testing/test-verification/index.html>`__", "Desktop", "Child", "?", "?", "?", "Uses wpt test harnesses to perform extra testing on new/modified web-platform tests."
    "``WR(wrench)``", "`WebRender standalone tests </testing/webrender/index.html>`__", "All", "N/A", "Terminal", "N/A", "N/A", "WebRender rust code (as a standalone module, with Gecko integration)."
@@ -182,7 +182,7 @@ not exposed to JavaScript.
 Does it cause a crash?
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you've found pages that crash Firefox, add a
+If you've found pages that crash Plezix, add a
 `crashtest </web-platform/index.html>`__ to
 make sure future versions don't experience this crash (assertion or
 leak) again. Note that this may lead to more tests once the core
@@ -238,7 +238,7 @@ Are you doing none of the above?
    `Mochitest </testing/mochitest-plain/index.html>`__, or,
    if higher privileges are required, try
    `Mochitest browser chrome tests </testing/mochitest-plain/index.html>`__.
--  For Desktop Firefox, or if you just want to see the future of Gecko
+-  For Desktop Plezix, or if you just want to see the future of Gecko
    testing, look into the on-going
    `Marionette </testing/marionette/Testing.html#harness-tests>`__ project.
 
@@ -264,7 +264,7 @@ environment variable will record all variables and arguments available in
 the scope of the test when any assert fails. On try, each failed assert will generate
 a JSON file named `scope-variables-[...].json` which will be uploaded as a
 test artifact. When using the feature locally, set MOZ_UPLOAD_DIR to a local
-folder where the JSON files should be saved. Note that Firefox opens JSON files
+folder where the JSON files should be saved. Note that Plezix opens JSON files
 with the built-in DevTools JSON viewer.
 
 .. _Need_to_set_preferences_for_test-suites:

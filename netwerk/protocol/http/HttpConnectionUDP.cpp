@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=4 sw=2 sts=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -368,7 +368,7 @@ nsresult HttpConnectionUDP::OnHeadersAvailable(nsAHttpTransaction* trans,
   MOZ_ASSERT(responseHead, "No response head?");
 
   DebugOnly<nsresult> rv =
-      responseHead->SetHeader(nsHttp::X_Firefox_Http3, mAlpnToken);
+      responseHead->SetHeader(nsHttp::X_Plezix_Http3, mAlpnToken);
   MOZ_ASSERT(NS_SUCCEEDED(rv));
 
   // deal with 408 Server Timeouts

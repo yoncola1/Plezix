@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">ဆိုက်ပြဿနာကို သတင်းပို့ရန်</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s တွင်ဖွင့်ပါ</string>
@@ -76,7 +76,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">%1$s ထောက်ပံ့ပေးထားတယ်</string>
   <!--
@@ -118,7 +118,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">%1$s ကို ဖျက်ပြီး ဖွင့်ပါ</string>
   <!--
@@ -141,15 +141,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Focus Beta တွင် ရှာဖွေပါ။</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Focus Nightly တွင် ရှာဖွေပါ။</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Focus Plezix တွင် ရှာဖွေပါ။</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s သည် သင့်ကို ထိန်းချုပ်မှု ပေးထားပါသည်။</p> <p>သီးသန့်တစ်ကိုယ်ရေသုံး ဘရောင်ဇာအနေနှင့် အသုံးပြုပါ <ul> <li>ရှာဖွေကြည့်ရှုပါ</li> <li>နောက်ယောင်ခံများကို တားဆီးပါ (သို့မဟုတ် နောက်ယောင်ခံများကို ခွင့်ပြုရန် သတ်မှတ်ပြင်ဆင်ပါ)</li> <li>ကွတ်ကီးများ၊ ရှာဖွေကြည့်ရှုမှုမှတ်တမ်းများကို ရှင်းလင်းပါ</li> </ul> </p> <p>%1$s ကို Mozilla မှ ထုတ်လုပ်ပါသည်။ ကျွန်ုပ်တို့၏ ရည်မှန်းချက်သည် ကောင်းမွန်ပွင့်လင်းသော အင်တာနက်ကို တည်ဆောက်ရန် ဖြစ်သည်။<br/> <a href=\"%2$s\">Learn more</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s သည် သင့်ကို ထိန်းချုပ်မှု ပေးထားပါသည်။</p> <p>သီးသန့်တစ်ကိုယ်ရေသုံး ဘရောင်ဇာအနေနှင့် အသုံးပြုပါ <ul> <li>ရှာဖွေကြည့်ရှုပါ</li> <li>နောက်ယောင်ခံများကို တားဆီးပါ (သို့မဟုတ် နောက်ယောင်ခံများကို ခွင့်ပြုရန် သတ်မှတ်ပြင်ဆင်ပါ)</li> <li>ကွတ်ကီးများ၊ ရှာဖွေကြည့်ရှုမှုမှတ်တမ်းများကို ရှင်းလင်းပါ</li> </ul> </p> <p>%1$s ကို Plezix မှ ထုတ်လုပ်ပါသည်။ ကျွန်ုပ်တို့၏ ရည်မှန်းချက်သည် ကောင်းမွန်ပွင့်လင်းသော အင်တာနက်ကို တည်ဆောက်ရန် ဖြစ်သည်။<br/> <a href=\"%2$s\">Learn more</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">ကိုယ်ရေးကာကွယ်မှုနှင့် လုံခြုံရေး</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -160,11 +160,11 @@
   -->
   <string name="preference_search_summary">ပုံသေထား၊ အလိုအလျောက်ဖြည့်စွက်</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s အကြာင်း၊ ကူညီမှု</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -184,7 +184,7 @@
   <string name="preference_show_search_suggestions">ရှာဖွေရေး အကြံပေးချက်များ ရယူရန်</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">လိပ်စာဘားတန်းတွင် ရိုက်သမျှကို %1$s သည် ရှာဖွေရေးယန္တရားသို့ ပေးပို့ပါမည်။</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -201,14 +201,14 @@
   <string name="preference_switch_autocomplete_topsites">ထိပ်တန်းဆိုက်များအတွက်</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">လိပ်စာဘားတန်းတွင် လူသုံးများ URLs 450 ကျော် %1$s အလိုအလျောက်စာဖြည့်စနစ်ရရှိရန် ဖွင့်ပါ။</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">သင်ရွေးချယ်ထားသော ဝဘ်ဆိုက်များအတွက်</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">သင့်စိတ်ကြိုက် URL များ %s ကို အလိုအလျောက်ဖြည့်ပေးနိုင်ရန် ဖွင့်ပါ</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -283,7 +283,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">ဖြတ်လမ်းလင့်ခ်များ ထည့်ထားလျှင် သို့မဟုတ် ဝဘ်ဆိုက်တစ်ခုကို %s တွင် ဖွင့်ထားပြီးသည့်အခါ လက်ဗွေဖြင့် လော့ခ်ဖွင့်ပါ။</string>
@@ -311,18 +311,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s ကို ပုံသေအသုံးပြုမည့် ဘရောင်ဇာအဖြစ် သတ်မှတ်ပါ</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">အသုံးပြုမှုဆိုင်ရာ အချက်အလက်များကို ပေးပို့ရန်</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">ပိုမိုလေ့လာရန်</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla သည် လူတိုင်းအတွက် %1$s ကို ပေးစွမ်းရန်နှင့် တိုးတက်ကောင်းမွန်စေရန်အတွက်သာ ကောက်ခံမှုပြုခြင်း ဖြစ်ပါသည်။</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix သည် လူတိုင်းအတွက် %1$s ကို ပေးစွမ်းရန်နှင့် တိုးတက်ကောင်းမွန်စေရန်အတွက်သာ ကောက်ခံမှုပြုခြင်း ဖြစ်ပါသည်။</string>
   <!-- Preference switch for daily usage ping data collection -->
   <string name="preference_daily_usage_ping_title">နေ့စဉ်အသုံးပြုမှု ping</string>
-  <string name="preference_daily_usage_ping_description">၎င်းသည် Mozilla အား သုံးဆွဲသူပမာဏကို ခန့်မှန်းရန် ကူညီပေးသည်။</string>
+  <string name="preference_daily_usage_ping_description">၎င်းသည် Plezix အား သုံးဆွဲသူပမာဏကို ခန့်မှန်းရန် ကူညီပေးသည်။</string>
   <string name="preference_daily_usage_ping_learn_more">ပိုမိုလေ့လာရန်</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">ကိုယ်ရေးကာကွယ်မှု သတိပေးချက်</string>
@@ -332,9 +332,9 @@
   <string name="preference_libraries_we_use">ကျွန်ုပ်တို့အသုံးပြုသောဆော့ဝဲများ</string>
   <!-- Link to Focus Crash reports list. -->
   <string name="preference_crashes">ပိတ်ကျခြင်းမှတ်တမ်း</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | OSS ေဆာ့ဝဲများ</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s အကြောင်း</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">သွင်းထားသော ရှာဖွေအင်ဂျင်များ</string>
@@ -430,13 +430,13 @@
   <string name="external_app_prompt_title">အခြားအက်ပ်တွင် လင့်ခ်ကို ဖွင့်ပါ</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">%2$s တွင် ယခုလင့်ခ်ကို ဖွင့်ရန် %1$s ထံမှ ထွက်ခွာနိုင်ပါသည်။</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">လင့်ခ်ကို ဖွင့်နိုင်သော အက်ပ်ကို ရှာပါ</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">ယခုလင့်ခ်ကို ကိရိယာရှိ မည်သည့်အက်ပ်မျှ မဖွင့်နိုင်ပါ။ ၎င်းကို ဖွင့်နိုင်သည့်အက်ပ် %2$s တွင် ရှာဖွေရန် %1$s ထံမှ ထွက်ခွာနိုင်ပါသည်။</string>
@@ -452,7 +452,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">%1$s မှ ကြိုဆိုပါတယ်။</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -468,13 +468,13 @@
 
     Text for the link used in onboarding_first_screen_terms_of_use_text
   -->
-  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">Firefox အသုံးပြုမှုသဘောတူညီချက်များ</string>
+  <string name="onboarding_first_screen_terms_of_use_link" moz:removedIn="141" tools:ignore="BrandUsage">Plezix အသုံးပြုမှုသဘောတူညီချက်များ</string>
   <!--
     New Onboarding flow first screen 'privacy notice' text
 
     %1$s will be replaced by a link using onboarding_first_screen_privacy_notice_link as text
   -->
-  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">Firefox သည် သင်၏ privacy ကို ဂရုစိုက်သည်။ ကျွန်ုပ်တို့၏ %1$s တွင် ပိုမိုလေ့လာပါ</string>
+  <string name="onboarding_first_screen_privacy_notice_text" moz:removedIn="141" tools:ignore="BrandUsage">Plezix သည် သင်၏ privacy ကို ဂရုစိုက်သည်။ ကျွန်ုပ်တို့၏ %1$s တွင် ပိုမိုလေ့လာပါ</string>
   <!-- Text for the link used in onboarding_first_screen_privacy_notice_text -->
   <string name="onboarding_first_screen_privacy_notice_link" moz:removedIn="141" tools:ignore="UnusedResources">ကိုယ်ရေးကာကွယ်မှု သတိပေးချက်</string>
   <!-- New Onboarding flow first screen button label -->
@@ -509,11 +509,11 @@
   <string name="firstrun_search_text">အခြား မူသေရှာဖွေရေးယန္တရားကို အသုံးပြုလိုပါသလား။ အပြင်အဆင်များတွင် နှစ်သက်ရာကို ရွေးပါ။</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">အမြန်သုံးလင့်ခ်ကို မူလစာမျက်နှာသို့ ထည့်ပါ</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">%1$s တွင် သင်နှစ်သက်သော ဆိုက်များသို့ လျင်မြန်စွာ ပြန်လည်သွားရောက်နိုင်ပါသည်။ %1$s မီနူးထဲမှ \"မူလစာမျက်နှာသို့ ထည့်ပါ\" ကို ရွေးရန်သာ ဖြစ်သည်။</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">ကိုယ်ရေးလုံခြုံမှုကို နေ့စဉ် ဆောင်ရွက်ပါ</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">%1$s ကို မူသေဘရောင်ဇာအဖြစ် သတ်မှတ်ပါ။ ထို့ပြင် အခြားအက်ပ်များကနေ ဝဘ်စာမျက်နှာများ ကြည့်ရှုသည့်အခါ သီးသန့်လည်ပတ်ခြင်း၏ အကျိုးကျေးဇူးများကို ရယူအသုံးပြုပါ။</string>
   <string name="firstrun_close_button">ကောင်းပြီ၊ ရပါပြီ။</string>
   <string name="firstrun_skip_button">ကျော်ရန်</string>
@@ -538,7 +538,7 @@
   <string name="notification_browsing_session_channel_name">သီးသန့်ကြည့်နေစဉ်ကာလ</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -549,10 +549,10 @@
   <!-- Label for the option in the Focus "tabs tray" to clos the other tabs except the current tab. -->
   <string name="tabs_tray_action_erase_other">အခြားတဗ်များကိုပိတ်ပါ</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox ကို ဆွဲယူရန်</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix ကို ဆွဲယူရန်</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">သုံးစွဲသူ အမည်</string>
   <string name="gv_prompt_password_hint">စကားဝှက်</string>
@@ -641,7 +641,7 @@
   <string name="tip_add_to_homescreen">အသုံးများသောဆိုက်များကို တစ်ကြိမ်နှိပ်ပြီး သွားရောက်နိုင်ရန် %1$s မီနူး &gt; စတင်အသုံးပြုရာ ဖန်သားပြင်သို့ ပို့ပါ</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">%1$s ရှိ လင့်ခ်တိုင်းကို ဖွင့်ပါ\n%1$s ကို မူသေဘရောက်ဇာအဖြစ် သတ်မှတ်ပါ</string>
@@ -683,8 +683,8 @@
   <string name="tab_crash_report_description">တစ်ကိုယ်ရေသုံး ဘရောင်ဇာတစ်ခု ဖြစ်သည့်အတွက် ယခုတပ်ဗ်ဆိုင်ရာ မှတ်တမ်းများကို မသိမ်းပါ၊ ထို့ပြင် ၎င်းတပ်ဗ်ကို ပြန်၍ဖွင့်မရနိုင်ပါ။</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">တပ်ဗ်ကို ပိတ်ပါ</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Mozillaသို့ ပျက်စီးမှုအစီရင်ခံစာပို့ပါ</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Plezixသို့ ပျက်စီးမှုအစီရင်ခံစာပို့ပါ</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Promote SearchWidget Dialog -->

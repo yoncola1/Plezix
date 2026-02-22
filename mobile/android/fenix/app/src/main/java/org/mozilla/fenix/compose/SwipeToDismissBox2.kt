@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ import kotlinx.coroutines.launch
 import org.mozilla.fenix.compose.snackbar.AcornSnackbarHostState
 import org.mozilla.fenix.compose.snackbar.SnackbarHost
 import org.mozilla.fenix.compose.snackbar.SnackbarState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import kotlin.math.abs
 import kotlin.math.roundToInt
 
@@ -285,7 +285,7 @@ private fun SwipeToDismissBoxPreview() {
     val snackbarState = remember { AcornSnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -376,14 +376,14 @@ private fun SwipeableItem(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(FirefoxTheme.colors.layerAccent),
+                    .background(PlezixTheme.colors.layerAccent),
             )
         },
     ) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {

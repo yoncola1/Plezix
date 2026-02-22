@@ -24,7 +24,7 @@ note: required by a bound in `is_unpin`
    |
 4  | fn is_unpin<T: Unpin>() {}
    |                ^^^^^ required by this bound in `is_unpin`
-   = note: this error originates in the derive macro `::pin_project::__private::__PinProjectInternalDerive` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `::pin_project::__private::__PinProjectInternalDerive` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: `PhantomPinned` cannot be unpinned
   --> tests/ui/pin_project/add-pinned-field.rs:22:16
@@ -51,4 +51,4 @@ note: required by a bound in `is_unpin`
    |
 4  | fn is_unpin<T: Unpin>() {}
    |                ^^^^^ required by this bound in `is_unpin`
-   = note: this error originates in the derive macro `::pin_project::__private::__PinProjectInternalDerive` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `::pin_project::__private::__PinProjectInternalDerive` (in Plezix builds, run with -Z macro-backtrace for more info)

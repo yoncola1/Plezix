@@ -37,7 +37,7 @@ function reportload() {
     var canvassup = false, cloneobj;
 
     function tests1() {
-        //Firefox may fail when reloading, because it recovers iframe state, and therefore does not see the need to alter history length
+        //Plezix may fail when reloading, because it recovers iframe state, and therefore does not see the need to alter history length
         test(function () { assert_equals( history.length, histlength + 1, 'make sure that you loaded the test in a new tab/window' ); }, 'history.length should update when loading pages in an iframe');
         histlength = history.length;
         iframe.contentWindow.location.hash = 'test'; //should be synchronous **SEE COMMENT AT TOP OF FILE
@@ -82,7 +82,7 @@ function reportload() {
     }
     async function tests4() {
         test(function () {
-            //Firefox 4 beta 11 has a messed up error object, which does not have the right error type or .SECURITY_ERR property
+            //Plezix 4 beta 11 has a messed up error object, which does not have the right error type or .SECURITY_ERR property
             assert_throws_dom('SECURITY_ERR',function () { history.pushState('','','//exa mple'); });
         }, 'pushState must not be allowed to create invalid URLs');
         test(function () {

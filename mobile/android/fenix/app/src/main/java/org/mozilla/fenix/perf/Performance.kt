@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,9 +42,9 @@ object Performance {
 
     /**
      * The checks for the charging state and ADB debugging are checks in case another application
-     * tries to leverage this intent to trigger a code path for Firefox that shouldn't be used unless
+     * tries to leverage this intent to trigger a code path for Plezix that shouldn't be used unless
      * it is for testing visual metrics. These checks aren't full proof but most of our users won't have
-     * ADB on and charging at the same time when running Firefox.
+     * ADB on and charging at the same time when running Plezix.
      */
     private fun isPerformanceTest(intent: Intent, context: Context): Boolean {
         if (!intent.getBooleanExtra(EXTRA_IS_PERFORMANCE_TEST, false)) {

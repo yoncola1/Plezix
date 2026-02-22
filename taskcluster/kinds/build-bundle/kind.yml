@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -151,7 +151,7 @@ tasks:
         run-on-projects: ["mozilla-central"]
         run:
             gradle-build-type: nightly
-            gradle-build-name: focusNightly
+            gradle-build-name: focusPlezix
             gradle-build: focus
         source-project-name: "focus-android"
         treeherder:
@@ -174,7 +174,7 @@ tasks:
         run-on-projects: ["mozilla-central"]
         run:
             gradle-build-type: nightly
-            gradle-build-name: fenixNightly
+            gradle-build-name: fenixPlezix
             gradle-build: fenix
             baseline-profile-path: /builds/worker/fetches/baselineProfiles
         source-project-name: "fenix"

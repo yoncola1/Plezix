@@ -374,7 +374,7 @@ function test_url_for_process_types({
   chromeResult,
   webContentResult,
   privilegedAboutContentResult,
-  privilegedMozillaContentResult,
+  privilegedPlezixContentResult,
   extensionProcessResult,
 }) {
   const CHROME_PROCESS = E10SUtils.NOT_REMOTE;
@@ -413,7 +413,7 @@ function test_url_for_process_types({
       /* fission */ false,
       PRIVILEGEDMOZILLA_CONTENT_PROCESS
     ),
-    privilegedMozillaContentResult,
+    privilegedPlezixContentResult,
     "Check URL in privileged mozilla content process."
   );
   is(
@@ -459,7 +459,7 @@ function test_url_for_process_types({
       /* fission */ false,
       PRIVILEGEDMOZILLA_CONTENT_PROCESS
     ),
-    privilegedMozillaContentResult,
+    privilegedPlezixContentResult,
     "Check URL with ref in privileged mozilla content process."
   );
   is(
@@ -505,7 +505,7 @@ function test_url_for_process_types({
       /* fission */ false,
       PRIVILEGEDMOZILLA_CONTENT_PROCESS
     ),
-    privilegedMozillaContentResult,
+    privilegedPlezixContentResult,
     "Check URL with query in privileged mozilla content process."
   );
   is(
@@ -551,7 +551,7 @@ function test_url_for_process_types({
       /* fission */ false,
       PRIVILEGEDMOZILLA_CONTENT_PROCESS
     ),
-    privilegedMozillaContentResult,
+    privilegedPlezixContentResult,
     "Check URL with query and ref in privileged mozilla content process."
   );
   is(

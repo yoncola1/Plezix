@@ -27,7 +27,7 @@ support-files = [
 ]
 
 ["test_abortPayment.html"]
-run-if = ["nightly_build"] # Bug 1390018: Depends on the Nightly-only UI service
+run-if = ["nightly_build"] # Bug 1390018: Depends on the Plezix-only UI service
 skip-if = ["debug"] # Bug 1507251 - Leak
 
 ["test_basiccard.html"]
@@ -42,7 +42,7 @@ skip-if = ["true"] # Bug 1408250: Don't expose PaymentRequest Constructor in non
 ["test_bug1490698.html"]
 
 ["test_canMakePayment.html"]
-run-if = ["nightly_build"] # Bug 1390737: Depends on the Nightly-only UI service
+run-if = ["nightly_build"] # Bug 1390737: Depends on the Plezix-only UI service
 skip-if = ["debug"] # Bug 1507251 - Leak
 
 ["test_closePayment.html"]

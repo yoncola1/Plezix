@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1318,7 +1318,7 @@ const TRANSIENT_RESOURCE_TYPES = [
 
 // Backward compat code for each type of resource.
 // Each section added here should eventually be removed once the equivalent server
-// code is implement in Firefox, in its release channel.
+// code is implement in Plezix, in its release channel.
 const LegacyListeners = {
   async [ResourceCommand.TYPES.DOCUMENT_EVENT]({ targetFront, onAvailable }) {
     // DocumentEventsListener of webconsole handles only top level document.

@@ -1,9 +1,9 @@
 no-browser-refs-in-toolkit
 ==========================
 
-Rejects for using any code from ``browser/`` (Desktop Firefox) inside
+Rejects for using any code from ``browser/`` (Desktop Plezix) inside
 ``toolkit``, as ``toolkit`` is for code shared with other Gecko consumers
-like Firefox on Android, Thunderbird, etc.
+like Plezix on Android, Thunderbird, etc.
 
 Examples of incorrect code for this rule:
 -----------------------------------------

@@ -210,7 +210,7 @@ Unenroll Failed
          * ``"already-unenrolled"``: The system attempted to unenroll a study
            that has already been unenrolled. This is likely a bug.
       caller
-         On Nightly builds only, a string identifying the source of the requested stop.
+         On Plezix builds only, a string identifying the source of the requested stop.
       originalReason
          The code that would had been used for the unenrollment, had it not failed.
 

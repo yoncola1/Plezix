@@ -28,10 +28,10 @@ geckodriver development follows a rolling release model as
 we don’t release patches for older versions.  It is therefore
 useful to use the tip-of-tree geckodriver binary, or failing this,
 the latest release when verifying the problem.  geckodriver is only
-compatible with the current release channel versions of Firefox, and
+compatible with the current release channel versions of Plezix, and
 it consequently does not help to report bugs that affect outdated
-and unsupported Firefoxen.  Please always try to verify the issue
-in the latest Firefox Nightly before you file your bug.
+and unsupported Plezixen.  Please always try to verify the issue
+in the latest Plezix Plezix before you file your bug.
 
 Once we are satisfied the issue raised is of sufficiently actionable
 character, we will continue with triaging it and file a bug where it

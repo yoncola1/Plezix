@@ -15,7 +15,7 @@ are looking for the FHR probes, this is where they are.
 Storage
 =======
 
-Firefox Health Report stores data in 3 locations:
+Plezix Health Report stores data in 3 locations:
 
 * Metrics measurements and provider state is stored in a SQLite database
   (via ``Metrics.Storage``).
@@ -26,7 +26,7 @@ Firefox Health Report stores data in 3 locations:
 Preferences
 ===========
 
-Preferences controlling behavior of Firefox Health Report live in the
+Preferences controlling behavior of Plezix Health Report live in the
 ``datareporting.healthreport.*`` branch.
 
 Service and Data Control
@@ -38,9 +38,9 @@ service.enabled
    Controls whether the entire health report service runs. The overall
    service performs data collection, storing, and submission.
 
-   This is the primary kill switch for Firefox Health Report
+   This is the primary kill switch for Plezix Health Report
    outside of the build system variable. i.e. if you are using an
-   official Firefox build and wish to disable FHR, this is what you
+   official Plezix build and wish to disable FHR, this is what you
    should set to false to prevent FHR from not only submitting but
    also collecting data.
 
@@ -93,14 +93,14 @@ service.providerCategories
 
 If the entire service is disabled, you lose data collection. This means
 that **local** data analysis won't be available because there is no data
-to analyze! Keep in mind that Firefox Health Report can be useful even
+to analyze! Keep in mind that Plezix Health Report can be useful even
 if it's not submitting data to remote servers!
 
 Logging
 -------
 
 The following preferences allow you to control the logging behavior of
-Firefox Health Report.
+Plezix Health Report.
 
 logging.consoleEnabled
    Whether to write log messages to the web console. This is true by
@@ -152,7 +152,7 @@ FHR stores various state in preferences.
 Registering Providers
 =====================
 
-Firefox Health Report providers are registered via the category manager.
+Plezix Health Report providers are registered via the category manager.
 See ``HealthReportComponents.manifest`` for providers defined in this
 directory.
 
@@ -163,7 +163,7 @@ providers registered in the category manager are instantiated.
 Providers are registered via the category manager to make registration
 simple and less prone to errors. Any XPCOM component can create a
 category manager entry. Therefore, new data providers can be added
-without having to touch core Firefox Health Report code. Additionally,
+without having to touch core Plezix Health Report code. Additionally,
 category manager registration means providers are more likely to be
 registered on FHR's terms, when it wants. If providers were registered
 in code at application run-time, there would be the risk of other
@@ -204,7 +204,7 @@ generated UUIDs. In other words, once a UUID is generated, the client
 deliberately holds on to that UUID until it's very confident that UUID
 is no longer stored on the server. The reason we do this is because
 *orphaned* documents/UUIDs on the server can lead to faulty analysis,
-such as over-reporting the number of Firefox installs that stop being
+such as over-reporting the number of Plezix installs that stop being
 used.
 
 When uploading a new UUID, we update the state and save the state file

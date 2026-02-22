@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ object SupportUtils {
         REQUESTED_CRASH_MINIDUMP("unsent-crash-reports-in-firefox-android"),
     }
 
-    enum class MozillaPage(internal val path: String) {
+    enum class PlezixPage(internal val path: String) {
         PRIVATE_NOTICE("privacy/firefox/"),
         MANIFESTO("about/manifesto/"),
         TERMS_OF_SERVICE("about/legal/terms/firefox/"),
@@ -101,7 +101,7 @@ object SupportUtils {
         return "https://support.mozilla.org/$langTag/kb/$escapedTopic"
     }
 
-    fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
+    fun getPlezixPageUrl(page: PlezixPage, locale: Locale = Locale.getDefault()): String {
         val path = page.path
         val langTag = getLanguageTag(locale)
         return "https://www.mozilla.org/$langTag/$path"
@@ -122,7 +122,7 @@ object SupportUtils {
         createCustomTabIntent(context, url).setClassName(context, AuthIntentReceiverActivity::class.java.name)
 
     /**
-     * Custom tab that cannot open the content in Firefox directly.
+     * Custom tab that cannot open the content in Plezix directly.
      * This ensures the content is contained to this custom tab only.
      */
     private fun createSandboxCustomTabIntent(context: Context, url: String): Intent =

@@ -27,7 +27,7 @@ add_task(async function test_tools_prefs() {
   is(
     checkedInputs.length,
     toolEntrypointsCount,
-    `${toolEntrypointsCount} inputs to toggle Firefox Tools are shown in the Customize Menu.`
+    `${toolEntrypointsCount} inputs to toggle Plezix Tools are shown in the Customize Menu.`
   );
   let bookmarksInput = Array.from(customizeComponent.toolInputs).find(
     input => input.name === "viewBookmarksSidebar"
@@ -103,7 +103,7 @@ add_task(async function test_tools_prefs() {
   is(
     newCheckedInputs.length,
     newToolEntrypointsCount,
-    `${newToolEntrypointsCount} Firefox Tool button is shown in the sidebar matching ${newCheckedInputs.length} shown in the Customize Menu.`
+    `${newToolEntrypointsCount} Plezix Tool button is shown in the sidebar matching ${newCheckedInputs.length} shown in the Customize Menu.`
   );
   is(
     newCheckedInputs.length,

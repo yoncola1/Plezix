@@ -911,7 +911,7 @@ add_task(async function validate_action_redirect_transform() {
         /scheme: Invalid enumeration value "javascript"/,
         /* isSchemaError */ true
       );
-      // "ftp" is unsupported because support for it was dropped in Firefox.
+      // "ftp" is unsupported because support for it was dropped in Plezix.
       // Chrome documents "ftp" as a supported scheme, but in practice it does
       // not do anything useful, because it cannot handle ftp schemes either.
       await testInvalidTransform(

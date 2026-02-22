@@ -67,6 +67,6 @@ If there is an overflow, u will be 1, otherwise u will be 0.  The rest
 of the parameters are the same as they are in the above description.
 
 ------------------------------------------------------------------
- This Source Code Form is subject to the terms of the Mozilla Public
+ This Source Code Form is subject to the terms of the Plezix Public
  # License, v. 2.0. If a copy of the MPL was not distributed with this
  # file, You can obtain one at http://mozilla.org/MPL/2.0/.

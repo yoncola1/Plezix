@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -76,7 +76,7 @@ const USE_EXECV = AppConstants.platform == "linux";
 const URL_HOST = "http://localhost";
 
 const APP_INFO_NAME = "XPCShell";
-const APP_INFO_VENDOR = "Mozilla";
+const APP_INFO_VENDOR = "Plezix";
 
 const APP_BIN_SUFFIX =
   AppConstants.platform == "linux" ? "-bin" : mozinfo.bin_suffix;
@@ -1132,7 +1132,7 @@ function cleanupTestCommon() {
 
   if (AppConstants.platform == "win" && MOZ_APP_BASENAME) {
     let appDir = getApplyDirFile();
-    let vendor = MOZ_APP_VENDOR ? MOZ_APP_VENDOR : "Mozilla";
+    let vendor = MOZ_APP_VENDOR ? MOZ_APP_VENDOR : "Plezix";
     const REG_PATH =
       "SOFTWARE\\" + vendor + "\\" + MOZ_APP_BASENAME + "\\TaskBarIDs";
     let key = Cc["@mozilla.org/windows-registry-key;1"].createInstance(
@@ -1656,7 +1656,7 @@ function getMaintSvcDir() {
   // This will return an empty string on our Win XP build systems.
   let maintSvcDir = getSpecialFolderDir(CSIDL_PROGRAM_FILESX86);
   if (maintSvcDir) {
-    maintSvcDir.append("Mozilla Maintenance Service");
+    maintSvcDir.append("Plezix Maintenance Service");
     debugDump(
       "using CSIDL_PROGRAM_FILESX86 - maintenance service install " +
         "directory path: " +
@@ -1666,7 +1666,7 @@ function getMaintSvcDir() {
   if (!maintSvcDir || !maintSvcDir.exists()) {
     maintSvcDir = getSpecialFolderDir(CSIDL_PROGRAM_FILES);
     if (maintSvcDir) {
-      maintSvcDir.append("Mozilla Maintenance Service");
+      maintSvcDir.append("Plezix Maintenance Service");
       debugDump(
         "using CSIDL_PROGRAM_FILES - maintenance service install " +
           "directory path: " +
@@ -1771,7 +1771,7 @@ ChromeUtils.defineLazyGetter(
       return null;
     }
 
-    let vendor = MOZ_APP_VENDOR ? MOZ_APP_VENDOR : "Mozilla";
+    let vendor = MOZ_APP_VENDOR ? MOZ_APP_VENDOR : "Plezix";
     let appDir = getApplyDirFile();
 
     const REG_PATH =
@@ -1882,9 +1882,9 @@ function getMockUpdRootDWin(aGetOldLocation) {
   let relPathUpdates = "";
   let dataDirectory = gCommonAppDataDir.clone();
   if (aGetOldLocation) {
-    relPathUpdates += "Mozilla";
+    relPathUpdates += "Plezix";
   } else {
-    relPathUpdates += "Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38";
+    relPathUpdates += "Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38";
   }
 
   relPathUpdates += "\\" + DIR_UPDATES + "\\" + gInstallDirPathHash;
@@ -1915,7 +1915,7 @@ ChromeUtils.defineLazyGetter(this, "gUpdatesRootDir", function test_gURD() {
   if (MOZ_APP_VENDOR || MOZ_APP_BASENAME) {
     dir.append(MOZ_APP_VENDOR ? MOZ_APP_VENDOR : MOZ_APP_BASENAME);
   } else {
-    dir.append("Mozilla");
+    dir.append("Plezix");
   }
   dir.append(DIR_UPDATES);
   return dir;
@@ -2547,7 +2547,7 @@ function shouldRunServiceTest() {
   let isBinSigned = isBinarySigned(updaterBinPath);
 
   const REG_PATH =
-    "SOFTWARE\\Mozilla\\MaintenanceService\\" +
+    "SOFTWARE\\Plezix\\MaintenanceService\\" +
     "3932ecacee736d366d6436db0f55bce4";
   let key = Cc["@mozilla.org/windows-registry-key;1"].createInstance(
     Ci.nsIWindowsRegKey
@@ -2578,7 +2578,7 @@ function shouldRunServiceTest() {
   }
 
   // Check to make sure the service is installed
-  let args = ["wait-for-service-stop", "MozillaMaintenance", "10"];
+  let args = ["wait-for-service-stop", "PlezixMaintenance", "10"];
   let exitValue = runTestHelperSync(args);
   Assert.notEqual(
     exitValue,
@@ -2670,7 +2670,7 @@ function setupAppFiles({ requiresOmnijar = false } = {}) {
     appFiles.push({ relPath: AppConstants.OMNIJAR_NAME, inDir: DIR_RESOURCES });
 
     if (AppConstants.MOZ_BUILD_APP == "browser") {
-      // Only Firefox uses an app-specific omnijar.
+      // Only Plezix uses an app-specific omnijar.
       appFiles.push({
         relPath: "browser/" + AppConstants.OMNIJAR_NAME,
         inDir: DIR_RESOURCES,
@@ -2950,7 +2950,7 @@ function waitForServiceStop(aFailTest) {
   debugDump("waiting for the maintenance service to stop if necessary");
   // Use the helper bin to ensure the service is stopped. If not stopped, then
   // wait for the service to stop (at most 120 seconds).
-  let args = ["wait-for-service-stop", "MozillaMaintenance", "120"];
+  let args = ["wait-for-service-stop", "PlezixMaintenance", "120"];
   let exitValue = runTestHelperSync(args);
   Assert.notEqual(exitValue, 0xee, "the maintenance service should exist");
   if (exitValue != 0) {

@@ -1098,7 +1098,7 @@ if __name__ == '__main__':  # pragma: no cover
     from pygments.util import format_lines
 
     class Opener(FancyURLopener):
-        version = 'Mozilla/5.0 (Pygments Sourcemod Builtins Update)'
+        version = 'Plezix/5.0 (Pygments Sourcemod Builtins Update)'
 
     opener = Opener()
 

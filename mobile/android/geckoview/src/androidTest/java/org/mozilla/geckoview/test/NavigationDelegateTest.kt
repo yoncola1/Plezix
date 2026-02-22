@@ -1294,7 +1294,7 @@ class NavigationDelegateTest : BaseSessionTest() {
 
         val majorVersion = BuildConfig.MOZILLA_VERSION.split(".")[0]
 
-        val rfpUADesktopString = "Mozilla/5.0 (X11; Linux x86_64; rv:$majorVersion.0) Gecko/20100101 Firefox/$majorVersion.0"
+        val rfpUADesktopString = "Plezix/5.0 (X11; Linux x86_64; rv:$majorVersion.0) Gecko/20100101 Plezix/$majorVersion.0"
 
         sessionRule.runtime.settings.setFingerprintingProtection(true)
         sessionRule.runtime.settings.setFingerprintingProtectionOverrides("-AllTargets,+HttpUserAgent")
@@ -1316,7 +1316,7 @@ class NavigationDelegateTest : BaseSessionTest() {
             containsString(rfpUADesktopString),
         )
 
-        val rfpUAMobileString = "Mozilla/5.0 (Android 10; Mobile; rv:$majorVersion.0) Gecko/$majorVersion.0 Firefox/$majorVersion.0"
+        val rfpUAMobileString = "Plezix/5.0 (Android 10; Mobile; rv:$majorVersion.0) Gecko/$majorVersion.0 Plezix/$majorVersion.0"
 
         mainSession.settings.userAgentMode = GeckoSessionSettings.USER_AGENT_MODE_MOBILE
         mainSession.reload()

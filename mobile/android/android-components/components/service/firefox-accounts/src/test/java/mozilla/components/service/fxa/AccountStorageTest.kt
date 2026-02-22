@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -32,7 +32,7 @@ class SharedPrefAccountStorageTest {
     @Test
     fun `plain storage crud`() {
         val storage = SharedPrefAccountStorage(testContext)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
         assertNull(storage.read())
@@ -46,7 +46,7 @@ class SharedPrefAccountStorageTest {
     @Test
     fun `migration from SecureAbove22AccountStorage`() {
         val secureStorage = SecureAbove22AccountStorage(testContext)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
 
@@ -65,7 +65,7 @@ class SharedPrefAccountStorageTest {
     @Test
     fun `missing state is reported during a migration`() {
         val secureStorage = SecureAbove22AccountStorage(testContext)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
         secureStorage.write(account.toJSONString())
@@ -92,7 +92,7 @@ class SecureAbove22AccountStorageTest {
     fun `secure storage crud`() {
         val crashReporter: CrashReporting = mock()
         val storage = SecureAbove22AccountStorage(testContext, crashReporter)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
         assertNull(storage.read())
@@ -107,7 +107,7 @@ class SecureAbove22AccountStorageTest {
     @Test
     fun `migration from SharedPrefAccountStorage`() {
         val plainStorage = SharedPrefAccountStorage(testContext)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
 
@@ -129,7 +129,7 @@ class SecureAbove22AccountStorageTest {
     fun `missing state is reported`() {
         val crashReporter: CrashReporting = mock()
         val storage = SecureAbove22AccountStorage(testContext, crashReporter)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
         storage.write(account.toJSONString())
@@ -148,7 +148,7 @@ class SecureAbove22AccountStorageTest {
     @Test
     fun `missing state is ignored without a configured crash reporter`() {
         val storage = SecureAbove22AccountStorage(testContext)
-        val account = FirefoxAccount(
+        val account = PlezixAccount(
             FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
         )
         storage.write(account.toJSONString())

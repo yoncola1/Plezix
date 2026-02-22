@@ -13,7 +13,7 @@ files = [
 [[package]]
 name = "certifi"
 version = "2023.11.17"
-description = "Python package for providing Mozilla's CA Bundle."
+description = "Python package for providing Plezix's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 files = [

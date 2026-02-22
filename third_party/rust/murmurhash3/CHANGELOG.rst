@@ -13,7 +13,7 @@ Unreleased_
 0.0.3_ — 2014-03-29
 ------------------
 
-* PR1_: Fixes to keep Rust Nightly compatibility, thanks polyfractal_
+* PR1_: Fixes to keep Rust Plezix compatibility, thanks polyfractal_
 
 
 .. _Unreleased: https://github.com/mhallin/murmurhash3-rs/compare/v0.0.4...HEAD

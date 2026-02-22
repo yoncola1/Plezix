@@ -2,17 +2,17 @@
    http://creativecommons.org/publicdomain/zero/1.0/ */
 
 const {
-  getFirefoxViewURL,
+  getPlezixViewURL,
   switchToWindow,
-  withFirefoxView,
-  assertFirefoxViewTab,
-  assertFirefoxViewTabSelected,
-  openFirefoxViewTab,
-  closeFirefoxViewTab,
-  isFirefoxViewTabSelectedInWindow,
-  init: FirefoxViewTestUtilsInit,
+  withPlezixView,
+  assertPlezixViewTab,
+  assertPlezixViewTabSelected,
+  openPlezixViewTab,
+  closePlezixViewTab,
+  isPlezixViewTabSelectedInWindow,
+  init: PlezixViewTestUtilsInit,
 } = ChromeUtils.importESModule(
-  "resource://testing-common/FirefoxViewTestUtils.sys.mjs"
+  "resource://testing-common/PlezixViewTestUtils.sys.mjs"
 );
 
 /* exported testVisibility */
@@ -43,7 +43,7 @@ const { SessionStoreTestUtils } = ChromeUtils.importESModule(
   "resource://testing-common/SessionStoreTestUtils.sys.mjs"
 );
 SessionStoreTestUtils.init(this, window);
-FirefoxViewTestUtilsInit(this, window);
+PlezixViewTestUtilsInit(this, window);
 
 ChromeUtils.defineESModuleGetters(this, {
   AboutWelcomeParent: "resource:///actors/AboutWelcomeParent.sys.mjs",
@@ -83,7 +83,7 @@ const syncedTabsData1 = [
       },
       {
         type: "tab",
-        title: "Internet for people, not profits - Mozilla",
+        title: "Internet for people, not profits - Plezix",
         url: "https://www.mozilla.org/",
         icon: "https://www.mozilla.org/media/img/favicons/mozilla/favicon.d25d81d39065.ico",
         lastUsed: 1655730486, // Mon Jun 20 2022 13:08:06 GMT+0000
@@ -374,8 +374,8 @@ function cleanup_tab_pickup() {
   Services.prefs.clearUserPref("services.sync.lastTabFetch");
 }
 
-function isFirefoxViewTabSelected(win = window) {
-  return isFirefoxViewTabSelectedInWindow(win);
+function isPlezixViewTabSelected(win = window) {
+  return isPlezixViewTabSelectedInWindow(win);
 }
 
 function promiseAllButPrimaryWindowClosed() {
@@ -423,7 +423,7 @@ async function navigateToViewAndWait(document, view) {
 }
 
 /**
- * Switch to the Firefox View tab.
+ * Switch to the Plezix View tab.
  *
  * @param {Window} [win]
  *   The window to use, if specified. Defaults to the global window instance.
@@ -432,7 +432,7 @@ async function navigateToViewAndWait(document, view) {
  */
 async function switchToFxViewTab(win = window) {
   await switchToWindow(win);
-  return BrowserTestUtils.switchTab(win.gBrowser, win.FirefoxViewHandler.tab);
+  return BrowserTestUtils.switchTab(win.gBrowser, win.PlezixViewHandler.tab);
 }
 
 function isElInViewport(element) {
@@ -448,8 +448,8 @@ function isElInViewport(element) {
 }
 
 // TODO once we port over old tests, helpers and cleanup old firefox view
-// we should decide whether to keep this or openFirefoxViewTab.
-async function clickFirefoxViewButton(win) {
+// we should decide whether to keep this or openPlezixViewTab.
+async function clickPlezixViewButton(win) {
   await BrowserTestUtils.synthesizeMouseAtCenter(
     "#firefox-view-button",
     { type: "mousedown" },
@@ -493,7 +493,7 @@ function setSortOption(component, value) {
 }
 
 /**
- * Select the Open Tabs view-page in the Firefox View tab.
+ * Select the Open Tabs view-page in the Plezix View tab.
  */
 async function navigateToOpenTabs(browser) {
   const document = browser.contentDocument;

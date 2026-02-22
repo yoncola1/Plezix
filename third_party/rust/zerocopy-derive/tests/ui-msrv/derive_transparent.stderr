@@ -14,7 +14,7 @@ note: required by a bound in `_::{closure#0}::assert_impl_all`
    |
 37 | assert_impl_all!(TransparentStruct<NotZerocopy>: FromZeroes);
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `_::{closure#0}::assert_impl_all`
-   = note: this error originates in the macro `assert_impl_all` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `assert_impl_all` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `NotZerocopy: FromBytes` is not satisfied
   --> tests/ui-msrv/derive_transparent.rs:38:1
@@ -32,7 +32,7 @@ note: required by a bound in `_::{closure#0}::assert_impl_all`
    |
 38 | assert_impl_all!(TransparentStruct<NotZerocopy>: FromBytes);
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `_::{closure#0}::assert_impl_all`
-   = note: this error originates in the macro `assert_impl_all` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `assert_impl_all` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `NotZerocopy: AsBytes` is not satisfied
   --> tests/ui-msrv/derive_transparent.rs:39:1
@@ -50,7 +50,7 @@ note: required by a bound in `_::{closure#0}::assert_impl_all`
    |
 39 | assert_impl_all!(TransparentStruct<NotZerocopy>: AsBytes);
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `_::{closure#0}::assert_impl_all`
-   = note: this error originates in the macro `assert_impl_all` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `assert_impl_all` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `NotZerocopy: Unaligned` is not satisfied
   --> tests/ui-msrv/derive_transparent.rs:40:1
@@ -68,4 +68,4 @@ note: required by a bound in `_::{closure#0}::assert_impl_all`
    |
 40 | assert_impl_all!(TransparentStruct<NotZerocopy>: Unaligned);
    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `_::{closure#0}::assert_impl_all`
-   = note: this error originates in the macro `assert_impl_all` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `assert_impl_all` (in Plezix builds, run with -Z macro-backtrace for more info)

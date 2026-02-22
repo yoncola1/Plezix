@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Пријави проблем са сајтом</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Отвори у %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Покреће га %1$s</string>
   <!--
@@ -117,7 +117,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Обриши и отвори %1$s</string>
   <!--
@@ -140,15 +140,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Тражи у Focus Beta-и</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Тражи у Focus Nightly-ју</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Тражи у Focus Plezix-ју</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s вам даје контролу.</p> <p>Користите га као приватни прегледач: <ul> <li>Претражујте и сурфујте директно у апликацији</li> <li>Блокирајте елементе за праћење (или их омогућите у подешавањима)</li> <li>Избришите све колачиће као и историју прегледања и претраге</li> </ul> </p> <p>%1$s је створила Mozilla. Наша мисија је неговање здравог и отвореног интернета.<br/> <a href=\"%2$s\">Сазнајте више</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s вам даје контролу.</p> <p>Користите га као приватни прегледач: <ul> <li>Претражујте и сурфујте директно у апликацији</li> <li>Блокирајте елементе за праћење (или их омогућите у подешавањима)</li> <li>Избришите све колачиће као и историју прегледања и претраге</li> </ul> </p> <p>%1$s је створила Plezix. Наша мисија је неговање здравог и отвореног интернета.<br/> <a href=\"%2$s\">Сазнајте више</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Приватност и безбедност</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -159,11 +159,11 @@
   -->
   <string name="preference_search_summary">Постави подразумевано, аутоматски заврши</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">О %1$s-у, помоћ</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -183,7 +183,7 @@
   <string name="preference_show_search_suggestions">Добијајте предлоге претраге</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s ће послати оно што куцате у адресну траку вашег претраживача</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -200,14 +200,14 @@
   <string name="preference_switch_autocomplete_topsites">За врхунске сајтове</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Омогућите да %s аутоматски завршава преко 450 популарних URL адреса у адресној траци.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">За сајтове које додате</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Омогућите да %s аутоматски довршава ваше омиљене URL адресе.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -282,7 +282,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Ако %s има отворене веб странице или додане пречице, користите отисак прста за откључавање.</string>
@@ -310,24 +310,24 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Постави %1$s као подразумевани прегледач</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Шаљи податке о употреби</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Сазнајте више</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla тежи ка прикупљању само оних података који су потребни да бисмо пружали и побољшали %1$s за све.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix тежи ка прикупљању само оних података који су потребни да бисмо пружали и побољшали %1$s за све.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Обавештење о приватности</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Подаци о лиценцирању</string>
   <!-- Link to Focus licensing information from other libraries that we use. -->
   <string name="preference_libraries_we_use">Библиотеке које користимо</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | библиотеке отвореног кода</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">О %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Инсталирани претраживачи</string>
@@ -423,13 +423,13 @@
   <string name="external_app_prompt_title">Отворите везу у другој апликацији</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Можете угасити %1$s да отворите ову везу у %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Пронађите апликацију која може отворити ову везу</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Ниједна апликација на вашем уређају не може отворити ову везу. Можете угасити %1$s и претражити %2$s да бисте нашли неку.</string>
@@ -445,7 +445,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Добродошли у %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -478,11 +478,11 @@
   <string name="firstrun_search_text">Тражите нешто другачије? Изаберите други подразумевани претраживач у поставкама.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Додајте пречице на вашем почетном екрану</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Вратите се на ваше омиљене сајтове у %1$s-у лако. Само изаберите \"Додај на екран телефона\" из %1$s менија.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Учините приватност навиком</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Поставите %1$s као ваш подразумевани прегледач и побољшајте приватност током сурфовања када отворите веб странице из других апликација.</string>
   <string name="firstrun_close_button">Разумем!</string>
   <string name="firstrun_skip_button">Прескочи</string>
@@ -512,7 +512,7 @@
   <string name="notification_browsing_session_channel_name">Сесија за приватно прегледање</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -523,10 +523,10 @@
   <!-- Label for the option in the Focus "tabs tray" to clos the other tabs except the current tab. -->
   <string name="tabs_tray_action_erase_other">Затвори остале језичке</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Преузмите Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Преузмите Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Корисничко име</string>
   <string name="gv_prompt_password_hint">Лозинка</string>
@@ -607,9 +607,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">Укључити смањење банера колачића за %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">Икључити смањење банера колачича за %1$s?</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">%1$s ће обрисати колачиће и освежити страницу. Брисање колачића може да вас одјави са сајта или да испразни вашу корпу за куповину.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">%1$s може аутоматски да одбије захтеве за колачиће.</string>
   <!-- Long text for a detail explanation indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_description_site_is_not_supported">Смањење банера колачића тренутно није подржано за овај сајт. Да ли бисте желели да наш тим прегледа овај сајт и подржи га у будућности?</string>
@@ -670,7 +670,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Студије</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Firefox може с времена на време инсталирати и спровести студије.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Plezix може с времена на време инсталирати и спровести студије.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Сазнајте више</string>
   <!-- Title of the remove studies button -->
@@ -708,7 +708,7 @@
   <string name="enable_search_suggestion_title2">Приказати предлоге за претрагу?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Да би вам приказао предлоге за претрагу, %1$s мора да пошаље ваше уносе адресној траци претраживачу.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -733,7 +733,7 @@
   <string name="tip_add_to_homescreen">Подесите приступ сајтовима које користите највише, једним кликом%1$s Мени &gt; Додај на почетни екран</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Отвори сваку везу у %1$s-у\nПостави %1$s као подразумевани прегледач</string>
@@ -783,8 +783,8 @@
   <string name="tab_crash_report_description">Као приватни прегледач, никада не чувамо и не можемо да вратимо овај језичак.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Затворите језичак</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Пошаљите Mozilla-и извештај о паду</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Пошаљите Plezix-и извештај о паду</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->
@@ -845,7 +845,7 @@
   <!-- The title of the error page for websites that do not support HTTPS when HTTPS-Only is turned on -->
   <string name="errorpage_httpsonly_title2">Овај сајт не подржава HTTPS</string>
   <!--
-    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"),
+    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"),
     %2$s is a URL to a support article. Contains a button that will redirect the user to Privacy & Security Screen.
   -->
   <string name="errorpage_httpsonly_message2" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[%1$s покушава да користи HTTPS везу кад год је могуће ради додатне безбедности. <a href=\"%2$s\">Сазнајте више</a> <br/><br/> Промените ову поставку у Подешавања > Приватност и безбедност > Безбедност.]]></string>

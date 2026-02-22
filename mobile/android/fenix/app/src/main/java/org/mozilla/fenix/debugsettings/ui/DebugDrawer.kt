@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -32,7 +32,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import org.mozilla.fenix.R
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The debug drawer UI.
@@ -59,8 +59,8 @@ fun DebugDrawer(
                 title = {
                     Text(
                         text = toolbarTitle,
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.headline6,
                     )
                 },
                 modifier = Modifier.shadow(elevation = 5.dp),
@@ -74,15 +74,15 @@ fun DebugDrawer(
                                 contentDescription = stringResource(
                                     id = R.string.debug_drawer_back_button_content_description,
                                 ),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
             )
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         NavHost(
             navController = navController,
@@ -124,16 +124,16 @@ private fun DebugDrawerPreview() {
                 content = {
                     Text(
                         text = "Tool $index",
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = PlezixTheme.colors.textPrimary,
+                        style = PlezixTheme.typography.headline6,
                     )
                 },
             )
         }
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             DebugDrawer(
                 navController = navController,
                 destinations = destinations,

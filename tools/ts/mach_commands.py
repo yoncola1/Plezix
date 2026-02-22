@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -176,5 +176,5 @@ def maybe_setup(ctx):
 
 def build_required(lib, item):
     print(f"Missing {item}.")
-    print(f"Building {lib} typelib requires a full Firefox build.")
+    print(f"Building {lib} typelib requires a full Plezix build.")
     return 1

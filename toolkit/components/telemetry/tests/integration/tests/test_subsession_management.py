@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import mozunit
@@ -9,7 +9,7 @@ from telemetry_harness.ping_filters import (
 
 
 def test_subsession_management(browser, helpers):
-    """Test for Firefox Telemetry subsession management."""
+    """Test for Plezix Telemetry subsession management."""
 
     # Session S1, subsession 1
     # Actions:
@@ -18,7 +18,7 @@ def test_subsession_management(browser, helpers):
     # 3. Restart browser in new session
 
     with browser.new_tab():
-        # If Firefox Telemetry is working correctly, this will
+        # If Plezix Telemetry is working correctly, this will
         # be sufficient to record a tab open event.
         pass
 

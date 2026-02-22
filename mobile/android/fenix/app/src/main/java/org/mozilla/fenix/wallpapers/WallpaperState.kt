@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@ package org.mozilla.fenix.wallpapers
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Represents all state related to the Wallpapers feature.
@@ -40,7 +40,7 @@ data class WallpaperState(
                     Color(currentWallpaper.cardColorLight)
                 }
             }
-            else -> FirefoxTheme.colors.layer2
+            else -> PlezixTheme.colors.layer2
         }
 
     /**
@@ -48,9 +48,9 @@ data class WallpaperState(
      */
     val buttonBackgroundColor: Color
         @Composable get() = if (isCurrentWallpaperDefault()) {
-            FirefoxTheme.colors.actionSecondary
+            PlezixTheme.colors.actionSecondary
         } else {
-            FirefoxTheme.colors.layer1
+            PlezixTheme.colors.layer1
         }
 
     /**
@@ -59,8 +59,8 @@ data class WallpaperState(
     val buttonTextColor: Color
         @Composable get() = when {
             currentWallpaper.cardColorDark != null &&
-                isSystemInDarkTheme() -> FirefoxTheme.colors.textPrimary
-            else -> FirefoxTheme.colors.textActionSecondary
+                isSystemInDarkTheme() -> PlezixTheme.colors.textPrimary
+            else -> PlezixTheme.colors.textActionSecondary
         }
 
     private fun isCurrentWallpaperDefault(): Boolean = Wallpaper.nameIsDefault(currentWallpaper.name)

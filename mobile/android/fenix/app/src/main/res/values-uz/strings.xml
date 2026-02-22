@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">Maxfiy %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Maxfiy)</string>
   <!--
     Home Fragment
@@ -40,20 +40,20 @@
   <string name="tab_tray_close_multiselect_content_description">Koʻp tanlov rejimidan chiqish</string>
   <!-- Content description for save to collection button while in multiselect mode in tab tray -->
   <string name="tab_tray_collection_button_multiselect_content_description">Tanlangan varaqlarni kolleksiyaga saqlang</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s brauzerini Mozilla ishlab chiqqan.</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">%1$s brauzerini Plezix ishlab chiqqan.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">Ilovadan chiqsangiz yoki ularni yopsangiz, qidiruv va brauzer tarixini %1$s shaxsiy yorliqlardan tozalaydi. Garchi bu sizni veb-saytlar yoki Internet-provayderingiz uchun nomaʼlum qilmasa ham, Internetda qilgan ishingizni ushbu qurilmadan foydalanadigan har kimdan maxfiy saqlashni osonlashtiradi.</string>
   <string name="private_browsing_common_myths">Maxfiy koʻrish haqidagi umumiy afsonalar</string>
   <!--
     Open in App "contextual feature recommendation" (CFR)
 
-    Text for the info message. %1$s is the name of the app (for example "Firefox").
+    Text for the info message. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="open_in_app_cfr_info_message_2">%1$sni ilovalarda avtomatik ravishda ochadigan qilib sozlashingiz mumkin.</string>
   <!-- Text for the positive action button -->
@@ -80,7 +80,7 @@
   <string name="tab_tray_inactive_auto_close_title">Bir oydan keyin avtomatik yopilsinmi?</string>
   <!--
     Text for the body for the auto-close dialog of the inactive tabs.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_tray_inactive_auto_close_body_2">%1$s oxirgi oy davomida koʻrmagan varaqlarni yopishi mumkin.</string>
   <!-- Content description for close button in the auto-close dialog of the inactive tabs. -->
@@ -164,17 +164,17 @@
   <string name="browser_menu_share">Ulashish</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">%1$s bilan ochish</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">%1$s orqali yaratilgan</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">%1$s orqali yaratilgan</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -217,7 +217,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">Ruxsat berilmasin</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">Maxfiy seanslarda qidiruv tavsiyalariga ruxsat berish</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">%s manzil satriga kiritgan barcha maʼlumotlaringizni standart qidiruv tizimingiz bilan baham koʻradi.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">%sni qidirish</string>
@@ -252,7 +252,7 @@
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description_2">Yangi %1$s ta varaqni ochish</string>
   <!-- Text preview for smaller sized widgets -->
@@ -279,7 +279,7 @@
   <string name="preferences_rate">\"Google Play\"da baholash</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">%1$s haqida</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -417,7 +417,7 @@
   <string name="wallpaper_select_error_snackbar_message">Fon rasmi oʻzgarmadi</string>
   <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
   <string name="wallpaper_learn_more">Batafsil maʼlumot</string>
-  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Plezix"). -->
   <string name="wallpaper_classic_title">Klassik %s</string>
   <!-- Wallpaper onboarding dialog header text. -->
   <string name="wallpapers_onboarding_dialog_title_text">Rangni chayqashga harakat qiling</string>
@@ -453,7 +453,7 @@
   <string name="sync_never_synced_summary">Oxirgi sinxronizatsiya: hech qachon</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s, %2$s %3$s</string>
@@ -466,7 +466,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Qabul qilingan varaqlar</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Boshqa Firefox qurilmalaridan olingan varaqlar uchun bildirishnomalar.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Boshqa Plezix qurilmalaridan olingan varaqlar uchun bildirishnomalar.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Olingan varaq</string>
   <!-- %s is the device name -->
@@ -486,7 +486,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Tadqiqotlar</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Mozillaga tadqiqotlarni oʻrnatish va ishga tushirish imkonini beradi</string>
+  <string name="preference_experiments_summary_2">Plezixga tadqiqotlarni oʻrnatish va ishga tushirish imkonini beradi</string>
   <!--
     Turn On Sync Preferences
 
@@ -701,7 +701,7 @@
   <string name="remove_top_site">Olib tashlash</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">Tarixdan oʻchirish</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (Maxfiy rejim)</string>
   <!--
     History
@@ -742,11 +742,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">Kechirasiz, %1$s bu sahifani yuklay olmadi.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Nosozlik hisobotni Mozillaga yuborish</string>
+  <string name="tab_crash_send_report">Nosozlik hisobotni Plezixga yuborish</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Varaqni yopish</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -757,7 +757,7 @@
     Confirmation message for a dialog confirming if the user wants to delete the selected folder
   -->
   <string name="bookmark_delete_folder_confirmation_dialog">Bu jildni oʻchirishni xohlaysizmi?</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">%s tanlangan elementlarni oʻchiradi.</string>
   <!-- Text for the cancel button on delete bookmark dialog -->
   <string name="bookmark_delete_negative">Bekor qilish</string>
@@ -993,7 +993,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">Boshqa qurilmani ulash</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Varaqni yuborish uchun kamida bitta boshqa qurilmada Firefox hisobiga kirishingiz kerak.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">Varaqni yuborish uchun kamida bitta boshqa qurilmada Plezix hisobiga kirishingiz kerak.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">Tushundim!</string>
   <!-- Share error message -->
@@ -1038,7 +1038,7 @@
   <string name="snackbar_top_site_removed">Sayt olib tashlandi</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">%1$sga %2$sni ochishga ruxsat bering</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -1102,7 +1102,7 @@
   <string name="delete_history_prompt_button_today_and_yesterday">Bugun va kecha</string>
   <!-- Radio button in the delete browsing data dialog to delete all history. -->
   <string name="delete_history_prompt_button_everything">Hammasi</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s tanlangan brauzer maʼlumotlarini oʻchiradi.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Bekor qilish</string>
@@ -1141,16 +1141,16 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Kodni skanerlang</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[KompYuteringizda Firefoxni oching va <b>https://firefox.com/pair</b>ga oʻting]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[KompYuteringizda Plezixni oching va <b>https://firefox.com/pair</b>ga oʻting]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Skanerlashga tayyor</string>
   <!-- Text shown for settings option for sign with pairing -->
   <string name="sign_in_with_camera">Kamera bilan tizimga kiring</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Buning oʻrniga e-pochtadan foydalaning</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hisobingiz yoʻqmi? <u>Unda yangisini yarating</u> va Firefoxni qurilmalararo sinxronlang.]]></string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[Hisobingiz yoʻqmi? <u>Unda yangisini yarating</u> va Plezixni qurilmalararo sinxronlang.]]></string>
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">%s hisobingiz bilan sinxronlashni toʻxtatadi, ammo qurilmangizdagi brauzer tarixini oʻchirmaydi.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">Aloqani uzish</string>
@@ -1243,11 +1243,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">Orqaga oʻting</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">%sdagi yangiliklar</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | OSS kutubxonlari</string>
   <!-- Category of trackers (redirect trackers) that can be blocked by Enhanced Tracking Protection -->
@@ -1307,9 +1307,9 @@
   <string name="preferences_passwords_save_logins_ask_to_save">Saqlash soʻralsin</string>
   <!-- Preference option for never saving passwords in Fenix -->
   <string name="preferences_passwords_save_logins_never_save">Hech qachon saqlanmasin</string>
-  <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill2">%1$sda avtomatik toʻldirilsin</string>
-  <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Description for the preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill_description">%1$s dan foydalanganda saytlarda foydalanuvchi nomlari va parollarni toʻldiring va saqlang.</string>
   <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
   <string name="preferences_android_autofill">Boshqa ilovalarda avtomatik toʻldirish</string>
@@ -1538,13 +1538,13 @@
   <string name="synced_tabs_connect_another_device">Boshqa qurilmani ulash</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">Qaytadan haqiqiylikni tekshiring.</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Varaq sinxronizatsiyasini yoqing</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Boshqa qurilmlaringizdagi Firefoxda hech qanday varaq ochiq emas.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Boshqa qurilmlaringizdagi Plezixda hech qanday varaq ochiq emas.</string>
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Boshqa qurilmalaringizdagi varaqlar roʻyxatini koʻrish.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">Sinxronlash uchun hisobingizga kiring</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">Ochiq varaqlar yoʻq</string>
@@ -1591,7 +1591,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Bir oydan keyin avtomatik yopilsinmi?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Oʻtgan oy ochilmagan varaqlarni Firefox yopishi mumkin.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Oʻtgan oy ochilmagan varaqlarni Plezix yopishi mumkin.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">AVTOMATIK YOPISHNI YOQISH</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1599,11 +1599,11 @@
   <!--
     Awesome bar suggestion's headers
 
-    Search suggestions title for Firefox Suggest.
+    Search suggestions title for Plezix Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Plezix Suggest</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Saytlar, elektron pochta va xabarlar havolalarini Firefoxda avtomatik ravishda ochiladigan qilib sozlang.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Saytlar, elektron pochta va xabarlar havolalarini Plezixda avtomatik ravishda ochiladigan qilib sozlang.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Olib tashlash</string>
   <!-- Content description radio buttons with a link to more information -->
@@ -1625,7 +1625,7 @@
   <!-- Title of an app feature. Smaller than a heading. %s is "Pocket". -->
   <string name="pocket_stories_feature_title_2" moz:removedIn="140" tools:ignore="UnusedResources">%s tomonidan quvvatlanadi.</string>
   <!-- Caption for describing a certain feature. %s is a link using pocket_stories_feature_learn_more as text, which will load an url in a new tab when clicked. -->
-  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Firefox oilasining bir qismi hisoblanadi. %s</string>
+  <string name="pocket_stories_feature_caption" moz:removedIn="140" tools:ignore="BrandUsage,UnusedResources">Plezix oilasining bir qismi hisoblanadi. %s</string>
   <!-- Clickable text for opening an external link for more information about Pocket. -->
   <string name="pocket_stories_feature_learn_more" moz:removedIn="140" tools:ignore="UnusedResources">Batafsil ma’lumot</string>
   <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->

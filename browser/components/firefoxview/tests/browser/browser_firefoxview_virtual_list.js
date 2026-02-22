@@ -21,12 +21,12 @@ add_task(async function test_max_render_count_on_win_resize() {
       visits: [{ date: now }],
     },
   ]);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(
       document.location.href,
-      getFirefoxViewURL(),
-      "Firefox View is loaded to the Recent Browsing page."
+      getPlezixViewURL(),
+      "Plezix View is loaded to the Recent Browsing page."
     );
 
     await navigateToViewAndWait(document, "history");

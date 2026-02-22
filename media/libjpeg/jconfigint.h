@@ -4,7 +4,7 @@
 /* How to hide global symbols. */
 #define HIDDEN __attribute__((visibility("hidden")))
 
-/* Need to use Mozilla-specific function inlining. */
+/* Need to use Plezix-specific function inlining. */
 #include "mozilla/Attributes.h"
 #define INLINE MOZ_ALWAYS_INLINE
 

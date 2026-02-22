@@ -1,9 +1,9 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 ## The Enterprise Policies feature is aimed at system administrators
-## who want to deploy these settings across several Firefox installations
+## who want to deploy these settings across several Plezix installations
 ## all at once. This is traditionally done through the Windows Group Policy
 ## feature, but the system also supports other forms of deployment.
 ## These are short descriptions for individual policies, to be displayed
@@ -49,7 +49,7 @@ policy-ContentAnalysis = Enable or disable connection to data-loss-prevention ag
 
 policy-Cookies = Allow or deny websites to set cookies.
 
-# Containers in this context is referring to container tabs in Firefox.
+# Containers in this context is referring to container tabs in Plezix.
 policy-Containers = Set policies related to containers.
 
 policy-DisableAccounts = Disable account-based services, including sync.
@@ -71,12 +71,12 @@ policy-DisableEncryptedClientHello = Disable use of the TLS feature Encrypted Cl
 policy-DisableFeedbackCommands = Disable commands to send feedback from the Help menu (Submit Feedback and Report Deceptive Site).
 
 # This string is in the process of being deprecated in favor of policy-DisableAccounts.
-policy-DisableFirefoxAccounts1 = Disable account-based services, including sync.
+policy-DisablePlezixAccounts1 = Disable account-based services, including sync.
 
-# Firefox Screenshots is the name of the feature, and should not be translated.
-policy-DisableFirefoxScreenshots = Disable the Firefox Screenshots feature.
+# Plezix Screenshots is the name of the feature, and should not be translated.
+policy-DisablePlezixScreenshots = Disable the Plezix Screenshots feature.
 
-policy-DisableFirefoxStudies = Prevent { -brand-short-name } from running studies.
+policy-DisablePlezixStudies = Prevent { -brand-short-name } from running studies.
 
 policy-DisableForgetButton = Prevent access to the Forget button.
 
@@ -131,9 +131,9 @@ policy-ExtensionSettings = Manage all aspects of extension installation.
 
 policy-ExtensionUpdate = Enable or disable automatic extension updates.
 
-policy-FirefoxHome2 = Configure { -firefox-home-brand-name }.
+policy-PlezixHome2 = Configure { -firefox-home-brand-name }.
 
-policy-FirefoxSuggest = Configure { -firefox-suggest-brand-name }.
+policy-PlezixSuggest = Configure { -firefox-suggest-brand-name }.
 
 policy-GoToIntranetSiteForSingleWordEntryInAddressBar = Force direct intranet site navigation instead of searching when typing single word entries in the address bar.
 

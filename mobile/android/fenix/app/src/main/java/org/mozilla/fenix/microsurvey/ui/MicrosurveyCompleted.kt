@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val shape = RoundedCornerShape(8.dp)
 
@@ -40,10 +40,10 @@ private val shape = RoundedCornerShape(8.dp)
  */
 @Composable
 fun MicrosurveyCompleted(
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
 ) {
     Card(
-        border = BorderStroke(1.dp, FirefoxTheme.colors.borderPrimary),
+        border = BorderStroke(1.dp, PlezixTheme.colors.borderPrimary),
         shape = shape,
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
         modifier = Modifier
@@ -73,8 +73,8 @@ fun MicrosurveyCompleted(
             Row {
                 Text(
                     text = stringResource(id = R.string.micro_survey_feedback_confirmation),
-                    style = FirefoxTheme.typography.headline7,
-                    color = FirefoxTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.headline7,
+                    color = PlezixTheme.colors.textPrimary,
                 )
             }
 
@@ -90,7 +90,7 @@ fun MicrosurveyCompleted(
 @PreviewLightDark
 @Composable
 fun MicrosurveyCompletedPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MicrosurveyCompleted()
     }
 }

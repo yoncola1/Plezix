@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -286,7 +286,7 @@ class Raptor(
                     "default": False,
                     "help": (
                         "Whether to profile the test run and save the profile results. "
-                        "Copy paste the parameters used in this profiling run directly from about:profiling in Nightly."
+                        "Copy paste the parameters used in this profiling run directly from about:profiling in Plezix."
                     ),
                 },
             ],
@@ -984,7 +984,7 @@ class Raptor(
         if self.app in self.firefox_android_browsers and not self.run_local:
             kw_options["installerpath"] = self.installer_path
 
-        # If testing on Firefox, the binary path already came from mozharness/pro;
+        # If testing on Plezix, the binary path already came from mozharness/pro;
         # otherwise the binary path is forwarded from command-line arg (raptor_cmd_line_args).
         kw_options["app"] = self.app
         if self.app == "firefox" or (

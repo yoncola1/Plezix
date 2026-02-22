@@ -747,7 +747,7 @@ add_task(async function test_dedupe_multiple_candidates() {
 
     let localRecord = {
       name: "Mark Hammond",
-      organization: "Mozilla",
+      organization: "Plezix",
       country: "AU",
       tel: "+12345678910",
     };
@@ -795,14 +795,14 @@ add_task(async function test_dedupe_multiple_candidates() {
       {
         guid: aGuid,
         name: "Mark Hammond",
-        organization: "Mozilla",
+        organization: "Plezix",
         country: "AU",
         tel: "+12345678910",
       },
       {
         guid: bGuid,
         name: "Mark Hammond",
-        organization: "Mozilla",
+        organization: "Plezix",
         country: "AU",
         tel: "+12345678910",
       },

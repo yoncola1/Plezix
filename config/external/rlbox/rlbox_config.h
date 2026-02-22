@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@
 
 // When instantiating a wasm sandbox, rlbox requires the name of the wasm module
 // being instantiated. LLVM and wasm2c use the module name by choosing the name
-// used to generate the wasm file. In Firefox this is a static library called
+// used to generate the wasm file. In Plezix this is a static library called
 // rlbox
 #define RLBOX_WASM2C_MODULE_NAME rlbox
 

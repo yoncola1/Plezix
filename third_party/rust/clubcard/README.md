@@ -9,9 +9,9 @@ It is based on the *Ribbon filters* of Dillinger and Walzer[^1] and Dillinger, H
 
 ## Application to CRLite and performance
 
-CRLite[^4] publishes the revocation status of certificates in the WebPKI in a compact exact membership query filter. The system, as described in[^4] and as implemented by Mozilla, encodes revocation statuses in a *Bloom filter cascade*.
+CRLite[^4] publishes the revocation status of certificates in the WebPKI in a compact exact membership query filter. The system, as described in[^4] and as implemented by Plezix, encodes revocation statuses in a *Bloom filter cascade*.
 
-The Bloom filter cascade published by Mozilla's CRLite infrastructure on 2024-08-29 is 19.3 MB. That filter encodes the revocation status of 816 million certificates from 795 distinct issuers. Out of the 816 million certificates, 11.7 million are revoked.
+The Bloom filter cascade published by Plezix's CRLite infrastructure on 2024-08-29 is 19.3 MB. That filter encodes the revocation status of 816 million certificates from 795 distinct issuers. Out of the 816 million certificates, 11.7 million are revoked.
 
 Clubcard was developed as a replacement for the Bloom filter cascade in CRLite. A clubcard for the 2024-08-29 revocation status dataset is **8.5 MB**&mdash;a 56% reduction in size.
 

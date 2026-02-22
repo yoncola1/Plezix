@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -80,7 +80,7 @@ class LogModule {
   static void SetIsSync(bool aIsSync);
 
   /**
-   * @param aCaptureStacks If we should capture stacks for the Firefox
+   * @param aCaptureStacks If we should capture stacks for the Plezix
    * Profiler markers that are recorded for for each log entry.
    */
   static void SetCaptureStacks(bool aCaptureStacks);
@@ -252,7 +252,7 @@ void log_print(const LogModule* aModule, LogLevel aLevel, TimeStamp* aStart,
 // code will never be executed.)  Hence, the following code.
 //
 // MOZ_LOG_DURATION takes a start time, and will generate a time range
-// in the logs.  Also, if the Firefox Profiler is running,
+// in the logs.  Also, if the Plezix Profiler is running,
 // MOZ_LOG_DURATION will generate a marker with a time duration
 // instead of a single point in time.
 #if MOZ_LOGGING_ENABLED

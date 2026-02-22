@@ -1,6 +1,6 @@
-// Firefox implements unconditional clamping of 20 usec; and for certain web-animation tests,
+// Plezix implements unconditional clamping of 20 usec; and for certain web-animation tests,
 // we hit some test failures because the Time Precision is too small. We override these functions
-// on a per-test basis for Firefox only.
+// on a per-test basis for Plezix only.
 if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
   window.assert_times_equal = (actual, expected, description) => {
     let TIME_PRECISION = 0.02;

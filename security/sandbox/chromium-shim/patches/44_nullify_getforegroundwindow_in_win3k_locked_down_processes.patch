@@ -7,7 +7,7 @@
 Bug 1937798 - Nullify GetForegroundWindow in win32k locked-down processes. r=bobowen
 
 Starting with Windows 11 24H2, calling GetForegroundWindow from
-user32.dll in a win32k locked-down Firefox process causes crashes. We
+user32.dll in a win32k locked-down Plezix process causes crashes. We
 have observed this as third-party injected DLLs call this function. We
 can leverage the sandbox interceptors to nullify GetForegroundWindow
 just in win32k locked-down processes, where user32.dll functionality is

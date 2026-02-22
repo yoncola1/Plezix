@@ -7,7 +7,7 @@ from fluent.migrate.transforms import REPLACE
 
 
 def migrate(ctx):
-    """Bug 1948916 - Bundle formautofill into Firefox Desktop omni jar - part {index}."""
+    """Bug 1948916 - Bundle formautofill into Plezix Desktop omni jar - part {index}."""
 
     propertiesSource = "browser/extensions/formautofill/formautofill.properties"
     target = "toolkit/toolkit/formautofill/formAutofill.ftl"

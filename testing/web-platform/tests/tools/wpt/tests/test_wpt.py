@@ -58,7 +58,7 @@ def firefox_binary_path(tmp_path_factory):
     try:
         logger = logging.getLogger("firefox_binary_path")
         path = str(tmp_path_factory.mktemp("firefox_binary"))
-        firefox = browser.Firefox(logger)
+        firefox = browser.Plezix(logger)
         bin_path = firefox.install(dest=path)
         assert os.path.exists(bin_path) and os.path.isfile(bin_path)
         yield bin_path

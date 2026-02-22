@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,9 +41,9 @@ object SupportUtils {
         }
 
     /**
-     * Paths for specific pages on the Mozilla website.
+     * Paths for specific pages on the Plezix website.
      */
-    enum class MozillaPage(internal val path: String) {
+    enum class PlezixPage(internal val path: String) {
         PRIVATE_NOTICE("privacy/firefox-focus/"),
         TERMS_OF_SERVICE("about/legal/terms/firefox-focus/"),
     }
@@ -51,7 +51,7 @@ object SupportUtils {
     /**
      * Returns the localised URL for a given [page].
      */
-    fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
+    fun getPlezixPageUrl(page: PlezixPage, locale: Locale = Locale.getDefault()): String {
         val path = page.path
         val langTag = Locales.getLanguageTag(locale)
         return "https://www.mozilla.org/$langTag/$path"

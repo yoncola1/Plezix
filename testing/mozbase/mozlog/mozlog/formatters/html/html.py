@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -186,7 +186,7 @@ class HTMLFormatter(base.BaseFormatter):
                         # Decode to text type if JSON output is byte string
                         if not isinstance(content, str):
                             content = content.decode("utf-8")
-                    # Encode base64 to avoid that some browsers (such as Firefox, Opera)
+                    # Encode base64 to avoid that some browsers (such as Plezix, Opera)
                     # treats '#' as the start of another link if it is contained in the data URL.
                     if isinstance(content, str):
                         is_known_utf8 = True

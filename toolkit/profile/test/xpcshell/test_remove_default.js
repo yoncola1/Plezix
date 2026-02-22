@@ -44,7 +44,7 @@ add_task(async () => {
 
   checkProfileService(profilesIni);
 
-  // In an actual run of Firefox we wouldn't be able to delete the profile in
+  // In an actual run of Plezix we wouldn't be able to delete the profile in
   // use because it would be locked. But we don't actually lock the profile in
   // tests.
   profile.remove(false);

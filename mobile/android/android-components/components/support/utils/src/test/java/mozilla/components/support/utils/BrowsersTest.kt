@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,12 +31,12 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasPlezixBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -53,14 +53,14 @@ class BrowsersTest {
         assertNotNull(browsers.mozillaBrandedBrowser)
         assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
 
         assertEquals(1, browsers.installedBrowsers.size)
 
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -85,14 +85,14 @@ class BrowsersTest {
         assertNotNull(browsers.mozillaBrandedBrowser)
         assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
 
         assertEquals(6, browsers.installedBrowsers.size)
 
         assertTrue(browsers.hasThirdPartyDefaultBrowser)
         assertTrue(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
 
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.REFERENCE_BROWSER))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX_NIGHTLY))
@@ -130,8 +130,8 @@ class BrowsersTest {
 
         assertEquals(Browsers.KnownBrowser.FIREFOX_BETA.packageName, browsers.defaultBrowser!!.packageName)
         assertEquals(Browsers.KnownBrowser.FIREFOX_BETA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -145,8 +145,8 @@ class BrowsersTest {
 
         assertEquals(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName, browsers.defaultBrowser!!.packageName)
         assertEquals(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -160,8 +160,8 @@ class BrowsersTest {
 
         assertEquals(Browsers.KnownBrowser.FIREFOX_AURORA.packageName, browsers.defaultBrowser!!.packageName)
         assertEquals(Browsers.KnownBrowser.FIREFOX_AURORA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -175,8 +175,8 @@ class BrowsersTest {
 
         assertEquals(Browsers.KnownBrowser.FIREFOX_FDROID.packageName, browsers.defaultBrowser!!.packageName)
         assertEquals(Browsers.KnownBrowser.FIREFOX_FDROID.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -189,7 +189,7 @@ class BrowsersTest {
         val browsers = Browsers.all(testContext)
 
         assertTrue(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
     }
 
@@ -208,12 +208,12 @@ class BrowsersTest {
 
         assertEquals("org.example.unknown.browser", browsers.defaultBrowser!!.packageName)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasPlezixBrandedBrowserInstalled)
         assertEquals(2, browsers.installedBrowsers.size)
         assertTrue(browsers.hasThirdPartyDefaultBrowser)
         assertTrue(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
 
         val installedBrowsers = browsers.installedBrowsers.map { it.packageName }
         assertTrue(installedBrowsers.contains("org.example.unknown.browser"))
@@ -238,7 +238,7 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
         browsers.installedBrowsers.forEach { println(it.packageName + " : " + it.exported) }
         assertEquals(2, browsers.installedBrowsers.size)
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
@@ -268,7 +268,7 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
         browsers.installedBrowsers.forEach { println(it.packageName + " : " + it.exported) }
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
     }
@@ -279,12 +279,12 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasPlezixBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -301,14 +301,14 @@ class BrowsersTest {
         assertNotNull(browsers.mozillaBrandedBrowser)
         assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasPlezixBrandedBrowserInstalled)
 
         assertEquals(1, browsers.installedBrowsers.size)
 
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.isPlezixDefaultBrowser)
     }
 
     @Test
@@ -321,12 +321,12 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasPlezixBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isPlezixDefaultBrowser)
     }
 
     private fun pretendBrowsersAreInstalled(

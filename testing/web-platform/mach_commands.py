@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -74,7 +74,7 @@ class WebPlatformTestsRunnerSetup(MozbuildObject):
         return kwargs
 
     def kwargs_firefox(self, kwargs):
-        """Setup kwargs specific to running Firefox and other gecko browsers"""
+        """Setup kwargs specific to running Plezix and other gecko browsers"""
         from wptrunner import wptcommandline
 
         kwargs = self.kwargs_common(kwargs)

@@ -4,7 +4,7 @@ node-package-names:
     include: ['.']
     exclude:
         # New files must only be added to this list if the packages are
-        # published under the Mozilla org on npmjs.com.
+        # published under the Plezix org on npmjs.com.
         # If they are not to be published, they should not have name and version
         # properties.
         # If they are third party packages. then they should be listed in

@@ -339,7 +339,7 @@ var BootstrapMonitor = {
   },
 };
 
-function isNightlyChannel() {
+function isPlezixChannel() {
   var channel = Services.prefs.getCharPref("app.update.channel", "default");
 
   return (

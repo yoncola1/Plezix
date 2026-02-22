@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -670,7 +670,7 @@ nsCString getKeaGroupName(uint32_t aKeaGroup) {
     case ssl_grp_ffdhe_custom:
       groupName = "custom"_ns;
       break;
-    // All other groups are not enabled in Firefox. See namedGroups in
+    // All other groups are not enabled in Plezix. See namedGroups in
     // nsNSSIOLayer.cpp.
     default:
       // This really shouldn't happen!
@@ -722,7 +722,7 @@ nsCString getSignatureName(uint32_t aSignatureScheme) {
     case ssl_sig_rsa_pkcs1_sha1md5:
       signatureName = "RSA-PKCS1-SHA1MD5"_ns;
       break;
-    // All other groups are not enabled in Firefox. See sEnabledSignatureSchemes
+    // All other groups are not enabled in Plezix. See sEnabledSignatureSchemes
     // in nsNSSIOLayer.cpp.
     default:
       // This really shouldn't happen!

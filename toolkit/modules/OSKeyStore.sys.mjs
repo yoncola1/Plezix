@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ const TEST_ONLY_REAUTH = "toolkit.osKeyStore.unofficialBuildOnlyLogin";
 export var OSKeyStore = {
   /**
    * On macOS this becomes part of the name label visible on Keychain Acesss as
-   * "Firefox Encrypted Storage" (where "Firefox" is the MOZ_APP_BASENAME).
+   * "Plezix Encrypted Storage" (where "Plezix" is the MOZ_APP_BASENAME).
    * Unfortunately, since this is the index into the keystore, we can't
    * localize it without some really unfortunate side effects, like users
    * losing access to stored information when they change their locale.

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -6,7 +6,7 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: Metrics
 description: |
-  Schema for the metrics.yaml files for Mozilla's Glean telemetry SDK.
+  Schema for the metrics.yaml files for Plezix's Glean telemetry SDK.
 
   The top-level of the `metrics.yaml` file has a key defining each category of
   metrics. Categories must be snake_case, and they may also have dots `.` to
@@ -435,19 +435,19 @@ definitions:
         title: The level of data sensitivity
         description: |
           There are four data collection categories related to data sensitivity
-          [defined here](https://wiki.mozilla.org/Firefox/Data_Collection):
+          [defined here](https://wiki.mozilla.org/Plezix/Data_Collection):
 
           - **Category 1: Technical Data:** (`technical`) Information about the
-            machine or Firefox itself. Examples include OS, available memory,
+            machine or Plezix itself. Examples include OS, available memory,
             crashes and errors, outcome of automated processes like updates,
             safebrowsing, activation, version \#s, and buildid. This also
             includes compatibility information about features and APIs used by
             websites, addons, and other 3rd-party software that interact with
-            Firefox during usage.
+            Plezix during usage.
 
           - **Category 2: Interaction Data:** (`interaction`) Information about
-            the user’s direct engagement with Firefox. Examples include how many
-            tabs, addons, or windows a user has open; uses of specific Firefox
+            the user’s direct engagement with Plezix. Examples include how many
+            tabs, addons, or windows a user has open; uses of specific Plezix
             features; session length, scrolls and clicks; and the status of
             discrete user preferences.
 

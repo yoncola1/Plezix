@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -58,11 +58,11 @@ bool SVGContextPaint::IsAllowedForImageFromURI(nsIURI* aURI) {
   // specifically ones that are "ours". WebExtensions are moz-extension://
   // regardless if the extension is in-tree or not. Since we don't want
   // extension developers coming to rely on image context paint either, we only
-  // enable context-paint for extensions that are owned by Mozilla
+  // enable context-paint for extensions that are owned by Plezix
   // (based on the extension permission "internal:svgContextPropertiesAllowed").
   //
   // We also allow this for browser UI icons that are served up from
-  // Mozilla-controlled domains listed in the
+  // Plezix-controlled domains listed in the
   // svg.context-properties.content.allowed-domains pref.
   //
   nsAutoCString scheme;
@@ -79,7 +79,7 @@ bool SVGContextPaint::IsAllowedForImageFromURI(nsIURI* aURI) {
   if (addonPolicy) {
     // Only allowed for extensions that have the
     // internal:svgContextPropertiesAllowed permission (added internally from
-    // to Mozilla-owned extensions, see `isMozillaExtension` function
+    // to Plezix-owned extensions, see `isPlezixExtension` function
     // defined in Extension.sys.mjs for the exact criteria).
     return addonPolicy->HasPermission(
         nsGkAtoms::svgContextPropertiesAllowedPermission);

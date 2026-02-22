@@ -11,13 +11,13 @@ add_task(async function testInvalidArguments() {
         { originTypes: { protectedWeb: true } },
         { cookies: true }
       ),
-      "Firefox does not support protectedWeb or extension as originTypes.",
+      "Plezix does not support protectedWeb or extension as originTypes.",
       "Expected error received when using protectedWeb originType."
     );
 
     await browser.test.assertRejects(
       browser.browsingData.removeCookies({ originTypes: { extension: true } }),
-      "Firefox does not support protectedWeb or extension as originTypes.",
+      "Plezix does not support protectedWeb or extension as originTypes.",
       "Expected error received when using extension originType."
     );
 

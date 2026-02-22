@@ -1,5 +1,5 @@
 # vim: set ts=4 et sw=4 tw=80
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -894,7 +894,7 @@ def create_self_signed_cert(name):
             x509.NameAttribute(NameOID.COUNTRY_NAME, "US"),
             x509.NameAttribute(NameOID.STATE_OR_PROVINCE_NAME, "TX"),
             x509.NameAttribute(NameOID.LOCALITY_NAME, "Dallas"),
-            x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Mozilla test iceserver"),
+            x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Plezix test iceserver"),
             x509.NameAttribute(NameOID.COMMON_NAME, name),
         ]
     )

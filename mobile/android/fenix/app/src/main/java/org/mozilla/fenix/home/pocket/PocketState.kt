@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import mozilla.components.service.pocket.PocketStory
 import org.mozilla.fenix.components.appstate.AppState
 import org.mozilla.fenix.compose.SelectableChipColors
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * State object that describes the pocket section of the homepage.
@@ -43,8 +43,8 @@ data class PocketState(
          */
         @Composable
         internal fun build(appState: AppState) = with(appState) {
-            var textColor = FirefoxTheme.colors.textPrimary
-            var linkTextColor = FirefoxTheme.colors.textAccent
+            var textColor = PlezixTheme.colors.textPrimary
+            var linkTextColor = PlezixTheme.colors.textAccent
 
             wallpaperState.currentWallpaper.let { currentWallpaper ->
                 currentWallpaper.textColor?.let {
@@ -72,8 +72,8 @@ private fun AppState.getSelectableChipColors(): SelectableChipColors {
         SelectableChipColors.buildColors()
 
     wallpaperState.ComposeRunIfWallpaperCardColorsAreAvailable { cardColorLight, cardColorDark ->
-        selectedLabelColor = FirefoxTheme.colors.textPrimary
-        labelColor = FirefoxTheme.colors.textInverted
+        selectedLabelColor = PlezixTheme.colors.textPrimary
+        labelColor = PlezixTheme.colors.textInverted
 
         if (isSystemInDarkTheme()) {
             selectedContainerColor = cardColorDark

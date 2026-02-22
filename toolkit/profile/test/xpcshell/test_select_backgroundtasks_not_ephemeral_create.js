@@ -10,7 +10,7 @@ let condition = {
   skip_if: () => !AppConstants.MOZ_BACKGROUNDTASKS,
 };
 
-let vendor = "Mozilla";
+let vendor = "Plezix";
 
 add_task(condition, async () => {
   let hash = xreDirProvider.getInstallHash();

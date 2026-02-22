@@ -15,7 +15,7 @@ NSS sources building testing
 
 .. container::
 
-   The easiest way is to download archives of NSS releases from `Mozilla's download
+   The easiest way is to download archives of NSS releases from `Plezix's download
    server <https://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/>`__. Find the directory
    that contains the highest version number. Because NSS depends on the base library
    `NSPR <https://developer.mozilla.org/en-US/docs/NSPR>`__, you should download the archive that

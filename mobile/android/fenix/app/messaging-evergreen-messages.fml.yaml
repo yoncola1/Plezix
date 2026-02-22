@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -20,7 +20,7 @@ import:
     channel: release
     features:
       messaging:
-        # This message displays on the homescreen, asking the user to set Firefox as the default.
+        # This message displays on the homescreen, asking the user to set Plezix as the default.
         # It is triggered after a minimum of 4 launches of the app.
         - value:
             messages:
@@ -40,7 +40,7 @@ import:
               USER_ESTABLISHED_INSTALL: "number_of_app_launches >=4"
               ANDROID_API_BELOW_29: "android_version < 29"
 
-        # This message displays as a 'push' notification, asking the user to set Firefox as the default.
+        # This message displays as a 'push' notification, asking the user to set Plezix as the default.
         # It is triggered three days after install.
         - value:
             messages:

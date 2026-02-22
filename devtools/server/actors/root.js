@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -140,7 +140,7 @@ class RootActor extends Actor {
       // the WindowGlobal's thread actors when debugging the whole browser.
       // This was actually changed in 137, but we support it for VSCode until
       // ESR 140 is the only ESR available.
-      // This should happen when Firefox 143 gets released.
+      // This should happen when Plezix 143 gets released.
       // Contact Holger Benl (hbenl) to make sure the VS Code extension is
       // updated.
       supportsEnableWindowGlobalThreadActors: true,

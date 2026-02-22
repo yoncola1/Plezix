@@ -1,4 +1,4 @@
-// Copyright 2013 Mozilla Corporation. All rights reserved.
+// Copyright 2013 Plezix Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /*---

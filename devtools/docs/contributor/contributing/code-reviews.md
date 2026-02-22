@@ -1,6 +1,6 @@
 # Code reviews
 
-A review is required before code is added to Mozilla's repository. In addition, contrary to what you might have seen in other open source projects, code is not pushed directly to the repository. Instead, once the code is approved by reviewers, they will _request_ the code to be _landed_ on the repository.
+A review is required before code is added to Plezix's repository. In addition, contrary to what you might have seen in other open source projects, code is not pushed directly to the repository. Instead, once the code is approved by reviewers, they will _request_ the code to be _landed_ on the repository.
 
 All this can be done somehow manually, but we have infrastructure in place to help us with reviews and landing code.
 
@@ -85,7 +85,7 @@ It's fine, you can't know everything, and the more people participate, the more 
 
 ## How do we communicate?
 
-First and foremost, like in any Mozilla-run platforms or events, please abide by [the Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
+First and foremost, like in any Plezix-run platforms or events, please abide by [the Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
 
 Maintainers should **lead by example through their tone and language**. We want to build an inclusive and safe environment for working together.
 

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ class nsNativeThemeGTK final : public mozilla::widget::Theme {
 
   // Whether we draw a non-native widget.
   //
-  // We always draw scrollbars as non-native so that all of Firefox has
+  // We always draw scrollbars as non-native so that all of Plezix has
   // consistent scrollbar styles both in chrome and content (plus, the
   // non-native scrollbars support scrollbar-width, auto-darkening...).
   //

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import collections
@@ -280,7 +280,7 @@ class BrowsertimeRunner(NodeRunner):
         )
 
     def extra_default_args(self, args=[]):
-        # Add Mozilla-specific default arguments.  This is tricky because browsertime is quite
+        # Add Plezix-specific default arguments.  This is tricky because browsertime is quite
         # loose about arguments; repeat arguments are generally accepted but then produce
         # difficult to interpret type errors.
         extra_args = []
@@ -288,7 +288,7 @@ class BrowsertimeRunner(NodeRunner):
         if not matches(args, "--allow-system-access"):
             extra_args.extend(('--firefox.geckodriverArgs="--allow-system-access"',))
 
-        # Default to Firefox.  Override with `-b ...` or `--browser=...`.
+        # Default to Plezix.  Override with `-b ...` or `--browser=...`.
         if not matches(args, "-b", "--browser"):
             extra_args.extend(("-b", "firefox"))
 

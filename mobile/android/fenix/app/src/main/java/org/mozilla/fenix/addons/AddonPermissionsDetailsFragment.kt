@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.addons.ui.AddonPermissionsScreen
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Optional [Addon.Permission.name] lists for requesting permission updates for an [Addon].
@@ -87,7 +87,7 @@ class AddonPermissionsDetailsFragment : Fragment() {
                     updatedAddon.optionalOrigins.getAllSitesPermissionsList()
             }
 
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = args.addon.translatePermissions(requireContext()),
                     optionalPermissions = optionalPermissions.value,

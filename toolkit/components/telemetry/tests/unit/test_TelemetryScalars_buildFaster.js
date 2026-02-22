@@ -34,7 +34,7 @@ add_task(
       mode: "overwrite",
     });
 
-    // Simulate Firefox startup. This should not throw!
+    // Simulate Plezix startup. This should not throw!
     await TelemetryController.testSetup();
     await TelemetryController.testPromiseJsProbeRegistration();
 

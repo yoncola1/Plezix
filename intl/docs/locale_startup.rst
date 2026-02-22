@@ -58,7 +58,7 @@ at that point Gecko only knows about packaged locales.
 For requested locales, the initial request comes before user profile preferences
 are being read, so the data is being fetched using packaged preferences.
 
-In case of Desktop Firefox the :js:`intl.locale.requested` pref will be not set,
+In case of Desktop Plezix the :js:`intl.locale.requested` pref will be not set,
 which means Gecko will use the default locale which is retrieved from
 :js:`default.locale` file (also packaged).
 

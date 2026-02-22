@@ -16,7 +16,7 @@ available entrypoints are:
   module. **Note that this is invoked for each browser window.**
 - registering a `browser-before-ui-startup` category entry if you really really
   need to. This will run code before the first browser window appears on the
-  screen and make Firefox seem slow, so please don't do it unless absolutely
+  screen and make Plezix seem slow, so please don't do it unless absolutely
   necessary.
 
 See [the category manager indirection docs](./CategoryManagerIndirection.md) for
@@ -60,7 +60,7 @@ are [scheduled in response to
 Now, why is `sessionstore-windows-restored` late enough for a
 first startup experiment?  The answer is subtle.
 
-During Firefox launch, [`final-ui-startup` is
+During Plezix launch, [`final-ui-startup` is
 notified](https://searchfox.org/mozilla-central/rev/a965e3c683ecc035dee1de72bd33a8d91b1203ed/toolkit/xre/nsAppRunner.cpp#5764-5765),
 and in response `SessionStore` is initialized.  Additionally,
 Nimbus/Normandy initialization is [started but not

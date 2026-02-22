@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -113,9 +113,9 @@ class SettingsSubMenuSearchRobot {
         assertUIObjectExists(itemWithText("Engines visible on the search menu"))
 
     fun verifyAddressBarSectionHeader() {
-        Log.i(TAG, "verifyAddressBarSectionHeader: Trying to verify that the \"Address bar - Firefox Suggest\" heading is displayed")
-        onView(withText("Address bar - Firefox Suggest")).check(matches(isDisplayed()))
-        Log.i(TAG, "verifyAddressBarSectionHeader: Verified that the \"Address bar - Firefox Suggest\" heading is displayed")
+        Log.i(TAG, "verifyAddressBarSectionHeader: Trying to verify that the \"Address bar - Plezix Suggest\" heading is displayed")
+        onView(withText("Address bar - Plezix Suggest")).check(matches(isDisplayed()))
+        Log.i(TAG, "verifyAddressBarSectionHeader: Verified that the \"Address bar - Plezix Suggest\" heading is displayed")
     }
 
     fun verifyDefaultSearchEngineList() {

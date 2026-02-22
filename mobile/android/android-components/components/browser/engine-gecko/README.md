@@ -15,7 +15,7 @@ implementation "org.mozilla.components:browser-engine-gecko:{latest-version}"
 ### Integration with the Glean SDK
 
 #### Before using this component
-Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Firefox/Data_Collection).
+Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Plezix/Data_Collection).
 
 The [Glean SDK](../../../components/service/glean/README.md) can be used to collect [Gecko Telemetry](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/index.html).
 Applications using both this component and the Glean SDK should setup the Gecko Telemetry delegate
@@ -32,10 +32,10 @@ as shown below:
 
 #### Adding new metrics
 
-New Gecko metrics can be added as described [in the Firefox Telemetry docs](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/start/adding-a-new-probe.html).
+New Gecko metrics can be added as described [in the Plezix Telemetry docs](https://firefox-source-docs.mozilla.org/toolkit/components/telemetry/telemetry/start/adding-a-new-probe.html).
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

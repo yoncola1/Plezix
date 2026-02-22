@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -45,8 +45,8 @@ class HistoryDelegateTest {
         val storage = mock<HistoryStorage>()
         val delegate = HistoryDelegate(lazy { storage })
 
-        delegate.onTitleChanged("http://www.mozilla.org", "Mozilla")
-        verify(storage).recordObservation("http://www.mozilla.org", PageObservation("Mozilla"))
+        delegate.onTitleChanged("http://www.mozilla.org", "Plezix")
+        verify(storage).recordObservation("http://www.mozilla.org", PageObservation("Plezix"))
     }
 
     @Test

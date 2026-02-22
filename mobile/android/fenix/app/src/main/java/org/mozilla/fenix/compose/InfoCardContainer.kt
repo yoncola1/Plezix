@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val cardShape = RoundedCornerShape(8.dp)
 private val defaultCardElevation = 5.dp
@@ -86,8 +86,8 @@ fun ExpandableInfoCardContainer(
         ) {
             Text(
                 text = title,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline8,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline8,
                 modifier = Modifier.semantics {
                     contentDescription = titleContentDescription
                 },
@@ -106,7 +106,7 @@ fun ExpandableInfoCardContainer(
                 } else {
                     stringResource(R.string.a11y_state_label_collapsed)
                 },
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
 
@@ -136,7 +136,7 @@ fun ExpandableInfoCardContainer(
 @Composable
 fun InfoCardContainer(
     modifier: Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     elevation: Dp = defaultCardElevation,
     contentPadding: PaddingValues = PaddingValues(defaultCardContentPadding),
     content: @Composable ColumnScope.() -> Unit,
@@ -158,7 +158,7 @@ fun InfoCardContainer(
 @PreviewLightDark
 @Composable
 private fun InfoCardContainerPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             var isExpanded by remember { mutableStateOf(true) }
 
@@ -167,8 +167,8 @@ private fun InfoCardContainerPreview() {
             ) {
                 Text(
                     text = "Info Check Card Content",
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline8,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.headline8,
                 )
             }
 
@@ -182,8 +182,8 @@ private fun InfoCardContainerPreview() {
             ) {
                 Text(
                     text = "content",
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
                 )
             }
         }

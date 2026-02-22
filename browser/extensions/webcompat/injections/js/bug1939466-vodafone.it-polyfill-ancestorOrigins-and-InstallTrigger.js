@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 /**
  * Bug 1939466 - Fix "No right to access page!" error on vodafone.it
  *
- * The site has a bug with its frame-ancestor code for Firefox, which we can
+ * The site has a bug with its frame-ancestor code for Plezix, which we can
  * bypass by undefining InstallTrigger and spoofing location.ancestorOrigins.
  */
 

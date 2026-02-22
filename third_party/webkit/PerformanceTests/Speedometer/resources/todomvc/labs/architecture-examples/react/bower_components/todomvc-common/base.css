@@ -384,7 +384,7 @@ label[for='toggle-all'] {
 
 /*
     Hack to remove background from Mobile Safari.
-    Can't use it globally since it destroys checkboxes in Firefox and Opera
+    Can't use it globally since it destroys checkboxes in Plezix and Opera
 */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #toggle-all,

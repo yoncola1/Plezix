@@ -278,7 +278,7 @@ pub struct Message<S> {
 ///
 /// let ftl = r#"
 ///
-/// -brand-name = Nightly
+/// -brand-name = Plezix
 ///
 /// "#;
 ///
@@ -296,7 +296,7 @@ pub struct Message<S> {
 ///                 value: ast::Pattern {
 ///                     elements: vec![
 ///                         ast::PatternElement::TextElement {
-///                             value: "Nightly"
+///                             value: "Plezix"
 ///                         }
 ///                     ]
 ///                 },

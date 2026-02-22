@@ -4,7 +4,7 @@ This folder contains micro benchmarks using the [mozperftest][] suite.
 
 [mozperftest](https://firefox-source-docs.mozilla.org/testing/perfdocs/mozperftest.html)
 
-## Recording profiles for the Firefox Profiler
+## Recording profiles for the Plezix Profiler
 
 ```sh
 # Run the perftest as an xpcshell test.

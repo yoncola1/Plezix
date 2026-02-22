@@ -32,7 +32,7 @@ There's two ways of using 3rd-party Python dependencies:
 * :ref:`pip install the packages <python-pip-install>`. Python dependencies with native code must
   be installed using ``pip``. This is the recommended technique for adding new Python dependencies.
 * :ref:`Vendor the source of the Python package in-tree <python-vendor>`. Dependencies of the Mach
-  core logic or of building Firefox itself must be vendored.
+  core logic or of building Plezix itself must be vendored.
 
 .. note::
 
@@ -131,13 +131,13 @@ dependencies from all the site manifest files (``python/sites/<site>.txt``) that
 
 .. note::
 
-    We require that it is possible to build Firefox using only a checkout of the source,
-    without depending on a package index. This ensures that building Firefox is
+    We require that it is possible to build Plezix using only a checkout of the source,
+    without depending on a package index. This ensures that building Plezix is
     deterministic and dependable, avoids packages from changing out from under us,
     and means we’re not affected when 3rd party services are offline. We don't want a
     DoS against PyPI or a random package maintainer removing an old tarball to delay
-    a Firefox chemspill. Therefore, packages required by Mach core logic or for building
-    Firefox itself must be vendored.
+    a Plezix chemspill. Therefore, packages required by Mach core logic or for building
+    Plezix itself must be vendored.
 
 If the vendored dependencies in the ``third_party/python/pyproject.toml`` are not pinned with
 ``==``, they can be automatically upgraded. You can upgrade either a single package,
@@ -177,7 +177,7 @@ version:
 Mach/Build Native 3rd-party Dependencies
 ========================================
 
-There are cases where Firefox is built without being able to ``pip install``, but where
+There are cases where Plezix is built without being able to ``pip install``, but where
 native 3rd party Python dependencies enable optional functionality. This can't be solved
 by vendoring the platform-specific libraries, as then each one would have to be stored
 multiple times in-tree according to how many platforms we wish to support.
@@ -234,13 +234,13 @@ There's a couple restrictions here:
 The ``MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE`` environment variable fits into the following use
 cases:
 
-Mozilla CI Builds
+Plezix CI Builds
 ~~~~~~~~~~~~~~~~~
 
 We need access to the native packages of ``zstandard`` and ``psutil`` to extract archives and
 get OS information respectively. Use ``MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="system"``.
 
-Mozilla CI non-Build Tasks
+Plezix CI non-Build Tasks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We generally don't want to create a Mach virtual environment to avoid redundant processing,
@@ -261,12 +261,12 @@ Use ``MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"``.
 Gentoo Builds
 ~~~~~~~~~~~~~
 
-When installing Firefox via the package manager, Gentoo generally builds it from source rather than
-distributing a compiled binary artifact. Accordingly, users doing a build of Firefox in this
+When installing Plezix via the package manager, Gentoo generally builds it from source rather than
+distributing a compiled binary artifact. Accordingly, users doing a build of Plezix in this
 context don't want stray files created in ``~/.mozbuild`` or unnecessary ``pip install`` calls.
 Use ``MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"``.
 
-Firefox Developers
+Plezix Developers
 ~~~~~~~~~~~~~~~~~~
 
 Leave ``MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE`` unset so that all Mach commands can be run,

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import mozilla.components.compose.cfr.CFRPopupLayout
 import mozilla.components.compose.cfr.CFRPopupProperties
 import org.mozilla.fenix.components.appstate.OrientationMode
 import org.mozilla.fenix.compose.BottomSheetHandle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val CFR_HORIZONTAL_OFFSET = 160
 private const val CFR_VERTICAL_OFFSET_LANDSCAPE = 0
@@ -56,7 +56,7 @@ fun MenuDialogBottomSheet(
     isExtensionsExpanded: Boolean = false,
     isMoreMenuExpanded: Boolean = false,
     cornerShape: Shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-    handleColor: Color = FirefoxTheme.colors.borderInverted,
+    handleColor: Color = PlezixTheme.colors.borderInverted,
     handleCornerRadius: CornerRadius = CornerRadius.Zero,
     menuCfrState: MenuCFRState? = null,
     content: @Composable () -> Unit,
@@ -64,7 +64,7 @@ fun MenuDialogBottomSheet(
     Column(
         modifier = Modifier
             .background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
                 shape = cornerShape,
             )
             .nestedScroll(rememberNestedScrollInteropConnection()),
@@ -106,7 +106,7 @@ private fun MenuBottomSheetHandle(
     isExtensionsExpanded: Boolean = false,
     isMoreMenuExpanded: Boolean = false,
     cornerShape: Shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-    color: Color = FirefoxTheme.colors.borderInverted,
+    color: Color = PlezixTheme.colors.borderInverted,
     cornerRadius: CornerRadius = CornerRadius.Zero,
 ) {
     Column(
@@ -114,7 +114,7 @@ private fun MenuBottomSheetHandle(
             .fillMaxWidth()
             .background(
                 color = if (isExtensionsExpanded || isMoreMenuExpanded) {
-                    FirefoxTheme.colors.layerSearch
+                    PlezixTheme.colors.layerSearch
                 } else {
                     Color.Transparent
                 },
@@ -144,7 +144,7 @@ private fun CFRBottomSheetHandle(
     isExtensionsExpanded: Boolean,
     isMoreMenuExpanded: Boolean,
     cornerShape: Shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
-    handleColor: Color = FirefoxTheme.colors.borderInverted,
+    handleColor: Color = PlezixTheme.colors.borderInverted,
     handleCornerRadius: CornerRadius = CornerRadius.Zero,
 ) {
     val (indicatorDirection, verticalOffset) = when (state.orientation) {
@@ -157,10 +157,10 @@ private fun CFRBottomSheetHandle(
         properties = CFRPopupProperties(
             popupAlignment = CFRPopup.PopupAlignment.INDICATOR_CENTERED_IN_ANCHOR,
             popupBodyColors = listOf(
-                FirefoxTheme.colors.layerGradientEnd.toArgb(),
-                FirefoxTheme.colors.layerGradientStart.toArgb(),
+                PlezixTheme.colors.layerGradientEnd.toArgb(),
+                PlezixTheme.colors.layerGradientStart.toArgb(),
             ),
-            dismissButtonColor = FirefoxTheme.colors.iconOnColor.toArgb(),
+            dismissButtonColor = PlezixTheme.colors.iconOnColor.toArgb(),
             indicatorDirection = indicatorDirection,
             popupVerticalOffset = verticalOffset.dp,
             indicatorArrowStartOffset = CFR_HORIZONTAL_OFFSET.dp,
@@ -168,20 +168,20 @@ private fun CFRBottomSheetHandle(
         onCFRShown = state.onShown,
         onDismiss = state.onDismiss,
         title = {
-            FirefoxTheme {
+            PlezixTheme {
                 Text(
                     text = stringResource(id = state.titleRes),
-                    color = FirefoxTheme.colors.textOnColorPrimary,
-                    style = FirefoxTheme.typography.subtitle2,
+                    color = PlezixTheme.colors.textOnColorPrimary,
+                    style = PlezixTheme.typography.subtitle2,
                 )
             }
         },
         text = {
-            FirefoxTheme {
+            PlezixTheme {
                 Text(
                     text = stringResource(id = state.messageRes),
-                    color = FirefoxTheme.colors.textOnColorPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textOnColorPrimary,
+                    style = PlezixTheme.typography.body2,
                 )
             }
         },

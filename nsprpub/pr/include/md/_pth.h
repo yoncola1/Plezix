@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -56,7 +56,7 @@
  *   (one should be able to read a pointer with a single machine
  *   instruction).  However, PR_GetCurrentThread calls calloc if
  *   it is called by a thread that was not created by NSPR.  The
- *   malloc tracing tools in the Mozilla client use PRMonitor for
+ *   malloc tracing tools in the Plezix client use PRMonitor for
  *   locking in their malloc, calloc, and free functions.  If
  *   PR_EnterMonitor calls any of these functions, infinite
  *   recursion ensues.

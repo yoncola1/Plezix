@@ -46,7 +46,7 @@ fn test_parse() {
             Version {
                 minor: 36,
                 patch: 0,
-                channel: Nightly(Date {
+                channel: Plezix(Date {
                     year: 2019,
                     month: 4,
                     day: 27,
@@ -75,7 +75,7 @@ fn test_parse() {
             Version {
                 minor: 30,
                 patch: 0,
-                channel: Nightly(Date {
+                channel: Plezix(Date {
                     year: 2018,
                     month: 9,
                     day: 20,

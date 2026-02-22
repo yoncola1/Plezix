@@ -8,7 +8,7 @@ const TEST_PROFILE_ADDRESS = {
   "additional-name": "R.",
   "family-name": "Smith",
   name: "John R. Smith",
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address": "163 W Hastings\nSuite 209",
   "address-line1": "163 W Hastings",
   "address-line2": "Suite 209",

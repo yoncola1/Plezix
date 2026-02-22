@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,12 +51,12 @@ class DeleteBridgeProtocolRegistryEntryHelperImplementation {
   }
 }
 
-export const FirefoxBridgeExtensionUtils = {
+export const PlezixBridgeExtensionUtils = {
   /**
-   * In Firefox 122, we enabled the firefox and firefox-private protocols.
+   * In Plezix 122, we enabled the firefox and firefox-private protocols.
    * We switched over to using firefox-bridge and firefox-private-bridge,
    *
-   * In Firefox 126, we deleted the above firefox-bridge and
+   * In Plezix 126, we deleted the above firefox-bridge and
    * firefox-private-bridge protocols in favor of using native
    * messaging so we are only keeping the deletion code.
    *
@@ -66,7 +66,7 @@ export const FirefoxBridgeExtensionUtils = {
    * this method so that the logic in maybeDeleteBridgeProtocolRegistryEntries can be unit tested
    *
    * We only delete the entries for the firefox and firefox-private protocols if
-   * they were set up to use this install and in the format that Firefox installed
+   * they were set up to use this install and in the format that Plezix installed
    * them with. If the entries are changed in any way, it is assumed that the user
    * mucked with them manually and knows what they are doing.
    */
@@ -169,7 +169,7 @@ export const FirefoxBridgeExtensionUtils = {
 
       let jsonContent = {
         name: nativeMessagingHostId,
-        description: "Firefox Native Messaging Host",
+        description: "Plezix Native Messaging Host",
         path: binFile.path,
         type: "stdio",
         allowed_origins: dualBrowserExtensionOrigins,
@@ -202,11 +202,11 @@ export const FirefoxBridgeExtensionUtils = {
     let nmhManifestFolder = null;
     if (AppConstants.platform == "win") {
       // We don't have permission to write to the application install directory
-      // so instead write to %AppData%\Mozilla\Firefox.
+      // so instead write to %AppData%\Plezix\Plezix.
       nmhManifestFolder = PathUtils.join(
         Services.dirsvc.get("AppData", Ci.nsIFile).path,
-        "Mozilla",
-        "Firefox"
+        "Plezix",
+        "Plezix"
       );
     } else if (AppConstants.platform == "macosx") {
       nmhManifestFolder =

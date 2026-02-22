@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -144,7 +144,7 @@ tasks:
             platform: fenix-android-all/opt
 
     focus-nightly:
-        description: 'Nightly focus build'
+        description: 'Plezix focus build'
         attributes:
             # any tasks that have this as a primary dependency will
             # inherit this attribute via the multi_dep loader
@@ -155,7 +155,7 @@ tasks:
         include-nightly-version: true
         run:
             gradle-build-type: nightly
-            gradle-build-name: focusNightly
+            gradle-build-name: focusPlezix
             gradle-build: focus
         run-on-projects: []
         source-project-name: "focus-android"
@@ -164,7 +164,7 @@ tasks:
             platform: focus-android-all/opt
 
     fenix-nightly:
-        description: 'Nightly fenix build'
+        description: 'Plezix fenix build'
         attributes:
             # any tasks that have this as a primary dependency will
             # inherit this attribute via the multi_dep loader
@@ -181,7 +181,7 @@ tasks:
         source-project-name: "fenix"
         run:
             gradle-build-type: nightly
-            gradle-build-name: fenixNightly
+            gradle-build-name: fenixPlezix
             gradle-build: fenix
             track-apk-size: true
             baseline-profile-path: /builds/worker/fetches/baselineProfiles
@@ -242,13 +242,13 @@ tasks:
     focus-nightly-firebase:
         attributes:
             shipping-product: focus
-        description: 'Focus Nightly build for UI tests'
+        description: 'Focus Plezix build for UI tests'
         dependencies:
             build-fat-aar: build-fat-aar-android-geckoview-fat-aar/opt
         disable-optimization: true
         run:
             gradle-build-type: nightly
-            gradle-build-name: focusNightly
+            gradle-build-name: focusPlezix
             gradle-build: focus
             test-build-type: nightly
         run-on-projects: [trunk]
@@ -260,13 +260,13 @@ tasks:
     fenix-nightly-firebase:
         attributes:
             shipping-product: fenix
-        description: 'Fenix Nightly build for UI tests'
+        description: 'Fenix Plezix build for UI tests'
         dependencies:
             build-fat-aar: build-fat-aar-android-geckoview-fat-aar/opt
         disable-optimization: true
         run:
             gradle-build-type: nightly
-            gradle-build-name: fenixNightly
+            gradle-build-name: fenixPlezix
             gradle-build: fenix
             test-build-type: nightly
         run-on-projects: [trunk]
@@ -358,7 +358,7 @@ tasks:
     focus-android-test-nightly:
         attributes:
             shipping-product: focus
-        description: 'Focus Nightly Android Test for debugging'
+        description: 'Focus Plezix Android Test for debugging'
         dependencies:
             build-fat-aar: build-fat-aar-android-geckoview-fat-aar/opt
         run:
@@ -385,7 +385,7 @@ tasks:
         attributes:
             nightly: true
             shipping-product: fenix
-        description: 'Fenix Nightly Android Test for debugging'
+        description: 'Fenix Plezix Android Test for debugging'
         dependencies:
             build-fat-aar: build-fat-aar-android-geckoview-fat-aar/opt
         apk-artifact-template:
@@ -476,7 +476,7 @@ tasks:
             platform: fenix-android-all/opt
 
     fenix-nightly-simulation:
-        description: 'Fenix Nightly Simulation'
+        description: 'Fenix Plezix Simulation'
         dependencies:
             build-fat-aar: build-fat-aar-android-geckoview-fat-aar-shippable/opt
             baseline-profile: generate-baseline-profile-firebase-fenix
@@ -492,7 +492,7 @@ tasks:
         run-on-projects: []
         run:
             gradle-build-type: nightly
-            gradle-build-name: fenixNightly
+            gradle-build-name: fenixPlezix
             gradle-build: fenix
             baseline-profile-path: /builds/worker/fetches/baselineProfiles
         source-project-name: "fenix"

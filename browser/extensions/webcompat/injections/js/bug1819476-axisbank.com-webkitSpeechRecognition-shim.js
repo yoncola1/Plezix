@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
  * WebCompat issue #117770 - https://webcompat.com/issues/117770
  *
  * The page with bank offerings is not loading options due to the
- * site relying on webkitSpeechRecognition, which is undefined in Firefox.
+ * site relying on webkitSpeechRecognition, which is undefined in Plezix.
  * Shimming it to `class {}` makes the pages work.
  */
 

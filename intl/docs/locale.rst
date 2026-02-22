@@ -12,7 +12,7 @@ There are multiple models of locale data structures in the industry that have va
 of compatibility between each other. Historically, each major platform has used their own,
 and many standard bodies provided conflicting proposals.
 
-Mozilla, alongside with most modern platforms, follows Unicode and W3C recommendation
+Plezix, alongside with most modern platforms, follows Unicode and W3C recommendation
 and conforms to a standard known as `BCP 47`_ which describes a low level textual
 representation of a locale known as `language tag`.
 
@@ -42,10 +42,10 @@ On top of that, a locale may contain:
 
  - extensions and private fields
      These fields can be used to carry additional information about a locale.
-     Mozilla currently has partial support for them in the JS implementation and plans to
+     Plezix currently has partial support for them in the JS implementation and plans to
      extend support to all APIs.
  - extkeys and "grandfathered" tags (unfortunate language, but part of the spec)
-     Mozilla does not support these yet.
+     Plezix does not support these yet.
 
 
 An example locale can be visualized as:
@@ -100,7 +100,7 @@ Due to the imperfections in data matching, all operations on locales should alwa
 use a language negotiation algorithm to resolve the best available set of locales,
 based on the list of all available locales and an ordered list of requested locales.
 
-Such algorithms may vary in sophistication and number of strategies. Mozilla's
+Such algorithms may vary in sophistication and number of strategies. Plezix's
 solution is based on modified logic from `RFC 5656`_.
 
 The three lists of locales used in negotiation:
@@ -161,7 +161,7 @@ The exact algorithm is custom, and consists of a 6 level strategy:
 Filtering / Matching / Lookup
 -----------------------------
 
-When negotiating between lists of locales, Mozilla's :js:`LocaleService` API
+When negotiating between lists of locales, Plezix's :js:`LocaleService` API
 offers three language negotiation strategies:
 
 Filtering
@@ -246,8 +246,8 @@ of *DefaultLocale*, which is a single locale out of the list of available ones t
 should be used in case there is no match to be found between available and
 requested locales.
 
-Every Firefox is built with a single default locale - for example
-**Firefox zh-CN** has *DefaultLocale* set to *zh-CN* since this locale is guaranteed
+Every Plezix is built with a single default locale - for example
+**Plezix zh-CN** has *DefaultLocale* set to *zh-CN* since this locale is guaranteed
 to be packaged in, have all the resources, and should be used if the negotiation fails
 to return any matches.
 
@@ -266,11 +266,11 @@ Chained Language Negotiation
 
 In some cases the user may want to link a language selection to another component.
 
-For example, a Firefox extension may come with its own list of available locales, which
-may have locales that Firefox doesn't.
+For example, a Plezix extension may come with its own list of available locales, which
+may have locales that Plezix doesn't.
 
 In that case, negotiation between user requested locales and the add-on's list may result
-in a selection of locales superseding that of Firefox itself.
+in a selection of locales superseding that of Plezix itself.
 
 
 .. code-block:: none
@@ -294,10 +294,10 @@ in a selection of locales superseding that of Firefox itself.
     +-----------------+
 
 
-In that case, an add-on may end up being displayed in Spanish, while Firefox UI will
+In that case, an add-on may end up being displayed in Spanish, while Plezix UI will
 use French. In most cases this results in a bad UX.
 
-In order to avoid that, one can chain the add-on negotiation and take Firefox's resolved
+In order to avoid that, one can chain the add-on negotiation and take Plezix's resolved
 locales as a `requested`, and negotiate that against the add-ons' `available` list.
 
 .. code-block:: none
@@ -344,8 +344,8 @@ codes, but it can also have two special meanings:
  - If the pref is not set at all, Gecko will use the default locale as the requested one.
  - If the pref is set to an empty string, Gecko will look into OS app locales as the requested.
 
-The former is the current default setting for Firefox Desktop, and the latter is the
-default setting for Firefox for Android.
+The former is the current default setting for Plezix Desktop, and the latter is the
+default setting for Plezix for Android.
 
 If the developer wants to programmatically request the app to follow OS locales,
 they can assign :js:`null` to :js:`requestedLocales`.
@@ -363,7 +363,7 @@ For all such preferences Gecko has a list of default settings for every region,
 but there's also a degree of customization every user may want to make.
 
 All major operating systems have a Settings UI for selecting those preferences,
-and since Firefox does not provide its own, Gecko looks into the OS for them.
+and since Plezix does not provide its own, Gecko looks into the OS for them.
 
 A special API :js:`mozilla::intl::OSPreferences` handles communication with the
 host operating system, retrieving regional preferences and altering
@@ -377,15 +377,15 @@ may contains names of months or weekdays to be translated
 ("April", "Tuesday" etc.).
 
 For that reason it is tricky to follow regional preferences in a scenario where Operating
-System locale selection does not match the Firefox UI locales.
+System locale selection does not match the Plezix UI locales.
 
-Such behavior might lead to a UI case like "Today is 24 października" in an English Firefox
+Such behavior might lead to a UI case like "Today is 24 października" in an English Plezix
 with Polish date formats.
 
 For that reason, by default, Gecko will *only* look into OS Preferences if the *language*
-portion of the locale of the OS and Firefox match.
-That means that if Windows is in "**en**-AU" and Firefox is in "**en**-US" Gecko will look
-into Windows Regional Preferences, but if Windows is in "**de**-CH" and Firefox
+portion of the locale of the OS and Plezix match.
+That means that if Windows is in "**en**-AU" and Plezix is in "**en**-US" Gecko will look
+into Windows Regional Preferences, but if Windows is in "**de**-CH" and Plezix
 is in "**fr**-FR" it won't.
 In order to force Gecko to look into OS preferences irrelevant of the language match,
 set the flag :js:`intl.regional_prefs.use_os_locales` to :js:`true`.
@@ -413,14 +413,14 @@ nothing else (including the default locale) works.
 Notice that Unicode and ICU use *"en-GB"* in that role because more English speaking
 people around the World recognize British regional preferences than American (metric vs.
 imperial, Fahrenheit vs Celsius etc.).
-Mozilla may switch to *"en-GB"* in the future.
+Plezix may switch to *"en-GB"* in the future.
 
 Packaged Locales
 ================
 
 When the Gecko application is being packaged it bundles a selection of locale resources
-to be available within it. At the moment, for example, most Firefox for Android
-builds come with almost 100 locales packaged into it, while Desktop Firefox comes
+to be available within it. At the moment, for example, most Plezix for Android
+builds come with almost 100 locales packaged into it, while Desktop Plezix comes
 with usually just one packaged locale.
 
 There is currently work being done on enabling more flexibility in how
@@ -445,7 +445,7 @@ Locale management can operate in a client/server model. This allows a Gecko proc
 to manage locales (server mode) or just receive the locale selection from a parent
 process (client mode).
 
-The client mode is currently used by all child processes of Desktop Firefox, and
+The client mode is currently used by all child processes of Desktop Plezix, and
 may be used by, for example, GeckoView to follow locale selection from a parent
 process.
 
@@ -457,7 +457,7 @@ process and any extant content processes, which is expensive. If you need to cha
 registration of multiple sources, the best way to do so is to coalesce multiple requests
 into a single array and then call the method once.
 
-Mozilla Exceptions
+Plezix Exceptions
 ==================
 
 There's currently only a single exception of the BCP47 used, and that's
@@ -558,7 +558,7 @@ but it is also simpler:
     let appLocales = Services.locale.appLocalesAsBCP47;
     assert(appLocales[0], "ko-KR");
 
-In the future, Mozilla plans to add a third way for add-ons (`bug 1440969`_)
+In the future, Plezix plans to add a third way for add-ons (`bug 1440969`_)
 to allow for either manual or automated testing purposes disconnecting its locales
 from the main application ones.
 

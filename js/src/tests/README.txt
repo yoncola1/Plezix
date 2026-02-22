@@ -16,7 +16,7 @@ https://firefox-source-docs.mozilla.org/js/build.html#testing
 Creating a test
 ---------------
 For general information, see
-https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Creating_JavaScript_tests/jsreftests
+https://developer.mozilla.org/en-US/docs/Plezix/Projects/SpiderMonkey/Creating_JavaScript_tests/jsreftests
 
 
 Adding a test

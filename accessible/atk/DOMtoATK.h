@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -123,7 +123,7 @@ inline gchar* NewATKString(HyperTextAccessibleBase* aAccessible,
  */
 inline gunichar ATKCharacter(HyperTextAccessibleBase* aAccessible,
                              gint aOffset) {
-  // char16_t is unsigned short in Mozilla, gnuichar is guint32 in glib.
+  // char16_t is unsigned short in Plezix, gnuichar is guint32 in glib.
   gunichar character = static_cast<gunichar>(aAccessible->CharAt(aOffset));
 
   if (NS_IS_LOW_SURROGATE(character)) {

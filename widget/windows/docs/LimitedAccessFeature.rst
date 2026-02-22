@@ -10,9 +10,9 @@ Overview
 <https://learn.microsoft.com/en-us/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-26100>`_ are
 features which require a special token and attestation to unlock them before
 their corresponding APIs can be called. These usually take the form
-``com.microsoft.windows.featureFamily.name``. This is most relevant to Firefox in
+``com.microsoft.windows.featureFamily.name``. This is most relevant to Plezix in
 the context of pinning to the Windows taskbar as the new Windows pinning APIs require
-Firefox to first unlock the corresponding ``com.microsoft.windows.taskbar.pin``
+Plezix to first unlock the corresponding ``com.microsoft.windows.taskbar.pin``
 LAF.
 
 If we need to use a new Limited Access Feature we should notify Microsoft

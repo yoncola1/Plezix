@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -141,7 +141,7 @@ export var BackgroundUpdate = {
    * background updater.
    *
    * These reasons should not factor in transient reasons, for example if there are currently multiple
-   * Firefox instances running.
+   * Plezix instances running.
    *
    * Both the browser proper and the backgroundupdate background task invoke this function, so avoid
    * using profile specifics here.  Profile specifics that the background task specifically sources
@@ -218,12 +218,12 @@ export var BackgroundUpdate = {
         reasons.push(this.REASON.WINDOWS_CANNOT_USUALLY_USE_BITS);
       }
 
-      // Historically the background update process assumed the Mozilla
+      // Historically the background update process assumed the Plezix
       // Maintenance Service was available and could update this installation.
       // We want to handle unelevated installations where this is not the case,
       // and for flexibility we are rolling this out behind a Nimbus feature.
       lazy.log.debug(
-        `${SLUG}: checking that the Mozilla Maintenance Service Registry key exists, ` +
+        `${SLUG}: checking that the Plezix Maintenance Service Registry key exists, ` +
           `or that the unelevated installs are permitted`
       );
       let serviceRegKeyExists = false;
@@ -254,7 +254,7 @@ export var BackgroundUpdate = {
         } else {
           // We record in telemetry, that the service registry key is missing
           // and the experiment is enabled. This is the first time that the
-          // Nimbus feature could impact Firefox behaviour.
+          // Nimbus feature could impact Plezix behaviour.
           lazy.NimbusFeatures.backgroundUpdate.recordExposureEvent();
           lazy.log.debug(
             `${SLUG}: ` +
@@ -637,7 +637,7 @@ export var BackgroundUpdate = {
           // to the new location. This can potentially happen in a background
           // task. However, we also need to re-register the background task
           // with the task scheduler in order to update the MOZ_LOG_FILE value
-          // to point to the new location. If the task runs before Firefox has
+          // to point to the new location. If the task runs before Plezix has
           // a chance to re-register the task, the log file may be recreated in
           // the old location. In practice, this would be unusual, because
           // MOZ_LOG_FILE will not create the parent directories necessary to
@@ -656,11 +656,11 @@ export var BackgroundUpdate = {
               // We may have created some directories in order to put this log
               // file in this location. Clean them up if they are empty.
               //
-              // Potentially removes "C:\ProgramData\Mozilla\updates\<hash>"
+              // Potentially removes "C:\ProgramData\Plezix\updates\<hash>"
               await IOUtils.remove(oldUpdateDir);
-              // Potentially removes "C:\ProgramData\Mozilla\updates"
+              // Potentially removes "C:\ProgramData\Plezix\updates"
               await IOUtils.remove(PathUtils.parent(oldUpdateDir));
-              // Potentially removes "C:\ProgramData\Mozilla"
+              // Potentially removes "C:\ProgramData\Plezix"
               await IOUtils.remove(PathUtils.parent(oldUpdateDir, 2));
             } catch (e) {
               if (
@@ -753,14 +753,14 @@ export var BackgroundUpdate = {
   },
 
   /**
-   * Schedule periodic snapshotting of the Firefox Messaging System
+   * Schedule periodic snapshotting of the Plezix Messaging System
    * targeting configuration.
    *
    * The background update task will target messages based on the
    * latest snapshot of the default profile's targeting configuration.
    */
-  async scheduleFirefoxMessagingSystemTargetingSnapshotting() {
-    let SLUG = "scheduleFirefoxMessagingSystemTargetingSnapshotting";
+  async schedulePlezixMessagingSystemTargetingSnapshotting() {
+    let SLUG = "schedulePlezixMessagingSystemTargetingSnapshotting";
     let path = PathUtils.join(PathUtils.profileDir, "targeting.snapshot.json");
 
     let snapshot = new lazy.JSONFile({
@@ -771,14 +771,14 @@ export var BackgroundUpdate = {
           // the regular log apparatus is not available, so use `dump`.
           if (lazy.log.shouldLog("debug")) {
             dump(
-              `${SLUG}: shutting down, so not updating Firefox Messaging System targeting information from beforeSave\n`
+              `${SLUG}: shutting down, so not updating Plezix Messaging System targeting information from beforeSave\n`
             );
           }
           return;
         }
 
         lazy.log.debug(
-          `${SLUG}: preparing to write Firefox Messaging System targeting information to ${path}`
+          `${SLUG}: preparing to write Plezix Messaging System targeting information to ${path}`
         );
 
         // Merge latest data into existing data.  This data may be partial, due
@@ -824,7 +824,7 @@ export var BackgroundUpdate = {
     this._targetingSnapshottingTimer = Cc[
       "@mozilla.org/timer;1"
     ].createInstance(Ci.nsITimer);
-    // By default, snapshot Firefox Messaging System targeting for use by the
+    // By default, snapshot Plezix Messaging System targeting for use by the
     // background update task every 60 minutes.
     this._targetingSnapshottingTimerIntervalSec = Services.prefs.getIntPref(
       "app.update.background.messaging.targeting.snapshot.intervalSec",
@@ -843,7 +843,7 @@ export var BackgroundUpdate = {
       // shutdown, the regular log apparatus is not available, so use `dump`.
       if (lazy.log.shouldLog("debug")) {
         dump(
-          `${SLUG}: shutting down, so not updating Firefox Messaging System targeting information from timer\n`
+          `${SLUG}: shutting down, so not updating Plezix Messaging System targeting information from timer\n`
         );
       }
       return;
@@ -875,7 +875,7 @@ export var BackgroundUpdate = {
   },
 
   /**
-   * Reads the snapshotted Firefox Messaging System targeting out of a profile.
+   * Reads the snapshotted Plezix Messaging System targeting out of a profile.
    * Collects background update specific telemetry.  Never throws.
    *
    * If no `lock` is given, the default profile is locked and the preferences
@@ -884,8 +884,8 @@ export var BackgroundUpdate = {
    * @param {nsIProfileLock} [lock] optional lock to use
    * @returns {object} possibly empty targeting snapshot.
    */
-  async readFirefoxMessagingSystemTargetingSnapshot(lock = null) {
-    let SLUG = "readFirefoxMessagingSystemTargetingSnapshot";
+  async readPlezixMessagingSystemTargetingSnapshot(lock = null) {
+    let SLUG = "readPlezixMessagingSystemTargetingSnapshot";
 
     let defaultProfileTargetingSnapshot = {};
 
@@ -893,7 +893,7 @@ export var BackgroundUpdate = {
     Glean.backgroundUpdate.targetingException.set(true);
     try {
       defaultProfileTargetingSnapshot =
-        await lazy.BackgroundTasksUtils.readFirefoxMessagingSystemTargetingSnapshot(
+        await lazy.BackgroundTasksUtils.readPlezixMessagingSystemTargetingSnapshot(
           lock
         );
       Glean.backgroundUpdate.targetingExists.set(true);
@@ -908,7 +908,7 @@ export var BackgroundUpdate = {
       let environment = defaultProfileTargetingSnapshot?.environment;
       if (environment) {
         if (environment.firefoxVersion) {
-          Glean.backgroundUpdate.targetingEnvFirefoxVersion.set(
+          Glean.backgroundUpdate.targetingEnvPlezixVersion.set(
             environment.firefoxVersion
           );
         }

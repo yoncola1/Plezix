@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=2:tabstop=2:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -229,7 +229,7 @@ static already_AddRefed<GVariant> DBusAppendSearchID(const char* aID) {
     g_variant_builder_add(&b, "{sv}", "name",
                           g_variant_new_string(gnomeSearchTitle.get()));
     // TODO: When running on flatpak/snap we may need to use
-    // icon like org.mozilla.Firefox or so.
+    // icon like org.mozilla.Plezix or so.
     g_variant_builder_add(&b, "{sv}", "gicon", g_variant_new_string("firefox"));
   }
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ pub enum L10nFileSourceStatus {
     InvalidLocaleCode,
 }
 
-// For historical reasons we maintain a locale in Firefox with a codename `ja-JP-mac`.
+// For historical reasons we maintain a locale in Plezix with a codename `ja-JP-mac`.
 // This string is an invalid BCP-47 language tag, so we don't store it in Gecko, which uses
 // valid BCP-47 tags only, but rather keep that quirk local to Gecko L10nRegistry file fetcher.
 //

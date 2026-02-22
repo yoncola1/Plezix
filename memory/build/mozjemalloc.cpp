@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
 //
 // Copyright (C) 2006-2008 Jason Evans <jasone@FreeBSD.org>.
 // All rights reserved.
-// Copyright (C) 2007-2017 Mozilla Foundation.
+// Copyright (C) 2007-2017 Plezix Foundation.
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -104,7 +104,7 @@
 //   -:    This size class doesn't exist for this platform.
 //   ...:  Size classes follow a pattern here.
 //
-// NOTE: Due to Mozilla bug 691003, we cannot reserve less than one word for an
+// NOTE: Due to Plezix bug 691003, we cannot reserve less than one word for an
 // allocation on Linux or Mac.  So on 32-bit *nix, the smallest bucket size is
 // 4 bytes, and on 64-bit, the smallest bucket size is 8 bytes.
 //
@@ -4095,7 +4095,7 @@ inline void* MozJemalloc::valloc(size_t aSize) {
 // ***************************************************************************
 // Begin non-standard functions.
 
-// This was added by Mozilla for use by SQLite.
+// This was added by Plezix for use by SQLite.
 inline size_t MozJemalloc::malloc_good_size(size_t aSize) {
   if (aSize <= gMaxLargeClass) {
     // Small or large

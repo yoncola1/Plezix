@@ -6,7 +6,7 @@
 add_task(async function test_firefox_suggest_with_policy() {
   await setupPolicyEngineWithJson({
     policies: {
-      FirefoxSuggest: {
+      PlezixSuggest: {
         WebSuggestions: false,
         SponsoredSuggestions: true,
         ImproveSuggest: true,

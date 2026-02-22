@@ -23,7 +23,7 @@ async function cleanup() {
   await switchToWindow(window);
   await promiseAllButPrimaryWindowClosed();
   await BrowserTestUtils.switchTab(gBrowser, gInitialTab);
-  await closeFirefoxViewTab(window);
+  await closePlezixViewTab(window);
 
   // clean up extra tabs
   while (gBrowser.tabs.length > 1) {
@@ -67,7 +67,7 @@ async function checkTabLists(browser, expected) {
 
 add_task(async function open_tab_same_window() {
   let tabChangeRaised;
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -90,7 +90,7 @@ add_task(async function open_tab_same_window() {
 
   const [originalTab, newTab] = gBrowser.visibleTabs;
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     const openTabs = getOpenTabsComponent(browser);
     setSortOption(openTabs, "tabStripOrder");
@@ -113,7 +113,7 @@ add_task(async function open_tab_same_window() {
     "The original tab is selected."
   );
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     const openTabs = getOpenTabsComponent(browser);
     await openTabs.updateComplete;
@@ -135,7 +135,7 @@ add_task(async function open_tab_same_window() {
     "The new tab is selected."
   );
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     const openTabs = getOpenTabsComponent(browser);
     await openTabs.updateComplete;
@@ -192,7 +192,7 @@ add_task(async function open_tab_new_window() {
   await BrowserTestUtils.openNewForegroundTab(win2.gBrowser, TEST_URL);
 
   info("Open fxview in new window");
-  await openFirefoxViewTab(win2).then(async viewTab => {
+  await openPlezixViewTab(win2).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -241,7 +241,7 @@ add_task(async function open_tab_new_window() {
   info("Wait for the original window to be focused & active");
   await winBecameActive;
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -272,7 +272,7 @@ add_task(async function open_tab_new_window() {
 add_task(async function open_tab_new_private_window() {
   await BrowserTestUtils.openNewBrowserWindow({ private: true });
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -295,8 +295,8 @@ add_task(async function open_tab_new_window_sort_by_recency() {
     await BrowserTestUtils.openNewForegroundTab(newWindow.gBrowser, URLs[1]),
   ];
 
-  info("Open Firefox View in the original window.");
-  await openFirefoxViewTab(window).then(async ({ linkedBrowser }) => {
+  info("Open Plezix View in the original window.");
+  await openPlezixViewTab(window).then(async ({ linkedBrowser }) => {
     await navigateToOpenTabs(linkedBrowser);
     const openTabs = getOpenTabsComponent(linkedBrowser);
     setSortOption(openTabs, "recency");
@@ -327,7 +327,7 @@ add_task(async function open_tab_new_window_sort_by_recency() {
 
 add_task(async function styling_for_multiple_windows() {
   let tabChangeRaised;
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -352,7 +352,7 @@ add_task(async function styling_for_multiple_windows() {
   );
 
   info("switch to firefox view in the first window");
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     const openTabs = getOpenTabsComponent(browser);
     const cardContainer = openTabs.shadowRoot.querySelector(
@@ -386,7 +386,7 @@ add_task(async function styling_for_multiple_windows() {
   );
 
   // switch back to the original window
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     const openTabs = getOpenTabsComponent(browser);
     const cardContainer = openTabs.shadowRoot.querySelector(

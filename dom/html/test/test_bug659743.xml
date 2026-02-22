@@ -10,7 +10,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=659743
   <link rel="stylesheet" href="/tests/SimpleTest/test.css"/>
 </head>
 <body>
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=659743">Mozilla Bug 659743</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=659743">Plezix Bug 659743</a>
 <p id="display">
 <map name="a">
 <area shape="rect" coords="25,25,75,75" href="#x"/>

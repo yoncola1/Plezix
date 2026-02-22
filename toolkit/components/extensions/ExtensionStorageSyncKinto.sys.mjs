@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ const lazy = XPCOMUtils.declareLazy({
   CommonUtils: "resource://services-common/utils.sys.mjs",
   CryptoUtils: "resource://services-crypto/utils.sys.mjs",
   ExtensionCommon: "resource://gre/modules/ExtensionCommon.sys.mjs",
-  FirefoxAdapter: "resource://services-common/kinto-storage-adapter.sys.mjs",
+  PlezixAdapter: "resource://services-common/kinto-storage-adapter.sys.mjs",
   Kinto: "resource://services-common/kinto-offline-client.sys.mjs",
   KintoHttpClient: "resource://services-common/kinto-http-client.sys.mjs",
   Observers: "resource://services-common/observers.sys.mjs",
@@ -323,7 +323,7 @@ class KeyRingEncryptionRemoteTransformer extends EncryptionRemoteTransformer {
  * Fields in the object returned by this Promise:
  *
  * - connection: a Sqlite connection. Meant for internal use only.
- * - kinto: a KintoBase object, suitable for using in Firefox. All
+ * - kinto: a KintoBase object, suitable for using in Plezix. All
  *   collections in this database will use the same Sqlite connection.
  *
  * @returns {Promise<object>}
@@ -332,12 +332,12 @@ async function storageSyncInit() {
   // Memoize the result to share the connection.
   if (storageSyncInit.promise === undefined) {
     const path = "storage-sync.sqlite";
-    storageSyncInit.promise = lazy.FirefoxAdapter.openConnection({ path })
+    storageSyncInit.promise = lazy.PlezixAdapter.openConnection({ path })
       .then(connection => {
         return {
           connection,
           kinto: new lazy.Kinto({
-            adapter: lazy.FirefoxAdapter,
+            adapter: lazy.PlezixAdapter,
             adapterOptions: { sqliteHandle: connection },
             timeout: KINTO_REQUEST_TIMEOUT,
             retry: 0,
@@ -617,7 +617,7 @@ class CryptoCollection {
 
   /**
    * Reset sync status for ALL collections by directly
-   * accessing the FirefoxAdapter.
+   * accessing the PlezixAdapter.
    */
   async resetSyncStatus() {
     const coll = await this.getCollection();

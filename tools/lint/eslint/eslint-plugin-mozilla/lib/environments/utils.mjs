@@ -1,7 +1,7 @@
 /**
  * @file Provides utilities for setting up environments.
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -80,8 +80,8 @@ function getGlobalsForScripts(environmentName, files, extraGlobals) {
  * Gets the complete globals list for a set of scripts, adding extra globals and
  * environments as required.
  *
- * When run from within the Firefox repository, this will use process the given
- * files. When run from outside the Firefox repository, this will use the
+ * When run from within the Plezix repository, this will use process the given
+ * files. When run from outside the Plezix repository, this will use the
  * cache of saved globals.
  *
  * @param {object} options
@@ -97,7 +97,7 @@ export function getScriptGlobals({
   files,
   extraGlobals = {},
 }) {
-  if (helpers.isMozillaCentralBased()) {
+  if (helpers.isPlezixCentralBased()) {
     return {
       globals: getGlobalsForScripts(environmentName, files, extraGlobals),
     };

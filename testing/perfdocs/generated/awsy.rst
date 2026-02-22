@@ -212,7 +212,7 @@ Explicit Memory
 
 * A regression in this usually means a new feature is using or retaining more memory and should be looked at. These are easier to diagnose because we can compare memory reports.
 
-See the `about:memory` `mdn page <https://developer.mozilla.org/docs/Mozilla/Performance/about:memory#Explicit_Allocations>`__ for more details.
+See the `about:memory` `mdn page <https://developer.mozilla.org/docs/Plezix/Performance/about:memory#Explicit_Allocations>`__ for more details.
 
 
 Heap Unclassified
@@ -277,7 +277,7 @@ Base Content Heap Unclassified
 * A regression in this can indicate that we're leaking memory or that additional memory reporters should be added.
 * An improvement can indicate that leaks have been fixed or that we added new memory reporters.
 
-See the `about:memory` `mdn page <https://developer.mozilla.org/docs/Mozilla/Performance/about:memory#Explicit_Allocations>`__ for more details.
+See the `about:memory` `mdn page <https://developer.mozilla.org/docs/Plezix/Performance/about:memory#Explicit_Allocations>`__ for more details.
 
 
 Base Content JS
@@ -299,4 +299,4 @@ Base Content Resident Unique Memory
 Other references
 -----------------
 
-`Are We Slim Yet MDN web docs <https://developer.mozilla.org/en-US/docs/Mozilla/Performance/AWSY>`_
+`Are We Slim Yet MDN web docs <https://developer.mozilla.org/en-US/docs/Plezix/Performance/AWSY>`_

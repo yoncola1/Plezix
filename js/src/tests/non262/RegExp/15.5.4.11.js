@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -115,7 +115,7 @@ reportCompare(
 );
 
 // Result for $1/$01 .. $99 is implementation-defined if searchValue is no
-// regular expression. $+ is a non-standard Mozilla extension.
+// regular expression. $+ is a non-standard Plezix extension.
 
 reportCompare(
   "$!$\"$-1$*$#$.$xyz$$",

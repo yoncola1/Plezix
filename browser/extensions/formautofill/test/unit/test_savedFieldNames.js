@@ -77,7 +77,7 @@ add_task(async function test_profileSavedFieldNames_update() {
     },
     {
       guid: "test-guid-2",
-      organization: "Mozilla",
+      organization: "Plezix",
       "street-address": "331 E. Evelyn Avenue",
       tel: "1-650-903-0800",
       country: "US",

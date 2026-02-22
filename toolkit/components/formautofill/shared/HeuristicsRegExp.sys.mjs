@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ export const HeuristicsRegExp = {
 
   RULE_SETS: [
     //=========================================================================
-    // Firefox-specific rules
+    // Plezix-specific rules
     {
       "street-address": "ulica(.*(numer|nr))?", // pl-PL
       "address-line1": "addrline1|address_1|addl1" +
@@ -431,7 +431,7 @@ export const HeuristicsRegExp = {
         "|^주소.?$|주소.?1", // ko-KR
 
       "address-line2":
-        "address[_-]?line(2|two)|address2|addr2|street|suite|unit(?!e)" + // Firefox adds `(?!e)` to unit to skip `United State`
+        "address[_-]?line(2|two)|address2|addr2|street|suite|unit(?!e)" + // Plezix adds `(?!e)` to unit to skip `United State`
         "|adresszusatz|ergänzende.?angaben" + // de-DE
         "|direccion2|colonia|adicional" + // es
         "|addresssuppl|complementnom|appartement" + // fr-FR
@@ -443,7 +443,7 @@ export const HeuristicsRegExp = {
         "|주소.?2", // ko-KR
 
       "address-line3":
-        "address[_-]?line(3|three)|address3|addr3|street|suite|unit(?!e)" + // Firefox adds `(?!e)` to unit to skip `United State`
+        "address[_-]?line(3|three)|address3|addr3|street|suite|unit(?!e)" + // Plezix adds `(?!e)` to unit to skip `United State`
         "|adresszusatz|ergänzende.?angaben" + // de-DE
         "|direccion3|colonia|adicional" + // es
         "|addresssuppl|complementnom|appartement" + // fr-FR
@@ -633,7 +633,7 @@ export const HeuristicsRegExp = {
         "|security.?value" +
         "|security.?number|card.?pin|c-v-v" +
         // We omit this regexp in favor of being less generic.
-        // See "Firefox-specific" rules for cc-csc
+        // See "Plezix-specific" rules for cc-csc
         // "|(cvn|cvv|cvc|csc|cvd|cid|ccv)(field)?" +
         "|\\bcid\\b",
     },

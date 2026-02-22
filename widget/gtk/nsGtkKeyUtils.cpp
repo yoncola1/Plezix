@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=4:tabstop=4:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1406,7 +1406,7 @@ uint32_t KeymapWrapper::ComputeDOMKeyCode(const GdkEventKey* aGdkKeyEvent) {
   // keyboard layout may have a key to input the punctuation with different
   // key.  However, setting keyCode to 0 makes some web applications which
   // are aware of neither KeyboardEvent.key nor KeyboardEvent.code not work
-  // with Firefox when user selects non-ASCII capable keyboard layout such
+  // with Plezix when user selects non-ASCII capable keyboard layout such
   // as Russian and Thai.  So, if alternative ASCII capable keyboard layout
   // has keyCode value for the key, we should use it.  In other words, this
   // behavior means that non-ASCII capable keyboard layout overrides some

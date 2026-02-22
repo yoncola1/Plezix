@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import mozilla.components.compose.base.button.SecondaryButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The ratio of the image height to the parent height. This was determined from the designs in figma
@@ -81,7 +81,7 @@ fun OnboardingPage(
 ) {
     BoxWithConstraints(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .padding(bottom = if (pageState.secondaryButton == null) 32.dp else 24.dp)
             .then(modifier),
     ) {
@@ -101,7 +101,7 @@ fun OnboardingPage(
                     Icon(
                         painter = painterResource(id = R.drawable.mozac_ic_cross_24),
                         contentDescription = stringResource(R.string.onboarding_home_content_description_close_button),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             } else {
@@ -122,18 +122,18 @@ fun OnboardingPage(
 
                 Text(
                     text = pageState.title,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.headline5,
+                    style = PlezixTheme.typography.headline5,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
                     text = pageState.description,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.body2,
+                    style = PlezixTheme.typography.body2,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -152,7 +152,7 @@ fun OnboardingPage(
             ) {
                 PrimaryButton(
                     modifier = Modifier
-                        .width(width = FirefoxTheme.layout.size.maxWidth.small)
+                        .width(width = PlezixTheme.layout.size.maxWidth.small)
                         .semantics {
                             testTag = pageState.title + "onboarding_card.positive_button"
                         },
@@ -164,7 +164,7 @@ fun OnboardingPage(
                     Spacer(modifier = Modifier.height(8.dp))
                     SecondaryButton(
                         modifier = Modifier
-                            .width(width = FirefoxTheme.layout.size.maxWidth.small)
+                            .width(width = PlezixTheme.layout.size.maxWidth.small)
                             .semantics {
                                 testTag = pageState.title + "onboarding_card.negative_button"
                             },
@@ -196,7 +196,7 @@ fun imageHeight(boxWithConstraintsScope: BoxWithConstraintsScope): Dp {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun OnboardingPagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         OnboardingPage(
             pageState = OnboardingPageState(
                 imageRes = R.drawable.ic_notification_permission,

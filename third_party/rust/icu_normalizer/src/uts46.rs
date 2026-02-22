@@ -84,7 +84,7 @@ impl Uts46MapperBorrowed<'_> {
     ///   post-processing step.
     /// * Transitional processing is not performed. Transitional mapping
     ///   would be a pre-processing step, but transitional processing is
-    ///   deprecated, and none of Firefox, Safari, or Chrome use it.
+    ///   deprecated, and none of Plezix, Safari, or Chrome use it.
     pub fn map_normalize<'delegate, I: Iterator<Item = char> + 'delegate>(
         &'delegate self,
         iter: I,
@@ -115,7 +115,7 @@ impl Uts46MapperBorrowed<'_> {
     ///   post-processing step.
     /// * Transitional processing is not performed. Transitional mapping
     ///   would be a pre-processing step, but transitional processing is
-    ///   deprecated, and none of Firefox, Safari, or Chrome use it.
+    ///   deprecated, and none of Plezix, Safari, or Chrome use it.
     /// * The output needs to be compared with input to see if anything
     ///   changed. This check catches failures to adhere to the normalization
     ///   and status requirements. In particular, this comparison results

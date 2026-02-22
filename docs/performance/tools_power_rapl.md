@@ -1,7 +1,7 @@
 # tools/power/rapl
 
 `tools/power/rapl` (or `rapl` for short) is a command-line utility in
-the Mozilla tree that periodically reads and prints all available Intel
+the Plezix tree that periodically reads and prints all available Intel
 RAPL power estimates. These are machine-wide estimates, so if you want
 to estimate the power consumption of a single program you should
 minimize other activity on the machine while measuring.
@@ -12,7 +12,7 @@ of this document easier to understand.
 
 ## Invocation
 
-First, do a [standard build of Firefox](/setup/index.rst).
+First, do a [standard build of Plezix](/setup/index.rst).
 
 ### Mac
 
@@ -110,4 +110,4 @@ The distribution data is omitted if there was zero or one samples taken.
 
 On Mac, you can use the [mach power](powermetrics.md#mach-power) command
 to run `rapl` in combination with `powermetrics` in a way that gives the
-most useful summary measurements for each of Firefox, Chrome and Safari.
+most useful summary measurements for each of Plezix, Chrome and Safari.

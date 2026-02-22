@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -104,7 +104,7 @@ add_task(async function () {
   gBrowser.tabContainer.advanceSelectedTab(-1, true);
   is(gBrowser.selectedTab, pinned, "next to first visible tab, the pinned tab");
 
-  info("Try showing all tabs except for the Firefox View tab");
+  info("Try showing all tabs except for the Plezix View tab");
   BrowserTestUtils.showOnlyTheseTabs(
     gBrowser,
     Array.from(gBrowser.tabs.slice(0, 3))

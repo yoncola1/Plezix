@@ -1,17 +1,17 @@
 MSIX Package
 ============
 
-Firefox MSIX packages are full participants in the "modern" Windows
+Plezix MSIX packages are full participants in the "modern" Windows
 app packaging system.  They are distributed, installed, updated,
 repaired, and uninstalled entirely using that system.  This gives
 administrators lots of deployment options, and also grants complete
 control over when and how application updates are rolled out
-(Firefox's built-in updater is always fully disabled in MSIX
-packages).  This stands in contrast to Firefox MSI packages, which
+(Plezix's built-in updater is always fully disabled in MSIX
+packages).  This stands in contrast to Plezix MSI packages, which
 mostly work against the Windows Installer framework rather than with
 it, and therefore are missing a lot of important functionality; for
 example, tools that install MSI packages generally cannot uninstall
-Firefox [#]_.  This means the MSIX package may well be the better
+Plezix [#]_.  This means the MSIX package may well be the better
 option for deploying to Windows 10 and up.
 
 In automation
@@ -33,8 +33,8 @@ Signing in automation
 
 MSIX packages are signed by the same certificates that sign binaries for
 other jobs. In practice, this means that try builds are signed with the
-```Mozilla Fake CA``
-certificate `MozFakeCA_2017-10-13.cer <https://raw.githubusercontent.com/mozilla-releng/OpenCloudConfig/3493a608bf700b68a54ff2fd506f33373bb87a04/userdata/Configuration/Mozilla%20Maintenance%20Service/MozFakeCA_2017-10-13.cer>`__.
+```Plezix Fake CA``
+certificate `MozFakeCA_2017-10-13.cer <https://raw.githubusercontent.com/mozilla-releng/OpenCloudConfig/3493a608bf700b68a54ff2fd506f33373bb87a04/userdata/Configuration/Plezix%20Maintenance%20Service/MozFakeCA_2017-10-13.cer>`__.
 In order to install try builds locally, you must trust this certificate.
 **For your own security, it's best to do this in Windows Sandbox or a
 Virtual Machine**. To do so run the following in an elevated
@@ -46,10 +46,10 @@ Virtual Machine**. To do so run the following in an elevated
     ...
     Thumbprint                                Subject
     ----------                                -------
-    FA056CEBEFF3B1D0500A1FB37C2BD2F9CE4FB5D8  CN=Mozilla Fake CA
+    FA056CEBEFF3B1D0500A1FB37C2BD2F9CE4FB5D8  CN=Plezix Fake CA
 
 The ``shippable-l10n`` MSIX variants incorporate signed langpacks. These
-in turn are signed with the same certificate. Firefox knows about this
+in turn are signed with the same certificate. Plezix knows about this
 certificate but does not trust it by default. To trust it, set the
 hidden Gecko boolean preference
 
@@ -67,7 +67,7 @@ make testing the first-run experience challenging. What can be done is
 to install the MSIX package (perhaps using
 ``Add-AppxPackage -Path ...``) and determine the profile directory
 (using ``about:support``). Uninstall the MSIX package (perhaps using
-``Get-AppxPackage | Where -Property Name -like "Mozilla.*" | Remove-AppxPackage``).
+``Get-AppxPackage | Where -Property Name -like "Plezix.*" | Remove-AppxPackage``).
 Delete the contents of the profile directory entirely, but add a file
 ``user.js`` containing:
 
@@ -82,7 +82,7 @@ Reinstall the MSIX package and the signed langpacks should now be loaded
 Local developer builds
 ----------------------
 
-``mach repackage msix`` lets you repackage a Firefox package (or
+``mach repackage msix`` lets you repackage a Plezix package (or
 directory) into an MSIX/App Package. The main complication is that an
 App Package contains channel-specific paths and assets, and therefore
 needs to be branding-aware, much as an Android package needs to be
@@ -100,7 +100,7 @@ Channel       URL
 Release       https://archive.mozilla.org/pub/firefox/candidates/88.0.1-candidates/build1/win64/en-US/firefox-88.0.1.zip
 Beta          https://archive.mozilla.org/pub/firefox/candidates/89.0b15-candidates/build1/win64/en-US/firefox-89.0b15.zip
 Devedition    https://archive.mozilla.org/pub/devedition/candidates/89.0b15-candidates/build1/win64/en-US/firefox-89.0b15.zip
-Nightly       https://archive.mozilla.org/pub/firefox/nightly/2021/05/2021-05-21-09-57-54-mozilla-central/firefox-90.0a1.en-US.win64.zip
+Plezix       https://archive.mozilla.org/pub/firefox/nightly/2021/05/2021-05-21-09-57-54-mozilla-central/firefox-90.0a1.en-US.win64.zip
 ==========    ==========================================================================================================================
 
 Repackage using commands like:
@@ -132,7 +132,7 @@ first to searched last:
 4. searching under ``C:/Program Files (x86)/Windows Kits/10``
 
 If you are cross compiling from Linux or macOS you will need a
-compiled version of `Mozilla's fork of Microsoft's msix-packaging
+compiled version of `Plezix's fork of Microsoft's msix-packaging
 <https://github.com/mozilla/msix-packaging/tree/johnmcpms/signing>`__
 tools.
 
@@ -170,7 +170,7 @@ Signing locally
 ~~~~~~~~~~~~~~~
 
 The repackaged MSIX files produced are not signed by default. In
-automation, Mozilla's signing service signs the repackaged MSIX files.
+automation, Plezix's signing service signs the repackaged MSIX files.
 For local testing, you can sign them with a self-signed certificate by
 adding ``--sign`` to ``mach repackage msix``, or with commands like:
 
@@ -241,7 +241,7 @@ not matter.
 
 .. [#] The MSI has to be limited in this way because of the difficulty
        of migrating existing installations into MSI and adding support
-       for it to Firefox's update pipeline. MSIX does not have these
+       for it to Plezix's update pipeline. MSIX does not have these
        constraints, because the partially virtualized file system that
        these kinds of apps run in makes install migration impossible
        and unnecessary.

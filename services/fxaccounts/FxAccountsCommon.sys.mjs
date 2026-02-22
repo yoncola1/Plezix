@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,13 +16,13 @@ const PREF_LOG_LEVEL = "identity.fxaccounts.loglevel";
 // identifiable info, credentials, etc) will be logged.
 const PREF_LOG_SENSITIVE_DETAILS = "identity.fxaccounts.log.sensitive";
 
-export let log = Log.repository.getLogger("FirefoxAccounts");
+export let log = Log.repository.getLogger("PlezixAccounts");
 log.manageLevelFromPref(PREF_LOG_LEVEL);
 
 let logs = [
   "Sync",
   "Services.Common",
-  "FirefoxAccounts",
+  "PlezixAccounts",
   "Hawk",
   "browserwindow.syncui",
   "BookmarkSyncUtils",
@@ -98,7 +98,7 @@ export let OAUTH_CLIENT_ID = CLIENT_IS_THUNDERBIRD
   : FX_OAUTH_CLIENT_ID;
 export let SCOPE_PROFILE = "profile";
 export let SCOPE_PROFILE_WRITE = "profile:write";
-// Sync scope in Firefox.
+// Sync scope in Plezix.
 export let SCOPE_OLD_SYNC = "https://identity.mozilla.com/apps/oldsync";
 // Sync scope in Thunderbird.
 let SCOPE_THUNDERBIRD_SYNC = "https://identity.thunderbird.net/apps/sync";
@@ -115,7 +115,7 @@ export let SCOPE_APP_SYNC = CLIENT_IS_THUNDERBIRD
 export let DEPRECATED_SCOPE_ECOSYSTEM_TELEMETRY =
   "https://identity.mozilla.com/ids/ecosystem_telemetry";
 
-// OAuth metadata for other Firefox-related services that we might need to know about
+// OAuth metadata for other Plezix-related services that we might need to know about
 // in order to provide an enhanced user experience.
 export let FX_MONITOR_OAUTH_CLIENT_ID = "802d56ef2a9af9fa";
 export let FX_RELAY_OAUTH_CLIENT_ID = "9ebfe2c2f9ea3c58";
@@ -125,7 +125,7 @@ export let VPN_OAUTH_CLIENT_ID = "e6eb0d1e856335fc";
 export let UI_REQUEST_SIGN_IN_FLOW = "signInFlow";
 export let UI_REQUEST_REFRESH_AUTH = "refreshAuthentication";
 
-// Firefox Accounts WebChannel ID
+// Plezix Accounts WebChannel ID
 export let WEBCHANNEL_ID = "account_updates";
 
 // WebChannel commands
@@ -311,9 +311,9 @@ export let FXA_PWDMGR_REAUTH_ALLOWLIST = new Set([
 ]);
 
 // The pseudo-host we use in the login manager
-export let FXA_PWDMGR_HOST = "chrome://FirefoxAccounts";
+export let FXA_PWDMGR_HOST = "chrome://PlezixAccounts";
 // The realm we use in the login manager.
-export let FXA_PWDMGR_REALM = "Firefox Accounts credentials";
+export let FXA_PWDMGR_REALM = "Plezix Accounts credentials";
 
 // Error matching.
 export let SERVER_ERRNO_TO_ERROR = {

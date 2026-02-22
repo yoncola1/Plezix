@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
 import org.mozilla.fenix.home.sessioncontrol.TopSiteInteractor
 import org.mozilla.fenix.home.store.NimbusMessageState
 import org.mozilla.fenix.search.toolbar.SearchSelectorMenu
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 import java.io.File
 import java.util.UUID
@@ -249,7 +249,7 @@ internal object FakeHomepagePreview {
             add(
                 TopSite.Provided(
                     id = randomLong(),
-                    title = "Mozilla",
+                    title = "Plezix",
                     url = URL,
                     clickUrl = URL,
                     imageUrl = URL,
@@ -263,7 +263,7 @@ internal object FakeHomepagePreview {
             add(
                 TopSite.Pinned(
                     id = randomLong(),
-                    title = "Mozilla",
+                    title = "Plezix",
                     url = URL,
                     createdAt = randomLong(),
                 ),
@@ -274,7 +274,7 @@ internal object FakeHomepagePreview {
             add(
                 TopSite.Default(
                     id = randomLong(),
-                    title = "Mozilla",
+                    title = "Plezix",
                     url = URL,
                     createdAt = randomLong(),
                 ),
@@ -302,7 +302,7 @@ internal object FakeHomepagePreview {
         RecentSyncedTab(
             deviceDisplayName = "Desktop",
             deviceType = DeviceType.DESKTOP,
-            title = "Mozilla",
+            title = "Plezix",
             url = URL,
             previewImageUrl = null,
         )
@@ -333,7 +333,7 @@ internal object FakeHomepagePreview {
 
             repeat(historyHightlightCount) {
                 add(
-                    RecentHistoryHighlight(title = "Mozilla", url = "www.mozilla.com"),
+                    RecentHistoryHighlight(title = "Plezix", url = "www.mozilla.com"),
                 )
             }
         }
@@ -374,7 +374,7 @@ internal object FakeHomepagePreview {
     internal fun tab(): Tab {
         return object : Tab {
             override val id = 2L
-            override val title = "Mozilla-Firefox"
+            override val title = "Plezix-Plezix"
             override val url = "https://www.mozilla.org/en-US/firefox/whats-new-in-last-version"
 
             override fun restore(
@@ -393,8 +393,8 @@ internal object FakeHomepagePreview {
             .map { PocketRecommendedStoriesCategory(it) },
         categoriesSelections = emptyList(),
         categoryColors = SelectableChipColors.buildColors(),
-        textColor = FirefoxTheme.colors.textPrimary,
-        linkTextColor = FirefoxTheme.colors.textAccent,
+        textColor = PlezixTheme.colors.textPrimary,
+        linkTextColor = PlezixTheme.colors.textAccent,
     )
 
     @Suppress("MagicNumber")
@@ -435,7 +435,7 @@ internal object FakeHomepagePreview {
                         title = "This is a ${"very ".repeat(index)} long title",
                         url = "https://sponsored-story$index.com",
                         imageUrl = URL,
-                        sponsor = "Mozilla",
+                        sponsor = "Plezix",
                         shim = PocketSponsoredStoryShim("", ""),
                         priority = index,
                         caps = PocketSponsoredStoryCaps(

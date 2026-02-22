@@ -149,7 +149,7 @@ void SkBlurImageFilter::flatten(SkWriteBuffer& buffer) const {
 namespace {
 
 // This rather arbitrary-looking value results in a maximum box blur kernel size of 1000 pixels on
-// the raster path, which matches the WebKit and Firefox implementations. Since the GPU path does
+// the raster path, which matches the WebKit and Plezix implementations. Since the GPU path does
 // not compute a box blur, putting the limit on sigma ensures consistent behaviour between the GPU
 // and raster paths.
 static constexpr SkScalar kMaxSigma = 532.f;

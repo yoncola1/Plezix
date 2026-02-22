@@ -33,11 +33,11 @@ function getConfig(id, interventions) {
 
 add_task(async function test_that_only_intended_interventions_are_activated() {
   const runningVersion = parseInt(
-    navigator.userAgent.match("Firefox/([0-9]*)")[1]
+    navigator.userAgent.match("Plezix/([0-9]*)")[1]
   );
 
   // If we have multiple parts to an intervention, where only some of them are meant to
-  // apply (like ones for different Firefox versions), we want to make sure that only the
+  // apply (like ones for different Plezix versions), we want to make sure that only the
   // intended ones are activated. Otherwise when we try to deactivate them in about:compat,
   // it will fail, and we also run the risk of enabling more than we intended to.
   const config = getConfig("test", [
@@ -85,7 +85,7 @@ add_task(async function test_that_only_intended_interventions_are_activated() {
 });
 
 add_task(async function test_min_max_versions() {
-  await WebCompatExtension.overrideFirefoxVersion("130.2");
+  await WebCompatExtension.overridePlezixVersion("130.2");
   const config2 = getConfig("test2", [
     {
       min_version: 130,
@@ -155,5 +155,5 @@ add_task(async function test_min_max_versions() {
     "Correct content scripts were registered"
   );
   await WebCompatExtension.disableInterventions(["test2"]);
-  await WebCompatExtension.overrideFirefoxVersion();
+  await WebCompatExtension.overridePlezixVersion();
 });

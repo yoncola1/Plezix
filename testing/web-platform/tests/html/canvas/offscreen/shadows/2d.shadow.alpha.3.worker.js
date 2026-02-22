@@ -18,7 +18,7 @@ t.step(function() {
 
   ctx.fillStyle = '#f00';
   ctx.fillRect(0, 0, 100, 50);
-  ctx.fillStyle = '#f00'; // (work around broken Firefox globalAlpha caching)
+  ctx.fillStyle = '#f00'; // (work around broken Plezix globalAlpha caching)
   ctx.shadowColor = '#00f';
   ctx.shadowOffsetY = 50;
   ctx.globalAlpha = 0.5;

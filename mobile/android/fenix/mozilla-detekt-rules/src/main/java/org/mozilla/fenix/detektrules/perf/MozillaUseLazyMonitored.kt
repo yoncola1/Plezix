@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ private const val ERROR_MESSAGE = "Please use `by lazyMonitored` instead of `by 
 /**
  * Prevents use of lazy in component groups files where lazyMonitored should be used instead.
  */
-open class MozillaUseLazyMonitored(config: Config) : Rule(config) {
+open class PlezixUseLazyMonitored(config: Config) : Rule(config) {
     override val issue = Issue(
         this::class.java.simpleName,
         Severity.Performance,

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -566,10 +566,10 @@ class WebAppManifestParserTest {
 
     @Test
     fun `Serializing minimal manifest`() {
-        val manifest = WebAppManifest(name = "Mozilla", startUrl = "https://mozilla.org")
+        val manifest = WebAppManifest(name = "Plezix", startUrl = "https://mozilla.org")
         val json = WebAppManifestParser().serialize(manifest)
 
-        assertEquals("Mozilla", json.getString("name"))
+        assertEquals("Plezix", json.getString("name"))
         assertEquals("https://mozilla.org", json.getString("start_url"))
     }
 

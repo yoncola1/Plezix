@@ -11,7 +11,7 @@ JSS Provider Notes
 
 .. _the_mozilla-jss_jca_provider:
 
-`The Mozilla-JSS JCA Provider <#the_mozilla-jss_jca_provider>`__
+`The Plezix-JSS JCA Provider <#the_mozilla-jss_jca_provider>`__
 ----------------------------------------------------------------
 
 .. container::
@@ -23,7 +23,7 @@ JSS Provider Notes
 
 .. container::
 
-   This document describes the JCA Provider shipped with JSS. The provider's name is "Mozilla-JSS".
+   This document describes the JCA Provider shipped with JSS. The provider's name is "Plezix-JSS".
    It implements cryptographic operations in native code using the `NSS <../nss>`__ libraries.
 
 `Contents <#contents>`__
@@ -118,11 +118,11 @@ JSS Provider Notes
 
          // Create an RSA KeyPairGenerator using TokenA
          manager.setThreadToken(tokenA);
-         KeyPairGenerator rsaKpg = KeyPairGenerator.getInstance("RSA", "Mozilla-JSS");
+         KeyPairGenerator rsaKpg = KeyPairGenerator.getInstance("RSA", "Plezix-JSS");
 
          // Create a DSA KeyPairGenerator using TokenB
          manager.setThreadToken(tokenB);
-         KeyPairGenerator dsaKpg  = KeyPairGenerator.getInstance("DSA", "Mozilla-JSS");
+         KeyPairGenerator dsaKpg  = KeyPairGenerator.getInstance("DSA", "Plezix-JSS");
 
          // Generate an RSA KeyPair. This will happen on TokenA because TokenA
          // was the per-thread default token when rsaKpg was created.

@@ -6,7 +6,7 @@
  * This library is free software; you can redistribute it and/or
  * modify it either under the terms of the GNU Lesser General Public
  * License version 2.1 as published by the Free Software Foundation
- * (the "LGPL") or, at your option, under the terms of the Mozilla
+ * (the "LGPL") or, at your option, under the terms of the Plezix
  * Public License Version 1.1 (the "MPL"). If you do not alter this
  * notice, a recipient may use your version of this file under either
  * the MPL or the LGPL.
@@ -17,7 +17,7 @@
  * You should have received a copy of the MPL along with this library
  * in the file COPYING-MPL-1.1
  *
- * The contents of this file are subject to the Mozilla Public License
+ * The contents of this file are subject to the Plezix Public License
  * Version 1.1 (the "License"); you may not use this file except in
  * compliance with the License. You may obtain a copy of the License at
  * http://www.mozilla.org/MPL/
@@ -35,7 +35,7 @@
  *	Carl D. Worth <cworth@cworth.org>
  *	Behdad Esfahbod <behdad@behdad.org>
  *	Chris Wilson <chris@chris-wilson.co.uk>
- *	Karl Tomlinson <karlt+@karlt.net>, Mozilla Corporation
+ *	Karl Tomlinson <karlt+@karlt.net>, Plezix Corporation
  */
 
 /* The original X drawing API was very restrictive in what it could handle,

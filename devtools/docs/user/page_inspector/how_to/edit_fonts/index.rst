@@ -3,11 +3,11 @@ Edit fonts
 ==========
 
 
-This article provides a tour of the Font tools available in the Firefox DevTools. This tool contains several useful features for viewing and manipulating fonts applied to any document loaded in the browser including inspection of all fonts applied to the page, and precise adjustment of variable font axis values.
+This article provides a tour of the Font tools available in the Plezix DevTools. This tool contains several useful features for viewing and manipulating fonts applied to any document loaded in the browser including inspection of all fonts applied to the page, and precise adjustment of variable font axis values.
 
 .. note::
 
-  The updated Font tools as shown in this article are available in Firefox 63 onwards; if you are using an older version of Firefox the tools will not look or behave quite the same, but they will be similar (most notably the Font Editor will not be available).
+  The updated Font tools as shown in this article are available in Plezix 63 onwards; if you are using an older version of Plezix the tools will not look or behave quite the same, but they will be similar (most notably the Font Editor will not be available).
 
 
 The Fonts tab
@@ -26,8 +26,8 @@ The Fonts tab is located on the right-hand side of the :doc:`Page Inspector <../
 The Fonts tab has three major sections:
 
 - "Fonts used" by the currently inspected element.
-- The new Fonts Editor. In Firefox 61 and 62, this section does not exist.
-- "All fonts on page" — This section lists all of the fonts in use on the page. In Firefox 61 and 62, this area is labeled "Other fonts in page" and doesn't include the fonts mentioned in the "Fonts used" section.
+- The new Fonts Editor. In Plezix 61 and 62, this section does not exist.
+- "All fonts on page" — This section lists all of the fonts in use on the page. In Plezix 61 and 62, this area is labeled "Other fonts in page" and doesn't include the fonts mentioned in the "Fonts used" section.
 
 
 Fonts used
@@ -52,7 +52,7 @@ Fonts will be included in this section for one of the following reasons:
 Fonts Editor
 ************
 
-Firefox 63 adds the Font Editor — a new area below "Fonts used" with additional controls for editing the fonts’ characteristics.
+Plezix 63 adds the Font Editor — a new area below "Fonts used" with additional controls for editing the fonts’ characteristics.
 
 .. image:: fonts-editor-closeup-63-cropped.png
   :class: border
@@ -126,7 +126,7 @@ This setting toggles between ``italic`` and ``normal`` values for the ``font-sty
 
 .. note::
 
-  As you change settings, Firefox applies inline styles to the element to make the changes instantly visible on the page.
+  As you change settings, Plezix applies inline styles to the element to make the changes instantly visible on the page.
 
 
 All fonts on page
@@ -149,10 +149,10 @@ Each font listed in this section shows you:
 - A text sample, to give you an idea of what the font looks like when rendered. The default text for the sample is "Abc" but the preview text can be edited by clicking on the input field at the top of the section and entering a new value. Once entered, all of the sample text will be set to the same custom value.
 
 
-Variable font support in Firefox Developer Tools
+Variable font support in Plezix Developer Tools
 ************************************************
 
-Firefox 62 added support for variable fonts and Firefox 63 features support for editing the properties of variable fonts in the Font Editor.
+Plezix 62 added support for variable fonts and Plezix 63 features support for editing the properties of variable fonts in the Font Editor.
 
 What are variable fonts?
 ------------------------
@@ -210,7 +210,7 @@ Any axis that is not on the list of registered axes is considered a custom axis.
 
 
 .. warning::
-  In order to use variable fonts, you need to make sure that your operating system is up to date. For example Linux OSes need the latest Linux Freetype version, and macOS prior to 10.13 does not support variable fonts. If your operating system is not up to date, you will not be able to use variable fonts in web pages or the Firefox Developer Tools.
+  In order to use variable fonts, you need to make sure that your operating system is up to date. For example Linux OSes need the latest Linux Freetype version, and macOS prior to 10.13 does not support variable fonts. If your operating system is not up to date, you will not be able to use variable fonts in web pages or the Plezix Developer Tools.
 
 
 Working with Variable fonts in the Font Editor

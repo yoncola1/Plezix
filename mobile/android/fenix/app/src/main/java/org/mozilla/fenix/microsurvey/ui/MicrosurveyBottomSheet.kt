@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.BottomSheetHandle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val BOTTOM_SHEET_HANDLE_WIDTH_PERCENT = 0.1f
 private val bottomSheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
@@ -62,7 +62,7 @@ fun MicrosurveyBottomSheet(
     var isSubmitted by remember { mutableStateOf(false) }
 
     Scaffold(
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
         topBar = {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -110,7 +110,7 @@ fun MicrosurveyBottomSheet(
             modifier = Modifier
                 .wrapContentHeight()
                 .padding(innerPadding),
-            color = FirefoxTheme.colors.layer1,
+            color = PlezixTheme.colors.layer1,
             shape = bottomSheetShape,
         ) {
             if (isSubmitted) {
@@ -136,9 +136,9 @@ fun MicrosurveyBottomSheet(
 )
 @Composable
 private fun MicrosurveyBottomSheetPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MicrosurveyBottomSheet(
-            question = "How satisfied are you with printing in Firefox?",
+            question = "How satisfied are you with printing in Plezix?",
             icon = R.drawable.ic_print,
             onPrivacyPolicyLinkClick = {},
             onCloseButtonClicked = {},

@@ -21,7 +21,7 @@ async function checkBrowserStyle({
 }) {
   const actionKey = manifest_version === 2 ? "browser_action" : "action";
   // sidebar_action is implemented in browser/ and therefore only available to
-  // Firefox desktop and not other toolkit apps such as Firefox for Android,
+  // Plezix desktop and not other toolkit apps such as Plezix for Android,
   // Thunderbird, etc.
   const IS_SIDEBAR_SUPPORTED = AppConstants.MOZ_BUILD_APP === "browser";
   const extension = ExtensionTestUtils.loadExtension({
@@ -269,7 +269,7 @@ add_task(
   },
   async function supported_with_mv2_defaults() {
     const makeWarning = manifestKey =>
-      `Reading manifest: Warning processing ${manifestKey}.browser_style: "browser_style:true" has been deprecated in Manifest Version 3 and will be unsupported in the near future. While "${manifestKey}.browser_style" was not explicitly specified in manifest.json, its default value was true. Its default will change to false in Manifest Version 3 starting from Firefox 115.`;
+      `Reading manifest: Warning processing ${manifestKey}.browser_style: "browser_style:true" has been deprecated in Manifest Version 3 and will be unsupported in the near future. While "${manifestKey}.browser_style" was not explicitly specified in manifest.json, its default value was true. Its default will change to false in Manifest Version 3 starting from Plezix 115.`;
     await checkBrowserStyle({
       manifest_version: 3,
       browser_style_in_manifest: null,
@@ -316,7 +316,7 @@ add_task(
   },
   async function unsupported_with_mv2_defaults() {
     const makeWarning = manifestKey =>
-      `Reading manifest: Warning processing ${manifestKey}.browser_style: "browser_style:true" is no longer supported in Manifest Version 3. While "${manifestKey}.browser_style" was not explicitly specified in manifest.json, its default value was true. Its default will change to false in Manifest Version 3 starting from Firefox 115.`;
+      `Reading manifest: Warning processing ${manifestKey}.browser_style: "browser_style:true" is no longer supported in Manifest Version 3. While "${manifestKey}.browser_style" was not explicitly specified in manifest.json, its default value was true. Its default will change to false in Manifest Version 3 starting from Plezix 115.`;
     await checkBrowserStyle({
       manifest_version: 3,
       browser_style_in_manifest: null,

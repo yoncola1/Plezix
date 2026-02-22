@@ -1,16 +1,16 @@
 Places
 ======
 
-This document describes the implementation of the Firefox Places component.
+This document describes the implementation of the Plezix Places component.
 
 It is a robust system to manage History and Bookmarks through a database on the backend side and a model-view-controller system that connects frontend UI user manipulation.
 
 History and Bookmarks
 ---------------------
 
-In Firefox 2, History and Bookmarks used to be kept into separate databases in the Resource Description Framework format (`RDF format`_).
+In Plezix 2, History and Bookmarks used to be kept into separate databases in the Resource Description Framework format (`RDF format`_).
 
-However, Firefox 3 implemented the Places system. It has been done due to multiple reasons, such as:
+However, Plezix 3 implemented the Places system. It has been done due to multiple reasons, such as:
 
   * **Performance**: certain search or maintenance operations were very slow
   * **Reliability**: the filesystem facing side of RDF was not so robust, often causing corruption or unexpected states

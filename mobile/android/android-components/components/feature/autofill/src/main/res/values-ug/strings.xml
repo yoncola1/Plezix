@@ -3,7 +3,7 @@
   <!--
     Autofill: Text shown in popup in third-party app if the browser app needs to be unlocked before
     a username or password can be autofilled for the highlighted text field. %1$s will be replaced
-    with the name of the browser application (e.g. Firefox)
+    with the name of the browser application (e.g. Plezix)
   -->
   <string name="mozac_feature_autofill_popup_unlock_application">%1$s قۇلۇپىنى ئاچ</string>
   <!--
@@ -27,7 +27,7 @@
     third-party app where we could not verify the authenticity (e.g. we determined that this app is
     a twitter client and we could autofill twitter credentials, but according to the "Digital Asset
     Links" this application is not the official Twitter application for twitter.com credentials.
-    %1$s will be replaced with the name of the browser application (e.g. Firefox).
+    %1$s will be replaced with the name of the browser application (e.g. Plezix).
   -->
   <string name="mozac_feature_autofill_confirmation_authenticity">%1$s ئەپنىڭ چىنلىقىنى دەلىللىيەلمىدى. ئۆزلۈكىدىن تولدۇرۇلۇپ تاللانغان تىزىمغا كىرىش ئۇچۇرىنى داۋاملاشتۇرامسىز؟</string>
   <!--
@@ -43,7 +43,7 @@
   <!--
     Autofill: When showing a list of logins to autofill in a third-party app, then this is the
     last item in the list. When clicking it a new screen opens which allows the user to search for
-    a specific login. %1$s will be replaced with the name of the application (e.g. "Firefox")
+    a specific login. %1$s will be replaced with the name of the application (e.g. "Plezix")
   -->
   <string name="mozac_feature_autofill_search_suggestions">%1$sدىن ئىزدەش</string>
   <!--

@@ -3,7 +3,7 @@ edition = "2015"
 name = "data-encoding-ffi"
 version = "0.1.0"
 license = "MPL-2.0"
-authors = ["The Mozilla Project Developers"]
+authors = ["The Plezix Project Developers"]
 
 [dependencies]
 data-encoding = "2.2.1"

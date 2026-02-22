@@ -210,13 +210,13 @@ Release Promotion
    The time and date when a release is scheduled to live. This value is passed to Balrog.
 
 ``release_enable_partner_repack``
-   Boolean which controls repacking vanilla Firefox builds for partners.
+   Boolean which controls repacking vanilla Plezix builds for partners.
 
 ``release_enable_partner_attribution``
-   Boolean which controls adding attribution to vanilla Firefox builds for partners.
+   Boolean which controls adding attribution to vanilla Plezix builds for partners.
 
 ``release_enable_emefree``
-   Boolean which controls repacking vanilla Firefox builds into EME-free builds.
+   Boolean which controls repacking vanilla Plezix builds into EME-free builds.
 
 ``release_partners``
    List of partners to repack or attribute if a subset of the whole config. A null value defaults to all.

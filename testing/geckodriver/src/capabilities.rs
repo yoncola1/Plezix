@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,22 +42,22 @@ impl From<VersionError> for WebDriverError {
     }
 }
 
-/// Provides matching of `moz:firefoxOptions` and resolutionnized  of which Firefox
+/// Provides matching of `moz:firefoxOptions` and resolutionnized  of which Plezix
 /// binary to use.
 ///
-/// `FirefoxCapabilities` is constructed with the fallback binary, should
+/// `PlezixCapabilities` is constructed with the fallback binary, should
 /// `moz:firefoxOptions` not contain a binary entry.  This may either be the
-/// system Firefox installation or an override, for example given to the
+/// system Plezix installation or an override, for example given to the
 /// `--binary` flag of geckodriver.
-pub struct FirefoxCapabilities<'a> {
+pub struct PlezixCapabilities<'a> {
     pub chosen_binary: Option<PathBuf>,
     fallback_binary: Option<&'a PathBuf>,
     version_cache: BTreeMap<PathBuf, Result<Version, VersionError>>,
 }
 
-impl<'a> FirefoxCapabilities<'a> {
-    pub fn new(fallback_binary: Option<&'a PathBuf>) -> FirefoxCapabilities<'a> {
-        FirefoxCapabilities {
+impl<'a> PlezixCapabilities<'a> {
+    pub fn new(fallback_binary: Option<&'a PathBuf>) -> PlezixCapabilities<'a> {
+        PlezixCapabilities {
             chosen_binary: None,
             fallback_binary,
             version_cache: BTreeMap::new(),
@@ -112,7 +112,7 @@ impl<'a> FirefoxCapabilities<'a> {
     }
 }
 
-impl BrowserCapabilities for FirefoxCapabilities<'_> {
+impl BrowserCapabilities for PlezixCapabilities<'_> {
     fn init(&mut self, capabilities: &Capabilities) {
         self.set_binary(capabilities);
     }
@@ -237,7 +237,7 @@ impl BrowserCapabilities for FirefoxCapabilities<'_> {
                                 {
                                     return Err(WebDriverError::new(
                                         ErrorStatus::InvalidArgument,
-                                        format!("{} is not a Firefox executable", &**key),
+                                        format!("{} is not a Plezix executable", &**key),
                                     ));
                                 }
                             } else {
@@ -323,7 +323,7 @@ impl BrowserCapabilities for FirefoxCapabilities<'_> {
                     ));
                 }
             }
-            // Bug 1967916: Remove when Firefox 140 is no longer supported
+            // Bug 1967916: Remove when Plezix 140 is no longer supported
             "moz:debuggerAddress" => {
                 if !value.is_boolean() {
                     return Err(WebDriverError::new(
@@ -379,12 +379,12 @@ pub enum ProfileType {
 
 /// Rust representation of `moz:firefoxOptions`.
 ///
-/// Calling `FirefoxOptions::from_capabilities(binary, capabilities)` causes
+/// Calling `PlezixOptions::from_capabilities(binary, capabilities)` causes
 /// the encoded profile, the binary arguments, log settings, and additional
 /// preferences to be checked and unmarshaled from the `moz:firefoxOptions`
 /// JSON Object into a Rust representation.
 #[derive(Default, Debug)]
-pub struct FirefoxOptions {
+pub struct PlezixOptions {
     pub binary: Option<PathBuf>,
     pub profile: ProfileType,
     pub args: Option<Vec<String>>,
@@ -395,8 +395,8 @@ pub struct FirefoxOptions {
     pub use_websocket: bool,
 }
 
-impl FirefoxOptions {
-    pub fn new() -> FirefoxOptions {
+impl PlezixOptions {
+    pub fn new() -> PlezixOptions {
         Default::default()
     }
 
@@ -404,8 +404,8 @@ impl FirefoxOptions {
         binary_path: Option<PathBuf>,
         settings: &MarionetteSettings,
         matched: &mut Capabilities,
-    ) -> WebDriverResult<FirefoxOptions> {
-        let mut rv = FirefoxOptions::new();
+    ) -> WebDriverResult<PlezixOptions> {
+        let mut rv = PlezixOptions::new();
         rv.binary = binary_path;
 
         if let Some(json) = matched.remove("moz:firefoxOptions") {
@@ -424,13 +424,13 @@ impl FirefoxOptions {
                 ));
             }
 
-            rv.android = FirefoxOptions::load_android(settings.android_storage, options)?;
-            rv.args = FirefoxOptions::load_args(options)?;
-            rv.env = FirefoxOptions::load_env(options)?;
-            rv.log = FirefoxOptions::load_log(options)?;
-            rv.prefs = FirefoxOptions::load_prefs(options)?;
+            rv.android = PlezixOptions::load_android(settings.android_storage, options)?;
+            rv.args = PlezixOptions::load_args(options)?;
+            rv.env = PlezixOptions::load_env(options)?;
+            rv.log = PlezixOptions::load_log(options)?;
+            rv.prefs = PlezixOptions::load_prefs(options)?;
             if let Some(profile) =
-                FirefoxOptions::load_profile(settings.profile_root.as_deref(), options)?
+                PlezixOptions::load_profile(settings.profile_root.as_deref(), options)?
             {
                 rv.profile = ProfileType::Path(profile);
             }
@@ -458,13 +458,13 @@ impl FirefoxOptions {
                     ));
                 }
                 // See bug 1757720
-                warn!("Firefox was configured to use a named profile (`-P <name>`). \
+                warn!("Plezix was configured to use a named profile (`-P <name>`). \
                        Support for named profiles will be removed in a future geckodriver release. \
-                       Please instead use the `--profile <path>` Firefox argument to start with an existing profile");
+                       Please instead use the `--profile <path>` Plezix argument to start with an existing profile");
                 rv.profile = ProfileType::Named;
             }
 
-            // Block these Firefox command line arguments that should not be settable
+            // Block these Plezix command line arguments that should not be settable
             // via session capabilities.
             if let Some(arg) = os_args
                 .iter()
@@ -869,16 +869,16 @@ mod tests {
     fn make_options(
         firefox_opts: Capabilities,
         marionette_settings: Option<MarionetteSettings>,
-    ) -> WebDriverResult<FirefoxOptions> {
+    ) -> WebDriverResult<PlezixOptions> {
         let mut caps = Capabilities::new();
         caps.insert("moz:firefoxOptions".into(), Value::Object(firefox_opts));
 
-        FirefoxOptions::from_capabilities(None, &marionette_settings.unwrap_or_default(), &mut caps)
+        PlezixOptions::from_capabilities(None, &marionette_settings.unwrap_or_default(), &mut caps)
     }
 
     #[test]
     fn fx_options_default() {
-        let opts: FirefoxOptions = Default::default();
+        let opts: PlezixOptions = Default::default();
         assert_eq!(opts.android, None);
         assert_eq!(opts.args, None);
         assert_eq!(opts.binary, None);
@@ -893,7 +893,7 @@ mod tests {
         let mut caps = Capabilities::new();
 
         let marionette_settings = Default::default();
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
             .expect("valid firefox options");
         assert_eq!(opts.android, None);
         assert_eq!(opts.args, None);
@@ -913,7 +913,7 @@ mod tests {
         let binary = PathBuf::from("foo");
         let marionette_settings = Default::default();
 
-        let opts = FirefoxOptions::from_capabilities(
+        let opts = PlezixOptions::from_capabilities(
             Some(binary.clone()),
             &marionette_settings,
             &mut caps,
@@ -948,12 +948,12 @@ mod tests {
         let mut caps = Capabilities::new();
 
         let marionette_settings = Default::default();
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
+            .expect("Valid Plezix options");
 
         assert!(
             opts.args.is_none(),
-            "CLI arguments for Firefox unexpectedly found"
+            "CLI arguments for Plezix unexpectedly found"
         );
     }
 
@@ -963,12 +963,12 @@ mod tests {
         caps.insert("webSocketUrl".into(), json!(false));
 
         let marionette_settings = Default::default();
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
+            .expect("Valid Plezix options");
 
         assert!(
             opts.args.is_none(),
-            "CLI arguments for Firefox unexpectedly found"
+            "CLI arguments for Plezix unexpectedly found"
         );
     }
 
@@ -981,15 +981,15 @@ mod tests {
             websocket_port: 1234,
             ..Default::default()
         };
-        let opts = FirefoxOptions::from_capabilities(None, &settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &settings, &mut caps)
+            .expect("Valid Plezix options");
 
         if let Some(args) = opts.args {
             let mut iter = args.iter();
             assert!(iter.any(|arg| arg == &"--remote-debugging-port".to_owned()));
             assert_eq!(iter.next(), Some(&"1234".to_owned()));
         } else {
-            panic!("CLI arguments for Firefox not found");
+            panic!("CLI arguments for Plezix not found");
         }
     }
 
@@ -1003,8 +1003,8 @@ mod tests {
             Host::parse("foo").expect("host"),
             Host::parse("bar").expect("host"),
         ];
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
+            .expect("Valid Plezix options");
 
         if let Some(args) = opts.args {
             let mut iter = args.iter();
@@ -1012,7 +1012,7 @@ mod tests {
             assert_eq!(iter.next(), Some(&"foo,bar".to_owned()));
             assert!(!iter.any(|arg| arg == &"--remote-allow-origins".to_owned()));
         } else {
-            panic!("CLI arguments for Firefox not found");
+            panic!("CLI arguments for Plezix not found");
         }
     }
 
@@ -1026,8 +1026,8 @@ mod tests {
             Url::parse("http://foo/").expect("url"),
             Url::parse("http://bar/").expect("url"),
         ];
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
+            .expect("Valid Plezix options");
 
         if let Some(args) = opts.args {
             let mut iter = args.iter();
@@ -1035,7 +1035,7 @@ mod tests {
             assert_eq!(iter.next(), Some(&"http://foo/,http://bar/".to_owned()));
             assert!(!iter.any(|arg| arg == &"--remote-allow-hosts".to_owned()));
         } else {
-            panic!("CLI arguments for Firefox not found");
+            panic!("CLI arguments for Plezix not found");
         }
     }
 
@@ -1046,7 +1046,7 @@ mod tests {
         let opts = make_options(caps, None).expect("valid firefox options");
         assert!(
             opts.args.is_none(),
-            "CLI arguments for Firefox unexpectedly found"
+            "CLI arguments for Plezix unexpectedly found"
         );
     }
 
@@ -1058,7 +1058,7 @@ mod tests {
         let opts = make_options(caps, None).expect("valid firefox options");
         assert!(
             opts.args.is_none(),
-            "CLI arguments for Firefox unexpectedly found"
+            "CLI arguments for Plezix unexpectedly found"
         );
     }
 
@@ -1071,15 +1071,15 @@ mod tests {
             websocket_port: 1234,
             ..Default::default()
         };
-        let opts = FirefoxOptions::from_capabilities(None, &settings, &mut caps)
-            .expect("Valid Firefox options");
+        let opts = PlezixOptions::from_capabilities(None, &settings, &mut caps)
+            .expect("Valid Plezix options");
 
         if let Some(args) = opts.args {
             let mut iter = args.iter();
             assert!(iter.any(|arg| arg == &"--remote-debugging-port".to_owned()));
             assert_eq!(iter.next(), Some(&"1234".to_owned()));
         } else {
-            panic!("CLI arguments for Firefox not found");
+            panic!("CLI arguments for Plezix not found");
         }
     }
 
@@ -1089,8 +1089,8 @@ mod tests {
         caps.insert("moz:firefoxOptions".into(), json!(42));
 
         let marionette_settings = Default::default();
-        FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
-            .expect_err("Firefox options need to be of type object");
+        PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
+            .expect_err("Plezix options need to be of type object");
     }
 
     #[test]

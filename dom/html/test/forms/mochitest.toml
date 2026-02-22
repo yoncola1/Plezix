@@ -106,7 +106,7 @@ support-files = ["file_login_fields.html"]
 ["test_input_number_l10n.html"]
 
 ["test_input_number_mouse_events.html"]
-run-if = ["os != 'android'"] # Not run on Firefox for Android where the spin buttons are hidden:
+run-if = ["os != 'android'"] # Not run on Plezix for Android where the spin buttons are hidden:
 skip-if = [
   "os == 'mac' && os_version == '10.15' && processor == 'x86_64' && debug", # Bug 1484442
 ]

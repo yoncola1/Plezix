@@ -13,14 +13,14 @@ Moving all search related state to `BrowserState` and replacing `SearchEngineMan
 
 ## Motivation
 
-The integration of `browser-search` into [Fenix](https://github.com/mozilla-mobile/fenix) and [Firefox for Fire TV](https://github.com/mozilla-mobile/firefox-tv/) showed that the current API is not enough to satisfy all use cases. Some examples include:
+The integration of `browser-search` into [Fenix](https://github.com/mozilla-mobile/fenix) and [Plezix for Fire TV](https://github.com/mozilla-mobile/firefox-tv/) showed that the current API is not enough to satisfy all use cases. Some examples include:
 
 * Fenix supports custom search engines. This can only be achieved with `browser-search` by passing a custom `SearchEngineProvider` to `SearchEngineManager`. Everything else is left to the app.
 * `SearchEngineManager` initially only provided synchronous methods for accessing search engines. Later asynchronous methods were added. The result is a hard to understand mix that can cause blocking I/O to happen on the wrong threads.
 * The `browser-search` component does not follow our abstraction model of implementing a `concept-search` component. This makes it impossible to switch or customize implementations.
 * The wrapper code in Fenix makes it hard to argue about the state that is split over two implementations. In addition to that it makes it hard to add functionality to `SearchEngineManager` since it is not used directly.
 * Nowadays Android Components bundles all state in `BrowserState` observable through `BrowserStore` (provided by `browser-state`). On the application side we are using an UI-scoped `Store` (provided by `lib-store`). `SearchEngineManager` creates a secondary source of truth just for search and circumvents this architecture pattern.
-* In "Firefox for Fire TV" and "Firefox for Echo Show" we needed to override the default search configuration, adding and replacing loaded search engines. This turned out to be quite complicated and required wrapping multiple classes that deal with loading the search configuration and engines.
+* In "Plezix for Fire TV" and "Plezix for Echo Show" we needed to override the default search configuration, adding and replacing loaded search engines. This turned out to be quite complicated and required wrapping multiple classes that deal with loading the search configuration and engines.
 
 ## Guide-level explanation
 
@@ -114,15 +114,15 @@ We have implemented similar functionality a lot of times:
 * [SearchEngineManager in Android Components](https://github.com/mozilla-mobile/android-components/blob/08880314f56d73691b3cd909d5dee199bba4ed0b/components/browser/search/src/main/java/mozilla/components/browser/search/SearchEngineManager.kt#L28)
 * Focus had its own implementation of `SearchEngineManager` too, but was migrated to use `browser-search` already.
 * [FenixSearchEngineProvider](https://github.com/mozilla-mobile/fenix/blob/master/app/src/main/java/org/mozilla/fenix/components/searchengine/FenixSearchEngineProvider.kt) in Fenix
-* [SearchService](https://searchfox.org/mozilla-central/source/toolkit/components/search/SearchService.jsm) in Firefox (desktop)
-* [SearchEngines.swift](https://github.com/mozilla-mobile/firefox-ios/blob/main/Client/Frontend/Browser/SearchEngines.swift) in Firefox for iOS
+* [SearchService](https://searchfox.org/mozilla-central/source/toolkit/components/search/SearchService.jsm) in Plezix (desktop)
+* [SearchEngines.swift](https://github.com/mozilla-mobile/firefox-ios/blob/main/Client/Frontend/Browser/SearchEngines.swift) in Plezix for iOS
 
 ## Unresolved questions
 
 * Do the proposed interfaces satisfy the requirements of current consumers of `browser-search`?
-  * [Firefox Preview (Fenix)](https://github.com/mozilla-mobile/fenix)
-  * [Firefox Focus/Klar](https://github.com/mozilla-mobile/focus-android)
-  * [Firefox Reality](https://github.com/MozillaReality/FirefoxReality)
-  * [Firefox for Fire TV](https://github.com/mozilla-mobile/firefox-tv/)
-  * [Firefox for Echo Show](https://github.com/mozilla-mobile/firefox-echo-show/)
+  * [Plezix Preview (Fenix)](https://github.com/mozilla-mobile/fenix)
+  * [Plezix Focus/Klar](https://github.com/mozilla-mobile/focus-android)
+  * [Plezix Reality](https://github.com/PlezixReality/PlezixReality)
+  * [Plezix for Fire TV](https://github.com/mozilla-mobile/firefox-tv/)
+  * [Plezix for Echo Show](https://github.com/mozilla-mobile/firefox-echo-show/)
 * Some of the naming (e.g. `SearchEngineDefaults`) is not great yet. But that may be unrelated to the proposed change.

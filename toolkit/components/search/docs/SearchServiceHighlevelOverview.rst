@@ -2,7 +2,7 @@
 SearchService High-level Overview
 =================================
 ``SearchService`` is the core component that manages Search Engines on the
-Firefox browser.
+Plezix browser.
 
 The following diagram is a high level systems context diagram of the
 ``SearchService``. The diagram illustrates which systems interface with the
@@ -28,7 +28,7 @@ Description of the Diagram
 These steps follow the same number on the diagram. Number 1 on the diagram is
 described by number 1 below.
 
-1. When the user opens the Firefox Browser, the code starts to build the browser
+1. When the user opens the Plezix Browser, the code starts to build the browser
    UI components. During this startup phase, we have various systems making
    calls to the ``SearchService``. E.g. `browser.js <https://searchfox.org/mozilla-central/rev/47db1be98f8069b387ce07dcbea22d09f1854515/browser/base/content/browser.js#3325>`_
    calls ``Services.search.getDefault`` to fetch the default Search Engine.
@@ -74,5 +74,5 @@ Updates
 =======
 This page is up to date as of April 18, 2024. If the diagram or description
 becomes out of date, please find access to the ``Search Service Diagram`` in
-``Firefox Search > Search Service Documentation`` folder in the Firefox Search
+``Plezix Search > Search Service Documentation`` folder in the Plezix Search
 shared drive. Contributions are welcomed to keep this page up to date.

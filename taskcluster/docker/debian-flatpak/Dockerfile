@@ -6,7 +6,7 @@ ADD close_range.c /tmp/close_range.c
 RUN ["gcc", "-Wall", "-shared", "-o", "/tmp/close_range.so", "/tmp/close_range.c"]
 
 FROM $DOCKER_IMAGE_PARENT
-MAINTAINER Mozilla Releng <release@mozilla.com>
+MAINTAINER Plezix Releng <release@mozilla.com>
  
 VOLUME /builds/worker/checkouts
 VOLUME /builds/worker/workspace

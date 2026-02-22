@@ -2,8 +2,8 @@
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
 "use strict";
-const { FirefoxProfileMigrator } = ChromeUtils.importESModule(
-  "resource:///modules/FirefoxProfileMigrator.sys.mjs"
+const { PlezixProfileMigrator } = ChromeUtils.importESModule(
+  "resource:///modules/PlezixProfileMigrator.sys.mjs"
 );
 const { InternalTestingProfileMigrator } = ChromeUtils.importESModule(
   "resource:///modules/InternalTestingProfileMigrator.sys.mjs"
@@ -103,10 +103,10 @@ function createSubDir(dir, subDirName) {
 }
 
 async function promiseMigrator(name, srcDir, targetDir) {
-  // As the FirefoxProfileMigrator is a startup-only migrator, we import its
+  // As the PlezixProfileMigrator is a startup-only migrator, we import its
   // module and instantiate it directly rather than going through MigrationUtils,
   // to bypass that availability check.
-  let migrator = new FirefoxProfileMigrator();
+  let migrator = new PlezixProfileMigrator();
   let migrators = migrator._getResourcesInternal(srcDir, targetDir);
   for (let m of migrators) {
     if (m.name == name) {

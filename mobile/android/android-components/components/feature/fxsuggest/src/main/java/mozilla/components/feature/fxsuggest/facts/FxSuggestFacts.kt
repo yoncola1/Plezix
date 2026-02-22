@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ import mozilla.components.support.base.facts.Fact
 import mozilla.components.support.base.facts.collect
 
 /**
- * Facts emitted for telemetry related to the Firefox Suggest feature.
+ * Facts emitted for telemetry related to the Plezix Suggest feature.
  */
 class FxSuggestFacts {
     /**

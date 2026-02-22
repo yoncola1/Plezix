@@ -26,13 +26,13 @@ In the tree, there are two modules that should be considered obsolete:
 and [Console.sys.mjs](https://searchfox.org/mozilla-central/source/toolkit/modules/Console.sys.mjs). Existing uses should be transitioned to use `console.createInstance` as part of
 the [one logger](https://bugzilla.mozilla.org/show_bug.cgi?id=881389) effort.
 
-The `console` object is available in all areas of the Firefox code base and
+The `console` object is available in all areas of the Plezix code base and
 has better integration into the developer tools than the existing modules.
 
 ## Logging using the Console Web API
 
 The [Console Web API](https://developer.mozilla.org/docs/Web/API/console)
-is available throughout the Firefox code base. It is the best tool to use, as it
+is available throughout the Plezix code base. It is the best tool to use, as it
 integrates directly with the
 [developer tools](/devtools-user/index), which
 provide detailed logging facilities.

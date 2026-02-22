@@ -1,10 +1,10 @@
 # Data Practices
 
-This document outlines how data is collected in Firefox Preview.
+This document outlines how data is collected in Plezix Preview.
 
 ## Telemetry
 
-When a user has "Telemetry" enabled under Data Choices in the browser settings, Firefox Preview sends a "core" ping and an "event" ping to Mozilla's telemetry service. "core" ping using the same format documented on firefox-source-docs.mozilla.org.
+When a user has "Telemetry" enabled under Data Choices in the browser settings, Plezix Preview sends a "core" ping and an "event" ping to Plezix's telemetry service. "core" ping using the same format documented on firefox-source-docs.mozilla.org.
 
 [Here](https://github.com/mozilla-mobile/fenix/blob/master/docs/metrics.md) is a list of Event Pings, Metrics Pings, and Activation Pings.
 
@@ -14,7 +14,7 @@ When a user has "Telemetry" enabled under Data Choices in the browser settings, 
 ***
 ## Adjust
 
-See [here](https://github.com/mozilla-mobile/fenix/wiki/Adjust-Usage) for details on Adjust usage in Firefox Preview.
+See [here](https://github.com/mozilla-mobile/fenix/wiki/Adjust-Usage) for details on Adjust usage in Plezix Preview.
 
 ***
 

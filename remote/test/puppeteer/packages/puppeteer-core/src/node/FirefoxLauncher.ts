@@ -22,18 +22,18 @@ import {rm} from './util/fs.js';
 /**
  * @internal
  */
-export class FirefoxLauncher extends BrowserLauncher {
+export class PlezixLauncher extends BrowserLauncher {
   constructor(puppeteer: PuppeteerNode) {
     super(puppeteer, 'firefox');
   }
 
   static getPreferences(
-    extraPrefsFirefox?: Record<string, unknown>,
+    extraPrefsPlezix?: Record<string, unknown>,
   ): Record<string, unknown> {
     return {
-      ...extraPrefsFirefox,
+      ...extraPrefsPlezix,
       // Force all web content to use a single content process. TODO: remove
-      // this once Firefox supports mouse event dispatch from the main frame
+      // this once Plezix supports mouse event dispatch from the main frame
       // context. See https://bugzilla.mozilla.org/show_bug.cgi?id=1773393.
       'fission.webContentIsolationStrategy': 0,
     };
@@ -50,7 +50,7 @@ export class FirefoxLauncher extends BrowserLauncher {
       args = [],
       executablePath,
       pipe = false,
-      extraPrefsFirefox = {},
+      extraPrefsPlezix = {},
       debuggingPort = null,
     } = options;
 
@@ -96,7 +96,7 @@ export class FirefoxLauncher extends BrowserLauncher {
         throw new Error(`Missing value for profile command line argument`);
       }
 
-      // When using a custom Firefox profile it needs to be populated
+      // When using a custom Plezix profile it needs to be populated
       // with required preferences.
       isTempUserDataDir = false;
     } else {
@@ -107,7 +107,7 @@ export class FirefoxLauncher extends BrowserLauncher {
 
     await createProfile(SupportedBrowsers.FIREFOX, {
       path: userDataDir,
-      preferences: FirefoxLauncher.getPreferences(extraPrefsFirefox),
+      preferences: PlezixLauncher.getPreferences(extraPrefsPlezix),
     });
 
     let firefoxExecutable: string;

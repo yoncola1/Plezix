@@ -37,7 +37,7 @@ add_task(async function () {
   // modules. Otherwise they get reported as "still allocated" objects,
   // whereas we do expect them to be kept in memory as they are loaded via
   // the main DevTools loader, which keeps the module loaded until the
-  // shutdown of Firefox
+  // shutdown of Plezix
   await testScript(tab);
 
   await startRecordingAllocations();

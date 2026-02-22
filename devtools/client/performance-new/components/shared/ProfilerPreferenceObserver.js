@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -53,7 +53,7 @@ const actions = require("resource://devtools/client/performance-new/store/action
 
 /**
  * This component mirrors the settings in the redux store and the preferences in
- * Firefox.
+ * Plezix.
  *
  * @extends {React.PureComponent<Props>}
  */

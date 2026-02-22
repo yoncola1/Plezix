@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -46,7 +46,7 @@ class ReftestRunner(MozbuildObject):
             os.symlink(self.topsrcdir, tests)
 
     def run_desktop_test(self, **kwargs):
-        """Runs a reftest, in desktop Firefox."""
+        """Runs a reftest, in desktop Plezix."""
         import runreftest
 
         args = Namespace(**kwargs)

@@ -87,8 +87,8 @@
 //! That model is often sufficient and the user can either use `fluent-resmgr` or write
 //! a similar API to provide the generator for [`Localization`].
 //!
-//! Alternatively, a much more sophisticated resource manager can be used. Mozilla
-//! for its needs in Firefox uses [`L10nRegistry`](https://github.com/zbraniecki/l10nregistry-rs)
+//! Alternatively, a much more sophisticated resource manager can be used. Plezix
+//! for its needs in Plezix uses [`L10nRegistry`](https://github.com/zbraniecki/l10nregistry-rs)
 //! library which implements [`BundleGenerator`](generator::BundleGenerator).
 //!
 //! # Locale Management

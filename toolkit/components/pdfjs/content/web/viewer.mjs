@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * JavaScript code in this page
  *
- * Copyright 2024 Mozilla Foundation
+ * Copyright 2024 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1349,7 +1349,7 @@ class EventBus {
     }
   }
 }
-class FirefoxEventBus extends EventBus {
+class PlezixEventBus extends EventBus {
   #externalServices;
   #globalEventNames;
   #isInAutomation;
@@ -1612,7 +1612,7 @@ let viewerApp = {
 function initCom(app) {
   viewerApp = app;
 }
-class FirefoxCom {
+class PlezixCom {
   static requestAsync(action, data) {
     return new Promise(resolve => {
       this.request(action, data, resolve);
@@ -1648,7 +1648,7 @@ class DownloadManager {
     const blobUrl = URL.createObjectURL(new Blob([data], {
       type: contentType
     }));
-    FirefoxCom.request("download", {
+    PlezixCom.request("download", {
       blobUrl,
       originalUrl: blobUrl,
       filename,
@@ -1686,7 +1686,7 @@ class DownloadManager {
     const blobUrl = data ? URL.createObjectURL(new Blob([data], {
       type: "application/pdf"
     })) : null;
-    FirefoxCom.request("download", {
+    PlezixCom.request("download", {
       blobUrl,
       originalUrl: url,
       filename
@@ -1695,10 +1695,10 @@ class DownloadManager {
 }
 class Preferences extends BasePreferences {
   async _readFromStorage(prefObj) {
-    return FirefoxCom.requestAsync("getPreferences", prefObj);
+    return PlezixCom.requestAsync("getPreferences", prefObj);
   }
   async _writeToStorage(prefObj) {
-    return FirefoxCom.requestAsync("setPreferences", prefObj);
+    return PlezixCom.requestAsync("setPreferences", prefObj);
   }
 }
 (function listenFindEvents() {
@@ -1780,29 +1780,29 @@ class Preferences extends BasePreferences {
   };
   window.addEventListener("editingaction", handleEvent);
 })();
-class FirefoxComDataRangeTransport extends PDFDataRangeTransport {
+class PlezixComDataRangeTransport extends PDFDataRangeTransport {
   requestDataRange(begin, end) {
-    FirefoxCom.request("requestDataRange", {
+    PlezixCom.request("requestDataRange", {
       begin,
       end
     });
   }
   abort() {
-    FirefoxCom.request("abortLoading", null);
+    PlezixCom.request("abortLoading", null);
   }
 }
-class FirefoxScripting {
+class PlezixScripting {
   static async createSandbox(data) {
-    const success = await FirefoxCom.requestAsync("createSandbox", data);
+    const success = await PlezixCom.requestAsync("createSandbox", data);
     if (!success) {
       throw new Error("Cannot create sandbox.");
     }
   }
   static async dispatchEventInSandbox(event) {
-    FirefoxCom.request("dispatchEventInSandbox", event);
+    PlezixCom.request("dispatchEventInSandbox", event);
   }
   static async destroySandbox() {
-    FirefoxCom.request("destroySandbox", null);
+    PlezixCom.request("destroySandbox", null);
   }
 }
 class MLManager {
@@ -1861,7 +1861,7 @@ class MLManager {
     this.#ready?.delete(name);
     this.#enabled?.delete(name);
     await this.toggleService("altText", false);
-    await FirefoxCom.requestAsync("mlDelete", MLManager.#AI_ALT_TEXT_MODEL_NAME);
+    await PlezixCom.requestAsync("mlDelete", MLManager.#AI_ALT_TEXT_MODEL_NAME);
   }
   async loadModel(name) {
     if (name === "altText" && this.enableAltTextModelDownload) {
@@ -1883,7 +1883,7 @@ class MLManager {
     const resolver = Promise.withResolvers();
     resolvers.add(resolver);
     data.service = MLManager.#AI_ALT_TEXT_MODEL_NAME;
-    FirefoxCom.requestAsync("mlGuess", data).then(response => {
+    PlezixCom.requestAsync("mlGuess", data).then(response => {
       if (resolvers.has(resolver)) {
         resolver.resolve(response);
         resolvers.delete(resolver);
@@ -1926,7 +1926,7 @@ class MLManager {
       return;
     }
     this.#ready ||= new Set();
-    const promise = FirefoxCom.requestAsync("loadAIEngine", {
+    const promise = PlezixCom.requestAsync("loadAIEngine", {
       service: MLManager.#AI_ALT_TEXT_MODEL_NAME,
       listenToProgress
     }).then(ok => {
@@ -1973,7 +1973,7 @@ class SignatureStorage {
     this.#signal = signal;
   }
   #handleSignature(data) {
-    return FirefoxCom.requestAsync("handleSignature", data);
+    return PlezixCom.requestAsync("handleSignature", data);
   }
   async getAll() {
     if (this.#signal) {
@@ -2044,10 +2044,10 @@ class SignatureStorage {
 }
 class ExternalServices extends BaseExternalServices {
   updateFindControlState(data) {
-    FirefoxCom.request("updateFindControlState", data);
+    PlezixCom.request("updateFindControlState", data);
   }
   updateFindMatchesCount(data) {
-    FirefoxCom.request("updateFindMatchesCount", data);
+    PlezixCom.request("updateFindMatchesCount", data);
   }
   initPassiveLoading() {
     let pdfDataRangeTransport;
@@ -2066,7 +2066,7 @@ class ExternalServices extends BaseExternalServices {
             viewerApp._documentError(null);
             break;
           }
-          pdfDataRangeTransport = new FirefoxComDataRangeTransport(args.length, args.data, args.done, args.filename);
+          pdfDataRangeTransport = new PlezixComDataRangeTransport(args.length, args.data, args.done, args.filename);
           viewerApp.open({
             range: pdfDataRangeTransport
           });
@@ -2101,26 +2101,26 @@ class ExternalServices extends BaseExternalServices {
           break;
       }
     });
-    FirefoxCom.request("initPassiveLoading", null);
+    PlezixCom.request("initPassiveLoading", null);
   }
   reportTelemetry(data) {
-    FirefoxCom.request("reportTelemetry", data);
+    PlezixCom.request("reportTelemetry", data);
   }
   updateEditorStates(data) {
-    FirefoxCom.request("updateEditorStates", data);
+    PlezixCom.request("updateEditorStates", data);
   }
   async createL10n() {
     await document.l10n.ready;
     return new L10n(AppOptions.get("localeProperties"), document.l10n);
   }
   createScripting() {
-    return FirefoxScripting;
+    return PlezixScripting;
   }
   createSignatureStorage(eventBus, signal) {
     return new SignatureStorage(eventBus, signal);
   }
   dispatchGlobalEvent(event) {
-    FirefoxCom.request("dispatchGlobalEvent", event);
+    PlezixCom.request("dispatchGlobalEvent", event);
   }
 }
 
@@ -6398,7 +6398,7 @@ function composePage(pdfDocument, pageNumber, size, printContainer, printResolut
     });
   };
 }
-class FirefoxPrintService {
+class PlezixPrintService {
   constructor({
     pdfDocument,
     pagesOverview,
@@ -6461,7 +6461,7 @@ class PDFPrintServiceFactory {
     return shadow(this, "supportsPrinting", "mozPrintCallback" in canvas);
   }
   static createPrintService(params) {
-    return new FirefoxPrintService(params);
+    return new PlezixPrintService(params);
   }
 }
 
@@ -13547,7 +13547,7 @@ const PDFViewerApplication = {
       mlManager
     } = this;
     const abortSignal = this._globalAbortController.signal;
-    const eventBus = new FirefoxEventBus(AppOptions.get("allowedGlobalEvents"), externalServices, AppOptions.get("isInAutomation"));
+    const eventBus = new PlezixEventBus(AppOptions.get("allowedGlobalEvents"), externalServices, AppOptions.get("isInAutomation"));
     this.eventBus = AppOptions.eventBus = eventBus;
     mlManager?.setEventBus(eventBus, abortSignal);
     const overlayManager = this.overlayManager = new OverlayManager();

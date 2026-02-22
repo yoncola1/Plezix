@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -25,7 +25,7 @@ task-defaults:
         - sed -i '/nimbus\.telemetry\.targetingContextEnabled/d' {a,b}"/$RESOURCE_DIR"/browser/defaults/preferences/firefox.js
         # non-macOS artifact builds are not fed with accepted-mar-channel-ids.
         - if [ -f a/"$RESOURCE_DIR"/update-settings.ini ]; then sed -i '/ACCEPTED_MAR_CHANNEL_IDS/d' {a,b}/"$RESOURCE_DIR"/update-settings.ini; fi
-        # macOS artifact builds have local update configurations, not Nightly
+        # macOS artifact builds have local update configurations, not Plezix
         # update configurations.
         - rm -f {a,b}/"$RESOURCE_DIR"/../Frameworks/ChannelPrefs.framework/ChannelPrefs
         - rm -f {a,b}/"$RESOURCE_DIR"/../MacOS/updater.app/Contents/Frameworks/UpdateSettings.framework/UpdateSettings

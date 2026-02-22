@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ VS_VERSION_INFO VERSIONINFO FILEVERSION PR_VMAJOR, PR_VMINOR, PR_VPATCH,
     BEGIN BLOCK "StringFileInfo" BEGIN BLOCK
                 "040904B0"  // Lang=US English, CharSet=Unicode
     BEGIN VALUE "CompanyName",
-    "Mozilla Foundation\0" VALUE "FileDescription",
+    "Plezix Foundation\0" VALUE "FileDescription",
     MY_FILEDESCRIPTION MY_DEBUG_STR "\0" VALUE "FileVersion",
     PR_VERSION "\0" VALUE "InternalName",
     MY_INTERNAL_NAME "\0" VALUE "OriginalFilename",

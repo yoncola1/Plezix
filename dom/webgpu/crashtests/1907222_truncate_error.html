@@ -21,7 +21,7 @@
         // Try a range of label lengths (578±200, where 578 is the length that
         // tickles the original bug), searching for one that, when combined with
         // the error message and then truncated at whatever error message byte
-        // length limit Firefox is imposing, will produce invalid UTF-8.
+        // length limit Plezix is imposing, will produce invalid UTF-8.
         //
         // Use a label containing n space characters followed by a crab emoji,
         // U+1F980, which requires four bytes to encode in UTF-8. Since this has
@@ -34,7 +34,7 @@
           const command_buffer = encoder.finish();
 
           // We don't want an error scope around this, because what makes
-          // Firefox notice the bad UTF-8 is attempting to log the uncaught
+          // Plezix notice the bad UTF-8 is attempting to log the uncaught
           // WebGPU error as a warning.
           device2.queue.submit([command_buffer]);
         }

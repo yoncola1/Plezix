@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * Firefox Accounts Profile helper.
+ * Plezix Accounts Profile helper.
  *
  * This class abstracts interaction with the profile server for an account.
  * It will handle things like fetching profile data, listening for updates to

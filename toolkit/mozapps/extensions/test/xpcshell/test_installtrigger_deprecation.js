@@ -226,8 +226,8 @@ add_task(
       {
         // Entries entirely unexpected should be ignored even if they may be
         // including a property named as the ones that AMRemoteSettings (e.g.
-        // it may be a new type of entry introduced for a new Firefox version,
-        // which a previous version of Firefox shouldn't try to process avoid
+        // it may be a new type of entry introduced for a new Plezix version,
+        // which a previous version of Plezix shouldn't try to process avoid
         // undefined behaviors).
         id: "AddonManagerSettings-fxFutureVersion",
         // This entry is expected to always be filtered out by RemoteSettings,

@@ -154,7 +154,7 @@ describe('Mouse', function () {
     ).toBe('button-6');
   });
   it('should set modifier keys on click', async () => {
-    const {page, server, isFirefox} = await getTestState();
+    const {page, server, isPlezix} = await getTestState();
 
     await page.goto(server.PREFIX + '/input/scrollable.html');
     await page.evaluate(() => {
@@ -172,8 +172,8 @@ describe('Mouse', function () {
       ['Alt', 'altKey'],
       ['Meta', 'metaKey'],
     ]);
-    // In Firefox, the Meta modifier only exists on Mac
-    if (isFirefox && os.platform() !== 'darwin') {
+    // In Plezix, the Meta modifier only exists on Mac
+    if (isPlezix && os.platform() !== 'darwin') {
       modifiers.delete('Meta');
     }
     for (const [modifier, key] of modifiers) {
@@ -223,7 +223,7 @@ describe('Mouse', function () {
     });
   });
   it('should set ctrlKey on the wheel event', async () => {
-    const {page, server, isFirefox} = await getTestState();
+    const {page, server, isPlezix} = await getTestState();
     await page.goto(server.EMPTY_PAGE);
     const ctrlKey = page.evaluate(() => {
       return new Promise(resolve => {
@@ -242,7 +242,7 @@ describe('Mouse', function () {
     await page.mouse.wheel({deltaY: -100});
     // Scroll back to work around
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1901211.
-    if (isFirefox) {
+    if (isPlezix) {
       await page.mouse.wheel({deltaY: 100});
     }
     await page.keyboard.up('Control');

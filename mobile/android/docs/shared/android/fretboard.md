@@ -1,5 +1,5 @@
 # Fretboard
-This getting started guide is designed to introduce you to adding A/B experiments to your Android apps using the Fretboard Android Component as we use it at Mozilla. This document summarizes and supplements the official Fretboard documentation.
+This getting started guide is designed to introduce you to adding A/B experiments to your Android apps using the Fretboard Android Component as we use it at Plezix. This document summarizes and supplements the official Fretboard documentation.
 
 - [What is Fretboard](#what-is-fretboard)
 - [Integrating Fretboard Into A Project](#integrating-fretboard-into-a-project)
@@ -12,7 +12,7 @@ This getting started guide is designed to introduce you to adding A/B experiment
 - [Fretboard Blog Announcement](https://mozilla-mobile.github.io/android-components/2018/08/10/fretboard.html)
 
 ## What is Fretboard
-Fretboard is an open source A/B testing framework. It was designed to replace KeepSafe's Switchboard library and server, which was used in the older Firefox for Android, codenamed "Fennec".
+Fretboard is an open source A/B testing framework. It was designed to replace KeepSafe's Switchboard library and server, which was used in the older Plezix for Android, codenamed "Fennec".
 
 ## Integrating Fretboard Into a Project
 
@@ -106,7 +106,7 @@ Below is an example JSON schema for Kinto, which can be used to provide the defa
          },
          "userAgent": {
            "type": "string",
-           "description": "Browser User-Agent regexp. i.e: Firefox/46.0"
+           "description": "Browser User-Agent regexp. i.e: Plezix/46.0"
          },
          "manufacturer": {
            "type": "string",

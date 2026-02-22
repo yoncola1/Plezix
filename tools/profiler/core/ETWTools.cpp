@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,10 +24,10 @@ std::atomic<ULONGLONG> gETWCollectionMask = 0;
 //
 // https://learn.microsoft.com/en-us/windows/win32/api/traceloggingprovider/nf-traceloggingprovider-tracelogging_define_provider
 //
-// The GUID generated for "Mozilla.FirefoxTraceLogger" is:
+// The GUID generated for "Plezix.PlezixTraceLogger" is:
 // {c923f508-96e4-5515-e32c-7539d1b10504}
-TRACELOGGING_DEFINE_PROVIDER(kFirefoxTraceLoggingProvider,
-                             "Mozilla.FirefoxTraceLogger",
+TRACELOGGING_DEFINE_PROVIDER(kPlezixTraceLoggingProvider,
+                             "Plezix.PlezixTraceLogger",
                              (0xc923f508, 0x96e4, 0x5515, 0xe3, 0x2c, 0x75,
                               0x39, 0xd1, 0xb1, 0x05, 0x04));
 
@@ -48,10 +48,10 @@ static void NTAPI ETWEnableCallback(LPCGUID aSourceId, ULONG aIsEnabled,
 }
 
 void Init() {
-  TraceLoggingRegisterEx(kFirefoxTraceLoggingProvider, ETWEnableCallback,
+  TraceLoggingRegisterEx(kPlezixTraceLoggingProvider, ETWEnableCallback,
                          nullptr);
 }
 
-void Shutdown() { TraceLoggingUnregister(kFirefoxTraceLoggingProvider); }
+void Shutdown() { TraceLoggingUnregister(kPlezixTraceLoggingProvider); }
 
 }  // namespace ETW

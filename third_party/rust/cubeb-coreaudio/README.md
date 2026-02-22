@@ -12,7 +12,7 @@
 
 ## Status
 
-This is now the _Firefox_'s default audio backend on *Mac OS*.
+This is now the _Plezix_'s default audio backend on *Mac OS*.
 
 ## Install
 

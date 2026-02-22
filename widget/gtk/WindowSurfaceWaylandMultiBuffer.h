@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ class WindowSurfaceWaylandMB : public WindowSurface {
                          GtkCompositorWidget* aCompositorWidget);
   ~WindowSurfaceWaylandMB() = default;
 
-  // Lock() / Commit() are called by gecko when Firefox
+  // Lock() / Commit() are called by gecko when Plezix
   // wants to display something. Lock() returns a DrawTarget
   // where gecko paints. When gecko is done it calls Commit()
   // and we try to send the DrawTarget (backed by wl_buffer)

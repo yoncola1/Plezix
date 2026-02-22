@@ -6448,7 +6448,7 @@ parseYieldExpression: true
 })()
 },{}],5:[function(require,module,exports){
 /*
- * Copyright 2009-2011 Mozilla Foundation and contributors
+ * Copyright 2009-2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -6459,7 +6459,7 @@ exports.SourceNode = require('./source-map/source-node').SourceNode;
 },{"./source-map/source-map-consumer":10,"./source-map/source-map-generator":11,"./source-map/source-node":12}],6:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -6557,7 +6557,7 @@ define(function (require, exports, module) {
 },{"./util":13,"amdefine":14}],7:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  *
@@ -6703,7 +6703,7 @@ define(function (require, exports, module) {
 },{"./base64":8,"amdefine":14}],8:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -6747,7 +6747,7 @@ define(function (require, exports, module) {
 },{"amdefine":14}],9:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -6830,7 +6830,7 @@ define(function (require, exports, module) {
 },{"amdefine":14}],10:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -7273,7 +7273,7 @@ define(function (require, exports, module) {
 },{"./array-set":6,"./base64-vlq":7,"./binary-search":9,"./util":13,"amdefine":14}],11:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -7656,7 +7656,7 @@ define(function (require, exports, module) {
 },{"./array-set":6,"./base64-vlq":7,"./util":13,"amdefine":14}],12:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
@@ -8011,7 +8011,7 @@ define(function (require, exports, module) {
 },{"./source-map-generator":11,"./util":13,"amdefine":14}],13:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
- * Copyright 2011 Mozilla Foundation and contributors
+ * Copyright 2011 Plezix Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
  */

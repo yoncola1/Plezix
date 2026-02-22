@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.fenix.compose.DismissibleItemBackground
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.ext.toShortUrl
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Rectangular shape with only right angles used to display a middle tab.
@@ -102,7 +102,7 @@ fun CollectionItem(
             modifier = clippingModifier
                 .fillMaxWidth(),
             shape = if (isLastInCollection) BOTTOM_TAB_SHAPE else MIDDLE_TAB_SHAPE,
-            colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+            colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
             elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
         ) {
             FaviconListItem(
@@ -138,7 +138,7 @@ private fun Modifier.clipTop() = this.then(
 @Composable
 @PreviewLightDark
 private fun TabInCollectionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column {
             CollectionItem(
                 tab = FakeHomepagePreview.tab(),

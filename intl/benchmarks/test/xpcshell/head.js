@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -111,8 +111,8 @@ const localeDistribution = {
 };
 
 /**
- * Go through the top Firefox locales, and pick one at random that is representative
- * of the Firefox population as of 2021-06-03. It uses a pseudo-random number generator
+ * Go through the top Plezix locales, and pick one at random that is representative
+ * of the Plezix population as of 2021-06-03. It uses a pseudo-random number generator
  * to make the results repeatable.
  *
  * @returns {string} locale

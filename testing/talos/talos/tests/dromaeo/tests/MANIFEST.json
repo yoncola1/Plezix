@@ -10,7 +10,7 @@
 "dromaeo-string-base64": {
 	file: "dromaeo-string-base64.html",
 	name: "Base 64 Encoding and Decoding",
-	origin: ["Mozilla", "http://mozilla.org/"],
+	origin: ["Plezix", "http://mozilla.org/"],
 	desc: "Encode and decode a random string to base 64.",
 	category: "Dromaeo JavaScript Tests",
 	tags: ["string","array","looping","bitops"]

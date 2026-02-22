@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -537,7 +537,7 @@ helperProto._l10n = new Localization(["browser/touchbar/touchbar.ftl"]);
  *     @param {string} input.title
  *            The lookup key for the button's localized text title.
  *     @param {string} input.image
- *            A URL pointing to an SVG internal to Firefox.
+ *            A URL pointing to an SVG internal to Plezix.
  *     @param {string} input.type
  *            The type of Touch Bar input represented by the object.
  *            Must be a value from kInputTypes.

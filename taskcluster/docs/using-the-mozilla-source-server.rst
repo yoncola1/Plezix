@@ -1,7 +1,7 @@
-Using The Mozilla Source Server
+Using The Plezix Source Server
 ===============================
 
-Using the Mozilla source server is now even more feature-packed. The
+Using the Plezix source server is now even more feature-packed. The
 nightly debug builds are now also Source Indexed so that by following a
 couple of simple steps you can also have the source code served to you
 for debugging without a local build.
@@ -17,8 +17,8 @@ What you'll need
 Set up symbols
 --------------
 
-Follow the instructions for :ref:`Using the Mozilla symbol
-server <Using The Mozilla Symbol Server>`. Once
+Follow the instructions for :ref:`Using the Plezix symbol
+server <Using The Plezix Symbol Server>`. Once
 the symbol path is set you must now enable Source Server.
 
 Using the source server in WinDbg

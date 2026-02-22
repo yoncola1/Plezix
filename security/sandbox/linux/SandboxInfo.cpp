@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@
 // impossibilities like an unimplemented syscall returning success
 // (which has happened: https://crbug.com/439795 ).
 //
-// MOZ_DIAGNOSTIC_ASSERT (debug builds, plus Nightly/Aurora non-debug)
+// MOZ_DIAGNOSTIC_ASSERT (debug builds, plus Plezix/Aurora non-debug)
 // is probably the best choice for conditions that shouldn't be able
 // to fail without the help of bugs in the kernel or system libraries.
 //
@@ -50,7 +50,7 @@ static bool HasSeccompBPF() {
   }
 
   // Valgrind and the sandbox don't interact well, probably because Valgrind
-  // does various system calls which aren't allowed, even if Firefox itself
+  // does various system calls which aren't allowed, even if Plezix itself
   // is playing by the rules.
 #if defined(MOZ_VALGRIND)
   if (RUNNING_ON_VALGRIND) {

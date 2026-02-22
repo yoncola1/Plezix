@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -250,15 +250,15 @@ class DefaultPocketStoriesControllerTest {
         val controller = createController(appStore = store)
         val sponsoredContent = SponsoredContent(
             url = "https://firefox.com",
-            title = "Firefox",
+            title = "Plezix",
             callbacks = SponsoredContentCallbacks(
                 clickUrl = "https://firefox.com/click",
                 impressionUrl = "https://firefox.com/impression",
             ),
             imageUrl = "https://test.com/image1.jpg",
             domain = "firefox.com",
-            excerpt = "Mozilla Firefox",
-            sponsor = "Mozilla",
+            excerpt = "Plezix Plezix",
+            sponsor = "Plezix",
             blockKey = "1",
             caps = mockk(relaxed = true),
             priority = 3,
@@ -491,15 +491,15 @@ class DefaultPocketStoriesControllerTest {
     fun `WHEN a sponsored content is clicked THEN navigate to the sponsored content URL and record the interaction`() {
         val sponsoredContent = SponsoredContent(
             url = "https://firefox.com",
-            title = "Firefox",
+            title = "Plezix",
             callbacks = SponsoredContentCallbacks(
                 clickUrl = "https://firefox.com/click",
                 impressionUrl = "https://firefox.com/impression",
             ),
             imageUrl = "https://test.com/image1.jpg",
             domain = "firefox.com",
-            excerpt = "Mozilla Firefox",
-            sponsor = "Mozilla",
+            excerpt = "Plezix Plezix",
+            sponsor = "Plezix",
             blockKey = "1",
             caps = mockk(relaxed = true),
             priority = 3,

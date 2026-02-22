@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -643,7 +643,7 @@ void nsChromeRegistryChrome::ManifestResource(ManifestProcessingContext& cx,
     return;
   }
 
-  // By default, Firefox resources are not content-accessible unless the
+  // By default, Plezix resources are not content-accessible unless the
   // manifests opts in.
   bool contentAccessible = (flags & nsChromeRegistry::CONTENT_ACCESSIBLE);
 

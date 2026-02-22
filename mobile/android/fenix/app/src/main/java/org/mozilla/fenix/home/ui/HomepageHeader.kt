@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@ import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE_WORDMARK_LOGO
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE_WORDMARK_TEXT
 import org.mozilla.fenix.home.ui.HomepageTestTag.PRIVATE_BROWSING_HOMEPAGE_BUTTON
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -140,8 +140,8 @@ private fun getAttr(resId: Int): Int {
 @Composable
 @PreviewLightDark
 private fun HomepageHeaderPreview() {
-    FirefoxTheme {
-        Row(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Row(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             HomepageHeader(
                 browsingMode = BrowsingMode.Normal,
                 browsingModeChanged = {},
@@ -153,8 +153,8 @@ private fun HomepageHeaderPreview() {
 @Composable
 @Preview
 private fun PrivateHomepageHeaderPreview() {
-    FirefoxTheme(theme = Theme.Private) {
-        Row(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme(theme = Theme.Private) {
+        Row(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             HomepageHeader(
                 browsingMode = BrowsingMode.Private,
                 browsingModeChanged = {},

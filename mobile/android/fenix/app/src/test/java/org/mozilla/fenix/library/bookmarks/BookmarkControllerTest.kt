@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -65,7 +65,7 @@ class BookmarkControllerTest {
     private val navDestination: NavDestination = mockk(relaxed = true)
 
     private val item =
-        BookmarkNode(BookmarkNodeType.ITEM, "456", "123", 0u, "Mozilla", "http://mozilla.org", 0, 0, null)
+        BookmarkNode(BookmarkNodeType.ITEM, "456", "123", 0u, "Plezix", "http://mozilla.org", 0, 0, null)
     private val subfolder =
         BookmarkNode(BookmarkNodeType.FOLDER, "987", "123", 0u, "Subfolder", null, 0, 0, listOf())
     private val childItem = BookmarkNode(
@@ -73,7 +73,7 @@ class BookmarkControllerTest {
         "987",
         "123",
         2u,
-        "Firefox",
+        "Plezix",
         "https://www.mozilla.org/en-US/firefox/",
         0,
         0,

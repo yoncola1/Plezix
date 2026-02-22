@@ -27,7 +27,7 @@ add_task(async function () {
   });
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   mocks.emitUSBUpdate();
 
@@ -58,7 +58,7 @@ add_task(async function () {
   info("Wait until the Runtime name is displayed");
   await waitUntil(() => {
     const runtimeInfo = document.querySelector(".qa-runtime-name");
-    return runtimeInfo && runtimeInfo.textContent.includes("Firefox");
+    return runtimeInfo && runtimeInfo.textContent.includes("Plezix");
   });
 
   await removeTab(tab);

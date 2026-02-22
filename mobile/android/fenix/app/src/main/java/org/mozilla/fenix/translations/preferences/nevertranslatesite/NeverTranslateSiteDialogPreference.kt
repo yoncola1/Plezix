@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import mozilla.components.compose.base.button.TextButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Never Translate Dialog
@@ -31,7 +31,7 @@ fun NeverTranslateSiteDialogPreference(
         title = {
             Text(
                 text = stringResource(R.string.never_translate_site_dialog_title_preference, websiteUrl),
-                style = FirefoxTheme.typography.headline7,
+                style = PlezixTheme.typography.headline7,
             )
         },
         confirmButton = {
@@ -54,7 +54,7 @@ fun NeverTranslateSiteDialogPreference(
 @Composable
 @PreviewLightDark
 private fun NeverTranslateSiteDialogPreferencePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         NeverTranslateSiteDialogPreference(
             websiteUrl = "wikipedia.com",
             onConfirmDelete = {},

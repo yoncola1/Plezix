@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Floating action button.
@@ -56,8 +56,8 @@ fun FloatingActionButton(
     FloatingActionButton(
         onClick = onClick,
         modifier = modifier,
-        containerColor = FirefoxTheme.colors.actionPrimary,
-        contentColor = FirefoxTheme.colors.textActionPrimary,
+        containerColor = PlezixTheme.colors.actionPrimary,
+        contentColor = PlezixTheme.colors.textActionPrimary,
         elevation = elevation,
     ) {
         Row(
@@ -77,7 +77,7 @@ fun FloatingActionButton(
 
                 Text(
                     text = label,
-                    style = FirefoxTheme.typography.button,
+                    style = PlezixTheme.typography.button,
                     maxLines = 1,
                 )
             }
@@ -90,7 +90,7 @@ fun FloatingActionButton(
 private fun FloatingActionButtonPreview() {
     var label by remember { mutableStateOf<String?>("LABEL") }
 
-    FirefoxTheme {
+    PlezixTheme {
         Box(Modifier.wrapContentSize()) {
             FloatingActionButton(
                 label = label,

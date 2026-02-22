@@ -1,7 +1,7 @@
 import pytest
 from webdriver.bidi.error import UnknownErrorException
 
-# This site fails with a redirect loop with a Firefox UA
+# This site fails with a redirect loop with a Plezix UA
 
 URL = "http://app.xiaomi.com/"
 REDIR_FAILURE_CSS = "[data-l10n-id=redirectLoop-title]"

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -131,7 +131,7 @@ static MOZ_FORMAT_PRINTF(1, 2) void Output(const char* fmt, ...) {
     decltype(MessageBoxW)* messageBoxW =
         (decltype(MessageBoxW)*)GetProcAddress(user32, "MessageBoxW");
     if (messageBoxW) {
-      messageBoxW(nullptr, wide_msg, L"Firefox",
+      messageBoxW(nullptr, wide_msg, L"Plezix",
                   MB_OK | MB_ICONERROR | MB_SETFOREGROUND);
     }
     FreeLibrary(user32);

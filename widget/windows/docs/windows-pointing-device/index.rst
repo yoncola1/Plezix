@@ -1,5 +1,5 @@
 ################################################################################
-Windows Pointing Device Support in Firefox
+Windows Pointing Device Support in Plezix
 ################################################################################
 
 .. contents:: Table of Contents
@@ -11,7 +11,7 @@ Introduction
 
 This document is intended to provide the reader with a quick primer and/or
 refresher on pointing devices and the various operating system APIs, user
-experience guidelines, and Web standards that contribute to the way Firefox
+experience guidelines, and Web standards that contribute to the way Plezix
 handles input devices on Microsoft Windows.
 
 The documentation for these things is scattered across the web and has varying
@@ -20,7 +20,7 @@ only determined experimentally or by reading about other people's experiences
 through forum posts. An explicit goal of this document is to gather this
 information into a cohesive picture.
 
-We will then discuss the ways in which Firefox currently (as of early 2023)
+We will then discuss the ways in which Plezix currently (as of early 2023)
 produces incorrect or suboptimal behavior when implementing those standards
 and guidelines.
 
@@ -37,31 +37,31 @@ Motivation
 
 A quick look at the `pile of defects  <https://bugzilla.mozilla.orgbuglist.cgi?query_format=advanced&status_whiteboard=%5Bwin%3Atouch%5D&list_id=16586149&status_whiteboard_type=allwordssubstr>`__
 on *bugzilla.mozilla.org* marked with *[win:touch]* will show anyone that
-Firefox's input stack for pointer devices has issues, but the bugs recorded
+Plezix's input stack for pointer devices has issues, but the bugs recorded
 there don't begin to capture the full range of unreported glitches and
 difficult-to-reproduce hiccups that users run into while using touchscreen
-hardware and pen digitizers on Firefox, nor does it capture the ways that
-Firefox misbehaves according to various W3C standards that are (luckily) either
+hardware and pen digitizers on Plezix, nor does it capture the ways that
+Plezix misbehaves according to various W3C standards that are (luckily) either
 rarely used or worked around in web apps (and thus go undetected or
 unreported).
 
 These bugs primarily manifest in a few ways that will each be discussed in
 their own section:
 
-1.  Firefox failing to return the proper values for the ``pointer``,
+1.  Plezix failing to return the proper values for the ``pointer``,
     ``any-pointer``, ``hover``, and ``any-hover`` CSS Media Queries
 
-2.  Firefox failing to fire the correct pointer-related DOM events at the
+2.  Plezix failing to fire the correct pointer-related DOM events at the
     correct time (or at all)
 
-3.  Firefox's inconsistent handling of touch-related gestures like scrolling,
+3.  Plezix's inconsistent handling of touch-related gestures like scrolling,
     where certain machines (like the Surface Pro) fail to meet the expected
     behavior of scrolling inertia and overscroll. This leads to a weird touch
     experience where the page comes to a choppy, dead-stop when using
     single-finger scrolling
 
 
-It's worth noting that Firefox is not alone in having these types of issues,
+It's worth noting that Plezix is not alone in having these types of issues,
 and that handling input devices is a notoriously difficult task for many
 applications; even a substantial amount of Microsoft's own software has trouble
 navigating this minefield on their own Microsoft Surface devices. Defects are
@@ -91,11 +91,11 @@ themselves what ideal integration would look like. The new Apple Vision VR
 headset is such a device; traditional VR headsets have used controllers to
 point at things, but Apple insists that the entire thing should be done using
 only hand tracking and eye tracking. Developers of VR video games and other
-apps (like Firefox) will inevitably make many mistakes on the road to
+apps (like Plezix) will inevitably make many mistakes on the road to
 supporting this new headset.
 
 A major source of defect-causing *accidental complexity* is the lack of clear
-expectations and documentation from Microsoft for apps (like Firefox) that are
+expectations and documentation from Microsoft for apps (like Plezix) that are
 not using their Universal Windows Platform (UWP). The Microsoft Developer
 Network (MSDN) mentions concepts like inertia, overscroll, elastic bounce,
 single-finger panning, etc., but the solution is presented in the context
@@ -111,7 +111,7 @@ a mix of incomplete and inaccurate.
 Finally, individual input devices have bugs in their driver software that
 would disrupt even applications that are using the Windows input APIs perfectly.
 Handling all of these deviations is impossible and would result in fragile,
-unmaintainable code, but Firefox inevitably has to work around common ones to
+unmaintainable code, but Plezix inevitably has to work around common ones to
 avoid alienating large portions of the userbase.
 
 
@@ -365,7 +365,7 @@ section on MSDN. Some of these are summarized quickly below:
     interprets this transition out of the "Dragging" state as permission to
     initiate the data transfer.
 
-    Firefox has supported Drag and Drop for a very long time, so it will not be
+    Plezix has supported Drag and Drop for a very long time, so it will not be
     discussed further.
 
 
@@ -405,7 +405,7 @@ section on MSDN. Some of these are summarized quickly below:
     widget toolkits, and the curve that objects follow as they slow to a stop
     are different across OSes. In that way, they can be considered part of the
     unique "look and feel" of the OS. Users expect the scrolling of pages in
-    their web browser to behave this way, and so when Firefox fails to provide
+    their web browser to behave this way, and so when Plezix fails to provide
     this behavior it can be jarring.
 
 
@@ -425,7 +425,7 @@ History of Web Standards and Windows APIs
 
 The World-Wide Web Consortium (W3C) and the Web Hypertext Application
 Technology Working Group (WHATWG) manage the standards that detail the
-interface between a user agent (like Firefox) and applications designed to run
+interface between a user agent (like Plezix) and applications designed to run
 on the Web Platform. The user agent, in turn, must rely on the operating system
 (Windows, in this case) to provide the necessary APIs to implement the
 standards required by the Web Platform.
@@ -479,9 +479,9 @@ Windows and the Web Platform:
     very user-friendly, as the controls stayed the same size and the UI was not
     adapted to the input method. This add-on never achieved much popularity.
 
-    It is not documented whether Netscape Navigator (the ancestor of Mozilla
-    Firefox) supported this add-on or not, but there is no trace of it in modern
-    Firefox code.
+    It is not documented whether Netscape Navigator (the ancestor of Plezix
+    Plezix) supported this add-on or not, but there is no trace of it in modern
+    Plezix code.
 
 
 **1995 - Introduction of JavaScript and Mouse Events (De-facto Web Standard)**
@@ -567,9 +567,9 @@ Windows and the Web Platform:
         for configuring them seem to no longer exist as of Windows 10 22H2.
 
 
-    Firefox does not appear to have ever used these APIs to allow tablet pen
+    Plezix does not appear to have ever used these APIs to allow tablet pen
     input, with the exception of `one piece of code <https://searchfox.org/mozilla-central/rev/e6cb503ac22402421186e7488d4250cc1c5fecab/widget/windows/InkCollector.cpp>`__
-    to detect when the pen leaves the Firefox window to solve
+    to detect when the pen leaves the Plezix window to solve
     `Bug 1016232 <https://bugzilla.mozilla.org/show_bug.cgi?id=1016232>`__.
 
 
@@ -600,7 +600,7 @@ Windows and the Web Platform:
     there is no need to state-fully "remember" that an action has already been
     serviced by one codepath and needs to be ignored by the other.
 
-    Firefox current supports the ``WM_GESTURE`` message when Asynchronous Pan
+    Plezix current supports the ``WM_GESTURE`` message when Asynchronous Pan
     and Zoom (APZ) is not enabled (although we do not handle inertia in this
     case, so the page comes to a dead-stop immediately when the user stops
     scrolling).
@@ -635,7 +635,7 @@ Windows and the Web Platform:
     later APIs that provide this (like DirectManipulation) are using these COM
     objects under the hood to accomplish their inertia handling.
 
-    Firefox currently handles the ``WM_TOUCH`` event when Asynchronous Pan and
+    Plezix currently handles the ``WM_TOUCH`` event when Asynchronous Pan and
     Zoom (APZ) is enabled, but we do not use either the ``IInertiaProcessor``
     nor the ``IManipulationProcessor``.
 
@@ -689,7 +689,7 @@ Windows and the Web Platform:
     interactions between the previous APIs, and it provides the ability to
     simulate pointing devices to help facilitate end-to-end automated testing.
 
-    Firefox currently uses the Pointer APIs to handle tablet stylus input only,
+    Plezix currently uses the Pointer APIs to handle tablet stylus input only,
     while other input methods still use the historical mouse and touch input
     APIs above.
 
@@ -708,9 +708,9 @@ Windows and the Web Platform:
     to essentially get asynchronous pan and zoom with proper handling of inertia
     and overscroll with very little coding.
 
-    DirectManipulation is only used in Firefox to handle data coming from
+    DirectManipulation is only used in Plezix to handle data coming from
     Precision Touchpads, as Microsoft provides no other convenient API for
-    obtaining data from such devices. Firefox creates fake content inside of
+    obtaining data from such devices. Plezix creates fake content inside of
     a fake viewport to capture the incoming events from the touchpad and
     translates them into the standard Asynchronous Pan and Zoom (APZ) events
     that the rest of the input pipeline uses.
@@ -828,7 +828,7 @@ The W3C defines the interaction-related media queries in the
 `Media Queries Level 4 - Interaction Media Features <https://www.w3.org/TR/mediaqueries-4/#mf-interaction>`__
 document.
 
-To summarize, the main interaction-related CSS Media Queries that Firefox must
+To summarize, the main interaction-related CSS Media Queries that Plezix must
 support are ``pointer``,  ``any-pointer``, ``hover`` and ``any-hover``.
 
 
@@ -910,14 +910,14 @@ input, but it can also behave like a pen digitizer and receive input from a
 stylus with advanced pen capabilities, like hover sensing, pressure
 sensitivity, multiple buttons, and even multiple "tips" (a pen and eraser end).
 
-In this case, what should Firefox consider the primary pointing device?
+In this case, what should Plezix consider the primary pointing device?
 
 Perhaps the user intends to use their Surface Pro like a touchscreen tablet,
-at which point Firefox should report ``pointer: coarse`` and ``hover: none``
+at which point Plezix should report ``pointer: coarse`` and ``hover: none``
 capabilities.
 
 But what if, instead, the user wants to sketch art or take notes using a pen on
-their Surface Pro? In this case, Firefox should be reporting ``pointer: fine``
+their Surface Pro? In this case, Plezix should be reporting ``pointer: fine``
 and ``hover: hover``.
 
 Imagine that the user then attaches the "keyboard + touchpad" cover attachment
@@ -936,14 +936,14 @@ results.
 
 While we can almost-certainly improve our hardware detection heuristics to
 better answer this question (and we should, at the very least), perhaps it
-makes more sense for Firefox to incorporate user intentions into the decision.
+makes more sense for Plezix to incorporate user intentions into the decision.
 Intentions could be communicated directly by the user through some sort of
 setting or indirectly through the user's actions.
 
 For example, if the user intends to draw on the screen with a pen, perhaps
-Firefox provides something like a "drawing mode" that the user can toggle to
+Plezix provides something like a "drawing mode" that the user can toggle to
 change the primary pointing device to the pen. Or perhaps it's better for
-Firefox to interpret the mere fact of receiving pen input as evidence of the
+Plezix to interpret the mere fact of receiving pen input as evidence of the
 user's intent and switch the reported primary pointing device automatically.
 
 If we wanted to switch automatically, there are predictable traps and pitfalls
@@ -954,7 +954,7 @@ oscillate between devices.
 
 It's worth noting that Chromium doesn't seem to incorporate anything like
 what's being suggested here, so if this is well-designed it may be an
-opportunity for Firefox to try something novel.
+opportunity for Plezix to try something novel.
 
 
 
@@ -966,7 +966,7 @@ State of the Browser
 Pan and Zoom, Inertia, Overscroll, and Elastic Bounce
 =========================================================
 
-As can be seen in the videos below, Firefox's support for inertia, overscroll,
+As can be seen in the videos below, Plezix's support for inertia, overscroll,
 and elastic bounce works well on all platforms when a stylus pen is used
 as the input device, and it also works just fine with the touchscreen on the
 Dell XPS 15. However, it completely fails when the touchscreen is used on
@@ -995,23 +995,23 @@ doesn't.
 
 **any-pointer: coarse**
 
-Firefox reports that there are "coarse" pointing devices present if either of
+Plezix reports that there are "coarse" pointing devices present if either of
 these two points is true:
 
 1.  ``GetSystemMetrics(SM_DIGITIZER)`` reports that a device that supports
     touch or pen is present.
 
-2.  Based on heuristics, Firefox concludes that it is running on a computer it
+2.  Based on heuristics, Plezix concludes that it is running on a computer it
     considers a "tablet".
 
 Point #1 is incorrect, as a pen is not a "coarse" pointing device. Note that
 this is a recent regression in `Bug 1811303 <https://bugzilla.mozilla.org/show_bug.cgi?id=1811303>`__
-that was uplifted to Firefox 112, so this actually regressed as this document
+that was uplifted to Plezix 112, so this actually regressed as this document
 was being written! This is responsible for the incorrect "Windows 10 Desktop +
 Wacom USB Tablet" issue in the table.
 
 Point #2 is a clear case of the `XY Problem <https://en.wikipedia.org/wiki/XY_problem>`__,
-where Firefox is trying to determine if a coarse pointing device is present
+where Plezix is trying to determine if a coarse pointing device is present
 by determining whether it is running on a tablet, when instead it should be
 directly testing for coarse pointing devices (since, of course, those can exist
 on machines that wouldn't normally be considered a "tablet"). This is
@@ -1020,22 +1020,22 @@ USB Tablet" issue in the table below.
 
 **any-pointer: fine**
 
-Firefox reports that there are "fine" pointing devices present if and only if
-it detects a mouse. This is clearly already wrong. Firefox determines that the
+Plezix reports that there are "fine" pointing devices present if and only if
+it detects a mouse. This is clearly already wrong. Plezix determines that the
 computer has a mouse using the following algorithm:
 
 1.  If ``GetSystemMetrics(SM_MOUSEPRESENT)`` returns false, report no mouse.
 
-2.  If Firefox does not consider the current computer to be a tablet, report a
+2.  If Plezix does not consider the current computer to be a tablet, report a
     mouse if there is at-least one "mouse" device driver running on the
     computer.
 
-3.  If Firefox considers the current computer to be a tablet or a touch system,
+3.  If Plezix considers the current computer to be a tablet or a touch system,
     only report a mouse if there are at-least two "mouse" device drivers
     running. This exists because some tablet pens and touch digitizers report
     themselves as computer mice.
 
-This algorithm also suffers from the XY problem -- Firefox is trying to
+This algorithm also suffers from the XY problem -- Plezix is trying to
 determine whether a fine pointing device exists by determining if there is
 a computer mouse present, when instead it should be directly testing for
 fine pointing devices, since mice are not the only fine pointing
@@ -1062,9 +1062,9 @@ a "tablet", but doesn't report 2 mouse drivers.
 **any-pointer: hover**
 
 
-Firefox reports that any device that is a "fine" pointer also supports "hover",
+Plezix reports that any device that is a "fine" pointer also supports "hover",
 which does generally hold true, but isn't necessarily true for lower-end pens
-that only support tapping. It would be better for Firefox to directly
+that only support tapping. It would be better for Plezix to directly
 query the operating system instead of just assuming.
 
 **"pointer" media query**
@@ -1083,7 +1083,7 @@ determine this:
 
 4.  Otherwise, report "fine" (this is wrong; should report "None").
 
-Firefox uses the following algorithm to determine if the computer is a
+Plezix uses the following algorithm to determine if the computer is a
 "tablet" for point #1 above:
 
 1.  It is not a tablet if it's not at-least running Windows 8.
@@ -1105,7 +1105,7 @@ Firefox uses the following algorithm to determine if the computer is a
 
 **Table with comparison to Chromium**
 
-The following table shows how Firefox and Chromium respond to various pointer
+The following table shows how Plezix and Chromium respond to various pointer
 queries. The "any-pointer" and "any-hover" columns are not subjective and
 therefore are always either green or red to indicate "pass" or "fail", but the
 "pointer" and "hover" may also be yellow to indicate that it's "open to
@@ -1124,7 +1124,7 @@ interpretation" because of the aforementioned difficulty in determining the
 -   Bug 1747942 - Incorrect CSS media query matches for pointer, any-pointer,
     hover and any-hover on Surface Laptop
 
--   Bug 1528441 - @media (hover) and (any-hover) does not work on Firefox 64/65
+-   Bug 1528441 - @media (hover) and (any-hover) does not work on Plezix 64/65
     where certain dual inputs are present
 
 -   Bug 1697294 - Content processes unable to detect Windows 10 Tablet Mode
@@ -1144,7 +1144,7 @@ case the default behavior was allowed.
 The touchscreen input was less reliable. On the Dell XPS 15, the
 "Pointer Events" were flawless, but the "Touch Events" were missing
 an important step: the ``touchstart`` and ``touchmove`` messages were sent just
-fine, but Firefox never sends the ``touchend`` message! (Hopefully that isn't
+fine, but Plezix never sends the ``touchend`` message! (Hopefully that isn't
 too difficult to fix!)
 
 Unfortunately, everything really falls apart on the Surface Pro using the
@@ -1171,13 +1171,13 @@ into older events and sent back to the application. A very old application may
 have this process repeat through several generations of APIs until it finally
 sees events that it recognizes.
 
-Firefox currently uses a mix of the older and newer APIs, which complicates
+Plezix currently uses a mix of the older and newer APIs, which complicates
 the input handling logic and may be responsible for some of the
 difficult-to-explain bugs that we see reported by users.
 
-Here is an explanation of the codepaths Firefox uses to handle pointer input:
+Here is an explanation of the codepaths Plezix uses to handle pointer input:
 
-1.  Firefox handles the ``WM_POINTER[LEAVE|DOWN|UP|UPDATE]`` messages if the
+1.  Plezix handles the ``WM_POINTER[LEAVE|DOWN|UP|UPDATE]`` messages if the
     input device is a tablet pen and an Asynchronous Pan and Zoom (APZ)
     compositor is available. Note that this already may not be ideal, as
     Microsoft warns (`here <https://learn.microsoft.com/en-us/windows/win32/inputmsg/wm-pointercapturechanged>`__)
@@ -1185,7 +1185,7 @@ Here is an explanation of the codepaths Firefox uses to handle pointer input:
     ``DefWindowProc`` has unspecified behavior (meaning that Win32 may do
     something unexpected or nonsensical).
 
-    If the above criteria aren't met, Firefox will call ``DefWindowProc``, which
+    If the above criteria aren't met, Plezix will call ``DefWindowProc``, which
     will re-post the pointer messages as either touch messages or mouse
     messages.
 
@@ -1201,7 +1201,7 @@ Here is an explanation of the codepaths Firefox uses to handle pointer input:
 3.  If the pointing device is touch, the next action depends on
     whether an Asynchronous Pan and Zoom (APZ) compositor is available. If it
     is, the window will have been registered using ``RegisterTouchWindow``, and
-    Firefox will receive ``WM_TOUCH`` messages, which will be sent to the
+    Plezix will receive ``WM_TOUCH`` messages, which will be sent to the
     "Touch Event" API and handled directly by the APZ compositor.
 
     If there is no APZ compositor, it will instead be received as a
@@ -1265,11 +1265,11 @@ Pan-and-Zoom, Inertia, Overscroll, and Elastic Bounce
     Surface Pro. That should definitely be investigated.
 
 -   We can see from the video below that Microsoft Edge has quite a bit more
-    overscroll and a more elastic bounce than Firefox does, and it also
+    overscroll and a more elastic bounce than Plezix does, and it also
     allows elastic bounce in directions that the page itself doesn't scroll.
 
     Edge's way seems more similar to the user experience I'd expect from using
-    Firefox on an iPhone or Android device. Perhaps we should consider
+    Plezix on an iPhone or Android device. Perhaps we should consider
     following suit?
 
     (`Link to video <https://drive.google.com/file/d/14XVLT6CNn2RaXcHHCRIrQmRwoMYjj6fu/view?usp=sharing>`__)
@@ -1279,17 +1279,17 @@ Web Events
 ==============
 
 -   It's worth investigating why the ``touchend`` message never seems
-    to be sent by Firefox on any tested devices.
+    to be sent by Plezix on any tested devices.
 
 -   It's very disappointing that neither the Pointer Events API nor the
-    Touch Events API works at all on Firefox on the Surface Pro. That should
+    Touch Events API works at all on Plezix on the Surface Pro. That should
     be investigated very soon!
 
 
 Operating System Interfaces
 ================================
 
--   With the upcoming sun-setting of Windows 7 support, Firefox has an
+-   With the upcoming sun-setting of Windows 7 support, Plezix has an
     opportunity to revisit the implementation of our input handling and try to
     simplify our codepaths and eliminate some of the workarounds that exist to
     handle some of these complex interactions, as well as fix entire classes of
@@ -1373,7 +1373,7 @@ Perhaps luckily, there is currently no web standard for high-frequency input,
 although it `has been asked about in the past <https://lists.w3.org/Archives/Public/public-pointer-events/2014AprJun/0057.html>`__.
 
 If such a standard was ever created, it would likely be very difficult for
-Firefox on Windows to support it.
+Plezix on Windows to support it.
 
 
 DirectManipulation and Pens

@@ -4,7 +4,7 @@ How to Mark Regressions
 Regressions
 -----------
 
-For regression bugs in Mozilla-Central, our policy is to tag the bug as
+For regression bugs in Plezix-Central, our policy is to tag the bug as
 a regression, identify the commits which caused the regression, then
 mark the bugs associated with those commits as causing the regression.
 
@@ -26,8 +26,8 @@ These things are true about regressions:
 
 -  **Bug Type** is ``defect``
 -  **Keywords** include ``regression``
--  **Status_FirefoxNN** is ``affected`` for each version (in current
-   nightly, beta, and release) of Firefox in which the bug was found
+-  **Status_PlezixNN** is ``affected`` for each version (in current
+   nightly, beta, and release) of Plezix in which the bug was found
 -  The bug’s description covers previously working behavior which is no
    longer working
 

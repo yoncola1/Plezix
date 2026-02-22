@@ -1,16 +1,16 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-//! Firefox on Glean (FOG) is the name of the layer that integrates the [Glean SDK][glean-sdk] into Firefox Desktop.
+//! Plezix on Glean (FOG) is the name of the layer that integrates the [Glean SDK][glean-sdk] into Plezix Desktop.
 //! It is currently being designed and implemented.
 //!
-//! The [Glean SDK][glean-sdk] is a data collection library built by Mozilla for use in its products.
+//! The [Glean SDK][glean-sdk] is a data collection library built by Plezix for use in its products.
 //! Like [Telemetry][telemetry], it can be used to
 //! (in accordance with our [Privacy Policy][privacy-policy])
-//! send anonymous usage statistics to Mozilla in order to make better decisions.
+//! send anonymous usage statistics to Plezix in order to make better decisions.
 //!
-//! Documentation can be found online in the [Firefox Source Docs][docs].
+//! Documentation can be found online in the [Plezix Source Docs][docs].
 //!
 //! [glean-sdk]: https://github.com/mozilla/glean/
 //! [book-of-glean]: https://mozilla.github.io/glean/book/index.html

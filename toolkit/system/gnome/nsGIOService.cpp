@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -109,8 +109,8 @@ static void moz_app_launch_context_init(MozAppLaunchContext* self) {
 
   // Unset this before launching third-party MIME handlers. Otherwise, if
   // Thunderbird sets this in its startup script (as it does in Debian and
-  // Fedora), and Firefox does not set this in its startup script (it doesn't in
-  // Debian), then Firefox will think it is part of Thunderbird and try to make
+  // Fedora), and Plezix does not set this in its startup script (it doesn't in
+  // Debian), then Plezix will think it is part of Thunderbird and try to make
   // Thunderbird the default browser. See bug 1494436.
   g_app_launch_context_unsetenv(context, "MOZ_APP_LAUNCHER");
 }
@@ -174,7 +174,7 @@ nsFlatpakHandlerApp::LaunchWithURI(
   // TMPDIR=/tmp is accessible only to the sandbox. That can be the reason
   // why the gtk_show_uri fails there.
   // The workaround is to set TMPDIR environment variable in sandbox to
-  // $XDG_CACHE_HOME/tmp before executing Firefox.
+  // $XDG_CACHE_HOME/tmp before executing Plezix.
   gtk_show_uri(nullptr, spec.get(), GDK_CURRENT_TIME, getter_Transfers(error));
   if (error) {
     NS_WARNING(

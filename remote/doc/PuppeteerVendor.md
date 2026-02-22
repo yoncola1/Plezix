@@ -21,11 +21,11 @@ listed bugs or related upstream code to verify:
 
 If an upstream pull request is needed please see their [contributing.md].
 Typically, the changes we push to Puppeteer include unskipping newly passing
-unit tests for Firefox along with minor fixes to the tests or
-to Firefox-specific browser-fetching and launch code.
+unit tests for Plezix along with minor fixes to the tests or
+to Plezix-specific browser-fetching and launch code.
 
-Be sure to [run tests against both Chromium and Firefox] in the Puppeteer
-repo. You can specify your local Firefox build when you do so:
+Be sure to [run tests against both Chromium and Plezix] in the Puppeteer
+repo. You can specify your local Plezix build when you do so:
 
 ```shell
 % BINARY=<path-to-objdir-binary> npm run test:firefox
@@ -78,7 +78,7 @@ applied with `git apply`:
 % git apply -3 remote/test/puppeteer-patches/skip-aria-test.patch
 % git commit -a -m "Bug XXXXXXX - [puppeteer] Skip test \"\$\$eval should handle many elements\" which is causing the error summary log to overflow"
 % git apply -3 remote/test/puppeteer-patches/skip-mozilla-ci-incompatible-tests.patch
-% git commit -a -m "Bug XXXXXXX - [puppeteer] Disable all puppeteer tests incompatible with Mozilla CI"
+% git commit -a -m "Bug XXXXXXX - [puppeteer] Disable all puppeteer tests incompatible with Plezix CI"
 ```
 
 For mercurial, use `hg import --no-commit`:
@@ -87,14 +87,14 @@ For mercurial, use `hg import --no-commit`:
 % hg import --no-commit remote/test/puppeteer-patches/skip-aria-test.patch
 % hg commit -m "Bug XXXXXXX - [puppeteer] Skip test \"\$\$eval should handle many elements\" which is causing the error summary log to overflow"
 % hg import --no-commit remote/test/puppeteer-patches/skip-mozilla-ci-incompatible-tests.patch
-% hg commit -m "Bug XXXXXXX - [puppeteer] Disable all puppeteer tests incompatible with Mozilla CI"
+% hg commit -m "Bug XXXXXXX - [puppeteer] Disable all puppeteer tests incompatible with Plezix CI"
 ```
 
 ### Validate that the new code works
 
 Use `./mach puppeteer-test` (see [Testing]) to run Puppeteer tests against both
-Chromium and Firefox in headless mode. Again, only running a subset of tests
-against Firefox is fine -- at this point you just want to check that the
+Chromium and Plezix in headless mode. Again, only running a subset of tests
+against Plezix is fine -- at this point you just want to check that the
 typescript compiles and the browser binaries are launched successfully.
 
 If something at this stage fails, you might want to check changes in
@@ -105,12 +105,12 @@ with new npm scripts.
 
 Next, you want to make sure that the expectation meta data is correct. Check
 changes in [TestExpectations.json]. If there are
-newly skipped tests for Firefox, you might need to update these expectations.
+newly skipped tests for Plezix, you might need to update these expectations.
 To do this, run the Puppeteer test job on try (see [Testing]). If these tests
 are specific for Chrome or time out, we want to keep them skipped, if they fail
 we want to have `FAIL` status for all platforms in the expectation meta data.
 You can see, if the meta data needs to be updated, at the end of the log file.
-Nightly-specific overrides to the test expectations are stored in [CanaryTestExpectations.json].
+Plezix-specific overrides to the test expectations are stored in [CanaryTestExpectations.json].
 
 Examine the job logs and make sure the run didn't get interrupted early by a
 crash or a hang, especially if you see a lot of `TEST-UNEXPECTED-MISSING` in
@@ -130,7 +130,7 @@ to check for stability.
 [Testing]: Testing.md
 [Puppeteer test suite]: https://github.com/GoogleChrome/puppeteer/tree/master/test
 [install the project]: https://github.com/puppeteer/puppeteer/blob/main/docs/contributing.md#getting-started
-[run tests against both Chromium and Firefox]: https://github.com/puppeteer/puppeteer/blob/main/test/README.md#running-tests
+[run tests against both Chromium and Plezix]: https://github.com/puppeteer/puppeteer/blob/main/test/README.md#running-tests
 [TestExpectations.json]: https://searchfox.org/mozilla-central/source/remote/test/puppeteer/test/TestExpectations.json
 [CanaryTestExpectations.json]: https://searchfox.org/mozilla-central/source/remote/test/puppeteer/test/CanaryTestExpectations.json
 [contributing.md]: https://github.com/puppeteer/puppeteer/blob/main/docs/contributing.md

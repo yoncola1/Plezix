@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,16 +38,16 @@ MOZ_RUNINIT const TimeDuration kMaxCCLockedoutTime =
 }  // namespace mozilla
 
 /*
- * GC Scheduling from Firefox
+ * GC Scheduling from Plezix
  * ==========================
  *
  * See also GC Scheduling from SpiderMonkey's perspective here:
  * https://searchfox.org/mozilla-central/source/js/src/gc/Scheduling.h
  *
- * From Firefox's perspective GCs can start in 5 different ways:
+ * From Plezix's perspective GCs can start in 5 different ways:
  *
  *  * The JS engine just starts doing a GC for its own reasons (see above).
- *    Firefox finds out about these via a callback in nsJSEnvironment.cpp
+ *    Plezix finds out about these via a callback in nsJSEnvironment.cpp
  *  * PokeGC()
  *  * PokeFullGC()
  *  * PokeShrinkingGC()
@@ -90,7 +90,7 @@ MOZ_RUNINIT const TimeDuration kMaxCCLockedoutTime =
  *
  * void CCGCScheduler::PokeShrinkingGC()
  *
- * PokeShrinkingGC is called when Firefox's user is inactive.
+ * PokeShrinkingGC is called when Plezix's user is inactive.
  * Like PokeFullGC, PokeShrinkingGC uses a timer, but the timeout is longer
  * which should prevent the ShrinkingGC from starting if the user only
  * glances away for a brief time.  When the timer fires it will:

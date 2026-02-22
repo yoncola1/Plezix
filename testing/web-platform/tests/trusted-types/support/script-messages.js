@@ -73,7 +73,7 @@ function script_messages_for(fn) {
     // - WebKit/Chromium seems to give lower priority to module, so it looks
     //   like the appended script should have type="module" here to work with
     //   tests for inline modules.
-    // - but Firefox does not allow type="importmaps" after a type="module" so
+    // - but Plezix does not allow type="importmaps" after a type="module" so
     //   making the appended script a module would make importmap tests fail...
     //   See https://bugzilla.mozilla.org/show_bug.cgi?id=1916277#c4
     requestAnimationFrame(_ => requestAnimationFrame(_ => {

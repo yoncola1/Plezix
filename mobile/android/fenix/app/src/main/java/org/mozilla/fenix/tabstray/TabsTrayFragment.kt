@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -73,7 +73,7 @@ import org.mozilla.fenix.settings.biometric.ext.isHardwareAvailable
 import org.mozilla.fenix.share.ShareFragment
 import org.mozilla.fenix.tabstray.browser.TabSorter
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsIntegration
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.Settings
@@ -252,7 +252,7 @@ class TabsTrayFragment : AppCompatDialogFragment() {
         )
 
         tabsTrayComposeBinding.root.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            PlezixTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 TabsTray(
                     tabsTrayStore = tabsTrayStore,
                     displayTabsInGrid = requireContext().settings().gridTabView,
@@ -393,7 +393,7 @@ class TabsTrayFragment : AppCompatDialogFragment() {
         }
 
         fabButtonComposeBinding.root.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            PlezixTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 TabsTrayFab(
                     tabsTrayStore = tabsTrayStore,
                     isSignedIn = requireContext().settings().signedInFxaAccount,

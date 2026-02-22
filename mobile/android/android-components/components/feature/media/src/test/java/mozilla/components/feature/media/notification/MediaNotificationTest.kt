@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     mediaSessionState = MediaSessionState(mock(), playbackState = MediaSession.PlaybackState.PLAYING),
                 ),
             ),
@@ -57,7 +57,7 @@ class MediaNotificationTest {
         val notification = MediaNotification(context, AbstractMediaSessionService::class.java).create(state.tabs[0], mock())
 
         assertEquals("https://www.mozilla.org", notification.text)
-        assertEquals("Mozilla", notification.title)
+        assertEquals("Plezix", notification.title)
         assertEquals(R.drawable.mozac_feature_media_playing, notification.iconResource)
     }
 
@@ -68,7 +68,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     mediaSessionState = MediaSessionState(mock(), playbackState = MediaSession.PlaybackState.PAUSED),
                 ),
             ),
@@ -77,7 +77,7 @@ class MediaNotificationTest {
         val notification = MediaNotification(context, AbstractMediaSessionService::class.java).create(state.tabs[0], mock())
 
         assertEquals("https://www.mozilla.org", notification.text)
-        assertEquals("Mozilla", notification.title)
+        assertEquals("Plezix", notification.title)
         assertEquals(R.drawable.mozac_feature_media_paused, notification.iconResource)
     }
 
@@ -88,7 +88,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     mediaSessionState = MediaSessionState(mock(), playbackState = MediaSession.PlaybackState.STOPPED),
                 ),
             ),
@@ -107,7 +107,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     private = true,
                     mediaSessionState = MediaSessionState(mock(), playbackState = MediaSession.PlaybackState.PLAYING),
                 ),
@@ -128,7 +128,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     private = true,
                     mediaSessionState = MediaSessionState(mock(), playbackState = MediaSession.PlaybackState.PAUSED),
                 ),
@@ -155,7 +155,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     private = false,
                     mediaSessionState = mediaSessionState,
                 ),
@@ -182,7 +182,7 @@ class MediaNotificationTest {
                 createTab(
                     "https://www.mozilla.org",
                     id = "test-tab",
-                    title = "Mozilla",
+                    title = "Plezix",
                     private = true,
                     mediaSessionState = mediaSessionState,
                 ),

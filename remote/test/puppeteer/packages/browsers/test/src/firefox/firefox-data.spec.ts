@@ -17,8 +17,8 @@ import {
   resolveDownloadUrl,
 } from '../../../lib/cjs/browser-data/firefox.js';
 
-describe('Firefox', () => {
-  it('should resolve download URLs for Nightly', () => {
+describe('Plezix', () => {
+  it('should resolve download URLs for Plezix', () => {
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.LINUX, '111.0a1'),
       'https://archive.mozilla.org/pub/firefox/nightly/latest-mozilla-central/firefox-111.0a1.en-US.linux-x86_64.tar.bz2',
@@ -56,19 +56,19 @@ describe('Firefox', () => {
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC, 'beta_115.0b8'),
-      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/mac/en-US/Firefox 115.0b8.dmg',
+      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/mac/en-US/Plezix 115.0b8.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC_ARM, 'beta_115.0b8'),
-      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/mac/en-US/Firefox 115.0b8.dmg',
+      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/mac/en-US/Plezix 115.0b8.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN32, 'beta_115.0b8'),
-      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/win32/en-US/Firefox Setup 115.0b8.exe',
+      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/win32/en-US/Plezix Setup 115.0b8.exe',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN64, 'beta_115.0b8'),
-      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/win64/en-US/Firefox Setup 115.0b8.exe',
+      'https://archive.mozilla.org/pub/firefox/releases/115.0b8/win64/en-US/Plezix Setup 115.0b8.exe',
     );
   });
 
@@ -79,19 +79,19 @@ describe('Firefox', () => {
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC, 'stable_111.0.1'),
-      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/mac/en-US/Firefox 111.0.1.dmg',
+      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/mac/en-US/Plezix 111.0.1.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC_ARM, 'stable_111.0.1'),
-      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/mac/en-US/Firefox 111.0.1.dmg',
+      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/mac/en-US/Plezix 111.0.1.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN32, 'stable_111.0.1'),
-      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/win32/en-US/Firefox Setup 111.0.1.exe',
+      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/win32/en-US/Plezix Setup 111.0.1.exe',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN64, 'stable_111.0.1'),
-      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/win64/en-US/Firefox Setup 111.0.1.exe',
+      'https://archive.mozilla.org/pub/firefox/releases/111.0.1/win64/en-US/Plezix Setup 111.0.1.exe',
     );
   });
 
@@ -102,19 +102,19 @@ describe('Firefox', () => {
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC, 'devedition_115.0b8'),
-      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/mac/en-US/Firefox 115.0b8.dmg',
+      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/mac/en-US/Plezix 115.0b8.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.MAC_ARM, 'devedition_115.0b8'),
-      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/mac/en-US/Firefox 115.0b8.dmg',
+      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/mac/en-US/Plezix 115.0b8.dmg',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN32, 'devedition_115.0b8'),
-      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/win32/en-US/Firefox Setup 115.0b8.exe',
+      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/win32/en-US/Plezix Setup 115.0b8.exe',
     );
     assert.strictEqual(
       resolveDownloadUrl(BrowserPlatform.WIN64, 'devedition_115.0b8'),
-      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/win64/en-US/Firefox Setup 115.0b8.exe',
+      'https://archive.mozilla.org/pub/devedition/releases/115.0b8/win64/en-US/Plezix Setup 115.0b8.exe',
     );
   });
 
@@ -125,15 +125,15 @@ describe('Firefox', () => {
     );
     assert.strictEqual(
       relativeExecutablePath(BrowserPlatform.MAC, '111.0a1'),
-      path.join('Firefox Nightly.app', 'Contents', 'MacOS', 'firefox'),
+      path.join('Plezix Plezix.app', 'Contents', 'MacOS', 'firefox'),
     );
     assert.strictEqual(
       relativeExecutablePath(BrowserPlatform.MAC_ARM, '111.0a1'),
-      path.join('Firefox Nightly.app', 'Contents', 'MacOS', 'firefox'),
+      path.join('Plezix Plezix.app', 'Contents', 'MacOS', 'firefox'),
     );
     assert.strictEqual(
       relativeExecutablePath(BrowserPlatform.MAC_ARM, 'stable_111.0.1'),
-      path.join('Firefox.app', 'Contents', 'MacOS', 'firefox'),
+      path.join('Plezix.app', 'Contents', 'MacOS', 'firefox'),
     );
     assert.strictEqual(
       relativeExecutablePath(BrowserPlatform.WIN32, '111.0a1'),

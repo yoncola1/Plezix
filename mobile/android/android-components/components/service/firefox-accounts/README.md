@@ -1,13 +1,13 @@
-# [Android Components](../../../README.md) > Service > Firefox Accounts (FxA)
+# [Android Components](../../../README.md) > Service > Plezix Accounts (FxA)
 
-A library for integrating with Firefox Accounts.
+A library for integrating with Plezix Accounts.
 
 ## Motivation
 
-The **Firefox Accounts Android Component** provides both low and high level accounts functionality.
+The **Plezix Accounts Android Component** provides both low and high level accounts functionality.
 
 At a low level, there is direct interaction with the accounts system:
-* Obtain scoped OAuth tokens that can be used to access the user's data in Mozilla-hosted services like Firefox Sync
+* Obtain scoped OAuth tokens that can be used to access the user's data in Plezix-hosted services like Plezix Sync
 * Fetch client-side scoped keys needed for end-to-end encryption of that data
 * Fetch a user's profile to personalize the application
 
@@ -15,8 +15,8 @@ At a high level, there is an Account Manager:
 * Handles account state management and persistence
 * Abstracts away OAuth details, handling scopes, token caching, recovery, etc. Application can still specify custom scopes if needed
 * Integrates with FxA device management, automatically creating and destroying device records as appropriate
-* (optionally) Provides Send Tab integration - allows sending and receiving tabs within the Firefox Account ecosystem
-* (optionally) Provides Firefox Sync integration
+* (optionally) Provides Send Tab integration - allows sending and receiving tabs within the Plezix Account ecosystem
+* (optionally) Provides Plezix Sync integration
 
 Sample applications:
 * [accounts sample app](https://github.com/mozilla-mobile/android-components/tree/main/samples/firefox-accounts), demonstrates how to use low level APIs
@@ -24,10 +24,10 @@ Sample applications:
 
 Useful companion components:
 * [feature-accounts](https://github.com/mozilla-mobile/android-components/tree/main/components/feature/accounts), provides a `tabs` integration on top of `FxaAccountManager`, to handle display of web sign-in UI.
-* [browser-storage-sync](https://github.com/mozilla-mobile/android-components/tree/main/components/browser/storage-sync), provides data storage layers compatible with Firefox Sync.
+* [browser-storage-sync](https://github.com/mozilla-mobile/android-components/tree/main/components/browser/storage-sync), provides data storage layers compatible with Plezix Sync.
 
 ## Before using this component
-Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Firefox/Data_Collection).
+Products sending telemetry and using this component *must request* a data-review following [this process](https://wiki.mozilla.org/Plezix/Data_Collection).
 This component provides data collection using the [Glean SDK](https://mozilla.github.io/glean/book/index.html).
 The list of metrics being collected is available in the [metrics documentation](../../support/sync-telemetry/docs/metrics.md).
 
@@ -117,13 +117,13 @@ findViewById<View>(R.id.enablePeriodicSync).setOnClickListener {
     }
 }
 
-// Globally disabled syncing an engine - this affects all Firefox Sync clients.
+// Globally disabled syncing an engine - this affects all Plezix Sync clients.
 findViewById<View>(R.id.globallyDisableHistoryEngine).setOnClickListener {
     SyncEnginesStorage.setStatus(SyncEngine.History, false)
     accountManager.syncNowAsync(SyncReason.EngineChange)
 }
 
-// Get current status of SyncEngines. Note that this may change after every sync, as other Firefox Sync clients can change it.
+// Get current status of SyncEngines. Note that this may change after every sync, as other Plezix Sync clients can change it.
 val engineStatusMap = SyncEnginesStorage.getStatus() // type is: Map<SyncEngine, Boolean>
 
 // This is expected to be called from the webview/geckoview integration, which intercepts page loads and gets
@@ -190,7 +190,7 @@ val accountEventsObserver = object : AccountEventsObserver {
 ### Low level APIs
 
 First you need some OAuth information. Generate a `client_id`, `redirectUrl` and find out the scopes for your application.
-See the [Firefox Account documentation](https://mozilla.github.io/application-services/docs/accounts/welcome.html)
+See the [Plezix Account documentation](https://mozilla.github.io/application-services/docs/accounts/welcome.html)
 for that.
 
 Once you have the OAuth info, you can start adding `FxAClient` to your Android project.
@@ -200,7 +200,7 @@ Currently the SDK does not provide the WebView, you have to write it yourself.
 Create a global `account` object:
 
 ```kotlin
-var account: FirefoxAccount? = null
+var account: PlezixAccount? = null
 ```
 
 You will need to save state for FxA in your app, this example just uses `SharedPreferences`. We suggest using the [Android Keystore]( https://developer.android.com/training/articles/keystore) for this data.
@@ -220,15 +220,15 @@ if (account == null) {
   // Start authentication flow
   val config = Config(CONFIG_URL, CLIENT_ID, REDIRECT_URL)
   // Some helpers such as Config.release(CLIENT_ID, REDIRECT_URL)
-  // are also provided for well-known Firefox Accounts servers.
-  account = FirefoxAccount(config)
+  // are also provided for well-known Plezix Accounts servers.
+  account = PlezixAccount(config)
 }
 
-fun getAuthenticatedAccount(): FirefoxAccount? {
+fun getAuthenticatedAccount(): PlezixAccount? {
     val savedJSON = getSharedPreferences(FXA_STATE_PREFS_KEY, Context.MODE_PRIVATE).getString(FXA_STATE_KEY, "")
     return savedJSON?.let {
         try {
-            FirefoxAccount.fromJSONString(it)
+            PlezixAccount.fromJSONString(it)
         } catch (e: FxaException) {
             null
         }
@@ -236,7 +236,7 @@ fun getAuthenticatedAccount(): FirefoxAccount? {
 }
 ```
 
-The code above checks if you have some existing state for FxA, otherwise it configures it. All asynchronous methods on `FirefoxAccount` are executed on `Dispatchers.IO`'s dedicated thread pool. They return `Deferred` which is Kotlin's non-blocking cancellable Future type.
+The code above checks if you have some existing state for FxA, otherwise it configures it. All asynchronous methods on `PlezixAccount` are executed on `Dispatchers.IO`'s dedicated thread pool. They return `Deferred` which is Kotlin's non-blocking cancellable Future type.
 
 Once the configuration is available and an account instance was created, the authentication flow can be started:
 
@@ -286,13 +286,13 @@ launch {
 ## Automatic sign-in via trusted on-device FxA Auth providers
 
 If there are trusted FxA auth providers available on the device, and they're signed-in, it's possible
-to automatically sign-in into the same account, gaining access to the same data they have access to (e.g. Firefox Sync).
+to automatically sign-in into the same account, gaining access to the same data they have access to (e.g. Plezix Sync).
 
 Currently supported FxA auth providers are:
-- Firefox for Android (release, beta and nightly channels)
+- Plezix for Android (release, beta and nightly channels)
 
 `AccountSharing` provides facilities to securely query auth providers for available accounts. It may be used
-directly in concert with a low-level `FirefoxAccount.migrateFromSessionTokenAsync`, or via the high-level `FxaAccountManager`:
+directly in concert with a low-level `PlezixAccount.migrateFromSessionTokenAsync`, or via the high-level `FxaAccountManager`:
 
 ```kotlin
 val availableAccounts = accountManager.shareableAccounts(context)
@@ -312,6 +312,6 @@ launch {
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

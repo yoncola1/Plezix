@@ -2,7 +2,7 @@
 mozbuild
 ========
 
-mozbuild is a Python package providing functionality used by Mozilla's
+mozbuild is a Python package providing functionality used by Plezix's
 build system.
 
 Modules Overview

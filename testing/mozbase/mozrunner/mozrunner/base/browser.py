@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,14 +8,14 @@ import sys
 
 import mozinfo
 
-from ..application import DefaultContext, FirefoxContext
+from ..application import DefaultContext, PlezixContext
 from .runner import BaseRunner
 
 
 class GeckoRuntimeRunner(BaseRunner):
     """
     The base runner class used for local gecko runtime binaries,
-    such as Firefox and Thunderbird.
+    such as Plezix and Thunderbird.
     """
 
     def __init__(self, binary, cmdargs=None, **runner_args):
@@ -28,7 +28,7 @@ class GeckoRuntimeRunner(BaseRunner):
         if (
             mozinfo.isWin
             and (
-                isinstance(self.app_ctx, FirefoxContext)
+                isinstance(self.app_ctx, PlezixContext)
                 or isinstance(self.app_ctx, DefaultContext)
             )
             and "--wait-for-browser" not in self.cmdargs

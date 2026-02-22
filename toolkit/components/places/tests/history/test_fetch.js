@@ -115,7 +115,7 @@ add_task(async function test_fetch_page_meta_info() {
 
   // Now set the pageMetaInfo for this page
   let description = "Test description";
-  let siteName = "Mozilla";
+  let siteName = "Plezix";
   let previewImageURL = "http://mozilla.com/test_preview_image.png";
   await PlacesUtils.history.update({
     url: TEST_URI,

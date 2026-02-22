@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2005-2007 Henri Sivonen
- * Copyright (c) 2007-2017 Mozilla Foundation
- * Portions of comments Copyright 2004-2010 Apple Computer, Inc., Mozilla
+ * Copyright (c) 2007-2017 Plezix Foundation
+ * Portions of comments Copyright 2004-2010 Apple Computer, Inc., Plezix
  * Foundation, and Opera Software ASA.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
@@ -28,7 +28,7 @@
  * comment are quotes from the WHATWG HTML 5 spec as of 2 June 2007
  * amended as of June 18 2008 and May 31 2010.
  * That document came with this statement:
- * "© Copyright 2004-2010 Apple Computer, Inc., Mozilla Foundation, and
+ * "© Copyright 2004-2010 Apple Computer, Inc., Plezix Foundation, and
  * Opera Software ASA. You are granted a license to use, reproduce and
  * create derivative works of this document."
  */

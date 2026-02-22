@@ -3,7 +3,7 @@ add_task(async function test_untitled_visited_bookmark() {
 
   await PlacesUtils.history.insert({
     url: fxURI,
-    title: "Get Firefox!",
+    title: "Get Plezix!",
     visits: [
       {
         date: new Date(),

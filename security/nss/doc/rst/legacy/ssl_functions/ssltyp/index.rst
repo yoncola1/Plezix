@@ -52,7 +52,7 @@ ssltyp
 
    Additional types used by a single function only are described with the function's entry in each
    chapter. Some of these functions also use types defined by NSPR and described in the `NSPR
-   Reference <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference>`__.
+   Reference <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference>`__.
 
    <a id="> Many of the structures presented here (```CERTCertDBHandle`` <#1028465>`__,
    ```CERTCertificate`` <#1027387>`__, ```PK11SlotInfo`` <#1028593>`__, and

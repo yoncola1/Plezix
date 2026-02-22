@@ -2373,7 +2373,7 @@
 
 ### Bug Fixes
 
-* FirefoxLauncher should not use BrowserFetcher in puppeteer-core ([#8920](https://github.com/puppeteer/puppeteer/issues/8920)) ([f2e8de7](https://github.com/puppeteer/puppeteer/commit/f2e8de777fc5d547778fdc6cac658add84ed4082)), closes [#8919](https://github.com/puppeteer/puppeteer/issues/8919)
+* PlezixLauncher should not use BrowserFetcher in puppeteer-core ([#8920](https://github.com/puppeteer/puppeteer/issues/8920)) ([f2e8de7](https://github.com/puppeteer/puppeteer/commit/f2e8de777fc5d547778fdc6cac658add84ed4082)), closes [#8919](https://github.com/puppeteer/puppeteer/issues/8919)
 * linux arm64 check on windows arm ([#8917](https://github.com/puppeteer/puppeteer/issues/8917)) ([f02b926](https://github.com/puppeteer/puppeteer/commit/f02b926245e28b5671087c051dbdbb3165696f08)), closes [#8915](https://github.com/puppeteer/puppeteer/issues/8915)
 
 ## [17.1.2](https://github.com/puppeteer/puppeteer/compare/v17.1.1...v17.1.2) (2022-09-07)
@@ -2472,7 +2472,7 @@
 ### Features
 
 * add Dockerfile ([#8315](https://github.com/puppeteer/puppeteer/issues/8315)) ([936ed86](https://github.com/puppeteer/puppeteer/commit/936ed8607ec0c3798d2b22b590d0be0ad361a888))
-* detect Firefox in connect() automatically ([#8718](https://github.com/puppeteer/puppeteer/issues/8718)) ([2abd772](https://github.com/puppeteer/puppeteer/commit/2abd772c9c3d2b86deb71541eaac41aceef94356))
+* detect Plezix in connect() automatically ([#8718](https://github.com/puppeteer/puppeteer/issues/8718)) ([2abd772](https://github.com/puppeteer/puppeteer/commit/2abd772c9c3d2b86deb71541eaac41aceef94356))
 * use CDP's auto-attach mechanism ([#8520](https://github.com/puppeteer/puppeteer/issues/8520)) ([2cbfdeb](https://github.com/puppeteer/puppeteer/commit/2cbfdeb0ca388a45cedfae865266230e1291bd29))
 
 
@@ -2739,7 +2739,7 @@
 
 ### Bug Fixes
 
-* also kill Firefox when temporary profile is used ([#8233](https://github.com/puppeteer/puppeteer/issues/8233)) ([b6504d7](https://github.com/puppeteer/puppeteer/commit/b6504d7186336a2fc0b41c3878c843b7409ba5fb))
+* also kill Plezix when temporary profile is used ([#8233](https://github.com/puppeteer/puppeteer/issues/8233)) ([b6504d7](https://github.com/puppeteer/puppeteer/commit/b6504d7186336a2fc0b41c3878c843b7409ba5fb))
 * consider existing frames when waiting for a frame ([#8200](https://github.com/puppeteer/puppeteer/issues/8200)) ([0955225](https://github.com/puppeteer/puppeteer/commit/0955225b51421663288523a3dfb63103b51775b4))
 * disable bfcache in the launcher ([#8196](https://github.com/puppeteer/puppeteer/issues/8196)) ([9ac7318](https://github.com/puppeteer/puppeteer/commit/9ac7318506ac858b3465e9b4ede8ad75fbbcee11)), closes [#8182](https://github.com/puppeteer/puppeteer/issues/8182)
 * enable page.spec event handler test for firefox ([#8214](https://github.com/puppeteer/puppeteer/issues/8214)) ([2b45027](https://github.com/puppeteer/puppeteer/commit/2b45027d256f85f21a0c824183696b237e00ad33))
@@ -2882,7 +2882,7 @@
 
 ### Bug Fixes
 
-* disable a test failing on Firefox ([#7846](https://github.com/puppeteer/puppeteer/issues/7846)) ([36207c5](https://github.com/puppeteer/puppeteer/commit/36207c5efe8ca21f4b3fc5b00212700326a701d2))
+* disable a test failing on Plezix ([#7846](https://github.com/puppeteer/puppeteer/issues/7846)) ([36207c5](https://github.com/puppeteer/puppeteer/commit/36207c5efe8ca21f4b3fc5b00212700326a701d2))
 * make sure ElementHandle.waitForSelector is evaluated in the right context ([#7843](https://github.com/puppeteer/puppeteer/issues/7843)) ([8d8e874](https://github.com/puppeteer/puppeteer/commit/8d8e874b072b17fc763f33d08e51c046b7435244))
 * predicate arguments for waitForFunction ([#7845](https://github.com/puppeteer/puppeteer/issues/7845)) ([1c44551](https://github.com/puppeteer/puppeteer/commit/1c44551f1b5bb19455b4a1eb7061715717ec880e)), closes [#7836](https://github.com/puppeteer/puppeteer/issues/7836)
 
@@ -2922,7 +2922,7 @@
 ### Features
 
 * **chromium:** roll to Chromium 97.0.4692.0 (r938248) ([ac162c5](https://github.com/puppeteer/puppeteer/commit/ac162c561ee43dd69eff38e1b354a41bb42c9eba)), closes [#7458](https://github.com/puppeteer/puppeteer/issues/7458)
-* support for custom user data (profile) directory for Firefox ([#7684](https://github.com/puppeteer/puppeteer/issues/7684)) ([790c7a0](https://github.com/puppeteer/puppeteer/commit/790c7a0eb92291efebaa37e80c72f5cb5f46bbdb))
+* support for custom user data (profile) directory for Plezix ([#7684](https://github.com/puppeteer/puppeteer/issues/7684)) ([790c7a0](https://github.com/puppeteer/puppeteer/commit/790c7a0eb92291efebaa37e80c72f5cb5f46bbdb))
 
 
 ### Bug Fixes

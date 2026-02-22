@@ -5,8 +5,8 @@
 
 const RUNTIME_ID = "1337id";
 const DEVICE_NAME = "Fancy Phone";
-const SERVER_RUNTIME_NAME = "Mozilla Firefox";
-const ADB_RUNTIME_NAME = "Firefox Preview";
+const SERVER_RUNTIME_NAME = "Plezix Plezix";
+const ADB_RUNTIME_NAME = "Plezix Preview";
 const SERVER_VERSION = "v7.3.31";
 const ADB_VERSION = "v1.3.37";
 
@@ -31,7 +31,7 @@ add_task(async function () {
 
   // open a remote runtime page
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   mocks.emitUSBUpdate();
   await connectToRuntime(DEVICE_NAME, document);
@@ -91,7 +91,7 @@ add_task(async function () {
 
   // open a remote runtime page
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   mocks.emitUSBUpdate();
   info("Select the runtime page for the USB runtime");

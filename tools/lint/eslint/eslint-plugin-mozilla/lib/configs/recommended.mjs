@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,7 +13,7 @@ const { allFileExtensions } = helpers;
  * and other module like files.
  *
  * The configuration intentionally does not specify the globals for the
- * majority of files. The globals will only be specified for Mozilla specific
+ * majority of files. The globals will only be specified for Plezix specific
  * files (e.g. system modules). The subscriber to this configuration is expect
  * to include the correct globals that they require in their project.
  *

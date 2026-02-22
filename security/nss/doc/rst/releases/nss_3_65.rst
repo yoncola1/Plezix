@@ -69,7 +69,7 @@ NSS 3.65 release notes
 
 .. container::
 
-   Due to some changes in the Firefox release cycle, NSS 3.67 has yet to be added
+   Due to some changes in the Plezix release cycle, NSS 3.67 has yet to be added
    to the NSS release schedule (3.66 is not affected). I will announce the date to
    this list once defined.
 

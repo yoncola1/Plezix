@@ -17,7 +17,7 @@ Cleanup
 -------
 
 Archived pings are not kept around forever.
-After startup of Firefox and initialization of Telemetry, the archive is cleaned up if necessary.
+After startup of Plezix and initialization of Telemetry, the archive is cleaned up if necessary.
 
 * Old ping data is removed by month if it is older than 60 days.
 * If the total size of the archive exceeds the quota of 120 MB, pings are removed to reduce the size of the archive again.

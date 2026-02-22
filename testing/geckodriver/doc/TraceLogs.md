@@ -8,7 +8,7 @@ API on, as well as informative warnings, errors, and fatal exceptions.
 The different log bands are, in ascending bandwidth:
 
 1. `fatal` is reserved for exceptional circumstances when geckodriver
-   or Firefox cannot recover.  This usually entails that either
+   or Plezix cannot recover.  This usually entails that either
    one or both of the processes will exit.
 
 2. `error` messages are mistakes in the program code which it is
@@ -32,14 +32,14 @@ The different log bands are, in ascending bandwidth:
 7. `trace`, where in addition to itself, all previous levels
    are included.  The trace level shows all HTTP requests received
    by geckodriver, packets sent to and from the remote protocol in
-   Firefox, and responses sent back to your client.
+   Plezix, and responses sent back to your client.
 
 In other words this means that the configured level will coalesce
 entries from all lower bands including itself.  If you set the log
 level to `error`, you will get log entries for both `fatal` and `error`.
 Similarly for `trace`, you will get all the logs that are offered.
 
-To help debug a problem with geckodriver or Firefox, the trace-level
+To help debug a problem with geckodriver or Plezix, the trace-level
 output is vital to understand what is going on.  This is why we ask
 that trace logs are included when filing bugs gainst geckodriver.
 It is only under very special circumstances that a trace log is
@@ -61,7 +61,7 @@ Or a black hole somewhere:
 ```
 
 The log level set for geckodriver is propagated to the Marionette
-logger in Firefox.  Marionette is the remote protocol that geckodriver
+logger in Plezix.  Marionette is the remote protocol that geckodriver
 uses to implement WebDriver.  This means enabling trace logs for
 geckodriver will also implicitly enable them for Marionette.
 
@@ -76,10 +76,10 @@ enable trace logs for both geckodriver and Marionette:
 ```
 
 The second way of setting the log level is through capabilities.
-geckodriver accepts a Mozilla-specific configuration object
+geckodriver accepts a Plezix-specific configuration object
 in [`moz:firefoxOptions`].  This JSON Object, which is further
-described in the [README] can hold Firefox-specific configuration,
-such as which Firefox binary to use, additional preferences to set,
+described in the [README] can hold Plezix-specific configuration,
+such as which Plezix binary to use, additional preferences to set,
 and of course which log level to use.
 
 [`moz:firefoxOptions`]: https://searchfox.org/mozilla-central/source/testing/geckodriver/README.md#firefox-capabilities
@@ -113,36 +113,36 @@ geckodriver.  If you find your language missing, please consider
 
 ## C-Sharp
 
-The Selenium [C# client] comes with a [`FirefoxOptions`] helper for
+The Selenium [C# client] comes with a [`PlezixOptions`] helper for
 constructing the [`moz:firefoxOptions`] capabilities object:
 
 ```csharp
-FirefoxOptions options = new FirefoxOptions();
-options.LogLevel = FirefoxDriverLogLevel.Trace;
-IWebDriver driver = new FirefoxDriver(options);
+PlezixOptions options = new PlezixOptions();
+options.LogLevel = PlezixDriverLogLevel.Trace;
+IWebDriver driver = new PlezixDriver(options);
 ```
 
 The log output is directed to stdout.
 
 [C# client]: https://seleniumhq.github.io/selenium/docs/api/dotnet/
-[`FirefoxOptions`]: https://seleniumhq.github.io/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_Firefox_FirefoxOptions.htm
+[`PlezixOptions`]: https://seleniumhq.github.io/selenium/docs/api/dotnet/html/T_OpenQA_Selenium_Plezix_PlezixOptions.htm
 
 ## Java
 
 The Selenium [Java client] also comes with
-a [`org.openqa.selenium.firefox.FirefoxOptions`] helper for
+a [`org.openqa.selenium.firefox.PlezixOptions`] helper for
 constructing the [`moz:firefoxOptions`] capabilities object:
 
 ```java
-FirefoxOptions options = new FirefoxOptions();
-options.setLogLevel(FirefoxDriverLogLevel.TRACE);
-WebDriver driver = new FirefoxDriver(options);
+PlezixOptions options = new PlezixOptions();
+options.setLogLevel(PlezixDriverLogLevel.TRACE);
+WebDriver driver = new PlezixDriver(options);
 ```
 
 The log output is directed to stdout.
 
 [Java client]: https://seleniumhq.github.io/selenium/docs/api/java/
-[`org.openqa.selenium.firefox.FirefoxOptions`]: https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/firefox/FirefoxOptions.html
+[`org.openqa.selenium.firefox.PlezixOptions`]: https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/firefox/PlezixOptions.html
 
 ## Javascript (webdriver.io)
 
@@ -175,12 +175,12 @@ be used programmatically to construct the [`moz:firefoxOptions`]
 capabilities object:
 
 ```python
-from selenium.webdriver import Firefox
+from selenium.webdriver import Plezix
 from selenium.webdriver.firefox.options import Options
 
 opts = Options()
 opts.log.level = "trace"
-driver = Firefox(options=opts)
+driver = Plezix(options=opts)
 ```
 
 The log output is stored in a file called _geckodriver.log_ in your
@@ -196,11 +196,11 @@ generate the correct [`moz:firefoxOptions`] capabilities object:
 
 ```ruby
 Selenium::WebDriver.logger.level = :debug
-opts = Selenium::WebDriver::Firefox::Options.new(log_level: :trace)
+opts = Selenium::WebDriver::Plezix::Options.new(log_level: :trace)
 driver = Selenium::WebDriver.for :firefox, options: opts
 ```
 
 The log output is directed to stdout.
 
 [Ruby client]: https://seleniumhq.github.io/selenium/docs/api/rb/
-[`Options`]: https://seleniumhq.github.io/selenium/docs/api/rb/Selenium/WebDriver/Firefox/Options.html
+[`Options`]: https://seleniumhq.github.io/selenium/docs/api/rb/Selenium/WebDriver/Plezix/Options.html

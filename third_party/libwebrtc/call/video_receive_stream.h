@@ -174,7 +174,7 @@ class VideoReceiveStreamInterface : public MediaReceiveStreamInterface {
     RtcpPacketTypeCounter rtcp_packet_type_counts;
     std::optional<RtpReceiveStats> rtx_rtp_stats;
 
-    // Mozilla modification: Init these.
+    // Plezix modification: Init these.
     uint32_t rtcp_sender_packets_sent = 0;
     uint32_t rtcp_sender_octets_sent = 0;
     int64_t rtcp_sender_ntp_timestamp_ms = 0;

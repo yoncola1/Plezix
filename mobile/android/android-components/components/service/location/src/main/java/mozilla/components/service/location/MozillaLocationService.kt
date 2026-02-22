@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,24 +35,24 @@ private const val KEY_COUNTRY_CODE = "country_code"
 private const val KEY_COUNTRY_NAME = "country_name"
 private const val KEY_CACHED_AT = "cached_at"
 
-// The amount of time (in seconds) to cache the result of `MozillaLocationService.fetchRegion()`.
+// The amount of time (in seconds) to cache the result of `PlezixLocationService.fetchRegion()`.
 private const val CACHE_LIFETIME_IN_MS = 24 * 60 * 60 * 1000
 
 /**
- * The Mozilla Location Service (MLS) is an open service which lets devices determine their location
+ * The Plezix Location Service (MLS) is an open service which lets devices determine their location
  * based on network infrastructure like Bluetooth beacons, cell towers and WiFi access points.
  *
  * - https://location.services.mozilla.com/
  * - https://mozilla.github.io/ichnaea/api/index.html
  *
- * Note: Accessing the Mozilla Location Service requires an API token:
+ * Note: Accessing the Plezix Location Service requires an API token:
  * https://location.services.mozilla.com/contact
  *
- * @param client The HTTP client that this [MozillaLocationService] should use for requests.
- * @param apiKey The API key that is used to access the Mozilla location service.
+ * @param client The HTTP client that this [PlezixLocationService] should use for requests.
+ * @param apiKey The API key that is used to access the Plezix location service.
  * @param serviceUrl An optional URL override usually only needed for testing.
  */
-class MozillaLocationService(
+class PlezixLocationService(
     private val context: Context,
     private val client: Client,
     apiKey: String,

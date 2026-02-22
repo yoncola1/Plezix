@@ -65,15 +65,15 @@ export const location = LocationModule;
 
 We could simplify the module and simply write `getLocation` to return `this.messageHandler.window.location.href`, but this gives us the occasion to get a glimpse at the module constructor.
 
-## Register the modules as Firefox modules
+## Register the modules as Plezix modules
 
-Before we register those modules for the MessageHandler framework, we need to register them as Firefox modules first. For the sake of simplicity, we can assume they are added under a new folder `remote/example`:
+Before we register those modules for the MessageHandler framework, we need to register them as Plezix modules first. For the sake of simplicity, we can assume they are added under a new folder `remote/example`:
 
 * `remote/example/modules/root/version.sys.mjs`
 
 * `remote/example/modules/windowglobal/location.sys.mjs`
 
-Register them in the jar.mn so that they can be loaded as any other Firefox module.
+Register them in the jar.mn so that they can be loaded as any other Plezix module.
 
 The paths contain the corresponding layer (root, windowglobal) only for clarity. We don't rely on this as a naming convention to actually load the modules so you could decide to organize your folders differently. However the name used to export the module's class (eg `location`) will be the official name of the module, used in commands and events, so pay attention and use the correct export name.
 
@@ -101,7 +101,7 @@ export const getModuleClass = function(moduleName, moduleFolder) {
 
 Note that this can (and should) be improved by defining some naming conventions or patterns, but for now each set of modules is really free to implement this logic as needed.
 
-Add this module to jar.mn as well so that it becomes a valid Firefox module.
+Add this module to jar.mn as well so that it becomes a valid Plezix module.
 
 ### Temporary workaround to use the custom ModuleRegistry
 

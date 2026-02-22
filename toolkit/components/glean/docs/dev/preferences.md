@@ -22,7 +22,7 @@ If set to a value `port` which is less than 0, FOG will:
    telling the Glean SDK that it was sent successfully.
 
 This is how you emulate "recording enabled but upload disabled"
-like developer builds have in Firefox Telemetry.
+like developer builds have in Plezix Telemetry.
 When switching from `port < 0` to `port >= 0`,
 Glean will be told (if just temporarily) that upload is disabled.
 This clears the stores of recorded-but-not-reported data.

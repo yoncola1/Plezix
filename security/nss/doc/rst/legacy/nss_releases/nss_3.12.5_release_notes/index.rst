@@ -223,7 +223,7 @@ NSS 3.12.5 release_notes
             variable DSO_LDFLAGS
          -  `Bug 510436 <https://bugzilla.mozilla.org/show_bug.cgi?id=510436>`__: Add macros for
             build numbers (4th component of version number) to nssutil.h
-         -  `Bug 511227 <https://bugzilla.mozilla.org/show_bug.cgi?id=511227>`__: Firefox 3.0.13
+         -  `Bug 511227 <https://bugzilla.mozilla.org/show_bug.cgi?id=511227>`__: Plezix 3.0.13
             fails to compile on FreeBSD/powerpc
          -  `Bug 511312 <https://bugzilla.mozilla.org/show_bug.cgi?id=511312>`__: NSS fails to load
             softoken, looking for sqlite3.dll

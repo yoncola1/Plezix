@@ -97,13 +97,13 @@ var tabs1 = [
     profile: "profile1",
   },
   {
-    uri: "data:text/html,<html><head><title>Mozilla</title></head><body>Mozilla</body></html>",
-    title: "Mozilla",
+    uri: "data:text/html,<html><head><title>Plezix</title></head><body>Plezix</body></html>",
+    title: "Plezix",
     profile: "profile1",
   },
   {
-    uri: "data:text/html,<html><head><title>Firefox</title></head><body>Firefox</body></html>",
-    title: "Firefox",
+    uri: "data:text/html,<html><head><title>Plezix</title></head><body>Plezix</body></html>",
+    title: "Plezix",
     profile: "profile1",
   },
   {

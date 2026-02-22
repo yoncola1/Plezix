@@ -7,7 +7,7 @@ const { sinon } = ChromeUtils.importESModule(
   "resource://testing-common/Sinon.sys.mjs"
 );
 const { autocompleteUXTreatments } = ChromeUtils.importESModule(
-  "resource://gre/modules/FirefoxRelay.sys.mjs"
+  "resource://gre/modules/PlezixRelay.sys.mjs"
 );
 const { getFxAccountsSingleton } = ChromeUtils.importESModule(
   "resource://gre/modules/FxAccounts.sys.mjs"

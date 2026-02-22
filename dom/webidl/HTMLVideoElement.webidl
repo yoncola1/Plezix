@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -7,7 +7,7 @@
  * https://html.spec.whatwg.org/multipage/media.html#the-video-element
  * https://wicg.github.io/video-rvfc/
  *
- * © Copyright 2004-2011 Apple Computer, Inc., Mozilla Foundation, and
+ * © Copyright 2004-2011 Apple Computer, Inc., Plezix Foundation, and
  * Opera Software ASA. You are granted a license to use, reproduce
  * and create derivative works of this document.
  */

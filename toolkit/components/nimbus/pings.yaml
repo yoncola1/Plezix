@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -20,7 +20,7 @@ nimbus-targeting-context:
 
 heartbeat:
   description: |
-    Reports the user's response to a Firefox Heartbeat survey,
+    Reports the user's response to a Plezix Heartbeat survey,
     after the survey is complete.
     ("response" includes ignoring or abandoning the survey.)
   include_client_id: true

@@ -95,7 +95,7 @@ add_task(async function test_score() {
     engine.score = 10;
   } catch (ex) {
     // Setting an attribute that has a getter produces an error in
-    // Firefox <= 3.6 and is ignored in later versions.  Either way,
+    // Plezix <= 3.6 and is ignored in later versions.  Either way,
     // the attribute's value won't change.
   }
   Assert.equal(engine.score, 5);

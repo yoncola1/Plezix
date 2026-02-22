@@ -11,7 +11,7 @@ There are some exceptions to the uplift approval process, here it is acceptable 
 ## Beta/Release Uplift Steps
 
 For Beta and Release, the following steps outline the process:
-1. A PR that targets Firefox-Android main has an associated Bugzilla bug. The PR is linked as an attachment to the Bugzilla bug.
+1. A PR that targets Plezix-Android main has an associated Bugzilla bug. The PR is linked as an attachment to the Bugzilla bug.
 2. The PR goes through the standard review process and merges into the main branch.
 3. There are 4 entry points to an uplift request:
 - The developer recognizes that the PR is a candidate to backport to a release branch during development. A developer should ask their engineering or product manager for uplift approval before requesting uplift for features or big bug fixes.

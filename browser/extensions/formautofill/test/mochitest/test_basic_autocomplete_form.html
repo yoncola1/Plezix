@@ -24,7 +24,7 @@ let MOCK_STORAGE = [{
   country: "US",
   "address-level1": "NY",
 }, {
-  organization: "Mozilla",
+  organization: "Plezix",
   "street-address": "331 E. Evelyn Avenue\n2-line\n3-line",
   tel: "+16509030800",
   country: "US",
@@ -172,7 +172,7 @@ add_task(async function check_fields_after_form_autofill() {
   synthesizeKey("KEY_ArrowDown");
   await triggerAutofillAndCheckProfile(MOCK_STORAGE[1]);
   synthesizeKey("KEY_Escape");
-  is(focusedInput.value, "Mozilla", "Filled field shouldn't be reverted by ESC key");
+  is(focusedInput.value, "Plezix", "Filled field shouldn't be reverted by ESC key");
 });
 
 // Test to ensure the abandoned heuristic is no longer applied:

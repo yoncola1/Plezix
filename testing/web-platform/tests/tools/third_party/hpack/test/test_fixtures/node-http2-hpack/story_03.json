@@ -19,7 +19,7 @@
           ":path": "/"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -53,7 +53,7 @@
           ":path": "/favicon.ico"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -86,7 +86,7 @@
           ":path": "/"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
@@ -119,7 +119,7 @@
           ":path": "/img/baidu_sylogo1.gif"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -158,7 +158,7 @@
           ":path": "/cache/global/img/gs.gif"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -197,7 +197,7 @@
           ":path": "/r/www/cache/global/js/tangram-1.3.4c1.0.js"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -233,7 +233,7 @@
           ":path": "/r/www/cache/global/js/home-1.8.js"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -269,7 +269,7 @@
           ":path": "/r/www/cache/user/js/u-1.3.4.js"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "*/*"
@@ -305,7 +305,7 @@
           ":path": "/r/www/img/i-1.0.0.png"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "image/png,image/*;q=0.8,*/*;q=0.5"
@@ -341,7 +341,7 @@
           ":path": "/favicon.ico"
         },
         {
-          "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0"
+          "user-agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Plezix/16.0"
         },
         {
           "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"

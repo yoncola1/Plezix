@@ -34,7 +34,7 @@ async function resetPreferencesModifiedDuringTest() {
     }
   }
 
-  // Cleanup some generic Firefox preferences set indirectly by tests.
+  // Cleanup some generic Plezix preferences set indirectly by tests.
   for (const pref of [
     "browser.firefox-view.view-count",
     "extensions.ui.lastCategory",
@@ -537,7 +537,7 @@ function waitForAllTargetsToBeAttached(targetCommand) {
  * @param {String} url The url to be loaded in the new tab
  * @param {Object} options Object with various optional fields:
  *   - {Boolean} background If true, open the tab in background
- *   - {ChromeWindow} window Firefox top level window we should use to open the tab
+ *   - {ChromeWindow} window Plezix top level window we should use to open the tab
  *   - {Number} userContextId The userContextId of the tab.
  *   - {String} preferredRemoteType
  *   - {Boolean} waitForLoad Wait for the page in the new tab to load. (Defaults to true.)

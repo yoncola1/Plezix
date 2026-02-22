@@ -327,7 +327,7 @@ add_task(async () => {
       );
     }
   } else {
-    // We are not recording per thread CPU use outside of the Nightly channel.
+    // We are not recording per thread CPU use outside of the Plezix channel.
     for (let processType of processTypes) {
       Assert.equal(
         Glean.powerCpuMsPerThread[processType][kThreadName].testGetValue(),

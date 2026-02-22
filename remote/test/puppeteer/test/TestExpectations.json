@@ -144,7 +144,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
-    "comment": "Firefox does not support --remote-debugging-pipe argument"
+    "comment": "Plezix does not support --remote-debugging-pipe argument"
   },
   {
     "testIdPattern": "[proxy.spec] *",
@@ -241,7 +241,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
-    "comment": "The test relies on the default page partition key do not contain the source origin. This is not the case for Firefox."
+    "comment": "The test relies on the default page partition key do not contain the source origin. This is not the case for Plezix."
   },
   {
     "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set secure same-site cookies from a frame",
@@ -325,7 +325,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
-    "comment": "Firefox does not support --remote-debugging-pipe argument"
+    "comment": "Plezix does not support --remote-debugging-pipe argument"
   },
   {
     "testIdPattern": "[frame.spec] Frame specs Frame.prototype.frameElement should handle shadow roots",
@@ -346,14 +346,14 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "Implementation in Firefox is not in stable yet"
+    "comment": "Implementation in Plezix is not in stable yet"
   },
   {
     "testIdPattern": "[input.spec] input tests Page.waitForFileChooser*",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "Implementation in Firefox is not in stable yet"
+    "comment": "Implementation in Plezix is not in stable yet"
   },
   {
     "testIdPattern": "[jshandle.spec] JSHandle JSHandle.jsonValue should not throw for circular objects",
@@ -667,7 +667,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["FAIL"],
-    "comment": "Firefox is currently only able to install signed extensions."
+    "comment": "Plezix is currently only able to install signed extensions."
   },
   {
     "testIdPattern": "[acceptInsecureCerts.spec] acceptInsecureCerts Response.securityDetails Network redirects should report SecurityDetails",
@@ -737,7 +737,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
-    "comment": "Firefox does not support multiple connection at this time"
+    "comment": "Plezix does not support multiple connection at this time"
   },
   {
     "testIdPattern": "[click.spec] Page.click should click the button with fixed position inside an iframe",
@@ -765,21 +765,21 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
-    "comment": "WebDriver BiDi in Firefox does not support multiple sessions"
+    "comment": "WebDriver BiDi in Plezix does not support multiple sessions"
   },
   {
     "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should default to setting secure cookie for HTTPS websites",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "Chromium-specific test. The test relies on the cookie in secure context to be secure. This is not the case for Firefox."
+    "comment": "Chromium-specific test. The test relies on the cookie in secure context to be secure. This is not the case for Plezix."
   },
   {
     "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set secure same-site cookies from a frame",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "Chromium-specific test. The test relies on the cookie in secure context to be secure. This is not the case for Firefox."
+    "comment": "Chromium-specific test. The test relies on the cookie in secure context to be secure. This is not the case for Plezix."
   },
   {
     "testIdPattern": "[device-request-prompt.spec] device request prompt can be aborted",
@@ -1038,7 +1038,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
-    "comment": "Firefox does not support multiple sessions in BiDi."
+    "comment": "Plezix does not support multiple sessions in BiDi."
   },
   {
     "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.connect should support acceptInsecureCerts option",
@@ -1080,10 +1080,10 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
-    "comment": "Cannot run on Mozilla CI"
+    "comment": "Cannot run on Plezix CI"
   },
   {
-    "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should filter out ignored default argument in Firefox",
+    "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should filter out ignored default argument in Plezix",
     "platforms": ["linux"],
     "parameters": ["firefox", "headful"],
     "expectations": ["FAIL"],
@@ -1094,7 +1094,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
-    "comment": "Cannot run on Mozilla CI"
+    "comment": "Cannot run on Plezix CI"
   },
   {
     "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch should have custom URL when launching browser",
@@ -1192,7 +1192,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "Needs Firefox support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
+    "comment": "Needs Plezix support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
   },
   {
     "testIdPattern": "[network.spec] network raw network headers Cross-origin set-cookie",
@@ -1269,7 +1269,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
-    "comment": "Firefox does not support multiple sessions in BiDi."
+    "comment": "Plezix does not support multiple sessions in BiDi."
   },
   {
     "testIdPattern": "[page.spec] Page Page.addScriptTag should throw when added with content to the CSP page",
@@ -1351,7 +1351,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "TODO: Needs support for file URIs in Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1826210"
+    "comment": "TODO: Needs support for file URIs in Plezix https://bugzilla.mozilla.org/show_bug.cgi?id=1826210"
   },
   {
     "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Page.setRequestInterception should work with requests without networkId",
@@ -1393,7 +1393,7 @@
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
-    "comment": "TODO: Needs support for file URIs in Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=1826210"
+    "comment": "TODO: Needs support for file URIs in Plezix https://bugzilla.mozilla.org/show_bug.cgi?id=1826210"
   },
   {
     "testIdPattern": "[requestinterception.spec] request interception Page.setRequestInterception should work with requests without networkId",

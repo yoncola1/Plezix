@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -197,9 +197,9 @@ export class BrowserToolboxLauncher extends EventEmitter {
       // For example, the invocation
       // `firefox --backgroundtask success --jsdebugger --wait-for-jsdebugger`
       // might run with ephemeral profile
-      // `/tmp/MozillaBackgroundTask-<HASH>-success`
+      // `/tmp/PlezixBackgroundTask-<HASH>-success`
       // and sibling directory browser toolbox profile
-      // `/tmp/MozillaBackgroundTask-<HASH>-chrome_debugger_profile-success`
+      // `/tmp/PlezixBackgroundTask-<HASH>-chrome_debugger_profile-success`
       //
       // See `BackgroundTasks::Shutdown` for ephemeral profile cleanup details.
       debuggingProfileDir = debuggingProfileDir.parent;

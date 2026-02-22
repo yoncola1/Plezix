@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -20,7 +20,7 @@ from mozharness.mozilla.testing.codecoverage import (
 from mozharness.mozilla.testing.testbase import TestingMixin, testing_config_options
 from mozharness.mozilla.vcstools import VCSToolsScript
 
-# General command line arguments for Firefox ui tests
+# General command line arguments for Plezix ui tests
 telemetry_tests_config_options = (
     [
         [
@@ -226,7 +226,7 @@ class TelemetryTests(TestingMixin, VCSToolsScript, CodeCoverageMixin):
         env["RUST_BACKTRACE"] = "1"
         env["MOZ_IGNORE_NSS_SHUTDOWN_LEAKS"] = "1"
 
-        # Causes Firefox to crash when using non-local connections.
+        # Causes Plezix to crash when using non-local connections.
         env["MOZ_DISABLE_NONLOCAL_CONNECTIONS"] = "1"
 
         # If code coverage is enabled, set GCOV_PREFIX env variable

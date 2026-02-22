@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -430,11 +430,11 @@ const MESSAGES = () => [
             },
             title: {
               fontSize: "13px",
-              raw: "Make Nightly your default browser?",
+              raw: "Make Plezix your default browser?",
             },
             subtitle: {
               fontSize: "13px",
-              raw: "Keep Nightly at your fingertips — make it your default browser and keep it in your Dock.",
+              raw: "Keep Plezix at your fingertips — make it your default browser and keep it in your Dock.",
             },
             additional_button: {
               label: {
@@ -492,7 +492,7 @@ const MESSAGES = () => [
                 "https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/ms-images/a3c640c8-7594-4bb2-bc18-8b4744f3aaf2.gif",
             },
             title: {
-              raw: "Say hello to Firefox profiles",
+              raw: "Say hello to Plezix profiles",
               paddingBlock: "8px",
             },
             subtitle: {
@@ -604,7 +604,7 @@ const MESSAGES = () => [
     content: {
       label: {
         raw: "Getting Started",
-        tooltiptext: "Getting started with Firefox",
+        tooltiptext: "Getting started with Plezix",
       },
       logo: {
         imageURL: "chrome://browser/content/assets/focus-logo.svg",
@@ -1427,7 +1427,7 @@ const MESSAGES = () => [
               raw: {
                 $l10n: {
                   id: "question-title",
-                  text: "Help Firefox improve this page",
+                  text: "Help Plezix improve this page",
                   comment:
                     "The title of a popup asking the user to give feedback by answering a short survey",
                 },
@@ -1443,7 +1443,7 @@ const MESSAGES = () => [
               raw: {
                 $l10n: {
                   id: "relevance-question",
-                  text: "How relevant are the contents of this Firefox page to you?",
+                  text: "How relevant are the contents of this Plezix page to you?",
                   comment: "Survey question about relevance",
                 },
               },

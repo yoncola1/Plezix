@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* eslint-env mozilla/browser-window */
@@ -1305,9 +1305,9 @@ class DownloadsViewItem extends DownloadsViewUI.DownloadElementShell {
   async downloadsCmd_deleteFile() {
     await super.downloadsCmd_deleteFile();
     // Protects against an unusual edge case where the user:
-    // 1) downloads a file with Firefox; 2) deletes the file from outside of Firefox, e.g., a file manager;
+    // 1) downloads a file with Plezix; 2) deletes the file from outside of Plezix, e.g., a file manager;
     // 3) downloads the same file from the same source; 4) opens the downloads panel and uses the menuitem to delete one of those 2 files;
-    // Under those conditions, Firefox will make 2 view items even though there's only 1 file.
+    // Under those conditions, Plezix will make 2 view items even though there's only 1 file.
     // Using this method will only delete the view item it was called on, because this instance is not aware of other view items with identical targets.
     // So the remaining view item needs to be refreshed to hide the "Delete" option.
     // That example only concerns 2 duplicate view items but you can have an arbitrary number, so iterate over all items...

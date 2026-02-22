@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.Image
 import org.mozilla.fenix.compose.ThumbnailCard
 import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTab
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val THUMBNAIL_SIZE = 108
 
@@ -72,9 +72,9 @@ private const val THUMBNAIL_SIZE = 108
 @Composable
 fun RecentSyncedTab(
     tab: RecentSyncedTab?,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
-    buttonBackgroundColor: Color = FirefoxTheme.colors.actionSecondary,
-    buttonTextColor: Color = FirefoxTheme.colors.textActionSecondary,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
+    buttonBackgroundColor: Color = PlezixTheme.colors.actionSecondary,
+    buttonTextColor: Color = PlezixTheme.colors.textActionSecondary,
     onRecentSyncedTabClick: (RecentSyncedTab) -> Unit,
     onSeeAllSyncedTabsButtonClick: () -> Unit,
     onRemoveSyncedTab: (RecentSyncedTab) -> Unit,
@@ -136,7 +136,7 @@ fun RecentSyncedTab(
                     } else {
                         Text(
                             text = tab.title.trimmed(),
-                            color = FirefoxTheme.colors.textPrimary,
+                            color = PlezixTheme.colors.textPrimary,
                             fontSize = 14.sp,
                             overflow = TextOverflow.Ellipsis,
                             maxLines = 2,
@@ -147,7 +147,7 @@ fun RecentSyncedTab(
                         if (tab == null) {
                             Box(
                                 modifier = Modifier
-                                    .background(FirefoxTheme.colors.layer3)
+                                    .background(PlezixTheme.colors.layer3)
                                     .size(18.dp),
                             )
                         } else {
@@ -167,7 +167,7 @@ fun RecentSyncedTab(
                         } else {
                             Text(
                                 text = tab.deviceDisplayName,
-                                color = FirefoxTheme.colors.textSecondary,
+                                color = PlezixTheme.colors.textSecondary,
                                 fontSize = 12.sp,
                                 overflow = TextOverflow.Ellipsis,
                                 maxLines = 1,
@@ -213,7 +213,7 @@ private fun RecentTabImagePlaceholder() {
         modifier = Modifier
             .size(108.dp, 80.dp)
             .clip(RoundedCornerShape(8.dp))
-            .background(color = FirefoxTheme.colors.layer3),
+            .background(color = PlezixTheme.colors.layer3),
     )
 }
 
@@ -240,7 +240,7 @@ private fun TextLinePlaceHolder() {
         modifier = Modifier
             .height(12.dp)
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer3),
+            .background(PlezixTheme.colors.layer3),
     )
 }
 
@@ -248,13 +248,13 @@ private fun TextLinePlaceHolder() {
 @Composable
 private fun LoadedRecentSyncedTab() {
     val tab = RecentSyncedTab(
-        deviceDisplayName = "Firefox on MacBook",
+        deviceDisplayName = "Plezix on MacBook",
         deviceType = DeviceType.DESKTOP,
         title = "This is a long site title",
         url = "https://mozilla.org",
         previewImageUrl = "https://mozilla.org",
     )
-    FirefoxTheme {
+    PlezixTheme {
         RecentSyncedTab(
             tab = tab,
             onRecentSyncedTabClick = {},
@@ -267,10 +267,10 @@ private fun LoadedRecentSyncedTab() {
 @Preview
 @Composable
 private fun LoadingRecentSyncedTab() {
-    FirefoxTheme {
+    PlezixTheme {
         RecentSyncedTab(
             tab = null,
-            buttonBackgroundColor = FirefoxTheme.colors.layer3,
+            buttonBackgroundColor = PlezixTheme.colors.layer3,
             onRecentSyncedTabClick = {},
             onSeeAllSyncedTabsButtonClick = {},
             onRemoveSyncedTab = {},

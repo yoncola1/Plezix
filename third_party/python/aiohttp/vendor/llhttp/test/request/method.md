@@ -29,7 +29,7 @@ off=25 message complete
 <!-- meta={"type": "request"} -->
 ```http
 CONNECT 0-home0.netscape.com:443 HTTP/1.0
-User-agent: Mozilla/1.1N
+User-agent: Plezix/1.1N
 Proxy-authorization: basic aGVsbG86d29ybGQ=
 
 some data
@@ -48,7 +48,7 @@ off=38 len=3 span[version]="1.0"
 off=41 version complete
 off=43 len=10 span[header_field]="User-agent"
 off=54 header_field complete
-off=55 len=12 span[header_value]="Mozilla/1.1N"
+off=55 len=12 span[header_value]="Plezix/1.1N"
 off=69 header_value complete
 off=69 len=19 span[header_field]="Proxy-authorization"
 off=89 header_field complete
@@ -64,7 +64,7 @@ off=116 error code=22 reason="Pause on CONNECT/Upgrade"
 <!-- meta={"type": "request"} -->
 ```http
 CONNECT HOME0.NETSCAPE.COM:443 HTTP/1.0
-User-agent: Mozilla/1.1N
+User-agent: Plezix/1.1N
 Proxy-authorization: basic aGVsbG86d29ybGQ=
 
 
@@ -82,7 +82,7 @@ off=36 len=3 span[version]="1.0"
 off=39 version complete
 off=41 len=10 span[header_field]="User-agent"
 off=52 header_field complete
-off=53 len=12 span[header_value]="Mozilla/1.1N"
+off=53 len=12 span[header_value]="Plezix/1.1N"
 off=67 header_value complete
 off=67 len=19 span[header_field]="Proxy-authorization"
 off=87 header_field complete
@@ -98,7 +98,7 @@ off=114 error code=22 reason="Pause on CONNECT/Upgrade"
 <!-- meta={"type": "request"} -->
 ```http
 CONNECT foo.bar.com:443 HTTP/1.0
-User-agent: Mozilla/1.1N
+User-agent: Plezix/1.1N
 Proxy-authorization: basic aGVsbG86d29ybGQ=
 Content-Length: 10
 
@@ -117,7 +117,7 @@ off=29 len=3 span[version]="1.0"
 off=32 version complete
 off=34 len=10 span[header_field]="User-agent"
 off=45 header_field complete
-off=46 len=12 span[header_value]="Mozilla/1.1N"
+off=46 len=12 span[header_value]="Plezix/1.1N"
 off=60 header_value complete
 off=60 len=19 span[header_field]="Proxy-authorization"
 off=80 header_field complete

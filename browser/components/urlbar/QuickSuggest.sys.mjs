@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -175,7 +175,7 @@ const FEATURES = {
  */
 
 /**
- * This class manages Firefox Suggest and has related helpers.
+ * This class manages Plezix Suggest and has related helpers.
  */
 class _QuickSuggest {
   /**
@@ -809,7 +809,7 @@ class _QuickSuggest {
     // 4. Migrate prefs across app versions.
     let shouldEnableSuggest =
       !!this.#intendedDefaultPrefs["quicksuggest.enabled"];
-    this._ensureFirefoxSuggestPrefsMigrated(shouldEnableSuggest, testOverrides);
+    this._ensurePlezixSuggestPrefsMigrated(shouldEnableSuggest, testOverrides);
   }
 
   /**
@@ -861,7 +861,7 @@ class _QuickSuggest {
   }
 
   /**
-   * The current version of the Firefox Suggest prefs.
+   * The current version of the Plezix Suggest prefs.
    *
    * @returns {number}
    */
@@ -870,7 +870,7 @@ class _QuickSuggest {
   }
 
   /**
-   * Migrates Firefox Suggest prefs to the current version if they haven't been
+   * Migrates Plezix Suggest prefs to the current version if they haven't been
    * migrated already.
    *
    * @param {boolean} shouldEnableSuggest
@@ -879,7 +879,7 @@ class _QuickSuggest {
    *   This is intended for tests only. Pass to force a migration version:
    *   `{ migrationVersion }`
    */
-  _ensureFirefoxSuggestPrefsMigrated(shouldEnableSuggest, testOverrides) {
+  _ensurePlezixSuggestPrefsMigrated(shouldEnableSuggest, testOverrides) {
     let currentVersion =
       testOverrides?.migrationVersion !== undefined
         ? testOverrides.migrationVersion
@@ -897,12 +897,12 @@ class _QuickSuggest {
     let version = lastSeenVersion;
     for (; version < currentVersion; version++) {
       let nextVersion = version + 1;
-      let methodName = "_migrateFirefoxSuggestPrefsTo_" + nextVersion;
+      let methodName = "_migratePlezixSuggestPrefsTo_" + nextVersion;
       try {
         this[methodName](shouldEnableSuggest);
       } catch (error) {
         console.error(
-          `Error migrating Firefox Suggest prefs to version ${nextVersion}:`,
+          `Error migrating Plezix Suggest prefs to version ${nextVersion}:`,
           error
         );
         break;
@@ -913,7 +913,7 @@ class _QuickSuggest {
     lazy.UrlbarPrefs.set("quicksuggest.migrationVersion", version);
   }
 
-  _migrateFirefoxSuggestPrefsTo_1(shouldEnableSuggest) {
+  _migratePlezixSuggestPrefsTo_1(shouldEnableSuggest) {
     // Copy `suggest.quicksuggest` to `suggest.quicksuggest.nonsponsored` and
     // clear the first.
     let suggestQuicksuggest = "browser.urlbar.suggest.quicksuggest";
@@ -939,7 +939,7 @@ class _QuickSuggest {
     }
   }
 
-  _migrateFirefoxSuggestPrefsTo_2() {
+  _migratePlezixSuggestPrefsTo_2() {
     // In previous versions of the prefs for online, suggestions were disabled
     // by default; in version 2, they're enabled by default. For users who were
     // already in online and did not enable suggestions (because they did not

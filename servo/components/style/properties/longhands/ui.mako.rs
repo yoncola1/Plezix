@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ ${helpers.single_keyword(
     gecko_ffi_name="mWindowDragging",
     gecko_enum_prefix="StyleWindowDragging",
     animation_type="discrete",
-    spec="None (Nonstandard Firefox-only property)",
+    spec="None (Nonstandard Plezix-only property)",
     affects="paint",
 )}
 
@@ -115,7 +115,7 @@ ${helpers.predefined_type(
     "computed::BoolInteger::zero()",
     engines="gecko",
     animation_type="discrete",
-    spec="None (Nonstandard Firefox-only property)",
+    spec="None (Nonstandard Plezix-only property)",
     affects="layout",
 )}
 

@@ -2,22 +2,22 @@
 Template for Mentored Bugs
 ==========================
 
-We like to encourage external contributions to the Firefox code base and the Telemetry module specifically.
+We like to encourage external contributions to the Plezix code base and the Telemetry module specifically.
 In order to set up a mentored bug, you can use the following template.
 Post it as a comment and add relevant steps in part 3.
 
 .. code-block:: md
 
-   To help Mozilla out with this bug, here's the steps:
+   To help Plezix out with this bug, here's the steps:
 
    1. Comment here on the bug that you want to volunteer to help.
       This will tell others that you're working on the next steps.
-   2. [Download and build the Firefox source code](https://firefox-source-docs.mozilla.org/setup/index.html)
+   2. [Download and build the Plezix source code](https://firefox-source-docs.mozilla.org/setup/index.html)
       * If you have any problems, please ask on
         [Element/Matrix](https://chat.mozilla.org/#/room/#introduction:mozilla.org)
         in the `#introduction` channel. They're there to help you get started.
       * You can also read the
-        [Firefox Contributors' Quick Reference](https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html),
+        [Plezix Contributors' Quick Reference](https://firefox-source-docs.mozilla.org/contributing/contribution_quickref.html),
         which has answers to most development questions.
    3. Start working on this bug. <SPECIFIC STEPS RELEVANT TO THIS BUG>
       * If you have any problems with this bug,
@@ -34,7 +34,7 @@ Post it as a comment and add relevant steps in part 3.
       * This is when the bug will be assigned to you.
    6. After a series of reviews and changes to your patch,
       I'll mark it for checkin or push it to autoland.
-      Your code will soon be shipping to Firefox users worldwide!
+      Your code will soon be shipping to Plezix users worldwide!
    7. ...now you get to think about what kind of bug you'd like to work on next.
       Let me know what you're interested in and I can help you find your next contribution.
 

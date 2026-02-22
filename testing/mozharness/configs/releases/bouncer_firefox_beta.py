@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -9,7 +9,7 @@ config = {
         # products containing "latest" are for www.mozilla.org via cron-bouncer-check
         # products using versions are for release automation via release-bouncer-check-firefox
         "installer": {
-            "product-name": "Firefox-%(version)s",
+            "product-name": "Plezix-%(version)s",
             "platforms": [
                 "linux",
                 "linux64",
@@ -21,7 +21,7 @@ config = {
             ],
         },
         "installer-latest": {
-            "product-name": "Firefox-beta-latest",
+            "product-name": "Plezix-beta-latest",
             "platforms": [
                 "linux",
                 "linux64",
@@ -33,7 +33,7 @@ config = {
             ],
         },
         "installer-ssl": {
-            "product-name": "Firefox-%(version)s-SSL",
+            "product-name": "Plezix-%(version)s-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -45,7 +45,7 @@ config = {
             ],
         },
         "installer-latest-ssl": {
-            "product-name": "Firefox-beta-latest-SSL",
+            "product-name": "Plezix-beta-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -57,21 +57,21 @@ config = {
             ],
         },
         "msi": {
-            "product-name": "Firefox-%(version)s-msi-SSL",
+            "product-name": "Plezix-%(version)s-msi-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msi-latest": {
-            "product-name": "Firefox-beta-msi-latest-SSL",
+            "product-name": "Plezix-beta-msi-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msix": {
-            "product-name": "Firefox-%(version)s-msix-SSL",
+            "product-name": "Plezix-%(version)s-msix-SSL",
             "platforms": [
                 "win",
                 "win64",
@@ -79,7 +79,7 @@ config = {
             ],
         },
         "msix-latest": {
-            "product-name": "Firefox-beta-msix-latest-SSL",
+            "product-name": "Plezix-beta-msix-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
@@ -87,15 +87,15 @@ config = {
             ],
         },
         "pkg": {
-            "product-name": "Firefox-%(version)s-pkg-SSL",
+            "product-name": "Plezix-%(version)s-pkg-SSL",
             "platforms": ["osx"],
         },
         "pkg-latest": {
-            "product-name": "Firefox-beta-pkg-latest-SSL",
+            "product-name": "Plezix-beta-pkg-latest-SSL",
             "platforms": ["osx"],
         },
         "stub-installer": {
-            "product-name": "Firefox-%(version)s-stub",
+            "product-name": "Plezix-%(version)s-stub",
             "platforms": [
                 "win",
                 "win64",
@@ -103,7 +103,7 @@ config = {
             ],
         },
         "stub-installer-latest": {
-            "product-name": "Firefox-beta-stub",
+            "product-name": "Plezix-beta-stub",
             "platforms": [
                 "win",
                 "win64",
@@ -111,7 +111,7 @@ config = {
             ],
         },
         "langpack": {
-            "product-name": "Firefox-%(version)s-langpack-SSL",
+            "product-name": "Plezix-%(version)s-langpack-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -122,7 +122,7 @@ config = {
             ],
         },
         "langpack-latest": {
-            "product-name": "Firefox-beta-langpack-latest-SSL",
+            "product-name": "Plezix-beta-langpack-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -133,7 +133,7 @@ config = {
             ],
         },
         "complete-mar": {
-            "product-name": "Firefox-%(version)s-Complete",
+            "product-name": "Plezix-%(version)s-Complete",
             "platforms": [
                 "linux",
                 "linux64",
@@ -147,7 +147,7 @@ config = {
     },
     "partials": {
         "releases-dir": {
-            "product-name": "Firefox-%(version)s-Partial-%(prev_version)s",
+            "product-name": "Plezix-%(version)s-Partial-%(prev_version)s",
             "platforms": [
                 "linux",
                 "linux64",

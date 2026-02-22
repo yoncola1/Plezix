@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,7 +15,7 @@ Services.scriptloader.loadSubScript(
 // Simple gestures tests
 //
 // Some of these tests require the ability to disable the fact that the
-// Firefox chrome intentionally prevents "simple gesture" events from
+// Plezix chrome intentionally prevents "simple gesture" events from
 // reaching web content.
 
 var test_utils;
@@ -41,7 +41,7 @@ async function test() {
   test_TestEventCreation();
 
   // Reenable the default gestures support. The remaining tests target
-  // the Firefox gesture functionality.
+  // the Plezix gesture functionality.
   gGestureSupport.init(true);
 
   const aPage = "about:about";
@@ -51,7 +51,7 @@ async function test() {
     true /* waitForLoad */
   );
 
-  // Test Firefox's gestures support.
+  // Test Plezix's gestures support.
   test_commandset = document.getElementById("mainCommandSet");
   await test_swipeGestures();
   await test_latchedGesture("pinch", "out", "in", "MozMagnifyGesture");

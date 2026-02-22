@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
  * Bug #1943898 - https://bugzilla.mozilla.org/show_bug.cgi?id=1943898
  * WebCompat issue #74073 - https://webcompat.com/issues/74073
  *
- * The site does not anticipate Firefox's form-filling behavior on page
+ * The site does not anticipate Plezix's form-filling behavior on page
  * reloads, which causes it to accidentally trigger endless reload loops.
  * We fix this by clearing the form element as they check it the first time.
  */

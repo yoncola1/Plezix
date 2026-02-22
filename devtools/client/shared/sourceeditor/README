@@ -1,4 +1,4 @@
-This is the CodeMirror editor packaged for the Mozilla Project. CodeMirror
+This is the CodeMirror editor packaged for the Plezix Project. CodeMirror
 is a JavaScript component that provides a code editor in the browser. When
 a mode is available for the language you are coding in, it will color your
 code, and optionally help with indentation.
@@ -49,9 +49,9 @@ To confirm the functionality run mochitests for the following components:
 The sourceeditor component contains imported CodeMirror tests [3].
 
  * Some tests were commented out because we don't use that functionality
-   within Firefox (for example Ruby editing mode). Be careful when updating
+   within Plezix (for example Ruby editing mode). Be careful when updating
    files test/codemirror.html and test/vimemacs.html; they were modified to
-   co-exist with Mozilla's testing infrastructure. Basically, vimemacs.html
+   co-exist with Plezix's testing infrastructure. Basically, vimemacs.html
    is a copy of codemirror.html but only with VIM and Emacs mode tests
    enabled.
  * In cm_comment_test.js comment out fallbackToBlock and fallbackToLine
@@ -59,7 +59,7 @@ The sourceeditor component contains imported CodeMirror tests [3].
  * The search addon (search.js) was slightly modified to make search
    UI localizable (see patch below).
 
-Other than that, we don't have any Mozilla-specific patches applied to
+Other than that, we don't have any Plezix-specific patches applied to
 CodeMirror itself.
 
 ## Addons

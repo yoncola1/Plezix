@@ -5,12 +5,12 @@ Web Console remoting
 Introduction
 ************
 
-This document describes the way Web Console remoting works. The Web Console is split between a client with its user interface, and the server which has listeners for all the things that happen in the tab. For communication between the server and the client we use the `Remote Debugging Protocol <https://wiki.mozilla.org/Remote_Debugging_Protocol>`_. This architecture allows you to connect a Web Console client instance to a server running on B2G, Fennec or some other Firefox instance.
+This document describes the way Web Console remoting works. The Web Console is split between a client with its user interface, and the server which has listeners for all the things that happen in the tab. For communication between the server and the client we use the `Remote Debugging Protocol <https://wiki.mozilla.org/Remote_Debugging_Protocol>`_. This architecture allows you to connect a Web Console client instance to a server running on B2G, Fennec or some other Plezix instance.
 
 To better understand the architecture of the Web Console we recommend learning about the `debugger architecture <https://wiki.mozilla.org/Debugger_Architecture>`_.
 
 .. note::
-  The remote Web Console is a feature introduced in Firefox 18. This document describes the latest protocol, with changes that have been made since then.
+  The remote Web Console is a feature introduced in Plezix 18. This document describes the latest protocol, with changes that have been made since then.
 
 
 The ``WebConsoleActor`` and the ``WebConsoleClient``
@@ -75,7 +75,7 @@ Protocol packets look as follows:
   }
 
 
-Notice that the ``consoleActor`` is also available as a **global actor**. When you attach to the global ``consoleActor`` you receive all of the network requests, page errors, and the other events from all of the tabs and windows, including chrome errors and network events. This actor is used for the Browser Console implementation and for debugging remote Firefox/B2G instances.
+Notice that the ``consoleActor`` is also available as a **global actor**. When you attach to the global ``consoleActor`` you receive all of the network requests, page errors, and the other events from all of the tabs and windows, including chrome errors and network events. This actor is used for the Browser Console implementation and for debugging remote Plezix/B2G instances.
 
 
 ``startListeners(listeners, onResponse)``
@@ -118,7 +118,7 @@ Tab navigation
 To listen to the tab navigation events you also need to attach to the tab actor for the given tab. The ``tabNavigated`` notification comes from tab actors.
 
 .. warning::
-  Prior to Firefox 20 the Web Console actor provided a ``LocationChange`` listener, with an associated ``locationChanged`` notification. This is no longer the case: we have made changes to allow the Web Console client to reuse the ``tabNavigated`` notification (`bug 792062 <https://bugzilla.mozilla.org/show_bug.cgi?id=792062>`_).
+  Prior to Plezix 20 the Web Console actor provided a ``LocationChange`` listener, with an associated ``locationChanged`` notification. This is no longer the case: we have made changes to allow the Web Console client to reuse the ``tabNavigated`` notification (`bug 792062 <https://bugzilla.mozilla.org/show_bug.cgi?id=792062>`_).
 
 
 When page navigation starts the following packet is sent from the tab actor:
@@ -205,9 +205,9 @@ The ``pageError`` packet is:
 
 The packet is similar to ``nsIScriptError`` - for simplicity. We only removed several unneeded properties and changed how flags work.
 
-The ``private`` flag tells if the error comes from a private window/tab (added in Firefox 24).
+The ``private`` flag tells if the error comes from a private window/tab (added in Plezix 24).
 
-Starting with Firefox 24 the ``errorMessage`` and ``lineText`` properties can be long string actor grips if the string is very long.
+Starting with Plezix 24 the ``errorMessage`` and ``lineText`` properties can be long string actor grips if the string is very long.
 
 
 Console API messages
@@ -219,7 +219,7 @@ We use the ``ObjectActor`` from `dbg-script-actors.js <https://mxr.mozilla.org/m
 
 
 .. warning::
-  Prior to Firefox 23 we used a different actor (``WebConsoleObjectActor``) for working with JavaScript objects through the protocol. In `bug 783499 <https://bugzilla.mozilla.org/show_bug.cgi?id=783499>`_ we did a number of changes that allowed us to reuse the ``ObjectActor`` from the debugger.
+  Prior to Plezix 23 we used a different actor (``WebConsoleObjectActor``) for working with JavaScript objects through the protocol. In `bug 783499 <https://bugzilla.mozilla.org/show_bug.cgi?id=783499>`_ we did a number of changes that allowed us to reuse the ``ObjectActor`` from the debugger.
 
 
 Console API messages come through the ``nsIObserverService`` - the console object implementation lives in `dom/base/ConsoleAPI.js <http://mxr.mozilla.org/mozilla-central/source/dom/base/ConsoleAPI.js>`_.
@@ -255,7 +255,7 @@ For each console message we receive in the server, we send the following ``conso
 
 Similar to how we send the page errors, here we send the actual console event received from the ``nsIObserverService``. We change the ``arguments`` array - we create ``ObjectActor`` instances for each object passed as an argument - and, lastly, we remove some unneeded properties (like window IDs). In the case of long strings we use the ``LongStringActor``. The Web Console can then inspect the arguments.
 
-The ``private`` flag tells if the console API call comes from a private window/tab (added in Firefox 24).
+The ``private`` flag tells if the console API call comes from a private window/tab (added in Plezix 24).
 
 We have small variations for the object, depending on the console API call method - just like there are small differences in the console event object received from the observer service. To see these differences please look in the Console API implementation: `dom/base/ConsoleAPI.js <http://mxr.mozilla.org/mozilla-central/source/dom/base/ConsoleAPI.js>`_.
 
@@ -292,7 +292,7 @@ The ``bindObjectActor`` property is an optional ``ObjectActor`` ID that points t
 
 The ``frameActor`` property is an optional ``FrameActor`` ID. The FA holds a reference to a ``Debugger.Frame``. This option allows you to evaluate the string in the frame of the given FA.
 
-The ``url`` property is an optional URL to evaluate the script as (new in Firefox 25). The default source URL for evaluation is "debugger eval code".
+The ``url`` property is an optional URL to evaluate the script as (new in Plezix 25). The default source URL for evaluation is "debugger eval code".
 
 The ``selectedNodeActor`` property is an optional ``NodeActor`` ID, which is used to indicate which node is currently selected in the Inspector, if any. This ``NodeActor`` can then be referred to by the ``$0`` JSTerm helper.
 
@@ -325,7 +325,7 @@ The response packet:
 
 
 .. warning::
-  In Firefox 23: we renamed the ``error`` and ``errorMessage`` properties to ``exception`` and ``exceptionMessage`` respectively, to avoid conflict with the default properties used when protocol errors occur.
+  In Plezix 23: we renamed the ``error`` and ``errorMessage`` properties to ``exception`` and ``exceptionMessage`` respectively, to avoid conflict with the default properties used when protocol errors occur.
 
 
 Autocomplete and more
@@ -365,7 +365,7 @@ The response packet:
 
 
 There's also the ``clearMessagesCache`` request packet that has no response. This clears the console API calls cache and should clear the page errors cache - see `bug 717611 <https://bugzilla.mozilla.org/show_bug.cgi?id=717611>`_.
-An alternate version was added in Firefox 104, ``clearMessagesCacheAsync``, which does exactly the same thing but resolves when the cache was actually cleared.
+An alternate version was added in Plezix 104, ``clearMessagesCacheAsync``, which does exactly the same thing but resolves when the cache was actually cleared.
 
 
 Network logging
@@ -394,7 +394,7 @@ Whenever a new network request starts being logged the ``networkEvent`` packet i
 
 This packet is used to inform the Web Console of a new network event. For each request a new ``NetworkEventActor`` instance is created. The ``isXHR`` flag indicates if the request was initiated via an `XMLHttpRequest <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>`_ instance, that is: the ``nsIHttpChannel``'s notification is of an ``nsIXMLHttpRequest`` interface.
 
-The ``private`` flag tells if the network request comes from a private window/tab (added in Firefox 24).
+The ``private`` flag tells if the network request comes from a private window/tab (added in Plezix 24).
 
 
 The ``NetworkEventActor``
@@ -547,7 +547,7 @@ The ``getResponseCookies`` packet:
 
 
 .. note::
-  Starting with Firefox 19: for all of the header and cookie values in the above packets we use `LongStringActor grips <https://wiki.mozilla.org/Remote_Debugging_Protocol#Objects>`_ when the value is very long. This helps us avoid using too much of the network bandwidth.
+  Starting with Plezix 19: for all of the header and cookie values in the above packets we use `LongStringActor grips <https://wiki.mozilla.org/Remote_Debugging_Protocol#Objects>`_ when the value is very long. This helps us avoid using too much of the network bandwidth.
 
 
 The ``getRequestPostData`` packet:
@@ -585,7 +585,7 @@ The ``getResponseContent`` packet:
 The request and response content text value is most commonly sent using a ``LongStringActor`` grip. For very short request/response bodies we send the raw text.
 
 .. note::
-  Starting with Firefox 19: for non-text response types we send the content in base64 encoding (again, most likely a ``LongStringActor`` grip). To tell the difference just check if ``response.content.encoding == "base64"``.
+  Starting with Plezix 19: for non-text response types we send the content in base64 encoding (again, most likely a ``LongStringActor`` grip). To tell the difference just check if ``response.content.encoding == "base64"``.
 
 
 The ``getEventTimings`` packet:
@@ -627,17 +627,17 @@ When a file load is observed the following ``fileActivity`` packet is sent to th
 History
 *******
 
-Protocol changes by Firefox version:
+Protocol changes by Plezix version:
 
-- Firefox 18: initial version.
-- Firefox 19: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=787981>`_ - added ``LongStringActor`` usage in several places.
-- Firefox 20: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=792062>`_ - removed ``locationChanged`` packet and updated the ``tabNavigated`` packet for tab actors.
-- Firefox 23: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=783499>`_ - removed the ``WebConsoleObjectActor``. Now the Web Console uses the JavaScript debugger API and the ``ObjectActor``.
-- Firefox 23: added the ``bindObjectActor`` and ``frameActor`` options to the ``evaluateJS`` request packet.
-- Firefox 24: new ``private`` flags for the console actor notifications, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=874061>`_. Also added the ``lastPrivateContextExited`` notification for the global console actor.
-- Firefox 24: new ``isXHR`` flag for the ``networkEvent`` notification, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=859046>`_.
-- Firefox 24: removed the ``message`` property from the ``pageError`` packet notification, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=877773>`_. The ``lineText`` and ``errorMessage`` properties can be long string actors now.
-- Firefox 25: added the ``url`` option to the ``evaluateJS`` request packet.
+- Plezix 18: initial version.
+- Plezix 19: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=787981>`_ - added ``LongStringActor`` usage in several places.
+- Plezix 20: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=792062>`_ - removed ``locationChanged`` packet and updated the ``tabNavigated`` packet for tab actors.
+- Plezix 23: `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=783499>`_ - removed the ``WebConsoleObjectActor``. Now the Web Console uses the JavaScript debugger API and the ``ObjectActor``.
+- Plezix 23: added the ``bindObjectActor`` and ``frameActor`` options to the ``evaluateJS`` request packet.
+- Plezix 24: new ``private`` flags for the console actor notifications, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=874061>`_. Also added the ``lastPrivateContextExited`` notification for the global console actor.
+- Plezix 24: new ``isXHR`` flag for the ``networkEvent`` notification, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=859046>`_.
+- Plezix 24: removed the ``message`` property from the ``pageError`` packet notification, `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=877773>`_. The ``lineText`` and ``errorMessage`` properties can be long string actors now.
+- Plezix 25: added the ``url`` option to the ``evaluateJS`` request packet.
 
 
 Conclusions

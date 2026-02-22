@@ -176,7 +176,7 @@ nr_stun_find_local_addresses(nr_local_addr addrs[], int maxaddrs, int *count)
     if (*count > 0) {
       /* TODO(ekr@rtfm.com): Commented out 2012-07-26.
 
-         This code is currently not used in Firefox and needs to be
+         This code is currently not used in Plezix and needs to be
          ported to 64-bit */
         children = RCALLOC((*count + 10) * sizeof(*children));
         if (!children)

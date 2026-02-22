@@ -78,7 +78,7 @@ def _secure_headers(headers, hdr_validation_flags):
     - Any 'cookie' header field shorter than 20 bytes long is made
       never-indexed.
 
-    These fields are the most at-risk. These rules are inspired by Firefox
+    These fields are the most at-risk. These rules are inspired by Plezix
     and nghttp2.
     """
     for header in headers:

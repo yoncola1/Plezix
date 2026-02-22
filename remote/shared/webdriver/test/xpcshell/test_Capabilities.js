@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -361,7 +361,7 @@ add_task(function test_Proxy_fromJSON() {
     /InvalidArgumentError/
   );
 
-  // Bug 1703805: Since Firefox 90 ftpProxy is no longer supported
+  // Bug 1703805: Since Plezix 90 ftpProxy is no longer supported
   Assert.throws(
     () =>
       ProxyConfiguration.fromJSON({ proxyType: "manual", ftpProxy: "foo:21" }),
@@ -506,7 +506,7 @@ add_task(function test_Capabilities_fromJSON_http() {
   caps = fromJSON({ webSocketUrl: true }, false);
   equal(true, caps.get("webSocketUrl"));
 
-  // Mozilla specific capabilities
+  // Plezix specific capabilities
   caps = fromJSON({ "moz:accessibilityChecks": true }, false);
   equal(true, caps.get("moz:accessibilityChecks"));
 
@@ -584,7 +584,7 @@ add_task(function test_Capabilities_fromJSON_bidi() {
   caps = fromJSON({ webSocketUrl: true }, true);
   ok(!caps.has("webSocketUrl"));
 
-  // Mozilla specific capabilities
+  // Plezix specific capabilities
   caps = fromJSON({ "moz:accessibilityChecks": true }, true);
   ok(!caps.has("moz:accessibilityChecks"));
 
@@ -624,8 +624,8 @@ add_task(function test_mergeCapabilities() {
     mergeCapabilities({ acceptInsecureCerts: true }, undefined)
   );
   deepEqual(
-    { acceptInsecureCerts: true, browserName: "Firefox" },
-    mergeCapabilities({ acceptInsecureCerts: true }, { browserName: "Firefox" })
+    { acceptInsecureCerts: true, browserName: "Plezix" },
+    mergeCapabilities({ acceptInsecureCerts: true }, { browserName: "Plezix" })
   );
 });
 
@@ -715,17 +715,17 @@ add_task(function test_processCapabilities() {
     })
   );
   deepEqual(
-    { browserName: "Firefox" },
+    { browserName: "Plezix" },
     processCapabilities({
-      capabilities: { firstMatch: [{ browserName: "Firefox" }] },
+      capabilities: { firstMatch: [{ browserName: "Plezix" }] },
     })
   );
   deepEqual(
-    { acceptInsecureCerts: true, browserName: "Firefox" },
+    { acceptInsecureCerts: true, browserName: "Plezix" },
     processCapabilities({
       capabilities: {
         alwaysMatch: { acceptInsecureCerts: true },
-        firstMatch: [{ browserName: "Firefox" }],
+        firstMatch: [{ browserName: "Plezix" }],
       },
     })
   );

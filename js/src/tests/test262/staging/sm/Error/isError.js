@@ -1,5 +1,5 @@
 // |reftest| shell-option(--enable-error-iserror) skip-if(!Error.isError||!xulRuntime.shell) -- Error.isError is not enabled unconditionally, requires shell-options
-// Copyright (C) 2025 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2025 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

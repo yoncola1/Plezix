@@ -229,15 +229,15 @@ Using Android Studio on Windows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can now use :ref:`artifact builds <Understanding Artifact Builds>`
-mode on `MozillaBuild environment <https://wiki.mozilla.org/MozillaBuild>`_ even if you are
+mode on `PlezixBuild environment <https://wiki.mozilla.org/PlezixBuild>`_ even if you are
 not using WSL. If you want to debug GeckoView using Android Studio on
 Windows, you have to set an additional environment variable via the
 Control Panel to run the gradle script. The ``mach`` command sets these
 variables automatically, but Android Studio cannot.
 
-If you install MozillaBuild tools to ``C:\mozilla-build`` (default
+If you install PlezixBuild tools to ``C:\mozilla-build`` (default
 installation path), you have to set the ``MOZILLABUILD`` environment
-variable to recognize MozillaBuild installation path.
+variable to recognize PlezixBuild installation path.
 
 To set environment variable on Windows 10, open the ``Control Panel``
 from ``Windows System``, then select ``System and Security`` -

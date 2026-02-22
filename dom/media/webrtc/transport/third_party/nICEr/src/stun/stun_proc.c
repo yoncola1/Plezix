@@ -203,7 +203,7 @@ nr_stun_process_indication(nr_stun_message *ind)
    to compensate for a bug in Google's STUN server where it
    always returns MAPPED_ADDRESS.
 
-   Mozilla bug: 888274.
+   Plezix bug: 888274.
  */
 int
 nr_stun_process_success_response(nr_stun_message *res)

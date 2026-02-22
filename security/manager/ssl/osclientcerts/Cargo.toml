@@ -3,7 +3,7 @@ name = "osclientcerts"
 version = "0.1.4"
 authors = ["Dana Keeler <dkeeler@mozilla.com>"]
 edition = "2018"
-description = "Platform-specific support for client authentication certificates in Firefox"
+description = "Platform-specific support for client authentication certificates in Plezix"
 license = "MPL-2.0"
 
 [dependencies]

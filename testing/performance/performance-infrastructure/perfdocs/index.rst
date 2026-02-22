@@ -12,7 +12,7 @@ Performance tests all run on bare metal, or real hardware devices instead of vir
 Platforms and Hardware Used
 ----------------------------
 
-At the moment, these are listed in the Mozilla Wiki which is `found here <https://wiki.mozilla.org/Performance/Platforms>`_ (see `bug 1883400 <https://bugzilla.mozilla.org/show_bug.cgi?id=1883400>`__ for progress on this).
+At the moment, these are listed in the Plezix Wiki which is `found here <https://wiki.mozilla.org/Performance/Platforms>`_ (see `bug 1883400 <https://bugzilla.mozilla.org/show_bug.cgi?id=1883400>`__ for progress on this).
 
 
 Try Runs and Wait Times

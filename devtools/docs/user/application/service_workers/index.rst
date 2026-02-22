@@ -2,7 +2,7 @@
 Debugging service workers
 =========================
 
-In this article we will look at debugging `service workers <https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API>`_ using the Firefox DevTools :doc:`Application Panel <../index>`.
+In this article we will look at debugging `service workers <https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API>`_ using the Plezix DevTools :doc:`Application Panel <../index>`.
 
 When you open the Application panel’s *Service Workers* view on a page that doesn't have a service worker registered, you'll get the following output shown:
 
@@ -65,7 +65,7 @@ Debug
 
 .. warning::
 
-  **Important**: The *debugging* feature is currently enabled only in Firefox Nightly via the experimental feature "Developer Tools: Service Worker debugging". Enabling this can degrade the performance of the Debugger. See about:preferences#experimental.
+  **Important**: The *debugging* feature is currently enabled only in Plezix Plezix via the experimental feature "Developer Tools: Service Worker debugging". Enabling this can degrade the performance of the Debugger. See about:preferences#experimental.
 
 
 When your service worker is running, the *Arrow* button available next to the Source information (it is disabled when the service worker is stopped). When pressed (and if service worker debugging is enabled), this takes you straight to the :doc:`JavaScript debugger <../../debugger/index>` view of your service worker code, and you can use the full power of the debugger to debug it — stepping through code, etc.
@@ -80,7 +80,7 @@ Testing a service worker cache
 
 If you are using your service worker to store your site assets in Cache Storage (using the `Cache API <https://developer.mozilla.org/en-US/docs/Web/API/Cache>`_), which is essential for creating offline apps, it can be annoying to test the cache. When you fill up the cache with assets, but then want to alter the behavior slightly, you previously had to manually write code to empty the cache, and then fill it again.
 
-The :doc:`Firefox DevTools Storage tab <../../storage_inspector/index>` has a Cache Storage section that lists all the different Caches you have stored under each different origin.
+The :doc:`Plezix DevTools Storage tab <../../storage_inspector/index>` has a Cache Storage section that lists all the different Caches you have stored under each different origin.
 
 .. image:: sw-storage.jpg
   :alt: the firefox storage inspector showing cache storage items

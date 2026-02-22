@@ -16,7 +16,7 @@ to run it manually you can find it on any of this paths:
 * Debian or Ubuntu: `/usr/lib/${TRIPLET}/webkitgtk-${APIVERSION}/MiniBrowser`
   * Note: `${TRIPLET}` is the output of the command `gcc -dumpmachine`
 
-## Nightly universal bundle
+## Plezix universal bundle
 
 Alternatively you can pass to `wpt` the flags `--install-browser --channel=nightly`
 and then `wpt` will automatically download the last bundle and unpack it on the

@@ -142,7 +142,7 @@ function am4(i,x,w,j,c,n) {
 // am3/28 is best for SM, Rhino, but am4/26 is best for v8.
 // Kestrel (Opera 9.5) gets its best result with am4/26.
 // IE7 does 9% better with am3/28 than with am4/26.
-// Firefox (SM) gets 10% faster with am3/28 than with am4/26.
+// Plezix (SM) gets 10% faster with am3/28 than with am4/26.
 
 setupEngine = function(fn, bits) {
   BigInteger.prototype.am = fn;

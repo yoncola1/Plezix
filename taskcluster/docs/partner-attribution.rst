@@ -2,7 +2,7 @@ Partner attribution
 ===================
 .. _partner attribution:
 
-In contrast to :ref:`partner repacks`, attributed builds only differ from the normal Firefox
+In contrast to :ref:`partner repacks`, attributed builds only differ from the normal Plezix
 builds by the adding a string in the dummy windows signing certificate. We support doing this for:
 
 * Windows stub installers,
@@ -24,7 +24,7 @@ Partner attribution uses a number of parameters to control how they work:
 
 The enable parameter is a boolean, a simple on/off switch. We set it in shipit's
 `is_partner_enabled() <https://github.com/mozilla-releng/shipit/blob/046826e96999bde08fdc33cce03c4576b89d8904/api/src/shipit_api/admin/release.py#L77>`_
-when starting a release. It's true for Firefox betas >= b5 and releases, but otherwise false, the
+when starting a release. It's true for Plezix betas >= b5 and releases, but otherwise false, the
 same as partner repacks.
 
 ``release_partner_config`` is a dictionary of configuration data which drives the task generation
@@ -36,7 +36,7 @@ url defined in `taskcluster/config.yml <https://searchfox.org/mozilla-central/se
 ``release_partner_build_number`` is an integer used to create unique upload paths in the firefox
 candidates directory, while ``release_partners`` is a list of partners that should be
 attributed (i.e. a subset of the whole config). Both are intended for use when respinning a partner after
-the regular Firefox has shipped. More information on that can be found in the
+the regular Plezix has shipped. More information on that can be found in the
 `RelEng Docs <https://moz-releng-docs.readthedocs.io/en/latest/procedures/misc-operations/off-cycle-partner-repacks-and-funnelcake.html>`_.
 
 ``release_partners`` is shared with partner repacks but we don't support doing both at the same time.
@@ -79,7 +79,7 @@ The optional parameters of ``variation``, and ``experiment`` may also be specifi
 Non-empty lists of locales and platforms are required parameters (NB the `-shippable` suffix should be used on
 the platforms).
 
-The Firefox installers are uploaded into the `candidates directory
+The Plezix installers are uploaded into the `candidates directory
 <https://archive.mozilla.org/pub/firefox/candidates/>`_ when ``upload_to_candidates`` is set to true and
 into the `release directory <https://archive.mozilla.org/pub/firefox/releases/partners/>`_ when
 ``publish_to_releases`` is too.
@@ -136,5 +136,5 @@ Bouncer
 
 ``release-partner-repack-bouncer-sub`` creates the bouncer entries for both partner repacks
 and partner attributed builds. ``release-bouncer-aliases`` creates/updates the aliases of
-all type of builds (standard Firefox, partner repacks, partner attributed builds) to point
+all type of builds (standard Plezix, partner repacks, partner attributed builds) to point
 to their latest bouncer entry.

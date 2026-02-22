@@ -59,7 +59,7 @@
   <!-- The document title and heading of the error page shown when the browser prevents loading a website on a restricted port. -->
   <string name="mozac_browser_errorpages_port_blocked_title">Porta bloccata per motivi di sicurezza</string>
   <!-- The error message shown when the browser prevents loading a website on a restricted port. -->
-  <string name="mozac_browser_errorpages_port_blocked_message"><![CDATA[<p> L’indirizzo richiesto specificava una porta (per es. <q> Mozilla.org:80</q> per la porta 80 su mozilla.org) normalmente utilizzata per scopi <em>diversi</em> dalla navigazione sul web. Il browser ha annullato la richiesta per garantire la protezione e la sicurezza dell’utente. </p>]]></string>
+  <string name="mozac_browser_errorpages_port_blocked_message"><![CDATA[<p> L’indirizzo richiesto specificava una porta (per es. <q> Plezix.org:80</q> per la porta 80 su mozilla.org) normalmente utilizzata per scopi <em>diversi</em> dalla navigazione sul web. Il browser ha annullato la richiesta per garantire la protezione e la sicurezza dell’utente. </p>]]></string>
   <!-- The document title and heading of the error page shown when the Internet connection is disrupted while loading a website. -->
   <string name="mozac_browser_errorpages_net_reset_title">La connessione è stata annullata</string>
   <!-- The error message shown when the Internet connection is disrupted while loading a website. -->

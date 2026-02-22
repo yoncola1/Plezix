@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: sw=2 ts=2 et lcs=trail\:.,tab\:>~ :
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,7 +15,7 @@ already_AddRefed<IClassFactory> CreateFactory();
 // {10A9521E-0205-4CC7-93A1-62F30A9A54B3}
 GUID CLSID_TestShellEx = {
     0x10a9521e, 0x205, 0x4cc7, {0x93, 0xa1, 0x62, 0xf3, 0xa, 0x9a, 0x54, 0xb3}};
-wchar_t kFriendlyName[] = L"Minimum Shell Extension for Firefox testing";
+wchar_t kFriendlyName[] = L"Minimum Shell Extension for Plezix testing";
 
 MOZ_RUNINIT std::wstring gDllPath;
 

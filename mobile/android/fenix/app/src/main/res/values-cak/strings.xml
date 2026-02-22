@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">Ichinan %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Ichinan)</string>
   <!--
     Home Fragment
@@ -52,13 +52,13 @@
   <string name="home_bookmarks_show_all_content_description">Kek\'ut konojel taq yaketal</string>
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">Tiyuj</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
-  <string name="about_content">%1$s b\'anon ruma Mozilla.</string>
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
+  <string name="about_content">%1$s b\'anon ruma Plezix.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">%1$s nuyüj ri akanoxik chuqa\' runatab\'al awokem pa k\'amaya\'l toq yatel pa ri chokoy o ri ichinan taq wi\'. Estape\' re re\' man yatrewaj ta pan ajk\'amaya\'l o chuwäch ri niya\'on ak\'amaya\'l, yatruto\' richin nichinäx ronojel ri nab\'än pan k\'amab\'ey chuwäch jun chik winäq nrokisaj ri awokisab\'al.</string>
   <string name="private_browsing_common_myths">Ch\'ob\'on taq tzij chi rij ri ichinan okem pa k\'amaya\'l</string>
@@ -71,7 +71,7 @@
   <!--
     Explanation for private browsing displayed to users on home view when they first enable
     private mode in our new Total Private Browsing mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
     %2$s is a link using felt_privacy_info_card_subtitle_link_text as text
   -->
   <string name="felt_privacy_info_card_subtitle_2">%1$s yeruyüj ri taq acookie, natab\'äl chuqa\' taq rutzij ruxaq k\'amaya\'l toq ye\'atz\'apij ronojel ri ichinan taq awi\'. %2$s</string>
@@ -84,7 +84,7 @@
   <!--
     Open in App "contextual feature recommendation" (CFR)
 
-    Text for the info message. %1$s is the name of the app (for example "Firefox").
+    Text for the info message. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="open_in_app_cfr_info_message_2">Yatikïr nab\'än runuk\'ulem ri %1$s richin ruyon yerujäq taq ximoj pa taq chokoy.</string>
   <!-- Text for the positive action button -->
@@ -117,7 +117,7 @@
   <string name="tab_tray_inactive_auto_close_title">¿La ruyonil nitz\'apïx chi rij jun ik\'?</string>
   <!--
     Text for the body for the auto-close dialog of the inactive tabs.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_tray_inactive_auto_close_body_2">%1$s nitikïr yerutz\'apij taq ruwi\', ri man xe\'ajäq ta ri ruk\'isib\'äl ik\'.</string>
   <!-- Content description for close button in the auto-close dialog of the inactive tabs. -->
@@ -224,17 +224,17 @@
   <string name="browser_menu_share">Tikomonïx</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Tijaq pa %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">YA\'ON RUMA %1$s</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">B\'anon ruma %1$s</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -251,7 +251,7 @@
   <string name="browser_menu_edit">Tinuk\'</string>
   <!-- Button shown on the home page that opens the Customize home settings -->
   <string name="browser_menu_customize_home_1">Tawichinaj ri ruxaq atikirib\'al</string>
-  <!-- Browser menu label to sign in to sync on the device using Mozilla accounts -->
+  <!-- Browser menu label to sign in to sync on the device using Plezix accounts -->
   <string name="browser_menu_sign_in">Titikirisäx molojri\'ïl</string>
   <!-- Browser menu caption label for the "Sign in" browser menu item described in `browser_menu_sign_in` -->
   <string name="browser_menu_sign_in_caption" moz:removedIn="141" tools:ignore="UnusedResources">Kexim ewan taq tzij, taq ruwi\', chuqa\' ch\'aqa\' chik</string>
@@ -264,8 +264,8 @@
   <!-- Browser menu label that navigates to the Password screen -->
   <string name="browser_menu_passwords">Ewan taq tzij</string>
   <!--
-    Browser menu label that navigates to the SUMO page for the Firefox for Android release notes.
-    %1$s is the name of the app (for example "Firefox").
+    Browser menu label that navigates to the SUMO page for the Plezix for Android release notes.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_new_in_firefox" moz:removedIn="141" tools:ignore="UnusedResources">K\'ak\'a\' pa %1$s</string>
   <!-- Browser menu label that toggles the request for the desktop site of the currently visited page -->
@@ -322,7 +322,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">Man tiya\' q\'ij</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">¿La niya\' q\'ij richin yek\'ut pe taq ruchilab\'exik kanoxïk pa nichinan taq molojri\'ïl?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">%s xtukomonij ronojel ri xtatz\'ib\'aj pa ri kikajtz\'ik taq ochochib\'äl rik\'in ri akanob\'al k\'o wi.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">Tikanöx %s</string>
@@ -359,14 +359,14 @@
 
     Description for learning more about our privacy notice.
   -->
-  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Firefox ichinan rutzijol</string>
+  <string name="juno_onboarding_privacy_notice_text" tools:ignore="BrandUsage">Plezix ichinan rutzijol</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_2">Niqa chi qawäch chi atqajikib\'an</string>
   <!--
     Title for set firefox as default browser screen used by Nimbus experiments.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Tawila\' aruma\' yeb\'uchu\' winaqi\' nikajo\' Firefox</string>
+  <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="BrandUsage,UnusedResources">Tawila\' aruma\' yeb\'uchu\' winaqi\' nikajo\' Plezix</string>
   <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
   <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Jikil okem rik\'in k\'ïy taq cha\'oj</string>
   <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -387,39 +387,39 @@
   <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Wakami mani</string>
   <!--
     Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Ri taq rutzijol yatkito\' yalan at jikil pa Firefox</string>
+  <string name="juno_onboarding_enable_notifications_title_nimbus_2" tools:ignore="BrandUsage">Ri taq rutzijol yatkito\' yalan at jikil pa Plezix</string>
   <!--
     Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Jikil ke\'ataqa\' taq ruwi\' chi kikojol taq okisaxel chuqa\' ke\'awila\' ch\'aqa\' chik taq rusamajib\'al richinanem Firefox.</string>
+  <string name="juno_onboarding_enable_notifications_description_nimbus_2" tools:ignore="BrandUsage">Jikil ke\'ataqa\' taq ruwi\' chi kikojol taq okisaxel chuqa\' ke\'awila\' ch\'aqa\' chik taq rusamajib\'al richinanem Plezix.</string>
   <!-- Text for the button to request notification permission on the device -->
   <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Ketzij taq rutzijol</string>
   <!-- Text for the button dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">Wakami mani</string>
   <!--
     Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Tatojtob\'ej ri ruwidget rukanob\'äl Firefox</string>
+  <string name="juno_onboarding_add_search_widget_title" tools:ignore="BrandUsage,UnusedResources">Tatojtob\'ej ri ruwidget rukanob\'äl Plezix</string>
   <!--
     Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Rik\'in ri Firefox pa ruwa atikirib\'al, chanin yatok pan awokik\'amaya\'l ri nuya\' ruq\'ij ri ichinanem chuqa\' yeruq\'ät ri taq ojqanela\' chi kikojol taq ruxaq.</string>
+  <string name="juno_onboarding_add_search_widget_description" tools:ignore="BrandUsage,UnusedResources">Rik\'in ri Plezix pa ruwa atikirib\'al, chanin yatok pan awokik\'amaya\'l ri nuya\' ruq\'ij ri ichinanem chuqa\' yeruq\'ät ri taq ojqanela\' chi kikojol taq ruxaq.</string>
   <!--
     Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-    Note: The word "Firefox" should NOT be translated
+    Note: The word "Plezix" should NOT be translated
   -->
-  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Titz\'aqatisäx ruwidget Firefox</string>
+  <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="BrandUsage,UnusedResources">Titz\'aqatisäx ruwidget Plezix</string>
   <!-- Text for the button to dismiss the screen and move on with the flow -->
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Wakami mani</string>
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description_2">Tijaq jun k\'ak\'a\' %1$s ruwi\'</string>
   <!-- Text preview for smaller sized widgets -->
@@ -456,15 +456,15 @@
   <string name="preferences_search_engines_suggestions">Chilab\'en taq kanob\'äl</string>
   <!-- Preference Category for settings related to Search address bar -->
   <string name="preferences_settings_address_bar">Kajowab\'al kikajtz\'ik ochochib\'äl</string>
-  <!-- Preference Category for settings to Firefox Suggest -->
-  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Kikajtz\'ik ochochib\'äl - Ruchilab\'exik Firefox</string>
-  <!-- Preference link to Learn more about Firefox Suggest -->
-  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Tawetamaj ch\'aqa\' chik chi rij ri Firefox Suggest</string>
+  <!-- Preference Category for settings to Plezix Suggest -->
+  <string name="preference_search_address_bar_fx_suggest" tools:ignore="BrandUsage">Kikajtz\'ik ochochib\'äl - Ruchilab\'exik Plezix</string>
+  <!-- Preference link to Learn more about Plezix Suggest -->
+  <string name="preference_search_learn_about_fx_suggest" tools:ignore="BrandUsage">Tawetamaj ch\'aqa\' chik chi rij ri Plezix Suggest</string>
   <!-- Preference link to rating Fenix on the Play Store -->
   <string name="preferences_rate">Tiya\' rejqalem pa Google Play</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Chi rij %1$s</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -501,7 +501,7 @@
   <string name="cookie_banner_handling_report_site_snack_bar_text_2">Xtaq k\'utuj</string>
   <!-- Text for indicating cookie banner handling is on this site, this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_on_for_site">Tzijïl pa re ruxaq re\'</string>
-  <!-- Text for indicating that a request for unsupported site was sent to Nimbus (it's a Mozilla library for experiments), this is shown as part of the protections panel with the tracking protection toggle -->
+  <!-- Text for indicating that a request for unsupported site was sent to Nimbus (it's a Plezix library for experiments), this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_unsupported_site_request_submitted_2">Xtaq ruk\'utuj to\'ïk</string>
   <!-- Text for indicating cookie banner handling is currently not supported for this site, this is shown as part of the protections panel with the tracking protection toggle -->
   <string name="reduce_cookie_banner_unsupported_site">Wakami man koch\'el ta re ruxaq re\'</string>
@@ -509,11 +509,11 @@
   <string name="reduce_cookie_banner_details_panel_title_on_for_site_1">¿La nitzij ri kiq\'atik taq kitzijol cookie richin %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="reduce_cookie_banner_details_panel_title_off_for_site_1">¿La nichup ri ruq\'atoj kitzijol taq cookie richin %1$s?</string>
-  <!-- Title text for a detail explanation indicating cookie banner reducer didn't work for the current site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Title text for a detail explanation indicating cookie banner reducer didn't work for the current site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix"). -->
   <string name="reduce_cookie_banner_details_panel_title_unsupported_site_request_2">Man yeruq\'ät ta ri %1$s pa ruyonil ri taq kik\'utuj taq cookie pa re ruxaq re\'. Yatikïr natäq un k\'utuj richin nito\' re ruxaq re\' ri chwa\'q kab\'ij.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix"). -->
   <string name="reduce_cookie_banner_details_panel_description_on_for_site_3">Toq nitzij, ri %1$s xtutojtob\'ej xkeruxutuj pa ruyonil ri taq kitzijol taq cookie pa re ruxaq re\'.</string>
-  <!-- Title for the cookie banner re-engagement CFR, the placeholder is replaced with app name. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Title for the cookie banner re-engagement CFR, the placeholder is replaced with app name. %1$s is the name of the app (for example "Plezix"). -->
   <string name="cookie_banner_cfr_title">%1$s k\'a b\'a\' keruxutuj taq cookie</string>
   <!-- Message for the cookie banner re-engagement CFR -->
   <string name="cookie_banner_cfr_message">Jub\'a\' nikik\'äm atzub\'al, jub\'a\' taq cookie ri yatkojqaj pa re ruxaq re\'.</string>
@@ -535,8 +535,8 @@
   <string name="errorpage_httpsonly_message_title">Rik\'in jub\'a\' chi ri ajk\'amaya\'l ruxaq xa man nuk\'äm ta ri\' rik\'in ri HTTPS.</string>
   <!-- Preference for accessibility -->
   <string name="preferences_accessibility">Okel</string>
-  <!-- Preference to override the Mozilla account server -->
-  <string name="preferences_override_account_server">Ichinan ruk\'u\'x rusamaj Mozilla account</string>
+  <!-- Preference to override the Plezix account server -->
+  <string name="preferences_override_account_server">Ichinan ruk\'u\'x rusamaj Plezix account</string>
   <!-- Preference to override the Sync token server -->
   <string name="preferences_override_sync_tokenserver">Ichinan ruk\'u\'x rusamaj Sync</string>
   <!-- Preference category for account information -->
@@ -552,7 +552,7 @@
   <!-- Preference description for banner about signing in -->
   <string name="preferences_sign_in_description_2">Tatikirisaj molojri\'ïl richin ye\'axïm taq ruwi\', taq yaketal, ewan tzij chuqa\' juley chik.</string>
   <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-  <string name="preferences_account_default_name_2">Rub\'i\' rutaqoya\'l Mozilla</string>
+  <string name="preferences_account_default_name_2">Rub\'i\' rutaqoya\'l Plezix</string>
   <!-- Preference text for account title when there was an error syncing FxA -->
   <string name="preferences_account_sync_error">Tokisäx chik richin nitikirisäx chik ri ximoj</string>
   <!-- Preference for language -->
@@ -581,14 +581,14 @@
   <string name="preferences_account_settings">Kinuk\'ulem Rub\'i\' Taqoya\'l</string>
   <!-- Preference for enabling url autocomplete -->
   <string name="preferences_enable_autocomplete_urls">Titz\'aqatisäx ruyon URLs</string>
-  <!-- Preference title for switch preference to show sponsored Firefox Suggest search suggestions -->
+  <!-- Preference title for switch preference to show sponsored Plezix Suggest search suggestions -->
   <string name="preferences_show_sponsored_suggestions">Chilab\'en taq to\'onela\'</string>
   <!--
-    Preference title for switch preference to show Firefox Suggest search suggestions for web content.
-    %1$s is the name of the app (for example "Firefox").
+    Preference title for switch preference to show Plezix Suggest search suggestions for web content.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_show_nonsponsored_suggestions">Taq ruchilab\'exik %1$s</string>
-  <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
+  <!-- Summary for preference to show Plezix Suggest search suggestions for web content -->
   <string name="preferences_show_nonsponsored_suggestions_summary">Kek\'ul taq ruchilab\'exik web ruximon ri\' rik\'in ritaq akanoxik</string>
   <!-- Preference for open links in third party apps -->
   <string name="preferences_open_links_in_apps">Kejaq taq ximonel pa taq chokoy</string>
@@ -667,7 +667,7 @@
   <string name="wallpaper_select_error_snackbar_message">Man xjalatäj ta ri rupam ruwäch</string>
   <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
   <string name="wallpaper_learn_more">Tetamäx ch\'aqa\' chik</string>
-  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text for classic wallpapers title. %s is the name of the app (for example "Plezix"). -->
   <string name="wallpaper_classic_title">Ojer %s</string>
   <!-- Description text for the artist series wallpapers with learn more link. %s is a learn more link using wallpaper_learn_more as text. "Independent voices" is the name of the wallpaper collection -->
   <string name="wallpaper_artist_series_description_with_learn_more">Ri Jamäl ch\'ab\'äl molb\'äl. %s</string>
@@ -679,8 +679,8 @@
   <string name="wallpapers_onboarding_dialog_body_text">Tacha\' jun rupam ruwäch richin nak\'üt awi\'.</string>
   <!-- Wallpaper onboarding dialog learn more button text. The button navigates to the wallpaper settings screen. -->
   <string name="wallpapers_onboarding_dialog_explore_more_button_text">Kekanöx ch\'aqa\' rupam ruwäch</string>
-  <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here -->
-  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Ke\'awila\' +100 k\'ak\'a\' taq k\'amal ri nikiya\' q\'ij chawe\' nawichinaj Firefox.</string>
+  <!-- Body of the Nimbus message for add-ons general availability. 'Plezix' intentionally hardcoded here -->
+  <string name="addon_ga_message_body" tools:ignore="BrandUsage,UnusedResources">Ke\'awila\' +100 k\'ak\'a\' taq k\'amal ri nikiya\' q\'ij chawe\' nawichinaj Plezix.</string>
   <!--
     Account Preferences
 
@@ -719,7 +719,7 @@
   <string name="sync_never_synced_summary">Ruk\'isib\'äl mul xxim: majub\'ey</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s pa %2$s %3$s</string>
@@ -734,7 +734,7 @@
   -->
   <string name="fxa_received_tab_channel_name">Taq ruwi\' ek\'ulun</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Taq rutzijol taq ruwi\' ek\'ulun pa ch\'aqa\' chik rokisab\'al Firefox.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">Taq rutzijol taq ruwi\' ek\'ulun pa ch\'aqa\' chik rokisab\'al Plezix.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">Ruwi\' k\'ulun</string>
   <!-- %s is the device name -->
@@ -754,7 +754,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">Taq tijonïk</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">Taya\' q\'ij chi ri Mozilla nuyäk chuqa\' nub\'än taq tijonïk</string>
+  <string name="preference_experiments_summary_2">Taya\' q\'ij chi ri Plezix nuyäk chuqa\' nub\'än taq tijonïk</string>
   <!--
     Turn On Sync Preferences
 
@@ -972,7 +972,7 @@
   <string name="remove_top_site">Tiyuj</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">Tiyuj pa natab\'äl</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (Ichinan Rub\'anikil)</string>
   <!--
     History
@@ -1013,11 +1013,11 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">Takuyu\'. Man nitikïr ta nusamajij ri ruxaq ri %1$s.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
-  <string name="tab_crash_send_report">Titaq rutzijol sachoj chi re ri Mozilla</string>
+  <string name="tab_crash_send_report">Titaq rutzijol sachoj chi re ri Plezix</string>
   <!-- Close tab button text on the tab crash page -->
   <string name="tab_crash_close">Titz\'apïx ruwi\'</string>
   <!-- Restore tab button text on the tab crash page -->
@@ -1028,7 +1028,7 @@
     Confirmation message for a dialog confirming if the user wants to delete the selected folder
   -->
   <string name="bookmark_delete_folder_confirmation_dialog">¿La kan nawajo\' chi nayüj re molyakb\'äl re\'?</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">%s xkeruyüj ri cha\'on taq wachinäq.</string>
   <!-- Text for the cancel button on delete bookmark dialog -->
   <string name="bookmark_delete_negative">Tiq\'at</string>
@@ -1303,12 +1303,12 @@
     Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Firefox aninäq chuqa\' ichinel</string>
+  <string name="nimbus_notification_default_browser_title" tools:ignore="BrandUsage,UnusedResources">Plezix aninäq chuqa\' ichinel</string>
   <!--
     Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Tab\'ana\' chi ri Firefox nok ri nab\'ey awokik\'amaya\'l</string>
+  <string name="nimbus_notification_default_browser_text" tools:ignore="BrandUsage,UnusedResources">Tab\'ana\' chi ri Plezix nok ri nab\'ey awokik\'amaya\'l</string>
   <!-- Title shown in the notification that pops up to re-engage the user -->
   <string name="notification_re_engagement_title">Titojtob\'ëx ichinan okem</string>
   <!--
@@ -1331,7 +1331,7 @@
     Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments
   -->
-  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Kato\'on chi nutziläx ri Firefox rik\'in nanojisaj ri ch\'uti nojwuj.</string>
+  <string name="nimbus_survey_message_text" tools:ignore="BrandUsage">Kato\'on chi nutziläx ri Plezix rik\'in nanojisaj ri ch\'uti nojwuj.</string>
   <!-- Preference for taking the short survey. -->
   <string name="preferences_take_survey">Tinojisäx nojwuj</string>
   <!-- Preference for not taking the short survey. -->
@@ -1362,7 +1362,7 @@
   <string name="snackbar_top_site_removed">Ruxaq xyuj</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Tiya\' q\'ij chi re %1$s richin nujäq %2$s</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -1434,7 +1434,7 @@
   <string name="delete_history_prompt_button_today_and_yesterday">Wakami chuqa\' iwir</string>
   <!-- Radio button in the delete browsing data dialog to delete all history. -->
   <string name="delete_history_prompt_button_everything">Ronojel</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">%s xkeruyüj el ri taq rutzij awokem xecha\'.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">Tiq\'at</string>
@@ -1473,16 +1473,16 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">Titz\'ajwachib\'ëx b\'itz\'ib\'</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Tajaqa\' Firefox pan awoyonib\'al k\'a ri\' jät pa <b>https://firefox.com/pair</b>]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[Tajaqa\' Plezix pan awoyonib\'al k\'a ri\' jät pa <b>https://firefox.com/pair</b>]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">Ütz chik nitz\'ajwachib\'ëx</string>
   <!-- Text shown for settings option for sign with pairing -->
   <string name="sign_in_with_camera">Tatikirisaj molojri\'ïl rik\'in ri elesäy awachib\'al</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">Tawokisaj ri taqoya\'l</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿La man k\'o ta rub\'i\' ataqoya\'l? <u>Tatz\'uku\' jun</u> richin naxïm Firefox pa taq okisab\'äl.]]></string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[¿La man k\'o ta rub\'i\' ataqoya\'l? <u>Tatz\'uku\' jun</u> richin naxïm Plezix pa taq okisab\'äl.]]></string>
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">%s Man xtuxïm ta chik ri rub\'i\' ataqoya\'l, man xkeyuj ta ri taq rutzij awokem pa re oyonib\'äl re\'.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">Tichup</string>
@@ -1498,7 +1498,7 @@
   <string name="etp_settings">Runuk\'ulem Ojqanem</string>
   <!-- Preference title for enhanced tracking protection settings -->
   <string name="preference_enhanced_tracking_protection">Utzirisan Chajinïk chuwäch Ojqanem</string>
-  <!-- Description of enhanced tracking protection. %s is the name of the app (for example "Firefox"). -->
+  <!-- Description of enhanced tracking protection. %s is the name of the app (for example "Plezix"). -->
   <string name="preference_enhanced_tracking_protection_explanation_2">%s yaruchajij chi kiwäch relik ojqanela\', ri nikoqaj ri nab\'än pa k\'amab\'ey.</string>
   <!-- Text displayed that links to website about enhanced tracking protection -->
   <string name="preference_enhanced_tracking_protection_explanation_learn_more">Tetamäx ch\'aqa\' chik</string>
@@ -1579,11 +1579,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">Katok pa k\'amaya\'l chi rij</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">Achike ri k\'ak\'a\' pa %s</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s | OSS taq wujb\'äl</string>
   <!-- Category of trackers (redirect trackers) that can be blocked by Enhanced Tracking Protection -->
@@ -1647,7 +1647,7 @@
   <string name="preferences_passwords_save_logins_ask_to_save">Tik\'utüx chi niyak</string>
   <!-- Preference option for never saving passwords in Fenix -->
   <string name="preferences_passwords_save_logins_never_save">Majub\'ey tiyak</string>
-  <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+  <!-- Preference for autofilling saved logins in Plezix (in web content), %1$s will be replaced with the app name -->
   <string name="preferences_passwords_autofill2">Tinojisäx ruyonil pa %1$s</string>
   <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
   <string name="preferences_android_autofill">Titz\'aqatisäx ruyon pa ch\'aqa\' chik taq okisab\'äl.</string>
@@ -1924,13 +1924,13 @@
   <string name="synced_tabs_connect_another_device">Tokisäx jun chik okisab\'äl</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">Tajuxub\'ej chik awi\'.</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">Tatzija\' ri kiximik taq ruwi\'.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Majun ruwi\' ajaqon pa Firefox pa ri ch\'aqa\' chik awokisab\'al.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">Majun ruwi\' ajaqon pa Plezix pa ri ch\'aqa\' chik awokisab\'al.</string>
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">Titz\'et jun kicholb\'al ruwi\' pa juley chik awokisab\'al.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">Tatikirisaj molojri\'ïl pa yaximon</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">Majun ruwi\' ejaqon</string>
@@ -1963,7 +1963,7 @@
   -->
   <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">¿La ruyonil nitz\'apïx chi rij jun ik\'?</string>
   <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Firefox nitikïr yerutz\'apij taq ruxaq man e\'atz\'eton ta pa ri ruk\'isib\'äl ik\'.</string>
+  <string name="inactive_tabs_auto_close_message_description" tools:ignore="BrandUsage,UnusedResources">Plezix nitikïr yerutz\'apij taq ruxaq man e\'atz\'eton ta pa ri ruk\'isib\'äl ik\'.</string>
   <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
   <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">TITZIJ RUYON NICHUPUTÄJ</string>
   <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1971,15 +1971,15 @@
   <!--
     Awesome bar suggestion's headers
 
-    Search suggestions title for Firefox Suggest.
+    Search suggestions title for Plezix Suggest.
   -->
-  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Firefox Suggest</string>
+  <string name="firefox_suggest_header" tools:ignore="BrandUsage">Plezix Suggest</string>
   <!-- Title for search suggestions when Google is the default search suggestion engine. -->
   <string name="google_search_engine_suggestion_header">Google Kanob\'äl</string>
   <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. %s is default search engine name. -->
   <string name="other_default_search_engine_suggestion_header">Tikanöx pa %s</string>
   <!-- Default browser card text -->
-  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Nub\'än kinuk\'ulem ximonel ajk\'amaya\'l taq ruxaq, taq taqoya\'l chuqa\' taq rutzijol richin yejaq pa ruyonil pa Firefox.</string>
+  <string name="default_browser_experiment_card_text" tools:ignore="BrandUsage">Nub\'än kinuk\'ulem ximonel ajk\'amaya\'l taq ruxaq, taq taqoya\'l chuqa\' taq rutzijol richin yejaq pa ruyonil pa Plezix.</string>
   <!-- Content description for close button in collection placeholder. -->
   <string name="remove_home_collection_placeholder_content_description">Tiyuj</string>
   <!-- Content description radio buttons with a link to more information -->

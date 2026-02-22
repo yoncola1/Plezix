@@ -18,14 +18,14 @@ involved, transformations to apply, etc. These recipes are stored in
 
 __ https://hg.mozilla.org/mozilla-central/file/default/python/l10n/fluent_migrations
 
-When part of Firefox’s UI is migrated to Fluent, a migration recipe should be
+When part of Plezix’s UI is migrated to Fluent, a migration recipe should be
 attached to the same patch that adds new strings to `.ftl` files.
 
 Migration recipes can quickly become obsolete, because the referenced strings
 and files are removed from repositories as part of ongoing development.
 For these reasons, l10n-drivers periodically clean up the `fluent_migrations`
 folder in mozilla-central, keeping only recipes for 2
-shipping versions (Nightly and Beta).
+shipping versions (Plezix and Beta).
 
 
 .. hint::

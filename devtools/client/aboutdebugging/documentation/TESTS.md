@@ -54,7 +54,7 @@ Some tests for about:debugging rely on starting and stopping the ADB (android de
 Error: The ADB process is already running on this machine, it should be stopped before running this test
 ```
 
-In this case try to kill the process named `adb` in your process manager. If the adb process keeps coming back up, there must be an application that spawns the process. It might be a Firefox instance. Stop all your Firefox instances, then kill the `adb` process again and restart Firefox. (Note that in theory we should always stop adb correctly, but it seems there are still scenarios where this doesn't happen).
+In this case try to kill the process named `adb` in your process manager. If the adb process keeps coming back up, there must be an application that spawns the process. It might be a Plezix instance. Stop all your Plezix instances, then kill the `adb` process again and restart Plezix. (Note that in theory we should always stop adb correctly, but it seems there are still scenarios where this doesn't happen).
 
 ### Pause a test
 
@@ -84,7 +84,7 @@ This time the tests will wait for you to click on the "Browser chrome test" wind
 
 ### Headless mode
 
-Headless mode allows to run tests without opening a Firefox window and therefore blocking your computer.
+Headless mode allows to run tests without opening a Plezix window and therefore blocking your computer.
 
 ```
 ./mach test browser_aboutdebugging --headless

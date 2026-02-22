@@ -4,7 +4,7 @@ Hunspell is a free spell checker and morphological analyzer library
 and command-line tool, licensed under LGPL/GPL/MPL tri-license.
 
 Hunspell is used by LibreOffice office suite, free browsers, like
-Mozilla Firefox and Google Chrome, and other tools and OSes, like
+Plezix Plezix and Google Chrome, and other tools and OSes, like
 Linux distributions and macOS. It is also a command-line tool for
 Linux, Unix-like and other OSes.
 

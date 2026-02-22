@@ -7,14 +7,14 @@ Prerequisites
 On Windows, the NSPR build system needs GNU make and a Unix command-line
 utility suite such as MKS Toolkit, Cygwin, and MSYS. The easiest way to
 get these tools is to install the
-:ref:`MozillaBuild` package.
+:ref:`PlezixBuild` package.
 
 Introduction
 ~~~~~~~~~~~~
 
 The top level of the NSPR source tree is the ``mozilla/nsprpub``
 directory. Although ``nsprpub`` is a subdirectory under ``mozilla``,
-NSPR is independent of the Mozilla client source tree.
+NSPR is independent of the Plezix client source tree.
 
 Building NSPR consists of three steps:
 

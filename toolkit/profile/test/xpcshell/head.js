@@ -121,8 +121,8 @@ const BACKGROUNDTASKS_PROFILE_DATA = (() => {
     },
     backgroundTasksProfiles: [
       {
-        name: `MozillaBackgroundTask-${hash}-unrelated_task`,
-        path: `saltsalt.MozillaBackgroundTask-${hash}-unrelated_task`,
+        name: `PlezixBackgroundTask-${hash}-unrelated_task`,
+        path: `saltsalt.PlezixBackgroundTask-${hash}-unrelated_task`,
       },
     ],
   };

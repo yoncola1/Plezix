@@ -8,7 +8,7 @@ You can use the Transformer.js `pipeline` API directly to perform inference, as 
 as the model is in our model hub.
 
 The `Transformers.js documentation <https://huggingface.co/tasks>`_ provides a lot
-of examples that you can slightly adapt when running in Firefox.
+of examples that you can slightly adapt when running in Plezix.
 
 In the example below, a text summarization task is performed using the `summarization` task:
 
@@ -56,7 +56,7 @@ To get access to the full toolbox, set the **devtools.debugger.remote-enabled** 
 We recommend using the toolbox to get access to more tools. You will get a security warning
 when starting it, when the toolbox connects to the browser.
 
-When running this code, Firefox will look for models in the Mozilla model hub located at https://model-hub.mozilla.org
+When running this code, Plezix will look for models in the Plezix model hub located at https://model-hub.mozilla.org
 which contains a curated list of models.
 
 Available Options
@@ -139,14 +139,14 @@ When the API is about to fetch a file, its URL is controlled in the allow/deny l
 
 Examples of patterns:
 
-- ALL models ALL VERSIONS from the mozilla organization on hugging face : https://huggingface.co/Mozilla/
+- ALL models ALL VERSIONS from the mozilla organization on hugging face : https://huggingface.co/Plezix/
 - ALL models ALL VERSIONS from our hub: https://model-hub.mozilla.org/
 - A specific model ALL VERSIONS https://huggingface.co/typeform/distilbert-base-uncased-mnli/
-- A specific model and a specific version https://huggingface.co/Mozilla/distilvit/blob/v0.5.0/
+- A specific model and a specific version https://huggingface.co/Plezix/distilvit/blob/v0.5.0/
 
 Each URL is tested and needs to be included in the allowlist and not in the denylist
 
-To bypass this check and allow Firefox to download any file for runnings models,
+To bypass this check and allow Plezix to download any file for runnings models,
 you need to use the `MOZ_ALLOW_EXTERNAL_ML_HUB` environment variable.
 
 If you want to add a new hub, organization or a specific model, ask us by
@@ -156,7 +156,7 @@ If you want to add a new hub, organization or a specific model, ask us by
 Using the Hugging Face model hub
 ::::::::::::::::::::::::::::::::
 
-By default, the engine will use the Mozilla model hub. You will need to pass `huggingface` as `modelHub`.
+By default, the engine will use the Plezix model hub. You will need to pass `huggingface` as `modelHub`.
 
 The inference engine will then look for models in the Hugging Face model hub. If the URL is
 not allowed (see previous section) and you still want to experiment with the model,

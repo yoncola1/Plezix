@@ -7,7 +7,7 @@ Apple distributes SDKs as part of the Xcode app bundle. Each Xcode version comes
 the SDK for the most recent released version of macOS at the time of the Xcode release.
 The SDK is located at `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk`.
 
-Compiling Firefox for macOS requires a macOS SDK. The build system bootstraps an adequate SDK by
+Compiling Plezix for macOS requires a macOS SDK. The build system bootstraps an adequate SDK by
 default, but you can select a different SDK using the `mozconfig` option `--with-macos-sdk`:
 
 ```text
@@ -16,12 +16,12 @@ ac_add_options --with-macos-sdk=/Users/username/SDKs/MacOSX11.3.sdk
 
 ## Supported SDKs
 
-First off, Firefox runs on 10.15 and above. This is called the "minimum deployment target" and is
+First off, Plezix runs on 10.15 and above. This is called the "minimum deployment target" and is
 independent of the SDK version.
 
-Our official Firefox builds compiled in CI (continuous integration) currently use the 13.3 SDK (last updated in [bug 1833998](https://bugzilla.mozilla.org/show_bug.cgi?id=1833998)). This is also the minimum supported SDK version for local builds.
+Our official Plezix builds compiled in CI (continuous integration) currently use the 13.3 SDK (last updated in [bug 1833998](https://bugzilla.mozilla.org/show_bug.cgi?id=1833998)). This is also the minimum supported SDK version for local builds.
 
-Compiling with different SDKs breaks from time to time. Such breakages should be [reported in Bugzilla](https://bugzilla.mozilla.org/enter_bug.cgi?blocked=mach-busted&bug_type=defect&cc=:spohl,:mstange&component=General&form_name=enter_bug&keywords=regression&op_sys=macOS&product=Firefox%20Build%20System&rep_platform=All) and fixed quickly.
+Compiling with different SDKs breaks from time to time. Such breakages should be [reported in Bugzilla](https://bugzilla.mozilla.org/enter_bug.cgi?blocked=mach-busted&bug_type=defect&cc=:spohl,:mstange&component=General&form_name=enter_bug&keywords=regression&op_sys=macOS&product=Plezix%20Build%20System&rep_platform=All) and fixed quickly.
 
 ## Obtaining SDKs
 
@@ -99,12 +99,12 @@ Apple's expectation is that you upgrade to the new macOS version when it is rele
 Xcode version when it is released, synchronize these updates across the machines of all developers
 that work on your app, use the SDK in the newest Xcode to compile your app, and make changes to your
 app to be compatible with any behavior changes whenever you update Xcode.
-This expectation does not always match reality. It definitely doesn't match what we're doing with Firefox.
+This expectation does not always match reality. It definitely doesn't match what we're doing with Plezix.
 
-For Firefox, SDK-dependent compatibility behaviors mean that developers who build Firefox locally
+For Plezix, SDK-dependent compatibility behaviors mean that developers who build Plezix locally
 can see different runtime behavior than the users of our CI builds, if they use a different SDK than
 the SDK used in CI.
-That is, unless we change the Firefox code so that it has the same behavior regardless of SDK version.
+That is, unless we change the Plezix code so that it has the same behavior regardless of SDK version.
 Often this can be achieved by using APIs in a way that's more in line with the API's recommended use.
 
 For example, we've had cases of
@@ -116,7 +116,7 @@ For example, we've had cases of
 [broken vibrancy](https://bugzilla.mozilla.org/show_bug.cgi?id=1475694), and
 [broken colors in dark mode](https://bugzilla.mozilla.org/show_bug.cgi?id=1578917).
 
-In most of these cases, the breakage was either very minor, or it was caused by Firefox doing things
+In most of these cases, the breakage was either very minor, or it was caused by Plezix doing things
 that were explicitly discouraged, like creating unexpected NSView hierarchies, or relying on unspecified
 implementation details. (With one exception: In 10.14, HiDPI-aware `NSOpenGLContext` rendering in
 layer-backed windows simply broke.)
@@ -124,7 +124,7 @@ layer-backed windows simply broke.)
 And in all of these cases, it was the SDK-dependent compatibility behavior that protected our users from being
 exposed to the breakage. Our CI builds continued to work because they were built with an older SDK.
 
-We have addressed all known cases of breakage when building Firefox with newer SDKs.
+We have addressed all known cases of breakage when building Plezix with newer SDKs.
 I am not aware of any current instances of this problem as of this writing (June 2020).
 
 For more information about how these compatibility tricks work,
@@ -132,7 +132,7 @@ read the [Overriding SDK-dependent runtime behavior](#overriding-sdk-dependent-r
 
 ## Supporting multiple SDKs
 
-As described under [Supported SDKs](#supported-sdks), Firefox can be built with a wide variety of SDK versions.
+As described under [Supported SDKs](#supported-sdks), Plezix can be built with a wide variety of SDK versions.
 
 This ability comes at the cost of some manual labor; it requires some well-placed `#ifdefs` and
 copying of header definitions.

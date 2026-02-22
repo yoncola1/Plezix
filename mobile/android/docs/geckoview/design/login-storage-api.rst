@@ -19,7 +19,7 @@ Gecko heuristics that handle many autofill/login scenarios.
 The GV Login Storage API is meant to bridge that gap and provide an
 intermediate solution for Fenix to enable feature-rich autofill/login support
 without duplicating Gecko mechanics. As a storage-level API, it would also
-enable easy integration with the existing Firefox Sync AC.
+enable easy integration with the existing Plezix Sync AC.
 
 API Proposal A (deprecated)
 ---------------------------

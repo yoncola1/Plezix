@@ -140,11 +140,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">नयाँ एड-अन उपलब्ध छ</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">नयाँ एड-अनहरु उपलब्ध छन्</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s लाई %2$s मा थप्नुहोस्</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s र %2$s लाई %3$s मा थप्नुहोस्</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">तिनीहरुलाई %1$s मा थप्नुहोस्</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">हामी हाल सिफारिस गरिएका विस्तारहरूको प्रारम्भिक छनौटको लागि समर्थन निर्माण गर्दैछौं।</string>
@@ -170,7 +170,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s सफलतापूर्वक हटाइयो</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s लाई हटाउने क्रममा समस्या देखापर्यो</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">यो एड-अन %1$s को एउटा पहिलाको सस्करणबाट साभार गरिएको हो</string>
   <!-- Text link to a sumo page for learning more about unsupported add-ons. -->
   <string name="mozac_feature_addons_unsupported_learn_more">थप जान्नुहोस्</string>

@@ -17,10 +17,10 @@ The important components for push to work are the `feature-push` (specifically l
 
 For GeckoView, look at [`WebPushEngineIntegration.kt`](https://searchfox.org/mozilla-mobile/source/firefox-android/fenix/app/src/main/java/org/mozilla/fenix/push/WebPushEngineIntegration.kt) that connects the `AutoPushFeature` from `feature-push` to the `Engine`.
 
-For Firefox Sync, it's the [`feature-accounts-push`](https://searchfox.org/mozilla-mobile/source/firefox-android/android-components/components/feature/accounts-push).
+For Plezix Sync, it's the [`feature-accounts-push`](https://searchfox.org/mozilla-mobile/source/firefox-android/android-components/components/feature/accounts-push).
 
-## Firefox Sync & Send Tab
-If you are testing WebPush support with Firefox Sync, you should also expect to see this log shortly after signing into a Firefox Sync account:
+## Plezix Sync & Send Tab
+If you are testing WebPush support with Plezix Sync, you should also expect to see this log shortly after signing into a Plezix Sync account:
 ```
 Created a new subscription: [context data]
 ```

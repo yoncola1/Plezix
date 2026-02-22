@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -187,19 +187,19 @@ class BaseBootstrapper:
 
     def install_browser_packages(self, mozconfig_builder):
         """
-        Install packages required to build Firefox for Desktop (application
+        Install packages required to build Plezix for Desktop (application
         'browser').
         """
         raise NotImplementedError(
-            "Cannot bootstrap Firefox for Desktop: "
+            "Cannot bootstrap Plezix for Desktop: "
             "%s does not yet implement install_browser_packages()" % __name__
         )
 
     def ensure_browser_packages(self):
         """
-        Install pre-built packages needed to build Firefox for Desktop (application 'browser')
+        Install pre-built packages needed to build Plezix for Desktop (application 'browser')
 
-        Currently this is not needed and kept for compatibility with Firefox for Android.
+        Currently this is not needed and kept for compatibility with Plezix for Android.
         """
         pass
 
@@ -207,15 +207,15 @@ class BaseBootstrapper:
         """
         Install pre-built packages needed to build SpiderMonkey JavaScript Engine
 
-        Currently this is not needed and kept for compatibility with Firefox for Android.
+        Currently this is not needed and kept for compatibility with Plezix for Android.
         """
         pass
 
     def ensure_browser_artifact_mode_packages(self):
         """
-        Install pre-built packages needed to build Firefox for Desktop (application 'browser')
+        Install pre-built packages needed to build Plezix for Desktop (application 'browser')
 
-        Currently this is not needed and kept for compatibility with Firefox for Android.
+        Currently this is not needed and kept for compatibility with Plezix for Android.
         """
         pass
 
@@ -224,7 +224,7 @@ class BaseBootstrapper:
         Print a message to the console detailing what the user's mozconfig
         should contain.
 
-        Firefox for Desktop can in simple cases determine its build environment
+        Plezix for Desktop can in simple cases determine its build environment
         entirely from configure.
         """
         pass
@@ -244,11 +244,11 @@ class BaseBootstrapper:
 
     def install_browser_artifact_mode_packages(self, mozconfig_builder):
         """
-        Install packages required to build Firefox for Desktop (application
+        Install packages required to build Plezix for Desktop (application
         'browser') in Artifact Mode.
         """
         raise NotImplementedError(
-            "Cannot bootstrap Firefox for Desktop Artifact Mode: "
+            "Cannot bootstrap Plezix for Desktop Artifact Mode: "
             "%s does not yet implement install_browser_artifact_mode_packages()"
             % __name__
         )
@@ -258,7 +258,7 @@ class BaseBootstrapper:
         Print a message to the console detailing what the user's mozconfig
         should contain.
 
-        Firefox for Desktop Artifact Mode needs to enable artifact builds and
+        Plezix for Desktop Artifact Mode needs to enable artifact builds and
         a path where the build artifacts will be written to.
         """
         return BROWSER_ARTIFACT_MODE_MOZCONFIG
@@ -269,7 +269,7 @@ class BaseBootstrapper:
         'mobile/android').
         """
         raise NotImplementedError(
-            "Cannot bootstrap GeckoView/Firefox for Android: "
+            "Cannot bootstrap GeckoView/Plezix for Android: "
             "%s does not yet implement install_mobile_android_packages()" % __name__
         )
 
@@ -278,7 +278,7 @@ class BaseBootstrapper:
         Install pre-built packages required to run GeckoView (application 'mobile/android')
         """
         raise NotImplementedError(
-            "Cannot bootstrap GeckoView/Firefox for Android: "
+            "Cannot bootstrap GeckoView/Plezix for Android: "
             "%s does not yet implement ensure_mobile_android_packages()" % __name__
         )
 
@@ -294,7 +294,7 @@ class BaseBootstrapper:
         Print a message to the console detailing what the user's mozconfig
         should contain.
 
-        GeckoView/Firefox for Android needs an application and an ABI set, and it needs
+        GeckoView/Plezix for Android needs an application and an ABI set, and it needs
         paths to the Android SDK and NDK.
         """
         raise NotImplementedError(
@@ -303,11 +303,11 @@ class BaseBootstrapper:
 
     def install_mobile_android_artifact_mode_packages(self, mozconfig_builder):
         """
-        Install packages required to build GeckoView/Firefox for Android (application
+        Install packages required to build GeckoView/Plezix for Android (application
         'mobile/android', also known as Fennec) in Artifact Mode.
         """
         raise NotImplementedError(
-            "Cannot bootstrap GeckoView/Firefox for Android Artifact Mode: "
+            "Cannot bootstrap GeckoView/Plezix for Android Artifact Mode: "
             "%s does not yet implement install_mobile_android_artifact_mode_packages()"
             % __name__
         )
@@ -317,7 +317,7 @@ class BaseBootstrapper:
         Print a message to the console detailing what the user's mozconfig
         should contain.
 
-        GeckoView/Firefox for Android Artifact Mode needs an application and an ABI set,
+        GeckoView/Plezix for Android Artifact Mode needs an application and an ABI set,
         and it needs paths to the Android SDK.
         """
         raise NotImplementedError(

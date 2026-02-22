@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,8 +31,8 @@ fn main() -> Result<(), Error> {
         },
     )?;
     // Deserialize the message with the following expected format
-    let native_messaging_json: commands::FirefoxCommand =
-        serde_json::from_str(&message).or_else(|_| -> Result<commands::FirefoxCommand, _> {
+    let native_messaging_json: commands::PlezixCommand =
+        serde_json::from_str(&message).or_else(|_| -> Result<commands::PlezixCommand, _> {
             commands::generate_response(
                 "Failed to deserialize message JSON",
                 ResultCode::Error.into(),

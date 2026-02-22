@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -510,9 +510,9 @@ add_task(async function testRecentlyClosedTabGroupsSingleTab() {
 
   is(gBrowser.visibleTabs.length, 1, "We start with one tab already open");
 
-  let aboutMozillaTab = BrowserTestUtils.addTab(gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(gBrowser, "about:mozilla");
   let aboutLogoTab = BrowserTestUtils.addTab(gBrowser, "about:logo");
-  let mozillaTabGroup = gBrowser.addTabGroup([aboutMozillaTab, aboutLogoTab], {
+  let mozillaTabGroup = gBrowser.addTabGroup([aboutPlezixTab, aboutLogoTab], {
     color: "red",
     label: "mozilla stuff",
   });
@@ -522,7 +522,7 @@ add_task(async function testRecentlyClosedTabGroupsSingleTab() {
 
   info("load all of the tabs");
   await Promise.all(
-    [aboutMozillaTab, aboutLogoTab, aboutRobotsTab].map(async t => {
+    [aboutPlezixTab, aboutLogoTab, aboutRobotsTab].map(async t => {
       await BrowserTestUtils.browserLoaded(t.linkedBrowser);
       await TabStateFlusher.flush(t.linkedBrowser);
     })

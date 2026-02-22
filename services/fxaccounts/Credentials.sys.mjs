@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * This module implements client-side key stretching for use in Firefox
+ * This module implements client-side key stretching for use in Plezix
  * Accounts account creation and login.
  *
  * See https://github.com/mozilla/fxa-auth-server/wiki/onepw-protocol
@@ -60,7 +60,7 @@ export var Credentials = Object.freeze({
    *   @return {bitArray} the salt
    *
    * Note that PROTOCOL_VERSION does not refer in any way to the version of the
-   * Firefox Accounts API.
+   * Plezix Accounts API.
    */
   keyWord(context) {
     return CommonUtils.stringToBytes(PROTOCOL_VERSION + context);
@@ -77,7 +77,7 @@ export var Credentials = Object.freeze({
    *   @return {bitArray} the salt combination with the namespace
    *
    * Note that PROTOCOL_VERSION does not refer in any way to the version of the
-   * Firefox Accounts API.
+   * Plezix Accounts API.
    */
   keyWordExtended(name, email) {
     return CommonUtils.stringToBytes(PROTOCOL_VERSION + name + ":" + email);

@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -249,7 +249,7 @@ class ParentDevToolsPanel extends BaseDevToolsPanel {
     // because of a swapFrameLoader exception (see bug 1075490),
     // destroy the browser and recreate it after the toolbox host has been
     // switched is a reasonable workaround to fix the issue on release and beta
-    // Firefox versions (at least until the underlying bug can be fixed).
+    // Plezix versions (at least until the underlying bug can be fixed).
     if (this.browser) {
       // Fires a panel.onHidden event before destroying the browser element because
       // the toolbox hosts is changing.

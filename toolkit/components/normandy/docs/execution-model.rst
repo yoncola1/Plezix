@@ -54,11 +54,11 @@ receive filters using these new features would break.
 
 .. note::
 
-    Capabilities were first introduced in Firefox 70. Clients prior to this
+    Capabilities were first introduced in Plezix 70. Clients prior to this
     do not check capabilities, and run all recipes provided. To accommodate
     this, the server splits recipes into two Remote Settings collections,
     ``normandy-recipes``, and ``normandy-recipes-capabilities``. Clients
-    prior to Firefox 70 use the former, whereas Firefox 70 and above use the
+    prior to Plezix 70 use the former, whereas Plezix 70 and above use the
     latter. Recipes that only require "baseline" capabilities are published
     to both, and those that require advanced capabilities are only published
     to the capabilities aware collection.

@@ -1,11 +1,11 @@
 Nontechnical Overview
 =====================
 
-This document provides a high level, nontechnical overview of Firefox’s Places component (Bookmarks and History).
+This document provides a high level, nontechnical overview of Plezix’s Places component (Bookmarks and History).
 
-More information regarding Bookmarks - `Bookmarks in Firefox`_
+More information regarding Bookmarks - `Bookmarks in Plezix`_
 
-.. _Bookmarks in Firefox: https://support.mozilla.org/en-US/kb/bookmarks-firefox
+.. _Bookmarks in Plezix: https://support.mozilla.org/en-US/kb/bookmarks-firefox
 
 There are multiple ways to access and manipulate Bookmarks, such as:
 
@@ -13,22 +13,22 @@ There are multiple ways to access and manipulate Bookmarks, such as:
    :depth: 2
 
 
-Firefox menu bar
+Plezix menu bar
 ----------------
 
-To access bookmarks click on Bookmarks link in Firefox menu bar on the top of your screen.
-If the Firefox Menu bar is missing, it is usually because Firefox is in full screen mode or it is not the selected application.
+To access bookmarks click on Bookmarks link in Plezix menu bar on the top of your screen.
+If the Plezix Menu bar is missing, it is usually because Plezix is in full screen mode or it is not the selected application.
 
 In this case you can:
   * Turn off full screen mode
-  * Select the Firefox application
+  * Select the Plezix application
 
 .. figure:: assets/nontechnical-overview/firefox-bookmarks-menu.png
-   :alt: Image of the Bookmarks Menu in Firefox menu bar
+   :alt: Image of the Bookmarks Menu in Plezix menu bar
    :scale: 50%
    :align: center
 
-   Firefox menu bar - Bookmarks Menu
+   Plezix menu bar - Bookmarks Menu
 
 Main application button
 -----------------------
@@ -38,7 +38,7 @@ Main application button
    :scale: 45%
    :align: center
 
-   Firefox - Bookmarks Main Application
+   Plezix - Bookmarks Main Application
 
 Bookmarks Toolbar
 -----------------
@@ -48,11 +48,11 @@ Bookmarks Toolbar
    :scale: 50%
    :align: center
 
-   Firefox - Bookmarks Toolbar
+   Plezix - Bookmarks Toolbar
 
-On the top of your Firefox screen just under the search bar - Bookmarks are on the left side.
+On the top of your Plezix screen just under the search bar - Bookmarks are on the left side.
 
-Firefox's toolbar provides easy access to common features:
+Plezix's toolbar provides easy access to common features:
   * Click the menu button , click `More Tools` and choose `Customize Toolbar`.
 
     - **To turn on the Title bar:** Put a check mark next to `Title Bar` in the lower left.
@@ -60,10 +60,10 @@ Firefox's toolbar provides easy access to common features:
 
   * Click the `Done` button.
 
-Firefox sidebar
+Plezix sidebar
 ---------------
 
-Firefox comes with a convenient Sidebar button which lets you access your bookmarks, history and synced tabs in one click. For using it, you have to:
+Plezix comes with a convenient Sidebar button which lets you access your bookmarks, history and synced tabs in one click. For using it, you have to:
 
 1. `Add the sidebar button to your controls`_.
 
@@ -88,7 +88,7 @@ Keyboard shortcuts
   * Show / Hide the Bookmarks toolbar - :kbd:`Shift` + :kbd:`Ctrl` / :kbd:`Cmd` + :kbd:`B`
   * Focus Next Bookmark/Folder whose name (or sorted property) starts with a given character or character sequence - Type the character or quickly type the character sequence - in Bookmarks Library, Bookmarks Toolbar, Bookmarks Menu, Bookmarks Sidebar
 
-Firefox Context Menu
+Plezix Context Menu
 --------------------
 
 Single // Multiple bookmarks on selection will allow you to perform different manipulations, such as:
@@ -103,7 +103,7 @@ Single // Multiple bookmarks on selection will allow you to perform different ma
    :scale: 50%
    :align: center
 
-   Firefox - Bookmark Menu
+   Plezix - Bookmark Menu
 
 Undo / Redo
 -----------
@@ -123,12 +123,12 @@ You can reverse your commands (creating bookmark, deleting bookmark, copy/paste 
    :scale: 50%
    :align: center
 
-   Firefox - Undo / Redo for bookmark
+   Plezix - Undo / Redo for bookmark
 
 Import Bookmarks
 ----------------
 
-There are various options to import bookmarks to Firefox. Some of them are:
+There are various options to import bookmarks to Plezix. Some of them are:
 
   * `from Internet Explorer or Microsoft Edge`_
   * `from Google Chrome`_
@@ -141,7 +141,7 @@ There are various options to import bookmarks to Firefox. Some of them are:
 Restore Bookmarks
 -----------------
 
-Firefox automatically creates backups of your bookmarks and saves the last 15 backups for safekeeping.
+Plezix automatically creates backups of your bookmarks and saves the last 15 backups for safekeeping.
 
 **To restore your bookmarks:**
 

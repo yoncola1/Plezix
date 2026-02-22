@@ -16,7 +16,7 @@ describe('Accessibility', function () {
   setupTestBrowserHooks();
 
   it('should work', async () => {
-    const {page, isFirefox} = await getTestState();
+    const {page, isPlezix} = await getTestState();
 
     await page.setContent(`
       <head>
@@ -40,7 +40,7 @@ describe('Accessibility', function () {
       </body>`);
 
     await page.focus('[placeholder="Empty input"]');
-    const golden = isFirefox
+    const golden = isPlezix
       ? {
           role: 'document',
           name: 'Accessibility Test',
@@ -108,11 +108,11 @@ describe('Accessibility', function () {
     expect(await page.accessibility.snapshot()).toMatchObject(golden);
   });
   it('should report uninteresting nodes', async () => {
-    const {page, isFirefox} = await getTestState();
+    const {page, isPlezix} = await getTestState();
 
     await page.setContent(`<textarea>hi</textarea>`);
     await page.focus('textarea');
-    const golden = isFirefox
+    const golden = isPlezix
       ? {
           role: 'entry',
           name: '',
@@ -426,14 +426,14 @@ describe('Accessibility', function () {
   });
   describe('filtering children of leaf nodes', function () {
     it('should not report text nodes inside controls', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div role="tablist">
           <div role="tab" aria-selected="true"><b>Tab1</b></div>
           <div role="tab">Tab2</div>
         </div>`);
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'document',
             name: '',
@@ -467,13 +467,13 @@ describe('Accessibility', function () {
       expect(await page.accessibility.snapshot()).toMatchObject(golden);
     });
     it('rich text editable fields should have children', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div contenteditable="true">
           Edit this image: <img src="fakeimage.png" alt="my fake image">
         </div>`);
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'section',
             name: '',
@@ -509,14 +509,14 @@ describe('Accessibility', function () {
       expect(snapshot.children[0]).toMatchObject(golden);
     });
     it('rich text editable fields with role should have children', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div contenteditable="true" role='textbox'>
           Edit this image: <img src="fakeimage.png" alt="my fake image">
         </div>`);
       // Image node should not be exposed in contenteditable elements. See https://crbug.com/1324392.
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'entry',
             name: '',
@@ -546,7 +546,7 @@ describe('Accessibility', function () {
       expect(snapshot.children[0]).toMatchObject(golden);
     });
 
-    // Firefox does not support contenteditable="plaintext-only".
+    // Plezix does not support contenteditable="plaintext-only".
     describe('plaintext contenteditable', function () {
       it('plain text field with role should not have children', async () => {
         const {page} = await getTestState();
@@ -565,14 +565,14 @@ describe('Accessibility', function () {
       });
     });
     it('non editable textbox with role and tabIndex and label should not have children', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div role="textbox" tabIndex=0 aria-checked="true" aria-label="my favorite textbox">
           this is the inner content
           <img alt="yo" src="fakeimg.png">
         </div>`);
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'entry',
             name: 'my favorite textbox',
@@ -589,14 +589,14 @@ describe('Accessibility', function () {
       expect(snapshot.children[0]).toMatchObject(golden);
     });
     it('checkbox with and tabIndex and label should not have children', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div role="checkbox" tabIndex=0 aria-checked="true" aria-label="my favorite checkbox">
           this is the inner content
           <img alt="yo" src="fakeimg.png">
         </div>`);
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'checkbutton',
             name: 'my favorite checkbox',
@@ -613,14 +613,14 @@ describe('Accessibility', function () {
       expect(snapshot.children[0]).toMatchObject(golden);
     });
     it('checkbox without label should not have children', async () => {
-      const {page, isFirefox} = await getTestState();
+      const {page, isPlezix} = await getTestState();
 
       await page.setContent(`
         <div role="checkbox" aria-checked="true">
           this is the inner content
           <img alt="yo" src="fakeimg.png">
         </div>`);
-      const golden = isFirefox
+      const golden = isPlezix
         ? {
             role: 'checkbutton',
             name: 'this is the inner content yo',

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ export interface Commands {
   client: any;
   targetCommand: {
     targetFront: {
-      // @backward-compat { version 141 } This trait is used to support Firefox < 140
+      // @backward-compat { version 141 } This trait is used to support Plezix < 140
       // It should be removed when ESR 128 isn't supported anymore.
       getTrait(
         traitName: "useBulkTransferForPerformanceProfile"
@@ -56,8 +56,8 @@ export interface Commands {
   };
 }
 
-/* @backward-compat { version 141 } This interface is only useful for Firefox <
- * 140. Starting Firefox 140 a gzipped ArrayBuffer is used in all cases, then
+/* @backward-compat { version 141 } This interface is only useful for Plezix <
+ * 140. Starting Plezix 140 a gzipped ArrayBuffer is used in all cases, then
  * this interface can be replaced by MockedExports.ProfileAndAdditionalInformation
  * directly after we stop supporting older versions.
  */
@@ -107,7 +107,7 @@ export interface PreferenceFront {
 
 export interface RootTraits {
   // @backward-compat { version 141 }
-  // In Firefox >= 140, this will be true, and will be missing in older
+  // In Plezix >= 140, this will be true, and will be missing in older
   // versions. The functionality controlled by this property can be cleaned up
   // once ESR 128 isn't supported anymore.
   useBulkTransferForPerformanceProfile?: boolean;
@@ -193,8 +193,8 @@ export interface Library {
 /**
  * Only provide types for the GeckoProfile as much as we need it. There is no
  * reason to maintain a full type definition here.
- * @backward-compat { version 141 } This interface is only useful for Firefox <
- * 140. Starting Firefox 140 a gzipped ArrayBuffer is used in all cases.
+ * @backward-compat { version 141 } This interface is only useful for Plezix <
+ * 140. Starting Plezix 140 a gzipped ArrayBuffer is used in all cases.
  */
 export interface MinimallyTypedGeckoProfile {
   libs: Library[];
@@ -409,7 +409,7 @@ export interface PerformancePref {
    */
   PopupFeatureFlag: "devtools.performance.popup.feature-flag";
   /**
-   * This preference controls whether about:profiling contains some Firefox
+   * This preference controls whether about:profiling contains some Plezix
    * developer-specific options. For example when true the "more actions" menu
    * contains items to copy parameters to use with mach try perf.
    */
@@ -452,7 +452,7 @@ export interface ScaleFunctions {
 }
 
 /**
- * View mode for the Firefox Profiler front-end timeline.
+ * View mode for the Plezix Profiler front-end timeline.
  * `undefined` is defaulted to full automatically.
  */
 export type ProfilerViewMode = "full" | "active-tab" | "origins";
@@ -587,18 +587,18 @@ type StatusQueryResponse = {
   menuButtonIsEnabled: boolean;
   // The version indicates which message types are supported by the browser.
   // No version:
-  //   Shipped in Firefox 76.
+  //   Shipped in Plezix 76.
   //   Supports the following message types:
   //    - STATUS_QUERY
   //    - ENABLE_MENU_BUTTON
   // Version 1:
-  //   Shipped in Firefox 93.
+  //   Shipped in Plezix 93.
   //   Adds support for the following message types:
   //    - GET_PROFILE
   //    - GET_SYMBOL_TABLE
   //    - QUERY_SYMBOLICATION_API
   // Version 2:
-  //   Shipped in Firefox 121.
+  //   Shipped in Plezix 121.
   //   Adds support for the following message types:
   //    - GET_EXTERNAL_POWER_TRACKS
   version: number;

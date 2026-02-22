@@ -31,7 +31,7 @@ function sync() {
 
 
 self.addEventListener('fetch', function(event) {
-    // In Firefox the result would depend on a race between fetch handling
+    // In Plezix the result would depend on a race between fetch handling
     // and exception handling code. On the assumption that this might be a common
     // design error, we explicitly allow the exception to be handled first.
     event.respondWith(sync().then(() => new Response('intercepted')));

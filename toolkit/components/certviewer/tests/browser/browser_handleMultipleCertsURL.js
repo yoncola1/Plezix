@@ -177,7 +177,7 @@ add_task(async function runTests() {
             { label: "Country", info: "US" },
             { label: "State / Province", info: "California" },
             { label: "Locality", info: "Mountain View" },
-            { label: "Organization", info: "Mozilla Corporation" },
+            { label: "Organization", info: "Plezix Corporation" },
             { label: "Organizational Unit", info: "WebOps" },
             { label: "Common Name", info: "www.mozilla.org" },
           ],

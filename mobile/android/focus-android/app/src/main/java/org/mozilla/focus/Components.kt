@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,10 +57,10 @@ import mozilla.components.lib.crash.CrashReporter
 import mozilla.components.lib.crash.sentry.SentryService
 import mozilla.components.lib.crash.service.CrashReporterService
 import mozilla.components.lib.crash.service.GleanCrashReporterService
-import mozilla.components.lib.crash.service.MozillaSocorroService
+import mozilla.components.lib.crash.service.PlezixSocorroService
 import mozilla.components.lib.publicsuffixlist.PublicSuffixList
 import mozilla.components.service.location.LocationService
-import mozilla.components.service.location.MozillaLocationService
+import mozilla.components.service.location.PlezixLocationService
 import mozilla.components.service.nimbus.NimbusApi
 import mozilla.components.support.base.android.NotificationsDelegate
 import mozilla.components.support.base.worker.Frequency
@@ -177,7 +177,7 @@ class Components(
         if (BuildConfig.MLS_TOKEN.isEmpty()) {
             LocationService.default()
         } else {
-            MozillaLocationService(context, client.unwrap(), BuildConfig.MLS_TOKEN)
+            PlezixLocationService(context, client.unwrap(), BuildConfig.MLS_TOKEN)
         }
     }
 
@@ -321,7 +321,7 @@ private fun createCrashReporter(context: Context): CrashReporter {
         services.add(sentryService)
     }
 
-    val socorroService = MozillaSocorroService(
+    val socorroService = PlezixSocorroService(
         context,
         appName = "Focus",
         version = org.mozilla.geckoview.BuildConfig.MOZ_APP_VERSION,

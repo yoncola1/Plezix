@@ -334,7 +334,7 @@ add_setup(async function () {
 });
 
 add_task(async function test_settings_insertRelatedAfter() {
-  // Firefox default settings.
+  // Plezix default settings.
   await doTest(true, false, false);
 });
 

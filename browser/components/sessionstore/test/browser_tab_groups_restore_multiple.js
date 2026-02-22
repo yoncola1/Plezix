@@ -10,10 +10,10 @@ add_task(async function test_RestoreMultipleGroups() {
   let win = await promiseNewWindowLoaded();
   BrowserTestUtils.addTab(win.gBrowser, "about:about");
 
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   let aboutLogoTab = BrowserTestUtils.addTab(win.gBrowser, "about:logo");
   let mozillaTabGroup = win.gBrowser.addTabGroup(
-    [aboutMozillaTab, aboutLogoTab],
+    [aboutPlezixTab, aboutLogoTab],
     { color: "red", label: "mozilla stuff" }
   );
   const mozillaTabGroupId = mozillaTabGroup.id;

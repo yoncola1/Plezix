@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -44,7 +44,7 @@ const PriorityLevels = {
  * <xul:notificationbox> binding.
  *
  * See also MDN for more info about <xul:notificationbox>:
- * https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/notificationbox
+ * https://developer.mozilla.org/en-US/docs/Plezix/Tech/XUL/notificationbox
  *
  * This component can maintain its own state (list of notifications)
  * as well as consume list of notifications provided as a prop

@@ -134,7 +134,7 @@ add_task(async function test_tracking() {
     return PlacesUtils.bookmarks.insert({
       parentGuid: folder.guid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
   }
 
@@ -293,9 +293,9 @@ add_task(async function test_async_onItemChanged() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Firefox GUID: ${fxBmk.guid}`);
+    _(`Plezix GUID: ${fxBmk.guid}`);
 
     await startTracking();
 
@@ -303,7 +303,7 @@ add_task(async function test_async_onItemChanged() {
     let totalSyncChanges = PlacesUtils.bookmarks.totalSyncChanges;
     await PlacesUtils.bookmarks.update({
       guid: fxBmk.guid,
-      title: "Download Firefox",
+      title: "Download Plezix",
       url: "https://www.mozilla.org/firefox",
       // PlacesUtils.bookmarks.update rejects last modified dates older than
       // the added date.
@@ -329,9 +329,9 @@ add_task(async function test_onItemChanged_itemDates() {
     let fx_bm = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Firefox GUID: ${fx_bm.guid}`);
+    _(`Plezix GUID: ${fx_bm.guid}`);
 
     await startTracking();
 
@@ -398,7 +398,7 @@ add_task(async function test_onItemTagged() {
     let b = await PlacesUtils.bookmarks.insert({
       parentGuid: folder.guid,
       url: uri,
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     _("New item is " + b);
     _("GUID: " + b.guid);
@@ -430,13 +430,13 @@ add_task(async function test_onItemUntagged() {
     let fx1 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: uri,
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     // Different parent and title; same URL.
     let fx2 = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: uri,
-      title: "Download Firefox",
+      title: "Download Plezix",
     });
     PlacesUtils.tagging.tagURI(uri, ["foo"]);
 
@@ -466,13 +466,13 @@ add_task(async function test_async_onItemUntagged() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let fxBmk2 = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com",
-      title: "Download Firefox",
+      title: "Download Plezix",
     });
     let tag = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_FOLDER,
@@ -516,7 +516,7 @@ add_task(async function test_async_onItemTagged() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: folder1.guid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let folder2 = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_FOLDER,
@@ -528,7 +528,7 @@ add_task(async function test_async_onItemTagged() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: folder2.guid,
       url: "http://getfirefox.com",
-      title: "Download Firefox",
+      title: "Download Plezix",
     });
 
     await startTracking();
@@ -571,13 +571,13 @@ add_task(async function test_async_onItemKeywordChanged() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let fxBmk2 = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com",
-      title: "Download Firefox",
+      title: "Download Plezix",
     });
 
     await startTracking();
@@ -610,13 +610,13 @@ add_task(async function test_async_onItemKeywordDeleted() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let fxBmk2 = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: "http://getfirefox.com",
-      title: "Download Firefox",
+      title: "Download Plezix",
     });
     await PlacesUtils.keywords.insert({
       keyword: "the_keyword",
@@ -664,7 +664,7 @@ add_task(async function test_bookmarkAdded_filtered_root() {
     let rootBmk = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.rootGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     _(`New Places root bookmark GUID: ${rootBmk.guid}`);
 
@@ -687,7 +687,7 @@ add_task(async function test_onItemDeleted_filtered_root() {
     let rootBmk = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.rootGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     _(`New Places root bookmark GUID: ${rootBmk.guid}`);
 
@@ -715,7 +715,7 @@ add_task(async function test_onPageAnnoChanged() {
     await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: pageURI,
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
 
     await startTracking();
@@ -753,7 +753,7 @@ add_task(async function test_onFaviconChanged() {
     await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: pageURI,
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
 
     await PlacesTestUtils.addVisits(pageURI);
@@ -863,7 +863,7 @@ add_task(async function test_async_onItemMoved_update() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let tbBmk = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
@@ -913,9 +913,9 @@ add_task(async function test_async_onItemMoved_reorder() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Firefox GUID: ${fxBmk.guid}`);
+    _(`Plezix GUID: ${fxBmk.guid}`);
 
     let tbBmk = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
@@ -929,9 +929,9 @@ add_task(async function test_async_onItemMoved_reorder() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "https://mozilla.org",
-      title: "Mozilla",
+      title: "Plezix",
     });
-    _(`Mozilla GUID: ${mozBmk.guid}`);
+    _(`Plezix GUID: ${mozBmk.guid}`);
 
     await startTracking();
 
@@ -970,9 +970,9 @@ add_task(async function test_onItemDeleted_removeFolderTransaction() {
     let fx = await PlacesUtils.bookmarks.insert({
       parentGuid: folder.guid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Firefox GUID: ${fx.guid}`);
+    _(`Plezix GUID: ${fx.guid}`);
     let tb = await PlacesUtils.bookmarks.insert({
       parentGuid: folder.guid,
       url: "http://getthunderbird.com",
@@ -1031,7 +1031,7 @@ add_task(async function test_treeMoved() {
     await PlacesUtils.bookmarks.insert({
       parentGuid: folder2.guid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     await PlacesUtils.bookmarks.insert({
       parentGuid: folder2.guid,
@@ -1066,7 +1066,7 @@ add_task(async function test_onItemDeleted() {
     await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let tb = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.menuGuid,
@@ -1099,7 +1099,7 @@ add_task(async function test_async_onItemDeleted() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
@@ -1133,9 +1133,9 @@ add_task(async function test_async_onItemDeleted_eraseEverything() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.mobileGuid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Firefox GUID: ${fxBmk.guid}`);
+    _(`Plezix GUID: ${fxBmk.guid}`);
     let tbBmk = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.mobileGuid,
@@ -1147,9 +1147,9 @@ add_task(async function test_async_onItemDeleted_eraseEverything() {
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
       url: "https://mozilla.org",
-      title: "Mozilla",
+      title: "Plezix",
     });
-    _(`Mozilla GUID: ${mozBmk.guid}`);
+    _(`Plezix GUID: ${mozBmk.guid}`);
     let mdnBmk = await PlacesUtils.bookmarks.insert({
       type: PlacesUtils.bookmarks.TYPE_BOOKMARK,
       parentGuid: PlacesUtils.bookmarks.menuGuid,
@@ -1240,7 +1240,7 @@ add_task(async function test_onItemDeleted_tree() {
     let fx = await PlacesUtils.bookmarks.insert({
       parentGuid: folder2.guid,
       url: "http://getfirefox.com",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let tb = await PlacesUtils.bookmarks.insert({
       parentGuid: folder2.guid,

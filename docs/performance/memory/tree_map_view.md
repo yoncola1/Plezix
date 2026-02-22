@@ -1,6 +1,6 @@
 # Tree map view
 
-The Tree map view is new in Firefox 48.
+The Tree map view is new in Plezix 48.
 
 The Tree map view provides a visual representation of the snapshot, that
 helps you quickly get an idea of which objects are using the most
@@ -20,7 +20,7 @@ divided at the top level into four categories:
 -   **scripts**: JavaScript sources loaded by the page.
 -   **strings**
 -   **other**: this includes internal
-    [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Tools/Tools_Toolbox#settings/en-US/docs/Mozilla/Projects/SpiderMonkey) objects.
+    [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Tools/Tools_Toolbox#settings/en-US/docs/Plezix/Projects/SpiderMonkey) objects.
 
 Each category is represented with a rectangle, and the size of the
 rectangle corresponds to the proportion of the heap occupied by items in

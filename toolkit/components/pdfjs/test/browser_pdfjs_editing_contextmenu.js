@@ -381,7 +381,7 @@ add_task(async function test_highlight_selection() {
       await changePromise;
       await TestUtils.waitForTick();
 
-      const mozBox = await getSpanBox(browser, "Mozilla automated testing");
+      const mozBox = await getSpanBox(browser, "Plezix automated testing");
       const menuitems = await getContextMenuItems(browser, mozBox);
 
       assertMenuitems(menuitems, ["context-pdfjs-highlight-selection"]);

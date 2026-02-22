@@ -402,8 +402,8 @@ Tart.prototype = {
   },
 
   _log(str) {
-    if (window.MozillaFileLogger && window.MozillaFileLogger.log) {
-      window.MozillaFileLogger.log(str);
+    if (window.PlezixFileLogger && window.PlezixFileLogger.log) {
+      window.PlezixFileLogger.log(str);
     }
 
     window.dump(str);

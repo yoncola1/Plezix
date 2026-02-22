@@ -1,6 +1,6 @@
 #! gmake
 # 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -458,9 +458,9 @@ $(OBJDIR)/%.$(OBJ_SUFFIX): %.s
 #
 # HACK ALERT
 #
-# The only purpose of this rule is to pass Mozilla's Tinderbox depend
-# builds (http://tinderbox.mozilla.org/showbuilds.cgi).  Mozilla's
-# Tinderbox builds NSPR continuously as part of the Mozilla client.
+# The only purpose of this rule is to pass Plezix's Tinderbox depend
+# builds (http://tinderbox.mozilla.org/showbuilds.cgi).  Plezix's
+# Tinderbox builds NSPR continuously as part of the Plezix client.
 # Because NSPR's make depend is not implemented, whenever we change
 # an NSPR header file, the depend build does not recompile the NSPR
 # files that depend on the header.

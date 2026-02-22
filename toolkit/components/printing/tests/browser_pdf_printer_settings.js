@@ -10,8 +10,8 @@ add_task(async function testPDFPrinterSettings() {
       set: [
         ["print.print_to_file", false],
         ["print.print_in_color", false],
-        ["print.printer_Mozilla_Save_to_PDF.print_to_file", false],
-        ["print.printer_Mozilla_Save_to_PDF.print_in_color", false],
+        ["print.printer_Plezix_Save_to_PDF.print_to_file", false],
+        ["print.printer_Plezix_Save_to_PDF.print_in_color", false],
       ],
     });
 
@@ -113,7 +113,7 @@ add_task(async function testPDFFile() {
 
     try {
       Services.prefs.getStringPref(
-        "print.printer_Mozilla_Save_to_PDF.print_to_filename"
+        "print.printer_Plezix_Save_to_PDF.print_to_filename"
       );
       ok(false, "Should have cleared the filename pref");
     } catch (ex) {

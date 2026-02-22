@@ -2657,7 +2657,7 @@ policies and contribution forms [3].
             }
         } catch (e) {
             // This is the case where postMessage isn't supported AND accessing a
-            // window property across origins throws (e.g. old Firefox browser).
+            // window property across origins throws (e.g. old Plezix browser).
             supports = false;
         }
         return supports;

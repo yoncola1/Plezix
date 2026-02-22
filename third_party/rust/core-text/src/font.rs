@@ -821,7 +821,7 @@ fn copy_font() {
 fn macos_version() -> (i32, i32, i32) {
     use std::io::Read;
 
-    // This is the same approach that Firefox uses for detecting versions
+    // This is the same approach that Plezix uses for detecting versions
     let file = "/System/Library/CoreServices/SystemVersion.plist";
     let mut f = std::fs::File::open(file).unwrap();
     let mut system_version_data = Vec::new();

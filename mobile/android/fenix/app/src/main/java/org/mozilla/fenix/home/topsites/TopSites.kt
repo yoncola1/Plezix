@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ import org.mozilla.fenix.compose.PagerIndicator
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.sessioncontrol.TopSiteInteractor
 import org.mozilla.fenix.home.topsites.TopSitesTestTag.TOP_SITE_CARD_FAVICON
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 import kotlin.math.ceil
 
@@ -230,7 +230,7 @@ private fun InvisibleRow() {
 
     Text(
         text = "",
-        style = FirefoxTheme.typography.caption,
+        style = PlezixTheme.typography.caption,
     )
 
     Text(
@@ -255,9 +255,9 @@ data class TopSiteColors(
          */
         @Composable
         fun colors(
-            titleTextColor: Color = FirefoxTheme.colors.textPrimary,
-            sponsoredTextColor: Color = FirefoxTheme.colors.textSecondary,
-            faviconCardBackgroundColor: Color = FirefoxTheme.colors.layer2,
+            titleTextColor: Color = PlezixTheme.colors.textPrimary,
+            sponsoredTextColor: Color = PlezixTheme.colors.textSecondary,
+            faviconCardBackgroundColor: Color = PlezixTheme.colors.layer2,
         ) = TopSiteColors(
             titleTextColor = titleTextColor,
             sponsoredTextColor = sponsoredTextColor,
@@ -272,7 +272,7 @@ data class TopSiteColors(
         fun colors(wallpaperState: WallpaperState): TopSiteColors {
             val textColor: Long? = wallpaperState.currentWallpaper.textColor
             val (titleTextColor, sponsoredTextColor) = if (textColor == null) {
-                FirefoxTheme.colors.textPrimary to FirefoxTheme.colors.textSecondary
+                PlezixTheme.colors.textPrimary to PlezixTheme.colors.textSecondary
             } else {
                 Color(textColor) to Color(textColor)
             }
@@ -280,7 +280,7 @@ data class TopSiteColors(
             return TopSiteColors(
                 titleTextColor = titleTextColor,
                 sponsoredTextColor = sponsoredTextColor,
-                faviconCardBackgroundColor = FirefoxTheme.colors.layer2,
+                faviconCardBackgroundColor = PlezixTheme.colors.layer2,
             )
         }
     }
@@ -373,7 +373,7 @@ private fun TopSiteItem(
                     color = topSiteColors.titleTextColor,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.caption,
+                    style = PlezixTheme.typography.caption,
                 )
             }
 
@@ -530,8 +530,8 @@ private fun getMenuItems(
 @Composable
 @PreviewLightDark
 private fun TopSitesPreview() {
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1).padding(16.dp)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1).padding(16.dp)) {
             TopSites(
                 topSites = FakeHomepagePreview.topSites(),
                 onTopSiteClick = {},

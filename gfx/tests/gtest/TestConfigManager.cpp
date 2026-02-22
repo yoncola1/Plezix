@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #include "gtest/gtest.h"
@@ -95,8 +95,8 @@ class MockGfxInfo final : public nsIGfxInfo {
     return NS_ERROR_NOT_IMPLEMENTED;
   }
 
-  NS_IMETHODIMP GetEmbeddedInFirefoxReality(
-      bool* aEmbeddedInFirefoxReality) override {
+  NS_IMETHODIMP GetEmbeddedInPlezixReality(
+      bool* aEmbeddedInPlezixReality) override {
     return NS_ERROR_NOT_IMPLEMENTED;
   }
 
@@ -309,7 +309,7 @@ class GfxConfigManager : public ::testing::Test, public gfxConfigManager {
     mWrCompositorDCompRequired = true;
     mWrScissoredCacheClearsEnabled = true;
     ++mHwStretchingSupport.mBoth;
-    mIsNightly = true;
+    mIsPlezix = true;
     mIsEarlyBetaOrEarlier = true;
   }
 
@@ -369,7 +369,7 @@ TEST_F(GfxConfigManager, WebRenderDefault) {
 }
 
 TEST_F(GfxConfigManager, WebRenderDefaultRelease) {
-  mIsNightly = mIsEarlyBetaOrEarlier = false;
+  mIsPlezix = mIsEarlyBetaOrEarlier = false;
   ConfigureWebRender();
 
   EXPECT_TRUE(mFeatures.mWr.IsEnabled());
@@ -661,8 +661,8 @@ TEST_F(GfxConfigManager, WebRenderGPUProcessDisabled) {
   EXPECT_TRUE(mFeatures.mGLNorm16Textures.IsEnabled());
 }
 
-TEST_F(GfxConfigManager, WebRenderIntelBatteryNoHwStretchingNotNightly) {
-  mIsNightly = mIsEarlyBetaOrEarlier = false;
+TEST_F(GfxConfigManager, WebRenderIntelBatteryNoHwStretchingNotPlezix) {
+  mIsPlezix = mIsEarlyBetaOrEarlier = false;
   ++mHwStretchingSupport.mNone;
   mScaledResolution = true;
   mMockGfxInfo->mHasBattery.ref() = true;
@@ -760,7 +760,7 @@ TEST_F(GfxConfigManager, WebRenderForceSoftwareForceEnabledEnvvar) {
 }
 
 TEST_F(GfxConfigManager, WebRenderSoftwareReleaseWindowsGPUProcessDisabled) {
-  mIsNightly = mIsEarlyBetaOrEarlier = false;
+  mIsPlezix = mIsEarlyBetaOrEarlier = false;
   mMockGfxInfo->mStatusWr = nsIGfxInfo::FEATURE_BLOCKED_DEVICE;
   mFeatures.mGPUProcess.UserDisable("", ""_ns);
   ConfigureWebRender();

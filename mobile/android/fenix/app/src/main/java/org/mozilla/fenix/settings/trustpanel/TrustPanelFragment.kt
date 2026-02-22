@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -68,7 +68,7 @@ import org.mozilla.fenix.settings.trustpanel.ui.ConnectionSecurityPanel
 import org.mozilla.fenix.settings.trustpanel.ui.ProtectionPanel
 import org.mozilla.fenix.settings.trustpanel.ui.TrackerCategoryDetailsPanel
 import org.mozilla.fenix.settings.trustpanel.ui.TrackersBlockedPanel
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.trackingprotection.TrackerBuckets
 import org.mozilla.fenix.utils.DELAY_MS_MAIN_MENU
 import org.mozilla.fenix.utils.DELAY_MS_SUB_MENU
@@ -124,7 +124,7 @@ class TrustPanelFragment : BottomSheetDialogFragment() {
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 val components = components
                 val trackingProtectionUseCases = components.useCases.trackingProtectionUseCases
                 val settings = components.settings

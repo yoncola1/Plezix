@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -96,7 +96,7 @@ class RemoteAgentParentProcess {
   set allowSystemAccess(value) {
     // Return early if system access is already marked being allowed.
     // There is also no possibility to disallow once it got allowed except
-    // quitting Firefox and starting it again.
+    // quitting Plezix and starting it again.
     if (this.#allowSystemAccess || !value) {
       return;
     }
@@ -495,7 +495,7 @@ class RemoteAgentParentProcess {
 
   // XPCOM
 
-  helpInfo = `  --remote-debugging-port [<port>] Start the Firefox Remote Agent,
+  helpInfo = `  --remote-debugging-port [<port>] Start the Plezix Remote Agent,
                      which is a low-level remote debugging interface used for WebDriver
                      BiDi. Defaults to port 9222.
   --remote-allow-hosts <hosts> Values of the Host header to allow for incoming requests.

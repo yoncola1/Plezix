@@ -280,19 +280,19 @@ add_task(async function check_hasSelectableProfiles() {
   );
 });
 
-add_task(async function check_usesFirefoxSync() {
+add_task(async function check_usesPlezixSync() {
   await pushPrefs(["services.sync.username", "someone@foo.com"]);
   is(
-    await ASRouterTargeting.Environment.usesFirefoxSync,
+    await ASRouterTargeting.Environment.usesPlezixSync,
     true,
     "should return true if a fx account is set"
   );
 
-  const message = { id: "foo", targeting: "usesFirefoxSync" };
+  const message = { id: "foo", targeting: "usesPlezixSync" };
   is(
     await ASRouterTargeting.findMatchingMessage({ messages: [message] }),
     message,
-    "should select correct item by usesFirefoxSync"
+    "should select correct item by usesPlezixSync"
   );
 });
 
@@ -1037,12 +1037,12 @@ add_task(async function check_isChinaRepack() {
     "should select the message for non China repack users"
   );
 
-  prefDefaultBranch.setCharPref("id", "MozillaOnline");
+  prefDefaultBranch.setCharPref("id", "PlezixOnline");
 
   is(
     await ASRouterTargeting.Environment.isChinaRepack,
     true,
-    "Fx with `distribution.id` set to `MozillaOnline` is China repack"
+    "Fx with `distribution.id` set to `PlezixOnline` is China repack"
   );
   is(
     (await ASRouterTargeting.findMatchingMessage({ messages })).id,

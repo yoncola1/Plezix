@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1622,7 +1622,7 @@ void Loader::NotifyObservers(SheetLoadData& aData, nsresult aStatus) {
         [doc = RefPtr{mDocument}] {
           // Force creating the page style actor, if available.
           // This will no-op if no actor with this name is registered (outside
-          // of desktop Firefox).
+          // of desktop Plezix).
           nsCOMPtr<nsISupports> pageStyleActor =
               do_QueryActor("PageStyle", doc);
           Unused << pageStyleActor;

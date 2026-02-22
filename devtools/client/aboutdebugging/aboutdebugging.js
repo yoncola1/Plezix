@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -92,7 +92,7 @@ const AboutDebugging = {
       "devtools/client/aboutdebugging.ftl",
     ]);
 
-    this.actions.createThisFirefoxRuntime();
+    this.actions.createThisPlezixRuntime();
 
     // Listen to Network locations updates and retrieve the initial list of locations.
     addNetworkLocationsObserver(this.onNetworkLocationsUpdated);

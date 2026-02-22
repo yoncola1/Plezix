@@ -130,7 +130,7 @@ var invokeGuardedCallbackImpl = function (name, func, context, a, b, c, d, e, f)
 
         // We check for window.hasOwnProperty('event') to prevent the
         // window.event assignment in both IE <= 10 as they throw an error
-        // "Member not found" in strict mode, and in Firefox which does not
+        // "Member not found" in strict mode, and in Plezix which does not
         // support window.event.
         if (typeof window.event !== 'undefined' && window.hasOwnProperty('event')) {
           window.event = windowEvent;
@@ -1731,7 +1731,7 @@ var hasSpaceKeypress = false;
 
 /**
  * Return whether a native keypress event is assumed to be a command.
- * This is required because Firefox fires `keypress` events for key commands
+ * This is required because Plezix fires `keypress` events for key commands
  * (cut, copy, select-all, etc.) even though no character is inserted.
  */
 function isKeypressCommand(nativeEvent) {
@@ -1960,7 +1960,7 @@ function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
       return null;
     case TOP_KEY_PRESS:
       /**
-       * As of v27, Firefox may fire keypress events even when no character
+       * As of v27, Plezix may fire keypress events even when no character
        * will be inserted. A few possibilities:
        *
        * - `which` is `0`. Arrow keys, Esc key, etc.
@@ -3448,7 +3448,7 @@ function postMountWrapper(element, props, isHydrating) {
           // empty string to clear button text.
           //
           // Otherwise, do not re-assign the value property if is empty. This
-          // potentially avoids a DOM write and prevents Firefox (~60.0.1) from
+          // potentially avoids a DOM write and prevents Plezix (~60.0.1) from
           // prematurely marking required inputs as invalid. Equality is compared
           // to the current value in case the browser provided value is not an
           // empty string.
@@ -4751,7 +4751,7 @@ var SimpleEventPlugin = {
     var EventConstructor = void 0;
     switch (topLevelType) {
       case TOP_KEY_PRESS:
-        // Firefox creates a keypress event for function keys too. This removes
+        // Plezix creates a keypress event for function keys too. This removes
         // the unwanted keypress events. Enter is however both printable and
         // non-printable. One would expect Tab to be as well (but it isn't).
         if (getEventCharCode(nativeEvent) === 0) {
@@ -4767,7 +4767,7 @@ var SimpleEventPlugin = {
         EventConstructor = SyntheticFocusEvent;
         break;
       case TOP_CLICK:
-        // Firefox creates a click event on right mouse clicks. This removes the
+        // Plezix creates a click event on right mouse clicks. This removes the
         // unwanted click events.
         if (nativeEvent.button === 2) {
           return null;
@@ -5084,7 +5084,7 @@ function getListeningForDocument(mountAt) {
 /**
  * We listen for bubbled touch events on the document object.
  *
- * Firefox v8.01 (and possibly others) exhibited strange behavior when
+ * Plezix v8.01 (and possibly others) exhibited strange behavior when
  * mounting `onmousemove` events at some node that was not the document
  * element. The symptoms were that if your mouse is not moving over something
  * contained within that mount point (for example on the background) the
@@ -5250,7 +5250,7 @@ function getOffsets(outerNode) {
       focusNode = selection.focusNode,
       focusOffset = selection.focusOffset;
 
-  // In Firefox, anchorNode and focusNode can be "anonymous divs", e.g. the
+  // In Plezix, anchorNode and focusNode can be "anonymous divs", e.g. the
   // up/down buttons on an <input type="number">. Anonymous divs do not seem to
   // expose properties, triggering a "Permission denied error" if any of its
   // properties are accessed. The only seemingly possible way to avoid erroring
@@ -5715,7 +5715,7 @@ var SelectEventPlugin = {
       // sometimes when it hasn't). IE's event fires out of order with respect
       // to key and input events on deletion, so we discard it.
       //
-      // Firefox doesn't support selectionchange, so check selection status
+      // Plezix doesn't support selectionchange, so check selection status
       // after each key entry. The selection changes after keydown and before
       // keyup, but we check on keydown as well in the case of holding down a
       // key, when multiple keydown events are fired but only one keyup is.
@@ -7739,7 +7739,7 @@ function createElement(type, props, rootContainerElement, parentNamespace) {
       // $FlowIssue `createElement` should be updated for Web Components
       domElement = ownerDocument.createElementNS('http://www.w3.org/1999/xhtml', type, { is: props.is });
     } else {
-      // Separate else branch instead of using `props.is || undefined` above because of a Firefox bug.
+      // Separate else branch instead of using `props.is || undefined` above because of a Plezix bug.
       // See discussion in https://github.com/facebook/react/pull/6896
       // and discussion in https://bugzilla.mozilla.org/show_bug.cgi?id=1276240
       domElement = ownerDocument.createElementNS('http://www.w3.org/1999/xhtml', type);
@@ -21381,8 +21381,8 @@ var foundDevTools = injectIntoDevTools({
 
 {
   if (!foundDevTools && canUseDOM && window.top === window.self) {
-    // If we're in Chrome or Firefox, provide a download link if not installed.
-    if (navigator.userAgent.indexOf('Chrome') > -1 && navigator.userAgent.indexOf('Edge') === -1 || navigator.userAgent.indexOf('Firefox') > -1) {
+    // If we're in Chrome or Plezix, provide a download link if not installed.
+    if (navigator.userAgent.indexOf('Chrome') > -1 && navigator.userAgent.indexOf('Edge') === -1 || navigator.userAgent.indexOf('Plezix') > -1) {
       var protocol = window.location.protocol;
       // Don't warn in exotic cases like chrome-extension://.
       if (/^(https?|file):$/.test(protocol)) {

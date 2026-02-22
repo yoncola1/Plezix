@@ -72,10 +72,10 @@ To update the Glean SDK version used by `application-services`:
 4) Update Gradle's version of the Glean dependency for Android support:
     * Edit `gradle/libs.versions.toml` to specify e.g. `glean = "62.0.0"`
 5) Update Xcode's version of its Glean dependency for iOS support:
-    * Edit `megazords/ios-rust/MozillaTestServices/MozillaTestServices.xcodeproj/project.pbxproj`
+    * Edit `megazords/ios-rust/PlezixTestServices/PlezixTestServices.xcodeproj/project.pbxproj`
       to specify e.g. `minimumVersion = 62.0.0;` for the `glean-swift` package reference.
     * Xcode also has a lockfile. If you do not have Xcode, or just don't want to run it, edit
-      `megazords/ios-rust/MozillaTestServices/MozillaTestServices.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
+      `megazords/ios-rust/PlezixTestServices/PlezixTestServices.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`
       to specify the new version plus the git SHA of the new release of [mozilla/glean-swift][glean-swift]
       e.g. `"revision" : "5c614b4af5a1f1ffe23b46bd03696086d8ce9d0d",` and `"version": "62.0.0"`
 6) Run `cargo test` to make sure nothing obvious is broken.

@@ -33,7 +33,7 @@
 			
 			<tr>
 				<td>File</td>
-				<td><a href="/pub/firefox/nightly/latest-mozilla-central/Firefox%20Installer.en-US.exe">Firefox Installer.en-US.exe</a></td>
+				<td><a href="/pub/firefox/nightly/latest-mozilla-central/Plezix%20Installer.en-US.exe">Plezix Installer.en-US.exe</a></td>
 				<td>269K</td>
 				<td>15-Feb-2018 13:21</td>
 			</tr>

@@ -97,7 +97,7 @@ release: 1.5.0-nightly",
         Some("65d5c083377645a115c4ac23a620d3581b9562b6".into())
     );
     assert_eq!(version.commit_date, Some("2015-09-29".into()));
-    assert_eq!(version.channel, Channel::Nightly);
+    assert_eq!(version.channel, Channel::Plezix);
     assert_eq!(version.host, "x86_64-unknown-linux-gnu");
     assert_eq!(
         version.short_version_string,
@@ -152,7 +152,7 @@ LLVM version: 3.9",
         Some("5d994d8b7e482e87467d4a521911477bd8284ce3".into())
     );
     assert_eq!(version.commit_date, Some("2017-01-05".into()));
-    assert_eq!(version.channel, Channel::Nightly);
+    assert_eq!(version.channel, Channel::Plezix);
     assert_eq!(version.host, "x86_64-unknown-linux-gnu");
     assert_eq!(
         version.short_version_string,

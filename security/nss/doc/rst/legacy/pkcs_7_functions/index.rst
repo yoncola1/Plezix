@@ -8,7 +8,7 @@ PKCS 7 functions
    The public functions listed here perform PKCS #7 operations required by mail and news
    applications and by some of the NSS tools.
 
-   The `Mozilla Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
+   The `Plezix Cross Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides
    access to the function definition, prototype definition, and source code references. The NSS
    version column indicates which versions of NSS support the function.
 

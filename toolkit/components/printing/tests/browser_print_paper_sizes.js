@@ -16,11 +16,11 @@ add_task(async function testBadPaperSizeUnitCorrection() {
     // Set prefs to select a non-default paper size
     await SpecialPowers.pushPrefEnv({
       set: [
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_id", "na_letter"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_id", "na_letter"],
         // paperSizeUnit is a bogus value, but the dimensions are correct for inches
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_size_unit", 99],
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_height", "11.0"],
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_width", "8.50"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_size_unit", 99],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_height", "11.0"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_width", "8.50"],
       ],
     });
     await helper.startPrint();
@@ -65,11 +65,11 @@ add_task(async function testMismatchedPaperSizeUnitCorrection() {
     // Set prefs to select a non-default paper size
     await SpecialPowers.pushPrefEnv({
       set: [
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_id", "na_ledger"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_id", "na_ledger"],
         // paperSizeUnit is millimeters, but the dimensions are correct for inches
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_size_unit", 1],
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_width", "11.0"],
-        ["print.printer_Mozilla_Save_to_PDF.print_paper_height", "17.0"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_size_unit", 1],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_width", "11.0"],
+        ["print.printer_Plezix_Save_to_PDF.print_paper_height", "17.0"],
       ],
     });
     await helper.startPrint();

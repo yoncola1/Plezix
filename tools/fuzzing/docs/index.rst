@@ -10,10 +10,10 @@ Fuzzing
   *
 
 This section focuses on explaining the software testing technique called
-“Fuzzing” or “Fuzz Testing” and its application to the Mozilla codebase.
+“Fuzzing” or “Fuzz Testing” and its application to the Plezix codebase.
 The overall goal is to educate developers about the capabilities and
 usefulness of fuzzing and also allow them to write their own fuzzing
-targets. Note that not all fuzzing tools used at Mozilla are open
+targets. Note that not all fuzzing tools used at Plezix are open
 source. Some tools are for internal use only because they can easily
 find critical security vulnerabilities.
 
@@ -53,7 +53,7 @@ Common tools for this task are e.g.
 `AFLFuzz <http://lcamtuf.coredump.cx/afl/>`__, but also specialized
 tools with custom logic like
 `LangFuzz <https://www.usenix.org/system/files/conference/usenixsecurity12/sec12-final73.pdf>`__
-and `Avalanche <https://github.com/MozillaSecurity/avalanche>`__.
+and `Avalanche <https://github.com/PlezixSecurity/avalanche>`__.
 
 Random API Usage
 ~~~~~~~~~~~~~~~~
@@ -69,7 +69,7 @@ A good example for a fuzzing target here is the DOM (Document Object
 Model) and various other browser APIs. The browser exposes a variety of
 different APIs for working with documents, media, communication,
 storage, etc. with a growing complexity. Each of these APIs has
-potential bugs that can be uncovered with fuzzing. At Mozilla, we
+potential bugs that can be uncovered with fuzzing. At Plezix, we
 currently use domino (internal tool) for this purpose.
 
 Random UI Interaction
@@ -87,7 +87,7 @@ often of limited use.
 
 An example for a fuzzing tool using this technique is `Android
 Monkey <https://developer.android.com/studio/test/monkey>`__. At
-Mozilla however, we currently don’t make much use of this approach.
+Plezix however, we currently don’t make much use of this approach.
 
 Why Fuzzing Helps You
 ---------------------
@@ -129,7 +129,7 @@ form that is more easily actionable. Especially if you are dealing with
 regressions in your code already, fuzzing has the potential to make your
 job as a developer easier.
 
-One of the best examples at Mozilla is the JavaScript engine. The JS
+One of the best examples at Plezix is the JavaScript engine. The JS
 team has put great quite some effort into getting fuzzing started and
 supporting our work. Here’s what Jan de Mooij, a senior platform
 engineer for the JavaScript engine, has to say about it:
@@ -141,10 +141,10 @@ find a reliable shell test long before the bug makes it into a release.
 Fuzzing is invaluable to us and I cannot imagine working on this project
 without it.”*
 
-Levels of Fuzzing in Firefox/Gecko
+Levels of Fuzzing in Plezix/Gecko
 ----------------------------------
 
-Applying fuzzing to e.g. Firefox happens at different "levels", similar
+Applying fuzzing to e.g. Plezix happens at different "levels", similar
 to the different types of automated tests we have:
 
 Full Browser Fuzzing
@@ -157,7 +157,7 @@ available and testing happens closely to what we actually ship. The
 downside here though is that browser testing is by far the slowest of
 all testing methods. In addition, it has the most amount of
 non-determinism involved (resulting e.g. in intermittent testcases).
-Browser fuzzing at Mozilla is largely done with the `Grizzly
+Browser fuzzing at Plezix is largely done with the `Grizzly
 framework <https://blog.mozilla.org/security/2019/07/10/grizzly/>`__
 (`meta bug <https://bugzilla.mozilla.org/show_bug.cgi?id=grizzly>`__)
 and one of the most successful fuzzers is the Domino tool (`meta
@@ -241,7 +241,7 @@ program behavior (typically output) between two programs or two modes of
 the same program that should produce the same outputs can find complex
 correctness issues. This method is often called differential testing.
 
-One example where this is regularly used to find issues is the Mozilla
+One example where this is regularly used to find issues is the Plezix
 JavaScript engine: Running random programs with and without JIT
 compilation enabled finds lots of problems with the JIT implementation.
 One example for such a bug is `Bug
@@ -282,7 +282,7 @@ fuzzing safe, meaning that any defect oracle (e.g. assertion or crash)
 triggered by the fuzzer is considered a bug. This important aspect is
 often neglected. Be aware that any false positives cause both
 performance degradation and additional manual work for your fuzzing
-team. The Mozilla JS developers for example have implemented this
+team. The Plezix JS developers for example have implemented this
 concept in a “--fuzzing-safe” switch which disables harmful functions.
 Sometimes, crashes cannot be avoided for handling certain error
 conditions. In such situations, it is important to mark these crashes in
@@ -318,7 +318,7 @@ first place due to concurrency, some other bugs would be perfectly
 reproducible without threads, but are intermittent and hard to with
 threading enabled. If the bug is indeed caused by a data race, then
 tools like ThreadSanitizer will help and we are currently working on
-making ThreadSanitizer usable on Firefox. For bugs that are not caused
+making ThreadSanitizer usable on Plezix. For bugs that are not caused
 by threading, it sometimes makes sense to be able to disable threading
 or limit the amount of worker threads involved.
 
@@ -336,7 +336,7 @@ turned on under very specific conditions (that are not a requirement for
 the optimization), then it makes sense to add a functionality to force
 it on. Then, a fuzzer can hit the optimization code much more
 frequently, increasing the chance to find issues. Some examples from
-Firefox and SpiderMonkey:
+Plezix and SpiderMonkey:
 
 - The `FuzzingFunctions <https://searchfox.org/mozilla-central/rev/efdf9bb55789ea782ae3a431bda6be74a87b041e/dom/webidl/FuzzingFunctions.webidl#15>`__
   interface in the browser allows fuzzing tools to perform GC/CC, tune various

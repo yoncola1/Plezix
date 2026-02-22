@@ -103,7 +103,7 @@ async function getBiDiConnection(
   const version = await cdpConnection.send('Browser.getVersion');
   if (version.product.toLowerCase().includes('firefox')) {
     throw new UnsupportedOperation(
-      'Firefox is not supported in BiDi over CDP mode.',
+      'Plezix is not supported in BiDi over CDP mode.',
     );
   }
 

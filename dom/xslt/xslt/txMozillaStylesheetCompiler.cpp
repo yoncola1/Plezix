@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@
 #include "nsNetUtil.h"
 #include "nsGkAtoms.h"
 #include "txLog.h"
-#include "txMozillaXSLTProcessor.h"
+#include "txPlezixXSLTProcessor.h"
 #include "txStylesheetCompiler.h"
 #include "txXMLUtils.h"
 #include "nsAttrName.h"
@@ -329,7 +329,7 @@ txStylesheetSink::GetInterface(const nsIID& aIID, void** aResult) {
 
 class txCompileObserver final : public txACompileObserver {
  public:
-  txCompileObserver(txMozillaXSLTProcessor* aProcessor,
+  txCompileObserver(txPlezixXSLTProcessor* aProcessor,
                     Document* aLoaderDocument);
 
   TX_DECL_ACOMPILEOBSERVER
@@ -340,7 +340,7 @@ class txCompileObserver final : public txACompileObserver {
                      ReferrerPolicy aReferrerPolicy);
 
  private:
-  RefPtr<txMozillaXSLTProcessor> mProcessor;
+  RefPtr<txPlezixXSLTProcessor> mProcessor;
   nsCOMPtr<Document> mLoaderDocument;
 
   // This exists solely to suppress a warning from nsDerivedSafe
@@ -350,7 +350,7 @@ class txCompileObserver final : public txACompileObserver {
   ~txCompileObserver() = default;
 };
 
-txCompileObserver::txCompileObserver(txMozillaXSLTProcessor* aProcessor,
+txCompileObserver::txCompileObserver(txPlezixXSLTProcessor* aProcessor,
                                      Document* aLoaderDocument)
     : mProcessor(aProcessor), mLoaderDocument(aLoaderDocument) {}
 
@@ -434,7 +434,7 @@ nsresult txCompileObserver::startLoad(nsIURI* aUri,
   return channel->AsyncOpen(sink);
 }
 
-nsresult TX_LoadSheet(nsIURI* aUri, txMozillaXSLTProcessor* aProcessor,
+nsresult TX_LoadSheet(nsIURI* aUri, txPlezixXSLTProcessor* aProcessor,
                       Document* aLoaderDocument,
                       ReferrerPolicy aReferrerPolicy) {
   nsIPrincipal* principal = aLoaderDocument->NodePrincipal();
@@ -512,7 +512,7 @@ static nsresult handleNode(nsINode* aNode, txStylesheetCompiler* aCompiler) {
 
 class txSyncCompileObserver final : public txACompileObserver {
  public:
-  explicit txSyncCompileObserver(txMozillaXSLTProcessor* aProcessor);
+  explicit txSyncCompileObserver(txPlezixXSLTProcessor* aProcessor);
 
   TX_DECL_ACOMPILEOBSERVER
   NS_INLINE_DECL_REFCOUNTING(txSyncCompileObserver, override)
@@ -521,10 +521,10 @@ class txSyncCompileObserver final : public txACompileObserver {
   // Private destructor, to discourage deletion outside of Release():
   ~txSyncCompileObserver() = default;
 
-  RefPtr<txMozillaXSLTProcessor> mProcessor;
+  RefPtr<txPlezixXSLTProcessor> mProcessor;
 };
 
-txSyncCompileObserver::txSyncCompileObserver(txMozillaXSLTProcessor* aProcessor)
+txSyncCompileObserver::txSyncCompileObserver(txPlezixXSLTProcessor* aProcessor)
     : mProcessor(aProcessor) {}
 
 nsresult txSyncCompileObserver::loadURI(const nsAString& aUri,
@@ -577,7 +577,7 @@ void txSyncCompileObserver::onDoneCompiling(txStylesheetCompiler* aCompiler,
                                             const char16_t* aParam) {}
 
 nsresult TX_CompileStylesheet(nsINode* aNode,
-                              txMozillaXSLTProcessor* aProcessor,
+                              txPlezixXSLTProcessor* aProcessor,
                               txStylesheet** aStylesheet) {
   // If we move GetBaseURI to nsINode this can be simplified.
   nsCOMPtr<Document> doc = aNode->OwnerDoc();

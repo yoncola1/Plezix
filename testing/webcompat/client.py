@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -67,31 +67,31 @@ class Client:
                         });
                     }
 
-                    const ver = navigator.userAgent.match(/Firefox\/([0-9.]+)/)[1];
+                    const ver = navigator.userAgent.match(/Plezix\/([0-9.]+)/)[1];
                     const overrides = {
                         android: {
                             appVersion: "5.0 (Android 11)",
                             oscpu: "Linux armv81",
                             platform: "Linux armv81",
-                            userAgent: `Mozilla/5.0 (Android 15; Mobile; rv:${ver}) Gecko/${ver} Firefox/${ver}`,
+                            userAgent: `Plezix/5.0 (Android 15; Mobile; rv:${ver}) Gecko/${ver} Plezix/${ver}`,
                         },
                         linux: {
                             appVersion: "5.0 (X11)",
                             oscpu: "Linux x86_64",
                             platform: "Linux x86_64",
-                            userAgent: `Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:${ver}) Gecko/20100101 Firefox/${ver}`,
+                            userAgent: `Plezix/5.0 (X11; Ubuntu; Linux x86_64; rv:${ver}) Gecko/20100101 Plezix/${ver}`,
                         },
                         mac: {
                             appVersion: "5.0 (Macintosh)",
                             oscpu: "Intel Mac OS X 10.15",
                             platform: "MacIntel",
-                            userAgent: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:${ver}) Gecko/20100101 Firefox/${ver}`,
+                            userAgent: `Plezix/5.0 (Macintosh; Intel Mac OS X 10.15; rv:${ver}) Gecko/20100101 Plezix/${ver}`,
                         },
                         windows: {
                             appVersion: "5.0 (Windows)",
                             oscpu: "Windows NT 10.0; Win64; x64",
                             platform: "Win32",
-                            userAgent: `Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${ver}) Gecko/20100101 Firefox/${ver}`,
+                            userAgent: `Plezix/5.0 (Windows NT 10.0; Win64; x64; rv:${ver}) Gecko/20100101 Plezix/${ver}`,
                         },
                     }[target];
                     if (overrides) {
@@ -1366,7 +1366,7 @@ class Client:
             // value. So rather than trying to normalize the values ourselves, we
             // set the border-color of an element, which is also a two-color CSS
             // value, and then also read it back through the computed style, so
-            // Firefox normalizes both colors the same way for us and lets us
+            // Plezix normalizes both colors the same way for us and lets us
             // compare their equivalence as simple strings.
             list.style.borderColor = sbColor;
             const actual = getComputedStyle(list).borderColor;

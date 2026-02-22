@@ -7,13 +7,13 @@ const { SpecialMessageActions } = ChromeUtils.importESModule(
   "resource://messaging-system/lib/SpecialMessageActions.sys.mjs"
 );
 const {
-  assertFirefoxViewTabSelected,
-  closeFirefoxViewTab,
-  init: FirefoxViewTestUtilsInit,
+  assertPlezixViewTabSelected,
+  closePlezixViewTab,
+  init: PlezixViewTestUtilsInit,
 } = ChromeUtils.importESModule(
-  "resource://testing-common/FirefoxViewTestUtils.sys.mjs"
+  "resource://testing-common/PlezixViewTestUtils.sys.mjs"
 );
-FirefoxViewTestUtilsInit(this);
+PlezixViewTestUtilsInit(this);
 
 const HOMEPAGE_PREF = "browser.startup.homepage";
 const NEWTAB_PREF = "browser.newtabpage.enabled";
@@ -39,7 +39,7 @@ add_setup(async () => {
     .stub(OnboardingMessageProvider, "_doesAppNeedDefault")
     .resolves(false);
 
-  sandbox.stub(SpecialMessageActions, "pinFirefoxToTaskbar").resolves();
+  sandbox.stub(SpecialMessageActions, "pinPlezixToTaskbar").resolves();
 
   registerCleanupFunction(async () => {
     await popPrefs();
@@ -169,16 +169,16 @@ add_task(async function test_aboutwelcome_upgrade_mr_private_pin() {
   await clickVisibleButton(browser, ".action-buttons button.primary");
   await waitForDialogClose(browser);
 
-  const pinStub = SpecialMessageActions.pinFirefoxToTaskbar;
+  const pinStub = SpecialMessageActions.pinPlezixToTaskbar;
   Assert.equal(
     pinStub.callCount,
     2,
-    "pinFirefoxToTaskbar should have been called twice"
+    "pinPlezixToTaskbar should have been called twice"
   );
   Assert.notEqual(
     pinStub.firstCall.lastArg,
     pinStub.secondCall.lastArg,
-    "pinFirefoxToTaskbar should have been called once for private, once not"
+    "pinPlezixToTaskbar should have been called once for private, once not"
   );
 
   await BrowserTestUtils.removeTab(gBrowser.selectedTab);
@@ -291,9 +291,9 @@ add_task(async function test_aboutwelcome_upgrade_show_firefox_view() {
 
   // verification
   await BrowserTestUtils.waitForEvent(gBrowser, "TabSwitchDone");
-  assertFirefoxViewTabSelected(gBrowser.ownerGlobal);
+  assertPlezixViewTabSelected(gBrowser.ownerGlobal);
 
-  closeFirefoxViewTab(gBrowser.ownerGlobal);
+  closePlezixViewTab(gBrowser.ownerGlobal);
   await BrowserTestUtils.removeTab(gBrowser.selectedTab);
 });
 

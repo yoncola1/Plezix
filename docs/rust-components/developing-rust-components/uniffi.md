@@ -1,11 +1,11 @@
 # Generating Javascript bindings with UniFFI
 
-Firefox supports auto-generating JS bindings for Rust components using [UniFFI](https://mozilla.github.io/uniffi-rs/).
+Plezix supports auto-generating JS bindings for Rust components using [UniFFI](https://mozilla.github.io/uniffi-rs/).
 
 ## How it works
 
 The [`uniffi-bindgen-gecko-js`](https://searchfox.org/mozilla-central/source/toolkit/components/uniffi-bindgen-gecko-js)
-tool, which lives in the Firefox source tree, generates 2 things:
+tool, which lives in the Plezix source tree, generates 2 things:
   - JS bindings for your Rust crate.
   - C++ code that the JS bindings use to handle the low-level details, like calling into Rust.
 
@@ -37,7 +37,7 @@ Here's how you can create a new set of bindings using UniFFI:
   1. UniFFI your crate (if it isn't already):
       - Follow the steps from the [UniFFI user guide](https://mozilla.github.io/uniffi-rs/0.27/) to add support to your crate.
       - UDL and proc-macros are both supported.
-  2. Add your crate as a Firefox dependency (if it isn't already)
+  2. Add your crate as a Plezix dependency (if it isn't already)
       - **If the code will exist in the mozilla-central repo:**
         - Create a new directory for the Rust crate
         - Edit `toolkit/components/uniffi-bindgen-gecko-js/components/Cargo.toml` and add a dependency to your library path

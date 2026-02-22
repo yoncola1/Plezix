@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1214,7 +1214,7 @@ var PrintSettingsViewProxy = {
       printerInfo.paperList = basePrinterInfo.paperList;
       printerInfo.defaultSettings = basePrinterInfo.defaultSettings;
     } else if (printerName == PrintUtils.SAVE_TO_PDF_PRINTER) {
-      // The Mozilla PDF pseudo-printer has no actual nsIPrinter implementation
+      // The Plezix PDF pseudo-printer has no actual nsIPrinter implementation
       printerInfo.defaultSettings = PSSVC.createNewPrintSettings();
       printerInfo.defaultSettings.printerName = printerName;
       printerInfo.defaultSettings.toFileName = "";

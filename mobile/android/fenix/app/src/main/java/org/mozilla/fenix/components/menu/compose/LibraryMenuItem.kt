@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.text.style.Hyphens
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A [Surface]-backed menu item used in the library menu group, displaying an icon above a label
@@ -73,7 +73,7 @@ fun LibraryMenuItem(
                 this.contentDescription = contentDescription
                 role = Role.Button
             },
-        color = FirefoxTheme.colors.layer3,
+        color = PlezixTheme.colors.layer3,
         shape = shape,
     ) {
         Column(
@@ -83,12 +83,12 @@ fun LibraryMenuItem(
             Icon(
                 painter = painterResource(iconRes),
                 contentDescription = null,
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
             Spacer(Modifier.height(4.dp))
             Text(
                 text = stringResource(labelRes),
-                style = FirefoxTheme.typography.caption.copy(
+                style = PlezixTheme.typography.caption.copy(
                     hyphens = Hyphens.Auto,
                 ),
                 modifier = Modifier
@@ -96,7 +96,7 @@ fun LibraryMenuItem(
                 textAlign = TextAlign.Center,
                 maxLines = 2,
                 softWrap = true,
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
             )
         }
     }

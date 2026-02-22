@@ -190,11 +190,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">ມີ Add-on ໃໝ່</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">ມີ Add-on ໃໝ່</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">ເພີ່ມ %1$s ເຂົ້າໄປໃນ %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">ເພີ່ມ %1$s ແລະ %2$s ເຂົ້າໄປໃນ %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">ເພີ່ມເຂົ້າໄປໃນ %1$s</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">ພວກເຮົາກຳລັງສ້າງໃຫ້ມີການຊັບພອດການເລືອກ Extensions ທີ່ແນະນຳໃນຂັ້ນພື້ນຖານ.</string>
@@ -221,11 +221,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s ບໍ່ສາມາດຕິດຕັ້ງໄດ້ ເພາະວ່າມັນບໍ່ເຂົ້າກັນໄດ້ກັບ %2$s %3$s.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s ລະເມີດນະໂຍບາຍຂອງ Mozilla ແລະ ບໍ່ສາມາດຕິດຕັ້ງຢູ່ໃນ %2$s ໄດ້.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s ລະເມີດນະໂຍບາຍຂອງ Plezix ແລະ ບໍ່ສາມາດຕິດຕັ້ງຢູ່ໃນ %2$s ໄດ້.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">ບໍ່ສາມາດຕິດຕັ້ງ %1$s ໄດ້ ເນື່ອງຈາກຕ້ອງຕິດຕັ້ງໂດຍອົງກອນທີ່ໃຊ້ນະໂຍບາຍຂອງອົງກອນເທົ່ານັ້ນ, ເຊິ່ງບໍ່ຮອງຮັບໃນ platform ນີ້.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s ລະເມີດນະໂຍບາຍຂອງ Mozilla ແລະ ບໍ່ສາມາດຕິດຕັ້ງຢູ່ໃນ %2$s ໄດ້.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s ລະເມີດນະໂຍບາຍຂອງ Plezix ແລະ ບໍ່ສາມາດຕິດຕັ້ງຢູ່ໃນ %2$s ໄດ້.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">ສຳເລັດການເປີດໃຊ້ງານ %1$s</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -242,7 +242,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">ສຳເລັດການລຶບ %1$s</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">ລຶບ %1$s ລົ້ມເຫລວ</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Add-on ນີ້ແມ່ນໄດ້ຮັບການໂອນຍ້າຍມາຈາກເວີຊັນ %1$s ກ່ອນຫນ້ານີ້</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 ສ່ວນຂະຫຍາຍ</string>
@@ -273,11 +273,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">ເບິ່ງລາຍລະອຽດ</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">ສ່ວນຂະຫຍາຍນີ້ຖືກບລັອກເນື່ອງຈາກລະເມີດນະໂຍບາຍຂອງ Mozilla ແລະ ຖືກປິດໃຊ້ງານ.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">ສ່ວນຂະຫຍາຍນີ້ຖືກບລັອກເນື່ອງຈາກລະເມີດນະໂຍບາຍຂອງ Plezix ແລະ ຖືກປິດໃຊ້ງານ.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">ສ່ວນຂະຫຍາຍນີ້ຖືກຈຳກັດສຳລັບການລະເມີດນະໂຍບາຍຂອງ Mozilla ແລະ ຖືກປິດການນຳໃຊ້. ທ່ານສາມາດເປີດໃຊ້ມັນໄດ້, ແຕ່ນີ້ອາດຈະມີຄວາມສ່ຽງ.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">ສ່ວນຂະຫຍາຍນີ້ຖືກຈຳກັດສຳລັບການລະເມີດນະໂຍບາຍຂອງ Plezix ແລະ ຖືກປິດການນຳໃຊ້. ທ່ານສາມາດເປີດໃຊ້ມັນໄດ້, ແຕ່ນີ້ອາດຈະມີຄວາມສ່ຽງ.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">ສ່ວນຂະຫຍາຍນີ້ລະເມີດນະໂຍບາຍຂອງ Mozilla. ການນໍາໃຊ້ມັນອາດຈະມີຄວາມສ່ຽງ.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">ສ່ວນຂະຫຍາຍນີ້ລະເມີດນະໂຍບາຍຂອງ Plezix. ການນໍາໃຊ້ມັນອາດຈະມີຄວາມສ່ຽງ.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s ບໍ່ສາມາດກວດສອບໄດ້ວ່າປອດໄພ ແລະ ຖືກປິດການນຳໃຊ້ແລ້ວ.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

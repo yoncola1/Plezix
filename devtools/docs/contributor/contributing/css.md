@@ -113,7 +113,7 @@ The recommended workflow to test RTL on DevTools is to use the [Force RTL extens
 
 Sometimes you have a style that you want to turn on and off. For example a tree twisty (a expand-collapse arrow), a tab background, etc.
 
-The Mozilla way is to perform the toggle using an attribute rather than a class:
+The Plezix way is to perform the toggle using an attribute rather than a class:
 
 ```css
 .tree-node {

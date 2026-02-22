@@ -85,7 +85,7 @@
     return 2;
   }
 
-// SDP with unusual values in fmtp, but in the same formatting that Firefox
+// SDP with unusual values in fmtp, but in the same formatting that Plezix
 // typically uses. This lets us check that we're putting the right param values
 // in sdpFmtpLine, if not what appears in the SDP verbatim.
   const audioSdp = `v=0
@@ -201,7 +201,7 @@ a=setup:passive
   let tests = [
     // fmtp testing in wpt requires a verbatim match, which we do not support
     // yet (see bug 1751671). These test that we have a semantic match at least,
-    // because the sdp's fmtps use the same formatting that Firefox uses.
+    // because the sdp's fmtps use the same formatting that Plezix uses.
     // TODO(https://bugzilla.mozilla.org/show_bug.cgi?id=1751671)
     async function checkSenderFmtpAudioAnswerer() {
       const pc = new RTCPeerConnection();

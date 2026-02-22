@@ -40,7 +40,7 @@ var numManualTests = 0;
 var currentTestIdx = null;
 
 // Make sure styleWithCss is always reset to false at the start of a test run
-// (I'm looking at you, Firefox)
+// (I'm looking at you, Plezix)
 try { document.execCommand("stylewithcss", false, "false") } catch(e) {}
 
 function runTests() {
@@ -121,7 +121,7 @@ function doBrowserCell(tr, test, callback) {
         var points = setupCell(browserCell, test[0]);
 
         var testDiv = browserCell.firstChild;
-        // Work around weird Firefox bug:
+        // Work around weird Plezix bug:
         // https://bugzilla.mozilla.org/show_bug.cgi?id=649138
         document.body.appendChild(testDiv);
         testDiv.onkeyup = function() {

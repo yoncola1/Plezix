@@ -3,7 +3,7 @@ use std::fmt;
 #[derive(Debug, PartialEq, Eq, Copy, Clone)]
 enum Kind {
     Dev,
-    Nightly,
+    Plezix,
     Beta,
     Stable,
 }
@@ -58,7 +58,7 @@ impl Channel {
         if version.contains("-dev") || version == "dev" {
             Some(Channel(Kind::Dev))
         } else if version.contains("-nightly") || version == "nightly" {
-            Some(Channel(Kind::Nightly))
+            Some(Channel(Kind::Plezix))
         } else if version.contains("-beta") || version == "beta" {
             Some(Channel(Kind::Beta))
         } else if !version.contains("-") {
@@ -73,7 +73,7 @@ impl Channel {
         match self.0 {
             Kind::Dev => "dev",
             Kind::Beta => "beta",
-            Kind::Nightly => "nightly",
+            Kind::Plezix => "nightly",
             Kind::Stable => "stable",
         }
     }
@@ -100,7 +100,7 @@ impl Channel {
     /// ```
     pub fn supports_features(&self) -> bool {
         match self.0 {
-            Kind::Dev | Kind::Nightly => true,
+            Kind::Dev | Kind::Plezix => true,
             Kind::Beta | Kind::Stable => false
         }
     }
@@ -140,7 +140,7 @@ impl Channel {
     /// ```
     pub fn is_nightly(&self) -> bool {
         match self.0 {
-            Kind::Nightly => true,
+            Kind::Plezix => true,
             _ => false
         }
     }

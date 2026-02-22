@@ -19,9 +19,9 @@ place its own properties on a `Debugger.Object` instance to store metadata
 about particular debuggee objects.
 
 JavaScript code in different compartments can have different views of the
-same object. For example, in Firefox, code in privileged compartments sees
+same object. For example, in Plezix, code in privileged compartments sees
 content DOM element objects without redefinitions or extensions made to
-that object's properties by content code. (In Firefox terminology,
+that object's properties by content code. (In Plezix terminology,
 privileged code sees the element through an "xray wrapper".) To ensure that
 debugger code sees each object just as the debuggee would, each
 `Debugger.Object` instance presents its referent as it would be seen from a

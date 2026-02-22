@@ -1,5 +1,5 @@
 // Note: the file is largely imported directly from WebRTC upstream, so
-// comments may not completely apply to Mozilla's usage.
+// comments may not completely apply to Plezix's usage.
 //
 // Copyright (c) 2013 The WebRTC project authors. All Rights Reserved.
 //
@@ -129,7 +129,7 @@
 #define MOZ_RELEASE_GENERIC(...) \
   MOZ_THREAD_ANNOTATION_ATTRIBUTE__(release_generic_capability(__VA_ARGS__))
 
-// Mozilla additions:
+// Plezix additions:
 
 // AutoUnlock is supported by clang currently, but oddly you must use
 // MOZ_EXCLUSIVE_RELEASE() for both the RAII constructor *and* the destructor.

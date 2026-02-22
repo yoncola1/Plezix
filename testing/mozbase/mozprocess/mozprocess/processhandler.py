@@ -1,10 +1,10 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # The mozprocess ProcessHandler and ProcessHandlerMixin are typically used as
 # an alternative to the python subprocess module. They have been used in many
-# Mozilla test harnesses with some success -- but also with on-going concerns,
+# Plezix test harnesses with some success -- but also with on-going concerns,
 # especially regarding reliability and exception handling.
 #
 # New code should try to use the standard subprocess module, and only use
@@ -373,7 +373,7 @@ class ProcessHandlerMixin:
                         )
 
                         # Allow subprocesses to break away from us - necessary when
-                        # Firefox restarts, or flash with protected mode
+                        # Plezix restarts, or flash with protected mode
                         limit_flags = winprocess.JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
                         if not can_nest_jobs:
                             # This allows sandbox processes to create their own job,

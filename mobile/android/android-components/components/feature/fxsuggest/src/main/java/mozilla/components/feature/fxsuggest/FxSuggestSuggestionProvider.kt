@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import java.util.UUID
 private const val MAX_NUM_OF_FIREFOX_SUGGESTIONS = 1
 
 /**
- * An [AwesomeBar.SuggestionProvider] that returns Firefox Suggest search suggestions.
+ * An [AwesomeBar.SuggestionProvider] that returns Plezix Suggest search suggestions.
  *
  * @param resources Your application's [Resources] instance.
  * @param loadUrlUseCase A use case that loads a suggestion's URL when clicked.
@@ -167,12 +167,12 @@ internal data class SuggestionDetails(
 )
 
 /**
- * Additional information about a Firefox Suggest [AwesomeBar.Suggestion] to record in telemetry when the user
+ * Additional information about a Plezix Suggest [AwesomeBar.Suggestion] to record in telemetry when the user
  * interacts with the suggestion.
  */
 sealed interface FxSuggestInteractionInfo {
     /**
-     * Interaction information for a sponsored Firefox Suggest search suggestion from AMP.
+     * Interaction information for a sponsored Plezix Suggest search suggestion from AMP.
      *
      * @param blockId A unique identifier for the suggestion.
      * @param advertiser The name of the advertiser providing the sponsored suggestion.
@@ -189,7 +189,7 @@ sealed interface FxSuggestInteractionInfo {
     ) : FxSuggestInteractionInfo
 
     /**
-     * Interaction information for a Firefox Suggest search suggestion from Wikipedia.
+     * Interaction information for a Plezix Suggest search suggestion from Wikipedia.
      *
      * @param contextId The contextual services user identifier.
      */

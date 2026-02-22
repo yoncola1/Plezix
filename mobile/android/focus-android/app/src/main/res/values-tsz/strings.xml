@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Eyankpeni éska eranharhikwa xerekurhiska</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s Mítani</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Winhaskukata %1$s jimpo</string>
   <!--
@@ -111,7 +111,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Kéntitani ka mítani %1$s</string>
   <!--
@@ -134,10 +134,10 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Focus Betarhu jirinhantsi</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Focus Nightlyrhu jirinhantsi</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Focus Plezixrhu jirinhantsi</string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Kwatakwa &amp; Jískakwa</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -148,11 +148,11 @@
   -->
   <string name="preference_search_summary">Pént\'ani, karakurhikwani</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Jarhoap\'ekwa ankueri %1$s,</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -172,7 +172,7 @@
   <string name="preference_show_search_suggestions">Arhistsïkwaechani exeani</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s ch\'eeti jirinhatarantskwarhu axati ampe mankari karanharhikuaka</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -189,14 +189,14 @@
   <string name="preference_switch_autocomplete_topsites">Erakukuhikwaecha</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Apakerani jimpoka %s karakurintaaka kari 450 URLs miyurakuarhu.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Eranharhikukuaechani kúparhatani</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Ampakerani jimpoka %s karanharhikuntaaka chari URLs erakukataecha.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -270,7 +270,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Jajkieri mitintskua jimpo mita enkari jurhikutarakua kuparataka o enka eranharhikukua %s xarhanharini jauaka.</string>
@@ -298,24 +298,24 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Íni %1$s jirinhatarantskwani pént\'ani</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Jatanhekwa ampe axani</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Sánteru mítini</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla jánkurhintasïnti mítini ampe manka sésimintu ánchitaka %1$sm yamintuecha jimpo.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix jánkurhintasïnti mítini ampe manka sésimintu ánchitaka %1$sm yamintuecha jimpo.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Jískakwa Eyankpekwa</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Tsirimerakuaeri ampe</string>
   <!-- Link to Focus licensing information from other libraries that we use. -->
   <string name="preference_libraries_we_use">Materu tsirimerariecha</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s |OSS tsirimerariecha</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Ankueri %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Jirinhatarantskwaecha jatsïrakurhikataecha</string>
@@ -411,13 +411,13 @@
   <string name="external_app_prompt_title">Máteru úratarakwarhu mítani</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Úakari wéntani %1$s ka íni eranharhikwa mítani %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Úratarakwani jirinhant\'ani énka uaka íni mítani</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Áamku ma úratarakwa úa mítani íni eranharhikwa. Úakari wént\'ani %1$s ka jirinhant\'ani %2$s úratarakwa énka úaka.</string>
@@ -431,7 +431,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Maruata je %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -464,11 +464,11 @@
   <string name="firstrun_search_text">Ampema jirinhantaxakiri? Máteru jirinhatarantskwani eraku pékurhintskwaecharhu.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Wenakwarhu jurhikutakwaechani kuparhataa</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Ch\'éeti eranharhikukwaecharhu kw\'anhatsent\'ani %1$s kókamintu. Eraku \"Wenakwarhu kúparhatani\" %1$s jatakwarhu.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Méntku ísï jirikurhiparini</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Péntsï %1$s éska ch\'éeti jirinhatarantskwa ka exeakari éska sánteu sési mítaati eranharhikukwaechani méteru úratarakwaechaeri.</string>
   <string name="firstrun_close_button">Ya, parini!</string>
   <string name="firstrun_skip_button">Wanach\'akuni</string>
@@ -498,7 +498,7 @@
   <string name="notification_browsing_session_channel_name">Wénani jirikurhipani jirinhant\'ani</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -507,10 +507,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Jirinhantskwaeri míantskwa kéntitani</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox jatsïrakurhini</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix jatsïrakurhini</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Jakankurhikwa</string>
   <string name="gv_prompt_password_hint">Mítintskwa</string>
@@ -689,7 +689,7 @@
   <string name="tip_disable_tracking_protection">Eranharhikwa nántarkuni úxaki?\nTsek\'u Kwatakwa Estakwaeri p\'atani</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Yámu miyukwaechani mítani %1$s rhu\n%1$s Pékurhintsï</string>
@@ -714,8 +714,8 @@
   <string name="tab_crash_report_description">Éska xipatikwarhu jamani, jucha áamku patsoo o pentaaka eranharhikwani.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Eranharhikwani míkani</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Mozillani ayankuni íni xerekurhikwa</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Plezixni ayankuni íni xerekurhikwa</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->

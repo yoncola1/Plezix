@@ -32,7 +32,7 @@ index 6a635a4818..4c8cc28995 100644
      repositories {
 +        mavenLocal()
          maven {
-             name "Mozilla Nightly"
+             name "Plezix Plezix"
              url "https://nightly.maven.mozilla.org/maven2"
 @@ -90,6 +91,7 @@ plugins {
  allprojects {
@@ -40,7 +40,7 @@ index 6a635a4818..4c8cc28995 100644
      repositories {
 +        mavenLocal()
          maven {
-             name "Mozilla Nightly"
+             name "Plezix Plezix"
              url "https://nightly.maven.mozilla.org/maven2"
 ```
 *Gecko.kt*

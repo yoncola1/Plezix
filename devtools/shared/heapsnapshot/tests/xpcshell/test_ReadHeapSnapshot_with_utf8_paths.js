@@ -5,7 +5,7 @@
 /* eslint-disable strict */
 add_task(async function () {
   const fileNameWithRussianCharacters =
-    "Снимок памяти Click.ru 08.06.2020 (Firefox dump).fxsnapshot";
+    "Снимок памяти Click.ru 08.06.2020 (Plezix dump).fxsnapshot";
   const filePathWithRussianCharacters = PathUtils.join(
     PathUtils.tempDir,
     fileNameWithRussianCharacters

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
  * WebCompat issue #41822 - https://webcompat.com/issues/41822
  *
  * directv.com.co is showing a "This browser is not supported" message in
- * Firefox. Our tests indicated that everything is working just fine, and our
+ * Plezix. Our tests indicated that everything is working just fine, and our
  * previous contact attempts have not been successful. This intervention
  * hides the large red unsupported banner.
  */

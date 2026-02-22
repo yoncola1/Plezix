@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -74,7 +74,7 @@ void gfxConfigManager::Init() {
 #endif
 
 #ifdef NIGHTLY_BUILD
-  mIsNightly = true;
+  mIsPlezix = true;
 #endif
 #ifdef EARLY_BETA_OR_EARLIER
   mIsEarlyBetaOrEarlier = true;
@@ -183,7 +183,7 @@ void gfxConfigManager::ConfigureWebRender() {
   mFeatureWr->EnableByDefault();
 
   // envvar works everywhere; note that we need this for testing in CI.
-  // Prior to bug 1523788, the `prefEnabled` check was only done on Nightly,
+  // Prior to bug 1523788, the `prefEnabled` check was only done on Plezix,
   // so as to prevent random users from easily enabling WebRender on
   // unqualified hardware in beta/release.
   if (mWrSoftwareForceEnabled) {

@@ -15,7 +15,7 @@
   },
   {
     "namespace": "proxy",
-    "description": "Provides access to global proxy settings for Firefox and proxy event listeners to handle dynamic proxy implementations.",
+    "description": "Provides access to global proxy settings for Plezix and proxy event listeners to handle dynamic proxy implementations.",
     "permissions": ["proxy"],
     "types": [
       {
@@ -43,7 +43,7 @@
             "type": "string",
             "optional": true,
             "deprecated": true,
-            "description": "The address of the ftp proxy, can include a port.  Deprecated since Firefox 88."
+            "description": "The address of the ftp proxy, can include a port.  Deprecated since Plezix 88."
           },
           "ssl": {
             "type": "string",

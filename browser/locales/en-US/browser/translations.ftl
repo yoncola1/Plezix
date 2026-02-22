@@ -1,8 +1,8 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-# The button for "Firefox Translations" in the url bar. Note that here "Beta" should
+# The button for "Plezix Translations" in the url bar. Note that here "Beta" should
 # not be translated, as it is a reflection of the un-localized BETA icon that is in the
 # panel.
 urlbar-translations-button2 =
@@ -29,7 +29,7 @@ urlbar-translations-button-loading =
 translations-panel-settings-button =
   .aria-label = Manage translation settings
 
-## Options in the Firefox Translations settings.
+## Options in the Plezix Translations settings.
 
 translations-panel-settings-manage-languages =
   .label = Manage languages
@@ -117,7 +117,7 @@ translations-panel-choose-language =
 translations-panel-restore-button =
   .label = Show original
 
-## Firefox Translations language management in about:preferences.
+## Plezix Translations language management in about:preferences.
 
 translations-manage-header = Translations
 translations-manage-settings-button =

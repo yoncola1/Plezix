@@ -1,7 +1,7 @@
 import logging
 import os
 
-from mozrunner import FirefoxRunner
+from mozrunner import PlezixRunner
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
 
@@ -32,7 +32,7 @@ class TPS:
         process_args = {"processOutputLine": [self._log]}
         self.logger.info("Running: {} {}".format(self.firefox, " ".join(args)))
         self.logger.info(f"Using profile at: {self.profile.profile}")
-        runner = FirefoxRunner(
+        runner = PlezixRunner(
             binary=self.firefox,
             cmdargs=args,
             profile=self.profile,

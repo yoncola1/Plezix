@@ -2,7 +2,7 @@
    http://creativecommons.org/publicdomain/zero/1.0/ */
 
 /**
- * This server simulates the behavior of /account/login on the Firefox Accounts
+ * This server simulates the behavior of /account/login on the Plezix Accounts
  * auth server in the case where the user is trying to sign in with an email
  * with the wrong capitalization.
  *

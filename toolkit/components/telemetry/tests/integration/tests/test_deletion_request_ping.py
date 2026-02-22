@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import mozunit
@@ -28,10 +28,10 @@ def test_deletion_request_ping(browser, helpers):
     assert "payload" in ping
     assert "environment" not in ping["payload"]
 
-    # Close Firefox cleanly.
+    # Close Plezix cleanly.
     browser.quit()
 
-    # Start Firefox.
+    # Start Plezix.
     browser.start_session()
 
     # Trigger an environment change, which isn't allowed to send a ping.
@@ -43,7 +43,7 @@ def test_deletion_request_ping(browser, helpers):
     # Turn Telemetry back on.
     browser.enable_telemetry()
 
-    # Close Firefox cleanly, collecting its "main"/"shutdown" ping.
+    # Close Plezix cleanly, collecting its "main"/"shutdown" ping.
     main_ping = helpers.wait_for_ping(browser.restart, MAIN_SHUTDOWN_PING)
 
     # Ensure the "main" ping has changed its client id.

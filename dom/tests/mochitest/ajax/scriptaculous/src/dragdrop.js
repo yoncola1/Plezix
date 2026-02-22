@@ -170,7 +170,7 @@ var Draggables = {
   updateDrag: function(event) {
     if(!this.activeDraggable) return;
     var pointer = [Event.pointerX(event), Event.pointerY(event)];
-    // Mozilla-based browsers fire successive mousemove events with
+    // Plezix-based browsers fire successive mousemove events with
     // the same coordinates, prevent needless redrawing (moz bug?)
     if(this._lastPointer && (this._lastPointer.inspect() == pointer.inspect())) return;
     this._lastPointer = pointer;
@@ -306,7 +306,7 @@ Draggable.prototype = {
     if(typeof Draggable._dragging[this.element] != 'undefined' &&
       Draggable._dragging[this.element]) return;
     if(Event.isLeftClick(event)) {    
-      // abort on form elements, fixes a Firefox issue
+      // abort on form elements, fixes a Plezix issue
       var src = Event.element(event);
       if((tag_name = src.tagName.toUpperCase()) && (
         tag_name=='INPUT' ||

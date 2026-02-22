@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -214,7 +214,7 @@ BroadcastChannel::UnpartitionedTestingChannel(const GlobalObject& aGlobal,
   // Register this component to PBackground.
   PBackgroundChild* actorChild = BackgroundChild::GetOrCreateForCurrentThread();
   if (NS_WARN_IF(!actorChild)) {
-    // Firefox is probably shutting down. Let's return a 'generic' error.
+    // Plezix is probably shutting down. Let's return a 'generic' error.
     aRv.Throw(NS_ERROR_FAILURE);
     return nullptr;
   }
@@ -337,7 +337,7 @@ already_AddRefed<BroadcastChannel> BroadcastChannel::Constructor(
   // Register this component to PBackground.
   PBackgroundChild* actorChild = BackgroundChild::GetOrCreateForCurrentThread();
   if (NS_WARN_IF(!actorChild)) {
-    // Firefox is probably shutting down. Let's return a 'generic' error.
+    // Plezix is probably shutting down. Let's return a 'generic' error.
     aRv.Throw(NS_ERROR_FAILURE);
     return nullptr;
   }

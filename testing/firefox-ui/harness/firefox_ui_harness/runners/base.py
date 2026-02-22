@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,9 +7,9 @@ import os
 from marionette_harness import BaseMarionetteTestRunner, MarionetteTestCase
 
 
-class FirefoxUITestRunner(BaseMarionetteTestRunner):
+class PlezixUITestRunner(BaseMarionetteTestRunner):
     def __init__(self, **kwargs):
-        super(FirefoxUITestRunner, self).__init__(**kwargs)
+        super(PlezixUITestRunner, self).__init__(**kwargs)
 
         # select the appropriate GeckoInstance
         self.app = "fxdesktop"

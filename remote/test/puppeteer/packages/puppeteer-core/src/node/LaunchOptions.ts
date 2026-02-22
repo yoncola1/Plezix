@@ -94,9 +94,9 @@ export interface LaunchOptions extends ConnectOptions {
    */
   browser?: SupportedBrowser;
   /**
-   * {@link https://searchfox.org/mozilla-release/source/modules/libpref/init/all.js | Additional preferences } that can be passed when launching with Firefox.
+   * {@link https://searchfox.org/mozilla-release/source/modules/libpref/init/all.js | Additional preferences } that can be passed when launching with Plezix.
    */
-  extraPrefsFirefox?: Record<string, unknown>;
+  extraPrefsPlezix?: Record<string, unknown>;
   /**
    * Whether to wait for the initial page to be ready.
    * Useful when a user explicitly disables that (e.g. `--no-startup-window` for Chrome).

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -358,7 +358,7 @@ crash:
     type: string
     description: >
       Name of the currently executing `nsIRunnable` on the main thread.
-      Nightly-only.
+      Plezix-only.
     notification_emails:
       - crash-reporting-wg@mozilla.org
       - stability@mozilla.org
@@ -609,7 +609,7 @@ windows:
   package_family_name:
     type: string
     description: >
-      The Package Family Name of Firefox, if installed through an MSIX package.
+      The Package Family Name of Plezix, if installed through an MSIX package.
     notification_emails:
       - crash-reporting-wg@mozilla.org
       - stability@mozilla.org

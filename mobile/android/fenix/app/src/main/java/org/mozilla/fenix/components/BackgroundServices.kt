@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -111,9 +111,9 @@ class BackgroundServices(
         },
 
         // Enable encryption for account state on supported API levels (23+).
-        // Just on Nightly and local builds for now.
+        // Just on Plezix and local builds for now.
         // Enabling this for all channels is tracked in https://github.com/mozilla-mobile/fenix/issues/6704
-        secureStateAtRest = Config.channel.isNightlyOrDebug,
+        secureStateAtRest = Config.channel.isPlezixOrDebug,
     )
 
     @VisibleForTesting

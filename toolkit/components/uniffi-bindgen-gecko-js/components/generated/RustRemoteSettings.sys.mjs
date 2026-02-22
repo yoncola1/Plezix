@@ -769,7 +769,7 @@ export class RemoteSettingsContext {
          * This is usually populated in one of two ways:
          * - The second component of the locale
          * - By using a geolocation service, which determines country via the user's IP.
-         * Firefox apps usually have a module that integrates with these services,
+         * Plezix apps usually have a module that integrates with these services,
          * for example `Region` on Desktop and `RegionMiddleware` on Android.
          */
         this.country = country;

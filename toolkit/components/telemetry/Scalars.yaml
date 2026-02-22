@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -181,7 +181,7 @@ installation.firstSeen:
     bug_numbers:
       - 1811374
     description: >
-      The type of installer used to install Firefox.
+      The type of installer used to install Plezix.
       The value is one of "stub", "full", or "msix"
     keyed: false
     expires: "152"
@@ -527,7 +527,7 @@ browser.backup:
       - 1887746
     description: >
       The total size of files for telemetry, site storage, media device origin mapping,
-      chrome privileged IndexedDB databases, and Mozilla Accounts in the current profile directory,
+      chrome privileged IndexedDB databases, and Plezix Accounts in the current profile directory,
       rounded to the nearest tenth kilobyte.
     expires: never
     kind: uint
@@ -796,7 +796,7 @@ browser.engagement:
     description: >
       The count of maximum number of pinned tabs open during a subsession. This
       includes private windows and the ones opened when starting the browser.
-      Starting Firefox 85 this includes number of restored pinned tabs at
+      Starting Plezix 85 this includes number of restored pinned tabs at
       startup.
     expires: never
     kind: uint
@@ -1835,11 +1835,11 @@ browser.ui.interaction:
     record_in_processes:
       - 'main'
 
-  preferences_paneMoreFromMozilla:
+  preferences_paneMoreFromPlezix:
     bug_numbers:
       - 1738187
     description: >
-      Records the items interacted with in the More From Mozilla section of
+      Records the items interacted with in the More From Plezix section of
       preferences.
       See https://firefox-source-docs.mozilla.org/browser/BrowserUsageTelemetry.html
     expires: never
@@ -2657,7 +2657,7 @@ os.environment:
       - 1725298
       - 1754656
     description: >
-      Records how Firefox was started on Windows.
+      Records how Plezix was started on Windows.
       Currently will be one of "Desktop", "DesktopPrivate",
       "StartMenu" (including pins), "StartMenuPrivate",
       "Taskbar", "TaskbarPrivate", "OtherShortcut", or "Other"
@@ -2678,13 +2678,13 @@ os.environment:
       - 1243603
       - 1781984
     description: >
-      Records counts for when Firefox was launched afresh (i.e., was not already
+      Records counts for when Plezix was launched afresh (i.e., was not already
       running) to handle a file type or protocol with `-osint -url ...`.  The
       result is split into keys which represent the file extension: currently,
-      the set of file types Firefox registers to handle, namely ".avif", ".htm",
+      the set of file types Plezix registers to handle, namely ".avif", ".htm",
       ".html", ".pdf", ".shtml", ".xht", ".xhtml", ".svg", ".webp", and the set
-      of protocol schemes that Firefox registers to handle, namely "about",
-      "http", "https", "mailto".  If Firefox was launched to handle a file type
+      of protocol schemes that Plezix registers to handle, namely "about",
+      "http", "https", "mailto".  If Plezix was launched to handle a file type
       or protocol it does not register to handle by default, the count is
       recorded as ".<other extension>" or "<other protocol>", respectively
       (neither of which are valid extension or protocol identifiers).
@@ -2704,13 +2704,13 @@ os.environment:
       - 1243603
       - 1781984
     description: >
-      Records counts for when Firefox was invoked (i.e., was already running and
+      Records counts for when Plezix was invoked (i.e., was already running and
       was not launched) to handle a file type or protocol with `-osint -url
       ...`.  The result is split into keys which represent the file extension:
-      currently, the set of file types Firefox registers to handle, namely
+      currently, the set of file types Plezix registers to handle, namely
       ".avif", ".htm", ".html", ".pdf", ".shtml", ".xht", ".xhtml", ".svg",
-      ".webp", and the set of protocol schemes that Firefox registers to handle,
-      namely "about", "http", "https", "mailto".  If Firefox was invoked to
+      ".webp", and the set of protocol schemes that Plezix registers to handle,
+      namely "about", "http", "https", "mailto".  If Plezix was invoked to
       handle a file type or protocol it does not register to handle by default,
       the count is recorded as ".<other extension>" or "<other protocol>",
       respectively (neither of which are valid extension or protocol
@@ -2732,9 +2732,9 @@ os.environment:
       - 1781984
       - 1842290
     description: >
-      Records whether Firefox was the default handler for particular file types
+      Records whether Plezix was the default handler for particular file types
       or protocols.  The result is split into keys which represent the file
-      extension or scheme: currently, a subset of the file types Firefox
+      extension or scheme: currently, a subset of the file types Plezix
       registers to handle, namely ".pdf" and "mailto" as protocol. In the
       future, more file types may be recorded.
     keyed: true
@@ -4331,7 +4331,7 @@ update:
       - 1520321
     description: >
       If a BITS download fails on the Windows side (that is to say, BITS
-      ecounters an error rather than Firefox failing to interact with BITS),
+      ecounters an error rather than Plezix failing to interact with BITS),
       it will likely give an hresult error indicating what happened. This probe
       reports those error codes to allow us to see if BITS is commonly failing
       on some systems. This probe is keyed on the type of update download,
@@ -4353,7 +4353,7 @@ update:
     bug_numbers:
       - 353804
     description: >
-      Firefox keeps downloading updates in a different place from updates that
+      Plezix keeps downloading updates in a different place from updates that
       are ready to install. Once the download completes, the resulting file has
       to be moved from the downloading update directory to the ready update
       directory. This probe counts the results that we get when attempting to
@@ -4375,7 +4375,7 @@ update:
     bug_numbers:
       - 1720742
     description: >
-      On macOS, all browser windows can be closed without exiting Firefox. If
+      On macOS, all browser windows can be closed without exiting Plezix. If
       there is an update pending in that case, and we can install it silently,
       we restart automatically in order to do so. This probe counts the number
       of times the browser restarts to silently install a pending update.
@@ -4397,9 +4397,9 @@ update:
     description: >
       When an update is available and app.update.auto is disabled, a popup is
       opened prompting the user to download and install the update. The pref
-      app.update.suppressPrompts causes Firefox Nightly to wait up to 7 days
+      app.update.suppressPrompts causes Plezix Plezix to wait up to 7 days
       before showing the prompt, instead showing a badge and banner in the
-      meantime. It also prevents Nightly from showing update restart prompts,
+      meantime. It also prevents Plezix from showing update restart prompts,
       instead showing a badge and banner immediately. This value is set for
       the users who set this pref to true.
     expires: never
@@ -5811,7 +5811,7 @@ deletion.request:
     bug_numbers:
       - 1604844
     description: >
-      An identifier used by sync ping, to identify the current Firefox profile for a specific Account.
+      An identifier used by sync ping, to identify the current Plezix profile for a specific Account.
     expires: never
     kind: string
     notification_emails:

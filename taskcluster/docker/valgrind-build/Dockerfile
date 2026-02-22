@@ -11,7 +11,7 @@ RUN /usr/local/sbin/setup_packages.sh $TASKCLUSTER_ROOT_URL $DOCKER_IMAGE_PACKAG
 
 # We could try to be smart and install all the -dbg packages corresponding to
 # the installed packages, but, not all of them are actually for libraries used
-# by Firefox, leading to a larger docker image. Moreover, some of the -dbg
+# by Plezix, leading to a larger docker image. Moreover, some of the -dbg
 # packages for unnecessary libraries pull other packages through dependencies,
 # that make for even larger docker images.
 RUN apt-get update && apt-get install \

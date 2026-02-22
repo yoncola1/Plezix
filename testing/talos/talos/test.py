@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -105,7 +105,7 @@ class TsBase(Test):
         "profile_path",  # The path containing the template profile. This
         # directory is copied to the temporary profile during
         # initialization of the test. If some of the files may
-        # be overwritten by Firefox and need to be reinstalled
+        # be overwritten by Plezix and need to be reinstalled
         # before each pass, use key |reinstall|
         "gecko_profile",
         "gecko_profile_interval",
@@ -252,8 +252,8 @@ class sessionrestore(TsBase):
     """
     A start up test measuring the time it takes to load a sessionstore.js file.
 
-    1. Set up Firefox to restore from a given sessionstore.js file.
-    2. Launch Firefox.
+    1. Set up Plezix to restore from a given sessionstore.js file.
+    2. Launch Plezix.
     3. Measure the delta between firstPaint and sessionRestored.
     """
 
@@ -276,8 +276,8 @@ class sessionrestore_no_auto_restore(sessionrestore):
     """
     A start up test measuring the time it takes to load a sessionstore.js file.
 
-    1. Set up Firefox to *not* restore automatically from sessionstore.js file.
-    2. Launch Firefox.
+    1. Set up Plezix to *not* restore automatically from sessionstore.js file.
+    2. Launch Plezix.
     3. Measure the delta between firstPaint and sessionRestored.
     """
 
@@ -293,8 +293,8 @@ class sessionrestore_many_windows(sessionrestore):
     """
     A start up test measuring the time it takes to load a sessionstore.js file.
 
-    1. Set up Firefox to restore automatically from sessionstore.js file.
-    2. Launch Firefox.
+    1. Set up Plezix to restore automatically from sessionstore.js file.
+    2. Launch Plezix.
     3. Measure the delta between firstPaint and sessionRestored.
     """
 
@@ -938,7 +938,7 @@ class offscreencanvas_webcodecs_worker_2d_av1(PageloaderTest):
 @register_test()
 class tp5n(PageloaderTest):
     """
-    Tests the time it takes Firefox to load the tp5 web page test set.
+    Tests the time it takes Plezix to load the tp5 web page test set.
 
     The tp5 is an updated web page test set to 100 pages from April 8th, 2011.
     Effort was made for the pages to no longer be splash screens/login
@@ -980,7 +980,7 @@ class tp5n(PageloaderTest):
         "FILE_IO",
         "FILE_IO_INIT",
     ]
-    xperf_user_providers = ["Mozilla Generic Provider", "Microsoft-Windows-TCPIP"]
+    xperf_user_providers = ["Plezix Generic Provider", "Microsoft-Windows-TCPIP"]
     xperf_stackwalk = ["FileCreate", "FileRead", "FileWrite", "FileFlush", "FileClose"]
     filters = filter.ignore_first.prepare(1) + filter.median.prepare()
     timeout = 1800

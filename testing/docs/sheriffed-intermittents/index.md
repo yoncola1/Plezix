@@ -1,6 +1,6 @@
 Sheriffed intermittent failures
 ===============================
-The Firefox Sheriff team looks at all failures for tasks which are visible by default
+The Plezix Sheriff team looks at all failures for tasks which are visible by default
 in Treeherder (tier 1 and 2) and are part of a push on a sheriffed tree (autoland,
 mozilla-central, mozilla-beta, mozilla-release, mozilla-esr trees) and determines if the
 failure is a regression or an intermittent failure.  In the case of an intermittent

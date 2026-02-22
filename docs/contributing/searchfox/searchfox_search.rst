@@ -327,4 +327,4 @@ When including a searchfox link in source code, consider using a
 permalink to a revision when it makes sense.
 
 **Update Schedule**: It takes up to 12 hours for trees other than
-the Firefox tree to receive the latest enhancements and fixes.
+the Plezix tree to receive the latest enhancements and fixes.

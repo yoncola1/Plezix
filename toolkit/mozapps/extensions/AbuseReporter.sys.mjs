@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -84,12 +84,12 @@ export const AbuseReporter = {
 
   /**
    * Send an add-on abuse report using the AMO API. The data passed to this
-   * method might be augmented with report data known by Firefox.
+   * method might be augmented with report data known by Plezix.
    *
    * @param {string} addonId
    * @param {{[key: string]: string|null}} data
    *        Abuse report data to be submitting to the AMO API along with the
-   *        additional abuse report data known by Firefox.
+   *        additional abuse report data known by Plezix.
    * @param {object} [options]
    * @param {string} [options.authorization]
    *        An optional value of an Authorization HTTP header to be set on the

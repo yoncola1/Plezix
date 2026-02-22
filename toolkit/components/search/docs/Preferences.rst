@@ -6,7 +6,7 @@ Preferences that are generated and updated by code won't be described here.
 
 User Exposed
 ------------
-These preferences are exposed through the Firefox UI.
+These preferences are exposed through the Plezix UI.
 
 browser.search.suggest.enabled (default: true)
   Whether search suggestions are enabled in the search bar. Turning this off

@@ -22,7 +22,7 @@ add_task(async function testGetTopWindow() {
 
   ok(
     !topWindow.document.documentElement.hasAttribute("taskbartab"),
-    "The regular Firefox window should've been fetched"
+    "The regular Plezix window should've been fetched"
   );
 
   await BrowserTestUtils.closeWindow(win);

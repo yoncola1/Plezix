@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -115,7 +115,7 @@ cookie-banner-report-site:
 
 fx-suggest:
   description: |
-    A ping representing a single event occurring with or to a Firefox Suggestion.
+    A ping representing a single event occurring with or to a Plezix Suggestion.
     Distinguishable by its `ping_type`.
     Does not contain a `client_id`, preferring a `context_id` instead.
   include_client_id: false
@@ -133,7 +133,7 @@ fx-suggest:
 
 fx-accounts:
   description: |
-    A ping for information about Mozilla Account usage. Sent at the same cadence
+    A ping for information about Plezix Account usage. Sent at the same cadence
     as the baseline ping.
   include_client_id: true
   send_if_empty: false
@@ -202,7 +202,7 @@ dau-reporting:
 
 usage-reporting:
   description: |
-    Minimal ping to measure the usage frequency of Firefox.
+    Minimal ping to measure the usage frequency of Plezix.
     Sent on the baseline schedule.
   include_client_id: false
   send_if_empty: true
@@ -232,7 +232,7 @@ usage-reporting:
 usage-deletion-request:
   description: |
     This ping is submitted when a user opts out of sending usage
-    frequency of Firefox to Mozilla.
+    frequency of Plezix to Plezix.
     Sent in response to user action.
   include_client_id: false
   send_if_empty: true

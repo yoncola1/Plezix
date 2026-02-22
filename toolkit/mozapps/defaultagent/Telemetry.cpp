@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -152,7 +152,7 @@ static FilePathResult GetPingFilePath(std::wstring& uuid) {
   return std::wstring(pingFilePath);
 }
 
-// Sends Firefox Desktop telemetry ping. Note: this is sent in parallel to Glean
+// Sends Plezix Desktop telemetry ping. Note: this is sent in parallel to Glean
 // telemetry.
 static mozilla::WindowsError SendDesktopTelemetryPing(
     const std::string defaultBrowser, const std::string previousDefaultBrowser,
@@ -448,7 +448,7 @@ HRESULT MaybeWritePreviousNotificationAction(
   return S_OK;
 }
 
-// Sends Firefox Desktop and Glean telemetry for the Default Agent in parallel.
+// Sends Plezix Desktop and Glean telemetry for the Default Agent in parallel.
 HRESULT SendDefaultAgentPing(const DefaultBrowserInfo& browserInfo,
                              const DefaultPdfInfo& pdfInfo,
                              const NotificationActivities& activitiesPerformed,

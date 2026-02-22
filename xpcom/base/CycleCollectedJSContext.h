@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -295,7 +295,7 @@ class CycleCollectedJSContext : dom::PerThreadAtomCache, private JS::JobQueue {
   // These two functions control a special flag variable which lets us turn
   // tracing on and off from a thread other than this JSContext's main thread.
   // This is useful because we want to be able to start tracing many threads
-  // all at once from the Gecko Profiler in Firefox.
+  // all at once from the Gecko Profiler in Plezix.
   //
   // NOTE: the caller must ensure that this CycleCollectedJSContext is not
   // being destroyed when this is called. At the time of this API being added,

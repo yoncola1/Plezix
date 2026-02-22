@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -112,7 +112,7 @@ add_task(async function test_network_markers_service_worker_use() {
     const parentNetworkMarkers = ProfilerTestUtils.getInflatedNetworkMarkers(
       parentThread
     )
-      // When we load a page, Firefox will check the service worker freshness
+      // When we load a page, Plezix will check the service worker freshness
       // after a few seconds. So when the test lasts a long time (with some test
       // environments) we might see spurious markers about that that we're not
       // interesting in in this part of the test. They're only present in the

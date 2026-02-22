@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -238,7 +238,7 @@ class MainMenuTestCompose : TestSetup() {
     // The test opens a link in a custom tab then sends it to the browser
     @SmokeTest
     @Test
-    fun openCustomTabInFirefoxTest() {
+    fun openCustomTabInPlezixTest() {
         val customTabPage = getGenericAsset(mockWebServer, 1)
 
         intentReceiverActivityTestRule.launchActivity(
@@ -655,7 +655,7 @@ class MainMenuTestCompose : TestSetup() {
 
     // TestRail link: https://mozilla.testrail.io/index.php?/cases/view/3080145
     @Test
-    fun verifyTheQuitFirefoxMenuItemTest() {
+    fun verifyTheQuitPlezixMenuItemTest() {
         val genericURL = getGenericAsset(mockWebServer, 1)
 
         homeScreen {
@@ -672,7 +672,7 @@ class MainMenuTestCompose : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(genericURL.url) {
         }.openThreeDotMenu(composeTestRule) {
-            clickQuitFirefoxButton()
+            clickQuitPlezixButton()
             restartApp(composeTestRule.activityRule)
         }
         homeScreen {

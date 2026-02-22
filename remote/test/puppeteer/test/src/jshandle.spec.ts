@@ -43,7 +43,7 @@ describe('JSHandle', function () {
       const text = await page.evaluate(e => {
         return e.userAgent;
       }, navigatorHandle);
-      expect(text).toContain('Mozilla');
+      expect(text).toContain('Plezix');
     });
     it('should accept object handle to primitive types', async () => {
       const {page} = await getTestState();

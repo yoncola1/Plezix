@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@ $schema: moz://mozilla.org/schemas/glean/pings/2-0-0
 background-update:
   description: |
     This ping measures the technical health of the background update system.
-    Said system downloads and processes updates when Firefox is not running.  It
+    Said system downloads and processes updates when Plezix is not running.  It
     is expected that this ping will be analyzed by humans to gain confidence in
     the implementation as the staged rollout of the system proceeds to the
     release channel, before settling into an automated analysis to detect spikes

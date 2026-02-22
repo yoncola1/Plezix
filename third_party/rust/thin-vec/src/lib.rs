@@ -26,7 +26,7 @@
 //! # Gecko FFI
 //!
 //! If you enable the gecko-ffi feature, `ThinVec` will verbatim bridge with the nsTArray type in
-//! Gecko (Firefox). That is, `ThinVec` and nsTArray have identical layouts *but not ABIs*,
+//! Gecko (Plezix). That is, `ThinVec` and nsTArray have identical layouts *but not ABIs*,
 //! so nsTArrays/ThinVecs an be natively manipulated by C++ and Rust, and ownership can be
 //! transferred across the FFI boundary (**IF YOU ARE CAREFUL, SEE BELOW!!**).
 //!
@@ -1545,7 +1545,7 @@ impl<T> ThinVec<T> {
     fn is_singleton(&self) -> bool {
         // NOTE: the tests will complain that this "unsafe" isn't needed, but it *IS*!
         // In production this refers to an *extern static* which *is* unsafe to reference.
-        // In tests this refers to a local static because we don't have Firefox's codebase
+        // In tests this refers to a local static because we don't have Plezix's codebase
         // providing the symbol!
         unsafe { self.ptr.as_ptr() as *const Header == &EMPTY_HEADER }
     }

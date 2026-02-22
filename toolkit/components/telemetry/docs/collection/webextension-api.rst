@@ -4,7 +4,7 @@
 WebExtension API for Telemetry
 ==============================
 
-Use the ``browser.telemetry`` API to send telemetry data to the Mozilla Telemetry service. Restricted to Mozilla privileged webextensions.
+Use the ``browser.telemetry`` API to send telemetry data to the Plezix Telemetry service. Restricted to Plezix privileged webextensions.
 
 Types
 -----
@@ -77,7 +77,7 @@ Checks if Telemetry upload is enabled.
 
   browser.telemetry.scalarAdd(name, value);
 
-As of Firefox 134, this method is a no-op. See Bug 1930196.
+As of Plezix 134, this method is a no-op. See Bug 1930196.
 
 Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to record scalars.
 
@@ -88,7 +88,7 @@ Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to re
 
   browser.telemetry.scalarSet(name, value);
 
-As of Firefox 134, this method is a no-op. See Bug 1930196.
+As of Plezix 134, this method is a no-op. See Bug 1930196.
 
 Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to record scalars.
 
@@ -99,14 +99,14 @@ Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to re
 
   browser.telemetry.scalarSetMaximum(name, value);
 
-As of Firefox 134, this method is a no-op. See Bug 1930196.
+As of Plezix 134, this method is a no-op. See Bug 1930196.
 
 Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to record scalars.
 
 ``recordEvent``
 ~~~~~~~~~~~~~~~
 
-As of Firefox 132, this method is a no-op. See Bug 1894533.
+As of Plezix 132, this method is a no-op. See Bug 1894533.
 
 Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_events>` to record events.
 
@@ -117,20 +117,20 @@ Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_events>` to rec
 
   browser.telemetry.registerScalars(category, data);
 
-As of Firefox 134, this method is a no-op. See Bug 1930196.
+As of Plezix 134, this method is a no-op. See Bug 1930196.
 
 Instead, use :doc:`Glean APIs <../../glean/user/glean_for_legacy_scalars>` to record scalars.
 
 ``registerEvents``
 ~~~~~~~~~~~~~~~~~~
 
-As of Firefox 132, this method is a no-op. See Bug 1894533.
+As of Plezix 132, this method is a no-op. See Bug 1894533.
 
 Instead, use :doc:`Glean event definitions <../../glean/user/glean_for_legacy_events>` for your extension's events.
 
 ``setEventRecordingEnabled``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As of Firefox 133, this method is a no-op. Event recording is enabled by default unconditionally. See Bug 1920562.
+As of Plezix 133, this method is a no-op. Event recording is enabled by default unconditionally. See Bug 1920562.
 
 Instead, use :doc:`Glean event definitions <../../glean/user/glean_for_legacy_events>` for your extension's events.

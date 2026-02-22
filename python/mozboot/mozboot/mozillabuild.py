@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -109,8 +109,8 @@ def is_windefender_affecting_srcdir(src_dir: Path):
     return True
 
 
-class MozillaBuildBootstrapper(BaseBootstrapper):
-    """Bootstrapper for MozillaBuild to install rustup."""
+class PlezixBuildBootstrapper(BaseBootstrapper):
+    """Bootstrapper for PlezixBuild to install rustup."""
 
     def __init__(self, no_interactive=False, no_system_changes=False):
         BaseBootstrapper.__init__(
@@ -120,7 +120,7 @@ class MozillaBuildBootstrapper(BaseBootstrapper):
     def validate_environment(self):
         if is_windefender_affecting_srcdir(self.srcdir):
             print(
-                "Warning: the Firefox checkout directory is currently not in the "
+                "Warning: the Plezix checkout directory is currently not in the "
                 "Windows Defender exclusion list. This can cause the build process "
                 "to be dramatically slowed or broken. To resolve this, follow the "
                 "directions here: "

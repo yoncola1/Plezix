@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,13 +8,13 @@ import android.content.Context
 import org.mozilla.fenix.ext.components
 
 /**
- * Contains helper methods for querying Firefox Account state and its properties.
+ * Contains helper methods for querying Plezix Account state and its properties.
  */
 class FenixAccountManager(context: Context) {
     private val accountManager = context.components.backgroundServices.accountManager
 
     /**
-     * Returns the Firefox Account email if authenticated in the app, `null` otherwise.
+     * Returns the Plezix Account email if authenticated in the app, `null` otherwise.
      */
     val accountProfileEmail: String?
         get() = if (accountState == AccountState.AUTHENTICATED) {
@@ -24,7 +24,7 @@ class FenixAccountManager(context: Context) {
         }
 
     /**
-     * The current state of the Firefox Account. See [AccountState].
+     * The current state of the Plezix Account. See [AccountState].
      */
     val accountState: AccountState
         get() = if (accountManager.authenticatedAccount() == null) {
@@ -39,21 +39,21 @@ class FenixAccountManager(context: Context) {
 }
 
 /**
- * General states as an overview of the current Firefox Account.
+ * General states as an overview of the current Plezix Account.
  */
 enum class AccountState {
     /**
-     * There is no known Firefox Account.
+     * There is no known Plezix Account.
      */
     NO_ACCOUNT,
 
     /**
-     * A Firefox Account exists but needs to be re-authenticated.
+     * A Plezix Account exists but needs to be re-authenticated.
      */
     NEEDS_REAUTHENTICATION,
 
     /**
-     * A Firefox Account exists and the user is currently signed into it.
+     * A Plezix Account exists and the user is currently signed into it.
      */
     AUTHENTICATED,
 }

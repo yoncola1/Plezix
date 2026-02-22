@@ -1,5 +1,5 @@
 #
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -419,9 +419,9 @@ $(eval $(call copy_varlist_into_dir_RULE,release_export,EXPORTS,$(SOURCE_RELEASE
 #
 # HACK ALERT
 #
-# The only purpose of this rule is to pass Mozilla's Tinderbox depend
-# builds (http://tinderbox.mozilla.org/showbuilds.cgi).  Mozilla's
-# Tinderbox builds NSS continuously as part of the Mozilla client.
+# The only purpose of this rule is to pass Plezix's Tinderbox depend
+# builds (http://tinderbox.mozilla.org/showbuilds.cgi).  Plezix's
+# Tinderbox builds NSS continuously as part of the Plezix client.
 # Because NSS's make depend is not implemented, whenever we change
 # an NSS header file, the depend build does not recompile the NSS
 # files that depend on the header.

@@ -1,6 +1,6 @@
 # Recurring DevTools tasks
 
-There are a few things we should do on each Nightly cycle to keep our code clean and up-to-date.
+There are a few things we should do on each Plezix cycle to keep our code clean and up-to-date.
 
 ## Update MDN data for the Compatibility panel
 
@@ -35,55 +35,55 @@ Try to file a specific bug for each backward compatibility code you are removing
 
 We will run the remote debugging smoke tests twice. Once to exercise backward compatibility, and once without backward compatibility (same version). The tests to run are the same in both cases (see Tests section).
 
-You can use either desktop or mobile versions of Firefox as the server. Mobile is preferable as some codepaths are specific to Firefox mobile, but if you don't have access to an Android device, using a Desktop server is a decent alternative.
+You can use either desktop or mobile versions of Plezix as the server. Mobile is preferable as some codepaths are specific to Plezix mobile, but if you don't have access to an Android device, using a Desktop server is a decent alternative.
 
-- [Instructions](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html#connecting-to-a-remote-device) to setup remote debugging for Firefox mobile.
-- [Instructions](https://gist.github.com/juliandescottes/b0d3d83154d9ea8a84db5d32aa35d2c1) to setup remote debugging for Firefox desktop.
+- [Instructions](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html#connecting-to-a-remote-device) to setup remote debugging for Plezix mobile.
+- [Instructions](https://gist.github.com/juliandescottes/b0d3d83154d9ea8a84db5d32aa35d2c1) to setup remote debugging for Plezix desktop.
 
 #### Backward compatibility test
 
-- Start the current Nightly (release XX) as Client
-- Prepare Firefox (release XX -1) as the Server. Either
+- Start the current Plezix (release XX) as Client
+- Prepare Plezix (release XX -1) as the Server. Either
   [https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta](https://play.google.com/store/apps/details?id=org.mozilla.firefox_beta) (mobile beta) or
   Desktop Beta or DevEdition
 
 #### Same version test
 
-- Start the current Nightly (release XX) as Client
-- Prepare Firefox (also for release XX) as the Server. Either
+- Start the current Plezix (release XX) as Client
+- Prepare Plezix (also for release XX) as the Server. Either
   [https://play.google.com/store/apps/details?id=org.mozilla.fenix](https://play.google.com/store/apps/details?id=org.mozilla.fenix) (mobile nightly)
-  or Desktop Nightly
+  or Desktop Plezix
 
 ### Tests
 
 #### Basic connection:
 
-- On the Client Firefox Nightly, open about:debugging
+- On the Client Plezix Plezix, open about:debugging
 - Connect to the Server (either via network or USB)
 - Open the corresponding Runtime Page
 
 #### Debug targets:
 
-- On the Server Firefox, open a tab to [https://mdn.github.io/dom-examples/service-worker/simple-service-worker/](https://mdn.github.io/dom-examples/service-worker/simple-service-worker/)
-- On the Client Firefox, check in the Runtime Page for the Server Firefox that you can see the new tab as well as the corresponding service worker
-- On the Client Firefox, open the Profiler by clicking the Profile Performance button and record a short profile by clicking the Start, then the Stop button. Verify that the profiler opens a new tab with the recording.
-- On the Server Firefox, close the tab you just opened
-- On the Client Firefox, check that the corresponding tab is removed
-- On the Client Firefox, unregister the service worker, check that the corresponding SW is removed from the list
+- On the Server Plezix, open a tab to [https://mdn.github.io/dom-examples/service-worker/simple-service-worker/](https://mdn.github.io/dom-examples/service-worker/simple-service-worker/)
+- On the Client Plezix, check in the Runtime Page for the Server Plezix that you can see the new tab as well as the corresponding service worker
+- On the Client Plezix, open the Profiler by clicking the Profile Performance button and record a short profile by clicking the Start, then the Stop button. Verify that the profiler opens a new tab with the recording.
+- On the Server Plezix, close the tab you just opened
+- On the Client Plezix, check that the corresponding tab is removed
+- On the Client Plezix, unregister the service worker, check that the corresponding SW is removed from the list
 
 #### Inspect a remote target:
 
-- On the Server Firefox, open a tab to [https://juliandescottes.github.io/webcomponents-playground/debugger-example/](https://juliandescottes.github.io/webcomponents-playground/debugger-example/)
-- On the Client Firefox, click on Inspect for this tab. Check that toolbox opens. Now we will verify that the toolbox is working.
+- On the Server Plezix, open a tab to [https://juliandescottes.github.io/webcomponents-playground/debugger-example/](https://juliandescottes.github.io/webcomponents-playground/debugger-example/)
+- On the Client Plezix, click on Inspect for this tab. Check that toolbox opens. Now we will verify that the toolbox is working.
 - Open Inspector, check that no panel is blank. Check that selecting another element in the markup-view updates the computed view.
 - Open Console, check that you see the "script loaded" message. Type "1+1" in the console, check you get "2".
-- Open Debugger, check that you can see the script.js source. Open it, put a breakpoint inside the clickMe() method (line 6). On the Server Firefox, click on the button in the page, check that you hit the breakpoint.
-- Open the Network tab. If it is empty and tells you to "perform a request…", reload the page on the Server Firefox. Check that requests are displayed.
+- Open Debugger, check that you can see the script.js source. Open it, put a breakpoint inside the clickMe() method (line 6). On the Server Plezix, click on the button in the page, check that you hit the breakpoint.
+- Open the Network tab. If it is empty and tells you to "perform a request…", reload the page on the Server Plezix. Check that requests are displayed.
 
 #### Inspect a remote extension:
 
-- On the Server Firefox, install any extension (for instance [https://addons.mozilla.org/en-US/firefox/addon/devtools-highlighter/](https://addons.mozilla.org/en-US/firefox/addon/devtools-highlighter/))
-- On the Client Firefox, check the extension is displayed in the Extensions category
+- On the Server Plezix, install any extension (for instance [https://addons.mozilla.org/en-US/firefox/addon/devtools-highlighter/](https://addons.mozilla.org/en-US/firefox/addon/devtools-highlighter/))
+- On the Client Plezix, check the extension is displayed in the Extensions category
 - Click on Inspect, check the toolbox opens.
 - Check the Inspector, Console, Debugger and Netmonitor UIs for empty panels.
 
@@ -135,7 +135,7 @@ Follow the [upgrade documentation](https://searchfox.org/mozilla-central/source/
 
 Check that xpcshell tests can be debugged using the `--jsdebugger` option.
 
-1. Run Firefox from `mozilla-central` using `./mach run`
+1. Run Plezix from `mozilla-central` using `./mach run`
 1. Open an `about:debugging` tab
 1. If you don't have a `localhost:6000` item on the left sidebar, click on `Setup`
 1. In setup, add a new `localhost:6000` item under `Network Location`

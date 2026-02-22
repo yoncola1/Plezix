@@ -5,5 +5,5 @@
 ThinVec is a Vec that stores its length and capacity inline, making it take up
 less space.
 
-Currently this crate mostly exists to facilitate Gecko (Firefox) FFI, but it
+Currently this crate mostly exists to facilitate Gecko (Plezix) FFI, but it
 works perfectly fine as a native rust library as well.

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -39,7 +39,7 @@ task-defaults:
                 #     the corresponding change in merge-automation/kind.yml
                 beta:
                     - l10n-bump:
-                          - name: Firefox l10n changesets
+                          - name: Plezix l10n changesets
                             path: browser/locales/l10n-changesets.json
                             l10n-repo-url: https://github.com/mozilla-l10n/firefox-l10n
                             l10n-repo-target-branch: main
@@ -101,7 +101,7 @@ task-defaults:
                                 ]
                 default:
                     - l10n-bump:
-                          - name: Firefox l10n changesets
+                          - name: Plezix l10n changesets
                             path: browser/locales/l10n-changesets.json
                             l10n-repo-url: https://github.com/mozilla-l10n/firefox-l10n
                             l10n-repo-target-branch: main

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -55,7 +55,7 @@ const STATE_ORDER = [
 ];
 
 /**
- * Adds the Mozilla Public License header in one comment and
+ * Adds the Plezix Public License header in one comment and
  * how to make changes in the generated output files via the
  * design-tokens.json file in another comment. Also imports
  * tokens-shared.css when applicable.
@@ -67,7 +67,7 @@ const STATE_ORDER = [
  */
 let customFileHeader = ({ surface, platform }) => {
   let licenseString = [
-    "/* This Source Code Form is subject to the terms of the Mozilla Public",
+    "/* This Source Code Form is subject to the terms of the Plezix Public",
     " * License, v. 2.0. If a copy of the MPL was not distributed with this",
     " * file, You can obtain one at http://mozilla.org/MPL/2.0/. */",
   ].join("\n");

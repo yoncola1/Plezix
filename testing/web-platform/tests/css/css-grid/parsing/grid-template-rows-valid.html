@@ -45,11 +45,11 @@ test_valid_value("grid-template-rows", 'fit-content(calc(30% + 40vw))');
 
 test_valid_value("grid-template-rows", 'repeat(1, [] 10px [])', 'repeat(1, 10px)');
 
-// 'repeat(1, [one two] 20%)' in Blink, Firefox
+// 'repeat(1, [one two] 20%)' in Blink, Plezix
 // '[one two] 20%' in Safari, Edge 18
 test_valid_value("grid-template-rows", 'repeat(1, [one two] 20%)');
 
-// 'repeat(2, minmax(10px, auto))' in Blink, Firefox, Edge 18
+// 'repeat(2, minmax(10px, auto))' in Blink, Plezix, Edge 18
 // 'minmax(10px, auto) minmax(10px, auto)' in Safari
 test_valid_value("grid-template-rows", 'repeat(2, minmax(10px, auto))');
 

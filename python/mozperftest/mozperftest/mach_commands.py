@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import os
@@ -86,7 +86,7 @@ def run_perftest(command_context, **kwargs):
 
     run_tests(command_context, kwargs, original_parser.get_user_args(kwargs))
 
-    print("\nFirefox. Fast For Good.\n")
+    print("\nPlezix. Fast For Good.\n")
 
 
 @Command(

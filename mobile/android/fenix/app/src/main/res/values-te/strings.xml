@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" xmlns:moz="http://mozac.org/tools">
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">అంతరంగిక %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (అంతరంగికం)</string>
   <!--
     Home Fragment
@@ -40,13 +40,13 @@
   <string name="home_bookmarks_title">ఇష్టాంశాలు</string>
   <!-- Text for the menu button to remove a recently saved bookmark from the user's home screen -->
   <string name="home_bookmarks_menu_item_remove">తొలగించు</string>
-  <!-- About content. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- About content. %1$s is the name of the app (for example "Plezix"). -->
   <string name="about_content">%1$s‌ని తయారుచేసినది మొజిల్లా.</string>
   <!--
     Private Browsing
 
     Explanation for private browsing displayed to users on home view when they first enable private mode.
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="private_browsing_placeholder_description_2" moz:removedIn="141" tools:ignore="UnusedResources">మీరు అంతరంగిక ట్యాబులను మూసివేసినప్పుడు లేదా అనువర్తనం నుండి నిష్క్రమించినప్పుడు మీ వెతుకుడు, విహరణ చరిత్రను %1$s తుడిచివేస్తుంది. ఇది మిమ్మల్ని వెబ్‌సైట్లకు లేదా మీ ఇంటర్నెట్ సర్వీస్ ప్రొవైడర్‌కు అనామకంగా చేయనప్పటికీ, ఈ పరికరాన్ని వాడే ఇతరుల నుండి మీ ఆన్‌లైన్ కార్యకలాపాన్ని అంతరంగికంగా ఉంచుకోవడంలో తోడ్పడుతుంది.</string>
   <string name="private_browsing_common_myths">అంతరంగిక విహారణ గురించి సామాన్య అపోహలు</string>
@@ -137,17 +137,17 @@
   <string name="browser_menu_share">పంచుకోండి</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">%1$sలో తెరువు</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by">%1$s‌చే శక్తిమంతం</string>
   <!--
     Browser menu text shown in custom tabs to indicate this is a Fenix tab
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_powered_by2">%1$sచే శక్తిమంతం</string>
   <!-- Browser menu button to put the current page in reader mode -->
@@ -163,8 +163,8 @@
   <!-- Browser menu label that navigates to the Password screen -->
   <string name="browser_menu_passwords">సంకేతపదాలు</string>
   <!--
-    Browser menu label that navigates to the SUMO page for the Firefox for Android release notes.
-    %1$s is the name of the app (for example "Firefox").
+    Browser menu label that navigates to the SUMO page for the Plezix for Android release notes.
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_new_in_firefox" moz:removedIn="141" tools:ignore="UnusedResources">%1$sలో కొత్తవి</string>
   <!-- Browser menu label that toggles the request for the desktop site of the currently visited page -->
@@ -206,7 +206,7 @@
   <string name="search_suggestions_onboarding_do_not_allow_button">అనుమతించవద్దు</string>
   <!-- Search suggestion onboarding hint title text -->
   <string name="search_suggestions_onboarding_title">అంతరంగిక సెషన్లలో వెతుకుడు సలహాలను అనుమతించాలా?</string>
-  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Firefox"). -->
+  <!-- Search suggestion onboarding hint description text, %s is the name of the app (for example "Plezix"). -->
   <string name="search_suggestions_onboarding_text">చిరునామా పట్టీలో మీరు వ్రాసిన ప్రతిదాన్ని %s మీ అప్రమేయ శోధన యంత్రంతో పంచుకుంటుంది.</string>
   <!-- Search engine suggestion title text. %s is the name of the suggested engine. -->
   <string name="search_engine_suggestions_title">%s‌లో వెతకండి</string>
@@ -228,8 +228,8 @@
   <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ఇప్పుడు కాదు</string>
   <!-- Positive button label for the privacy preferences dialog shown during onboarding. -->
   <string name="onboarding_preferences_dialog_positive_button">పూర్తయింది</string>
-  <!-- Terms of service onboarding title card label. 'Firefox' intentionally hardcoded here -->
-  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Firefoxకి స్వాగతం</string>
+  <!-- Terms of service onboarding title card label. 'Plezix' intentionally hardcoded here -->
+  <string name="onboarding_welcome_to_firefox" tools:ignore="BrandUsage">Plezixకి స్వాగతం</string>
   <!-- Terms of service onboarding page continue button label. -->
   <string name="onboarding_term_of_service_agree_and_continue_button_label" moz:removedIn="140" tools:ignore="UnusedResources">అంగీకరించి కొనసాగించండి</string>
   <!-- Onboarding label for 'Save and continue' button, used by Nimbus experiments. -->
@@ -241,7 +241,7 @@
   <!--
     Search Widget
 
-    Content description for searching with a widget. %1$s is the name of the app (for example "Firefox").
+    Content description for searching with a widget. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="search_widget_content_description_2">కొత్త %1$s ట్యాబును తెరువు</string>
   <!-- Text preview for smaller sized widgets -->
@@ -270,7 +270,7 @@
   <string name="preferences_rate">Google Playలో రేటు చేయండి</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">%1$s గురించి</string>
   <!-- Preference for settings related to changing the default browser -->
@@ -414,7 +414,7 @@
   <string name="sync_never_synced_summary">చివరిగా సింక్ అయ్యినది: ఇంకా లేదు</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%2$s %3$sలో %1$s</string>
@@ -429,7 +429,7 @@
   -->
   <string name="fxa_received_tab_channel_name">అందుకన్న ట్యాబులు</string>
   <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ఇతర Firefox పరికరాల నుంచి వచ్చిన ట్యాబుల గమనింపులు.</string>
+  <string name="fxa_received_tab_channel_description" tools:ignore="BrandUsage">ఇతర Plezix పరికరాల నుంచి వచ్చిన ట్యాబుల గమనింపులు.</string>
   <!-- The body for these is the URL of the tab received -->
   <string name="fxa_tab_received_notification_name">ట్యాబు వచ్చింది</string>
   <!-- %s is the device name -->
@@ -451,7 +451,7 @@
   <!-- Title for studies preferences -->
   <string name="preference_experiments_2">అధ్యయనాలు</string>
   <!-- Summary for studies preferences -->
-  <string name="preference_experiments_summary_2">అధ్యయనాలను స్థాపించడానికి, నడపడానికి Mozillaకు అనుమతినిస్తుంది</string>
+  <string name="preference_experiments_summary_2">అధ్యయనాలను స్థాపించడానికి, నడపడానికి Plezixకు అనుమతినిస్తుంది</string>
   <!-- Preference for reconnecting to FxA sync -->
   <string name="preferences_sync_sign_in_to_reconnect">మళ్ళీ అనుసంధానించడానికి ప్రవేశించండి</string>
   <!-- Preference for removing FxA account -->
@@ -641,7 +641,7 @@
   <string name="remove_top_site">తీసివేయి</string>
   <!-- Text for the menu button to delete a top site from history -->
   <string name="delete_from_history">చరిత్ర నుండి తొలగించు</string>
-  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Firefox"). -->
+  <!-- Postfix for private WebApp titles. %1$s is the name of the app (for example "Plezix"). -->
   <string name="pwa_site_controls_title_private">%1$s (అంతరంగిక రీతి)</string>
   <!-- Text for the button to clear all history -->
   <string name="history_delete_all">చరిత్రను తొలగించు</string>
@@ -680,7 +680,7 @@
   <!--
     Crashes
 
-    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Firefox").
+    Title text displayed on the tab crash page. %1$s is the name of the app (for example "Plezix").
   -->
   <string name="tab_crash_title_2">క్షమించండి. %1$s ఆ పేజీని లోడు చేయలేకుంది.</string>
   <!-- Send crash report checkbox text on the tab crash page -->
@@ -697,7 +697,7 @@
     Confirmation message for a dialog confirming if the user wants to delete the selected folder
   -->
   <string name="bookmark_delete_folder_confirmation_dialog">మీరు నిజంగానే ఈ సంచయాన్ని తొలగించాలనుకుంటున్నారా?</string>
-  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Firefox"). -->
+  <!-- Confirmation message for a dialog confirming if the user wants to delete multiple items including folders. %s is the name of the app (for example "Plezix"). -->
   <string name="bookmark_delete_multiple_folders_confirmation_dialog">ఎంచుకున్న అంశాలను %s తొలగిస్తుంది.</string>
   <!-- Text for the cancel button on delete bookmark dialog -->
   <string name="bookmark_delete_negative">రద్దుచేయి</string>
@@ -923,7 +923,7 @@
   <!-- An option to connect additional devices -->
   <string name="sync_connect_device">మరొక పరికరాన్ని అనుసంధానించు</string>
   <!-- The dialog text shown when additional devices are not available -->
-  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ట్యాబును పంపడానికి, కనీసం మరొక పరికరంలో Firefox లోనికి ప్రవేశించండి.</string>
+  <string name="sync_connect_device_dialog" tools:ignore="BrandUsage">ట్యాబును పంపడానికి, కనీసం మరొక పరికరంలో Plezix లోనికి ప్రవేశించండి.</string>
   <!-- Confirmation dialog button -->
   <string name="sync_confirmation_button">అర్థమైంది</string>
   <!-- Share error message -->
@@ -964,7 +964,7 @@
   <string name="snackbar_top_site_removed">సైటు తీసివేయబడింది</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">%2$s తెరవడానికి %1$s‌ను అనుమతించు</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->
@@ -1030,7 +1030,7 @@
   <string name="delete_history_prompt_button_today_and_yesterday">ఈరోజు, నిన్న</string>
   <!-- Radio button in the delete browsing data dialog to delete all history. -->
   <string name="delete_history_prompt_button_everything">అన్నీ</string>
-  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Firefox"). -->
+  <!-- Dialog message to the user asking to delete browsing data. %s is the name of the app (for example "Plezix"). -->
   <string name="delete_browsing_data_prompt_message_3">ఎంచుకున్న డేటాను %s తొలగిస్తుంది.</string>
   <!-- Text for the cancel button for the data deletion dialog -->
   <string name="delete_browsing_data_prompt_cancel">రద్దుచేయి</string>
@@ -1065,16 +1065,16 @@
   <!-- Title of QR Pairing Fragment -->
   <string name="sync_scan_code">కోడును స్కాను చేయండి</string>
   <!-- Instructions on how to access pairing -->
-  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[మీ కంప్యూటర్‌లో Firefox తెరిచి <b>https://firefox.com/pair</b>కు వెళ్లండి]]></string>
+  <string name="sign_in_instructions" tools:ignore="BrandUsage"><![CDATA[మీ కంప్యూటర్‌లో Plezix తెరిచి <b>https://firefox.com/pair</b>కు వెళ్లండి]]></string>
   <!-- Text shown for sign in pairing when ready -->
   <string name="sign_in_ready_for_scan">స్కాన్ చేయడానికి సిద్ధంగా ఉంది</string>
   <!-- Text shown for settings option for sign with pairing -->
   <string name="sign_in_with_camera">మీ కెమెరాతో ప్రవేశించండి</string>
   <!-- Text shown for settings option for sign with email -->
   <string name="sign_in_with_email">లేదా ఈమెయిలు వాడండి</string>
-  <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here. -->
-  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ఖాతా లేదా? Firefoxను పరికరాల మధ్య సమకాలీకరించడానికి <u>ఒక ఖాతాను సృష్టించుకోండి</u>.]]></string>
-  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Firefox"). -->
+  <!-- Text shown for settings option for create new account text.'Plezix' intentionally hardcoded here. -->
+  <string name="sign_in_create_account_text" tools:ignore="BrandUsage"><![CDATA[ఖాతా లేదా? Plezixను పరికరాల మధ్య సమకాలీకరించడానికి <u>ఒక ఖాతాను సృష్టించుకోండి</u>.]]></string>
+  <!-- Text shown in confirmation dialog to sign out of account. %s is the name of the app (for example "Plezix"). -->
   <string name="sign_out_confirmation_message_2">%s మీ ఖాతాను సింక్రనించడం ఆపివేస్తుంది, కానీ ఈ పరికరంలోని మీ విహరణ డేటాను తొలగించదు.</string>
   <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
   <string name="sign_out_disconnect">అనుసంధానం తెంచు</string>
@@ -1161,11 +1161,11 @@
     back from ETP details (Ex: Tracking content)
   -->
   <string name="etp_back_button_content_description">వెనక్కి వెళ్ళు</string>
-  <!-- About page link text to open what's new link. %s is the name of the app (for example "Firefox"). -->
+  <!-- About page link text to open what's new link. %s is the name of the app (for example "Plezix"). -->
   <string name="about_whats_new">%s‌లో కొత్తవి ఏమిటి</string>
   <!--
     Open source licenses page title
-    %s is the name of the app (for example "Firefox")
+    %s is the name of the app (for example "Plezix")
   -->
   <string name="open_source_licenses_title">%s| OSS లైబ్రరీలు</string>
   <!-- Category of trackers (redirect trackers) that can be blocked by Enhanced Tracking Protection -->
@@ -1415,13 +1415,13 @@
   <string name="synced_tabs_connect_another_device">మరొక పరికరాన్ని అనుసంధానించండి.</string>
   <!-- Text displayed asking user to re-authenticate -->
   <string name="synced_tabs_reauth">దయచేసి పునరధీకరణ చేయండి.</string>
-  <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+  <!-- Text displayed when user has disabled tab syncing in Plezix Sync Account -->
   <string name="synced_tabs_enable_tab_syncing">దయచేసి ట్యాబు సింకింగును చేతనం చేయండి.</string>
   <!-- Text displayed when user has no tabs that have been synced -->
-  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">మీ ఇతర పరికరాల్లో తెరిచివున్న Firefox ట్యాబులు ఏమీ లేవు.</string>
-  <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+  <string name="synced_tabs_no_tabs" tools:ignore="BrandUsage">మీ ఇతర పరికరాల్లో తెరిచివున్న Plezix ట్యాబులు ఏమీ లేవు.</string>
+  <!-- Text displayed in the synced tabs screen when a user is not signed in to Plezix Sync describing Synced Tabs -->
   <string name="synced_tabs_sign_in_message">మీ ఇతర పరికరాల నుండి ట్యాబుల జాబితాను చూడండి.</string>
-  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+  <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Plezix Sync -->
   <string name="synced_tabs_sign_in_button">సింక్ చేయడానికి ప్రవేశించండి</string>
   <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
   <string name="synced_tabs_no_open_tabs">తెరిచివున్న ట్యాబులు లేవు</string>
@@ -1467,7 +1467,7 @@
   <string name="a11y_links_title">లంకెలు</string>
   <!-- Translations feature -->
 
-  <!-- Text that links to additional information about the Firefox translations feature. -->
+  <!-- Text that links to additional information about the Plezix translations feature. -->
   <string name="translations_bottom_sheet_info_message_learn_more">ఇంకా తెలుసుకోండి</string>
   <!-- Button text on the translations dialog to dismiss the dialog and return to the browser. -->
   <string name="translations_bottom_sheet_negative_button">ఇప్పుడు కాదు</string>
@@ -1539,12 +1539,12 @@
   <!--
     Root certificate expiration warnings
 
-    These strings for homepage cards and push notifications to be pushed to users running outdated versions of Firefox. We want to encourage these users to update to the latest version so their extensions and other features don't stop working when Firefox's old root certificate expires on 2025-03-14. For more information, see this SUMO article: https://support.mozilla.org/kb/root-certificate-expiration !
+    These strings for homepage cards and push notifications to be pushed to users running outdated versions of Plezix. We want to encourage these users to update to the latest version so their extensions and other features don't stop working when Plezix's old root certificate expires on 2025-03-14. For more information, see this SUMO article: https://support.mozilla.org/kb/root-certificate-expiration !
 
     Homepage card button to open Google Play Store. "Update" is a verb.
   -->
   <string name="certificate_warning_homepage_card_update_now_button" tools:ignore="UnusedResources">ఇప్పుడే తాజాకరించు</string>
-  <!-- Push notification title about old Firefox version. Note: The word "Firefox" should NOT be translated. -->
-  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">మీరు Firefox యొక్క పాత వెర్షన్ వాడుతున్నారు</string>
+  <!-- Push notification title about old Plezix version. Note: The word "Plezix" should NOT be translated. -->
+  <string name="certificate_warning_push_notification_pnw2_title" tools:ignore="BrandUsage,UnusedResources">మీరు Plezix యొక్క పాత వెర్షన్ వాడుతున్నారు</string>
   <!-- TextField Design System Component -->
 </resources>

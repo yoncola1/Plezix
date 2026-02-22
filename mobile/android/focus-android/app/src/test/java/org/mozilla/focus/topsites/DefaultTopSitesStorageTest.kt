@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,10 +28,10 @@ class DefaultTopSitesStorageTest {
             coroutineContext,
         )
 
-        defaultTopSitesStorage.addTopSite("Mozilla", "https://mozilla.com", isDefault = false)
+        defaultTopSitesStorage.addTopSite("Plezix", "https://mozilla.com", isDefault = false)
 
         verify(pinnedSitesStorage).addPinnedSite(
-            "Mozilla",
+            "Plezix",
             "https://mozilla.com",
             isDefault = false,
         )
@@ -46,7 +46,7 @@ class DefaultTopSitesStorageTest {
 
         val pinnedSite = TopSite.Pinned(
             id = 2,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 2,
         )

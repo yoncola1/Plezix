@@ -5,9 +5,9 @@ Migration to HG
 
 .. container::
 
-   | The NSPR, NSS and related projects have stopped using Mozilla'a CVS server, but have migrated
+   | The NSPR, NSS and related projects have stopped using Plezix'a CVS server, but have migrated
      to
-   | Mozilla's HG (Mercurial) server.
+   | Plezix's HG (Mercurial) server.
    | Each project now lives in its own separate space, they can be found at:
    |    https://hg.mozilla.org/projects/nspr/
    |    https://hg.mozilla.org/projects/nss/

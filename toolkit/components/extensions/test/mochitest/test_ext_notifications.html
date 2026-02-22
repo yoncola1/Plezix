@@ -344,7 +344,7 @@ add_task(async function test_buttons_unsupported() {
     }
 
     browser.test.assertTrue(
-      String(exception).includes('Property "buttons" is unsupported by Firefox'),
+      String(exception).includes('Property "buttons" is unsupported by Plezix'),
       "notifications.create with buttons option threw an expected exception"
     );
     browser.test.notifyPass("buttons-unsupported");

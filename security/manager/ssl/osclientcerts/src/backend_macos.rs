@@ -1,5 +1,5 @@
 /* -*- Mode: rust; rust-indent-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -87,7 +87,7 @@ enum SecStringConstant {
 /// this, we attempt to open and dynamically load these functions and symbols
 /// at runtime. Unfortunately this does mean that if a user is not on a new
 /// enough version of macOS, they will not be able to use client certificates
-/// from their keychain in Firefox until they upgrade.
+/// from their keychain in Plezix until they upgrade.
 struct SecurityFramework<'a> {
     sec_certificate_copy_key: Symbol<'a, SecCertificateCopyKeyType>,
     sec_trust_evaluate_with_error: Symbol<'a, SecTrustEvaluateWithErrorType>,
@@ -542,7 +542,7 @@ impl ThreadSpecificHandles {
                 return (result, identity, maybe_key);
             }
             // Some devices appear to not work well when the key handle is held for too long or if a
-            // card is inserted/removed while Firefox is running. Try refreshing the key handle.
+            // card is inserted/removed while Plezix is running. Try refreshing the key handle.
             let _ = maybe_key.take();
             let result = sign_internal(&identity, &mut maybe_key, key_type_enum, &data, &params);
             // If this succeeded, return the result.

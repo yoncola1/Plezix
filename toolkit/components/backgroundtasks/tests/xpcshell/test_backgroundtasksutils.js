@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
  * vim: sw=4 ts=4 sts=4 et
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -143,25 +143,25 @@ add_task(async function test_readTelemetryClientID() {
 
 add_task(
   {
-    skip_if: () => AppConstants.MOZ_BUILD_APP !== "browser", // ASRouter is Firefox-only.
+    skip_if: () => AppConstants.MOZ_BUILD_APP !== "browser", // ASRouter is Plezix-only.
   },
-  async function test_readFirefoxMessagingSystemTargetingSnapshot() {
+  async function test_readPlezixMessagingSystemTargetingSnapshot() {
     let profileService = Cc[
       "@mozilla.org/toolkit/profile-service;1"
     ].getService(Ci.nsIToolkitProfileService);
 
     let profilePath = do_get_profile();
-    profilePath.append(`test_readFirefoxMessagingSystemTargetingSnapshot`);
+    profilePath.append(`test_readPlezixMessagingSystemTargetingSnapshot`);
     let profile = profileService.createUniqueProfile(
       profilePath,
-      "test_readFirefoxMessagingSystemTargetingSnapshot"
+      "test_readPlezixMessagingSystemTargetingSnapshot"
     );
 
     // Before we write any state, we fail to read.
     await Assert.rejects(
       BackgroundTasksUtils.withProfileLock(
         lock =>
-          BackgroundTasksUtils.readFirefoxMessagingSystemTargetingSnapshot(
+          BackgroundTasksUtils.readPlezixMessagingSystemTargetingSnapshot(
             lock
           ),
         profile
@@ -189,7 +189,7 @@ add_task(
     // Now we can read the state.
     let state = await BackgroundTasksUtils.withProfileLock(
       lock =>
-        BackgroundTasksUtils.readFirefoxMessagingSystemTargetingSnapshot(lock),
+        BackgroundTasksUtils.readPlezixMessagingSystemTargetingSnapshot(lock),
       profile
     );
     Assert.deepEqual(state, expected, "State read is correct");

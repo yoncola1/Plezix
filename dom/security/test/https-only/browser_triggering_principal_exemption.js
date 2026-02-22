@@ -55,7 +55,7 @@ async function runTest(desc, startsWith) {
     xhr.channel.loadInfo = dummyChannel.loadInfo;
 
     xhr.onreadystatechange = () => {
-      // We don't care about the result, just if Firefox upgraded the URL
+      // We don't care about the result, just if Plezix upgraded the URL
       // internally.
       if (
         xhr.readyState !== XMLHttpRequest.OPENED ||

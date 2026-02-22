@@ -152,7 +152,7 @@ const ADDONS = {
           version: "20171001190118",
         },
       },
-      author: "Mozilla Localization Task Force",
+      author: "Plezix Localization Task Force",
       description: "Language pack for Testy for und",
     },
   },
@@ -626,7 +626,7 @@ add_task(async function test_staged_langpack_for_app_update_not_found() {
 
 /**
  * This test verifies that a compat update with an invalid max_version
- * will be disabled, at least allowing Firefox to startup without failures.
+ * will be disabled, at least allowing Plezix to startup without failures.
  */
 add_task(async function test_staged_langpack_compat_startup() {
   let originalLocales = Services.locale.requestedLocales;

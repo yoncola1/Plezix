@@ -1,4 +1,4 @@
-# [Android Components](../../../README.md) > Service > Firefox Sync - Autofill
+# [Android Components](../../../README.md) > Service > Plezix Sync - Autofill
 
 A library for autofilling addresses and credit cards based on `concept-storage` backed by [application-services' Autofill lib](https://github.com/mozilla/application-services).
 
@@ -14,6 +14,6 @@ implementation "org.mozilla.components:service-sync-autofill:{latest-version}"
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

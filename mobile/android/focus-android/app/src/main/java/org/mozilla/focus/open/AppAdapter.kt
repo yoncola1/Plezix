@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  * An adapter for displaying app items in the [OpenWithFragment] dialog.
- * This will display browser apps and an item that can be used for installing Firefox,
+ * This will display browser apps and an item that can be used for installing Plezix,
  * if it is not already installed on the device.
  *
  * @param infoArray List of browser apps.
- * @param store Store app for installing Firefox.
+ * @param store Store app for installing Plezix.
  */
 class AppAdapter(context: Context, infoArray: Array<ActivityInfo>, store: ActivityInfo?) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

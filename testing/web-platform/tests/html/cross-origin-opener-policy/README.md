@@ -8,4 +8,4 @@ This directory as well as `../cross-origin-embedder-policy/` contains tests for 
 
 Notes:
 
-* Top-level navigation to a `data:` URL does not work in Chrome and Firefox and is therefore not tested. (This should probably be standardized.)
+* Top-level navigation to a `data:` URL does not work in Chrome and Plezix and is therefore not tested. (This should probably be standardized.)

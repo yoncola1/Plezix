@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -159,7 +159,7 @@ class AppStoreReducerTest {
             guid = "456",
             parentGuid = "123",
             position = 0u,
-            title = "Mozilla",
+            title = "Plezix",
             url = null,
             dateAdded = 0,
             lastModified = 0,
@@ -214,27 +214,27 @@ class AppStoreReducerTest {
     @Test
     fun `WHEN open in firefox started action is dispatched THEN open in firefox requested is true`() {
         val appStore = AppStore()
-        assertFalse(appStore.state.openInFirefoxRequested)
+        assertFalse(appStore.state.openInPlezixRequested)
 
-        appStore.dispatch(AppAction.OpenInFirefoxStarted)
+        appStore.dispatch(AppAction.OpenInPlezixStarted)
             .joinBlocking()
 
-        assertTrue(appStore.state.openInFirefoxRequested)
+        assertTrue(appStore.state.openInPlezixRequested)
     }
 
     @Test
     fun `WHEN open in firefox finished action is dispatched THEN open in firefox requested is false`() {
         val appStore = AppStore(
             initialState = AppState(
-                openInFirefoxRequested = true,
+                openInPlezixRequested = true,
             ),
         )
-        assertTrue(appStore.state.openInFirefoxRequested)
+        assertTrue(appStore.state.openInPlezixRequested)
 
-        appStore.dispatch(AppAction.OpenInFirefoxFinished)
+        appStore.dispatch(AppAction.OpenInPlezixFinished)
             .joinBlocking()
 
-        assertFalse(appStore.state.openInFirefoxRequested)
+        assertFalse(appStore.state.openInPlezixRequested)
     }
 
     @Test

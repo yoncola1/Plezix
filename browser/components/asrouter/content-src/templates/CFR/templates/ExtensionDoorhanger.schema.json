@@ -44,7 +44,7 @@
         },
         "notification_text": {
           "$ref": "file:///FxMSCommon.schema.json#/$defs/localizableText",
-          "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Firefox or just a plain string."
+          "description": "The text in the small blue chicklet that appears in the URL bar. This can be a reference to a localized string in Plezix or just a plain string."
         },
         "info_icon": {
           "type": "object",
@@ -87,7 +87,7 @@
         },
         "heading_text": {
           "$ref": "file:///FxMSCommon.schema.json#/$defs/localizableText",
-          "description": "The larger heading text displayed in the pop-over. This can be a reference to a localized string in Firefox or just a plain string."
+          "description": "The larger heading text displayed in the pop-over. This can be a reference to a localized string in Plezix or just a plain string."
         },
         "icon": {
           "$ref": "#/$defs/linkUrl",
@@ -138,7 +138,7 @@
         },
         "text": {
           "$ref": "file:///FxMSCommon.schema.json#/$defs/localizableText",
-          "description": "The body text displayed in the pop-over. This can be a reference to a localized string in Firefox or just a plain string."
+          "description": "The body text displayed in the pop-over. This can be a reference to a localized string in Plezix or just a plain string."
         },
         "descriptionDetails": {
           "description": "Additional information and steps on how to use",

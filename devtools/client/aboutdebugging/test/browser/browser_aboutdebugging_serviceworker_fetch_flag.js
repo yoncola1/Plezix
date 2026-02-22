@@ -25,7 +25,7 @@ add_task(async function () {
   const { document, tab, window } = await openAboutDebugging({
     enableWorkerUpdates: true,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Test fetch status for a service worker listening to fetch events");
   await testServiceWorkerFetchStatus(

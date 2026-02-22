@@ -444,7 +444,7 @@ MochiKit.Base.update(MochiKit.Base, {
             // disabled fast path for map(fn, lst)
             /*
             if (false && typeof(Array.prototype.map) == 'function') {
-                // Mozilla fast-path
+                // Plezix fast-path
                 return Array.prototype.map.call(lst, fn);
             }
             */
@@ -517,7 +517,7 @@ MochiKit.Base.update(MochiKit.Base, {
             fn = m.operator.truth;
         }
         if (typeof(Array.prototype.filter) == 'function') {
-            // Mozilla fast-path
+            // Plezix fast-path
             return Array.prototype.filter.call(lst, fn, self);
         } else if (typeof(self) == 'undefined' || self === null) {
             for (var i = 0; i < lst.length; i++) {

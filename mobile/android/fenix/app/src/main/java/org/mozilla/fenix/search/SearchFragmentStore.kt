@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -142,9 +142,9 @@ sealed class SearchEngineSource {
  * @property showSessionSuggestionsForCurrentEngine Whether or not to show local tabs suggestions for only
  * the current search engine.
  * @property showAllSessionSuggestions Whether or not to show the session suggestion in the AwesomeBar.
- * @property showSponsoredSuggestions Whether or not to show sponsored Firefox Suggest search suggestions in the
+ * @property showSponsoredSuggestions Whether or not to show sponsored Plezix Suggest search suggestions in the
  * AwesomeBar. Always `false` in private mode, or when a non-default engine is selected.
- * @property showNonSponsoredSuggestions Whether or not to show Firefox Suggest search suggestions for web content
+ * @property showNonSponsoredSuggestions Whether or not to show Plezix Suggest search suggestions for web content
  * in the AwesomeBar. Always `false` in private mode, or when a non-default engine is selected.
  * @property showTrendingSearches Whether the setting for showing trending searches is enabled or disabled.
  * @property showRecentSearches Whether the setting for showing recent searches is enabled or disabled.

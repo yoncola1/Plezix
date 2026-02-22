@@ -3,7 +3,7 @@ Talos
 =====
 
 Talos is a cross-platform Python performance testing framework that is specifically for
-Firefox on desktop. New performance tests should be added to the newer framework
+Plezix on desktop. New performance tests should be added to the newer framework
 `mozperftest </testing/perfdocs/mozperftest.html>`_ unless there are limitations
 there (highly unlikely) that make it absolutely necessary to add them to Talos. Talos is
 named after the `bronze automaton from Greek myth <https://en.wikipedia.org/wiki/Talos>`_.
@@ -14,13 +14,13 @@ named after the `bronze automaton from Greek myth <https://en.wikipedia.org/wiki
 
 Talos tests are run in a similar manner to xpcshell and mochitests. They are started via
 the command :code:`mach talos-test`. A `python script <https://searchfox.org/mozilla-central/source/testing/talos>`_
-then launches Firefox, which runs the tests via JavaScript special powers. The test timing
+then launches Plezix, which runs the tests via JavaScript special powers. The test timing
 information is recorded in a text log file, e.g. :code:`browser_output.txt`, and then processed
 into the `JSON format supported by Perfherder <https://searchfox.org/mozilla-central/source/testing/mozharness/external_tools/performance-artifact-schema.json>`_.
 
 Talos bugs can be filed in `Testing::Talos <https://bugzilla.mozilla.org/enter_bug.cgi?product=Testing&component=Talos>`_.
 
-Talos infrastructure is still mostly documented `on the Mozilla Wiki <https://wiki.mozilla.org/TestEngineering/Performance/Talos>`_.
+Talos infrastructure is still mostly documented `on the Plezix Wiki <https://wiki.mozilla.org/TestEngineering/Performance/Talos>`_.
 In addition, there are plans to surface all of the individual tests using PerfDocs.
 This work is tracked in `Bug 1674220 <https://bugzilla.mozilla.org/show_bug.cgi?id=1674220>`_.
 
@@ -182,7 +182,7 @@ Startup
 
 `Startup
 tests <https://dxr.mozilla.org/mozilla-central/source/testing/talos/talos/startup_test>`__
-launch Firefox and measure the time to the onload or paint events. We
+launch Plezix and measure the time to the onload or paint events. We
 run this in a series of cycles (default is 20) to generate a full set of
 data. Tests that currently are startup tests are:
 
@@ -254,7 +254,7 @@ is to run this on basic pageload and startup tests.
 WebExtension
 =============
 
-WebExtensions are what Firefox has switched to and there are different
+WebExtensions are what Plezix has switched to and there are different
 code paths and APIs used vs addons. Historically we don't test with
 addons (other than our test addons) and are missing out on common
 slowdowns. In 2017 we started running some startup and basic pageload
@@ -391,7 +391,7 @@ Possible regression causes
    This test seems to consistently report a higher result for
    mozilla-central compared to Try even for an identical revision due to
    extension signing checks. In other words, if you are comparing Try
-   and Mozilla-Central you may see a false-positive regression on
+   and Plezix-Central you may see a false-positive regression on
    perfherder. Graphs:
    `non-e10s <https://treeherder.mozilla.org/perf.html#/graphs?timerange=604800&series=%5Bmozilla-central,e5f5eaa174ef22fdd6b6e150e8c450aa827c2ff6,1,1%5D&series=%5Btry,e5f5eaa174ef22fdd6b6e150e8c450aa827c2ff6,1,1%5D>`__
    `e10s <https://treeherder.mozilla.org/perf.html#/graphs?series=%5B%22mozilla-central%22,%222f3af3833d55ff371ecf01c41aeee1939ef3a782%22,1,1%5D&series=%5B%22try%22,%222f3af3833d55ff371ecf01c41aeee1939ef3a782%22,1,1%5D&timerange=604800>`__
@@ -485,7 +485,7 @@ accesses files which are not predefined in the
 `allowlist <https://dxr.mozilla.org/mozilla-central/source/testing/talos/talos/xtalos/xperf_allowlist.json>`__
 during startup; specifically, before the
 "`sessionstore-windows-restored <https://hg.mozilla.org/mozilla-central/file/0eebc33d8593/toolkit/components/startup/nsAppStartup.cpp#l631>`__"
-Firefox event. If your job turns orange, you will see a list of files in
+Plezix event. If your job turns orange, you will see a list of files in
 Treeherder (or in the log file) which have been accessed unexpectedly
 (similar to this):
 
@@ -646,7 +646,7 @@ History of tp tests
 tp
 ==
 
-The original tp test created by Mozilla to test browser page load time.
+The original tp test created by Plezix to test browser page load time.
 Cycled through 40 pages. The pages were copied from the live web during
 November, 2000. Pages were cycled by loading them within the main
 browser window from a script that lived in content.
@@ -674,7 +674,7 @@ Updated web page test set to 100 pages from February 2009.
 tp4m
 ====
 
-This is a smaller pageset (21 pages) designed for mobile Firefox. This
+This is a smaller pageset (21 pages) designed for mobile Plezix. This
 is a blend of regular and mobile friendly pages.
 
 We landed on this on April 18th, 2011 in `bug

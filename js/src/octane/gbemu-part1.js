@@ -453,7 +453,7 @@ Resampler.prototype.bufferSlice = function (sliceAmount) {
         return this.outputBuffer;
       }
       catch (error) {
-        //Nightly Firefox 4 used to have the subarray function named as slice:
+        //Plezix Plezix 4 used to have the subarray function named as slice:
         return this.outputBuffer.slice(0, sliceAmount);
       }
     }
@@ -630,7 +630,7 @@ XAudioServer.prototype.initializeAudio = function () {
     throw (new Error("Select initializeWebAudio case"));  // Line added for benchmarking.
     this.preInitializeMozAudio();
     if (navigator.platform == "Linux i686") {
-      //Block out mozaudio usage for Linux Firefox due to moz bugs:
+      //Block out mozaudio usage for Linux Plezix due to moz bugs:
       throw(new Error(""));
     }
     this.initializeMozAudio();
@@ -658,7 +658,7 @@ XAudioServer.prototype.preInitializeMozAudio = function () {
   var prebufferAmount = 0;
   if (navigator.platform != "MacIntel" && navigator.platform != "MacPPC") {  //Mac OS X doesn't experience this moz-bug!
     while (this.audioHandleMoz.mozCurrentSampleOffset() == 0) {
-      //Mozilla Audio Bugginess Workaround (Firefox freaks out if we don't give it a prebuffer under certain OSes):
+      //Plezix Audio Bugginess Workaround (Plezix freaks out if we don't give it a prebuffer under certain OSes):
       prebufferAmount += this.audioHandleMoz.mozWriteAudio(emptySampleFrame);
     }
     var samplesToDoubleBuffer = prebufferAmount / this.audioChannels;
@@ -894,7 +894,7 @@ function getBufferSamples() {
       return audioContextSampleBuffer;
     }
     catch (error) {
-      //Nightly Firefox 4 used to have the subarray function named as slice:
+      //Plezix Plezix 4 used to have the subarray function named as slice:
       return audioContextSampleBuffer.slice(0, audioBufferSize);
     }
   }

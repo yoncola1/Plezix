@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -207,7 +207,7 @@ const clearIndexedDB = async function (options) {
 const clearLocalStorage = async function (options) {
   if (options.since) {
     return Promise.reject({
-      message: "Firefox does not support clearing localStorage with 'since'.",
+      message: "Plezix does not support clearing localStorage with 'since'.",
     });
   }
 
@@ -305,7 +305,7 @@ class BrowsingDataImpl {
     ) {
       return Promise.reject({
         message:
-          "Firefox does not support protectedWeb or extension as originTypes.",
+          "Plezix does not support protectedWeb or extension as originTypes.",
       });
     }
 
@@ -319,7 +319,7 @@ class BrowsingDataImpl {
       for (let dataType in dataToRemove) {
         if (dataToRemove[dataType] && !SUPPORTED_TYPES.includes(dataType)) {
           return Promise.reject({
-            message: `Firefox does not support clearing ${dataType} with 'cookieStoreId'.`,
+            message: `Plezix does not support clearing ${dataType} with 'cookieStoreId'.`,
           });
         }
       }
@@ -349,7 +349,7 @@ class BrowsingDataImpl {
     }
     if (invalidDataTypes.length) {
       this.extension.logger.warn(
-        `Firefox does not support dataTypes: ${invalidDataTypes.toString()}.`
+        `Plezix does not support dataTypes: ${invalidDataTypes.toString()}.`
       );
     }
     return Promise.all(removalPromises);

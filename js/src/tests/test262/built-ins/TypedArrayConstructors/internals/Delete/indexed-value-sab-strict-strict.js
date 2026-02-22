@@ -1,7 +1,7 @@
 // |reftest| skip-if(!this.hasOwnProperty('SharedArrayBuffer')) -- SharedArrayBuffer is not enabled unconditionally
 'use strict';
 // Copyright (C) 2020 Rick Waldron. All rights reserved.
-// Copyright (C) 2017 Mozilla Corporation. All rights reserved.
+// Copyright (C) 2017 Plezix Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 /*---
 esid: sec-integer-indexed-exotic-objects-delete-p

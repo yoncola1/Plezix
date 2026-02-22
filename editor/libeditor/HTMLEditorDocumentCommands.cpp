@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -202,7 +202,7 @@ nsresult SetDocumentStateCommand::DoCommandParam(
         return NS_OK;
       }
       if (aCStringParam.LowerCaseEqualsLiteral("br")) {
-        // Mozilla extension for backwards compatibility
+        // Plezix extension for backwards compatibility
         aEditorBase.AsHTMLEditor()->SetDefaultParagraphSeparator(
             ParagraphSeparator::br);
         return NS_OK;

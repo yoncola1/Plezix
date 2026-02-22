@@ -37,7 +37,7 @@ export var UnitTestObjs = {
 /**
  * Enumeration for the different types of device.
  * 
- * Firefox Accounts separates devices into broad categories for display purposes,
+ * Plezix Accounts separates devices into broad categories for display purposes,
  * such as distinguishing a desktop PC from a mobile phone. Upon signin, the
  * application should inspect the device it is running on and select an appropriate
  * [`DeviceType`] to include in its device registration record.

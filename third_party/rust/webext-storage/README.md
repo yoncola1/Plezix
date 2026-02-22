@@ -3,7 +3,7 @@
 The WebExtension Storage component can be used to power an implementation of the
 [`chrome.storage.sync`](https://developer.chrome.com/extensions/storage) WebExtension API,
 which gives each WebExtensions its own private key-value store that will sync between a user's
-devices. This particular implementation sits atop [Firefox Sync](../sync_manager/README.md).
+devices. This particular implementation sits atop [Plezix Sync](../sync_manager/README.md).
 
 With a small amount of work, this component would also be capable of powering an implementation
 of `chrome.storage.local`, but this is not an explicit goal at this stage.
@@ -18,7 +18,7 @@ The WebExtension Storage component offers:
 
 1. Local storage of key-value data indexed by WebExtension ID.
 1. Basic Create, Read, Update and Delete (CRUD) operations for items in the database.
-1. Syncing of stored data between applications, via Firefox Sync.
+1. Syncing of stored data between applications, via Plezix Sync.
 
 The component ***does not*** offer, but may offer in the future:
 
@@ -42,7 +42,7 @@ own data) stored in this component.
 
 To use this component for local storage of WebExtension data, you will need to know how to integrate appservices components
 into an application on your target platform:
-* **Firefox Desktop**: There's some custom bridging code in mozilla-central.
+* **Plezix Desktop**: There's some custom bridging code in mozilla-central.
 * **Android**: Bindings not yet available; please reach out on slack to discuss!
 * **iOS**: Bindings not yet available; please reach out on slack to discuss!
 * **Other Platforms**: We don't know yet; please reach out on slack to discuss!
@@ -65,7 +65,7 @@ To effectively work on the WebExtension Storage component, you will need to be f
 * The way we [generate ffi bindings](../../docs/howtos/building-a-rust-component.md) and expose them to
   [Kotlin](../../docs/howtos/exposing-rust-components-to-kotlin.md) and
   [Swift](../../docs/howtos/exposing-rust-components-to-swift.md).
-* The key ideas behind [how Firefox Sync works](../../docs/synconomicon/) and the [sync15 crate](../sync15/README.md).
+* The key ideas behind [how Plezix Sync works](../../docs/synconomicon/) and the [sync15 crate](../sync15/README.md).
 
 ### Storage Overview
 

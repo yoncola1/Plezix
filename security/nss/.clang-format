@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-# BasedOnStyle:  Mozilla
+# BasedOnStyle:  Plezix
 AccessModifierOffset: -2
 AlignAfterOpenBracket: true
 AlignEscapedNewlinesLeft: false

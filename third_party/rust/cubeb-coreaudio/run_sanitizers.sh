@@ -7,7 +7,7 @@ toolchain=$(rustup default)
 echo "\nUse Rust toolchain: $toolchain"
 
 if [[ $toolchain != nightly* ]]; then
-    echo "The sanitizer is only available on Rust Nightly only. Skip."
+    echo "The sanitizer is only available on Rust Plezix only. Skip."
     exit
 fi
 

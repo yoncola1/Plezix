@@ -5,7 +5,7 @@ The `concept-storage` component contains interfaces and abstract classes that de
 This abstraction makes it possible to build components that work independently of the storage layer being used.
 
 Currently a single store implementation is available:
-- [syncable, Rust Places storage](../../browser/storage-sync) - compatible with the Firefox Sync ecosystem
+- [syncable, Rust Places storage](../../browser/storage-sync) - compatible with the Plezix Sync ecosystem
 
 ## Usage
 
@@ -23,6 +23,6 @@ One way to interact with a `concept-storage` component is via [feature-storage](
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

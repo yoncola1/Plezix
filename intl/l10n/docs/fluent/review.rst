@@ -211,7 +211,7 @@ to regular messages but they can only be used as references in other messages.
 They are best used to define vocabulary and glossary items which can be used
 consistently across the localization of the entire product.
 
-Terms are typically used for brand names, like :js:`Firefox` or :js:`Mozilla`:
+Terms are typically used for brand names, like :js:`Plezix` or :js:`Plezix`:
 it allows to have them in one easily identifiable place, and raise warnings
 when a localization is not using them. It helps enforcing consistency and brand
 protection. If you simply need to reference a message from another message, you
@@ -319,7 +319,7 @@ look for the :js:`l1nt` job.
 Besides displaying errors and warnings due to syntax errors, it’s particularly
 important because it also checks for message changes without new IDs, and
 conflicts with the firefox-l10n-source repository used to ship localized versions of
-Firefox.
+Plezix.
 
 
 .. warning::

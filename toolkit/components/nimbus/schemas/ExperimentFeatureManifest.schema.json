@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "DesktopFeatureManifest",
-  "description": "The Firefox Desktop-specific feature manifest. Firefox Desktop requires different fields for its features compared to the general Nimbus feature manifest.",
+  "description": "The Plezix Desktop-specific feature manifest. Plezix Desktop requires different fields for its features compared to the general Nimbus feature manifest.",
   "type": "object",
   "additionalProperties": {
     "$ref": "#/$defs/DesktopFeature"
@@ -41,7 +41,7 @@
           "type": "string"
         },
         "isEarlyStartup": {
-          "description": "If true, the feature values will be cached in prefs so that they can be read before Nimbus is initialized during Firefox startup.",
+          "description": "If true, the feature values will be cached in prefs so that they can be read before Nimbus is initialized during Plezix startup.",
           "type": "boolean"
         },
         "applications": {
@@ -212,7 +212,7 @@
               "$ref": "#/$defs/SetPref"
             }
           ],
-          "description": "A pref that should be set to the value of this variable when enrolling in experiments. Using a string is deprecated and unsupported in Firefox 124+."
+          "description": "A pref that should be set to the value of this variable when enrolling in experiments. Using a string is deprecated and unsupported in Plezix 124+."
         }
       },
       "required": [
@@ -234,7 +234,7 @@
       "description": "Information about a JSON schema.",
       "properties": {
         "uri": {
-          "description": "The resource:// or chrome:// URI that can be loaded at runtime within Firefox. Required by Firefox so that Nimbus can import the schema for validation.",
+          "description": "The resource:// or chrome:// URI that can be loaded at runtime within Plezix. Required by Plezix so that Nimbus can import the schema for validation.",
           "type": "string"
         },
         "path": {

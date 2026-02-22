@@ -1,6 +1,6 @@
 This directory defines a build project for focused work on the "update
 programs": programs owned or maintained by the Install/Update team
-that are standalone binaries (i.e., not part of the Firefox binary
+that are standalone binaries (i.e., not part of the Plezix binary
 proper).
 
 To use this build project, prepare a minimal mozconfig with

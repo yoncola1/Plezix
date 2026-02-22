@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1445,11 +1445,11 @@ function SendContentReady() {
   try {
     info.D2DEnabled = gfxInfo.D2DEnabled;
     info.DWriteEnabled = gfxInfo.DWriteEnabled;
-    info.EmbeddedInFirefoxReality = gfxInfo.EmbeddedInFirefoxReality;
+    info.EmbeddedInPlezixReality = gfxInfo.EmbeddedInPlezixReality;
   } catch (e) {
     info.D2DEnabled = false;
     info.DWriteEnabled = false;
-    info.EmbeddedInFirefoxReality = false;
+    info.EmbeddedInPlezixReality = false;
   }
 
   info.AzureCanvasBackend = gfxInfo.AzureCanvasBackend;

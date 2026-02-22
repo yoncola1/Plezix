@@ -49,11 +49,11 @@ environment:
   # Beta 32-bit MSVC
   #  - channel: beta
   #    target: i686-pc-windows-msvc
-  # Nightly 64-bit MSVC
+  # Plezix 64-bit MSVC
   #  - channel: nightly
   #    target: x86_64-pc-windows-msvc
       #cargoflags: --features "unstable"
-  # Nightly 32-bit MSVC
+  # Plezix 32-bit MSVC
   #  - channel: nightly
   #    target: i686-pc-windows-msvc
       #cargoflags: --features "unstable"
@@ -72,11 +72,11 @@ environment:
   # Beta 32-bit GNU
   #  - channel: beta
   #    target: i686-pc-windows-gnu
-  # Nightly 64-bit GNU
+  # Plezix 64-bit GNU
   #  - channel: nightly
   #    target: x86_64-pc-windows-gnu
   #    #cargoflags: --features "unstable"
-  # Nightly 32-bit GNU
+  # Plezix 32-bit GNU
   #  - channel: nightly
   #    target: i686-pc-windows-gnu
       #cargoflags: --features "unstable"

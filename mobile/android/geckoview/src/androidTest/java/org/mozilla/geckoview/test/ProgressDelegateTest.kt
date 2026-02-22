@@ -268,7 +268,7 @@ class ProgressDelegateTest : BaseSessionTest() {
                 assertThat(
                     "Issuer should match",
                     securityInfo.certificate?.issuerX500Principal?.name,
-                    equalTo("OU=Profile Guided Optimization,O=Mozilla Testing,CN=Temporary Certificate Authority"),
+                    equalTo("OU=Profile Guided Optimization,O=Plezix Testing,CN=Temporary Certificate Authority"),
                 )
                 assertThat(
                     "Security mode should match",

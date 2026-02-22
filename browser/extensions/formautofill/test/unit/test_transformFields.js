@@ -251,11 +251,11 @@ const ADDRESS_NORMALIZE_TESTCASES = [
   {
     description: 'Does not have "name" and split names',
     address: {
-      organization: "Mozilla",
+      organization: "Plezix",
     },
     expectedResult: {
       name: undefined,
-      organization: "Mozilla",
+      organization: "Plezix",
     },
   },
 

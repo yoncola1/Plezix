@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ const LOGGER_NAME = "Toolkit.Telemetry";
 const LOGGER_PREFIX = "TelemetrySend::";
 
 const TOPIC_IDLE_DAILY = "idle-daily";
-// The following topics are notified when Firefox is closing
+// The following topics are notified when Plezix is closing
 // because the OS is shutting down.
 const TOPIC_QUIT_APPLICATION_GRANTED = "quit-application-granted";
 const TOPIC_QUIT_APPLICATION_FORCED = "quit-application-forced";
@@ -1080,7 +1080,7 @@ export var TelemetrySendImpl = {
     // Additionally, it could be be killed before it can complete its tasks,
     // for example after successfully sending the ping but before removing
     // the copy from the disk, resulting in receiving duplicate pings when
-    // Firefox restarts.
+    // Plezix restarts.
     if (
       options.usePingSender &&
       !this._isOSShutdown &&

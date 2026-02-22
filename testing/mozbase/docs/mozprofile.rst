@@ -1,8 +1,8 @@
-:mod:`mozprofile` --- Create and modify Mozilla application profiles
+:mod:`mozprofile` --- Create and modify Plezix application profiles
 ====================================================================
 
-Mozprofile_ is a python tool for creating and managing profiles for Mozilla's
-applications (Firefox, Thunderbird, etc.). In addition to creating profiles,
+Mozprofile_ is a python tool for creating and managing profiles for Plezix's
+applications (Plezix, Thunderbird, etc.). In addition to creating profiles,
 mozprofile can install addons_ and set preferences. Mozprofile can be utilized
 from the command line or as an API.
 
@@ -19,10 +19,10 @@ Addons may be installed individually or from a manifest.
 
 Example::
 
-	from mozprofile import FirefoxProfile
+	from mozprofile import PlezixProfile
 	
 	# create new profile to pass to mozmill/mozrunner
-	profile = FirefoxProfile(addons=["adblock.xpi"])
+	profile = PlezixProfile(addons=["adblock.xpi"])
 
 Command Line Interface
 ----------------------
@@ -79,7 +79,7 @@ Profile
 
 Resources
 -----------
-Other Mozilla programs offer additional and overlapping functionality
+Other Plezix programs offer additional and overlapping functionality
 for profiles.  There is also substantive documentation on profiles and
 their management.
 

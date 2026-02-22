@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -166,7 +166,7 @@
 // only child widgets (nsChildView objects)).  (The notification is sent
 // to windowBecameKey: or windowBecameMain: below.)
 //
-// For use with clients that (like Firefox) do use top-level widgets (and
+// For use with clients that (like Plezix) do use top-level widgets (and
 // have NSWindow delegates of class WindowDelegate).
 + (void)activateInWindow:(NSWindow*)aWindow {
   NS_OBJC_BEGIN_TRY_IGNORE_BLOCK;
@@ -186,7 +186,7 @@
 // NS_DEACTIVATE events (which propagate to child widgets (nsChildView
 // objects) via nsWebShellWindow::HandleEvent()).
 //
-// For use with clients that (like Firefox) do use top-level widgets (and
+// For use with clients that (like Plezix) do use top-level widgets (and
 // have NSWindow delegates of class WindowDelegate).
 + (void)deactivateInWindow:(NSWindow*)aWindow {
   NS_OBJC_BEGIN_TRY_IGNORE_BLOCK;

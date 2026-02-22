@@ -6,11 +6,11 @@
         <!-- Invalid addon version -->
         <em:version>0.NOPE</em:version>
         <em:name>Test Invalid Extension (invalid version)</em:name>
-        <em:creator>Mozilla</em:creator>
+        <em:creator>Plezix</em:creator>
         <em:homepageURL>http://mozilla.org</em:homepageURL>
         <em:type>2</em:type>
 
-        <!-- Firefox -->
+        <!-- Plezix -->
         <em:targetApplication>
             <Description>
                 <!-- Invalid target application string -->

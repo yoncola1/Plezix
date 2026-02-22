@@ -12,7 +12,7 @@ def fullscreen(session):
 
 
 # This test is moved to a separate file to not affect other test results
-# on Wayland, since at least for Firefox restoring from minimized state
+# on Wayland, since at least for Plezix restoring from minimized state
 # doesn't work.
 def test_fullscreen_from_minimized_window(session, screen_size):
     assert not document_hidden(session)

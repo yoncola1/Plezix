@@ -66,19 +66,19 @@ class Mocks {
       return this._clients[runtime.type][runtime.id];
     };
 
-    // Add a client for THIS_FIREFOX, since about:debugging will start on the This Firefox
+    // Add a client for THIS_FIREFOX, since about:debugging will start on the This Plezix
     // page.
-    this._thisFirefoxClient = createThisFirefoxClientMock();
+    this._thisPlezixClient = createThisPlezixClientMock();
     this._clients[RUNTIMES.THIS_FIREFOX][RUNTIMES.THIS_FIREFOX] =
-      this._thisFirefoxClient;
+      this._thisPlezixClient;
 
     // Enable mocks and remove them after the test.
     this.enableMocks();
     registerCleanupFunction(() => this.disableMocks());
   }
 
-  get thisFirefoxClient() {
-    return this._thisFirefoxClient;
+  get thisPlezixClient() {
+    return this._thisPlezixClient;
   }
 
   enableMocks() {
@@ -140,7 +140,7 @@ class Mocks {
    *        - deviceId: {String} Device id
    *        - deviceName: {String} Device name
    *        - isFenix: {Boolean} set by ADB if the package name matches a Fenix package
-   *        - name: {String} Application name, for instance "Firefox"
+   *        - name: {String} Application name, for instance "Plezix"
    *        - shortName: {String} Short name for the device
    *        - socketPath: {String} (should only be used for connecting, so not here)
    *        - version: {String} Version, for instance "63.0a"
@@ -280,12 +280,12 @@ async function createLocalClientWrapper() {
 
 // Create a basic mock for this-firefox client, and setup a runtime-client-factory mock
 // to return our mock client when needed.
-function setupThisFirefoxMock() {
+function setupThisPlezixMock() {
   const runtimeClientFactoryMock = createRuntimeClientFactoryMock();
-  const thisFirefoxClient = createThisFirefoxClientMock();
+  const thisPlezixClient = createThisPlezixClientMock();
   runtimeClientFactoryMock.createClientForRuntime = runtime => {
     if (runtime.id === RUNTIMES.THIS_FIREFOX) {
-      return thisFirefoxClient;
+      return thisPlezixClient;
     }
     throw new Error("Unexpected runtime id " + runtime.id);
   };
@@ -296,6 +296,6 @@ function setupThisFirefoxMock() {
     disableRuntimeClientFactoryMock();
   });
 
-  return thisFirefoxClient;
+  return thisPlezixClient;
 }
-/* exported setupThisFirefoxMock */
+/* exported setupThisPlezixMock */

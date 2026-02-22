@@ -82,7 +82,7 @@ detekt = "1.23.8"
 ktlint = "1.6.0"
 spotless = "7.0.2"
 
-# Mozilla versions
+# Plezix versions
 apilint = "0.5.4"
 mozilla-glean = "64.5.1"
 

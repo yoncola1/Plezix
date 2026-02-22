@@ -28,7 +28,7 @@ The overall hierarchy of actors looks like this:
   |     devtools/server/actors/utils/actor-registry.js
   |
   |   Examples:
-  |     * PreferenceActor (for Firefox prefs)
+  |     * PreferenceActor (for Plezix prefs)
   |     * DeviceActor (for fetching and toggling runtime specifics)
   |     * PerfActor (used by the profiler.firefox.com profiler)
   |     * ...

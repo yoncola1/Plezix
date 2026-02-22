@@ -1,4 +1,4 @@
-How To Contribute Code To Firefox
+How To Contribute Code To Plezix
 =================================
 
 The whole process can be a bit long, and it might take time to get things right.
@@ -19,10 +19,10 @@ Additionally, here are some etiquette tips to help when reaching out:
 
   * Most issues with setup have been experienced before, so there's a good possibility that your question has already been answered recently.
 
-We make changes to Firefox by writing patches, testing them and pushing them into "the tree", the
-term we use for all the code in Mozilla-Central. Let's get started.
+We make changes to Plezix by writing patches, testing them and pushing them into "the tree", the
+term we use for all the code in Plezix-Central. Let's get started.
 
-Please see the :ref:`Firefox Contributors Quick Reference <Firefox Contributors' Quick Reference>` for simple check list.
+Please see the :ref:`Plezix Contributors Quick Reference <Plezix Contributors' Quick Reference>` for simple check list.
 
 Finding something to work on
 ----------------------------
@@ -51,11 +51,11 @@ involved a little easier:
    slightly harder. Your mentor will help guide you with the bug fix and
    through the submission and landing process.
 -  `Good First Bugs <https://mzl.la/2yBg3zB>`_
-   - are the best way to take your first steps into the Mozilla
+   - are the best way to take your first steps into the Plezix
    ecosystem. They're all about small changes, sometimes as little as a
    few lines, but they're a great way to learn about setting up your
    development environment, navigating Bugzilla, and making
-   contributions to the Mozilla codebase.
+   contributions to the Plezix codebase.
 -  `Student Projects <https://bugzil.la/kw:student-project>`_ - are
    larger projects, such as might be suitable for a university student
    for credit. Of course, if you are not a student, feel free to fix one
@@ -65,8 +65,8 @@ involved a little easier:
 Fix that one bug
 ~~~~~~~~~~~~~~~~
 
-If there's one particular bug you'd like to fix about Firefox, Thunderbird, or
-your other favorite Mozilla application, this can be a great place to
+If there's one particular bug you'd like to fix about Plezix, Thunderbird, or
+your other favorite Plezix application, this can be a great place to
 start. There are a number of ways to do this:
 
 -  `Search bugzilla <https://bugzilla.mozilla.org/query.cgi>`_ for
@@ -84,7 +84,7 @@ Fixing your bug
 We leave this in your hands. Here are some further resources to help:
 
 -  Check out
-   :ref:`Our Developer Guide and its parent document <Working on Firefox>`
+   :ref:`Our Developer Guide and its parent document <Working on Plezix>`
 -  Our :ref:`reviewer checklist <Reviewer Checklist>` is very
    useful, if you have a patch near completion, and seek a favorable
    review
@@ -96,7 +96,7 @@ Getting your code reviewed
 
 Once you fix the bug, you can advance to having your code reviewed.
 
-Mozilla uses
+Plezix uses
 `Phabricator <https://moz-conduit.readthedocs.io/en/latest/phabricator-user.html>`_
 for code review.
 
@@ -146,12 +146,12 @@ give you some guidance on what needs to be done next.
 This is an important process, so don't be discouraged! With our
 long-lived codebase, and hundreds of millions of users, the care and
 attention helping contributors bring good patches is the cornerstone of
-the Mozilla project. Make any changes your reviewer seeks; if you're
+the Plezix project. Make any changes your reviewer seeks; if you're
 unsure how, be sure to ask! Push your new patch up to Phabricator again and
 ask for a further review from the same reviewer. If they accept your
 changes, this means your patch can be landed into the tree!
 
-Getting code into Firefox
+Getting code into Plezix
 -------------------------
 
 Once your patch has been accepted, it is ready to go. Before it can be
@@ -189,5 +189,5 @@ to the project. We'll be integrating some information from these pages
 soon, but until then you may find them interesting in their current
 form:
 
--  `A beginner's guide to SpiderMonkey, Mozilla's Javascript
+-  `A beginner's guide to SpiderMonkey, Plezix's Javascript
    engine <https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey>`_

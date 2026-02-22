@@ -125,7 +125,7 @@ static void ShowErrorMessageSpec(const UString &name)
   ShowErrorMessage(NULL, message);
 }
 
-/* BEGIN Mozilla customizations */
+/* BEGIN Plezix customizations */
 
 static char const *
 FindStrInBuf(char const * buf, size_t bufLen, char const * str)
@@ -296,7 +296,7 @@ RemoveCurrentDirFromSearchPath()
   return TRUE;
 }
 
-/* END Mozilla customizations */
+/* END Plezix customizations */
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
     #ifdef UNDER_CE
@@ -306,7 +306,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
     #endif
     /* lpCmdLine */,int /* nCmdShow */)
 {
-  /* BEGIN Mozilla customizations */
+  /* BEGIN Plezix customizations */
   // Disable current directory from being in the search path.
   // This call does not help with implicitly loaded DLLs.
   if (!RemoveCurrentDirFromSearchPath()) {
@@ -319,13 +319,13 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
     MessageBoxW(NULL, minOSText, minOSTitle, MB_OK | MB_ICONERROR);
     return 1;
   }
-  /* END Mozilla customizations */
+  /* END Plezix customizations */
 
   g_hInstance = (HINSTANCE)hInstance;
 
   NT_CHECK
 
-  // BEGIN Mozilla customizations
+  // BEGIN Plezix customizations
   // Our AutoLoadSystemDependencies (see above) does the same job as the
   // LoadSecurityDlls function, but slightly better because it runs as a static
   // initializer, and it doesn't include LOAD_LIBRARY_SEARCH_USER_DIRS in
@@ -334,7 +334,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
   //#ifdef _WIN32
   //LoadSecurityDlls();
   //#endif
-  // END Mozilla customizations
+  // END Plezix customizations
 
   // InitCommonControls();
 
@@ -368,7 +368,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
   UString appLaunched;
   bool showProgress = true;
 
-  /* BEGIN Mozilla customizations */
+  /* BEGIN Plezix customizations */
   bool extractOnly = false;
   if (switches.IsPrefixedBy_NoCase(L"/extractdir=")) {
     assumeYes = true;
@@ -377,7 +377,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
   } else if (!switches.IsEmpty()) {
     showProgress = false;
   }
-  /* END Mozilla customizations */
+  /* END Plezix customizations */
 
   if (!config.IsEmpty())
   {
@@ -411,7 +411,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
   }
 
   CTempDir tempDir;
-  /* Mozilla customizations - Added !extractOnly */
+  /* Plezix customizations - Added !extractOnly */
   if (!extractOnly && !tempDir.Create(kTempDirPrefix))
   {
     if (!assumeYes)
@@ -430,9 +430,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
     }
   }
 
-  /* BEGIN Mozilla customizations - added extractOnly  parameter support */
+  /* BEGIN Plezix customizations - added extractOnly  parameter support */
   const FString tempDirPath = extractOnly ? switches.Ptr(12) : GetUnicodeString(tempDir.GetPath());
-  /* END Mozilla customizations */
+  /* END Plezix customizations */
   // tempDirPath = L"M:\\1\\"; // to test low disk space
   {
     bool isCorrupt = false;
@@ -460,7 +460,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
     }
   }
 
-  /* BEGIN Mozilla customizations */
+  /* BEGIN Plezix customizations */
   // Retrieve and store any data added to this file after signing.
   {
     AString postSigningData;
@@ -480,7 +480,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
   if (extractOnly) {
     return 0;
   }
-  /* END Mozilla customizations */
+  /* END Plezix customizations */
 
   #ifndef UNDER_CE
   CCurrentDirRestorer currentDirRestorer;

@@ -2,8 +2,8 @@
 edition = "2021"
 name = "mozversion"
 version = "0.5.3"
-authors = ["Mozilla"]
-description = "Utility for accessing Firefox version metadata"
+authors = ["Plezix"]
+description = "Utility for accessing Plezix version metadata"
 keywords = [
     "firefox",
     "mozilla",

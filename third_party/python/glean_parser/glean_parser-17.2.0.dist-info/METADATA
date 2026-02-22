@@ -1,7 +1,7 @@
 Metadata-Version: 2.4
 Name: glean-parser
 Version: 17.2.0
-Summary: Parser tools for Mozilla's Glean telemetry
+Summary: Parser tools for Plezix's Glean telemetry
 Project-URL: Homepage, https://mozilla.github.io/glean
 Project-URL: Repository, https://github.com/mozilla/glean_parser
 Project-URL: Changelog, https://github.com/mozilla/glean_parser/blob/main/CHANGELOG.md
@@ -29,7 +29,7 @@ Description-Content-Type: text/markdown
 
 # Glean Parser
 
-Parser tools for Mozilla's Glean telemetry.
+Parser tools for Plezix's Glean telemetry.
 
 ## Features
 

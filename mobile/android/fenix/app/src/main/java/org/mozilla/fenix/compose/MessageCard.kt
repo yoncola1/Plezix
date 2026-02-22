@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import mozilla.components.service.nimbus.messaging.Message
 import org.mozilla.fenix.R
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 import org.mozilla.fenix.wallpapers.WallpaperState
 
@@ -118,7 +118,7 @@ fun MessageCard(
                         color = messageColors.titleTextColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
-                        style = FirefoxTheme.typography.headline7,
+                        style = PlezixTheme.typography.headline7,
                     )
 
                     MessageCardIconButton(
@@ -216,12 +216,12 @@ data class MessageCardColors(
          */
         @Composable
         fun buildMessageCardColors(
-            backgroundColor: Color = FirefoxTheme.colors.layer2,
-            titleTextColor: Color = FirefoxTheme.colors.textPrimary,
-            messageTextColor: Color = FirefoxTheme.colors.textSecondary,
-            iconColor: Color = FirefoxTheme.colors.iconPrimary,
-            buttonColor: Color = FirefoxTheme.colors.actionPrimary,
-            buttonTextColor: Color = FirefoxTheme.colors.textActionPrimary,
+            backgroundColor: Color = PlezixTheme.colors.layer2,
+            titleTextColor: Color = PlezixTheme.colors.textPrimary,
+            messageTextColor: Color = PlezixTheme.colors.textSecondary,
+            iconColor: Color = PlezixTheme.colors.iconPrimary,
+            buttonColor: Color = PlezixTheme.colors.actionPrimary,
+            buttonTextColor: Color = PlezixTheme.colors.textActionPrimary,
         ): MessageCardColors {
             return MessageCardColors(
                 backgroundColor = backgroundColor,
@@ -238,10 +238,10 @@ data class MessageCardColors(
 @Composable
 @PreviewLightDark
 private fun MessageCardPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(
@@ -256,10 +256,10 @@ private fun MessageCardPreview() {
 @Composable
 @PreviewLightDark
 private fun MessageCardWithoutTitlePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(
@@ -274,10 +274,10 @@ private fun MessageCardWithoutTitlePreview() {
 @Composable
 @PreviewLightDark
 private fun MessageCardWithButtonLabelPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(
@@ -327,10 +327,10 @@ data class MessageCardState(
             var (_, _, _, _, buttonColor, buttonTextColor) = MessageCardColors.buildMessageCardColors()
 
             if (isWallpaperNotDefault) {
-                buttonColor = FirefoxTheme.colors.layer1
+                buttonColor = PlezixTheme.colors.layer1
 
                 if (!isSystemInDarkTheme()) {
-                    buttonTextColor = FirefoxTheme.colors.textActionSecondary
+                    buttonTextColor = PlezixTheme.colors.textActionSecondary
                 }
             }
 

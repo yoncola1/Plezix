@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
  * WebCompat issue #108319 - https://webcompat.com/issues/108319
  *
  * nsandi.com shows a "This browser is not compatible" message in
- * Firefox. Our contacts indicated that things should be working fine,
+ * Plezix. Our contacts indicated that things should be working fine,
  * yet the message remains. This intervention hides that message.
  */
 .browser-warning-fade,

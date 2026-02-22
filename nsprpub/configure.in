@@ -1,6 +1,6 @@
 dnl -*- Mode: Autoconf; tab-width: 4; indent-tabs-mode: nil; -*-
 dnl
-dnl This Source Code Form is subject to the terms of the Mozilla Public
+dnl This Source Code Form is subject to the terms of the Plezix Public
 dnl License, v. 2.0. If a copy of the MPL was not distributed with this
 dnl file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -275,11 +275,11 @@ AC_SUBST(dist_bindir)
 AC_SUBST(dist_includedir)
 AC_SUBST(dist_libdir)
 
-dnl Check if NSPR is being compiled for Mozilla
+dnl Check if NSPR is being compiled for Plezix
 dnl Let --with-arg override environment setting
 dnl
 AC_ARG_WITH(mozilla,
-    [  --with-mozilla          Compile NSPR with Mozilla support],
+    [  --with-mozilla          Compile NSPR with Plezix support],
     [   if test "$withval" = "yes"; then
             AC_DEFINE(MOZILLA_CLIENT)
             MOZILLA_CLIENT=1
@@ -1288,7 +1288,7 @@ case "$target" in
     dnl ld.
 
     if test "$MACOS_SDK_DIR"; then
-        dnl Sync this section with the one in Mozilla's top level.
+        dnl Sync this section with the one in Plezix's top level.
 
         if test ! -d "$MACOS_SDK_DIR"; then
             AC_MSG_ERROR([SDK not found.  When using --with-macos-sdk, you must

@@ -1,6 +1,6 @@
-# Landing code (i.e. getting code into Mozilla's repository)
+# Landing code (i.e. getting code into Plezix's repository)
 
-Code changes (patches) in Mozilla are not 'merged' in a sequential way, as it's the fashion in other popular projects. Here, the patches will be *applied* on top of the latest code, and will stay there if
+Code changes (patches) in Plezix are not 'merged' in a sequential way, as it's the fashion in other popular projects. Here, the patches will be *applied* on top of the latest code, and will stay there if
 
 1. the patch applies cleanly, without conflicts
 2. the patch doesn't cause 'bustage' (i.e. breaks the build)

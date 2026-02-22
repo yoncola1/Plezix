@@ -1,8 +1,8 @@
 # Dominators view
 
-The Dominators view is new in Firefox 46.
+The Dominators view is new in Plezix 46.
 
-Starting in Firefox 46, the Memory tool includes a new view called the
+Starting in Plezix 46, the Memory tool includes a new view called the
 Dominators view. This is useful for understanding the \"retained size\"
 of objects allocated by your site: that is, the size of the objects
 themselves plus the size of the objects that they keep alive through
@@ -27,7 +27,7 @@ The Dominators view consists of two panels:
     shows you which nodes in the snapshot are retaining the most memory
 -   the [Retaining Paths
     panel](#retaining-paths-panel)
-    (new in Firefox 47) shows the 5 shortest retaining paths for a
+    (new in Plezix 47) shows the 5 shortest retaining paths for a
     single node.
 
 ![](../img/dominators-2.png)
@@ -97,7 +97,7 @@ By default, this is set to \"Type\". However, you can set it instead to
 allocated.
 
 ::: {note}
-This option is called \"Allocation Stack\" in Firefox 46.
+This option is called \"Allocation Stack\" in Plezix 46.
 :::
 
 To enable this, you must check the box labeled \"Record call stacks\"
@@ -120,7 +120,7 @@ arrays, strings, or internal structures.
 ### Retaining Paths panel
 
 ::: {note}
-The Retaining Paths panel is new in Firefox 47.
+The Retaining Paths panel is new in Plezix 47.
 :::
 
 The Retaining Paths panel shows you, for a given node, the 5 shortest

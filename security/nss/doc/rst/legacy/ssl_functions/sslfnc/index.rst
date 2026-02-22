@@ -364,7 +364,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -391,9 +391,9 @@ sslfnc
       first glance this may seem unnecessary, since ``SSL_Enable`` can set
       ``SSL_HANDSHAKE_AS_CLIENT`` or ``SSL_HANDSHAKE_AS_SERVER``. However, these settings control
       the behavior of
-      ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+      ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Connect>`__
       and
-      ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+      ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Accept>`__
       only; if you don't call one of those functions after importing a non-SSL socket with
       ``SSL_Import`` (as in the case of an already established TCP connection), SSL still needs to
       know whether the application is functioning as a client or server. For a complete discussion
@@ -481,7 +481,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain error code.
 
    .. rubric:: Description
@@ -580,7 +580,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -668,7 +668,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain error code.
 
    .. rubric:: Description
@@ -764,7 +764,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain error code.
 
    .. rubric:: Description
@@ -871,7 +871,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain error code.
 
    .. rubric:: Description
@@ -942,7 +942,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1030,7 +1030,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1088,7 +1088,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1155,7 +1155,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1287,7 +1287,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1611,7 +1611,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1655,9 +1655,9 @@ sslfnc
    first glance this may seem unnecessary, since ``SSL_OptionSet`` can set
    ``SSL_HANDSHAKE_AS_CLIENT`` or ``SSL_HANDSHAKE_AS_SERVER``. However, these settings control the
    behavior of
-   ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+   ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Connect>`__
    and
-   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Accept>`__
    only; if you don't call one of those functions after importing a non-SSL socket with
    ``SSL_Import`` (as in the case of an already established TCP connection), SSL still needs to know
    whether the application is functioning as a client or server.
@@ -1742,7 +1742,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1946,7 +1946,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -1955,7 +1955,7 @@ sslfnc
    Before SSL can handshake as a server on a socket, it must be configured to do so with a call to
    SSL_ConfigSecureServer (among other things). This function configures a listen socket. Child
    sockets created by
-   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__
+   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Accept>`__
    inherit the configuration.
 
    Servers can be configured with more than one certificate for a given port, and different
@@ -2011,7 +2011,7 @@ sslfnc
 
    -  If successful, zero.
    -  If unsuccessful, ``-1``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2063,7 +2063,7 @@ sslfnc
 
    -  If successful, zero.
    -  If unsuccessful, ``-1``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2154,7 +2154,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2202,7 +2202,7 @@ sslfnc
    -  If authentication is successful, ``SECSuccess``.
    -  If authentication is not successful, ``SECFailure``. If the callback returns ``SECFailure``,
       the callback should indicate the reason for the failure (if possible) by calling
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       with the appropriate error code.
 
    The callback function obtains the certificate to be authenticated by calling
@@ -2342,7 +2342,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2381,7 +2381,7 @@ sslfnc
    called immediately after the certificate authentication callback returns, the bad-certificate
    callback function can obtain the error code set by the certificate authentication callback by
    calling
-   ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+   ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
    immediately, as the first operation it performs. Note: once the bad-certificate callback function
    returns, the peer certificate is destroyed, and SSL_PeerCertificate will fail.
 
@@ -2435,7 +2435,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2528,7 +2528,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2583,7 +2583,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2659,7 +2659,7 @@ sslfnc
 
    -  If successful, zero.
    -  If unsuccessful, -1. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2713,7 +2713,7 @@ sslfnc
    function does not reveal any information about data that has been received but has not yet been
    decrypted. Hence, if this function returns zero, that does not necessarily mean that a subsequent
    call to
-   ```PR_Read`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Read>`__
+   ```PR_Read`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Read>`__
    would block.
 
    .. rubric:: SSL_SecurityStatus
@@ -2817,7 +2817,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -2826,7 +2826,7 @@ sslfnc
    The ``SSL_SecurityStatus`` function fills in values only if you supply pointers to values of the
    appropriate type. Pointers passed can be ``NULL``, in which case the function does not supply
    values. When you are finished with them, you should free all the returned values using
-   ```PR_Free`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Free>`__.
+   ```PR_Free`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Free>`__.
 
    .. rubric:: SSL_GetSessionID
       :name: ssl_getsessionid
@@ -2905,7 +2905,7 @@ sslfnc
 
    -  If successful, zero.
    -  If unsuccessful, -1. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3048,7 +3048,7 @@ sslfnc
    the domain name of the desired SSL server for the purpose of comparing it with the domain name in
    the certificate presented by the server actually contacted. When the callback function is
    finished with the string returned, the string should be freed with a call to
-   ```PR_Free`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Free>`__.
+   ```PR_Free`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Free>`__.
 
    .. rubric:: SSL_RevealPinArg
       :name: ssl_revealpinarg
@@ -3135,7 +3135,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3272,7 +3272,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3287,9 +3287,9 @@ sslfnc
    an SSL client or an SSL server. Note that this step would not be necessary if the socket weren't
    already connected. For an SSL socket that is configured before it is connected, SSL figures this
    out when the application calls
-   ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Connect>`__
+   ```PR_Connect`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Connect>`__
    or
-   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Accept>`__.
+   ```PR_Accept`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Accept>`__.
    If the socket is already connected before SSL gets involved, you must provide this extra hint.
 
 .. _nss_shutdown_function:
@@ -3375,7 +3375,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3427,7 +3427,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, returns ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3478,7 +3478,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3535,7 +3535,7 @@ sslfnc
 
    -  If successful, ``SECSuccess``.
    -  If unsuccessful, ``SECFailure``. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description
@@ -3577,7 +3577,7 @@ sslfnc
 
    -  If successful, zero.
    -  If unsuccessful, -1. Use
-      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_GetError>`__
+      ```PR_GetError`` <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_GetError>`__
       to obtain the error code.
 
    .. rubric:: Description

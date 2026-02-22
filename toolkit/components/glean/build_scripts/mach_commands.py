@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,7 +7,7 @@ from pathlib import Path
 
 from mach.decorators import Command, CommandArgument, SubCommand
 
-LICENSE_HEADER = """# This Source Code Form is subject to the terms of the Mozilla Public
+LICENSE_HEADER = """# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -188,7 +188,7 @@ def update_glean(command_context, version):
     instructions = f"""
     We've edited the necessary files to require Glean SDK {version}.
 
-    To ensure Glean and Firefox's other Rust dependencies are appropriately vendored,
+    To ensure Glean and Plezix's other Rust dependencies are appropriately vendored,
     please run the following commands:
 
         cargo update -p glean
@@ -208,7 +208,7 @@ def update_glean(command_context, version):
         cd gfx/wr
         cargo update -p glean
 
-    Then, to ensure all is well, build Firefox and run the FOG tests.
+    Then, to ensure all is well, build Plezix and run the FOG tests.
     Instructions can be found here:
     https://firefox-source-docs.mozilla.org/toolkit/components/glean/dev/testing.html
     """

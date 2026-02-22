@@ -94,7 +94,7 @@ Date:   Thu Sep 8 17:10:21 2022 -0700
 
     Import <cmath> in SymbolTable_ESSL_autogen.cpp.
     
-    Fixes Snap builds of Firefox.
+    Fixes Snap builds of Plezix.
     
     Change-Id: I8d71d230d5e4a5a042e6afd4e31342da9a085bed
     
@@ -106,7 +106,7 @@ Date:   Thu Jan 19 00:20:06 2023 -0500
 
     build(linux): disable `PoolAlloc` to work around `asan` failures
     
-    We noticed this causing problems in [Firefox CI][failing-ci].
+    We noticed this causing problems in [Plezix CI][failing-ci].
     
     [failing-ci]: https://treeherder.mozilla.org/jobs?repo=autoland&author=egubler%40mozilla.com&selectedTaskRun=e6KdZgnNTCOE9weaOnTjVQ.0
 
@@ -128,10 +128,10 @@ Date:   Thu Feb 11 17:34:00 2021 -0800
 
     Don't assert for non-sampleable non-ms sources in blitRenderbufferRect if we can CopySubResource.
     
-    In Firefox, we can have a source from DirectComposition without
+    In Plezix, we can have a source from DirectComposition without
     D3D11_BIND_SHADER_RESOURCE. This is fine so long as our formats etc
     match enough to hit the CopySubResource path.
-    Firefox bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1692355
+    Plezix bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1692355
 
 commit 43e9d9a7c95b509869a774fab62bf42d6d15b745
 Author: Jeff Muizelaar <jrmuizel@gmail.com>

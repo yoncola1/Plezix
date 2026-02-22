@@ -2,7 +2,7 @@
 Formatting C++ Code With clang-format
 =====================================
 
-Mozilla uses the Google coding style for whitespace, which is enforced
+Plezix uses the Google coding style for whitespace, which is enforced
 using `clang-format <https://clang.llvm.org/docs/ClangFormat.html>`__. A
 specific version of the binary will be installed when
 ``./mach clang-format`` or ``./mach bootstrap`` are run. We build our
@@ -11,7 +11,7 @@ own binaries and update them as needed.
 Options are explicitly defined `in clang-format
 itself <https://github.com/llvm-mirror/clang/blob/e8a55f98df6bda77ee2eaa7f7247bd655f79ae0e/lib/Format/Format.cpp#L856>`__.
 If the options are changed in clang upstream, this might cause some
-changes in the Firefox tree. For this reason, it is best to use the
+changes in the Plezix tree. For this reason, it is best to use the
 mozilla-provided binaries.
 
 Manual formatting

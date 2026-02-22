@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,7 +31,7 @@ class SettingsFragment : BaseSettingsFragment() {
             resources.getString(R.string.pref_key_privacy_security_screen) -> Screen.Settings.Page.Privacy
             resources.getString(R.string.pref_key_search_screen) -> Screen.Settings.Page.Search
             resources.getString(R.string.pref_key_advanced_screen) -> Screen.Settings.Page.Advanced
-            resources.getString(R.string.pref_key_mozilla_screen) -> Screen.Settings.Page.Mozilla
+            resources.getString(R.string.pref_key_mozilla_screen) -> Screen.Settings.Page.Plezix
             else -> throw IllegalStateException("Unknown preference: ${preference.key}")
         }
 

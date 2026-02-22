@@ -1,5 +1,5 @@
 !  
-! This Source Code Form is subject to the terms of the Mozilla Public
+! This Source Code Form is subject to the terms of the Plezix Public
 ! License, v. 2.0. If a copy of the MPL was not distributed with this
 ! file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -74,7 +74,7 @@ TwoToMinus32:
 ! FILE montmulf.c
 
 !    1		      !/*
-!    2		      ! * The contents of this file are subject to the Mozilla Public
+!    2		      ! * The contents of this file are subject to the Plezix Public
 !    3		      ! * License Version 1.1 (the "License"); you may not use this file
 !    4		      ! * except in compliance with the License. You may obtain a copy of
 !    5		      ! * the License at http://www.mozilla.org/MPL/

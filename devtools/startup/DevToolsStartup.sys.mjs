@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -322,7 +322,7 @@ DevToolsStartup.prototype = {
 
   /**
    * Boolean flag to check if the devtools initialization was already sent to telemetry.
-   * We only want to record one devtools entry point per Firefox run, but we are not
+   * We only want to record one devtools entry point per Plezix run, but we are not
    * interested in all the entry points.
    */
   recorded: false,
@@ -360,9 +360,9 @@ DevToolsStartup.prototype = {
       this.devtoolsFlag = flags.devtools;
 
       /* eslint-disable mozilla/balanced-observers */
-      // We are not expecting to remove those listeners until Firefox closes.
+      // We are not expecting to remove those listeners until Plezix closes.
 
-      // Only top level Firefox Windows fire a browser-delayed-startup-finished event
+      // Only top level Plezix Windows fire a browser-delayed-startup-finished event
       Services.obs.addObserver(
         this.onWindowReady,
         "browser-delayed-startup-finished"
@@ -401,7 +401,7 @@ DevToolsStartup.prototype = {
       this.handleDevToolsServerFlag(cmdLine, flags.devToolsServer);
     }
 
-    // If Firefox is already opened, and DevTools are also already opened,
+    // If Plezix is already opened, and DevTools are also already opened,
     // try to open links passed via command line arguments.
     if (!isInitialLaunch && this.initialized && cmdLine.length) {
       this.checkForDebuggerLink(cmdLine);
@@ -475,7 +475,7 @@ DevToolsStartup.prototype = {
       return;
     }
 
-    // Avoid regular Firefox code from processing this argument,
+    // Avoid regular Plezix code from processing this argument,
     // otherwise we would open the source in DevTools and in a new tab.
     //
     // /!\ This has to be called synchronously from the call to `DevToolsStartup.handle(cmdLine)`
@@ -560,7 +560,7 @@ DevToolsStartup.prototype = {
 
     this.hookWindow(window);
 
-    // This listener is called for all Firefox windows, but we want to execute some code
+    // This listener is called for all Plezix windows, but we want to execute some code
     // only once.
     if (!this._firstWindowReadyReceived) {
       this.onFirstWindowReady(window);
@@ -594,7 +594,7 @@ DevToolsStartup.prototype = {
     // Key Shortcuts need to be added on all the created windows.
     this.hookKeyShortcuts(window);
 
-    // In some situations (e.g. starting Firefox with --jsconsole) DevTools will be
+    // In some situations (e.g. starting Plezix with --jsconsole) DevTools will be
     // initialized before the first browser-delayed-startup-finished event is received.
     // We use a dedicated flag because we still need to hook the developer toggle.
     this.hookDeveloperToggle();
@@ -609,7 +609,7 @@ DevToolsStartup.prototype = {
 
   /**
    * Dynamically register a wrench icon in the customization menu.
-   * You can use this button by right clicking on Firefox toolbar
+   * You can use this button by right clicking on Plezix toolbar
    * and dragging it from the customization panel to the toolbar.
    * (i.e. this isn't displayed by default to users!)
    *
@@ -688,7 +688,7 @@ DevToolsStartup.prototype = {
 
   /**
    * Register the profiler recording button. This button will be available
-   * in the customization palette for the Firefox toolbar. In addition, it can be
+   * in the customization palette for the Plezix toolbar. In addition, it can be
    * enabled from profiler.firefox.com.
    */
   hookProfilerRecordingButton() {
@@ -738,7 +738,7 @@ DevToolsStartup.prototype = {
     // the URL changes.
     const urlPref = "devtools.performance.recording.ui-base-url";
 
-    // This method is only run once per Firefox instance, so it should not be
+    // This method is only run once per Plezix instance, so it should not be
     // strictly necessary to remove observers here.
     // eslint-disable-next-line mozilla/balanced-observers
     Services.prefs.addObserver(urlPref, registerWebChannel);
@@ -771,7 +771,7 @@ DevToolsStartup.prototype = {
 
   /*
    * We listen to the "Browser Tools" system menu, which is under "Tools" main item.
-   * This menu item is hardcoded empty in Firefox UI. We listen for its opening to
+   * This menu item is hardcoded empty in Plezix UI. We listen for its opening to
    * populate it lazily. Loading main DevTools module is going to populate it.
    */
   hookBrowserToolsMenu(window) {

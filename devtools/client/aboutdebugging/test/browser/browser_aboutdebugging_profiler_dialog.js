@@ -23,7 +23,7 @@ const RUNTIME_NAME = "Lorem ipsum";
  * Test opening and closing the profiler dialog.
  */
 add_task(async function test_opening_profiler_dialog() {
-  const { disconnect, mocks } = await connectToLocalFirefox({
+  const { disconnect, mocks } = await connectToLocalPlezix({
     runtimeId: RUNTIME_ID,
     runtimeName: RUNTIME_NAME,
     deviceName: DEVICE_NAME,
@@ -72,7 +72,7 @@ add_task(async function test_opening_profiler_dialog() {
 });
 
 add_task(async function test_set_profiler_settings() {
-  const { disconnect, mocks } = await connectToLocalFirefox({
+  const { disconnect, mocks } = await connectToLocalPlezix({
     runtimeId: RUNTIME_ID,
     runtimeName: RUNTIME_NAME,
     deviceName: DEVICE_NAME,

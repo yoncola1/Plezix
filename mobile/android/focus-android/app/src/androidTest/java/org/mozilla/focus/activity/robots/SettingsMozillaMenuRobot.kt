@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,11 +26,11 @@ import org.mozilla.focus.helpers.TestHelper.packageName
 import org.mozilla.focus.helpers.TestHelper.waitingTime
 import org.mozilla.focus.idlingResources.SessionLoadedIdlingResource
 
-class SettingsMozillaMenuRobot {
+class SettingsPlezixMenuRobot {
 
     private lateinit var sessionLoadedIdlingResource: SessionLoadedIdlingResource
 
-    fun verifyMozillaMenuItems() {
+    fun verifyPlezixMenuItems() {
         mozillaSettingsList.waitForExists(waitingTime)
         aboutFocusPageLink.check(matches(isDisplayed()))
         helpPageLink.check(matches(isDisplayed()))
@@ -84,12 +84,12 @@ class SettingsMozillaMenuRobot {
     }
 
     class Transition {
-        fun openAboutPage(interact: SettingsMozillaMenuRobot.() -> Unit): Transition {
+        fun openAboutPage(interact: SettingsPlezixMenuRobot.() -> Unit): Transition {
             aboutFocusPageLink
                 .check(matches(isDisplayed()))
                 .perform(click())
 
-            SettingsMozillaMenuRobot().interact()
+            SettingsPlezixMenuRobot().interact()
             return Transition()
         }
 
@@ -118,12 +118,12 @@ class SettingsMozillaMenuRobot {
             return BrowserRobot.Transition()
         }
 
-        fun openLibrariesUsedPage(interact: SettingsMozillaMenuRobot.() -> Unit): BrowserRobot.Transition {
+        fun openLibrariesUsedPage(interact: SettingsPlezixMenuRobot.() -> Unit): BrowserRobot.Transition {
             librariesUsedLink
                 .check(matches(isDisplayed()))
                 .perform(click())
 
-            SettingsMozillaMenuRobot().interact()
+            SettingsPlezixMenuRobot().interact()
             return BrowserRobot.Transition()
         }
 

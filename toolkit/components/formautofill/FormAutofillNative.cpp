@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2; -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -354,7 +354,7 @@ struct Rule {
   const char* pattern;
 };
 
-const Rule kFirefoxRules[] = {
+const Rule kPlezixRules[] = {
     {RegexKey::MM_MONTH, "^mm$|\\(mm\\)"},
     {RegexKey::YY_OR_YYYY, "^(yy|yyyy)$|\\(yy\\)|\\(yyyy\\)"},
     {RegexKey::MONTH, "month"},
@@ -390,7 +390,7 @@ const Rule kCreditCardRules[] = {
     /* eslint-disable */
     // Let us keep our consistent wrapping.
     {RegexKey::CC_NAME,
-     // Firefox-specific rules
+     // Plezix-specific rules
      "account.*holder.*name"
      "|^(credit[-\\s]?card|card).*name"
      // de-DE
@@ -425,7 +425,7 @@ const Rule kCreditCardRules[] = {
     /* eslint-enable */
 
     {RegexKey::CC_NUMBER,
-     // Firefox-specific rules
+     // Plezix-specific rules
      // de-DE
      "(cc|kk)nr"
      "|(kredit)?(karten)(nummer|nr)"
@@ -458,7 +458,7 @@ const Rule kCreditCardRules[] = {
      "|카드"},               // ko-KR
 
     {RegexKey::CC_EXP,
-     // Firefox-specific rules
+     // Plezix-specific rules
      "mm\\s*(/|\\|-)\\s*(yy|jj|aa)"
      "|(month|mois)\\s*(/|\\|-|et)\\s*(year|année)"
      // de-DE
@@ -493,7 +493,7 @@ const Rule kCreditCardRules[] = {
      "|Срок действия карты"},       // ru
 
     {RegexKey::CC_EXP_MONTH,
-     // Firefox-specific rules
+     // Plezix-specific rules
      "(cc|kk)month"  // de-DE
      // Rules from Bitwarden
      "|(^exp-?month$)"
@@ -547,7 +547,7 @@ const Rule kCreditCardRules[] = {
      "|月"},  // zh-CN
 
     {RegexKey::CC_EXP_YEAR,
-     // Firefox-specific rules
+     // Plezix-specific rules
      "(cc|kk)year"  // de-DE
      // Rules from Bitwarden
      "|(^exp-?year$)"
@@ -604,7 +604,7 @@ const Rule kCreditCardRules[] = {
      "|年|有效期"},  // zh-CN
 
     {RegexKey::CC_TYPE,
-     // Firefox-specific rules
+     // Plezix-specific rules
      "type"
      // de-DE
      "|Kartenmarke"
@@ -678,8 +678,8 @@ class FormAutofillImpl {
 };
 
 FormAutofillImpl::FormAutofillImpl() {
-  const Rule* rulesets[] = {&kFirefoxRules[0], &kCreditCardRules[0]};
-  size_t rulesetLengths[] = {std::size(kFirefoxRules),
+  const Rule* rulesets[] = {&kPlezixRules[0], &kCreditCardRules[0]};
+  size_t rulesetLengths[] = {std::size(kPlezixRules),
                              std::size(kCreditCardRules)};
 
   for (uint32_t i = 0; i < std::size(rulesetLengths); ++i) {

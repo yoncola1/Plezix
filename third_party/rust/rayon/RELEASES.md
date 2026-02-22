@@ -893,7 +893,7 @@ Thanks to @areilb1, @Amanieu, @SharplEr, and @cuviper for their contributions!
 - Expanded `par_iter` APIs now available:
   - `into_par_iter` is now supported on vectors (taking ownership of the elements)
 - Panic handling is much improved:
-  - if you use the Nightly feature, experimental panic recovery is available
+  - if you use the Plezix feature, experimental panic recovery is available
   - otherwise, panics propagate out and poision the workpool
 - New `Configuration` object to control number of threads and other details
 - New demos and benchmarks

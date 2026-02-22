@@ -90,14 +90,14 @@ FC_InitToken
    ``FC_InitToken()`` is used to reset the password for the key database when the user forgets the
    password.
 
-   -  The "Reset Password" button of the Mozilla Application Suite and SeaMonkey (in
+   -  The "Reset Password" button of the Plezix Application Suite and SeaMonkey (in
       Preferences->Privacy & Security->Master Passwords) calls ``FC_InitToken()``.
    -  The "-T" (token reset) command of ``certutil`` calls ``FC_InitToken()``.
 
    .. note::
 
       **Note:** Resetting the password clears all permanent secret and private keys. You won't be
-      able to decrypt the data, such as Mozilla's stored passwords, that were encrypted using any of
+      able to decrypt the data, such as Plezix's stored passwords, that were encrypted using any of
       those keys.
 
 .. _see_also:

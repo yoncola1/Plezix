@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ const Template = ({
 export const BackupFound = Template.bind({});
 BackupFound.args = {
   backupFilePath: "/Some/User/Documents",
-  backupFileToRestore: "/Some/User/Documents/Firefox Backup/backup.html",
+  backupFileToRestore: "/Some/User/Documents/Plezix Backup/backup.html",
   backupFileInfo: { date: new Date(), isEncrypted: null },
   recoveryErrorCode: 0,
 };
@@ -47,7 +47,7 @@ BackupFound.args = {
 export const EncryptedBackupFound = Template.bind({});
 EncryptedBackupFound.args = {
   backupFilePath: "/Some/User/Documents",
-  backupFileToRestore: "/Some/User/Documents/Firefox Backup/backup.html",
+  backupFileToRestore: "/Some/User/Documents/Plezix Backup/backup.html",
   backupFileInfo: { date: new Date(), isEncrypted: true },
   recoveryErrorCode: 0,
 };
@@ -55,7 +55,7 @@ EncryptedBackupFound.args = {
 export const RecoveryInProgress = Template.bind({});
 RecoveryInProgress.args = {
   backupFilePath: "/Some/User/Documents",
-  backupFileToRestore: "/Some/User/Documents/Firefox Backup/backup.html",
+  backupFileToRestore: "/Some/User/Documents/Plezix Backup/backup.html",
   backupFileInfo: { date: new Date() },
   recoveryInProgress: true,
 };

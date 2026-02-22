@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ var enabled = { trackingSizes: false };
 
 var gMemory = performance.mozMemory?.gc || performance.mozMemory || {};
 
-var Firefox = class extends Host {
+var Plezix = class extends Host {
   start_turn() {
     // Handled by Gecko.
   }
@@ -69,7 +69,7 @@ var Firefox = class extends Host {
   };
 };
 
-var gHost = new Firefox();
+var gHost = new Plezix();
 
 function parse_units(v) {
   if (!v.length) {

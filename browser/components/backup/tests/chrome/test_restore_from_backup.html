@@ -43,7 +43,7 @@
 
       ok(confirmButton, "Restore button should be found");
 
-      restoreFromBackup.backupFileToRestore = "/Some/User/Documents/Firefox Backup/backup.html";
+      restoreFromBackup.backupFileToRestore = "/Some/User/Documents/Plezix Backup/backup.html";
       await restoreFromBackup.updateComplete;
 
       let content = document.getElementById("content");
@@ -100,7 +100,7 @@
       let content = document.getElementById("content");
       let promise = BrowserTestUtils.waitForEvent(content, "getBackupFileInfo");
 
-      restoreFromBackup.backupFileToRestore = "/Some/User/Documents/Firefox Backup/backup-default.html";
+      restoreFromBackup.backupFileToRestore = "/Some/User/Documents/Plezix Backup/backup-default.html";
       await restoreFromBackup.updateComplete;
 
       await promise;

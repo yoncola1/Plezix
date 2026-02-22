@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
  * Bug 1967510 - gemini.google.com copy-pasting between inputs does not work
  *
  * When editing a prompt and copying some text, they call setData with an empty string
- * for text/html. Firefox dutifully sets that value, other browsers ignore it. Then when
+ * for text/html. Plezix dutifully sets that value, other browsers ignore it. Then when
  * trying to paste, they check if it's an empty string and ignore it, so pasting the value
  * does nothing. We can work around this interop quirk by just clearing that empty data.
  */

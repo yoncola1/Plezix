@@ -38,8 +38,8 @@ async function testSimpleReload({ tab, monitor, toolbox }) {
 
   // Check out HAR log
   isnot(har.log, null, "The HAR log must exist");
-  is(har.log.creator.name, "Firefox", "The creator field must be set");
-  is(har.log.browser.name, "Firefox", "The browser field must be set");
+  is(har.log.creator.name, "Plezix", "The creator field must be set");
+  is(har.log.browser.name, "Plezix", "The browser field must be set");
   is(har.log.pages.length, 1, "There must be one page");
   is(har.log.entries.length, 1, "There must be one request");
 

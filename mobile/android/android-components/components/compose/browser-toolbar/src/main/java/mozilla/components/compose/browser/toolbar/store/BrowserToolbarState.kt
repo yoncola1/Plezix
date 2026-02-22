@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -53,20 +53,20 @@ enum class Mode {
  * @property browserActionsStart List of browser [Action]s to be displayed at the start of the
  * toolbar, outside of the URL bounding box.
  * These should be actions relevant to the browser as a whole.
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction).
  * @property pageActionsStart List of navigation [Action]s to be displayed between [browserActionsStart]
  * and the current webpage's details, inside of the URL bounding box.
  * These should be actions relevant to specific webpages as opposed to [browserActionsStart].
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction).
  * @property pageOrigin Details about the current website.
  * @property pageActionsEnd List of page [Action]s to be displayed between [pageOrigin] and [browserActionsEnd],
  * inside of the URL bounding box.
  * These should be actions relevant to specific webpages as opposed to [browserActionsStart].
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/pageAction).
  * @property browserActionsEnd List of browser [Action]s to be displayed at the end of the toolbar,
  * outside of the URL bounding box.
  * These should be actions relevant to the browser as a whole.
- * See [MDN docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction).
+ * See [MDN docs](https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/browserAction).
  * @property navigationActions List of [Action]s to be displayed in the navigation toolbar.
  * @property progressBarConfig [ProgressBarConfig] configuration for the progress bar.
  * If `null` a progress bar will not be displayed.

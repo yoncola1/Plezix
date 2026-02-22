@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ ChromeUtils.defineLazyGetter(
 );
 
 /**
- * Manages Mozilla Account and Sync related functionality
+ * Manages Plezix Account and Sync related functionality
  * needed at startup. It mainly handles various account-related events and notifications.
  *
  * This module was sliced off of BrowserGlue and designed to centralize
@@ -316,7 +316,7 @@ export const AccountsGlue = {
       // We don't want to open a new tab, instead use the handler
       // to switch to the existing view
       if (win) {
-        win.FirefoxViewHandler.openTab("recentlyclosed");
+        win.PlezixViewHandler.openTab("recentlyclosed");
       }
     };
 

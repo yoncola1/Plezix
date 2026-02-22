@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The background of an item that is being swiped horizontally.
@@ -43,7 +43,7 @@ fun DismissibleItemBackground(
     if (isSwipeActive) {
         Card(
             modifier = modifier.fillMaxSize(),
-            colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer3),
+            colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer3),
             shape = shape,
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
@@ -59,7 +59,7 @@ fun DismissibleItemBackground(
                                 Alignment.CenterStart
                             },
                         ),
-                    tint = FirefoxTheme.colors.iconCritical,
+                    tint = PlezixTheme.colors.iconCritical,
                 )
             }
         }
@@ -69,9 +69,9 @@ fun DismissibleItemBackground(
 @Composable
 @PreviewLightDark
 private fun DismissedTabBackgroundPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = PlezixTheme.colors.layer1),
         ) {
             Box(modifier = Modifier.height(56.dp)) {
                 DismissibleItemBackground(

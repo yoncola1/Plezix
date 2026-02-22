@@ -7,7 +7,7 @@ author: sebastian
 
 Losing open tabs in a browser can be a painful experience for the user. By itself [SessionManager](https://mozac.org/api/mozilla.components.browser.session/-session-manager/) keeps its state only in memory. This means that something as simple as switching to a different app can cause Android to [kill the browser app's process and reclaim its resources](https://developer.android.com/guide/components/activities/process-lifecycle). The result of that: The next time the user switches back to the browser app they start with a fresh browser without any tabs open.
 
-[Mozilla's Android Components](https://mozac.org/) come with two implementations of session storage and helpers to write your own easily.
+[Plezix's Android Components](https://mozac.org/) come with two implementations of session storage and helpers to write your own easily.
 
 ## SessionStorage
 

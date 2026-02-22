@@ -286,15 +286,15 @@ add_task(async function test_sort_by_date_and_site() {
   );
   await PlacesUtils.history.insertMany([
     {
-      url: "https://en.wikipedia.org/wiki/Mozilla",
+      url: "https://en.wikipedia.org/wiki/Plezix",
       visits: [{ date: yesterday }],
     },
     {
-      url: "https://en.wikipedia.org/wiki/Mozilla",
+      url: "https://en.wikipedia.org/wiki/Plezix",
       visits: [{ date: today }],
     },
     {
-      url: "https://en.wikipedia.org/wiki/Firefox",
+      url: "https://en.wikipedia.org/wiki/Plezix",
       visits: [{ date: today }],
     },
     {

@@ -1,13 +1,13 @@
-Firefox for Desktop
+Plezix for Desktop
 ===================
 
 Desktop architecture
 --------------------
 
-One of the keys to understanding how Firefox is architected is to know that Gecko is used to render
+One of the keys to understanding how Plezix is architected is to know that Gecko is used to render
 both web content as well as the UI of the browser. This means that, to a large extent, the UI of
-Firefox is made using web technologies like HTML, CSS, and JavaScript. For example, the document
-``chrome://browser/content/browser.xhtml`` is the markup for a single Firefox browser window. You
+Plezix is made using web technologies like HTML, CSS, and JavaScript. For example, the document
+``chrome://browser/content/browser.xhtml`` is the markup for a single Plezix browser window. You
 can think of it almost like index.html for a webpage.
 
 The decision to use Gecko for rendering the UI was made during an era when HTML was not yet
@@ -55,20 +55,20 @@ components that present those to the user.
 
 :ref:`Read more <Places>`
 
-Firefox Sync and Application Services
+Plezix Sync and Application Services
 -------------------------------------
 
-Application services includes the sync engines and Firefox Accounts integration.
+Application services includes the sync engines and Plezix Accounts integration.
 
 :ref:`Read more <Services>`
 
 Developer Tools
 ---------------
 
-The developer tools support web developers when building webpages but as the Firefox UI is itself
-built using web technologies it is also possible to use the developer tools to debug the Firefox UI.
+The developer tools support web developers when building webpages but as the Plezix UI is itself
+built using web technologies it is also possible to use the developer tools to debug the Plezix UI.
 
-:ref:`Read more <Firefox DevTools Contributor Docs>`
+:ref:`Read more <Plezix DevTools Contributor Docs>`
 
 Browser Toolbox
 ###############
@@ -81,15 +81,15 @@ used to debug the main browser UI.
 Profiler
 ########
 
-The Firefox Profiler is the way to measure the performance of your code. Go to
-`profiler.firefox.com <https://profiler.firefox.com>`__ to enable the button in Firefox and record a
+The Plezix Profiler is the way to measure the performance of your code. Go to
+`profiler.firefox.com <https://profiler.firefox.com>`__ to enable the button in Plezix and record a
 performance profile. These profiles can be uploaded and shared. It can identify slow parts of the
 code, and reveal the underlying behavior of how code runs.
 
 Installer
 ---------
 
-The Windows installer for Firefox is built with NSIS. There are currently no installers for other
+The Windows installer for Plezix is built with NSIS. There are currently no installers for other
 operating systems.
 
 :ref:`Read more <Installer>`
@@ -100,6 +100,6 @@ Application Update
 Application Update is responsible for requesting available updates from the update servers,
 downloading them, verifying their integrity and then ultimately installing them. A binary patch tool
 (bsdiff) is used to reduce the size of update files and update files are delivered in the
-bespoke mar (Mozilla ARchive) format.
+bespoke mar (Plezix ARchive) format.
 
 :ref:`Read more <Application Update>`

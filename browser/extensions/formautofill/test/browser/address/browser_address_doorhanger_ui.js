@@ -146,7 +146,7 @@ add_task(async function test_address_display_in_save_doorhanger() {
       form: {
         "#given-name": "John",
         "#family-name": "Doe",
-        "#organization": "Mozilla",
+        "#organization": "Plezix",
         "#street-address": "123 Sesame Street",
       },
       expectedSectionCount: 1,
@@ -156,7 +156,7 @@ add_task(async function test_address_display_in_save_doorhanger() {
       form: {
         "#given-name": "John",
         "#family-name": "Doe",
-        "#organization": "Mozilla",
+        "#organization": "Plezix",
         "#street-address": "123 Sesame Street",
         "#email": "test@mozilla.org",
       },
@@ -167,7 +167,7 @@ add_task(async function test_address_display_in_save_doorhanger() {
       form: {
         "#given-name": "John",
         "#family-name": "Doe",
-        "#organization": "Mozilla",
+        "#organization": "Plezix",
         "#street-address": "123 Sesame Street",
         "#tel": "+13453453456",
       },
@@ -237,12 +237,12 @@ add_task(async function test_show_added_text_in_update_doorhanger() {
 add_task(async function test_show_removed_text_in_update_doorhanger() {
   const SAVED_ADDRESS = {
     ...TEST_ADDRESS_2,
-    organization: "Mozilla",
+    organization: "Plezix",
   };
   await setStorage(SAVED_ADDRESS);
   await expectSavedAddressesCount(1);
 
-  // We will ask whether users would like to update "Mozilla" to "mozilla"
+  // We will ask whether users would like to update "Plezix" to "mozilla"
   const form = {
     ...SAVED_ADDRESS,
 

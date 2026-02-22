@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,16 +25,16 @@ class ExceptionsHeaderViewHolderTest {
             every { findViewById<TextView>(R.id.exceptions_description) } returns description
             every {
                 context.getString(eq(R.string.preferences_passwords_exceptions_description_2), any())
-            } returns "Firefox fenix won’t save passwords for these sites."
+            } returns "Plezix fenix won’t save passwords for these sites."
             every {
                 context.getString(R.string.app_name)
-            } returns "Firefox fenix"
+            } returns "Plezix fenix"
         }
     }
 
     @Test
     fun `sets description text`() {
         ExceptionsHeaderViewHolder(view, R.string.preferences_passwords_exceptions_description_2)
-        verify { description.text = "Firefox fenix won’t save passwords for these sites." }
+        verify { description.text = "Plezix fenix won’t save passwords for these sites." }
     }
 }

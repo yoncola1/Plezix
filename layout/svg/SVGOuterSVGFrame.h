@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -153,7 +153,7 @@ class SVGOuterSVGFrame final : public SVGDisplayContainerFrame,
  * since an SVGOuterSVGFrame can have CSS border and padding (unlike other
  * SVG frames). The direct children can't include the offsets due to any such
  * border/padding in their mRects since that would break nsDisplayTransform,
- * but not including these offsets would break other parts of the Mozilla code
+ * but not including these offsets would break other parts of the Plezix code
  * that assume a frame's mRect contains its border-box-to-parent-border-box
  * offset, in particular nsIFrame::GetOffsetTo and the functions that depend on
  * it. Wrapping an SVGOuterSVGFrame's children in an instance of this class

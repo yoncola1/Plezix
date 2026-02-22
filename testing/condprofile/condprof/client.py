@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
@@ -85,7 +85,7 @@ def _check_profile(profile_dir):
         prefs = Preferences.read_prefs(js_file)
         cleaned_prefs = dict([pref for pref in prefs if _keep_pref(*pref)])
         if name == "prefs.js":
-            # When we start Firefox, forces startupScanScopes to SCOPE_PROFILE (1)
+            # When we start Plezix, forces startupScanScopes to SCOPE_PROFILE (1)
             # otherwise, side loading will be deactivated and the
             # Raptor web extension won't be able to run.
             cleaned_prefs["extensions.startupScanScopes"] = 1
@@ -147,7 +147,7 @@ def get_profile(
     else:
         version = ""
 
-    # when we bump the Firefox version on trunk, autoland still needs to catch up
+    # when we bump the Plezix version on trunk, autoland still needs to catch up
     # in this case we want to download an older profile- 2 days to account for closures/etc.
     oldday = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=2)
     params = {

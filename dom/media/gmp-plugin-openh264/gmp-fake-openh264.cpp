@@ -1,7 +1,7 @@
 /*!
  * \copy
  *     Copyright (c)  2009-2014, Cisco Systems
- *     Copyright (c)  2014, Mozilla
+ *     Copyright (c)  2014, Plezix
  *     All rights reserved.
  *
  *     Redistribution and use in source and binary forms, with or without

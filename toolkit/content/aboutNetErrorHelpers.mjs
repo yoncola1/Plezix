@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -126,7 +126,7 @@ export async function recordSecurityUITelemetry(category, name, errorInfo) {
         for (let subjectAltName of subjectAltNames) {
           // If the certificate has a wildcard entry that matches the domain
           // name (e.g. '*.example.com' matches 'foo-.example.com'), then
-          // this error is probably due to Firefox disallowing hyphens in
+          // this error is probably due to Plezix disallowing hyphens in
           // domain names when matching wildcard entries.
           if (
             subjectAltName.startsWith("*.") &&

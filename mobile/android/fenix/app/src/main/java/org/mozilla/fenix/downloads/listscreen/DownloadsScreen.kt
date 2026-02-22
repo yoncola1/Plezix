@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -72,7 +72,7 @@ import org.mozilla.fenix.downloads.listscreen.ui.DownloadSearchField
 import org.mozilla.fenix.downloads.listscreen.ui.FileListItem
 import org.mozilla.fenix.downloads.listscreen.ui.Filters
 import org.mozilla.fenix.downloads.listscreen.ui.ToolbarConfig
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Downloads screen that displays the list of downloads.
@@ -154,7 +154,7 @@ fun DownloadsScreen(
                         Text(
                             text = toolbarConfig.title,
                             color = toolbarConfig.textColor,
-                            style = FirefoxTheme.typography.headline6,
+                            style = PlezixTheme.typography.headline6,
                         )
                     }
                 },
@@ -207,7 +207,7 @@ fun DownloadsScreen(
                 )
             }
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
         snackbarHost = {
             SnackbarHost(
                 snackbarHostState = snackbarHostState,
@@ -368,8 +368,8 @@ private fun DownloadsScreenContent(
                 selectedContentTypeFilter = uiState.selectedContentTypeFilter,
                 contentTypeFilters = uiState.filtersToDisplay,
                 modifier = Modifier
-                    .width(FirefoxTheme.layout.size.containerMaxWidth)
-                    .padding(vertical = FirefoxTheme.layout.space.static200),
+                    .width(PlezixTheme.layout.size.containerMaxWidth)
+                    .padding(vertical = PlezixTheme.layout.space.static200),
                 onContentTypeSelected = onContentTypeSelected,
             )
         }
@@ -435,7 +435,7 @@ private fun DownloadsContent(
                         headerItem = listItem,
                         modifier = Modifier
                             .animateItem()
-                            .width(FirefoxTheme.layout.size.containerMaxWidth),
+                            .width(PlezixTheme.layout.size.containerMaxWidth),
                     )
                 }
 
@@ -453,7 +453,7 @@ private fun DownloadsContent(
                         onShareFileClick = onShareFileClick,
                         modifier = Modifier
                             .animateItem()
-                            .width(FirefoxTheme.layout.size.containerMaxWidth)
+                            .width(PlezixTheme.layout.size.containerMaxWidth)
                             .thenConditional(
                                 modifier = Modifier
                                     .combinedClickable(
@@ -479,7 +479,7 @@ private fun DownloadsContent(
                     )
 
                     if (index == items.lastIndex || items[index + 1] is HeaderItem) {
-                        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.static200))
+                        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.static200))
                     }
                 }
             }
@@ -507,8 +507,8 @@ private fun NoSearchResults(modifier: Modifier = Modifier) {
     ) {
         Text(
             text = stringResource(id = R.string.download_search_no_results_found),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.body2,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.body2,
         )
     }
 }
@@ -529,16 +529,16 @@ private fun EmptyState(modifier: Modifier = Modifier) {
 
         Text(
             text = stringResource(id = R.string.download_empty_message_2),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
             text = stringResource(id = R.string.download_empty_description),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.body2,
         )
     }
 }
@@ -551,16 +551,16 @@ private fun getToolbarConfig(mode: Mode): ToolbarConfig {
                 R.string.download_multi_select_title,
                 mode.selectedItems.size,
             ),
-            backgroundColor = FirefoxTheme.colors.layerAccent,
-            textColor = FirefoxTheme.colors.textOnColorPrimary,
-            iconColor = FirefoxTheme.colors.iconOnColor,
+            backgroundColor = PlezixTheme.colors.layerAccent,
+            textColor = PlezixTheme.colors.textOnColorPrimary,
+            iconColor = PlezixTheme.colors.iconOnColor,
         )
 
         is Mode.Normal -> ToolbarConfig(
             title = stringResource(R.string.library_downloads),
-            backgroundColor = FirefoxTheme.colors.layer1,
-            textColor = FirefoxTheme.colors.textPrimary,
-            iconColor = FirefoxTheme.colors.iconPrimary,
+            backgroundColor = PlezixTheme.colors.layer1,
+            textColor = PlezixTheme.colors.textPrimary,
+            iconColor = PlezixTheme.colors.iconPrimary,
         )
     }
 }
@@ -730,7 +730,7 @@ private fun DownloadsScreenPreviews(
     }
     val snackbarHostState = remember { AcornSnackbarHostState() }
     val scope = rememberCoroutineScope()
-    FirefoxTheme {
+    PlezixTheme {
         Box {
             DownloadsScreen(
                 downloadsStore = downloadsStore,

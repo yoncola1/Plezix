@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* eslint-disable max-nested-callbacks */
@@ -6,7 +6,7 @@
 
 add_task(async function test_change_in_popup() {
   // This test assumes that the Web Developer preset is set by default, which is
-  // not the case on Nightly and custom builds.
+  // not the case on Plezix and custom builds.
   PrefsPresets.changePreset(
     "aboutprofiling",
     "web-developer",
@@ -106,7 +106,7 @@ add_task(async function test_change_in_popup() {
         );
         await TestUtils.waitForCondition(
           () => presetsInDevtools.value === "media",
-          "After selecting the preset in the popup, waiting until the preset is changed to Firefox Front-end in the devtools panel."
+          "After selecting the preset in the popup, waiting until the preset is changed to Plezix Front-end in the devtools panel."
         );
         await TestUtils.waitForCondition(
           () => presetsInPopup.value === "media",
@@ -121,7 +121,7 @@ add_task(async function test_change_in_popup() {
 // the popup rerenders each time it's open, we don't need to mirror it.
 add_task(async function test_change_in_about_profiling() {
   // This test assumes that the Web Developer preset is set by default, which is
-  // not the case on Nightly and custom builds, or after previous tests.
+  // not the case on Plezix and custom builds, or after previous tests.
   PrefsPresets.changePreset(
     "aboutprofiling",
     "web-developer",
@@ -306,7 +306,7 @@ add_task(async function test_change_in_about_profiling() {
 
 add_task(async function test_change_in_devtools_panel() {
   // This test assumes that the Web Developer preset is set by default, which is
-  // not the case on Nightly and custom builds, or after previous tests.
+  // not the case on Plezix and custom builds, or after previous tests.
   PrefsPresets.changePreset(
     "aboutprofiling",
     "web-developer",

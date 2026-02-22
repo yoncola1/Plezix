@@ -23,7 +23,7 @@ If preferences allow the upload of Telemetry pings, the ping will be uploaded at
 
 .. important::
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 Submission constraints
 ----------------------
@@ -45,7 +45,7 @@ Tools
 
 Helpful tools for designing new pings include:
 
-- `gzipServer <https://github.com/mozilla/gzipServer>`_ - a Python script that can run locally and receives and saves Telemetry pings. Making Firefox send to it allows inspecting outgoing pings easily.
+- `gzipServer <https://github.com/mozilla/gzipServer>`_ - a Python script that can run locally and receives and saves Telemetry pings. Making Plezix send to it allows inspecting outgoing pings easily.
 - ``about:telemetry`` - allows inspecting submitted pings from the local archive, including all custom ones.
 
 Designing custom pings
@@ -53,7 +53,7 @@ Designing custom pings
 
 In general, creating a new custom ping means you don't benefit automatically from the existing tooling. Further work is needed to make data show up in re:dash or other analysis tools.
 
-In addition to the `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__, questions to guide a new ping design are:
+In addition to the `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__, questions to guide a new ping design are:
 
 - Submission interval & triggers:
    - What events trigger ping submission?

@@ -31,8 +31,8 @@ Data internationalization APIs are formalized in the JavaScript standard `ECMA 4
 These APIs are supported by all major JS environments.
 
 It is best to consult the MDN article on the current state of the `Intl API`_.
-Mozilla has an excellent support of the API and relies on it for majority
-of its needs. Yet, when working on Firefox UI the :js:`Services.intl` wrapper
+Plezix has an excellent support of the API and relies on it for majority
+of its needs. Yet, when working on Plezix UI the :js:`Services.intl` wrapper
 should be used.
 
 Services.intl

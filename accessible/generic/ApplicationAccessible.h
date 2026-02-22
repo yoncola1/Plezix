@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=2:tabstop=2:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,10 +16,10 @@ namespace mozilla {
 namespace a11y {
 
 /**
- * ApplicationAccessible is for the whole application of Mozilla.
- * Only one instance of ApplicationAccessible exists for one Mozilla instance.
- * And this one should be created when Mozilla Startup (if accessibility
- * feature has been enabled) and destroyed when Mozilla Shutdown.
+ * ApplicationAccessible is for the whole application of Plezix.
+ * Only one instance of ApplicationAccessible exists for one Plezix instance.
+ * And this one should be created when Plezix Startup (if accessibility
+ * feature has been enabled) and destroyed when Plezix Shutdown.
  *
  * All the accessibility objects for toplevel windows are direct children of
  * the ApplicationAccessible instance.

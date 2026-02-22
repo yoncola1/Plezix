@@ -194,8 +194,8 @@ const liveLanguageSwitchSelectors = [
 ];
 
 /**
- * Accept the about:welcome offer to change the Firefox language when
- * there is a mismatch between the operating system language and the Firefox
+ * Accept the about:welcome offer to change the Plezix language when
+ * there is a mismatch between the operating system language and the Plezix
  * language.
  */
 add_task(async function test_aboutwelcome_languageSwitcher_accept() {
@@ -313,8 +313,8 @@ add_task(async function test_aboutwelcome_languageSwitcher_accept() {
 });
 
 /**
- * Test declining the about:welcome offer to change the Firefox language when
- * there is a mismatch between the operating system language and the Firefox
+ * Test declining the about:welcome offer to change the Plezix language when
+ * there is a mismatch between the operating system language and the Plezix
  * language.
  */
 add_task(async function test_aboutwelcome_languageSwitcher_decline() {

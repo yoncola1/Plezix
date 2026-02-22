@@ -15,7 +15,7 @@ Clarify requirements for RFCs by introducing a README and a template.
 
 ## Motivation
 
-- The scale of the Firefox Android team has grown substantially since the RFC process was first introduced.
+- The scale of the Plezix Android team has grown substantially since the RFC process was first introduced.
 - More external teams are using and contributing to Android Components.
 - Implicit deadlines have encouraged a lack of engagement with RFCs, slowing follow-up work.
 - There has been a low level of engagement with RFCs because of a lack of clarity around the process and when they are appropriate.

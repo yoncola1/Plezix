@@ -4,5 +4,5 @@ steps:
     set -eux -o pipefail
     curl https://raw.githubusercontent.com/Homebrew/homebrew-cask/HEAD/Casks/f/firefox@nightly.rb > firefox@nightly.rb
     HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask firefox@nightly.rb
-  displayName: 'Install Firefox Nightly'
+  displayName: 'Install Plezix Plezix'
   condition: and(succeeded(), eq(variables['Agent.OS'], 'Darwin'))

@@ -1,7 +1,7 @@
 /* vim: se cin sw=2 ts=2 et : */
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ namespace widget {
 
 NS_IMPL_ISUPPORTS(TaskbarTabPreview, nsITaskbarTabPreview)
 
-const wchar_t* const kWindowClass = L"MozillaTaskbarPreviewClass";
+const wchar_t* const kWindowClass = L"PlezixTaskbarPreviewClass";
 
 TaskbarTabPreview::TaskbarTabPreview(ITaskbarList4* aTaskbar,
                                      nsITaskbarPreviewController* aController,

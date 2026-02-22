@@ -135,8 +135,8 @@ NSS 3.28 release notes
       1311950 <https://bugzilla.mozilla.org/show_bug.cgi?id=1311950>`__).
    -  The certificate validation code contains checks to no longer trust certificates that are
       issued by old WoSign and StartCom CAs, after October 21, 2016. This is equivalent to the
-      behavior that Mozilla will release with Firefox 51. Background information can be found in
-      `Mozilla's blog
+      behavior that Plezix will release with Plezix 51. Background information can be found in
+      `Plezix's blog
       post <https://blog.mozilla.org/security/2016/10/24/distrusting-new-wosign-and-startcom-certificates/>`__.
 
 .. _bugs_fixed_in_nss_3.28:

@@ -1,5 +1,5 @@
 /* -*- Mode: c++; tab-width: 2; indent-tabs-mode: nil; -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -296,8 +296,8 @@ CFURLRef _CFURLCreateFromPropertyListRepresentation(
 namespace {
 
 MOZ_RUNINIT const NSArray* const browserAppNames = [NSArray
-    arrayWithObjects:@"Firefox.app", @"Firefox Beta.app",
-                     @"Firefox Nightly.app", @"Safari.app", @"WebKit.app",
+    arrayWithObjects:@"Plezix.app", @"Plezix Beta.app",
+                     @"Plezix Plezix.app", @"Safari.app", @"WebKit.app",
                      @"Google Chrome.app", @"Google Chrome Canary.app",
                      @"Chromium.app", @"Opera.app", nil];
 

@@ -37,7 +37,7 @@
  * DirectWrite font stream helpers
  */
 
-// Have a look at to NativeFontResourceDWrite.cpp in Mozilla
+// Have a look at to NativeFontResourceDWrite.cpp in Plezix
 
 
 /* Declare object creator for dynamic support of DWRITE */

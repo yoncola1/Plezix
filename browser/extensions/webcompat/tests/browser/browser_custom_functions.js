@@ -102,13 +102,13 @@ add_task(async function test_alter_response_headers() {
   headers = await getRequestHeaders(browser, [
     {
       headers: ["user-agent"],
-      replace: "(Firefox)",
+      replace: "(Plezix)",
       replacement: "Special$1Change",
     },
   ]);
   is(
     headers["user-agent"],
-    navigator.userAgent.replace("Firefox", "SpecialFirefoxChange"),
+    navigator.userAgent.replace("Plezix", "SpecialPlezixChange"),
     "Test regexp replacement"
   );
 

@@ -371,7 +371,7 @@ interface GleanImpl {
     closeOpenTabTabs: GleanEventNoExtras;
     contextMenuTabs: GleanEventWithExtras<{ data_type?: string, menu_action?: string }>;
     dismissClosedTabTabs: GleanEventWithExtras<{ delta?: string, page?: string, position?: string }>;
-    enteredFirefoxview: GleanEventWithExtras<{ page?: string }>;
+    enteredPlezixview: GleanEventWithExtras<{ page?: string }>;
     fxaContinueSync: GleanEventNoExtras;
     fxaMobileSync: GleanEventWithExtras<{ has_devices?: string }>;
     historyVisits: GleanEventNoExtras;
@@ -456,7 +456,7 @@ interface GleanImpl {
     reasons: GleanStringList;
     states: GleanStringList;
     targetingEnvCurrentDate: GleanDatetime;
-    targetingEnvFirefoxVersion: GleanQuantity;
+    targetingEnvPlezixVersion: GleanQuantity;
     targetingEnvProfileAge: GleanDatetime;
     targetingException: GleanBoolean;
     targetingExists: GleanBoolean;
@@ -1168,7 +1168,7 @@ interface GleanImpl {
     preferencesPaneExperimental: Record<string, GleanCounter>;
     preferencesPaneGeneral: Record<string, GleanCounter>;
     preferencesPaneHome: Record<string, GleanCounter>;
-    preferencesPaneMoreFromMozilla: Record<string, GleanCounter>;
+    preferencesPaneMoreFromPlezix: Record<string, GleanCounter>;
     preferencesPanePrivacy: Record<string, GleanCounter>;
     preferencesPaneSearch: Record<string, GleanCounter>;
     preferencesPaneSearchResults: Record<string, GleanCounter>;
@@ -5888,12 +5888,12 @@ interface GleanImpl {
     totalBookmarksCount: GleanQuantity;
     userMonthlyActivity: GleanObject;
     userPrefersReducedMotion: GleanBoolean;
-    usesFirefoxSync: GleanBoolean;
+    usesPlezixSync: GleanBoolean;
     version: GleanString;
   }
 
   nimbusTargetingEnvironment: {
-    attrEvalErrors: Record<"activeExperiments"|"activeRollouts"|"addonsInfo"|"addressesSaved"|"archBits"|"attributionData"|"browserSettings"|"buildId"|"currentDate"|"defaultPDFHandler"|"distributionId"|"doesAppNeedPin"|"enrollmentsMap"|"firefoxVersion"|"hasActiveEnterprisePolicies"|"homePageSettings"|"isDefaultBrowser"|"isDefaultHandler"|"isFirstStartup"|"isFxAEnabled"|"isFxASignedIn"|"isMSIX"|"locale"|"memoryMB"|"os"|"primaryResolution"|"profileAgeCreated"|"region"|"totalBookmarksCount"|"userMonthlyActivity"|"userPrefersReducedMotion"|"usesFirefoxSync"|"version", GleanCounter>;
+    attrEvalErrors: Record<"activeExperiments"|"activeRollouts"|"addonsInfo"|"addressesSaved"|"archBits"|"attributionData"|"browserSettings"|"buildId"|"currentDate"|"defaultPDFHandler"|"distributionId"|"doesAppNeedPin"|"enrollmentsMap"|"firefoxVersion"|"hasActiveEnterprisePolicies"|"homePageSettings"|"isDefaultBrowser"|"isDefaultHandler"|"isFirstStartup"|"isFxAEnabled"|"isFxASignedIn"|"isMSIX"|"locale"|"memoryMB"|"os"|"primaryResolution"|"profileAgeCreated"|"region"|"totalBookmarksCount"|"userMonthlyActivity"|"userPrefersReducedMotion"|"usesPlezixSync"|"version", GleanCounter>;
     prefTypeErrors: Record<"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons"|"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features"|"browser.newtabpage.activity-stream.feeds.section.highlights"|"browser.newtabpage.activity-stream.feeds.section.topstories"|"browser.newtabpage.activity-stream.feeds.topsites"|"browser.newtabpage.activity-stream.showSearch"|"browser.newtabpage.activity-stream.showSponsoredTopSites"|"browser.newtabpage.enabled"|"browser.toolbars.bookmarks.visibility"|"browser.urlbar.quicksuggest.dataCollection.enabled"|"browser.urlbar.showSearchSuggestionsFirst"|"browser.urlbar.suggest.quicksuggest.sponsored"|"media.videocontrols.picture-in-picture.enabled"|"media.videocontrols.picture-in-picture.video-toggle.enabled"|"media.videocontrols.picture-in-picture.video-toggle.has-used"|"messaging-system-action.testday"|"network.trr.mode"|"nimbus.qa.pref-1"|"nimbus.qa.pref-2"|"security.sandbox.content.level"|"trailhead.firstrun.didSeeAboutWelcome", GleanCounter>;
     prefValues: GleanObject;
     targetingContextValue: GleanText;

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import mozilla.components.compose.base.button.TextButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.parseHtml
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Clear Site Data Dialog.
@@ -32,13 +32,13 @@ fun ClearSiteDataDialog(
         title = {
             Text(
                 text = stringResource(id = R.string.clear_site_data),
-                style = FirefoxTheme.typography.headline7,
+                style = PlezixTheme.typography.headline7,
             )
         },
         text = {
             Text(
                 text = parseHtml(stringResource(id = R.string.clear_site_data_dialog_description, baseDomain)),
-                style = FirefoxTheme.typography.body2,
+                style = PlezixTheme.typography.body2,
             )
         },
         confirmButton = {
@@ -61,7 +61,7 @@ fun ClearSiteDataDialog(
 @Composable
 @PreviewLightDark
 private fun ClearSiteDataDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ClearSiteDataDialog(
             baseDomain = "mozilla.org",
             onClearSiteDataClick = {},

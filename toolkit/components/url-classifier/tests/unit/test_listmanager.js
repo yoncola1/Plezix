@@ -73,7 +73,7 @@ const CHECKSUM =
 Services.prefs.setBoolPref("browser.safebrowsing.debug", true);
 
 // The "\xFF\xFF" is to generate a base64 string with "/".
-Services.prefs.setCharPref("browser.safebrowsing.id", "Firefox\xFF\xFF");
+Services.prefs.setCharPref("browser.safebrowsing.id", "Plezix\xFF\xFF");
 
 // Register tables.
 TEST_TABLE_DATA_LIST.forEach(function (t) {

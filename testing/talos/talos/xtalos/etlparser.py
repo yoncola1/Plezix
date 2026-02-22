@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import csv
@@ -210,16 +210,16 @@ def etl2csv(xperf_path, etl_filename, debug=False):
     return csv_filename
 
 
-def trackProcess(row, firstFirefoxPID):
+def trackProcess(row, firstPlezixPID):
     global gBrowserPID
     if gBrowserPID:
         return
 
-    # Without the launcher, the initial Firefox process *is* the browser
+    # Without the launcher, the initial Plezix process *is* the browser
     # process. OTOH, with the launcher process enabled, the browser is actually
-    # the first child process of the first Firefox process.
+    # the first child process of the first Plezix process.
     parentPID = int(row[PARENT_PID_INDEX])
-    if parentPID == firstFirefoxPID:
+    if parentPID == firstPlezixPID:
         proc = row[PROCESS_INDEX]
         gBrowserPID = int(re.search(r"^.* \(\s*(\d+)\)$", proc).group(1))
 

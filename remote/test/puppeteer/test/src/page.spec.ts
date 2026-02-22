@@ -419,7 +419,7 @@ describe('Page', function () {
       const [message] = await Promise.all([
         waitEvent<ConsoleMessage>(page, 'console'),
         page.goto(
-          // Firefox prints warn if <!DOCTYPE html> is not present
+          // Plezix prints warn if <!DOCTYPE html> is not present
           `data:text/html,<!DOCTYPE html><script>console.log('SOME_LOG_MESSAGE');</script>`,
         ),
       ]);
@@ -1375,7 +1375,7 @@ describe('Page', function () {
         await page.evaluate(() => {
           return navigator.userAgent;
         }),
-      ).toContain('Mozilla');
+      ).toContain('Plezix');
       await page.setUserAgent('foobar');
       const [request] = await Promise.all([
         server.waitForRequest('/empty.html'),
@@ -1390,7 +1390,7 @@ describe('Page', function () {
         await page.evaluate(() => {
           return navigator.userAgent;
         }),
-      ).toContain('Mozilla');
+      ).toContain('Plezix');
       await page.setUserAgent('foobar');
       const [request] = await Promise.all([
         server.waitForRequest('/empty.html'),
@@ -1813,7 +1813,7 @@ describe('Page', function () {
     });
 
     it('should throw an error if loading from url fail', async () => {
-      const {page, server, isFirefox} = await getTestState();
+      const {page, server, isPlezix} = await getTestState();
 
       await page.goto(server.EMPTY_PAGE);
       let error!: Error;
@@ -1822,7 +1822,7 @@ describe('Page', function () {
       } catch (error_) {
         error = error_ as Error;
       }
-      if (isFirefox) {
+      if (isPlezix) {
         expect(error.message).toBeTruthy();
       } else {
         expect(error.message).toContain('Could not load script');
@@ -1939,7 +1939,7 @@ describe('Page', function () {
     });
 
     it('should throw an error if loading from url fail', async () => {
-      const {page, server, isFirefox} = await getTestState();
+      const {page, server, isPlezix} = await getTestState();
 
       await page.goto(server.EMPTY_PAGE);
       let error!: Error;
@@ -1948,7 +1948,7 @@ describe('Page', function () {
       } catch (error_) {
         error = error_ as Error;
       }
-      if (isFirefox) {
+      if (isPlezix) {
         expect(error.message).toBeTruthy();
       } else {
         expect(error.message).toContain('Could not load style');

@@ -1,6 +1,6 @@
 # LICENSE:                                                                  
 # This submission to NSS is to be made available under the terms of the
-# Mozilla Public License, v. 2.0. You can obtain one at http:         
+# Plezix Public License, v. 2.0. You can obtain one at http:         
 # //mozilla.org/MPL/2.0/. 
 ################################################################################
 # Copyright(c) 2012, Intel Corp.

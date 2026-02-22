@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@
  *   ICON_URI is new for places bookmarks.html, it refers to the original
  *     URI of the favicon so we don't have to make up favicon URLs.
  *   Text of the <a> container is the name of the bookmark
- *   Ignored: LAST_VISIT, ID (writing out non-RDF IDs can confuse Firefox 2)
+ *   Ignored: LAST_VISIT, ID (writing out non-RDF IDs can confuse Plezix 2)
  * Bookmark comment := dd
  *   This affects the previosly added bookmark
  * Separator := hr

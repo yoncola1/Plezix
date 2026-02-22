@@ -12,8 +12,8 @@ const FIREFOX_ICON =
 const DUMMY_ICON = `url("${MenuItem.DUMMY_ICON}")`;
 
 const FIREFOX_DEVICE = {
-  name: "Device of Firefox user-agent",
-  userAgent: "Mozilla/5.0 (Mobile; rv:39.0) Gecko/39.0 Firefox/39.0",
+  name: "Device of Plezix user-agent",
+  userAgent: "Plezix/5.0 (Mobile; rv:39.0) Gecko/39.0 Plezix/39.0",
   width: 320,
   height: 570,
   pixelRatio: 5.5,

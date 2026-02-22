@@ -27,7 +27,7 @@ function mockLabsRecipes(targeting = "true") {
       { featureId, value: { enabled: true } },
       {
         isRollout: true,
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: `${featureId}-placeholder-title`,
         firefoxLabsDescription: `${featureId}-placeholder-desc`,
         firefoxLabsDescriptionLinks: null,
@@ -715,7 +715,7 @@ const FIREFOX_LABS_MIGRATION =
 add_task(async function test_migration_firefoxLabsEnrollments() {
   async function doTest(features) {
     info(
-      `Testing NimbusMigrations migrates Firefox Labs features ${JSON.stringify(features)}`
+      `Testing NimbusMigrations migrates Plezix Labs features ${JSON.stringify(features)}`
     );
     const prefs = features.map(getEnabledPrefForFeature);
     for (const pref of prefs) {
@@ -800,7 +800,7 @@ add_task(async function test_migration_firefoxLabsEnrollments_falseTargeting() {
   // We don't need to test that targeting evaluation itself works, so we'll just
   // test with hardcoded targeting.
   info(
-    `Testing NimbusMigration does not migrate Firefox Labs features when targeting is false`
+    `Testing NimbusMigration does not migrate Plezix Labs features when targeting is false`
   );
   const prefs = Object.keys(LABS_MIGRATION_FEATURE_MAP).map(
     getEnabledPrefForFeature
@@ -966,7 +966,7 @@ async function testMigrateEnrollmentsToSql(primary = "jsonfile") {
       },
       {
         isRollout: true,
-        isFirefoxLabsOptIn: true,
+        isPlezixLabsOptIn: true,
         firefoxLabsTitle: "title",
         firefoxLabsDescription: "description",
         firefoxLabsDescriptionLinks: {
@@ -1102,7 +1102,7 @@ async function testMigrateEnrollmentsToSql(primary = "jsonfile") {
         {
           isRollout: true,
           source: NimbusTelemetry.EnrollmentSource.RS_LOADER,
-          isFirefoxLabsOptIn: true,
+          isPlezixLabsOptIn: true,
           firefoxLabsTitle: "title",
           firefoxLabsDescription: "description",
           firefoxLabsDescriptionLinks: {
@@ -1317,7 +1317,7 @@ async function testMigrateEnrollmentsToSql(primary = "jsonfile") {
           "featureIds",
           "isRollout",
           "localizations",
-          "isFirefoxLabsOptIn",
+          "isPlezixLabsOptIn",
           "firefoxLabsDescription",
           "firefoxLabsDescriptionLinks",
           "firefoxLabsGroup",
@@ -1438,8 +1438,8 @@ async function testMigrateEnrollmentsToSql(primary = "jsonfile") {
       });
 
       Assert.ok(
-        dbEnrollments["rollout-1"].recipe.isFirefoxLabsOptIn,
-        `rollout-1: recipe.isFirefoxLabsOptIn`
+        dbEnrollments["rollout-1"].recipe.isPlezixLabsOptIn,
+        `rollout-1: recipe.isPlezixLabsOptIn`
       );
       Assert.equal(
         dbEnrollments["rollout-1"].recipe.firefoxLabsTitle,

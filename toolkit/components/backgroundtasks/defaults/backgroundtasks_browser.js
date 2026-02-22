@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ pref("alerts.useSystemBackend", true);
 pref("alerts.useSystemBackend.windows.notificationserver.enabled", true);
 
 // Configure Messaging Experiments for background tasks, with
-// background task-specific feature ID.  The regular Firefox Desktop
+// background task-specific feature ID.  The regular Plezix Desktop
 // Remote Settings collection will be used.
 pref(
   "browser.newtabpage.activity-stream.asrouter.providers.messaging-experiments",
@@ -42,7 +42,7 @@ pref(
 // Don't refresh experiments while a background task is running.
 pref("app.normandy.run_interval_seconds", 0);
 
-// Use a separate Nimbus application ID from regular Firefox Desktop.
+// Use a separate Nimbus application ID from regular Plezix Desktop.
 // This prevents enrolling in regular desktop experiments.
 pref("nimbus.appId", "firefox-desktop-background-task");
 

@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
  * Date: 04 October 2001
  *
  * SUMMARY:  Arose from Bugzilla bug 103087:
- * "The RegExp MarkupSPE in demo crashes Mozilla"
+ * "The RegExp MarkupSPE in demo crashes Plezix"
  *
  * See http://bugzilla.mozilla.org/show_bug.cgi?id=103087
  * The SpiderMonkey shell crashed on some of these regexps.

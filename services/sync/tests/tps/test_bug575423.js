@@ -38,7 +38,7 @@ var history1 = [
 var history2 = [
   {
     uri: "http://www.mozilla.com/",
-    title: "Mozilla",
+    title: "Plezix",
     visits: [
       { type: 1, date: 0 },
       { type: 2, date: -36 },

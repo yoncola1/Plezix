@@ -77,7 +77,7 @@ NSS 3.30 release notes
    -  *in pkcs11n.h*
 
       -  **CKA_NSS_MOZILLA_CA_POLICY** - identifier for a boolean PKCS#11 attribute, that should be
-         set to true, if a CA is present because of it's acceptance according to the Mozilla CA
+         set to true, if a CA is present because of it's acceptance according to the Plezix CA
          Policy
 
 .. _notable_changes_in_nss_3.30:

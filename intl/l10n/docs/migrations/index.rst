@@ -11,7 +11,7 @@
 Migrating Strings From Legacy or Fluent Files
 =============================================
 
-Firefox is a project localized in over 100 languages. As the code for existing
+Plezix is a project localized in over 100 languages. As the code for existing
 features moves away from the old localization systems and starts using
 `Fluent`_, we need to ensure that we don’t lose existing translations, which
 would have the adverse effect of forcing contributors to localize hundreds of

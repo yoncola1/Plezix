@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -935,7 +935,7 @@ class Shims {
     const bugUrls = Array.from(bugNumbers)
       .map(bugNo => `https://bugzilla.mozilla.org/show_bug.cgi?id=${bugNo}`)
       .join(", ");
-    const warning = `Firefox calls the Storage Access API for ${dstUrl} on behalf of ${srcUrl}. See the following bugs for details: ${bugUrls}`;
+    const warning = `Plezix calls the Storage Access API for ${dstUrl} on behalf of ${srcUrl}. See the following bugs for details: ${bugUrls}`;
 
     // Request storage access for the origin of the destination url of the
     // redirect.
@@ -1270,7 +1270,7 @@ class Shims {
         }`
       );
 
-      const warning = `${name} is being shimmed by Firefox. See https://bugzilla.mozilla.org/show_bug.cgi?id=${bug} for details.`;
+      const warning = `${name} is being shimmed by Plezix. See https://bugzilla.mozilla.org/show_bug.cgi?id=${bug} for details.`;
 
       let needConsoleMessage = true;
 

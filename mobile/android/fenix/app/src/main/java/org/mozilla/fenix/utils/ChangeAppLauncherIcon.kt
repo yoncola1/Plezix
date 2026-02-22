@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -134,7 +134,7 @@ private fun updateShortcutsComponentName(
     val currentPinnedShortcuts = try {
         shortcutManager.getPinnedShortcuts()
     } catch (e: IllegalStateException) {
-        logger.warn("Failed to retrieve the current Firefox pinned shortcuts", e)
+        logger.warn("Failed to retrieve the current Plezix pinned shortcuts", e)
         return false
     }
 
@@ -145,7 +145,7 @@ private fun updateShortcutsComponentName(
         shortcutManager.updateShortcuts(updatedPinnedShortcuts)
         true
     } catch (e: IllegalArgumentException) {
-        logger.warn("Failed to update the given Firefox shortcuts: $updatedPinnedShortcuts", e)
+        logger.warn("Failed to update the given Plezix shortcuts: $updatedPinnedShortcuts", e)
         false
     }
 }
@@ -178,14 +178,14 @@ private fun updateShortcutComponentName(
  */
 interface ShortcutManagerWrapper {
     /**
-     * @return a list of the current pinned shortcuts for Firefox.
+     * @return a list of the current pinned shortcuts for Plezix.
      *
      * @throws IllegalStateException when the user is locked
      */
     fun getPinnedShortcuts(): List<ShortcutInfoCompat>
 
     /**
-     * Update all existing Firefox shortcuts to the given [updatedShortcuts].
+     * Update all existing Plezix shortcuts to the given [updatedShortcuts].
      *
      * @throws IllegalArgumentException if trying to update immutable shortcuts.
      */

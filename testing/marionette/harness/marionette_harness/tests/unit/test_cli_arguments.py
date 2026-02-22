@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -40,7 +40,7 @@ class TestCommandLineArguments(MarionetteTestCase):
         # Clean the profile so that the preference is definitely reset.
         self.marionette.quit(in_app=False, clean=True)
 
-    # An issue in the command line argument handling lead to open Firefox on
+    # An issue in the command line argument handling lead to open Plezix on
     # random URLs when remote-debugging-port is set to an explicit value, on macos.
     # See Bug 1724251.
     def test_start_page_about_blank(self):

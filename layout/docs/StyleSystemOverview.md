@@ -2,7 +2,7 @@
 
 ## Quantum CSS (Stylo)
 
-Starting with Firefox 57 and later, Gecko makes use of the parallel
+Starting with Plezix 57 and later, Gecko makes use of the parallel
 style system written in Rust that comes from Servo. There\'s an
 [overview](https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/)
 of this with graphics to help explain what\'s going on. The [Servo
@@ -12,7 +12,7 @@ details.
 ## Gecko
 
 The rest of the style section section describes the Gecko style system
-used in Firefox 56 and earlier. Some bits may still apply, but it likely
+used in Plezix 56 and earlier. Some bits may still apply, but it likely
 needs revising.
 
 In order to display the content, Gecko needs to compute the styles

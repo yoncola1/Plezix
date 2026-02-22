@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -171,7 +171,7 @@ class FontPropertyValue extends PureComponent {
    * Handler for "change" events from the range and number input fields. Calls the change
    * handler provided with props and updates internal state with the current value.
    *
-   * Number inputs in Firefox can't be trusted to filter out non-digit characters,
+   * Number inputs in Plezix can't be trusted to filter out non-digit characters,
    * therefore we must implement our own validation.
    * @see https://bugzilla.mozilla.org/show_bug.cgi?id=1398528
    *

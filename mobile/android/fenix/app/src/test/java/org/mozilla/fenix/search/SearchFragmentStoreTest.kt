@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -209,7 +209,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is disabled WHEN the initial state is created THEN neither are displayed`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Plezix Suggest is disabled WHEN the initial state is created THEN neither are displayed`() {
         activity.browsingModeManager.mode = BrowsingMode.Normal
         every { components.core.store.state } returns BrowserState()
         every { settings.enableFxSuggest } returns false
@@ -460,7 +460,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is enabled WHEN the default search engine is selected THEN both are displayed`() = runTest {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Plezix Suggest is enabled WHEN the default search engine is selected THEN both are displayed`() = runTest {
         val initialState = emptyDefaultState(showSponsoredSuggestions = false, showNonSponsoredSuggestions = false)
         val store = SearchFragmentStore(initialState)
         every { settings.enableFxSuggest } returns true
@@ -481,7 +481,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is disabled WHEN the default search engine is selected THEN neither are displayed`() = runTest {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Plezix Suggest is disabled WHEN the default search engine is selected THEN neither are displayed`() = runTest {
         val initialState = emptyDefaultState(showSponsoredSuggestions = true, showNonSponsoredSuggestions = true)
         val store = SearchFragmentStore(initialState)
         every { settings.enableFxSuggest } returns false

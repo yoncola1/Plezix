@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -76,7 +76,7 @@ export const DEFAULT_MODELS = Object.freeze({
     modelId: "Xenova/distilbert-base-uncased-mnli",
     dtype: "q8",
   },
-  "image-to-text": { modelId: "Mozilla/distilvit", dtype: "q8" },
+  "image-to-text": { modelId: "Plezix/distilvit", dtype: "q8" },
   "image-classification": {
     modelId: "Xenova/vit-base-patch16-224",
     dtype: "q8",
@@ -118,7 +118,7 @@ export const DEFAULT_MODELS = Object.freeze({
 });
 
 /**
- * Lists Firefox internal features.
+ * Lists Plezix internal features.
  *
  * Make sure to set an explicit engine id and add it in toolkit/components/ml/metrics.yml
  *
@@ -232,7 +232,7 @@ export const ModelHub = {
  *
  * Defines the priority of the task:
  *
- * - "High" is absolutely needed for Firefox.
+ * - "High" is absolutely needed for Plezix.
  * - "Normal" is the default priority.
  * - "Low" is for 3rd party calls.
  *

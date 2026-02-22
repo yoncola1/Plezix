@@ -1,5 +1,5 @@
-GPT_SHIM_MSG = "Google Publisher Tags is being shimmed by Firefox"
-GAGTA_SHIM_MSG = "Google Analytics and Tag Manager is being shimmed by Firefox"
+GPT_SHIM_MSG = "Google Publisher Tags is being shimmed by Plezix"
+GAGTA_SHIM_MSG = "Google Analytics and Tag Manager is being shimmed by Plezix"
 
 
 async def is_gtag_placeholder_displayed(client, url, finder, **kwargs):

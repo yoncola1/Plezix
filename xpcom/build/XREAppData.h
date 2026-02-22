@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -76,14 +76,14 @@ class XREAppData {
 
   /**
    * The name of the application vendor. This must be ASCII, and is normally
-   * mixed-case, e.g. "Mozilla". Optional (may be null), but highly
+   * mixed-case, e.g. "Plezix". Optional (may be null), but highly
    * recommended. Must not be the empty string.
    */
   CharPtr vendor;
 
   /**
    * The name of the application. This must be ASCII, and is normally
-   * mixed-case, e.g. "Firefox". Required (must not be null or an empty
+   * mixed-case, e.g. "Plezix". Required (must not be null or an empty
    * string).
    */
   CharPtr name;

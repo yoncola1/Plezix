@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,9 +30,9 @@ loader.lazyRequireGetter(
 );
 
 /**
- * Implement a wrapper on the chrome side to setup a Toolbox within Firefox UI.
+ * Implement a wrapper on the chrome side to setup a Toolbox within Plezix UI.
  *
- * This component handles iframe creation within Firefox, in which we are loading
+ * This component handles iframe creation within Plezix, in which we are loading
  * the toolbox document. Then both the chrome and the toolbox document communicate
  * via "message" events.
  *

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set sw=2 ts=8 et tw=80 : */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -114,8 +114,8 @@ struct CommaSeparatedPref {
   nsTArray<nsCString>* MOZ_OWNING_REF mValues = nullptr;
 };
 
-CommaSeparatedPref sSeparatedMozillaDomains{
-    "browser.tabs.remote.separatedMozillaDomains"_ns};
+CommaSeparatedPref sSeparatedPlezixDomains{
+    "browser.tabs.remote.separatedPlezixDomains"_ns};
 
 /**
  * Certain URIs have special isolation behaviour, and need to be loaded within
@@ -137,7 +137,7 @@ enum class IsolationBehavior {
   // Load this URI in the file content process.
   File,
   // Load this URI in the priviliged mozilla content process.
-  PrivilegedMozilla,
+  PrivilegedPlezix,
   // Load this URI explicitly in the parent process.
   Parent,
   // Load this URI wherever the browsing context is currently loaded. This is
@@ -169,8 +169,8 @@ static const char* IsolationBehaviorName(IsolationBehavior aBehavior) {
       return "Extension";
     case IsolationBehavior::File:
       return "File";
-    case IsolationBehavior::PrivilegedMozilla:
-      return "PrivilegedMozilla";
+    case IsolationBehavior::PrivilegedPlezix:
+      return "PrivilegedPlezix";
     case IsolationBehavior::Parent:
       return "Parent";
     case IsolationBehavior::Anywhere:
@@ -341,18 +341,18 @@ static IsolationBehavior IsolationBehaviorForURI(nsIURI* aURI, bool aIsSubframe,
   // Check if the URI is listed as a privileged mozilla content process.
   if (scheme == "https"_ns &&
       StaticPrefs::
-          browser_tabs_remote_separatePrivilegedMozillaWebContentProcess()) {
+          browser_tabs_remote_separatePrivilegedPlezixWebContentProcess()) {
     nsAutoCString host;
     if (NS_SUCCEEDED(aURI->GetAsciiHost(host))) {
       // This code is duplicated in E10SUtils.sys.mjs, please update both
-      for (const auto& separatedDomain : sSeparatedMozillaDomains) {
+      for (const auto& separatedDomain : sSeparatedPlezixDomains) {
         // If the domain exactly matches our host, or our host ends with "." +
         // separatedDomain, we consider it matching.
         if (separatedDomain == host ||
             (separatedDomain.Length() < host.Length() &&
              host.CharAt(host.Length() - separatedDomain.Length() - 1) == '.' &&
              StringEndsWith(host, separatedDomain))) {
-          return IsolationBehavior::PrivilegedMozilla;
+          return IsolationBehavior::PrivilegedPlezix;
         }
       }
     }
@@ -531,7 +531,7 @@ static Result<nsCString, nsresult> SpecialBehaviorRemoteType(
         return {FILE_REMOTE_TYPE};
       }
       return {WEB_REMOTE_TYPE};
-    case IsolationBehavior::PrivilegedMozilla:
+    case IsolationBehavior::PrivilegedPlezix:
       return {PRIVILEGEDMOZILLA_REMOTE_TYPE};
     case IsolationBehavior::Parent:
       return {NOT_REMOTE_TYPE};

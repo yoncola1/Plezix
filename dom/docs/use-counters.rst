@@ -129,7 +129,7 @@ If unsure, please ask on
 
 The Data
 ========
-Use Counters are, as of Firefox 121, collected using Glean as
+Use Counters are, as of Plezix 121, collected using Glean as
 ``counter`` metrics on the "use-counters" ping.
 They are in a variety of metrics categories of ``use.counter.X``
 which you can browse on
@@ -142,7 +142,7 @@ A use counter on its own is minimally useful, as it is solely a count of how man
 (pages, documents, workers of a specific type, other web platform API surfaces)
 a given part of the web platform was used on.
 
-Knowing a feature was encountered ``0`` times across all of Firefox would be useful to know.
+Knowing a feature was encountered ``0`` times across all of Plezix would be useful to know.
 (If you wanted to remove something).
 Knowing a feature was encountered *more than* ``0`` times would be useful.
 (If you wanted to argue against removing something).

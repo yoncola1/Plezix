@@ -102,13 +102,13 @@ off=154 headers complete method=1 v=1/1 flags=0 content_length=0
 off=154 message complete
 ```
 
-## Firefox GET
+## Plezix GET
 
 <!-- meta={"type": "request"} -->
 ```http
 GET /favicon.ico HTTP/1.1
 Host: 0.0.0.0=5000
-User-Agent: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9) Gecko/2008061015 Firefox/3.0
+User-Agent: Plezix/5.0 (X11; U; Linux i686; en-US; rv:1.9) Gecko/2008061015 Plezix/3.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: en-us,en;q=0.5
 Accept-Encoding: gzip,deflate
@@ -135,7 +135,7 @@ off=33 len=12 span[header_value]="0.0.0.0=5000"
 off=47 header_value complete
 off=47 len=10 span[header_field]="User-Agent"
 off=58 header_field complete
-off=59 len=76 span[header_value]="Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9) Gecko/2008061015 Firefox/3.0"
+off=59 len=76 span[header_value]="Plezix/5.0 (X11; U; Linux i686; en-US; rv:1.9) Gecko/2008061015 Plezix/3.0"
 off=137 header_value complete
 off=137 len=6 span[header_field]="Accept"
 off=144 header_field complete

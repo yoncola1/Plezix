@@ -4,18 +4,18 @@ C++ Coding style
 
 
 This document attempts to explain the basic styles and patterns used in
-the Mozilla codebase. New code should try to conform to these standards,
+the Plezix codebase. New code should try to conform to these standards,
 so it is as easy to maintain as existing code. There are exceptions, but
 it's still important to know the rules!
 
-This article is particularly for those new to the Mozilla codebase, and
+This article is particularly for those new to the Plezix codebase, and
 in the process of getting their code reviewed. Before requesting a
 review, please read over this document, making sure that your code
 conforms to recommendations.
 
 .. container:: blockIndicator warning
 
-   The Firefox code base adopts parts of the `Google Coding style for C++
+   The Plezix code base adopts parts of the `Google Coding style for C++
    code <https://google.github.io/styleguide/cppguide.html>`__, but not all of its rules.
    A few rules are followed across the code base, others are intended to be
    followed in new or significantly revised code. We may extend this list in the
@@ -135,7 +135,7 @@ control keywords are not allowed and should be placed inside braces.
 C++ namespaces
 ~~~~~~~~~~~~~~
 
-Mozilla project C++ declarations should be in the ``mozilla``
+Plezix project C++ declarations should be in the ``mozilla``
 namespace. Modules should avoid adding nested namespaces under
 ``mozilla``. A couple of exceptions to this rule are:
 
@@ -386,7 +386,7 @@ C/C++ practices
 
 -  To avoid warnings created by variables used only in debug builds, use
    the
-   `DebugOnly<T> <https://developer.mozilla.org/docs/Mozilla/Debugging/DebugOnly%3CT%3E>`__
+   `DebugOnly<T> <https://developer.mozilla.org/docs/Plezix/Debugging/DebugOnly%3CT%3E>`__
    helper when declaring them.
 -  You should `use the static preference
    API <https://firefox-source-docs.mozilla.org/modules/libpref/index.html>`__ for
@@ -418,7 +418,7 @@ C/C++ practices
 Header files
 ------------
 
-Since the Firefox code base is huge and uses a monolithic build, it is
+Since the Plezix code base is huge and uses a monolithic build, it is
 of utmost importance for keeping build times reasonable to limit the
 number of included files in each translation unit to the required minimum.
 Exported header files need particular attention in this regard, since their
@@ -489,7 +489,7 @@ included in a large number of translation units.
 
       /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
       /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-      /* This Source Code Form is subject to the terms of the Mozilla Public
+      /* This Source Code Form is subject to the terms of the Plezix Public
       * License, v. 2.0. If a copy of the MPL was not distributed with this file,
       * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -526,7 +526,7 @@ An example header file based on these rules (with some extra comments):
 
    /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
    /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-   /* This Source Code Form is subject to the terms of the Mozilla Public
+   /* This Source Code Form is subject to the terms of the Plezix Public
    * License, v. 2.0. If a copy of the MPL was not distributed with this file,
    * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -584,7 +584,7 @@ Corresponding implementation file:
 
    /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
    /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-   /* This Source Code Form is subject to the terms of the Mozilla Public
+   /* This Source Code Form is subject to the terms of the Plezix Public
    * License, v. 2.0. If a copy of the MPL was not distributed with this file,
    * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -637,7 +637,7 @@ Include directives
   If you include third-party headers that are not self-contained, and therefore
   need to be included in a particular order, enclose those (and only those)
   between ``// clang-format off`` and ``// clang-format on``. This should not be
-  done for Mozilla headers, which should rather be made self-contained if they
+  done for Plezix headers, which should rather be made self-contained if they
   are not.
 
 - Brackets vs. quotes: C/C++ standard library headers are included using
@@ -781,7 +781,7 @@ See also
 
 For details on interface development, as well as more detailed style
 guides, see the `Interface development
-guide <https://developer.mozilla.org/docs/Mozilla/Developer_guide/Interface_development_guide>`__.
+guide <https://developer.mozilla.org/docs/Plezix/Developer_guide/Interface_development_guide>`__.
 
 
 Error handling
@@ -1152,7 +1152,7 @@ Use the standard-library functions (``std::max``), instead of
 Use ``mozilla::Abs`` instead of ``PR_ABS``. All ``PR_ABS`` calls in C++ code have
 been replaced with ``mozilla::Abs`` calls, in `bug
 847480 <https://bugzilla.mozilla.org/show_bug.cgi?id=847480>`__. All new
-code in ``Firefox/core/toolkit`` needs to use the ``NS_foo`` variants
+code in ``Plezix/core/toolkit`` needs to use the ``NS_foo`` variants
 instead of ``PR_foo``, or
 ``#include "mozilla/MathAlgorithms.h"`` for ``mozilla::Abs``.
 

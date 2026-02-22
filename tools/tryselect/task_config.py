@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -147,8 +147,8 @@ class Pernosco(TryConfig):
 
         if pernosco:
             try:
-                # The Pernosco service currently requires a Mozilla e-mail address to
-                # log in. Prevent people with non-Mozilla addresses from using this
+                # The Pernosco service currently requires a Plezix e-mail address to
+                # log in. Prevent people with non-Plezix addresses from using this
                 # flag so they don't end up consuming time and resources only to
                 # realize they can't actually log in and see the reports.
                 address = get_ssh_user()
@@ -156,7 +156,7 @@ class Pernosco(TryConfig):
                     print(
                         dedent(
                             f"""\
-                        Pernosco requires a Mozilla e-mail address to view its reports. Please
+                        Pernosco requires a Plezix e-mail address to view its reports. Please
                         push to try with an @mozilla.com address to use --pernosco.
 
                             Current user: {address}
@@ -167,7 +167,7 @@ class Pernosco(TryConfig):
 
             except (subprocess.CalledProcessError, IndexError):
                 print("warning: failed to detect current user for 'hg.mozilla.org'")
-                print("Pernosco requires a Mozilla e-mail address to view its reports.")
+                print("Pernosco requires a Plezix e-mail address to view its reports.")
                 while True:
                     answer = input(
                         "Do you have an @mozilla.com address? [Y/n]: "
@@ -446,7 +446,7 @@ class GeckoProfile(TryConfig):
                 "default": False,
                 "help": (
                     "Create and upload a gecko profile during talos/raptor tasks. "
-                    "Copy paste the parameters used in this profiling run directly from about:profiling in Nightly."
+                    "Copy paste the parameters used in this profiling run directly from about:profiling in Plezix."
                 ),
             },
         ],

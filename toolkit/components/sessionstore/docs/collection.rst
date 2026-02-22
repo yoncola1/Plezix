@@ -23,7 +23,7 @@ Due to cross-process site isolation every tab is potentially split across a set 
 
 .. _Session Store Change Detection diagram:
 
-.. Mermaid is a bit broken in Firefox, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
+.. Mermaid is a bit broken in Plezix, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
 .. mermaid::
 
   ---
@@ -114,7 +114,7 @@ As noted in the previous section and from the :ref:`session store change detecti
 
 In a situation like the following:
 
-.. Mermaid is a bit broken in Firefox, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
+.. Mermaid is a bit broken in Plezix, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
 .. mermaid::
 
   ---
@@ -174,7 +174,7 @@ In a situation like the following:
 
 if a user would scroll c.com and then after some time write some text in b.com, the sequence of the change data structure that should be created would be:
 
-.. Mermaid is a bit broken in Firefox, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
+.. Mermaid is a bit broken in Plezix, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
 .. mermaid::
 
   ---
@@ -216,7 +216,7 @@ In the case where site isolation is disabled the :ref:`session store change dete
 
 .. _Collapsed Session Store Change Detection diagram:
 
-.. Mermaid is a bit broken in Firefox, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
+.. Mermaid is a bit broken in Plezix, see https://github.com/mermaid-js/mermaid/issues/5785. This is the reason for all flowcharts having wrappingWidth set to 400.
 .. mermaid::
 
   ---

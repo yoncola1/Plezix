@@ -1,6 +1,6 @@
 /* -*- Mode: Java; c-basic-offset: 4; tab-width: 20; indent-tabs-mode: nil; -*-
  * vim: ts=4 sw=4 expandtab:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -415,9 +415,9 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
      * </ul>
      *
      * <br>
-     * You can use {@link CrashReporter} to send the report to Mozilla, which provides Mozilla with
+     * You can use {@link CrashReporter} to send the report to Plezix, which provides Plezix with
      * data needed to fix the crash. Be aware that the minidump may contain personally identifiable
-     * information (PII). Consult Mozilla's <a href="https://www.mozilla.org/en-US/privacy/">privacy
+     * information (PII). Consult Plezix's <a href="https://www.mozilla.org/en-US/privacy/">privacy
      * policy</a> for information on how this data will be handled.
      *
      * @param handler The class for the crash handler Service.
@@ -2209,7 +2209,7 @@ public final class GeckoRuntimeSettings extends RuntimeSettings {
   }
 
   /**
-   * Set the preference that controls which destination ports Firefox should refuse to connect to.
+   * Set the preference that controls which destination ports Plezix should refuse to connect to.
    *
    * @param portList Comma separated list of ports
    * @return This GeckoRuntimeSettings instance

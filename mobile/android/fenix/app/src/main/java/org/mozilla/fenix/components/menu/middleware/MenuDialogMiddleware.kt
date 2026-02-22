@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -113,7 +113,7 @@ class MenuDialogMiddleware(
             is MenuAction.FindInPage -> launchFindInPage()
             is MenuAction.DismissMenuBanner -> dismissMenuBanner()
             is MenuAction.OpenInApp -> openInApp(context.store)
-            is MenuAction.OpenInFirefox -> openInFirefox()
+            is MenuAction.OpenInPlezix -> openInPlezix()
             is MenuAction.InstallAddon -> installAddon(context.store, action.addon)
             is MenuAction.InstallAddonSuccess -> installAddonSuccess()
             is MenuAction.CustomMenuItemAction -> customMenuItemAction(action.intent, action.url)
@@ -325,8 +325,8 @@ class MenuDialogMiddleware(
         onDismiss()
     }
 
-    private fun openInFirefox() = scope.launch {
-        appStore.dispatch(AppAction.OpenInFirefoxStarted)
+    private fun openInPlezix() = scope.launch {
+        appStore.dispatch(AppAction.OpenInPlezixStarted)
         onDismiss()
     }
 

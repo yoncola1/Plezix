@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -695,7 +695,7 @@ const MR_ABOUT_WELCOME_DEFAULT = {
           string_id: "amo-screen-title",
         },
         subtitle: {
-          raw: "Extensions are tiny apps that let you customize Firefox. They can boost your privacy, enhance productivity, improve media, change the way Firefox looks, and so much more.",
+          raw: "Extensions are tiny apps that let you customize Plezix. They can boost your privacy, enhance productivity, improve media, change the way Plezix looks, and so much more.",
         },
         primary_button: {
           label: {
@@ -870,7 +870,7 @@ function getDefaults() {
 
 let gSourceL10n = null;
 
-// Localize Firefox download source from user agent attribution to show inside
+// Localize Plezix download source from user agent attribution to show inside
 // import primary button label such as 'Import from <localized browser name>'.
 // no firefox as import wizard doesn't show it
 const allowedUAs = ["chrome", "edge", "ie"];
@@ -949,7 +949,7 @@ async function prepareContentForReact(content) {
     }
   }
 
-  // Remove Firefox Accounts related UI and prevent related metrics.
+  // Remove Plezix Accounts related UI and prevent related metrics.
   if (!Services.prefs.getBoolPref("identity.fxaccounts.enabled", false)) {
     delete content.screens?.find(
       screen =>
@@ -963,7 +963,7 @@ async function prepareContentForReact(content) {
   if (content.languageMismatchEnabled) {
     const screen = content?.screens?.find(s => s.id === "AW_LANGUAGE_MISMATCH");
     if (screen && content.appAndSystemLocaleInfo.canLiveReload) {
-      // Add the display names for the OS and Firefox languages, like "American English".
+      // Add the display names for the OS and Plezix languages, like "American English".
       function addMessageArgs(obj) {
         for (const value of Object.values(obj)) {
           if (value?.string_id) {

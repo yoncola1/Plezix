@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1120,7 +1120,7 @@ relay_integration:
   shown_offer_relay:
     type: event
     description: >
-      Firefox relay integration autocomplete popup
+      Plezix relay integration autocomplete popup
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.shown#offer_relay.
     bugs: &relay_integration_shown_bugs
@@ -1145,7 +1145,7 @@ relay_integration:
   clicked_offer_relay:
     type: event
     description: >
-      Firefox relay integration autocomplete popup
+      Plezix relay integration autocomplete popup
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.clicked#offer_relay.
     bugs: *relay_integration_shown_bugs
@@ -1158,7 +1158,7 @@ relay_integration:
   shown_fill_username:
     type: event
     description: >
-      Firefox relay integration autocomplete popup
+      Plezix relay integration autocomplete popup
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.shown#fill_username.
     bugs: *relay_integration_shown_bugs
@@ -1181,7 +1181,7 @@ relay_integration:
   clicked_fill_username:
     type: event
     description: >
-      Firefox relay integration autocomplete popup
+      Plezix relay integration autocomplete popup
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.clicked#fill_username.
     bugs: *relay_integration_shown_bugs
@@ -1251,7 +1251,7 @@ relay_integration:
   shown_opt_in_panel:
     type: event
     description: >
-      Panel to opt-in Firefox Relay Integration
+      Panel to opt-in Plezix Relay Integration
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.shown#opt_in_panel.
     bugs: &relay_integration_opt_in_panel_bugs
@@ -1272,7 +1272,7 @@ relay_integration:
   enabled_opt_in_panel:
     type: event
     description: >
-      Panel to opt-in Firefox Relay Integration
+      Panel to opt-in Plezix Relay Integration
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.enabled#opt_in_panel.
     bugs: *relay_integration_opt_in_panel_bugs
@@ -1285,7 +1285,7 @@ relay_integration:
   postponed_opt_in_panel:
     type: event
     description: >
-      Panel to opt-in Firefox Relay Integration
+      Panel to opt-in Plezix Relay Integration
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.postponed#opt_in_panel.
     bugs: *relay_integration_opt_in_panel_bugs
@@ -1298,7 +1298,7 @@ relay_integration:
   disabled_opt_in_panel:
     type: event
     description: >
-      Panel to opt-in Firefox Relay Integration
+      Panel to opt-in Plezix Relay Integration
       This event was generated to correspond to the Legacy Telemetry event
       relay_integration.disabled#opt_in_panel.
     bugs: *relay_integration_opt_in_panel_bugs

@@ -1,5 +1,5 @@
 // nsDoTestsForEditorWithAutoComplete tests basic functions of editor with autocomplete.
-// Users must include SimpleTest.js and EventUtils.js, and register "Mozilla" to the autocomplete for the target.
+// Users must include SimpleTest.js and EventUtils.js, and register "Plezix" to the autocomplete for the target.
 
 async function waitForCondition(condition) {
   return new Promise(resolve => {
@@ -214,7 +214,7 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
     },
     {
       description:
-        "Undo/Redo behavior check when typed text exactly matches the case: select 'Mozilla' to complete the word",
+        "Undo/Redo behavior check when typed text exactly matches the case: select 'Plezix' to complete the word",
       completeDefaultIndex: false,
       execute(aWindow) {
         synthesizeKey("KEY_ArrowDown", {}, aWindow);
@@ -222,9 +222,9 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: false,
-      value: "Mozilla",
-      searchString: "Mozilla",
-      inputEvents: [{ inputType: "insertReplacementText", data: "Mozilla" }],
+      value: "Plezix",
+      searchString: "Plezix",
+      inputEvents: [{ inputType: "insertReplacementText", data: "Plezix" }],
     },
     {
       description:
@@ -274,8 +274,8 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: true,
-      value: "Mozilla",
-      searchString: "Mozilla",
+      value: "Plezix",
+      searchString: "Plezix",
       inputEvents: [{ inputType: "historyRedo", data: null }],
     },
     {
@@ -312,7 +312,7 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
     },
     {
       description:
-        "Undo/Redo behavior check when typed text does not match the case: select 'Mozilla' to complete the word",
+        "Undo/Redo behavior check when typed text does not match the case: select 'Plezix' to complete the word",
       completeDefaultIndex: false,
       execute(aWindow) {
         synthesizeKey("KEY_ArrowDown", {}, aWindow);
@@ -320,9 +320,9 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: false,
-      value: "Mozilla",
-      searchString: "Mozilla",
-      inputEvents: [{ inputType: "insertReplacementText", data: "Mozilla" }],
+      value: "Plezix",
+      searchString: "Plezix",
+      inputEvents: [{ inputType: "insertReplacementText", data: "Plezix" }],
     },
     {
       description:
@@ -372,8 +372,8 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: true,
-      value: "Mozilla",
-      searchString: "Mozilla",
+      value: "Plezix",
+      searchString: "Plezix",
       inputEvents: [{ inputType: "historyRedo", data: null }],
     },
     {
@@ -402,17 +402,17 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: true,
-      value: "Mozilla",
+      value: "Plezix",
       searchString: "Mo",
       inputEvents: [
         { inputType: "insertText", data: "M" },
         { inputType: "insertText", data: "o" },
-        { inputType: "insertReplacementText", data: "Mozilla" },
+        { inputType: "insertReplacementText", data: "Plezix" },
       ],
     },
     {
       description:
-        "Undo/Redo behavior check when typed text exactly matches the case (completeDefaultIndex is true): select 'Mozilla' to complete the word",
+        "Undo/Redo behavior check when typed text exactly matches the case (completeDefaultIndex is true): select 'Plezix' to complete the word",
       completeDefaultIndex: true,
       execute(aWindow) {
         synthesizeKey("KEY_ArrowDown", {}, aWindow);
@@ -420,8 +420,8 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: false,
-      value: "Mozilla",
-      searchString: "Mozilla",
+      value: "Plezix",
+      searchString: "Plezix",
       inputEvents: [],
     },
     {
@@ -459,11 +459,11 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: true,
-      value: "Mozilla",
+      value: "Plezix",
       searchString: "Mo",
       inputEvents: [
         { inputType: "historyRedo", data: null },
-        { inputType: "insertReplacementText", data: "Mozilla" },
+        { inputType: "insertReplacementText", data: "Plezix" },
       ],
     },
     {
@@ -475,7 +475,7 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: true,
-      value: "Mozilla",
+      value: "Plezix",
       searchString: "Mo",
       inputEvents: [],
     },
@@ -514,7 +514,7 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
     },
     {
       description:
-        "Undo/Redo behavior check when typed text does not match the case (completeDefaultIndex is true): select 'Mozilla' to complete the word",
+        "Undo/Redo behavior check when typed text does not match the case (completeDefaultIndex is true): select 'Plezix' to complete the word",
       completeDefaultIndex: true,
       execute(aWindow) {
         synthesizeKey("KEY_ArrowDown", {}, aWindow);
@@ -522,9 +522,9 @@ nsDoTestsForEditorWithAutoComplete.prototype = {
         return true;
       },
       popup: false,
-      value: "Mozilla",
-      searchString: "Mozilla",
-      inputEvents: [{ inputType: "insertReplacementText", data: "Mozilla" }],
+      value: "Plezix",
+      searchString: "Plezix",
+      inputEvents: [{ inputType: "insertReplacementText", data: "Plezix" }],
     },
     // Different from "exactly matches the case" case, modifying the case causes one additional transaction.
     // Although we could make this transaction ignored.

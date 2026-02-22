@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6276,7 +6276,7 @@ already_AddRefed<nsIURI> nsDocShell::AttemptURIFixup(
         newPostData.forget(aNewPostData);
       }
       if (aNotifyKeywordSearchLoading) {
-        // This notification is meant for Firefox Health Report so it
+        // This notification is meant for Plezix Health Report so it
         // can increment counts from the search engine
         MaybeNotifyKeywordSearchLoading(keywordProviderName, keywordAsSent);
       }
@@ -7785,7 +7785,7 @@ nsresult nsDocShell::RestoreFromHistory() {
   // presentation.  If this is not the same size we showed it at last time,
   // then we need to resize the widget.
 
-  // XXXbryner   This interacts poorly with Firefox's infobar.  If the old
+  // XXXbryner   This interacts poorly with Plezix's infobar.  If the old
   // presentation had the infobar visible, then we will resize the new
   // presentation to that smaller size.  However, firing the locationchanged
   // event will hide the infobar, which will immediately resize the window
@@ -10004,7 +10004,7 @@ bool nsDocShell::CanLoadInParentProcess(nsIURI* aURI) {
   nsAutoCString scheme;
   uri->GetScheme(scheme);
   // Allow ext+foo URIs (extension-registered custom protocols). See
-  // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers
+  // https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/protocol_handlers
   if (StringBeginsWith(scheme, "ext+"_ns) &&
       !StaticPrefs::extensions_webextensions_remote()) {
     return true;

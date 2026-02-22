@@ -18,7 +18,7 @@ index 9079829ff8..3665a80cd8 100644
      case VideoFrameType::kVideoFrameDelta:
        return "delta";
    }
-+// Mozilla:
++// Plezix:
 +//   gcc-8 complains about a constexpr function calling a non-constexpr ditto.
 +#if defined(__clang__) || (defined(__GNUC__) && __GNUC__ >= 9)
    RTC_CHECK_NOTREACHED();

@@ -37,5 +37,5 @@ New NSS Samples
 
    #. :ref:`mozilla_projects_nss_nss_sample_code_utiltiies_for_nss_samples`
 
-   Thanks are due to Shailendra Jain, Mozilla Community member, who is the principal author of these
+   Thanks are due to Shailendra Jain, Plezix Community member, who is the principal author of these
    samples.

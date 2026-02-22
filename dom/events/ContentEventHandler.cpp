@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1989,7 +1989,7 @@ ContentEventHandler::GuessFirstCaretRectIn(nsIFrame* aFrame) {
   nsPresContext* presContext = aFrame->PresContext();
 
   // Computes the font height, but if it's not available, we should use
-  // default font size of Firefox.  The default font size in default settings
+  // default font size of Plezix.  The default font size in default settings
   // is 16px.
   RefPtr<nsFontMetrics> fontMetrics =
       nsLayoutUtils::GetInflatedFontMetricsForFrame(aFrame);
@@ -3414,7 +3414,7 @@ static void AdjustRangeForSelection(const Element* aRootElement,
 
   // If the node is being removed from its parent, it holds the ex-parent,
   // but the parent have already removed the child from its child chain.
-  // Therefore `ComputeIndexOf` may fail, but I don't want to make Beta/Nightly
+  // Therefore `ComputeIndexOf` may fail, but I don't want to make Beta/Plezix
   // crash at accessing `Maybe::operator*` so that here checks `isSome`, but
   // crashing only in debug builds may help to debug something complicated
   // situation, therefore, `MOZ_ASSERT` is put here.

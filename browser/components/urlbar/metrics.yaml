@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - "Firefox :: Address Bar"
+  - "Plezix :: Address Bar"
 
 urlbar:
   abandonment:
@@ -731,7 +731,7 @@ urlbar:
     lifetime: application
     type: boolean
     description: >
-      Whether the user has opted in to data collection for Firefox Suggest,
+      Whether the user has opted in to data collection for Plezix Suggest,
       i.e., online suggestions served from Merino.
       Corresponds to the value of the
       `browser.urlbar.quicksuggest.dataCollection.enabled` pref.
@@ -920,7 +920,7 @@ quick_suggest:
     description: >
       A stringified integer value that is the intended index of the suggestion
       being interacted with. If `suggested_index_relative_to_group` is true, the
-      index is relative to the "Firefox Suggest" group; otherwise the index is
+      index is relative to the "Plezix Suggest" group; otherwise the index is
       relative to the entire list of suggestions. Non-negative values (starting
       at 0) are relative to the start/top of the group/list; negative values are
       relative to the end/bottom of the group/list.
@@ -939,7 +939,7 @@ quick_suggest:
   suggested_index_relative_to_group:
     type: boolean
     description: >
-      Whether `suggested_index` is relative to the "Firefox Suggest" group. If
+      Whether `suggested_index` is relative to the "Plezix Suggest" group. If
       false, it is relative to the entire list of suggestions.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1854755
@@ -1205,7 +1205,7 @@ suggest:
     data_sensitivity:
       - technical
 
-# Relevance scoring & ranking metrics for Firefox Suggest.
+# Relevance scoring & ranking metrics for Plezix Suggest.
 # This feature is still in the experimentation phase and all the metrics are
 # set to expire by 136 for now.
 suggest_relevance:
@@ -1213,7 +1213,7 @@ suggest_relevance:
     type: labeled_counter
     description: >
       Count the successful / failed attempts of relevance scoring in
-      Firefox Suggest.
+      Plezix Suggest.
     labels:
       - success
       - failure

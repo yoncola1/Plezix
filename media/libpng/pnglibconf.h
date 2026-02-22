@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -165,7 +165,7 @@
    png_get_io_ptr
 */
 
-/* Mozilla: mangle it anyway. */
+/* Plezix: mangle it anyway. */
 #define png_get_io_ptr                  MOZ_PNG_get_io_ptr
 
 /* The following weren't present in libpng-0.88 but have never changed since

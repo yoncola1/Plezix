@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ constexpr char kContentEncodingHeader[] = "Content-Encoding: gzip";
 
 // System-specific function that changes the current working directory to be
 // the same as the one containing the ping file. This is currently required on
-// Windows to release the Firefox installation folder (see bug 1597803 for more
+// Windows to release the Plezix installation folder (see bug 1597803 for more
 // details) and is a no-op on other platforms.
 void ChangeCurrentWorkingDirectory(const std::string& pingPath);
 

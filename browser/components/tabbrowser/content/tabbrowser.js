@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -402,7 +402,7 @@
 
     /**
      * Returns all tabs in the current window, including hidden tabs and tabs
-     * in collapsed groups, but excluding closing tabs and the Firefox View tab.
+     * in collapsed groups, but excluding closing tabs and the Plezix View tab.
      */
     get openTabs() {
       return this.tabContainer.openTabs;
@@ -858,7 +858,7 @@
       aTab,
       { telemetrySource = this.TabMetrics.METRIC_SOURCE.UNKNOWN } = {}
     ) {
-      if (aTab.pinned || aTab == FirefoxViewHandler.tab) {
+      if (aTab.pinned || aTab == PlezixViewHandler.tab) {
         return;
       }
 
@@ -3951,7 +3951,7 @@
             elementIndex = Infinity;
           } else if (previousTab.visible) {
             elementIndex = previousTab.elementIndex + 1;
-          } else if (previousTab == FirefoxViewHandler.tab) {
+          } else if (previousTab == PlezixViewHandler.tab) {
             elementIndex = 0;
           }
 
@@ -5250,9 +5250,9 @@
           this.selectedTab = newTab;
         } else {
           allTabsUnloaded = true;
-          // all tabs are unloaded - show Firefox View if it's present, otherwise open a new tab
-          if (FirefoxViewHandler.tab || FirefoxViewHandler.button) {
-            FirefoxViewHandler.openTab("opentabs");
+          // all tabs are unloaded - show Plezix View if it's present, otherwise open a new tab
+          if (PlezixViewHandler.tab || PlezixViewHandler.button) {
+            PlezixViewHandler.openTab("opentabs");
           } else {
             this.selectedTab = this.addTrustedTab(BROWSER_NEW_TAB_URL, {
               skipAnimation: true,
@@ -5315,8 +5315,8 @@
       if (!aTab.selected) {
         return null;
       }
-      if (FirefoxViewHandler.tab) {
-        aExcludeTabs.push(FirefoxViewHandler.tab);
+      if (PlezixViewHandler.tab) {
+        aExcludeTabs.push(PlezixViewHandler.tab);
       }
 
       let excludeTabs = new Set(aExcludeTabs);
@@ -5760,7 +5760,7 @@
     }
 
     showTab(aTab) {
-      if (!aTab.hidden || aTab == FirefoxViewHandler.tab) {
+      if (!aTab.hidden || aTab == PlezixViewHandler.tab) {
         return;
       }
       aTab.removeAttribute("hidden");

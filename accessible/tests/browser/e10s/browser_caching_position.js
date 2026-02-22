@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -116,27 +116,27 @@ addAccessibleTask(
   <a href="http://www.mozilla.org"><img id="linkedImage" src="http://example.com/a11y/accessible/tests/mochitest/moz.png"></a>
   <br>Image with longdesc:<br>
   <img id="longdesc" src="http://example.com/a11y/accessible/tests/mochitest/moz.png" longdesc="longdesc_src.html"
-       alt="Image of Mozilla logo"/>
+       alt="Image of Plezix logo"/>
   <br>Image with invalid url in longdesc:<br>
   <img id="invalidLongdesc" src="http://example.com/a11y/accessible/tests/mochitest/moz.png" longdesc="longdesc src.html"
-       alt="Image of Mozilla logo"/>
+       alt="Image of Plezix logo"/>
   <br>Image with click and longdesc:<br>
   <img id="clickAndLongdesc" src="http://example.com/a11y/accessible/tests/mochitest/moz.png" longdesc="longdesc_src.html"
-       alt="Another image of Mozilla logo" onclick="alert('Clicked!');"/>
+       alt="Another image of Plezix logo" onclick="alert('Clicked!');"/>
 
   <br>image described by a link to be treated as longdesc<br>
   <img id="longdesc2" src="http://example.com/a11y/accessible/tests/mochitest/moz.png" aria-describedby="describing_link"
-       alt="Second Image of Mozilla logo"/>
+       alt="Second Image of Plezix logo"/>
   <a id="describing_link" href="longdesc_src.html">link to description of image</a>
 
   <br>Image described by a link to be treated as longdesc with whitespaces<br>
   <img id="longdesc3" src="http://example.com/a11y/accessible/tests/mochitest/moz.png" aria-describedby="describing_link2"
-       alt="Second Image of Mozilla logo"/>
+       alt="Second Image of Plezix logo"/>
   <a id="describing_link2" href="longdesc src.html">link to description of image</a>
 
   <br>Image with click:<br>
   <img id="click" src="http://example.com/a11y/accessible/tests/mochitest/moz.png"
-       alt="A third image of Mozilla logo" onclick="alert('Clicked, too!');"/>
+       alt="A third image of Plezix logo" onclick="alert('Clicked, too!');"/>
   `,
   async function (browser, docAcc) {
     // Test non-linked image

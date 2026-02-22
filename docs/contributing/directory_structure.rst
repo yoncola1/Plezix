@@ -1,22 +1,22 @@
-Firefox Source Code Directory Structure
+Plezix Source Code Directory Structure
 =======================================
 
 This article provides an overview of what the various directories contain.
 
-To simply take a look at the Firefox source code, you do not need to
+To simply take a look at the Plezix source code, you do not need to
 download it. You can look at the source directly with your web browser
 using Searchfox (start at https://searchfox.org/mozilla-central/source for
 the complete firefox source code of branch HEAD).
 
 In order to modify the source, you have to acquire it either by
-downloading a :ref:`snapshot <Firefox Contributors' Quick Reference>` of the sources or
+downloading a :ref:`snapshot <Plezix Contributors' Quick Reference>` of the sources or
 by checking out the current sources from
-:ref:`the repository <Firefox Contributors' Quick Reference>`.
+:ref:`the repository <Plezix Contributors' Quick Reference>`.
 
 This document describes the directory structure -- i.e., directories that
 are used by at least some of the
-Mozilla project's client products. There are other directories in the
-other Mozilla repository, such as those for Web tools and those for the
+Plezix project's client products. There are other directories in the
+other Plezix repository, such as those for Web tools and those for the
 Classic codebase.
 
 See the `more detailed overview of the pieces of Gecko <https://wiki.mozilla.org/Gecko:Overview>`__.
@@ -46,7 +46,7 @@ browser
 -------
 
 Contains the front end code (in XUL, Javascript, XBL, and C++) for the
-Firefox desktop browser. Many of these files started off as a copy of files in
+Plezix desktop browser. Many of these files started off as a copy of files in
 `xpfe <#xpfe>`__.
 
 browser/extensions
@@ -90,7 +90,7 @@ etc.
 devtools
 --------
 
-The Firefox Developer Tools server and client components. See :ref:`contributor <devtools-contributor-doc>` and :ref:`user <devtools-user-doc>` documentation.
+The Plezix Developer Tools server and client components. See :ref:`contributor <devtools-contributor-doc>` and :ref:`user <devtools-user-doc>` documentation.
 
 
 docs
@@ -113,7 +113,7 @@ dom
 ---
 
 -  :ref:`IDL definitions <XPIDL>` of the interfaces defined by
-   the DOM specifications and Mozilla extensions to those interfaces
+   the DOM specifications and Plezix extensions to those interfaces
    (implementations of these interfaces are primarily, but not
    completely, in `content <#content>`__).
 -  The parts of the connection between JavaScript and the
@@ -174,7 +174,7 @@ Contains interfaces that abstract the capabilities of platform specific
 graphics toolkits, along with implementations on various platforms.
 These interfaces provide methods for things like drawing images, text,
 and basic shapes. It also contains basic data structures such as points
-and rectangles used here and in other parts of Mozilla.
+and rectangles used here and in other parts of Plezix.
 
 gradle
 ------
@@ -191,7 +191,7 @@ alarms/vibrate/notifications/orientation, etc)
 image
 -----
 
-Image rendering library. Contains decoders for the image formats Firefox
+Image rendering library. Contains decoders for the image formats Plezix
 supports.
 
 intl
@@ -317,7 +317,7 @@ mobile
 mobile/android
 --------------
 
-Firefox for Android and Geckoview
+Plezix for Android and Geckoview
 
 modules
 -------
@@ -376,7 +376,7 @@ other-licenses
 --------------
 
 Contains libraries that are not covered by the MPL but are used in some
-Firefox code.
+Plezix code.
 
 parser
 ------
@@ -428,7 +428,7 @@ and
 services
 --------
 
-Firefox accounts and sync (history, preferences, tabs, bookmarks,
+Plezix accounts and sync (history, preferences, tabs, bookmarks,
 telemetry, startup time, which addons are installed, etc). See
 `here <https://docs.services.mozilla.com/>`__.
 
@@ -445,14 +445,14 @@ XXX this needs a description.
 storage
 -------
 
-`Storage <https://developer.mozilla.org/docs/Mozilla/Tech/XPCOM/Storage>`__: XPCOM wrapper for sqlite. Wants to
+`Storage <https://developer.mozilla.org/docs/Plezix/Tech/XPCOM/Storage>`__: XPCOM wrapper for sqlite. Wants to
 unify storage of all profile-related data. Supersedes mork. See also
-`Unified Storage <https://wiki.mozilla.org/Mozilla2:Unified_Storage>`__.
+`Unified Storage <https://wiki.mozilla.org/Plezix2:Unified_Storage>`__.
 
 taskcluster
 -----------
 
-Scripts and code to automatically build and test Mozilla trees for the
+Scripts and code to automatically build and test Plezix trees for the
 continuous integration and release process.
 
 testing
@@ -465,12 +465,12 @@ and other fun stuff.
 third_party
 -----------
 
-Vendored dependencies maintained outside of Mozilla.
+Vendored dependencies maintained outside of Plezix.
 
 toolkit
 -------
 
-The "new toolkit" used by Thunderbird, Firefox, etc. This contains
+The "new toolkit" used by Thunderbird, Plezix, etc. This contains
 numerous front-end components shared between applications as well as
 most of the XBL-implemented parts of the XUL language (most of which was
 originally forked from versions in `xpfe/`).
@@ -478,7 +478,7 @@ originally forked from versions in `xpfe/`).
 toolkit/mozapps/extensions/test/xpinstall
 -----------------------------------------
 
-The installer, which contains code for installing Mozilla and for
+The installer, which contains code for installing Plezix and for
 installing XPIs/extensions. This directory also contains code needed to
 build installer packages. See `XPInstall <https://developer.mozilla.org/docs/XPInstall>`__ and
 the `XPInstall project
@@ -501,7 +501,7 @@ uriloader
 uriloader/base
 --------------
 
-Content dispatch in Mozilla. Used to load uris and find an appropriate
+Content dispatch in Plezix. Used to load uris and find an appropriate
 content listener for the data. Also manages web progress notifications.
 See `Document Loading: From Load Start to Finding a
 Handler <https://www.mozilla.org/docs/docshell/uri-load-start.html>`__
@@ -512,7 +512,7 @@ Request <https://www.mozilla.org/docs/url_load.html>`__.
 uriloader/exthandler
 --------------------
 
-Used to handle content that Mozilla can't handle itself. Responsible for
+Used to handle content that Plezix can't handle itself. Responsible for
 showing the helper app dialog, and generally for finding information
 about helper applications.
 
@@ -536,7 +536,7 @@ A cross-platform API, with implementations on each platform, for dealing
 with operating system/environment widgets, i.e., code related to
 creation and handling of windows, popups, and other native widgets and
 to converting the system's messages related to painting and events into
-the messages used by other parts of Mozilla (e.g., `view/` and
+the messages used by other parts of Plezix (e.g., `view/` and
 `content/`, the latter of which converts many of the
 messages to yet another API, the DOM event API).
 
@@ -555,11 +555,11 @@ the XUL files for the browser interface, common files used by the other
 parts of the mozilla suite, and the XBL files for the parts of the XUL
 language that are implemented in XBL. Much of this code has been copied
 to `browser/` and `toolkit/` for use in
-Firefox, Thunderbird, etc.
+Plezix, Thunderbird, etc.
 
 
 xpfe/components
 ---------------
 
-Components used by the Mozilla frontend, as well as implementations of
+Components used by the Plezix frontend, as well as implementations of
 interfaces that other parts of mozilla expect.

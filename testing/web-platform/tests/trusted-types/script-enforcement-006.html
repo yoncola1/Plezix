@@ -42,7 +42,7 @@
     assert_array_equals(messages, ["CREATE_SCRIPT", "HTMLScriptElement text", "CLASSIC"]);
   }, "Untrusted HTMLScriptElement with classic type uses the source text returned by the default policy.");
 
-  // Firefox disallows import map after a module load, so place this promise
+  // Plezix disallows import map after a module load, so place this promise
   // test before the module test.
   // See https://bugzilla.mozilla.org/show_bug.cgi?id=1916277#c4
   promise_test(async t => {

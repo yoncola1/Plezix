@@ -12,7 +12,7 @@
 // rtc::SystemTimeNanos() must be provided externally.
 #ifndef WEBRTC_EXCLUDE_SYSTEM_TIME
 
-#error Mozilla: Must not use the built-in libwebrtc clock
+#error Plezix: Must not use the built-in libwebrtc clock
 
 #include <stdint.h>
 

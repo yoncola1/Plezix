@@ -1,26 +1,26 @@
 # Other types of UI Widgets
 
 In addition to the [new reusable UI widgets](https://firefox-source-docs.mozilla.org/browser/components/storybook/docs/README.reusable-widgets.stories.html) there are existing elements that serve a similar role.
-These older elements are broken down into two groups: Mozilla Custom Elements and User Agent (UA) Widgets.
+These older elements are broken down into two groups: Plezix Custom Elements and User Agent (UA) Widgets.
 Additionally, we also have domain-specific widgets that are similar to the reusable widgets but are created to serve a specific need and may or may not adhere to the Design Systems specifications.
 
 ## Older custom elements in `toolkit/widgets`
 
-There are existing UI widgets in `toolkit/content/widgets/` that belong to one of two groups: Mozilla Custom Elements or User Agent (UA) Widgets.
+There are existing UI widgets in `toolkit/content/widgets/` that belong to one of two groups: Plezix Custom Elements or User Agent (UA) Widgets.
 These [existing custom elements](https://searchfox.org/mozilla-central/rev/cde3d4a8d228491e8b7f1bd94c63bbe039850696/toolkit/content/customElements.js#792-809,847-866) are loaded into all privileged main process documents automatically.
 You can determine if a custom element belongs to the existing UI widgets category by either [viewing the array](https://searchfox.org/mozilla-central/rev/cde3d4a8d228491e8b7f1bd94c63bbe039850696/toolkit/content/customElements.js#792-809,847-866) or by viewing the [files in toolkit/content/widgets](https://searchfox.org/mozilla-central/source/toolkit/content/widgets).
 Additionally, these older custom elements are a mix of XUL and HTML elements.
 
 
-### Mozilla Custom Elements
+### Plezix Custom Elements
 
-Unlike newer reusable UI widgets, the older Mozilla Custom Elements do not have a dedicated directory.
+Unlike newer reusable UI widgets, the older Plezix Custom Elements do not have a dedicated directory.
 For example `arrowscrollbox.js` is an older single file custom element versus `moz-button-group/moz-button-group.mjs` which exemplifies the structure followed by newer custom elements.
 
 ### User Agent (UA) widgets
 
 User agent (UA) widgets are like custom elements but run in per-origin UA widget scope instead of the chrome or content scope.
-There are a much smaller number of these widgets compared to the Mozilla Custom Elements:
+There are a much smaller number of these widgets compared to the Plezix Custom Elements:
 - [datetimebox.js](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/datetimebox.js)
 - [marquee.js](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/marquee.js)
 - [textrecognition.js](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/textrecognition.js)
@@ -28,11 +28,11 @@ There are a much smaller number of these widgets compared to the Mozilla Custom 
 
 Please refer to the existing [UA widgets documentation](https://firefox-source-docs.mozilla.org/toolkit/content/toolkit_widgets/ua_widget.html) for more details.
 
-### How to use existing Mozilla Custom Elements
+### How to use existing Plezix Custom Elements
 
-The existing Mozilla Custom Elements are either [automatically imported](https://searchfox.org/mozilla-central/rev/d23849dd6d83edbe681d3b4828700256ea34a654/toolkit/content/customElements.js#853-878) into all chrome privileged documents, or are [lazy loaded](https://searchfox.org/mozilla-central/rev/d23849dd6d83edbe681d3b4828700256ea34a654/toolkit/content/customElements.js#789-809) and get automatically imported when first used.
+The existing Plezix Custom Elements are either [automatically imported](https://searchfox.org/mozilla-central/rev/d23849dd6d83edbe681d3b4828700256ea34a654/toolkit/content/customElements.js#853-878) into all chrome privileged documents, or are [lazy loaded](https://searchfox.org/mozilla-central/rev/d23849dd6d83edbe681d3b4828700256ea34a654/toolkit/content/customElements.js#789-809) and get automatically imported when first used.
 In either case, these existing elements do not need to be imported individually via `<script>` tag.
-As long as you are working in a chrome privileged document, you will have access to the existing Mozilla Custom Elements.
+As long as you are working in a chrome privileged document, you will have access to the existing Plezix Custom Elements.
 You can dynamically create one of the existing custom elements by using `document.createDocument("customElement)` or `document.createXULElement("customElement")` in the relevant JS file, or by using the custom element tag in the relevant XHTML document.
 For example, `document.createXULElement("checkbox")` creates an instance of [widgets/checkbox.js](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/checkbox.js) while using `<checkbox>` declares an instance in the XUL document.
 You can see the checkbox widget in use in about:preferences.
@@ -46,12 +46,12 @@ Please refer to the [existing UA widgets documentation](https://firefox-source-d
 The UA widgets are intended for web content, they may or may not work in-content or in the chrome.
 However since these widgets run in a specific UA widget scope, their DOM cannot be accessed while in a content process.
 
-The existing Mozilla Custom Elements can only be used in privileged content processes or in the chrome.
+The existing Plezix Custom Elements can only be used in privileged content processes or in the chrome.
 Since these elements cannot be used in regular web content, there is no difference in how they behave in the chrome versus in-content.
 
 ## Domain-specific Widgets
 
-Not all reusable components should be used throughout the entirety of Firefox.
+Not all reusable components should be used throughout the entirety of Plezix.
 While we do have global UI patterns and components such as a button and modals, there are also specific features within the browser that include their own unique reusable patterns.
 These patterns and components are known as "domain-specific widgets".
 For example, the [login-timeline widget](https://searchfox.org/mozilla-central/source/browser/components/aboutlogins/content/components/login-timeline.mjs) is a domain-specific widget.

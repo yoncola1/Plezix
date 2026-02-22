@@ -1,4 +1,4 @@
-// This test verifies that Firefox correctly upgrades an HTTP request to HTTPS
+// This test verifies that Plezix correctly upgrades an HTTP request to HTTPS
 // when the request's domain name matches network.dns.mock_HTTPS_RR_domain.
 
 "use strict";

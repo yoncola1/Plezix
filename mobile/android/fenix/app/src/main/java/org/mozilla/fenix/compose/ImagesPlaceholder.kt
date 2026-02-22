@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.support.images.compose.loader.Fallback
 import mozilla.components.support.images.compose.loader.ImageLoaderScope
 import mozilla.components.support.images.compose.loader.Placeholder
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Renders the app image placeholder while the image is still getting loaded.
@@ -62,13 +62,13 @@ internal fun DefaultImagePlaceholder(
     modifier: Modifier,
     contentDescription: String? = null,
 ) {
-    Image(ColorPainter(FirefoxTheme.colors.layer2), contentDescription, modifier)
+    Image(ColorPainter(PlezixTheme.colors.layer2), contentDescription, modifier)
 }
 
 @Composable
 @Preview
 private fun DefaultImagePlaceholderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DefaultImagePlaceholder(
             modifier = Modifier
                 .size(200.dp, 100.dp)

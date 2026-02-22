@@ -23,12 +23,12 @@ add_task(async function () {
 
   const { document, tab } = await openAboutDebugging();
 
-  info("Check 'This Firefox' route");
+  info("Check 'This Plezix' route");
   document.location.hash = "#/runtime/this-firefox";
   await waitUntil(() => document.querySelector(".qa-runtime-page"));
   const infoLabel = document.querySelector(".qa-runtime-name").textContent;
-  // NOTE: when using USB Mocks, we see only "Firefox" as the device name
-  ok(infoLabel.includes("Firefox"), "Runtime is displayed as Firefox");
+  // NOTE: when using USB Mocks, we see only "Plezix" as the device name
+  ok(infoLabel.includes("Plezix"), "Runtime is displayed as Plezix");
   ok(!infoLabel.includes(" on "), "Runtime is not associated to any device");
   is(
     document.title,
@@ -68,7 +68,7 @@ add_task(async function () {
 });
 
 /**
- * Test that an invalid route redirects to / (currently This Firefox page)
+ * Test that an invalid route redirects to / (currently This Plezix page)
  */
 add_task(async function () {
   info("Check an invalid route redirects to root");
@@ -88,10 +88,10 @@ add_task(async function () {
 });
 
 /**
- * Test that routes from old about:debugging redirect to this Firefox.
+ * Test that routes from old about:debugging redirect to this Plezix.
  */
 add_task(async function testOldAboutDebuggingRoutes() {
-  info("Check that routes from old about:debugging redirect to this Firefox");
+  info("Check that routes from old about:debugging redirect to this Plezix");
   const { document, tab } = await openAboutDebugging();
 
   const routes = ["addons", "tabs", "workers"];
@@ -100,13 +100,13 @@ add_task(async function testOldAboutDebuggingRoutes() {
     document.location.hash = "#/setup";
     await waitUntil(() => document.querySelector(".qa-connect-page"));
 
-    info(`Check that navigating to ${route} redirects to This Firefox`);
+    info(`Check that navigating to ${route} redirects to This Plezix`);
     document.location.hash = route;
     await waitUntil(() => document.querySelector(".qa-runtime-page"));
     is(
       document.location.hash,
       "#/runtime/this-firefox",
-      `${route} was redirected to This Firefox`
+      `${route} was redirected to This Plezix`
     );
   }
 

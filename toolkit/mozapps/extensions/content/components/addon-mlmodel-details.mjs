@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -66,8 +66,8 @@ export class AddonMLModelDetails extends MozLitElement {
     });
   }
 
-  renderUsedByFirefoxFeatures() {
-    return this.addon.usedByFirefoxFeatures.map(engineId => {
+  renderUsedByPlezixFeatures() {
+    return this.addon.usedByPlezixFeatures.map(engineId => {
       const fluentId = lazy.featureEngineIdToFluentId(engineId);
       if (!fluentId) {
         return null;
@@ -96,7 +96,7 @@ export class AddonMLModelDetails extends MozLitElement {
 
     return html`
       <div class="mlmodel-used-by-wrapper">
-        ${this.renderUsedByFirefoxFeatures()}
+        ${this.renderUsedByPlezixFeatures()}
         ${until(this.renderUsedByAddons(), html``)}
       </div>
       <div class="addon-detail-row addon-detail-row-mlmodel-totalsize">

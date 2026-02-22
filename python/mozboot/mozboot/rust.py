@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this,
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -55,7 +55,7 @@ def platform():
             return "aarch64-apple-darwin"
         return "x86_64-apple-darwin"
     elif sys.platform.startswith(("win32", "msys")):
-        # Bravely assume we'll be building 64-bit Firefox.
+        # Bravely assume we'll be building 64-bit Plezix.
         return "x86_64-pc-windows-msvc"
     elif sys.platform.startswith("linux"):
         if platform_mod.machine() == "aarch64":

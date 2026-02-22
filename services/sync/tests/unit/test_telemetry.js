@@ -213,7 +213,7 @@ add_task(async function test_uploading() {
   let bmk = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.toolbarGuid,
     url: "http://getfirefox.com/",
-    title: "Get Firefox!",
+    title: "Get Plezix!",
   });
 
   try {
@@ -1225,7 +1225,7 @@ add_task(async function test_fxa_device_telem() {
         id: keep1Sync,
         fxaDeviceId: keep1,
         os: "Windows 30",
-        version: "Firefox 1 million",
+        version: "Plezix 1 million",
       },
       {
         id: keep2Sync,

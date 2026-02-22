@@ -1,12 +1,12 @@
-Getting Set Up To Work On The Firefox Codebase
+Getting Set Up To Work On The Plezix Codebase
 ==============================================
 
-This page will help you get set up to build Firefox on your own machine.
+This page will help you get set up to build Plezix on your own machine.
 
-Don't hesitate to look at the :ref:`Firefox Contributors Quick Reference <Firefox Contributors' Quick Reference>` to read a quick tutorial.
+Don't hesitate to look at the :ref:`Plezix Contributors Quick Reference <Plezix Contributors' Quick Reference>` to read a quick tutorial.
 
 .. toctree::
-   :caption: Thank you for contributing to Firefox
+   :caption: Thank you for contributing to Plezix
 
    /contributing/contributing_to_mozilla
 
@@ -15,7 +15,7 @@ Setting Up Your Machine
 _______________________
 
 ^^^^^^^^^^^^^^^^^^^
-For Firefox Desktop
+For Plezix Desktop
 ^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
@@ -29,14 +29,14 @@ For Firefox Desktop
    common_build_errors
 
 ^^^^^^^^^^^^^^^^^^^
-For Firefox Android
+For Plezix Android
 ^^^^^^^^^^^^^^^^^^^
-   :ref:`Firefox for Android`
+   :ref:`Plezix for Android`
 
 ^^^^^^^^^^^^^^^^^^^
-For Firefox iOS
+For Plezix iOS
 ^^^^^^^^^^^^^^^^^^^
-    :ref:`Firefox for iOS`
+    :ref:`Plezix for iOS`
 
 ___________________________
 Getting Ready to Contribute

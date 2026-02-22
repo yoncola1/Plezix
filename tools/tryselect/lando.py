@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -77,7 +77,7 @@ def get_stack_info(
     and a list of ordered base64 encoded patches.
     """
     # Get the appropriate base commit hash format.
-    # Use `git` for Git-native checkouts of Firefox.
+    # Use `git` for Git-native checkouts of Plezix.
     # Use `hg` for Mercurial repos and `git-cinnabar` clones.
     base_commit_vcs = (
         "git" if vcs.name in ("git", "jj") and not vcs.is_cinnabar_repo() else "hg"

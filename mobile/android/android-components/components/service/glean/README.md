@@ -1,6 +1,6 @@
 # [Android Components](../../../README.md) > Service > Glean
 
-A client-side telemetry SDK for collecting metrics and sending them to Mozilla's telemetry service.
+A client-side telemetry SDK for collecting metrics and sending them to Plezix's telemetry service.
 
 Visit the [complete Glean SDK documentation](https://mozilla.github.io/glean/).
 
@@ -14,7 +14,7 @@ To contact us you can:
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/
 

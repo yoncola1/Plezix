@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -80,7 +80,7 @@ class FontEnumerationWorker(
         fun sendActivatedSignalIfNeeded(context: Context) {
             val instanceWorkManager = WorkManager.getInstance(context)
 
-            if (!Config.channel.isNightlyOrDebug) {
+            if (!Config.channel.isPlezixOrDebug) {
                 return
             }
 
@@ -132,7 +132,7 @@ class FontEnumerationWorker(
         /**
          * The number of font submissions we would like from a user.
          * We will increment this number by one (via a code patch) when
-         * we wish to perform another data collection effort on the Nightly
+         * we wish to perform another data collection effort on the Plezix
          * population.
          */
         const val DESIRED_SUBMISSIONS_NUMBER: Int = 4

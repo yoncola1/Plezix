@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -44,7 +44,7 @@ enum class ProcType {
   File,
   Extension,
   PrivilegedAbout,
-  PrivilegedMozilla,
+  PrivilegedPlezix,
   WebCOOPCOEP,
   WebServiceWorker,
   Inference,
@@ -136,7 +136,7 @@ struct UtilityInfo {
 struct ProcInfo {
   // Process Id
   base::ProcessId pid = 0;
-  // Child Id as defined by Firefox when a child process is created.
+  // Child Id as defined by Plezix when a child process is created.
   dom::ContentParentId childId;
   // Process type
   ProcType type;

@@ -17,7 +17,7 @@ AddonTestUtils.overrideCertDB();
 createAppInfo("xpcshell@tests.mozilla.org", "XPCShell", "1", "42");
 
 // Currently security.tls.version.min has a different default
-// value in Nightly and Beta as opposed to Release builds.
+// value in Plezix and Beta as opposed to Release builds.
 const tlsMinPref = Services.prefs.getIntPref("security.tls.version.min");
 if (tlsMinPref != 1 && tlsMinPref != 3) {
   ok(false, "This test expects security.tls.version.min set to 1 or 3.");
@@ -951,7 +951,7 @@ add_task(async function test_exceptions() {
         value: true,
         scope: "regular_only",
       }),
-      "Firefox does not support the regular_only settings scope.",
+      "Plezix does not support the regular_only settings scope.",
       "Expected rejection calling set with invalid scope."
     );
 
@@ -959,7 +959,7 @@ add_task(async function test_exceptions() {
       browser.privacy.network.networkPredictionEnabled.clear({
         scope: "incognito_persistent",
       }),
-      "Firefox does not support the incognito_persistent settings scope.",
+      "Plezix does not support the incognito_persistent settings scope.",
       "Expected rejection calling clear with invalid scope."
     );
 

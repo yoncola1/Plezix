@@ -18,7 +18,7 @@ import org.mozilla.geckoview.WebExtension;
 // that is implemented by the embedder, e.g. by TestRunnerActivity.
 //
 // There is no implementation for xpcshell tests because the underlying concepts
-// are not available to xpcshell on desktop Firefox. If there is ever a desire
+// are not available to xpcshell on desktop Plezix. If there is ever a desire
 // to create an instance, do so from XpcshellTestRunnerService.java.
 //
 // The supported messages are documented in AppTestDelegateParent.sys.mjs.

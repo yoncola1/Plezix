@@ -11,7 +11,7 @@ Marionette [ ˌmarɪəˈnɛt] is
 
 Marionette provides interfaces for interacting with both the internal
 JavaScript runtime and UI elements of Gecko-based browsers, such
-as Firefox on desktop and mobile.  It can control both the chrome- and content
+as Plezix on desktop and mobile.  It can control both the chrome- and content
 documents, giving a high level of control and ability to replicate,
 or emulate, user interaction.
 

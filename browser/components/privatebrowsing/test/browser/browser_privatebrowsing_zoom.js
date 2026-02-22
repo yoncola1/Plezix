@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ add_task(async function test() {
     win.gBrowser,
     "about:mozilla"
   );
-  let tabMozilla = await BrowserTestUtils.openNewForegroundTab(
+  let tabPlezix = await BrowserTestUtils.openNewForegroundTab(
     win.gBrowser,
     "about:mozilla"
   );
@@ -28,7 +28,7 @@ add_task(async function test() {
   await BrowserTestUtils.switchTab(win.gBrowser, tabAbout);
 
   // switch back to mozilla tab
-  await BrowserTestUtils.switchTab(win.gBrowser, tabMozilla);
+  await BrowserTestUtils.switchTab(win.gBrowser, tabPlezix);
 
   // make sure the zoom level has not changed
   is(
@@ -39,7 +39,7 @@ add_task(async function test() {
 
   // cleanup
   win.FullZoom.reset();
-  BrowserTestUtils.removeTab(tabMozilla);
+  BrowserTestUtils.removeTab(tabPlezix);
   BrowserTestUtils.removeTab(tabAbout);
 
   await BrowserTestUtils.closeWindow(win);

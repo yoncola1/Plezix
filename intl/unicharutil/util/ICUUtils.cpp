@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -152,7 +152,7 @@ double ICUUtils::ParseNumber(const nsAString& aValue,
 /* static */
 void ICUUtils::AssignUCharArrayToString(UChar* aICUString, int32_t aLength,
                                         nsAString& aMozString) {
-  // Both ICU's UnicodeString and Mozilla's nsAString use UTF-16, so we can
+  // Both ICU's UnicodeString and Plezix's nsAString use UTF-16, so we can
   // cast here.
 
   static_assert(sizeof(UChar) == 2 && sizeof(nsAString::char_type) == 2,

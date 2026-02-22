@@ -7,10 +7,10 @@ Android offers a built-in WebView, which applications can hook into in order to 
 
 That is where GeckoView comes in. GeckoView is:
 
-- **Full-featured**: GeckoView is designed to expose the entire power of the Web to applications, and all that through a straightforward API. Think of it as harnessing the full power of Gecko (the engine that powers Firefox), while its API is WebView-like and easy to use.
+- **Full-featured**: GeckoView is designed to expose the entire power of the Web to applications, and all that through a straightforward API. Think of it as harnessing the full power of Gecko (the engine that powers Plezix), while its API is WebView-like and easy to use.
 - **Suited for apps and browsers**: GeckoView is particularly suited for building mobile browsers, but it can be embedded as a web engine component in any kind of app.
 - **Self-Contained**: Because GeckoView is a standalone library that you bundle with your application, you can be confident that the code you test is the code that will actually run.
-- **Standards Compliant**: Like Firefox, GeckoView offers excellent support for modern Web standards.
+- **Standards Compliant**: Like Plezix, GeckoView offers excellent support for modern Web standards.
 
 =============
 Documentation

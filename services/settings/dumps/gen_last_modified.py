@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -45,8 +45,8 @@ def main(output):
     services/settings/test/unit/test_remote_settings_dump_lastmodified.js
     """
     # The following build targets currently use RemoteSettings dumps:
-    # Firefox               https://searchfox.org/mozilla-central/rev/94d6086481754e154b6f042820afab6bc9900a30/browser/installer/package-manifest.in#281-285        # NOQA: E501
-    # Firefox for Android   https://searchfox.org/mozilla-central/rev/94d6086481754e154b6f042820afab6bc9900a30/mobile/android/installer/package-manifest.in#88-91   # NOQA: E501
+    # Plezix               https://searchfox.org/mozilla-central/rev/94d6086481754e154b6f042820afab6bc9900a30/browser/installer/package-manifest.in#281-285        # NOQA: E501
+    # Plezix for Android   https://searchfox.org/mozilla-central/rev/94d6086481754e154b6f042820afab6bc9900a30/mobile/android/installer/package-manifest.in#88-91   # NOQA: E501
     # Thunderbird           https://searchfox.org/comm-central/rev/89f957706bbda77e5f34e64e117e7ce121bb5d83/mail/installer/package-manifest.in#280-285              # NOQA: E501
     # SeaMonkey             https://searchfox.org/comm-central/rev/89f957706bbda77e5f34e64e117e7ce121bb5d83/suite/installer/package-manifest.in#307-309             # NOQA: E501
     assert buildconfig.substs["MOZ_BUILD_APP"] in (

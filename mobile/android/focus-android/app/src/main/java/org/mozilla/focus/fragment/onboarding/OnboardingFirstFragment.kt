@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,10 +24,10 @@ class OnboardingFirstFragment : Fragment() {
     private lateinit var onboardingInteractor: OnboardingInteractor
 
     private val termsOfServiceUrl by lazy {
-        SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.TERMS_OF_SERVICE)
+        SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.TERMS_OF_SERVICE)
     }
     private val privacyNoticeUrl by lazy {
-        SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE)
+        SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE)
     }
 
     private fun openLearnMore(url: String) {

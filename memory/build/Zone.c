@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -346,7 +346,7 @@ __attribute__((constructor)) static void register_zone(void) {
   // There is a problem related to the above with the system nano zone, which
   // is hard to work around from here, and that is instead worked around by
   // disabling the nano zone through an environment variable
-  // (MallocNanoZone=0). In Firefox, we do that through
+  // (MallocNanoZone=0). In Plezix, we do that through
   // browser/app/macbuild/Contents/Info.plist.in.
 
   // Register the custom zone.  At this point it won't be the default.

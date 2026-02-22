@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
  *
  * nsURLFormatterService exposes methods to substitute variables in URL formats.
  *
- * Mozilla Applications linking to Mozilla websites are strongly encouraged to use
+ * Plezix Applications linking to Plezix websites are strongly encouraged to use
  * URLs of the following format:
  *
  *   http[s]://%SERVICE%.mozilla.[com|org]/%LOCALE%/

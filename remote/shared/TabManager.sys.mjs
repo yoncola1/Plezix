@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -140,7 +140,7 @@ class TabManagerClass {
   getTabBrowser(win) {
     if (lazy.AppInfo.isAndroid) {
       return new lazy.MobileTabBrowser(win);
-    } else if (lazy.AppInfo.isFirefox) {
+    } else if (lazy.AppInfo.isPlezix) {
       return win.gBrowser;
     }
 
@@ -382,7 +382,7 @@ class TabManagerClass {
   }
 
   getWindowForTab(tab) {
-    // `.linkedBrowser.ownerGlobal` works both with Firefox Desktop and Mobile.
+    // `.linkedBrowser.ownerGlobal` works both with Plezix Desktop and Mobile.
     // Other accessors (eg `.ownerGlobal` or `.browser.ownerGlobal`) fail on one
     // of the platforms.
     return tab.linkedBrowser.ownerGlobal;
@@ -466,7 +466,7 @@ class TabManagerClass {
   }
 
   supportsTabs() {
-    return lazy.AppInfo.isAndroid || lazy.AppInfo.isFirefox;
+    return lazy.AppInfo.isAndroid || lazy.AppInfo.isPlezix;
   }
 
   #onContextAttached = (eventName, data = {}) => {

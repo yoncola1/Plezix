@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -82,7 +82,7 @@ def gather_talos_pdfs(pdf_js_repo, output_dir):
     file. Some of these are also links that need to be downloaded. These
     are output in an output directory.
 
-    :param Path pdf_js_repo: Path to the Mozilla Github pdf.js repo.
+    :param Path pdf_js_repo: Path to the Plezix Github pdf.js repo.
     :param Path output_dir: Output directory for the PDFs.
     """
     test_manifest_path = pathlib.Path(

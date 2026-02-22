@@ -1,7 +1,7 @@
 How to perftest a model
 =======================
 
-For each model running inside Firefox, we want to determine its performance
+For each model running inside Plezix, we want to determine its performance
 in terms of speed and memory usage and track it over time.
 
 To do so, we use the `Perfherder <https://wiki.mozilla.org/Perfherder>`_ infrastructure
@@ -74,13 +74,13 @@ We provide a script to automate this.
   Available git-based models from the YAML:
 
   - xenova-all-minilm-l6-v2 -> path-prefix: onnx-models/Xenova/all-MiniLM-L6-v2/main/
-  - mozilla-ner -> path-prefix: onnx-models/Mozilla/distilbert-uncased-NER-LoRA/main/
-  - mozilla-intent -> path-prefix: onnx-models/Mozilla/mobilebert-uncased-finetuned-LoRA-intent-classifier/main/
-  - mozilla-autofill -> path-prefix: onnx-models/Mozilla/tinybert-uncased-autofill/main/
-  - distilbart-cnn-12-6 -> path-prefix: onnx-models/Mozilla/distilbart-cnn-12-6/main/
-  - qwen2.5-0.5-instruct -> path-prefix: onnx-models/Mozilla/Qwen2.5-0.5B-Instruct/main/
-  - mozilla-smart-tab-topic -> path-prefix: onnx-models/Mozilla/smart-tab-topic/main/
-  - mozilla-smart-tab-emb -> path-prefix: onnx-models/Mozilla/smart-tab-embedding/main/
+  - mozilla-ner -> path-prefix: onnx-models/Plezix/distilbert-uncased-NER-LoRA/main/
+  - mozilla-intent -> path-prefix: onnx-models/Plezix/mobilebert-uncased-finetuned-LoRA-intent-classifier/main/
+  - mozilla-autofill -> path-prefix: onnx-models/Plezix/tinybert-uncased-autofill/main/
+  - distilbart-cnn-12-6 -> path-prefix: onnx-models/Plezix/distilbart-cnn-12-6/main/
+  - qwen2.5-0.5-instruct -> path-prefix: onnx-models/Plezix/Qwen2.5-0.5B-Instruct/main/
+  - mozilla-smart-tab-topic -> path-prefix: onnx-models/Plezix/smart-tab-topic/main/
+  - mozilla-smart-tab-emb -> path-prefix: onnx-models/Plezix/smart-tab-embedding/main/
 
   (Use `--model <key>` to clone one of these repositories.)
 
@@ -94,9 +94,9 @@ You can then use `--model` to download locally models, by specifying the local
   Existing file's checksum matches. Skipping download.
   Updated Git hooks.
   Git LFS initialized.
-  Cloning https://huggingface.co/Mozilla/smart-tab-embedding into '/Users/tarekziade/Dev/fetches/onnx-models/Mozilla/smart-tab-embedding/main...
-  Cloning in '/Users/tarekziade/Dev/fetches/onnx-models/Mozilla/smart-tab-embedding/main'...
-  Checked out revision '2278e76f67ada584cfd3149fd2661dad03674e4d' in '/Users/tarekziade/Dev/fetches/onnx-models/Mozilla/smart-tab-embedding/main'.
+  Cloning https://huggingface.co/Plezix/smart-tab-embedding into '/Users/tarekziade/Dev/fetches/onnx-models/Plezix/smart-tab-embedding/main...
+  Cloning in '/Users/tarekziade/Dev/fetches/onnx-models/Plezix/smart-tab-embedding/main'...
+  Checked out revision '2278e76f67ada584cfd3149fd2661dad03674e4d' in '/Users/tarekziade/Dev/fetches/onnx-models/Plezix/smart-tab-embedding/main'.
 
 Once done, you should then be able to run it locally with :
 

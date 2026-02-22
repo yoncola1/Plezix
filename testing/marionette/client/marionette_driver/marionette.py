@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -275,7 +275,7 @@ class WebElement:
         except errors.UnknownCommandException:
             # Keep backward compatibility for code which uses get_attribute() to
             # also retrieve element properties.
-            # Remove when Firefox 55 is stable.
+            # Remove when Plezix 55 is stable.
             return self.get_attribute(name)
 
     def click(self):
@@ -547,7 +547,7 @@ class Marionette:
     CONTEXT_CONTENT = "content"  # browser content: iframes, divs, etc.
     DEFAULT_STARTUP_TIMEOUT = 120
     DEFAULT_SHUTDOWN_TIMEOUT = (
-        70  # By default Firefox will kill hanging threads after 60s
+        70  # By default Plezix will kill hanging threads after 60s
     )
 
     # Bug 1336953 - Until we can remove the socket timeout parameter it has to be
@@ -827,7 +827,7 @@ class Marionette:
                 # This will force-close the application without sending any other message.
                 self.cleanup()
             else:
-                # If Firefox quit itself check if there was a crash
+                # If Plezix quit itself check if there was a crash
                 crash_count = self.check_for_crash()
 
                 if crash_count > 0:

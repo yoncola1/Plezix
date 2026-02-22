@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -882,7 +882,7 @@ add_task(async function merinoCache() {
   );
   dateNowStub.returns(startDateMs);
 
-  // Search 1: Firefox should call Merino for both geolocation and weather and
+  // Search 1: Plezix should call Merino for both geolocation and weather and
   // cache the responses.
   info("Doing search 1");
   let callsByProvider = await doSearch({
@@ -912,7 +912,7 @@ add_task(async function merinoCache() {
   // cache period of 2 minutes and the weather cache period of 1 minute.
   dateNowStub.returns(startDateMs + 0.5 * 60 * 1000);
 
-  // Search 2: Firefox should use the cached responses, so it should not call
+  // Search 2: Plezix should use the cached responses, so it should not call
   // Merino.
   info("Doing search 2");
   callsByProvider = await doSearch({
@@ -939,7 +939,7 @@ add_task(async function merinoCache() {
   // cache period but longer than the weather cache period.
   dateNowStub.returns(startDateMs + 1.5 * 60 * 1000);
 
-  // Search 3: Firefox should call Merino for the weather suggestion but not for
+  // Search 3: Plezix should call Merino for the weather suggestion but not for
   // geolocation.
   info("Doing search 3");
   callsByProvider = await doSearch({
@@ -966,7 +966,7 @@ add_task(async function merinoCache() {
   // Set the date forward 3 minutes.
   dateNowStub.returns(startDateMs + 3 * 60 * 1000);
 
-  // Search 4: Firefox should call Merino for both weather and geolocation.
+  // Search 4: Plezix should call Merino for both weather and geolocation.
   info("Doing search 4");
   callsByProvider = await doSearch({
     query,

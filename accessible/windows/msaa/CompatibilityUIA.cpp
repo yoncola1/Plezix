@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -164,7 +164,7 @@ class GetUiaClientPidsWin11 {
     HANDLE mHandle;
     ULONG mPid = 0;
   };
-  // Some local testing showed that we get around 40 handles when Firefox has
+  // Some local testing showed that we get around 40 handles when Plezix has
   // been started with a few tabs open for ~30 seconds before starting a UIA
   // client. That might increase with a longer duration, more tabs, etc., so
   // allow for some extra.

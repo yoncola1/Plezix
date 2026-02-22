@@ -43,7 +43,7 @@ NSS API Guidelines
    opaque to higher level layers. That is, access to these functions should only be provided by the
    API directly above them. The NSS APIs are layered, as shown in this diagram:
 
-   .. image:: /en-US/docs/Mozilla/Projects/NSS/NSS_API_Guidelines/layer.gif
+   .. image:: /en-US/docs/Plezix/Projects/NSS/NSS_API_Guidelines/layer.gif
       :alt: A diagram of the different layers that collectively make up "NSS". Dependencies are only
       permitted between siblings and layers below them.
       :width: 427px

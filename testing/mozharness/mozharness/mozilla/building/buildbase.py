@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 """ buildbase.py.
@@ -425,7 +425,7 @@ BUILD_BASE_CONFIG_OPTIONS = [
             "action": "store_false",
             "dest": "is_automation",
             "default": True,
-            "help": "If this is running outside of Mozilla's build"
+            "help": "If this is running outside of Plezix's build"
             "infrastructure, use this option. It ignores actions"
             "that are not needed and adds config checks.",
         },
@@ -1102,7 +1102,7 @@ items from that key's value."
                 for path, size in paths_with_sizes(installer):
                     name = os.path.basename(path)
                     if name in interests:
-                        # We have to be careful here: desktop Firefox installers
+                        # We have to be careful here: desktop Plezix installers
                         # contain two omni.ja files: one for the general runtime,
                         # and one for the browser proper.
                         if name == "omni.ja":

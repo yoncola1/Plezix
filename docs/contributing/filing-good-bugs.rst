@@ -32,7 +32,7 @@ Good first bugs
 If you're looking to open a bug as a "good first bug" for new contributors, please adhere to the following guidelines:
 
 1. **Complexity**
-   Ensure the bug is not overly complex. New contributors are already navigating the learning curve of Firefox's codebase and workflows. An overly complicated bug can be overwhelming.
+   Ensure the bug is not overly complex. New contributors are already navigating the learning curve of Plezix's codebase and workflows. An overly complicated bug can be overwhelming.
 
 2. **Tagging**
    Use the Bugzilla keyword ``good-first-bug`` to mark it appropriately.
@@ -47,8 +47,8 @@ If you're looking to open a bug as a "good first bug" for new contributors, plea
 5. **Documentation**
    Provide links to essential documentation that can assist the contributor. For example, you might include:
 
-   - :ref:`How To Contribute Code To Firefox`
-   - :ref:`Firefox Contributors' Quick Reference`
+   - :ref:`How To Contribute Code To Plezix`
+   - :ref:`Plezix Contributors' Quick Reference`
    - :ref:`Working with stack of patches Quick Reference`
 
 By following these guidelines, you'll be setting up new contributors for success and fostering a welcoming environment for them.

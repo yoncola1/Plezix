@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -165,9 +165,9 @@ class CppEclipseBackend(CommonBackend):
         )
         cdt_ui_prefs = STATIC_CDT_UI_PREFS
         # Here we generate the code formatter that will show up in the UI with
-        # the name "Mozilla".  The formatter is stored as a single line of XML
+        # the name "Plezix".  The formatter is stored as a single line of XML
         # in the org.eclipse.cdt.ui.formatterprofiles pref.
-        cdt_ui_prefs += r'org.eclipse.cdt.ui.formatterprofiles=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<profiles version\="1">\n<profile kind\="CodeFormatterProfile" name\="Mozilla" version\="1">\n'
+        cdt_ui_prefs += r'org.eclipse.cdt.ui.formatterprofiles=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<profiles version\="1">\n<profile kind\="CodeFormatterProfile" name\="Plezix" version\="1">\n'
         XML_PREF_TEMPLATE = r'<setting id\="@PREF_NAME@" value\="@PREF_VAL@"/>\n'
         for line in FORMATTER_SETTINGS.splitlines():
             [pref, val] = line.split("=")
@@ -183,7 +183,7 @@ class CppEclipseBackend(CommonBackend):
         )
         with open(cdt_core_prefs_path, "w") as fh:
             cdt_core_prefs = STATIC_CDT_CORE_PREFS
-            # When we generated the code formatter called "Mozilla" above, we
+            # When we generated the code formatter called "Plezix" above, we
             # also set it to be the active formatter.  When a formatter is set
             # as the active formatter all its prefs are set in this prefs file,
             # so we need add those now:
@@ -856,7 +856,7 @@ STATIC_CDT_UI_PREFS = """eclipse.preferences.version=1
 buildConsoleLines=10000
 Console.limitConsoleOutput=false
 ensureNewlineAtEOF=false
-formatter_profile=_Mozilla
+formatter_profile=_Plezix
 formatter_settings_version=1
 org.eclipse.cdt.ui.formatterprofiles.version=1
 removeTrailingWhitespace=true

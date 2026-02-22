@@ -58,7 +58,7 @@ add_task(async function test_unlimitedStorage_restored_on_app_startup() {
     "has been allowed"
   );
 
-  // Remove site permissions as it would happen if Firefox is shutting down
+  // Remove site permissions as it would happen if Plezix is shutting down
   // with the "clear site permissions" setting.
 
   Services.perms.removeFromPrincipal(

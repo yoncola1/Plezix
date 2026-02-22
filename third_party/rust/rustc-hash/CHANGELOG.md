@@ -14,7 +14,7 @@
 ## 2.0.0
 
 - Replace hash with faster and better finalized hash.
-  This replaces the previous "fxhash" algorithm originating in Firefox
+  This replaces the previous "fxhash" algorithm originating in Plezix
   with a custom hasher designed and implemented by Orson Peters ([`@orlp`](https://github.com/orlp)).
   It was measured to have slightly better performance for rustc, has better theoretical properties
   and also includes a significantly better string hasher.

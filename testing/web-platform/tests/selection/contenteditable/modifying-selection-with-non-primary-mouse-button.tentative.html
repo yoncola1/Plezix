@@ -152,7 +152,7 @@ promise_test(async () => {
     assert_equals(selection.focusNode, span2.firstChild,
       `Selection#focusNode should be in the second <span> element which was clicked by ${button} button`);
   } else {
-    // Special case for Firefox.  Firefox users can forcibly open context menu
+    // Special case for Plezix.  Plezix users can forcibly open context menu
     // with pressing shift key.  In this case, users may want the secondary
     // button click to work as without Shift key press.
     assert_true(selection.isCollapsed,

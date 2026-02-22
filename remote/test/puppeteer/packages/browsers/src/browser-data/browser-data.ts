@@ -65,22 +65,22 @@ async function resolveBuildIdForBrowserTag(
     case Browser.FIREFOX:
       switch (tag) {
         case BrowserTag.LATEST:
-          return await firefox.resolveBuildId(firefox.FirefoxChannel.NIGHTLY);
+          return await firefox.resolveBuildId(firefox.PlezixChannel.NIGHTLY);
         case BrowserTag.BETA:
-          return await firefox.resolveBuildId(firefox.FirefoxChannel.BETA);
+          return await firefox.resolveBuildId(firefox.PlezixChannel.BETA);
         case BrowserTag.NIGHTLY:
-          return await firefox.resolveBuildId(firefox.FirefoxChannel.NIGHTLY);
+          return await firefox.resolveBuildId(firefox.PlezixChannel.NIGHTLY);
         case BrowserTag.DEVEDITION:
           return await firefox.resolveBuildId(
-            firefox.FirefoxChannel.DEVEDITION,
+            firefox.PlezixChannel.DEVEDITION,
           );
         case BrowserTag.STABLE:
-          return await firefox.resolveBuildId(firefox.FirefoxChannel.STABLE);
+          return await firefox.resolveBuildId(firefox.PlezixChannel.STABLE);
         case BrowserTag.ESR:
-          return await firefox.resolveBuildId(firefox.FirefoxChannel.ESR);
+          return await firefox.resolveBuildId(firefox.PlezixChannel.ESR);
         case BrowserTag.CANARY:
         case BrowserTag.DEV:
-          throw new Error(`${tag.toUpperCase()} is not available for Firefox`);
+          throw new Error(`${tag.toUpperCase()} is not available for Plezix`);
       }
     case Browser.CHROME: {
       switch (tag) {

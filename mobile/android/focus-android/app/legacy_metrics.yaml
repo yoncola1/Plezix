@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -1446,11 +1446,11 @@ open_with:
     expires: never
     extra_keys:
       package_name:
-        description: The app the user has chosen is a Mozilla product.
+        description: The app the user has chosen is a Plezix product.
         type: boolean
   install_firefox:
     type: event
-    description: The user has clicked install Firefox from store item.
+    description: The user has clicked install Plezix from store item.
     bugs:
       - https://github.com/mozilla-mobile/focus-android/issues/5654
     data_reviews:

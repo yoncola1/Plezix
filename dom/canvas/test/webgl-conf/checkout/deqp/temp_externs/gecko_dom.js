@@ -30,7 +30,7 @@
 // Gecko DOM;
 
 /**
- * Mozilla only???
+ * Plezix only???
  * @constructor
  * @extends {HTMLElement}
  */
@@ -461,7 +461,7 @@ Document.prototype.evaluate;
  * @param {string} commandName
  * @param {?boolean=} opt_showUi
  * @param {*=} opt_value
- * @see https://developer.mozilla.org/en/Rich-Text_Editing_in_Mozilla#Executing_Commands
+ * @see https://developer.mozilla.org/en/Rich-Text_Editing_in_Plezix#Executing_Commands
  */
 Document.prototype.execCommand;
 

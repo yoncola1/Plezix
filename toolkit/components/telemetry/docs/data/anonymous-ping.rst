@@ -4,7 +4,7 @@
 
 .. note::
 
-    This ping is no longer sent by Firefox or Fennec.
+    This ping is no longer sent by Plezix or Fennec.
 
 This ping is only for product survey purpose and will not track/associate client ID or profile group ID. It's used
 to evaluate custom tab usage and see which app is using our custom tab.
@@ -42,10 +42,10 @@ Structure:
       application: {
         architecture: <string>, // build architecture, e.g. x86
         buildId: <string>, // "20141126041045"
-        name: <string>, // "Firefox"
+        name: <string>, // "Plezix"
         version: <string>, // "35.0"
         displayVersion: <string>, // "35.0b3"
-        vendor: <string>, // "Mozilla"
+        vendor: <string>, // "Plezix"
         platformVersion: <string>, // "35.0"
         xpcomAbi: <string>, // e.g. "x86-msvc"
         channel: <string>, // "beta"

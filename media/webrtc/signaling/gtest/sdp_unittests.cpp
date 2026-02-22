@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1896,7 +1896,7 @@ TEST_P(NewSdpTest, CheckMediaSectionGetBandwidth) {
 // SDP from a basic A/V apprtc call FFX/FFX
 MOZ_RUNINIT const std::vector<std::string> kBasicAudioVideoOfferLines = {
     "v=0",
-    "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0",
+    "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0",
     "s=SIP Call",
     "c=IN IP4 224.0.0.1/100/12",
     "t=0 0",
@@ -2011,7 +2011,7 @@ MOZ_RUNINIT const std::vector<std::string> kBasicAudioVideoOfferLines = {
 // SDP from a basic A/V apprtc call FFX/FFX
 MOZ_RUNINIT const std::vector<std::string> kBasicAV1AudioVideoOfferLines = {
     "v=0",
-    "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0",
+    "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0",
     "s=SIP Call",
     "c=IN IP4 224.0.0.1/100/12",
     "t=0 0",
@@ -2794,7 +2794,7 @@ TEST_P(NewSdpTest, CheckRedFmtpWith3Codecs) {
 }
 
 MOZ_RUNINIT const std::string kH264AudioVideoOffer =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=ice-ufrag:4a799b2e" CRLF
     "a=ice-pwd:e4cc12a910f106a0a744719425510e17" CRLF "a=ice-lite" CRLF
@@ -3287,7 +3287,7 @@ TEST_P(NewSdpTest, CheckManyGroups) {
 
 // SDP from a basic A/V call with data channel FFX/FFX
 MOZ_RUNINIT const std::string kBasicAudioVideoDataOffer =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 27987 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 27987 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "t=0 0" CRLF "a=ice-ufrag:8a39d2ae" CRLF
     "a=ice-pwd:601d53aba51a318351b3ecf5ee00048f" CRLF
     "a=fingerprint:sha-256 "
@@ -3574,7 +3574,7 @@ TEST_P(NewSdpTest, CheckMaxPtime) {
 }
 
 MOZ_RUNINIT const std::string kNewSctpportOfferDraft21 =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 27987 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 27987 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "t=0 0" CRLF "a=ice-ufrag:8a39d2ae" CRLF
     "a=ice-pwd:601d53aba51a318351b3ecf5ee00048f" CRLF
     "a=fingerprint:sha-256 "
@@ -3593,7 +3593,7 @@ INSTANTIATE_TEST_SUITE_P(RoundTripSerialize, NewSdpTest,
                                             ::testing::Bool()));
 
 MOZ_RUNINIT const std::string kCandidateInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=candidate:0 1 UDP 2130379007 10.0.0.36 62453 typ host" CRLF
     "m=audio 9 RTP/SAVPF 109 9 0 8 101" CRLF "c=IN IP4 0.0.0.0" CRLF
@@ -3612,7 +3612,7 @@ TEST_P(NewSdpTest, CheckCandidateInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kBundleOnlyInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=bundle-only" CRLF "m=audio 9 RTP/SAVPF 109 9 0 8 101" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:109 opus/48000/2" CRLF;
@@ -3630,7 +3630,7 @@ TEST_P(NewSdpTest, CheckBundleOnlyInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kFmtpInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=fmtp:109 0-15" CRLF "m=audio 9 RTP/SAVPF 109 9 0 8 101" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:109 opus/48000/2" CRLF;
@@ -3648,7 +3648,7 @@ TEST_P(NewSdpTest, CheckFmtpInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kIceMismatchInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=ice-mismatch" CRLF "m=audio 9 RTP/SAVPF 109 9 0 8 101" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:109 opus/48000/2" CRLF;
@@ -3666,7 +3666,7 @@ TEST_P(NewSdpTest, CheckIceMismatchInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kImageattrInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=imageattr:120 send * recv *" CRLF "m=video 9 RTP/SAVPF 120" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:120 VP8/90000" CRLF;
@@ -3684,7 +3684,7 @@ TEST_P(NewSdpTest, CheckImageattrInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kLabelInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=label:foobar" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3702,7 +3702,7 @@ TEST_P(NewSdpTest, CheckLabelInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kMaxptimeInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=maxptime:100" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3720,7 +3720,7 @@ TEST_P(NewSdpTest, CheckMaxptimeInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kMidInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=mid:foobar" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3738,7 +3738,7 @@ TEST_P(NewSdpTest, CheckMidInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kMsidInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=msid:foobar" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3756,7 +3756,7 @@ TEST_P(NewSdpTest, CheckMsidInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kPtimeInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=ptime:50" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3774,7 +3774,7 @@ TEST_P(NewSdpTest, CheckPtimeInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRemoteCandidatesInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=remote-candidates:0 10.0.0.1 5555" CRLF "m=video 9 RTP/SAVPF 120" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:120 VP8/90000" CRLF;
@@ -3792,7 +3792,7 @@ TEST_P(NewSdpTest, CheckRemoteCandidatesInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRtcpInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=rtcp:5555" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3810,7 +3810,7 @@ TEST_P(NewSdpTest, CheckRtcpInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRtcpFbInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=rtcp-fb:120 nack" CRLF "m=video 9 RTP/SAVPF 120" CRLF
     "c=IN IP4 0.0.0.0" CRLF "a=rtpmap:120 VP8/90000" CRLF;
@@ -3828,7 +3828,7 @@ TEST_P(NewSdpTest, CheckRtcpFbInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRtcpMuxInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=rtcp-mux" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3846,7 +3846,7 @@ TEST_P(NewSdpTest, CheckRtcpMuxInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRtcpRsizeInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=rtcp-rsize" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3864,7 +3864,7 @@ TEST_P(NewSdpTest, CheckRtcpRsizeInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kRtpmapInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF "m=video 9 RTP/SAVPF 120" CRLF
     "c=IN IP4 0.0.0.0" CRLF;
@@ -3882,7 +3882,7 @@ TEST_P(NewSdpTest, CheckRtpmapInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kSctpmapInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=sctpmap:5000" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3900,7 +3900,7 @@ TEST_P(NewSdpTest, CheckSctpmapInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kSsrcInSessionSDP =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "a=ssrc:5000" CRLF "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -3918,7 +3918,7 @@ TEST_P(NewSdpTest, CheckSsrcInSessionLevel) {
 }
 
 MOZ_RUNINIT const std::string kMalformedImageattr =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF "a=imageattr:flob" CRLF;
@@ -3983,7 +3983,7 @@ TEST_P(NewSdpTest, ParseInvalidRidNoSuchPt) {
 }
 
 MOZ_RUNINIT const std::string kNoAttributes =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=rtpmap:120 VP8/90000" CRLF;
@@ -4023,7 +4023,7 @@ TEST_P(NewSdpTest, CheckNoAttributes) {
 }
 
 MOZ_RUNINIT const std::string kMediaLevelDtlsMessage =
-    "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+    "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
     "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
     "m=video 9 RTP/SAVPF 120" CRLF "c=IN IP4 0.0.0.0" CRLF
     "a=dtls-message:client " BASE64_DTLS_HELLO CRLF
@@ -4285,42 +4285,42 @@ TEST(NewSdpTestNoFixture, CheckParsingResultComparer)
 
   // Check the Fmtp comprison
   const std::string kBasicOpusFmtp1 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 opus/48000/1" CRLF
       "a=fmtp:120 stereo=1;useinbandfec=1" CRLF;
   ASSERT_TRUE(check_comparison(kBasicOpusFmtp1));
 
   const std::string kBasicOpusFmtp2 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 opus/48000" CRLF
       "a=fmtp:120 useinbandfec=1;stereo=1;maxplaybackrate=32000" CRLF;
   ASSERT_TRUE(check_comparison(kBasicOpusFmtp2));
 
   const std::string kBasicVP8Fmtp1 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 VP8/90000" CRLF
       "a=fmtp:120 max-fs=3600;max-fr=60" CRLF;
   ASSERT_TRUE(check_comparison(kBasicVP8Fmtp1));
   //
   const std::string kBasicVP8Fmtp2 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 VP8/90000" CRLF
       "a=fmtp:120 max-fr=60;max-fs=3600" CRLF;
   ASSERT_TRUE(check_comparison(kBasicVP8Fmtp2));
 
   const std::string kBasicH264Fmtp1 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 H264/90000" CRLF
       "a=fmtp:120 profile-level-id=42a01e;level_asymmetry_allowed=1" CRLF;
   ASSERT_TRUE(check_comparison(kBasicH264Fmtp1));
 
   const std::string kBasicH264Fmtp2 =
-      "v=0" CRLF "o=Mozilla-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
+      "v=0" CRLF "o=Plezix-SIPUA-35.0a1 5184 0 IN IP4 0.0.0.0" CRLF
       "s=SIP Call" CRLF "c=IN IP4 224.0.0.1/100/12" CRLF "t=0 0" CRLF
       "m=video 9 RTP/SAVPF 120" CRLF "a=rtpmap:120 H264/90000" CRLF
       "a=fmtp:120 "

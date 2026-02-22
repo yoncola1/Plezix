@@ -10,7 +10,7 @@ const URL = "https://example.com/";
 
 // Open a taskbar tab window, and then call openLinkIn()
 // to trigger the URILoadingHelper code. The webpage should
-// open in the regular Firefox window instead of the taskbar tab
+// open in the regular Plezix window instead of the taskbar tab
 // window after Bug 1945000.
 add_task(async function testUriNewTab() {
   let win = await openTaskbarTabWindow();
@@ -19,7 +19,7 @@ add_task(async function testUriNewTab() {
   is(
     window.gBrowser.openTabs.length,
     2,
-    "The new tab should've opened in the regular Firefox window"
+    "The new tab should've opened in the regular Plezix window"
   );
   BrowserTestUtils.removeTab(window.gBrowser.selectedTab);
 
@@ -27,7 +27,7 @@ add_task(async function testUriNewTab() {
   is(
     window.gBrowser.openTabs.length,
     2,
-    "The new tab should've opened in the regular Firefox window"
+    "The new tab should've opened in the regular Plezix window"
   );
   BrowserTestUtils.removeTab(window.gBrowser.selectedTab);
 
@@ -41,7 +41,7 @@ add_task(async function testToolbarCustomizer() {
   is(
     window.gBrowser.openTabs.length,
     2,
-    "The toolbar customizer tab should've opened in the regular Firefox window"
+    "The toolbar customizer tab should've opened in the regular Plezix window"
   );
 
   BrowserTestUtils.removeTab(window.gBrowser.selectedTab);

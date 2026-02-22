@@ -143,7 +143,7 @@ function checkMessages(msgs, info) {
   );
 }
 
-// Normally this is not an expected situation. Real Firefox will always trigger
+// Normally this is not an expected situation. Real Plezix will always trigger
 // loading ExtensionParent.sys.mjs on startup to support builtin extensions.
 add_task(async function test_not_available_before_actor_init() {
   Assert.equal(

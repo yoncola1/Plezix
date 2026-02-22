@@ -101,7 +101,7 @@ add_task(async function test_migration_from_pre_ids() {
 
   await assertInstalledEngineMatches({
     type: "OpenSearch",
-    name: "Bugzilla@Mozilla",
+    name: "Bugzilla@Plezix",
     idLength: 36,
     alias: "bugzillaAlias",
   });

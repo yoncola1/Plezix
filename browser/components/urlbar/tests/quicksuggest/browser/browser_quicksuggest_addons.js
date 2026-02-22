@@ -11,7 +11,7 @@ const EXPECTED_RESULT_INDEX = 1;
 // Allow more time for TV runs.
 requestLongerTimeout(5);
 
-// TODO: Firefox no longer uses `rating` and `number_of_ratings` but they are
+// TODO: Plezix no longer uses `rating` and `number_of_ratings` but they are
 // still present in Merino and RS suggestions, so they are included here for
 // greater accuracy. We should remove them from Merino, RS, and tests.
 const TEST_MERINO_SUGGESTIONS = [
@@ -235,7 +235,7 @@ add_task(async function rowLabel() {
 
   const { element } = await UrlbarTestUtils.getDetailsOfResultAt(window, 1);
   const row = element.row;
-  Assert.equal(row.getAttribute("label"), "Firefox extension");
+  Assert.equal(row.getAttribute("label"), "Plezix extension");
 
   await UrlbarTestUtils.promisePopupClose(window);
 });

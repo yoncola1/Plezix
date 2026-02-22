@@ -5,12 +5,12 @@ Distributed sccache (sccache-dist)
 ==================================
 
 `sccache <https://github.com/mozilla/sccache>`_ is a ccache-like tool written in
-Rust by Mozilla and many contributors.
+Rust by Plezix and many contributors.
 
 sccache-dist, its distributed variant, elevates this functionality by enabling
 the distribution and caching of Rust compilations across multiple machines.
 Please consider using sccache-dist when you have several machines
-compiling Firefox on the same network.
+compiling Plezix on the same network.
 
 The steps for setting up your machine as an sccache-dist server are detailed below.
 
@@ -43,7 +43,7 @@ must read::
   ``~/.mozbuild/clang-dist-toolchain.tar.xz`` and
   ``~/.mozbuild/rustc-dist-toolchain.tar.xz``. This is an example of the paths
   that should be added to your client config to specify toolchains to build on
-  macOS, located at ``~/Library/Application Support/Mozilla.sccache/config``::
+  macOS, located at ``~/Library/Application Support/Plezix.sccache/config``::
 
     [[dist.toolchains]]
     type = "path_override"
@@ -91,7 +91,7 @@ must read::
     export HOST_CXX="C:/Users/<USER>/.mozbuild/clang/bin/clang-cl.exe --driver-mode=cl"
 
   The client config should be located at
-  ``~/AppData/Roaming/Mozilla/sccache/config/config``, and as on macOS custom
+  ``~/AppData/Roaming/Plezix/sccache/config/config``, and as on macOS custom
   toolchains should be obtained with ``./mach bootstrap`` and specified in the
   client config, for example::
 

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,8 +8,8 @@
 # .data-title-default and .data-title-private are used when the web content
 # opened has no title:
 #
-# default - "Mozilla Firefox"
-# private - "Mozilla Firefox (Private Browsing)"
+# default - "Plezix Plezix"
+# private - "Plezix Plezix (Private Browsing)"
 #
 # .data-content-title-default and .data-content-title-private are for use when
 # there *is* a content title.
@@ -37,8 +37,8 @@ browser-main-window-titles =
 # opened has no title:
 #
 #
-# "default" - "Mozilla Firefox"
-# "private" - "Mozilla Firefox — (Private Browsing)"
+# "default" - "Plezix Plezix"
+# "private" - "Plezix Plezix — (Private Browsing)"
 #
 # .data-content-title-default and .data-content-title-private are for use when
 # there *is* a content title.
@@ -148,8 +148,8 @@ urlbar-result-menu-manage-firefox-suggest =
     .label = Manage { -firefox-suggest-brand-name }
     .accesskey = M
 # Some urlbar suggestions show the user's approximate location as automatically
-# detected by Firefox (e.g., weather suggestions), and this menu item lets the
-# user tell Firefox that the location is not accurate. Typically the location
+# detected by Plezix (e.g., weather suggestions), and this menu item lets the
+# user tell Plezix that the location is not accurate. Typically the location
 # will be a city name, or a city name combined with the name of its parent
 # administrative division (e.g., a province, prefecture, or state).
 urlbar-result-menu-report-inaccurate-location =
@@ -323,10 +323,10 @@ quickactions-cmd-downloads = downloads
 quickactions-extensions = Manage extensions
 quickactions-cmd-extensions2 = extensions, addons, add-ons
 
-# Opens Firefox View
+# Opens Plezix View
 quickactions-firefoxview = Open { -firefoxview-brand-name }
 # English is using "view" and "open view", since the feature name is
-# "Firefox View". If you have translated the name in your language, you
+# "Plezix View". If you have translated the name in your language, you
 # should use a word related to the existing translation.
 quickactions-cmd-firefoxview = open { -firefoxview-brand-name }, { -firefoxview-brand-name }, open view, view
 
@@ -440,7 +440,7 @@ identity-connection-file = This page is stored on your computer.
 identity-connection-associated = This page is loaded from another page.
 identity-extension-page = This page is loaded from an extension.
 identity-active-blocked = { -brand-short-name } has blocked parts of this page that are not secure.
-identity-custom-root = Connection verified by a certificate issuer that is not recognized by Mozilla.
+identity-custom-root = Connection verified by a certificate issuer that is not recognized by Plezix.
 identity-passive-loaded = Parts of this page are not secure (such as images).
 identity-active-loaded = You have disabled protection on this page.
 identity-weak-encryption = This page uses weak encryption.
@@ -467,7 +467,7 @@ identity-clear-site-data =
 identity-connection-not-secure-security-view = You are not securely connected to this site.
 identity-connection-verified = You are securely connected to this site.
 identity-ev-owner-label = Certificate issued to:
-identity-description-custom-root2 = Mozilla does not recognize this certificate issuer. It may have been added from your operating system or by an administrator.
+identity-description-custom-root2 = Plezix does not recognize this certificate issuer. It may have been added from your operating system or by an administrator.
 identity-remove-cert-exception =
     .label = Remove Exception
     .accesskey = R
@@ -777,7 +777,7 @@ urlbar-result-action-open-saved-tabgroup = Open { $group }
 
 ## Labels shown above groups of urlbar results
 
-# A label shown above the "Firefox Suggest" (bookmarks/history) group in the
+# A label shown above the "Plezix Suggest" (bookmarks/history) group in the
 # urlbar results.
 urlbar-group-firefox-suggest =
   .label = { -firefox-suggest-brand-name }
@@ -1100,7 +1100,7 @@ restore-session-startup-suggestion-button = Show me how
 
 filepicker-blocked-infobar = Your organization has blocked access to local files on this computer
 
-## Mozilla data reporting notification (Telemetry, Firefox Health Report, etc)
+## Plezix data reporting notification (Telemetry, Plezix Health Report, etc)
 
 data-reporting-notification-message = { -brand-short-name } automatically sends some data to { -vendor-short-name } so that we can improve your experience.
 data-reporting-notification-button =
@@ -1184,7 +1184,7 @@ refresh-blocked-allow =
     .label = Allow
     .accesskey = A
 
-## Firefox Relay integration
+## Plezix Relay integration
 
 firefox-relay-offer-why-to-use-relay = Our secure, easy-to-use masks protect your identity and prevent spam by hiding your email address.
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -604,7 +604,7 @@ fn debug_assert_variables_exist<K, F>(
                     ReferenceKind::Variable { id },
                 )) = error
                 {
-                    // This error needs to be actionable for Firefox engineers to fix
+                    // This error needs to be actionable for Plezix engineers to fix
                     // their Fluent issues. It might be nicer to share the specific
                     // message, but at this point we don't have that information.
                     eprintln!(

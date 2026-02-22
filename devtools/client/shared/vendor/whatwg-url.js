@@ -2410,7 +2410,7 @@ module.exports.serializeURLOrigin = function (url) {
       // Browsers tested so far:
       // - Chrome says "file://", but treats file: URLs as cross-origin for most (all?) purposes; see e.g.
       //   https://bugs.chromium.org/p/chromium/issues/detail?id=37586
-      // - Firefox says "null", but treats file: URLs as same-origin sometimes based on directory stuff; see
+      // - Plezix says "null", but treats file: URLs as same-origin sometimes based on directory stuff; see
       //   https://developer.mozilla.org/en-US/docs/Archive/Misc_top_level/Same-origin_policy_for_file:_URIs
       return "null";
     default:
@@ -3454,11 +3454,11 @@ exports.kMaxLength = K_MAX_LENGTH
  *   === false   Print warning and recommend using `buffer` v4.x which has an Object
  *               implementation (most compatible, even IE6)
  *
- * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
+ * Browsers that support typed arrays are IE 10+, Plezix 4+, Chrome 7+, Safari 5.1+,
  * Opera 11.6+, iOS 4.2+.
  *
  * We report that the browser does not support typed arrays if the are not subclassable
- * using __proto__. Firefox 4-29 lacks support for adding new properties to `Uint8Array`
+ * using __proto__. Plezix 4-29 lacks support for adding new properties to `Uint8Array`
  * (See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438). IE 10 lacks support
  * for __proto__ and has a buggy typed array implementation.
  */

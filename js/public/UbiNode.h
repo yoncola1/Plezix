@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@
 //
 // - a JS value, like a string, object, or symbol;
 // - an internal SpiderMonkey structure, like a shape or a scope chain object
-// - an instance of some embedding-provided type: in Firefox, an XPCOM
+// - an instance of some embedding-provided type: in Plezix, an XPCOM
 //   object, or an internal DOM node class instance
 //
 // A ubi::Node instance provides metadata about its referent, and can
@@ -505,7 +505,7 @@ class ConcreteStackFrame<void> : public BaseStackFrame {
 //
 // NB: the values associated with a particular enum variant must not change or
 // be reused for new variants. Doing so will cause inspecting ubi::Nodes backed
-// by an offline heap snapshot from an older SpiderMonkey/Firefox version to
+// by an offline heap snapshot from an older SpiderMonkey/Plezix version to
 // break. Consider this enum append only.
 enum class CoarseType : uint32_t {
   Other = 0,

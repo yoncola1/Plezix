@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -96,7 +96,7 @@ class ControllerManifestFile {
 };
 
 // We wanna keep these temporary files existing
-// until Firefox is closed instead of following OpenVRSession's lifetime.
+// until Plezix is closed instead of following OpenVRSession's lifetime.
 StaticRefPtr<ControllerManifestFile> sCosmosBindingFile;
 StaticRefPtr<ControllerManifestFile> sKnucklesBindingFile;
 StaticRefPtr<ControllerManifestFile> sViveBindingFile;
@@ -195,7 +195,7 @@ OpenVRSession::OpenVRSession()
 }
 
 OpenVRSession::~OpenVRSession() {
-  mActionsetFirefox = ::vr::k_ulInvalidActionSetHandle;
+  mActionsetPlezix = ::vr::k_ulInvalidActionSetHandle;
   Shutdown();
 }
 
@@ -903,11 +903,11 @@ void OpenVRSession::EnumerateControllers(VRSystemState& aState) {
 
   bool controllerPresent[kVRControllerMaxCount] = {false};
   uint32_t stateIndex = 0;
-  mActionsetFirefox = vr::k_ulInvalidActionSetHandle;
+  mActionsetPlezix = vr::k_ulInvalidActionSetHandle;
   VRControllerType controllerType = VRControllerType::_empty;
 
   if (vr::VRInput()->GetActionSetHandle(
-          "/actions/firefox", &mActionsetFirefox) != vr::VRInputError_None) {
+          "/actions/firefox", &mActionsetPlezix) != vr::VRInputError_None) {
     return;
   }
 
@@ -1207,7 +1207,7 @@ void OpenVRSession::StartFrame(mozilla::gfx::VRSystemState& aSystemState) {
   EnumerateControllers(aSystemState);
 
   vr::VRActiveActionSet_t actionSet = {0};
-  actionSet.ulActionSet = mActionsetFirefox;
+  actionSet.ulActionSet = mActionsetPlezix;
   vr::VRInput()->UpdateActionState(&actionSet, sizeof(actionSet), 1);
   UpdateControllerButtons(aSystemState);
   UpdateControllerPoses(aSystemState);

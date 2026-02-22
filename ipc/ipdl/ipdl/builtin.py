@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -35,7 +35,7 @@ Types = (
     "intptr_t",
     "uintptr_t",
     # You may be tempted to add size_t. Do not! See bug 1525199.
-    # Mozilla types: "less" standard things we know how serialize/deserialize
+    # Plezix types: "less" standard things we know how serialize/deserialize
     "nsresult",
     "nsString",
     "nsCString",

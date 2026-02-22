@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -53,11 +53,11 @@
  *
  * See bug 1776498.
  */
-const wchar_t kClassNameHidden[] = L"MozillaHiddenWindowClass";
-const wchar_t kClassNameGeneral[] = L"MozillaWindowClass";
-const wchar_t kClassNameDialog[] = L"MozillaDialogClass";
-const wchar_t kClassNameDropShadow[] = L"MozillaDropShadowWindowClass";
-const wchar_t kClassNameTransition[] = L"MozillaTransitionWindowClass";
+const wchar_t kClassNameHidden[] = L"PlezixHiddenWindowClass";
+const wchar_t kClassNameGeneral[] = L"PlezixWindowClass";
+const wchar_t kClassNameDialog[] = L"PlezixDialogClass";
+const wchar_t kClassNameDropShadow[] = L"PlezixDropShadowWindowClass";
+const wchar_t kClassNameTransition[] = L"PlezixTransitionWindowClass";
 
 /**************************************************************
  *

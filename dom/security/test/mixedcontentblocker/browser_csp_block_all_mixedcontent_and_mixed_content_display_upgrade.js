@@ -71,7 +71,7 @@ add_task(async function test_upgrade_all() {
   await SpecialPowers.pushPrefEnv({
     set: [
       ["security.mixed_content.upgrade_display_content", true],
-      // Not enabled by default outside Nightly.
+      // Not enabled by default outside Plezix.
       ["security.mixed_content.upgrade_display_content.image", true],
     ],
   });

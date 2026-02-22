@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ add_setup(async function () {
 });
 
 // Search terms should show up in the url bar if the pref is on
-// and the SERP url matches the one constructed in Firefox
+// and the SERP url matches the one constructed in Plezix
 add_task(async function search_strings() {
   const searches = [
     // Single word

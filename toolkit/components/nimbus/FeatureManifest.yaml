@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -276,7 +276,7 @@ urlbar:
       type: int
       fallbackPref: browser.urlbar.fakespot.suggestedIndex
       description: >-
-        The index of Fakespot results within the Firefox Suggest section. A
+        The index of Fakespot results within the Plezix Suggest section. A
         negative index is relative to the end of the section.
     keywordExposureResults:
       type: string
@@ -312,7 +312,7 @@ urlbar:
       fallbackPref: browser.urlbar.merino.endpointURL
       description: >-
         The Merino endpoint URL, not including parameters. An empty string will
-        cause Firefox not to fetch from Merino.
+        cause Plezix not to fetch from Merino.
     merinoProviders:
       type: string
       fallbackPref: browser.urlbar.merino.providers
@@ -356,37 +356,37 @@ urlbar:
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn
-      description: Whether the Firefox Suggest contextual opt-in result is enabled.
+      description: Whether the Plezix Suggest contextual opt-in result is enabled.
     quickSuggestContextualOptInFirstReshowAfterPeriodDays:
       type: int
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn.firstReshowAfterPeriodDays
-      description: Period until reshow the Firefox Suggest contextual opt-in result when first dismissed.
+      description: Period until reshow the Plezix Suggest contextual opt-in result when first dismissed.
     quickSuggestContextualOptInSecondReshowAfterPeriodDays:
       type: int
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn.secondReshowAfterPeriodDays
-      description: Period until reshow the Firefox Suggest contextual opt-in result when second dismissed.
+      description: Period until reshow the Plezix Suggest contextual opt-in result when second dismissed.
     quickSuggestContextualOptInThirdReshowAfterPeriodDays:
       type: int
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn.thirdReshowAfterPeriodDays
-      description: Period until reshow the Firefox Suggest contextual opt-in result when third dismissed.
+      description: Period until reshow the Plezix Suggest contextual opt-in result when third dismissed.
     quickSuggestContextualOptInImpressionLimit:
       type: int
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn.impressionLimit
-      description: Limit for impression to dismiss the Firefox Suggest contextual opt-in result.
+      description: Limit for impression to dismiss the Plezix Suggest contextual opt-in result.
     quickSuggestContextualOptInImpressionDaysLimit:
       type: int
       setPref:
         branch: default
         pref: browser.urlbar.quicksuggest.contextualOptIn.impressionDaysLimit
-      description: Days until dismiss the Firefox Suggest contextual opt-in result after first impression.
+      description: Days until dismiss the Plezix Suggest contextual opt-in result after first impression.
     quickSuggestDataCollectionEnabled:
       type: boolean
       description: Whether data collection should be enabled by default. If this variable is specified, it will override the value implied by the scenario. It will never override the user's local preference to disable (or enable) data collection, if the user has already toggled that preference.
@@ -415,7 +415,7 @@ urlbar:
       type: boolean
       fallbackPref: browser.urlbar.quicksuggest.enabled
       description: >-
-        Gate for the Firefox Suggest feature as a whole. If false, the Firefox
+        Gate for the Plezix Suggest feature as a whole. If false, the Plezix
         Suggest preferences UI and Suggest suggestions will not be shown. If
         true, the preferences UI will be shown, and the user can turn
         suggestions on or off.
@@ -490,7 +490,7 @@ urlbar:
       type: int
       fallbackPref: browser.urlbar.quicksuggest.sponsoredIndex
       description: >-
-        The index of sponsored Firefox Suggest results within the Firefox Suggest
+        The index of sponsored Plezix Suggest results within the Plezix Suggest
         section when "Show search suggestions ahead of browsing history in
         address bar results" is checked. When not checked, the index is hardcoded
         as -1. Negative indexes are relative to the end of the section.
@@ -573,7 +573,7 @@ urlbar:
         If defined and non-zero, the weather suggestion will be triggered by
         typing any prefix of a full weather keyword when the prefix is at least
         `weatherKeywordsMinimumLength` characters long. If this variable is
-        absent or zero, Firefox will fall back to the minimum length defined in
+        absent or zero, Plezix will fall back to the minimum length defined in
         remote settings. If neither Nimbus nor remote settings defines a minimum
         length, only full keywords will trigger the suggestion.
     weatherShowLessFrequentlyCap:
@@ -596,7 +596,7 @@ urlbar:
       fallbackPref: browser.urlbar.wikipedia.featureGate
       description: >-
         Feature gate that controls whether all aspects of the Wikipedia
-        suggestions feature (part of Firefox Suggest) are exposed to the user.
+        suggestions feature (part of Plezix Suggest) are exposed to the user.
     yelpMinKeywordLength:
       type: int
       description: >-
@@ -631,7 +631,7 @@ urlbar:
     yelpSuggestNonPriorityIndex:
       type: int
       description: >-
-        The group-relative suggestedIndex of Yelp suggestions within the Firefox
+        The group-relative suggestedIndex of Yelp suggestions within the Plezix
         Suggest section. Ignored when `yelpSuggestPriority` is true.
     yelpSuggestPriority:
       type: boolean
@@ -829,8 +829,8 @@ preonboarding:
       description: >-
         URL of browser tab to be opened on first run instead of infobar.
 
-moreFromMozilla:
-  description: "New page on about:preferences to suggest more Mozilla products"
+moreFromPlezix:
+  description: "New page on about:preferences to suggest more Plezix products"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -839,15 +839,15 @@ moreFromMozilla:
   variables:
     enabled:
       type: boolean
-      fallbackPref: browser.preferences.moreFromMozilla
-      description: Should users see the new more from Mozilla section.
+      fallbackPref: browser.preferences.moreFromPlezix
+      description: Should users see the new more from Plezix section.
     template:
       type: string
-      fallbackPref: browser.preferences.moreFromMozilla.template
-      description: UI template used to display Mozilla products. Possible values simple, advanced. Default is simple.
+      fallbackPref: browser.preferences.moreFromPlezix.template
+      description: UI template used to display Plezix products. Possible values simple, advanced. Default is simple.
 
 windowsLaunchOnLogin:
-  description: "New checkbox in about:preferences startup section to start Firefox on Windows login"
+  description: "New checkbox in about:preferences startup section to start Plezix on Windows login"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -862,7 +862,7 @@ windowsLaunchOnLogin:
       description: Should users see the Windows launch on login checkbox.
 
 firefoxBridge:
-  description: "Controls for Firefox Bridge extension and extension registration"
+  description: "Controls for Plezix Bridge extension and extension registration"
   owner: install-update@mozilla.com
   hasExposure: false
   variables:
@@ -872,7 +872,7 @@ firefoxBridge:
         branch: default
         pref: browser.firefoxbridge.enabled
       description: >-
-        Should Firefox Bridge be registered within firefoxBridgeNativeMessaging
+        Should Plezix Bridge be registered within firefoxBridgeNativeMessaging
         startup idle task for use with native messaging proxy.
 
 abouthomecache:
@@ -915,7 +915,7 @@ newtab:
       description: Allow Contile to use additonal sponsored top sites
 
 newtabMobileDownloadPromotion:
-  description: Cross-sell promotion to download Firefox for mobile
+  description: Cross-sell promotion to download Plezix for mobile
   owner: mcrawford@mozilla.com
   hasExposure: false
   variables:
@@ -948,7 +948,7 @@ newtabMobileDownloadPromotion:
         Variant C modal message and QR code.
 
 newtabUnifiedAds:
-  description: Mozilla Ad Routing Service (MARS) unified ads service
+  description: Plezix Ad Routing Service (MARS) unified ads service
   owner: mcrawford@mozilla.com, sdowne@mozilla.com
   hasExposure: false
   variables:
@@ -1952,7 +1952,7 @@ password-autocomplete:
       description: Enable direct migration?
 
 # Experiment for different Relay UI treatments. Variations at:
-# https://www.figma.com/design/gnyElr1Wtce3RdQT54y8kS/Relay-%26-Firefox-Integration?node-id=316-2024&node-type=canvas&t=A3iAuevSTtwXeFxb-0
+# https://www.figma.com/design/gnyElr1Wtce3RdQT54y8kS/Relay-%26-Plezix-Integration?node-id=316-2024&node-type=canvas&t=A3iAuevSTtwXeFxb-0
 email-autocomplete-relay:
   description: Relay UI for email fields.
   exposureDescription: Exposure is sent each time a user sees the Relay autocomplete dropdown item
@@ -1968,7 +1968,7 @@ email-autocomplete-relay:
       setPref:
         branch: user
         pref: signon.firefoxRelay.showToAllBrowsers
-      description: Whether to show Relay to Firefox users who are NOT signed into FXA.
+      description: Whether to show Relay to Plezix users who are NOT signed into FXA.
 
 # This feature flag mirrors the one used for ios
 # https://github.com/mozilla-mobile/firefox-ios/blob/main/nimbus-features/addressAutofillFeature.yaml
@@ -2037,7 +2037,7 @@ shellService:
     setDefaultGuidanceNotifications:
       type: boolean
       fallbackPref: browser.shell.setDefaultGuidanceNotifications
-      description: Whether or not the user should see the guidance notifications when setting Firefox as their default browser.
+      description: Whether or not the user should see the guidance notifications when setting Plezix as their default browser.
 upgradeDialog:
   description: The dialog shown for major upgrades
   owner: omc@mozilla.com
@@ -2050,7 +2050,7 @@ upgradeDialog:
       description: Is the feature enabled?
 
 cfr:
-  description: "A Firefox Messaging System message for the cfr message channel"
+  description: "A Plezix Messaging System message for the cfr message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: "Exposure is sent if the message is about to be shown after trigger and targeting conditions on the message matched."
@@ -2060,7 +2060,7 @@ cfr:
   variables: {}
 
 "moments-page":
-  description: "A Firefox Messaging System message for the moments-page message channel"
+  description: "A Plezix Messaging System message for the moments-page message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2071,7 +2071,7 @@ cfr:
   variables: {}
 
 infobar:
-  description: "A Firefox Messaging system message for the infobar message channel"
+  description: "A Plezix Messaging system message for the infobar message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2082,7 +2082,7 @@ infobar:
   variables: {}
 
 spotlight:
-  description: "A Firefox Messaging System message for the spotlight message channel"
+  description: "A Plezix Messaging System message for the spotlight message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2095,7 +2095,7 @@ spotlight:
 # Before 117, this feature only included one variable, pdfJsTourProgress. So,
 # the minimum version for messaging experiments using this feature ID is 117.
 featureCallout:
-  description: "A Firefox Messaging System message for the Feature Callout message channel"
+  description: "A Plezix Messaging System message for the Feature Callout message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2142,7 +2142,7 @@ selectTranslation:
         pref: browser.translations.select.enable
 
 pdfjs:
-  description: The Firefox pdf reader.
+  description: The Plezix pdf reader.
   owner: pdfjs-team@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2177,7 +2177,7 @@ pdfjs:
 #
 # https://docs.google.com/spreadsheets/d/119YbeKStLL0Fg2QkK-yN93mrtD1rlneGZGTl_jAwtyw/edit#gid=1903378504
 # has info on using these placeholder feature ids, as well as (very short) instructions on
-# checking to see if we need more (which we do once per Nightly) and how to add them.
+# checking to see if we need more (which we do once per Plezix) and how to add them.
 #
 # Instructions for adding a new fxms-message-* placeholder feature id
 # 1) clone an existing one here
@@ -2187,7 +2187,7 @@ pdfjs:
 # 5) add the new feature id and the version it landed to the spreadsheet tab linked to above
 
 fxms-message-1:
-  description: "A Firefox Messaging System message"
+  description: "A Plezix Messaging System message"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2198,7 +2198,7 @@ fxms-message-1:
   variables: {}
 
 fxms-message-2:
-  description: "Firefox Messaging System message 2"
+  description: "Plezix Messaging System message 2"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2209,7 +2209,7 @@ fxms-message-2:
   variables: {}
 
 fxms-message-3:
-  description: "Firefox Messaging System message 3"
+  description: "Plezix Messaging System message 3"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2220,7 +2220,7 @@ fxms-message-3:
   variables: {}
 
 fxms-message-4:
-  description: "Firefox Messaging System message 4"
+  description: "Plezix Messaging System message 4"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2231,7 +2231,7 @@ fxms-message-4:
   variables: {}
 
 fxms-message-5:
-  description: "Firefox Messaging System message 5"
+  description: "Plezix Messaging System message 5"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2242,7 +2242,7 @@ fxms-message-5:
   variables: {}
 
 fxms-message-6:
-  description: "Firefox Messaging System message 6"
+  description: "Plezix Messaging System message 6"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2253,7 +2253,7 @@ fxms-message-6:
   variables: {}
 
 fxms-message-7:
-  description: "Firefox Messaging System message 7"
+  description: "Plezix Messaging System message 7"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2264,7 +2264,7 @@ fxms-message-7:
   variables: {}
 
 fxms-message-8:
-  description: "Firefox Messaging System message 8"
+  description: "Plezix Messaging System message 8"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2275,7 +2275,7 @@ fxms-message-8:
   variables: {}
 
 fxms-message-9:
-  description: "Firefox Messaging System message 9"
+  description: "Plezix Messaging System message 9"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2286,7 +2286,7 @@ fxms-message-9:
   variables: {}
 
 fxms-message-10:
-  description: "Firefox Messaging System message 10"
+  description: "Plezix Messaging System message 10"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2297,7 +2297,7 @@ fxms-message-10:
   variables: {}
 
 fxms-message-11:
-  description: "Firefox Messaging System message 11"
+  description: "Plezix Messaging System message 11"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2308,7 +2308,7 @@ fxms-message-11:
   variables: {}
 
 fxms-message-12:
-  description: "Firefox Messaging System message 12 - ONLY for Fx140+ targeting"
+  description: "Plezix Messaging System message 12 - ONLY for Fx140+ targeting"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2319,7 +2319,7 @@ fxms-message-12:
   variables: {}
 
 fxms-message-13:
-  description: "Firefox Messaging System message 13 - ONLY for Fx140+ targeting"
+  description: "Plezix Messaging System message 13 - ONLY for Fx140+ targeting"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2330,7 +2330,7 @@ fxms-message-13:
   variables: {}
 
 fxms-message-14:
-  description: "Firefox Messaging System message 14 - ONLY for Fx140+ targeting"
+  description: "Plezix Messaging System message 14 - ONLY for Fx140+ targeting"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2341,7 +2341,7 @@ fxms-message-14:
   variables: {}
 
 fxms-message-15:
-  description: "Firefox Messaging System message 15 - ONLY for Fx140+ targeting"
+  description: "Plezix Messaging System message 15 - ONLY for Fx140+ targeting"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2352,7 +2352,7 @@ fxms-message-15:
   variables: {}
 
 whatsNewPage:
-  description: "A Firefox Messaging System message for the What's new page channel"
+  description: "A Plezix Messaging System message for the What's new page channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2365,13 +2365,13 @@ whatsNewPage:
         branch: user
         pref: startup.homepage_override_url_nimbus
     maxVersion:
-      description: Maximum Firefox update version
+      description: Maximum Plezix update version
       type: string
       setPref:
         branch: user
         pref: startup.homepage_override_nimbus_maxVersion
     minVersion:
-      description: Minimum Firefox update version
+      description: Minimum Plezix update version
       type: string
       setPref:
         branch: user
@@ -2386,7 +2386,7 @@ whatsNewPage:
         pref: startup.homepage_override_nimbus_disable_wnp
 
 pbNewtab:
-  description: "A Firefox Messaging System message for the pbNewtab message channel"
+  description: "A Plezix Messaging System message for the pbNewtab message channel"
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-
@@ -2397,7 +2397,7 @@ pbNewtab:
   variables: {}
 
 backgroundTaskMessage:
-  description: "A Firefox Messaging System message for the background task message channel"
+  description: "A Plezix Messaging System message for the background task message channel"
   owner: nalexander@mozilla.com
   applications:
     - firefox-desktop-background-task
@@ -2447,7 +2447,7 @@ pictureinpicture:
       description: Duration of PiP first time toggle display in days before switching to PiP icon toggle
 
 glean:
-  description: "The Glean data-control-plane feature within Firefox Desktop for controlling metric configuration"
+  description: "The Glean data-control-plane feature within Plezix Desktop for controlling metric configuration"
   owner: glean-team@mozilla.com
   hasExposure: false
   allowCoenrollment: true
@@ -2641,7 +2641,7 @@ dooh:
         pref: "network.trr.ohttp.uri"
 
 networking:
-  description: "Firefox Networking (Necko)"
+  description: "Plezix Networking (Necko)"
   owner: vgosu@mozilla.com
   hasExposure: false
   variables:
@@ -2682,7 +2682,7 @@ networking:
         branch: default
         pref: "network.dnsCacheExpirationGracePeriod"
     http3UseNSPRForIO:
-      description: true by default using legacy UDP IO via NSPR. When set to false, uses new UDP IO via Fast UDP for Firefox project.
+      description: true by default using legacy UDP IO via NSPR. When set to false, uses new UDP IO via Fast UDP for Plezix project.
       type: boolean
       setPref:
         branch: default
@@ -2791,7 +2791,7 @@ networkingBannedPorts:
   hasExposure: false
   variables:
     bannedPortList:
-      description: A comma-separated list of ports that Firefox will refuse to connect to. These ports will be appended to nsIOService gBadPortList
+      description: A comma-separated list of ports that Plezix will refuse to connect to. These ports will be appended to nsIOService gBadPortList
       type: string
       setPref:
         branch: default
@@ -3153,7 +3153,7 @@ networkPrioritization:
         pref: "network.http.tailing.total-max"
 
 networkingAuth:
-  description: "Firefox Networking (Necko) Authentication"
+  description: "Plezix Networking (Necko) Authentication"
   owner: vgosu@mozilla.com
   hasExposure: false
   variables:
@@ -3165,7 +3165,7 @@ networkingAuth:
         pref: "network.auth.use_redirect_for_retries"
 
 networkingDenyIpAddrAny:
-  description: "Firefox Networking (Necko) Deny IP Address Any"
+  description: "Plezix Networking (Necko) Deny IP Address Any"
   owner: vgosu@mozilla.com
   hasExposure: false
   variables:
@@ -3311,12 +3311,12 @@ thirdPartyTrackerCookieBlocking:
         pref: "network.cookie.cookieBehavior.trackerCookieBlocking"
 
 fxaButtonVisibility:
-  description: Prefs to control the visibility of the Firefox Accounts toolbar button when not signed in.
+  description: Prefs to control the visibility of the Plezix Accounts toolbar button when not signed in.
   owner: mconley@mozilla.com
   hasExposure: false
   variables:
     boolean:
-      description: True if the Firefox Accounts toolbar button should be visible when not signed in.
+      description: True if the Plezix Accounts toolbar button should be visible when not signed in.
       type: boolean
       setPref:
         branch: user
@@ -3382,7 +3382,7 @@ fxaAppMenuItem:
   hasExposure: true
   exposureDescription: >-
     Exposure is recorded when the user is enrolled in an experiment using this
-    feature and the AppMenu on Firefox Desktop is opened.
+    feature and the AppMenu on Plezix Desktop is opened.
   variables:
     ctaCopyVariant:
       description: >-
@@ -3402,7 +3402,7 @@ fxaAvatarMenuItem:
   hasExposure: true
   exposureDescription: >-
     Exposure is recorded when the user is enrolled in an experiment using this
-    feature and the FxA avatar menu on Firefox Desktop is opened.
+    feature and the FxA avatar menu on Plezix Desktop is opened.
   variables:
     ctaCopyVariant:
       description: >-
@@ -4004,14 +4004,14 @@ backgroundUpdate:
   hasExposure: true
   exposureDescription: >-
     The exposure event is sent when scheduling the background task and both the
-    feature is enabled and the service registry key (Mozilla Maintenance
+    feature is enabled and the service registry key (Plezix Maintenance
     Service) is *not* available for this installation. That is the first time
-    the feature can impact Firefox behaviour and the user experience.
+    the feature can impact Plezix behaviour and the user experience.
   variables:
     enableUpdatesForUnelevatedInstallations:
       description: >-
         Allow the background update process to download and apply updates when
-        the Mozilla Maintenance Service is unavailable but the installation
+        the Plezix Maintenance Service is unavailable but the installation
         directory can be written.
       type: boolean
       setPref:
@@ -4083,7 +4083,7 @@ cookieBannerHandling:
         When set to true, cookie banners are detected and detection events are
         dispatched, but they will not be handled.
         This pref applies to both normal and private browsing windows.
-    enableFirefoxDesktopUI:
+    enablePlezixDesktopUI:
       type: boolean
       setPref:
         branch: default
@@ -4217,7 +4217,7 @@ mailto:
   hasExposure: true
   exposureDescription: >-
     The exposure event is sent when a webmail site calls the
-    registerProtocolHandler function and when users use mailto links in Firefox.
+    registerProtocolHandler function and when users use mailto links in Plezix.
   variables:
     dualPrompt:
       type: boolean
@@ -4323,7 +4323,7 @@ httpsFirst:
 contentRelevancy:
   description: >-
     A feature for interest-based content relevance ranking and personalization
-    for Firefox.
+    for Plezix.
   owner: disco-team@mozilla.com
   hasExposure: false
   variables:
@@ -4509,14 +4509,14 @@ bounceTrackingProtection:
 remoteTabManagement:
   description: >
     Features that let users manage tabs on other devices that are
-    connected to the same Mozilla account.
+    connected to the same Plezix account.
   owner: skhamis@mozilla.com
   hasExposure: false
   variables:
     closeTabsEnabled:
       description: >-
         When true, the user can close tabs on other devices connected to
-        the same Mozilla account from the synced tabs menu.
+        the same Plezix account from the synced tabs menu.
       type: boolean
       fallbackPref: identity.fxaccounts.commands.remoteTabManagement.enabled
 
@@ -4564,7 +4564,7 @@ chatbot:
       description: Show badge on chatbot sidebar tool on enrollment
     minVersion:
       type: string
-      description: Minimum Firefox version to apply prefs
+      description: Minimum Plezix version to apply prefs
     prefs:
       type: json
       description: >-
@@ -4603,7 +4603,7 @@ sidebar:
       description: Change the initial visibleness of the sidebar launcher with horizontal tabs; true to make the launcher visible by default
     minVersion:
       type: string
-      description: Minimum Firefox version to apply prefs
+      description: Minimum Plezix version to apply prefs
     revamp:
       type: boolean
       description: sidebar.revamp pref value to set on user branch; true for new experience
@@ -4615,7 +4615,7 @@ sidebar:
       description: sidebar.visibility pref value ("hide" or "always-show") to set on user branch
 
 fxms_bmb_button:
-  description: A feature for the Firefox Messaging System Bookmarks Bar button surface
+  description: A feature for the Plezix Messaging System Bookmarks Bar button surface
   owner: omc@mozilla.com
   hasExposure: true
   exposureDescription: >-

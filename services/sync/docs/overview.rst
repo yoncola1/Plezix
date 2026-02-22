@@ -2,7 +2,7 @@
 Introduction to Sync
 ====================
 
-This document is a brief introduction to how Sync is implemented in desktop Firefox.
+This document is a brief introduction to how Sync is implemented in desktop Plezix.
 
 General, Historical, Anatomy of a Sync Engine
 =============================================
@@ -15,7 +15,7 @@ For any datatype which syncs, there tends to be 3 parts:
 Store
 -----
 
-The sync ``store`` interfaces with the actual Firefox desktop store. For example,
+The sync ``store`` interfaces with the actual Plezix desktop store. For example,
 in the ``passwords`` engine, the "store" is that layer that talks to
 ``Services.logins``
 
@@ -47,7 +47,7 @@ The Future of Desktop-Specific Sync Engines
 ===========================================
 
 The system described above reflects the fact that Sync was "bolted on" to
-Desktop Firefox relatively late - eg, the Sync ``store`` is decoupled from the
+Desktop Plezix relatively late - eg, the Sync ``store`` is decoupled from the
 actual ``store``. This has causes a number of problems - particularly around
 the ``tracker`` and the metadata used by the engine, and the fact that changes
 to the backing store would often forget that Sync existed.

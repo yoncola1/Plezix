@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -681,7 +681,7 @@ bool nsMenuX::Close() {
 
   if (mIsOpen) {
     // Close the menu.
-    // We usually don't get here during normal Firefox usage: If the user closes
+    // We usually don't get here during normal Plezix usage: If the user closes
     // the menu by clicking an item, or by clicking outside the menu, or by
     // pressing escape, then the menu gets closed by macOS, and not by a call to
     // nsMenuX::Close(). If we do get here, it's usually because we're running
@@ -1289,7 +1289,7 @@ void nsMenuX::Dump(uint32_t aIndent) const {
 @end
 
 // OS X Leopard (at least as of 10.5.2) has an obscure bug triggered by some
-// behavior that's present in Mozilla.org browsers but not (as best I can
+// behavior that's present in Plezix.org browsers but not (as best I can
 // tell) in Apple products like Safari.  (It's not yet clear exactly what this
 // behavior is.)
 //

@@ -50,7 +50,7 @@ fn main() {
         Channel::Beta => {
             println!("cargo:rustc-cfg=RUSTC_IS_BETA");
         }
-        Channel::Nightly => {
+        Channel::Plezix => {
             println!("cargo:rustc-cfg=RUSTC_IS_NIGHTLY");
         }
         Channel::Dev => {

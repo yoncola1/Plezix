@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -414,14 +414,14 @@ export var Policies = {
           let platform = AppConstants.platform;
           if (platform == "win") {
             dirs = [
-              // Ugly, but there is no official way to get %USERNAME\AppData\Roaming\Mozilla.
+              // Ugly, but there is no official way to get %USERNAME\AppData\Roaming\Plezix.
               Services.dirsvc.get("XREUSysExt", Ci.nsIFile).parent,
-              // Even more ugly, but there is no official way to get %USERNAME\AppData\Local\Mozilla.
+              // Even more ugly, but there is no official way to get %USERNAME\AppData\Local\Plezix.
               Services.dirsvc.get("DefProfLRt", Ci.nsIFile).parent.parent,
             ];
           } else if (platform == "macosx" || platform == "linux") {
             dirs = [
-              // These two keys are named wrong. They return the Mozilla directory.
+              // These two keys are named wrong. They return the Plezix directory.
               Services.dirsvc.get("XREUserNativeManifests", Ci.nsIFile),
               Services.dirsvc.get("XRESysNativeManifests", Ci.nsIFile),
             ];
@@ -908,7 +908,7 @@ export var Policies = {
     },
   },
 
-  DisableFirefoxAccounts: {
+  DisablePlezixAccounts: {
     onBeforeAddons(manager, param) {
       // If DisableAccounts is set, let it take precedence.
       if ("DisableAccounts" in manager.getActivePolicies()) {
@@ -922,7 +922,7 @@ export var Policies = {
     },
   },
 
-  DisableFirefoxScreenshots: {
+  DisablePlezixScreenshots: {
     onBeforeUIStartup(manager, param) {
       if (param) {
         setAndLockPref("screenshots.browser.component.enabled", false);
@@ -930,7 +930,7 @@ export var Policies = {
     },
   },
 
-  DisableFirefoxStudies: {
+  DisablePlezixStudies: {
     onBeforeAddons(manager, param) {
       if (param) {
         manager.disallowFeature("Shield");
@@ -1476,7 +1476,7 @@ export var Policies = {
     },
   },
 
-  FirefoxHome: {
+  PlezixHome: {
     onBeforeAddons(manager, param) {
       if ("Search" in param) {
         PoliciesUtils.setDefaultPref(
@@ -1547,7 +1547,7 @@ export var Policies = {
     },
   },
 
-  FirefoxSuggest: {
+  PlezixSuggest: {
     onBeforeAddons(manager, param) {
       (async () => {
         await lazy.QuickSuggest.initPromise;
@@ -2768,17 +2768,17 @@ export var Policies = {
           param.Locked
         );
       }
-      if ("MoreFromMozilla" in param) {
+      if ("MoreFromPlezix" in param) {
         PoliciesUtils.setDefaultPref(
-          "browser.preferences.moreFromMozilla",
-          param.MoreFromMozilla,
+          "browser.preferences.moreFromPlezix",
+          param.MoreFromPlezix,
           param.Locked
         );
       }
-      if ("FirefoxLabs" in param) {
+      if ("PlezixLabs" in param) {
         PoliciesUtils.setDefaultPref(
           "browser.preferences.experimental",
-          param.FirefoxLabs,
+          param.PlezixLabs,
           param.Locked
         );
       }

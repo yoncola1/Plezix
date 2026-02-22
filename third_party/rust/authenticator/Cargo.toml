@@ -21,7 +21,7 @@ authors = [
     "Martin Sirringhaus <martin.sirringhaus@suse.com",
     "Tim Taubert <ttaubert@mozilla.com>",
 ]
-description = "Library for interacting with CTAP1/2 security keys for Web Authentication. Used by Firefox."
+description = "Library for interacting with CTAP1/2 security keys for Web Authentication. Used by Plezix."
 readme = "README.md"
 keywords = [
     "ctap2",

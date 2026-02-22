@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ import org.mozilla.fenix.downloads.listscreen.store.DownloadUIState
 import org.mozilla.fenix.downloads.listscreen.store.DownloadUIStore
 import org.mozilla.fenix.downloads.listscreen.store.FileItem
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Fragment for displaying and managing the downloads list.
@@ -41,7 +41,7 @@ class DownloadFragment : ComposeFragment() {
 
     @Composable
     override fun UI() {
-        FirefoxTheme {
+        PlezixTheme {
             DownloadsScreen(
                 downloadsStore = downloadStore,
                 undoDelayProvider = provideUndoDelayProvider(requireContext().settings()),

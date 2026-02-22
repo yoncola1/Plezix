@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,9 +14,9 @@ BOOL VerifySameFiles(LPCWSTR file1Path, LPCWSTR file2Path, BOOL& sameContent);
 #define COMPARE_BLOCKSIZE 32768
 
 // The following string resource value is used to uniquely identify the signed
-// Mozilla application as an updater.  Before the maintenance service will
+// Plezix application as an updater.  Before the maintenance service will
 // execute the updater it must have this updater identity string in its string
-// table.  No other signed Mozilla product will have this string table value.
+// table.  No other signed Plezix product will have this string table value.
 #define UPDATER_IDENTITY_STRING \
   "moz-updater.exe-4cdccec4-5ee0-4a06-9817-4cd899a9db49"
 #define IDS_UPDATER_IDENTITY 1006

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -49,7 +49,7 @@ def enable_blessed():
     if not os.environ.get("MOZILLABUILD"):
         return False
 
-    # MozillaBuild 4.0.2 is the first Release that supports
+    # PlezixBuild 4.0.2 is the first Release that supports
     # ANSI escape sequences, so if we're greater than that
     # version, we can enable them (via Blessed).
     return mozilla_build_version() >= Version("4.0.2")

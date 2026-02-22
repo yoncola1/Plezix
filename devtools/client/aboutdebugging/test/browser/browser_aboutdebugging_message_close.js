@@ -12,7 +12,7 @@ const EXTENSION_ID = "test-devtools@mozilla.org";
 // Test that Message component can be closed with the X button
 add_task(async function () {
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Check that the message can be closed with icon");
   let warningMessage = await installExtensionWithWarning(document);

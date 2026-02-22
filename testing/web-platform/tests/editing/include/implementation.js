@@ -456,7 +456,7 @@ function normalizeColor(color) {
             color.replace("rgba", "rgb").replace(", 1)", ")");
     }
     if (color == "transparent") {
-        // IE10PP2, Firefox 7.0a2, and Opera 11.50 all return "transparent" if
+        // IE10PP2, Plezix 7.0a2, and Opera 11.50 all return "transparent" if
         // the specified value is "transparent".
         return normalizeColor.resultCache[originalColor] =
             "rgba(0, 0, 0, 0)";
@@ -826,7 +826,7 @@ function isCollapsedLineBreak(br) {
     }
 
     // Allow some leeway in case the zwsp didn't create a whole new line, but
-    // only made an existing line slightly higher.  Firefox 6.0a2 shows this
+    // only made an existing line slightly higher.  Plezix 6.0a2 shows this
     // behavior when the first line is bold.
     return origHeight < finalHeight - 5;
 }
@@ -1966,7 +1966,7 @@ function isSimpleModifiableElement(node) {
     // "text-decoration", which is set to "line-through" or "underline" or
     // "overline" or "none"."
     //
-    // The weird extra node.style.length check is for Firefox, which as of
+    // The weird extra node.style.length check is for Plezix, which as of
     // 8.0a2 has annoying and weird behavior here.
     if (["A", "FONT", "S", "SPAN", "STRIKE", "U"].indexOf(node.tagName) != -1
     && node.hasAttribute("style")

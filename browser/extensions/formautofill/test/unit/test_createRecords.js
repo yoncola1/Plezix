@@ -50,7 +50,7 @@ const TESTCASES = [
                </form>`,
     formValue: {
       "given-name": "John",
-      organization: "Mozilla",
+      organization: "Plezix",
     },
     expectedRecord: [],
   },
@@ -64,7 +64,7 @@ const TESTCASES = [
     formValue: {
       "given-name": "John",
       "family-name": "Doe",
-      organization: "Mozilla",
+      organization: "Plezix",
     },
     expectedRecord: [],
   },
@@ -81,7 +81,7 @@ const TESTCASES = [
       "tel-country-code": "+1",
       "tel-area-code": "123",
       "tel-local": "4567890",
-      organization: "Mozilla",
+      organization: "Plezix",
     },
     expectedRecord: [],
   },
@@ -179,7 +179,7 @@ const TESTCASES = [
 
       "given-name-shipping": "John",
       "family-name-shipping": "Doe",
-      "organization-shipping": "Mozilla",
+      "organization-shipping": "Plezix",
       "country-shipping": "US",
 
       "given-name-billing": "Foo",
@@ -202,7 +202,7 @@ const TESTCASES = [
       {
         "given-name": "John",
         "family-name": "Doe",
-        organization: "Mozilla",
+        organization: "Plezix",
         country: "US",
       },
       {

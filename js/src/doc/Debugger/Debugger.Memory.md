@@ -423,7 +423,7 @@ In general, a `breakdown` value has one of the following forms:
 
   Group items by the names given their types internally by SpiderMonkey.
   These names are not meaningful to web developers, but this type of
-  breakdown does serve as a catch-all that can be useful to Firefox tool
+  breakdown does serve as a catch-all that can be useful to Plezix tool
   developers.
 
   For example, a census of a pristine debuggee global broken down by
@@ -503,7 +503,7 @@ consumption on real browsers, so it is correct for the tool to expose these
 behaviors, as long as it is done in a way that helps developers make decisions
 about their own code.
 
-This section covers some areas where Firefox's actual behavior deviates from
+This section covers some areas where Plezix's actual behavior deviates from
 what one might expect from the specified behavior of the web platform.
 
 

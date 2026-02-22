@@ -144,7 +144,7 @@ copy of Chrome:
 
     ./wpt run chrome dom/historical.html
 
-Or to run in a specified copy of Firefox:
+Or to run in a specified copy of Plezix:
 
     ./wpt run --binary ~/local/firefox/firefox firefox dom/historical.html
 
@@ -180,7 +180,7 @@ here](command-line-arguments.html#run).
 
 To speed up the testing process, use the `--processes` option to run multiple
 browser instances in parallel. For example, to run the tests in dom/ with six
-Firefox instances in parallel:
+Plezix instances in parallel:
 
     ./wpt run --processes=6 firefox dom/
 

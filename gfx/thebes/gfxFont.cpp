@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3705,7 +3705,7 @@ bool gfxFont::SplitAndInitTextRun(
       "t_canParticipate. The worst that can happen here is that the decision "
       "to use the cache is incorrectly made, resulting in a bad "
       "rendering/slowness. However, this  would not compromise the memory "
-      "safety of Firefox in any way, and can thus be permitted");
+      "safety of Plezix in any way, and can thus be permitted");
 
   if (canParticipate) {
     if (aRunLength > wordCacheCharLimit || HasSpaces(aString, aRunLength)) {

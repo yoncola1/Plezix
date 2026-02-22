@@ -58,39 +58,39 @@ function triggerClickOn(target, options) {
 add_task(async function aria_attributes() {
   let win = await BrowserTestUtils.openNewBrowserWindow();
   is(
-    win.FirefoxViewHandler.button.getAttribute("role"),
+    win.PlezixViewHandler.button.getAttribute("role"),
     "button",
-    "Firefox View button should have the 'button' ARIA role"
+    "Plezix View button should have the 'button' ARIA role"
   );
-  await openFirefoxViewTab(win);
+  await openPlezixViewTab(win);
   isnot(
-    win.FirefoxViewHandler.button.getAttribute("aria-controls"),
+    win.PlezixViewHandler.button.getAttribute("aria-controls"),
     "",
-    "Firefox View button should have non-empty `aria-controls` attribute"
+    "Plezix View button should have non-empty `aria-controls` attribute"
   );
   is(
-    win.FirefoxViewHandler.button.getAttribute("aria-controls"),
-    win.FirefoxViewHandler.tab.linkedPanel,
-    "Firefox View button should refence the hidden tab's linked panel via `aria-controls`"
+    win.PlezixViewHandler.button.getAttribute("aria-controls"),
+    win.PlezixViewHandler.tab.linkedPanel,
+    "Plezix View button should refence the hidden tab's linked panel via `aria-controls`"
   );
   is(
-    win.FirefoxViewHandler.button.getAttribute("aria-pressed"),
+    win.PlezixViewHandler.button.getAttribute("aria-pressed"),
     "true",
-    'Firefox View button should have `aria-pressed="true"` upon selecting it'
+    'Plezix View button should have `aria-pressed="true"` upon selecting it'
   );
   win.BrowserCommands.openTab();
   is(
-    win.FirefoxViewHandler.button.getAttribute("aria-pressed"),
+    win.PlezixViewHandler.button.getAttribute("aria-pressed"),
     "false",
-    'Firefox View button should have `aria-pressed="false"` upon selecting a different tab'
+    'Plezix View button should have `aria-pressed="false"` upon selecting a different tab'
   );
   await BrowserTestUtils.closeWindow(win);
 });
 
 add_task(async function load_opens_new_tab() {
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     let win = browser.ownerGlobal;
-    ok(win.FirefoxViewHandler.tab.selected, "Firefox View tab is selected");
+    ok(win.PlezixViewHandler.tab.selected, "Plezix View tab is selected");
     win.gURLBar.focus();
     win.gURLBar.value = "https://example.com";
     let newTabOpened = BrowserTestUtils.waitForEvent(
@@ -99,21 +99,21 @@ add_task(async function load_opens_new_tab() {
     );
     EventUtils.synthesizeKey("KEY_Enter", {}, win);
     info(
-      "Waiting for new tab to open from the address bar in the Firefox View tab"
+      "Waiting for new tab to open from the address bar in the Plezix View tab"
     );
     await newTabOpened;
-    assertFirefoxViewTab(win);
+    assertPlezixViewTab(win);
     ok(
-      !win.FirefoxViewHandler.tab.selected,
-      "Firefox View tab is not selected anymore (new tab opened in the foreground)"
+      !win.PlezixViewHandler.tab.selected,
+      "Plezix View tab is not selected anymore (new tab opened in the foreground)"
     );
   });
 });
 
 add_task(async function homepage_new_tab() {
-  await withFirefoxView({ openNewWindow: true }, async browser => {
+  await withPlezixView({ openNewWindow: true }, async browser => {
     let win = browser.ownerGlobal;
-    ok(win.FirefoxViewHandler.tab.selected, "Firefox View tab is selected");
+    ok(win.PlezixViewHandler.tab.selected, "Plezix View tab is selected");
     let newTabOpened = BrowserTestUtils.waitForEvent(
       win.gBrowser.tabContainer,
       "TabOpen"
@@ -121,16 +121,16 @@ add_task(async function homepage_new_tab() {
     win.BrowserCommands.home();
     info("Waiting for BrowserCommands.home() to open a new tab");
     await newTabOpened;
-    assertFirefoxViewTab(win);
+    assertPlezixViewTab(win);
     ok(
-      !win.FirefoxViewHandler.tab.selected,
-      "Firefox View tab is not selected anymore (home page opened in the foreground)"
+      !win.PlezixViewHandler.tab.selected,
+      "Plezix View tab is not selected anymore (home page opened in the foreground)"
     );
   });
 });
 
 add_task(async function number_tab_select_shortcut() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     let win = browser.ownerGlobal;
     EventUtils.synthesizeKey(
       "1",
@@ -138,21 +138,21 @@ add_task(async function number_tab_select_shortcut() {
       win
     );
     ok(
-      !win.FirefoxViewHandler.tab.selected,
-      "Number shortcut to select the first tab skipped the Firefox View tab"
+      !win.PlezixViewHandler.tab.selected,
+      "Number shortcut to select the first tab skipped the Plezix View tab"
     );
   });
 });
 
 add_task(async function accel_w_behavior() {
   let win = await BrowserTestUtils.openNewBrowserWindow();
-  await openFirefoxViewTab(win);
+  await openPlezixViewTab(win);
   EventUtils.synthesizeKey("w", { accelKey: true }, win);
-  ok(!win.FirefoxViewHandler.tab, "Accel+w closed the Firefox View tab");
-  await openFirefoxViewTab(win);
+  ok(!win.PlezixViewHandler.tab, "Accel+w closed the Plezix View tab");
+  await openPlezixViewTab(win);
   win.gBrowser.selectedTab = win.gBrowser.visibleTabs[0];
   info(
-    "Waiting for Accel+W in the only visible tab to close the window, ignoring the presence of the hidden Firefox View tab"
+    "Waiting for Accel+W in the only visible tab to close the window, ignoring the presence of the hidden Plezix View tab"
   );
   let windowClosed = BrowserTestUtils.windowClosed(win);
   EventUtils.synthesizeKey("w", { accelKey: true }, win);
@@ -183,15 +183,15 @@ add_task(async function undo_close_tab() {
     "Closing about:about added to the closed tab count"
   );
 
-  let viewTab = await openFirefoxViewTab(win);
+  let viewTab = await openPlezixViewTab(win);
   await TestUtils.waitForTick();
   sessionUpdatePromise = BrowserTestUtils.waitForSessionStoreUpdate(viewTab);
-  closeFirefoxViewTab(win);
+  closePlezixViewTab(win);
   await sessionUpdatePromise;
   is(
     SessionStore.getClosedTabCountForWindow(win),
     1,
-    "Closing the Firefox View tab did not add to the closed tab count"
+    "Closing the Plezix View tab did not add to the closed tab count"
   );
   await BrowserTestUtils.closeWindow(win);
 });
@@ -202,7 +202,7 @@ add_task(async function test_firefoxview_view_count() {
     set: [["browser.firefox-view.view-count", startViews]],
   });
 
-  let tab = await openFirefoxViewTab(window);
+  let tab = await openPlezixViewTab(window);
 
   Assert.strictEqual(
     SpecialPowers.getIntPref("browser.firefox-view.view-count"),
@@ -214,40 +214,40 @@ add_task(async function test_firefoxview_view_count() {
 });
 
 add_task(async function test_add_ons_cant_unhide_fx_view() {
-  // Test that add-ons can't unhide the Firefox View tab by calling
+  // Test that add-ons can't unhide the Plezix View tab by calling
   // browser.tabs.show(). See bug 1791770 for details.
   let win = await BrowserTestUtils.openNewBrowserWindow();
   let tab = await BrowserTestUtils.openNewForegroundTab(
     win.gBrowser,
     "about:about"
   );
-  let viewTab = await openFirefoxViewTab(win);
+  let viewTab = await openPlezixViewTab(win);
   win.gBrowser.hideTab(tab);
 
   ok(tab.hidden, "Regular tab is hidden");
-  ok(viewTab.hidden, "Firefox View tab is hidden");
+  ok(viewTab.hidden, "Plezix View tab is hidden");
 
   win.gBrowser.showTab(tab);
   win.gBrowser.showTab(viewTab);
 
   ok(!tab.hidden, "Add-on showed regular hidden tab");
-  ok(viewTab.hidden, "Add-on did not show Firefox View tab");
+  ok(viewTab.hidden, "Add-on did not show Plezix View tab");
 
   await BrowserTestUtils.closeWindow(win);
 });
 
 // Test navigation to first visible tab when the
-// Firefox View button is present and active.
+// Plezix View button is present and active.
 add_task(async function testFirstTabFocusableWhenFxViewOpen() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     let win = browser.ownerGlobal;
-    ok(win.FirefoxViewHandler.tab.selected, "Firefox View tab is selected");
+    ok(win.PlezixViewHandler.tab.selected, "Plezix View tab is selected");
     let fxViewBtn = win.document.getElementById("firefox-view-button");
     forceFocus(fxViewBtn);
     is(
       win.document.activeElement,
       fxViewBtn,
-      "Firefox View button focused for start of test"
+      "Plezix View button focused for start of test"
     );
     let firstVisibleTab = win.gBrowser.visibleTabs[0];
     await expectFocusAfterKey("Tab", firstVisibleTab, false, win);
@@ -257,13 +257,13 @@ add_task(async function testFirstTabFocusableWhenFxViewOpen() {
   });
 });
 
-// Test that Firefox View tab is not multiselectable
+// Test that Plezix View tab is not multiselectable
 add_task(async function testFxViewNotMultiselect() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     let win = browser.ownerGlobal;
     Assert.ok(
-      win.FirefoxViewHandler.tab.selected,
-      "Firefox View tab is selected"
+      win.PlezixViewHandler.tab.selected,
+      "Plezix View tab is selected"
     );
     let tab2 = await add_new_tab("https://www.mozilla.org");
     let fxViewBtn = win.document.getElementById("firefox-view-button");
@@ -305,7 +305,7 @@ add_task(async function testFxViewEntryPointsInPrivateBrowsing() {
   async function checkMenu(win, expectedEnabled) {
     await SimpleTest.promiseFocus(win);
     const toolsMenu = win.document.getElementById("tools-menu");
-    const fxViewMenuItem = toolsMenu.querySelector("#menu_openFirefoxView");
+    const fxViewMenuItem = toolsMenu.querySelector("#menu_openPlezixView");
     const menuShown = BrowserTestUtils.waitForEvent(toolsMenu, "popupshown");
 
     toolsMenu.openMenu(true);
@@ -313,7 +313,7 @@ add_task(async function testFxViewEntryPointsInPrivateBrowsing() {
     Assert.equal(
       BrowserTestUtils.isVisible(fxViewMenuItem),
       expectedEnabled,
-      `Firefox view menu item is ${expectedEnabled ? "enabled" : "hidden"}`
+      `Plezix view menu item is ${expectedEnabled ? "enabled" : "hidden"}`
     );
     const menuHidden = BrowserTestUtils.waitForEvent(toolsMenu, "popuphidden");
     toolsMenu.menupopup.hidePopup();

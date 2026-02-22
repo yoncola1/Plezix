@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A handle present on top of a bottom sheet. This is selectable when talkback is enabled.
@@ -41,7 +41,7 @@ fun BottomSheetHandle(
     contentDescription: String,
     modifier: Modifier = Modifier,
     cornerRadius: CornerRadius = CornerRadius.Zero,
-    color: Color = FirefoxTheme.colors.textSecondary,
+    color: Color = PlezixTheme.colors.textSecondary,
 ) {
     Canvas(
         modifier = modifier
@@ -62,10 +62,10 @@ fun BottomSheetHandle(
 @Composable
 @PreviewLightDark
 private fun BottomSheetHandlePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             BottomSheetHandle(

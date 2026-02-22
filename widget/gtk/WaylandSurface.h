@@ -1,7 +1,7 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=2:tabstop=2:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -219,7 +219,7 @@ class WaylandSurface final {
   // parent surface will not get any events (frame callbacks) from compositor
   // as it's considered as invisible.
   //
-  // Firefox uses the parent wl_surface (owned by GdkWindow) to get input
+  // Plezix uses the parent wl_surface (owned by GdkWindow) to get input
   // events. Without gdk_wayland_window_add_frame_callback_surface() call,
   // Gdk is not getting any events from compostor and we're frozen.
   //
@@ -401,7 +401,7 @@ class WaylandSurface final {
   guint mEmulatedFrameCallbackTimerID = 0;
   constexpr static int sEmulatedFrameCallbackTimeoutMs = (int)(1000.0 / 60.0);
 
-  // We use two scale systems in Firefox/Wayland. Ceiled (integer) scale and
+  // We use two scale systems in Plezix/Wayland. Ceiled (integer) scale and
   // fractional scale. Ceiled scale is easy to implement but comes with
   // rendering overhead while fractional rendering paints buffers with exact
   // scale.

@@ -30,7 +30,7 @@ add_task(async function test_page_applies() {
   );
 
   let pages = LaterRun.readPages();
-  // We have to filter the pages because it's possible Firefox ships with other URLs
+  // We have to filter the pages because it's possible Plezix ships with other URLs
   // that get included in this test.
   pages = pages.filter(
     page => page.pref == kPagePrefRoot + "test_LaterRun_unittest."
@@ -166,7 +166,7 @@ add_task(async function test_get_URL() {
     3
   );
   let pages = LaterRun.readPages();
-  // We have to filter the pages because it's possible Firefox ships with other URLs
+  // We have to filter the pages because it's possible Plezix ships with other URLs
   // that get included in this test.
   pages = pages.filter(
     page => page.pref == kPagePrefRoot + "test_LaterRun_unittest."
@@ -176,7 +176,7 @@ add_task(async function test_get_URL() {
   let url;
   do {
     url = LaterRun.getURL();
-    // We have to loop because it's possible Firefox ships with other URLs that get triggered by
+    // We have to loop because it's possible Plezix ships with other URLs that get triggered by
     // this test.
   } while (url && url != "https://www.mozilla.org/");
   Assert.equal(
@@ -213,7 +213,7 @@ add_task(async function test_insecure_urls() {
     3
   );
   let pages = LaterRun.readPages();
-  // We have to filter the pages because it's possible Firefox ships with other URLs
+  // We have to filter the pages because it's possible Plezix ships with other URLs
   // that get triggered in this test.
   pages = pages.filter(
     page => page.pref == kPagePrefRoot + "test_LaterRun_unittest."

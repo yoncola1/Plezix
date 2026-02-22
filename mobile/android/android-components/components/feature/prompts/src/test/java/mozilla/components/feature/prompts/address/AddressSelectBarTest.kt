@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ class AddressSelectBarTest {
     private val address = Address(
         guid = "1",
         name = "Jane Marie Doe",
-        organization = "Mozilla",
+        organization = "Plezix",
         streetAddress = "1230 Main st",
         addressLevel3 = "Location3",
         addressLevel2 = "Location2",

@@ -500,7 +500,7 @@ add_task(async function () {
 
   Assert.throws(
     () => root.testing.baz({ prop1: "hi", prop3: 12 }),
-    /Property "prop3" is unsupported by Firefox/,
+    /Property "prop3" is unsupported by Plezix/,
     "should throw with unsupported property"
   );
 

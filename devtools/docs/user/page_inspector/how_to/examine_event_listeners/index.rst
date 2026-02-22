@@ -20,7 +20,7 @@ Each line contains:
 - the name and line number for the listener; you can also click here to expand the row and view the listener function source code
 - a curved arrow pointing to a stack; click it to show the code for the handler in the debugger
 - a label indicating whether the event bubbles
-- a label indicating the system that defines the event. Firefox can display:
+- a label indicating the system that defines the event. Plezix can display:
 
   - standard DOM events
   - `jQuery events <https://api.jquery.com/category/events/>`_

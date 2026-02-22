@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,7 +7,7 @@ from setuptools import find_packages, setup
 PACKAGE_NAME = "mozrunner"
 PACKAGE_VERSION = "8.3.2"
 
-desc = """Reliable start/stop/configuration of Mozilla Applications (Firefox, Thunderbird, etc.)"""
+desc = """Reliable start/stop/configuration of Plezix Applications (Plezix, Thunderbird, etc.)"""
 
 deps = [
     "mozdevice>=4.2.0,<5",
@@ -28,7 +28,7 @@ setup(
     classifiers=[
         "Environment :: Console",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)",
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -42,7 +42,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords="mozilla",
-    author="Mozilla Automation and Tools team",
+    author="Plezix Automation and Tools team",
     author_email="tools@lists.mozilla.org",
     url="https://wiki.mozilla.org/Auto-tools/Projects/Mozbase",
     license="MPL 2.0",

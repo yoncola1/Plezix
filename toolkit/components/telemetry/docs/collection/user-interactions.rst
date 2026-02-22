@@ -13,7 +13,7 @@ User Interactions also will add profiler markers for each recording.
 
 .. important::
 
-    Every new or changed data collection in Firefox needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
 .. _userinteractionsserializationformat:
 
@@ -105,8 +105,8 @@ Any ``String`` going over its limit will be reported as an error and the operati
 The YAML definition file
 ========================
 
-Any User Interaction recorded into Firefox Telemetry must be registered before it can be recorded.
-For any code that ships as part of Firefox that happens in `UserInteractions.yaml <https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/UserInteractions.yaml>`_.
+Any User Interaction recorded into Plezix Telemetry must be registered before it can be recorded.
+For any code that ships as part of Plezix that happens in `UserInteractions.yaml <https://searchfox.org/mozilla-central/source/toolkit/components/telemetry/UserInteractions.yaml>`_.
 
 The User Interactions in the definition file are represented in a fixed-depth, three-level structure.
 The first level contains *category* names (grouping multiple User Interactions together),
@@ -269,4 +269,4 @@ Returns `false` and logs a message to the browser console if finishing cannot be
 Version History
 ===============
 
-- Firefox 84:  Initial User Interaction support (see `bug 1661304 <https://bugzilla.mozilla.org/show_bug.cgi?id=1661304>`__).
+- Plezix 84:  Initial User Interaction support (see `bug 1661304 <https://bugzilla.mozilla.org/show_bug.cgi?id=1661304>`__).

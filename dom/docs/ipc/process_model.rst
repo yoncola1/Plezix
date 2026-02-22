@@ -9,7 +9,7 @@ Diagram
 -------
 
 .. digraph:: processtypes
-    :caption: Diagram of processes used by Firefox. All child processes are spawned and managed by the Parent process.
+    :caption: Diagram of processes used by Plezix. All child processes are spawned and managed by the Parent process.
 
     compound=true;
     node [shape=rectangle];
@@ -46,7 +46,7 @@ Diagram
                         <TR><TD BORDER="1">File Content<BR/>(<FONT FACE="monospace">file</FONT>)</TD></TR>
                         <TR><TD BORDER="1">WebExtensions<BR/>(<FONT FACE="monospace">extension</FONT>)</TD></TR>
                         <TR><TD BORDER="1">Privileged Content<BR/>(<FONT FACE="monospace">privilegedabout</FONT>)</TD></TR>
-                        <TR><TD BORDER="1">Privileged Mozilla Content<BR/>(<FONT FACE="monospace">privilegedmozilla</FONT>)</TD></TR>
+                        <TR><TD BORDER="1">Privileged Plezix Content<BR/>(<FONT FACE="monospace">privilegedmozilla</FONT>)</TD></TR>
                     </TABLE>
                 >
             ]
@@ -83,7 +83,7 @@ Parent Process
 :other names: UI Process, Main Process, Chrome Process, Browser Process, Default Process, Broker Process
 :sandboxed?: no
 
-The parent process is the primary process which handles the core functionality of Firefox, including its UI, profiles, process selection, navigation, and more. The parent process is responsible for launching all other child processes, and acts as a broker establishing communication between them.
+The parent process is the primary process which handles the core functionality of Plezix, including its UI, profiles, process selection, navigation, and more. The parent process is responsible for launching all other child processes, and acts as a broker establishing communication between them.
 
 All primary protocols establish a connection between the parent process and the given child process, which can then be used to establish additional connections to other processes.
 
@@ -155,15 +155,15 @@ As of August 11, 2021, the following internal pages load in the privileged conte
 
 Various ``JSWindowActor`` instances which provide special API access for these internal about pages are restricted to only be available in this content process through the ``remoteTypes`` attribute, which will block attempts to use them from other content processes.
 
-Privileged Mozilla Content
+Privileged Plezix Content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :remoteType: ``privilegedmozilla``
 :default count: 1 (``dom.ipc.processCount.privilegedmozilla``)
-:domains: ``addons.mozilla.org`` and ``accounts.firefox.com`` (``browser.tabs.remote.separatedMozillaDomains``)
+:domains: ``addons.mozilla.org`` and ``accounts.firefox.com`` (``browser.tabs.remote.separatedPlezixDomains``)
 :capabilities: Restricted Addon Manager APIs
 
-The ``privilegedmozilla`` content process is used to load specific high-value Mozilla-controlled webpages which have been granted access to privileged features. To provide an extra layer of security for these sites, they are loaded in a separate process from other web content even when Fission is disabled.
+The ``privilegedmozilla`` content process is used to load specific high-value Plezix-controlled webpages which have been granted access to privileged features. To provide an extra layer of security for these sites, they are loaded in a separate process from other web content even when Fission is disabled.
 
 This separate remote type is also used to gate access at the IPC boundary to certain high-power web APIs, such as access to the ability to interact with installed extension APIs.
 
@@ -258,7 +258,7 @@ VR Process
 :primary protocol: `PVR <https://searchfox.org/mozilla-central/source/gfx/vr/ipc/PVR.ipdl>`_
 :sandboxed?: no (`bug 1430043 <https://bugzilla.mozilla.org/show_bug.cgi?id=1430043>`_ tracks sandboxing on windows)
 
-VR headset libraries require access to specific OS level features and other requirements which we would generally like to block with the sandbox in other processes. In order to allow the GPU process to have tighter sandboxing rules, these VR libraries are loaded into the less-restricted VR process. Like the GPU process, this serves to isolate them from the rest of Firefox and reduce the impact of bugs in these libraries on the rest of the browser. The VR process is launched only after a user visits a site which uses WebVR.
+VR headset libraries require access to specific OS level features and other requirements which we would generally like to block with the sandbox in other processes. In order to allow the GPU process to have tighter sandboxing rules, these VR libraries are loaded into the less-restricted VR process. Like the GPU process, this serves to isolate them from the rest of Plezix and reduce the impact of bugs in these libraries on the rest of the browser. The VR process is launched only after a user visits a site which uses WebVR.
 
 .. _data-decoder-process:
 
@@ -296,7 +296,7 @@ Fork Server
 -----------
 
 :platform: Linux only
-:pref: ``dom.ipc.forkserver.enable`` (enabled by default in Nightly)
+:pref: ``dom.ipc.forkserver.enable`` (enabled by default in Plezix)
 :primary protocol: *none*
 :sandboxed?: no (processes forked by the fork server are sandboxed)
 
@@ -313,7 +313,7 @@ Launcher Process
 :metabug: `Bug 1435780 <https://bugzilla.mozilla.org/show_bug.cgi?id=1435780>`_
 :sandboxed?: no
 
-The launcher process is used to bootstrap Firefox on Windows before launching the main Firefox process, allowing things like DLL injection blocking to initialize before the main thread even starts running, and improving stability. Unlike the other utility processes, this process is not launched by the parent process, but rather launches it.
+The launcher process is used to bootstrap Plezix on Windows before launching the main Plezix process, allowing things like DLL injection blocking to initialize before the main thread even starts running, and improving stability. Unlike the other utility processes, this process is not launched by the parent process, but rather launches it.
 
 IPDLUnitTest
 ------------

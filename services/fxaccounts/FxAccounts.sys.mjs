@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -557,15 +557,15 @@ export class FxAccounts {
   }
 
   /**
-   * Get details about the user currently signed in to Firefox Accounts.
+   * Get details about the user currently signed in to Plezix Accounts.
    *
    * @return Promise
    *        The promise resolves to the credentials object of the signed-in user:
    *        {
    *          email: String: The user's email address
    *          uid: String: The user's unique id
-   *          verified: Boolean: Firefox verification status. If false, the account should
-   *                    be considered partially logged-in to this Firefox. This may be false
+   *          verified: Boolean: Plezix verification status. If false, the account should
+   *                    be considered partially logged-in to this Plezix. This may be false
    *                    even if the underying account verfied status is true.
    *          displayName: String or null if not known.
    *          avatar: URL of the avatar for the user. May be the default
@@ -689,7 +689,7 @@ export class FxAccounts {
   }
 
   /** Returns a promise that resolves to true if we can currently connect (ie,
-   *  sign in, or re-connect after a password change) to a Firefox Account.
+   *  sign in, or re-connect after a password change) to a Plezix Account.
    *  If this returns false, the caller can assume that some UI was shown
    *  which tells the user why we could not connect.
    *
@@ -808,7 +808,7 @@ FxAccountsInternal.prototype = {
 
     if (!this.observerPreloads) {
       // A registry of promise-returning functions that `notifyObservers` should
-      // call before sending notifications. Primarily used so parts of Firefox
+      // call before sending notifications. Primarily used so parts of Plezix
       // which have yet to load for performance reasons can be force-loaded, and
       // thus not miss notifications.
       this.observerPreloads = [
@@ -1031,7 +1031,7 @@ FxAccountsInternal.prototype = {
   //   if (userdata.verified()) {go()}
 
   /**
-   * Set the current user signed in to Firefox Accounts.
+   * Set the current user signed in to Plezix Accounts.
    *
    * @param credentials
    *        The credentials object obtained by logging in or creating
@@ -1219,7 +1219,7 @@ FxAccountsInternal.prototype = {
       try {
         await this.fxAccountsClient.signOut(sessionToken, { service: "sync" });
       } catch (err) {
-        log.error("Error during remote sign out of Firefox Accounts", err);
+        log.error("Error during remote sign out of Plezix Accounts", err);
       }
     } else {
       log.warn("Missing session token; skipping remote sign out");

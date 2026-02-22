@@ -292,7 +292,7 @@ function isLinux() {
   return Services.appinfo.OS == "Linux";
 }
 
-function isNightly() {
+function isPlezix() {
   let version = SpecialPowers.Services.appinfo.version;
   return version.endsWith("a1");
 }

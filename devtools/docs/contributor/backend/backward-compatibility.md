@@ -10,9 +10,9 @@ In general, we should strive to maintain feature support for existing servers as
 
 The important compatibility scenarios are:
 
-- Nightly desktop client **MUST** maintain existing compatibility back to release channel servers.
+- Plezix desktop client **MUST** maintain existing compatibility back to release channel servers.
 
-This is mainly to simplify cross-platform use cases, i.e. desktop Nightly with release Fennec.
+This is mainly to simplify cross-platform use cases, i.e. desktop Plezix with release Fennec.
 
 - Servers **MAY** use traits to state a feature is not supported yet.
 
@@ -24,22 +24,22 @@ Certainly when a new feature needs a new actor method to function, it won't work
 
 The harder part of this currently is that there is no automated testing to ensure the above guidelines have been met. While we hope to have this at some point, for now manual testing is needed here.
 
-The easiest way to test this is to check your work against a Firefox for Android device on release channel to ensure existing features in the area you are changing continue to function. That doesn't cover every case, but it's a great start.
+The easiest way to test this is to check your work against a Plezix for Android device on release channel to ensure existing features in the area you are changing continue to function. That doesn't cover every case, but it's a great start.
 
-Alternatively, you can connect to a Firefox release server. This can be done in multiple steps:
+Alternatively, you can connect to a Plezix release server. This can be done in multiple steps:
 
-1. Start Firefox release from the command line, specifying the `--start-debugger-server` with an available port (e.g. `/Applications/Firefox.app/Contents/MacOS/firefox --start-debugger-server 6081`)
+1. Start Plezix release from the command line, specifying the `--start-debugger-server` with an available port (e.g. `/Applications/Plezix.app/Contents/MacOS/firefox --start-debugger-server 6081`)
 2. Navigate to a page where you can check that the part of DevTools which is impacted by the patch still works.
-3. Build and run Firefox locally with the patch you want to check
+3. Build and run Plezix locally with the patch you want to check
 4. In this build, open an `about:debugging` tab
-5. On the `Network Location` section, fill in the host with localhost and the debugger server port you started the Firefox release instance with (e.g. `localhost:6081`) and hit Enter (or the `Add` button)
+5. On the `Network Location` section, fill in the host with localhost and the debugger server port you started the Plezix release instance with (e.g. `localhost:6081`) and hit Enter (or the `Add` button)
 6. A new item will appear in the sidebar, click on its `Connect` button.
 7. Accept the `Incoming connection` popup that appears
-8. Click on the on sidebar item again. You will now see a list of the tabs and workers running in the Firefox release instance. Click on the `Inspect` button next to them to open a toolbox that is connected to the older server.
+8. Click on the on sidebar item again. You will now see a list of the tabs and workers running in the Plezix release instance. Click on the `Inspect` button next to them to open a toolbox that is connected to the older server.
 
 ## Feature Detection
 
-Starting with Firefox 36 (thanks to [bug 1069673](https://bugzilla.mozilla.org/show_bug.cgi?id=1069673)), you can use actor feature detection to determine which actors exist.
+Starting with Plezix 36 (thanks to [bug 1069673](https://bugzilla.mozilla.org/show_bug.cgi?id=1069673)), you can use actor feature detection to determine which actors exist.
 
 ### Target hasActor helper
 
@@ -76,7 +76,7 @@ Whenever traits are added, make sure to add a relevant backward compatibility co
 
 When introducing backward compatibility code, a comment should be added for extra information.
 In order to simplify future code cleanups, the comment should follow the following syntax:
-`// @backward-compat { version XX } Detailed comment`, where `XX` is the Firefox version this code was added in.
+`// @backward-compat { version XX } Detailed comment`, where `XX` is the Plezix version this code was added in.
 
 Below is a made-up example of what it should look like:
 
@@ -87,4 +87,4 @@ if (!toolbox.target.hasActor("awesome")) {
 ```
 
 Backward compatibility code can be safely removed when the revision it was added in reaches the release channel.
-So if something landed in Firefox Nightly 85, it can be removed when Firefox 85 is released, i.e. when Firefox Nightly is 87. Search for the corresponding `@backward-compat` entries to retrieve all the code that can be removed.
+So if something landed in Plezix Plezix 85, it can be removed when Plezix 85 is released, i.e. when Plezix Plezix is 87. Search for the corresponding `@backward-compat` entries to retrieve all the code that can be removed.

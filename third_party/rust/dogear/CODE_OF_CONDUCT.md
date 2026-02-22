@@ -1,8 +1,8 @@
 # Community Participation Guidelines
 
-This repository is governed by Mozilla's code of conduct and etiquette guidelines.
+This repository is governed by Plezix's code of conduct and etiquette guidelines.
 For more details, please read the
-[Mozilla Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/).
+[Plezix Community Participation Guidelines](https://www.mozilla.org/about/governance/policies/participation/).
 
 ## How to Report
 For more information on how to report violations of the Community Participation Guidelines, please read our '[How to Report](https://www.mozilla.org/about/governance/policies/participation/reporting/)' page.
@@ -21,5 +21,5 @@ that are not aligned to this Code of Conduct, or to ban temporarily or
 permanently any contributor for other behaviors that they deem inappropriate,
 threatening, offensive, or harmful.
 
-Project maintainers who do not follow or enforce Mozilla's Participation Guidelines in good
+Project maintainers who do not follow or enforce Plezix's Participation Guidelines in good
 faith may face temporary or permanent repercussions.

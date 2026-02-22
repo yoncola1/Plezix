@@ -1,6 +1,6 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -40,7 +40,7 @@ with Files("tests/xpcshell/test_Match*.js"):
     BUG_COMPONENT = ("WebExtensions", "General")
 
 with Files("tests/xpcshell/test_NewTabUtils.js"):
-    BUG_COMPONENT = ("Firefox", "New Tab Page")
+    BUG_COMPONENT = ("Plezix", "New Tab Page")
 
 with Files("tests/xpcshell/test_UpdateUtils*.js"):
     BUG_COMPONENT = ("Toolkit", "Application Update")
@@ -49,7 +49,7 @@ with Files("AsyncPrefs.sys.mjs"):
     BUG_COMPONENT = ("Core", "Security: Process Sandboxing")
 
 with Files("AsanReporter.sys.mjs"):
-    BUG_COMPONENT = ("Firefox Build System", "General")
+    BUG_COMPONENT = ("Plezix Build System", "General")
 
 with Files("Color.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
@@ -85,13 +85,13 @@ with Files("JSONFile.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Form Manager")
 
 with Files("LightweightThemeConsumer.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Toolbars and Customization")
+    BUG_COMPONENT = ("Plezix", "Toolbars and Customization")
 
 with Files("NLP.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Find Toolbar")
 
 with Files("NewTabUtils.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Tabbed Browser")
+    BUG_COMPONENT = ("Plezix", "Tabbed Browser")
 
 with Files("ObjectUtils.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Telemetry")
@@ -103,7 +103,7 @@ with Files("PopupNotifications.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "PopupNotifications and Notification Bars")
 
 with Files("PrivateBrowsingUtils.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Private Browsing")
+    BUG_COMPONENT = ("Plezix", "Private Browsing")
 
 with Files("Promise*.sys.mjs"):
     BUG_COMPONENT = ("Toolkit", "Async Tooling")
@@ -112,7 +112,7 @@ with Files("RustSharedRemoteSettingsService.sys.mjs"):
     BUG_COMPONENT = ("Application Services", "Remote Settings")
 
 with Files("ShortcutUtils.sys.mjs"):
-    BUG_COMPONENT = ("Firefox", "Toolbars and Customization")
+    BUG_COMPONENT = ("Plezix", "Toolbars and Customization")
 
 with Files("Sqlite.sys.mjs"):
     BUG_COMPONENT = ("Core", "SQLite and Embedded Database Bindings")

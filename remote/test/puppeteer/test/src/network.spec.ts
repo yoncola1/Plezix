@@ -106,7 +106,7 @@ describe('network', function () {
       if (isChrome) {
         expect(userAgent).toContain('Chrome');
       } else {
-        expect(userAgent).toContain('Firefox');
+        expect(userAgent).toContain('Plezix');
       }
     });
   });
@@ -178,7 +178,7 @@ describe('network', function () {
     });
 
     // Run this cache test both with a stylesheet and a script.
-    // Firefox currently does not handle network events for cached CSS files.
+    // Plezix currently does not handle network events for cached CSS files.
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1879438
     for (const {html, resource, type} of [
       {html: 'one-style.html', resource: 'one-style.css', type: 'stylesheet'},
@@ -344,7 +344,7 @@ describe('network', function () {
       let serverResponse!: ServerResponse;
       server.setRoute('/get', (_req, res) => {
         serverResponse = res;
-        // In Firefox, |fetch| will be hanging until it receives |Content-Type| header
+        // In Plezix, |fetch| will be hanging until it receives |Content-Type| header
         // from server.
         res.setHeader('Content-Type', 'text/plain; charset=utf-8');
         res.write('hello ');
@@ -514,7 +514,7 @@ describe('network', function () {
     });
 
     // Run this cache test both with a stylesheet and a script.
-    // Firefox currently does not handle network events for cached CSS files.
+    // Plezix currently does not handle network events for cached CSS files.
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1879438
     for (const {html, resource, type} of [
       {html: 'one-style.html', resource: 'one-style.css', type: 'stylesheet'},
@@ -812,7 +812,7 @@ describe('network', function () {
     });
 
     // Run this cache test both with a stylesheet and a script.
-    // Firefox currently does not handle network events for cached CSS files.
+    // Plezix currently does not handle network events for cached CSS files.
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1879438
     for (const {html, resource, type} of [
       {html: 'one-style.html', resource: 'one-style.css', type: 'stylesheet'},

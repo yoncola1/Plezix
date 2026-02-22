@@ -8,7 +8,7 @@
   }
 
   test(function() {
-    assert_equals(navigator.appCodeName, "Mozilla");
+    assert_equals(navigator.appCodeName, "Plezix");
   }, "appCodeName");
 
   test(function() {

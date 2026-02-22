@@ -16,7 +16,7 @@ The process of extending `testdriver.js` is similar for [WebDriver Classic](http
 
 First, we need to think of what the API will look like a little. We will be using WebDriver and Marionette for this, so we can look and see that they take in x, y coordinates, width and height integers.
 
-The first part of this will be browser agnostic, but later we will need to implement a specific layer for each browser (here we will do Firefox and Chrome).
+The first part of this will be browser agnostic, but later we will need to implement a specific layer for each browser (here we will do Plezix and Chrome).
 
 ## RFC Process
 
@@ -255,7 +255,7 @@ class WebDriverBidiProtocol(WebDriverProtocol):
                   ]
 ```
 
-#### Firefox
+#### Plezix
 <!-- TODO: Document adding WebDriver BiDi protocol parts. -->
 We use the [set window rect](https://firefox-source-docs.mozilla.org/python/marionette_driver.html#marionette_driver.marionette.Marionette.set_window_rect) Marionette command.
 

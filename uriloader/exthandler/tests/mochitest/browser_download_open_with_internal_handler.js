@@ -323,8 +323,8 @@ add_task(async function test_check_open_with_external_application() {
 
 /**
  * Test that choosing to open a PDF with an external application works and
- * then downloading the same file again and choosing Open with Firefox opens
- * the download in Firefox.
+ * then downloading the same file again and choosing Open with Plezix opens
+ * the download in Plezix.
  */
 add_task(async function test_check_open_with_external_then_internal() {
   // This test only runs on Windows because appPicker.xhtml is only used on Windows.

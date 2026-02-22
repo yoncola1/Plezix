@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,10 +18,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.list.RadioButtonListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
- * Firefox Automatic Translation Options preference screen.
+ * Plezix Automatic Translation Options preference screen.
  *
  * @param selectedOption Selected option that will come from the translations engine.
  * @param onItemClick Invoked when the user clicks on a [AutomaticTranslationOptionPreference] from the list.
@@ -40,7 +40,7 @@ fun AutomaticTranslationOptionsPreference(
     Column(
         modifier = Modifier
             .background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
     ) {
         LazyColumn {
@@ -69,7 +69,7 @@ fun AutomaticTranslationOptionsPreference(
 @Composable
 @PreviewLightDark
 private fun AutomaticTranslationOptionsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         AutomaticTranslationOptionsPreference(
             selectedOption = AutomaticTranslationOptionPreference.AlwaysTranslate(),
             onItemClick = {},

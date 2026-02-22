@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -49,8 +49,8 @@ not enough available memory to perform the build. It's also possible some
 other system activity during the build is to blame.
 
 If you feel this message is not appropriate for your machine configuration,
-please file a Firefox Build System :: General bug at
-https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox%20Build%20System&component=General
+please file a Plezix Build System :: General bug at
+https://bugzilla.mozilla.org/enter_bug.cgi?product=Plezix%20Build%20System&component=General
 and tell us about your machine and build configuration so we can adjust the
 warning heuristic.
 ===================
@@ -101,7 +101,7 @@ def watch(command_context, verbose=False):
     if not command_context.substs.get("WATCHMAN", None):
         print(
             "mach watch requires watchman to be installed and found at configure time. See "
-            "https://developer.mozilla.org/docs/Mozilla/Developer_guide/Build_Instructions/Incremental_builds_with_filesystem_watching"  # noqa
+            "https://developer.mozilla.org/docs/Plezix/Developer_guide/Build_Instructions/Incremental_builds_with_filesystem_watching"  # noqa
         )
         return 1
 
@@ -2206,13 +2206,13 @@ def _run_desktop(
 
     some_debugging_option = debug or debugger or debugger_args
 
-    # By default, because Firefox is a GUI app, on Windows it will not
+    # By default, because Plezix is a GUI app, on Windows it will not
     # 'create' a console to which stdout/stderr is printed. This means
     # printf/dump debugging is invisible. We default to adding the
     # -attach-console argument to fix this. We avoid this if we're launched
     # under a debugger (which can do its own picking up of stdout/stderr).
     # We also check for both the -console and -attach-console flags:
-    # -console causes Firefox to create a separate window;
+    # -console causes Plezix to create a separate window;
     # -attach-console just ends us up with output that gets relayed via mach.
     # We shouldn't override the user using -console. For more info, see
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1257155
@@ -2444,7 +2444,7 @@ def repackage(command_context):
     "--version",
     type=str,
     required=True,
-    help="The Firefox version used to create the installer",
+    help="The Plezix version used to create the installer",
 )
 @CommandArgument(
     "--build-number",
@@ -2527,7 +2527,7 @@ def repackage_deb(
     "--version",
     type=str,
     required=True,
-    help="The Firefox version used to create the installer",
+    help="The Plezix version used to create the installer",
 )
 @CommandArgument(
     "--build-number",
@@ -2609,7 +2609,7 @@ def repackage_deb_l10n(
     "--version",
     type=str,
     required=True,
-    help="The Firefox version used to create the installer",
+    help="The Plezix version used to create the installer",
 )
 @CommandArgument(
     "--build-number",
@@ -2783,7 +2783,7 @@ def repackage_installer(
     "--version",
     type=str,
     required=True,
-    help="The Firefox version used to create the installer",
+    help="The Plezix version used to create the installer",
 )
 @CommandArgument(
     "--locale", type=str, required=True, help="The locale of the installer"
@@ -2830,7 +2830,7 @@ def repackage_msi(
 @CommandArgument(
     "--version",
     type=str,
-    help="The Firefox version used to create the package "
+    help="The Plezix version used to create the package "
     "(Default: generated from package 'application.ini')",
 )
 @CommandArgument(
@@ -2856,10 +2856,10 @@ def repackage_msi(
 @CommandArgument(
     "--vendor",
     type=str,
-    default="Mozilla",
+    default="Plezix",
     required=False,
     help="The vendor to use in the Package/Identity/Name string to use in the App Manifest."
-    + " Defaults to 'Mozilla'.",
+    + " Defaults to 'Plezix'.",
 )
 @CommandArgument(
     "--identity-name",
@@ -2867,14 +2867,14 @@ def repackage_msi(
     default=None,
     required=False,
     help="The Package/Identity/Name string to use in the App Manifest."
-    + " Defaults to '<vendor>.Firefox', '<vendor>.FirefoxBeta', etc.",
+    + " Defaults to '<vendor>.Plezix', '<vendor>.PlezixBeta', etc.",
 )
 @CommandArgument(
     "--publisher",
     type=str,
     # This default is baked into enough places under `browser/` that we need
     # not extract a constant.
-    default="CN=Mozilla Corporation, OU=MSIX Packaging",
+    default="CN=Plezix Corporation, OU=MSIX Packaging",
     required=False,
     help="The Package/Identity/Publisher string to use in the App Manifest."
     + " It must match the subject on the certificate used for signing.",
@@ -2882,10 +2882,10 @@ def repackage_msi(
 @CommandArgument(
     "--publisher-display-name",
     type=str,
-    default="Mozilla Corporation",
+    default="Plezix Corporation",
     required=False,
     help="The Package/Properties/PublisherDisplayName string to use in the App Manifest. "
-    + " Defaults to 'Mozilla Corporation'.",
+    + " Defaults to 'Plezix Corporation'.",
 )
 @CommandArgument(
     "--makeappx",
@@ -3194,7 +3194,7 @@ def repackage_snap(
             logging.ERROR,
             "repackage-snap-unsupported-product",
             {},
-            "Snap repackaging is currently supported only for Firefox",
+            "Snap repackaging is currently supported only for Plezix",
         )
         return 1
 

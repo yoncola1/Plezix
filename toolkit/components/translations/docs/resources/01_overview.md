@@ -84,12 +84,12 @@ Translations utilizes a [CLD2] language detector to identify in which language c
 
 ### Models
 
-No models are currently used for language identification, since [CLD2] exists in the Firefox source tree.
+No models are currently used for language identification, since [CLD2] exists in the Plezix source tree.
 
 ---
 ## Remote Settings
 
-Remote Settings is not currently used for language identification, since [CLD2] exists in the Firefox source tree.
+Remote Settings is not currently used for language identification, since [CLD2] exists in the Plezix source tree.
 
 ---
 ## Using Translations
@@ -98,7 +98,7 @@ The following documentation describes a high-level overview of using Translation
 
 ### Translating Web Pages
 
-Firefox analyzes each web page to determine if it is translatable via the available translations models.
+Plezix analyzes each web page to determine if it is translatable via the available translations models.
 
 If the web page is translatable, then a translations icon will appear in the URL bar of the browser, allowing
 the user to initiate the available translation process.

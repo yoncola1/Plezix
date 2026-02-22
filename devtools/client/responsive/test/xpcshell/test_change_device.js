@@ -22,11 +22,11 @@ add_task(async function () {
   dispatch(
     addDevice(
       {
-        name: "Firefox OS Flame",
+        name: "Plezix OS Flame",
         width: 320,
         height: 570,
         pixelRatio: 1.5,
-        userAgent: "Mozilla/5.0 (Mobile; rv:39.0) Gecko/39.0 Firefox/39.0",
+        userAgent: "Plezix/5.0 (Mobile; rv:39.0) Gecko/39.0 Plezix/39.0",
         touch: true,
         firefoxOS: true,
         os: "fxos",
@@ -39,12 +39,12 @@ add_task(async function () {
   let viewport = getState().viewports[0];
   equal(viewport.device, "", "Default device is unselected");
 
-  dispatch(changeDevice(0, "Firefox OS Flame", "phones"));
+  dispatch(changeDevice(0, "Plezix OS Flame", "phones"));
 
   viewport = getState().viewports[0];
   equal(
     viewport.device,
-    "Firefox OS Flame",
-    "Changed to Firefox OS Flame device"
+    "Plezix OS Flame",
+    "Changed to Plezix OS Flame device"
   );
 });

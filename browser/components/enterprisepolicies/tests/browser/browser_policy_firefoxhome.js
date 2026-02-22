@@ -46,7 +46,7 @@ add_task(async function test_firefox_home_with_policy() {
 
   await setupPolicyEngineWithJson({
     policies: {
-      FirefoxHome: {
+      PlezixHome: {
         Search: false,
         TopSites: false,
         Highlights: false,
@@ -88,7 +88,7 @@ add_task(async function test_firefoxhome_preferences_set() {
 
   await setupPolicyEngineWithJson({
     policies: {
-      FirefoxHome: {
+      PlezixHome: {
         Search: false,
         TopSites: false,
         SponsoredTopSites: false,
@@ -118,7 +118,7 @@ add_task(async function test_firefoxhome_preferences_set() {
   });
   await setupPolicyEngineWithJson({
     policies: {
-      FirefoxHome: {},
+      PlezixHome: {},
     },
   });
   await SpecialPowers.popPrefEnv();

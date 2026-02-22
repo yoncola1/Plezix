@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 sw=2 sts=2 et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,8 +43,8 @@ var gMappedAttrList = {
   visibility: new NonAdditiveAttribute("visibility", "XML", "rect"),
 
   // PresentationAttributes-TextContentElements
-  // SKIP 'alignment-baseline' property: animatable but not supported by Mozilla
-  // SKIP 'baseline-shift' property: animatable but not supported by Mozilla
+  // SKIP 'alignment-baseline' property: animatable but not supported by Plezix
+  // SKIP 'baseline-shift' property: animatable but not supported by Plezix
   direction: new NonAnimatableAttribute("direction", "XML", "text"),
   dominant_baseline: new NonAdditiveAttribute(
     "dominant-baseline",
@@ -52,12 +52,12 @@ var gMappedAttrList = {
     "text"
   ),
   glyph_orientation_horizontal:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     NonAnimatableAttribute("glyph-orientation-horizontal", "XML", "text"),
   glyph_orientation_vertical:
-    // NOTE: Not supported by Mozilla, but explicitly non-animatable
+    // NOTE: Not supported by Plezix, but explicitly non-animatable
     NonAnimatableAttribute("glyph-orientation-horizontal", "XML", "text"),
-  // SKIP 'kerning' property: animatable but not supported by Mozilla
+  // SKIP 'kerning' property: animatable but not supported by Plezix
   letter_spacing: new AdditiveAttribute("letter-spacing", "XML", "text"),
   text_anchor: new NonAdditiveAttribute("text-anchor", "XML", "text"),
   text_decoration_line: new NonAdditiveAttribute(

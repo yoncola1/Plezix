@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@ const {
   EVENTS,
   TEST_EVENTS,
 } = require("resource://devtools/client/netmonitor/src/constants.js");
-const FirefoxDataProvider = require("resource://devtools/client/netmonitor/src/connector/firefox-data-provider.js");
+const PlezixDataProvider = require("resource://devtools/client/netmonitor/src/connector/firefox-data-provider.js");
 const {
   getDisplayedTimingMarker,
 } = require("resource://devtools/client/netmonitor/src/selectors/index.js");
@@ -35,7 +35,7 @@ loader.lazyRequireGetter(
 const DEVTOOLS_ENABLE_PERSISTENT_LOG_PREF = "devtools.netmonitor.persistlog";
 
 /**
- * Connector to Firefox backend.
+ * Connector to Plezix backend.
  */
 class Connector {
   constructor() {
@@ -90,7 +90,7 @@ class Connector {
     this.networkFront =
       await this.commands.watcherFront.getNetworkParentActor();
 
-    this.dataProvider = new FirefoxDataProvider({
+    this.dataProvider = new PlezixDataProvider({
       commands: this.commands,
       actions: this.actions,
       owner: this.owner,

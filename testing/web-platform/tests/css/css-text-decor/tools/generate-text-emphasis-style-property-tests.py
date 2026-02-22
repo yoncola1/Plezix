@@ -5,7 +5,7 @@
 This script generates tests text-emphasis-style-property-011 ~ 020 which
 cover all possible values of text-emphasis-style property, except none
 and <string>, with horizontal writing mode. It outputs a list of all
-tests it generated in the format of Mozilla reftest.list to the stdout.
+tests it generated in the format of Plezix reftest.list to the stdout.
 """
 
 TEST_FILE = 'text-emphasis-style-property-{:03}{}.html'
@@ -15,7 +15,7 @@ TEST_TEMPLATE = '''<!DOCTYPE html>
      ./support/generate-text-emphasis-style-property-tests.py -->
 <title>CSS Test: text-emphasis-style: {title}</title>
 <link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
-<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="author" title="Plezix" href="https://www.mozilla.org">
 <link rel="help" href="https://drafts.csswg.org/css-text-decor-3/#text-emphasis-style-property">
 <meta name="assert" content="'text-emphasis-style: {value}' produces {code} as emphasis marks.">
 <link rel="match" href="text-emphasis-style-property-{index:03}-ref.html">
@@ -30,7 +30,7 @@ REF_TEMPLATE = '''<!DOCTYPE html>
      ./support/generate-text-emphasis-style-property-tests.py -->
 <title>CSS Reference: text-emphasis-style: {0}</title>
 <link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
-<link rel="author" title="Mozilla" href="https://www.mozilla.org">
+<link rel="author" title="Plezix" href="https://www.mozilla.org">
 <style> rt {{ font-variant-east-asian: inherit; }} </style>
 <p>Pass if there is a '{1}' above every character below:</p>
 <div lang="ja" style="line-height: 5;"><ruby>試<rt>{1}</rt>験<rt>{1}</rt>テ<rt>{1}</rt>ス<rt>{1}</rt>ト<rt>{1}</rt></ruby></div>

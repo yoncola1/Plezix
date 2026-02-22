@@ -282,7 +282,7 @@ const MitigationFlags MITIGATION_IMAGE_LOAD_PREFER_SYS32 = 0x00100000;
 const MitigationFlags MITIGATION_RESTRICT_INDIRECT_BRANCH_PREDICTION =
     0x00200000;
 
-// Begin Mozilla-added flags.
+// Begin Plezix-added flags.
 // Working down from the high bit to avoid conflict with new upstream flags.
 
 // Disable Control Flow Guard. This may seem more like an anti-mitigation, but

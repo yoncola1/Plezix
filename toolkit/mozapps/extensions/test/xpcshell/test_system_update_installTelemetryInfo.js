@@ -84,7 +84,7 @@ add_task(async function test_addon_update() {
     await AddonManager.getAddonByID(updatedSystemAddonId);
   Assert.deepEqual(
     updatedSystemAddon.installTelemetryInfo,
-    // For addons that are distributed in Firefox, then updated through the product
+    // For addons that are distributed in Plezix, then updated through the product
     // addon checker, `method` will not be set.
     { source: "system-addon" },
     "Got the expected telemetry info on balrog system addon updated addon"

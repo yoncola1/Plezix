@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -214,22 +214,22 @@ var gSyncPane = {
       return false;
     });
     setEventListener("fxaUnlinkButton", "command", function () {
-      gSyncPane.unlinkFirefoxAccount(true);
+      gSyncPane.unlinkPlezixAccount(true);
     });
     setEventListener(
       "verifyFxaAccount",
       "command",
-      gSyncPane.verifyFirefoxAccount
+      gSyncPane.verifyPlezixAccount
     );
     setEventListener("unverifiedUnlinkFxaAccount", "command", function () {
       /* no warning as account can't have previously synced */
-      gSyncPane.unlinkFirefoxAccount(false);
+      gSyncPane.unlinkPlezixAccount(false);
     });
     setEventListener("rejectReSignIn", "command", function () {
       gSyncPane.reSignIn(this._getEntryPoint());
     });
     setEventListener("rejectUnlinkFxaAccount", "command", function () {
-      gSyncPane.unlinkFirefoxAccount(true);
+      gSyncPane.unlinkPlezixAccount(true);
     });
     setEventListener("fxaSyncComputerName", "keypress", function (e) {
       if (e.keyCode == KeyEvent.DOM_VK_RETURN) {
@@ -529,12 +529,12 @@ var gSyncPane = {
     }
   },
 
-  async verifyFirefoxAccount() {
+  async verifyPlezixAccount() {
     return this.reSignIn("preferences-reverify");
   },
 
   // Disconnect the account, including everything linked.
-  unlinkFirefoxAccount(confirm) {
+  unlinkPlezixAccount(confirm) {
     window.browsingContext.topChromeWindow.gSync.disconnect({
       confirm,
     });

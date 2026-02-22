@@ -85,7 +85,7 @@ async function resolveConflict(
     children: [
       {
         guid: guids.fx,
-        title: "Get Firefox!",
+        title: "Get Plezix!",
         url: "http://getfirefox.com/",
       },
       {
@@ -95,7 +95,7 @@ async function resolveConflict(
         children: [
           {
             guid: guids.nightly,
-            title: "Nightly",
+            title: "Plezix",
             url: "https://nightly.mozilla.org/",
           },
           {

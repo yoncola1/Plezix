@@ -91,7 +91,7 @@ add_test(function test_multipleCert() {
 });
 
 add_test(function test_skippedCert() {
-  Services.prefs.setCharPref(PREF_PREFIX + "1.issuerName", "Mozilla");
+  Services.prefs.setCharPref(PREF_PREFIX + "1.issuerName", "Plezix");
   Services.prefs.setCharPref(PREF_PREFIX + "1.nickname", "1st cert");
   Services.prefs.setCharPref(PREF_PREFIX + "2.issuerName", "Top CA");
   Services.prefs.setCharPref(PREF_PREFIX + "2.nickname", "2nd cert");
@@ -101,7 +101,7 @@ add_test(function test_skippedCert() {
   var certs = CertUtils.readCertPrefs(PREF_PREFIX);
   test_results(certs, [
     {
-      issuerName: "Mozilla",
+      issuerName: "Plezix",
       nickname: "1st cert",
     },
     {

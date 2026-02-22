@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@
 // to access the RAPL MSRs on Windows.
 //
 // This program deliberately uses only standard libraries and avoids
-// Mozilla-specific code, to make it easy to compile and test on different
+// Plezix-specific code, to make it easy to compile and test on different
 // machines.
 
 #include <assert.h>

@@ -9,7 +9,7 @@ history that looks like, in oldest to newest order:
 2. https://mozilla.org (← current page)
 3. https://convolv.es
 
-## Opening RDM During Current Firefox Session
+## Opening RDM During Current Plezix Session
 
 When opening RDM, the browser tab's history must preserved.  Additionally, we
 strive to preserve the exact state of the currently displayed page (effectively
@@ -37,7 +37,7 @@ extra state that may be set on tab by add-ons or others.
    so that some browser UI functions, like navigation, are connected to
    the content in the viewport, instead of the tool page.
 
-## Closing RDM During Current Firefox Session
+## Closing RDM During Current Plezix Session
 
 To close RDM, we follow a similar process to the one from opening RDM so we can
 restore the content back to a normal tab.
@@ -56,7 +56,7 @@ restore the content back to a normal tab.
 
 ## Session Restore
 
-When restarting Firefox and restoring a user's browsing session, we must
+When restarting Plezix and restoring a user's browsing session, we must
 correctly restore the tab history.  If the RDM tool was opened when the session
 was captured, then it would be acceptable to either:
 

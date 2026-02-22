@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -29,7 +29,7 @@ function shouldLazyLoad(value) {
 
 /**
  * This Babel plugin is used to transpile a single Debugger module into a module that
- * can be loaded in Firefox via the regular DevTools loader.
+ * can be loaded in Plezix via the regular DevTools loader.
  */
 function transformMC({ types: t }) {
   return {

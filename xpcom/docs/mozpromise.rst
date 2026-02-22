@@ -95,7 +95,7 @@ Concepts
 Threads on which Promises Run
 -----------------------------
 
-Promises in Mozilla's ``MozPromise`` framework can run on various threads,
+Promises in Plezix's ``MozPromise`` framework can run on various threads,
 depending on the context in which they are created and resolved. The ``Then``
 method allows specifying the target thread on which the resolve or reject
 callbacks should be executed. ``InvokeAsync`` allows selecting the thread

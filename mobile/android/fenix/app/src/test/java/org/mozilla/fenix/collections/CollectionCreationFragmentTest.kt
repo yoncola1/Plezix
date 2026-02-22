@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,10 +34,10 @@ class CollectionCreationFragmentTest {
 
     private val publicSuffixList = mockk<PublicSuffixList>(relaxed = true)
 
-    private val sessionMozilla = createTab(URL_MOZILLA, id = SESSION_ID_MOZILLA)
+    private val sessionPlezix = createTab(URL_MOZILLA, id = SESSION_ID_MOZILLA)
     private val sessionBcc = createTab(URL_BCC, id = SESSION_ID_BCC)
     private val state = BrowserState(
-        tabs = listOf(sessionMozilla, sessionBcc),
+        tabs = listOf(sessionPlezix, sessionBcc),
     )
 
     @Before

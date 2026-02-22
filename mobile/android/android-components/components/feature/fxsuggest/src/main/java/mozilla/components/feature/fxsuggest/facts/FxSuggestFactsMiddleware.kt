@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,11 +17,11 @@ import mozilla.components.lib.state.MiddlewareContext
 import mozilla.components.support.base.facts.Fact
 
 /**
- * Reports [Fact]s for interactions with Firefox Suggest [AwesomeBar.Suggestion]s.
+ * Reports [Fact]s for interactions with Plezix Suggest [AwesomeBar.Suggestion]s.
  *
- * We report two kinds of interactions: impressions and clicks. We report impressions for any Firefox Suggest
+ * We report two kinds of interactions: impressions and clicks. We report impressions for any Plezix Suggest
  * search suggestions that are visible when the user finishes interacting with the [AwesomeBar].
- * If the user taps on one of those visible Firefox Suggest suggestions, we'll also report a click for that suggestion.
+ * If the user taps on one of those visible Plezix Suggest suggestions, we'll also report a click for that suggestion.
  *
  * Each impression's [Fact.metadata] contains a [FxSuggestFacts.MetadataKeys.ENGAGEMENT_ABANDONED] key, whose value is
  * `false` if the user navigated to a destination (like a URL, a search results page, or a suggestion), or

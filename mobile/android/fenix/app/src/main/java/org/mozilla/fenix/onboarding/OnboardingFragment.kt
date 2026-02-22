@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -58,7 +58,7 @@ import org.mozilla.fenix.onboarding.view.sequencePosition
 import org.mozilla.fenix.onboarding.view.telemetrySequenceId
 import org.mozilla.fenix.onboarding.view.toPageUiData
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.canShowAddSearchWidgetPrompt
 import org.mozilla.fenix.utils.maybeShowAddSearchWidgetPrompt
 
@@ -146,7 +146,7 @@ class OnboardingFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 ScreenContent()
             }
         }
@@ -196,7 +196,7 @@ class OnboardingFragment : Fragment() {
     private fun ScreenContent() {
         OnboardingScreen(
             pagesToDisplay = pagesToDisplay,
-            onMakeFirefoxDefaultClick = {
+            onMakePlezixDefaultClick = {
                 promptToSetAsDefaultBrowser()
             },
             onSkipDefaultClick = {
@@ -238,14 +238,14 @@ class OnboardingFragment : Fragment() {
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.NOTIFICATION_PERMISSION),
                 )
             },
-            onAddFirefoxWidgetClick = {
+            onAddPlezixWidgetClick = {
                 telemetryRecorder.onAddSearchWidgetClick(
                     pagesToDisplay.telemetrySequenceId(),
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.ADD_SEARCH_WIDGET),
                 )
                 maybeShowAddSearchWidgetPrompt(requireActivity())
             },
-            onSkipFirefoxWidgetClick = {
+            onSkipPlezixWidgetClick = {
                 telemetryRecorder.onSkipAddWidgetClick(
                     pagesToDisplay.telemetrySequenceId(),
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.ADD_SEARCH_WIDGET),
@@ -369,7 +369,7 @@ class OnboardingFragment : Fragment() {
             text = getString(R.string.juno_onboarding_privacy_notice_text),
             linkTextState = LinkTextState(
                 text = getString(R.string.juno_onboarding_privacy_notice_text),
-                url = SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+                url = SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE),
                 onClick = {
                     SupportUtils.launchSandboxCustomTab(
                         context = requireContext(),

@@ -48,7 +48,7 @@ namespace base {
 //
 //////
 //
-// Mozilla/Gecko addendum:
+// Plezix/Gecko addendum:
 //
 // An undocumented (but runtime-asserted) requirement for the above is that
 // `MyClass` must be strictly thread-affine. In particular, `StartWatching()`

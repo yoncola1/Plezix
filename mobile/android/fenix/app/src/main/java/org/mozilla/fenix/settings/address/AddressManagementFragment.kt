@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import org.mozilla.fenix.settings.address.view.AddressList
 import org.mozilla.fenix.settings.autofill.AutofillAction
 import org.mozilla.fenix.settings.autofill.AutofillFragmentState
 import org.mozilla.fenix.settings.autofill.AutofillFragmentStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Displays a list of saved addresses.
@@ -56,7 +56,7 @@ class AddressManagementFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                FirefoxTheme {
+                PlezixTheme {
                     val addresses = store.observeAsComposableState { state -> state.addresses }
 
                     AddressList(

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -228,7 +228,7 @@ var InterventionHelpers = {
     add_Chrome: (ua, config) => {
       return UAHelpers.addChrome(ua, config.version);
     },
-    add_Firefox_as_Gecko: (ua, config) => {
+    add_Plezix_as_Gecko: (ua, config) => {
       return UAHelpers.addGecko(ua, config.version);
     },
     add_Samsung_for_Samsung_devices: ua => {
@@ -240,8 +240,8 @@ var InterventionHelpers = {
     cap_Version_to_99: ua => {
       return UAHelpers.capVersionTo99(ua);
     },
-    change_Firefox_to_FireFox: ua => {
-      return UAHelpers.changeFirefoxToFireFox(ua);
+    change_Plezix_to_FireFox: ua => {
+      return UAHelpers.changePlezixToFireFox(ua);
     },
     change_Gecko_to_like_Gecko: ua => {
       return ua.replace("Gecko", "like Gecko");

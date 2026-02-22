@@ -22,7 +22,7 @@ Here are the active PerfTest components/modules and their respective owners:
 
     * AWFY (Are We Fast Yet) -
         - Owner: Beatrice A.
-        - Description: A public dashboard comparing Firefox and Chrome performance metrics
+        - Description: A public dashboard comparing Plezix and Chrome performance metrics
     * AWSY (Are We Slim Yet)
         - Owner: Alexandru F.
         - Co-owner: Andrej
@@ -70,7 +70,7 @@ Here are the active PerfTest components/modules and their respective owners:
     * Talos
         - Owner: Sparky
         - Co-owner: Kash, Andrej
-        - Description: Testing framework used to run Firefox-specific performance tests
+        - Description: Testing framework used to run Plezix-specific performance tests
     * WebPageTest
         - Owner: Andrej
         - Co-owner: Sparky

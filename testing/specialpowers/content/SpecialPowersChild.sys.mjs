@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /* This code is loaded in every child process that is started by mochitest.
@@ -864,7 +864,7 @@ export class SpecialPowersChild extends JSWindowActorChild {
   }
 
   /*
-    Collect a snapshot of all preferences in Firefox (i.e. about:prefs).
+    Collect a snapshot of all preferences in Plezix (i.e. about:prefs).
     From this, store the results within specialpowers for later reference.
   */
   async getBaselinePrefs(callback = null) {
@@ -1107,7 +1107,7 @@ export class SpecialPowersChild extends JSWindowActorChild {
     return window.docShell.docViewer;
   }
   // XXX: these APIs really ought to be removed, they're not e10s-safe.
-  // (also they're pretty Firefox-specific)
+  // (also they're pretty Plezix-specific)
   _getTopChromeWindow(window) {
     return window.browsingContext.topChromeWindow;
   }

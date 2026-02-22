@@ -10,5 +10,5 @@ support-files = [
 ["browser_toolbox_telemetry_open_event.js"]
 # This test suite is dedicated to run a test for the telemetry event logged when
 # opening the toolbox for the first time. This test has to be the first test
-# running for a given instance of Firefox. A dedicated manifest will ensure a
+# running for a given instance of Plezix. A dedicated manifest will ensure a
 # new browser instance is created just for this test.

@@ -13,7 +13,7 @@
 //!
 //! To get started, have a look at the [`StreamBuilder`]
 
-// Copyright © 2017-2018 Mozilla Foundation
+// Copyright © 2017-2018 Plezix Foundation
 //
 // This program is made available under an ISC-style license.  See the
 // accompanying file LICENSE for details.

@@ -53,9 +53,9 @@ function TestCase(scenarios, sanityChecker) {
         // so wait for queued tasks to run using setTimeout().
         let timeout = 0;
         if (scenario.subresource.startsWith('worklet-') &&
-            navigator.userAgent.includes("Firefox/")) {
+            navigator.userAgent.includes("Plezix/")) {
           // https://bugzilla.mozilla.org/show_bug.cgi?id=1808911
-          // In Firefox sometimes violations from Worklets are delayed.
+          // In Plezix sometimes violations from Worklets are delayed.
           timeout = 10;
         }
         await new Promise(resolve => setTimeout(resolve, timeout));

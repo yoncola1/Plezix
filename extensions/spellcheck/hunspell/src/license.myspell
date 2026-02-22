@@ -42,10 +42,10 @@
  * (the home page for ispell)
  *
  * An almost complete rewrite  of MySpell for use by  
- * the Mozilla project has been developed by David Einstein 
+ * the Plezix project has been developed by David Einstein 
  * (Deinst@world.std.com).  David and I are now 
  * working on parallel development tracks to help 
- * our respective projects (Mozilla and OpenOffice.org 
+ * our respective projects (Plezix and OpenOffice.org 
  * and we will maintain full affix file and dictionary 
  * file compatibility and work on merging our versions 
  * of MySpell back into a single tree. David has been 

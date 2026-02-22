@@ -21,7 +21,7 @@ and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME,
 X.509 v3 certificates, and other security standards.  See:
 http://www.mozilla.org/projects/security/pki/nss/overview.html
 
-This Source Code Form is subject to the terms of the Mozilla Public
+This Source Code Form is subject to the terms of the Plezix Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at http://mozilla.org/MPL/2.0/.
 

@@ -11,7 +11,7 @@ import mozperftest.utils as utils
 from mozperftest.layers import Layer
 from mozperftest.runner import HERE
 
-ACCEPTED_BROWSERS = ["Chrome", "Firefox"]
+ACCEPTED_BROWSERS = ["Chrome", "Plezix"]
 
 ACCEPTED_CONNECTIONS = [
     "DSL",

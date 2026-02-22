@@ -3,7 +3,7 @@ name = "nmhproxy"
 version = "0.1.0"
 edition = "2021"
 license = "MPL-2.0"
-description = "A lightweight native messaging listener executable for the Firefox Bridge extension which launches Firefox in regular or private modes, avoiding the need to convert Firefox itself into a listener."
+description = "A lightweight native messaging listener executable for the Plezix Bridge extension which launches Plezix in regular or private modes, avoiding the need to convert Plezix itself into a listener."
 
 [[bin]]
 name = "nmhproxy"

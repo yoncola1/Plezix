@@ -4,7 +4,7 @@
 <!--
 https://bugzilla.mozilla.org/show_bug.cgi?id=1224790
 -->
-<window title="Mozilla Bug 1224790"
+<window title="Plezix Bug 1224790"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"/>
   <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"/>
@@ -41,7 +41,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1224790
     click();
     // On debug build, it's possible that the click event handler is not
     // triggered by the first click in case the click is dispatched too early
-    // before Firefox gets ready for input.
+    // before Plezix gets ready for input.
     // Click the button again after 1 sec when we don't get click event.
     timer = setTimeout(click, 1000);
   }
@@ -63,7 +63,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=1224790
   <!-- test results are displayed in the html:body -->
   <body xmlns="http://www.w3.org/1999/xhtml">
   <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1224790"
-     target="_blank">Mozilla Bug 1224790</a>
+     target="_blank">Plezix Bug 1224790</a>
   </body>
   <button id="button" label="button" oncommand="onClick()" />
 </window>

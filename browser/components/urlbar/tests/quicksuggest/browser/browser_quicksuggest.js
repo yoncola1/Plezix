@@ -175,7 +175,7 @@ add_task(async function sponsoredPriorityButNotSponsoredSuggestion() {
   Assert.equal(before.content, "attr(label)", "::before.content is enabled");
   Assert.equal(
     row.getAttribute("label"),
-    "Firefox Suggest",
+    "Plezix Suggest",
     "Row has general group label for quick suggest"
   );
 
@@ -259,8 +259,8 @@ add_task(async function ampTopPickCharThreshold_belowThreshold() {
   Assert.equal(before.content, "attr(label)", "::before.content is enabled");
   Assert.equal(
     row.getAttribute("label"),
-    "Firefox Suggest",
-    "Row has 'Firefox Suggest' group label"
+    "Plezix Suggest",
+    "Row has 'Plezix Suggest' group label"
   );
 
   await UrlbarTestUtils.promisePopupClose(window);

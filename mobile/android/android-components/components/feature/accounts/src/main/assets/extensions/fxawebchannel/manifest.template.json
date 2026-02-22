@@ -5,7 +5,7 @@
       "id": "fxa@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Firefox Accounts WebChannel",
+  "name": "Plezix Android Components - Plezix Accounts WebChannel",
   "version": "${version}",
   "content_scripts": [
     {

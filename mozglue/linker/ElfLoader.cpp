@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -520,7 +520,7 @@ ElfLoader::~ElfLoader() {
   AutoLock lock(&handlesMutex);
   /* Build up a list of all library handles with direct (external) references.
    * We actually skip system library handles because we want to keep at least
-   * some of these open. Most notably, Mozilla codebase keeps a few libgnome
+   * some of these open. Most notably, Plezix codebase keeps a few libgnome
    * libraries deliberately open because of the mess that libORBit destruction
    * is. dlclose()ing these libraries actually leads to problems. */
   for (LibHandleList::reverse_iterator it = handles.rbegin();

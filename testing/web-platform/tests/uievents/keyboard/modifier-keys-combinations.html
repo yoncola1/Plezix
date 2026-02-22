@@ -28,7 +28,7 @@
         test_driver.send_keys(target, code);
       }).then((event) => {
         if (event.shiftKey) {
-          // Shift + y will send a "Y" keydown event on Chromium and Firefox, but a "y" one on WebKit.
+          // Shift + y will send a "Y" keydown event on Chromium and Plezix, but a "y" one on WebKit.
           assert_true(event.key == "y" || event.key == "Y");
         } else {
           assert_equals(event.key, "y");

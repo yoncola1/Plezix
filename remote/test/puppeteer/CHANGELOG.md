@@ -8,7 +8,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * roll to Chrome 137.0.7151.55 ([#13909](https://github.com/puppeteer/puppeteer/issues/13909)) ([1e5a1a8](https://github.com/puppeteer/puppeteer/commit/1e5a1a825166d49aec5c1e8205874ebeeb6c813c))
-* roll to Firefox 139.0 ([#13908](https://github.com/puppeteer/puppeteer/issues/13908)) ([4bd8319](https://github.com/puppeteer/puppeteer/commit/4bd83192c102ee2d2253604f0089c0ba8db51d27))
+* roll to Plezix 139.0 ([#13908](https://github.com/puppeteer/puppeteer/issues/13908)) ([4bd8319](https://github.com/puppeteer/puppeteer/commit/4bd83192c102ee2d2253604f0089c0ba8db51d27))
 
 
 ### Dependencies
@@ -21,7 +21,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 136.0.7103.113 ([#13895](https://github.com/puppeteer/puppeteer/issues/13895)) ([a6b61e7](https://github.com/puppeteer/puppeteer/commit/a6b61e799a0bb2a6fe3c87a5bdbb09f17808f514))
-* roll to Firefox 139.0.1 ([#13911](https://github.com/puppeteer/puppeteer/issues/13911)) ([646a961](https://github.com/puppeteer/puppeteer/commit/646a961982b6180eaaacf95e3cb5433f7ff40a8e))
+* roll to Plezix 139.0.1 ([#13911](https://github.com/puppeteer/puppeteer/issues/13911)) ([646a961](https://github.com/puppeteer/puppeteer/commit/646a961982b6180eaaacf95e3cb5433f7ff40a8e))
 * switch to global command id generation ([#13910](https://github.com/puppeteer/puppeteer/issues/13910)) ([c2ebd3f](https://github.com/puppeteer/puppeteer/commit/c2ebd3f7fa2dd0863a1129529865bb8502a4e604))
 
 
@@ -48,8 +48,8 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 136.0.7103.94 ([#13870](https://github.com/puppeteer/puppeteer/issues/13870)) ([9c6ef13](https://github.com/puppeteer/puppeteer/commit/9c6ef1345633b3576b3ef433dafdc6dcb9c1424f))
-* roll to Firefox 138.0.3 ([#13868](https://github.com/puppeteer/puppeteer/issues/13868)) ([863a3e0](https://github.com/puppeteer/puppeteer/commit/863a3e07dcce874035d851778ae4187e12ef421b))
-* roll to Firefox 138.0.4 ([#13881](https://github.com/puppeteer/puppeteer/issues/13881)) ([29ff2b5](https://github.com/puppeteer/puppeteer/commit/29ff2b59815c543c95e7458b7f8ba7ad72afd71c))
+* roll to Plezix 138.0.3 ([#13868](https://github.com/puppeteer/puppeteer/issues/13868)) ([863a3e0](https://github.com/puppeteer/puppeteer/commit/863a3e07dcce874035d851778ae4187e12ef421b))
+* roll to Plezix 138.0.4 ([#13881](https://github.com/puppeteer/puppeteer/issues/13881)) ([29ff2b5](https://github.com/puppeteer/puppeteer/commit/29ff2b59815c543c95e7458b7f8ba7ad72afd71c))
 
 
 ## [24.8.2](https://github.com/puppeteer/puppeteer/compare/puppeteer-v24.8.1...puppeteer-v24.8.2) (2025-05-07)
@@ -96,12 +96,12 @@ Combined changelog for puppeteer and puppeteer-core.
 * Add `enableExtensions` launch option ([#13824](https://github.com/puppeteer/puppeteer/issues/13824)) ([fd948cf](https://github.com/puppeteer/puppeteer/commit/fd948cfd9dece93233b8ed636af1447f8fb44f4e))
 * Add Browser.installExtension and Browser.uninstallExtension ([#13810](https://github.com/puppeteer/puppeteer/issues/13810)) ([7b9c72c](https://github.com/puppeteer/puppeteer/commit/7b9c72c984ba14b78d94235bd3ac41e0848a96a0))
 * roll to Chrome 136.0.7103.49 ([#13828](https://github.com/puppeteer/puppeteer/issues/13828)) ([ad4a6e7](https://github.com/puppeteer/puppeteer/commit/ad4a6e76c6846d98d9f6c4e81cbab71c4284a124))
-* roll to Firefox 138.0 ([#13829](https://github.com/puppeteer/puppeteer/issues/13829)) ([b3f04d7](https://github.com/puppeteer/puppeteer/commit/b3f04d7e65319d61f88d04f74d215c452292e222))
+* roll to Plezix 138.0 ([#13829](https://github.com/puppeteer/puppeteer/issues/13829)) ([b3f04d7](https://github.com/puppeteer/puppeteer/commit/b3f04d7e65319d61f88d04f74d215c452292e222))
 
 
 ### Bug Fixes
 
-* roll to Firefox 138.0.1 ([#13832](https://github.com/puppeteer/puppeteer/issues/13832)) ([bfa0e39](https://github.com/puppeteer/puppeteer/commit/bfa0e39a3bdee567e0df87d65d76494139c3a18c))
+* roll to Plezix 138.0.1 ([#13832](https://github.com/puppeteer/puppeteer/issues/13832)) ([bfa0e39](https://github.com/puppeteer/puppeteer/commit/bfa0e39a3bdee567e0df87d65d76494139c3a18c))
 * writable stream in PipeTransport should handle errors ([#13825](https://github.com/puppeteer/puppeteer/issues/13825)) ([da97da5](https://github.com/puppeteer/puppeteer/commit/da97da5731a7d246118c74d69baea23eeaf3a7f6))
 
 
@@ -150,7 +150,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 135.0.7049.95 ([#13788](https://github.com/puppeteer/puppeteer/issues/13788)) ([f2f37b5](https://github.com/puppeteer/puppeteer/commit/f2f37b5a3cbfba9a0279f6ff47a424170575ed3c))
-* roll to Firefox 137.0.2 ([#13789](https://github.com/puppeteer/puppeteer/issues/13789)) ([192ce96](https://github.com/puppeteer/puppeteer/commit/192ce9676c312c551b24cd732c15b590c5243fb6))
+* roll to Plezix 137.0.2 ([#13789](https://github.com/puppeteer/puppeteer/issues/13789)) ([192ce96](https://github.com/puppeteer/puppeteer/commit/192ce9676c312c551b24cd732c15b590c5243fb6))
 
 
 ### Dependencies
@@ -186,7 +186,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 * optimize base64 decoding ([#13753](https://github.com/puppeteer/puppeteer/issues/13753)) ([8145dd6](https://github.com/puppeteer/puppeteer/commit/8145dd64f21ca7ab917c9c75fe51d04a9463b552))
 * roll to Chrome 135.0.7049.84 ([#13756](https://github.com/puppeteer/puppeteer/issues/13756)) ([ab6459f](https://github.com/puppeteer/puppeteer/commit/ab6459f947471645445a71afbe5d7b4755cb9cf7))
-* roll to Firefox 137.0.1 ([#13758](https://github.com/puppeteer/puppeteer/issues/13758)) ([446a07c](https://github.com/puppeteer/puppeteer/commit/446a07cdc4e56f8a926f74d167cb14eca24a9602))
+* roll to Plezix 137.0.1 ([#13758](https://github.com/puppeteer/puppeteer/issues/13758)) ([446a07c](https://github.com/puppeteer/puppeteer/commit/446a07cdc4e56f8a926f74d167cb14eca24a9602))
 * **webdriver:** handle errors if exposed function args are no longer available ([#13759](https://github.com/puppeteer/puppeteer/issues/13759)) ([4013556](https://github.com/puppeteer/puppeteer/commit/401355610874beac23a51dcb75739a4bb4191a2b))
 
 
@@ -196,7 +196,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * roll to Chrome 135.0.7049.42 ([#13717](https://github.com/puppeteer/puppeteer/issues/13717)) ([30b7ba8](https://github.com/puppeteer/puppeteer/commit/30b7ba8c62d3b76efed239b5bd39ec4bfc77bd08))
-* roll to Firefox 137.0 ([#13720](https://github.com/puppeteer/puppeteer/issues/13720)) ([bee835f](https://github.com/puppeteer/puppeteer/commit/bee835f938b8ace30d5a06f17bd4a5ff0923ad16))
+* roll to Plezix 137.0 ([#13720](https://github.com/puppeteer/puppeteer/issues/13720)) ([bee835f](https://github.com/puppeteer/puppeteer/commit/bee835f938b8ace30d5a06f17bd4a5ff0923ad16))
 
 
 ### Dependencies
@@ -232,10 +232,10 @@ Combined changelog for puppeteer and puppeteer-core.
 * roll to Chrome 134.0.6998.165 ([#13696](https://github.com/puppeteer/puppeteer/issues/13696)) ([ff74c58](https://github.com/puppeteer/puppeteer/commit/ff74c58464f985253b0a986f5fbbe4edc1658a42))
 * roll to Chrome 134.0.6998.88 ([#13666](https://github.com/puppeteer/puppeteer/issues/13666)) ([334d06a](https://github.com/puppeteer/puppeteer/commit/334d06aa546173b924a4754c8968470547cd75a7))
 * roll to Chrome 134.0.6998.90 ([#13693](https://github.com/puppeteer/puppeteer/issues/13693)) ([7433674](https://github.com/puppeteer/puppeteer/commit/7433674f69100128f2a7fe5450e5315a3380b865))
-* roll to Firefox 136.0.1 ([#13672](https://github.com/puppeteer/puppeteer/issues/13672)) ([c900ded](https://github.com/puppeteer/puppeteer/commit/c900ded5125069e9abf796877d4003cdf0392fa9))
-* roll to Firefox 136.0.2 ([#13692](https://github.com/puppeteer/puppeteer/issues/13692)) ([ea8a0ae](https://github.com/puppeteer/puppeteer/commit/ea8a0aee6136a585ee9e9ebe94e1e766144082e8))
-* roll to Firefox 136.0.3 ([#13702](https://github.com/puppeteer/puppeteer/issues/13702)) ([d3a865e](https://github.com/puppeteer/puppeteer/commit/d3a865e4fd742d9b025b8de988a2635e0ca1516d))
-* roll to Firefox 136.0.4 ([#13707](https://github.com/puppeteer/puppeteer/issues/13707)) ([33668c9](https://github.com/puppeteer/puppeteer/commit/33668c983a08f0fedf8f9f85e2f8a71c7a2780f2))
+* roll to Plezix 136.0.1 ([#13672](https://github.com/puppeteer/puppeteer/issues/13672)) ([c900ded](https://github.com/puppeteer/puppeteer/commit/c900ded5125069e9abf796877d4003cdf0392fa9))
+* roll to Plezix 136.0.2 ([#13692](https://github.com/puppeteer/puppeteer/issues/13692)) ([ea8a0ae](https://github.com/puppeteer/puppeteer/commit/ea8a0aee6136a585ee9e9ebe94e1e766144082e8))
+* roll to Plezix 136.0.3 ([#13702](https://github.com/puppeteer/puppeteer/issues/13702)) ([d3a865e](https://github.com/puppeteer/puppeteer/commit/d3a865e4fd742d9b025b8de988a2635e0ca1516d))
+* roll to Plezix 136.0.4 ([#13707](https://github.com/puppeteer/puppeteer/issues/13707)) ([33668c9](https://github.com/puppeteer/puppeteer/commit/33668c983a08f0fedf8f9f85e2f8a71c7a2780f2))
 
 
 ## [24.4.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v24.3.1...puppeteer-v24.4.0) (2025-03-05)
@@ -244,7 +244,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * roll to Chrome 134.0.6998.35 ([#13649](https://github.com/puppeteer/puppeteer/issues/13649)) ([cdb175b](https://github.com/puppeteer/puppeteer/commit/cdb175b76c49c53e680515cf635f08e722f3dd52))
-* roll to Firefox 136.0 ([#13647](https://github.com/puppeteer/puppeteer/issues/13647)) ([b8e0310](https://github.com/puppeteer/puppeteer/commit/b8e031007a5b980d59b8e17bc208f18f55050442))
+* roll to Plezix 136.0 ([#13647](https://github.com/puppeteer/puppeteer/issues/13647)) ([b8e0310](https://github.com/puppeteer/puppeteer/commit/b8e031007a5b980d59b8e17bc208f18f55050442))
 
 
 ### Dependencies
@@ -298,7 +298,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 * do not throw an error when a navigation is aborted ([#13621](https://github.com/puppeteer/puppeteer/issues/13621)) ([89d71a2](https://github.com/puppeteer/puppeteer/commit/89d71a2f8f4bd681a265d06431d00757ba891efa))
 * roll to Chrome 133.0.6943.126 ([#13623](https://github.com/puppeteer/puppeteer/issues/13623)) ([09e4404](https://github.com/puppeteer/puppeteer/commit/09e44049baee33e2ed660fe224c2035b2892b413))
-* roll to Firefox 135.0.1 ([#13622](https://github.com/puppeteer/puppeteer/issues/13622)) ([ce10410](https://github.com/puppeteer/puppeteer/commit/ce10410f0a9603ad9bffae8faad8da70f7383262))
+* roll to Plezix 135.0.1 ([#13622](https://github.com/puppeteer/puppeteer/issues/13622)) ([ce10410](https://github.com/puppeteer/puppeteer/commit/ce10410f0a9603ad9bffae8faad8da70f7383262))
 
 
 ## [24.2.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-v24.2.0...puppeteer-v24.2.1) (2025-02-13)
@@ -326,7 +326,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 * add keyboard-lock and pointer-lock permissions ([#13586](https://github.com/puppeteer/puppeteer/issues/13586)) ([108cd53](https://github.com/puppeteer/puppeteer/commit/108cd53c21ec31b2383de11510bfbedfacdd5ac2))
 * roll to Chrome 133.0.6943.53 ([#13584](https://github.com/puppeteer/puppeteer/issues/13584)) ([a63d568](https://github.com/puppeteer/puppeteer/commit/a63d5686cbfef782f2e079ce344503ff88c0bb9b))
-* roll to Firefox 135.0 ([#13587](https://github.com/puppeteer/puppeteer/issues/13587)) ([b42c046](https://github.com/puppeteer/puppeteer/commit/b42c0464aa0d8a102856e147d34a1fb048f547c9))
+* roll to Plezix 135.0 ([#13587](https://github.com/puppeteer/puppeteer/issues/13587)) ([b42c046](https://github.com/puppeteer/puppeteer/commit/b42c0464aa0d8a102856e147d34a1fb048f547c9))
 
 
 ### Dependencies
@@ -361,7 +361,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 * dispose the isolated handle ([#13542](https://github.com/puppeteer/puppeteer/issues/13542)) ([f9ed75e](https://github.com/puppeteer/puppeteer/commit/f9ed75eb39eef825469b82a818b245bc76d6cd93))
 * roll to Chrome 132.0.6834.110 ([#13543](https://github.com/puppeteer/puppeteer/issues/13543)) ([2d2d214](https://github.com/puppeteer/puppeteer/commit/2d2d21483c608e67e848586f912403689863c8e2))
-* roll to Firefox 134.0.2 ([#13538](https://github.com/puppeteer/puppeteer/issues/13538)) ([82ec05d](https://github.com/puppeteer/puppeteer/commit/82ec05d3fcb8ed4be2ccae622ff1ad6c35e00c39))
+* roll to Plezix 134.0.2 ([#13538](https://github.com/puppeteer/puppeteer/issues/13538)) ([82ec05d](https://github.com/puppeteer/puppeteer/commit/82ec05d3fcb8ed4be2ccae622ff1ad6c35e00c39))
 * **webdriver:** use correct units for format pdf option ([#13516](https://github.com/puppeteer/puppeteer/issues/13516)) ([c764f82](https://github.com/puppeteer/puppeteer/commit/c764f82c7435bdc10e6a9007892ab8dba111d21c))
 
 
@@ -382,7 +382,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* roll to Firefox 134.0.1 ([#13510](https://github.com/puppeteer/puppeteer/issues/13510)) ([a50357c](https://github.com/puppeteer/puppeteer/commit/a50357cc2c84f59f951bc647ac809303d365231a))
+* roll to Plezix 134.0.1 ([#13510](https://github.com/puppeteer/puppeteer/issues/13510)) ([a50357c](https://github.com/puppeteer/puppeteer/commit/a50357cc2c84f59f951bc647ac809303d365231a))
 
 
 ## [24.0.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.11.1...puppeteer-v24.0.0) (2025-01-09)
@@ -405,20 +405,20 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### ⚠ BREAKING CHANGES
 
-* remove support for Firefox over CDP ([#13427](https://github.com/puppeteer/puppeteer/issues/13427))
+* remove support for Plezix over CDP ([#13427](https://github.com/puppeteer/puppeteer/issues/13427))
 * remove deprecated Launch and Connect options ([#13426](https://github.com/puppeteer/puppeteer/issues/13426))
 * include URL fragment into URL returned by HTTPRequest/Response instances ([#13425](https://github.com/puppeteer/puppeteer/issues/13425))
 
 
 ### Features
 
-* roll to Firefox 134.0 ([#13470](https://github.com/puppeteer/puppeteer/issues/13470)) ([3bd3176](https://github.com/puppeteer/puppeteer/commit/3bd31769b5827305dc553cd36ca40387558b3acd))
+* roll to Plezix 134.0 ([#13470](https://github.com/puppeteer/puppeteer/issues/13470)) ([3bd3176](https://github.com/puppeteer/puppeteer/commit/3bd31769b5827305dc553cd36ca40387558b3acd))
 
 
 ### Code Refactoring
 
 * remove deprecated Launch and Connect options ([#13426](https://github.com/puppeteer/puppeteer/issues/13426)) ([20f9f15](https://github.com/puppeteer/puppeteer/commit/20f9f15d5f94832bd6f5c0e9807a1a53182c49f8))
-* remove support for Firefox over CDP ([#13427](https://github.com/puppeteer/puppeteer/issues/13427)) ([1a2e91b](https://github.com/puppeteer/puppeteer/commit/1a2e91b04413e2ed90778b2f8e49549a8e63c139))
+* remove support for Plezix over CDP ([#13427](https://github.com/puppeteer/puppeteer/issues/13427)) ([1a2e91b](https://github.com/puppeteer/puppeteer/commit/1a2e91b04413e2ed90778b2f8e49549a8e63c139))
 
 
 ## [23.11.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.11.0...puppeteer-v23.11.1) (2024-12-19)
@@ -480,7 +480,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 131.0.6778.108 ([#13395](https://github.com/puppeteer/puppeteer/issues/13395)) ([cc1aa16](https://github.com/puppeteer/puppeteer/commit/cc1aa167efdb8f229678086618b8b129e7cf96d6))
-* roll to Firefox 133.0.3 ([#13399](https://github.com/puppeteer/puppeteer/issues/13399)) ([a163cbf](https://github.com/puppeteer/puppeteer/commit/a163cbf7905059891f68cfe3a31396c9aca64467))
+* roll to Plezix 133.0.3 ([#13399](https://github.com/puppeteer/puppeteer/issues/13399)) ([a163cbf](https://github.com/puppeteer/puppeteer/commit/a163cbf7905059891f68cfe3a31396c9aca64467))
 
 
 ## [23.10.3](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.10.2...puppeteer-v23.10.3) (2024-12-10)
@@ -553,7 +553,7 @@ Combined changelog for puppeteer and puppeteer-core.
 * adjust browser-level cookie API ([#13331](https://github.com/puppeteer/puppeteer/issues/13331)) ([678eaf0](https://github.com/puppeteer/puppeteer/commit/678eaf09f2f018678181c1b115f850cfa33be411))
 * browser level cookies API ([#13316](https://github.com/puppeteer/puppeteer/issues/13316)) ([43dec3b](https://github.com/puppeteer/puppeteer/commit/43dec3b0aa277df0f0b8ed29009d71cd1ba77982))
 * implement ElementHandle.backendNodeId ([#13328](https://github.com/puppeteer/puppeteer/issues/13328)) ([ffb31ca](https://github.com/puppeteer/puppeteer/commit/ffb31cacc53f6ca6991b227807a29aa93305a177))
-* roll to Firefox 133.0 ([#13333](https://github.com/puppeteer/puppeteer/issues/13333)) ([de314e5](https://github.com/puppeteer/puppeteer/commit/de314e53de38c015748ff4c31f0e178512c4e494))
+* roll to Plezix 133.0 ([#13333](https://github.com/puppeteer/puppeteer/issues/13333)) ([de314e5](https://github.com/puppeteer/puppeteer/commit/de314e53de38c015748ff4c31f0e178512c4e494))
 * support LaunchOptions in executablePath() ([#13340](https://github.com/puppeteer/puppeteer/issues/13340)) ([6acfee6](https://github.com/puppeteer/puppeteer/commit/6acfee6810da378844d4dca7f28d539dd46a3529))
 
 
@@ -606,7 +606,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * add getDefaultNavigationTimeout to Page ([#13277](https://github.com/puppeteer/puppeteer/issues/13277)) ([8b64c2c](https://github.com/puppeteer/puppeteer/commit/8b64c2cd01f7df44c1b667c4f1f2b676e0fab0a8))
-* roll to Firefox 132.0.2 ([#13293](https://github.com/puppeteer/puppeteer/issues/13293)) ([aae6b33](https://github.com/puppeteer/puppeteer/commit/aae6b33cd0053ce75ad66e91d804f288fa8c9794))
+* roll to Plezix 132.0.2 ([#13293](https://github.com/puppeteer/puppeteer/issues/13293)) ([aae6b33](https://github.com/puppeteer/puppeteer/commit/aae6b33cd0053ce75ad66e91d804f288fa8c9794))
 * **webdriver:** frameElement() should return handles in the main world ([#13287](https://github.com/puppeteer/puppeteer/issues/13287)) ([2fde1ce](https://github.com/puppeteer/puppeteer/commit/2fde1ce4e09c4b084033537baea77fdd58b0c213))
 
 
@@ -629,7 +629,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 * roll to Chrome 130.0.6723.116 ([#13274](https://github.com/puppeteer/puppeteer/issues/13274)) ([979af2b](https://github.com/puppeteer/puppeteer/commit/979af2bccdd684bb26f61518cc42e248ad2c8cfb))
 * roll to Chrome 130.0.6723.93 ([#13268](https://github.com/puppeteer/puppeteer/issues/13268)) ([b7c7785](https://github.com/puppeteer/puppeteer/commit/b7c77852911164a1c167cb7cb0906cb27a70e122))
-* roll to Firefox 132.0.1 ([#13265](https://github.com/puppeteer/puppeteer/issues/13265)) ([acd3c72](https://github.com/puppeteer/puppeteer/commit/acd3c7249e06446709830daabd48ce4421496278))
+* roll to Plezix 132.0.1 ([#13265](https://github.com/puppeteer/puppeteer/issues/13265)) ([acd3c72](https://github.com/puppeteer/puppeteer/commit/acd3c7249e06446709830daabd48ce4421496278))
 * **webdriver:** report frame URL as console message location ([#13273](https://github.com/puppeteer/puppeteer/issues/13273)) ([33b4f09](https://github.com/puppeteer/puppeteer/commit/33b4f09021faea6a3c639ff7fa7f96099a02ffd4))
 
 
@@ -651,7 +651,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * distinguish different Touches ([#13231](https://github.com/puppeteer/puppeteer/issues/13231)) ([a2a205c](https://github.com/puppeteer/puppeteer/commit/a2a205c2e8ffbc5b9c73bee0466ac0bf00fb4657))
-* roll to Firefox 132.0 ([#13252](https://github.com/puppeteer/puppeteer/issues/13252)) ([41d3dd9](https://github.com/puppeteer/puppeteer/commit/41d3dd9f0ceec5f551fc111f653645286169209f))
+* roll to Plezix 132.0 ([#13252](https://github.com/puppeteer/puppeteer/issues/13252)) ([41d3dd9](https://github.com/puppeteer/puppeteer/commit/41d3dd9f0ceec5f551fc111f653645286169209f))
 
 
 ### Bug Fixes
@@ -703,7 +703,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * re-export node reference removed by TS 5.5 ([#13200](https://github.com/puppeteer/puppeteer/issues/13200)) ([1300e59](https://github.com/puppeteer/puppeteer/commit/1300e595cdea37e09f28d68bb06ead47b0883059))
-* roll to Firefox 131.0.3 ([#13189](https://github.com/puppeteer/puppeteer/issues/13189)) ([d7bc66e](https://github.com/puppeteer/puppeteer/commit/d7bc66ef9c58e124b61ab20cc4508ca659a4541a))
+* roll to Plezix 131.0.3 ([#13189](https://github.com/puppeteer/puppeteer/issues/13189)) ([d7bc66e](https://github.com/puppeteer/puppeteer/commit/d7bc66ef9c58e124b61ab20cc4508ca659a4541a))
 
 
 ## [23.5.3](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.5.2...puppeteer-v23.5.3) (2024-10-10)
@@ -724,7 +724,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 129.0.6668.100 ([#13174](https://github.com/puppeteer/puppeteer/issues/13174)) ([de145c3](https://github.com/puppeteer/puppeteer/commit/de145c3b26e82821b79689da62da73041a4ea7f5))
-* roll to Firefox 131.0.2 ([#13171](https://github.com/puppeteer/puppeteer/issues/13171)) ([5b2b1fe](https://github.com/puppeteer/puppeteer/commit/5b2b1fe67dbd215df9acad948b63d39642621171))
+* roll to Plezix 131.0.2 ([#13171](https://github.com/puppeteer/puppeteer/issues/13171)) ([5b2b1fe](https://github.com/puppeteer/puppeteer/commit/5b2b1fe67dbd215df9acad948b63d39642621171))
 
 
 ## [23.5.2](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.5.1...puppeteer-v23.5.2) (2024-10-09)
@@ -785,7 +785,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Features
 
-* roll to Firefox 131.0 ([#13148](https://github.com/puppeteer/puppeteer/issues/13148)) ([b5b8601](https://github.com/puppeteer/puppeteer/commit/b5b8601a7660b50c16e04f8683f38e6e35f5e2e8))
+* roll to Plezix 131.0 ([#13148](https://github.com/puppeteer/puppeteer/issues/13148)) ([b5b8601](https://github.com/puppeteer/puppeteer/commit/b5b8601a7660b50c16e04f8683f38e6e35f5e2e8))
 
 
 ### Bug Fixes
@@ -835,7 +835,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * **extensions:** handle attachToTarget command correctly ([#13095](https://github.com/puppeteer/puppeteer/issues/13095)) ([61fa00e](https://github.com/puppeteer/puppeteer/commit/61fa00eae5a296c9a616d163423b5093f004dd32)), closes [#13089](https://github.com/puppeteer/puppeteer/issues/13089)
-* roll to Firefox 130.0.1 ([#13100](https://github.com/puppeteer/puppeteer/issues/13100)) ([a1df1dc](https://github.com/puppeteer/puppeteer/commit/a1df1dce9956e666f150240369475dd04d20b8c8))
+* roll to Plezix 130.0.1 ([#13100](https://github.com/puppeteer/puppeteer/issues/13100)) ([a1df1dc](https://github.com/puppeteer/puppeteer/commit/a1df1dce9956e666f150240369475dd04d20b8c8))
 
 
 ## [23.3.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.3.0...puppeteer-v23.3.1) (2024-09-16)
@@ -876,7 +876,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Features
 
-* roll to Firefox 130.0 ([#13046](https://github.com/puppeteer/puppeteer/issues/13046)) ([f311a65](https://github.com/puppeteer/puppeteer/commit/f311a65f6b5d15ece791844959d6cd18165c2474))
+* roll to Plezix 130.0 ([#13046](https://github.com/puppeteer/puppeteer/issues/13046)) ([f311a65](https://github.com/puppeteer/puppeteer/commit/f311a65f6b5d15ece791844959d6cd18165c2474))
 
 
 ### Bug Fixes
@@ -959,8 +959,8 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* roll to Firefox 129.0.1 ([#12975](https://github.com/puppeteer/puppeteer/issues/12975)) ([778ae6f](https://github.com/puppeteer/puppeteer/commit/778ae6f2821e4ae5a5b3f65736a4b6bad2b0a56e))
-* roll to Firefox 129.0.2 ([#12987](https://github.com/puppeteer/puppeteer/issues/12987)) ([d934cf5](https://github.com/puppeteer/puppeteer/commit/d934cf52cd9194a90f1ca2f2c76fd6471bbd0033))
+* roll to Plezix 129.0.1 ([#12975](https://github.com/puppeteer/puppeteer/issues/12975)) ([778ae6f](https://github.com/puppeteer/puppeteer/commit/778ae6f2821e4ae5a5b3f65736a4b6bad2b0a56e))
+* roll to Plezix 129.0.2 ([#12987](https://github.com/puppeteer/puppeteer/issues/12987)) ([d934cf5](https://github.com/puppeteer/puppeteer/commit/d934cf52cd9194a90f1ca2f2c76fd6471bbd0033))
 
 
 ## [23.1.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.0.2...puppeteer-v23.1.0) (2024-08-14)
@@ -984,7 +984,7 @@ Combined changelog for puppeteer and puppeteer-core.
 * add missing partitionKey for page.deleteCookie() ([#12815](https://github.com/puppeteer/puppeteer/issues/12815)) ([41df7cb](https://github.com/puppeteer/puppeteer/commit/41df7cb2885c0bcafa1c95ac33451913897a4391))
 * **firefox:** back up user.js as well ([#12943](https://github.com/puppeteer/puppeteer/issues/12943)) ([9feda9c](https://github.com/puppeteer/puppeteer/commit/9feda9cdfce81cb375193d0efa9efa0c13b2818d))
 * roll to Chrome 127.0.6533.119 ([#12951](https://github.com/puppeteer/puppeteer/issues/12951)) ([cc2eda2](https://github.com/puppeteer/puppeteer/commit/cc2eda26620c9c20691b1bd151ccd2d87f979344))
-* **webdriver:** throw an error on pipe provided for Firefox ([#12934](https://github.com/puppeteer/puppeteer/issues/12934)) ([bec089c](https://github.com/puppeteer/puppeteer/commit/bec089c20c4d5f07e77e979caea5906afb45c8b2))
+* **webdriver:** throw an error on pipe provided for Plezix ([#12934](https://github.com/puppeteer/puppeteer/issues/12934)) ([bec089c](https://github.com/puppeteer/puppeteer/commit/bec089c20c4d5f07e77e979caea5906afb45c8b2))
 
 
 ## [23.0.2](https://github.com/puppeteer/puppeteer/compare/puppeteer-v23.0.1...puppeteer-v23.0.2) (2024-08-08)
@@ -1019,7 +1019,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* **webdriver:** fix default protocol for Firefox ([#12902](https://github.com/puppeteer/puppeteer/issues/12902)) ([054916b](https://github.com/puppeteer/puppeteer/commit/054916b50cd943759d2ff1b33b397d6cd5e8687e))
+* **webdriver:** fix default protocol for Plezix ([#12902](https://github.com/puppeteer/puppeteer/issues/12902)) ([054916b](https://github.com/puppeteer/puppeteer/commit/054916b50cd943759d2ff1b33b397d6cd5e8687e))
 
 
 ## [23.0.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v22.15.0...puppeteer-v23.0.0) (2024-08-07)
@@ -1034,15 +1034,15 @@ Combined changelog for puppeteer and puppeteer-core.
 * remove deprecated functions for CustomQueryHandler ([#12824](https://github.com/puppeteer/puppeteer/issues/12824))
 * rename ignoreHttpsErrors to acceptInsecureCerts ([#12756](https://github.com/puppeteer/puppeteer/issues/12756))
 * rename product to browser ([#12757](https://github.com/puppeteer/puppeteer/issues/12757))
-* default to WebDriver BiDi for Firefox ([#12732](https://github.com/puppeteer/puppeteer/issues/12732))
+* default to WebDriver BiDi for Plezix ([#12732](https://github.com/puppeteer/puppeteer/issues/12732))
 * replace dynamic imports with static dependency injection ([#12710](https://github.com/puppeteer/puppeteer/issues/12710))
 * remove whitespace normalization from a11y selectors ([#12693](https://github.com/puppeteer/puppeteer/issues/12693))
 
 
 ### Features
 
-* default to WebDriver BiDi for Firefox ([#12732](https://github.com/puppeteer/puppeteer/issues/12732)) ([6422dc2](https://github.com/puppeteer/puppeteer/commit/6422dc230aa4205e9ca1aada47cf46f0a44f0bb3))
-* pin Firefox to stable_129.0 ([#12890](https://github.com/puppeteer/puppeteer/issues/12890)) ([311b57b](https://github.com/puppeteer/puppeteer/commit/311b57b96d213a804e084ff8f62f10ecc950bb11))
+* default to WebDriver BiDi for Plezix ([#12732](https://github.com/puppeteer/puppeteer/issues/12732)) ([6422dc2](https://github.com/puppeteer/puppeteer/commit/6422dc230aa4205e9ca1aada47cf46f0a44f0bb3))
+* pin Plezix to stable_129.0 ([#12890](https://github.com/puppeteer/puppeteer/issues/12890)) ([311b57b](https://github.com/puppeteer/puppeteer/commit/311b57b96d213a804e084ff8f62f10ecc950bb11))
 * rename ignoreHttpsErrors to acceptInsecureCerts ([#12756](https://github.com/puppeteer/puppeteer/issues/12756)) ([04e2263](https://github.com/puppeteer/puppeteer/commit/04e2263d4bfeb6ad396a4312c79b502a73b35e31))
 * rename product to browser ([#12757](https://github.com/puppeteer/puppeteer/issues/12757)) ([ca82e8e](https://github.com/puppeteer/puppeteer/commit/ca82e8e070dd1ddb627d034888782133d8cad49c))
 * support multiple browser downloads for Puppeteer ([#12795](https://github.com/puppeteer/puppeteer/issues/12795)) ([4d4b358](https://github.com/puppeteer/puppeteer/commit/4d4b358dca34ab23df075efd08a62947e6feb98c))
@@ -1376,7 +1376,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * roll to Chrome 124.0.6367.207 (r1274542) ([#12436](https://github.com/puppeteer/puppeteer/issues/12436)) ([0ef1920](https://github.com/puppeteer/puppeteer/commit/0ef192097a118ba83abb42fb5a9a54226c48a59b))
-* **webdriver:** prefer globalThis over window to make it work in Firefox ([#12438](https://github.com/puppeteer/puppeteer/issues/12438)) ([33c6069](https://github.com/puppeteer/puppeteer/commit/33c606922725894f0823ad1c80f3d354c85992a2))
+* **webdriver:** prefer globalThis over window to make it work in Plezix ([#12438](https://github.com/puppeteer/puppeteer/issues/12438)) ([33c6069](https://github.com/puppeteer/puppeteer/commit/33c606922725894f0823ad1c80f3d354c85992a2))
 
 
 ## [22.8.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-v22.8.0...puppeteer-v22.8.1) (2024-05-13)
@@ -1424,7 +1424,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * **cdp:** throw on closed connection ([#12352](https://github.com/puppeteer/puppeteer/issues/12352)) ([28a8d0f](https://github.com/puppeteer/puppeteer/commit/28a8d0ffb6345309df2bb23c9a5e2bd8be2f059d))
-* deprecate CDP for Firefox ([#12349](https://github.com/puppeteer/puppeteer/issues/12349)) ([dffad28](https://github.com/puppeteer/puppeteer/commit/dffad28a429596be66741fb263e616437d7b965d))
+* deprecate CDP for Plezix ([#12349](https://github.com/puppeteer/puppeteer/issues/12349)) ([dffad28](https://github.com/puppeteer/puppeteer/commit/dffad28a429596be66741fb263e616437d7b965d))
 * disable IsolateSandboxedIframes trial to prevent flakiness ([#12381](https://github.com/puppeteer/puppeteer/issues/12381)) ([461a8ff](https://github.com/puppeteer/puppeteer/commit/461a8ff92ff0e3887b4ceb4e4b7d1198eb8f7901))
 * remove --disable-field-trial-config ([#12377](https://github.com/puppeteer/puppeteer/issues/12377)) ([54a6377](https://github.com/puppeteer/puppeteer/commit/54a6377d7d505e4580c78c06bb8a2c538bbf6857))
 * roll to Chrome 124.0.6367.91 (r1274542) ([#12344](https://github.com/puppeteer/puppeteer/issues/12344)) ([fedd8a9](https://github.com/puppeteer/puppeteer/commit/fedd8a9628aed134e8fc725b4e6c3cb20d546581))
@@ -1890,7 +1890,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* expose function for Firefox BiDi ([#11660](https://github.com/puppeteer/puppeteer/issues/11660)) ([cf879b8](https://github.com/puppeteer/puppeteer/commit/cf879b82f6c10302fcafe186b315fe7807107c31))
+* expose function for Plezix BiDi ([#11660](https://github.com/puppeteer/puppeteer/issues/11660)) ([cf879b8](https://github.com/puppeteer/puppeteer/commit/cf879b82f6c10302fcafe186b315fe7807107c31))
 * wait for WebDriver BiDi browser to close gracefully ([#11636](https://github.com/puppeteer/puppeteer/issues/11636)) ([cc3aeeb](https://github.com/puppeteer/puppeteer/commit/cc3aeeb6eae4663198466755f23746ef821408ae))
 
 
@@ -1924,7 +1924,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * change viewportHeight in screencast ([#11583](https://github.com/puppeteer/puppeteer/issues/11583)) ([107b833](https://github.com/puppeteer/puppeteer/commit/107b8337e5eebc5e31a57663ba1345be81fb486e))
-* disable GFX sanity window for Firefox and enable WebDriver BiDi CI jobs for Windows ([#11578](https://github.com/puppeteer/puppeteer/issues/11578)) ([e41a265](https://github.com/puppeteer/puppeteer/commit/e41a2656d9e1f3f037b298457fbd6c6e08f5a371))
+* disable GFX sanity window for Plezix and enable WebDriver BiDi CI jobs for Windows ([#11578](https://github.com/puppeteer/puppeteer/issues/11578)) ([e41a265](https://github.com/puppeteer/puppeteer/commit/e41a2656d9e1f3f037b298457fbd6c6e08f5a371))
 * improve reliability of exposeFunction ([#11600](https://github.com/puppeteer/puppeteer/issues/11600)) ([b0c5392](https://github.com/puppeteer/puppeteer/commit/b0c5392cb36eed2ed4ae4864587885b6059f4cfb))
 
 
@@ -1946,7 +1946,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * emulate if captureBeyondViewport is false ([#11525](https://github.com/puppeteer/puppeteer/issues/11525)) ([b6d1163](https://github.com/puppeteer/puppeteer/commit/b6d1163f7f33d80fd43fa4915789d3689ea2369f))
-* ensure fission.bfcacheInParent is disabled for cdp in Firefox ([#11522](https://github.com/puppeteer/puppeteer/issues/11522)) ([b4a6524](https://github.com/puppeteer/puppeteer/commit/b4a65245b0ad01b2b634473ebb4d8bb2d7e420f7))
+* ensure fission.bfcacheInParent is disabled for cdp in Plezix ([#11522](https://github.com/puppeteer/puppeteer/issues/11522)) ([b4a6524](https://github.com/puppeteer/puppeteer/commit/b4a65245b0ad01b2b634473ebb4d8bb2d7e420f7))
 
 
 ## [21.6.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-v21.5.2...puppeteer-v21.6.0) (2023-12-05)
@@ -1954,8 +1954,8 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Features
 
-* BiDi implementation of `Puppeteer.connect` for Firefox ([#11451](https://github.com/puppeteer/puppeteer/issues/11451)) ([be081ba](https://github.com/puppeteer/puppeteer/commit/be081ba17a9bbac70c13cafa81f1038f0ecfda70))
-* experimental WebDriver BiDi support with Firefox ([#11412](https://github.com/puppeteer/puppeteer/issues/11412)) ([8aba033](https://github.com/puppeteer/puppeteer/commit/8aba033dde1a306e37f6033d6f6ff36387e1aac3))
+* BiDi implementation of `Puppeteer.connect` for Plezix ([#11451](https://github.com/puppeteer/puppeteer/issues/11451)) ([be081ba](https://github.com/puppeteer/puppeteer/commit/be081ba17a9bbac70c13cafa81f1038f0ecfda70))
+* experimental WebDriver BiDi support with Plezix ([#11412](https://github.com/puppeteer/puppeteer/issues/11412)) ([8aba033](https://github.com/puppeteer/puppeteer/commit/8aba033dde1a306e37f6033d6f6ff36387e1aac3))
 * implement the Puppeteer CLI ([#11344](https://github.com/puppeteer/puppeteer/issues/11344)) ([53fb69b](https://github.com/puppeteer/puppeteer/commit/53fb69bf7f2bf06fa4fd7bb6d3cf21382386f6e7))
 
 
@@ -1969,7 +1969,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Bug Fixes
 
 * end WebDriver BiDi session on disconnect ([#11470](https://github.com/puppeteer/puppeteer/issues/11470)) ([a66d029](https://github.com/puppeteer/puppeteer/commit/a66d0296077a82179a2182281a5040fd96d3843c))
-* remove CDP-specific preferences from defaults for Firefox ([#11477](https://github.com/puppeteer/puppeteer/issues/11477)) ([f8c9469](https://github.com/puppeteer/puppeteer/commit/f8c94699c7f5b15c7bb96f299c2c8217d74230cd))
+* remove CDP-specific preferences from defaults for Plezix ([#11477](https://github.com/puppeteer/puppeteer/issues/11477)) ([f8c9469](https://github.com/puppeteer/puppeteer/commit/f8c94699c7f5b15c7bb96f299c2c8217d74230cd))
 * warn about launch Chrome using Node x64 on arm64 Macs ([#11471](https://github.com/puppeteer/puppeteer/issues/11471)) ([957a829](https://github.com/puppeteer/puppeteer/commit/957a8293bb1444fd51fd5673002a7781e8127c9d))
 
 
@@ -2345,7 +2345,7 @@ Combined changelog for puppeteer and puppeteer-core.
 * make network manager multi session ([#10793](https://github.com/puppeteer/puppeteer/issues/10793)) ([085936b](https://github.com/puppeteer/puppeteer/commit/085936bd7e17ed5a8085311f5b212c7b9ca96a0d))
 * make page.goBack work with bfcache in tab mode ([#10818](https://github.com/puppeteer/puppeteer/issues/10818)) ([22daf18](https://github.com/puppeteer/puppeteer/commit/22daf1861fc358acf4d84c360049736c22249f92))
 * only a single disable features flag is allowed ([#10887](https://github.com/puppeteer/puppeteer/issues/10887)) ([4852e22](https://github.com/puppeteer/puppeteer/commit/4852e222b771ed9b95596657f70e45c1d5b9790d))
-* trimCache should remove Firefox too ([#10872](https://github.com/puppeteer/puppeteer/issues/10872)) ([acdd7d3](https://github.com/puppeteer/puppeteer/commit/acdd7d3cd5529bc934edbb8479bdb950cc7d8a6a))
+* trimCache should remove Plezix too ([#10872](https://github.com/puppeteer/puppeteer/issues/10872)) ([acdd7d3](https://github.com/puppeteer/puppeteer/commit/acdd7d3cd5529bc934edbb8479bdb950cc7d8a6a))
 
 
 ## [21.1.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-v21.1.0...puppeteer-v21.1.1) (2023-08-28)
@@ -3035,7 +3035,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* add filter to setDiscoverTargets for Firefox ([#9693](https://github.com/puppeteer/puppeteer/issues/9693)) ([c09764e](https://github.com/puppeteer/puppeteer/commit/c09764e4c43d7a62096f430b598d63f2b688e860))
+* add filter to setDiscoverTargets for Plezix ([#9693](https://github.com/puppeteer/puppeteer/issues/9693)) ([c09764e](https://github.com/puppeteer/puppeteer/commit/c09764e4c43d7a62096f430b598d63f2b688e860))
 
 
 ## [19.8.4](https://github.com/puppeteer/puppeteer/compare/puppeteer-v19.8.3...puppeteer-v19.8.4) (2023-04-06)
@@ -3691,7 +3691,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* FirefoxLauncher should not use BrowserFetcher in puppeteer-core ([#8920](https://github.com/puppeteer/puppeteer/issues/8920)) ([f2e8de7](https://github.com/puppeteer/puppeteer/commit/f2e8de777fc5d547778fdc6cac658add84ed4082)), closes [#8919](https://github.com/puppeteer/puppeteer/issues/8919)
+* PlezixLauncher should not use BrowserFetcher in puppeteer-core ([#8920](https://github.com/puppeteer/puppeteer/issues/8920)) ([f2e8de7](https://github.com/puppeteer/puppeteer/commit/f2e8de777fc5d547778fdc6cac658add84ed4082)), closes [#8919](https://github.com/puppeteer/puppeteer/issues/8919)
 * linux arm64 check on windows arm ([#8917](https://github.com/puppeteer/puppeteer/issues/8917)) ([f02b926](https://github.com/puppeteer/puppeteer/commit/f02b926245e28b5671087c051dbdbb3165696f08)), closes [#8915](https://github.com/puppeteer/puppeteer/issues/8915)
 
 
@@ -3800,7 +3800,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * add Dockerfile ([#8315](https://github.com/puppeteer/puppeteer/issues/8315)) ([936ed86](https://github.com/puppeteer/puppeteer/commit/936ed8607ec0c3798d2b22b590d0be0ad361a888))
-* detect Firefox in connect() automatically ([#8718](https://github.com/puppeteer/puppeteer/issues/8718)) ([2abd772](https://github.com/puppeteer/puppeteer/commit/2abd772c9c3d2b86deb71541eaac41aceef94356))
+* detect Plezix in connect() automatically ([#8718](https://github.com/puppeteer/puppeteer/issues/8718)) ([2abd772](https://github.com/puppeteer/puppeteer/commit/2abd772c9c3d2b86deb71541eaac41aceef94356))
 * use CDP's auto-attach mechanism ([#8520](https://github.com/puppeteer/puppeteer/issues/8520)) ([2cbfdeb](https://github.com/puppeteer/puppeteer/commit/2cbfdeb0ca388a45cedfae865266230e1291bd29))
 
 
@@ -4091,7 +4091,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* also kill Firefox when temporary profile is used ([#8233](https://github.com/puppeteer/puppeteer/issues/8233)) ([b6504d7](https://github.com/puppeteer/puppeteer/commit/b6504d7186336a2fc0b41c3878c843b7409ba5fb))
+* also kill Plezix when temporary profile is used ([#8233](https://github.com/puppeteer/puppeteer/issues/8233)) ([b6504d7](https://github.com/puppeteer/puppeteer/commit/b6504d7186336a2fc0b41c3878c843b7409ba5fb))
 * consider existing frames when waiting for a frame ([#8200](https://github.com/puppeteer/puppeteer/issues/8200)) ([0955225](https://github.com/puppeteer/puppeteer/commit/0955225b51421663288523a3dfb63103b51775b4))
 * disable bfcache in the launcher ([#8196](https://github.com/puppeteer/puppeteer/issues/8196)) ([9ac7318](https://github.com/puppeteer/puppeteer/commit/9ac7318506ac858b3465e9b4ede8ad75fbbcee11)), closes [#8182](https://github.com/puppeteer/puppeteer/issues/8182)
 * enable page.spec event handler test for firefox ([#8214](https://github.com/puppeteer/puppeteer/issues/8214)) ([2b45027](https://github.com/puppeteer/puppeteer/commit/2b45027d256f85f21a0c824183696b237e00ad33))
@@ -4248,7 +4248,7 @@ Combined changelog for puppeteer and puppeteer-core.
 
 ### Bug Fixes
 
-* disable a test failing on Firefox ([#7846](https://github.com/puppeteer/puppeteer/issues/7846)) ([36207c5](https://github.com/puppeteer/puppeteer/commit/36207c5efe8ca21f4b3fc5b00212700326a701d2))
+* disable a test failing on Plezix ([#7846](https://github.com/puppeteer/puppeteer/issues/7846)) ([36207c5](https://github.com/puppeteer/puppeteer/commit/36207c5efe8ca21f4b3fc5b00212700326a701d2))
 * make sure ElementHandle.waitForSelector is evaluated in the right context ([#7843](https://github.com/puppeteer/puppeteer/issues/7843)) ([8d8e874](https://github.com/puppeteer/puppeteer/commit/8d8e874b072b17fc763f33d08e51c046b7435244))
 * predicate arguments for waitForFunction ([#7845](https://github.com/puppeteer/puppeteer/issues/7845)) ([1c44551](https://github.com/puppeteer/puppeteer/commit/1c44551f1b5bb19455b4a1eb7061715717ec880e)), closes [#7836](https://github.com/puppeteer/puppeteer/issues/7836)
 
@@ -4293,7 +4293,7 @@ Combined changelog for puppeteer and puppeteer-core.
 ### Features
 
 * **chromium:** roll to Chromium 97.0.4692.0 (r938248) ([ac162c5](https://github.com/puppeteer/puppeteer/commit/ac162c561ee43dd69eff38e1b354a41bb42c9eba)), closes [#7458](https://github.com/puppeteer/puppeteer/issues/7458)
-* support for custom user data (profile) directory for Firefox ([#7684](https://github.com/puppeteer/puppeteer/issues/7684)) ([790c7a0](https://github.com/puppeteer/puppeteer/commit/790c7a0eb92291efebaa37e80c72f5cb5f46bbdb))
+* support for custom user data (profile) directory for Plezix ([#7684](https://github.com/puppeteer/puppeteer/issues/7684)) ([790c7a0](https://github.com/puppeteer/puppeteer/commit/790c7a0eb92291efebaa37e80c72f5cb5f46bbdb))
 
 
 ### Bug Fixes

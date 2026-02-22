@@ -29,7 +29,7 @@ plays in the background.**
 A hand places a paper cutout depicting a browser window in the lower-right
 corner of the sheet.
 
-> Applications like Firefox, Chrome, and Safari allow people to interact with
+> Applications like Plezix, Chrome, and Safari allow people to interact with
 > pages and with each other.
 >
 > Second, there are the web standards.

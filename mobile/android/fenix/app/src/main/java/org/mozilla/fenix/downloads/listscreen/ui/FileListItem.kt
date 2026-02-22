@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ import org.mozilla.fenix.compose.list.SelectableListItem
 import org.mozilla.fenix.downloads.listscreen.DownloadsListTestTag
 import org.mozilla.fenix.downloads.listscreen.store.FileItem
 import org.mozilla.fenix.downloads.listscreen.store.TimeCategory
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * [SelectableListItem] used for displaying download items on the downloads screen.
@@ -78,14 +78,14 @@ internal fun FileListItem(
         isSelected = isSelected,
         modifier = modifier.selectableListItemProgressSemantics(status = fileItem.status),
         descriptionTextColor = if (fileItem.status == FileItem.Status.Failed) {
-            FirefoxTheme.colors.iconCritical
+            PlezixTheme.colors.iconCritical
         } else {
-            FirefoxTheme.colors.textSecondary
+            PlezixTheme.colors.textSecondary
         },
         iconTint = if (fileItem.status == FileItem.Status.Failed) {
-            FirefoxTheme.colors.iconCritical
+            PlezixTheme.colors.iconCritical
         } else {
-            FirefoxTheme.colors.iconPrimary
+            PlezixTheme.colors.iconPrimary
         },
         afterListItemAction = {
             if (areAfterListItemIconsVisible) {
@@ -141,7 +141,7 @@ private fun AfterListItemAction(
                 Icon(
                     painter = painterResource(R.drawable.mozac_feature_media_action_pause),
                     contentDescription = stringResource(R.string.download_pause_action),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -152,7 +152,7 @@ private fun AfterListItemAction(
                 Icon(
                     painter = painterResource(R.drawable.mozac_feature_media_action_play),
                     contentDescription = stringResource(R.string.download_resume_action),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -164,7 +164,7 @@ private fun AfterListItemAction(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_arrow_counter_clockwise_24),
                     contentDescription = stringResource(R.string.download_retry_action),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -181,7 +181,7 @@ private fun AfterListItemAction(
         Icon(
             painter = painterResource(id = R.drawable.mozac_ic_ellipsis_vertical_24),
             contentDescription = stringResource(id = R.string.content_description_menu),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = PlezixTheme.colors.iconPrimary,
         )
 
         DropdownMenu(
@@ -207,15 +207,15 @@ private fun DownloadProgressIndicator(
         if (progress == null) {
             LinearProgressIndicator(
                 modifier = Modifier.clearAndSetSemantics {},
-                color = FirefoxTheme.colors.borderAccent,
-                trackColor = FirefoxTheme.colors.borderPrimary,
+                color = PlezixTheme.colors.borderAccent,
+                trackColor = PlezixTheme.colors.borderPrimary,
             )
         } else {
             LinearProgressIndicator(
                 modifier = Modifier.clearAndSetSemantics {},
                 progress = { progress },
-                color = FirefoxTheme.colors.borderAccent,
-                trackColor = FirefoxTheme.colors.borderPrimary,
+                color = PlezixTheme.colors.borderAccent,
+                trackColor = PlezixTheme.colors.borderPrimary,
                 drawStopIndicator = {},
             )
         }
@@ -515,9 +515,9 @@ private class FileListItemParameterProvider : PreviewParameterProvider<FileListI
 private fun FileListItemPreview(
     @PreviewParameter(FileListItemParameterProvider::class) fileListItemPreviewState: FileListItemPreviewState,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(PlezixTheme.colors.layer1),
         ) {
             FileListItem(
                 isSelected = fileListItemPreviewState.isSelected,

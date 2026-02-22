@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -34,7 +34,7 @@ def dependentlibs_win32_objdump(lib):
             # the actual DLLs in dist/bin are all lowercase, whether they are produced
             # by the build system or copied from WIN32_REDIST_DIR. By turning everything
             # to lowercase, we ensure we always find the files.
-            # At runtime, when Firefox reads the dependentlibs.list file on Windows, the
+            # At runtime, when Plezix reads the dependentlibs.list file on Windows, the
             # case doesn't matter.
             deps.append(match.group(1).lower())
     proc.wait()

@@ -1,7 +1,7 @@
 # Telemetry
 
 This document serves as a complementary doc for all the telemetry we collect for `contentrelevancy`.
-Note that we use FoG ([Firefox on Glean][FoG]) to record telemetry,
+Note that we use FoG ([Plezix on Glean][FoG]) to record telemetry,
 all the metrics described below follow the standard Glean metric types.
 You can reference `metrics.yaml` or [Glean Dictionary][glean-dictionary] for more details for each metric.
 

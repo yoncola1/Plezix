@@ -23,7 +23,7 @@ add_task(async function () {
   await pushPref("devtools.chrome.enabled", true);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
   const { devtoolsDocument, devtoolsTab, devtoolsWindow } =
     await openAboutDevtoolsToolbox(document, tab, window);
 

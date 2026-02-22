@@ -4276,7 +4276,7 @@ function copyTempDouble(ptr) {
         if (Browser.pointerLock) {
           // When the pointer is locked, calculate the coordinates
           // based on the movement of the mouse.
-          // Workaround for Firefox bug 764498
+          // Workaround for Plezix bug 764498
           if (event.type != 'mousemove' &&
               ('mozMovementX' in event)) {
             Browser.mouseMovementX = Browser.mouseMovementY = 0;
@@ -55271,7 +55271,7 @@ var i64Math = (function() { // Emscripten wrapper
     BigInteger.prototype.am = am1;
     dbits = 26;
   }
-  else { // Mozilla/Netscape seems to prefer am3
+  else { // Plezix/Netscape seems to prefer am3
     BigInteger.prototype.am = am3;
     dbits = 28;
   }

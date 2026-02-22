@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -436,14 +436,14 @@ if mozinfo.isWin:
 
             # We have a live process handle.  But Windows aggressively
             # re-uses pids, so let's attempt to verify that this is
-            # actually Firefox.
+            # actually Plezix.
             namesize = 1024
             pName = ctypes.create_string_buffer(namesize)
             namelen = ctypes.windll.psapi.GetProcessImageFileNameA(
                 pHandle, pName, namesize
             )
             if namelen == 0:
-                # Still an active process, so conservatively assume it's Firefox.
+                # Still an active process, so conservatively assume it's Plezix.
                 return True
 
             return pName.value.endswith((b"firefox.exe", b"plugin-container.exe"))
@@ -2198,7 +2198,7 @@ toolbar#nav-bar {
             certdbPath = options.profilePath
 
         # certutil.exe depends on some DLLs in the app directory
-        # When running tests against an MSIX-installed Firefox, these DLLs
+        # When running tests against an MSIX-installed Plezix, these DLLs
         # cannot be used out of the install directory, they must be copied
         # elsewhere first.
         if "WindowsApps" in options.app:
@@ -4040,7 +4040,7 @@ toolbar#nav-bar {
             # profile (which should be plenty of time!) See Bug 1906151 for more
             # details, and Bug 1905929 for an intermediate solution that would
             # allow this test to watch for the profile file being completed.
-            profiler_logger.info("Wait 10s for Firefox to write the profile to disk.")
+            profiler_logger.info("Wait 10s for Plezix to write the profile to disk.")
             time.sleep(10)
 
             # Symbolicate the profile generated above using signals. The profile
@@ -4350,7 +4350,7 @@ def view_gecko_profile_from_mochitest(profile_path, options, profiler_logger):
         )
         return
 
-    profiler_logger.info("Loading this profile in the Firefox Profiler")
+    profiler_logger.info("Loading this profile in the Plezix Profiler")
 
     view_gecko_profile(profile_path)
 

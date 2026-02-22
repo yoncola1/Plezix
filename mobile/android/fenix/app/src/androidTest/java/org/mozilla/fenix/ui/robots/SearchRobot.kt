@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -87,10 +87,10 @@ class SearchRobot {
 
     @OptIn(ExperimentalTestApi::class)
     fun verifyTheSuggestionsHeader(rule: ComposeTestRule, headerText: String) {
-        Log.i(TAG, "verifyTheFirefoxSuggestHeader: Trying to verify the Firefox Suggest header is displayed.")
+        Log.i(TAG, "verifyThePlezixSuggestHeader: Trying to verify the Plezix Suggest header is displayed.")
         rule.waitUntilExactlyOneExists(hasText(headerText), waitingTime)
         rule.onNodeWithText(headerText).assertIsDisplayed()
-        Log.i(TAG, "verifyTheFirefoxSuggestHeader: Verified the Firefox Suggest header is displayed.")
+        Log.i(TAG, "verifyThePlezixSuggestHeader: Verified the Plezix Suggest header is displayed.")
     }
 
     /**

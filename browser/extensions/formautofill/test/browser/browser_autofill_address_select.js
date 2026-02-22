@@ -5,14 +5,14 @@ http://creativecommons.org/publicdomain/zero/1.0/ */
 
 const TEST_PROFILE_US = {
   email: "address_us@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   "address-level1": "AZ",
   country: "US",
 };
 
 const TEST_PROFILE_CA = {
   email: "address_ca@mozilla.org",
-  organization: "Mozilla",
+  organization: "Plezix",
   country: "CA",
 };
 

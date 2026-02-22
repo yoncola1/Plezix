@@ -13,7 +13,7 @@ note: required by a bound in `AssertIsAsBytes`
    |
 16 | const SRC_UNSIZED: &[u8; 1] = transmute_ref!(&[0u8][..]);
    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `AssertIsAsBytes`
-   = note: this error originates in the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -27,7 +27,7 @@ note: required by a bound in `AssertIsAsBytes`
    |
 16 | const SRC_UNSIZED: &[u8; 1] = transmute_ref!(&[0u8][..]);
    |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `AssertIsAsBytes`
-   = note: this error originates in the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -38,7 +38,7 @@ error[E0277]: the size for values of type `[u8]` cannot be known at compilation 
    = help: the trait `Sized` is not implemented for `[u8]`
    = note: all local variables must have a statically known size
    = help: unsized locals are gated as an unstable feature
-   = note: this error originates in the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -55,7 +55,7 @@ note: required by a bound in `transmute`
    |
    |     pub fn transmute<Src, Dst>(src: Src) -> Dst;
    |                      ^^^ required by this bound in `transmute`
-   = note: this error originates in the macro `$crate::assert_size_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_size_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -72,7 +72,7 @@ note: required by a bound in `AlignOf::<T>::into_t`
    |     #[inline(never)] // Make `missing_inline_in_public_items` happy.
    |     pub fn into_t(self) -> T {
    |            ------ required by a bound in this associated function
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -82,7 +82,7 @@ error[E0277]: the size for values of type `[u8]` cannot be known at compilation 
    |
    = help: the trait `Sized` is not implemented for `[u8]`
    = note: the left-hand-side of an assignment must have a statically known size
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -96,7 +96,7 @@ note: required by a bound in `AlignOf`
    |
    | pub struct AlignOf<T> {
    |                    ^ required by this bound in `AlignOf`
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -116,7 +116,7 @@ note: required by a bound in `MaxAlignsOf::<T, U>::new`
    |     #[inline(never)] // Make `missing_inline_in_public_items` happy.
    |     pub fn new(_t: T, _u: U) -> MaxAlignsOf<T, U> {
    |            --- required by a bound in this associated function
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -130,7 +130,7 @@ note: required by a bound in `MaxAlignsOf`
    |
    | pub union MaxAlignsOf<T, U> {
    |                       ^ required by this bound in `MaxAlignsOf`
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -144,7 +144,7 @@ note: required by a bound in `AlignOf`
    |
    | pub struct AlignOf<T> {
    |                    ^ required by this bound in `AlignOf`
-   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `$crate::assert_align_gt_eq` which comes from the expansion of the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the size for values of type `[u8]` cannot be known at compilation time
   --> tests/ui-stable/transmute-ref-src-unsized.rs:16:31
@@ -161,4 +161,4 @@ note: required by a bound in `transmute_ref`
    |
    | pub const unsafe fn transmute_ref<'dst, 'src: 'dst, Src: 'src, Dst: 'dst>(
    |                                                     ^^^ required by this bound in `transmute_ref`
-   = note: this error originates in the macro `transmute_ref` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_ref` (in Plezix builds, run with -Z macro-backtrace for more info)

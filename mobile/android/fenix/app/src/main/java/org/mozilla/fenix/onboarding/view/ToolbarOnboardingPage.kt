@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ import mozilla.components.lib.state.ext.observeAsState
 import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
 import org.mozilla.fenix.onboarding.store.OnboardingStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * The default ratio of the image height to the parent height.
@@ -103,7 +103,7 @@ fun ToolbarOnboardingPage(
         // Base
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(horizontal = 16.dp, vertical = 24.dp)
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState()),
@@ -127,18 +127,18 @@ fun ToolbarOnboardingPage(
 
                     Text(
                         text = title,
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = PlezixTheme.colors.textPrimary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.headline5,
+                        style = PlezixTheme.typography.headline5,
                     )
 
                     Spacer(Modifier.height(16.dp))
 
                     Text(
                         text = description,
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = PlezixTheme.colors.textPrimary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.body2,
+                        style = PlezixTheme.typography.body2,
                     )
 
                     Spacer(Modifier.height(34.dp))
@@ -162,7 +162,7 @@ fun ToolbarOnboardingPage(
                 PrimaryButton(
                     text = primaryButton.text,
                     modifier = Modifier
-                        .width(width = FirefoxTheme.layout.size.maxWidth.small)
+                        .width(width = PlezixTheme.layout.size.maxWidth.small)
                         .semantics { testTag = title + "onboarding_card.positive_button" },
                     onClick = primaryButton.onClick,
                 )
@@ -241,7 +241,7 @@ private fun SelectableImageItem(
                     .width(optionImageWidth(boxWithConstraintsScope))
                     .border(
                         2.dp,
-                        FirefoxTheme.colors.actionPrimary,
+                        PlezixTheme.colors.actionPrimary,
                         RoundedCornerShape(borderModifier),
                     )
             } else {
@@ -251,16 +251,16 @@ private fun SelectableImageItem(
 
         Text(
             text = toolbarOption.label,
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             modifier = Modifier.padding(vertical = 6.dp),
-            style = FirefoxTheme.typography.caption,
+            style = PlezixTheme.typography.caption,
         )
 
         if (isSelectedOption) {
             Box(
                 modifier = Modifier
                     .background(
-                        color = FirefoxTheme.colors.layerAccent,
+                        color = PlezixTheme.colors.layerAccent,
                         shape = CircleShape,
                     )
                     .size(24.dp),
@@ -277,7 +277,7 @@ private fun SelectableImageItem(
             Box(
                 modifier = Modifier
                     .size(24.dp)
-                    .border(2.dp, FirefoxTheme.colors.actionSecondary, CircleShape),
+                    .border(2.dp, PlezixTheme.colors.actionSecondary, CircleShape),
                 contentAlignment = Alignment.Center,
             ) {
             }
@@ -314,7 +314,7 @@ private fun optionImageWidth(boxWithConstraintsScope: BoxWithConstraintsScope): 
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun OnboardingPagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ToolbarOnboardingPage(
             onboardingStore = OnboardingStore(),
             pageState = OnboardingPageState(

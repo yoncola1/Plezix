@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.wallpaper.WallpaperThumbnails
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A view that shows content of a WallpaperOnboarding dialog.
@@ -49,7 +49,7 @@ fun WallpaperOnboarding(
     onSelectWallpaper: (Wallpaper) -> Unit,
 ) {
     Surface(
-        color = FirefoxTheme.colors.layer2,
+        color = PlezixTheme.colors.layer2,
         shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
     ) {
         Column(
@@ -59,7 +59,7 @@ fun WallpaperOnboarding(
             Icon(
                 painter = painterResource(id = R.drawable.mozac_ic_cross_24),
                 contentDescription = stringResource(id = R.string.close_tab),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
                 modifier = Modifier
                     .clickable { onCloseClicked() }
                     .size(24.dp)
@@ -70,20 +70,20 @@ fun WallpaperOnboarding(
 
             Text(
                 text = stringResource(R.string.wallpapers_onboarding_dialog_title_text),
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.headline7,
+                style = PlezixTheme.typography.headline7,
             )
 
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
                 text = stringResource(R.string.wallpapers_onboarding_dialog_body_text),
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -106,10 +106,10 @@ fun WallpaperOnboarding(
             ) {
                 Text(
                     text = stringResource(R.string.wallpapers_onboarding_dialog_explore_more_button_text),
-                    color = FirefoxTheme.colors.textAccent,
+                    color = PlezixTheme.colors.textAccent,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.button,
+                    style = PlezixTheme.typography.button,
                 )
             }
         }
@@ -119,7 +119,7 @@ fun WallpaperOnboarding(
 @Preview
 @Composable
 private fun WallpaperSnackbarPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         WallpaperOnboarding(
             wallpapers = listOf(Wallpaper.Default),
             currentWallpaper = Wallpaper.Default,

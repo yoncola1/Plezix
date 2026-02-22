@@ -16,7 +16,7 @@ AUTH_RETRY_EXPIRED_TEXT = "Expired"
 RATE_TEXT = "Too Many Retries"
 VOICE_XPATH = "//*[contains(text(), 'Voice')]"
 MIC_BUTTON_CSS = "button.LocalMicTestButton"
-UNSUPPORTED_TEXT = "currently unsupported in Firefox"
+UNSUPPORTED_TEXT = "currently unsupported in Plezix"
 
 
 async def do_2fa(client):

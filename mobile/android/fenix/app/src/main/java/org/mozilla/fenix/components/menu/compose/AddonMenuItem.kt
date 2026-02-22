@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.MenuDialogTestTag.RECOMMENDED_ADDON_ITEM
 import org.mozilla.fenix.components.menu.MenuDialogTestTag.RECOMMENDED_ADDON_ITEM_TITLE
 import org.mozilla.fenix.compose.list.FaviconListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.translations.rotationAnimation
 
 /**
@@ -77,7 +77,7 @@ internal fun AddonMenuItem(
                 .testTag(RECOMMENDED_ADDON_ITEM)
                 .clip(shape = RoundedCornerShape(4.dp))
                 .background(
-                    color = FirefoxTheme.colors.layer3,
+                    color = PlezixTheme.colors.layer3,
                 )
                 .clickable {}
                 .semantics {
@@ -96,7 +96,7 @@ internal fun AddonMenuItem(
             faviconPainter = BitmapPainter(image = addonIcon.asImageBitmap()),
             onClick = onClick,
             showDivider = showDivider,
-            dividerColor = FirefoxTheme.colors.borderPrimary,
+            dividerColor = PlezixTheme.colors.borderPrimary,
             iconPainter = if (isInstallAddonInProgress) {
                 painterResource(id = R.drawable.mozac_ic_sync_24)
             } else {
@@ -142,10 +142,10 @@ internal fun AddonMenuItem(
 @PreviewLightDark
 @Composable
 private fun AddonMenuItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3)
+                .background(color = PlezixTheme.colors.layer3)
                 .padding(16.dp),
         ) {
             MenuGroup {

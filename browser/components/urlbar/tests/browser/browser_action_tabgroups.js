@@ -38,8 +38,8 @@ async function simple_tabgroup_search_test(label, searchString) {
   info(`Attempting to find tab group '${label}' by typing '${searchString}'`);
   const win = await BrowserTestUtils.openNewBrowserWindow();
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
-  let tabGroup = win.gBrowser.addTabGroup([aboutRobotsTab, aboutMozillaTab], {
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let tabGroup = win.gBrowser.addTabGroup([aboutRobotsTab, aboutPlezixTab], {
     color: "blue",
     label,
   });
@@ -79,12 +79,12 @@ add_task(async function test_active_group() {
   const win = await BrowserTestUtils.openNewBrowserWindow();
   let originalTab = win.gBrowser.selectedTab;
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
-  let tabGroup = win.gBrowser.addTabGroup([aboutRobotsTab, aboutMozillaTab], {
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let tabGroup = win.gBrowser.addTabGroup([aboutRobotsTab, aboutPlezixTab], {
     color: "blue",
     label: "group1",
   });
-  win.gBrowser.selectedTab = aboutMozillaTab;
+  win.gBrowser.selectedTab = aboutPlezixTab;
 
   let queryContext = await UrlbarTestUtils.promiseAutocompleteResultPopup({
     window: win,
@@ -124,7 +124,7 @@ add_task(async function test_last_accessed_order() {
   const win = await BrowserTestUtils.openNewBrowserWindow();
   let blankTab = BrowserTestUtils.addTab(win.gBrowser, "about:blank");
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   let tabGroup1 = win.gBrowser.addTabGroup([aboutRobotsTab], {
     color: "blue",
     label: "group1",
@@ -133,7 +133,7 @@ add_task(async function test_last_accessed_order() {
   // Make sure we get a different time stamp for the next action.
   // eslint-disable-next-line mozilla/no-arbitrary-setTimeout
   await new Promise(resolve => win.setTimeout(resolve, 10));
-  let tabGroup2 = win.gBrowser.addTabGroup([aboutMozillaTab], {
+  let tabGroup2 = win.gBrowser.addTabGroup([aboutPlezixTab], {
     color: "blue",
     label: "group2",
   });
@@ -186,12 +186,12 @@ add_task(async function test_private_window() {
   );
   const win = await BrowserTestUtils.openNewBrowserWindow();
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   let openTabGroupNormalWindow = win.gBrowser.addTabGroup([aboutRobotsTab], {
     color: "blue",
     label: "robots",
   });
-  let savedTabGroup = win.gBrowser.addTabGroup([aboutMozillaTab], {
+  let savedTabGroup = win.gBrowser.addTabGroup([aboutPlezixTab], {
     color: "red",
     label: "mozilla",
   });

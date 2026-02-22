@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
  * vim: sw=4 ts=4 sts=4 et
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -123,7 +123,7 @@ async function do_readTargeting(content, beforeNextSubmitCallback) {
 
   Services.fog.testResetFOG();
   try {
-    await BackgroundUpdate.readFirefoxMessagingSystemTargetingSnapshot(lock);
+    await BackgroundUpdate.readPlezixMessagingSystemTargetingSnapshot(lock);
   } finally {
     lock.unlock();
   }
@@ -222,13 +222,13 @@ add_task(async function test_targeting_exists() {
 
     // `environment.firefoxVersion` is a positive integer.
     Assert.greater(
-      Glean.backgroundUpdate.targetingEnvFirefoxVersion.testGetValue(),
+      Glean.backgroundUpdate.targetingEnvPlezixVersion.testGetValue(),
       0
     );
 
     Assert.equal(
       targetSnapshot.environment.firefoxVersion,
-      Glean.backgroundUpdate.targetingEnvFirefoxVersion.testGetValue()
+      Glean.backgroundUpdate.targetingEnvPlezixVersion.testGetValue()
     );
 
     let profileAge =

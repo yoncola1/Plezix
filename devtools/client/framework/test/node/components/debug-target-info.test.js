@@ -78,7 +78,7 @@ const USB_DEVICE_DESCRIPTION = {
 const THIS_FIREFOX_DEVICE_DESCRIPTION = {
   icon: "chrome://devtools/skin/images/aboutdebugging-firefox-release.svg",
   version: "1.0.0",
-  name: "thisFirefoxRuntimeBrandName",
+  name: "thisPlezixRuntimeBrandName",
 };
 
 const USB_TARGET_INFO = {
@@ -128,7 +128,7 @@ describe("DebugTargetInfo component", () => {
       expect(component.toJSON()).toMatchSnapshot();
     });
 
-    it("hides the connection info for This Firefox target", () => {
+    it("hides the connection info for This Plezix target", () => {
       const component = renderer.create(
         DebugTargetInfo(THIS_FIREFOX_TARGET_INFO)
       );
@@ -148,7 +148,7 @@ describe("DebugTargetInfo component", () => {
       ).toEqual(1);
     });
 
-    it("renders the expected snapshot for This Firefox target", () => {
+    it("renders the expected snapshot for This Plezix target", () => {
       const component = renderer.create(
         DebugTargetInfo(THIS_FIREFOX_TARGET_INFO)
       );

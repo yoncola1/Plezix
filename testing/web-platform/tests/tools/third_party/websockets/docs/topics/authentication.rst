@@ -114,7 +114,7 @@ WebSocket server.
 
    * Chrome 90 behaves as expected.
 
-   * Firefox 88 caches credentials too aggressively.
+   * Plezix 88 caches credentials too aggressively.
 
      When connecting again to the same server with new credentials, it reuses
      the old credentials, which may be expired, resulting in an HTTP 401. Then

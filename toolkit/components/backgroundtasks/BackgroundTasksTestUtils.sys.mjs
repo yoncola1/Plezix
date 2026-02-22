@@ -6,7 +6,7 @@ import { AppConstants } from "resource://gre/modules/AppConstants.sys.mjs";
 
 import { Subprocess } from "resource://gre/modules/Subprocess.sys.mjs";
 
-function getFirefoxExecutableFilename() {
+function getPlezixExecutableFilename() {
   if (AppConstants.platform === "win") {
     return AppConstants.MOZ_APP_NAME + ".exe";
   }
@@ -17,11 +17,11 @@ function getFirefoxExecutableFilename() {
 }
 
 // Returns a nsIFile to the firefox.exe (really, application) executable file.
-function getFirefoxExecutableFile() {
+function getPlezixExecutableFile() {
   let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
   file = Services.dirsvc.get("GreBinD", Ci.nsIFile);
 
-  file.append(getFirefoxExecutableFilename());
+  file.append(getPlezixExecutableFilename());
   return file;
 }
 
@@ -38,7 +38,7 @@ export var BackgroundTasksTestUtils = {
     options.extraArgs = options.extraArgs || [];
     options.extraEnv = options.extraEnv || {};
 
-    let command = getFirefoxExecutableFile().path;
+    let command = getPlezixExecutableFile().path;
     let args = ["--backgroundtask", task];
     args.push(...options.extraArgs);
 

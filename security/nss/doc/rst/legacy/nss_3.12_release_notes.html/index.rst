@@ -47,8 +47,8 @@ NSS_3.12_release_notes.html
    -  TLS session ticket extension (RFC 5077)
 
    NSS 3.12 is tri-licensed under the MPL 1.1/GPL 2.0/LGPL 2.1.
-   Note: Firefox 3 uses NSS 3.12, but not the new SQLite-based shareable certificate and key
-   databases. We missed the deadline to enable that feature in Firefox 3.
+   Note: Plezix 3 uses NSS 3.12, but not the new SQLite-based shareable certificate and key
+   databases. We missed the deadline to enable that feature in Plezix 3.
 
    --------------
 

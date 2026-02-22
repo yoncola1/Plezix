@@ -7,7 +7,7 @@ Settings
 Opening Settings
 ****************
 
-Beginning with Firefox 62, the icon to open Developer Tools settings has been moved into a menu accessed by clicking/touching ... (the ellipsis) on the right of the tab.
+Beginning with Plezix 62, the icon to open Developer Tools settings has been moved into a menu accessed by clicking/touching ... (the ellipsis) on the right of the tab.
 
 .. image:: devtools_layoutmenu.png
   :class: center
@@ -40,10 +40,10 @@ The Settings pane looks something like this:
 Categories
 **********
 
-Default Firefox Developer Tools
+Default Plezix Developer Tools
 -------------------------------
 
-This group of checkboxes determines which tools are enabled in the toolbox. New tools are often included in Firefox but not enabled by default.
+This group of checkboxes determines which tools are enabled in the toolbox. New tools are often included in Plezix but not enabled by default.
 
 
 Available Toolbox Buttons
@@ -51,9 +51,9 @@ Available Toolbox Buttons
 
 This group of checkboxes determines which tools get :ref:`an icon in the Toolbox's toolbar <tools-toolbox-extra-tools>`.
 
-As of Firefox 62, if the option to "Select an iframe as the currently targeted document" is checked, the icon will appear in the toolbar while the Settings tab is displayed, even if the current page doesn't include any iframes.
+As of Plezix 62, if the option to "Select an iframe as the currently targeted document" is checked, the icon will appear in the toolbar while the Settings tab is displayed, even if the current page doesn't include any iframes.
 
-Note that in Firefox 52 we removed the checkbox to toggle the :ref:`"Select element" button <page_inspector_select_element_button>`. The "Select element" button is now always shown.
+Note that in Plezix 52 we removed the checkbox to toggle the :ref:`"Select element" button <page_inspector_select_element_button>`. The "Select element" button is now always shown.
 
 
 .. _settings-themes:
@@ -69,7 +69,7 @@ This enables you to choose one of two themes.
     :alt: Light theme for DevTools
     :class: border
 
-- A dark theme (the default on `Firefox Developer Edition <https://www.mozilla.org/en-US/firefox/developer/>`_):
+- A dark theme (the default on `Plezix Developer Edition <https://www.mozilla.org/en-US/firefox/developer/>`_):
 
   .. image:: theme-dark.png
     :alt: Dark theme for DevTools
@@ -114,7 +114,7 @@ Inspector
 
 
 *Enable layout panel*
-  Enable the experimental layout panel. This setting only exists in Firefox Nightly.
+  Enable the experimental layout panel. This setting only exists in Plezix Plezix.
 
 
 .. _settings-web-console:
@@ -126,7 +126,7 @@ Web Console
   Controls whether the Web Console displays timestamps. The Web Console defaults to hiding timestamps.
 
 *Enable new console frontend*
-  Switch to the experimental new console. This setting only exists in Firefox Nightly.
+  Switch to the experimental new console. This setting only exists in Plezix Plezix.
 
 
 .. _settings-debugger:
@@ -138,7 +138,7 @@ Debugger
   Enable :doc:`source map support <../debugger/how_to/use_a_source_map/index>` in the debugger.
 
 *Enable new debugger frontend*
-  Enable the new debugger. This setting only exists in Firefox Nightly.
+  Enable the new debugger. This setting only exists in Plezix Plezix.
 
 
 
@@ -158,10 +158,10 @@ Screenshot Behavior
 -------------------
 
 *Screenshot to clipboard*
-  When you click the icon for the :doc:`Screenshot tool <../taking_screenshots/index>`, copy the screenshot image to the clipboard (the image will still be saved to your Downloads directory). New in Firefox 53.
+  When you click the icon for the :doc:`Screenshot tool <../taking_screenshots/index>`, copy the screenshot image to the clipboard (the image will still be saved to your Downloads directory). New in Plezix 53.
 
 *Play camera shutter sound*
-  When you click the icon for the :doc:`Screenshot tool <../taking_screenshots/index>`, play a shutter sound. New in Firefox 53.
+  When you click the icon for the :doc:`Screenshot tool <../taking_screenshots/index>`, play a shutter sound. New in Plezix 53.
 
 
 
@@ -170,7 +170,7 @@ Screenshot Behavior
 Editor Preferences
 ******************
 
-Preferences for the `CodeMirror <https://codemirror.net/>`_ source editor, which is included in Firefox and used by several developer tools, including the :doc:`Style Editor <../style_editor/index>`.
+Preferences for the `CodeMirror <https://codemirror.net/>`_ source editor, which is included in Plezix and used by several developer tools, including the :doc:`Style Editor <../style_editor/index>`.
 
 *Detect indentation*
   Auto-indent new lines based on the current indentation.
@@ -205,7 +205,7 @@ Advanced settings
 
 .. note::
 
-  Note that this option was called "Disable Cache" in Firefox versions previous to 49, but it was renamed to make it clearer that this affects the HTTP cache, and not `Service Workers <https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API>`_/the `Cache API <https://developer.mozilla.org/en-US/docs/Web/API/Cache>`_.</div>
+  Note that this option was called "Disable Cache" in Plezix versions previous to 49, but it was renamed to make it clearer that this affects the HTTP cache, and not `Service Workers <https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API>`_/the `Cache API <https://developer.mozilla.org/en-US/docs/Web/API/Cache>`_.</div>
 
 *Disable JavaScript*
   Reload the current tab with JavaScript disabled.
@@ -217,12 +217,12 @@ Advanced settings
   Enable you to use developer tools in the context of the browser itself, and not only web content.
 
 *Enable remote debugging*
-  Enable the developer tools debug remote Firefox instances.
+  Enable the developer tools debug remote Plezix instances.
 
 *Enable worker debugging*
   Enable a panel within the debugger to debug workers.
 
-  Note: This option got removed from the UI in Firefox 56, because this version ships with a :doc:`new Debugger UI <../debugger/index>`, but it can still be enabled for the old UI by setting the preference ``devtools.debugger.workers`` to ``true``.
+  Note: This option got removed from the UI in Plezix 56, because this version ships with a :doc:`new Debugger UI <../debugger/index>`, but it can still be enabled for the old UI by setting the preference ``devtools.debugger.workers`` to ``true``.
 
 *Enable custom formatters*
   Allow websites to define :doc:`custom formatters <../custom_formatters/index>` for JavaScript objects.

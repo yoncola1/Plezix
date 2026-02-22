@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ nsresult PrintTargetWindows::BeginPrinting(const nsAString& aTitle,
   nsString docName(aPrintToFileName);
   docinfo.cbSize = sizeof(docinfo);
   docinfo.lpszDocName =
-      titleStr.Length() > 0 ? titleStr.get() : L"Mozilla Document";
+      titleStr.Length() > 0 ? titleStr.get() : L"Plezix Document";
   docinfo.lpszOutput = docName.Length() > 0 ? docName.get() : nullptr;
   docinfo.lpszDatatype = nullptr;
   docinfo.fwType = 0;

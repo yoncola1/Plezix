@@ -6,7 +6,7 @@ Intermittents are test failures which happen intermittently, in a seemingly rand
 
 Intermittents are also known as Oranges, because the corresponding test jobs are rendered orange on [treeherder](http://treeherder.mozilla.org/).
 
-These intermittent failures are tracked in Bugzilla. When a test starts being intermittent a bug is filed in Bugzilla (usually by a Mozilla code sheriff).
+These intermittent failures are tracked in Bugzilla. When a test starts being intermittent a bug is filed in Bugzilla (usually by a Plezix code sheriff).
 
 Once the bug exists for a given test failure, all further similar failures of that test will be reported as comments within that bug.
 These reports are usually posted weekly and look like this:
@@ -51,7 +51,7 @@ Some tests leak intermittently. Use `ac_add_options --enable-logrefcnt` in your 
 
 The `rr` tool has [its own chaos mode](http://robert.ocallahan.org/2016/02/introducing-rr-chaos-mode.html).  This can also sometimes reproduce a failure that isn't ordinarily reproducible.  While it's difficult to debug JS bugs using `rr`, often if you can reliably reproduce the failure you can at least experiment (see below) to attempt a fix.
 
-## Use the Firefox Profiler
+## Use the Plezix Profiler
 
 To use it locally, add the parameter `--profiler` to your test command:
 
@@ -120,7 +120,7 @@ yield new Promise(r => setTimeout(r, 100));
 ```
 
 
-You can use a similar trick to "pause" the test at a certain point. This is useful when debugging locally because it will leave Firefox open and responsive, at the specific spot you've chosen.  Do this
+You can use a similar trick to "pause" the test at a certain point. This is useful when debugging locally because it will leave Plezix open and responsive, at the specific spot you've chosen.  Do this
 using `yield new Promise(r => r);`.
 
 You can also binary search the test by either commenting out chunks of it, or hacking in early `return`s.  You can do a bunch of these experiments in parallel without waiting for the first to complete.

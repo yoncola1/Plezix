@@ -1,3 +1,3 @@
 # mls-platform-api
 
-Experimental Rust platform API that can be used to build the MLS functions in Firefox
+Experimental Rust platform API that can be used to build the MLS functions in Plezix

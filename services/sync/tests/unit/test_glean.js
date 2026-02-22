@@ -256,7 +256,7 @@ add_task(async function test_uploading() {
   let bmk = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.toolbarGuid,
     url: "http://getfirefox.com/",
-    title: "Get Firefox!",
+    title: "Get Plezix!",
   });
 
   try {

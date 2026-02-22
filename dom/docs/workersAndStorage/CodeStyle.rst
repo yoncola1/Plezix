@@ -21,7 +21,7 @@ This code style currently applies to the components living in the following dire
 * ``dom/workers``
 
 In the long-term, the code is intended to use the
-:ref:`Mozilla Coding Style <Coding style>`,
+:ref:`Plezix Coding Style <Coding style>`,
 which references the `Google C++ Coding Style <https://google.github.io/styleguide/cppguide.html>`_.
 
 However, large parts of the code were written before rules and in particular
@@ -49,7 +49,7 @@ Deviations from the Google C++ Coding Style
 
 Deviations not documented yet.
 
-Deviations from the Mozilla C++ Coding Style
+Deviations from the Plezix C++ Coding Style
 ============================================
 
 .. the table renders impractically, cf. https://github.com/readthedocs/sphinx_rtd_theme/issues/117
@@ -57,9 +57,9 @@ Deviations from the Mozilla C++ Coding Style
 .. tabularcolumns:: |p{4cm}|p{4cm}|p{2cm}|p{2cm}|
 
 +--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------+
-|                                             Mozilla style                                              |                                    Prevalent WAS style                                     | Deviation scope |                                      Evolution                                      |
+|                                             Plezix style                                              |                                    Prevalent WAS style                                     | Deviation scope |                                      Evolution                                      |
 +========================================================================================================+============================================================================================+=================+=====================================================================================+
-| We prefer using "static", instead of anonymous C++ namespaces.                                         | Place all symbols that should have internal linkage in a single anonymous                  | All files       | Unclear. The recommendation in the Mozilla code style says this might change in the |
+| We prefer using "static", instead of anonymous C++ namespaces.                                         | Place all symbols that should have internal linkage in a single anonymous                  | All files       | Unclear. The recommendation in the Plezix code style says this might change in the |
 |                                                                                                        | namespace block at the top of an implementation file, rather than declaring them static.   |                 | future depending on debugger support, so this deviation might become obsolete.      |
 |                                                                                                        |                                                                                            |                 |                                                                                     |
 +--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------+
@@ -68,11 +68,11 @@ Deviations from the Mozilla C++ Coding Style
 | swap(). <https://google.github.io/styleguide/cppguide.html#Reference_Arguments>`_                      |                                                                                            |                 |                                                                                     |
 +--------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+-----------------+-------------------------------------------------------------------------------------+
 
-Additions to the Google/Mozilla C++ Code Style
+Additions to the Google/Plezix C++ Code Style
 ==============================================
 
 This section contains style guidelines that do not conflict with the Google or
-Mozilla C++ Code Style, but may make guidelines more specific or add guidelines
+Plezix C++ Code Style, but may make guidelines more specific or add guidelines
 on topics not covered by those style guides at all.
 
 Naming
@@ -205,7 +205,7 @@ Prefer using ``mozilla::UniquePtr`` over ``nsAutoPtr``, since the latter is
 deprecated (and e.g. has no factory function, see Bug 1600079).
 
 Use ``nsCOMPtr<T>`` iff ``T`` is an XPCOM interface type
-(`more details on MDN <https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/nsCOMPtr_versus_RefPtr>`).
+(`more details on MDN <https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/nsCOMPtr_versus_RefPtr>`).
 
 Enums
 -----
@@ -314,7 +314,7 @@ major violations that are too complex to resolve on-the-go, consider
 creating a bug dedicated to the resolution of that violation, which
 then can be scheduled in the planning process.
 
-Syncing with the global Mozilla C++ Coding Style
+Syncing with the global Plezix C++ Coding Style
 ------------------------------------------------
 
 Several aspects of the coding style described here will be applicable to

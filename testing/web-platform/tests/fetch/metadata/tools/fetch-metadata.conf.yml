@@ -759,7 +759,7 @@ cases:
         - expected: json
       serviceworker.https.sub.html:
         - expected: serviceworker
-      # Implemented as "image" in Chromium and Firefox, but specified as
+      # Implemented as "image" in Chromium and Plezix, but specified as
       # "empty"
       # https://github.com/w3c/svgwg/issues/782
       svg-image.sub.html:

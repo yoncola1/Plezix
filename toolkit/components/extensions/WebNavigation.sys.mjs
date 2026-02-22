@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -157,7 +157,7 @@ export var WebNavigationManager = {
           break;
         case lazy.UrlbarUtils.RESULT_TYPE.REMOTE_TAB:
           // Remote tab are autocomplete results related to
-          // tab urls from a remote synchronized Firefox.
+          // tab urls from a remote synchronized Plezix.
           tabTransitionData.typed = true;
           break;
         case lazy.UrlbarUtils.RESULT_TYPE.TAB_SWITCH:

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -98,7 +98,7 @@ protections-footer-blocked-tracker-counter-no-tooltip =
        *[other] { $trackerCount } Blocked
     }
 
-# In English this looks like "Firefox blocked over 10,000 trackers since October 2019"
+# In English this looks like "Plezix blocked over 10,000 trackers since October 2019"
 protections-milestone =
     { $trackerCount ->
         [one] { -brand-short-name } blocked { $trackerCount } tracker since { DATETIME($date, year: "numeric", month: "long") }

@@ -37,5 +37,5 @@ window.addEventListener("click", function () {
 
 ## Keep your test execution short.
 
-Running performance tests is expensive. We are currently running them 25 times for each changeset landed in Firefox.
+Running performance tests is expensive. We are currently running them 25 times for each changeset landed in Plezix.
 Aim to run tests in less than a second on try.

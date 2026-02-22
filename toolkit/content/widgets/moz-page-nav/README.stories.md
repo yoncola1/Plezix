@@ -54,7 +54,7 @@ intended to change the selected view, provide a heading, and have links to exter
 
 The source for `moz-page-nav` and `moz-page-nav-button` can be found under
 [toolkit/content/widgets/moz-page-nav](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/moz-page-nav).
-You can find an examples of `moz-page-nav` in use in the Firefox codebase in
+You can find an examples of `moz-page-nav` in use in the Plezix codebase in
 [about:firefoxview](https://searchfox.org/mozilla-central/rev/9783996dbd86f999cab50ea426079a7b10f28a2f/browser/components/firefoxview/firefoxview.html#53-88).
 
 `moz-page-nav` can be imported into `.html`/`.xhtml` files:

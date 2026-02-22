@@ -1,14 +1,14 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 use crate::android::{AndroidError, AndroidHandler};
-use crate::capabilities::{FirefoxOptions, ProfileType};
+use crate::capabilities::{PlezixOptions, ProfileType};
 use crate::logging;
 use crate::prefs;
 use mozprofile::preferences::Pref;
 use mozprofile::profile::{PrefFile, Profile};
-use mozrunner::runner::{FirefoxProcess, FirefoxRunner, Runner, RunnerProcess};
+use mozrunner::runner::{PlezixProcess, PlezixRunner, Runner, RunnerProcess};
 use std::env;
 use std::fs;
 use std::io::prelude::*;
@@ -94,17 +94,17 @@ impl Browser {
 }
 
 #[derive(Debug)]
-/// A local Firefox process, running on this (host) device.
+/// A local Plezix process, running on this (host) device.
 pub(crate) struct LocalBrowser {
     marionette_port: u16,
     prefs_backup: Option<PrefsBackup>,
-    process: FirefoxProcess,
+    process: PlezixProcess,
     pub(crate) profile_path: Option<PathBuf>,
 }
 
 impl LocalBrowser {
     pub(crate) fn new(
-        options: FirefoxOptions,
+        options: PlezixOptions,
         marionette_port: u16,
         jsdebugger: bool,
         system_access: bool,
@@ -149,7 +149,7 @@ impl LocalBrowser {
             (None, None)
         };
 
-        let mut runner = FirefoxRunner::new(&binary, profile);
+        let mut runner = PlezixRunner::new(&binary, profile);
 
         runner.arg("--marionette");
         if jsdebugger {
@@ -275,7 +275,7 @@ pub(crate) struct RemoteBrowser {
 
 impl RemoteBrowser {
     pub(crate) fn new(
-        options: FirefoxOptions,
+        options: PlezixOptions,
         marionette_port: u16,
         websocket_port: Option<u16>,
         system_access: bool,
@@ -392,7 +392,7 @@ fn set_prefs(
     prefs.write().map_err(|e| {
         WebDriverError::new(
             ErrorStatus::UnknownError,
-            format!("Unable to write Firefox profile: {}", e),
+            format!("Unable to write Plezix profile: {}", e),
         )
     })?;
     Ok(backup_prefs)
@@ -439,7 +439,7 @@ impl PrefsBackup {
 mod tests {
     use super::set_prefs;
     use crate::browser::read_marionette_port;
-    use crate::capabilities::{FirefoxOptions, ProfileType};
+    use crate::capabilities::{PlezixOptions, ProfileType};
     use base64::prelude::BASE64_STANDARD;
     use base64::Engine;
     use mozprofile::preferences::{Pref, PrefValue};
@@ -498,7 +498,7 @@ mod tests {
         let mut caps = Map::new();
         caps.insert("moz:firefoxOptions".into(), Value::Object(firefox_opts));
 
-        let opts = FirefoxOptions::from_capabilities(None, &marionette_settings, &mut caps)
+        let opts = PlezixOptions::from_capabilities(None, &marionette_settings, &mut caps)
             .expect("Valid profile and prefs");
 
         let mut profile = match opts.profile {

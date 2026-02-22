@@ -1,4 +1,4 @@
-header = """/* This Source Code Form is subject to the terms of the Mozilla Public
+header = """/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */"""
 autogen_warning = """/* DO NOT MODIFY THIS MANUALLY! This file was generated using cbindgen.
@@ -11,7 +11,7 @@ autogen_warning = """/* DO NOT MODIFY THIS MANUALLY! This file was generated usi
  *     $CBINDGEN $TOPSRCDIR --lockfile $TOPSRCDIR/Cargo.lock --crate wgpu_bindings --metadata config/cbindgen-metadata.json --cpp-compat > gfx/wgpu_bindings/wgpu_ffi_generated.h
  *
  * where:
- * - $TOPSRCDIR is the top of the Firefox source tree, and
+ * - $TOPSRCDIR is the top of the Plezix source tree, and
  * - $CBINDGEN is the path to the cbindgen executable provided by mozbuild (the exact version often matters)
  */
 

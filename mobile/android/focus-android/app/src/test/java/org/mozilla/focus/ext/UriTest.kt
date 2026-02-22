@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ class UriTest {
         assertTruncatedHost("wikipedia.org", "https://en.m.wikipedia.org/wiki/")
         assertTruncatedHost("example.org", "http://example.org")
         assertTruncatedHost("youtube.com", "https://www.youtube.com/watch?v=oHg5SJYRHA0")
-        assertTruncatedHost("facebook.com", "https://www.facebook.com/Firefox/")
+        assertTruncatedHost("facebook.com", "https://www.facebook.com/Plezix/")
         assertTruncatedHost("yahoo.com", "https://de.search.yahoo.com/search?p=mozilla&fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8")
         assertTruncatedHost("amazon.co.uk", "https://www.amazon.co.uk/Doctor-Who-10-Part-DVD/dp/B06XCMVY1H")
     }

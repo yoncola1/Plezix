@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -48,7 +48,7 @@ fxa-avatar-sign-up = Sign up
 fxa-avatar-tooltip =
     .tooltiptext = Sign in to your account
 
-## Dialog strings that we show the user when signing into Mozilla account/setting up sync
+## Dialog strings that we show the user when signing into Plezix account/setting up sync
 
 sync-setup-verify-continue = Continue
 sync-setup-verify-title = Merge Warning

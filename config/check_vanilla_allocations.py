@@ -1,5 +1,5 @@
 # vim: set ts=8 sts=4 et sw=4 tw=79:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -25,7 +25,7 @@
 # presence and possible inlining of the default js_malloc et al can cause
 # malloc/calloc/realloc/free calls show up in unpredictable places.
 #
-# Unfortunately, that configuration cannot be tested on Mozilla's standard
+# Unfortunately, that configuration cannot be tested on Plezix's standard
 # testing infrastructure.  Instead, by default this script only tests that none
 # of the other vanilla allocation/free functions (operator new, memalign, etc)
 # are present.  If given the --aggressive flag, it will also check for

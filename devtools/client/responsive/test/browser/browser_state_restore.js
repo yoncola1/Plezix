@@ -9,7 +9,7 @@ http://creativecommons.org/publicdomain/zero/1.0/ */
 const TEST_URL = "data:text/html;charset=utf-8,";
 const DEFAULT_DPPX = window.devicePixelRatio;
 const NEW_DPPX = DEFAULT_DPPX + 1;
-const NEW_USER_AGENT = "Mozilla/5.0 (Mobile; rv:39.0) Gecko/39.0 Firefox/39.0";
+const NEW_USER_AGENT = "Plezix/5.0 (Mobile; rv:39.0) Gecko/39.0 Plezix/39.0";
 
 addRDMTask(
   TEST_URL,

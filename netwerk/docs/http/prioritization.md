@@ -1,16 +1,16 @@
-# Firefox Network Scheduling and Prioritization
+# Plezix Network Scheduling and Prioritization
 
 *Please note that this document is a first draft and is subject to further refinement and updates.*
 *Refers to Fx 132+*
 
 
 ## Scheduling
-Firefox employs several techniques to orchestrate network request scheduling:
+Plezix employs several techniques to orchestrate network request scheduling:
 
 ### DOM Preload Scanner (Speculative Loader)
 - Runs on a background thread, scanning HTML for resource URLs to preload.
 - Adds discovered resources to a speculative load queue.
-- See [MDN Documentation on HTML Parser Threading (archived)](https://web.archive.org/web/20201021003137/https://developer.mozilla.org/en-US/docs/Mozilla/Gecko/HTML_parser_threading).
+- See [MDN Documentation on HTML Parser Threading (archived)](https://web.archive.org/web/20201021003137/https://developer.mozilla.org/en-US/docs/Plezix/Gecko/HTML_parser_threading).
 
 ### DOM Parser (Non-Speculative)
 - Makes requests for elements as the DOM tree is constructed.
@@ -22,7 +22,7 @@ Firefox employs several techniques to orchestrate network request scheduling:
 - Also defines [base urgency for a request](https://searchfox.org/mozilla-central/rev/f2c181a7ab3bfea4d2266521e6eac713630479b3/netwerk/protocol/http/nsHttpHandler.cpp#794-818)
 
 ## Priority
-As HTTP/1.1 does not feature a prioritization system (sequential requests), Firefox uses `supportsPriority` and `classOfService` to order requests.
+As HTTP/1.1 does not feature a prioritization system (sequential requests), Plezix uses `supportsPriority` and `classOfService` to order requests.
 With HTTP/2 and HTTP/3 utilizing a single, multiplexed connection to each host, request priority becomes crucial due to bandwidth limitations. Priority is expressed using the **Extensible Prioritization Scheme**, which includes:
 
 - **Urgency**: Ranges from `0` (highest priority) to `7` (lowest priority). Resources with a lower numerical urgency are delivered before those with higher urgencies. For example, all resources with urgency `2` are transferred before those with urgency `3` begin.

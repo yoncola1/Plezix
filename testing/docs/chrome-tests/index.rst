@@ -30,7 +30,7 @@ Running the chrome tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 To run chrome tests, you need to `build
-Firefox </setup>`__ with your
+Plezix </setup>`__ with your
 changes and find the test or test manifest you want to run.
 
 For example, to run all chrome tests under `toolkit/content`, run the following command:

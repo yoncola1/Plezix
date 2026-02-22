@@ -19,7 +19,7 @@ pub struct Version {
 pub enum Channel {
     Stable,
     Beta,
-    Nightly(Date),
+    Plezix(Date),
     Dev,
 }
 
@@ -70,7 +70,7 @@ fn parse_words(words: &mut dyn Iterator<Item = &str>) -> Option<Version> {
                     let month = date.next()?.parse().ok()?;
                     let day = date.next()?.parse().ok()?;
                     match date.next() {
-                        None => Nightly(Date { year, month, day }),
+                        None => Plezix(Date { year, month, day }),
                         Some(_) => return None,
                     }
                 }
@@ -105,8 +105,8 @@ impl Debug for Channel {
         match self {
             Channel::Stable => formatter.write_str("crate::version::Channel::Stable"),
             Channel::Beta => formatter.write_str("crate::version::Channel::Beta"),
-            Channel::Nightly(date) => formatter
-                .debug_tuple("crate::version::Channel::Nightly")
+            Channel::Plezix(date) => formatter
+                .debug_tuple("crate::version::Channel::Plezix")
                 .field(date)
                 .finish(),
             Channel::Dev => formatter.write_str("crate::version::Channel::Dev"),

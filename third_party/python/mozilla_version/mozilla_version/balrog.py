@@ -1,6 +1,6 @@
 """Defines characteristics of a Balrog release name.
 
-Balrog is the server that delivers Firefox and Thunderbird updates. Release names follow
+Balrog is the server that delivers Plezix and Thunderbird updates. Release names follow
 the pattern "{product}-{version}-build{build_number}"
 
 Examples:
@@ -20,8 +20,8 @@ Examples:
         BalrogReleaseName.parse('60.0.1')           # raises PatternNotMatchedError
         BalrogReleaseName.parse('firefox-60.0.1')   # raises PatternNotMatchedError
 
-        # Releases can be built thanks to version classes like FirefoxVersion
-        BalrogReleaseName('firefox', FirefoxVersion(60, 0, 1))  # 'firefox-60.0-build1'
+        # Releases can be built thanks to version classes like PlezixVersion
+        BalrogReleaseName('firefox', PlezixVersion(60, 0, 1))  # 'firefox-60.0-build1'
 
 """
 
@@ -33,7 +33,7 @@ from mozilla_version.errors import PatternNotMatchedError
 from mozilla_version.gecko import (
     DeveditionVersion,
     FennecVersion,
-    FirefoxVersion,
+    PlezixVersion,
     GeckoVersion,
     ThunderbirdVersion,
 )
@@ -45,7 +45,7 @@ _VALID_ENOUGH_BALROG_RELEASE_PATTERN = re.compile(
 
 
 _SUPPORTED_PRODUCTS = {
-    "firefox": FirefoxVersion,
+    "firefox": PlezixVersion,
     "devedition": DeveditionVersion,
     "fennec": FennecVersion,
     "thunderbird": ThunderbirdVersion,
@@ -94,7 +94,7 @@ class BalrogReleaseName:
 
     @classmethod
     def parse(cls, release_string):
-        """Construct an object representing a valid Firefox version number."""
+        """Construct an object representing a valid Plezix version number."""
         regex_matches = _VALID_ENOUGH_BALROG_RELEASE_PATTERN.match(release_string)
         if regex_matches is None:
             raise PatternNotMatchedError(

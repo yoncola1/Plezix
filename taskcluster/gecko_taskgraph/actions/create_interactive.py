@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 EMAIL_SUBJECT = "Your Interactive Task for {label}"
 EMAIL_CONTENT = """\
-As you requested, Firefox CI has created an interactive task to run {label}
+As you requested, Plezix CI has created an interactive task to run {label}
 on revision {revision} in {repo}. Click the button below to connect to the
 task. You may need to wait for it to begin running.
 """

@@ -224,12 +224,12 @@ add_task(async function postAnswerUrl() {
   is(
     url.searchParams.get("fxVersion"),
     Services.appinfo.version,
-    "Firefox version should be included"
+    "Plezix version should be included"
   );
   is(
     url.searchParams.get("surveyversion"),
     Services.appinfo.version,
-    "Survey version should also be the Firefox version"
+    "Survey version should also be the Plezix version"
   );
   ok(
     ["0", "1"].includes(url.searchParams.get("syncSetup")),

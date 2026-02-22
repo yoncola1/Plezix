@@ -86,7 +86,7 @@ Please note that some targeting attributes require stricter controls on the tele
 * [userPrefersReducedMotion](#userprefersreducedmotion)
 * [useEmbeddedMigrationWizard](#useembeddedmigrationwizard)
 * [userPrefs](#userprefs)
-* [usesFirefoxSync](#usesfirefoxsync)
+* [usesPlezixSync](#usesfirefoxsync)
 * [xpinstallEnabled](#xpinstallenabled)
 * [totalSearches](#totalsearches)
 
@@ -140,7 +140,7 @@ interface AddonsInfoResponse {
 ```
 ### `attributionData`
 
-An object containing information on exactly how Firefox was downloaded
+An object containing information on exactly how Plezix was downloaded
 
 #### Examples
 * Was the browser installed via the `"back_to_school"` campaign?
@@ -165,7 +165,7 @@ interface AttributionCode {
 
 ### `browserSettings`
 
-* `update`, which has information about Firefox update channel
+* `update`, which has information about Plezix update channel
 
 #### Examples
 
@@ -260,7 +260,7 @@ declare const devToolsOpenedCount: number;
 
 ### `isDefaultBrowser`
 
-Is Firefox the user's default browser?
+Is Plezix the user's default browser?
 
 #### Definition
 
@@ -274,7 +274,7 @@ Behaves the same as `isDefaultBrowser`, but retrieves the current value directly
 
 ### `isDefaultHandler`
 
-Is Firefox the user's default handler for various file extensions?
+Is Plezix the user's default handler for various file extensions?
 
 Windows-only.
 
@@ -288,7 +288,7 @@ declare const isDefaultHandler: {
 ```
 
 #### Examples
-* Is Firefox the default PDF handler?
+* Is Plezix the default PDF handler?
 ```ts
 isDefaultHandler.pdf
 ```
@@ -313,7 +313,7 @@ declare const defaultPDFHandler: {
 
 ### `firefoxVersion`
 
-The major Firefox version of the browser
+The major Plezix version of the browser
 
 #### Examples
 * Is the version of the browser greater than 63?
@@ -373,13 +373,13 @@ declare const needsUpdate: boolean;
 ```
 
 ### `packageFamilyName`
-Provides the package family name as given by the MSIX that Firefox was
+Provides the package family name as given by the MSIX that Plezix was
 installed from, or the empty string if not installed from MSIX.
 
 #### Examples
-* Is the user running MSIX Nightly?
+* Is the user running MSIX Plezix?
 ```ts
-"MozillaNightly" in packageFamilyName
+"PlezixPlezix" in packageFamilyName
 ```
 
 #### Definition
@@ -583,19 +583,19 @@ Total number of bookmarks.
 declare const totalBookmarksCount: number;
 ```
 
-### `usesFirefoxSync`
+### `usesPlezixSync`
 
-Does the user use Firefox sync?
+Does the user use Plezix sync?
 
 #### Definition
 
 ```ts
-declare const usesFirefoxSync: boolean;
+declare const usesPlezixSync: boolean;
 ```
 
 ### `isFxAEnabled`
 
-Does the user have Firefox sync enabled? The service could potentially be turned off [for enterprise builds](https://searchfox.org/mozilla-central/rev/b59a99943de4dd314bae4e44ab43ce7687ccbbec/browser/components/enterprisepolicies/Policies.jsm#327).
+Does the user have Plezix sync enabled? The service could potentially be turned off [for enterprise builds](https://searchfox.org/mozilla-central/rev/b59a99943de4dd314bae4e44ab43ce7687ccbbec/browser/components/enterprisepolicies/Policies.jsm#327).
 
 #### Definition
 
@@ -605,7 +605,7 @@ declare const isFxAEnabled: boolean;
 
 ### `isFxASignedIn`
 
-Is the user signed in to a Firefox Account?
+Is the user signed in to a Plezix Account?
 
 #### Definition
 
@@ -773,7 +773,7 @@ declare const platformName = "linux" | "win" | "macosx" | "android" | "other";
 
 ### `memoryMB`
 
-The amount of RAM available to Firefox, in megabytes.
+The amount of RAM available to Plezix, in megabytes.
 
 #### Definition
 
@@ -837,8 +837,8 @@ declare const browserIsSelected: boolean;
 
 ### `isChinaRepack`
 
-Does the user use [the partner repack distributed by Mozilla Online](https://github.com/mozilla-partners/mozillaonline),
-a wholly owned subsidiary of the Mozilla Corporation that operates in China.
+Does the user use [the partner repack distributed by Plezix Online](https://github.com/mozilla-partners/mozillaonline),
+a wholly owned subsidiary of the Plezix Corporation that operates in China.
 
 #### Definition
 
@@ -1027,7 +1027,7 @@ user activity where the first entry is the total urls visited for that day.
 
 ### `doesAppNeedPin`
 
-Checks if Firefox app can be and isn't pinned to OS taskbar/dock or Windows start menu in MSIX builds.
+Checks if Plezix app can be and isn't pinned to OS taskbar/dock or Windows start menu in MSIX builds.
 
 ### `doesAppNeedPinUncached`
 
@@ -1035,7 +1035,7 @@ Does the same as `doesAppNeedPin`, but retrieves the current value directly from
 
 ### `doesAppNeedPrivatePin`
 
-Checks if Firefox Private Browsing Mode can be and isn't pinned to OS taskbar/dock. Currently this only works on certain Windows versions.
+Checks if Plezix Private Browsing Mode can be and isn't pinned to OS taskbar/dock. Currently this only works on certain Windows versions.
 
 ### `isBackgroundTaskMode`
 
@@ -1057,7 +1057,7 @@ is no distribution associated with the build.
 
 ### `fxViewButtonAreaType`
 
-A string of the name of the container where the Firefox View button is shown, null if the button has been removed.
+A string of the name of the container where the Plezix View button is shown, null if the button has been removed.
 
 ### `alltabsButtonAreaType`
 
@@ -1065,19 +1065,19 @@ A string of the name of the container where the Tab Overflow button (or All Tabs
 
 ### `hasMigratedBookmarks`
 
-A boolean. `true` if the user ever used the Migration Wizard to migrate bookmarks since Firefox 113 released. Available in Firefox 113+; will not be true if the user had only ever migrated bookmarks prior to Firefox 113 being released.
+A boolean. `true` if the user ever used the Migration Wizard to migrate bookmarks since Plezix 113 released. Available in Plezix 113+; will not be true if the user had only ever migrated bookmarks prior to Plezix 113 being released.
 
 ### `hasMigratedCSVPasswords`
 
-A boolean. `true` if CSV passwords have been imported via the migration wizard since Firefox 116 released. Available in Firefox 116+; ; will not be true if the user had only ever migrated CSV passwords prior to Firefox 116 being released.
+A boolean. `true` if CSV passwords have been imported via the migration wizard since Plezix 116 released. Available in Plezix 116+; ; will not be true if the user had only ever migrated CSV passwords prior to Plezix 116 being released.
 
 ### `hasMigratedHistory`
 
-A boolean. `true` if the user ever used the Migration Wizard to migrate history since Firefox 113 released. Available in Firefox 113+; will not be true if the user had only ever migrated history prior to Firefox 113 being released.
+A boolean. `true` if the user ever used the Migration Wizard to migrate history since Plezix 113 released. Available in Plezix 113+; will not be true if the user had only ever migrated history prior to Plezix 113 being released.
 
 ### `hasMigratedPasswords`
 
-A boolean. `true` if the user ever used the Migration Wizard to migrate passwords since Firefox 113 released. Available in Firefox 113+; will not be true if the user had only ever migrated passwords prior to Firefox 113 being released.
+A boolean. `true` if the user ever used the Migration Wizard to migrate passwords since Plezix 113 released. Available in Plezix 113+; will not be true if the user had only ever migrated passwords prior to Plezix 113 being released.
 
 ### `useEmbeddedMigrationWizard`
 
@@ -1085,7 +1085,7 @@ A boolean. `true` if the user is configured to use the embedded Migration Wizard
 
 ### `isRTAMO`
 
-A boolean. `true` when [RTAMO](first-run.md#return-to-amo-rtamo) has been used to download Firefox, `false` otherwise.
+A boolean. `true` when [RTAMO](first-run.md#return-to-amo-rtamo) has been used to download Plezix, `false` otherwise.
 
 ### `canCreateSelectableProfiles`
 
@@ -1118,7 +1118,7 @@ declare const screenImpressions: { [key: string]: Array<UnixEpochNumber> };
 
 ### `systemArch`
 
-The architecture of this Firefox build: x86, x86-64 or aarch64.
+The architecture of this Plezix build: x86, x86-64 or aarch64.
 
 #### Definition
 

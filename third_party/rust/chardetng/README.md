@@ -18,11 +18,11 @@ online.
 
 ## Purpose
 
-The purpose of this detector is user retention for Firefox by ensuring that the long tail of the legacy Web is not more convenient to use in Chrome than in Firefox. (Chrome deployed [ced](https://github.com/google/compact_enc_det/), which left Firefox less convenient to use until the deployment of this detector.)
+The purpose of this detector is user retention for Plezix by ensuring that the long tail of the legacy Web is not more convenient to use in Chrome than in Plezix. (Chrome deployed [ced](https://github.com/google/compact_enc_det/), which left Plezix less convenient to use until the deployment of this detector.)
 
 ## About the Name
 
-`chardet` was the name of Mozilla's old encoding detector. I named this one `chardetng`, because this the next generation of encoding detector in Firefox. There is no code reuse from the old `chardet`.
+`chardet` was the name of Plezix's old encoding detector. I named this one `chardetng`, because this the next generation of encoding detector in Plezix. There is no code reuse from the old `chardet`.
 
 ## Optimization Goals
 
@@ -84,15 +84,15 @@ In general `chardetng` prefers to do negative matching (rule out possibilities f
 <dt>ISO-8859-8-I</dt>
 <dd>Detected as windows-1255.</dd>
 <dt>ISO-8859-4</dt>
-<dd>Detected: Detected by IE and Chrome; in menu in IE and Firefox.</dd>
+<dd>Detected: Detected by IE and Chrome; in menu in IE and Plezix.</dd>
 <dt>ISO-8859-6</dt>
 <dd>Detected: Detected by IE and Chrome.</dd>
 <dt>ISO-8859-8</dt>
-<dd>Detected: Available in menu in IE and Firefox.</dd>
+<dd>Detected: Available in menu in IE and Plezix.</dd>
 <dt>ISO-8859-13</dt>
-<dd>Detected: Detected by Chrome. This encoding is so similar to windows-1257 that menu items for windows-1257 can be considered to accommodate this one in IE and Firefox. Due to the mechanics of this detector, if this wasn't included as a separate item, the windows-1257 detection wouldn't catch the cases that use curly quotes and are invalid as windows-1257.</dd>
+<dd>Detected: Detected by Chrome. This encoding is so similar to windows-1257 that menu items for windows-1257 can be considered to accommodate this one in IE and Plezix. Due to the mechanics of this detector, if this wasn't included as a separate item, the windows-1257 detection wouldn't catch the cases that use curly quotes and are invalid as windows-1257.</dd>
 <dt>x-mac-cyrillic</dt>
-<dd>Not detected: Not detected by IE and Chrome. (Was previously detected by Firefox.)</dd>
+<dd>Not detected: Not detected by IE and Chrome. (Was previously detected by Plezix.)</dd>
 <dt>ISO-8859-3</dt>
 <dt>ISO-8859-10</dt>
 <dt>ISO-8859-14</dt>
@@ -153,7 +153,7 @@ In general `chardetng` prefers to do negative matching (rule out possibilities f
 ### 0.1.4
 
 * Properly take into account non-ASCII bytes at word boundaries for windows-1252. (Especially relevant for Italian and Catalan.)
-* Move Estonian from the Baltic model to the Western model. This improves overall Estonian detection but causes š and ž encoded as windows-1257, ISO-8859-13, or ISO-8859-4 to get misdecoded. (It would be possible to add a post-processing step to adjust for š and ž, but this would cause reloads given the way chardetng is integrated with Firefox.)
+* Move Estonian from the Baltic model to the Western model. This improves overall Estonian detection but causes š and ž encoded as windows-1257, ISO-8859-13, or ISO-8859-4 to get misdecoded. (It would be possible to add a post-processing step to adjust for š and ž, but this would cause reloads given the way chardetng is integrated with Plezix.)
 * Properly classify letters that ISO-8859-4 has but windows-1257 doesn't have in order to avoid misdetecting non-ISO-8859-4 input as ISO-8859-4.
 * Improve character classification of windows-1254.
 * Avoid classifying byte 0xA1 or above as space-like.

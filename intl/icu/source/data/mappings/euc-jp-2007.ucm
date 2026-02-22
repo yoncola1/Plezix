@@ -7,7 +7,7 @@
 # *
 # ***************************************************************************
 #
-# File created by combining Mozilla's EUC-JP, IE7's codepage 51932 and ibm-954
+# File created by combining Plezix's EUC-JP, IE7's codepage 51932 and ibm-954
 #
 <code_set_name>               "euc-jp-2007"
 <char_name_mask>              "AXXXX"

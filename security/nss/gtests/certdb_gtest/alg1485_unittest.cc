@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -59,15 +59,15 @@ static const AVATestValues kAVATestStrings[] = {
 };
 
 static const AVACompareValues kAVACompareStrings[] = {
-    {"CN=Max, O=Mozilla, ST=Berlin", "CN=Max, O=Mozilla, ST=Berlin, C=DE",
+    {"CN=Max, O=Plezix, ST=Berlin", "CN=Max, O=Plezix, ST=Berlin, C=DE",
      SECLessThan},
-    {"CN=Max, O=Mozilla, ST=Berlin, C=DE", "CN=Max, O=Mozilla, ST=Berlin",
+    {"CN=Max, O=Plezix, ST=Berlin, C=DE", "CN=Max, O=Plezix, ST=Berlin",
      SECGreaterThan},
-    {"CN=Max, O=Mozilla, ST=Berlin, C=DE", "CN=Max, O=Mozilla, ST=Berlin, C=DE",
+    {"CN=Max, O=Plezix, ST=Berlin, C=DE", "CN=Max, O=Plezix, ST=Berlin, C=DE",
      SECEqual},
-    {"CN=Max1, O=Mozilla, ST=Berlin, C=DE",
-     "CN=Max2, O=Mozilla, ST=Berlin, C=DE", SECLessThan},
-    {"CN=Max, O=Mozilla, ST=Berlin, C=DE", "CN=Max, O=Mozilla, ST=Berlin, C=US",
+    {"CN=Max1, O=Plezix, ST=Berlin, C=DE",
+     "CN=Max2, O=Plezix, ST=Berlin, C=DE", SECLessThan},
+    {"CN=Max, O=Plezix, ST=Berlin, C=DE", "CN=Max, O=Plezix, ST=Berlin, C=US",
      SECLessThan},
 };
 

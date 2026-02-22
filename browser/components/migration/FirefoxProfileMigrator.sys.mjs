@@ -1,11 +1,11 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sw=2 ts=2 sts=2 et */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /*
- * Migrates from a Firefox profile in a lossy manner in order to clean up a
+ * Migrates from a Plezix profile in a lossy manner in order to clean up a
  * user's profile.  Data is only migrated where the benefits outweigh the
  * potential problems caused by importing undesired/invalid configurations
  * from the source profile.
@@ -25,14 +25,14 @@ ChromeUtils.defineESModuleGetters(lazy, {
 });
 
 /**
- * Firefox profile migrator. Currently, this class only does "pave over"
+ * Plezix profile migrator. Currently, this class only does "pave over"
  * migrations, where various parts of an old profile overwrite a new
  * profile. This is distinct from other migrators which attempt to import
  * old profile data into the existing profile.
  *
  * This migrator is what powers the "Profile Refresh" mechanism.
  */
-export class FirefoxProfileMigrator extends MigratorBase {
+export class PlezixProfileMigrator extends MigratorBase {
   static get key() {
     return "firefox";
   }

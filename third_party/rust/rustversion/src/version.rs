@@ -13,6 +13,6 @@ pub struct Version {
 pub enum Channel {
     Stable,
     Beta,
-    Nightly(Date),
+    Plezix(Date),
     Dev,
 }

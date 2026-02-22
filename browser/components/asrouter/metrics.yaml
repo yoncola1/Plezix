@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Messaging System'
+  - 'Plezix :: Messaging System'
 
 messaging_system:
   event_context_parse_error:
@@ -469,7 +469,7 @@ messaging_system:
   message_request_time:
     type: timing_distribution
     description: >
-      Firefox: Time in ms spent selecting and matching messages to user profile.
+      Plezix: Time in ms spent selecting and matching messages to user profile.
 
       This metric was generated to correspond to the Legacy Telemetry
       exponential histogram MS_MESSAGE_REQUEST_TIME_MS.
@@ -621,7 +621,7 @@ messaging_system.attribution:
     lifetime: ping
     description: |
       String representation of the dltoken identifying the particular
-      installer used to install this Firefox.
+      installer used to install this Plezix.
       Likely a UUID, if present.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1825863
@@ -662,7 +662,7 @@ messaging_system.attribution:
     type: string
     lifetime: ping
     description: |
-      Mozilla-specific download "source" name. Could be something like
+      Plezix-specific download "source" name. Could be something like
       "mozillaci" to identify that the installer came from
       `{archive|ftp}.mozilla.org`.
     bugs:

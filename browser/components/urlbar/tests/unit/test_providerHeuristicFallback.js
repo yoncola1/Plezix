@@ -166,7 +166,7 @@ add_task(async function () {
   await PlacesTestUtils.addVisits([
     {
       uri: Services.io.newURI("http://mozilla.org/wine/"),
-      title: "Mozilla Wine",
+      title: "Plezix Wine",
       transition: PlacesUtils.history.TRANSITION_TYPED,
     },
   ]);

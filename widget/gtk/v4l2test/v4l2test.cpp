@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: sw=2 ts=8 et :
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -137,7 +137,7 @@ static void v4l2_check_device(const char* aVideoDevice) {
 
 static void PrintUsage() {
   printf(
-      "Firefox V4L2-M2M probe utility\n"
+      "Plezix V4L2-M2M probe utility\n"
       "\n"
       "usage: v4l2test [options]\n"
       "\n"

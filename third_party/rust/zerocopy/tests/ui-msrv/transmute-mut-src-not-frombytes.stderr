@@ -9,7 +9,7 @@ note: required by a bound in `AssertSrcIsFromBytes`
    |
 24 | const SRC_NOT_FROM_BYTES: &mut Dst = transmute_mut!(&mut Src);
    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `AssertSrcIsFromBytes`
-   = note: this error originates in the macro `transmute_mut` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_mut` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `Src: FromBytes` is not satisfied
   --> tests/ui-msrv/transmute-mut-src-not-frombytes.rs:24:38
@@ -22,4 +22,4 @@ note: required by a bound in `AssertSrcIsFromBytes`
    |
 24 | const SRC_NOT_FROM_BYTES: &mut Dst = transmute_mut!(&mut Src);
    |                                      ^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `AssertSrcIsFromBytes`
-   = note: this error originates in the macro `transmute_mut` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the macro `transmute_mut` (in Plezix builds, run with -Z macro-backtrace for more info)

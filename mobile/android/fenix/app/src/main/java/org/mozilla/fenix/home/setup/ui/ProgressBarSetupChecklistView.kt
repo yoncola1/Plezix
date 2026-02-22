@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.ui.colors.PhotonColors
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val heightProgressBarChecklist = 12.dp
 private val shapeProgressBarChecklist = RoundedCornerShape(
@@ -41,7 +41,7 @@ private val shapeProgressBarChecklist = RoundedCornerShape(
  */
 @Composable
 fun ProgressBarSetupChecklistView(numberOfTasks: Int, numberOfTasksCompleted: Int) {
-    Box(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    Box(modifier = Modifier.background(PlezixTheme.colors.layer1)) {
         ProgressBarBackground()
 
         ProgressBarCompleted(numberOfTasks, numberOfTasksCompleted)
@@ -60,7 +60,7 @@ private fun ProgressBarBackground() {
             .fillMaxWidth()
             .height(heightProgressBarChecklist)
             .clip(shapeProgressBarChecklist)
-            .background(FirefoxTheme.colors.borderDisabled),
+            .background(PlezixTheme.colors.borderDisabled),
     ) {}
 }
 
@@ -119,7 +119,7 @@ private fun ProgressBarSegmentation(numberOfTasks: Int) {
                     modifier = Modifier
                         .height(heightProgressBarChecklist)
                         .width(4.dp)
-                        .background(FirefoxTheme.colors.layer1),
+                        .background(PlezixTheme.colors.layer1),
                 ) {}
             }
         }
@@ -130,10 +130,10 @@ private fun ProgressBarSegmentation(numberOfTasks: Int) {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun PreviewProgressIndicatorSetupChecklist() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = PlezixTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             ProgressBarSetupChecklistView(6, 3)

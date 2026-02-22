@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -25,7 +25,7 @@ DATA_PATH = Path(__file__).parent.joinpath("data")
                 "version": GeckoVersion.parse("62.0.3"),
             },
             "whatsnew-62.0.3.yml",
-            "Firefox-62.0.3.update.json",
+            "Plezix-62.0.3.update.json",
         ),
         (
             {
@@ -34,7 +34,7 @@ DATA_PATH = Path(__file__).parent.joinpath("data")
                 "version": GeckoVersion.parse("64.0"),
             },
             "whatsnew-62.0.3.yml",
-            "Firefox-64.0b13.update.json",
+            "Plezix-64.0b13.update.json",
         ),
     ],
 )

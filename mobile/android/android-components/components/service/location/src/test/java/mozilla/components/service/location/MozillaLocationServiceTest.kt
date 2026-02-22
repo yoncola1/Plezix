@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import java.io.IOException
 
 @ExperimentalCoroutinesApi // for runTest
 @RunWith(AndroidJUnit4::class)
-class MozillaLocationServiceTest {
+class PlezixLocationServiceTest {
     @Before
     @After
     fun cleanUp() {
@@ -50,7 +50,7 @@ class MozillaLocationServiceTest {
         try {
             server.start()
 
-            val service = MozillaLocationService(
+            val service = PlezixLocationService(
                 testContext,
                 HttpURLConnectionClient(),
                 apiKey = "test",
@@ -77,7 +77,7 @@ class MozillaLocationServiceTest {
         val client: Client = mock()
         doThrow(IOException()).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -94,7 +94,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNotNull(region!!)
@@ -120,7 +120,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -137,7 +137,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -154,7 +154,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -171,7 +171,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -188,7 +188,7 @@ class MozillaLocationServiceTest {
         )
         doReturn(response).`when`(client).fetch(any())
 
-        val service = MozillaLocationService(testContext, client, apiKey = "test")
+        val service = PlezixLocationService(testContext, client, apiKey = "test")
         val region = service.fetchRegion()
 
         assertNull(region)
@@ -206,7 +206,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(testContext, client, apiKey = "test")
+            val service = PlezixLocationService(testContext, client, apiKey = "test")
             val region = service.fetchRegion()
 
             assertNotNull(region!!)
@@ -220,7 +220,7 @@ class MozillaLocationServiceTest {
         run {
             val client: Client = mock()
 
-            val service = MozillaLocationService(testContext, client, apiKey = "test")
+            val service = PlezixLocationService(testContext, client, apiKey = "test")
             val region = service.fetchRegion()
 
             assertNotNull(region!!)
@@ -244,7 +244,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(testContext, client, apiKey = "test")
+            val service = PlezixLocationService(testContext, client, apiKey = "test")
             val region = service.fetchRegion()
 
             assertNotNull(region!!)
@@ -265,7 +265,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(testContext, client, apiKey = "test")
+            val service = PlezixLocationService(testContext, client, apiKey = "test")
             val region = service.fetchRegion(readFromCache = false)
 
             assertNotNull(region!!)
@@ -291,7 +291,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(
+            val service = PlezixLocationService(
                 testContext,
                 client,
                 apiKey = "test",
@@ -320,7 +320,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(
+            val service = PlezixLocationService(
                 testContext,
                 client,
                 apiKey = "test",
@@ -351,7 +351,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(
+            val service = PlezixLocationService(
                 testContext,
                 client,
                 apiKey = "test",
@@ -380,7 +380,7 @@ class MozillaLocationServiceTest {
             )
             doReturn(response).`when`(client).fetch(any())
 
-            val service = MozillaLocationService(
+            val service = PlezixLocationService(
                 testContext,
                 client,
                 apiKey = "test",

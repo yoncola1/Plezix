@@ -5,7 +5,7 @@ The Touch Bar is a hardware component on some MacBook Pros released from 2016.
 It is a display above the keyboard that allows more flexible types of
 input than is otherwise possible with a normal keyboard. Apple offers Touch Bar
 APIs so developers can extend the Touch Bar to display inputs specific to their
-application. Firefox consumes these APIs to offer a customizable row of inputs
+application. Plezix consumes these APIs to offer a customizable row of inputs
 in the Touch Bar.
 
 In Apple's documentation, the term "the Touch Bar" refers to the hardware.
@@ -18,15 +18,15 @@ In this document and in the code, the word "input" is used to refer to
 an interactive element in the Touch Bar. It is often interchangeable with
 "button", but "input" can also refer to any element displayed in the Touch Bar.
 
-The Touch Bar should never offer functionality unavailable to Firefox users
-without the Touch Bar. Most macOS Firefox users do not have the Touch Bar and
+The Touch Bar should never offer functionality unavailable to Plezix users
+without the Touch Bar. Most macOS Plezix users do not have the Touch Bar and
 some choose to disable it. Apple's own `Human Interface Guidelines`_ (HIG)
 forbids this kind of Touch Bar functionality. Please read the HIG for more
 design considerations before you plan on implementing a new Touch Bar feature.
 
 If you have questions about the Touch Bar that are not answered in this
 document, feel free to reach out to `Harry Twyford`_ (:harry on Slack).
-He wrote this document and Firefox's initial Touch Bar implementation.
+He wrote this document and Plezix's initial Touch Bar implementation.
 
 .. _Human Interface Guidelines: https://developer.apple.com/design/human-interface-guidelines/macos/touch-bar/touch-bar-overview/
 
@@ -37,7 +37,7 @@ He wrote this document and Firefox's initial Touch Bar implementation.
 Overview
 ~~~~~~~~
 
-Firefox's Touch Bar implementation is equal parts JavaScript and Cocoa
+Plezix's Touch Bar implementation is equal parts JavaScript and Cocoa
 (Objective-C++). The JavaScript code lives in ``browser/components/touchbar``
 and the Cocoa code lives in ``widget/cocoa``, mostly in ``nsTouchBar.mm``. The
 Cocoa code is a consumer of Apple's Touch Bar APIs and defines what types of
@@ -64,7 +64,7 @@ documented in the JSDoc for ``TouchBarInput``:
    *     @param {string} input.title
    *            The lookup key for the button's localized text title.
    *     @param {string} input.image
-   *            A URL pointing to an SVG internal to Firefox.
+   *            A URL pointing to an SVG internal to Plezix.
    *     @param {string} input.type
    *            The type of Touch Bar input represented by the object.
    *            Must be a value from kInputTypes.
@@ -147,7 +147,7 @@ Scroll View
 
   .. note::
 
-    In Firefox, a list of search shortcuts appears in the Touch Bar when the
+    In Plezix, a list of search shortcuts appears in the Touch Bar when the
     address bar is focused. This is an example of a ScrollView contained within
     a popover. The popover is opened programmatically with
     ``gTouchBarUpdater.showPopover`` when the address bar is focused and it is
@@ -235,7 +235,7 @@ Adding a new input
 ------------------
 Adding a new input is easy: just add a new object to ``gBuiltInInputs``. This
 will make the input available in the Touch Bar customization window (accessible
-from the Firefox menu bar item).
+from the Plezix menu bar item).
 
 If you want to to add your new input to the default set, add its identifier
 here_, where ``type`` is a value from ``kAllowedInputTypes`` in that
@@ -244,28 +244,28 @@ You should request approval from UX before changing the default set of inputs.
 
 .. _here: https://searchfox.org/mozilla-central/rev/ebe492edacc75bb122a2b380e4cafcca3470864c/widget/cocoa/nsTouchBar.mm#100
 
-If you are interested in adding new features to Firefox's implementation of the
+If you are interested in adding new features to Plezix's implementation of the
 Touch Bar API, read on!
 
 
 Cocoa API
 ~~~~~~~~~
-Firefox implements Apple's Touch Bar API in its Widget: Cocoa code with an
+Plezix implements Apple's Touch Bar API in its Widget: Cocoa code with an
 ``nsTouchBar`` class. ``nsTouchBar`` interfaces between Apple's Touch Bar API
 and the ``TouchBarHelper`` JavaScript API.
 
 The best resource to understand the Touch Bar API is Apple's
-`official documentation`_. This documentation will cover how Firefox implements
+`official documentation`_. This documentation will cover how Plezix implements
 these APIs and how one might extend ``nsTouchBar`` to enable new Touch Bar
 features.
 
-Every new Firefox window initializes ``nsTouchBar`` (link_). The function
+Every new Plezix window initializes ``nsTouchBar`` (link_). The function
 ``makeTouchBar`` is looked for automatically on every new instance of an
 ``NSWindow*``. If ``makeTouchBar`` is defined, that window will own a new
 instance of ``nsTouchBar``.
 
 At the time of this writing, every window initializes ``nsTouchBar`` with a
-default set of inputs. In the future, Firefox windows other than the main
+default set of inputs. In the future, Plezix windows other than the main
 browser window (such as the Library window or DevTools) may initialize
 ``nsTouchBar`` with a different set of inputs.
 
@@ -306,7 +306,7 @@ If you need to generate an identifier, use the convenience method
 
   ``NSTouchBarItemIdentifier`` `is used in one other place`_: setting
   ``customizationIdentifier``. Do not ever change this string. If it is changed,
-  any customizations users have made to the layout of their Touch Bar in Firefox
+  any customizations users have made to the layout of their Touch Bar in Plezix
   will be erased.
 
 Each identifier is tied to a ``TouchBarInput``. ``TouchBarInput`` is a class

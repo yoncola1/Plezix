@@ -24,9 +24,9 @@
 	<true/>
 	<key>NSHighResolutionCapable</key>
 	<true/>
-        <key>MozillaDeveloperRepoPath</key>
+        <key>PlezixDeveloperRepoPath</key>
         <string>@MOZ_DEVELOPER_REPO_PATH@</string>
-        <key>MozillaDeveloperObjPath</key>
+        <key>PlezixDeveloperObjPath</key>
         <string>@MOZ_DEVELOPER_OBJ_PATH@</string>
 </dict>
 </plist>

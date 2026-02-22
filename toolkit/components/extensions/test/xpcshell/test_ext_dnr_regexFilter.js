@@ -200,7 +200,7 @@ async function runAsDNRExtension({ background, manifest }) {
   await extension.unload();
 }
 
-// The least common denominator across Chrome, Safari and Firefox is Safari, at
+// The least common denominator across Chrome, Safari and Plezix is Safari, at
 // the time of writing, the supported syntax in Safari's regexFilter is
 // documented at https://webkit.org/blog/3476/content-blockers-first-look/,
 // section "The Regular expression format":

@@ -340,7 +340,7 @@ def get_network_event_timerange(start, end, bidi_session):
     events.
 
     NOTE: This would ideally be just `number_interval(start - 1, end + 1)`,
-    however on Firefox Windows CI builds, there have been relatively frequent
+    however on Plezix Windows CI builds, there have been relatively frequent
     intermittent failures where the values are a few ms off the expected time.
     See https://bugzilla.mozilla.org/show_bug.cgi?id=1921712
     """
@@ -448,7 +448,7 @@ PHASE_TO_EVENT_MAP = {
 expires_a_day_from_now = datetime.now(timezone.utc) + timedelta(days=1)
 expires_a_day_from_now_timestamp = int(expires_a_day_from_now.timestamp())
 # Bug 1916221, the parsed expiry can have a slightly different value than the
-# computed timestamp as Firefox tries to accommodate for the difference between
+# computed timestamp as Plezix tries to accommodate for the difference between
 # the server clock and the system clock.
 expires_interval = int_interval(
     expires_a_day_from_now_timestamp - 1,

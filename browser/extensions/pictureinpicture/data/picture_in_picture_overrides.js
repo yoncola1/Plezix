@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ let AVAILABLE_PIP_OVERRIDES;
 
   AVAILABLE_PIP_OVERRIDES = {
     // The keys of this object are match patterns for URLs, as documented in
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns
+    // https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Match_patterns
     //
     // Example:
     //  const KEYBOARD_CONTROLS = browser.pictureInPictureChild.getKeyboardControls();

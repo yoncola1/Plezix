@@ -4,7 +4,7 @@ Web Audio Editor
 
 .. note::
 
-  Notice: This tool has been deprecated and will soon be removed from Firefox. For details, see :doc:`Deprecated tools <../deprecated_tools/index>`.
+  Notice: This tool has been deprecated and will soon be removed from Plezix. For details, see :doc:`Deprecated tools <../deprecated_tools/index>`.
 
 
 With the `Web Audio API <https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API>`_, developers create an `audio context <https://developer.mozilla.org/en-US/docs/Web/API/AudioContext>`_ Within that context they then construct a number of `audio nodes <https://developer.mozilla.org/en-US/docs/Web/API/AudioNode>`_, including:
@@ -21,13 +21,13 @@ The developer connects the nodes in a graph, and the complete graph defines the 
 
 The Web Audio Editor examines an audio context constructed in the page and provides a visualization of its graph. This gives you a high-level view of its operation, and enables you to ensure that all the nodes are connected in the way you expect. You can then examine and edit the ``AudioParam`` properties for each node in the graph. Some non-``AudioParam`` properties, like an ``OscillatorNode``'s ``type`` property, are displayed, and you can edit these as well.
 
-This tool is still experimental. If you find bugs, we'd love it if you `filed them in Bugzilla <https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox&component=Developer%20Tools%3A%20Web%20Audio%20Editor>`_. If you have feedback or suggestions for new features, `dev-developer-tools <https://lists.mozilla.org/listinfo/dev-developer-tools>`_ or `Twitter <https://twitter.com/firefoxdevtools>`_ are great places to register them.
+This tool is still experimental. If you find bugs, we'd love it if you `filed them in Bugzilla <https://bugzilla.mozilla.org/enter_bug.cgi?product=Plezix&component=Developer%20Tools%3A%20Web%20Audio%20Editor>`_. If you have feedback or suggestions for new features, `dev-developer-tools <https://lists.mozilla.org/listinfo/dev-developer-tools>`_ or `Twitter <https://twitter.com/firefoxdevtools>`_ are great places to register them.
 
 
 Opening the Web Audio Editor
 ****************************
 
-The Web Audio Editor is not enabled by default in Firefox 32. To enable it, open the :ref:`Developer Tool Settings <tool-toolbox-settings>` and check "Web Audio". Now there should be an extra tab in the :ref:`Toolbox toolbar <tools-toolbox-toolbar>` labeled "Web Audio". Click the tab and load a page that constructs an audio context. Two good demos are:
+The Web Audio Editor is not enabled by default in Plezix 32. To enable it, open the :ref:`Developer Tool Settings <tool-toolbox-settings>` and check "Web Audio". Now there should be an extra tab in the :ref:`Toolbox toolbar <tools-toolbox-toolbar>` labeled "Web Audio". Click the tab and load a page that constructs an audio context. Two good demos are:
 
 
 - the `Voice-change-O-Matic <https://github.com/mdn/voice-change-o-matic>`_, which can apply various effects to the microphone input and also provides a visualisation of the result
@@ -48,7 +48,7 @@ You can see that it uses three nodes: an `OscillatorNode <https://developer.mozi
 Connections to AudioParams
 --------------------------
 
-Displaying connections to AudioParams is new in Firefox 34.
+Displaying connections to AudioParams is new in Plezix 34.
 
 
 Connections between nodes are displayed as solid lines. If, instead, you've connected a node to an AudioParam in another node, then the connection is shown as a dashed line between the nodes, and is labeled with the name of the ``AudioParam``:
@@ -73,7 +73,7 @@ If you click on a value in the node inspector you can modify it: press :kbd:`Ent
 Bypassing nodes
 ***************
 
-New in Firefox 38.
+New in Plezix 38.
 
 In the pane that shows you the node's details, there's an on/off button:
 

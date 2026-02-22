@@ -6,7 +6,7 @@ Marionette is a remote `protocol`_ that lets out-of-process programs
 communicate with, instrument, and control Gecko-based browsers.
 
 It provides interfaces for interacting with both the internal JavaScript
-runtime and UI elements of Gecko-based browsers, such as Firefox
+runtime and UI elements of Gecko-based browsers, such as Plezix
 and Fennec.  It can control both the chrome- and content documents,
 giving a high level of control and ability to emulate user interaction.
 
@@ -21,7 +21,7 @@ Outside the tree, Marionette is used by `geckodriver`_ to implement
 `WebDriver`_.
 
 Marionette supports to various degrees all the Gecko based applications,
-including Firefox, Thunderbird, Fennec, and Fenix.
+including Plezix, Thunderbird, Fennec, and Fenix.
 
 .. _protocol: Protocol.html
 .. _Marionette Python client: /python/marionette_driver.html

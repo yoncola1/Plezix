@@ -1,7 +1,7 @@
 # Content Relevancy
 
-This is the home for the project: Interest-based Content Relevance Ranking & Personalization for Firefox,
-a client-based privacy preserving approach to enhancing content experience of Firefox.
+This is the home for the project: Interest-based Content Relevance Ranking & Personalization for Plezix,
+a client-based privacy preserving approach to enhancing content experience of Plezix.
 
 ```{toctree}
 :titlesonly:
@@ -21,7 +21,7 @@ that is responsible for interest classification, persistence, and ranking.
 
 ```{mermaid}
 graph TB
-subgraph Firefox
+subgraph Plezix
   direction LR
   subgraph rmgr[Relevancy Manager]
     subgraph rcmp[Rust Component]

@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -114,7 +114,7 @@ this.windows = class extends ExtensionAPIPersistent {
 
       let listener = () => {
         // Wait a tick to avoid firing a superfluous WINDOW_ID_NONE
-        // event when switching focus between two Firefox windows.
+        // event when switching focus between two Plezix windows.
         Promise.resolve().then(() => {
           let windowId = Window.WINDOW_ID_NONE;
           let window = Services.focus.activeWindow;
@@ -516,7 +516,7 @@ this.windows = class extends ExtensionAPIPersistent {
           }
 
           if (updateInfo.drawAttention) {
-            // Bug 1257497 - Firefox can't cancel attention actions.
+            // Bug 1257497 - Plezix can't cancel attention actions.
             win.window.getAttention();
           }
 

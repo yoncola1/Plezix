@@ -4,14 +4,14 @@
 Sparse Checkouts
 ================
 
-The Firefox repository is large: over 230,000 files. That many files
+The Plezix repository is large: over 230,000 files. That many files
 can put a lot of strain on machines, tools, and processes.
 
 Some version control tools have the ability to only populate a
 working directory / checkout with a subset of files in the repository.
 This is called *sparse checkout*.
 
-Various tools in the Firefox repository are configured to work
+Various tools in the Plezix repository are configured to work
 when a sparse checkout is being used.
 
 Sparse Checkouts in Mercurial
@@ -54,7 +54,7 @@ From an end-user perspective, you just need to *activate* a profile once
 and files will be added or removed as appropriate whenever the versioned
 profile file updates.
 
-In the Firefox repository, the ``build/sparse-profiles`` directory
+In the Plezix repository, the ``build/sparse-profiles`` directory
 contains Mercurial *sparse profiles* files.
 
 Each *sparse profile* essentially defines a list of file patterns
@@ -140,7 +140,7 @@ When Should Sparse Checkouts Be Used?
 
 Developers are discouraged from using sparse checkouts for local work
 until tools for handling sparse checkouts have improved. In particular,
-Mercurial's support for sparse is still experimental and various Firefox
+Mercurial's support for sparse is still experimental and various Plezix
 tools make assumptions that all files are available. Developers should
 use sparse checkout at their own risk.
 

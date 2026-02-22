@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ import mozilla.components.service.fxa.manager.AccountState.NotAuthenticated
 import mozilla.components.service.fxa.store.Account
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.Image
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 private val BUTTON_HEIGHT = 56.dp
@@ -47,7 +47,7 @@ private val AVATAR_SIZE = 24.dp
 
 @SuppressWarnings("LongMethod")
 @Composable
-internal fun MozillaAccountMenuButton(
+internal fun PlezixAccountMenuButton(
     account: Account?,
     accountState: AccountState,
     onClick: () -> Unit,
@@ -56,7 +56,7 @@ internal fun MozillaAccountMenuButton(
     Row(
         modifier = modifier
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = PlezixTheme.colors.layer3,
                 shape = BUTTON_SHAPE,
             )
             .clip(shape = BUTTON_SHAPE)
@@ -77,18 +77,18 @@ internal fun MozillaAccountMenuButton(
                 NotAuthenticated -> {
                     Text(
                         text = stringResource(id = R.string.browser_menu_sign_in),
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.headline7.merge(
+                        style = PlezixTheme.typography.headline7.merge(
                             platformStyle = PlatformTextStyle(includeFontPadding = true),
                         ),
                     )
 
                     Text(
                         text = stringResource(id = R.string.browser_menu_sign_in_caption_3),
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         maxLines = 2,
-                        style = FirefoxTheme.typography.caption.merge(
+                        style = PlezixTheme.typography.caption.merge(
                             platformStyle = PlatformTextStyle(includeFontPadding = true),
                         ),
                     )
@@ -97,18 +97,18 @@ internal fun MozillaAccountMenuButton(
                 AuthenticationProblem -> {
                     Text(
                         text = stringResource(id = R.string.browser_menu_sign_back_in_to_sync),
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.headline7.merge(
+                        style = PlezixTheme.typography.headline7.merge(
                             platformStyle = PlatformTextStyle(includeFontPadding = true),
                         ),
                     )
 
                     Text(
                         text = stringResource(id = R.string.browser_menu_syncing_paused_caption),
-                        color = FirefoxTheme.colors.textCritical,
+                        color = PlezixTheme.colors.textCritical,
                         maxLines = 2,
-                        style = FirefoxTheme.typography.caption.merge(
+                        style = PlezixTheme.typography.caption.merge(
                             platformStyle = PlatformTextStyle(includeFontPadding = true),
                         ),
                     )
@@ -118,9 +118,9 @@ internal fun MozillaAccountMenuButton(
                     Text(
                         text = account?.displayName ?: account?.email
                             ?: stringResource(id = R.string.browser_menu_account_settings),
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.headline7.merge(
+                        style = PlezixTheme.typography.headline7.merge(
                             platformStyle = PlatformTextStyle(includeFontPadding = true),
                         ),
                         overflow = TextOverflow.Ellipsis,
@@ -135,7 +135,7 @@ internal fun MozillaAccountMenuButton(
             Icon(
                 painter = painterResource(R.drawable.mozac_ic_warning_fill_24),
                 contentDescription = null,
-                tint = FirefoxTheme.colors.iconCritical,
+                tint = PlezixTheme.colors.iconCritical,
             )
 
             Spacer(modifier = Modifier.width(8.dp))
@@ -150,11 +150,11 @@ private fun FallbackAvatarIcon() {
         contentDescription = null,
         modifier = Modifier
             .background(
-                color = FirefoxTheme.colors.layer2,
+                color = PlezixTheme.colors.layer2,
                 shape = ICON_SHAPE,
             )
             .padding(all = 4.dp),
-        tint = FirefoxTheme.colors.iconPrimary,
+        tint = PlezixTheme.colors.iconPrimary,
     )
 }
 
@@ -167,7 +167,7 @@ private fun AvatarIcon(account: Account?) {
             url = avatarUrl,
             modifier = Modifier
                 .background(
-                    color = FirefoxTheme.colors.layer2,
+                    color = PlezixTheme.colors.layer2,
                     shape = ICON_SHAPE,
                 )
                 .padding(all = 4.dp)
@@ -186,23 +186,23 @@ private fun AvatarIcon(account: Account?) {
 private fun MenuHeaderPreviewContent() {
     Column(
         modifier = Modifier
-            .background(color = FirefoxTheme.colors.layer2)
+            .background(color = PlezixTheme.colors.layer2)
             .padding(all = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = null,
             accountState = NotAuthenticated,
             onClick = {},
         )
 
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = null,
             accountState = AuthenticationProblem,
             onClick = {},
         )
 
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = Account(
                 uid = "testUID",
                 avatar = null,
@@ -215,7 +215,7 @@ private fun MenuHeaderPreviewContent() {
             onClick = {},
         )
 
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = Account(
                 uid = "testUID",
                 avatar = null,
@@ -228,7 +228,7 @@ private fun MenuHeaderPreviewContent() {
             onClick = {},
         )
 
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = Account(
                 uid = "testUID",
                 avatar = null,
@@ -246,7 +246,7 @@ private fun MenuHeaderPreviewContent() {
 @PreviewLightDark
 @Composable
 private fun MenuHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MenuHeaderPreviewContent()
     }
 }
@@ -254,7 +254,7 @@ private fun MenuHeaderPreview() {
 @Preview
 @Composable
 private fun MenuHeaderPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         MenuHeaderPreviewContent()
     }
 }

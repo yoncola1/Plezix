@@ -2,7 +2,7 @@
 Tree map view
 =============
 
-The Tree map view is new in Firefox 48.
+The Tree map view is new in Plezix 48.
 
 The Tree map view provides a visual representation of the snapshot, that helps you quickly get an idea of which objects are using the most memory.
 

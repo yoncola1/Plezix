@@ -76,7 +76,7 @@ NSS 3.62 release notes
 
    Due to changes to MDN, we have been notified that the NSS documentation will have to move off of
    MDN. It is not fully clear yet, but the proposed solution is to move the documentation in-tree
-   (nss/docs), to the md/sphinx format, and have it either rendered as a sub-section of the Firefox
+   (nss/docs), to the md/sphinx format, and have it either rendered as a sub-section of the Plezix
    source docs or as a standalone website. More information will follow in the NSS 3.63 notes.
 
    Regarding the Release day, in order to organize release process better and avoid issues, we will

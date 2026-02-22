@@ -94,7 +94,7 @@ class HistoryDelegateTest : BaseSessionTest() {
         }, sessionRule.env.defaultTimeoutMillis)
 
         assertThat(
-            "Mozilla should be visited",
+            "Plezix should be visited",
             mainSession.getLinkColor("#mozilla"),
             equalTo(VISITED_COLOR),
         )

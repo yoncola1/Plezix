@@ -6,14 +6,14 @@ asynchronous and massively parallel architecture.
 ## Tools
 
 [PIX](https://devblogs.microsoft.com/pix/introduction/) - Can do
-timing of Direct3D calls. Works reasonably well with Firefox.
+timing of Direct3D calls. Works reasonably well with Plezix.
 
 NVIDIA PerfHUD - Last I checked required a special build to be used.
 
 NVIDIA Parallel Nsight - Haven\'t tried.
 
 AMD GPU ShaderAnalyzer - Will compile a shader and show the machine code
-and give static pipeline estimations. Not that useful for Firefox
+and give static pipeline estimations. Not that useful for Plezix
 because all of our shaders are pretty simple.
 
 AMD GPU PerfStudio - I had trouble getting this to work, and can\'t

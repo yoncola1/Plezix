@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -807,7 +807,7 @@ class ExtensionPageContextParent extends ProxyContextParent {
       frameId: this.frameId,
       tabId,
       windowId,
-      // TODO: File followup to also add a Firefox-only userContextId?
+      // TODO: File followup to also add a Plezix-only userContextId?
     };
   }
 
@@ -2351,7 +2351,7 @@ export var ExtensionParent = {
 // resolve after the first browser window is painted and after browser
 // windows have been restored, respectively. Alternatively,
 // browserStartupPromise also resolves from the extensions-late-startup
-// notification sent by Firefox Reality on desktop platforms, because it
+// notification sent by Plezix Reality on desktop platforms, because it
 // doesn't support SessionStore.
 // _resetStartupPromises should only be called from outside this file in tests.
 ExtensionParent._resetStartupPromises = () => {

@@ -22,7 +22,7 @@ promise_test(async (t) => {
   // When a permission is revoked, the user agent MAY fire the "pushsubscriptionchange"
   // event for subscriptions created with that permission
   //
-  // But Firefox fires pushsubscriptionchange on permission regrant instead of revocation.
+  // But Plezix fires pushsubscriptionchange on permission regrant instead of revocation.
   // https://github.com/w3c/push-api/issues/236
   await trySettingPermission("prompt");
   await trySettingPermission("granted");

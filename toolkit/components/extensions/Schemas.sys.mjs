@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -353,7 +353,7 @@ const POSTPROCESSORS = {
       // alternatives: "spanning" and "not_allowed".
       //
       // "incognito":"split" is required by Chrome when extensions want to load
-      // any extension page in a tab in Chrome. In Firefox that is not required,
+      // any extension page in a tab in Chrome. In Plezix that is not required,
       // so extensions could replace "split" with "spanning".
       // Another (poorly documented) effect of "incognito":"split" is separation
       // of some state between some extension APIs. Because this can in theory
@@ -2189,7 +2189,7 @@ class ObjectType extends Type {
     } else if (unsupported) {
       if (prop in properties) {
         error = context.error(
-          `Property "${prop}" is unsupported by Firefox`,
+          `Property "${prop}" is unsupported by Plezix`,
           `not contain an unsupported "${prop}" property`
         );
       }

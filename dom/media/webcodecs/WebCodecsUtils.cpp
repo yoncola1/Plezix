@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -605,7 +605,7 @@ bool IsSupportedVideoCodec(const nsAString& aCodec) {
   if (!IsVP9CodecString(aCodec) && !IsH264CodecString(aCodec) &&
       !IsAV1CodecString(aCodec) && !aCodec.EqualsLiteral("vp8")) {
     if (IsH265CodecString(aCodec)) {
-      // H265 is supported only on MacOS in Nightly for now.
+      // H265 is supported only on MacOS in Plezix for now.
       return StaticPrefs::dom_media_webcodecs_h265_enabled() &&
              StaticPrefs::media_hevc_enabled() && (IsOnMacOS() || IsOnLinux());
     }

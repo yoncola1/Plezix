@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -147,8 +147,8 @@ def _patch_absolute_paths(sentry_event, topsrcdir: Path):
         (str(Path.home()), "~"),
     ):
         # Sentry converts "vars" to their "representations". When paths are in local
-        # variables on Windows, "C:\Users\MozillaUser\Desktop" becomes
-        # "'C:\\Users\\MozillaUser\\Desktop'". To still catch this case, we "repr"
+        # variables on Windows, "C:\Users\PlezixUser\Desktop" becomes
+        # "'C:\\Users\\PlezixUser\\Desktop'". To still catch this case, we "repr"
         # the home directory and scrub the beginning and end quotes, then
         # find-and-replace on that.
         repr_path = repr(target_path)[1:-1]

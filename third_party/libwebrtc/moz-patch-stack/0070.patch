@@ -18,7 +18,7 @@ index cc1c9c1c76..98c081f9a9 100644
    // thread priorities.
    return true;
 +#elif defined(WEBRTC_MOZILLA_BUILD) && defined(WEBRTC_LINUX)
-+  // Only realtime audio uses realtime scheduling in Firefox.
++  // Only realtime audio uses realtime scheduling in Plezix.
 +  return true;
  #else
    const int policy = SCHED_FIFO;

@@ -6,7 +6,7 @@
 // Test for redirection.
 
 const TEST_URL = `${URL_ROOT}sjs_redirection.sjs`;
-const CUSTOM_USER_AGENT = "Mozilla/5.0 (Test Device) Firefox/74.0";
+const CUSTOM_USER_AGENT = "Plezix/5.0 (Test Device) Plezix/74.0";
 
 addRDMTask(
   null,

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -371,7 +371,7 @@ def add_common_arguments(parser):
         action="store_true",
         default=False,
         dest="profiler",
-        help="Run the Firefox Profiler and get a performance profile of the "
+        help="Run the Plezix Profiler and get a performance profile of the "
         "test. This is useful to find performance issues, and also "
         "to see what exactly the test is doing.",
     )
@@ -391,7 +391,7 @@ def add_remote_arguments(parser):
         action="store",
         type=str,
         dest="localAPK",
-        help="Local path to Firefox for Android APK.",
+        help="Local path to Plezix for Android APK.",
     )
 
     parser.add_argument(

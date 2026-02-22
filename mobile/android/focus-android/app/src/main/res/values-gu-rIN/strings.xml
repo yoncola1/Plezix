@@ -33,7 +33,7 @@
   <string name="menu_report_site_issue">સાઇટ સમસ્યાનો અહેવાલ આપો</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s માં ખોલો</string>
@@ -70,7 +70,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">%1$s દ્વારા સંચાલિત</string>
   <!--
@@ -106,7 +106,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">કાઢી નાખો અને %1$s ને ખોલો</string>
   <!-- Header for the Privacy and Security settings menu -->
@@ -119,11 +119,11 @@
   -->
   <string name="preference_search_summary">મૂળભૂત સેટ કરો, સ્વતઃપૂર્ણ</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s વિશે, સહાય</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -139,7 +139,7 @@
   <string name="preference_show_search_suggestions">શોધ સૂચનો મેળવો</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s તમે જે સરનામા બારમાં લખો છો તે તમારા શોધ એન્જિનમાં મોકલશે</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -238,18 +238,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s મૂળભૂત બ્રાઉઝર બનાવો</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">ઉપયોગ ડેટા મોકલો</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">વધુ શીખો</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="preference_mozilla_telemetry_summary2">મોઝિલા માત્ર દરેકને માટે %1$s પ્રદાન અને સુધારવાની જરૂર છે તે એકત્રિત કરવાનો પ્રયત્ન કરે છે.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">ખાનગી સૂચના</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s વિશે</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">ઇન્સ્ટોલ કરેલા સર્ચ એન્જિનો</string>
@@ -339,13 +339,13 @@
   <string name="external_app_prompt_title">અન્ય એપ્લિકેશનમાં લિંક ખોલો</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">તમે %2$sમાં આ લિંકને ખોલવા માટે %1$s છોડી શકો છો.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">એક એપ્લિકેશન શોધો જે લિંક ખોલી શકે છે</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">તમારા ઉપકરણ પરની કોઈપણ એપ્લિકેશનો આ લિંક ખોલવા માટે સક્ષમ નથી. તમે એપ્લિકેશન માટે %2$s શોધવા માટે %1$s કરી છોડી શકો છો.</string>
@@ -366,11 +366,11 @@
   <string name="firstrun_search_text">કંઈક અલગ શોધી રહ્યાં છો? સેટિંગ્સમાં બીજુ મૂળભૂત શોધ એંજિન પસંદ કરો.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">તમારી મુખ્ય સ્ક્રીન પર શૉર્ટકટ્સ ઉમેરો</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">%1$s માં તમારી મનપસંદ સાઇટ્સ પર ઝડપથી પાછા આવો. ફક્ત %1$s મેનૂમાંથી \"મુખ્ય સ્ક્રીન પર ઉમેરો\" પસંદ કરો.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">ગોપનીયતા એક આદત બનાવો</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">તમારા મૂળભૂત બ્રાઉઝર તરીકે %1$s સેટ કરો અને જ્યારે તમે અન્ય એપ્લિકેશનોથી વેબપૃષ્ઠો ખોલશો ત્યારે ખાનગી બ્રાઉઝિંગના લાભો મેળવો.</string>
   <string name="firstrun_close_button">OK, સમજાઇ ગયું!</string>
   <string name="firstrun_skip_button">છોડો</string>
@@ -391,7 +391,7 @@
   <string name="notification_browsing_session_channel_name">ખાનગી બ્રાઉઝિંગ સત્ર</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -400,10 +400,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">બ્રાઉઝિંગ ઇતિહાસને કાઢી નાખો</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox ડાઉનલોડ કરો</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix ડાઉનલોડ કરો</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">વપરાશકર્તા નામ</string>
   <string name="gv_prompt_password_hint">પાસવર્ડ</string>
@@ -486,7 +486,7 @@
   <string name="tip_add_to_homescreen">તમે સૌથી વધુ%1$s ઉપયોગ કરો છો તે સાઇટ્સ પર એક-ટૅપ ઍક્સેસ મેળવો મેનૂ &gt; હોમ સ્ક્રીન પર ઉમેરો</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">દરેક લિંકને %1$s માં ખોલો\nડિફૉલ્ટ બ્રાઉઝર તરીકે %1$s ને સેટ કરો</string>
@@ -528,8 +528,8 @@
   <string name="tab_crash_report_description">ખાનગી બ્રાઉઝર તરીકે, અમે આ ટૅબને ક્યારેય સાચવી શકતા નથી અને પુનઃસ્થાપિત કરી શકતા નથી.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">ટૅબ બંધ કરો</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Mozilla પર ક્રેશ રિપોર્ટ મોકલો</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Plezix પર ક્રેશ રિપોર્ટ મોકલો</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Promote SearchWidget Dialog -->

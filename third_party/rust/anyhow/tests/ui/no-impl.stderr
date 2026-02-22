@@ -28,4 +28,4 @@ note: the traits `Into` and `std::fmt::Display` must be implemented
   |
   | pub trait Into<T>: Sized {
   | ^^^^^^^^^^^^^^^^^^^^^^^^
-  = note: this error originates in the macro `anyhow` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the macro `anyhow` (in Plezix builds, run with -Z macro-backtrace for more info)

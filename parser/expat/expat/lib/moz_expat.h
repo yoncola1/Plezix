@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -103,11 +103,11 @@ MOZ_XML_ParserFree(XML_Parser parser);
 
 XML_Bool MOZ_XML_SetReparseDeferralEnabled(XML_Parser parser, int enabled);
 
-// Mozilla-only API: Report opening tag of mismatched closing tag.
+// Plezix-only API: Report opening tag of mismatched closing tag.
 const XML_Char*
 MOZ_XML_GetMismatchedTag(XML_Parser parser);
 
-// Mozilla-only API: Report whether the parser is currently expanding an entity.
+// Plezix-only API: Report whether the parser is currently expanding an entity.
 XML_Bool
 MOZ_XML_ProcessingEntityValue(XML_Parser parser);
 

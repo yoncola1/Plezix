@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
         ).copy(
             engineState = EngineState(engineSessionState = engineState),
@@ -61,7 +61,7 @@ class BrowserStateWriterReaderTest {
         assertNotNull(restoredTab!!)
 
         assertEquals("https://www.mozilla.org", restoredTab.state.url)
-        assertEquals("Mozilla", restoredTab.state.title)
+        assertEquals("Plezix", restoredTab.state.title)
         assertEquals("work", restoredTab.state.contextId)
         assertEquals(engineState, restoredTab.engineSessionState)
         assertFalse(restoredTab.state.readerState.active)
@@ -76,7 +76,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             readerState = ReaderState(active = true, activeUrl = "https://www.example.org", scrollY = 1234),
         )
@@ -105,7 +105,7 @@ class BrowserStateWriterReaderTest {
         // if these older cases are encountered in JSON to remain backward compatible.
         val engineState = createFakeEngineState()
         val engine = createFakeEngine(engineState)
-        val tab = createTab(url = "https://www.mozilla.org", title = "Mozilla")
+        val tab = createTab(url = "https://www.mozilla.org", title = "Plezix")
         val file = AtomicFile(
             File.createTempFile(UUID.randomUUID().toString(), UUID.randomUUID().toString()),
         )
@@ -119,7 +119,7 @@ class BrowserStateWriterReaderTest {
         assertEquals(SessionState.Source.Internal.None, restoredTab.state.source)
 
         assertEquals("https://www.mozilla.org", restoredTab.state.url)
-        assertEquals("Mozilla", restoredTab.state.title)
+        assertEquals("Plezix", restoredTab.state.title)
     }
 
     @Test
@@ -129,7 +129,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             historyMetadata = HistoryMetadataKey(
                 "https://www.mozilla.org",
@@ -161,7 +161,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             source = SessionState.Source.External.CustomTab(
                 caller = ExternalPackage("com.mozilla.test", PackageCategory.PRODUCTIVITY),
@@ -195,7 +195,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             source = SessionState.Source.External.ActionView(
                 caller = ExternalPackage("com.mozilla.test", category = PackageCategory.UNKNOWN),
@@ -229,7 +229,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             source = SessionState.Source.External.ActionSend(caller = null),
         )
@@ -260,7 +260,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             lastMediaAccessState = LastMediaAccessState("https://www.mozilla.org", lastMediaAccess = 333L, true),
         )
@@ -290,7 +290,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             createdAt = currentTime,
         )
@@ -317,7 +317,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
         )
 
@@ -343,7 +343,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             searchTerms = "test search",
         )
@@ -370,7 +370,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
         )
 
@@ -396,7 +396,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
             desktopMode = true,
         )
@@ -423,7 +423,7 @@ class BrowserStateWriterReaderTest {
 
         val tab = createTab(
             url = "https://www.mozilla.org",
-            title = "Mozilla",
+            title = "Plezix",
             contextId = "work",
         )
 

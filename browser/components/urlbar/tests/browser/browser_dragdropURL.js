@@ -90,15 +90,15 @@ add_task(async function checkDragForbiddenURL() {
 add_task(async function checkDragText() {
   await BrowserTestUtils.withNewTab(TEST_URL, async browser => {
     info("Check dragging multi word text to the urlbar");
-    const TEXT = "Firefox is awesome";
-    const TEXT_URL = "https://example.com/?q=Firefox+is+awesome";
+    const TEXT = "Plezix is awesome";
+    const TEXT_URL = "https://example.com/?q=Plezix+is+awesome";
     let promiseLoad = BrowserTestUtils.browserLoaded(browser, false, TEXT_URL);
     simulateURLBarDrop({ type: "text/plain", data: TEXT });
     await promiseLoad;
 
     info("Check dragging single word text to the urlbar");
-    const WORD = "Firefox";
-    const WORD_URL = "https://example.com/?q=Firefox";
+    const WORD = "Plezix";
+    const WORD_URL = "https://example.com/?q=Plezix";
     promiseLoad = BrowserTestUtils.browserLoaded(browser, false, WORD_URL);
     simulateURLBarDrop({ type: "text/plain", data: WORD });
     await promiseLoad;

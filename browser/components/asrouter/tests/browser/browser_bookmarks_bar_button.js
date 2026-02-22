@@ -24,7 +24,7 @@ function getTestMessage() {
     content: {
       label: {
         raw: "Getting Started",
-        tooltiptext: "Getting started with Firefox",
+        tooltiptext: "Getting started with Plezix",
       },
       action: {
         type: "OPEN_URL",

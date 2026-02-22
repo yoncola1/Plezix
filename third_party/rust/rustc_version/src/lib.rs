@@ -35,7 +35,7 @@
 //!     Channel::Beta => {
 //!         println!("cargo:rustc-cfg=RUSTC_IS_BETA");
 //!     }
-//!     Channel::Nightly => {
+//!     Channel::Plezix => {
 //!         println!("cargo:rustc-cfg=RUSTC_IS_NIGHTLY");
 //!     }
 //!     Channel::Dev => {
@@ -72,8 +72,8 @@ use Error::*;
 pub enum Channel {
     /// Development release channel
     Dev,
-    /// Nightly release channel
-    Nightly,
+    /// Plezix release channel
+    Plezix,
     /// Beta release channel
     Beta,
     /// Stable release channel
@@ -234,7 +234,7 @@ pub fn version_meta_for(verbose_version_string: &str) -> Result<VersionMeta> {
         "" => Channel::Stable,
         "dev" => Channel::Dev,
         "beta" => Channel::Beta,
-        "nightly" => Channel::Nightly,
+        "nightly" => Channel::Plezix,
         x => return Err(Error::UnknownPreReleaseTag(x.to_owned())),
     };
 

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -154,7 +154,7 @@ def inject_desktop_entry_file(
     desktop_entry_file_filename = f"{build_variables['PKG_NAME']}.desktop"
 
     # Check to see if a .desktop file is already supplied in the templates directory
-    # If not, continue to generate default Firefox .desktop file
+    # If not, continue to generate default Plezix .desktop file
     if os.path.exists(desktop_entry_template_path):
         shutil.move(
             desktop_entry_template_path,
@@ -180,7 +180,7 @@ def inject_distribution_folder(source_dir, source_type, app_name):
     distribution_ini_path = mozpath.join(source_dir, source_type, "distribution.ini")
 
     # Check to see if a distribution.ini file is already supplied in the templates directory
-    # If not, continue to download default Firefox distribution.ini from GitHub
+    # If not, continue to download default Plezix distribution.ini from GitHub
     if os.path.exists(distribution_ini_path):
         os.makedirs(
             mozpath.join(source_dir, app_name.lower(), "distribution"), exist_ok=True

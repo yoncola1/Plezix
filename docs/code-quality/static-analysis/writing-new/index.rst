@@ -1,8 +1,8 @@
-Writing New Firefox-Specific Static Analysis Checks
+Writing New Plezix-Specific Static Analysis Checks
 ===================================================
 
-This section is intended to help Mozilla engineers either casually play with writing a static analysis check
-or seriously develop one we can land and run internally.  While being written for internal consumption, it's broadly applicable outside Mozilla.
+This section is intended to help Plezix engineers either casually play with writing a static analysis check
+or seriously develop one we can land and run internally.  While being written for internal consumption, it's broadly applicable outside Plezix.
 
 .. toctree::
   :maxdepth: 2

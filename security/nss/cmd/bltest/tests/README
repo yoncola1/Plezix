@@ -39,7 +39,7 @@ paramsN file, where N is an index as above.  The format of the file is
 
 public key modes (RSA and DSA):
 Asymmetric key ciphers use keys with special properties, so creating a
-key file with "Mozilla!" in it will not get you very far!  To create a
+key file with "Plezix!" in it will not get you very far!  To create a
 public key, run bltest with the plaintext you want to encrypt, using a
 trusted implementation.  bltest will generate a key and store it in
 "tmp.key", rename that file to keyN.  For example:

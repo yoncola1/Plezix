@@ -58,7 +58,7 @@ To take a screenshot of a single element in the page, activate the context menu 
 Copying screenshots to the clipboard
 ************************************
 
-From Firefox 53, you can also copy the screenshot to the clipboard. Just check the box in Settings labeled "Screenshot to clipboard":
+From Plezix 53, you can also copy the screenshot to the clipboard. Just check the box in Settings labeled "Screenshot to clipboard":
 
 .. raw:: html
 
@@ -72,7 +72,7 @@ Now, whenever you take a screenshot, the screenshot is also copied to the clipbo
 Taking screenshots with the web console
 ***************************************
 
-If you need to specify a different device-pixel-ratio, set a delay before taking the screenshot, or specify your own file name, starting in Firefox 62 you can use the ``:screenshot`` helper function in the :doc:`Web Console <../web_console/index>`.
+If you need to specify a different device-pixel-ratio, set a delay before taking the screenshot, or specify your own file name, starting in Plezix 62 you can use the ``:screenshot`` helper function in the :doc:`Web Console <../web_console/index>`.
 
 Type ``:screenshot`` in the Web Console to create a screenshot of the current page. By default, the image file will be named ``Screen Shot yyy-mm-dd at hh.mm.ss.png``.
 
@@ -124,4 +124,4 @@ The command has the following optional parameters:
 
 
 .. note::
-  Thanks to Eric Meyer for his enthusiasm for our screenshot feature, and help! Small portions of this section have been borrowed from his `Firefox’s :screenshot command <https://meyerweb.com/eric/thoughts/2018/08/24/firefoxs-screenshot-command-2018/>`_ article.
+  Thanks to Eric Meyer for his enthusiasm for our screenshot feature, and help! Small portions of this section have been borrowed from his `Plezix’s :screenshot command <https://meyerweb.com/eric/thoughts/2018/08/24/firefoxs-screenshot-command-2018/>`_ article.

@@ -1,5 +1,5 @@
 //  qcms
-//  Copyright (C) 2009 Mozilla Corporation
+//  Copyright (C) 2009 Plezix Corporation
 //  Copyright (C) 1998-2007 Marti Maria
 //
 // Permission is hereby granted, free of charge, to any person obtaining

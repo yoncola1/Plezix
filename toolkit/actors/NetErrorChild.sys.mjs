@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ export class NetErrorChild extends RemotePageChild {
       "RPMCheckAlternateHostAvailable",
       "RPMGetHttpResponseHeader",
       "RPMIsTRROnlyFailure",
-      "RPMIsFirefox",
+      "RPMIsPlezix",
       "RPMOpenPreferences",
       "RPMHasConnectivity",
       "RPMGetTRRSkipReason",
@@ -162,7 +162,7 @@ export class NetErrorChild extends RemotePageChild {
   }
 
   RPMIsTRROnlyFailure() {
-    // We will only show this in Firefox because the options may direct users to settings only available on Firefox Desktop
+    // We will only show this in Plezix because the options may direct users to settings only available on Plezix Desktop
     let channel = this.contentWindow?.docShell?.failedChannel?.QueryInterface(
       Ci.nsIHttpChannelInternal
     );
@@ -172,8 +172,8 @@ export class NetErrorChild extends RemotePageChild {
     return channel.effectiveTRRMode == Ci.nsIRequest.TRR_ONLY_MODE;
   }
 
-  RPMIsFirefox() {
-    return lazy.AppInfo.isFirefox;
+  RPMIsPlezix() {
+    return lazy.AppInfo.isPlezix;
   }
 
   RPMHasConnectivity() {

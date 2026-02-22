@@ -1,7 +1,7 @@
-Twemoji Mozilla
+Twemoji Plezix
 ================
 
-The upstream repository of Twemoji Mozilla can be found at
+The upstream repository of Twemoji Plezix can be found at
 
   https://github.com/mozilla/twemoji-colr
 

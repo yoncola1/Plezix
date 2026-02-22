@@ -1,5 +1,5 @@
 /* vim: set ts=4 sts=4 sw=4 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
  * Entries are Form History entries, they can be removed.
  * Fixed entries are "appended" to entries, they are used for datalist items,
  * search suggestions and extra items from integrations.
- * External entries are meant for integrations, like Firefox Relay.
+ * External entries are meant for integrations, like Plezix Relay.
  * Internally entries and fixed entries are kept separated so we can
  * reuse and filter them.
  *

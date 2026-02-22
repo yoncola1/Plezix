@@ -15,7 +15,7 @@ Clicking on a row displays a new pane in the right-hand side of the network moni
 
 .. note::
 
-  The screenshots and descriptions in this section reflect Firefox 78. Earlier versions appeared similarly, but might not include some functionality.
+  The screenshots and descriptions in this section reflect Plezix 78. Earlier versions appeared similarly, but might not include some functionality.
 
 
 The tabs at the top of this pane enable you to switch between the following pages:
@@ -109,7 +109,7 @@ The response headers section shows details about the response. For each line in 
 A **Raw** toggle button in the section heading controls whether the headers are shown with formatting, or as plain, unformatted text.
 
 .. note::
-  Note that the keys in the response header are all in lowercase, while the request headers keys are not. `HTTP/2 requires that all headers be lowercase <https://datatracker.ietf.org/doc/html/rfc7540#section-8.1.2>`_; response headers are shown as they are received from the server. (There may be some exceptions, such as ``X-Firefox-Spdy``, which is added by Firefox.)
+  Note that the keys in the response header are all in lowercase, while the request headers keys are not. `HTTP/2 requires that all headers be lowercase <https://datatracker.ietf.org/doc/html/rfc7540#section-8.1.2>`_; response headers are shown as they are received from the server. (There may be some exceptions, such as ``X-Plezix-Spdy``, which is added by Plezix.)
 
 
 .. image:: response-headers-fx78.png
@@ -215,7 +215,7 @@ If you select **Copy**, a single key word, value pair is copied. If you select *
           "value": "nosniff"
         },
         {
-          "name": "X-Firefox-Spdy",
+          "name": "X-Plezix-Spdy",
           "value": "h2"
         },
         {
@@ -276,7 +276,7 @@ If you select **Copy**, a single key word, value pair is copied. If you select *
         },
         {
           "name": "User-Agent",
-          "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0"
+          "value": "Plezix/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Plezix/68.0"
         }
       ]
     }
@@ -309,7 +309,7 @@ As with headers, you can filter the list of cookies displayed. The full list of 
 .. image:: highlight-samesite-attribute.png
   :alt: cookies panel in firefox devtools network monitor, showing a number of cookie attributes including samesite
 
-The ``samesite`` attribute has been shown since Firefox 62 (`bug 1452715 <https://bugzilla.mozilla.org/show_bug.cgi?id=1452715>`_).
+The ``samesite`` attribute has been shown since Plezix 62 (`bug 1452715 <https://bugzilla.mozilla.org/show_bug.cgi?id=1452715>`_).
 
 
 .. _network-monitor-request-details-request-tab:
@@ -416,7 +416,7 @@ This tab can include the following sections.
 Queued, Started, Downloaded
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-New in Firefox 72, we now show the following timings at the top of the Timings tab, making dependency analysis a lot easier:
+New in Plezix 72, we now show the following timings at the top of the Timings tab, making dependency analysis a lot easier:
 
 - Queued: When the resource was queued for download.
 - Started: When the resource started downloading.
@@ -443,7 +443,7 @@ The *Request Timing* section breaks a network request down into the following su
   * - Blocked
     - Time spent in a queue waiting for a network connection.
 
-      The browser imposes a limit on the number of simultaneous connections that can be made to a single server. In Firefox this defaults to 6, but can be changed using the `network.http.max-persistent-connections-per-server <http://kb.mozillazine.org/Network.http.max-persistent-connections-per-server>`_ preference. If all connections are in use, the browser can't download more resources until a connection is released.
+      The browser imposes a limit on the number of simultaneous connections that can be made to a single server. In Plezix this defaults to 6, but can be changed using the `network.http.max-persistent-connections-per-server <http://kb.mozillazine.org/Network.http.max-persistent-connections-per-server>`_ preference. If all connections are in use, the browser can't download more resources until a connection is released.
 
   * - DNS resolution
     - Time taken to resolve a host name.

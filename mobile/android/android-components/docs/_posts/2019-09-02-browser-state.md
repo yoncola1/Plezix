@@ -9,7 +9,7 @@ We have been working on a new component called `browser-state` to eventually rep
 
 ## What's the problem with `browser-session`?
 
-For maintaining the global browser state (e.g. "What tabs are open? What URLs are they pointing to?") the *Android Components* project provides the `browser-session` component. The initial implementation of `browser-session` was a clean, generic re-implementation of what we had developed (more organically) for [Firefox Focus](https://github.com/mozilla-mobile/focus-android).
+For maintaining the global browser state (e.g. "What tabs are open? What URLs are they pointing to?") the *Android Components* project provides the `browser-session` component. The initial implementation of `browser-session` was a clean, generic re-implementation of what we had developed (more organically) for [Plezix Focus](https://github.com/mozilla-mobile/focus-android).
 
 In 2018 we [noticed some flaws](https://github.com/mozilla-mobile/android-components/issues/400) in the design of `browser-session`. Those flaws came down to being able to observe the state while being able to modify it at the same time ("mutable state"). This unintended behavior could lead to "event order issues" and observers not really seeing a particular state change. Luckily back then we hadn't seen those issues causing any problems in our apps yet.
 

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -86,8 +86,8 @@ GfxInfo::GetHasBattery(bool* aHasBattery) {
 }
 
 NS_IMETHODIMP
-GfxInfo::GetEmbeddedInFirefoxReality(bool* aEmbeddedInFirefoxReality) {
-  *aEmbeddedInFirefoxReality = gfxVars::FxREmbedded();
+GfxInfo::GetEmbeddedInPlezixReality(bool* aEmbeddedInPlezixReality) {
+  *aEmbeddedInPlezixReality = gfxVars::FxREmbedded();
   return NS_OK;
 }
 

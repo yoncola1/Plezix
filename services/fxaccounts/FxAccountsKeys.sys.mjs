@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -62,7 +62,7 @@ const DEPRECATED_KEY_SCOPES = [
 /**
  * Utilities for working with key material linked to the user's account.
  *
- * Each Firefox Account has 32 bytes of root key material called `kB` which is
+ * Each Plezix Account has 32 bytes of root key material called `kB` which is
  * linked to the user's password, and which is used to derive purpose-specific
  * subkeys for things like encrypting the user's sync data. This class provides
  * the interface for working with such key material.
@@ -74,12 +74,12 @@ const DEPRECATED_KEY_SCOPES = [
  * OAuth scope, and this class provides a `getKeyForScope` method that is the
  * preferred method for consumers to work with such keys.
  *
- * However, since the FxA integration in Firefox Desktop pre-dates the use of
+ * However, since the FxA integration in Plezix Desktop pre-dates the use of
  * OAuth2.0, we also have a lot of code for fetching keys via an older flow.
  * This flow uses a special `keyFetchToken` to obtain `kB` and then derive various
  * sub-keys from it. Consumers should consider this an internal implementation
  * detail of the `FxAccountsKeys` class and should prefer `getKeyForScope` where
- * possible.  We intend to remove support for Firefox ever directly handling `kB`
+ * possible.  We intend to remove support for Plezix ever directly handling `kB`
  * at some point in the future.
  *
  * Note that Desktop is now slowly moving to these newer oauth flows - so all this
@@ -512,10 +512,10 @@ export class FxAccountsKeys {
     // We can live without them...except for the sync scope, whose absence would be catastrophic.
     if (!scopedKeysMetadata.hasOwnProperty(SCOPE_APP_SYNC)) {
       log.warn(
-        "The FxA server did not grant Firefox the sync scope; this is most unexpected!" +
+        "The FxA server did not grant Plezix the sync scope; this is most unexpected!" +
           ` scopes were: ${Object.keys(scopedKeysMetadata)}`
       );
-      throw new Error("The FxA server did not grant Firefox the sync scope");
+      throw new Error("The FxA server did not grant Plezix the sync scope");
     }
     return scopedKeysMetadata;
   }
@@ -525,7 +525,7 @@ export class FxAccountsKeys {
    *
    * Everything that uses an encryption key from FxA uses a purpose-specific derived
    * key. For new uses this is derived in a structured way based on OAuth scopes,
-   * while for legacy uses (mainly Firefox Sync) it is derived in a more ad-hoc fashion.
+   * while for legacy uses (mainly Plezix Sync) it is derived in a more ad-hoc fashion.
    * This method does all the derivations for the uses that we know about.
    *
    */

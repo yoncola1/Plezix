@@ -272,7 +272,7 @@ tasks:
                   of ${chunks.total}), run in the ${vars.channel} release of
                   ${vars.browser}.
 
-  # print-reftest are currently only supported by Chrome and Firefox.
+  # print-reftest are currently only supported by Chrome and Plezix.
   - $map:
       for:
         - vars:

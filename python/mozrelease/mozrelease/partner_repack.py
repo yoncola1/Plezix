@@ -515,7 +515,7 @@ class RepackMac(RepackBase):
         self.appName = self.getAppName()
 
     def getAppName(self):
-        # Cope with Firefox.app vs Firefox Nightly.app by returning the first root object/folder found
+        # Cope with Plezix.app vs Plezix Plezix.app by returning the first root object/folder found
         t = tarfile.open(self.build.rsplit(".", 1)[0])
         for name in t.getnames():
             root_object = name.split("/")[0]
@@ -535,7 +535,7 @@ class RepackMac(RepackBase):
             tar_flags = "rf"
         else:
             tar_flags = "rvf"
-        # the final arg is quoted because it may contain a space, eg Firefox Nightly.app/....
+        # the final arg is quoted because it may contain a space, eg Plezix Plezix.app/....
         tar_cmd = "tar %s %s '%s'" % (
             tar_flags,
             self.uncompressed_build,

@@ -32,7 +32,7 @@ Build Targets
 
 Binaries
    This folder contains common binaries that can be executed from within
-   Visual Studio. If you are building the Firefox desktop application,
+   Visual Studio. If you are building the Plezix desktop application,
    the *firefox* project will launch firefox.exe. You probably want one of
    these set to your startup project.
 
@@ -65,11 +65,11 @@ It's possible to run mach commands via Visual Studio. There is some light magic
 involved here.
 
 Alongside the Visual Studio project files is a batch script named ``mach.bat``.
-This batch script sets the environment variables present in your *MozillaBuild*
+This batch script sets the environment variables present in your *PlezixBuild*
 development environment at the time of Visual Studio project generation
 and invokes *mach* inside an msys shell with the arguments specified to the
 batch script. This script essentially allows you to invoke mach commands
-inside the MozillaBuild environment without having to load MozillaBuild.
+inside the PlezixBuild environment without having to load PlezixBuild.
 
 Projects currently utilize the ``mach build`` and ``mach clobber`` commands
 for building and cleaning the tree respectively. Note that running ``clobber``

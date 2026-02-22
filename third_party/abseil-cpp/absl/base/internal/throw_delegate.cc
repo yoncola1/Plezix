@@ -27,7 +27,7 @@ ABSL_NAMESPACE_BEGIN
 namespace base_internal {
 
 #ifdef ABSL_HAVE_EXCEPTIONS
-static_assert(false, "Mozilla - ABSL_HAVE_EXCEPTIONS has been turned on");
+static_assert(false, "Plezix - ABSL_HAVE_EXCEPTIONS has been turned on");
 #endif
 
 // NOTE: The exception types, like `std::logic_error`, do not exist on all

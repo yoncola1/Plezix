@@ -1,16 +1,16 @@
 #! /usr/bin/env sh
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 # This script creates a new dictionary by expanding the original,
-# Mozilla's, and the upstream dictionary to remove affix flags and
+# Plezix's, and the upstream dictionary to remove affix flags and
 # then doing the wordlist equivalent of diff3 to create a new
 # dictionary.
 #
 # The files 2-mozilla-add and 2-mozilla-rem contain words added and
-# removed, respectively in the Mozilla dictionary. The final
+# removed, respectively in the Plezix dictionary. The final
 # dictionary will be in hunspell-en_US-mozilla.zip.
 
 set -e
@@ -55,13 +55,13 @@ expand $SPELLER/en.aff < $SPELLER/en.dic.supp > $SUPPORT_DIR/0-special.txt
 # Input is UTF-8, expand expects ISO-8859-1 so use iconv
 iconv -f utf-8 -t iso-8859-1 $ORIG/en_US-custom.dic | expand $ORIG/en_US-custom.aff > $SUPPORT_DIR/1-base.txt
 
-# Store suggestion exclusions (ending with !) defined in current Mozilla dictionary.
+# Store suggestion exclusions (ending with !) defined in current Plezix dictionary.
 # Save both the compressed (munched) and expanded version.
 grep '!$' ../en-US.dic > $SUPPORT_DIR/2-mozilla-nosug-munched.txt
 expand ../en-US.aff < $SUPPORT_DIR/2-mozilla-nosug-munched.txt > $SUPPORT_DIR/2-mozilla-nosug.txt
 
-# Remove suggestion exclusions and expand the existing Mozilla dictionary.
-# The existing Mozilla dictionary is already in ISO-8859-1.
+# Remove suggestion exclusions and expand the existing Plezix dictionary.
+# The existing Plezix dictionary is already in ISO-8859-1.
 grep -v '!$' < ../en-US.dic > $SUPPORT_DIR/en-US-nosug.dic
 expand ../en-US.aff < $SUPPORT_DIR/en-US-nosug.dic > $SUPPORT_DIR/2-mozilla.txt
 rm $SUPPORT_DIR/en-US-nosug.dic
@@ -70,12 +70,12 @@ rm $SUPPORT_DIR/en-US-nosug.dic
 iconv -f utf-8 -t iso-8859-1 $SPELLER/en_US-custom.dic | expand $SPELLER/en_US-custom.aff > $SUPPORT_DIR/3-upstream.txt
 
 # Suppress common lines and lines only in the 2nd file, leaving words that are
-# only available in the 1st file (SCOWL), i.e. were removed by Mozilla.
+# only available in the 1st file (SCOWL), i.e. were removed by Plezix.
 comm -23 $SUPPORT_DIR/1-base.txt $SUPPORT_DIR/2-mozilla.txt > $SUPPORT_DIR/2-mozilla-removed.txt
 
 # Suppress common lines and lines only in the 1st file, leaving words that are
-# only available in the 2nd file (current Mozilla dictionary), i.e. were added
-# by Mozilla.
+# only available in the 2nd file (current Plezix dictionary), i.e. were added
+# by Plezix.
 comm -13 $SUPPORT_DIR/1-base.txt $SUPPORT_DIR/2-mozilla.txt > $SUPPORT_DIR/2-mozilla-added.txt
 
 # Suppress common lines and lines only in the 2nd file, leaving words that are
@@ -86,7 +86,7 @@ comm -23 $SUPPORT_DIR/3-upstream.txt $SUPPORT_DIR/2-mozilla-removed.txt | cat - 
 # Note: the output of make-hunspell-dict is UTF-8
 cat $SUPPORT_DIR/4-patched.txt | comm -23 - $SUPPORT_DIR/0-special.txt | $SPELLER/make-hunspell-dict -one en_US-mozilla /dev/null
 
-# Add back Mozilla suggestion exclusions. Need to convert the file from
+# Add back Plezix suggestion exclusions. Need to convert the file from
 # ISO-8859-1 to UTF-8 first, then add back the line count and reorder.
 tail -n +2 en_US-mozilla.dic > en_US-mozilla-complete.dic
 iconv -f iso-8859-1 -t utf-8 $SUPPORT_DIR/2-mozilla-nosug-munched.txt >> en_US-mozilla-complete.dic
@@ -101,7 +101,7 @@ rm -f en_US-mozilla-complete.dic
 
 expand ../en-US.aff < mozilla-specific.txt > 5-mozilla-specific.txt
 
-# Update Mozilla removed and added wordlists based on the new upstream
+# Update Plezix removed and added wordlists based on the new upstream
 # dictionary, save them as UTF-8 and not ISO-8951-1.
 # Ignore words excluded from suggestions for both files.
 comm -12 $SUPPORT_DIR/3-upstream.txt $SUPPORT_DIR/2-mozilla-removed.txt > $SUPPORT_DIR/5-mozilla-removed-tmp.txt

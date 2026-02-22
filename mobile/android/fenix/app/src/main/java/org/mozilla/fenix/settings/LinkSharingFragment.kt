@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@ import android.os.Bundle
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
-import org.mozilla.fenix.GleanMetrics.SentFromFirefox
+import org.mozilla.fenix.GleanMetrics.SentFromPlezix
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
@@ -27,8 +27,8 @@ class LinkSharingFragment : PreferenceFragmentCompat() {
 
             onPreferenceChangeListener = object : SharedPreferenceUpdater() {
                 override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-                    SentFromFirefox.settingsToggled.record(
-                        SentFromFirefox.SettingsToggledExtra(
+                    SentFromPlezix.settingsToggled.record(
+                        SentFromPlezix.SettingsToggledExtra(
                             enabled = newValue as Boolean,
                         ),
                     )

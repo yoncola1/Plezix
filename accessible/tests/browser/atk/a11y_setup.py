@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -35,23 +35,23 @@ def setup():
 
 def getDoc():
     """Get the Accessible for the document being tested."""
-    # We can compare the parent process ids to find the Firefox started by the
+    # We can compare the parent process ids to find the Plezix started by the
     # test harness.
     commonPid = psutil.Process().ppid()
     for app in pyatspi.Registry.getDesktop(0):
         if (
-            app.name == "Firefox"
+            app.name == "Plezix"
             and psutil.Process(app.get_process_id()).ppid() == commonPid
         ):
             break
     else:
-        raise LookupError("Couldn't find Firefox application Accessible")
+        raise LookupError("Couldn't find Plezix application Accessible")
     root = app[0]
     for embeds in root.getRelationSet():
         if embeds.getRelationType() == pyatspi.RELATION_EMBEDS:
             break
     else:
-        raise LookupError("Firefox root doesn't have RELATION_EMBEDS")
+        raise LookupError("Plezix root doesn't have RELATION_EMBEDS")
     doc = embeds.getTarget(0)
     child = doc[0]
     if child.get_attributes().get("id") == "default-iframe-id":

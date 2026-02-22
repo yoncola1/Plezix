@@ -13,23 +13,23 @@ import org.mockito.Mockito.doThrow
 import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
 import org.robolectric.RobolectricTestRunner
-import mozilla.components.support.remotesettings.RemoteSettingsService as MozillaRemoteSettingsService
+import mozilla.components.support.remotesettings.RemoteSettingsService as PlezixRemoteSettingsService
 
 @RunWith(RobolectricTestRunner::class)
 class RemoteSettingsRepositoryTest {
 
     private lateinit var mockClient: RemoteSettingsClient
     private lateinit var mockRemoteSettingsService: RemoteSettingsService
-    private lateinit var mockMozillaService: MozillaRemoteSettingsService
+    private lateinit var mockPlezixService: PlezixRemoteSettingsService
     private val testCollectionName = "test-collection"
 
     @Before
     fun setup() {
         mockClient = mock()
         mockRemoteSettingsService = mock()
-        mockMozillaService = mock()
+        mockPlezixService = mock()
 
-        `when`(mockMozillaService.remoteSettingsService).thenReturn(mockRemoteSettingsService)
+        `when`(mockPlezixService.remoteSettingsService).thenReturn(mockRemoteSettingsService)
         `when`(mockRemoteSettingsService.makeClient(testCollectionName)).thenReturn(mockClient)
     }
 
@@ -39,7 +39,7 @@ class RemoteSettingsRepositoryTest {
         `when`(mockClient.getRecords()).thenReturn(mockRecords)
 
         val result = RemoteSettingsRepository.fetchRemoteResponse(
-            mockMozillaService,
+            mockPlezixService,
             testCollectionName,
         )
 
@@ -52,7 +52,7 @@ class RemoteSettingsRepositoryTest {
         `when`(mockClient.getRecords()).thenReturn(emptyList())
 
         val result = RemoteSettingsRepository.fetchRemoteResponse(
-            mockMozillaService,
+            mockPlezixService,
             testCollectionName,
         )
 
@@ -66,7 +66,7 @@ class RemoteSettingsRepositoryTest {
         doThrow(specificException).`when`(mockClient).getRecords()
 
         val result = RemoteSettingsRepository.fetchRemoteResponse(
-            mockMozillaService,
+            mockPlezixService,
             testCollectionName,
         )
 

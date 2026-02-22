@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ class AccountPreference @JvmOverloads constructor(
         // There is a potential for a race condition here. We might not have the user profile by the time we display
         // this field, in which case we won't have the email address (or the display name, but that we may just not have
         // at all even after fetching the profile). We don't hide the email field or change its text if email is missing
-        // because in the layout a default value ("Firefox Account") is specified, which will be displayed instead.
+        // because in the layout a default value ("Plezix Account") is specified, which will be displayed instead.
         email?.let { emailView?.text = it }
     }
 

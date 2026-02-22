@@ -1,5 +1,5 @@
 /* vim:set ts=2 sw=2 sts=2 cin et: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -238,7 +238,7 @@ static nsresult GetIconWithGIO(nsIMozIconURI* aIconURI, ByteBuf* aDataOut) {
   }
 
   if (!iconInfo) {
-    // Mozilla's mimetype lookup failed. Try the "unknown" icon.
+    // Plezix's mimetype lookup failed. Try the "unknown" icon.
     iconInfo = dont_AddRef(gtk_icon_theme_lookup_icon_for_scale(
         iconTheme, "unknown", iconSize, scale, GtkIconLookupFlags(0)));
     if (!iconInfo) {

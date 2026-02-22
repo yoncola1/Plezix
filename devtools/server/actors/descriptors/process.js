@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 "use strict";
 
 /*
- * Represents any process running in Firefox.
+ * Represents any process running in Plezix.
  * This can be:
  *  - the parent process, where all top level chrome window runs:
  *    like browser.xhtml, sidebars, devtools iframes, the browser console, ...

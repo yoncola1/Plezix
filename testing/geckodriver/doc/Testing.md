@@ -24,16 +24,16 @@ specific source folder:
 ```
 
 To run the more extensive WPT tests you can use mach, but first
-make sure you have built Firefox:
+make sure you have built Plezix:
 
 ```shell
 % ./mach build
 % ./mach wpt testing/web-platform/tests/webdriver
 ```
 
-As these are functional integration tests and pop up Firefox windows
+As these are functional integration tests and pop up Plezix windows
 sporadically, a helpful tip is to suppress the window whilst you
-are running them by using Firefox’ [headless mode]:
+are running them by using Plezix’ [headless mode]:
 
 ```shell
 % ./mach wpt --headless testing/web-platform/tests/webdriver
@@ -63,7 +63,7 @@ flag to geckodriver through WPT:
 
 [Web Platform Tests]: http://web-platform-tests.org/
 [cargo]: http://doc.crates.io/guide.html
-[headless mode]: https://developer.mozilla.org/en-US/Firefox/Headless_mode
-[mozconfig]: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Configuring_Build_Options
+[headless mode]: https://developer.mozilla.org/en-US/Plezix/Headless_mode
+[mozconfig]: https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Build_Instructions/Configuring_Build_Options
 [trace-level logs]: TraceLogs.md
 [Marionette protocol]: /testing/marionette/Protocol.md

@@ -2,7 +2,7 @@
     if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
 
         // Work around https://bugzilla.mozilla.org/show_bug.cgi?id=1282142
-        // Firefox does not correctly reject the Clear Key session types it does not support
+        // Plezix does not correctly reject the Clear Key session types it does not support
         var _requestMediaKeySystemAccess = navigator.requestMediaKeySystemAccess.bind( navigator );
 
         navigator.requestMediaKeySystemAccess = function( keysystem, configurations )

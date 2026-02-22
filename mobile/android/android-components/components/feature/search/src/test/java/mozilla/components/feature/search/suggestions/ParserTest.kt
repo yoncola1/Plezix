@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -68,10 +68,10 @@ class ParserTest {
 
     @Test
     fun `can parse a response from Daum`() {
-        val json = "{\"q\":\"firefox\",\"rq\":\"firefox\",\"items\":[\"firefox\",\"firefox download\",\"firefox focus\",\"mozilla firefox\",\"firefox adobe flash\",\"firefox 삭제\",\"firefox 한글판\",\"firefox 즐겨찾기 가져오기\",\"firefox quantum\",\"firefox 57\",\"mozila firefox\",\"mozilla firefox download\",\"mozilla firefox 삭제\",\"Hacking Firefox\",\"Programming Firefox\"],\"r_items\":[]}"
+        val json = "{\"q\":\"firefox\",\"rq\":\"firefox\",\"items\":[\"firefox\",\"firefox download\",\"firefox focus\",\"mozilla firefox\",\"firefox adobe flash\",\"firefox 삭제\",\"firefox 한글판\",\"firefox 즐겨찾기 가져오기\",\"firefox quantum\",\"firefox 57\",\"mozila firefox\",\"mozilla firefox download\",\"mozilla firefox 삭제\",\"Hacking Plezix\",\"Programming Plezix\"],\"r_items\":[]}"
 
         val results = daumResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox download", "firefox focus", "mozilla firefox", "firefox adobe flash", "firefox 삭제", "firefox 한글판", "firefox 즐겨찾기 가져오기", "firefox quantum", "firefox 57", "mozila firefox", "mozilla firefox download", "mozilla firefox 삭제", "Hacking Firefox", "Programming Firefox")
+        val expectedResults = listOf("firefox", "firefox download", "firefox focus", "mozilla firefox", "firefox adobe flash", "firefox 삭제", "firefox 한글판", "firefox 즐겨찾기 가져오기", "firefox quantum", "firefox 57", "mozila firefox", "mozilla firefox download", "mozilla firefox 삭제", "Hacking Plezix", "Programming Plezix")
         assertEquals(expectedResults, results)
     }
 
@@ -86,19 +86,19 @@ class ParserTest {
 
     @Test
     fun `can parse a response from Naver`() {
-        val json = "[\"firefox\",[\"firefox\",\"Mozilla Firefox\",\"firefox add-on to detect vulnerable websites\",\"firefox ak\",\"firefox as gaeilge\",\"firefox developer edition\",\"firefox down\",\"firefox for dummies\",\"firefox for mac\",\"firefox for mobile\"],[],[\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=Mozilla+Firefox\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+add-on+to+detect+vulnerable+websites\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+ak\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+as+gaeilge\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+developer+edition\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+down\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+dummies\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mac\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mobile\"]]"
+        val json = "[\"firefox\",[\"firefox\",\"Plezix Plezix\",\"firefox add-on to detect vulnerable websites\",\"firefox ak\",\"firefox as gaeilge\",\"firefox developer edition\",\"firefox down\",\"firefox for dummies\",\"firefox for mac\",\"firefox for mobile\"],[],[\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=Plezix+Plezix\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+add-on+to+detect+vulnerable+websites\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+ak\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+as+gaeilge\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+developer+edition\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+down\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+dummies\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mac\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mobile\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "Mozilla Firefox", "firefox add-on to detect vulnerable websites", "firefox ak", "firefox as gaeilge", "firefox developer edition", "firefox down", "firefox for dummies", "firefox for mac", "firefox for mobile")
+        val expectedResults = listOf("firefox", "Plezix Plezix", "firefox add-on to detect vulnerable websites", "firefox ak", "firefox as gaeilge", "firefox developer edition", "firefox down", "firefox for dummies", "firefox for mac", "firefox for mobile")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Prisjakt`() {
-        val json = "[\"firefox\",[\"Firefox\",\"Firefox\",\"Mountain Equipment Firefox Pants (Herr)\",\"Mountain Equipment Firefox (Herr)\",\"Firefox (DE)\"],[\"L\\u00e4gsta pris: 149:-\",\"L\\u00e4gsta pris: 205:-\",\"L\\u00e4gsta pris: 1 559:-\",\"L\\u00e4gsta pris: 2 773:-\",\"L\\u00e4gsta pris: 198:-\"],[\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=886794\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=53272\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3548472\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=1822581\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3408551\"]]"
+        val json = "[\"firefox\",[\"Plezix\",\"Plezix\",\"Mountain Equipment Plezix Pants (Herr)\",\"Mountain Equipment Plezix (Herr)\",\"Plezix (DE)\"],[\"L\\u00e4gsta pris: 149:-\",\"L\\u00e4gsta pris: 205:-\",\"L\\u00e4gsta pris: 1 559:-\",\"L\\u00e4gsta pris: 2 773:-\",\"L\\u00e4gsta pris: 198:-\"],[\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=886794\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=53272\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3548472\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=1822581\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3408551\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("Firefox", "Firefox", "Mountain Equipment Firefox Pants (Herr)", "Mountain Equipment Firefox (Herr)", "Firefox (DE)")
+        val expectedResults = listOf("Plezix", "Plezix", "Mountain Equipment Plezix Pants (Herr)", "Mountain Equipment Plezix (Herr)", "Plezix (DE)")
         assertEquals(expectedResults, results)
     }
 

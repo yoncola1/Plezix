@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import mozilla.components.browser.state.state.TabSessionState
 import mozilla.components.browser.state.state.createTab
 import mozilla.components.concept.engine.mediasession.MediaSession.PlaybackState
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Controller buttons for the media (play/pause) state for the given [tab].
@@ -62,7 +62,7 @@ fun MediaImage(
 @Composable
 @PreviewLightDark
 private fun ImagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         MediaImage(
             tab = createTab(url = "https://mozilla.com"),
             onMediaIconClicked = {},

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 /**
  * Bug 1847971 - ebay.com listings page
  *
- * eBay does not show the barcode scanner option on Firefox on Android,
+ * eBay does not show the barcode scanner option on Plezix on Android,
  * though it seems to work. It uses a server-side check to tell itself
  * to not enable the scanner feature, so rather than pretend to be Chrome
  * entirely, we carefully change `barcodeEnabled` from `false` to `true`.

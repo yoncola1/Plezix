@@ -72,7 +72,7 @@ add_task(async function test_chrome() {
     chromeResult: true,
     webContentResult: false,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -83,7 +83,7 @@ add_task(async function test_any() {
     chromeResult: true,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -94,7 +94,7 @@ add_task(async function test_remote() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });

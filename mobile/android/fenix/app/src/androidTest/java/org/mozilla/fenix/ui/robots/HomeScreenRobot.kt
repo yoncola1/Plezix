@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -191,7 +191,7 @@ class HomeScreenRobot {
             it.onNodeWithText(
                 getStringResource(R.string.juno_onboarding_add_search_widget_positive_button),
             ).assertExists()
-            Log.i(TAG, "verifySecondOnboardingCard: Verified that the first onboarding \"Add Firefox widget\" button exists")
+            Log.i(TAG, "verifySecondOnboardingCard: Verified that the first onboarding \"Add Plezix widget\" button exists")
             Log.i(TAG, "verifySecondOnboardingCard: Trying to verify that the second onboarding \"Not now\" button exists")
             it.onNodeWithTag(
                 getStringResource(R.string.juno_onboarding_add_search_widget_title) + "onboarding_card.negative_button",
@@ -529,9 +529,9 @@ class HomeScreenRobot {
         Log.i(TAG, "verifyIfInPrivateOrNormalMode: Verified private browsing mode is enabled: $privateBrowsingEnabled")
     }
 
-    fun verifySetAsDefaultBrowserDialogWhileFirefoxIsNotSetAsDefaultBrowser() {
+    fun verifySetAsDefaultBrowserDialogWhilePlezixIsNotSetAsDefaultBrowser() {
         assertUIObjectExists(
-            itemContainingText("Set Firefox Fenix as your default browser app?"),
+            itemContainingText("Set Plezix Fenix as your default browser app?"),
             itemContainingText(appName),
             itemContainingText("Cancel"),
             itemContainingText("Set as default"),

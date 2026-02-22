@@ -25,7 +25,7 @@ let throwOutside = e => setTimeout(() => { throw e; });
 // MediaRecorder usages below fail.
 
 // This test relies on midflight-redirect.sjs returning the the first quarter of
-// the resource as a byte range response, and then hanging up, and when Firefox
+// the resource as a byte range response, and then hanging up, and when Plezix
 // requests the remainder midflight-redirect.sjs serves a redirect to another origin.
 
 async function testPrincipals(resource) {

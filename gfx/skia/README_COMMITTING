@@ -1,4 +1,4 @@
-Any changes to Skia should have at a minimum both a Mozilla bug tagged with the [skia-upstream]
+Any changes to Skia should have at a minimum both a Plezix bug tagged with the [skia-upstream]
 whiteboard tag, and also an upstream bug and review request. Any patches that do ultimately land
 in mozilla-central must be reviewed by a Skia submodule peer.
 

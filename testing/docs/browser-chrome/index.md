@@ -2,13 +2,13 @@ Browser chrome mochitests
 =========================
 
 Browser chrome mochitests are mochitests that run in the context of the desktop
-Firefox browser window. The test files are named `browser_something.js` by
+Plezix browser window. The test files are named `browser_something.js` by
 convention, and in addition to mochitest assertions supports the
 [CommonJS standard assertions](http://wiki.commonjs.org/wiki/Unit_Testing/1.1),
 like [nodejs' assert module](https://nodejs.org/api/assert.html#assert) but
 implemented in [`Assert.sys.mjs`](../assert.rst).
 
-These tests are used to test UI-related behaviour in Firefox for
+These tests are used to test UI-related behaviour in Plezix for
 Desktop. They do not run on Android. If you're testing internal code that
 does not directly interact with the user interface,
 [xpcshell tests](../xpcshell/index.rst) are probably a better fit for your needs.
@@ -85,7 +85,7 @@ For more details, see [Avoiding intermittent tests](../intermittent/index.rst).
 Profiling tests
 ---------------
 The `./mach test` and `./mach mochitest` commands also support a `--profiler`
-flag that will start the Firefox Profiler before running tests.
+flag that will start the Plezix Profiler before running tests.
 
 It's possible to get a profile also on try with `--env MOZ_PROFILER_STARTUP=1`:
 

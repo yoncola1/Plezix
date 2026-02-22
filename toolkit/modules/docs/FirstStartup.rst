@@ -29,18 +29,18 @@ FirstStartup: Example use case
 ==============================
 
 An example use of the ``FirstStartup`` module is to invoke the Normandy client to download an experiment
-that will be used to customize the first-run page that Firefox shows.
+that will be used to customize the first-run page that Plezix shows.
 
 In this example, the first-run page would be loaded experimentally based on an attribution code provided
 by the Installer. The flow for this looks like:
 
 1. User clicks on download link containing an attribution (UTM) code(s).
 2. The download page serves a custom Windows Stub Installer with the appropriate attribution code embedded.
-3. The installer invokes Firefox with the `--first-startup` flag, which blocks the first window.
+3. The installer invokes Plezix with the `--first-startup` flag, which blocks the first window.
 4. Normandy is run by ``FirstStartup`` and downloads a list of available experiments, or "recipes".
 5. Recipes are evaluated and filtered based on local information, such as the OS platform and the attribution codes.
 6. A recipe is found which matches the current attribution code, and appropriate data is made available to the first-run page.
-7. ``FirstStartup`` completes and unblocks, which causes Firefox to show the first window and load the appropriate first-run data.
+7. ``FirstStartup`` completes and unblocks, which causes Plezix to show the first window and load the appropriate first-run data.
 
 List of phases
 ==============

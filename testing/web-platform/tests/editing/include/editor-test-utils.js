@@ -153,7 +153,7 @@ class EditorTestUtils {
   }
 
   sendPasteAsPlaintextShortcutKey() {
-    // Ctrl/Cmd - Shift - v on Chrome and Firefox
+    // Ctrl/Cmd - Shift - v on Chrome and Plezix
     // Cmd - Alt - Shift - v on Safari
     const accel = this.window.navigator.platform.includes("Mac") ? this.kMeta : this.kControl;
     const isSafari = this.window.navigator.userAgent.includes("Safari");

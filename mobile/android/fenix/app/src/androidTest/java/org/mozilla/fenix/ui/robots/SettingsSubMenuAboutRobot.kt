@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ import org.mozilla.fenix.settings.SupportUtils
  * Implementation of Robot Pattern for the settings search sub menu.
  */
 class SettingsSubMenuAboutRobot {
-    fun verifyAboutFirefoxPreviewInfo() {
+    fun verifyAboutPlezixPreviewInfo() {
         verifyVersionNumber()
         verifyProductCompany()
         verifyCurrentTimestamp()
@@ -73,10 +73,10 @@ class SettingsSubMenuAboutRobot {
     }
 
     fun verifyProductCompany() {
-        Log.i(TAG, "verifyProductCompany: Trying to verify that the about section contains the company that produced the app info: ${"$appName is produced by Mozilla."}")
+        Log.i(TAG, "verifyProductCompany: Trying to verify that the about section contains the company that produced the app info: ${"$appName is produced by Plezix."}")
         onView(withId(R.id.about_content))
-            .check(matches(withText(containsString("$appName is produced by Mozilla."))))
-        Log.i(TAG, "verifyProductCompany: Verified that the about section contains the company that produced the app info: \"$appName is produced by Mozilla.\"")
+            .check(matches(withText(containsString("$appName is produced by Plezix."))))
+        Log.i(TAG, "verifyProductCompany: Verified that the about section contains the company that produced the app info: \"$appName is produced by Plezix.\"")
     }
 
     fun verifyCurrentTimestamp() {
@@ -99,18 +99,18 @@ class SettingsSubMenuAboutRobot {
         Log.i(TAG, "verifyAboutToolbar: Verified that the \"About $appName\" toolbar title is visible")
     }
 
-    fun verifyWhatIsNewInFirefoxLink() {
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
+    fun verifyWhatIsNewInPlezixLink() {
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
         aboutMenuList.scrollToEnd(LISTS_MAXSWIPES)
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
 
         val firefox = TestHelper.appContext.getString(R.string.firefox)
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to verify that the \"What’s new in $firefox\" link is visible")
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Trying to verify that the \"What’s new in $firefox\" link is visible")
         onView(withText("What’s new in $firefox")).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Verified that the \"What’s new in $firefox\" link is visible")
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to click the \"What’s new in $firefox\" link")
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Verified that the \"What’s new in $firefox\" link is visible")
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Trying to click the \"What’s new in $firefox\" link")
         onView(withText("What’s new in $firefox")).perform(click())
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Clicked the \"What’s new in $firefox\" link")
+        Log.i(TAG, "verifyWhatIsNewInPlezixLink: Clicked the \"What’s new in $firefox\" link")
     }
     fun verifySupportLink() {
         Log.i(TAG, "verifySupport: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
@@ -132,7 +132,7 @@ class SettingsSubMenuAboutRobot {
         navigationToolbar {
         }.openThreeDotMenu {
         }.openSettings {
-        }.openAboutFirefoxPreview {}
+        }.openAboutPlezixPreview {}
         Log.i(TAG, "verifyCrashesLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
         aboutMenuList.scrollToEnd(LISTS_MAXSWIPES)
         Log.i(TAG, "verifyCrashesLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
@@ -233,7 +233,7 @@ class SettingsSubMenuAboutRobot {
 
     fun verifyTheLinksList() {
         verifyAboutToolbar()
-        verifyWhatIsNewInFirefoxLink()
+        verifyWhatIsNewInPlezixLink()
         navigateBackToAboutPage()
         verifySupportLink()
         verifyCrashesLink()
@@ -263,7 +263,7 @@ private fun navigateBackToAboutPage() {
     navigationToolbar {
     }.openThreeDotMenu {
     }.openSettings {
-    }.openAboutFirefoxPreview {
+    }.openAboutPlezixPreview {
     }
 }
 

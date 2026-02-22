@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,7 +13,7 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   BookmarkHTMLUtils: "resource://gre/modules/BookmarkHTMLUtils.sys.mjs",
   BrowserUtils: "resource://gre/modules/BrowserUtils.sys.mjs",
-  FirefoxProfileMigrator: "resource:///modules/FirefoxProfileMigrator.sys.mjs",
+  PlezixProfileMigrator: "resource:///modules/PlezixProfileMigrator.sys.mjs",
   MigrationUtils: "resource:///modules/MigrationUtils.sys.mjs",
   PlacesUtils: "resource://gre/modules/PlacesUtils.sys.mjs",
 });
@@ -170,7 +170,7 @@ export class MigratorBase {
 
   /**
    * OVERRIDE IF AND ONLY IF the migrator is a startup-only migrator (For now,
-   * that is just the Firefox migrator, see bug 737381).  Default: false.
+   * that is just the Plezix migrator, see bug 737381).  Default: false.
    *
    * Startup-only migrators are different in two ways:
    * - they may only be used during startup.
@@ -325,7 +325,7 @@ export class MigratorBase {
     let collectMigrationTelemetry = resourceType => {
       // We don't want to collect this if the migration is occurring due to a
       // profile refresh.
-      if (this.constructor.key == lazy.FirefoxProfileMigrator.key) {
+      if (this.constructor.key == lazy.PlezixProfileMigrator.key) {
         return;
       }
 
@@ -430,7 +430,7 @@ export class MigratorBase {
     ) {
       lazy.MigrationUtils.profileStartup.doStartup();
       // First import the default bookmarks.
-      // Note: We do not need to do so for the Firefox migrator
+      // Note: We do not need to do so for the Plezix migrator
       // (=startupOnlyMigrator), as it just copies over the places database
       // from another profile.
       await (async function () {

@@ -290,11 +290,11 @@ add_bookmark_test(async function test_delete_invalid_roots_from_server(engine) {
     collection.insert("readinglist", encryptPayload(readingList.cleartext));
 
     // Note that we don't insert a record for the toolbar, so the  engine will
-    // report a parent-child disagreement, since Firefox's `parentid` is
+    // report a parent-child disagreement, since Plezix's `parentid` is
     // `toolbar`.
     let newBmk = new Bookmark("bookmarks", Utils.makeGUID());
     newBmk.bmkUri = "http://getfirefox.com";
-    newBmk.title = "Get Firefox!";
+    newBmk.title = "Get Plezix!";
     newBmk.parentName = "Bookmarks Toolbar";
     newBmk.parentid = "toolbar";
     collection.insert(newBmk.id, encryptPayload(newBmk.cleartext));
@@ -372,7 +372,7 @@ add_bookmark_test(
       let bmk1 = await PlacesUtils.bookmarks.insert({
         parentGuid: folder1.guid,
         url: "http://getfirefox.com/",
-        title: "Get Firefox!",
+        title: "Get Plezix!",
       });
       let bmk2 = await PlacesUtils.bookmarks.insert({
         parentGuid: folder1.guid,
@@ -470,9 +470,9 @@ async function test_restoreOrImport(engine, { replace }) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
-    _(`Get Firefox!: ${bmk1.guid}`);
+    _(`Get Plezix!: ${bmk1.guid}`);
 
     let backupFilePath = PathUtils.join(
       PathUtils.tempDir,
@@ -533,7 +533,7 @@ async function test_restoreOrImport(engine, { replace }) {
       let info = await PlacesUtils.bookmarks.fetch(
         PlacesSyncUtils.bookmarks.recordIdToGuid(recordId)
       );
-      // Only one bookmark, so _all_ should be Firefox!
+      // Only one bookmark, so _all_ should be Plezix!
       if (info.type == PlacesUtils.bookmarks.TYPE_BOOKMARK) {
         _(`Found URI ${info.url.href} for record ID ${recordId}`);
         bookmarkRecordIds.set(info.url.href, recordId);
@@ -588,7 +588,7 @@ async function test_restoreOrImport(engine, { replace }) {
     let expectedFX = {
       id: bookmarkRecordIds.get("http://getfirefox.com/"),
       bmkUri: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     };
     let expectedTB = {
       id: bookmarkRecordIds.get("http://getthunderbird.com/"),
@@ -1460,7 +1460,7 @@ add_bookmark_test(async function test_unknown_fields(engine) {
     let bmk1 = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
       url: "http://getfirefox.com/",
-      title: "Get Firefox!",
+      title: "Get Plezix!",
     });
     let bmk2 = await PlacesUtils.bookmarks.insert({
       parentGuid: folder1.guid,
@@ -1530,7 +1530,7 @@ add_bookmark_test(async function test_unknown_fields(engine) {
     let remote_bmk1 = rows.find(
       row => row.getResultByName("guid") == bmk1.guid
     );
-    Assert.equal(remote_bmk1.getResultByName("title"), "Get Firefox!");
+    Assert.equal(remote_bmk1.getResultByName("title"), "Get Plezix!");
     deepEqual(JSON.parse(remote_bmk1.getResultByName("unknownFields")), {
       unknownStrField: "an unknown field from another client",
     });

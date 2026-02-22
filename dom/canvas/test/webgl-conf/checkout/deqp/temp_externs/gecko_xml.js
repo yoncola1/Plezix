@@ -27,7 +27,7 @@
  * XMLSerializer is available to unprivileged scripts.
  *
  * XMLSerializer is mainly useful for applications and extensions based on
- * Mozilla platform. While it's available to web pages, it's not part of any
+ * Plezix platform. While it's available to web pages, it's not part of any
  * standard and level of support in other browsers is unknown.
  *
  * @constructor
@@ -51,7 +51,7 @@ XMLSerializer.prototype.serializeToString = function(subtree) {};
 XMLSerializer.prototype.serializeToStream = function(subtree) {};
 
 /**
- * DOMParser is mainly useful for applications and extensions based on Mozilla
+ * DOMParser is mainly useful for applications and extensions based on Plezix
  * platform. While it's available to web pages, it's not part of any standard and
  * level of support in other browsers is unknown.
  *

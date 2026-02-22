@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ import org.json.JSONObject
 
 /**
  * Represents a browser extension based on the WebExtension API:
- * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+ * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions
  *
  * @property id the unique ID of this extension.
  * @property url the url pointing to a resources path for locating the extension
@@ -176,7 +176,7 @@ abstract class WebExtension(
 
     /**
      * Returns the icon of this extension as specified in the extension's manifest:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/icons
      *
      * @param size the desired size of the icon. The returned icon will be the closest
      * available icon to the provided size.
@@ -315,7 +315,7 @@ interface TabHandler {
 
 /**
  * Represents a port for exchanging messages:
- * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port
+ * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/runtime/Port
  */
 abstract class Port(val engineSession: EngineSession? = null) {
 
@@ -348,19 +348,19 @@ abstract class Port(val engineSession: EngineSession? = null) {
 data class Metadata(
     /**
      * Version string:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/version
      */
     val version: String,
 
     /**
      * Required API permissions:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#API_permissions
      */
     val requiredPermissions: List<String>,
 
     /**
      * Required origin permissions:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/permissions#Host_permissions
      */
     val requiredOrigins: List<String>,
 
@@ -371,25 +371,25 @@ data class Metadata(
 
     /**
      * Optional API permissions for this extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/optional_permissions
      */
     val optionalPermissions: List<String>,
 
     /**
      * Optional API permissions granted to this extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/optional_permissions
      */
     val grantedOptionalPermissions: List<String>,
 
     /**
      * Optional origin permissions for this extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/optional_permissions
      */
     val optionalOrigins: List<String>,
 
     /**
      * Optional origin permissions granted to this extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/optional_permissions
      */
     val grantedOptionalOrigins: List<String>,
 
@@ -405,43 +405,43 @@ data class Metadata(
 
     /**
      * Name of the extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/name
      */
     val name: String?,
 
     /**
      * Description of the extension:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/description
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/description
      */
     val description: String?,
 
     /**
      * Name of the extension developer:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer
      */
     val developerName: String?,
 
     /**
      * Url of the developer:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer
      */
     val developerUrl: String?,
 
     /**
      * Url of extension's homepage:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/homepage_url
      */
     val homepageUrl: String?,
 
     /**
      * Options page:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/options_ui
      */
     val optionsPageUrl: String?,
 
     /**
      * Whether or not the options page should be opened in a new tab:
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui#syntax
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/options_ui#syntax
      */
     val openOptionsPageInTab: Boolean,
 
@@ -489,13 +489,13 @@ data class Metadata(
 
     /**
      * The creator name of this extension.
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer
      */
     val creatorName: String?,
 
     /**
      * The creator url of this extension.
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/developer
      */
     val creatorUrl: String?,
 
@@ -512,7 +512,7 @@ data class Metadata(
 
     /**
      * Indicates how this extension works with private browsing windows.
-     * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/incognito
+     * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/incognito
      */
     val incognito: Incognito,
 )

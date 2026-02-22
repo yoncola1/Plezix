@@ -1,7 +1,7 @@
 # Any copyright is dedicated to the Public Domain.
 # http://creativecommons.org/publicdomain/zero/1.0/
 #
-# A GDB Python script to fetch debug symbols from the Mozilla symbol server.
+# A GDB Python script to fetch debug symbols from the Plezix symbol server.
 #
 # To use, run `source /path/to/symbols.py` in GDB 7.9 or newer, or
 # put that in your ~/.gdbinit.
@@ -73,7 +73,7 @@ def try_fetch_symbols(filename, build_id, destination):
 
 def is_moz_binary(filename):
     """
-    Try to determine if a file lives in a Firefox install dir, to save
+    Try to determine if a file lives in a Plezix install dir, to save
     HTTP requests for things that aren't going to work.
     """
     # The linux-gate VDSO doesn't have a real filename.

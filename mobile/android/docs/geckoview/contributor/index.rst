@@ -15,9 +15,9 @@ Contributing to GeckoView
    Get GeckoView set up for development.
 -  `GeckoView for Gecko Engineers <for-gecko-engineers.html>`_: A
    quick-start guide for those already familiar with contributing to
-   Firefox development.
--  `Firefox Contributor Guide <contributing-to-firefox.html>`_: Get
-   started as a contributor to Firefox.
+   Plezix development.
+-  `Plezix Contributor Guide <contributing-to-firefox.html>`_: Get
+   started as a contributor to Plezix.
 -  `Guide to Native Debugging in Android Studio <native-debugging.html>`_:
    Set up Android Studio for debugging native code.
 -  `Architecture overview <geckoview-architecture.html>`_: An overview of

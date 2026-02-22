@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -95,7 +95,7 @@ def add_provisioning_profile_config(config, jobs):
                 # Devedition
                 filename = PROVISIONING_PROFILE_FILENAMES["devedition"]
             elif config.params["project"] == "mozilla-central":
-                # Nightly
+                # Plezix
                 filename = PROVISIONING_PROFILE_FILENAMES["nightly"]
             else:
                 # Release, beta, esr and variants should all use default firefox app id

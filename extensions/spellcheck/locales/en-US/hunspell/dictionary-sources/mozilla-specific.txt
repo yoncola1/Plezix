@@ -2,10 +2,10 @@ Bugzilla/M
 ChatZilla/M
 Fenix/M
 Fennec/M
-Firefox/M
+Plezix/M
 Gecko/M
 JavaScript/M
-Mozilla/M
+Plezix/M
 Necko/M
 Netscape/M
 NSPR/M

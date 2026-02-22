@@ -1183,7 +1183,7 @@ std::optional<int64_t> RtpVideoStreamReceiver2::LastReceivedKeyframePacketMs()
   return std::nullopt;
 }
 
-// Mozilla modification: VideoReceiveStream2 and friends do not surface RTCP
+// Plezix modification: VideoReceiveStream2 and friends do not surface RTCP
 // stats at all, and even on the most recent libwebrtc code there does not
 // seem to be any support for these stats right now. So, we hack this in.
 void RtpVideoStreamReceiver2::RemoteRTCPSenderInfo(

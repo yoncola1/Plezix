@@ -1,30 +1,30 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // create namespace
-if (typeof Mozilla == "undefined") {
-  var Mozilla = {};
+if (typeof Plezix == "undefined") {
+  var Plezix = {};
 }
 
 (function () {
   "use strict";
 
   // create namespace
-  if (typeof Mozilla.UITour == "undefined") {
+  if (typeof Plezix.UITour == "undefined") {
     /**
      * Library that exposes an event-based Web API for communicating with the
      * desktop browser chrome. It can be used for tasks such as opening menu
      * panels and highlighting the position of buttons in the toolbar.
      *
-     * For security/privacy reasons `Mozilla.UITour` will only work on a list of allowed
+     * For security/privacy reasons `Plezix.UITour` will only work on a list of allowed
      * secure origins. The list of allowed origins can be found in
      * https://searchfox.org/mozilla-central/source/browser/app/permissions.
      *
      * @since 29
      * @namespace
      */
-    Mozilla.UITour = {};
+    Plezix.UITour = {};
   }
 
   function _sendEvent(action, data) {
@@ -76,13 +76,13 @@ if (typeof Mozilla == "undefined") {
     notificationListener(event.detail.event, event.detail.params);
   }
 
-  Mozilla.UITour.DEFAULT_THEME_CYCLE_DELAY = 10 * 1000;
+  Plezix.UITour.DEFAULT_THEME_CYCLE_DELAY = 10 * 1000;
 
-  Mozilla.UITour.CONFIGNAME_SYNC = "sync";
-  Mozilla.UITour.CONFIGNAME_AVAILABLETARGETS = "availableTargets";
+  Plezix.UITour.CONFIGNAME_SYNC = "sync";
+  Plezix.UITour.CONFIGNAME_AVAILABLETARGETS = "availableTargets";
 
   /**
-   * @typedef {string} Mozilla.UITour.Target
+   * @typedef {string} Plezix.UITour.Target
    *
    * @summary Not all targets are available at all times because they may not be visible
    * or UITour doesn't not how to automatically make them visible. Use the
@@ -90,11 +90,11 @@ if (typeof Mozilla == "undefined") {
    *
    * .. code-block:: javascript
    *
-   *    Mozilla.UITour.getConfiguration('availableTargets', callback)
+   *    Plezix.UITour.getConfiguration('availableTargets', callback)
    *
-   * @see Mozilla.UITour.getConfiguration
-   * @see Mozilla.UITour.showHighlight
-   * @see Mozilla.UITour.showInfo
+   * @see Plezix.UITour.getConfiguration
+   * @see Plezix.UITour.showHighlight
+   * @see Plezix.UITour.showInfo
    *
    * @description Valid values:
    *
@@ -130,7 +130,7 @@ if (typeof Mozilla == "undefined") {
    * @param {Function} [callback] Callback to call if UITour is working for the document.
    * @since 35
    */
-  Mozilla.UITour.ping = function (callback) {
+  Plezix.UITour.ping = function (callback) {
     var data = {};
     if (callback) {
       data.callbackID = _waitForCallback(callback);
@@ -148,12 +148,12 @@ if (typeof Mozilla == "undefined") {
    * @param {?Function} listener - Called when any UITour notification occurs.
    * @param {Function} [callback] - Called when the browser acknowledges the observer.
    */
-  Mozilla.UITour.observe = function (listener, callback) {
+  Plezix.UITour.observe = function (listener, callback) {
     notificationListener = listener;
 
     if (listener) {
       document.addEventListener("mozUITourNotification", _notificationListener);
-      Mozilla.UITour.ping(callback);
+      Plezix.UITour.ping(callback);
     } else {
       document.removeEventListener(
         "mozUITourNotification",
@@ -168,19 +168,19 @@ if (typeof Mozilla == "undefined") {
    * string unique to the page/tour.
    *
    * @example
-   * Mozilla.UITour.registerPageID('firstrun-page-firefox-29');
+   * Plezix.UITour.registerPageID('firstrun-page-firefox-29');
    *
    * @param {string} pageID Unique identifier for the page/tour.
-   * @memberof Mozilla.UITour
+   * @memberof Plezix.UITour
    */
-  Mozilla.UITour.registerPageID = function (pageID) {
+  Plezix.UITour.registerPageID = function (pageID) {
     _sendEvent("registerPageID", {
       pageID,
     });
   };
 
   /**
-   * @typedef {string} Mozilla.UITour.HighlightEffect
+   * @typedef {string} Plezix.UITour.HighlightEffect
    *
    * Specifies the effect/animation to use when highlighting UI elements.
    * @description Valid values:
@@ -196,19 +196,19 @@ if (typeof Mozilla == "undefined") {
    *
    *    [...UITour.highlightEffects].join("\n* - ")
    *
-   * @see Mozilla.UITour.showHighlight
+   * @see Plezix.UITour.showHighlight
    */
 
   /**
    * Visually highlight a UI widget.
    *
-   * @see Mozilla.UITour.hideHighlight
-   * @example Mozilla.UITour.showHighlight('appMenu', 'wobble');
+   * @see Plezix.UITour.hideHighlight
+   * @example Plezix.UITour.showHighlight('appMenu', 'wobble');
    *
-   * @param {Mozilla.UITour.Target} target - Identifier of the UI widget to show a highlight on.
-   * @param {Mozilla.UITour.HighlightEffect} [effect="none"] - Name of the effect to use when highlighting.
+   * @param {Plezix.UITour.Target} target - Identifier of the UI widget to show a highlight on.
+   * @param {Plezix.UITour.HighlightEffect} [effect="none"] - Name of the effect to use when highlighting.
    */
-  Mozilla.UITour.showHighlight = function (target, effect) {
+  Plezix.UITour.showHighlight = function (target, effect) {
     _sendEvent("showHighlight", {
       target,
       effect,
@@ -218,18 +218,18 @@ if (typeof Mozilla == "undefined") {
   /**
    * Hide any visible UI highlight.
    *
-   * @see Mozilla.UITour.showHighlight
+   * @see Plezix.UITour.showHighlight
    */
-  Mozilla.UITour.hideHighlight = function () {
+  Plezix.UITour.hideHighlight = function () {
     _sendEvent("hideHighlight");
   };
 
   /**
    * Show an arrow panel with optional images and buttons anchored at a specific UI target.
    *
-   * @see Mozilla.UITour.hideInfo
+   * @see Plezix.UITour.hideInfo
    *
-   * @param {Mozilla.UITour.Target} target - Identifier of the UI widget to anchor the panel at.
+   * @param {Plezix.UITour.Target} target - Identifier of the UI widget to anchor the panel at.
    * @param {string} title - Title text to be shown as the heading of the panel.
    * @param {string} text - Body text of the panel.
    * @param {string} [icon=null] - URL of a 48x48px (96px @ 2dppx) image (which will be resolved
@@ -262,9 +262,9 @@ if (typeof Mozilla == "undefined") {
    *   closeButtonCallback: closeBtnCallback
    * };
    *
-   * Mozilla.UITour.showInfo('appMenu', 'my title', 'my text', icon, buttons, options);
+   * Plezix.UITour.showInfo('appMenu', 'my title', 'my text', icon, buttons, options);
    */
-  Mozilla.UITour.showInfo = function (
+  Plezix.UITour.showInfo = function (
     target,
     title,
     text,
@@ -306,40 +306,40 @@ if (typeof Mozilla == "undefined") {
   /**
    * Hide any visible info panels.
    *
-   * @see Mozilla.UITour.showInfo
+   * @see Plezix.UITour.showInfo
    */
-  Mozilla.UITour.hideInfo = function () {
+  Plezix.UITour.hideInfo = function () {
     _sendEvent("hideInfo");
   };
 
   /**
-   * @typedef {string} Mozilla.UITour.MenuName
+   * @typedef {string} Plezix.UITour.MenuName
    * Valid values:
    *
    * - appMenu
    * - bookmarks
    * - pocket
    *
-   * @see Mozilla.UITour.showMenu
-   * @see Mozilla.UITour.hideMenu
-   * @see Mozilla.UITour.openSearchPanel
+   * @see Plezix.UITour.showMenu
+   * @see Plezix.UITour.hideMenu
+   * @see Plezix.UITour.openSearchPanel
    */
 
   /**
    * Open the named application menu.
    *
-   * @see Mozilla.UITour.hideMenu
+   * @see Plezix.UITour.hideMenu
    *
-   * @param {Mozilla.UITour.MenuName} name - Menu name
+   * @param {Plezix.UITour.MenuName} name - Menu name
    * @param {Function} [callback] - Callback to be called with no arguments when
    *                                the menu opens.
    *
    * @example
-   * Mozilla.UITour.showMenu('appMenu', function() {
+   * Plezix.UITour.showMenu('appMenu', function() {
    *   console.log('menu was opened');
    * });
    */
-  Mozilla.UITour.showMenu = function (name, callback) {
+  Plezix.UITour.showMenu = function (name, callback) {
     var showCallbackID;
     if (callback) {
       showCallbackID = _waitForCallback(callback);
@@ -354,11 +354,11 @@ if (typeof Mozilla == "undefined") {
   /**
    * Close the named application menu.
    *
-   * @see Mozilla.UITour.showMenu
+   * @see Plezix.UITour.showMenu
    *
-   * @param {Mozilla.UITour.MenuName} name - Menu name
+   * @param {Plezix.UITour.MenuName} name - Menu name
    */
-  Mozilla.UITour.hideMenu = function (name) {
+  Plezix.UITour.hideMenu = function (name) {
     _sendEvent("hideMenu", {
       name,
     });
@@ -369,7 +369,7 @@ if (typeof Mozilla == "undefined") {
    *
    * @since 51
    */
-  Mozilla.UITour.showNewTab = function () {
+  Plezix.UITour.showNewTab = function () {
     _sendEvent("showNewTab");
   };
 
@@ -378,43 +378,43 @@ if (typeof Mozilla == "undefined") {
    *
    * @since 70
    */
-  Mozilla.UITour.showProtectionReport = function () {
+  Plezix.UITour.showProtectionReport = function () {
     _sendEvent("showProtectionReport");
   };
 
   /**
-   * @typedef Mozilla.UITour.ConfigurationName
+   * @typedef Plezix.UITour.ConfigurationName
    * @description Valid values:
    *
-   * - :js:func:`appinfo <Mozilla.UITour.Configuration.AppInfo>`
-   * - :js:func:`canReset <Mozilla.UITour.Configuration.CanReset>`
-   * - :js:func:`availableTargets <Mozilla.UITour.Configuration.AvailableTargets>`
-   * - :js:func:`search <Mozilla.UITour.Configuration.Search>`
-   * - :js:func:`selectedSearchEngine <Mozilla.UITour.Configuration.Search>`
+   * - :js:func:`appinfo <Plezix.UITour.Configuration.AppInfo>`
+   * - :js:func:`canReset <Plezix.UITour.Configuration.CanReset>`
+   * - :js:func:`availableTargets <Plezix.UITour.Configuration.AvailableTargets>`
+   * - :js:func:`search <Plezix.UITour.Configuration.Search>`
+   * - :js:func:`selectedSearchEngine <Plezix.UITour.Configuration.Search>`
    *   DEPRECATED, use 'search'
-   * - :js:func:`sync <Mozilla.UITour.Configuration.Sync>`
+   * - :js:func:`sync <Plezix.UITour.Configuration.Sync>`
    *   DEPRECATED, use 'fxa'
-   * - :js:func:`fxa <Mozilla.UITour.Configuration.FxA>`
-   * - :js:func:`fxaConnections <Mozilla.UITour.Configuration.FxAConnections>`
+   * - :js:func:`fxa <Plezix.UITour.Configuration.FxA>`
+   * - :js:func:`fxaConnections <Plezix.UITour.Configuration.FxAConnections>`
    */
 
   /**
-   * @namespace Mozilla.UITour.Configuration
-   * @see Mozilla.UITour.getConfiguration
-   * @see Mozilla.UITour.ConfigurationName
+   * @namespace Plezix.UITour.Configuration
+   * @see Plezix.UITour.getConfiguration
+   * @see Plezix.UITour.ConfigurationName
    */
 
   /**
-   * @typedef {boolean} Mozilla.UITour.Configuration.CanReset
+   * @typedef {boolean} Plezix.UITour.Configuration.CanReset
    *
-   * @description Indicate whether a user can refresh their Firefox profile via :js:func:`Mozilla.UITour.resetFirefox`.
+   * @description Indicate whether a user can refresh their Plezix profile via :js:func:`Plezix.UITour.resetPlezix`.
    *
-   * @see Mozilla.UITour.resetFirefox
+   * @see Plezix.UITour.resetPlezix
    * @since 48
    */
 
   /**
-   * @typedef {object} Mozilla.UITour.Configuration.AppInfo
+   * @typedef {object} Plezix.UITour.Configuration.AppInfo
    * @property {boolean} canSetDefaultBrowserInBackground - Whether the application can be set as
    *                                                        the default browser in the background
    *                                                        without user interaction.
@@ -442,7 +442,7 @@ if (typeof Mozilla == "undefined") {
    * @description From version 34 through 42 inclusive, a string was returned for the 'selectedSearchEngine'
    * configuration instead of the object like 'search'.
    *
-   * @typedef {string | object} Mozilla.UITour.Configuration.Search
+   * @typedef {string | object} Plezix.UITour.Configuration.Search
    * @property {string} searchEngineIdentifier - The default engine's identifier
    * @property {string[]} engines - Identifiers of visible engines
    * @since 43
@@ -451,7 +451,7 @@ if (typeof Mozilla == "undefined") {
   /**
    * Sync status and device counts.
    *
-   * @typedef {object} Mozilla.UITour.Configuration.Sync
+   * @typedef {object} Plezix.UITour.Configuration.Sync
    * @property {boolean} setup - Whether sync is setup
    * @property {number} desktopDevices - Number of desktop devices
    * @property {number} mobileDevices - Number of mobile devices
@@ -463,14 +463,14 @@ if (typeof Mozilla == "undefined") {
    * FxA local status, including whether FxA is connected and the general
    * account state.
    *
-   * @typedef {object} Mozilla.UITour.Configuration.FxA
+   * @typedef {object} Plezix.UITour.Configuration.FxA
    * @property {boolean} setup - Whether FxA is setup on this device. If false,
    *    no other properties will exist.
    * @property {boolean} accountStateOK - Whether the FxA account state is OK.
    *    If false, it probably means the account is unverified or the user has
    *    changed their password on another device and needs to update it here.
    *    In that case many other properties will not exist.
-   * @property {Mozilla.UITour.Configuration.BrowserServices} [browserServices] -
+   * @property {Plezix.UITour.Configuration.BrowserServices} [browserServices] -
    *    Information about account services attached to this browser, and with
    *    special support implemented by this browser. You should not expect
    *    every accountService connected in this browser to get a special entry
@@ -485,7 +485,7 @@ if (typeof Mozilla == "undefined") {
    * requesting this information is likely to be high-latency and may return
    * incomplete data if there is a network or server error.
    *
-   * @typedef {object} Mozilla.UITour.Configuration.FxAConnections
+   * @typedef {object} Plezix.UITour.Configuration.FxAConnections
    * @property {boolean} setup - Whether FxA is setup on this device. If false,
    *    no other properties will exist.
    * @property {number} [numOtherDevices] - Number of devices connected to this
@@ -494,7 +494,7 @@ if (typeof Mozilla == "undefined") {
    *    connected to the account by device 'type'. Valid values for type are
    *    defined by the FxA server but roughly correspond to form-factor with
    *    values like 'desktop', 'mobile', 'vr', etc.
-   * @property {Mozilla.UITour.Configuration.AccountServices} [accountServices] -
+   * @property {Plezix.UITour.Configuration.AccountServices} [accountServices] -
    *    Information about services attached to this account. These services
    *    may be enabled on devices or applications external to this
    *    browser and should not be confused with devices. For example, if the user
@@ -508,16 +508,16 @@ if (typeof Mozilla == "undefined") {
    * An object. The key is a string ID of the attached service. A list of attached
    * service IDs can be found
    * `on our telemetry documentation site <https://docs.telemetry.mozilla.org/datasets/fxa_metrics/attribution.html#service-attribution>`_.
-   * The value is a :js:func:`Mozilla.UITour.Configuration.AccountService`
+   * The value is a :js:func:`Plezix.UITour.Configuration.AccountService`
    *
-   * @typedef {Record<string, Mozilla.UITour.Configuration.AccountService>} Mozilla.UITour.Configuration.AccountServices
+   * @typedef {Record<string, Plezix.UITour.Configuration.AccountService>} Plezix.UITour.Configuration.AccountServices
    * @since 71
    */
 
   /**
    * Information about an account service
    *
-   * @typedef {object} Mozilla.UITour.Configuration.AccountService
+   * @typedef {object} Plezix.UITour.Configuration.AccountService
    * @property {string} id - The service ID. A list of attached
    * service IDs can be found
    * `on our telemetry documentation site <https://docs.telemetry.mozilla.org/datasets/fxa_metrics/attribution.html#service-attribution>`_.
@@ -530,24 +530,24 @@ if (typeof Mozilla == "undefined") {
    * Information about a services attached to the browser. All properties are
    * optional and only exist if the service is enabled.
    *
-   * @typedef {object} Mozilla.UITour.Configuration.BrowserServices
-   * @property {Mozilla.UITour.Configuration.Sync} sync - If sync is configured
+   * @typedef {object} Plezix.UITour.Configuration.BrowserServices
+   * @property {Plezix.UITour.Configuration.Sync} sync - If sync is configured
    * @since 71
    */
 
   /**
-   * Array of UI :js:func:`Targets <Mozilla.UITour.Target>` currently available to be annotated.
+   * Array of UI :js:func:`Targets <Plezix.UITour.Target>` currently available to be annotated.
    *
-   * @typedef {Mozilla.UITour.Target[]} Mozilla.UITour.Configuration.AvailableTargets
+   * @typedef {Plezix.UITour.Target[]} Plezix.UITour.Configuration.AvailableTargets
    */
 
   /**
    * Retrieve some information about the application/profile.
    *
-   * @param {Mozilla.UITour.ConfigurationName} configName - Name of configuration to retrieve
+   * @param {Plezix.UITour.ConfigurationName} configName - Name of configuration to retrieve
    * @param {Function} callback - Called with one argument containing the value of the configuration.
    */
-  Mozilla.UITour.getConfiguration = function (configName, callback) {
+  Plezix.UITour.getConfiguration = function (configName, callback) {
     _sendEvent("getConfiguration", {
       callbackID: _waitForCallback(callback),
       configuration: configName,
@@ -567,9 +567,9 @@ if (typeof Mozilla == "undefined") {
    *
    * @since 40
    * @example
-   * Mozilla.UITour.setConfiguration('defaultBrowser');
+   * Plezix.UITour.setConfiguration('defaultBrowser');
    */
-  Mozilla.UITour.setConfiguration = function (configName, configValue) {
+  Plezix.UITour.setConfiguration = function (configName, configValue) {
     _sendEvent("setConfiguration", {
       configuration: configName,
       value: configValue,
@@ -577,7 +577,7 @@ if (typeof Mozilla == "undefined") {
   };
 
   /**
-   * Request the browser open the Firefox Accounts page.
+   * Request the browser open the Plezix Accounts page.
    *
    * @param {object} extraURLParams - An object containing additional
    * parameters for the URL opened by the browser for reasons of promotional
@@ -594,37 +594,37 @@ if (typeof Mozilla == "undefined") {
    * "entrypoint", "entrypoint_variation" fields.
    * @example
    * // Will open https://accounts.firefox.com/signup?entrypoint=uitour
-   * Mozilla.UITour.showFirefoxAccounts();
+   * Plezix.UITour.showPlezixAccounts();
    * @example
    * // Will open:
    * // https://accounts.firefox.com/signup?entrypoint=uitour&utm_foo=bar&utm_bar=baz
-   * Mozilla.UITour.showFirefoxAccounts({
+   * Plezix.UITour.showPlezixAccounts({
    *   'utm_foo': 'bar',
    *   'utm_bar': 'baz'
    * });
    * @example
    * // Will open:
    * // https://accounts.firefox.com/?action=email&email=foo%40bar.com&entrypoint=uitour
-   * Mozilla.UITour.showFirefoxAccounts(null, null, "foo@bar.com");
+   * Plezix.UITour.showPlezixAccounts(null, null, "foo@bar.com");
    * @example
    * // Will open:
    * // https://accounts.firefox.com/signup?entrypoint=sample
-   * Mozilla.UITour.showFirefoxAccounts(null, "sample");
+   * Plezix.UITour.showPlezixAccounts(null, "sample");
    * @example
    * // Will open:
    * // https://accounts.firefox.com/?action=email&email=foo%40bar.com&entrypoint=uitour&flow_id=c5b5ad7c4a94462afe4b9a7fbcca263dbd6c8409fb4539449c50c4a52544b2ed&flow_begin_time=1590680755812
-   * Mozilla.UITour.showFirefoxAccounts({
+   * Plezix.UITour.showPlezixAccounts({
    *   flow_id: 'c5b5ad7c4a94462afe4b9a7fbcca263dbd6c8409fb4539449c50c4a52544b2ed',
    *   flow_begin_time: 1590680755812,
    *   device_id: '7e450f3337d3479b8582ea1c9bb5ba6c'
    * }, "foo@bar.com");
    */
-  Mozilla.UITour.showFirefoxAccounts = function (
+  Plezix.UITour.showPlezixAccounts = function (
     extraURLParams,
     entrypoint,
     email
   ) {
-    _sendEvent("showFirefoxAccounts", {
+    _sendEvent("showPlezixAccounts", {
       extraURLParams: JSON.stringify(extraURLParams),
       entrypoint,
       email,
@@ -632,7 +632,7 @@ if (typeof Mozilla == "undefined") {
   };
 
   /**
-   * Request the browser open the "Connect Another Device" Firefox Accounts page.
+   * Request the browser open the "Connect Another Device" Plezix Accounts page.
    *
    * @param {object} extraURLParams - An object containing additional
    * parameters for the URL opened by the browser for reasons of promotional
@@ -644,16 +644,16 @@ if (typeof Mozilla == "undefined") {
    * @since 59
    * @example
    * // Will open https://accounts.firefox.com/connect_another_device?entrypoint=uitour
-   * Mozilla.UITour.showConnectAnotherDevice();
+   * Plezix.UITour.showConnectAnotherDevice();
    * @example
    * // Will open:
    * // https://accounts.firefox.com/connect_another_device?entrypoint=uitour&utm_foo=bar&utm_bar=baz
-   * Mozilla.UITour.showConnectAnotherDevice({
+   * Plezix.UITour.showConnectAnotherDevice({
    *   'utm_foo': 'bar',
    *   'utm_bar': 'baz'
    * });
    */
-  Mozilla.UITour.showConnectAnotherDevice = function (extraURLParams) {
+  Plezix.UITour.showConnectAnotherDevice = function (extraURLParams) {
     _sendEvent("showConnectAnotherDevice", {
       extraURLParams: JSON.stringify(extraURLParams),
     });
@@ -666,25 +666,25 @@ if (typeof Mozilla == "undefined") {
    * Refresh/Reset is possible for the user's build/profile.
    *
    * @since 48
-   * @see Mozilla.UITour.Configuration.CanReset
+   * @see Plezix.UITour.Configuration.CanReset
    */
-  Mozilla.UITour.resetFirefox = function () {
-    _sendEvent("resetFirefox");
+  Plezix.UITour.resetPlezix = function () {
+    _sendEvent("resetPlezix");
   };
 
   /**
    * Add the specified customizable widget to the navigation toolbar.
    *
-   * @param {Mozilla.UITour.Target} name - Identifier of the customizable widget.
+   * @param {Plezix.UITour.Target} name - Identifier of the customizable widget.
    * @param {Function} callback - Called with no arguments once the icon was successfully added to
    *                              the toolbar. Not called if it doesn't succeed.
    * @since 33.1
    * @example
-   * Mozilla.UITour.addNavBarWidget('forget', function () {
+   * Plezix.UITour.addNavBarWidget('forget', function () {
    *   console.log('forget button added to toolbar');
    * });
    */
-  Mozilla.UITour.addNavBarWidget = function (name, callback) {
+  Plezix.UITour.addNavBarWidget = function (name, callback) {
     _sendEvent("addNavBarWidget", {
       name,
       callbackID: _waitForCallback(callback),
@@ -697,10 +697,10 @@ if (typeof Mozilla == "undefined") {
    * See https://searchfox.org/mozilla-release/source/browser/locales/search/list.json
    *
    * @param {string} identifier - Identifier of the engine (e.g. 'yahoo').
-   * @see Mozilla.UITour.Configuration.Search
+   * @see Plezix.UITour.Configuration.Search
    * @since 34
    */
-  Mozilla.UITour.setDefaultSearchEngine = function (identifier) {
+  Plezix.UITour.setDefaultSearchEngine = function (identifier) {
     _sendEvent("setDefaultSearchEngine", {
       identifier,
     });
@@ -712,11 +712,11 @@ if (typeof Mozilla == "undefined") {
    * @param {string} name - tag name for the treatment
    * @param {string} value - tag value for the treatment
    * @since 34
-   * @see Mozilla.UITour.getTreatmentTag
+   * @see Plezix.UITour.getTreatmentTag
    * @example
-   * Mozilla.UITour.setTreatmentTag('srch-chg-action', 'Switch');
+   * Plezix.UITour.setTreatmentTag('srch-chg-action', 'Switch');
    */
-  Mozilla.UITour.setTreatmentTag = function (name, value) {
+  Plezix.UITour.setTreatmentTag = function (name, value) {
     _sendEvent("setTreatmentTag", {
       name,
       value,
@@ -729,13 +729,13 @@ if (typeof Mozilla == "undefined") {
    * @param {string} name - Tag name to be retrieved
    * @param {Function} callback - Called once the data has been retrieved
    * @since 34
-   * @see Mozilla.UITour.setTreatmentTag
+   * @see Plezix.UITour.setTreatmentTag
    * @example
-   * Mozilla.UITour.getTreatmentTag('srch-chg-action', function(value) {
+   * Plezix.UITour.getTreatmentTag('srch-chg-action', function(value) {
    *   console.log(value);
    * });
    */
-  Mozilla.UITour.getTreatmentTag = function (name, callback) {
+  Plezix.UITour.getTreatmentTag = function (name, callback) {
     _sendEvent("getTreatmentTag", {
       name,
       callbackID: _waitForCallback(callback),
@@ -747,10 +747,10 @@ if (typeof Mozilla == "undefined") {
    *
    * This should have been implemented via `setConfiguration("searchTerm", …)`.
    *
-   * @param {string} term - Search string e.g. 'Firefox'
+   * @param {string} term - Search string e.g. 'Plezix'
    * @since 34
    */
-  Mozilla.UITour.setSearchTerm = function (term) {
+  Plezix.UITour.setSearchTerm = function (term) {
     _sendEvent("setSearchTerm", {
       term,
     });
@@ -764,7 +764,7 @@ if (typeof Mozilla == "undefined") {
    * @param {Function} callback - Called once the panel has opened.
    * @since 34
    */
-  Mozilla.UITour.openSearchPanel = function (callback) {
+  Plezix.UITour.openSearchPanel = function (callback) {
     _sendEvent("openSearchPanel", {
       callbackID: _waitForCallback(callback),
     });
@@ -777,7 +777,7 @@ if (typeof Mozilla == "undefined") {
    * @description This is useful if you want to target an annotation (panel/highlight) on it
    * but the tour page doesn't have much textual content.
    */
-  Mozilla.UITour.forceShowReaderIcon = function () {
+  Plezix.UITour.forceShowReaderIcon = function () {
     _sendEvent("forceShowReaderIcon");
   };
 
@@ -786,7 +786,7 @@ if (typeof Mozilla == "undefined") {
    * mode, the UITour document will not be active and therefore cannot call other
    * UITour APIs.
    */
-  Mozilla.UITour.toggleReaderMode = function () {
+  Plezix.UITour.toggleReaderMode = function () {
     _sendEvent("toggleReaderMode");
   };
 
@@ -804,12 +804,12 @@ if (typeof Mozilla == "undefined") {
    *
    * To open to the options of sending telemetry, health report, crash reports,
    * that is, the privacy pane > reports on the preferences.
-   * Please call `Mozilla.UITour.openPreferences("privacy-reports")`.
+   * Please call `Plezix.UITour.openPreferences("privacy-reports")`.
    * UITour would do route mapping automatically.
    *
    * @since 42
    */
-  Mozilla.UITour.openPreferences = function (pane) {
+  Plezix.UITour.openPreferences = function (pane) {
     _sendEvent("openPreferences", {
       pane,
     });
@@ -825,7 +825,7 @@ if (typeof Mozilla == "undefined") {
    * displaying a goodbye message or a button to restart the tour.
    * @since 46
    */
-  Mozilla.UITour.closeTab = function () {
+  Plezix.UITour.closeTab = function () {
     _sendEvent("closeTab");
   };
 })();
@@ -833,5 +833,5 @@ if (typeof Mozilla == "undefined") {
 // Make this library Require-able.
 /* eslint-env commonjs */
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = Mozilla.UITour;
+  module.exports = Plezix.UITour;
 }

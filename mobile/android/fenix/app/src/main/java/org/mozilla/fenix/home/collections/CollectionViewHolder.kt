@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * [RecyclerView.ViewHolder] for displaying an individual [TabCollection].
@@ -117,13 +117,13 @@ private fun getMenuItems(
     return listOfNotNull(
         MenuItem(
             title = stringResource(R.string.collection_open_tabs),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
         ) {
             onOpenTabsTapped(collection)
         },
         MenuItem(
             title = stringResource(R.string.collection_rename),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
         ) {
             onRenameCollectionTapped(collection)
         },
@@ -131,7 +131,7 @@ private fun getMenuItems(
         if (LocalContext.current.components.core.store.state.normalTabs.isNotEmpty()) {
             MenuItem(
                 title = stringResource(R.string.add_tab),
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
             ) {
                 onAddTabTapped(collection)
             }
@@ -141,7 +141,7 @@ private fun getMenuItems(
 
         MenuItem(
             title = stringResource(R.string.collection_delete),
-            color = FirefoxTheme.colors.textCritical,
+            color = PlezixTheme.colors.textCritical,
         ) {
             onDeleteCollectionTapped(collection)
         },

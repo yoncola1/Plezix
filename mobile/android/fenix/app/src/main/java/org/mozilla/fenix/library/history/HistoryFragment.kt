@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -125,7 +125,7 @@ import org.mozilla.fenix.search.SearchFragmentStore
 import org.mozilla.fenix.search.createInitialSearchFragmentState
 import org.mozilla.fenix.tabstray.DefaultTabManagementFeatureHelper
 import org.mozilla.fenix.tabstray.Page
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.GleanMetrics.History as GleanHistory
 
@@ -409,7 +409,7 @@ class HistoryFragment : LibraryPageFragment<History>(), UserInteractionHandler, 
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
 
                 setContent {
-                    FirefoxTheme {
+                    PlezixTheme {
                         val historyState = historyStore.observeAsComposableState { it }.value
                         val searchState = searchStore.observeAsComposableState { it }.value
                         val awesomebarBackground = AcornTheme.colors.layer1
@@ -460,10 +460,10 @@ class HistoryFragment : LibraryPageFragment<History>(), UserInteractionHandler, 
                                     orientation = AwesomeBarOrientation.TOP,
                                     colors = AwesomeBarDefaults.colors(
                                         background = Color.Transparent,
-                                        title = FirefoxTheme.colors.textPrimary,
-                                        description = FirefoxTheme.colors.textSecondary,
-                                        autocompleteIcon = FirefoxTheme.colors.textSecondary,
-                                        groupTitle = FirefoxTheme.colors.textSecondary,
+                                        title = PlezixTheme.colors.textPrimary,
+                                        description = PlezixTheme.colors.textSecondary,
+                                        autocompleteIcon = PlezixTheme.colors.textSecondary,
+                                        groupTitle = PlezixTheme.colors.textSecondary,
                                     ),
                                     onSuggestionClicked = { suggestion ->
                                         searchStore.dispatch(SuggestionClicked(suggestion))

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -84,7 +84,7 @@ extern UINT sAppShellGeckoMsgId;
 
 namespace {
 
-const wchar_t kOldWndProcProp[] = L"MozillaIPCOldWndProc";
+const wchar_t kOldWndProcProp[] = L"PlezixIPCOldWndProc";
 
 // This isn't defined before Windows XP.
 enum { WM_XP_THEMECHANGED = 0x031A };
@@ -451,7 +451,7 @@ static bool WindowIsDeferredWindow(HWND hWnd) {
 
   // Common mozilla windows we must defer messages to.
   nsDependentString className(buffer, length);
-  if (StringBeginsWith(className, u"Mozilla"_ns) ||
+  if (StringBeginsWith(className, u"Plezix"_ns) ||
       StringBeginsWith(className, u"Gecko"_ns) ||
       className.EqualsLiteral("nsToolkitClass") ||
       className.EqualsLiteral("nsAppShell:EventWindowClass")) {

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -830,7 +830,7 @@ function Intl_DateTimeFormat_resolvedOptions() {
   };
 
   if (internals.pattern !== undefined) {
-    // The raw pattern option is only internal to Mozilla, and not part of the
+    // The raw pattern option is only internal to Plezix, and not part of the
     // ECMA-402 API.
     DefineDataProperty(result, "pattern", internals.pattern);
   }
@@ -855,7 +855,7 @@ function Intl_DateTimeFormat_resolvedOptions() {
       DefineDataProperty(result, "timeStyle", internals.timeStyle);
     }
   } else {
-    // Components bag or a (Mozilla-only) raw pattern.
+    // Components bag or a (Plezix-only) raw pattern.
     intl_resolveDateTimeFormatComponents(
       dtf,
       result,

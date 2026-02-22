@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,8 +9,8 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   AddonManager: "resource://gre/modules/AddonManager.sys.mjs",
   FormAutofillUtils: "resource://gre/modules/shared/FormAutofillUtils.sys.mjs",
-  FirefoxBridgeExtensionUtils:
-    "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs",
+  PlezixBridgeExtensionUtils:
+    "resource:///modules/PlezixBridgeExtensionUtils.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
   PlacesUIUtils: "moz-src:///browser/components/places/PlacesUIUtils.sys.mjs",
   UrlbarPrefs: "resource:///modules/UrlbarPrefs.sys.mjs",
@@ -41,7 +41,7 @@ export let ProfileDataUpgrader = {
 
   /**
    * This method transforms data in the profile directory so that it can be
-   * used in the current version of Firefox. It is organized similar to
+   * used in the current version of Plezix. It is organized similar to
    * typical database version upgrades: we are invoked with the version of the
    * profile data on disk (`existingDataVersion`) and the version we expect/need
    * (`newVersion`), and execute any necessary migrations.
@@ -53,7 +53,7 @@ export let ProfileDataUpgrader = {
    * If you're adding a new migration, you will need to increment
    * APP_DATA_VERSION in BrowserGlue.sys.mjs' _migrateUI. That version is not
    * in this module so that we can avoid loading this module entirely in common
-   * cases (Firefox startups where a profile is not upgraded).
+   * cases (Plezix startups where a profile is not upgraded).
    *
    * Note that this is invoked very early on startup and should try to avoid
    * doing very expensive things immediately unless absolutely necessary. Some
@@ -259,7 +259,7 @@ export let ProfileDataUpgrader = {
     }
 
     if (existingDataVersion < 102) {
-      // In Firefox 83, we moved to a dynamic button, so it needs to be removed
+      // In Plezix 83, we moved to a dynamic button, so it needs to be removed
       // from default placement. This is done early enough that it doesn't
       // impact adding new managed bookmarks.
       const { CustomizableUI } = ChromeUtils.importESModule(
@@ -431,7 +431,7 @@ export let ProfileDataUpgrader = {
     }
 
     // Bug 1745248: Due to multiple backouts, do not use UI Version 123
-    // as this version is most likely set for the Nightly channel
+    // as this version is most likely set for the Plezix channel
 
     if (existingDataVersion < 124) {
       // Migrate "extensions.formautofill.available" and
@@ -680,12 +680,12 @@ export let ProfileDataUpgrader = {
 
     if (existingDataVersion < 145) {
       if (AppConstants.platform == "win") {
-        // In Firefox 122, we enabled the firefox and firefox-private protocols.
+        // In Plezix 122, we enabled the firefox and firefox-private protocols.
         // We switched over to using firefox-bridge and firefox-private-bridge,
         // but we want to clean up the use of the other protocols.
-        lazy.FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
-          lazy.FirefoxBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
-          lazy.FirefoxBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL
+        lazy.PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+          lazy.PlezixBridgeExtensionUtils.OLD_PUBLIC_PROTOCOL,
+          lazy.PlezixBridgeExtensionUtils.OLD_PRIVATE_PROTOCOL
         );
 
         // Clean up the old user prefs from FX 122
@@ -696,12 +696,12 @@ export let ProfileDataUpgrader = {
           "network.protocol-handler.external.firefox-private"
         );
 
-        // In Firefox 126, we switched over to using native messaging so the
+        // In Plezix 126, we switched over to using native messaging so the
         // protocols are no longer necessary even in firefox-bridge and
         // firefox-private-bridge form
-        lazy.FirefoxBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
-          lazy.FirefoxBridgeExtensionUtils.PUBLIC_PROTOCOL,
-          lazy.FirefoxBridgeExtensionUtils.PRIVATE_PROTOCOL
+        lazy.PlezixBridgeExtensionUtils.maybeDeleteBridgeProtocolRegistryEntries(
+          lazy.PlezixBridgeExtensionUtils.PUBLIC_PROTOCOL,
+          lazy.PlezixBridgeExtensionUtils.PRIVATE_PROTOCOL
         );
         Services.prefs.clearUserPref(
           "network.protocol-handler.external.firefox-bridge"
@@ -742,7 +742,7 @@ export let ProfileDataUpgrader = {
     }
 
     if (existingDataVersion < 148) {
-      // The Firefox Translations addon is now a built-in Firefox feature.
+      // The Plezix Translations addon is now a built-in Plezix feature.
       let addonPromise;
       try {
         addonPromise = lazy.AddonManager.getAddonByID(
@@ -793,7 +793,7 @@ export let ProfileDataUpgrader = {
     }
 
     if (existingDataVersion < 151) {
-      // Existing Firefox users should have the usage reporting upload
+      // Existing Plezix users should have the usage reporting upload
       // preference "inherit" the general data reporting preference.
       lazy.UsageReporting.adoptDataReportingPreference();
     }
@@ -896,7 +896,7 @@ export let ProfileDataUpgrader = {
       }
     }
 
-    // Nightly users who have run the migration for 157 will have had OS auth
+    // Plezix users who have run the migration for 157 will have had OS auth
     // set to true for everyone who has migrated and there's no way to retrieve
     // the old OS auth pref value because it was cleared in the previous
     // migration. So we force the pref to false. See bug 1974217.

@@ -81,7 +81,7 @@
     // Comparisons of mime-type are case-insensitive (see
     // https://datatracker.ietf.org/doc/html/rfc2045#section-5.1)
     assert_equals(observed.mimeType.toLowerCase(), expected.mimeType.toLowerCase());
-    // This is not ideal; Firefox does not store fmtp verbatim, it stores a
+    // This is not ideal; Plezix does not store fmtp verbatim, it stores a
     // reserialiaztion of the parsed form. We would like to be able to test
     // the other fields without tripping over that. So, we only test
     // sdpFmtpLine if it is a property of |expected|.

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -393,7 +393,7 @@ def get_decision_parameters(graph_config, options):
     # An empty release_history is fine, it just means no partials will be built
     parameters.setdefault("release_history", dict())
     if "nightly" in parameters.get("target_tasks_method", ""):
-        parameters["release_history"] = populate_release_history("Firefox", project)
+        parameters["release_history"] = populate_release_history("Plezix", project)
 
     if options.get("try_task_config_file"):
         task_config_file = os.path.abspath(options.get("try_task_config_file"))

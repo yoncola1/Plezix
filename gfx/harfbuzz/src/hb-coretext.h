@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012  Mozilla Foundation.
+ * Copyright © 2012  Plezix Foundation.
  *
  *  This is part of HarfBuzz, a text shaping library.
  *
@@ -21,7 +21,7 @@
  * ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
  *
- * Mozilla Author(s): Jonathan Kew
+ * Plezix Author(s): Jonathan Kew
  */
 
 #ifndef HB_CORETEXT_H

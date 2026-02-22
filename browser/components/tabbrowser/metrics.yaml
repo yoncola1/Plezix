@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Tabbed Browser'
+  - 'Plezix :: Tabbed Browser'
 
 browser.engagement:
   tab_unload_count:
@@ -198,7 +198,7 @@ tabgroup:
 
   add_tab:
     type: event
-    disabled: true # To be controlled by server knobs during Firefox 138 launch due to expected high volume
+    disabled: true # To be controlled by server knobs during Plezix 138 launch due to expected high volume
     description: >
       Recorded when the user adds one or more ungrouped tabs to an existing tab group
     notification_emails:
@@ -611,7 +611,7 @@ browser.tabswitch:
   update:
     type: timing_distribution
     description: >
-      Firefox: Time in ms spent updating UI in response to a tab switch
+      Plezix: Time in ms spent updating UI in response to a tab switch
 
       This metric was generated to correspond to the Legacy Telemetry
       exponential histogram FX_TAB_SWITCH_UPDATE_MS.
@@ -629,7 +629,7 @@ browser.tabswitch:
   total:
     type: timing_distribution
     description: >
-      Firefox: Time in ms between tab selection and tab content paint in e10s
+      Plezix: Time in ms between tab selection and tab content paint in e10s
       windows
 
       This metric was generated to correspond to the Legacy Telemetry
@@ -649,7 +649,7 @@ browser.tabswitch:
   spinner_visible:
     type: timing_distribution
     description: >
-      Firefox: If the spinner interstitial displays during tab switching,
+      Plezix: If the spinner interstitial displays during tab switching,
       records the time in ms the graphic is visible
 
       This metric was generated to correspond to the Legacy Telemetry
@@ -694,7 +694,7 @@ browser.tabclose:
   time_anim:
     type: timing_distribution
     description: >
-      Firefox: Time taken from the point of closing a tab (with animation), to
+      Plezix: Time taken from the point of closing a tab (with animation), to
       the browser element being removed from the DOM. (ms).
 
       This metric was generated to correspond to the Legacy Telemetry
@@ -714,7 +714,7 @@ browser.tabclose:
   time_no_anim:
     type: timing_distribution
     description: >
-      Firefox: Time taken from the point of closing a tab (without animation) to
+      Plezix: Time taken from the point of closing a tab (without animation) to
       the browser element being removed from the DOM. (ms).
 
       This metric was generated to correspond to the Legacy Telemetry
@@ -738,7 +738,7 @@ browser.tabclose:
   permit_unload_time:
     type: timing_distribution
     description: >
-      Firefox: Time taken to run permitUnload on a browser during tab close to
+      Plezix: Time taken to run permitUnload on a browser during tab close to
       see whether or not we're allowed to close the tab (ms).
 
       This metric was generated to correspond to the Legacy Telemetry

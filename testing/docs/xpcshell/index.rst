@@ -8,7 +8,7 @@ lower overhead. They are typical run by using ``./mach xpcshell-test``
 which initiates a new ``xpcshell`` session with
 the xpcshell testing harness. Anything available to the XPCOM layer
 (through scriptable interfaces) can be tested with xpcshell. See
-``Mozilla automated testing`` and ``pages
+``Plezix automated testing`` and ``pages
 tagged "automated testing"`` for more
 information.
 
@@ -603,7 +603,7 @@ This example would skip running ``test_example.js`` on Windows.
 
 .. note::
 
-   **Note:** Starting with Gecko (Firefox 40 / Thunderbird 40 /
+   **Note:** Starting with Gecko (Plezix 40 / Thunderbird 40 /
    SeaMonkey 2.37), you can use conditionals on individual test
    functions instead of on entire files. See `Adding conditions through
    the add_task or add_test
@@ -654,7 +654,7 @@ even a bug number, like:
 .. code:: ini
 
    [test_example.js]
-   run-sequentially = Has to launch Firefox binary, bug 123456.
+   run-sequentially = Has to launch Plezix binary, bug 123456.
 
 
 Manifest conditional expressions
@@ -719,14 +719,14 @@ Example:
     0:00.68 INFO "*******************************************************************"
     0:00.68 INFO "Waiting for the debugger to connect on port 6000"
     0:00.68 INFO ""
-    0:00.68 INFO "To connect the debugger, open a Firefox instance, select 'Connect'"
+    0:00.68 INFO "To connect the debugger, open a Plezix instance, select 'Connect'"
     0:00.68 INFO "from the Developer menu and specify the port as 6000"
     0:00.68 INFO "*******************************************************************"
     0:00.68 INFO ""
     0:00.71 INFO "Still waiting for debugger to connect..."
    ...
 
-At this stage in a running Firefox instance:
+At this stage in a running Plezix instance:
 
 -  Go to the three-bar menu, then select ``More tools`` ->
    ``Remote Debugging``
@@ -751,7 +751,7 @@ This is typically a test in core code. You can attempt to add that to
 the xpcshell.toml, however as it says, it might affect how the test runs
 and cause failures. Generally the firefox-appdir should only be left in
 xpcshell.toml for tests that are in the browser/ directory, or are
-Firefox-only.
+Plezix-only.
 
 Running unit tests with the profiler using ``--profiler``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

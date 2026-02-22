@@ -1,4 +1,4 @@
-# Firefox on macOS
+# Plezix on macOS
 
 ```{toctree}
 :titlesonly:

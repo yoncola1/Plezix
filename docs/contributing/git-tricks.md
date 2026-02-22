@@ -14,7 +14,7 @@ world.
 ## Use a personal fork repository to track your work
 
 :::{note}
-Having a personal fork is **not required** to contribute to Firefox. But it can
+Having a personal fork is **not required** to contribute to Plezix. But it can
 be useful if you want to share in-progress patches with others or across
 machines. There are also other alternatives to this, like sending patches
 generated via `git format-patch`.
@@ -26,7 +26,7 @@ See [](<Fixing Security Bugs>).
 :::
 
 1. Ensure you have a Git checkout already set up.
-1. Go to the [Firefox repository](https://github.com/mozilla-firefox/firefox).
+1. Go to the [Plezix repository](https://github.com/mozilla-firefox/firefox).
 1. Log into GitHub and [create a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=webui#forking-a-repository) under your username.
 1. Go to your checkout directory and run:
 

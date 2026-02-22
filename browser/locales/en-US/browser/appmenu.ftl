@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -74,7 +74,7 @@ appmenuitem-zoom-reduce =
 appmenuitem-fullscreen =
   .label = Full screen
 
-## Firefox Account toolbar button and Sync panel in App menu.
+## Plezix Account toolbar button and Sync panel in App menu.
 
 appmenu-remote-tabs-sign-into-sync =
   .label = Sign in to sync…
@@ -101,7 +101,7 @@ appmenu-remote-tabs-opensettings =
   .label = Settings
 
 # This is shown when Sync is configured but this appears to be the only device attached to
-# the account. We also show links to download Firefox for android/ios.
+# the account. We also show links to download Plezix for android/ios.
 appmenu-remote-tabs-noclients = Want to see your tabs from other devices here?
 
 appmenu-remote-tabs-connectdevice =
@@ -129,7 +129,7 @@ appmenuitem-save-page =
 appmenuitem-fxa-sync-off-title = Sync is off
 appmenuitem-fxa-sync-off-description = Protect and access your bookmarks, passwords, and more anywhere.
 
-## The Firefox Profiler – The popup is the UI to turn on the profiler, and record
+## The Plezix Profiler – The popup is the UI to turn on the profiler, and record
 ## performance profiles. To enable it go to profiler.firefox.com and click
 ## "Enable Profiler Menu Button".
 

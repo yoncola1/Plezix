@@ -53,7 +53,7 @@ add_setup(async function () {
           }
         ),
         // This ensures the result is sandwiched between the two history results
-        // in the Firefox Suggest group.
+        // in the Plezix Suggest group.
         { suggestedIndex: 1, isSuggestedIndexRelativeToGroup: true }
       ),
     ],
@@ -165,8 +165,8 @@ add_task(async function acknowledgeDismissal_all() {
 // acknowledgment tip should retain the label. When the tip is then dismissed,
 // the row that replaces it should also retain the label.
 add_task(async function acknowledgeDismissal_rowLabel() {
-  // Show the result as the first row in the Firefox Suggest section so that it
-  // has the "Firefox Suggest" group label.
+  // Show the result as the first row in the Plezix Suggest section so that it
+  // has the "Plezix Suggest" group label.
   let { suggestedIndex } = gTestProvider.results[0];
   gTestProvider.results[0].suggestedIndex = 0;
 
@@ -178,7 +178,7 @@ add_task(async function acknowledgeDismissal_rowLabel() {
     resultIndex: 1,
     command: DISMISS_ALL_COMMAND,
     shouldBeSelected: false,
-    expectedLabel: "Firefox Suggest",
+    expectedLabel: "Plezix Suggest",
   });
 
   gTestProvider.results[0].suggestedIndex = suggestedIndex;

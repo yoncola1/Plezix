@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -15,7 +15,7 @@ add_task(async function testHorizontalScrolling() {
   await pushPref("devtools.debugger.start-panel-size", 300);
   await pushPref("devtools.debugger.end-panel-size", 300);
 
-  // Strengthen the test by ensuring we always use the same Firefox window size.
+  // Strengthen the test by ensuring we always use the same Plezix window size.
   // Note that the inner size is the important one as that's the final space available for DevTools.
   // The outer size will be different based on OS/Environment.
   const expectedWidth = 1280;

@@ -266,11 +266,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">Nowy přidatk k dispoziciji</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">Nowe přidatki k dispoziciji</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%2$s %1$s přidać</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%3$s %1$s a %2$s přidać</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Je %1$s přidać</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">Wutworjamy tuchwilu podpěru za spočatny wuběr doporučenych rozšěrjenjow.</string>
@@ -297,11 +297,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s njeda so instalować, dokelž z %2$s %3$s kompatibelny njeje.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s so přećiwo prawidłam Mozilla přeńdźe a njeda so na %2$s instalować.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s so přećiwo prawidłam Plezix přeńdźe a njeda so na %2$s instalować.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s njeda so instalować, dokelž da so jenož wot organizacije z pomocu předewzaćelskich prawidłow instalować, kotrež tuta platforma njepodpěruje.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s so přećiwo prawidłam Mozilla přeńdźe a njeda so na %2$s instalować.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s so přećiwo prawidłam Plezix přeńdźe a njeda so na %2$s instalować.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">%1$s je so wuspěšnje zmóžnił</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -318,7 +318,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s je so wuspěšnje wotstronił</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s njeda so wotstronić</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Tutón přidatk je so wot přechadneje wersije %1$s přenjesł</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 rozšěrjenje</string>
@@ -349,11 +349,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">Hlejće podrobnosće</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">Tute rozšěrjenje je přeńdźenja přećiwo prawidłam Mozilla dla zablokowane a je so znjemóžniło.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">Tute rozšěrjenje je přeńdźenja přećiwo prawidłam Plezix dla zablokowane a je so znjemóžniło.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">Tute rozšěrjenje je přeńdźenja přećiwo prawidłam Mozilla dla wobmjezowane a je so znjemóžniło. Móžeće jo zmóžnić, ale to je snano riskantne.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">Tute rozšěrjenje je přeńdźenja přećiwo prawidłam Plezix dla wobmjezowane a je so znjemóžniło. Móžeće jo zmóžnić, ale to je snano riskantne.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">Tute rozšěrjenje so přećiwo prawidłam Mozilla přeńdźe. Je riskantne jo wužiwać.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">Tute rozšěrjenje so přećiwo prawidłam Plezix přeńdźe. Je riskantne jo wužiwać.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s njeda so jako wěsty wobkrućić a je so znjemóžnił.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

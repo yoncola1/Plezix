@@ -17,10 +17,10 @@ function findTabStateByUrl(windowState, url) {
 add_task(async function test_TabGroupsInState() {
   let win = await promiseNewWindowLoaded();
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   BrowserTestUtils.addTab(win.gBrowser, "about:about");
 
-  let group = win.gBrowser.addTabGroup([aboutRobotsTab, aboutMozillaTab], {
+  let group = win.gBrowser.addTabGroup([aboutRobotsTab, aboutPlezixTab], {
     label: "non-meta about pages",
   });
 
@@ -68,13 +68,13 @@ add_task(async function test_TabGroupsInState() {
     "about:robots tab should be part of the tab group"
   );
 
-  const aboutMozillaTabState = findTabStateByUrl(windowState, "about:mozilla");
+  const aboutPlezixTabState = findTabStateByUrl(windowState, "about:mozilla");
   Assert.ok(
-    aboutMozillaTabState,
+    aboutPlezixTabState,
     "about:mozilla tab should be in session state"
   );
   Assert.equal(
-    aboutMozillaTabState.groupId,
+    aboutPlezixTabState.groupId,
     group.id,
     "about:mozilla tab should be part of the tab group"
   );

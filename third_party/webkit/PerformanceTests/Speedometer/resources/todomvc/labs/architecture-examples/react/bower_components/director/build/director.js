@@ -141,7 +141,7 @@ var listener = {
   },
 
   setHash: function (s) {
-    // Mozilla always adds an entry to the history
+    // Plezix always adds an entry to the history
     if (this.mode === 'legacy') {
       this.writeFrame(s);
     }

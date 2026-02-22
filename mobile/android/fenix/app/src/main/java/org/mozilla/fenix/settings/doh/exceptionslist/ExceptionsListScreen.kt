@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.settings.doh.DohSettingsState
 import org.mozilla.fenix.settings.doh.ProtectionLevel
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Composable function that displays the exceptions list screen of DoH settings.
@@ -47,7 +47,7 @@ internal fun ExceptionsListScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .verticalScroll(rememberScrollState()),
     ) {
         Row(
@@ -59,8 +59,8 @@ internal fun ExceptionsListScreen(
                     R.string.preference_doh_exceptions_summary,
                     stringResource(id = R.string.app_name),
                 ),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textSecondary,
+                style = PlezixTheme.typography.body2,
             )
         }
 
@@ -83,14 +83,14 @@ internal fun ExceptionsListScreen(
             Icon(
                 painter = painterResource(R.drawable.mozac_ic_plus_24),
                 contentDescription = stringResource(R.string.preference_doh_add_site_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
                 modifier = Modifier.padding(16.dp),
             )
 
             Text(
                 text = stringResource(R.string.preference_doh_exceptions_add),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.subtitle1,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.subtitle1,
             )
         }
 
@@ -110,7 +110,7 @@ internal fun ExceptionsListScreen(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun ExceptionsListScreenPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ExceptionsListScreen(
             state = DohSettingsState(
                 allProtectionLevels = listOf(

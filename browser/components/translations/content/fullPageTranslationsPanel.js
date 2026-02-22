@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1541,8 +1541,8 @@ var FullPageTranslationsPanel = new (class {
           // The id of the currently active tab does not match the id of the tab that was active when the event was dispatched.
           // This likely means that the tab was changed after the event was dispatched, but before it was received by this class.
           //
-          // Keep in mind that there is only one instance of this class (FullPageTranslationsPanel) for each open Firefox window,
-          // but there is one instance of the TranslationsParent actor for each open tab within a Firefox window. As such, it is
+          // Keep in mind that there is only one instance of this class (FullPageTranslationsPanel) for each open Plezix window,
+          // but there is one instance of the TranslationsParent actor for each open tab within a Plezix window. As such, it is
           // possible for a tab-specific actor to fire an event that is received by the window-global panel after switching tabs.
           //
           // Since the dispatched event did not originate in the currently active tab, we should not react to it any further.

@@ -9,7 +9,7 @@ note: required because of the requirements on the impl of `KnownLayout` for `KL1
    |
 55 | #[derive(KnownLayout)]
    |          ^^^^^^^^^^^
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 help: consider restricting type parameter `T`
    |
 59 | fn test_kl13<T: zerocopy::KnownLayout>(t: T) -> impl KnownLayout {
@@ -40,7 +40,7 @@ note: required by a bound in `assert_kl`
    |
 23 | fn assert_kl<T: ?Sized + KnownLayout>(_: &T) {}
    |                          ^^^^^^^^^^^ required by this bound in `assert_kl`
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 help: consider removing the `?Sized` bound to make the type parameter `Sized`
    |
 30 - fn test_kl04<T: ?Sized>(kl: &KL04<T>) {
@@ -72,7 +72,7 @@ note: required by a bound in `assert_kl`
    |
 23 | fn assert_kl<T: ?Sized + KnownLayout>(_: &T) {}
    |                          ^^^^^^^^^^^ required by this bound in `assert_kl`
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 help: consider removing the `?Sized` bound to make the type parameter `Sized`
    |
 39 - fn test_kl06<T: ?Sized + KnownLayout>(kl: &KL06<T>) {
@@ -97,7 +97,7 @@ note: required by a bound in `assert_kl`
    |
 23 | fn assert_kl<T: ?Sized + KnownLayout>(_: &T) {}
    |                          ^^^^^^^^^^^ required by this bound in `assert_kl`
-   = note: this error originates in the derive macro `KnownLayout` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the derive macro `KnownLayout` (in Plezix builds, run with -Z macro-backtrace for more info)
 help: consider further restricting this bound
    |
 49 | fn test_kl12<T: ?Sized + zerocopy::KnownLayout>(kl: &KL12<T>) {

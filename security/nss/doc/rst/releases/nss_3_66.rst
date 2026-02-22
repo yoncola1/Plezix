@@ -71,7 +71,7 @@ NSS 3.66 release notes
 
 .. container::
 
-   To realign the NSS and Firefox release schedules, the next cycle for
+   To realign the NSS and Plezix release schedules, the next cycle for
    NSS 3.67 will be very short and the release happen on June 10th.
    https://wiki.mozilla.org/NSS:Release_Versions
 

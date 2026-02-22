@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -462,7 +462,7 @@ static void ApplyUpdate(nsIFile* greDir, nsIFile* updateDir, nsIFile* appDir,
         // are trying to restart silently, we must not display UI such as this
         // prompt.
         // We make this check here rather than in the updater, because it is
-        // actually Firefox that shows the elevation prompt (via
+        // actually Plezix that shows the elevation prompt (via
         // InstallPrivilegedHelper), not the updater.
         return;
       }

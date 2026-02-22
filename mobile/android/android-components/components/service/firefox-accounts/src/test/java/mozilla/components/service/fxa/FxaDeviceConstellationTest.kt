@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -57,13 +57,13 @@ import org.mockito.Mockito.`when`
 import mozilla.appservices.fxaclient.AccountEvent as ASAccountEvent
 import mozilla.appservices.fxaclient.Device as NativeDevice
 import mozilla.appservices.fxaclient.DevicePushSubscription as NativeDevicePushSubscription
-import mozilla.appservices.fxaclient.FxaClient as NativeFirefoxAccount
+import mozilla.appservices.fxaclient.FxaClient as NativePlezixAccount
 import mozilla.appservices.sync15.DeviceType as RustDeviceType
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
 class FxaDeviceConstellationTest {
-    lateinit var account: NativeFirefoxAccount
+    lateinit var account: NativePlezixAccount
     lateinit var constellation: FxaDeviceConstellation
 
     @get:Rule
@@ -219,11 +219,11 @@ class FxaDeviceConstellationTest {
         assertTrue(
             constellation.sendCommandToDevice(
                 "targetID",
-                DeviceCommandOutgoing.SendTab("Mozilla", "https://www.mozilla.org"),
+                DeviceCommandOutgoing.SendTab("Plezix", "https://www.mozilla.org"),
             ),
         )
 
-        verify(account).sendSingleTab("targetID", "Mozilla", "https://www.mozilla.org")
+        verify(account).sendSingleTab("targetID", "Plezix", "https://www.mozilla.org")
     }
 
     @Test
@@ -234,7 +234,7 @@ class FxaDeviceConstellationTest {
 
         val success = constellation.sendCommandToDevice(
             "targetID",
-            DeviceCommandOutgoing.SendTab("Mozilla", "https://www.mozilla.org"),
+            DeviceCommandOutgoing.SendTab("Plezix", "https://www.mozilla.org"),
         )
 
         assertFalse(success)
@@ -249,7 +249,7 @@ class FxaDeviceConstellationTest {
 
         val success = constellation.sendCommandToDevice(
             "targetID",
-            DeviceCommandOutgoing.SendTab("Mozilla", "https://www.mozilla.org"),
+            DeviceCommandOutgoing.SendTab("Plezix", "https://www.mozilla.org"),
         )
 
         assertFalse(success)
@@ -456,7 +456,7 @@ class FxaDeviceConstellationTest {
         assertEquals(testDevice1.into(), (command as DeviceCommandIncoming.TabReceived).from)
         assertEquals(listOf(testTab3.into()), command.entries)
 
-        // TODO FirefoxAccount needs @Throws annotations for these tests to actually work.
+        // TODO PlezixAccount needs @Throws annotations for these tests to actually work.
         // Failure to poll for commands. Panics are re-thrown.
 //        `when`(account.pollDeviceCommands()).thenThrow(FxaPanicException("Don't panic!"))
 //        try {

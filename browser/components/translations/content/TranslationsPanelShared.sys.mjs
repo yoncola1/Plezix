@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
  *
  * It is recommended to read the documentation above the TranslationsParent class
  * definition to understand the scope of the Translations architecture throughout
- * Firefox.
+ * Plezix.
  *
  * @see TranslationsParent
  *
@@ -33,10 +33,10 @@ ChromeUtils.defineESModuleGetters(lazy, {
 export class TranslationsPanelShared {
   /**
    * A map from Translations Panel instances to their initialized states.
-   * There is one instance of each panel per top ChromeWindow in Firefox.
+   * There is one instance of each panel per top ChromeWindow in Plezix.
    *
    * See the documentation above the TranslationsParent class for a detailed
-   * explanation of the translations architecture throughout Firefox.
+   * explanation of the translations architecture throughout Plezix.
    *
    * @see TranslationsParent
    *
@@ -67,7 +67,7 @@ export class TranslationsPanelShared {
    *
    * This will cause all panels to rebuild their menulist items upon its next open event.
    * There exists one SelectTranslationsPanel and one FullPageTranslationsPanel per open
-   * Firefox window. There are several situations in which this should be called:
+   * Plezix window. There are several situations in which this should be called:
    *
    *  1) In between test cases, which may explicitly test a different set of available languages.
    *  2) Whenever the application locale changes, which requires new language display names.

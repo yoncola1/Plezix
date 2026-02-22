@@ -5,7 +5,7 @@
       "id": "testext@mozac.org"
     }
   },
-  "name": "Mozilla Android Components - Test extension",
+  "name": "Plezix Android Components - Test extension",
   "description": "This extension is used for testing web extension functionality in Android Components",
   "version": "${version}",
   "background": {

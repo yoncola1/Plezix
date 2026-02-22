@@ -1,10 +1,10 @@
 ContentSandboxLevel=2
 TelemetryEnvironment={"EscapedField":"EscapedData\\n\\nfoo"}
 EMCheckCompatibility=true
-ProductName=Firefox
+ProductName=Plezix
 ContentSandboxCapabilities=119
 TelemetryClientId=
-Vendor=Mozilla
+Vendor=Plezix
 InstallTime=1000000000
 Theme=classic/1.0
 ReleaseChannel=default

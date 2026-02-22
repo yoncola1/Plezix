@@ -42,7 +42,7 @@ Structure:
           // Optional, excluded if we couldn't get a valid uid or local device id
           devices: [{
             os: <string>, // OS string as reported by Services.appinfo.OS, if known
-            version: <string>, // Firefox version, as reported by Services.appinfo.version if known
+            version: <string>, // Plezix version, as reported by Services.appinfo.version if known
             id: <string>, // Hashed FxA device id for device
             type: <string>, // broad device "type", as reported by fxa ("mobile", "tv", etc).
             syncID: <string>, // Hashed Sync device id for device, if the user is a sync user.
@@ -208,7 +208,7 @@ Stores error information, if any is present. Always contains the "name" property
 
 - ``sqlerror``: Indicates that we received a ``mozIStorageError`` from a database query.
 
-    - ``code``: Value of the ``error.result`` property, one of the constants listed `here <https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/MozIStorageError#Constants>`_.
+    - ``code``: Value of the ``error.result`` property, one of the constants listed `here <https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/MozIStorageError#Constants>`_.
 
 syncs.engine.name
 ~~~~~~~~~~~~~~~~~
@@ -277,7 +277,7 @@ client, or opening a new URL.
             is the same for every device the tab is sent to.
   - streamID: A GUID which uniquely identifies this command invocation's
               specific target. This GUID is unique for every device the tab is
-              sent to (new in Firefox 79).
+              sent to (new in Plezix 79).
   - serverTime: (optional) Most recent server timestamp, as described above.
 
 processcommand
@@ -295,7 +295,7 @@ client. This is logically the "other end" of ``sendcommand``.
             ``sendcommand``.
   - streamID: A GUID which uniquely identifies this command invocation's
               specific target. The value for this GUID will be the same as the
-              streamID sent to the client via ``sendcommand`` (new in Firefox 79).
+              streamID sent to the client via ``sendcommand`` (new in Plezix 79).
   - reason: A string value of either ``"poll"``, ``"push"``, or ``"push-missed"``
             representing an explanation for why the command is being processed.
   - serverTime: (optional) Most recent server timestamp, as described above.

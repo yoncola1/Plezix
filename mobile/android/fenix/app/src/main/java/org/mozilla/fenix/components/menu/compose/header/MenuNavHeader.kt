@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.compose.MenuItemState
 import org.mozilla.fenix.components.menu.compose.SiteLoadingPreviewParameterProvider
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 @Suppress("LongParameterList")
@@ -69,7 +69,7 @@ internal fun MenuNavHeader(
             .height(12.dp)
             .background(
                 if (isExtensionsExpanded || isMoreMenuExpanded) {
-                    FirefoxTheme.colors.layerSearch
+                    PlezixTheme.colors.layerSearch
                 } else {
                     Color.Transparent
                 },
@@ -82,7 +82,7 @@ internal fun MenuNavHeader(
             .height(IntrinsicSize.Min)
             .background(
                 color = if (isExtensionsExpanded || isMoreMenuExpanded) {
-                    FirefoxTheme.colors.layerSearch
+                    PlezixTheme.colors.layerSearch
                 } else {
                     Color.Transparent
                 },
@@ -171,7 +171,7 @@ private fun MenuNavItem(
 
         Text(
             text = label,
-            style = FirefoxTheme.typography.caption.merge(
+            style = PlezixTheme.typography.caption.merge(
                 platformStyle = PlatformTextStyle(includeFontPadding = true),
             ).copy(hyphens = Hyphens.Auto),
             color = getLabelTextColor(state = state),
@@ -186,30 +186,30 @@ private fun MenuNavItem(
 @Composable
 private fun getLabelTextColor(state: MenuItemState): Color {
     return when (state) {
-        MenuItemState.ACTIVE -> FirefoxTheme.colors.textAccent
-        MenuItemState.WARNING -> FirefoxTheme.colors.textCritical
-        MenuItemState.DISABLED -> FirefoxTheme.colors.textDisabled
-        else -> FirefoxTheme.colors.textPrimary
+        MenuItemState.ACTIVE -> PlezixTheme.colors.textAccent
+        MenuItemState.WARNING -> PlezixTheme.colors.textCritical
+        MenuItemState.DISABLED -> PlezixTheme.colors.textDisabled
+        else -> PlezixTheme.colors.textPrimary
     }
 }
 
 @Composable
 private fun getIconTint(state: MenuItemState): Color {
     return when (state) {
-        MenuItemState.ACTIVE -> FirefoxTheme.colors.iconAccentViolet
-        MenuItemState.WARNING -> FirefoxTheme.colors.iconCritical
-        MenuItemState.DISABLED -> FirefoxTheme.colors.iconDisabled
-        else -> FirefoxTheme.colors.iconPrimary
+        MenuItemState.ACTIVE -> PlezixTheme.colors.iconAccentViolet
+        MenuItemState.WARNING -> PlezixTheme.colors.iconCritical
+        MenuItemState.DISABLED -> PlezixTheme.colors.iconDisabled
+        else -> PlezixTheme.colors.iconPrimary
     }
 }
 
 @PreviewLightDark
 @Composable
 private fun MenuHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             MenuNavHeader(
                 isSiteLoading = false,
@@ -230,10 +230,10 @@ private fun MenuHeaderPreview() {
 private fun MenuHeaderPrivatePreview(
     @PreviewParameter(SiteLoadingPreviewParameterProvider::class) isSiteLoading: Boolean,
 ) {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             MenuNavHeader(
                 isSiteLoading = isSiteLoading,

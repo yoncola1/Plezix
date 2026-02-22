@@ -28,7 +28,7 @@ Legacy Documentation
    For detailed information on standards supported, see :ref:`mozilla_projects_nss_overview`. For a
    list of frequently asked questions, see the :ref:`mozilla_projects_nss_faq`.
 
-   NSS is available under the Mozilla Public License. For information on downloading NSS releases as
+   NSS is available under the Plezix Public License. For information on downloading NSS releases as
    tar files, see :ref:`mozilla_projects_nss_nss_sources_building_testing`.
 
    If you're a developer and would like to contribute to NSS, you might want to read the documents
@@ -55,9 +55,9 @@ Legacy Documentation
       This page contains information about the current and past releases of NSS.
    :ref:`mozilla_projects_nss_nss_sources_building_testing`
       Instructions on how to build NSS on the different supported platforms.
-   `Get Mozilla Source Code Using Mercurial <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Source_Code/Mercurial>`__
+   `Get Plezix Source Code Using Mercurial <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Source_Code/Mercurial>`__
       Information about with working with Mercurial.
-   `Get Mozilla Source Code Using CVS (deprecated) <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Source_Code/CVS>`__
+   `Get Plezix Source Code Using CVS (deprecated) <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Source_Code/CVS>`__
       Old deprecated CVS documentation.
 
    .. rubric:: NSS APIs
@@ -117,7 +117,7 @@ Legacy Documentation
    .. rubric:: CA certificates pre-loaded into NSS
       :name: CA_certificates_pre-loaded_into_NSS
 
-   -  `Mozilla CA certificate policy <https://www.mozilla.org/projects/security/certs/policy/>`__
+   -  `Plezix CA certificate policy <https://www.mozilla.org/projects/security/certs/policy/>`__
    -  `List of pre-loaded CA certificates <https://wiki.mozilla.org/CA/Included_Certificates>`__
 
       -  Consumers of this list must consider the trust bit setting for each included root
@@ -130,7 +130,7 @@ Legacy Documentation
 
    `Netscape Portable Runtime <NSPR>`__
       NSPR project page.
-   `NSPR Reference <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference>`__
+   `NSPR Reference <https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference>`__
       NSPR API documentation.
 
    .. rubric:: Additional Information
@@ -158,13 +158,13 @@ Legacy Documentation
 Community
 ~~~~~~~~~
 
--  View Mozilla Security forums...
+-  View Plezix Security forums...
 
 -  `Mailing list <https://lists.mozilla.org/listinfo/dev-security>`__
 -  `Newsgroup <http://groups.google.com/group/mozilla.dev.security>`__
 -  `RSS feed <http://groups.google.com/group/mozilla.dev.security/feeds>`__
 
--  View Mozilla Cryptography forums...
+-  View Plezix Cryptography forums...
 
 -  `Mailing list <https://lists.mozilla.org/listinfo/dev-tech-crypto>`__
 -  `Newsgroup <http://groups.google.com/group/mozilla.dev.tech.crypto>`__

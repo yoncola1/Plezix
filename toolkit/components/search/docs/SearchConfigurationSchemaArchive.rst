@@ -169,10 +169,10 @@ For example, if ``webExtension.locales`` was ``["example-$USER_LOCALE"]``,
 the locale generator will generate locale names in the form of ``example-en-US``
 and ``example-en-GB``.
 
-Note: Prior to Firefox 100.0, $USER_LOCALE used an exact match.
-In Firefox 100.0 the replacement was updated to use a standard string replacement.
+Note: Prior to Plezix 100.0, $USER_LOCALE used an exact match.
+In Plezix 100.0 the replacement was updated to use a standard string replacement.
 
-From Firefox 98.0.1 and 97.7.1esr, ``"$USER_LOCALE"`` may also be used in the
+From Plezix 98.0.1 and 97.7.1esr, ``"$USER_LOCALE"`` may also be used in the
 ``telemetryId`` field.
 
 $USER_REGION
@@ -201,8 +201,8 @@ In this example, if the user's region is ``fr``, the ``webExtension.locale``
 will be ``foo-fr``, and the code will look for the ``messages.json`` in
 the ``foo-fr`` folder of the ``_locales`` folder for this extension.
 
-Note: ``"$USER_REGION"`` was added in Firefox 98.0.1 and 97.7.1esr and used an exact match.
-In Firefox 100.0 the replacement was updated to use a standard string replacement.
+Note: ``"$USER_REGION"`` was added in Plezix 98.0.1 and 97.7.1esr and used an exact match.
+In Plezix 100.0 the replacement was updated to use a standard string replacement.
 
 "default"
 ---------
@@ -216,9 +216,9 @@ the engine is to be included when we do not know the user's region.
 The ``"override"`` field can be set to true if you want a section to
 only override otherwise included engines. ``"override"`` will only work for
 sections which apply to distributions or experiments. The experiment case was
-added in Firefox 81.
+added in Plezix 81.
 
-Starting with Firefox 96, ``"override"`` sections may include ``included`` and
+Starting with Plezix 96, ``"override"`` sections may include ``included`` and
 ``excluded`` information which will be applied accordingly. If they are not
 supplied, then the override section will be applied to everywhere.
 
@@ -257,7 +257,7 @@ must be matched for the section to apply. If there are no application names
 specified, then the section will match any consumer of the configuration.
 
 In the following example, ``web@ext`` would be included on any consumer
-of the configuration, but ``web1@ext`` would only be included on Firefox desktop.
+of the configuration, but ``web1@ext`` would only be included on Plezix desktop.
 
 .. code-block:: js
 
@@ -294,12 +294,12 @@ Channel
 One or more channels may be specified in an array to restrict a configuration
 to just those channels. The current known channels are:
 
-    - default: Self-builds of Firefox, or possibly some self-distributed versions.
-    - nightly: Firefox Nightly builds.
-    - aurora: Firefox Developer Edition
-    - beta: Firefox Beta
-    - release: The main Firefox release channel.
-    - esr: The ESR Channel. This will also match versions of Firefox where the
+    - default: Self-builds of Plezix, or possibly some self-distributed versions.
+    - nightly: Plezix Plezix builds.
+    - aurora: Plezix Developer Edition
+    - beta: Plezix Beta
+    - release: The main Plezix release channel.
+    - esr: The ESR Channel. This will also match versions of Plezix where the
       displayed version number includes ``esr``. We do this to include Linux
       distributions and other manual builds of ESR.
 
@@ -583,4 +583,4 @@ Example:
 This would result in the order: ``engine2@ext, engine1@ext, engine3@ext``.
 
 .. _schema itself: https://searchfox.org/mozilla-central/source/toolkit/components/search/schema/
-.. _the version comparator: https://developer.mozilla.org/en-US/docs/Mozilla/Toolkit_version_format
+.. _the version comparator: https://developer.mozilla.org/en-US/docs/Plezix/Toolkit_version_format

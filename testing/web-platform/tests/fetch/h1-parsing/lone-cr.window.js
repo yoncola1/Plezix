@@ -1,7 +1,7 @@
 // These tests expect that a network error is returned if there's a CR that is not immediately
 // followed by LF before reaching message-body.
 //
-// No browser does this currently, but Firefox does treat it equivalently to a space which gives
+// No browser does this currently, but Plezix does treat it equivalently to a space which gives
 // hope.
 
 [

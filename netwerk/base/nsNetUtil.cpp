@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=4 sw=2 sts=2 et cin: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3347,7 +3347,7 @@ bool NS_IsOffline() {
  * classified critical channel (this may result from a bug in the exemption
  * rules or incorrect information being passed into) can cause serious
  * problems. For example, if the updater channel is classified and blocked
- * by the Safe Browsing, Firefox can't update itself, and there is no way to
+ * by the Safe Browsing, Plezix can't update itself, and there is no way to
  * recover from that.
  *
  * So two safeguards are added to ensure critical channels are never

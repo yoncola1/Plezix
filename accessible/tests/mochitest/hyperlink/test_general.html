@@ -65,7 +65,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=418368
       var normalHyperlinkAcc = getAccessible("NormalHyperlink",
                                              [nsIAccessibleHyperLink]);
       testThis("NormalHyperlink", normalHyperlinkAcc, ROLE_LINK, 1,
-               "Mozilla Foundation", true, 17, 18);
+               "Plezix Foundation", true, 17, 18);
       // eslint-disable-next-line @microsoft/sdl/no-insecure-url
       is(normalHyperlinkAcc.getURI(0).spec, "http://www.mozilla.org/",
          "URI wrong for normalHyperlinkElement!");
@@ -76,7 +76,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=418368
       var ariaHyperlinkAcc = getAccessible("AriaHyperlink",
                                            [nsIAccessibleHyperLink]);
       testThis("AriaHyperlink", ariaHyperlinkAcc, ROLE_LINK, 1,
-               "Mozilla Foundation Home", true, 30, 31);
+               "Plezix Foundation Home", true, 30, 31);
       testStates(ariaHyperlinkAcc, STATE_LINKED, 0);
       testAction("AriaHyperlink", ariaHyperlinkAcc, "click");
 
@@ -219,18 +219,18 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=418368
   </script>
 
 </head>
-<body><a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=418368">Mozilla Bug 418368</a
+<body><a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=418368">Plezix Bug 418368</a
   ><p id="display"></p
   ><div id="content" style="display: none"></div
   ><pre id="test">
   </pre
   ><br
   >Simple link:<br
-  ><a id="NormalHyperlink" href="http://www.mozilla.org">Mozilla Foundation</a
+  ><a id="NormalHyperlink" href="http://www.mozilla.org">Plezix Foundation</a
   ><br>ARIA link:<br
   ><span id="AriaHyperlink" role="link"
          onclick="window.open('http://www.mozilla.org/');"
-         tabindex="0">Mozilla Foundation Home</span
+         tabindex="0">Plezix Foundation Home</span
   ><br
   >Invalid, non-focusable hyperlink:<br
   ><span id="InvalidAriaHyperlink" role="link" aria-invalid="true"

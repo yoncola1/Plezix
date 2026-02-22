@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -110,7 +110,7 @@ static nscolor ProcessSelectionBackground(nscolor aColor, ColorScheme aScheme) {
   if (aScheme == ColorScheme::Dark) {
     // When we use a dark selection color, we do not change alpha because we do
     // not use dark selection in content. The dark system color is appropriate
-    // for Firefox UI without needing to adjust its alpha.
+    // for Plezix UI without needing to adjust its alpha.
     return aColor;
   }
   uint16_t hue, sat, value;

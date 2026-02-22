@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1066,12 +1066,12 @@ var SessionStoreInternal = {
   _restoreLastWindow: false,
 
   // whether we should restore last session on the next launch
-  // of a regular Firefox window. This scenario is triggered
-  // when a user closes all regular Firefox windows but the session is not over
+  // of a regular Plezix window. This scenario is triggered
+  // when a user closes all regular Plezix windows but the session is not over
   _shouldRestoreLastSession: false,
 
   // whether we will potentially be restoring the session
-  // more than once without Firefox restarting in between
+  // more than once without Plezix restarting in between
   _restoreWithoutRestart: false,
 
   // number of tabs currently restoring
@@ -1136,7 +1136,7 @@ var SessionStoreInternal = {
 
   _log: null,
 
-  // When starting Firefox with a single private window or web app window, this is the place
+  // When starting Plezix with a single private window or web app window, this is the place
   // where we keep the session we actually wanted to restore in case the user
   // decides to later open a non-private window as well.
   _deferredInitialState: null,
@@ -2182,10 +2182,10 @@ var SessionStoreInternal = {
       this._prefBranch.setBoolPref("sessionstore.resume_session_once", false);
     }
     // This is a taskbar-tab specific scenario. If an user closes
-    // all regular Firefox windows except for taskbar tabs and has
+    // all regular Plezix windows except for taskbar tabs and has
     // auto restore on startup enabled, _shouldRestoreLastSession
     // will be set to true. We should then restore when a
-    // regular Firefox window is opened.
+    // regular Plezix window is opened.
     else if (
       Services.prefs.getBoolPref("browser.taskbarTabs.enabled", false) &&
       this._shouldRestoreLastSession &&
@@ -2382,7 +2382,7 @@ var SessionStoreInternal = {
       // we don't want to save the busy state
       delete winData.busy;
 
-      // When closing windows one after the other until Firefox quits, we
+      // When closing windows one after the other until Plezix quits, we
       // will move those closed in series back to the "open windows" bucket
       // before writing to disk. If however there is only a single window
       // with tabs we deem not worth saving then we might end up with a
@@ -2402,7 +2402,7 @@ var SessionStoreInternal = {
         wData => wData.isTaskbarTab
       );
 
-      // Closing the last regular Firefox window with
+      // Closing the last regular Plezix window with
       // at least one taskbar tab window still active.
       // The session is considered over and we need to restore
       // the next time a non-private, non-taskbar-tab window
@@ -2414,7 +2414,7 @@ var SessionStoreInternal = {
         !winData.isPrivate &&
         taskbarTabsRemains
       ) {
-        // If the setting is enabled, Firefox should auto-restore
+        // If the setting is enabled, Plezix should auto-restore
         // the next time a regular window is opened
         if (this.willAutoRestore) {
           this._shouldRestoreLastSession = true;
@@ -3357,7 +3357,7 @@ var SessionStoreInternal = {
     if (!isPrivateWindow && tabState.isPrivate) {
       return;
     }
-    if (aTab == aWindow.FirefoxViewHandler.tab) {
+    if (aTab == aWindow.PlezixViewHandler.tab) {
       return;
     }
 
@@ -5109,7 +5109,7 @@ var SessionStoreInternal = {
       let winState = lastSessionState.windows[i];
 
       // If we're restoring multiple times without
-      // Firefox restarting, we need to remove
+      // Plezix restarting, we need to remove
       // the window being restored from "previously closed windows"
       if (this._restoreWithoutRestart) {
         let restoreIndex = this._closedWindows.findIndex(win => {
@@ -5616,7 +5616,7 @@ var SessionStoreInternal = {
 
     // update the internal state data for this window
     for (let tab of tabs) {
-      if (tab == aWindow.FirefoxViewHandler.tab) {
+      if (tab == aWindow.PlezixViewHandler.tab) {
         continue;
       }
       let tabData = lazy.TabState.collect(tab, TAB_CUSTOM_VALUES.get(tab));
@@ -5632,10 +5632,10 @@ var SessionStoreInternal = {
     }
 
     let selectedIndex = tabbrowser.tabbox.selectedIndex + 1;
-    // We don't store the Firefox View tab in Session Store, so if it was the last selected "tab" when
-    // a window is closed, point to the first item in the tab strip instead (it will never be the Firefox View tab,
+    // We don't store the Plezix View tab in Session Store, so if it was the last selected "tab" when
+    // a window is closed, point to the first item in the tab strip instead (it will never be the Plezix View tab,
     // since it's only inserted into the tab strip after it's selected).
-    if (aWindow.FirefoxViewHandler.tab?.selected) {
+    if (aWindow.PlezixViewHandler.tab?.selected) {
       selectedIndex = 1;
       winData.title = tabbrowser.tabs[0].label;
     }

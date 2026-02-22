@@ -25,7 +25,7 @@ add_task(async function test_save_edited_fields() {
   const initRecord = {
     "given-name": "John",
     "family-name": "Doe",
-    organization: "Mozilla",
+    organization: "Plezix",
     "street-address": "123 Sesame Street",
     tel: "+13453453456",
   };
@@ -115,7 +115,7 @@ add_task(async function test_edit_doorhanger_triggered_by_save_doorhanger() {
     const initRecord = {
       "given-name": "John",
       "family-name": "Doe",
-      organization: "Mozilla",
+      organization: "Plezix",
       "street-address": "123 Sesame Street",
       tel: "+13453453456",
     };

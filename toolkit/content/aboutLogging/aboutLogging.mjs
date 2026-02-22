@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ function moduleEnvVarPresent() {
  * - l10nIds.label and l10nIds.description are the Ids of the strings that
  *   appear in the dropdown selector, and a one-liner describing the purpose of
  *   a particular logging preset
- * - profilerPreset is the name of a Firefox Profiler preset [1]. In general,
+ * - profilerPreset is the name of a Plezix Profiler preset [1]. In general,
  *   the profiler preset will have the correct set of threads for a particular
  *   logging preset, so that all logging statements are recorded in the profile
  *   as markers.
@@ -191,7 +191,7 @@ const gLoggingSettings = {
   // going to be used. Otherwise, a generic profiler preset is going to be used
   // ("firefox-platform").
   profilerPreset: null,
-  // If non-null, the threads that will be recorded by the Firefox Profiler. If
+  // If non-null, the threads that will be recorded by the Plezix Profiler. If
   // null, the threads from the profiler presets are going to be used.
   profilerThreads: null,
   // If non-null, stack traces will be recorded for MOZ_LOG profiler markers.

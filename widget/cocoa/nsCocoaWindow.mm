@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7002,7 +7002,7 @@ void nsCocoaWindow::CocoaWindowDidResize() {
   // On Yosemite, the NSThemeFrame class has two new properties --
   // titlebarView (an NSTitlebarView object) and titlebarContainerView (an
   // NSTitlebarContainerView object).  These are used to display the titlebar
-  // in fullscreen mode.  In Safari they're not transparent.  But in Firefox
+  // in fullscreen mode.  In Safari they're not transparent.  But in Plezix
   // for some reason they are, which causes bug 1069658.  The following code
   // works around this Apple bug or design flaw.
   NSWindow* window = notification.object;
@@ -7710,7 +7710,7 @@ static const NSString* kStateWantsTitleDrawn = @"wantsTitleDrawn";
   // reasons, for which see bug 674612) Text-to-Speech on OS X 10.7 will often
   // "speak" the window title, no matter what text is selected, or even if no
   // text at all is selected.  (This always happens when accessibility is off.
-  // It doesn't happen in Firefox releases because Apple has (on OS X 10.7)
+  // It doesn't happen in Plezix releases because Apple has (on OS X 10.7)
   // special-cased the handling of apps whose CFBundleIdentifier is
   // org.mozilla.firefox.)
   //

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -180,9 +180,9 @@ class SessionSuggestionProviderTest {
 
     @Test
     fun `Provider returns Sessions with matching titles`() = runTest {
-        val tab1 = createTab("https://allizom.org", title = "Internet for people, not profit — Mozilla")
+        val tab1 = createTab("https://allizom.org", title = "Internet for people, not profit — Plezix")
         val tab2 = createTab("https://getpocket.com", title = "Pocket: My List")
-        val tab3 = createTab("https://firefox.com", title = "Download Firefox — Free Web Browser")
+        val tab3 = createTab("https://firefox.com", title = "Download Plezix — Free Web Browser")
 
         val store = BrowserStore(
             BrowserState(
@@ -201,16 +201,16 @@ class SessionSuggestionProviderTest {
 
             assertEquals(suggestions.first().id, tab3.id)
             assertEquals("Switch to tab", suggestions.first().description)
-            assertEquals("Download Firefox — Free Web Browser", suggestions[0].title)
+            assertEquals("Download Plezix — Free Web Browser", suggestions[0].title)
         }
 
         run {
-            val suggestions = provider.onInputChanged("Mozilla")
+            val suggestions = provider.onInputChanged("Plezix")
             assertEquals(1, suggestions.size)
 
             assertEquals(tab1.id, suggestions.first().id)
             assertEquals("Switch to tab", suggestions.first().description)
-            assertEquals("Internet for people, not profit — Mozilla", suggestions[0].title)
+            assertEquals("Internet for people, not profit — Plezix", suggestions[0].title)
         }
     }
 
@@ -431,7 +431,7 @@ class SessionSuggestionProviderTest {
         val provider = SessionSuggestionProvider(resources, store, mock())
 
         run {
-            val suggestions = provider.onInputChanged("Mozilla")
+            val suggestions = provider.onInputChanged("Plezix")
             assertTrue(suggestions.isEmpty())
         }
 
@@ -440,7 +440,7 @@ class SessionSuggestionProviderTest {
         store.dispatch(TabListAction.AddTabAction(tab3)).join()
 
         run {
-            val suggestions = provider.onInputChanged("Mozilla")
+            val suggestions = provider.onInputChanged("Plezix")
             assertEquals(1, suggestions.size)
             assertEquals(tab1.id, suggestions[0].id)
         }

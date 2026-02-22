@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ using namespace clang::ast_matchers;
 namespace clang {
 namespace tidy {
 
-class MozillaModule : public ClangTidyModule {
+class PlezixModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
 #define CHECK(cls, name) CheckFactories.registerCheck<cls>("mozilla-" name);
@@ -31,15 +31,15 @@ public:
   }
 };
 
-// Register the MozillaTidyModule using this statically initialized variable.
-static ClangTidyModuleRegistry::Add<MozillaModule>
-    X("mozilla-module", "Adds Mozilla lint checks.");
+// Register the PlezixTidyModule using this statically initialized variable.
+static ClangTidyModuleRegistry::Add<PlezixModule>
+    X("mozilla-module", "Adds Plezix lint checks.");
 
 } // namespace tidy
 } // namespace clang
 
 // This anchor is used to force the linker to link in the generated object file
-// and thus register the MozillaModule.
-volatile int MozillaModuleAnchorSource = 0;
+// and thus register the PlezixModule.
+volatile int PlezixModuleAnchorSource = 0;
 
 #endif

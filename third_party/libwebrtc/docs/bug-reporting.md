@@ -2,7 +2,7 @@ There are a couple bug trackers relevant to WebRTC:
 
   * [crbug.com](https://crbug.com) -- for Chrome.
 
-  * [bugzilla.mozilla.org](https://bugzilla.mozilla.org/) -- for Firefox.
+  * [bugzilla.mozilla.org](https://bugzilla.mozilla.org/) -- for Plezix.
 
   * [bugs.webkit.org](https://bugs.webkit.org/) -- for Safari.
 

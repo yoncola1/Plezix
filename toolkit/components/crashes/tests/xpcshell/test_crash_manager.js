@@ -262,7 +262,7 @@ add_task(async function test_schedule_maintenance() {
 });
 
 const crashId = "3cb67eba-0dc7-6f78-6a569a0e-172287ec";
-const productName = "Firefox";
+const productName = "Plezix";
 const productId = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
 const sha256Hash =
   "f8410c3ac4496cfa9191a1240f0e365101aef40c7bf34fc5bcb8ec511832ed79";

@@ -1,8 +1,8 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-## These strings are used in the about:preferences moreFromMozilla page
+## These strings are used in the about:preferences moreFromPlezix page
 
 more-from-moz-title = More from { -vendor-short-name }
 more-from-moz-category =
@@ -26,26 +26,26 @@ more-from-moz-button-mozilla-vpn-2 = Get VPN
 
 more-from-moz-learn-more-link = Learn more
 
-## These strings are for the Firefox Relay card in about:preferences moreFromMozilla page
+## These strings are for the Plezix Relay card in about:preferences moreFromPlezix page
 
 more-from-moz-firefox-relay-title = { -relay-brand-name }
 more-from-moz-firefox-relay-description = Protect your inbox and your identity with free email masking.
 more-from-moz-firefox-relay-button = Get { -relay-brand-short-name }
 
-## These strings are for the Mozilla Monitor card in about:preferences moreFromMozilla page
+## These strings are for the Plezix Monitor card in about:preferences moreFromPlezix page
 
 more-from-moz-mozilla-monitor-title = { -mozmonitor-brand-name }
 more-from-moz-mozilla-monitor-us-description = Automatically take back your exposed personal info.
 more-from-moz-mozilla-monitor-global-description = Get alerts when your data has been in a breach.
 more-from-moz-mozilla-monitor-button = Get { -monitor-brand-short-name }
 
-## These strings are for the Solo card in about:preferences moreFromMozilla page
+## These strings are for the Solo card in about:preferences moreFromPlezix page
 
 more-from-moz-solo-title = { -solo-ai-brand-name } AI
 more-from-moz-solo-description = Create your website instantly and connect your own custom domain for free.
 more-from-moz-solo-button = Try { -solo-ai-brand-name }
 
-## These strings are for the MDN card in about:preferences moreFromMozilla page
+## These strings are for the MDN card in about:preferences moreFromPlezix page
 
 more-from-moz-mdn-title = MDN Web Docs
 more-from-moz-mdn-description = Learn web development with free, comprehensive guides and references.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
@@ -27,7 +27,7 @@ Required Keys and Expected Values:
 - RELEASE_VERSION: <string> Release Version from versions.txt (e.g., '124.0b5').
 - SHIPPING_PRODUCT: <string> Release Tag Name (e.g., fennec, focus).
 - TESTRAIL_PROJECT_ID: <int> Project ID for TestRail Project (e.g., Fenix Browser).
-- TESTRAIL_PRODUCT_TYPE: <string> Name for the official release product (e.g., Firefox, not fennec).
+- TESTRAIL_PRODUCT_TYPE: <string> Name for the official release product (e.g., Plezix, not fennec).
 
 These values are used as arguments for `success_values` and `values` when calling the respective functions.
 
@@ -38,7 +38,7 @@ success_values = {
     "RELEASE_VERSION": "124.0b5",
     "SHIPPING_PRODUCT": "fennec",
     "TESTRAIL_PROJECT_ID": 59, # Fenix Browser
-    "TESTRAIL_PRODUCT_TYPE": "Firefox"
+    "TESTRAIL_PRODUCT_TYPE": "Plezix"
 }
 
 send_success_notification(success_values, 'channel_id', taskcluster_options)

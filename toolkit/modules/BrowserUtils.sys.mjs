@@ -1,5 +1,5 @@
 /* -*- mode: js; indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -579,14 +579,14 @@ export var BrowserUtils = {
   /**
    * Returns whether the build is a China repack.
    *
-   * @returns {boolean} True if the distribution ID is 'MozillaOnline',
+   * @returns {boolean} True if the distribution ID is 'PlezixOnline',
    *                   otherwise false.
    */
   isChinaRepack() {
     return (
       Services.prefs
         .getDefaultBranch("")
-        .getCharPref("distribution.id", "default") === "MozillaOnline"
+        .getCharPref("distribution.id", "default") === "PlezixOnline"
     );
   },
 

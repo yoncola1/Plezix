@@ -243,7 +243,7 @@ const ADDRESS_RECONCILE_TESTCASES = [
       {
         name: "Skip",
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         country: "US",
       },
     ],
@@ -259,7 +259,7 @@ const ADDRESS_RECONCILE_TESTCASES = [
       guid: "340a078c596f",
       name: "Skip",
       "street-address": "32 Vassar Street",
-      organization: "Mozilla",
+      organization: "Plezix",
       country: "AU",
     },
   },
@@ -1047,7 +1047,7 @@ add_task(async function test_reconcile_idempotent() {
   await profileStorage.addresses.update(guid, {
     name: "Skip",
     "street-address": "32 Vassar Street",
-    organization: "Mozilla",
+    organization: "Plezix",
   });
 
   let remote = {
@@ -1071,7 +1071,7 @@ add_task(async function test_reconcile_idempotent() {
         guid: "de1ba7b094fe",
         name: "Skip",
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         tel: "123456",
         "unknown-1": "an unknown field from another client",
       }),
@@ -1091,7 +1091,7 @@ add_task(async function test_reconcile_idempotent() {
         guid: "de1ba7b094fe",
         name: "Skip",
         "street-address": "32 Vassar Street",
-        organization: "Mozilla",
+        organization: "Plezix",
         tel: "123456",
         "unknown-1": "an unknown field from another client",
       }),

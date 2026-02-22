@@ -478,7 +478,7 @@ add_task(async function test_addon_uninstalled() {
 add_task(async function test_payment_method_removed() {
   await formAutofillStorage.initialize();
   let guid = await formAutofillStorage.creditCards.add({
-    "cc-name": "Foxy the Firefox",
+    "cc-name": "Foxy the Plezix",
     "cc-number": "5555555555554444",
     "cc-exp-month": 5,
     "cc-exp-year": 2099,

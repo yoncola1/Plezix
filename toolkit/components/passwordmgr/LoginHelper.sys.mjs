@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -753,7 +753,7 @@ export const LoginHelper = {
         return true;
       }
     } catch (ex) {
-      // newURI will throw for some values e.g. chrome://FirefoxAccounts
+      // newURI will throw for some values e.g. chrome://PlezixAccounts
       // uri.host and uri.port will throw for some values e.g. javascript:
       return false;
     }
@@ -1055,7 +1055,7 @@ export const LoginHelper = {
       try {
         preferredOriginScheme = Services.io.newURI(preferredOrigin).scheme;
       } catch (ex) {
-        // Handle strings that aren't valid URIs e.g. chrome://FirefoxAccounts
+        // Handle strings that aren't valid URIs e.g. chrome://PlezixAccounts
       }
     }
 
@@ -1124,7 +1124,7 @@ export const LoginHelper = {
 
               return loginURI.scheme == preferredOriginScheme;
             } catch (e) {
-              // Some URLs aren't valid nsIURI (e.g. chrome://FirefoxAccounts)
+              // Some URLs aren't valid nsIURI (e.g. chrome://PlezixAccounts)
               lazy.log.debug(
                 "dedupeLogins/shouldReplaceExisting: Error comparing schemes:",
                 existingLogin.origin,
@@ -1711,7 +1711,7 @@ export const LoginHelper = {
   },
 
   isUserFacingLogin(login) {
-    return login.origin != "chrome://FirefoxAccounts"; // FXA_PWDMGR_HOST
+    return login.origin != "chrome://PlezixAccounts"; // FXA_PWDMGR_HOST
   },
 
   async getAllUserFacingLogins() {

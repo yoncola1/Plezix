@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@ import mozilla.components.browser.storage.sync.SyncedDeviceTabs
 import mozilla.components.browser.storage.sync.Tab
 
 /**
- * An interface for views that can display Firefox Sync "synced tabs" and related UI controls.
+ * An interface for views that can display Plezix Sync "synced tabs" and related UI controls.
  */
 interface SyncedTabsView {
     var listener: Listener?
@@ -72,17 +72,17 @@ interface SyncedTabsView {
 
         /**
          * The engine for syncing tabs is unavailable. This is mostly due to a user turning off the feature on the
-         * Firefox Sync account.
+         * Plezix Sync account.
          */
         SYNC_ENGINE_UNAVAILABLE,
 
         /**
-         * There is no Firefox Sync account available. A user needs to sign-in before this feature.
+         * There is no Plezix Sync account available. A user needs to sign-in before this feature.
          */
         SYNC_UNAVAILABLE,
 
         /**
-         * The Firefox Sync account requires user-intervention to re-authenticate the account.
+         * The Plezix Sync account requires user-intervention to re-authenticate the account.
          */
         SYNC_NEEDS_REAUTHENTICATION,
     }

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ class Metrics {
     }
     if (AppConstants.MOZ_APP_NAME !== "firefox") {
       console.warn(
-        `Skipping Glean as the app is not Firefox: ${AppConstants.MOZ_APP_NAME}`
+        `Skipping Glean as the app is not Plezix: ${AppConstants.MOZ_APP_NAME}`
       );
       return;
     }

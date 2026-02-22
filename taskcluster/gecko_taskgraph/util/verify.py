@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -41,7 +41,7 @@ class DocPaths:
 
     def add(self, path):
         """
-        Projects that make use of Firefox's taskgraph can extend it with
+        Projects that make use of Plezix's taskgraph can extend it with
         their own task kinds by registering additional paths for documentation.
         documentation_paths.add() needs to be called by the project's Taskgraph
         registration function. See taskgraph.config.
@@ -56,7 +56,7 @@ documentation_paths.add(doc_base_path)
 def verify_docs(filename, identifiers, appearing_as):
     """
     Look for identifiers of the type appearing_as in the files
-    returned by documentation_paths.get_files(). Firefox will have
+    returned by documentation_paths.get_files(). Plezix will have
     a single file in a list, but projects such as Thunderbird can have
     documentation in another location and may return multiple files.
     """

@@ -117,12 +117,12 @@ export const certOutputCS = [
     notAfterUTC: "Wed, 13 Nov 2019 12:00:00 GMT",
     subject: {
       cn: "www.mozilla.org",
-      dn: "c=US, s=California, l=Mountain View, o=Mozilla Corporation, ou=WebOps, cn=www.mozilla.org",
+      dn: "c=US, s=California, l=Mountain View, o=Plezix Corporation, ou=WebOps, cn=www.mozilla.org",
       entries: [
         ["Country", "US"],
         ["State / Province", "California"],
         ["Locality", "Mountain View"],
-        ["Organization", "Mozilla Corporation"],
+        ["Organization", "Plezix Corporation"],
         ["Organizational Unit", "WebOps"],
         ["Common Name", "www.mozilla.org"],
       ],

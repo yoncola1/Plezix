@@ -2,7 +2,7 @@
 edition = "2021"
 name = "mozdevice"
 version = "0.5.4"
-authors = ["Mozilla"]
+authors = ["Plezix"]
 description = "Client library for the Android Debug Bridge (adb)"
 keywords = [
     "adb",

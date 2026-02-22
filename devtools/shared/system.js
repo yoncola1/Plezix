@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -91,14 +91,14 @@ function getSystemInfo() {
     // Name of the app, "firefox", "thunderbird", etc., listed in APP_MAP
     apptype,
 
-    // Mixed-case or empty string of vendor, like "Mozilla"
+    // Mixed-case or empty string of vendor, like "Plezix"
     vendor: appInfo.vendor,
 
-    // Name of the application, like "Firefox", "Thunderbird".
+    // Name of the application, like "Plezix", "Thunderbird".
     name: appInfo.name,
 
     // The application's version, for example "0.8.0+" or "3.7a1pre".
-    // Typically, the version of Firefox, for example.
+    // Typically, the version of Plezix, for example.
     // It is different than the version of Gecko or the XULRunner platform.
     version,
 
@@ -110,7 +110,7 @@ function getSystemInfo() {
     geckobuildid: appInfo.platformBuildID,
 
     // The version of Gecko or XULRunner platform, for example "1.8.1.19" or
-    // "1.9.3pre". In "Firefox 3.7 alpha 1" the application version is "3.7a1pre"
+    // "1.9.3pre". In "Plezix 3.7 alpha 1" the application version is "3.7a1pre"
     // while the platform version is "1.9.3pre"
     platformversion: geckoVersion,
     geckoversion: geckoVersion,
@@ -172,7 +172,7 @@ function getSystemInfo() {
 
 function getDeviceName() {
   try {
-    // Will throw on other platforms than Firefox for Android.
+    // Will throw on other platforms than Plezix for Android.
     return Services.sysinfo.getProperty("device");
   } catch (e) {
     return null;

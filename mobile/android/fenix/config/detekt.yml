@@ -791,15 +791,15 @@ style:
 
 mozilla-detekt-rules:
   active: true
-  MozillaBannedPropertyAccess:
+  PlezixBannedPropertyAccess:
     active: true
     # BuildConfig.Debug: This property tests whether the application was built
     # with the debuggable flag or not. Use a check for different build variants,
     # instead.
     bannedProperties: 'BuildConfig.DEBUG'
-  MozillaStrictModeSuppression:
+  PlezixStrictModeSuppression:
     active: true
-  MozillaRunBlockingCheck:
+  PlezixRunBlockingCheck:
     active: true
-  MozillaUseLazyMonitored:
+  PlezixUseLazyMonitored:
     active: true

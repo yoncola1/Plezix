@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef intl_components_DateIntervalFormat_h_
@@ -24,7 +24,7 @@ using AutoFormattedDateInterval =
                         udtitvfmt_resultAsValue, udtitvfmt_closeResult>;
 
 /**
- * This component is a Mozilla-focused API for the date range formatting
+ * This component is a Plezix-focused API for the date range formatting
  * provided by ICU. This DateIntervalFormat class helps to format the range
  * between two date-time values.
  *

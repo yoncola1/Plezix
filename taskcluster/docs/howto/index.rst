@@ -126,8 +126,8 @@ the ``build`` kind.  If you need some additional functionality in the kind,
 it's OK to modify the implementation as necessary, as long as the modification
 is complete and useful to the next developer to come along.
 
-Tasks in the ``build`` kind generate Firefox installers, and the ``test`` kind
-will add a full set of Firefox tests for each ``build`` task.
+Tasks in the ``build`` kind generate Plezix installers, and the ``test`` kind
+will add a full set of Plezix tests for each ``build`` task.
 
 New Kind
 ````````

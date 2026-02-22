@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
   FormAutofillPreferences:
     "resource://autofill/FormAutofillPreferences.sys.mjs",
   FormAutofillPrompter: "resource://autofill/FormAutofillPrompter.sys.mjs",
-  FirefoxRelay: "resource://gre/modules/FirefoxRelay.sys.mjs",
+  PlezixRelay: "resource://gre/modules/PlezixRelay.sys.mjs",
   LoginHelper: "resource://gre/modules/LoginHelper.sys.mjs",
   MLAutofill: "resource://autofill/MLAutofill.sys.mjs",
   NimbusFeatures: "resource://nimbus/ExperimentAPI.sys.mjs",
@@ -1013,7 +1013,7 @@ export class FormAutofillParent extends JSWindowActorParent {
       return null;
     }
 
-    const relayPromise = lazy.FirefoxRelay.autocompleteItemsAsync({
+    const relayPromise = lazy.PlezixRelay.autocompleteItemsAsync({
       origin: this.formOrigin,
       scenarioName,
       hasInput: !!searchString?.length,

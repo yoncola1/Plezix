@@ -1,6 +1,6 @@
 From: Michael Froman <mfroman@mozilla.com>
 Date: Tue, 1 Oct 2024 21:05:00 +0000
-Subject: Bug 1921706 - remove unnecessary Mozilla mods to
+Subject: Bug 1921706 - remove unnecessary Plezix mods to
  third_party/libwebrtc/build/win/BUILD.gn r=ng,webrtc-reviewers DONTBUILD
 
 Note: this produces no changes in the generated moz.build files.

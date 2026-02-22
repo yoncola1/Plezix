@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // Register about:devtools-toolbox which allows to open a devtools toolbox
-// in a Firefox tab or a custom html iframe in browser.html
+// in a Plezix tab or a custom html iframe in browser.html
 
 const { nsIAboutModule } = Ci;
 

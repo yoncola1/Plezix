@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.fenix.ui.robots
@@ -214,10 +214,10 @@ class ThreeDotMenuMainRobotCompose(private val composeTestRule: ComposeTestRule)
         composeTestRule.bookmarkPageButton().assertIsDisplayed()
     }
 
-    fun clickQuitFirefoxButton() {
-        Log.i(TAG, "clickQuitFirefoxButton: Trying to click the \"Quit $appName\" button from the new main menu design.")
-        composeTestRule.quitFirefoxButton().performClick()
-        Log.i(TAG, "clickQuitFirefoxButton: Clicked the \"Quit $appName\" button from the new main menu design.")
+    fun clickQuitPlezixButton() {
+        Log.i(TAG, "clickQuitPlezixButton: Trying to click the \"Quit $appName\" button from the new main menu design.")
+        composeTestRule.quitPlezixButton().performClick()
+        Log.i(TAG, "clickQuitPlezixButton: Clicked the \"Quit $appName\" button from the new main menu design.")
     }
 
     class Transition(private val composeTestRule: ComposeTestRule) {
@@ -508,7 +508,7 @@ private fun ComposeTestRule.passwordsButton() = onNodeWithContentDescription(get
 
 private fun ComposeTestRule.backToMainMenuButton() = onNodeWithContentDescription(getStringResource(R.string.browser_menu_back_button_content_description))
 
-private fun ComposeTestRule.quitFirefoxButton() = onNodeWithContentDescription("Quit $appName")
+private fun ComposeTestRule.quitPlezixButton() = onNodeWithContentDescription("Quit $appName")
 
 // Page main menu items
 

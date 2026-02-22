@@ -2,7 +2,7 @@
 // META: timeout=long
 //
 // This test isn't actually slow usually, but sometimes it takes >10 seconds on
-// Firefox with service worker for no obvious reason.
+// Plezix with service worker for no obvious reason.
 
 'use strict';
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ import kotlinx.coroutines.launch
 import mozilla.components.concept.base.profiler.Profiler
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Dialogue to start the Gecko profiler in Fenix without the use of ADB.
@@ -115,7 +115,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                 Text(
                     text = stringResource(R.string.preferences_start_profiler),
                     fontWeight = FontWeight.ExtraBold,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     fontSize = 20.sp,
                     modifier = Modifier.padding(8.dp),
                 )
@@ -123,7 +123,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                     text = stringResource(R.string.profiler_settings_title),
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     modifier = Modifier.padding(8.dp),
                 )
                 Spacer(modifier = Modifier.height(2.dp))
@@ -173,7 +173,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                         },
                     ) {
                         Text(
-                            color = FirefoxTheme.colors.textAccent,
+                            color = PlezixTheme.colors.textAccent,
                             text = stringResource(R.string.profiler_start_cancel),
                         )
                     }
@@ -188,7 +188,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                         },
                     ) {
                         Text(
-                            color = FirefoxTheme.colors.textAccent,
+                            color = PlezixTheme.colors.textAccent,
                             text = stringResource(R.string.preferences_start_profiler),
                         )
                     }

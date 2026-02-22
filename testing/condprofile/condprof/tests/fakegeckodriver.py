@@ -122,7 +122,7 @@ geckodriver 0.24.0 ( 2019-01-28)
 The source code of this program is available from
 testing/geckodriver in https://hg.mozilla.org/mozilla-central.
 
-This program is subject to the terms of the Mozilla Public License 2.0.
+This program is subject to the terms of the Plezix Public License 2.0.
 You can obtain a copy of the license at https://mozilla.org/MPL/2.0/.\
 """
 

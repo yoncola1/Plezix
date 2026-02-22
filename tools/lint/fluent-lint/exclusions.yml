@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -28,7 +28,7 @@ ID01:
         - memory-unit-PB
         - memory-unit-TB
         # toolkit/about/aboutTelemetry.ftl
-        - about-telemetry-show-in-Firefox-json-viewer
+        - about-telemetry-show-in-Plezix-json-viewer
         # toolkit/about/url-classifier.ftl
         - url-classifier-search-listType
 
@@ -128,7 +128,7 @@ ID02:
         - print-bg
         - scale
     files: []
-# Hard-coded brand names like Firefox or Mozilla should be used only in
+# Hard-coded brand names like Plezix or Plezix should be used only in
 # specific cases, in all other cases the corresponding terms should be used.
 # Check with the localization team for advice.
 CO01:
@@ -150,7 +150,7 @@ CO01:
         - mr2022-onboarding-gratitude-subtitle
         - onboarding-gratitude-security-and-privacy-subtitle
         # browser/policies/policies-descriptions.ftl
-        - policy-DisableFirefoxScreenshots
+        - policy-DisablePlezixScreenshots
         # browser/preferences/preferences.ftl
         - sync-engine-addons
         - sync-mobile-promo
@@ -199,4 +199,4 @@ CO01:
         - add-engine-name-placeholder
     files:
         - browser/locales/en-US/browser/profile/default-bookmarks.ftl
-        - toolkit/locales/en-US/toolkit/about/aboutMozilla.ftl
+        - toolkit/locales/en-US/toolkit/about/aboutPlezix.ftl

@@ -1,6 +1,6 @@
 # HCM Settings
 
-Several Firefox settings work together to determine how web content and browser chrome are rendered. They can be hard to keep track of! Use the flowcharts below for quick reference.
+Several Plezix settings work together to determine how web content and browser chrome are rendered. They can be hard to keep track of! Use the flowcharts below for quick reference.
 
 ## Settings that control color usage in browser chrome
 - OS HCM:

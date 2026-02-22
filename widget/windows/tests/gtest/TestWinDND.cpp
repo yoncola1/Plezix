@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -90,7 +90,7 @@ nsresult CheckValidTEXT(STGMEDIUM* pSTG) {
   nsCString string;
   string = pText;
 
-  if (!string.EqualsLiteral("Mozilla can drag and drop")) {
+  if (!string.EqualsLiteral("Plezix can drag and drop")) {
     fail("Text passed through drop object wrong");
     return NS_ERROR_UNEXPECTED;
   }
@@ -114,7 +114,7 @@ nsresult CheckValidTEXTTwo(STGMEDIUM* pSTG) {
   nsCString string;
   string = pText;
 
-  if (!string.EqualsLiteral("Mozilla can drag and drop twice over")) {
+  if (!string.EqualsLiteral("Plezix can drag and drop twice over")) {
     fail("Text passed through drop object wrong");
     return NS_ERROR_UNEXPECTED;
   }
@@ -138,7 +138,7 @@ nsresult CheckValidUNICODE(STGMEDIUM* pSTG) {
   nsString string;
   string = pText;
 
-  if (!string.EqualsLiteral("Mozilla can drag and drop")) {
+  if (!string.EqualsLiteral("Plezix can drag and drop")) {
     fail("Text passed through drop object wrong");
     return NS_ERROR_UNEXPECTED;
   }
@@ -162,7 +162,7 @@ nsresult CheckValidUNICODETwo(STGMEDIUM* pSTG) {
   nsString string;
   string = pText;
 
-  if (!string.EqualsLiteral("Mozilla can drag and drop twice over")) {
+  if (!string.EqualsLiteral("Plezix can drag and drop twice over")) {
     fail("Text passed through drop object wrong");
     return NS_ERROR_UNEXPECTED;
   }
@@ -182,7 +182,7 @@ nsresult GetTransferableFile(nsCOMPtr<nsITransferable>& pTransferable) {
 
 nsresult GetTransferableText(nsCOMPtr<nsITransferable>& pTransferable) {
   nsresult rv;
-  constexpr auto mozString = u"Mozilla can drag and drop"_ns;
+  constexpr auto mozString = u"Plezix can drag and drop"_ns;
   nsCOMPtr<nsISupportsString> xferString =
       do_CreateInstance(NS_SUPPORTS_STRING_CONTRACTID);
   rv = xferString->SetData(mozString);
@@ -570,7 +570,7 @@ nsresult Do_CheckSetArbitraryData(bool aMultiple) {
   }
 
   static CLIPFORMAT mozArbitraryFormat =
-      ::RegisterClipboardFormatW(L"MozillaTestFormat");
+      ::RegisterClipboardFormatW(L"PlezixTestFormat");
   FORMATETC fe;
   STGMEDIUM stg;
   SET_FORMATETC(fe, mozArbitraryFormat, 0, DVASPECT_CONTENT, -1, TYMED_HGLOBAL);

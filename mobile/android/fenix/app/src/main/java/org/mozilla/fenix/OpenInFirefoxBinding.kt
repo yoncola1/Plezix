@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,17 +17,17 @@ import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.appstate.AppState
 
 /**
- * A binding for observing [AppState.openInFirefoxRequested] in the [AppStore] and opening the tab in the browser.
+ * A binding for observing [AppState.openInPlezixRequested] in the [AppStore] and opening the tab in the browser.
  *
  * @param activity The [HomeActivity] used to switch to the actual browser.
- * @param appStore The [AppStore] used to observe [AppState.openInFirefoxRequested].
+ * @param appStore The [AppStore] used to observe [AppState.openInPlezixRequested].
  * @param customTabSessionId Optional custom tab session ID if navigating from a custom tab or null
  * if the selected session should be used.
  * @param customTabsUseCases The [CustomTabsUseCases] used to turn the session into a regular tab and select it.
  * @param openInFenixIntent The [Intent] used to open the tab in the browser.
  * @param sessionFeature The [SessionFeature] used to release the session from the EngineView.
  */
-class OpenInFirefoxBinding(
+class OpenInPlezixBinding(
     private val activity: HomeActivity,
     private val appStore: AppStore,
     private val customTabSessionId: String?,
@@ -37,7 +37,7 @@ class OpenInFirefoxBinding(
 ) : AbstractBinding<AppState>(appStore) {
 
     override suspend fun onState(flow: Flow<AppState>) {
-        flow.map { state -> state.openInFirefoxRequested }
+        flow.map { state -> state.openInPlezixRequested }
             .distinctUntilChanged()
             .collect { state ->
                 when (state) {
@@ -64,7 +64,7 @@ class OpenInFirefoxBinding(
 
                             // Close this activity (and the task) since it is no longer displaying any session
                             activity.finishAndRemoveTask()
-                            appStore.dispatch(AppAction.OpenInFirefoxFinished)
+                            appStore.dispatch(AppAction.OpenInPlezixFinished)
                         }
                     }
 

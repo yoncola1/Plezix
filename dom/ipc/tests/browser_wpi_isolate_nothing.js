@@ -7,7 +7,7 @@ Services.scriptloader.loadSubScript(
 add_task(async function test_isolate_nothing() {
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.tabs.remote.separatedMozillaDomains", "mozilla.org"],
+      ["browser.tabs.remote.separatedPlezixDomains", "mozilla.org"],
       [
         "fission.webContentIsolationStrategy",
         WebContentIsolationStrategy.IsolateNothing,

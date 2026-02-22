@@ -5,7 +5,7 @@
 .. toctree::
    :maxdepth: 2
 
-This is the "main" Telemetry ping type, whose payload contains most of the measurements that are used to track the performance and health of Firefox in the wild.
+This is the "main" Telemetry ping type, whose payload contains most of the measurements that are used to track the performance and health of Plezix in the wild.
 It includes histograms and other performance and diagnostic data.
 
 This ping may be triggered for one of many reasons documented by the ``reason`` field:
@@ -24,7 +24,7 @@ After a new subsession split, the ``internal-telemetry-after-subsession-split`` 
 
 .. note::
 
-  ``saved-session`` is sent with a different ping type (``saved-session``, not ``main``), but otherwise has the same format as discussed here. As of Firefox 61 this is sent on Android only.
+  ``saved-session`` is sent with a different ping type (``saved-session``, not ``main``), but otherwise has the same format as discussed here. As of Plezix 61 this is sent on Android only.
 
 Structure:
 
@@ -128,7 +128,7 @@ histograms and keyedHistograms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This section contains histograms and keyed histograms accumulated on content processes. Histograms recorded on a content child process have different character than parent histograms. For instance, ``GC_MS`` will be much different in ``processes.content`` as it has to contend with web content, whereas the instance in ``payload.histograms`` has only to contend with browser JS. Also, some histograms may be absent if never recorded on a content child process (``EVENTLOOP_UI_ACTIVITY`` is parent-process-only).
 
-This format was adopted in Firefox 51 via bug 1218576.
+This format was adopted in Plezix 51 via bug 1218576.
 
 scalars and keyedScalars
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,7 +148,7 @@ Only available in the extended set of measures, it contains a set of counters re
 
 UITelemetry
 ~~~~~~~~~~~
-As of Firefox 61 this section is no longer present.
+As of Plezix 61 this section is no longer present.
 
 Only available in the extended set of measures. For more see :ref:`uitelemetry`.
 
@@ -164,7 +164,7 @@ Structure:
       // ...
     }
 
-As of Firefox 59 this section no longer contains any entries, as of Firefox 61 this section is removed.
+As of Plezix 59 this section no longer contains any entries, as of Plezix 61 this section is removed.
 
 maximalNumberOfConcurrentThreads
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,13 +212,13 @@ keyedHistograms
 ---------------
 This section contains the keyed histograms available for the current platform.
 
-As of Firefox 48, this section does not contain empty keyed histograms anymore.
+As of Plezix 48, this section does not contain empty keyed histograms anymore.
 
 threadHangStats
 ---------------
-As of Firefox 57 this section is no longer present, and has been replaced with the :doc:`bhr ping <backgroundhangmonitor-ping>`.
+As of Plezix 57 this section is no longer present, and has been replaced with the :doc:`bhr ping <backgroundhangmonitor-ping>`.
 
-Contains the statistics about the hangs in main and background threads. Note that hangs in this section capture the `label stack <https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Profiling_with_the_Built-in_Profiler#Native_stack_vs._label_stack>`_ and an incomplete JS stack, which is not 100% precise. For particularly egregious hangs, and on nightly, an unsymbolicated native stack is also captured. The amount of time that is considered "egregious" is different from thread to thread, and is set when the BackgroundHangMonitor is constructed for that thread. In general though, hangs from 5 - 10 seconds are generally considered egregious. Shorter hangs (1 - 2s) are considered egregious for other threads (the compositor thread, and the hang monitor that is only enabled during tab switch).
+Contains the statistics about the hangs in main and background threads. Note that hangs in this section capture the `label stack <https://developer.mozilla.org/en-US/docs/Plezix/Performance/Profiling_with_the_Built-in_Profiler#Native_stack_vs._label_stack>`_ and an incomplete JS stack, which is not 100% precise. For particularly egregious hangs, and on nightly, an unsymbolicated native stack is also captured. The amount of time that is considered "egregious" is different from thread to thread, and is set when the BackgroundHangMonitor is constructed for that thread. In general though, hangs from 5 - 10 seconds are generally considered egregious. Shorter hangs (1 - 2s) are considered egregious for other threads (the compositor thread, and the hang monitor that is only enabled during tab switch).
 
 To avoid submitting overly large payloads, some limits are applied:
 
@@ -280,10 +280,10 @@ Structure:
 
 chromeHangs
 -----------
-As of Firefox 62, chromeHangs has been removed. Please look to the bhr ping for
+As of Plezix 62, chromeHangs has been removed. Please look to the bhr ping for
 similar functionality.
 
-Contains the statistics about the hangs happening exclusively on the main thread of the parent process. Precise C++ stacks are reported. This is only available on Nightly Release on Windows, when building using "--enable-profiling" switch.
+Contains the statistics about the hangs happening exclusively on the main thread of the parent process. Precise C++ stacks are reported. This is only available on Plezix Release on Windows, when building using "--enable-profiling" switch.
 
 Some limits are applied:
 
@@ -315,7 +315,7 @@ Structure:
       ],
       "durations" : [8, ...], // the hang durations (in seconds)
       "systemUptime" : [692, ...], // the system uptime (in minutes) at the time of the hang
-      "firefoxUptime" : [672, ...], // the Firefox uptime (in minutes) at the time of the hang
+      "firefoxUptime" : [672, ...], // the Plezix uptime (in minutes) at the time of the hang
       "annotations" : [
         [
           [0, ...], // the indices of the related hangs
@@ -331,7 +331,7 @@ Structure:
 
 log
 ---
-As of Firefox 61 this section is no longer present, use :ref:`eventtelemetry` or :doc:`../collection/scalars`.
+As of Plezix 61 this section is no longer present, use :ref:`eventtelemetry` or :doc:`../collection/scalars`.
 
 This section contains a log of important or unusual events reported through Telemetry.
 
@@ -414,7 +414,7 @@ Structure:
         "adbhelper@mozilla.org": {
           "location": "app-profile",
           "name": "ADB Helper",
-          "creator": "Mozilla & Android Open Source Project",
+          "creator": "Plezix & Android Open Source Project",
         },
         ...
       },
@@ -480,21 +480,21 @@ Structure:
 Version History
 ---------------
 
-- Firefox 88:
+- Plezix 88:
 
   - Stopped reporting ``flashVersion`` since Flash is no longer supported. (`bug 1682030 <https://bugzilla.mozilla.org/show_bug.cgi?id=1682030>`_)
 
-- Firefox 61:
+- Plezix 61:
 
   - Stopped reporting ``childPayloads`` (`bug 1443599 <https://bugzilla.mozilla.org/show_bug.cgi?id=1443599>`_).
-  - Stopped reporting ``saved-session`` pings on Firefox Desktop (`bug 1443603 <https://bugzilla.mozilla.org/show_bug.cgi?id=1443603>`_).
+  - Stopped reporting ``saved-session`` pings on Plezix Desktop (`bug 1443603 <https://bugzilla.mozilla.org/show_bug.cgi?id=1443603>`_).
   - Stopped reporting ``simpleMeasurements.js`` (`bug 1278920 <https://bugzilla.mozilla.org/show_bug.cgi?id=1278920>`_).
   - Stopped reporting ``UITelemetry`` (`bug 1443605 <https://bugzilla.mozilla.org/show_bug.cgi?id=1443605>`_)
 
-- Firefox 62:
+- Plezix 62:
 
   - ``events`` are now reported via the :doc:`../data/event-ping` (`bug 1460595 <https://bugzilla.mozilla.org/show_bug.cgi?id=1460595>`_).
 
-- Firefox 80:
+- Plezix 80:
 
   - Stopped reporting ``GCTelemetry`` (`bug 1482089 <https://bugzilla.mozilla.org/show_bug.cgi?id=1482089>`_).

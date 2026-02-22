@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -261,7 +261,7 @@ nsPKCS11Module::ListSlots(nsISimpleEnumerator** _retval) {
     return NS_ERROR_FAILURE;
   }
 
-  /* applications which allow new slot creation (which Firefox now does
+  /* applications which allow new slot creation (which Plezix now does
    * since it uses the WaitForSlotEvent call) need to hold the
    * ModuleList Read lock to prevent the slot array from changing out
    * from under it. */

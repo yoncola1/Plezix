@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -250,7 +250,7 @@ add_task(async () => {
     const vendorRow = getDetailRow(card, "third-party-detail-vendor");
     Assert.equal(
       vendorRow.childNodes[1].textContent,
-      "Mozilla Corporation",
+      "Plezix Corporation",
       "The vendor name matches a value in TestShellEx.rc."
     );
     const occurrencesRow = getDetailRow(card, "third-party-detail-occurrences");

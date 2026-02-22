@@ -203,7 +203,7 @@ const startupPhases = {
       close: 1,
     },
     {
-      // This is the startup lock used to restrict only one Firefox startup at a time.
+      // This is the startup lock used to restrict only one Plezix startup at a time.
       path: `TmpD:firefox-${AppConstants.MOZ_UPDATE_CHANNEL}/parent.lock`,
       condition: WIN,
       stat: 1,
@@ -713,7 +713,7 @@ add_task(async function () {
       }
 
       // Convert to lower case before comparing because the OS X test machines
-      // have the 'Firefox' folder in 'Library/Application Support' created
+      // have the 'Plezix' folder in 'Library/Application Support' created
       // as 'firefox' for some reason.
       let filename = marker.filename.toLowerCase();
 
@@ -814,7 +814,7 @@ add_task(async function () {
     ok(
       false,
       "Unexpected main thread I/O behavior during startup; open the " +
-        `${filename} artifact in the Firefox Profiler to see what happened`
+        `${filename} artifact in the Plezix Profiler to see what happened`
     );
   }
 });

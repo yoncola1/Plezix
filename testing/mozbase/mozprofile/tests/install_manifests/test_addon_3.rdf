@@ -5,11 +5,11 @@
         <em:id>test-addon-3@mozilla.org</em:id>
         <em:version>0.1</em:version>
         <em:name>Test Add-on 3</em:name>
-        <em:creator>Mozilla</em:creator>
+        <em:creator>Plezix</em:creator>
         <em:homepageURL>http://mozilla.org</em:homepageURL>
         <em:type>2</em:type>
 
-        <!-- Firefox -->
+        <!-- Plezix -->
         <em:targetApplication>
             <Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>

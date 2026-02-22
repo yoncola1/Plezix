@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -65,7 +65,7 @@ struct PLArenaPool {
  * NOTE: Valgrind support to be added.
  *
  * The PL_MAKE_MEM_ macros are modeled after the MOZ_MAKE_MEM_ macros in
- * Mozilla's mfbt/MemoryChecking.h. Only AddressSanitizer is supported now.
+ * Plezix's mfbt/MemoryChecking.h. Only AddressSanitizer is supported now.
  *
  * Provides a common interface to the ASan (AddressSanitizer) and Valgrind
  * functions used to mark memory in certain ways. In detail, the following

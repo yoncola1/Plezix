@@ -167,7 +167,7 @@ should always avoid code like this!
 What's wrong with this code is that you're assuming that 500ms is enough
 for whatever operation you're waiting for.  This may stop being true
 depending on the platform, whether it's a debug or optimized build of
-Firefox running this code, machine load, whether the test is run on a
+Plezix running this code, machine load, whether the test is run on a
 VM, etc.  And it will start failing, sooner or later.
 
 Instead of code like this, you should wait for the operation to be

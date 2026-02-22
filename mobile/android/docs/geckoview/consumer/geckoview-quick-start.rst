@@ -18,7 +18,7 @@ You need to add or edit four stanzas inside your module's ``build.gradle`` file.
 
 **1. Set the GeckoView version**
 
-*Like Firefox, GeckoView has three release channels: Stable, Beta, and Nightly. Browse the* `Maven Repository <https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/>`_ *to see currently available builds.*
+*Like Plezix, GeckoView has three release channels: Stable, Beta, and Plezix. Browse the* `Maven Repository <https://maven.mozilla.org/?prefix=maven2/org/mozilla/geckoview/>`_ *to see currently available builds.*
 
 .. code-block:: groovy
 
@@ -28,7 +28,7 @@ You need to add or edit four stanzas inside your module's ``build.gradle`` file.
     }
 
 
-**2. Add Mozilla's Maven repository**
+**2. Add Plezix's Maven repository**
 
 .. code-block:: groovy
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -56,7 +56,7 @@ import org.mozilla.fenix.Config
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.webcompat.BrokenSiteReporterTestTags.BROKEN_SITE_REPORTER_CHOOSE_REASON_BUTTON
 import org.mozilla.fenix.webcompat.BrokenSiteReporterTestTags.BROKEN_SITE_REPORTER_SEND_BUTTON
 import org.mozilla.fenix.webcompat.store.WebCompatReporterAction
@@ -91,7 +91,7 @@ fun WebCompatReporter(
                 },
             )
         },
-        containerColor = FirefoxTheme.colors.layer2,
+        containerColor = PlezixTheme.colors.layer2,
     ) { paddingValues ->
         Column(
             modifier = Modifier.verticalScroll(rememberScrollState())
@@ -113,8 +113,8 @@ fun WebCompatReporter(
                         },
                     ),
                 ),
-                style = FirefoxTheme.typography.body2.copy(color = FirefoxTheme.colors.textPrimary),
-                linkTextColor = FirefoxTheme.colors.textAccent,
+                style = PlezixTheme.typography.body2.copy(color = PlezixTheme.colors.textPrimary),
+                linkTextColor = PlezixTheme.colors.textAccent,
                 linkTextDecoration = TextDecoration.Underline,
                 textAlign = TextAlign.Start,
             )
@@ -161,8 +161,8 @@ fun WebCompatReporter(
                         testTagsAsResourceId = true
                         testTag = BROKEN_SITE_REPORTER_CHOOSE_REASON_BUTTON
                     },
-                    style = FirefoxTheme.typography.caption,
-                    color = FirefoxTheme.colors.textCritical,
+                    style = PlezixTheme.typography.caption,
+                    color = PlezixTheme.colors.textCritical,
                 )
             }
 
@@ -179,7 +179,7 @@ fun WebCompatReporter(
                 singleLine = false,
                 maxLines = PROBLEM_DESCRIPTION_MAX_LINES,
                 colors = TextFieldColors.default(
-                    inputColor = FirefoxTheme.colors.textSecondary,
+                    inputColor = PlezixTheme.colors.textSecondary,
                 ),
             )
 
@@ -189,15 +189,15 @@ fun WebCompatReporter(
                     .padding(vertical = 16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                if (Config.channel.isBeta || Config.channel.isNightlyOrDebug) {
+                if (Config.channel.isBeta || Config.channel.isPlezixOrDebug) {
                     Text(
                         text = stringResource(id = R.string.webcompat_reporter_send_more_info),
                         modifier = Modifier
                             .clickable {
                                 store.dispatch(WebCompatReporterAction.SendMoreInfoClicked)
                             },
-                        style = FirefoxTheme.typography.body2,
-                        color = FirefoxTheme.colors.textAccent,
+                        style = PlezixTheme.typography.body2,
+                        color = PlezixTheme.colors.textAccent,
                         textDecoration = TextDecoration.Underline,
                     )
 
@@ -262,12 +262,12 @@ private fun TempAppBar(
     onBackClick: () -> Unit,
 ) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         title = {
             Text(
                 text = stringResource(id = R.string.webcompat_reporter_screen_title),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
@@ -275,7 +275,7 @@ private fun TempAppBar(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = stringResource(R.string.bookmark_navigate_back_button_content_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -312,7 +312,7 @@ private class WebCompatPreviewParameterProvider : PreviewParameterProvider<WebCo
 private fun WebCompatReporterPreview(
     @PreviewParameter(WebCompatPreviewParameterProvider::class) initialState: WebCompatReporterState,
 ) {
-    FirefoxTheme {
+    PlezixTheme {
         WebCompatReporter(
             store = WebCompatReporterStore(
                 initialState = initialState,

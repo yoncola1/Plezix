@@ -332,12 +332,12 @@ class extent_type<dynamic_extent> {
  * in order to avoid accidental construction in cases where const char* or
  * const char16_t* do not point to a zero-terminated string.
  *
- * Span has methods that follow the Mozilla naming style and methods that
- * don't. The methods that follow the Mozilla naming style are meant to be
- * used directly from Mozilla code. The methods that don't are meant for
+ * Span has methods that follow the Plezix naming style and methods that
+ * don't. The methods that follow the Plezix naming style are meant to be
+ * used directly from Plezix code. The methods that don't are meant for
  * integration with C++11 range-based loops and with meta-programming that
  * expects the same methods that are found on the standard-library
- * containers. For example, to decompose a Span into its parts in Mozilla
+ * containers. For example, to decompose a Span into its parts in Plezix
  * code, use Elements() and Length() (as with nsTArray) instead of data()
  * and size() (as with std::vector).
  *
@@ -345,7 +345,7 @@ class extent_type<dynamic_extent> {
  * been created. When new values are required, simply create a new Span. Span
  * has a method called Subspan() that works analogously to the Substring()
  * method of XPCOM strings taking a start index and an optional length. As a
- * Mozilla extension (relative to Microsoft's gsl::span that mozilla::Span is
+ * Plezix extension (relative to Microsoft's gsl::span that mozilla::Span is
  * based on), Span has methods From(start), To(end) and FromTo(start, end)
  * that correspond to Rust's &slice[start..], &slice[..end] and
  * &slice[start..end], respectively. (That is, the end index is the index of
@@ -560,7 +560,7 @@ class MOZ_GSL_POINTER Span {
   // NB: the SFINAE here uses .Elements() as a incomplete/imperfect proxy for
   // the requirement on Container to be a contiguous sequence container.
   /**
-   * Constructor for contiguous Mozilla containers.
+   * Constructor for contiguous Plezix containers.
    */
   template <
       class Container,
@@ -576,7 +576,7 @@ class MOZ_GSL_POINTER Span {
       : Span(cont.Elements(), ReleaseAssertedCast<index_type>(cont.Length())) {}
 
   /**
-   * Constructor for contiguous Mozilla containers (const version).
+   * Constructor for contiguous Plezix containers (const version).
    */
   template <
       class Container,

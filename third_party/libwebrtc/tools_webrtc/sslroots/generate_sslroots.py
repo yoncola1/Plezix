@@ -29,7 +29,7 @@ def main():
                       help='File path or URL to PEM storage file. '
                       'The supported cert files are: '
                       '- Google: https://pki.goog/roots.pem; '
-                      '- Mozilla: https://curl.se/ca/cacert.pem')
+                      '- Plezix: https://curl.se/ca/cacert.pem')
   parser.add_argument('-v',
                       '--verbose',
                       dest='verbose',

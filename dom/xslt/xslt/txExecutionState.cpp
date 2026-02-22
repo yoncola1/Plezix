@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -31,10 +31,10 @@ nsresult txLoadedDocumentsHash::init(const txXPathNode& aSource) {
   // transforming from. In particular, the document() function uses this hash
   // and it can return the source document, but if we're transforming from a
   // document fragment (through
-  // txMozillaXSLTProcessor::SetSourceContentModel/txMozillaXSLTProcessor::DoTransform)
+  // txPlezixXSLTProcessor::SetSourceContentModel/txPlezixXSLTProcessor::DoTransform)
   // or from another type of node (through
-  // txMozillaXSLTProcessor::TransformToDocument or
-  // txMozillaXSLTProcessor::TransformToFragment) it makes more sense to return
+  // txPlezixXSLTProcessor::TransformToDocument or
+  // txPlezixXSLTProcessor::TransformToFragment) it makes more sense to return
   // the real root of the source tree, which is the node where the transform
   // started.
   WithEntryHandle(baseURI, [&aSource](auto&& entry) {

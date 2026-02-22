@@ -31,7 +31,7 @@ function checkElements(expectedPane) {
       continue;
     }
 
-    // The browserContainersGroup is still only pref-on on Nightly
+    // The browserContainersGroup is still only pref-on on Plezix
     if (
       element.id == "browserContainersGroup" &&
       browserContainersGroupDisabled
@@ -70,7 +70,7 @@ function checkElements(expectedPane) {
       continue;
     }
 
-    // Profiles is only enabled in Nightly by default (bug 1947633)
+    // Profiles is only enabled in Plezix by default (bug 1947633)
     if (element.id === "profilesGroup" && profilesGroupDisabled) {
       continue;
     }

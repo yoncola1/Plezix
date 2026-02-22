@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,14 +29,14 @@ import mozilla.components.service.fxa.manager.AccountState
 import mozilla.components.service.fxa.manager.AccountState.NotAuthenticated
 import mozilla.components.service.fxa.store.Account
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 @Composable
 internal fun MenuHeader(
     account: Account?,
     accountState: AccountState,
-    onMozillaAccountButtonClick: () -> Unit,
+    onPlezixAccountButtonClick: () -> Unit,
     onHelpButtonClick: () -> Unit,
     onSettingsButtonClick: () -> Unit,
 ) {
@@ -47,10 +47,10 @@ internal fun MenuHeader(
             .verticalScroll(rememberScrollState()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        MozillaAccountMenuButton(
+        PlezixAccountMenuButton(
             account = account,
             accountState = accountState,
-            onClick = onMozillaAccountButtonClick,
+            onClick = onPlezixAccountButtonClick,
             modifier = Modifier.weight(1f),
         )
 
@@ -68,7 +68,7 @@ internal fun MenuHeader(
                 contentDescription = stringResource(
                     id = R.string.browser_main_menu_content_description_help_button,
                 ),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
 
@@ -80,7 +80,7 @@ internal fun MenuHeader(
                 contentDescription = stringResource(
                     id = R.string.browser_main_menu_content_description_settings_button,
                 ),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
             )
         }
     }
@@ -89,15 +89,15 @@ internal fun MenuHeader(
 @PreviewLightDark
 @Composable
 private fun MenuHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             MenuHeader(
                 account = null,
                 accountState = NotAuthenticated,
-                onMozillaAccountButtonClick = {},
+                onPlezixAccountButtonClick = {},
                 onHelpButtonClick = {},
                 onSettingsButtonClick = {},
             )
@@ -108,15 +108,15 @@ private fun MenuHeaderPreview() {
 @Preview
 @Composable
 private fun MenuHeaderPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             MenuHeader(
                 account = null,
                 accountState = NotAuthenticated,
-                onMozillaAccountButtonClick = {},
+                onPlezixAccountButtonClick = {},
                 onHelpButtonClick = {},
                 onSettingsButtonClick = {},
             )

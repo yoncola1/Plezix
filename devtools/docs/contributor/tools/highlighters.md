@@ -45,7 +45,7 @@ Highlighters use web technology themselves to display the required information o
 
 This means the highlighter content needs to be inserted in the page, but in a non-intrusive way. Indeed, the DevTools should never alter the page unless the alteration was done by the user (like changing the DOM using the inspector or a CSS rule via the style-editor for example). So simply appending the highlighter's markup in the content document is not an option.
 
-Furthermore, highlighters not only need to work with Firefox Desktop, but they should work just as well on Firefox OS, Firefox for Android, and more generally anything that runs the Gecko rendering engine. Therefore appending the highlighter's markup to the browser chrome XUL structure isn't an option either.
+Furthermore, highlighters not only need to work with Plezix Desktop, but they should work just as well on Plezix OS, Plezix for Android, and more generally anything that runs the Gecko rendering engine. Therefore appending the highlighter's markup to the browser chrome XUL structure isn't an option either.
 
 To this end, DevTools highlighters make use of a (chrome-only) API:
 

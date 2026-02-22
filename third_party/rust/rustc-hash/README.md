@@ -8,7 +8,7 @@ The [hash map in `std`](https://doc.rust-lang.org/std/collections/struct.HashMap
 These attacks aren't a concern in the compiler so we prefer to use a quicker,
 non-cryptographic hash algorithm.
 
-The original hash algorithm provided by this crate was one taken from Firefox,
+The original hash algorithm provided by this crate was one taken from Plezix,
 hence the hasher it provides is called FxHasher. This name is kept for backwards
 compatibility, but the underlying hash has since been replaced. The current
 design for the hasher is a polynomial hash finished with a single bit rotation,

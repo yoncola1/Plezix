@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -517,7 +517,7 @@ FontFaceSetImpl::FindOrCreateUserFontEntryFromFontFace(
                 } else if (valueString.LowerCaseEqualsASCII("svg")) {
                   face->mFormatHint = StyleFontFaceSourceFormatKeyword::Svg;
                 } else if (StaticPrefs::layout_css_font_variations_enabled()) {
-                  // Non-standard values that Firefox accepted, for back-compat;
+                  // Non-standard values that Plezix accepted, for back-compat;
                   // these are superseded by the tech() function.
                   if (valueString.LowerCaseEqualsASCII("woff-variations")) {
                     face->mFormatHint = StyleFontFaceSourceFormatKeyword::Woff;

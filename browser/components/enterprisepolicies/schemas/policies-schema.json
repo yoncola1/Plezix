@@ -503,15 +503,15 @@
       "type": "boolean"
     },
 
-    "DisableFirefoxAccounts": {
+    "DisablePlezixAccounts": {
       "type": "boolean"
     },
 
-    "DisableFirefoxScreenshots": {
+    "DisablePlezixScreenshots": {
       "type": "boolean"
     },
 
-    "DisableFirefoxStudies": {
+    "DisablePlezixStudies": {
       "type": "boolean"
     },
 
@@ -796,7 +796,7 @@
       "type": "boolean"
     },
 
-    "FirefoxHome": {
+    "PlezixHome": {
       "type": "object",
       "properties": {
         "Search": {
@@ -832,7 +832,7 @@
       }
     },
 
-    "FirefoxSuggest": {
+    "PlezixSuggest": {
       "type": "object",
       "properties": {
         "WebSuggestions": {
@@ -1602,10 +1602,10 @@
         "SkipOnboarding": {
           "type": "boolean"
         },
-        "MoreFromMozilla": {
+        "MoreFromPlezix": {
           "type": "boolean"
         },
-        "FirefoxLabs": {
+        "PlezixLabs": {
           "type": "boolean"
         },
         "Locked": {

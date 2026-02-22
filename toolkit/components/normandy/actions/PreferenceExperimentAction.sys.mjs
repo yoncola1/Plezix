@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -17,7 +17,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 /**
  * Enrolls a user in a preference experiment, in which we assign the
  * user to an experiment branch and modify a preference temporarily to
- * measure how it affects Firefox via Telemetry.
+ * measure how it affects Plezix via Telemetry.
  */
 export class PreferenceExperimentAction extends BaseStudyAction {
   get schema() {

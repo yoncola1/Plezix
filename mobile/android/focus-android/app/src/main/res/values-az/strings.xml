@@ -33,7 +33,7 @@
   <string name="menu_report_site_issue">Sayt Problemini Bildir</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">%1$s ilə aç</string>
@@ -70,7 +70,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">%1$s Tərəfindən</string>
   <!--
@@ -106,7 +106,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Poz və %1$s tətbiqini aç</string>
   <!-- Header for the Privacy and Security settings menu -->
@@ -119,11 +119,11 @@
   -->
   <string name="preference_search_summary">Əsas olaraq qur, avto tamamlama</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s haqqında, kömək</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -139,7 +139,7 @@
   <string name="preference_show_search_suggestions">Axtarış təkliflərini al</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s ünvan sətrində yazdıqlarınızı axtarış mühərriyinizə göndərəcək</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -238,18 +238,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s səyyahını əsas et</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">İstifadə məlumatlarını göndər</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Ətraflı öyrən</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla ancaq %1$s səyyahını hamı üçün yaxşılaşdırmağa lazım olan məlumatları yığır.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix ancaq %1$s səyyahını hamı üçün yaxşılaşdırmağa lazım olan məlumatları yığır.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Məxfilik Bildirişi</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$s Haqqında</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Quraşdırılmış axtarış mühərrikləri</string>
@@ -339,13 +339,13 @@
   <string name="external_app_prompt_title">Keçidi başqa tətbiqdə aç</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">%1$s səyyahını tərk edərək keçidi %2$s üzərində aça bilərsiz.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Keçid aça bilən tətbiq tap</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Cihazınızdakı heç bir tətbiq bu keçidi aça bilmir. %1$s səyyahını tərk edərək %2$s ilə bunu bacaran tətbiq axtara bilərsiz.</string>
@@ -366,11 +366,11 @@
   <string name="firstrun_search_text">Fərqli şeylər axtarırsız? Tənzimləmələrdən fərqli axtarış mühərriyi seçin.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Ana ekranınıza keçidlər əlavə edin</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">%1$s üzərindəki sevimli saytlarınıza cəld girin. %1$s menyusundan \"Ana ekrana əlavə et\" seçməyiniz kifayətdir.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Məxfiliyi vərdiş halına gətirin</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Əsas səyyahınız olaraq %1$s seçin və digər tətbiqlərdən keçid açarkən məxfi səyahətin üstünlüklərindən faydalanın.</string>
   <string name="firstrun_close_button">Tamam, başa düşdüm!</string>
   <string name="firstrun_skip_button">Keç</string>
@@ -391,7 +391,7 @@
   <string name="notification_browsing_session_channel_name">Məxfi səyahət sessiyası</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -400,10 +400,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Səyahət keçmişini poz</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox Endir</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix Endir</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">İstifadəçi adı</string>
   <string name="gv_prompt_password_hint">Parol</string>
@@ -486,7 +486,7 @@
   <string name="tip_add_to_homescreen">Çox işlətdiyiniz saytları tək toxunuşla açın%1$s Menyu &gt; Ana Ekrana əlavə et</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Bütün keçidləri %1$s ilə açın\n%1$s əsas səyyahınız olsun</string>
@@ -528,8 +528,8 @@
   <string name="tab_crash_report_description">Məxfi səyyah olaraq biz heç vaxt vərəqləri saxlamırıq və bu səbəbdən də bu vərəqi bərpa edə bilməyəcik.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Vərəqi Qapat</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Çökmə hesabatını Mozillaya göndər</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Çökmə hesabatını Plezixya göndər</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Promote SearchWidget Dialog -->

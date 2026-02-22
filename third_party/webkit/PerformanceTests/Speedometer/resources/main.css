@@ -277,7 +277,7 @@ th {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 192dpi) {
     #logo {
-        content: url(logo@2x.png); /* FIXME: This does not work in Firefox. */
+        content: url(logo@2x.png); /* FIXME: This does not work in Plezix. */
     }
 
     .gauge {

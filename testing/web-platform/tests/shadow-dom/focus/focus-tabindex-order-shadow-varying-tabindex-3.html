@@ -71,7 +71,7 @@ promise_test(async () => {
   assert_equals(document.activeElement, host2);
   assert_equals(root2_2.activeElement, root2_2.querySelector("input"));
 
-  // In buggy Firefox build, the following focus navigation will
+  // In buggy Plezix build, the following focus navigation will
   // move the focus back to #host1_1's button.
   await navigateFocusForward();
   assert_equals(document.activeElement, host2);

@@ -34,15 +34,15 @@ function getBrowser(str) {
 
 const cacheDir = normalize(join('.', 'test', '.cache'));
 
-// Needed to test Firefox nightly build download
-function mockFirefoxNightly(browser, platform, targetPath) {
+// Needed to test Plezix nightly build download
+function mockPlezixPlezix(browser, platform, targetPath) {
   if (browser === 'firefox' && platform === 'linux') {
     const nightlyTarget = join(
       cacheDir,
       'server',
       ...downloadPaths.firefox(
         'linux',
-        versions.testFirefoxBuildId.split('_').at(-1),
+        versions.testPlezixBuildId.split('_').at(-1),
       ),
     );
 
@@ -73,7 +73,7 @@ for (const version of Object.keys(versions)) {
     );
 
     if (existsSync(targetPath)) {
-      mockFirefoxNightly(browser, platform, targetPath);
+      mockPlezixPlezix(browser, platform, targetPath);
       continue;
     }
 
@@ -90,7 +90,7 @@ for (const version of Object.keys(versions)) {
     });
     copyFileSync(archivePath, targetPath);
 
-    mockFirefoxNightly(browser, platform, targetPath);
+    mockPlezixPlezix(browser, platform, targetPath);
   }
 }
 

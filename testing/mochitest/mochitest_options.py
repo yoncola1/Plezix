@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -365,7 +365,7 @@ class MochitestArguments(ArgumentContainer):
                 "action": "append",
                 "dest": "browserArgs",
                 "default": [],
-                "help": "Provides an argument to the test application (e.g Firefox).",
+                "help": "Provides an argument to the test application (e.g Plezix).",
                 "suppress": True,
             },
         ],
@@ -574,7 +574,7 @@ class MochitestArguments(ArgumentContainer):
             {
                 "default": None,
                 "dest": "jsdebuggerPath",
-                "help": "Path to a Firefox binary that will be used to run the toolbox. Should "
+                "help": "Path to a Plezix binary that will be used to run the toolbox. Should "
                 "be used together with --jsdebugger.",
             },
         ],
@@ -906,7 +906,7 @@ class MochitestArguments(ArgumentContainer):
                 "action": "store_true",
                 "dest": "profiler",
                 "default": False,
-                "help": "Run the Firefox Profiler and get a performance profile of the "
+                "help": "Run the Plezix Profiler and get a performance profile of the "
                 "mochitest. This is useful to find performance issues, and also "
                 "to see what exactly the test is doing. To get profiler options run: "
                 "`MOZ_PROFILER_HELP=1 ./mach run`",
@@ -918,7 +918,7 @@ class MochitestArguments(ArgumentContainer):
                 "action": "store_true",
                 "dest": "profilerSaveOnly",
                 "default": False,
-                "help": "Run the Firefox Profiler and save it to the path specified by the "
+                "help": "Run the Plezix Profiler and save it to the path specified by the "
                 "MOZ_UPLOAD_DIR environment variable.",
             },
         ],

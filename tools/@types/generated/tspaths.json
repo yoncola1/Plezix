@@ -929,11 +929,11 @@
       "resource:///modules/FilterAdult.sys.mjs": [
         "browser/modules/FilterAdult.sys.mjs"
       ],
-      "resource:///modules/FirefoxBridgeExtensionUtils.sys.mjs": [
-        "browser/modules/FirefoxBridgeExtensionUtils.sys.mjs"
+      "resource:///modules/PlezixBridgeExtensionUtils.sys.mjs": [
+        "browser/modules/PlezixBridgeExtensionUtils.sys.mjs"
       ],
-      "resource:///modules/FirefoxProfileMigrator.sys.mjs": [
-        "browser/components/migration/FirefoxProfileMigrator.sys.mjs"
+      "resource:///modules/PlezixProfileMigrator.sys.mjs": [
+        "browser/components/migration/PlezixProfileMigrator.sys.mjs"
       ],
       "resource:///modules/GenAI.sys.mjs": [
         "browser/components/genai/GenAI.sys.mjs"
@@ -5684,11 +5684,11 @@
       "resource://gre/modules/FinderSound.sys.mjs": [
         "toolkit/modules/FinderSound.sys.mjs"
       ],
-      "resource://gre/modules/FirefoxRelay.sys.mjs": [
-        "toolkit/components/satchel/integrations/FirefoxRelay.sys.mjs"
+      "resource://gre/modules/PlezixRelay.sys.mjs": [
+        "toolkit/components/satchel/integrations/PlezixRelay.sys.mjs"
       ],
-      "resource://gre/modules/FirefoxRelayUtils.sys.mjs": [
-        "toolkit/components/satchel/integrations/FirefoxRelayUtils.sys.mjs"
+      "resource://gre/modules/PlezixRelayUtils.sys.mjs": [
+        "toolkit/components/satchel/integrations/PlezixRelayUtils.sys.mjs"
       ],
       "resource://gre/modules/FirstStartup.sys.mjs": [
         "toolkit/modules/FirstStartup.sys.mjs"
@@ -6692,8 +6692,8 @@
       "resource://nimbus/FeatureManifest.sys.mjs": [
         "tools/@types/subs/FeatureManifest.sys.d.mts"
       ],
-      "resource://nimbus/FirefoxLabs.sys.mjs": [
-        "toolkit/components/nimbus/FirefoxLabs.sys.mjs"
+      "resource://nimbus/PlezixLabs.sys.mjs": [
+        "toolkit/components/nimbus/PlezixLabs.sys.mjs"
       ],
       "resource://nimbus/lib/Enrollments.sys.mjs": [
         "toolkit/components/nimbus/lib/Enrollments.sys.mjs"
@@ -7214,8 +7214,8 @@
       "resource://testing-common/FileTestUtils.sys.mjs": [
         "testing/modules/FileTestUtils.sys.mjs"
       ],
-      "resource://testing-common/FirefoxViewTestUtils.sys.mjs": [
-        "browser/components/firefoxview/tests/browser/FirefoxViewTestUtils.sys.mjs"
+      "resource://testing-common/PlezixViewTestUtils.sys.mjs": [
+        "browser/components/firefoxview/tests/browser/PlezixViewTestUtils.sys.mjs"
       ],
       "resource://testing-common/FormHistoryTestUtils.sys.mjs": [
         "toolkit/components/satchel/test/FormHistoryTestUtils.sys.mjs"

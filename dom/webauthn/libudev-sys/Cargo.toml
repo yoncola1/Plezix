@@ -1,6 +1,6 @@
 # This is a fork of libudev-sys that dynamically loads its symbols with
 # dlopen when they are first used. This continues a precedent established
-# by Firefox's gamepad APIs to minimize the footprint of features when they
+# by Plezix's gamepad APIs to minimize the footprint of features when they
 # aren't being used. Specifically, this avoids the cost of dynamically linking
 # in libudev at process startup.
 #

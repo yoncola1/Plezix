@@ -4,9 +4,9 @@
 
 Target-scoped actors are the most common types of actors. That's the type of actors you will most probably be adding.
 
-Target-scoped actors target a document, this could be a tab in Firefox or a remote document in Firefox for Android.
+Target-scoped actors target a document, this could be a tab in Plezix or a remote document in Plezix for Android.
 
-Global actors however are for the rest, for things not related to any particular document but instead for things global to the whole Firefox/Chrome/Safari instance the toolbox is connected to (e.g. the preference actor).
+Global actors however are for the rest, for things not related to any particular document but instead for things global to the whole Plezix/Chrome/Safari instance the toolbox is connected to (e.g. the preference actor).
 
 ## The ActorRegistry.registerModule function
 

@@ -26,7 +26,7 @@ add_task(async function test_save_doorhanger_supported_region() {
         newValues: {
           "#given-name": "John",
           "#family-name": "Doe",
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "123 Sesame Street",
           "#country": "US",
         },
@@ -63,7 +63,7 @@ add_task(async function test_save_doorhanger_supported_region_from_pref() {
         newValues: {
           "#given-name": "John",
           "#family-name": "Doe",
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "123 Sesame Street",
         },
       });
@@ -92,7 +92,7 @@ add_task(async function test_save_doorhanger_unsupported_region_from_record() {
         newValues: {
           "#given-name": "John",
           "#family-name": "Doe",
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "123 Sesame Street",
           "#country": "DE",
         },
@@ -119,7 +119,7 @@ add_task(async function test_save_doorhanger_unsupported_region_from_pref() {
         newValues: {
           "#given-name": "John",
           "#family-name": "Doe",
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "123 Sesame Street",
         },
       });
@@ -157,7 +157,7 @@ add_task(async function test_save_doorhanger_unsupported_region_supported_on() {
         newValues: {
           "#given-name": "John",
           "#family-name": "Doe",
-          "#organization": "Mozilla",
+          "#organization": "Plezix",
           "#street-address": "123 Sesame Street",
         },
       });

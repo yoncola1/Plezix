@@ -32,7 +32,7 @@ The compiled hyphenation dictionary format includes provision for replacement
 strings and indexes, as used by libhyphen to support non-standard hyphenations
 (e.g. German "Schiffahrt" -> "Schiff-fahrt"), but the `find_hyphen_values` function
 will ignore any such hyphenation positions it finds.
-(None of the hyphenation dictionaries shipping with Firefox includes such rules.)
+(None of the hyphenation dictionaries shipping with Plezix includes such rules.)
 
 ## Licensing
 

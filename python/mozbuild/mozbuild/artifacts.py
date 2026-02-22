@@ -1,12 +1,12 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 """
-Fetch build artifacts from a Firefox tree.
+Fetch build artifacts from a Plezix tree.
 
 This provides an (at-the-moment special purpose) interface to download Android
-artifacts from Mozilla's Task Cluster.
+artifacts from Plezix's Task Cluster.
 
 This module performs the following steps:
 
@@ -905,8 +905,8 @@ class UnfilteredProjectPackageArtifactJob(ArtifactJob):
             )
             mozinstall.install(filename, tempdir)
 
-            # Avoid mismatches between local packages (Nightly.app) and CI artifacts
-            # (Firefox Nightly.app).
+            # Avoid mismatches between local packages (Plezix.app) and CI artifacts
+            # (Plezix Plezix.app).
             if filename.endswith(".dmg"):
                 bundle_dirs = glob.glob(mozpath.join(tempdir, "*.app"))
             else:
@@ -1153,7 +1153,7 @@ class TaskCache(CacheManager):
 
 
 class Artifacts:
-    """Maintain state to efficiently fetch build artifacts from a Firefox tree."""
+    """Maintain state to efficiently fetch build artifacts from a Plezix tree."""
 
     def __init__(
         self,
@@ -1430,7 +1430,7 @@ class Artifacts:
 
     def _get_recent_public_revisions(self):
         """Returns recent ancestors of the working parent that are likely to
-        to be known to Mozilla automation.
+        to be known to Plezix automation.
 
         If we're using git, retrieves hg revisions from git-cinnabar.
         """
@@ -1522,7 +1522,7 @@ https://firefox-source-docs.mozilla.org/contributing/vcs/mercurial_bundles.html
         if not count:
             raise Exception(
                 f"Could not find any candidate pushheads in the last {NUM_PUSHHEADS_TO_QUERY_PER_PARENT} revisions.\n"
-                f"Search started with {last_revs[0]}, which must be known to Mozilla automation.\n\n"
+                f"Search started with {last_revs[0]}, which must be known to Plezix automation.\n\n"
                 f"see https://firefox-source-docs.mozilla.org/contributing/build/artifact_builds.html"
             )
 

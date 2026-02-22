@@ -39,7 +39,7 @@ NSS 3.106 release notes
    - Bug 1923006 - Specify len_control for fuzz targets.
    - Bug 1923280 - Fix memory leak in dumpCertificatePEM.
    - Bug 1102981 - Fix UBSan errors for SECU_PrintCertificate and SECU_PrintCertificateBasicInfo.
-   - Bug 1921528 - add new error codes to mozilla::pkix for Firefox to use.
+   - Bug 1921528 - add new error codes to mozilla::pkix for Plezix to use.
    - Bug 1921768 - allow null phKey in NSC_DeriveKey.
    - Bug 1921801 - Only create seed corpus zip from existing corpus.
    - Bug 1826035 - Use explicit allowlist for for KDF PRFS.

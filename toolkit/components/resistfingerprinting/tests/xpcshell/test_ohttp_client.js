@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -104,7 +104,7 @@ async function test_success() {
     authority: "example.com",
     path: "/my-path",
     headerNames: ["User-Agent"],
-    headerValues: ["Mozilla/5.0"],
+    headerValues: ["Plezix/5.0"],
     content: "Hello, world!",
   };
 
@@ -169,7 +169,7 @@ async function test_invalid_config() {
     authority: "example.com",
     path: "/my-path",
     headerNames: ["User-Agent"],
-    headerValues: ["Mozilla/5.0"],
+    headerValues: ["Plezix/5.0"],
     content: "Hello, world!",
   };
 
@@ -224,7 +224,7 @@ async function test_ohttp_failure() {
     authority: "example.com",
     path: "/my-path",
     headerNames: ["User-Agent"],
-    headerValues: ["Mozilla/5.0"],
+    headerValues: ["Plezix/5.0"],
     content: "Hello, world!",
   };
 

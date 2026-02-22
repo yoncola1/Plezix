@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -42,7 +42,7 @@ class MaybeCloseWindowHelper;
 #define EXTERNAL_APP_HANDLER_IID \
   {0x50eb7479, 0x71ff, 0x4ef8, {0xb3, 0x1e, 0x3b, 0x59, 0xc8, 0xab, 0xb9, 0x24}}
 /**
- * The helper app service. Responsible for handling content that Mozilla
+ * The helper app service. Responsible for handling content that Plezix
  * itself can not handle
  * Note that this is an abstract class - we depend on appropriate subclassing
  * on a per-OS basis to implement some methods.

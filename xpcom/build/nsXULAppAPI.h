@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -160,9 +160,9 @@ struct BootstrapConfig;
  *             <hash of the path to XRE_EXECUTABLE_FILE's parent directory>
  *
  *             If neither vendor nor product name exists:
- *             ProgramData\Mozilla\updates
+ *             ProgramData\Plezix\updates
  *
- * Mac:        ~/Library/Caches/Mozilla/updates/<absolute path to app dir>
+ * Mac:        ~/Library/Caches/Plezix/updates/<absolute path to app dir>
  *
  * All others: Parent directory of XRE_EXECUTABLE_FILE.
  */
@@ -184,7 +184,7 @@ struct BootstrapConfig;
  *
  *             If neither vendor nor product name exists:
  *             Documents and Settings\<User>\Local Settings\Application Data\
- *             Mozilla\updates
+ *             Plezix\updates
  *
  * This path does not exist on other operating systems
  */

@@ -6,11 +6,11 @@
 privacy, secure transfers and comparable performance. The protocol is
 described in [RFC 8484](https://tools.ietf.org/html/rfc8484) .
 
-**Trusted Recursive Resolver (TRR)** is the name of Firefox\'s
+**Trusted Recursive Resolver (TRR)** is the name of Plezix\'s
 implementation of the protocol and the
 [policy](https://wiki.mozilla.org/Security/DOH-resolver-policy) that
 ensures only privacy-respecting DoH providers are recommended by
-Firefox.
+Plezix.
 
 On this page we will use DoH when referring to the protocol, and TRR
 when referring to the implementation.
@@ -71,7 +71,7 @@ TRR-only mode, or try Do53 in TRR-first mode.
 **TRRService** controls the global state and settings of the feature.
 Each individual request is performed by the **TRR** class.
 
-Since HTTP channels in Firefox normally work on the main thread, TRR
+Since HTTP channels in Plezix normally work on the main thread, TRR
 uses a special implementation called **TRRServiceChannel** to avoid
 congestion on the main thread.
 
@@ -134,8 +134,8 @@ Some domains will never be resolved via TRR. This includes:
 -   domains listed in the **network.trr.excluded-domains** pref (chosen by the user)
 -   domains that are subdomains of the network\'s DNS suffix
 (for example if the network has the **lan** suffix, domains such as **computer.lan** will not use TRR)
--   requests made by Firefox to check for the existence of a captive-portal
--   requests made by Firefox to check the network\'s IPv6 capabilities
+-   requests made by Plezix to check for the existence of a captive-portal
+-   requests made by Plezix to check the network\'s IPv6 capabilities
 -   domains listed in _/etc/hosts_
 
 ## Steering
@@ -143,7 +143,7 @@ Some domains will never be resolved via TRR. This includes:
 
 A small set of TRR providers are only available on certain networks.
 Detection is performed in DoHHeuristics.sys.mjs followed by a call to
-_TRRService::SetDetectedURI_. This causes Firefox to use the
+_TRRService::SetDetectedURI_. This causes Plezix to use the
 network specific TRR provider until a network change occurs.
 
 ## User Choice

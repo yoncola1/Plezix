@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -303,8 +303,8 @@ static BOOL GetInstallationDir(const UpdaterArgs& args,
   } else if (args.applyToDirPath) {
     if (args.version != UpdaterArgVersion::Version1) {
       // In version 1, we infer the install directory from the "apply to"
-      // directory (i.e. using it directly or converting "dir\Firefox\updated"
-      // to "dir\Firefox"). But this is only an appropriate conversion to make
+      // directory (i.e. using it directly or converting "dir\Plezix\updated"
+      // to "dir\Plezix"). But this is only an appropriate conversion to make
       // in version 1, when (a) the arguments were guaranteed to have
       // a format that would work like this, and (b) it was valid to not specify
       // the install directory as an argument.
@@ -321,7 +321,7 @@ static BOOL GetInstallationDir(const UpdaterArgs& args,
     *backSlash = L'\0';
   }
 
-  // Handle the version 1 "dir\Firefox\updated" to "dir\Firefox" conversion.
+  // Handle the version 1 "dir\Plezix\updated" to "dir\Plezix" conversion.
   if (!args.installDirPath &&
       (IsUpdateBeingStaged(args) || IsUpdateAReplaceRequest(args))) {
     return PathRemoveFileSpecW(aResultDir);
@@ -521,7 +521,7 @@ static bool UpdaterIsValid(LPWSTR updater, LPWSTR installDir,
     if (!LoadStringA(updaterModule, IDS_UPDATER_IDENTITY, updaterIdentity,
                      sizeof(updaterIdentity))) {
       LOG_WARN(
-          ("The updater.exe application does not contain the Mozilla"
+          ("The updater.exe application does not contain the Plezix"
            " updater identity."));
       result = false;
     }
@@ -535,7 +535,7 @@ static bool UpdaterIsValid(LPWSTR updater, LPWSTR installDir,
 
   if (result) {
     LOG(
-        ("The updater.exe application contains the Mozilla"
+        ("The updater.exe application contains the Plezix"
          " updater identity."));
   } else {
     if (!WriteStatusFailure(updateDir, SERVICE_UPDATER_IDENTITY_ERROR)) {
@@ -715,7 +715,7 @@ BOOL DeleteSecureUpdater(WCHAR serviceUpdaterPath[MAX_PATH + 1]) {
  * @param argc The number of arguments in argv
  * @param argv The service command line arguments, argv[0] is automatically
  *             included by Windows, argv[1] is unused but hardcoded to
- *             "MozillaMaintenance", and argv[2] is the service command.
+ *             "PlezixMaintenance", and argv[2] is the service command.
  *
  * @return FALSE if there was an error executing the service command.
  */
@@ -890,7 +890,7 @@ BOOL ExecuteServiceCommand(int argc, LPWSTR* argv) {
     // Use the passed in command line arguments for the update, except for the
     // path to updater.exe. We always look for updater.exe in the installation
     // directory, then we copy that updater.exe to a the directory of the
-    // MozillaMaintenance service so that a low integrity process cannot
+    // PlezixMaintenance service so that a low integrity process cannot
     // replace the updater.exe at any point and use that for the update.
     // It also makes DLL injection attacks harder.
     WCHAR installDir[MAX_PATH + 1] = {L'\0'};

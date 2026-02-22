@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -324,7 +324,7 @@ def run_fzf(cmd, tasks):
     env.update(
         {"PYTHONPATH": os.pathsep.join([p for p in sys.path if "requests" in p])}
     )
-    # Make sure fzf uses Windows' shell rather than MozillaBuild bash or
+    # Make sure fzf uses Windows' shell rather than PlezixBuild bash or
     # whatever our caller uses, since it doesn't quote the arguments properly
     # and thus windows paths like: C:\moz\foo end up as C:mozfoo...
     if platform.system() == "Windows":

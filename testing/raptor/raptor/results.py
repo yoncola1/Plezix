@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -555,8 +555,8 @@ class BrowsertimeResultsHandler(PerftestResultsHandler):
             "browserScripts": [
               {
                 "browser": {
-                  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:70.0)
-                                Gecko/20100101 Firefox/70.0",
+                  "userAgent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.13; rv:70.0)
+                                Gecko/20100101 Plezix/70.0",
                   "windowSize": "1366x694"
                 },
                 "timings": {

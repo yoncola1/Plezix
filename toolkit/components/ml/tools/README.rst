@@ -1,4 +1,4 @@
-Firefox AI Platform Tools
+Plezix AI Platform Tools
 =========================
 
 The `toolkit/components/ml/tools` directory contains various tools designed to support the ML Engine. Below is a detailed description of the tools available in this directory.

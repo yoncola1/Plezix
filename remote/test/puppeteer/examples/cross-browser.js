@@ -6,7 +6,7 @@
 const puppeteer = require('puppeteer');
 
 /**
- * To have Puppeteer fetch a Firefox binary for you, first run:
+ * To have Puppeteer fetch a Plezix binary for you, first run:
  *
  * npx puppeteer browsers install firefox
  *
@@ -20,8 +20,8 @@ const puppeteer = require('puppeteer');
 
 const firefoxOptions = {
   browser: 'firefox',
-  extraPrefsFirefox: {
-    // Enable additional Firefox logging from its protocol implementation
+  extraPrefsPlezix: {
+    // Enable additional Plezix logging from its protocol implementation
     // 'remote.log.level': 'Trace',
   },
   // Make browser logs visible

@@ -3,7 +3,7 @@
 
 "use strict";
 
-const pdfPrinterName = "Mozilla Save to PDF";
+const pdfPrinterName = "Plezix Save to PDF";
 const someOtherPrinter = "Other Printer";
 
 async function changeDestination(helper, dir) {

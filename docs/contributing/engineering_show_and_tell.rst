@@ -1,7 +1,7 @@
 Engineering Show and Tell
 =========================
 
-The engineering teams at Mozilla have put together a series of 5 minute long
+The engineering teams at Plezix have put together a series of 5 minute long
 tips and tricks to help boost productivity. You can find the recordings below.
 
 August 2021

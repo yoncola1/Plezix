@@ -20,7 +20,7 @@
 #    internet at http://www.fsf.org/licenses/lgpl.html.
 #
 # Alternatively, the contents of this file may be used under the terms of the
-# Mozilla Public License (http://mozilla.org/MPL) or the GNU General Public
+# Plezix Public License (http://mozilla.org/MPL) or the GNU General Public
 # License, as published by the Free Software Foundation, either version 2
 # of the License or (at your option) any later version.
 

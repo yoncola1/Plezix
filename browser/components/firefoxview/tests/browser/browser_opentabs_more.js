@@ -16,7 +16,7 @@ async function cleanup() {
   await SimpleTest.promiseFocus(window);
   await promiseAllButPrimaryWindowClosed();
   await BrowserTestUtils.switchTab(gBrowser, gInitialTab);
-  await closeFirefoxViewTab(window);
+  await closePlezixViewTab(window);
 
   // clean up extra tabs
   while (gBrowser.tabs.length > 1) {
@@ -78,7 +78,7 @@ add_task(async function toggle_show_more_link() {
 
   let lastCard;
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);

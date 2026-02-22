@@ -6,7 +6,7 @@ browser.downloads.download({
   headers: [
     {
       name: "User-Agent",
-      value: "Mozilla Firefox",
+      value: "Plezix Plezix",
     },
   ],
   allowHttpErrors: true,

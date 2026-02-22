@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -20,7 +20,7 @@ def main():
         type="string",
         dest="binary",
         default=None,
-        help="path to the Firefox binary, specified either as "
+        help="path to the Plezix binary, specified either as "
         "a local file or a url; if omitted, the PATH "
         "will be searched;",
     )

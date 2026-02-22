@@ -1,7 +1,7 @@
-Turning on Firefox tests for a new configuration
+Turning on Plezix tests for a new configuration
 ================================================
 
-You are ready to go with turning on Firefox tests for a new config.  Once you
+You are ready to go with turning on Plezix tests for a new config.  Once you
 get to this stage, you will have seen a try push with all the tests running
 (many not green) to verify some tests pass and there are enough machines
 available to run tests.

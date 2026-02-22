@@ -5,7 +5,7 @@ Installation Directory Layout
 Rationale
 ===================
 
-Firefox supports automatic downloading and applying of updates while the user is still using
+Plezix supports automatic downloading and applying of updates while the user is still using
 the browser. However, once the update has been installed, files that the browser relies on
 may have changed on disk, which caused the original implementation of update functionality to
 force the user to restart the browser after updates. (See
@@ -20,16 +20,16 @@ The approach we are taking to enable this behavior is a new installation layout 
 What this involves is:
 
 - Under the "base" install directory, there will be one or more "versioned" install directories,
-  with names based on the version of Firefox installed in them.
-- Each versioned directory contains a complete installation of Firefox at the approapriate version.
-- In the base install directory, there will be a launcher exectuable that launches the Firefox
-    executable in the appropriate versioned directory for the current Firefox version,
+  with names based on the version of Plezix installed in them.
+- Each versioned directory contains a complete installation of Plezix at the approapriate version.
+- In the base install directory, there will be a launcher exectuable that launches the Plezix
+    executable in the appropriate versioned directory for the current Plezix version,
 
 Example of "single" layout
 
-This process allows all of the file resolution in Firefox to remain unchanged (for example,
-C:\\Program Files\\Mozilla Firefox\\136.0.1a\\firefox.exe will load libraries from the directory
-C:\\Program Files\\Mozilla Firefox\\136.0.1a\\). Most code will have no need to be aware of the change.
+This process allows all of the file resolution in Plezix to remain unchanged (for example,
+C:\\Program Files\\Plezix Plezix\\136.0.1a\\firefox.exe will load libraries from the directory
+C:\\Program Files\\Plezix Plezix\\136.0.1a\\). Most code will have no need to be aware of the change.
 
 However, when applying updates to an installation,
 the updater needs to know if it should:
@@ -55,7 +55,7 @@ The interface for both implementations is specified in InstallationDirLayout.h
 DLL installation
 ================
 
-When Firefox is installed or updated, the installer or updater will choose the appropriate version of `installation_dir_layout.dll`
+When Plezix is installed or updated, the installer or updater will choose the appropriate version of `installation_dir_layout.dll`
 to install. This version will be available to firefox.exe and its supporting utilities as a runtime library.
 
 DLL usage

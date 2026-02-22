@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
                         if lower_f.endswith(".lib"):
                             f = lower_f
                         name = str(dest / relpath / f)
-                        # Set executable flag on .exe files, the Firefox build
+                        # Set executable flag on .exe files, the Plezix build
                         # system wants it.
                         if lower_f.endswith(".exe"):
                             mode |= (mode & 0o444) >> 2

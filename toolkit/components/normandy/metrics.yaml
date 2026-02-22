@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: Normandy Client'
+  - 'Plezix :: Normandy Client'
 
 normandy:
   enroll_preference_study:
@@ -535,7 +535,7 @@ normandy:
         type: string
       caller:
         description: >
-          The function that caused the stop to happen, included on Nightly to aid debugging.
+          The function that caused the stop to happen, included on Plezix to aid debugging.
         type: string
       originalReason:
         description: >
@@ -618,7 +618,7 @@ normandy:
       This records that a preference that was set by an experiment has
       been changed away from its experimental value. This can be triggered
       by a user changing a preference at runtime, by the preference being
-      changed on disk when Firefox is not running, or by the preference
+      changed on disk when Plezix is not running, or by the preference
       already having a user-set value when a user has enrolls in a default
       branch experiment.
       This event was generated to correspond to the Legacy Telemetry event

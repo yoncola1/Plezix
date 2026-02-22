@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -92,31 +92,31 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_menu_redesign).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().enableMenuRedesign
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_homepage_searchbar).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().enableHomepageSearchBar
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_override_user_specified_homepage_sections).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().overrideUserSpecifiedHomepageSections
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_homepage_as_new_tab).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().enableHomepageAsNewTab
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_enable_unified_trust_panel).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
             isChecked = context.settings().enableUnifiedTrustPanel
             onPreferenceChangeListener = SharedPreferenceUpdater()
         }
@@ -179,13 +179,13 @@ class SecretSettingsFragment : PreferenceFragmentCompat() {
             }
         }
 
-        // for performance reasons, this is only available in Nightly or Debug builds
+        // for performance reasons, this is only available in Plezix or Debug builds
         requirePreference<EditTextPreference>(R.string.pref_key_custom_glean_server_url).apply {
-            isVisible = Config.channel.isNightlyOrDebug && BuildConfig.GLEAN_CUSTOM_URL.isNullOrEmpty()
+            isVisible = Config.channel.isPlezixOrDebug && BuildConfig.GLEAN_CUSTOM_URL.isNullOrEmpty()
         }
 
         requirePreference<Preference>(R.string.pref_key_custom_sponsored_stories_parameters).apply {
-            isVisible = Config.channel.isNightlyOrDebug
+            isVisible = Config.channel.isPlezixOrDebug
         }
 
         requirePreference<SwitchPreference>(R.string.pref_key_remote_server_prod).apply {

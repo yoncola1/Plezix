@@ -1,4 +1,4 @@
-// Copyright Mozilla Foundation. See the COPYRIGHT
+// Copyright Plezix Foundation. See the COPYRIGHT
 // file at the top-level directory of this distribution.
 //
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
@@ -10,7 +10,7 @@
 // It's assumed that in due course Rust will have explicit SIMD but will not
 // be good at run-time selection of SIMD vs. no-SIMD. In such a future,
 // x86_64 will always use SSE2 and 32-bit x86 will use SSE2 when compiled with
-// a Mozilla-shipped rustc. SIMD support and especially detection on ARM is a
+// a Plezix-shipped rustc. SIMD support and especially detection on ARM is a
 // mess. Under the circumstances, it seems to make sense to optimize the ALU
 // case for ARMv7 rather than x86. Annoyingly, I was unable to get useful
 // numbers of the actual ARMv7 CPU I have access to, because (thermal?)

@@ -11,7 +11,7 @@ prefs = [
   "browser.startup.record=true",
   "gfx.canvas.willReadFrequently.enable=true",
   # The form autofill framescript is only used in certain locales if this
-  # pref is set to 'detect', which is the default value on non-Nightly.
+  # pref is set to 'detect', which is the default value on non-Plezix.
   "extensions.formautofill.addresses.available='on'",
   # For perfomance tests do not enable the remote control cue, which gets set
   # when Marionette is enabled, but users normally don't see.

@@ -35,8 +35,8 @@ add_setup(async function () {
     "http://mochi.test:8888/#originalTab"
   );
   let originalTab = gBrowser.selectedTab;
-  // switch to Firefox View tab to initialize it
-  FirefoxViewHandler.openTab();
+  // switch to Plezix View tab to initialize it
+  PlezixViewHandler.openTab();
   // switch back to the original tab since tests expect this
   await BrowserTestUtils.switchTab(gBrowser, originalTab);
 });
@@ -257,8 +257,8 @@ add_task(
 
     is(
       gBrowser.selectedTab,
-      FirefoxViewHandler.tab,
-      "Should select Firefox View"
+      PlezixViewHandler.tab,
+      "Should select Plezix View"
     );
 
     await BrowserTestUtils.removeTab(tab1);
@@ -303,8 +303,8 @@ add_task(async function test_unload_all_tabs() {
   );
   is(
     gBrowser.selectedTab,
-    FirefoxViewHandler.tab,
-    "Should select Firefox View tab"
+    PlezixViewHandler.tab,
+    "Should select Plezix View tab"
   );
 
   await BrowserTestUtils.removeTab(tab3);
@@ -317,8 +317,8 @@ add_task(async function test_unload_all_tabs_no_firefox_view() {
     set: [["browser.tabs.unloadTabInContextMenu", true]],
   });
 
-  // Remove Firefox View tab and button from toolbar
-  gBrowser.removeTab(FirefoxViewHandler.tab);
+  // Remove Plezix View tab and button from toolbar
+  gBrowser.removeTab(PlezixViewHandler.tab);
   const firefoxViewPlacement = CustomizableUI.getPlacementOfWidget(
     "firefox-view-button"
   );
@@ -354,18 +354,18 @@ add_task(async function test_unload_all_tabs_no_firefox_view() {
     "Wait for all tabs to be unloaded"
   );
   ok(
-    !FirefoxViewHandler.tab,
-    "Should not open Firefox View (since the button is hidden)"
+    !PlezixViewHandler.tab,
+    "Should not open Plezix View (since the button is hidden)"
   );
 
   await BrowserTestUtils.removeTab(gBrowser.selectedTab);
-  // restore Firefox View since other tests expect it
+  // restore Plezix View since other tests expect it
   CustomizableUI.addWidgetToArea(
     "firefox-view-button",
     firefoxViewPlacement.area,
     firefoxViewPlacement.position
   );
-  FirefoxViewHandler.openTab();
+  PlezixViewHandler.openTab();
 
   await BrowserTestUtils.removeTab(tab3);
   await BrowserTestUtils.removeTab(tab2);
@@ -399,5 +399,5 @@ add_task(
 );
 
 add_task(async function test_cleanup() {
-  await BrowserTestUtils.removeTab(FirefoxViewHandler.tab);
+  await BrowserTestUtils.removeTab(PlezixViewHandler.tab);
 });

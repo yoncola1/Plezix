@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Default layout of a selectable chip.
@@ -47,8 +47,8 @@ fun SelectableChip(
         label = {
             Text(
                 text = text,
-                color = FirefoxTheme.colors.textPrimary,
-                style = if (isSelected) FirefoxTheme.typography.headline8 else FirefoxTheme.typography.body2,
+                color = PlezixTheme.colors.textPrimary,
+                style = if (isSelected) PlezixTheme.typography.headline8 else PlezixTheme.typography.body2,
             )
         },
         leadingIcon = if (isSelected) {
@@ -56,7 +56,7 @@ fun SelectableChip(
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_checkmark_16),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         } else {
@@ -95,11 +95,11 @@ data class SelectableChipColors(
          */
         @Composable
         fun buildColors(
-            selectedContainerColor: Color = FirefoxTheme.colors.actionChipSelected,
-            containerColor: Color = FirefoxTheme.colors.layer1,
-            selectedLabelColor: Color = FirefoxTheme.colors.textPrimary,
-            labelColor: Color = FirefoxTheme.colors.textPrimary,
-            borderColor: Color = FirefoxTheme.colors.borderPrimary,
+            selectedContainerColor: Color = PlezixTheme.colors.actionChipSelected,
+            containerColor: Color = PlezixTheme.colors.layer1,
+            selectedLabelColor: Color = PlezixTheme.colors.textPrimary,
+            labelColor: Color = PlezixTheme.colors.textPrimary,
+            borderColor: Color = PlezixTheme.colors.borderPrimary,
         ) = SelectableChipColors(
             selectedContainerColor = selectedContainerColor,
             containerColor = containerColor,
@@ -124,11 +124,11 @@ private fun SelectableChipColors.toMaterialChipColors() = filterChipColors(
 @Composable
 @PreviewLightDark
 private fun SelectableChipPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             SelectableChip(text = "ChirpOne", isSelected = false) {}
@@ -140,11 +140,11 @@ private fun SelectableChipPreview() {
 @Composable
 @PreviewLightDark
 private fun SelectableChipWithCustomColorsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(FirefoxTheme.colors.layer1),
+                .background(PlezixTheme.colors.layer1),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             SelectableChip(

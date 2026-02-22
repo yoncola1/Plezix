@@ -152,7 +152,7 @@ class VideoEncoderConfig {
         int frame_height,
         const VideoEncoderConfig& encoder_config) = 0;
 
-    // Mozilla: Patching in necessary info our custom VideoStreamFactory will need to know.
+    // Plezix: Patching in necessary info our custom VideoStreamFactory will need to know.
     virtual void SetEncoderInfo(const VideoEncoder::EncoderInfo& info) {}
 
    protected:

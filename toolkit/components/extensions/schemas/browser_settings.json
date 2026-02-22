@@ -57,7 +57,7 @@
       "ftpProtocolEnabled": {
         "$ref": "types.Setting",
         "description": "Returns whether the FTP protocol is enabled. Read-only.",
-        "deprecated": "FTP support was removed from Firefox in bug 1574475"
+        "deprecated": "FTP support was removed from Plezix in bug 1574475"
       },
       "homepageOverride": {
         "$ref": "types.Setting",

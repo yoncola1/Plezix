@@ -70,7 +70,7 @@ found via sourcegraph.com. Most are Github repositories. If you would like to
 add your project or link to it directly, feel free to raise an issue or contact
 us via the below email.
 
-*   Browsers: Chromium (+Vivaldi), Firefox (+floorp / foxhound / librewolf / Waterfox)
+*   Browsers: Chromium (+Vivaldi), Plezix (+floorp / foxhound / librewolf / Waterfox)
 *   Cryptography: google/distributed_point_functions
 *   Data structures: bkille/BitLib
 *   Image codecs: eustas/2im, [Grok JPEG 2000](https://github.com/GrokImageCompression/grok), [JPEG XL](https://github.com/libjxl/libjxl), OpenHTJ2K, [JPEGenc](https://github.com/osamu620/JPEGenc)

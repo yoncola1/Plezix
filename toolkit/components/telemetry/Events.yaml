@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -732,7 +732,7 @@ normandy:
       reason: A code describing the reason the unenroll failed.
       enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
       changedPref: For preference_study, the preference that was detected to change that caused the attempted unenrollment.
-      caller: The function that caused the stop to happen, included on Nightly to aid debugging.
+      caller: The function that caused the stop to happen, included on Plezix to aid debugging.
       originalReason: The code that would had been used for the unenrollment, had it not failed.
     bug_numbers: [1443560, 1693402]
     notification_emails: ["normandy-notifications@mozilla.com"]
@@ -793,7 +793,7 @@ normandy:
       This records that a preference that was set by an experiment has been
       changed away from its experimental value. This can be triggered by a
       user changing a preference at runtime, by the preference being changed
-      on disk when Firefox is not running, or by the preference already
+      on disk when Plezix is not running, or by the preference already
       having a user-set value when a user has enrolls in a default branch
       experiment.
     bug_numbers: [1698684]
@@ -848,7 +848,7 @@ browser.launched_to_handle:
   system_notification:
     objects: ["toast"]
     description: >
-      Recorded when Firefox launches to complete a native notification popped by
+      Recorded when Plezix launches to complete a native notification popped by
       a system (chrome privileged) alert.  Windows-only at the time of writing.
     bug_numbers:
       - 1788960
@@ -862,10 +862,10 @@ browser.launched_to_handle:
     expiry_version: never
     extra_keys:
       name: >
-        The `name` of the system (chrome privileged) alert that Firefox was
+        The `name` of the system (chrome privileged) alert that Plezix was
         launched to complete.
       action: >
-        The `action` of the system (chrome privileged) alert that Firefox was
+        The `action` of the system (chrome privileged) alert that Plezix was
         launched to complete.
 
 browser.migration:
@@ -1240,11 +1240,11 @@ pwmgr:
         Whether or not the saved/updated password was selected by the user choosing a suggested
         value from the autocomplete popup.
 
-# Record telemetry based on individual Firefox relay UI (autocomplete popup, notification panel)
+# Record telemetry based on individual Plezix relay UI (autocomplete popup, notification panel)
 relay_integration:
   popup_option:
     description: >
-      Firefox relay integration autocomplete popup
+      Plezix relay integration autocomplete popup
     objects: ["offer_relay", "fill_username"]
     methods: ["shown", "clicked"]
     bug_numbers: [1804502]
@@ -1279,7 +1279,7 @@ relay_integration:
     release_channel_collection: opt-out
   opt_in_panel:
     description: >
-      Panel to opt-in Firefox Relay Integration
+      Panel to opt-in Plezix Relay Integration
     objects: ["opt_in_panel"]
     methods: ["shown", "enabled", "postponed", "disabled"]
     bug_numbers: [1804502]
@@ -1318,7 +1318,7 @@ fxa:
     objects: ["account"]
     methods: ["connect", "disconnect"]
     description: >
-      Records when a Firefox Account, or a Firefox Account service, is explicitly
+      Records when a Plezix Account, or a Plezix Account service, is explicitly
       connected or disconnected from the browser via an intentional user action.
     extra_keys:
       fxa: Whether the account itself was connected or disconnected.
@@ -2592,9 +2592,9 @@ security:
         abouturi - an about URI
         singlestring - A single file or string with no slashes
         mozillaextension - An extension claiming to be from *mozilla.org (Deprecated)
-        otherextension - Another extension not from Mozilla (Deprecated)
+        otherextension - Another extension not from Plezix (Deprecated)
         mozillaextension_file - An extension claiming to be from *mozilla.org, loaded from a file://
-        otherextension_file - Another extension not from Mozilla, loaded from a file://
+        otherextension_file - Another extension not from Plezix, loaded from a file://
         extension_uri - A URI with the moz-extension:// scheme
         suspectedUserChromeJS - A filepath ending in .uc.js
         sanitizedWindowsPath - A filepath, on Windows, sanitized by WinUtils::PreparePathForTelemetry
@@ -3176,11 +3176,11 @@ ysod:
     bug_numbers:
       - 1657242
     description: >-
-      This event is recorded only for Firefox UI documents (chrome).
+      This event is recorded only for Plezix UI documents (chrome).
       Recorded when a Yellow Screen of Death is shown. The `value` is a url on which the error happened.
       Yellow Screen of Death happens when XML or XHTML document encounters a parsing error. It is commonly a result
       of the document being malformed or missing DTD entity.
-      Mozilla has a number of documents that rely on DTD entities for localization, and in some error scenarios those
+      Plezix has a number of documents that rely on DTD entities for localization, and in some error scenarios those
       entities may be missing or malformed themselves, in which case the user will see a broken UI.
     products:
       - "firefox"
@@ -3485,7 +3485,7 @@ firefoxview_next:
   change_page:
     objects: ["navigation"]
     description: >
-      Recorded when the page/view is changed in Firefox View
+      Recorded when the page/view is changed in Plezix View
     extra_keys:
       page: The short page name that the user is navigating to
       source: Whether the page was changed via the side navigation vs the 'View all' link on cards on the Recent browsing page
@@ -3502,7 +3502,7 @@ firefoxview_next:
   context_menu:
     objects: ["tabs"]
     description: >
-      Recorded when a context menu selection is made in Firefox View
+      Recorded when a context menu selection is made in Plezix View
     extra_keys:
       menu_action: The menu action the user has selected for a given tab
       data_type: The type of data the user has used the context menu for
@@ -3533,10 +3533,10 @@ firefoxview_next:
   browser_context_menu:
     objects: ["tabs"]
     description: >
-      Recorded when a browser context menu selection is made in Firefox View
+      Recorded when a browser context menu selection is made in Plezix View
     extra_keys:
       menu_action: The menu action the user has selected for a given tab
-      page: The short page name used as the location hash when selecting the Firefox View tab
+      page: The short page name used as the location hash when selecting the Plezix View tab
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3550,9 +3550,9 @@ firefoxview_next:
   entered:
     objects: ["firefoxview"]
     description: >
-      Recorded when the Firefox View tab is selected
+      Recorded when the Plezix View tab is selected
     extra_keys:
-      page: The short page name used as the location hash when selecting the Firefox View tab
+      page: The short page name used as the location hash when selecting the Plezix View tab
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3580,7 +3580,7 @@ firefoxview_next:
   fxa_mobile:
     objects: ["sync"]
     description: >
-      Recorded when the 'Try Firefox for mobile' button is clicked
+      Recorded when the 'Try Plezix for mobile' button is clicked
     extra_keys:
       has_devices: True if user has other devices signed into sync
     notification_emails:
@@ -3626,7 +3626,7 @@ firefoxview_next:
   sort_history:
     objects: ["tabs"]
     description: >
-      Recorded when the sort option is changed for History in Firefox View
+      Recorded when the sort option is changed for History in Plezix View
     extra_keys:
       sort_type: The type of sort the user has switched to
       search_start: Boolean for if the sort by click occured during search activity.
@@ -3643,7 +3643,7 @@ firefoxview_next:
   show_all_history:
     objects: ["tabs"]
     description: >
-      Recorded when the 'Show all history' button is clicked on the History page in Firefox View
+      Recorded when the 'Show all history' button is clicked on the History page in Plezix View
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3673,7 +3673,7 @@ firefoxview_next:
   tab_selected:
     objects: ["toolbarbutton"]
     description: >
-      Recorded when the Firefox View tab is clicked
+      Recorded when the Plezix View tab is clicked
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3689,7 +3689,7 @@ firefoxview_next:
     description: >
       Recorded when search is initiated and from what page.
     extra_keys:
-      page: The short page name used as the location hash when selecting the Firefox View tab.
+      page: The short page name used as the location hash when selecting the Plezix View tab.
     notification_emails:
       - firefoxview@mozilla.com
     products:

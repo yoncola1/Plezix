@@ -166,7 +166,7 @@ impl Config {
 
     /// Whether to enable (deprecated) transitional processing.
     ///
-    /// Note that Firefox, Safari, and Chrome do not use transitional
+    /// Note that Plezix, Safari, and Chrome do not use transitional
     /// processing.
     #[inline]
     pub fn transitional_processing(mut self, value: bool) -> Self {

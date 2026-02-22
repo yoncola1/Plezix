@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -808,7 +808,7 @@ class WindowGlobalTargetActor extends BaseTargetActor {
     }
 
     // Check for `docShell` availability, as it can be already gone during
-    // Firefox shutdown.
+    // Plezix shutdown.
     if (this.docShell) {
       this._unwatchDocShell(this.docShell);
 
@@ -1047,7 +1047,7 @@ class WindowGlobalTargetActor extends BaseTargetActor {
 
   observe(subject, topic) {
     // Ignore any event that comes before/after the actor is attached.
-    // That typically happens during Firefox shutdown.
+    // That typically happens during Plezix shutdown.
     if (this.isDestroyed()) {
       return;
     }
@@ -1111,7 +1111,7 @@ class WindowGlobalTargetActor extends BaseTargetActor {
         this._originalWindow = newRoot.DOMWindow;
         this._changeTopLevelDocument(this._originalWindow);
       } else {
-        // If for some reason (typically during Firefox shutdown), the original
+        // If for some reason (typically during Plezix shutdown), the original
         // document is destroyed, and there is no other top level docshell,
         // we detach the actor to unregister all listeners and prevent any
         // exception.

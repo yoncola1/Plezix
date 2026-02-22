@@ -1,5 +1,5 @@
 /**
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -182,7 +182,7 @@ export const GenAI = {
           "genai-onboarding-gemini-analyze",
           "genai-onboarding-gemini-price",
         ],
-        header: "X-Firefox-Gemini",
+        header: "X-Plezix-Gemini",
         iconUrl: "chrome://browser/content/genai/assets/brands/gemini.svg",
         id: "gemini",
         learnId: "genai-onboarding-gemini-learn",
@@ -308,7 +308,7 @@ export const GenAI = {
         return;
       }
 
-      // Enforce minimum version by skipping pref changes until Firefox restarts
+      // Enforce minimum version by skipping pref changes until Plezix restarts
       // with the appropriate version
       if (
         Services.vc.compare(

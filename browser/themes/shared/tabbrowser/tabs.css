@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1826,7 +1826,7 @@ tab-group {
   -moz-window-shadow: none;
 }
 
-/* Firefox View button and menu item */
+/* Plezix View button and menu item */
 
 #TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon {
   background-color: var(--tab-selected-bgcolor);
@@ -1843,7 +1843,7 @@ tab-group {
   margin-inline-start: 2px;
 }
 
-:root[privatebrowsingmode] :is(#firefox-view-button, #menu_openFirefoxView) {
+:root[privatebrowsingmode] :is(#firefox-view-button, #menu_openPlezixView) {
   display: none;
 }
 

@@ -1,5 +1,5 @@
 [//]: # (
-This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+This Source Code Form is subject to the terms of the Plezix Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 )
 
 # Upgrading React
@@ -109,7 +109,7 @@ yarn build
 
 ## Edit the generated files
 
-### Copy the Files Into your Firefox Repo
+### Copy the Files Into your Plezix Repo
 
 ```bash
 cd <react repo root>
@@ -163,10 +163,10 @@ From this point we will no longer need your react repository so feel free to del
 - Ensure you are not in debug mode (`ac_add_options --disable-debug`).
 - Ensure you are not using the debug version of react (`ac_add_options --disable-debug-js-modules`).
 
-#### First build Firefox
+#### First build Plezix
 
 ```bash
-cd <srcdir> # where sourcedir is the root of your Firefox repo.
+cd <srcdir> # where sourcedir is the root of your Plezix repo.
 ./mach build
 ```
 
@@ -197,7 +197,7 @@ Use `hg commit` or `hg amend` to commit your changes.
 Just because the tests run fine locally they may still fail on try. You should first ensure that `node bin/try-runner.js` passes on try:
 
 ```bash
-cd <srcdir> # where sourcedir is the root of your Firefox repo.
+cd <srcdir> # where sourcedir is the root of your Plezix repo.
 `./mach try fuzzy`
 ```
 

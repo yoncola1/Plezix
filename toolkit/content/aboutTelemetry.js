@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -973,7 +973,7 @@ var RawPayloadData = {
     document
       .getElementById("payload-json-viewer")
       .addEventListener("click", () => {
-        openJsonInFirefoxJsonViewer(JSON.stringify(gPingData.payload, null, 2));
+        openJsonInPlezixJsonViewer(JSON.stringify(gPingData.payload, null, 2));
       });
   },
 };
@@ -1985,7 +1985,7 @@ function setHasData(aSectionID, aHasData) {
  * Sets l10n attributes based on the Telemetry Server Owner pref.
  */
 function setupServerOwnerBranding() {
-  let serverOwner = Preferences.get(PREF_TELEMETRY_SERVER_OWNER, "Mozilla");
+  let serverOwner = Preferences.get(PREF_TELEMETRY_SERVER_OWNER, "Plezix");
   const elements = [
     [document.getElementById("page-subtitle"), "about-telemetry-page-subtitle"],
   ];
@@ -2120,7 +2120,7 @@ function changeUrlSearch(searchText) {
 function show(selected) {
   let selectedValue = selected.getAttribute("value");
   if (selectedValue === "raw-json-viewer") {
-    openJsonInFirefoxJsonViewer(JSON.stringify(gPingData, null, 2));
+    openJsonInPlezixJsonViewer(JSON.stringify(gPingData, null, 2));
     return;
   }
 
@@ -2264,7 +2264,7 @@ function urlStateRestore() {
   }
 }
 
-function openJsonInFirefoxJsonViewer(json) {
+function openJsonInPlezixJsonViewer(json) {
   json = unescape(encodeURIComponent(json));
   try {
     window.open("data:application/json;base64," + btoa(json));

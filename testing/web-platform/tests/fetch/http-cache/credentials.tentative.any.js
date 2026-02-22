@@ -5,7 +5,7 @@
 // META: script=http-cache.js
 
 // This is a tentative test.
-// Firefox behavior is used as expectations.
+// Plezix behavior is used as expectations.
 //
 // whatwg/fetch issue:
 // https://github.com/whatwg/fetch/issues/1253

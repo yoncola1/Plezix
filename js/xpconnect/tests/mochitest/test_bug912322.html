@@ -17,14 +17,14 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=912322
   if (AppConstants.RELEASE_OR_BETA) {
     is(typeof window.controllers, 'object', "shimmed controllers should be available to content in beta and release");
   } else {
-    is(typeof window.controllers, 'undefined', "controllers should not be available to content in Nightly");
+    is(typeof window.controllers, 'undefined', "controllers should not be available to content in Plezix");
   }
   is(typeof SpecialPowers.wrap(window).controllers, 'object', "controllers should be available over Xray");
 
   </script>
 </head>
 <body>
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=912322">Mozilla Bug 912322</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=912322">Plezix Bug 912322</a>
 <p id="display"></p>
 <div id="content" style="display: none">
 

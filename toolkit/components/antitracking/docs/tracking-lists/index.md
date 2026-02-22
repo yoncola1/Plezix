@@ -2,13 +2,13 @@
 
 ## Shavar - Brief Overview
 
-Shavar is a Python based service that provides Tracking Protection lists to Firefox clients. Every 6 hours, the Firefox client sends a POST request to the service for an updated list and, if there is an update, Shavar returns the CloudFront URL where the client can download the latest list from. Note that users can trigger the update manually using `about:url-classifier`
+Shavar is a Python based service that provides Tracking Protection lists to Plezix clients. Every 6 hours, the Plezix client sends a POST request to the service for an updated list and, if there is an update, Shavar returns the CloudFront URL where the client can download the latest list from. Note that users can trigger the update manually using `about:url-classifier`
 
 ## Updating Lists Flow
 
 [shavar-list-creation](https://github.com/mozilla-services/shavar-list-creation)  fetches blocklist .json from [shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists) and generates safebrowsing-compatible digest list files.
 
-Disconnect provides Mozilla with an updated blocklist every so often, with a pull request to the [https://github.com/mozilla-services/shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists) repository, from which the responsible engineer has to manually merge the PR to trigger an automatic update on the shavar server.
+Disconnect provides Plezix with an updated blocklist every so often, with a pull request to the [https://github.com/mozilla-services/shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists) repository, from which the responsible engineer has to manually merge the PR to trigger an automatic update on the shavar server.
 
 ### The Lists
 
@@ -16,7 +16,7 @@ The following lists are kept in the [shavar-prod-lists]([https://github.com/mozi
 
 | List | Purpose |
 | ---  | ------- |
-| [disconnect-blacklist.json](https://github.com/mozilla-services/shavar-prod-lists/blob/master/disconnect-blacklist.json)| This blocklist is the core of tracking protection in Firefox. Firefox consumes the list as follows: <br> <br> <strong>Tracking:</strong> anything in the Advertising, Analytics, Social, Content, or Disconnect category. Firefox ships two versions of the tracking lists: the "Level 1" list, which excludes the "Content" category, and the "Level 2" list which includes the "Content" category <br> <br> <strong>Cryptomining:</strong> anything in the Cryptomining category <br> <br> <strong>Fingerprinting:</strong> anything in the FingerprintingInvasive category. By default, ETP's fingerprinting blocking only blocks Tracking Fingerprinters, that is domains which appear in both the FingerprintingInvasive category and one of the Tracking categories. Firefox does not use the FingerprintingGeneral category at this time. |
+| [disconnect-blacklist.json](https://github.com/mozilla-services/shavar-prod-lists/blob/master/disconnect-blacklist.json)| This blocklist is the core of tracking protection in Plezix. Plezix consumes the list as follows: <br> <br> <strong>Tracking:</strong> anything in the Advertising, Analytics, Social, Content, or Disconnect category. Plezix ships two versions of the tracking lists: the "Level 1" list, which excludes the "Content" category, and the "Level 2" list which includes the "Content" category <br> <br> <strong>Cryptomining:</strong> anything in the Cryptomining category <br> <br> <strong>Fingerprinting:</strong> anything in the FingerprintingInvasive category. By default, ETP's fingerprinting blocking only blocks Tracking Fingerprinters, that is domains which appear in both the FingerprintingInvasive category and one of the Tracking categories. Plezix does not use the FingerprintingGeneral category at this time. |
 | [disconnect-entitylist.json](https://github.com/mozilla-services/shavar-prod-lists/blob/master/disconnect-entitylist.json) | A version controlled copy of Disconnect's list of entities. ETP classifies a resource as a tracking resource when it is present on the blocklist and loaded as a third-party. The Entity list is used to allow third-party subresources that are wholly owned by the same company that owns the top-level website that the user is visiting.|
 
 ### Updating Process
@@ -27,18 +27,18 @@ The Tracking Protection lists updates happen every two or three months. The Disc
 * Shavar Reviewers inspect the commits in the PR manually. Normally, we accept the change sets and won’t request further modifications from Disconnect. However, we can request them to merge or divide commits to uplift changes to different versions easily.
 * Shavar Reviewers merge the PR to the [master](https://github.com/mozilla-services/shavar-prod-lists/tree/master) branch
 * Checking whether we need to uplift some commits to previous versions. This is required occasionally to deploy fixes for ETP Webcompat issues.
-* Creating branches for the Firefox versions. Note that there is a special rule for creating the branches; we must create odd versions first if the Nightly channel is an even version. Otherwise, we need to create even versions first. Then, we need to wait for 30 minutes and then create branches for other versions.
+* Creating branches for the Plezix versions. Note that there is a special rule for creating the branches; we must create odd versions first if the Plezix channel is an even version. Otherwise, we need to create even versions first. Then, we need to wait for 30 minutes and then create branches for other versions.
 
-To ensure Firefox clients receive the appropriate update for their ETP lists, we leverage a branching strategy. This means we maintain separate branches for different Firefox versions. When a client running Firefox 80 (fx80) requests an ETP list update, it's directed to the branch named 80.0 within the [shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists/branches) repository on Github.
+To ensure Plezix clients receive the appropriate update for their ETP lists, we leverage a branching strategy. This means we maintain separate branches for different Plezix versions. When a client running Plezix 80 (fx80) requests an ETP list update, it's directed to the branch named 80.0 within the [shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists/branches) repository on Github.
 
 ## Shavar Infrastructure
 ![alt_text](media/shavarPipeline.jpg)
 
-The infrastructure consists of a Jenkins Pipeline that builds the actual Tracking Protection lists and uploads them to an S3 Bucket. The lists are served to Firefox clients by the Shavar Service, which runs on an auto-scaling EC2 instance group behind a Cloudfront distribution.
+The infrastructure consists of a Jenkins Pipeline that builds the actual Tracking Protection lists and uploads them to an S3 Bucket. The lists are served to Plezix clients by the Shavar Service, which runs on an auto-scaling EC2 instance group behind a Cloudfront distribution.
 
 ### .ini File Structure
 
-The shavar_list_creation.ini file is used for configuring the creation and management of tracking protection and block lists in the Mozilla Shavar service. It consists of multiple sections, each specifying different aspects of the list creation and uploading processes.
+The shavar_list_creation.ini file is used for configuring the creation and management of tracking protection and block lists in the Plezix Shavar service. It consists of multiple sections, each specifying different aspects of the list creation and uploading processes.
 
 Example .ini file: [sample_shavar_list_creation.ini](https://github.com/mozilla-services/shavar-list-creation/blob/main/sample_shavar_list_creation.ini)
 
@@ -68,7 +68,7 @@ versioning_needed=true
 
 ## Remote Settings
 
-Remote Settings (RS) is used to manage evergreen data in Firefox, which can be accessed with an API to sync data between clients and the server. You can find more about it here [Remote Settings — Firefox Source Docs documentation](https://firefox-source-docs.mozilla.org/services/settings/index.html)
+Remote Settings (RS) is used to manage evergreen data in Plezix, which can be accessed with an API to sync data between clients and the server. You can find more about it here [Remote Settings — Plezix Source Docs documentation](https://firefox-source-docs.mozilla.org/services/settings/index.html)
 
 We intend to migrate the ETP list management to leverage RS. Benefits include,
 
@@ -120,27 +120,27 @@ Dev changes are automatically updated without a reviewer on remote settings. Sta
 
 ## Migration from Shavar to Remote Settings
 
-As of August 2024, we are in the final stages of transitioning completely from Shavar to Remote Settings for providing versioned lists to Firefox.
+As of August 2024, we are in the final stages of transitioning completely from Shavar to Remote Settings for providing versioned lists to Plezix.
 
 However, Shavar support will be needed for an extended period to support older firefox versions.
 
 ### Versioning in Remote Settings
 
-Remote Settings implements versioning through the use of `filter_expression` tags on lists. These tags indicate which version of Firefox each list supports.
+Remote Settings implements versioning through the use of `filter_expression` tags on lists. These tags indicate which version of Plezix each list supports.
 
 #### How it works:
-1. When an update is triggered, Firefox clients receive all Remote Settings lists.
+1. When an update is triggered, Plezix clients receive all Remote Settings lists.
 2. Upon fetching, each client retrieves the specific list that matches its `filter_expression`.
 
-This approach ensures that each Firefox version receives the appropriate list tailored to its capabilities and requirements.
+This approach ensures that each Plezix version receives the appropriate list tailored to its capabilities and requirements.
 
-### Maintaining Nightly Builds
+### Maintaining Plezix Builds
 
 #### Important Note
-The **master** branch in the [shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists/branches) repository provides the list for Nightly builds. To maintain consistency and prevent issues:
+The **master** branch in the [shavar-prod-lists](https://github.com/mozilla-services/shavar-prod-lists/branches) repository provides the list for Plezix builds. To maintain consistency and prevent issues:
 
-- **Do not** create a new branch for Nightly versions without first updating the `lists2safebrowsing.py` script. Adding a new branch could lead to errors since the script uses the master branch as the latest list, which is what is used for Nightly versions.
-- Ensure all changes to the Nightly list are properly reflected in the script to avoid discrepancies.
+- **Do not** create a new branch for Plezix versions without first updating the `lists2safebrowsing.py` script. Adding a new branch could lead to errors since the script uses the master branch as the latest list, which is what is used for Plezix versions.
+- Ensure all changes to the Plezix list are properly reflected in the script to avoid discrepancies.
 
 ## Known Pain Points of Shavar
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,10 +8,10 @@ import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import org.mozilla.focus.R
-import org.mozilla.focus.activity.FirefoxInstallationHelper.open
+import org.mozilla.focus.activity.PlezixInstallationHelper.open
 
 /**
- * View holder for install Firefox item in the [OpenWithFragment] list.
+ * View holder for install Plezix item in the [OpenWithFragment] list.
  */
 class InstallBannerViewHolder(
     itemView: View,

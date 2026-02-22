@@ -13,7 +13,7 @@ promise_setup(async () => {
   // The spec does not enforce validation order and implementations
   // indeed check other things before checking applicationServerKey.
 
-  // Get the permission because Firefox checks it before key validation.
+  // Get the permission because Plezix checks it before key validation.
   // (The permission test is done in permission.https.html.)
   await trySettingPermission("granted");
   // Get the active service worker because Chrome checks it before key validation

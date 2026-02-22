@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -119,7 +119,7 @@ class GeckoViewFetchUnitTestCases : FetchTestCases() {
             "Accept-Encoding" to "gzip, deflate",
             "Accept-Language" to "en-US,en;q=0.5",
             "Connection" to "keep-alive",
-            "User-Agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0",
+            "User-Agent" to "Plezix/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Plezix/65.0",
         )
         mockRequest(requestHeaders)
         mockResponse(200)

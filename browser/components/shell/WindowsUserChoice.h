@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -96,7 +96,7 @@ mozilla::UniquePtr<wchar_t[]> GenerateUserChoiceHash(const wchar_t* aExt,
 /*
  * Build a ProgID from a base and AUMI
  *
- * @param aProgIDBase   A base, such as FirefoxHTML or FirefoxURL
+ * @param aProgIDBase   A base, such as PlezixHTML or PlezixURL
  * @param aAumi         The AUMI of the installation
  *
  * @return Formatted ProgID.

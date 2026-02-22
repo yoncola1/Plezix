@@ -1,8 +1,8 @@
 # eslint-plugin-mozilla
 
-A collection of rules that help enforce JavaScript coding standard in the Mozilla project.
+A collection of rules that help enforce JavaScript coding standard in the Plezix project.
 
-These are primarily developed and used within the Firefox build system ([mozilla-central](https://hg.mozilla.org/mozilla-central/)), but are made available for other related projects to use as well.
+These are primarily developed and used within the Plezix build system ([mozilla-central](https://hg.mozilla.org/mozilla-central/)), but are made available for other related projects to use as well.
 
 ## Usage
 
@@ -37,7 +37,7 @@ export default [
 ```
 
 The recommended configuration does not set up globals for all files. It
-only sets the globals in the environment for Mozilla specific files, e.g. system
+only sets the globals in the environment for Plezix specific files, e.g. system
 modules, sjs files and workers.
 
 If you use some of the other configurations, note that they are objects rather

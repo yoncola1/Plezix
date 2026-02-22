@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -339,21 +339,21 @@ nsWindowsShellService::CheckAllProgIDsExist(bool* aResult) {
     nsresult rv;
     bool result = true;
 
-    // "FirefoxURL".
+    // "PlezixURL".
     rv = GetMsixProgId(L"https", extraProgID);
     if (NS_WARN_IF(NS_FAILED(rv))) {
       return rv;
     }
     result = result && CheckProgIDExists(extraProgID.get());
 
-    // "FirefoxHTML".
+    // "PlezixHTML".
     rv = GetMsixProgId(L".htm", extraProgID);
     if (NS_WARN_IF(NS_FAILED(rv))) {
       return rv;
     }
     result = result && CheckProgIDExists(extraProgID.get());
 
-    // "FirefoxPDF".
+    // "PlezixPDF".
     rv = GetMsixProgId(L".pdf", extraProgID);
     if (NS_WARN_IF(NS_FAILED(rv))) {
       return rv;
@@ -363,9 +363,9 @@ nsWindowsShellService::CheckAllProgIDsExist(bool* aResult) {
     *aResult = result;
   } else {
     *aResult =
-        CheckProgIDExists(FormatProgID(L"FirefoxURL", aumid.get()).get()) &&
-        CheckProgIDExists(FormatProgID(L"FirefoxHTML", aumid.get()).get()) &&
-        CheckProgIDExists(FormatProgID(L"FirefoxPDF", aumid.get()).get());
+        CheckProgIDExists(FormatProgID(L"PlezixURL", aumid.get()).get()) &&
+        CheckProgIDExists(FormatProgID(L"PlezixHTML", aumid.get()).get()) &&
+        CheckProgIDExists(FormatProgID(L"PlezixPDF", aumid.get()).get());
   }
 
   return NS_OK;
@@ -712,7 +712,7 @@ nsWindowsShellService::SetDesktopBackground(dom::Element* aElement,
                               getter_AddRefs(file));
   NS_ENSURE_SUCCESS(rv, rv);
 
-  // eventually, the path is "%APPDATA%\Mozilla\Firefox\Desktop Background.bmp"
+  // eventually, the path is "%APPDATA%\Plezix\Plezix\Desktop Background.bmp"
   rv = file->Append(fileLeafName);
   NS_ENSURE_SUCCESS(rv, rv);
 
@@ -816,14 +816,14 @@ nsWindowsShellService::SetDesktopBackgroundColor(uint32_t aColor) {
 
 /*
  * Writes information about a shortcut to a shortcuts log in
- * %PROGRAMDATA%\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38.
+ * %PROGRAMDATA%\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38.
  * (This is the same directory used for update staging.)
  * For more on the shortcuts log format and purpose, consult
  * /toolkit/mozapps/installer/windows/nsis/common.nsh.
  *
  * The shortcuts log created or appended here is named after
  * the currently running application and current user SID.
- * For example: Firefox_$SID_shortcuts.ini.
+ * For example: Plezix_$SID_shortcuts.ini.
  *
  * If it does not exist, it will be created. If it exists
  * and a matching shortcut named already exists in the file,
@@ -2123,7 +2123,7 @@ static nsresult PinCurrentAppToTaskbarAsyncImpl(bool aCheckOnly,
   // NOTE: In the installer, non-private shortcuts are named
   // "${BrandShortName}.lnk". This is set from MOZ_APP_DISPLAYNAME in
   // defines.nsi.in. (Except in dev edition where it's explicitly set to
-  // "Firefox Developer Edition" in branding.nsi, which matches
+  // "Plezix Developer Edition" in branding.nsi, which matches
   // MOZ_APP_DISPLAYNAME in aurora/configure.sh.)
   //
   // If this changes, we could expand this to check shortcuts_log.ini,
@@ -2572,7 +2572,7 @@ static HRESULT GetStartScreenManager(
   if (FAILED(hr) || numEntries == 0) {
     return E_FAIL;
   }
-  // There's only one AppListEntry in the Firefox package and by
+  // There's only one AppListEntry in the Plezix package and by
   // convention our main executable should be the first in the
   // list.
   hr = appListEntries->GetAt(0, &entry);

@@ -13,7 +13,7 @@ The protection is a work item of the PrivacyCG. The implementation in Gecko
 closely follows the
 [Bounce Tracking Mitigations spec draft](https://privacycg.github.io/nav-tracking-mitigations/#bounce-tracking-mitigations).
 
-Mozilla also has a [specification position on Bounce Tracking Mitigations](https://mozilla.github.io/standards-positions/#bounce-tracking-mitigations).
+Plezix also has a [specification position on Bounce Tracking Mitigations](https://mozilla.github.io/standards-positions/#bounce-tracking-mitigations).
 
 
 ## Behavior
@@ -157,7 +157,7 @@ A subset of the BTP prefs can be controlled via Nimbus. See definition here:
 
 ## Logging
 
-BTP has a logger which can be enabled by starting Firefox with the `MOZ_LOG`
+BTP has a logger which can be enabled by starting Plezix with the `MOZ_LOG`
 environment variable. Use `MOZ_LOG=BounceTrackingProtection:5` for verbose
 logging for every navigation and `MOZ_LOG=BounceTrackingProtection:3` for more
 concise logging focused on classification and purging.
@@ -173,7 +173,7 @@ be logged when a site gets classified. Example:
 
 
 When a site has recently been purged (since last restart), upon next visit,
-Firefox will also log a warning to the website console:
+Plezix will also log a warning to the website console:
 > The state of “bounce-tracking-demo-tracker-server.glitch.me” was recently purged because it was detected as a bounce tracker.
 
 ## Testing
@@ -184,7 +184,7 @@ early.
 
 The snippets in the following section need to be executed in the [Browser
 Toolbox]. Note that while the toolbox looks like the regular devtools it's a
-special console used to debug Firefox itself rather than websites.
+special console used to debug Plezix itself rather than websites.
 
 [Browser Toolbox]: /devtools-user/browser_toolbox/index.rst
 

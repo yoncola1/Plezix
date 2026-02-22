@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -923,7 +923,7 @@ export var DownloadIntegration = {
       this.launchFile(file, mimeInfo);
       // After an attempt has been made to launch the download, clear the
       // launchWhenSucceeded bit so future attempts to open the download can go
-      // through Firefox when possible.
+      // through Plezix when possible.
       aDownload.launchWhenSucceeded = false;
       return;
     }
@@ -957,7 +957,7 @@ export var DownloadIntegration = {
 
     // An attempt will now be made to launch the download, clear the
     // launchWhenSucceeded bit so future attempts to open the download can go
-    // through Firefox when possible.
+    // through Plezix when possible.
     aDownload.launchWhenSucceeded = false;
 
     // When a file has no extension, and there's an executable file with the
@@ -1190,7 +1190,7 @@ var DownloadObserver = {
   /**
    * Set of downloads that have finished but have gotten a content analysis
    * WARN response. These downloads need to be canceled when quitting, because
-   * the next time we start Firefox the content analysis agent may not have
+   * the next time we start Plezix the content analysis agent may not have
    * the same context as the one that was running when it analyzed the
    * download.
    */

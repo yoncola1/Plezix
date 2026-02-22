@@ -51,7 +51,7 @@
 #ifdef __MINGW32__
 /*
  * MinGW doesn't support __try / __except. There are a few mechanisms available
- * to hack around it and pseudo-support it, but these are untested in Firefox.
+ * to hack around it and pseudo-support it, but these are untested in Plezix.
  * What is tested (and works) is replacing them with if(true) and else.
  */
 #define __try if(true)

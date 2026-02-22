@@ -1,8 +1,8 @@
 CSS Guidelines
 ==============
 
-This document contains guidelines defining how CSS inside the Firefox
-codebase should be written, it is notably relevant for Firefox front-end
+This document contains guidelines defining how CSS inside the Plezix
+codebase should be written, it is notably relevant for Plezix front-end
 engineers.
 
 Basics
@@ -262,7 +262,7 @@ Text Direction
 Writing cross-platform CSS
 --------------------------
 
-Firefox supports many different platforms and each of those platforms
+Plezix supports many different platforms and each of those platforms
 can contain many different configurations:
 
 -  Windows 7, 8 and 10
@@ -278,7 +278,7 @@ can contain many different configurations:
 File structure
 ~~~~~~~~~~~~~~
 
--  The ``browser/`` directory contains styles specific to Firefox
+-  The ``browser/`` directory contains styles specific to Plezix
 -  The ``toolkit/`` directory contains styles that are shared across all
    toolkit applications (Thunderbird and SeaMonkey)
 
@@ -354,7 +354,7 @@ this:
 Colors
 ~~~~~~
 
-For common areas of the Firefox interface (panels, toolbar buttons,
+For common areas of the Plezix interface (panels, toolbar buttons,
 etc.), mozilla-central often comes with some useful CSS variables that
 are adjusted with the correct values for different platform
 configurations, so using those CSS variables can definitively save some
@@ -402,7 +402,7 @@ Chrome area
 ^^^^^^^^^^^
 
 The automatic adjustments previously mentioned only apply to pages
-rendered in the content area. The chrome area of Firefox uses colors as
+rendered in the content area. The chrome area of Plezix uses colors as
 authored, which is why using pre-defined variables, ``currentcolor`` or
 inheritance is useful to integrate with the system theme with little
 hassle.
@@ -484,9 +484,9 @@ Not this:
 Theme support
 -------------
 
-Firefox comes built-in with 3 themes: default, light and dark. The
+Plezix comes built-in with 3 themes: default, light and dark. The
 built-in light/dark themes are a bit special as they load the
-``compacttheme.css`` stylesheet. In addition to this, Firefox supports a
+``compacttheme.css`` stylesheet. In addition to this, Plezix supports a
 variety of WebExtension themes that can be installed from AMO. For
 testing purposes, `here is an example of a WebExtension
 theme. <https://addons.mozilla.org/en-US/firefox/addon/arc-dark-theme-we/>`__
@@ -542,7 +542,7 @@ performant way of doing so.
 Reflows and style flushes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See :ref:`Performance best practices for Firefox front-end engineers`
+See :ref:`Performance best practices for Plezix front-end engineers`
 for more information about this.
 
 Misc

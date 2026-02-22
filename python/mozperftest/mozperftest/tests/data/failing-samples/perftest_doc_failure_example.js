@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 /* eslint-env node */
@@ -35,6 +35,6 @@ module.exports = {
   usage: `
   ./mach perftest python/mozperftest/mozperftest/tests/data/samples/perftest_example.js
   `,
-  supportedBrowsers: ["Fenix nightly", "Geckoview_example", "Fennec", "Firefox"],
+  supportedBrowsers: ["Fenix nightly", "Geckoview_example", "Fennec", "Plezix"],
   supportedPlatforms: ["Android", "Desktop"],
 };

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ export class FeatureCallout {
    *   messages from ASRouter and sending telemetry.
    * @property {String} context either "chrome" or "content". "chrome" is used
    *   when the callout is shown in the browser chrome, and "content" is used
-   *   when the callout is shown in a content page like Firefox View.
+   *   when the callout is shown in a content page like Plezix View.
    * @property {MozBrowser} [browser] <browser> element responsible for the
    *   feature callout. for content pages, this is the browser element that the
    *   callout is being shown in. for chrome, this is the active browser.
@@ -2266,7 +2266,7 @@ export class FeatureCallout {
 
   /** @type {Object<String, FeatureCalloutTheme>} */
   static themePresets = {
-    // For themed system pages like New Tab and Firefox View. Themed content
+    // For themed system pages like New Tab and Plezix View. Themed content
     // colors inherit from the user's theme through contentTheme.js.
     "themed-content": {
       all: {

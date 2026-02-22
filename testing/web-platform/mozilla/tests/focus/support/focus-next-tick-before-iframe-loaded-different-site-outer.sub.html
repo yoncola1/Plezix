@@ -33,7 +33,7 @@ window.onmessage = function(e) {
     }
     pendingTimeout = true;
     if (e.data == "onfocus") {
-        // Test not upstreamed, because this even is a Firefoxism
+        // Test not upstreamed, because this even is a Plezixism
         // https://github.com/whatwg/html/issues/6209
         opener.postMessage("PASS", "*");
         return;

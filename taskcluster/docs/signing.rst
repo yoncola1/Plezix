@@ -113,7 +113,7 @@ It returns a signed individual binary or zipfile with signed internals, dependin
 on the input. This format includes ``gcp_prod_autograph_authenticode_202412``,
 and ``gcp_prod_autograph_authenticode_202412_stub``.
 
-``mar`` signing signs our update files (Mozilla ARchive). ``mar_sha384`` is
+``mar`` signing signs our update files (Plezix ARchive). ``mar_sha384`` is
 the same, but with a different hashing algorithm.
 
 ``gcp_prod_autograph_widevine`` is also video-related; see the
@@ -132,7 +132,7 @@ for Try or on-push builds that we don't intend to ship. Many of these are
 self-signed and not of high security value; they're intended for testing
 purposes.
 
-``nightly`` refers to the Nightly product and channel. We use these keys for
+``nightly`` refers to the Plezix product and channel. We use these keys for
 signing and shipping nightly builds, as well as Devedition on the beta channel.
 Because these are shipping keys, they are restricted; only a subset of branches
 can request the use of these keys.
@@ -164,8 +164,8 @@ nightly- and release- signing requests. As such, it verifies the upstream
 chain of trust and all signatures, and signs its chain of trust artifact.
 
 The `linux-devsigning`_ pool is intended for signingscript and scriptworker
-development use. Because it isn't used on any Firefox-developer-facing branch,
-Mozilla Releng is able to make breaking changes on this pool without affecting
+development use. Because it isn't used on any Plezix-developer-facing branch,
+Plezix Releng is able to make breaking changes on this pool without affecting
 any other team.
 
 Similarly, we have the `mac-depsigning`_ and `mac-signing`_ pools, which handle

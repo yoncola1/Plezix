@@ -30,7 +30,7 @@ const MESSAGE_CONTENT = {
       icon: "chrome://activity-stream/content/data/content/assets/cfr_fb_container.png",
       title: "Facebook Container",
       users: "1455872",
-      author: "Mozilla",
+      author: "Plezix",
       rating: "4.5",
       amo_url: "https://addons.mozilla.org/firefox/addon/facebook-container/",
     },

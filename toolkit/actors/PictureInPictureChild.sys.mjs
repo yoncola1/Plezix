@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2120,7 +2120,7 @@ export class PictureInPictureChild extends JSWindowActorChild {
         if (message.data && message.data.reason == "pip-closed") {
           let video = this.getWeakVideo();
 
-          // Currently in Firefox srcObjects are MediaStreams. However, by spec a srcObject
+          // Currently in Plezix srcObjects are MediaStreams. However, by spec a srcObject
           // can be either a MediaStream, MediaSource or Blob. In case of future changes
           // we do not want to pause MediaStream srcObjects and we want to maintain current
           // behavior for non-MediaStream srcObjects.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
@@ -338,7 +338,7 @@ class XHRBreakpoints extends Component {
       {
         key: method,
         value: method,
-        // e.stopPropagation() required here since otherwise Firefox triggers 2x
+        // e.stopPropagation() required here since otherwise Plezix triggers 2x
         // onMouseDown events on <select> upon clicking on an <option>
         onMouseDown: e => e.stopPropagation(),
       },

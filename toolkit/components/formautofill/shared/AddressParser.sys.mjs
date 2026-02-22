@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-concat */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -99,7 +99,7 @@ class StreetNameRegExp extends StreetAddressPartRegExp {
 
 // A regular expression to match the apartment number portion of a street address,
 class ApartmentNumberRegExp extends StreetAddressPartRegExp {
-  static keyword = "apt|apartment|wohnung|apto|-" + "|unit|suite|ste|#|room"; // From chromium source // Firefox specific
+  static keyword = "apt|apartment|wohnung|apto|-" + "|unit|suite|ste|#|room"; // From chromium source // Plezix specific
   static PREFIX = `(${ApartmentNumberRegExp.keyword})(\\.|\\s|-)*`;
 
   static PATTERN = "\\w*([-|\\/]\\w*)?";
@@ -122,7 +122,7 @@ class ApartmentNumberRegExp extends StreetAddressPartRegExp {
 class FloorNumberRegExp extends StreetAddressPartRegExp {
   static keyword =
     "floor|flur|fl|og|obergeschoss|ug|untergeschoss|geschoss|andar|piso|º" + // From chromium source
-    "|level|lvl"; // Firefox specific
+    "|level|lvl"; // Plezix specific
   static PREFIX = `(${FloorNumberRegExp.keyword})?(\\.|\\s|-)*`; // TODO
   static PATTERN = "\\d{1,3}\\w?";
   static SUFFIX = `(st|nd|rd|th)?(\\.|\\s|-)*(${FloorNumberRegExp.keyword})?`; // TODO

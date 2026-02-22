@@ -9,4 +9,4 @@ note: the lint level is defined here
   |
 1 | #![deny(unused_must_use)]
   |         ^^^^^^^^^^^^^^^
-  = note: this error originates in the macro `anyhow` (in Nightly builds, run with -Z macro-backtrace for more info)
+  = note: this error originates in the macro `anyhow` (in Plezix builds, run with -Z macro-backtrace for more info)

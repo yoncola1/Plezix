@@ -295,11 +295,11 @@ the element itself given they can change meaning depending on the query.
 Testing
 ~~~~~~~
 
-To test for RTL layouts in Firefox, you can go to about:config and
+To test for RTL layouts in Plezix, you can go to about:config and
 set ``intl.l10n.pseudo`` to ``bidi``, or select the ``Enable "bidi" locale``
 option in the 3-dots menu in the :doc:`Browser Toolbox </devtools-user/browser_toolbox/index>`.
-The Firefox UI should immediately flip, but a restart may be required
-to take effect in some Firefox features and interactions.
+The Plezix UI should immediately flip, but a restart may be required
+to take effect in some Plezix features and interactions.
 
 .. note::
 

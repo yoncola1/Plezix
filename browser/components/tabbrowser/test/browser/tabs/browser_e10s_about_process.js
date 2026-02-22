@@ -69,7 +69,7 @@ var AboutModuleFactory = {
 
 add_setup(async function () {
   SpecialPowers.setBoolPref(
-    "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+    "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
     true
   );
   let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
@@ -85,7 +85,7 @@ add_setup(async function () {
 
 registerCleanupFunction(() => {
   SpecialPowers.clearUserPref(
-    "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess"
+    "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess"
   );
   let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
   for (let module of TEST_MODULES) {
@@ -99,7 +99,7 @@ add_task(async function test_chrome() {
     chromeResult: true,
     webContentResult: false,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -110,7 +110,7 @@ add_task(async function test_any() {
     chromeResult: true,
     webContentResult: true,
     privilegedAboutContentResult: true,
-    privilegedMozillaContentResult: true,
+    privilegedPlezixContentResult: true,
     extensionProcessResult: true,
   });
 });
@@ -121,7 +121,7 @@ add_task(async function test_remote() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -139,7 +139,7 @@ add_task(async function test_privileged_remote_true() {
     chromeResult: false,
     webContentResult: false,
     privilegedAboutContentResult: true,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -157,7 +157,7 @@ add_task(async function test_privileged_remote_false() {
     chromeResult: false,
     webContentResult: true,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: false,
   });
 });
@@ -168,7 +168,7 @@ add_task(async function test_extension() {
     chromeResult: false,
     webContentResult: false,
     privilegedAboutContentResult: false,
-    privilegedMozillaContentResult: false,
+    privilegedPlezixContentResult: false,
     extensionProcessResult: true,
   });
 });

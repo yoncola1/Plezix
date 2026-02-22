@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -371,7 +371,7 @@ class SignUpFormScenario extends FormScenario {
 /**
  * Logic of Capture and Filling.
  *
- * This class will be shared with Firefox iOS and should have no references to
+ * This class will be shared with Plezix iOS and should have no references to
  * Gecko internals. See Bug 1774208.
  */
 export class LoginFormState {

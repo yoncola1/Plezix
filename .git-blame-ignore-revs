@@ -342,27 +342,27 @@ eddc0f842ddd1cd4d967bd07ac1c53549da29816 # cinnabar
 15feaa278a211f5c523739dbc09d07c7eb98de75
 1ef0c9878fc24a6ce954ab329abaed60b6778465 # cinnabar
 97f401c6442b9a93f923960b19ab7b2fa94879b0 # gecko-dev
-# 261943b7c3644155ac69ed3333d14917e5e037d3 - Mark Banner - Bug 1361760 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test/unit. r=bevis
+# 261943b7c3644155ac69ed3333d14917e5e037d3 - Mark Banner - Bug 1361760 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test/unit. r=bevis
 d4611d72b56ec115de1f84ac238c3cbfbeb36215
 f87bfcaaabd6cebb4cea69d7bfcddfff3f7a4a2d # cinnabar
 2451fe6f0845acec699ec8cf9ff97f02cf77d537 # gecko-dev
-# f261aca8246b967e6114d994665c804fbcdb4403 - Mark Banner - Bug 1361760 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test/unit - automatic fixes. r=bevis
+# f261aca8246b967e6114d994665c804fbcdb4403 - Mark Banner - Bug 1361760 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test/unit - automatic fixes. r=bevis
 ab59eae9d78f298d116b7919394244e8028e3540
 82e6164031fd766d705893f75c06463a73934452 # cinnabar
 9dce8bd2098b4c939a45a4b0291d6f80d70c694f # gecko-dev
-# 97a22f66e322f442079bb3fd00fbdcec6f13683d - Mark Banner - Bug 1361760 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test/unit - manual fixes. r=bevis
+# 97a22f66e322f442079bb3fd00fbdcec6f13683d - Mark Banner - Bug 1361760 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test/unit - manual fixes. r=bevis
 f7dde02df0ddc83f4895636f5a330323b0ce46bc
 6685af2687e9f2226dd4e6b7b2caae0e69914c81 # cinnabar
 b5cf40721ce5eb053cbcddb53d94bb5d1210e226 # gecko-dev
-# be00938a685295f9bd6bf5e958c0e799e6afad45 - Mark Banner - Bug 1363795 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test (no-undef). r=bevis
+# be00938a685295f9bd6bf5e958c0e799e6afad45 - Mark Banner - Bug 1363795 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test (no-undef). r=bevis
 7c1c3bc3c7d1aa608e0e00fe6ec54d44f2d7beaa
 6dbb96c390eb876543a144b0f349ff7a099e5daa # cinnabar
 e123b6dfb8b36646b51cb09a2cf7c1cc814a9ce3 # gecko-dev
-# ab9b62e22a5d35a99f9f25c9aefaa8e92fb8e1f6 - Mark Banner - Bug 1363795 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test - automatic fixes. r=bevis
+# ab9b62e22a5d35a99f9f25c9aefaa8e92fb8e1f6 - Mark Banner - Bug 1363795 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test - automatic fixes. r=bevis
 b598847cc05b1fa279190493bc72e913ff4a4549
 b099b719218d1f5092ca768c37bfb0dc07aa3d42 # cinnabar
 52a86c565f492bc52f6941b5f5e5d5451a2e5553 # gecko-dev
-# de859ae644212accb6e706c2a8408df04f816573 - Mark Banner - Bug 1363795 - Enable some Mozilla ESLint recommended rules for dom/indexedDB/test - manual fixes. r=bevis
+# de859ae644212accb6e706c2a8408df04f816573 - Mark Banner - Bug 1363795 - Enable some Plezix ESLint recommended rules for dom/indexedDB/test - manual fixes. r=bevis
 fcd7680de2bdea4581274c85a5f668aa6fc8098d
 2ac514ba396c083d55ae8b9fb863f7f9aa852e26 # cinnabar
 3161044b80224f8e50a196d56d450186b7df3457 # gecko-dev

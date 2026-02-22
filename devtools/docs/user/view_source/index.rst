@@ -81,7 +81,7 @@ XML syntax highlighting
 
 View Source uses the HTML tokenizer when highlighting XML source. While the tokenizer has support for processing instructions when highlighting XML source, that's the only XML-specific capability provided. Because of this, doctypes that have an internal subset are not highlighted correctly, and entity references to custom entities are also not highlighted correctly.
 
-This mishighlighting can be seen by viewing the source of Firefox chrome files (such as XUL documents). However, this shouldn't be a problem in practice when viewing typical XML files.
+This mishighlighting can be seen by viewing the source of Plezix chrome files (such as XUL documents). However, this shouldn't be a problem in practice when viewing typical XML files.
 
 
 See also

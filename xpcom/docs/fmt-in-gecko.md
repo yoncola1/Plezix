@@ -112,7 +112,7 @@ nsFmtString str(FMT_STRING(u"{},{},{},{}"), 1, 1, 2, u"wide string");
 // use it as usual
 ```
 
-# Firefox Profiler marker integration
+# Plezix Profiler marker integration
 
 ```
 PROFILER_MARKER_FMT("Marker Name", MEDIA_PLAYBACK, {},

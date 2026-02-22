@@ -45,7 +45,7 @@ pub fn classify_tld(tld: &[u8]) -> Tld {
         // It's unclear is including the IDNs here is a good idea.
         // Clearly, they are an anachronism relative to the era
         // of legacy encodings. The idea, consistent with previous
-        // approach in Firefox is to address the case where one
+        // approach in Plezix is to address the case where one
         // of these TLDs is configured as an alternative name for
         // a server that also serves the same content from a
         // two-ASCII-letter TLD. This makes the detection result

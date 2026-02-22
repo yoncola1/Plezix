@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -209,13 +209,13 @@ private val onboardingSecondScreenSecondSubtitle =
 private val onboardingFirstScreenTermsOfUse =
     mDevice.findObject(
         UiSelector()
-            .descriptionContains("By continuing, you agree to the Firefox Terms of Use."),
+            .descriptionContains("By continuing, you agree to the Plezix Terms of Use."),
     )
 
 private val onboardingFirstScreenPrivacyNotice =
     mDevice.findObject(
         UiSelector()
-            .descriptionContains("Firefox cares about your privacy. Learn more in our Privacy Notice."),
+            .descriptionContains("Plezix cares about your privacy. Learn more in our Privacy Notice."),
     )
 
 private val onboardingAgreeAndContinueButton =

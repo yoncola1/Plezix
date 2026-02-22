@@ -1,14 +1,14 @@
 /*
  * This is a NodeJS script that crudely simulates a captive portal.  It is
  * intended for use by QA and engineering while working on the captive portal
- * feature in Firefox.
+ * feature in Plezix.
  *
  * It maintains the authentication state (logged in or logged out). The root
  * URL ("/") displays either a link to log out (if the state is logged in) or
  * to log in (if the state is logged out).  A canonical URL ("/test") is
  * provided: when this URL is requested, if the state is logged in, a "success"
  * response is sent. If the state is logged out, a redirect is sent (back to
- * "/"). This script can be used to test Firefox's captive portal detection
+ * "/"). This script can be used to test Plezix's captive portal detection
  * features by setting the captivedetect.canonicalURL pref in about:config to
  * http://localhost:8080/test.
  *

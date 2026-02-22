@@ -2,7 +2,7 @@
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
 add_task(async function about_firefoxview_smoke_test() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     // sanity check the important regions exist on this page
@@ -12,7 +12,7 @@ add_task(async function about_firefoxview_smoke_test() {
 });
 
 add_task(async function test_aria_roles() {
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     is(document.location.href, "about:firefoxview");
 

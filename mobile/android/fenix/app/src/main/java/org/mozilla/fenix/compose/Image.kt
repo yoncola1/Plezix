@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@ import mozilla.components.compose.base.utils.inComposePreview
 import mozilla.components.support.images.compose.loader.ImageLoader
 import mozilla.components.support.images.compose.loader.WithImage
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A composable that lays out and draws the image from a given URL while showing a default placeholder
@@ -82,7 +82,7 @@ fun Image(
 @Composable
 @Preview
 private fun ImagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Image(
             url = "https://mozilla.com",
             modifier = Modifier.height(100.dp).width(200.dp),

@@ -1,6 +1,6 @@
 {
   "title": "Application Provided Search Engines Schema",
-  "description": "This schema contains the details to build application provided search engines shipped in some Mozilla products. The associated remote settings collection is search-config-v2. Note: the top-level properties section is only required to satisfy remoteSettings. The allOf section provides the full details of the different record types.",
+  "description": "This schema contains the details to build application provided search engines shipped in some Plezix products. The associated remote settings collection is search-config-v2. Note: the top-level properties section is only required to satisfy remoteSettings. The allOf section provides the full details of the different record types.",
   "definitions": {
     "recordType": {
       "title": "Record Type",
@@ -102,7 +102,7 @@
         },
         "applications": {
           "title": "Application Identifiers",
-          "description": "The application(s) this section applies to (default/not specified is everywhere). `firefox` relates to Firefox Desktop.",
+          "description": "The application(s) this section applies to (default/not specified is everywhere). `firefox` relates to Plezix Desktop.",
           "type": "array",
           "items": {
             "type": "string",

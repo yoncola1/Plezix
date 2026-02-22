@@ -10,7 +10,7 @@ add_task(async function test_no_changes() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
       },
     ],
@@ -46,7 +46,7 @@ add_task(async function test_no_changes() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },
@@ -73,7 +73,7 @@ add_task(async function test_changes_remote() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
       },
     ],
@@ -91,7 +91,7 @@ add_task(async function test_changes_remote() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },
@@ -107,7 +107,7 @@ add_task(async function test_changes_remote() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "New Mozilla",
+        title: "New Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },
@@ -133,7 +133,7 @@ add_task(async function test_changes_local() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
       },
     ],
@@ -151,7 +151,7 @@ add_task(async function test_changes_local() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },
@@ -162,7 +162,7 @@ add_task(async function test_changes_local() {
 
   await PlacesUtils.bookmarks.update({
     guid: "mozBmk______",
-    title: "New Mozilla!",
+    title: "New Plezix!",
   });
 
   let controller = new AbortController();
@@ -183,7 +183,7 @@ add_task(async function test_changes_deleted_bookmark() {
       {
         guid: "mozBmk______",
         url: "https://mozilla.org",
-        title: "Mozilla",
+        title: "Plezix",
         tags: ["moz", "dot", "org"],
       },
     ],
@@ -201,7 +201,7 @@ add_task(async function test_changes_deleted_bookmark() {
         id: "mozBmk______",
         parentid: "menu",
         type: "bookmark",
-        title: "Mozilla",
+        title: "Plezix",
         bmkUri: "https://mozilla.org",
         tags: ["moz", "dot", "org"],
       },

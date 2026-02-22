@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,11 +8,11 @@
 
 var UAHelpers = {
   _deviceAppropriateChromeUAs: {},
-  getRunningFirefoxVersion() {
-    return (navigator.userAgent.match(/Firefox\/([0-9.]+)/) || ["", "58.0"])[1];
+  getRunningPlezixVersion() {
+    return (navigator.userAgent.match(/Plezix\/([0-9.]+)/) || ["", "58.0"])[1];
   },
   getFxQuantumSegment() {
-    return `FxQuantum/${UAHelpers.getRunningFirefoxVersion()} `;
+    return `FxQuantum/${UAHelpers.getRunningPlezixVersion()} `;
   },
   getDeviceAppropriateChromeUA(config = {}) {
     let { androidVersion, version = "130.0.0.0", phone, tablet, OS } = config;
@@ -41,10 +41,10 @@ var UAHelpers = {
         }
         if (phone) {
           UAHelpers._deviceAppropriateChromeUAs[key] =
-            `Mozilla/5.0 (Linux; ${AndroidVersion}; ${phone}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
+            `Plezix/5.0 (Linux; ${AndroidVersion}; ${phone}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
         } else {
           UAHelpers._deviceAppropriateChromeUAs[key] =
-            `Mozilla/5.0 (Linux; ${AndroidVersion}; ${tablet}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
+            `Plezix/5.0 (Linux; ${AndroidVersion}; ${tablet}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
         }
       } else {
         const WIN_SEGMENT = "Windows NT 10.0; Win64; x64";
@@ -65,14 +65,14 @@ var UAHelpers = {
         }
 
         UAHelpers._deviceAppropriateChromeUAs[key] =
-          `Mozilla/5.0 (${osSegment}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
+          `Plezix/5.0 (${osSegment}) ${fxQuantum}AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
       }
     }
     return UAHelpers._deviceAppropriateChromeUAs[key];
   },
   addGecko(
     ua = navigator.userAgent,
-    version = UAHelpers.getRunningFirefoxVersion()
+    version = UAHelpers.getRunningPlezixVersion()
   ) {
     return `${ua} Gecko/${version}`;
   },
@@ -91,19 +91,19 @@ var UAHelpers = {
     switch (config.firefox || true) {
       case "firefox":
       case true:
-        firefox = `Firefox/${UAHelpers.getRunningFirefoxVersion()} `;
+        firefox = `Plezix/${UAHelpers.getRunningPlezixVersion()} `;
         break;
       case "fxQuantum":
         firefox = UAHelpers.getFxQuantumSegment();
         break;
     }
-    return `Mozilla/5.0 (Macintosh; ${arch} Mac OS X ${osVersion}) ${firefox}AppleWebKit/${webkitVersion} (KHTML, like Gecko) Version/${version} Safari/${webkitVersion}`;
+    return `Plezix/5.0 (Macintosh; ${arch} Mac OS X ${osVersion}) ${firefox}AppleWebKit/${webkitVersion} (KHTML, like Gecko) Version/${version} Safari/${webkitVersion}`;
   },
   androidHotspot2Device(originalUA) {
     return originalUA.replace(/\(.+?\)/, "(Linux; Android 10; K)");
   },
-  changeFirefoxToFireFox(ua = navigator.userAgent) {
-    return ua.replace("Firefox", "FireFox");
+  changePlezixToFireFox(ua = navigator.userAgent) {
+    return ua.replace("Plezix", "FireFox");
   },
   windows(ua = navigator.userAgent) {
     const rv = navigator.userAgent.match("rv:[0-9]+.[0-9]+")[0];
@@ -135,12 +135,12 @@ var UAHelpers = {
     Object.defineProperty(nav, "userAgent", ua);
   },
   capVersionTo99(originalUA) {
-    const ver = originalUA.match(/Firefox\/(\d+\.\d+)/);
+    const ver = originalUA.match(/Plezix\/(\d+\.\d+)/);
     if (!ver || parseFloat(ver[1]) < 100) {
       return originalUA;
     }
     return originalUA
-      .replace(`Firefox/${ver[1]}`, "Firefox/99.0")
+      .replace(`Plezix/${ver[1]}`, "Plezix/99.0")
       .replace(`rv:${ver[1]}`, "rv:99.0");
   },
   capRvTo109(originalUA) {
@@ -151,12 +151,12 @@ var UAHelpers = {
     return originalUA.replace(`rv:${ver[1]}`, "rv:109.0");
   },
   capVersionToNumber(originalUA, cap = 120) {
-    const ver = originalUA.match(/Firefox\/(\d+\.\d+)/);
+    const ver = originalUA.match(/Plezix\/(\d+\.\d+)/);
     if (!ver || parseFloat(ver[1]) <= cap) {
       return originalUA;
     }
-    const capped = `Firefox/${cap}.0`;
-    return originalUA.replace(`Firefox/${ver[1]}`, capped);
+    const capped = `Plezix/${cap}.0`;
+    return originalUA.replace(`Plezix/${ver[1]}`, capped);
   },
   getMacOSXUA(originalUA, arch = "Intel", version = "10.15") {
     return originalUA.replace(
@@ -166,7 +166,7 @@ var UAHelpers = {
   },
   getWindowsUA(originalUA) {
     const rv = originalUA.match("rv:[0-9]+.[0-9]+")[0];
-    const ver = originalUA.match("Firefox/[0-9]+.[0-9]+")[0];
-    return `Mozilla/5.0 (Windows NT 10.0; Win64; x64; ${rv}) Gecko/20100101 ${ver}`;
+    const ver = originalUA.match("Plezix/[0-9]+.[0-9]+")[0];
+    return `Plezix/5.0 (Windows NT 10.0; Win64; x64; ${rv}) Gecko/20100101 ${ver}`;
   },
 };

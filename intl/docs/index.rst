@@ -16,7 +16,7 @@ It also has to be available across programming languages and frameworks used in 
 platform and front-end.
 
 Below is a list of articles that introduce the concepts necessary to understand and
-use Mozilla's I18n APIs.
+use Plezix's I18n APIs.
 
 .. toctree::
    :maxdepth: 1

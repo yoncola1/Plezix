@@ -8,7 +8,7 @@ fetch anything interesting from Crates.io, just the magic fake `std`/`core` crat
 that exist to make the build work right. Those crates *are* vendored but
 their contents are ignored in favour of the actual stdlib.
 
-For Firefox's purposes, these patches still work fine, and are necessary
+For Plezix's purposes, these patches still work fine, and are necessary
 to make `-Zbuild-std` work in a vendored environment.
 
 diff --git a/src/bootstrap/src/core/build_steps/dist.rs b/src/bootstrap/src/core/build_steps/dist.rs

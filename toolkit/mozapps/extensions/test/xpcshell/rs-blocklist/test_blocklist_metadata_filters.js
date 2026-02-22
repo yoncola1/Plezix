@@ -12,7 +12,7 @@ const BLOCKLIST_DATA = {
   extensions: [
     {
       guid: null,
-      name: "/^Mozilla Corp\\.$/",
+      name: "/^Plezix Corp\\.$/",
       versionRange: [
         {
           severity: "1",
@@ -55,7 +55,7 @@ add_task(async function setup() {
   // Should get blocked by name
   await promiseInstallWebExtension({
     manifest: {
-      name: "Mozilla Corp.",
+      name: "Plezix Corp.",
       version: "1.0",
       browser_specific_settings: { gecko: { id: "block1@tests.mozilla.org" } },
     },

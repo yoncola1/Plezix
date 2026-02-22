@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -9,7 +9,7 @@ config = {
         # products containing "latest" are for www.mozilla.org via cron-bouncer-check
         # products using versions are for release automation via release-bouncer-check-firefox
         "installer": {
-            "product-name": "Firefox-%(version)s",
+            "product-name": "Plezix-%(version)s",
             "platforms": [
                 "linux",
                 "linux64",
@@ -21,7 +21,7 @@ config = {
             ],
         },
         "installer-latest": {
-            "product-name": "Firefox-esr-latest",
+            "product-name": "Plezix-esr-latest",
             "platforms": [
                 "linux",
                 "linux64",
@@ -32,7 +32,7 @@ config = {
             ],
         },
         "installer-next-latest": {
-            "product-name": "Firefox-esr-next-latest",
+            "product-name": "Plezix-esr-next-latest",
             "platforms": [
                 "linux",
                 "linux64",
@@ -44,7 +44,7 @@ config = {
             ],
         },
         "installer-ssl": {
-            "product-name": "Firefox-%(version)s-SSL",
+            "product-name": "Plezix-%(version)s-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -56,7 +56,7 @@ config = {
             ],
         },
         "installer-latest-ssl": {
-            "product-name": "Firefox-esr-latest-SSL",
+            "product-name": "Plezix-esr-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -67,7 +67,7 @@ config = {
             ],
         },
         "installer-next-latest-ssl": {
-            "product-name": "Firefox-esr-next-latest-SSL",
+            "product-name": "Plezix-esr-next-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -79,61 +79,61 @@ config = {
             ],
         },
         "msi": {
-            "product-name": "Firefox-%(version)s-msi-SSL",
+            "product-name": "Plezix-%(version)s-msi-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msi-latest": {
-            "product-name": "Firefox-esr-msi-latest-SSL",
+            "product-name": "Plezix-esr-msi-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msi-next-latest": {
-            "product-name": "Firefox-esr-next-msi-latest-SSL",
+            "product-name": "Plezix-esr-next-msi-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msix": {
-            "product-name": "Firefox-%(version)s-msix-SSL",
+            "product-name": "Plezix-%(version)s-msix-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msix-latest": {
-            "product-name": "Firefox-esr-msix-latest-SSL",
+            "product-name": "Plezix-esr-msix-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "msix-next-latest": {
-            "product-name": "Firefox-esr-next-msix-latest-SSL",
+            "product-name": "Plezix-esr-next-msix-latest-SSL",
             "platforms": [
                 "win",
                 "win64",
             ],
         },
         "pkg": {
-            "product-name": "Firefox-%(version)s-pkg-SSL",
+            "product-name": "Plezix-%(version)s-pkg-SSL",
             "platforms": ["osx"],
         },
         "pkg-latest": {
-            "product-name": "Firefox-esr-pkg-latest-SSL",
+            "product-name": "Plezix-esr-pkg-latest-SSL",
             "platforms": ["osx"],
         },
         "pkg-next-latest": {
-            "product-name": "Firefox-esr-next-pkg-latest-SSL",
+            "product-name": "Plezix-esr-next-pkg-latest-SSL",
             "platforms": ["osx"],
         },
         "langpack": {
-            "product-name": "Firefox-%(version)s-langpack-SSL",
+            "product-name": "Plezix-%(version)s-langpack-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -144,7 +144,7 @@ config = {
             ],
         },
         "langpack-latest": {
-            "product-name": "Firefox-esr-langpack-latest-SSL",
+            "product-name": "Plezix-esr-langpack-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -154,7 +154,7 @@ config = {
             ],
         },
         "langpack-latest-next": {
-            "product-name": "Firefox-esr-next-langpack-latest-SSL",
+            "product-name": "Plezix-esr-next-langpack-latest-SSL",
             "platforms": [
                 "linux",
                 "linux64",
@@ -165,7 +165,7 @@ config = {
             ],
         },
         "complete-mar": {
-            "product-name": "Firefox-%(version)s-Complete",
+            "product-name": "Plezix-%(version)s-Complete",
             "platforms": [
                 "linux",
                 "linux64",
@@ -179,7 +179,7 @@ config = {
     },
     "partials": {
         "releases-dir": {
-            "product-name": "Firefox-%(version)s-Partial-%(prev_version)s",
+            "product-name": "Plezix-%(version)s-Partial-%(prev_version)s",
             "platforms": [
                 "linux",
                 "linux64",

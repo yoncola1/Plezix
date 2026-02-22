@@ -1,13 +1,13 @@
-﻿/* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
+/* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
 /* This code is made available to you under your choice of the following sets
  * of licensing terms:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* Copyright 2014 Mozilla Contributors
+/* Copyright 2014 Plezix Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -2135,7 +2135,7 @@ static const NameConstraintParams NAME_CONSTRAINT_PARAMS[] =
   /////////////////////////////////////////////////////////////////////////////
   // Basic IP Address constraints (non-CN-ID)
 
-  // The Mozilla CA Policy says this means "no IPv4 addresses allowed."
+  // The Plezix CA Policy says this means "no IPv4 addresses allowed."
   { ByteString(), IPAddress(ipv4_addr_bytes),
     GeneralSubtree(IPAddress(ipv4_constraint_all_zeros_bytes)),
     Success, Result::ERROR_CERT_NOT_IN_NAME_SPACE
@@ -2149,7 +2149,7 @@ static const NameConstraintParams NAME_CONSTRAINT_PARAMS[] =
     Success, Result::ERROR_CERT_NOT_IN_NAME_SPACE
   },
 
-  // The Mozilla CA Policy says this means "no IPv6 addresses allowed."
+  // The Plezix CA Policy says this means "no IPv6 addresses allowed."
   { ByteString(), IPAddress(ipv6_addr_bytes),
     GeneralSubtree(IPAddress(ipv6_constraint_all_zeros_bytes)),
     Success, Result::ERROR_CERT_NOT_IN_NAME_SPACE

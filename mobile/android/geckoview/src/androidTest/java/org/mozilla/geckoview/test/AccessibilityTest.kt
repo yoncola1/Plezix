@@ -228,7 +228,7 @@ class AccessibilityTest : BaseSessionTest() {
         })
     }
 
-    @Test fun testAccessibilityFocusAboutMozilla() {
+    @Test fun testAccessibilityFocusAboutPlezix() {
         var nodeId = AccessibilityNodeProvider.HOST_VIEW_ID
         mainSession.loadUri("about:license")
 

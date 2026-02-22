@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-A script to set up startup profiling with the Firefox Profiler. See
+A script to set up startup profiling with the Plezix Profiler. See
 https://profiler.firefox.com/docs/#/./guide-remote-profiling?id=startup-profiling
 for more information.
 """
@@ -31,7 +31,7 @@ GV_CONFIG = b"""env:
 def parse_args():
     p = argparse.ArgumentParser(
         description=(
-            "Easily enable start up profiling using the Firefox Profiler. Finish capturing the profile in "
+            "Easily enable start up profiling using the Plezix Profiler. Finish capturing the profile in "
             "about:debugging on desktop. See "
             "https://profiler.firefox.com/docs/#/./guide-remote-profiling?id=startup-profiling for "
             "details."

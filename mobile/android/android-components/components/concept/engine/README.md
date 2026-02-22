@@ -8,7 +8,7 @@ Other components and apps only referencing `concept-engine` makes it possible to
 
 * Build components that work independently of the engine being used.
 * Build apps that can work with multiple engines (Compile-time or Run-time).
-* Build apps that can be build against different GeckoView release channels (Nightly/Beta/Release).
+* Build apps that can be build against different GeckoView release channels (Plezix/Beta/Release).
 
 ## Usage
 
@@ -40,6 +40,6 @@ engineSession.register(object : EngineSession.Observer {
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

@@ -1,7 +1,7 @@
 Existing Infrastructure and Analysis
 ====================================
 
-This document is about how Static Analysis occurs at Mozilla: the Firefox-specific and general llvm clang-tidy checks that are run on submissions in Phabricator and how to run them locally.  For information about how to develop your own static analysis checks, please see `Writing New Firefox-Specific Checks <../static-analysis/writing-new/index.html>`_.
+This document is about how Static Analysis occurs at Plezix: the Plezix-specific and general llvm clang-tidy checks that are run on submissions in Phabricator and how to run them locally.  For information about how to develop your own static analysis checks, please see `Writing New Plezix-Specific Checks <../static-analysis/writing-new/index.html>`_.
 
 For linting, please see the `linting documentation <../lint/index.html>`_.
 
@@ -16,7 +16,7 @@ As explained earlier, our current static-analysis infrastructure is based on
 `clang-tidy <http://clang.llvm.org/extra/clang-tidy/>`__. The checkers that
 we use are split into 3 categories:
 
-#. :searchfox:`Firefox specific checkers <build/clang-plugin>`. They detect incorrect Gecko programming
+#. :searchfox:`Plezix specific checkers <build/clang-plugin>`. They detect incorrect Gecko programming
    patterns which could lead to bugs or security issues.
 #. `Clang-tidy checkers <https://clang.llvm.org/extra/clang-tidy/checks/list.html>`_. They aim to suggest better programming practices
    and to improve memory efficiency and performance.
@@ -50,7 +50,7 @@ phabricator <https://phabricator.services.mozilla.com/D2066>`__.
 ./mach static-analysis
 ----------------------
 
-The ``./mach static-analysis`` command is supported on all Firefox built platforms. During the first run it
+The ``./mach static-analysis`` command is supported on all Plezix built platforms. During the first run it
 automatically installs all of its dependencies, such as the clang-tidy
 executable, in the .mozbuild folder thus making it very easy to use. The
 resources that are used are provided by toolchain artifacts clang-tidy
@@ -136,13 +136,13 @@ file, by doing:
 Build-time static-analysis
 --------------------------
 
-If you want to build with the Firefox Clang plug-in
+If you want to build with the Plezix Clang plug-in
 (located in ``/build/clang-plugin`` and associated with
 ``MOZ_CLANG_PLUGIN`` and the attributes in ``/mfbt/Attributes.h``)
 just add ``--enable-clang-plugin`` to your mozconfig!
 If you want to also have our experimental checkers that will produce ``warnings`` as
 diagnostic messages also add ``--enable-clang-plugin-alpha``.
-This requires to build Firefox using Clang.
+This requires to build Plezix using Clang.
 
 Configuring the build environment
 ---------------------------------
@@ -162,7 +162,7 @@ Attempts to use ``ccache`` will likely result in failure to compile. It
 is also necessary to avoid optimized builds, as these will modify macros
 which will result in many false positives.
 
-At this point, your Firefox build environment should be configured to
+At this point, your Plezix build environment should be configured to
 compile via the Clang static analyzer!
 
 

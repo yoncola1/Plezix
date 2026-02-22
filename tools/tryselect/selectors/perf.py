@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -239,7 +239,7 @@ class PerfParser(CompareParser):
                 "type": str,
                 "default": "BasePerfComparator",
                 "help": "Either a path to a file to setup a custom comparison, "
-                "or a builtin name. See the Firefox source docs for mach try perf for "
+                "or a builtin name. See the Plezix source docs for mach try perf for "
                 "examples of how to build your own, along with the interface.",
             },
         ],

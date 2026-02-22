@@ -10,7 +10,7 @@ Services.scriptloader.loadSubScript(
 );
 
 /**
- * Check that navigating from This Firefox to Connect and back to This Firefox works and
+ * Check that navigating from This Plezix to Connect and back to This Plezix works and
  * does not leak.
  */
 
@@ -23,23 +23,23 @@ add_task(async function () {
 
   const { document, tab, window } = await openAboutDebugging();
   const AboutDebugging = window.AboutDebugging;
-  await selectThisFirefoxPage(document, AboutDebugging.store);
+  await selectThisPlezixPage(document, AboutDebugging.store);
 
   const connectSidebarItem = findSidebarItemByText("Setup", document);
   const connectLink = connectSidebarItem.querySelector(".qa-sidebar-link");
   ok(connectSidebarItem, "Found the Connect sidebar item");
 
-  const thisFirefoxString = getThisFirefoxString(window);
-  const thisFirefoxSidebarItem = findSidebarItemByText(
-    thisFirefoxString,
+  const thisPlezixString = getThisPlezixString(window);
+  const thisPlezixSidebarItem = findSidebarItemByText(
+    thisPlezixString,
     document
   );
-  const thisFirefoxLink =
-    thisFirefoxSidebarItem.querySelector(".qa-sidebar-link");
-  ok(thisFirefoxSidebarItem, "Found the ThisFirefox sidebar item");
+  const thisPlezixLink =
+    thisPlezixSidebarItem.querySelector(".qa-sidebar-link");
+  ok(thisPlezixSidebarItem, "Found the ThisPlezix sidebar item");
   ok(
-    isSidebarItemSelected(thisFirefoxSidebarItem),
-    "ThisFirefox sidebar item is selected by default"
+    isSidebarItemSelected(thisPlezixSidebarItem),
+    "ThisPlezix sidebar item is selected by default"
   );
 
   info("Open a new background tab TAB1");
@@ -62,21 +62,21 @@ add_task(async function () {
     "Runtime page no longer rendered"
   );
 
-  info("Open a new tab which should be listed when we go back to This Firefox");
+  info("Open a new tab which should be listed when we go back to This Plezix");
   const backgroundTab2 = await addTab(TAB_URL_2, { background: true });
 
-  info("Click on the ThisFirefox item in the sidebar");
+  info("Click on the ThisPlezix item in the sidebar");
   const requestsSuccess = waitForRequestsSuccess(AboutDebugging.store);
-  thisFirefoxLink.click();
+  thisPlezixLink.click();
 
   info("Wait for all target requests to complete");
   await requestsSuccess;
 
-  info("Wait until ThisFirefox page is displayed");
+  info("Wait until ThisPlezix page is displayed");
   await waitUntil(() => document.querySelector(".qa-runtime-page"));
   ok(
-    isSidebarItemSelected(thisFirefoxSidebarItem),
-    "ThisFirefox sidebar item is selected again"
+    isSidebarItemSelected(thisPlezixSidebarItem),
+    "ThisPlezix sidebar item is selected again"
   );
   ok(
     !document.querySelector(".qa-connect-page"),
@@ -90,7 +90,7 @@ add_task(async function () {
   await removeTab(backgroundTab1);
 
   info(
-    "Check TAB1 disappears, meaning ThisFirefox client is correctly connected"
+    "Check TAB1 disappears, meaning ThisPlezix client is correctly connected"
   );
   await waitUntil(() => !findDebugTargetByText("TAB1", document));
 
@@ -98,7 +98,7 @@ add_task(async function () {
   await removeTab(backgroundTab2);
 
   info(
-    "Check TAB2 disappears, meaning ThisFirefox client is correctly connected"
+    "Check TAB2 disappears, meaning ThisPlezix client is correctly connected"
   );
   await waitUntil(() => !findDebugTargetByText("TAB2", document));
 

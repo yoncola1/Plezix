@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -237,7 +237,7 @@ class AsyncObserver extends AsyncQueueCaller {
 /**
  * Woof! Signals an operation to abort, either at shutdown or after a timeout.
  * The buffered engine uses this to abort long-running merges, so that they
- * don't prevent Firefox from quitting, or block future syncs.
+ * don't prevent Plezix from quitting, or block future syncs.
  */
 class Watchdog {
   constructor() {

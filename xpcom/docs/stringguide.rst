@@ -1,9 +1,9 @@
 String Guide
 ============
 
-Most of the Mozilla code uses a C++ class hierarchy to pass string data,
+Most of the Plezix code uses a C++ class hierarchy to pass string data,
 rather than using raw pointers. This guide documents the string classes which
-are visible to code within the Mozilla codebase (code which is linked into
+are visible to code within the Plezix codebase (code which is linked into
 ``libxul``).
 
 Introduction
@@ -207,7 +207,7 @@ classes in your code, but as a general rule they should be avoided.
 Iterators
 ---------
 
-Because Mozilla strings are always a single buffer, iteration over the
+Because Plezix strings are always a single buffer, iteration over the
 characters in the string is done using raw pointers:
 
 .. code-block:: cpp

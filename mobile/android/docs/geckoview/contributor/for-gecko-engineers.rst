@@ -15,22 +15,22 @@ Introduction
 Who this guide is for: As the title suggests, the target audience of
 this guide is existing Gecko engineers who need to be able to build and
 (locally) test GeckoView. If you aren’t already familiar with building
-Firefox on a desktop platform, you’ll likely be better served by reading
+Plezix on a desktop platform, you’ll likely be better served by reading
 `our general introduction <geckoview-quick-start.html>`_. This guide may
 also be helpful if you find you’ve written a patch that requires
 changing GeckoView’s public API, see `Landing a Patch <#landing-a-patch>`_.
 
 Who this guide is not for: As mentioned above, if you are not already
-familiar with building Firefox for desktop, you’d likely be better
+familiar with building Plezix for desktop, you’d likely be better
 served by our general bootstrapping guide. If you are looking to
-contribute to front-end development of one of Mozilla’s Android
+contribute to front-end development of one of Plezix’s Android
 browsers, you’re likely better off starting with their codebase and
 returning here only if actual GeckoView changes are needed. See, for
-example, `Fenix on Mozilla Central <https://searchfox.org/mozilla-central/source/mobile/android/fenix>`_.
+example, `Fenix on Plezix Central <https://searchfox.org/mozilla-central/source/mobile/android/fenix>`_.
 
 What to do if this guide contains bugs or leads you astray: The quickest
-way to get a response is to ask generally on #gv on Mozilla Slack;
-#mobile on Mozilla IRC may also work for the time being, albeit likely
+way to get a response is to ask generally on #gv on Plezix Slack;
+#mobile on Plezix IRC may also work for the time being, albeit likely
 with slower response times. If you believe the guide needs updating, it
 would also be good to file a ticket to request that.
 
@@ -41,10 +41,10 @@ First, a quick note: This guide was written on MacOS 10.14; it should
 translate quite closely to other supported versions of MacOS and to
 Linux. Building GeckoView on Windows is not officially supported at the
 moment. To begin with, re-run ``./mach bootstrap``; it will present you
-with options for the version of Firefox/GV that you want to build.
+with options for the version of Plezix/GV that you want to build.
 Currently, option ``3`` is
-``GeckoView/Firefox for Android Artifact Mode`` and ``4`` is
-``GeckoView/Firefox for Android``; if you’re here, you want one of
+``GeckoView/Plezix for Android Artifact Mode`` and ``4`` is
+``GeckoView/Plezix for Android``; if you’re here, you want one of
 these. The brief and approximately correct breakdown of ``Artifact`` vs
 regular builds for GeckoView is that ``Artifact`` builds will not allow
 you to work on native code, only on JS or Java. Once you’ve selected
@@ -61,7 +61,7 @@ printed out a recommended ``mozconfig`` that looks something like this:
 
 ::
 
-   # Build GeckoView/Firefox for Android:
+   # Build GeckoView/Plezix for Android:
    ac_add_options --enable-project=mobile/android
 
    # If --target is not specified it will default to host architecture for fast
@@ -128,7 +128,7 @@ Fenix and other GV-based Apps
 
 If you are working on something for which the GeckoView Example app is
 not sufficient for some reason, you may need to `use your local build of
-GeckoView in one of Mozilla’s GV-based apps like Fenix <geckoview-quick-start.html#include-geckoview-as-a-dependency>`_.
+GeckoView in one of Plezix’s GV-based apps like Fenix <geckoview-quick-start.html#include-geckoview-as-a-dependency>`_.
 
 Debugging
 ---------
@@ -141,7 +141,7 @@ debugging is enabled by default, and your device should show up in your
 desktop browser’s Remote Debugging window with no special effort. For
 Fenix, you can enable remote debugging by opening the three-dot menu and
 toggling ``Remote debugging via USB`` under ``Developer tools``; other
-Mozilla GV-based browsers have similar options.
+Plezix GV-based browsers have similar options.
 
 Native Debugging
 ~~~~~~~~~~~~~~~~

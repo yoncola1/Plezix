@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - "Firefox :: Nimbus Desktop Client"
+  - "Plezix :: Nimbus Desktop Client"
 
 # The `nimbus_targeting_environment` category contains metrics that relate to
 # the targeting context, but are not present in it verbatim.
@@ -131,7 +131,7 @@ nimbus_targeting_environment:
       - "totalBookmarksCount"
       - "userMonthlyActivity"
       - "userPrefersReducedMotion"
-      - "usesFirefoxSync"
+      - "usesPlezixSync"
       - "version"
 
   user_set_prefs:
@@ -427,7 +427,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: The Firefox major version number.
+    description: The Plezix major version number.
     data_sensitivity:
       - technical
     type: quantity
@@ -520,7 +520,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: Whether Firefox Accounts and Sync are enabled.
+    description: Whether Plezix Accounts and Sync are enabled.
     data_sensitivity:
       - interaction
     type: boolean
@@ -531,7 +531,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: Whether the user is logged in to Firefox Accounts.
+    description: Whether the user is logged in to Plezix Accounts.
     data_sensitivity:
       - interaction
     type: boolean
@@ -542,7 +542,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: Is this copy of Firefox installed from an MSIX installer?
+    description: Is this copy of Plezix installed from an MSIX installer?
     data_sensitivity:
       - technical
     type: boolean
@@ -684,7 +684,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: Whether the user uses Firefox Sync.
+    description: Whether the user uses Plezix Sync.
     data_sensitivity:
       - interaction
     type: boolean
@@ -695,7 +695,7 @@ nimbus_targeting_context:
     expires: *targeting_context_expiry
     notification_emails: *targeting_context_notification_emails
     send_in_pings: *targeting_context_pings
-    description: The full Firefox version string.
+    description: The full Plezix version string.
     data_sensitivity:
       - technical
     type: string
@@ -1308,7 +1308,7 @@ heartbeat:
     type: datetime
     time_unit: millisecond
     description: |
-      When the user closed the Firefox window containing the survey,
+      When the user closed the Plezix window containing the survey,
       or when the whole browser is shut down during the survey,
       thus ending it.
     bugs:

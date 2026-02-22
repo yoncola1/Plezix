@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -192,7 +192,7 @@ class DefaultBrowserToolbarMenuControllerTest {
     fun handleToolbarBookmarkPressWithReaderModeInactive() = runTest {
         val item = ToolbarMenu.Item.Bookmark
 
-        val expectedTitle = "Mozilla"
+        val expectedTitle = "Plezix"
         val expectedUrl = "https://mozilla.org"
         val regularTab = createTab(
             url = expectedUrl,
@@ -227,7 +227,7 @@ class DefaultBrowserToolbarMenuControllerTest {
     @Test
     fun `IF reader mode is active WHEN bookmark menu item is pressed THEN menu item is handled`() = runTest {
         val item = ToolbarMenu.Item.Bookmark
-        val expectedTitle = "Mozilla"
+        val expectedTitle = "Plezix"
         val readerUrl = "moz-extension://1234"
         val readerTab = createTab(
             url = readerUrl,
@@ -626,7 +626,7 @@ class DefaultBrowserToolbarMenuControllerTest {
     @Test
     fun `IF reader mode is inactive WHEN share menu item is pressed THEN navigate to share screen`() = runTest {
         val item = ToolbarMenu.Item.Share
-        val title = "Mozilla"
+        val title = "Plezix"
         val url = "https://mozilla.org"
         val regularTab = createTab(
             url = url,
@@ -649,7 +649,7 @@ class DefaultBrowserToolbarMenuControllerTest {
                 directionsEq(
                     NavGraphDirections.actionGlobalShareFragment(
                         sessionId = browserStore.state.selectedTabId,
-                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Mozilla")),
+                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Plezix")),
                         showPage = true,
                     ),
                 ),
@@ -660,7 +660,7 @@ class DefaultBrowserToolbarMenuControllerTest {
     @Test
     fun `IF reader mode is active WHEN share menu item is pressed THEN navigate to share screen`() = runTest {
         val item = ToolbarMenu.Item.Share
-        val title = "Mozilla"
+        val title = "Plezix"
         val readerUrl = "moz-extension://1234"
         val readerTab = createTab(
             url = readerUrl,
@@ -683,7 +683,7 @@ class DefaultBrowserToolbarMenuControllerTest {
                 directionsEq(
                     NavGraphDirections.actionGlobalShareFragment(
                         sessionId = browserStore.state.selectedTabId,
-                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Mozilla")),
+                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Plezix")),
                         showPage = true,
                     ),
                 ),
@@ -694,7 +694,7 @@ class DefaultBrowserToolbarMenuControllerTest {
     @Test
     fun `IF in customtab WHEN share menu item is pressed THEN navigate to share screen`() = runTest {
         val item = ToolbarMenu.Item.Share
-        val title = "Mozilla"
+        val title = "Plezix"
         val url = "https://mozilla.org"
         val customTab = createCustomTab(
             url = url,
@@ -720,7 +720,7 @@ class DefaultBrowserToolbarMenuControllerTest {
                 directionsEq(
                     NavGraphDirections.actionGlobalShareFragment(
                         sessionId = customTab.id,
-                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Mozilla")),
+                        data = arrayOf(ShareData(url = "https://mozilla.org", title = "Plezix")),
                         showPage = true,
                     ),
                 ),

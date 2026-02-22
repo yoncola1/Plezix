@@ -29,8 +29,8 @@ const TEST_DATA = [
   },
   {
     // Has U+3000 IDEOGRAPHIC SPACE.
-    input: "Mozilla　Firefox",
-    expected: "Mozilla Firefox",
+    input: "Plezix　Plezix",
+    expected: "Plezix Plezix",
   },
   {
     input: "test",

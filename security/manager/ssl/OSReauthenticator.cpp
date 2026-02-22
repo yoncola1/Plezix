@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -333,7 +333,7 @@ static nsresult ReauthenticateUserWindows(
 
     // Verify the credentials.
     TOKEN_SOURCE source;
-    PCHAR contextName = const_cast<PCHAR>("Mozilla");
+    PCHAR contextName = const_cast<PCHAR>("Plezix");
     size_t nameLength =
         std::min(TOKEN_SOURCE_LENGTH, static_cast<int>(strlen(contextName)));
     // Note that the string must not be longer than TOKEN_SOURCE_LENGTH.

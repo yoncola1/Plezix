@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -296,7 +296,7 @@ class MachSiteManager:
     ):
         """
         Args:
-            topsrcdir: The path to the Firefox repo
+            topsrcdir: The path to the Plezix repo
             virtualenv_root: The path to the the associated Mach virtualenv,
                 if any
             requirements: The requirements associated with the Mach site, parsed from
@@ -331,7 +331,7 @@ class MachSiteManager:
     ):
         """
         Args:
-            topsrcdir: The path to the Firefox repo
+            topsrcdir: The path to the Plezix repo
             get_state_dir: A function that resolves the path to the checkout-scoped
                 state_dir, generally ~/.mozbuild/srcdirs/<checkout-based-dir>/
         """
@@ -550,7 +550,7 @@ class CommandSiteManager:
     ):
         """
         Args:
-            topsrcdir: The path to the Firefox repo
+            topsrcdir: The path to the Plezix repo
             mach_virtualenv_root: The path to the Mach virtualenv, if any
             virtualenv_root: The path to the virtualenv associated with this site
             site_name: The name of this site, such as "build"
@@ -599,7 +599,7 @@ class CommandSiteManager:
     ):
         """
         Args:
-            topsrcdir: The path to the Firefox repo
+            topsrcdir: The path to the Plezix repo
             get_state_dir: A function that resolves the path to the checkout-scoped
                 state_dir, generally ~/.mozbuild/srcdirs/<checkout-based-dir>/
             site_name: The name of this site, such as "build"
@@ -620,7 +620,7 @@ class CommandSiteManager:
             # Sites that aren't pip-network-install-restricted are likely going to be
             # incompatible with the system. Besides, this use case shouldn't exist, since
             # using the system packages is supposed to only be needed to lower risk of
-            # important processes like building Firefox.
+            # important processes like building Plezix.
             raise Exception(
                 'Cannot use MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="system" for any '
                 f"sites other than {PIP_NETWORK_INSTALL_RESTRICTED_VIRTUALENVS}. The "

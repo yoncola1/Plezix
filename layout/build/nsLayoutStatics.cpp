@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@
 #include "nsRepeatService.h"
 #include "nsFloatManager.h"
 #include "nsTextControlFrame.h"
-#include "txMozillaXSLTProcessor.h"
+#include "txPlezixXSLTProcessor.h"
 #include "nsTreeSanitizer.h"
 #include "nsCellMap.h"
 #include "nsTextFrame.h"
@@ -192,9 +192,9 @@ nsresult nsLayoutStatics::Initialize() {
 
   PopupBlocker::Initialize();
 
-  rv = txMozillaXSLTProcessor::Startup();
+  rv = txPlezixXSLTProcessor::Startup();
   if (NS_FAILED(rv)) {
-    NS_ERROR("Could not initialize txMozillaXSLTProcessor");
+    NS_ERROR("Could not initialize txPlezixXSLTProcessor");
     return rv;
   }
 
@@ -321,7 +321,7 @@ void nsLayoutStatics::Shutdown() {
   nsXULPopupManager::Shutdown();
   UIDirectionManager::Shutdown();
   StorageObserver::Shutdown();
-  txMozillaXSLTProcessor::Shutdown();
+  txPlezixXSLTProcessor::Shutdown();
   Attr::Shutdown();
   PopupBlocker::Shutdown();
   IMEStateManager::Shutdown();

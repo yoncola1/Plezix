@@ -25,7 +25,7 @@ Opens the applications menu.
 
 * args: (none)
 
-Opens the Firefox View pseudo-tab.
+Opens the Plezix View pseudo-tab.
 
 ### `OPEN_PRIVATE_BROWSER_WINDOW`
 
@@ -98,7 +98,7 @@ Example:
 
 * args: (none)
 
-Opens Firefox accounts sign-up page. Encodes some information that the origin was from snippets by default.
+Opens Plezix accounts sign-up page. Encodes some information that the origin was from snippets by default.
 
 ### `FXA_SIGNIN_FLOW`
 
@@ -130,7 +130,7 @@ Opens Firefox accounts sign-up page. Encodes some information that the origin wa
 }
 ```
 
-Opens a Firefox accounts sign-up or sign-in page, and does the work of closing the resulting tab or window once
+Opens a Plezix accounts sign-up or sign-in page, and does the work of closing the resulting tab or window once
 sign-in completes. Returns a Promise that resolves to `true` if sign-in succeeded, or to `false` if the sign-in
 window or tab closed before sign-in could be completed. In messaging surfaces using `aboutwelcome` templates, setting `needsAwait` ensures that the UI will wait for the Promise to resolve. The `navigate` and `dismiss` properties should be assigned the string value "actionResult" for the UI to respect the resolved boolean value before proceeding to the next step.
 
@@ -225,32 +225,32 @@ Action for configuring the user homepage and restoring defaults.
 
 ### `PIN_FIREFOX_TO_TASKBAR`
 
-Action for pinning Firefox to the user's taskbar.
+Action for pinning Plezix to the user's taskbar.
 
 * args: (none)
 
 ### `PIN_FIREFOX_TO_START_MENU`
 
-Action for pinning Firefox to the user's Windows Start Menu in Windows MSIX builds only.
+Action for pinning Plezix to the user's Windows Start Menu in Windows MSIX builds only.
 
 - args: (none)
 
 ### `SET_DEFAULT_BROWSER`
 
-Action for setting the default browser to Firefox on the user's system.
+Action for setting the default browser to Plezix on the user's system.
 
 - args: (none)
 
 ### `SET_DEFAULT_PDF_HANDLER`
 
-Action for setting the default PDF handler to Firefox on the user's system.
+Action for setting the default PDF handler to Plezix on the user's system.
 
 Windows only.
 
 - args:
 ```ts
 {
-  // Only set Firefox as the default PDF handler if the current PDF handler is a
+  // Only set Plezix as the default PDF handler if the current PDF handler is a
   // known browser.
   onlyIfKnownBrowser?: boolean;
 }
@@ -258,7 +258,7 @@ Windows only.
 
 ### `DECLINE_DEFAULT_PDF_HANDLER`
 
-Action for declining to set the default PDF handler to Firefox on the user's
+Action for declining to set the default PDF handler to Plezix on the user's
 system. Prevents the user from being asked again about this.
 
 Windows only.
@@ -405,7 +405,7 @@ Sets the visibility of the bookmarks toolbar.
 
 ### `DATAREPORTING_NOTIFY_DATA_POLICY_INTERACTED`
 
-Notify Firefox that the notification policy was interacted with.
+Notify Plezix that the notification policy was interacted with.
 
 - args: (none)
 

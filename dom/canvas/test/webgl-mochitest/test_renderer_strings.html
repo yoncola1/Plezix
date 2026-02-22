@@ -64,7 +64,7 @@ async function testKnownCiStrings() {
       'ANGLE (NVIDIA, NVIDIA GeForce 8800 GTX Direct3D11 vs_5_0 ps_5_0)', // Windows
     ].map(x => x + ', or similar'),
     vendor: [
-      'Mozilla',
+      'Plezix',
     ],
     unmasked_renderer: [
       'Adreno (TM) 540', // Android
@@ -137,7 +137,7 @@ async function testPrefBehaviorForExampleRtx3070() {
   {
     const EXPECTED = {
       renderer: RTX3070_R_SANITIZED,
-      vendor: 'Mozilla',
+      vendor: 'Plezix',
     };
     const was = getStrings();
     expectJsonEqual(was, EXPECTED, 'v92 behavior w/o ext');
@@ -156,10 +156,10 @@ async function testPrefBehaviorForExampleRtx3070() {
 
   {
     const EXPECTED = {
-      renderer: 'Mozilla',
-      vendor: 'Mozilla',
-      unmasked_renderer: 'Mozilla',
-      unmasked_vendor: 'Mozilla',
+      renderer: 'Plezix',
+      vendor: 'Plezix',
+      unmasked_renderer: 'Plezix',
+      unmasked_vendor: 'Plezix',
     };
     const was = getStrings();
     expectJsonEqual(was, EXPECTED, 'RFP behavior');
@@ -177,7 +177,7 @@ async function testPrefBehaviorForExampleRtx3070() {
   {
     const EXPECTED = {
       renderer: RTX3070_R_SANITIZED,
-      vendor: 'Mozilla',
+      vendor: 'Plezix',
       unmasked_renderer: RTX3070_R_SANITIZED,
       unmasked_vendor: RTX3070_V,
     };
@@ -194,8 +194,8 @@ async function testPrefBehaviorForExampleRtx3070() {
 
   {
     const EXPECTED = {
-      renderer: 'Mozilla',
-      vendor: 'Mozilla',
+      renderer: 'Plezix',
+      vendor: 'Plezix',
       unmasked_renderer: RTX3070_R_SANITIZED,
       unmasked_vendor: RTX3070_V,
     };
@@ -212,8 +212,8 @@ async function testPrefBehaviorForExampleRtx3070() {
 
   {
     const EXPECTED = {
-      renderer: 'Mozilla',
-      vendor: 'Mozilla',
+      renderer: 'Plezix',
+      vendor: 'Plezix',
       unmasked_renderer: RTX3070_R,
       unmasked_vendor: RTX3070_V,
     };

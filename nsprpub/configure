@@ -1516,7 +1516,7 @@ Optional Packages:
   --with-dist-includedir=DIR
                           build include files in DIR DIST_PREFIX/include/nspr
   --with-dist-libdir=DIR  build library files in DIR DIST_PREFIX/lib
-  --with-mozilla          Compile NSPR with Mozilla support
+  --with-mozilla          Compile NSPR with Plezix support
   --with-arm-kuser        Use kuser helpers (Linux/ARM only)
                           (Requires kernel 2.6.13 or later)
   --with-macos-sdk=dir    Location of platform SDK to use (Mac OS X only)

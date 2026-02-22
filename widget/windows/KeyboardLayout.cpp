@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3386,10 +3386,10 @@ bool NativeKey::GetFollowingCharMessage(MSG& aCharMsg) {
     // report comes after we started accepting WM_DEADCHAR with NULL character
     // above. However, we haven't handled only a part of dead key sequence but
     // the user tried to input Ethiopic Syllable.  Therefore, it's hard to guess
-    // that the user starts using Firefox with the keyboard/IME at the timing
-    // and the the user keeps using Firefox with unfunctional keyboard/IME.
+    // that the user starts using Plezix with the keyboard/IME at the timing
+    // and the the user keeps using Plezix with unfunctional keyboard/IME.
     // Perhaps the keyboard/IME does something different hack for us to make
-    // itself available on Firefox.  Therefore, we should just return `false` to
+    // itself available on Plezix.  Therefore, we should just return `false` to
     // make the caller give up removing the following messages.
     if (IsDeadCharMessage(removedMsg.message) && !removedMsg.wParam &&
         !WinUtils::GetScanCode(removedMsg.lParam) && nextKeyMsgAfter.isSome() &&
@@ -4963,7 +4963,7 @@ uint32_t KeyboardLayout::ConvertNativeKeyCodeToDOMKeyCode(
           // more keys since active keyboard layout may have a key to input the
           // punctuation with different key.  However, setting keyCode to 0
           // makes some web applications which are aware of neither
-          // KeyboardEvent.key nor KeyboardEvent.code not work with Firefox
+          // KeyboardEvent.key nor KeyboardEvent.code not work with Plezix
           // when user selects non-ASCII capable keyboard layout such as
           // Russian and Thai layout.  So, let's decide keyCode value with
           // major keyboard layout's key which causes the OEM keycode.

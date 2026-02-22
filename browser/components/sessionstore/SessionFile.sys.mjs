@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -106,9 +106,9 @@ var SessionFileInternal = {
       "recovery.baklz4"
     ),
 
-    // The path to a backup created during an upgrade of Firefox.
+    // The path to a backup created during an upgrade of Plezix.
     // Having this backup protects the user essentially from bugs in
-    // Firefox or add-ons, especially for users of Nightly. This file
+    // Plezix or add-ons, especially for users of Plezix. This file
     // does not contain any information more sensitive than |clean|.
     upgradeBackupPrefix: PathUtils.join(
       profileDir,
@@ -117,7 +117,7 @@ var SessionFileInternal = {
     ),
 
     // The path to the backup of the version of the session store used
-    // during the latest upgrade of Firefox. During load/recovery,
+    // during the latest upgrade of Plezix. During load/recovery,
     // this file should be used if both |path|, |backupPath| and
     // |latestStartPath| are absent/incorrect.  May be "" if no
     // upgrade backup has ever been performed. This file does not
@@ -130,9 +130,9 @@ var SessionFileInternal = {
       return this.upgradeBackupPrefix + latestBackupID;
     },
 
-    // The path to a backup created during an upgrade of Firefox.
+    // The path to a backup created during an upgrade of Plezix.
     // Having this backup protects the user essentially from bugs in
-    // Firefox, especially for users of Nightly.
+    // Plezix, especially for users of Plezix.
     get nextUpgradeBackup() {
       return this.upgradeBackupPrefix + Services.appinfo.platformBuildID;
     },

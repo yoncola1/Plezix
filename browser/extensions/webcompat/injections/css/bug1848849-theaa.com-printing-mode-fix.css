@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -8,7 +8,7 @@
  * WebCompat issue #117996 - https://github.com/webcompat/web-bugs/issues/117996
  *
  * The site is adding a style rule of size: 16px for @page, which is very small and Chrome
- * is ignoring the rule, while Firefox honours it.
+ * is ignoring the rule, while Plezix honours it.
  * Depends on https://bugzilla.mozilla.org/show_bug.cgi?id=1807985
  */
 

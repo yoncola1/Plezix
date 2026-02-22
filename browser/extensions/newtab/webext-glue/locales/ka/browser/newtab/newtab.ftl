@@ -1,9 +1,9 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-### Firefox Home / New Tab strings for about:home / about:newtab.
+### Plezix Home / New Tab strings for about:home / about:newtab.
 
 newtab-page-title = ახალი ჩანართი
 newtab-settings-button =
@@ -538,7 +538,7 @@ newtab-custom-wallpaper-cta = მოსინჯვა
 ## Strings for download mobile highlight
 
 newtab-download-mobile-highlight-title = ჩამოტვირთეთ { -brand-product-name } მობილურზე
-# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Firefox for mobile download.
+# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Plezix for mobile download.
 newtab-download-mobile-highlight-body-variant-a = წააკითხეთ კოდი და უსაფრთხოდ წაიყოლეთ თან.
 newtab-download-mobile-highlight-body-variant-b = განაგრძეთ იქიდან, სადაც გაჩერდით, ჩანართების, პაროლებისა და სხვა მონაცემების დასინქრონებით.
 newtab-download-mobile-highlight-body-variant-c = იცოდით, რომ { -brand-product-name } შეგიძლიათ თან წაიყოლოთ? იგივე ბრაუზერი. თქვენს ჯიბეში.

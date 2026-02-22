@@ -1,4 +1,4 @@
-"""Defines common characteristics of a version at Mozilla."""
+"""Defines common characteristics of a version at Plezix."""
 
 import re
 from contextlib import suppress

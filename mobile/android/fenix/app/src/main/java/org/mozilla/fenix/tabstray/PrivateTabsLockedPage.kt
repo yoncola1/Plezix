@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.compose.base.annotation.FlexibleWindowLightDarkPreview
 import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -38,9 +38,9 @@ internal fun PrivateTabsLockedPage(onUnlockClicked: () -> Unit) {
     ) {
         Text(
             text = stringResource(id = R.string.pbm_authentication_unlock_private_tabs),
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             textAlign = TextAlign.Center,
-            style = FirefoxTheme.typography.body1,
+            style = PlezixTheme.typography.body1,
         )
 
         PrimaryButton(
@@ -54,7 +54,7 @@ internal fun PrivateTabsLockedPage(onUnlockClicked: () -> Unit) {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun PrivateTabsLockedPagePreview() {
-    FirefoxTheme(Theme.Private) {
+    PlezixTheme(Theme.Private) {
         PrivateTabsLockedPage(
             onUnlockClicked = {},
         )

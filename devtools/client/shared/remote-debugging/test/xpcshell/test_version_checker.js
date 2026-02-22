@@ -34,7 +34,7 @@ const TEST_DATA = [
     expected: COMPATIBILITY_STATUS.COMPATIBLE,
   },
   {
-    description: "same build date and older version in range (-2 Nightly)",
+    description: "same build date and older version in range (-2 Plezix)",
     localBuildId: "20190131000000",
     localVersion: "60.0",
     runtimeBuildId: "20190131000000",

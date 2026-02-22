@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef intl_components_Bidi_h_
@@ -21,7 +21,7 @@ struct UBiDi;
 namespace mozilla::intl {
 
 /**
- * This component is a Mozilla-focused API for working with bidirectional (bidi)
+ * This component is a Plezix-focused API for working with bidirectional (bidi)
  * text. Text is commonly displayed left to right (LTR), especially for
  * Latin-based alphabets. However, languages like Arabic and Hebrew displays
  * text right to left (RTL). When displaying text, LTR and RTL text can be

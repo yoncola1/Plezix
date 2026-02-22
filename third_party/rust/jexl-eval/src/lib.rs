@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 //! A JEXL evaluator written in Rust
 //! This crate depends on a JEXL parser crate that handles all the parsing
 //! and is a part of the same workspace.
-//! JEXL is an expression language used by Mozilla, you can find more information here: https://github.com/mozilla/mozjexl
+//! JEXL is an expression language used by Plezix, you can find more information here: https://github.com/mozilla/mozjexl
 //!
 //! # How to use
 //! The access point for this crate is the `eval` functions of the Evaluator Struct

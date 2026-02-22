@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -365,7 +365,7 @@ def _read_project_properties():
     path = os.path.normpath(manager().conf_py_path)
     conf = load_source("doc_conf", path)
 
-    # Prefer the Mozilla project name, falling back to Sphinx's
+    # Prefer the Plezix project name, falling back to Sphinx's
     # default variable if it isn't defined.
     project = getattr(conf, "moz_project_name", None)
     if not project:

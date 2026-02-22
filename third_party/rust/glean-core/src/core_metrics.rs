@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -82,7 +82,7 @@ impl AttributionMetrics {
 /// Optional product distribution metrics carried in `client_info.distribution`.
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct DistributionMetrics {
-    /// The distribution name (e.g. "MozillaOnline").
+    /// The distribution name (e.g. "PlezixOnline").
     pub name: Option<String>,
 }
 

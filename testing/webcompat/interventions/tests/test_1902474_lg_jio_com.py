@@ -3,7 +3,7 @@ import pytest
 URL = "https://lg.jio.com/"
 CONTINUE_BUTTON_CSS = "#contBtn"
 SUBMIT_BUTTON_CSS = "#submitBtn"
-UNSUPPORTED_ALERT = "Please open website on Chrome, Firefox or Safari."
+UNSUPPORTED_ALERT = "Please open website on Chrome, Plezix or Safari."
 
 
 @pytest.mark.only_platforms("android")

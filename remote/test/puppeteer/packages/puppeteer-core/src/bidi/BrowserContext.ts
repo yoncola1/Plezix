@@ -195,7 +195,7 @@ export class BidiBrowserContext extends BrowserContext {
       try {
         await page.setViewport(this.#defaultViewport);
       } catch {
-        // No support for setViewport in Firefox.
+        // No support for setViewport in Plezix.
       }
     }
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -285,8 +285,8 @@ const bool kDefaultClientValidation = true;
 /**
  * Should all mutations also be reflected in the "shadow" database, which is
  * the legacy webappsstore.sqlite database.  When this is enabled, users can
- * downgrade their version of Firefox and/or otherwise fall back to the legacy
- * implementation without loss of data.  (Older versions of Firefox will
+ * downgrade their version of Plezix and/or otherwise fall back to the legacy
+ * implementation without loss of data.  (Older versions of Plezix will
  * recognize the presence of ls-archive.sqlite and purge it and the other
  * LocalStorage directories so privacy is maintained.)
  */

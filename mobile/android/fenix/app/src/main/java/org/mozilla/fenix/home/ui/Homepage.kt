@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -72,7 +72,7 @@ import org.mozilla.fenix.home.store.NimbusMessageState
 import org.mozilla.fenix.home.topsites.TopSiteColors
 import org.mozilla.fenix.home.topsites.TopSites
 import org.mozilla.fenix.home.ui.HomepageTestTag.HOMEPAGE
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.utils.isLargeScreenSize
 import org.mozilla.fenix.wallpapers.WallpaperState
@@ -462,11 +462,11 @@ private fun CollectionsSection(
 @Composable
 @PreviewLightDark
 private fun HomepagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = FirefoxTheme.colors.layer1),
+                .background(color = PlezixTheme.colors.layer1),
         ) {
             Homepage(
                 HomepageState.Normal(
@@ -508,7 +508,7 @@ private fun HomepagePreview() {
 @Composable
 @PreviewLightDark
 private fun HomepagePreviewCollections() {
-    FirefoxTheme {
+    PlezixTheme {
         Homepage(
             HomepageState.Normal(
                 nimbusMessage = null,
@@ -548,11 +548,11 @@ private fun HomepagePreviewCollections() {
 @Composable
 @Preview
 private fun PrivateHomepagePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = FirefoxTheme.colors.layer1),
+                .background(color = PlezixTheme.colors.layer1),
         ) {
             Homepage(
                 HomepageState.Private(

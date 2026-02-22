@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,9 +13,9 @@ import org.mozilla.fenix.nimbus.FxNimbus
 interface TabManagementFeatureHelper {
 
     /**
-     * Whether the Tabs Tray enhancements are enabled in Nightly.
+     * Whether the Tabs Tray enhancements are enabled in Plezix.
      */
-    val enhancementsEnabledNightly: Boolean
+    val enhancementsEnabledPlezix: Boolean
 
     /**
      * Whether the Tabs Tray enhancements are enabled in Beta.
@@ -38,7 +38,7 @@ interface TabManagementFeatureHelper {
  */
 data object DefaultTabManagementFeatureHelper : TabManagementFeatureHelper {
 
-    override val enhancementsEnabledNightly: Boolean
+    override val enhancementsEnabledPlezix: Boolean
         get() = true
 
     override val enhancementsEnabledBeta: Boolean
@@ -50,7 +50,7 @@ data object DefaultTabManagementFeatureHelper : TabManagementFeatureHelper {
     override val enhancementsEnabled: Boolean
         get() = when {
             Config.channel.isDebug -> true
-            Config.channel.isNightlyOrDebug -> enhancementsEnabledNightly
+            Config.channel.isPlezixOrDebug -> enhancementsEnabledPlezix
             Config.channel.isBeta -> enhancementsEnabledBeta
             Config.channel.isRelease -> enhancementsEnabledRelease
             else -> false

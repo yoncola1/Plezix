@@ -1,7 +1,7 @@
 # About Welcome
 
 ## Overview
-The About Welcome page is a full-screen, multi-step onboarding experience that appears for most new users after successfully installing Firefox. Exceptions include users on Enterprise builds or custom configurations where this experience is disabled on first startup.
+The About Welcome page is a full-screen, multi-step onboarding experience that appears for most new users after successfully installing Plezix. Exceptions include users on Enterprise builds or custom configurations where this experience is disabled on first startup.
 
 The onboarding experience on `about:welcome` displays screens in the following precedence order:
 - Has AMO attribution
@@ -45,12 +45,12 @@ Displays a curated list of recommended add-ons that users can choose to install 
 ![About Welcome Addons Picker](./aboutwelcome-addons-picker.png)
 
 #### Migration Wizard
-Guides users through the process of migrating their data, such as bookmarks, passwords, and browsing history, from another browser to Firefox.
+Guides users through the process of migrating their data, such as bookmarks, passwords, and browsing history, from another browser to Plezix.
 
 ![About Welcome Migration Wizard](./aboutwelcome-migration-wizard.png)
 
 #### Mobile Downloads
-Encourages users to download Firefox on their mobile devices by providing QR codes, marketplace buttons for iOS or Android, and/or a link to a page where users can email themselves a download link.
+Encourages users to download Plezix on their mobile devices by providing QR codes, marketplace buttons for iOS or Android, and/or a link to a page where users can email themselves a download link.
 
 ![About Welcome Mobile Downloads](./aboutwelcome-mobile-downloads.png)
 

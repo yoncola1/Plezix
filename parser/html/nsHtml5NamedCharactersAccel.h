@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2010 Apple Computer, Inc., Mozilla Foundation, and Opera
+ * Copyright 2004-2010 Apple Computer, Inc., Plezix Foundation, and Opera
  * Software ASA.
  *
  * You are granted a license to use, reproduce and create derivative works of

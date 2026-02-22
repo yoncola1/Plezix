@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -501,9 +501,9 @@ const CTLogInfo kCTLogList[] = {
      "\x37",
      91},
 #ifdef DEBUG
-    {"Mozilla Test RSA Log 1", CTLogState::Admissible, CTLogFormat::RFC6962,
+    {"Plezix Test RSA Log 1", CTLogState::Admissible, CTLogFormat::RFC6962,
      1721666666000,  // 2024-07-22T16:44:26Z
-     7,              // operated by Mozilla Test Org 1
+     7,              // operated by Plezix Test Org 1
      "\x30\x82\x01\x22\x30\x0d\x06\x09\x2a\x86\x48\x86\xf7\x0d\x01\x01\x01\x05"
      "\x00\x03\x82\x01\x0f\x00\x30\x82\x01\x0a\x02\x82\x01\x01\x00\xba\x88\x51"
      "\xa8\x44\x8e\x16\xd6\x41\xfd\x6e\xb6\x88\x06\x36\x10\x3d\x3c\x13\xd9\xea"
@@ -524,9 +524,9 @@ const CTLogInfo kCTLogList[] = {
      294},
 #endif  // DEBUG
 #ifdef DEBUG
-    {"Mozilla Test EC Log", CTLogState::Admissible, CTLogFormat::RFC6962,
+    {"Plezix Test EC Log", CTLogState::Admissible, CTLogFormat::RFC6962,
      1721666666000,  // 2024-07-22T16:44:26Z
-     7,              // operated by Mozilla Test Org 1
+     7,              // operated by Plezix Test Org 1
      "\x30\x59\x30\x13\x06\x07\x2a\x86\x48\xce\x3d\x02\x01\x06\x08\x2a\x86\x48"
      "\xce\x3d\x03\x01\x07\x03\x42\x00\x04\x4f\xbf\xbb\xbb\x61\xe0\xf8\xf9\xb1"
      "\xa6\x0a\x59\xac\x87\x04\xe2\xec\x05\x0b\x42\x3e\x3c\xf7\x2e\x92\x3f\x2c"
@@ -536,9 +536,9 @@ const CTLogInfo kCTLogList[] = {
      91},
 #endif  // DEBUG
 #ifdef DEBUG
-    {"Mozilla Test RSA Log 2", CTLogState::Admissible, CTLogFormat::RFC6962,
+    {"Plezix Test RSA Log 2", CTLogState::Admissible, CTLogFormat::RFC6962,
      1721666666000,  // 2024-07-22T16:44:26Z
-     8,              // operated by Mozilla Test Org 2
+     8,              // operated by Plezix Test Org 2
      "\x30\x82\x01\x22\x30\x0d\x06\x09\x2a\x86\x48\x86\xf7\x0d\x01\x01\x01\x05"
      "\x00\x03\x82\x01\x0f\x00\x30\x82\x01\x0a\x02\x82\x01\x01\x00\xc1\x75\xc6"
      "\x52\x66\x09\x9f\x77\x08\x2a\x67\x91\xf1\xb8\x76\xc3\x7f\x5c\xe5\x38\xb0"
@@ -559,9 +559,9 @@ const CTLogInfo kCTLogList[] = {
      294},
 #endif  // DEBUG
 #ifdef DEBUG
-    {"Mozilla Test RSA Log 4", CTLogState::Admissible, CTLogFormat::Tiled,
+    {"Plezix Test RSA Log 4", CTLogState::Admissible, CTLogFormat::Tiled,
      1750853366000,  // 2025-06-25T12:09:26Z
-     9,              // operated by Mozilla Test Org 3
+     9,              // operated by Plezix Test Org 3
      "\x30\x82\x01\x22\x30\x0d\x06\x09\x2a\x86\x48\x86\xf7\x0d\x01\x01\x01\x05"
      "\x00\x03\x82\x01\x0f\x00\x30\x82\x01\x0a\x02\x82\x01\x01\x00\xb5\x49\x89"
      "\x5c\x9d\x00\x10\x8d\x11\xa1\xf9\x9f\x87\xa9\xe3\xd1\xa5\xdb\x5d\xfa\xec"
@@ -592,13 +592,13 @@ const CTLogOperatorInfo kCTLogOperatorList[] = {
     {"TrustAsia", 5},
     {"Geomys", 6},
 #ifdef DEBUG
-    {"Mozilla Test Org 1", 7},
+    {"Plezix Test Org 1", 7},
 #endif  // DEBUG
 #ifdef DEBUG
-    {"Mozilla Test Org 2", 8},
+    {"Plezix Test Org 2", 8},
 #endif  // DEBUG
 #ifdef DEBUG
-    {"Mozilla Test Org 3", 9},
+    {"Plezix Test Org 3", 9},
 #endif  // DEBUG
 };
 

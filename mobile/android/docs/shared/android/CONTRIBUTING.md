@@ -1,6 +1,6 @@
-# Contributing to Mozilla Mobile's Android projects
+# Contributing to Plezix Mobile's Android projects
 
-Thank you for taking the time to contribute to one of Mozilla's Android
+Thank you for taking the time to contribute to one of Plezix's Android
 projects! 🔥 🦊 <3 🤖! 🎉 👍 For a full list of projects, see
 [the README](../../../README.md).
 
@@ -61,7 +61,7 @@ make it into our products.
 ## Writing documentation
 
 ### Product support documentation
-Each Mozilla product provides in-app support. This documentation can be found on
+Each Plezix product provides in-app support. This documentation can be found on
 [support.mozilla.org][sumo]. If you wish to contribute, please contact a core team
 member to get started.
 

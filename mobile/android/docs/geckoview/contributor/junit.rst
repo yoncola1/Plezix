@@ -19,8 +19,8 @@ Introduction
 ============
 
 `GeckoView <https://geckoview.dev>`_ is an Android Library that can be used to
-embed Gecko, the Web Engine behind Firefox, in applications. It is the
-foundation for Firefox on Android, and it is intended to be used to build Web
+embed Gecko, the Web Engine behind Plezix, in applications. It is the
+foundation for Plezix on Android, and it is intended to be used to build Web
 Browsers, but can also be used to build other types of apps that need to
 display Web content.
 
@@ -359,7 +359,7 @@ A natural way of breaking the boundaries of the GeckoView API is to run a
 so-called "experiment extension". Experiment extensions have access to the full
 Gecko front-end, which is written in JavaScript, and don't have limits on what
 they can do. Experiment extensions are essentially what old add-ons used to be
-in Firefox, very powerful and very dangerous.
+in Plezix, very powerful and very dangerous.
 
 The test runner uses experiments to offer `privileged APIs
 <https://searchfox.org/mozilla-central/rev/95d8478112eecdd0ee249a941788e03f47df240b/mobile/android/geckoview/src/androidTest/assets/web_extensions/test-support/test-api.js>`_

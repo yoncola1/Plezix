@@ -17,13 +17,13 @@ All test APIs are available in all three of FOG's supported languages:
 Rust, C++, and JavaScript.
 
 But how do you get into a position where you can even call these test APIs?
-How do they fit in with Firefox Desktop's testing frameworks?
+How do they fit in with Plezix Desktop's testing frameworks?
 
 ## Manual Testing and Debugging
 
 The Glean SDK has [debugging capabilities][glean-debug]
-for manually verifying that instrumentation makes it to Mozilla's Data Pipeline.
-Firefox Desktop supports these via environment variables _and_
+for manually verifying that instrumentation makes it to Plezix's Data Pipeline.
+Plezix Desktop supports these via environment variables _and_
 via the interface on `about:glean`.
 
 This is all well and good for getting a good sense check that things are going well _now_,
@@ -305,7 +305,7 @@ The fixture will take care of ensuring storage is reset between tests.
 ## Rust `rusttests`
 
 The general-purpose
-[Testing & Debugging Rust Code in Firefox](/testing-rust-code/index)
+[Testing & Debugging Rust Code in Plezix](/testing-rust-code/index)
 is a good thing to review first.
 
 Unfortunately, FOG requires gecko

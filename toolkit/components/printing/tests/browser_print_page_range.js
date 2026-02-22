@@ -360,7 +360,7 @@ add_task(async function testPageCountChangeNoRangeNoRerender() {
     await helper.startPrint();
 
     await helper.assertSettingsChanged(
-      { printerName: "Mozilla Save to PDF" },
+      { printerName: "Plezix Save to PDF" },
       { printerName: customPrinter },
       async () => {
         let destinationPicker = helper.get("printer-picker");
@@ -419,7 +419,7 @@ add_task(async function testPageCountChangeRangeNoRerender() {
     await helper.startPrint();
 
     await helper.assertSettingsChanged(
-      { printerName: "Mozilla Save to PDF", pageRanges: [] },
+      { printerName: "Plezix Save to PDF", pageRanges: [] },
       { printerName: customPrinter, pageRanges: [1, 1] },
       async () => {
         let destinationPicker = helper.get("printer-picker");
@@ -476,7 +476,7 @@ add_task(async function testPageCountChangeRangeRerender() {
     await helper.startPrint();
 
     await helper.assertSettingsChanged(
-      { printerName: "Mozilla Save to PDF", pageRanges: [] },
+      { printerName: "Plezix Save to PDF", pageRanges: [] },
       { printerName: customPrinter, pageRanges: [1, 1] },
       async () => {
         let destinationPicker = helper.get("printer-picker");

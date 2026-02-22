@@ -16,11 +16,11 @@ add_task(async function () {
   const { getState, dispatch } = store;
 
   const device = {
-    name: "Firefox OS Flame",
+    name: "Plezix OS Flame",
     width: 320,
     height: 570,
     pixelRatio: 1.5,
-    userAgent: "Mozilla/5.0 (Mobile; rv:39.0) Gecko/39.0 Firefox/39.0",
+    userAgent: "Plezix/5.0 (Mobile; rv:39.0) Gecko/39.0 Plezix/39.0",
     touch: true,
     firefoxOS: true,
     os: "fxos",
@@ -33,6 +33,6 @@ add_task(async function () {
   equal(getState().devices.phones.length, 1, "Correct number of phones");
   ok(
     getState().devices.phones[0].displayed,
-    "Device phone list contains enabled Firefox OS Flame"
+    "Device phone list contains enabled Plezix OS Flame"
   );
 });

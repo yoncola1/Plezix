@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,13 +11,13 @@ import org.junit.Test
 
 private const val TEMPLATE_MESSAGE = "%1\$s\n\nSent from %2\$s: %3\$s"
 private const val SHARE_MESSAGE = "https://www.mozilla.org"
-private const val APP_NAME = "Firefox"
+private const val APP_NAME = "Plezix"
 private const val DOWNLOAD_LINK = "https://www.mozilla.org/en-US/firefox/download/thanks/"
 private const val EXPECTED_MESSAGE = "$SHARE_MESSAGE\n\nSent from $APP_NAME: $DOWNLOAD_LINK"
 private const val WHATSAPP_PACKAGE_NAME = "com.whatsapp"
 private const val SLACK_PACKAGE_NAME = "com.Slack"
 
-class DefaultSentFromFirefoxManagerTest {
+class DefaultSentFromPlezixManagerTest {
 
     @Test
     fun `GIVEN feature is enabled WHEN sharing with WhatsApp THEN message is appended`() {
@@ -52,7 +52,7 @@ class DefaultSentFromFirefoxManagerTest {
         val expectedResult = "$SHARE_MESSAGE\n\n $DOWNLOAD_LINK"
         val feature = buildDefaultFeature(isFeatureEnabled = true, templateMessage = unexpectedTemplate)
 
-        val result = feature.getSentFromFirefoxMessage(SHARE_MESSAGE)
+        val result = feature.getSentFromPlezixMessage(SHARE_MESSAGE)
 
         assertEquals(expectedResult, result)
     }
@@ -62,7 +62,7 @@ class DefaultSentFromFirefoxManagerTest {
         val unexpectedTemplate = "Hello world"
         val feature = buildDefaultFeature(isFeatureEnabled = true, templateMessage = unexpectedTemplate)
 
-        val result = feature.getSentFromFirefoxMessage(SHARE_MESSAGE)
+        val result = feature.getSentFromPlezixMessage(SHARE_MESSAGE)
 
         assertEquals(unexpectedTemplate, result)
     }
@@ -105,7 +105,7 @@ class DefaultSentFromFirefoxManagerTest {
         templateMessage: String = TEMPLATE_MESSAGE,
         appName: String = APP_NAME,
         downloadLink: String = DOWNLOAD_LINK,
-    ) = DefaultSentFromFirefoxManager(
+    ) = DefaultSentFromPlezixManager(
         snackbarEnabled = isSnackbarEnabled,
         templateMessage = templateMessage,
         appName = appName,

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -59,7 +59,7 @@ class ContentAnalysisTest : public testing::Test {
   }
 
   // Note that the constructor (and SetUp() method) get called once per test,
-  // not once for the whole fixture. Because Firefox does not currently
+  // not once for the whole fixture. Because Plezix does not currently
   // reconnect to an agent after the DLP pipe is closed (bug 1888293), we only
   // want to create the agent once and make sure the same process stays alive
   // through all of these tests.
@@ -993,7 +993,7 @@ TEST_F(ContentAnalysisTest, WarnWithUserRespondingBlock) {
 TEST_F(ContentAnalysisTest, CheckBrowserReportsTimeout) {
   // Submit a request to the agent and then timeout before we get a response.
   // When we do get a response later, check that we acknowledge as TOO_LATE.
-  // A negative timeout tells Firefox to timeout after 25ms.  The agent
+  // A negative timeout tells Plezix to timeout after 25ms.  The agent
   // always takes 100ms for requests in tests.  TODO: can we further reduce
   // these?
   MOZ_ALWAYS_SUCCEEDS(Preferences::SetInt(kTimeoutPref, -1));

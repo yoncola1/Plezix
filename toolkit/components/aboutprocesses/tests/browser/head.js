@@ -4,7 +4,7 @@
 "use strict";
 
 // A bunch of assumptions we make about the behavior of the parent process,
-// and which we use as sanity checks. If Firefox evolves, we will need to
+// and which we use as sanity checks. If Plezix evolves, we will need to
 // update these values.
 // Note that Test Verify can really stress the cpu durations.
 const HARDCODED_ASSUMPTIONS_PROCESS = {
@@ -987,7 +987,7 @@ async function testAboutProcessesWithConfig({ showAllFrames, showThreads }) {
     );
   }
 
-  // Give Firefox a little time to close the tabs and update about:processes.
+  // Give Plezix a little time to close the tabs and update about:processes.
   // This might take two updates as we're racing between collecting data and
   // processes actually being killed.
   await promiseAboutProcessesUpdated({

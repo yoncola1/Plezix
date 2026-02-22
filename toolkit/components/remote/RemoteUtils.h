@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ static void BuildClassName(const char* aProgram, const char* aProfile,
   constexpr size_t ClassNameMaxLength = 128;
 #  endif
 
-  aClassName.AppendPrintf("Mozilla_%s", aProgram);
+  aClassName.AppendPrintf("Plezix_%s", aProgram);
 #  if defined XP_WIN
   nsString pfn = mozilla::widget::WinUtils::GetPackageFamilyName();
   if (!pfn.IsEmpty()) {
@@ -46,7 +46,7 @@ static void BuildClassName(const char* aProgram, const char* aProfile,
   if (aClassName.Length() > ClassNameMaxLength) {
     mozilla::HashNumber hash = mozilla::HashString(aClassName.get());
     aClassName.Truncate();
-    aClassName.AppendPrintf("Mozilla_%08x_RemoteWindow", hash);
+    aClassName.AppendPrintf("Plezix_%08x_RemoteWindow", hash);
   }
 }
 #endif

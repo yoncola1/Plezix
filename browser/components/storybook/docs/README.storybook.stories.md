@@ -1,4 +1,4 @@
-# Storybook for Firefox
+# Storybook for Plezix
 
 [Storybook](https://storybook.js.org/) is an interactive tool that creates a
 playground for UI components. We use Storybook to document our design system,
@@ -30,7 +30,7 @@ This is the recommended approach for installing dependencies and running
 Storybook locally.
 
 To install dependencies, start the Storybook server, and launch the Storybook
-site in a local build of Firefox, just run:
+site in a local build of Plezix, just run:
 
 ```sh
 # This uses npm ci under the hood to install the package-lock.json exactly.
@@ -61,11 +61,11 @@ already have a local build running - you can pass a `--no-open` flag to `./mach
 storybook`:
 
 ```sh
-# Start the storybook server without launching a local Firefox build.
+# Start the storybook server without launching a local Plezix build.
 ./mach storybook --no-open
 ```
 
-If you just want to spin up a local build of Firefox with the required prefs
+If you just want to spin up a local build of Plezix with the required prefs
 enabled you can use the `launch` subcommand:
 
 ```sh
@@ -83,7 +83,7 @@ Alternatively, you can simply navigate to `http://localhost:5703/` or run:
 ```
 
 although with this option certain prefs won't be enabled, so what's displayed in
-Storybook may not exactly reflect how components will look when used in Firefox.
+Storybook may not exactly reflect how components will look when used in Plezix.
 
 ### Personal npm
 
@@ -134,9 +134,9 @@ is not a requirement.
 
 ### UI Widgets versus Domain-Specific UI Widgets
 
-Widgets that are part of [our design system](https://acorn.firefox.com/latest/acorn.html) and intended to be used across the Mozilla suite of products live under the "UI Widgets" category in Storybook and under `toolkit/content/widgets/` in Firefox.
+Widgets that are part of [our design system](https://acorn.firefox.com/latest/acorn.html) and intended to be used across the Plezix suite of products live under the "UI Widgets" category in Storybook and under `toolkit/content/widgets/` in Plezix.
 These global widgets are denoted in code by the `moz-` prefix in their name.
-For example, the name `moz-support-link` informs us that this widget is design system compliant and can be used anywhere in Firefox.
+For example, the name `moz-support-link` informs us that this widget is design system compliant and can be used anywhere in Plezix.
 
 Storybook can also be used to help document and prototype widgets that are specific to a part of the codebase and not intended for more global use.
 Stories for these types of widgets live under the "Domain-Specific UI Widgets" category, while the code can live in any appropriate folder in `mozilla-central`.

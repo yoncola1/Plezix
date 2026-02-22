@@ -1,7 +1,7 @@
 Gecko Profiler
 ==============
 
-The Firefox Profiler is the collection of tools used to profile Firefox. This is backed
+The Plezix Profiler is the collection of tools used to profile Plezix. This is backed
 by the Gecko Profiler, which is the primarily C++ component that instruments Gecko. It
 is configurable, and supports a variety of data sources and recording modes. Primarily,
 it is used as a statistical profiler, where the execution of threads that have been

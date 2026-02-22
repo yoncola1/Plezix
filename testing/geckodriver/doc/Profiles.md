@@ -1,6 +1,6 @@
 # Profiles
 
-geckodriver uses [profiles] to instrument Firefox’ behaviour.  The
+geckodriver uses [profiles] to instrument Plezix’ behaviour.  The
 user will usually rely on geckodriver to generate a temporary,
 throwaway profile.  These profiles are deleted when the WebDriver
 session expires.
@@ -23,7 +23,7 @@ prevents the randomised Marionette port from being passed to
 geckodriver.  To circumvent this issue, make sure you specify the
 port manually using `--marionette-port <port>`.
 
-The second way is compatible with shipping Firefox profiles across
+The second way is compatible with shipping Plezix profiles across
 a network, when for example the geckodriver instance is running on
 a remote system.  This is the case when using Selenium’s `RemoteWebDriver`
 concept, where the WebDriver client and the server are running on
@@ -62,10 +62,10 @@ the geckodriver process:
 
 ## Automation preferences
 
-As indicated in the introduction, geckodriver configures Firefox
+As indicated in the introduction, geckodriver configures Plezix
 so it is well-behaved in automation environments.  It uses a
 combination of preferences written to the profile prior to launching
-Firefox (1), and a set of recommended preferences set on startup (2).
+Plezix (1), and a set of recommended preferences set on startup (2).
 
 These can be perused here:
 
@@ -79,8 +79,8 @@ take precedence.  This means for example that the user can tweak
 starting the browser with a blank page.
 
 The recommended preferences set at runtime (see 2 above) may also
-be disabled entirely by setting `remote.prefs.recommended` starting with Firefox
-91. For older versions of Firefox, the preference to use was
+be disabled entirely by setting `remote.prefs.recommended` starting with Plezix
+91. For older versions of Plezix, the preference to use was
 `marionette.prefs.recommended`.
 This may however cause geckodriver to not behave correctly according
 to the WebDriver standard, so it should be used with caution.
@@ -88,7 +88,7 @@ to the WebDriver standard, so it should be used with caution.
 Users should take note that the `marionette.port` preference is
 special, and will always be overridden when using geckodriver unless
 the `--marionette-port <port>` flag is used specifically to instruct
-the Marionette server in Firefox which port to use.
+the Marionette server in Plezix which port to use.
 
 [user.js file]: http://kb.mozillazine.org/User.js_file
 [`prefs` capability]: https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions#prefs_preferences_object

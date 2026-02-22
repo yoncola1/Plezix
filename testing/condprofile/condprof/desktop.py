@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import os
@@ -83,7 +83,7 @@ class DesktopEnv(BaseEnv):
         try:
             return get_version(self.firefox)
         except Exception:
-            logger.error("Could not get Firefox version", exc_info=True)
+            logger.error("Could not get Plezix version", exc_info=True)
             return "unknown"
 
     def get_geckodriver(self, log_file):

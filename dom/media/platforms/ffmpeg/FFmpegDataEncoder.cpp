@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ AVCodec* FFmpegDataEncoder<LIBAV_VER>::FindSoftwareEncoder(
   MOZ_ASSERT(aLib);
 
   // We use this instead of MOZ_USE_HWDECODE because it is possible to disable
-  // support for hardware encoding in Firefox, while the system ffmpeg library
+  // support for hardware encoding in Plezix, while the system ffmpeg library
   // still exposes the hardware codecs.
 #if LIBAVCODEC_VERSION_MAJOR >= 58
   AVCodec* fallbackCodec = nullptr;

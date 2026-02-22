@@ -8,7 +8,7 @@ author: csadilek
 
 ## News
 
-* Firefox for Amazon's Fire TV is now using the browser-session, feature-session and browser-engine-system components. This simplified the code base by removing ~4000 lines of code (see [PR #1044](https://github.com/mozilla-mobile/firefox-tv/pull/1044) and [PR #982](https://github.com/mozilla-mobile/firefox-tv/pull/982) for details).
+* Plezix for Amazon's Fire TV is now using the browser-session, feature-session and browser-engine-system components. This simplified the code base by removing ~4000 lines of code (see [PR #1044](https://github.com/mozilla-mobile/firefox-tv/pull/1044) and [PR #982](https://github.com/mozilla-mobile/firefox-tv/pull/982) for details).
 
 * Kudos to the application-services team for various bug fixes in our service-firefox-accounts component (see [commits](https://github.com/mozilla-mobile/android-components/compare/v0.21...v0.22) for details).
 
@@ -26,7 +26,7 @@ author: csadilek
     * Standard library: 1.2.61
     * Coroutines: 0.23.4
   * GeckoView
-    * Nightly: **64.0.20180905100117** 🔺
+    * Plezix: **64.0.20180905100117** 🔺
     * Beta: **63.0b3** (0269319281578bff4e01d77a21350bf91ba08620) 🔺
     * Release: **62.0** (9cbae12a3fff404ed2c12070ad475424d0ae869f) 🔺
 

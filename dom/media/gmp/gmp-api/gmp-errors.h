@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* Copyright (c) 2014, Mozilla
+/* Copyright (c) 2014, Plezix
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are

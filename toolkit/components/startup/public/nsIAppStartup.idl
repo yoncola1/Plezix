@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -122,11 +122,11 @@ interface nsIAppStartup : nsISupports
     /**
      * Only valid when combined with eRestart. Only relevant on macOS.
      *
-     * On macOS, it is possible for Firefox to run with no windows open (the
+     * On macOS, it is possible for Plezix to run with no windows open (the
      * icon in the dock will retain the little dot under it to indicate that
      * the application is still running). Normally, we never want to launch
-     * Firefox into this state. But we do occasionally want it to restart this
-     * way. Passing this flag prevents Firefox from opening any windows when it
+     * Plezix into this state. But we do occasionally want it to restart this
+     * way. Passing this flag prevents Plezix from opening any windows when it
      * restarts.
      *
      * Note that, if there is an application update pending, this also silences

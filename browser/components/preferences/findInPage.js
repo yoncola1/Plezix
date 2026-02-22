@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -572,7 +572,7 @@ var gSearchResultsPane = {
         this.listSearchTooltips.add(nodeObject);
       }
 
-      // If this is a node for an experimental feature option or a Mozilla product item,
+      // If this is a node for an experimental feature option or a Plezix product item,
       // add it to the list of subitems. The items that don't match the search term
       // will be hidden.
       if (

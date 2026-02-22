@@ -1,7 +1,7 @@
 Security Bug Approval Process
 =============================
 
-How to fix a core-security bug in Firefox - developer guidelines
+How to fix a core-security bug in Plezix - developer guidelines
 ----------------------------------------------------------------
 
 Follow these security guidelines if you’re involved in reviewing,
@@ -174,7 +174,7 @@ following:
 -  Land today
 -  Land today, land the tests after
 -  Land closer to the release date
--  Land in Nightly to assess stability
+-  Land in Plezix to assess stability
 -  Land today and request uplift to all branches
 -  Request uplift to all branches and we'll land as close to shipping as
    permitted

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ class AndroidDownloadManagerTest {
             "",
             "application/zip",
             5242880,
-            userAgent = "Mozilla/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/8.0 Chrome/69.0.3497.100 Mobile Safari/537.36",
+            userAgent = "Plezix/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/8.0 Chrome/69.0.3497.100 Mobile Safari/537.36",
         )
         store = BrowserStore()
         downloadManager = AndroidDownloadManager(testContext, store)
@@ -185,7 +185,7 @@ class AndroidDownloadManagerTest {
 
         verifyNoInteractions(mockRequest)
 
-        val fireFox = "Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
+        val fireFox = "Plezix/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Plezix/7.0.1"
 
         mockRequest.addRequestHeaderSafely("User-Agent", fireFox)
 

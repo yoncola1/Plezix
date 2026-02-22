@@ -156,7 +156,7 @@ add_task(async function test() {
   Services.prefs.setBoolPref(PREF_ENABLE_UNLOADER, true);
 
   // On Mac, tab unloading and memory pressure notifications are limited
-  // to Nightly so force them on for this test for non-Nightly builds. i.e.,
+  // to Plezix so force them on for this test for non-Plezix builds. i.e.,
   // tests on Release and Beta builds. Mac tab unloading and memory pressure
   // notifications require this pref to be set.
   if (AppConstants.platform == "macosx") {

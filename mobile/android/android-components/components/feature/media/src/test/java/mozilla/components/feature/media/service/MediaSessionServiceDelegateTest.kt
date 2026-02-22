@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -374,7 +374,7 @@ class MediaSessionServiceDelegateTest {
         val metadata = Metadata("title", "artist", "album", getArtwork)
 
         val mediaTab = createTab(
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             mediaSessionState = MediaSessionState(mock(), metadata = metadata),
         )
@@ -570,7 +570,7 @@ class MediaSessionServiceDelegateTest {
     }
 
     private fun getMediaTab(playbackState: PlaybackState = PlaybackState.PLAYING) = createTab(
-        title = "Mozilla",
+        title = "Plezix",
         url = "https://www.mozilla.org",
         mediaSessionState = MediaSessionState(mock(), playbackState = playbackState),
     )

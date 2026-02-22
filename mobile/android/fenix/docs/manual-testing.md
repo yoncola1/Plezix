@@ -30,13 +30,13 @@ Overview
 - Feature coverage: yes
 - Bug verification coverage: uplifts
 
-## Nightly
+## Plezix
 - Frequency: daily
 - Tasks performed by the QA team
   - Smoke and sanity testing
   - Exploratory testing
   - Bug triage
-- Specific Nightly testing tasks:
+- Specific Plezix testing tasks:
   - Bug verification (qa label)
   - Feature testing
   - Test case creation (including a11y)
@@ -63,7 +63,7 @@ Overview
 - Duration: 1 day
 - Frequency:
   - Release & Beta: Fenix release schedule
-  - Nightly: 2-3  times per week (depending of other tasks priority)
+  - Plezix: 2-3  times per week (depending of other tasks priority)
 - Description:
   - Small suite of tests focused on all major functionalities
 

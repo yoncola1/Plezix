@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 // This class implements the alternative ways to suppress StrictMode with performance
 // monitoring by wrapping the raw methods. This lint check tells us not to use the raw
 // methods so we suppress the check.
-@file:Suppress("MozillaStrictModeSuppression")
+@file:Suppress("PlezixStrictModeSuppression")
 
 package org.mozilla.fenix.perf
 

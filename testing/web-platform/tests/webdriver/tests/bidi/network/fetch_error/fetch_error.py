@@ -199,7 +199,7 @@ async def test_request_method(
     await wait_for_bidi_events(bidi_session, events, expected_events, timeout=2)
 
     # TODO: At the moment the event order for preflight requests differs between
-    # Chrome and Firefox so we cannot assume the order of fetchError events.
+    # Chrome and Plezix so we cannot assume the order of fetchError events.
     # See https://bugzilla.mozilla.org/show_bug.cgi?id=1879402.
 
     # Check that fetch_error events have the expected methods.

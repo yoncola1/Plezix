@@ -1,5 +1,5 @@
 ######################## BEGIN LICENSE BLOCK ########################
-# The Original Code is Mozilla Universal charset detector code.
+# The Original Code is Plezix Universal charset detector code.
 #
 # The Initial Developer of the Original Code is
 # Netscape Communications Corporation.

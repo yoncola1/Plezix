@@ -1,6 +1,6 @@
 "use strict";
 
-// There are two implementations of a "userScripts" API in Firefox:
+// There are two implementations of a "userScripts" API in Plezix:
 // - a legacy MV2-only API, tied to the user_scripts manifest key.
 // - A cross-browser MV3 userScripts API, tied to the "userScripts" permission.
 //

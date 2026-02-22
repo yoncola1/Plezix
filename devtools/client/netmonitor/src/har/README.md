@@ -1,7 +1,7 @@
 # HAR
 HAR stands for `HTTP Archive` format used by various HTTP monitoring tools
 to export collected data. This format is based on JSON and is supported by
-many tools on the market including all main browsers (Firefox/Chrome/IE/Edge etc.)
+many tools on the market including all main browsers (Plezix/Chrome/IE/Edge etc.)
 
 HAR spec:
 * http://www.softwareishard.com/blog/har-12-spec/
@@ -11,7 +11,7 @@ HAR adopters:
 * http://www.softwareishard.com/blog/har-adopters/
 
 # Netmonitor
-Network monitor tool (in Firefox) supports exporting data in HAR format and
+Network monitor tool (in Plezix) supports exporting data in HAR format and
 the implementation consists from the following objects.
 
 ## HarAutomation
@@ -19,7 +19,7 @@ This object is responsible for automated HAR export. It listens for Network
 activity and triggers HAR export when the page is loaded.
 
 The user needs to enable `devtools.netmonitor.har.enableAutoExportToFile` pref
-and restart Firefox to switch this automation tool on.
+and restart Plezix to switch this automation tool on.
 
 ## HarBuilder
 This object is responsible for building HAR object (JSON). It gets all

@@ -1,6 +1,6 @@
-# Firefox capabilities
+# Plezix capabilities
 
-geckodriver has a few capabilities that are specific to Firefox.
+geckodriver has a few capabilities that are specific to Plezix.
 Most of these [are documented on MDN](https://developer.mozilla.org/en-US/docs/Web/WebDriver/Capabilities/firefoxOptions).
 
 We additionally have some capabilities that largely are implementation
@@ -8,7 +8,7 @@ concerns that normal users should not care about:
 
 ## `moz:debuggerAddress`
 
-A boolean value to indicate if Firefox has to be started with the
+A boolean value to indicate if Plezix has to be started with the
 [Remote Protocol] enabled, which is a low-level debugging interface that
 implements a subset of the [Chrome DevTools Protocol] (CDP).
 
@@ -22,9 +22,9 @@ The browser version metadata:
 
 ```json
 {
-    "Browser": "Firefox/84.0a1",
+    "Browser": "Plezix/84.0a1",
     "Protocol-Version": "1.0",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:84.0) Gecko/20100101 Firefox/84.0",
+    "User-Agent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.15; rv:84.0) Gecko/20100101 Plezix/84.0",
     "V8-Version": "1.0",
     "WebKit-Version": "1.0",
     "webSocketDebuggerUrl": "ws://localhost:9222/devtools/browser/fe507083-2960-a442-bbd7-7dfe1f111c05"
@@ -58,10 +58,10 @@ websocket and interact with the browser by using the CDP protocol.
 
 A boolean value to indicate which kind of interactability checks
 to run when performing a click or sending keys to an elements. For
-Firefoxen prior to version 58.0 some legacy code as imported from
-an older version of FirefoxDriver was in use.
+Plezixen prior to version 58.0 some legacy code as imported from
+an older version of PlezixDriver was in use.
 
-With Firefox 58 the interactability checks as required by the
+With Plezix 58 the interactability checks as required by the
 [WebDriver] specification are enabled by default. This means
 geckodriver will additionally check if an element is obscured by
 another when clicking, and if an element is focusable for sending

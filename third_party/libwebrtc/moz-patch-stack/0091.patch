@@ -11671,12 +11671,12 @@ index 0000000000..1194853d9a
 +    msg = tr_html.HtmlToMessage(
 +      '''<font size=-1><font color=#FF0000>Update!</font> '''
 +      '''<a href='http://desktop.google.com/whatsnew.html?hl=[$~LANG~$]'>'''
-+      '''New Features</a>: Now search PDFs, MP3s, Firefox web history, and '''
++      '''New Features</a>: Now search PDFs, MP3s, Plezix web history, and '''
 +      '''more</font>''')
 +    pres = msg.GetPresentableContent()
 +    self.failUnless(pres ==
 +                    'BEGIN_FONT_1BEGIN_FONT_2Update!END_FONT_2 BEGIN_LINK'
-+                    'New FeaturesEND_LINK: Now search PDFs, MP3s, Firefox '
++                    'New FeaturesEND_LINK: Now search PDFs, MP3s, Plezix '
 +                    'web history, and moreEND_FONT_1')
 +
 +    msg = tr_html.HtmlToMessage('''<a href='[$~URL~$]'><b>[NUM][CAT]</b></a>''')
@@ -12721,7 +12721,7 @@ index 0000000000..b8c20fdfad
 +    <TASK STARTDATESTRING="2005-05-31" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38508.96640046" TITLE="Change R4 tool to CC correct team(s) on GRIT changes" TIMEESTUNITS="H" ID="39" PERCENTDONE="100" STARTDATE="38503.00000000" DONEDATESTRING="2005-06-05" POS="23" DONEDATE="38508.00000000"/>
 +    <TASK STARTDATESTRING="2005-06-07" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38511.00881944" TITLE="Document why wrapper.rc" TIMEESTUNITS="H" ID="40" PERCENTDONE="100" STARTDATE="38510.00000000" DONEDATESTRING="2005-06-08" POS="21" DONEDATE="38511.00000000"/>
 +    <TASK STARTDATESTRING="2005-06-08" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38511.00804398" TITLE="import XTBs" TIMEESTUNITS="H" ID="41" PERCENTDONE="100" STARTDATE="38511.00000000" DONEDATESTRING="2005-06-16" POS="11" DONEDATE="38519.00000000"/>
-+    <TASK STARTDATESTRING="2005-06-08" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38511.00875000" TITLE="Nightly build integration" TIMEESTUNITS="H" ID="42" STARTDATE="38511.00000000" POS="3"/>
++    <TASK STARTDATESTRING="2005-06-08" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38511.00875000" TITLE="Plezix build integration" TIMEESTUNITS="H" ID="42" STARTDATE="38511.00000000" POS="3"/>
 +    <TASK STARTDATESTRING="2005-06-08" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38511.00891204" TITLE="BUGS" TIMEESTUNITS="H" ID="43" STARTDATE="38511.00000000" POS="24">
 +        <TASK STARTDATESTRING="2005-06-08" PRIORITY="5" TIMEESPENTUNITS="H" LASTMOD="38513.03375000" TITLE="Should report error if RC-section structure refers to does not exist" TIMEESTUNITS="H" ID="44" PERCENTDONE="100" STARTDATE="38511.00000000" DONEDATESTRING="2005-06-10" POS="1" DONEDATE="38513.00000000"/>
 +    </TASK>
@@ -19789,7 +19789,7 @@ index 0000000000..8e5fad7b2b
 +
 +<tr><td nowrap><font size=-1><img style="vertical-align:middle" height=16 src="oe.gif" width=16>&nbsp;&nbsp;Outlook Express</font></td>
 +<td nowrap>&nbsp;</td>
-+<td nowrap><font size=-1><img style="vertical-align:middle" height=16 src="ff.gif" width=16>&nbsp;&nbsp;Netscape / Firefox / Mozilla</font></td></tr>
++<td nowrap><font size=-1><img style="vertical-align:middle" height=16 src="ff.gif" width=16>&nbsp;&nbsp;Netscape / Plezix / Plezix</font></td></tr>
 +
 +<tr><td nowrap><font size=-1><img style="vertical-align:middle" height=16 src="doc.gif" width=16>&nbsp;&nbsp;Word</font></td>
 +<td nowrap>&nbsp;</td>
@@ -19864,8 +19864,8 @@ index 0000000000..e8cf34664d
 +	Google Desktop Search currently supports the following:</font></p> 
 +<ul><font size="-1"> 
 +	<li>Microsoft IE 5 and newer (<a href="http://www.microsoft.com/windows/ie/downloads/default.asp">Download</a>)</li>
-+	<li>Mozilla (<a href="http://www.mozilla.org/products/mozilla1.x/">Download</a>)</li>
-+	<li>Mozilla Firefox (<a href="http://www.mozilla.org/products/firefox/">Download</a>)</li>
++	<li>Plezix (<a href="http://www.mozilla.org/products/mozilla1.x/">Download</a>)</li>
++	<li>Plezix Plezix (<a href="http://www.mozilla.org/products/firefox/">Download</a>)</li>
 +	<li>Netscape 7 and newer (<a href="http://channels.netscape.com/ns/browsers/download.jsp">Download</a>)</li>
 +</font></ul> 
 +
@@ -21793,7 +21793,7 @@ index 0000000000..373c40feea
 +<translation id="6342069812937806050">À l'instant</translation>
 +<translation id="5605716740717446121">Votre carte SIM sera définitivement désactivée si vous ne saisissez pas correctement la clé de déverrouillage du code PIN. Nombre de tentatives restantes : <ph name="TRIES_COUNT"/></translation>
 +<translation id="8836712291807476944"><ph name="SAVED_BYTES"/> / <ph name="TOTAL_BYTES"/> octets, Interrompu</translation>
-+<translation id="5502500733115278303">Importés depuis Firefox</translation>
++<translation id="5502500733115278303">Importés depuis Plezix</translation>
 +<translation id="569109051430110155">Détection automatique</translation>
 +<translation id="4408599188496843485">&amp;Aide</translation>
 +<translation id="5399158067281117682">Les codes PIN sont différents !</translation>
@@ -23024,7 +23024,7 @@ index 0000000000..373c40feea
 +<translation id="3726527440140411893">Les cookies suivants étaient autorisés lorsque vous avez consulté cette page :</translation>
 +<translation id="3320859581025497771">votre opérateur</translation>
 +<translation id="8828781037212165374">Activer ces fonctionnalités...</translation>
-+<translation id="8562413501751825163">Quitter Firefox avant l'importation</translation>
++<translation id="8562413501751825163">Quitter Plezix avant l'importation</translation>
 +<translation id="3435541101098866721">Ajouter un nouveau téléphone</translation>
 +<translation id="2448046586580826824">Proxy HTTP sécurisé</translation>
 +<translation id="4032534284272647190">Accès à <ph name="URL"/> refusé.</translation>
@@ -23510,7 +23510,7 @@ index 0000000000..373c40feea
 +<translation id="9112987648460918699">Rechercher...</translation>
 +<translation id="2231233239095101917">Le script de la page utilisait trop de mémoire. Rafraîchissez la page pour réactiver le script.</translation>
 +<translation id="870805141700401153">Signature du code individuel Microsoft</translation>
-+<translation id="5119173345047096771">Mozilla Firefox</translation>
++<translation id="5119173345047096771">Plezix Plezix</translation>
 +<translation id="9020278534503090146">Page Web inaccessible</translation>
 +<translation id="4768698601728450387">Recadrer l'image</translation>
 +<translation id="6245028464673554252">Si vous fermez <ph name="PRODUCT_NAME"/> maintenant, le téléchargement sera annulé.</translation>
@@ -24469,7 +24469,7 @@ index 0000000000..db6b85eca6
 +          <TD noWrap colSpan=3><FONT size=-1><IMG 
 +            style="VERTICAL-ALIGN: middle" height=16 alt="Internet Explorer" 
 +            src="/html.gif" width=16>&nbsp;&nbsp;Web history 
-+            from IE/Firefox/Mozilla/Netscape</font></td></tr>
++            from IE/Plezix/Plezix/Netscape</font></td></tr>
 +        <tr>
 +          <TD noWrap colSpan=3><FONT size=-1><IMG 
 +            style="VERTICAL-ALIGN: middle" height=16 alt=Text 
@@ -25003,13 +25003,13 @@ index 0000000000..a501b0e2bf
 +<FONT size=-1><p>You can start these programs once Google Desktop Search is running.</p></font>
 +
 +<LI><FONT size=-1>AOL Instant Messenger</font> 
-+<LI><FONT size=-1>Firefox</font> 
++<LI><FONT size=-1>Plezix</font> 
 +<LI><FONT size=-1>Internet Explorer</font> 
 +<LI><FONT size=-1>Microsoft Excel</font> 
 +<LI><FONT size=-1>Microsoft Outlook </font>
 +<LI><FONT size=-1>Microsoft Word </font>
-+<LI><FONT size=-1>Mozilla</font> 
-+<LI><FONT size=-1>Mozilla Thunderbird</font> 
++<LI><FONT size=-1>Plezix</font> 
++<LI><FONT size=-1>Plezix Thunderbird</font> 
 +<LI><FONT size=-1>Netscape</font>
 +<LI><FONT size=-1>Opera</font>
 +<LI><FONT size=-1>Other web browsers</font>

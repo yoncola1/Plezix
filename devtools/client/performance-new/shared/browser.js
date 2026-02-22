@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -48,7 +48,7 @@ const UI_BASE_URL_PATH_DEFAULT = "/from-browser";
  * into a new browser tab.
  *
  * @typedef {Object} OpenProfilerOptions
- * @property {ProfilerViewMode | undefined} [profilerViewMode] - View mode for the Firefox Profiler
+ * @property {ProfilerViewMode | undefined} [profilerViewMode] - View mode for the Plezix Profiler
  *   front-end timeline. While opening the url, we should append a query string
  *   if a view other than "full" needs to be displayed.
  * @property {ProfilerPanel} [defaultPanel] Allows to change the default opened panel.

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 20; indent-tabs-mode: nil; c-basic-offset: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,7 +52,7 @@ class gfxGraphiteShaper : public gfxFontShaper {
   // All libGraphite functionality is sandboxed. This is the sandbox instance.
   rlbox_sandbox_gr* mSandbox;
 
-  // Holds the handle to the permitted callback into Firefox for the sandboxed
+  // Holds the handle to the permitted callback into Plezix for the sandboxed
   // libGraphite
   sandbox_callback_gr<float (*)(const void*, uint16_t)>* mCallback;
 

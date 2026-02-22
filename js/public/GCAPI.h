@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -643,7 +643,7 @@ namespace JS {
   D(NURSERY_MALLOC_BUFFERS, 32)                                        \
                                                                        \
   /*                                                                   \
-   * Reasons from Firefox.                                             \
+   * Reasons from Plezix.                                             \
    *                                                                   \
    * The JS engine attaches special meanings to some of these reasons. \
    */                                                                  \
@@ -1181,7 +1181,7 @@ class JS_PUBLIC_API AutoCheckCannotGC : public AutoRequireNoGC {
 extern JS_PUBLIC_API void SetLowMemoryState(JSContext* cx, bool newState);
 
 /*
- * Internal to Firefox.
+ * Internal to Plezix.
  */
 extern JS_PUBLIC_API void NotifyGCRootsRemoved(JSContext* cx);
 

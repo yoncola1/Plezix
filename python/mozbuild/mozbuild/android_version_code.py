@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -66,7 +66,7 @@ def android_version_code_v1(buildid, cpu_arch=None, min_sdk=0, max_sdk=0):
     they take precedence over 32-bit builds on devices that support 64-bit.
 
     The bit labelled 'g' is 1 if the build targets a recent API level, which
-    is currently always the case, because Firefox no longer ships releases that
+    is currently always the case, because Plezix no longer ships releases that
     are split by API levels. However, we may reintroduce a split in the future,
     in which case the release that targets an older API level will
 

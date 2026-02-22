@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -426,7 +426,7 @@ addAccessibleTask(
  */
 addAccessibleTask(
   `
-<div id="generic"><span aria-hidden="true" id="visible">Mozilla</span><span id="invisible" style="display: block !important;border: 0 !important;clip: rect(0 0 0 0) !important;height: 1px !important;margin: -1px !important;overflow: hidden !important;padding: 0 !important;position: absolute !important;white-space: nowrap !important;width: 1px !important;">hello world<br><div id="extraContainer">Mozilla</div></span><br>I am some other text</div>`,
+<div id="generic"><span aria-hidden="true" id="visible">Plezix</span><span id="invisible" style="display: block !important;border: 0 !important;clip: rect(0 0 0 0) !important;height: 1px !important;margin: -1px !important;overflow: hidden !important;padding: 0 !important;position: absolute !important;white-space: nowrap !important;width: 1px !important;">hello world<br><div id="extraContainer">Plezix</div></span><br>I am some other text</div>`,
   async function (browser, docAcc) {
     const generic = findAccessibleChildByID(docAcc, "generic");
     const invisible = findAccessibleChildByID(docAcc, "invisible");

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -540,28 +540,28 @@ class ThreeDotMenuMainRobot {
             return ReaderViewRobot.Transition()
         }
 
-        fun addToFirefoxHome(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
+        fun addToPlezixHome(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
             for (i in 1..RETRY_COUNT) {
-                Log.i(TAG, "addToFirefoxHome: Started try #$i")
+                Log.i(TAG, "addToPlezixHome: Started try #$i")
                 try {
                     addToShortcutsButton().also {
-                        Log.i(TAG, "addToFirefoxHome: Waiting for $waitingTime ms for the \"Add to shortcuts\" button to exist")
+                        Log.i(TAG, "addToPlezixHome: Waiting for $waitingTime ms for the \"Add to shortcuts\" button to exist")
                         it.waitForExists(waitingTime)
-                        Log.i(TAG, "addToFirefoxHome: Waited for $waitingTime ms for the \"Add to shortcuts\" button to exist")
-                        Log.i(TAG, "addToFirefoxHome: Trying to click the \"Add to shortcuts\" button")
+                        Log.i(TAG, "addToPlezixHome: Waited for $waitingTime ms for the \"Add to shortcuts\" button to exist")
+                        Log.i(TAG, "addToPlezixHome: Trying to click the \"Add to shortcuts\" button")
                         it.click()
-                        Log.i(TAG, "addToFirefoxHome: Clicked the \"Add to shortcuts\" button")
+                        Log.i(TAG, "addToPlezixHome: Clicked the \"Add to shortcuts\" button")
                     }
 
                     break
                 } catch (e: UiObjectNotFoundException) {
-                    Log.i(TAG, "addToFirefoxHome: UiObjectNotFoundException caught, executing fallback methods")
+                    Log.i(TAG, "addToPlezixHome: UiObjectNotFoundException caught, executing fallback methods")
                     if (i == RETRY_COUNT) {
                         throw e
                     } else {
-                        Log.i(TAG, "addToFirefoxHome: Trying to click the device back button")
+                        Log.i(TAG, "addToPlezixHome: Trying to click the device back button")
                         mDevice.pressBack()
-                        Log.i(TAG, "addToFirefoxHome: Clicked the device back button")
+                        Log.i(TAG, "addToPlezixHome: Clicked the device back button")
                         navigationToolbar {
                         }.openThreeDotMenu {
                             expandMenu()

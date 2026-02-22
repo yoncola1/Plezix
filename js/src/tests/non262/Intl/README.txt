@@ -22,6 +22,6 @@ The integration tests check for a variety of locales and options whether the
 results are localized in a way that indicates correct integration with ICU.
 Such tests are somewhat fragile because the underlying locale data reflects
 real world usage and is therefore subject to change. When the ICU library used
-by Mozilla is upgraded, it is likely that some of the integration tests will
+by Plezix is upgraded, it is likely that some of the integration tests will
 fail because of locale data changes; however, others might fail because of
 actual software bugs. Failures therefore have to be examined carefully.

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -63,7 +63,7 @@ class VisualStudioBackend(CommonBackend):
     """Generate Visual Studio project files.
 
     This backend is used to produce Visual Studio projects and a solution
-    to foster developing Firefox with Visual Studio.
+    to foster developing Plezix with Visual Studio.
 
     This backend is currently considered experimental. There are many things
     not optimal about how it works.
@@ -182,7 +182,7 @@ class VisualStudioBackend(CommonBackend):
             self._write_props(fh)
 
         # Generate some wrapper scripts that allow us to invoke mach inside
-        # a MozillaBuild-like environment. We currently only use the batch
+        # a PlezixBuild-like environment. We currently only use the batch
         # script. We'd like to use the PowerShell script. However, it seems
         # to buffer output from within Visual Studio (surely this is
         # configurable) and the default execution policy of PowerShell doesn't
@@ -429,7 +429,7 @@ class VisualStudioBackend(CommonBackend):
         add_var("PYTHON", "$(TopObjDir)\\_virtualenv\\Scripts\\python.exe")
         add_var("MACH", "$(TopSrcDir)\\mach")
 
-        # From MozillaBuild.
+        # From PlezixBuild.
         add_var("DefaultIncludes", os.environ.get("INCLUDE", ""))
 
         fh.write(b"\xef\xbb\xbf")
@@ -480,7 +480,7 @@ class VisualStudioBackend(CommonBackend):
 
     def _relevant_environment_variables(self):
         # Write out the environment variables, presumably coming from
-        # MozillaBuild.
+        # PlezixBuild.
         for k, v in sorted(os.environ.items()):
             if not re.match("^[a-zA-Z0-9_]+$", k):
                 continue
@@ -527,8 +527,8 @@ class VisualStudioBackend(CommonBackend):
     def _write_mach_batch(self, fh):
         """Write out a batch script that builds the tree.
 
-        The script "bootstraps" into the MozillaBuild environment by setting
-        the environment variables that are active in the current MozillaBuild
+        The script "bootstraps" into the PlezixBuild environment by setting
+        the environment variables that are active in the current PlezixBuild
         environment. Then, it builds the tree.
         """
         for k, v in self._relevant_environment_variables():

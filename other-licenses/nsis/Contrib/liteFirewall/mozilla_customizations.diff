@@ -6,9 +6,9 @@ diff --git a/other-licenses/nsis/Contrib/liteFirewall/liteFirewall.cpp b/other-l
  		catch (_com_error& e)
  		{
 -			printf("%s", e.Error());
-+			/* Start Mozilla modification */
++			/* Start Plezix modification */
 +			printf("0x%lx", e.Error());
-+			/* End Mozilla modification */
++			/* End Plezix modification */
  		}
  		goto Cleanup;
  	}

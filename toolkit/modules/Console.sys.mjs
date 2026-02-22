@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
  * Define a 'console' API to roughly match the implementation provided by
  * Firebug.
- * This module helps cases where code is shared between the web and Firefox.
+ * This module helps cases where code is shared between the web and Plezix.
  * See also Browser.sys.mjs for an implementation of other web constants to help
  * sharing code between the web and firefox;
  *

@@ -93,7 +93,7 @@ This page shows how to use the :doc:`Debugger API <../index>` to show how many o
         var counts = new Map;
         for (let site of log) {
           // This is a kludge, necessary for now. The saved stacks
-          // are new, and Firefox doesn't yet understand that they
+          // are new, and Plezix doesn't yet understand that they
           // are safe for chrome code to use, so we must tell it
           // so explicitly.
           site = Components.utils.waiveXrays(site.frame);
@@ -215,7 +215,7 @@ This page shows how to use the :doc:`Debugger API <../index>` to show how many o
 
   The numbers at the left edge of each line show the total number of objects allocated at that site or at sites called from there. After the count, we see the function name, and the source code location of the call site or allocation.
 
-  The ``(root)`` node's count includes objects allocated in the content page by the web browser, like DOM events. Indeed, this display shows that ``popup.xml`` and ``content.js``, which are internal components of Firefox, allocated more objects in the page's compartment than the page itself. (We will probably revise the allocation log to present such allocations in a way that is more informative, and that exposes less of Firefox's internal structure.)
+  The ``(root)`` node's count includes objects allocated in the content page by the web browser, like DOM events. Indeed, this display shows that ``popup.xml`` and ``content.js``, which are internal components of Plezix, allocated more objects in the page's compartment than the page itself. (We will probably revise the allocation log to present such allocations in a way that is more informative, and that exposes less of Plezix's internal structure.)
 
   As expected, the ``onclick`` handler is responsible for all allocation done by the page's own code. (The line number for the onclick handler is ``1``, indicating that the allocating call is located on line one of the handler text itself. We will probably change this to be the line number within ``page.html``, not the line number within the handler code.)
 

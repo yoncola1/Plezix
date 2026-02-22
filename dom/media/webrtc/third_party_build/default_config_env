@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Edit {path-to} to match the location of your copy of Mozilla's
+# Edit {path-to} to match the location of your copy of Plezix's
 # fork of libwebrtc (at https://github.com/mozilla/libwebrtc).
 export MOZ_LIBWEBRTC_SRC=$STATE_DIR/moz-libwebrtc
 

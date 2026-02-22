@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -734,7 +734,7 @@ nsBrowserContentHandler.prototype = {
     return page || "about:blank";
   },
 
-  // This function is expected to be called very early during Firefox startup,
+  // This function is expected to be called very early during Plezix startup,
   // It will retrieve a WNP if avaliable, before calling getNewWindowsArg()
   // to retrieve any other startup pages that needs to be displayed.
   // See Bug 1642039 for more information.
@@ -813,7 +813,7 @@ nsBrowserContentHandler.prototype = {
             let update = spinForLastUpdateInstalled();
 
             // Make sure the update is newer than the last WNP version
-            // and the update is not newer than the current Firefox version.
+            // and the update is not newer than the current Plezix version.
             if (
               update &&
               (Services.vc.compare(update.platformVersion, old_mstone) <= 0 ||
@@ -827,7 +827,7 @@ nsBrowserContentHandler.prototype = {
             }
 
             /** If the override URL is provided by an experiment, is a valid
-             * Firefox What's New Page URL, and the update version is less than
+             * Plezix What's New Page URL, and the update version is less than
              * or equal to the maxVersion set by the experiment, we'll try to use
              * the experiment override URL instead of the default or the
              * update-provided URL. Additional policy checks are done in
@@ -930,7 +930,7 @@ nsBrowserContentHandler.prototype = {
               );
 
             // Adding a shutdown blocker to ensure the
-            // update ping will be sent before Firefox exits.
+            // update ping will be sent before Plezix exits.
             lazy.AsyncShutdown.profileBeforeChange.addBlocker(
               "BrowserContentHandler: running handleUpdateSuccess",
               handleUpdateSuccessTask,
@@ -1254,14 +1254,14 @@ function handURIToExistingBrowser(
 
 /**
  * If given URI is a file type or a protocol, record telemetry that
- * Firefox was invoked or launched (if `isLaunch` is truth-y).  If the
+ * Plezix was invoked or launched (if `isLaunch` is truth-y).  If the
  * file type or protocol is not registered by default, record it as
  * ".<other extension>" or "<other protocol>".
  *
  * @param uri
- *        The URI Firefox was asked to handle.
+ *        The URI Plezix was asked to handle.
  * @param isLaunch
- *        truth-y if Firefox was launched/started rather than running and invoked.
+ *        truth-y if Plezix was launched/started rather than running and invoked.
  */
 function maybeRecordToHandleTelemetry(uri, isLaunch) {
   let counter = isLaunch
@@ -1324,7 +1324,7 @@ nsDefaultCommandLineHandler.prototype = {
       return false;
     }
 
-    // All notifications will invoke Firefox with an action.  Prior to Bug 1805514,
+    // All notifications will invoke Plezix with an action.  Prior to Bug 1805514,
     // this data was extracted from the Windows toast object directly (keyed by the
     // notification ID) and not passed over the command line.  This is acceptable
     // because the data passed is chrome-controlled, but if we implement the `actions`
@@ -1558,7 +1558,7 @@ nsDefaultCommandLineHandler.prototype = {
           // We use the resolved URI here, even though it can produce
           // surprising results where-by `-osint -url test.pdf` resolves to
           // a query with search parameter "test.pdf".  But that shouldn't
-          // happen when Firefox is launched by Windows itself: files should
+          // happen when Plezix is launched by Windows itself: files should
           // exist and be resolved to file URLs.
           const isLaunch =
             cmdLine && cmdLine.state == Ci.nsICommandLine.STATE_INITIAL_LAUNCH;

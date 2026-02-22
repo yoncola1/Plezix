@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6126,7 +6126,7 @@ TEST_F(JsepSessionTest, SetLocalAnswerInStable) {
 TEST_F(JsepSessionTest, SetRemoteAnswerInStable) {
   const std::string answer =
       "v=0\r\n"
-      "o=Mozilla-SIPUA 4949 0 IN IP4 10.86.255.143\r\n"
+      "o=Plezix-SIPUA 4949 0 IN IP4 10.86.255.143\r\n"
       "s=SIP Call\r\n"
       "t=0 0\r\n"
       "a=ice-ufrag:qkEP\r\n"

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -85,7 +85,7 @@ import mozilla.components.service.digitalassetlinks.RelationChecker
 import mozilla.components.service.digitalassetlinks.local.StatementApi
 import mozilla.components.service.digitalassetlinks.local.StatementRelationChecker
 import mozilla.components.service.location.LocationService
-import mozilla.components.service.location.MozillaLocationService
+import mozilla.components.service.location.PlezixLocationService
 import mozilla.components.service.mars.MarsTopSitesProvider
 import mozilla.components.service.mars.MarsTopSitesRequestConfig
 import mozilla.components.service.mars.NEW_TAB_TILE_1_PLACEMENT_KEY
@@ -129,7 +129,7 @@ import org.mozilla.fenix.perf.StrictModeManager
 import org.mozilla.fenix.perf.lazyMonitored
 import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.advanced.getSelectedLocale
-import org.mozilla.fenix.share.DefaultSentFromFirefoxManager
+import org.mozilla.fenix.share.DefaultSentFromPlezixManager
 import org.mozilla.fenix.share.DefaultSentFromStorage
 import org.mozilla.fenix.share.SaveToPDFMiddleware
 import org.mozilla.fenix.telemetry.TelemetryMiddleware
@@ -287,7 +287,7 @@ class Core(
         if (Config.channel.isDebug || BuildConfig.MLS_TOKEN.isEmpty()) {
             LocationService.default()
         } else {
-            MozillaLocationService(context, client, BuildConfig.MLS_TOKEN)
+            PlezixLocationService(context, client, BuildConfig.MLS_TOKEN)
         }
     }
 
@@ -471,9 +471,9 @@ class Core(
     /**
      * A component for managing `sent from firefox` feature.
      */
-    val sentFromFirefoxManager by lazyMonitored {
-        with(FxNimbus.features.sentFromFirefox.value()) {
-            DefaultSentFromFirefoxManager(
+    val sentFromPlezixManager by lazyMonitored {
+        with(FxNimbus.features.sentFromPlezix.value()) {
+            DefaultSentFromPlezixManager(
                 snackbarEnabled = showSnackbar,
                 templateMessage = templateMessage,
                 appName = context.getString(R.string.firefox),
@@ -505,7 +505,7 @@ class Core(
     }
 
     /**
-     * The storage component to sync and persist tabs in a Firefox Sync account.
+     * The storage component to sync and persist tabs in a Plezix Sync account.
      */
     val lazyRemoteTabsStorage = lazyMonitored { RemoteTabsStorage(context, crashReporter) }
 
@@ -644,7 +644,7 @@ class Core(
 
     /**
      * Shared Preferences that encrypt/decrypt using Android KeyStore and lib-dataprotect for 23+
-     * only on Nightly/Debug for now, otherwise simply stored.
+     * only on Plezix/Debug for now, otherwise simply stored.
      * See https://github.com/mozilla-mobile/fenix/issues/8324
      * Also, this needs revision. See https://github.com/mozilla-mobile/fenix/issues/19155
      */
@@ -652,7 +652,7 @@ class Core(
         SecureAbove22Preferences(
             context = context,
             name = KEY_STORAGE_NAME,
-            forceInsecure = !Config.channel.isNightlyOrDebug,
+            forceInsecure = !Config.channel.isPlezixOrDebug,
         )
 
     // Temporary. See https://github.com/mozilla-mobile/fenix/issues/19155
@@ -685,7 +685,7 @@ class Core(
 
         val updateChannel = when (Config.channel) {
             ReleaseChannel.Debug -> SearchUpdateChannel.DEFAULT
-            ReleaseChannel.Nightly -> SearchUpdateChannel.NIGHTLY
+            ReleaseChannel.Plezix -> SearchUpdateChannel.NIGHTLY
             ReleaseChannel.Beta -> SearchUpdateChannel.BETA
             ReleaseChannel.Release -> SearchUpdateChannel.RELEASE
         }

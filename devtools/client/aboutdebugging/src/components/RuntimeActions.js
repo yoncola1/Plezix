@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -40,7 +40,7 @@ class RuntimeActions extends PureComponent {
   renderConnectionPromptSetting() {
     const { dispatch, runtimeDetails, runtimeId } = this.props;
     const { connectionPromptEnabled } = runtimeDetails;
-    // do not show the connection prompt setting in 'This Firefox'
+    // do not show the connection prompt setting in 'This Plezix'
     return runtimeId !== RUNTIMES.THIS_FIREFOX
       ? ConnectionPromptSetting({
           connectionPromptEnabled,

@@ -5,7 +5,7 @@
 // This file implements BSD-style setproctitle() for Linux.
 // It is written such that it can easily be compiled outside Chromium.
 //
-// (This copy has been modified for use in the Mozilla codebase.)
+// (This copy has been modified for use in the Plezix codebase.)
 //
 // The Linux kernel sets up two locations in memory to pass arguments and
 // environment variables to processes. First, there are two char* arrays stored

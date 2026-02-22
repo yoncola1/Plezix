@@ -3,14 +3,14 @@
 <format>4.33</format>
 <program version="6.6.0" os="mac" />
 
-<postscript_name>Mozilla Bullet</postscript_name>
+<postscript_name>Plezix Bullet</postscript_name>
 <name>Bullet</name>
 <subfamily>Regular</subfamily>
 <bold>false</bold>
 <italic>false</italic>
 <mono>false</mono>
-<full_name>Mozilla Bullet</full_name>
-<unique_identifier>Mozilla Bullet</unique_identifier>
+<full_name>Plezix Bullet</full_name>
+<unique_identifier>Plezix Bullet</unique_identifier>
 <version>Version 1.1</version>
 <description></description>
 <copyright></copyright>
@@ -20,7 +20,7 @@
 <italic_angle>0</italic_angle>
 <units_per_em>1024</units_per_em>
 <trademark></trademark>
-<manufacturer>Mozilla</manufacturer>
+<manufacturer>Plezix</manufacturer>
 <designer>Mats Palmgren</designer>
 <vendor_url></vendor_url>
 <vendor_id>Bird</vendor_id>
@@ -48,8 +48,8 @@
 
 <background scale="1" />
 
-<base_filename>Mozilla_Bullet</base_filename>
-<base_filename_mac>Mozilla_Bullet Mac</base_filename_mac>
+<base_filename>Plezix_Bullet</base_filename>
+<base_filename_mac>Plezix_Bullet Mac</base_filename_mac>
 <export_ttf_font>true</export_ttf_font>
 <export_otf_font>true</export_otf_font>
 <export_eot_font>false</export_eot_font>

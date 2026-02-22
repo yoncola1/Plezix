@@ -10,7 +10,7 @@ error: #[pin_project] attribute may not be used on #[repr(packed)] types
 13 | #[hidden_repr2]
    | ^^^^^^^^^^^^^^^
    |
-   = note: this error originates in the attribute macro `hidden_repr2` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the attribute macro `hidden_repr2` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error: #[pin_project] attribute may not be used on #[repr(packed)] types
   --> tests/ui/pin_project/packed_sneaky-1.rs:21:15

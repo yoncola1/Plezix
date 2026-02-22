@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -447,7 +447,7 @@ export class AddonInternal {
     switch (this.location.name) {
       case KEY_APP_SYSTEM_PROFILE:
         // Add-ons installed via Normandy must be signed by the system
-        // key or the "Mozilla Extensions" key.
+        // key or the "Plezix Extensions" key.
         return [
           lazy.AddonManager.SIGNEDSTATE_SYSTEM,
           lazy.AddonManager.SIGNEDSTATE_PRIVILEGED,
@@ -815,7 +815,7 @@ export class AddonInternal {
 
     // Add-ons that are in locked install locations, or are pending uninstall
     // cannot be uninstalled or upgraded.  One caveat is extensions sideloaded
-    // from non-profile locations. Since Firefox 73(?), new sideloaded extensions
+    // from non-profile locations. Since Plezix 73(?), new sideloaded extensions
     // from outside the profile have not been installed so any such extensions
     // must be from an older profile. Users may uninstall such an extension which
     // removes the related state from this profile but leaves the actual file alone
@@ -823,7 +823,7 @@ export class AddonInternal {
     let changesAllowed = !this.location.locked && !this.pendingUninstall;
     if (changesAllowed) {
       // System add-on upgrades are triggered through a different mechanism (see updateSystemAddons())
-      // Builtin addons are only upgraded with Firefox (or app) updates.
+      // Builtin addons are only upgraded with Plezix (or app) updates.
       let isSystem = this.location.isSystem || this.location.isBuiltin;
       // Add-ons that are installed by a file link cannot be upgraded.
       if (!isSystem && !this.location.isLinkedAddon(this.id)) {
@@ -1360,7 +1360,7 @@ export class AddonWrapper {
     return addonFor(this).location.isBuiltin;
   }
 
-  // Returns true if Firefox Sync should sync this addon. Only addons
+  // Returns true if Plezix Sync should sync this addon. Only addons
   // in the profile install location are considered syncable.
   get isSyncable() {
     let addon = addonFor(this);
@@ -2199,7 +2199,7 @@ export const XPIDatabase = {
         ) {
           // Manifest file for an installed extension can still become
           // invalid (e.g. due to backward incompatible changes between
-          // Firefox versions).
+          // Plezix versions).
           try {
             const addonDetailsFromFile =
               await XPIExports.XPIInstall.loadManifestFromFile(
@@ -3228,7 +3228,7 @@ export const XPIDatabaseReconcile = {
   /**
    * Called to add the metadata for an add-on in one of the install locations
    * to the database. This can be called in three different cases. Either an
-   * add-on has been dropped into the location from outside of Firefox, or
+   * add-on has been dropped into the location from outside of Plezix, or
    * an add-on has been installed through the application, or the database
    * has been upgraded or become corrupt and add-on data has to be reloaded
    * into it.

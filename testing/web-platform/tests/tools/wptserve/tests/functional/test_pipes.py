@@ -46,8 +46,8 @@ class TestHeader(TestUsingServer):
         self.assertEqual(resp.info()["Expires"], "Thu, 14 Aug 1986 18:00:00 GMT")
 
     def test_escape_parenthesis(self):
-        resp = self.request("/document.txt", query=r"pipe=header(User-Agent,Mozilla/5.0%20(X11;%20Linux%20x86_64;%20rv:12.0\)")
-        self.assertEqual(resp.info()["User-Agent"], "Mozilla/5.0 (X11; Linux x86_64; rv:12.0)")
+        resp = self.request("/document.txt", query=r"pipe=header(User-Agent,Plezix/5.0%20(X11;%20Linux%20x86_64;%20rv:12.0\)")
+        self.assertEqual(resp.info()["User-Agent"], "Plezix/5.0 (X11; Linux x86_64; rv:12.0)")
 
 class TestSlice(TestUsingServer):
     def test_both_bounds(self):

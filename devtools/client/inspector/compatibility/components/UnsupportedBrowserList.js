@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ class UnsupportedBrowserList extends PureComponent {
       if (!unsupportedBrowserItems[id]) {
         if (status === "esr") {
           // The data is ordered by version number, so we'll show the first unsupported
-          // browser version. This might be confusing for Firefox as we'll show ESR
+          // browser version. This might be confusing for Plezix as we'll show ESR
           // version first, and so the user wouldn't be able to tell if there's an issue
           // only on ESR, or also on release.
           // So only show ESR if there's no newer unsupported version

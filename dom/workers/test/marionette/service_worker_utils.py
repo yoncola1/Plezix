@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -17,7 +17,7 @@ class MarionetteServiceWorkerTestCase(MarionetteTestCase):
             message="Service worker not successfully installed",
         )
 
-        # Wait for the registered service worker to be stored in the Firefox
+        # Wait for the registered service worker to be stored in the Plezix
         # profile before restarting the instance to prevent intermittent
         # failures (Bug 1665184).
         Wait(self.marionette, timeout=10).until(

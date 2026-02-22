@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,7 +8,7 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: General'
+  - 'Plezix :: General'
 
 browser.engagement:
   active_ticks:
@@ -181,7 +181,7 @@ browser.engagement:
     description: >
       The count of maximum number of pinned tabs open during a subsession.
       This includes private windows and the ones opened when starting the
-      browser. Starting Firefox 85 this includes number of restored pinned
+      browser. Starting Plezix 85 this includes number of restored pinned
       tabs at startup.
       This metric was generated to correspond to the Legacy Telemetry
       scalar browser.engagement.max_concurrent_tab_pinned_count.
@@ -410,7 +410,7 @@ installation.first_seen:
   installer_type:
     type: string
     description: >
-      The type of installer used to install Firefox.
+      The type of installer used to install Plezix.
       The value is one of "stub", "full", or "msix"
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1811374
@@ -583,7 +583,7 @@ performance.interaction:
       (Migrated from the geckoview metric of the same name.)
     metadata:
       tags:
-        - 'Firefox :: Tabbed Browser'
+        - 'Plezix :: Tabbed Browser'
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1481704
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1529352
@@ -600,7 +600,7 @@ browser.usage:
   interaction:
     type: event
     description: >
-      The user interacted with something in the Firefox Desktop frontend.
+      The user interacted with something in the Plezix Desktop frontend.
       Could be via mouse or keyboard, could be a command or a UI element.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1889111
@@ -1347,11 +1347,11 @@ browser.ui.interaction:
   preferences_pane_more_from_mozilla:
     type: labeled_counter
     description: >
-      Records the items interacted with in the More From Mozilla section
+      Records the items interacted with in the More From Plezix section
       of preferences. See https://firefox-source-
       docs.mozilla.org/browser/BrowserUsageTelemetry.html
       This metric was generated to correspond to the Legacy Telemetry
-      scalar browser.ui.interaction.preferences_paneMoreFromMozilla.
+      scalar browser.ui.interaction.preferences_paneMoreFromPlezix.
     bugs:
       - https://bugzil.la/1738187
     data_reviews:

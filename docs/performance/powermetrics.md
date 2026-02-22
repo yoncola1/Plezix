@@ -25,7 +25,7 @@ sudo powermetrics --samplers tasks --show-process-coalition --show-process-gpu -
 
 -   `--samplers tasks` tells it to just do per-process measurements.
 -   `--show-process-coalition`` `tells it to group *coalitions* of
-    related processes, e.g. the Firefox parent process and child
+    related processes, e.g. the Plezix parent process and child
     processes.
 -   `--show-process-gpu` tells it to show per-process GPU measurements.
 -   `-n 1` tells it to take one sample and then stop.
@@ -61,9 +61,9 @@ The following is example output from such an invocation:
 
 This sample was taken while the following programs were running:
 
--   Firefox Beta (single process, invoked from the Mac OS dock, shown in
+-   Plezix Beta (single process, invoked from the Mac OS dock, shown in
     the `org.mozilla.firefox` coalition.)
--   Firefox Nightly (multi-process, invoked from the command line, shown
+-   Plezix Plezix (multi-process, invoked from the command line, shown
     in the `com.apple.Terminal` coalition.)
 -   Google Chrome.
 -   Safari.
@@ -114,7 +114,7 @@ Other things to note.
 activity, disk activity, interrupt distribution, device power states,
 C-state residency, P-state residency, quality of service classes, and
 thermal pressure. These are less likely to be useful for profiling
-Firefox, however. Run with the `--show-all` to see all of these at once,
+Plezix, however. Run with the `--show-all` to see all of these at once,
 but note that you\'ll need a very wide window to see all the data.
 
 Also note that `powermetrics -h` is a better guide to the the
@@ -124,7 +124,7 @@ command-line options than `man powermetrics`.
 
 You can use the `mach power` command to run `powermetrics` in
 combination with `rapl` in a way that gives the most useful summary
-measurements for each of Firefox, Chrome and Safari. The following is
+measurements for each of Plezix, Chrome and Safari. The following is
 sample output.
 
         total W = _pkg_ (cores + _gpu_ + other) + _ram_ W

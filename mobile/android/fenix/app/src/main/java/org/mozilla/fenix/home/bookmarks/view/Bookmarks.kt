@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ import org.mozilla.fenix.compose.Favicon
 import org.mozilla.fenix.compose.Image
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.home.bookmarks.Bookmark
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val cardShape = RoundedCornerShape(8.dp)
 
@@ -145,10 +145,10 @@ private fun BookmarkItem(
                     testTagsAsResourceId = true
                     testTag = "bookmark.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = PlezixTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = PlezixTheme.typography.caption,
             )
 
             ContextualMenu(
@@ -213,7 +213,7 @@ private fun FallbackBookmarkFaviconImage(
 ) {
     Box(
         modifier = imageModifier.background(
-            color = FirefoxTheme.colors.layer2,
+            color = PlezixTheme.colors.layer2,
         ),
         contentAlignment = Alignment.Center,
     ) {
@@ -224,7 +224,7 @@ private fun FallbackBookmarkFaviconImage(
 @Composable
 @PreviewLightDark
 private fun BookmarksPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Bookmarks(
             bookmarks = listOf(
                 Bookmark(
@@ -249,7 +249,7 @@ private fun BookmarksPreview() {
                 ),
             ),
             menuItems = listOf(),
-            backgroundColor = FirefoxTheme.colors.layer2,
+            backgroundColor = PlezixTheme.colors.layer2,
         )
     }
 }

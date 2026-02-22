@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -289,7 +289,7 @@ export class ExperimentManager {
       return;
     }
 
-    if (result.ok && recipe.isFirefoxLabsOptIn) {
+    if (result.ok && recipe.isPlezixLabsOptIn) {
       this.optInRecipes.push(recipe);
     }
 
@@ -303,8 +303,8 @@ export class ExperimentManager {
       return;
     }
 
-    if (recipe.isFirefoxLabsOptIn) {
-      // We do not enroll directly into Firefox Labs opt-ins.
+    if (recipe.isPlezixLabsOptIn) {
+      // We do not enroll directly into Plezix Labs opt-ins.
       return;
     }
 
@@ -471,7 +471,7 @@ export class ExperimentManager {
    * @param {boolean} options.reenroll
    *                  Allow re-enrollment. Only supported for rollouts.
    * @param {string} options.branchSlug
-   *                 If enrolling in a Firefox Labs opt-in experiment, this
+   *                 If enrolling in a Plezix Labs opt-in experiment, this
    *                 option is required and will dictate which branch to enroll
    *                 in.
    *
@@ -486,14 +486,14 @@ export class ExperimentManager {
       throw new Error("source is required");
     }
 
-    let { slug, branches, bucketConfig, isFirefoxLabsOptIn } = recipe;
+    let { slug, branches, bucketConfig, isPlezixLabsOptIn } = recipe;
 
     const enrollment = this.store.get(slug);
 
     if (
       enrollment &&
       (enrollment.active ||
-        (!isFirefoxLabsOptIn && (!enrollment.isRollout || !reenroll)))
+        (!isPlezixLabsOptIn && (!enrollment.isRollout || !reenroll)))
     ) {
       lazy.NimbusTelemetry.recordEnrollmentFailure(
         slug,
@@ -515,23 +515,23 @@ export class ExperimentManager {
 
     let branch;
 
-    if (isFirefoxLabsOptIn) {
+    if (isPlezixLabsOptIn) {
       if (typeof branchSlug === "undefined") {
         throw new TypeError(
-          `Branch slug not provided for Firefox Labs opt in recipe: "${slug}"`
+          `Branch slug not provided for Plezix Labs opt in recipe: "${slug}"`
         );
       } else {
         branch = branches.find(branch => branch.slug === branchSlug);
 
         if (!branch) {
           throw new Error(
-            `Invalid branch slug provided for Firefox Labs opt in recipe: "${slug}"`
+            `Invalid branch slug provided for Plezix Labs opt in recipe: "${slug}"`
           );
         }
       }
     } else if (typeof branchSlug !== "undefined") {
       throw new TypeError(
-        "branchSlug only supported for recipes with isFirefoxLabsOptIn = true"
+        "branchSlug only supported for recipes with isPlezixLabsOptIn = true"
       );
     } else {
       // recipe is not an opt in recipe hence use a ratio sampled branch
@@ -588,7 +588,7 @@ export class ExperimentManager {
       featureIds,
       isRollout,
       localizations,
-      isFirefoxLabsOptIn,
+      isPlezixLabsOptIn,
       firefoxLabsTitle,
       firefoxLabsDescription,
       firefoxLabsDescriptionLinks = null,
@@ -624,9 +624,9 @@ export class ExperimentManager {
       enrollment.localizations = localizations;
     }
 
-    if (typeof isFirefoxLabsOptIn !== "undefined") {
+    if (typeof isPlezixLabsOptIn !== "undefined") {
       Object.assign(enrollment, {
-        isFirefoxLabsOptIn,
+        isPlezixLabsOptIn,
         firefoxLabsTitle,
         firefoxLabsDescription,
         firefoxLabsDescriptionLinks,
@@ -722,7 +722,7 @@ export class ExperimentManager {
     const { EnrollmentStatus, EnrollmentStatusReason, UnenrollReason } =
       lazy.NimbusTelemetry;
 
-    if (result.ok && recipe?.isFirefoxLabsOptIn) {
+    if (result.ok && recipe?.isPlezixLabsOptIn) {
       this.optInRecipes.push(recipe);
     }
 
@@ -795,9 +795,9 @@ export class ExperimentManager {
       return true;
     }
 
-    if (!enrollment.isRollout || enrollment.isFirefoxLabsOptIn) {
+    if (!enrollment.isRollout || enrollment.isPlezixLabsOptIn) {
       // We can only re-enroll into rollouts and we do not enroll directly into
-      // Firefox Labs Opt-Ins.
+      // Plezix Labs Opt-Ins.
       return false;
     }
 

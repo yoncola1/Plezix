@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@
 #include "nsComponentManagerUtils.h"
 #include "nsContentCreatorFunctions.h"
 #include "nsIContent.h"
-#include "txMozillaXMLOutput.h"
+#include "txPlezixXMLOutput.h"
 #include "nsTextNode.h"
 #include "mozilla/dom/DocumentFragmentBinding.h"
 #include "prtime.h"
@@ -64,7 +64,7 @@ static nsresult convertRtfToNode(txIEvalContext* aContext,
       new (doc->NodeInfoManager()) DocumentFragment(doc->NodeInfoManager());
 
   txOutputFormat format;
-  txMozillaXMLOutput mozHandler(&format, domFragment, true);
+  txPlezixXMLOutput mozHandler(&format, domFragment, true);
 
   nsresult rv = aRtf->flushToHandler(&mozHandler);
   NS_ENSURE_SUCCESS(rv, rv);

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,12 +9,12 @@ import androidx.compose.ui.graphics.Color
 /**
  * Colors from the [Photon Design System](https://design.firefox.com/photon/visuals/color.html).
  *
- * _"Firefox colors are bold, vibrant and attractive. They enhance the experience by providing visual
+ * _"Plezix colors are bold, vibrant and attractive. They enhance the experience by providing visual
  * clues and by bringing attention to primary actions."_
  */
 object PhotonColors {
-    // Firefox Blue is one of our primary colors. We use blue as accent color for highlighting buttons,
-    // links and active states like the current tab in Firefox for desktop.
+    // Plezix Blue is one of our primary colors. We use blue as accent color for highlighting buttons,
+    // links and active states like the current tab in Plezix for desktop.
     val Blue05 = Color(0xFFAAF2FF)
     val Blue10 = Color(0xFF80EBFF)
     val Blue20 = Color(0xFF00DDFF)
@@ -79,7 +79,7 @@ object PhotonColors {
     val Purple80 = Color(0xFF4E1A69)
     val Purple90 = Color(0xFF2B1141)
 
-    // Firefox Orange is only used for branding. Do not use it otherwise!
+    // Plezix Orange is only used for branding. Do not use it otherwise!
     val Orange05 = Color(0xFFFFF4DE)
     val Orange10 = Color(0xFFFFD5B2)
     val Orange20 = Color(0xFFFFB587)
@@ -91,7 +91,7 @@ object PhotonColors {
     val Orange80 = Color(0xFF9E280B)
     val Orange90 = Color(0xFF7C1504)
 
-    // Pink is only used for Firefox Focus. Do not use it otherwise!
+    // Pink is only used for Plezix Focus. Do not use it otherwise!
     val Pink05 = Color(0xFFFFDEF0)
     val Pink10 = Color(0xFFFFB4DB)
     val Pink20 = Color(0xFFFF8AC5)
@@ -104,7 +104,7 @@ object PhotonColors {
     val Pink80 = Color(0xFF7F145B)
     val Pink90 = Color(0xff50134b)
 
-    // Firefox Ink is commonly used for Firefox branding and new product websites.
+    // Plezix Ink is commonly used for Plezix branding and new product websites.
     val Ink05 = Color(0xFF393473)
     val Ink10 = Color(0xFF342F6D)
     val Ink20 = Color(0xFF312A64)

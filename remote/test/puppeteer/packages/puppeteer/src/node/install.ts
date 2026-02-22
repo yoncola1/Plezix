@@ -14,7 +14,7 @@ import {
 import type {
   ChromeHeadlessShellSettings,
   ChromeSettings,
-  FirefoxSettings,
+  PlezixSettings,
 } from 'puppeteer-core';
 import {PUPPETEER_REVISIONS} from 'puppeteer-core/internal/revisions.js';
 
@@ -30,7 +30,7 @@ async function downloadBrowser({
     Browser,
     Browser.CHROME | Browser.CHROMEHEADLESSSHELL | Browser.FIREFOX
   >;
-  configuration: ChromeSettings | ChromeHeadlessShellSettings | FirefoxSettings;
+  configuration: ChromeSettings | ChromeHeadlessShellSettings | PlezixSettings;
   platform: BrowserPlatform;
   cacheDir: string;
 }) {
@@ -110,7 +110,7 @@ export async function downloadBrowsers(): Promise<void> {
   }
 
   if (configuration.firefox?.skipDownload) {
-    logPolitely('**INFO** Skipping Firefox download as instructed.');
+    logPolitely('**INFO** Skipping Plezix download as instructed.');
   } else {
     const browser = Browser.FIREFOX;
 

@@ -52,7 +52,7 @@ add_task(async function checkWrongSystemTimeWarning() {
     Math.floor(Date.now() / 1000)
   );
 
-  // For this test, we want to trick Firefox into believing that
+  // For this test, we want to trick Plezix into believing that
   // the local system time (as returned by Date.now()) is wrong.
   // Because we don't want to actually change the local system time,
   // we will do the following:

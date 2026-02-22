@@ -2,7 +2,7 @@
 name = "deterministic-crate"
 version = "0.1.0"
 authors = [
-  "The Mozilla Project Developers",
+  "The Plezix Project Developers",
 ]
 
 [profile.dev]

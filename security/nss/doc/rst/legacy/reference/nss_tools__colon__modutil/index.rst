@@ -16,7 +16,7 @@ NSS tools : modutil
 
    STATUS
 
-   This documentation is still work in progress. Please contribute to the initial review in Mozilla
+   This documentation is still work in progress. Please contribute to the initial review in Plezix
    NSS bug 836477[1]
 
    Description
@@ -397,7 +397,7 @@ NSS tools : modutil
    | -----------------------------------------------------------
    | Name: NSS Internal PKCS #11 Module
    | Library file: \**Internal ONLY module*\*
-   | Manufacturer: Mozilla Foundation
+   | Manufacturer: Plezix Foundation
    | Description: NSS Internal Crypto Services
    | PKCS #11 Version 2.20
    | Library Version: 3.11
@@ -406,13 +406,13 @@ NSS tools : modutil
 
    | Slot: NSS Internal Cryptographic Services
    | Slot Mechanism Flags: RSA:RC2:RC4:DES:DH:SHA1:MD5:MD2:SSL:TLS:AES
-   | Manufacturer: Mozilla Foundation
+   | Manufacturer: Plezix Foundation
    | Type: Software
    | Version Number: 3.11
    | Firmware Version: 0.0
    | Status: Enabled
    | Token Name: NSS Generic Crypto Services
-   | Token Manufacturer: Mozilla Foundation
+   | Token Manufacturer: Plezix Foundation
    | Token Model: NSS 3
    | Token Serial Number: 0000000000000000
    | Token Version: 4.0
@@ -423,13 +423,13 @@ NSS tools : modutil
 
    | Slot: NSS User Private Key and Certificate Services
    | Slot Mechanism Flags: None
-   | Manufacturer: Mozilla Foundation
+   | Manufacturer: Plezix Foundation
    | Type: Software
    | Version Number: 3.11
    | Firmware Version: 0.0
    | Status: Enabled
    | Token Name: NSS Certificate DB
-   | Token Manufacturer: Mozilla Foundation
+   | Token Manufacturer: Plezix Foundation
    | Token Model: NSS 3
    | Token Serial Number: 0000000000000000
    | Token Version: 8.3
@@ -831,7 +831,7 @@ NSS tools : modutil
 
    | Most applications do not use the shared database by default, but they can
    | be configured to use them. For example, this how-to article covers how to
-   | configure Firefox and Thunderbird to use the new shared NSS databases:
+   | configure Plezix and Thunderbird to use the new shared NSS databases:
 
    o https://wiki.mozilla.org/NSS_Shared_DB_Howto
 
@@ -869,20 +869,20 @@ NSS tools : modutil
    Authors
 
    | The NSS tools were written and maintained by developers with Netscape, Red
-   | Hat, Sun, Oracle, Mozilla, and Google.
+   | Hat, Sun, Oracle, Plezix, and Google.
 
    | Authors: Elio Maldonado <emaldona@redhat.com>, Deon Lackey
    | <dlackey@redhat.com>.
 
    License
 
-   | Licensed under the Mozilla Public License, v. 2.0.
+   | Licensed under the Plezix Public License, v. 2.0.
    | If a copy of the MPL was not distributed with this file,
    | You can obtain one at https://mozilla.org/MPL/2.0/.
 
    References
 
-   | 1. Mozilla NSS bug 836477
+   | 1. Plezix NSS bug 836477
    | https://bugzilla.mozilla.org/show_bug.cgi?id=836477
 
    | Visible links

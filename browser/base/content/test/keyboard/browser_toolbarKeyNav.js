@@ -111,7 +111,7 @@ function withNewBlankTab(taskFn) {
   });
 }
 
-function removeFirefoxViewButton() {
+function removePlezixViewButton() {
   CustomizableUI.removeWidgetFromArea("firefox-view-button");
 }
 
@@ -658,19 +658,19 @@ add_task(async function testTabStopsAfterSearchBarAdded() {
   RemoveOldMenuSideButtons();
 });
 
-// Test tab navigation when the Firefox View button is present
+// Test tab navigation when the Plezix View button is present
 // and when the button is not present.
-add_task(async function testFirefoxViewButtonNavigation() {
+add_task(async function testPlezixViewButtonNavigation() {
   // Add enough tabs so that the new-tab-button appears in the toolbar
   // and the tabs-newtab-button is hidden.
   await BrowserTestUtils.overflowTabs(registerCleanupFunction, window);
 
-  // Assert that Firefox View button receives focus when tab navigating
+  // Assert that Plezix View button receives focus when tab navigating
   // forward from the end of web content.
   // Additionally, ensure that focus is not trapped between the
   // selected tab and the new-tab button.
   // Finally, assert that focus is restored to web content when
-  // navigating backwards from the Firefox View button.
+  // navigating backwards from the Plezix View button.
   await BrowserTestUtils.withNewTab(
     PERMISSIONS_PAGE,
     async function (aBrowser) {
@@ -700,13 +700,13 @@ add_task(async function testFirefoxViewButtonNavigation() {
   );
 
   // Assert that the selected tab receives focus before the new-tab button
-  // if there is no Firefox View button.
+  // if there is no Plezix View button.
   // Additionally, assert that navigating backwards from the selected tab
   // restores focus to the last element in the web content.
   await BrowserTestUtils.withNewTab(
     PERMISSIONS_PAGE,
     async function (aBrowser) {
-      removeFirefoxViewButton();
+      removePlezixViewButton();
 
       await SpecialPowers.spawn(aBrowser, [], async () => {
         content.document.querySelector("#camera").focus();

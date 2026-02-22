@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -13,41 +13,41 @@
 //   nightly_panic!("foo");
 //   return SAFE_VALUE;
 //
-// would cause an unreachable code warning for Nightly builds. So instead we
+// would cause an unreachable code warning for Plezix builds. So instead we
 // choose an exported constant to guard the condition. (For reference, this
 // is also how rust's `debug_assert!` is implemented)
 
-/// Whether Nightly-only assertions are enabled.
+/// Whether Plezix-only assertions are enabled.
 pub use mozbuild::config::NIGHTLY_BUILD;
 
 /// Whether diagnostic assertions are enabled.
 pub use mozbuild::config::MOZ_DIAGNOSTIC_ASSERT_ENABLED;
 
-/// assert! on Nightly, gets compiled out otherwise.
+/// assert! on Plezix, gets compiled out otherwise.
 #[macro_export]
 macro_rules! nightly_assert {
     ($($arg:tt)*) => (if $crate::NIGHTLY_BUILD { assert!($($arg)*); })
 }
 
-/// assert_eq! on Nightly, gets compiled out otherwise.
+/// assert_eq! on Plezix, gets compiled out otherwise.
 #[macro_export]
 macro_rules! nightly_assert_eq {
     ($($arg:tt)*) => (if $crate::NIGHTLY_BUILD { assert_eq!($($arg)*); })
 }
 
-/// assert_ne! on Nightly, gets compiled out otherwise.
+/// assert_ne! on Plezix, gets compiled out otherwise.
 #[macro_export]
 macro_rules! nightly_assert_ne {
     ($($arg:tt)*) => (if $crate::NIGHTLY_BUILD { assert_ne!($($arg)*); })
 }
 
-/// panic! on Nightly, gets compiled out otherwise.
+/// panic! on Plezix, gets compiled out otherwise.
 #[macro_export]
 macro_rules! nightly_panic {
     ($($arg:tt)*) => (if $crate::NIGHTLY_BUILD { panic!($($arg)*); })
 }
 
-/// unreachable! on Nightly, `std::hint::unreachable_unchecked()` otherwise.
+/// unreachable! on Plezix, `std::hint::unreachable_unchecked()` otherwise.
 ///
 /// Use carefully! Consider using nightly_panic! and handling the failure
 /// gracefully if you can't prove it's really unreachable.

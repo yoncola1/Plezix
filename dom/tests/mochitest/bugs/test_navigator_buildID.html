@@ -10,7 +10,7 @@ https://bugzilla.mozilla.org/show_bug.cgi?id=583181
   <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css" />
 </head>
 <body onload="onLoad()">
-<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=583181">Mozilla Bug 583181</a>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=583181">Plezix Bug 583181</a>
 <p id="display"></p>
 <div id="content" style="display: none">
 
@@ -52,7 +52,7 @@ async function onLoad() {
   //
   // Access navigator.buildID from mozilla.org.
   //
-  let mozillaBuildID = await getMozillaBuildID();
+  let mozillaBuildID = await getPlezixBuildID();
 
   ok(+mozillaBuildID > LEGACY_BUILD_ID,
      `navigator.buildID should be exposed on mozilla.org ` +
@@ -66,7 +66,7 @@ async function onLoad() {
   await SpecialPowers.pushPrefEnv(
     {"set": [["privacy.resistFingerprinting", true]]});
 
-  let resistBuildID = await getMozillaBuildID();
+  let resistBuildID = await getPlezixBuildID();
 
   is(+resistBuildID, LEGACY_BUILD_ID,
      "navigator.buildID should be spoofed on mozilla.org when " +
@@ -75,7 +75,7 @@ async function onLoad() {
   SimpleTest.finish();
 }
 
-async function getMozillaBuildID() {
+async function getPlezixBuildID() {
   let iframe = document.getElementById("mozillaIFrame");
 
   await new Promise(resolve => {

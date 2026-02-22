@@ -1,6 +1,6 @@
 # -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -76,7 +76,7 @@ def eslint_setup(package_root, package_name, should_clobber=False):
 
     This command will inspect your eslint configuration and
     guide you through an interactive wizard helping you configure
-    eslint for optimal use on Mozilla projects.
+    eslint for optimal use on Plezix projects.
     """
 
     # Always remove the eslint-plugin-mozilla sub-directory as that can

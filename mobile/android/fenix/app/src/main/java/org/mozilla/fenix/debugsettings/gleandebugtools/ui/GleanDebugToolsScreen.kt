@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -35,7 +35,7 @@ import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.debugsettings.gleandebugtools.GleanDebugToolsAction
 import org.mozilla.fenix.debugsettings.gleandebugtools.GleanDebugToolsState
 import org.mozilla.fenix.debugsettings.gleandebugtools.GleanDebugToolsStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Glean Debug Tools UI that allows for glean test pings to be sent.
@@ -54,13 +54,13 @@ fun GleanDebugToolsScreen(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(top = FirefoxTheme.layout.space.dynamic400),
+            .padding(top = PlezixTheme.layout.space.dynamic400),
     ) {
         GleanDebugLoggingSection(logPingsToConsoleEnabled = gleanDebugToolsState.logPingsToConsoleEnabled) {
             gleanDebugToolsStore.dispatch(GleanDebugToolsAction.LogPingsToConsoleToggled)
         }
 
-        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic150))
+        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic150))
 
         GleanDebugViewSection(
             buttonsEnabled = gleanDebugToolsState.isDebugTagButtonEnabled,
@@ -84,7 +84,7 @@ fun GleanDebugToolsScreen(
             gleanDebugToolsStore.dispatch(GleanDebugToolsAction.DebugViewTagChanged(newTag))
         }
 
-        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic150))
+        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic150))
 
         GleanDebugSendPingsSection(
             isButtonEnabled = gleanDebugToolsState.isDebugTagButtonEnabled,
@@ -106,7 +106,7 @@ private fun GleanDebugLoggingSection(
     SwitchWithLabel(
         label = stringResource(R.string.glean_debug_tools_log_pings_to_console),
         checked = logPingsToConsoleEnabled,
-        modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+        modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.dynamic400),
     ) {
         onLogPingsToConsoleToggled()
     }
@@ -126,7 +126,7 @@ private fun GleanDebugViewSection(
 
     GleanDebugSectionTitle(text = stringResource(id = R.string.glean_debug_tools_debug_view_title))
 
-    Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+    Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
 
     TextField(
         value = debugViewTag,
@@ -142,7 +142,7 @@ private fun GleanDebugViewSection(
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+            .padding(horizontal = PlezixTheme.layout.space.dynamic400),
         isError = hasDebugViewTagError,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Ascii,
@@ -190,7 +190,7 @@ private fun GleanDebugSendPingsSection(
     onSendPing: () -> Unit,
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.dynamic400),
+        modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.dynamic400),
     ) {
         Dropdown(
             label = "Ping Type",
@@ -202,13 +202,13 @@ private fun GleanDebugSendPingsSection(
             ),
         )
 
-        Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.dynamic400))
+        Spacer(modifier = Modifier.height(PlezixTheme.layout.space.dynamic400))
 
         PrimaryButton(
             text = stringResource(R.string.glean_debug_tools_send_ping_button_text),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = FirefoxTheme.layout.space.dynamic200),
+                .padding(horizontal = PlezixTheme.layout.space.dynamic200),
             enabled = isButtonEnabled,
             onClick = onSendPing,
         )
@@ -226,9 +226,9 @@ private fun GleanDebugSectionTitle(
 ) {
     Text(
         text = text,
-        modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.dynamic400),
-        color = FirefoxTheme.colors.textAccent,
-        style = FirefoxTheme.typography.subtitle1,
+        modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.dynamic400),
+        color = PlezixTheme.colors.textAccent,
+        style = PlezixTheme.typography.subtitle1,
     )
 }
 
@@ -265,10 +265,10 @@ private fun getPingDropdownMenu(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun GleanDebugToolsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier.background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
         ) {
             GleanDebugToolsScreen(

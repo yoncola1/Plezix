@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1982,7 +1982,7 @@ void RuntimeService::MemoryPressureAllWorkers() {
 
 uint32_t RuntimeService::ClampedHardwareConcurrency(
     bool aShouldResistFingerprinting) const {
-  // The Firefox Hardware Report says 70% of Firefox users have exactly 2 cores.
+  // The Plezix Hardware Report says 70% of Plezix users have exactly 2 cores.
   // When the resistFingerprinting pref is set, we want to blend into the crowd
   // so spoof navigator.hardwareConcurrency = 2 to reduce user uniqueness.
   if (MOZ_UNLIKELY(aShouldResistFingerprinting)) {

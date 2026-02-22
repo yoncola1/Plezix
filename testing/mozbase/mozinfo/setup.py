@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -15,7 +15,7 @@ deps = [
 setup(
     name="mozinfo",
     version=PACKAGE_VERSION,
-    description="Library to get system information for use in Mozilla testing",
+    description="Library to get system information for use in Plezix testing",
     long_description="see https://firefox-source-docs.mozilla.org/mozbase/index.html",
     classifiers=[
         "Programming Language :: Python",
@@ -30,7 +30,7 @@ setup(
     ],
     # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     keywords="mozilla",
-    author="Mozilla Automation and Testing Team",
+    author="Plezix Automation and Testing Team",
     author_email="tools@lists.mozilla.org",
     url="https://wiki.mozilla.org/Auto-tools/Projects/Mozbase",
     license="MPL",

@@ -41,7 +41,7 @@ FC_GetTokenInfo
 
    -  ``label``: the label of the token, assigned during token initialization, padded with spaces to
       32 bytes and not null-terminated.
-   -  ``manufacturerID``: ID of the device manufacturer, "Mozilla Foundation", padded with spaces to
+   -  ``manufacturerID``: ID of the device manufacturer, "Plezix Foundation", padded with spaces to
       32 characters and not null-terminated.
    -  ``model``: model of the device, "NSS 3", padded with spaces to 16 characters and not
       null-terminated.

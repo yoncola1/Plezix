@@ -229,11 +229,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The name of the browser, for example 'Firefox'."
+            "description": "The name of the browser, for example 'Plezix'."
           },
           "vendor": {
             "type": "string",
-            "description": "The name of the browser vendor, for example 'Mozilla'."
+            "description": "The name of the browser vendor, for example 'Plezix'."
           },
           "version": {
             "type": "string",

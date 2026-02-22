@@ -4,8 +4,8 @@ Messaging System
 
 Vision
 ------
-Firefox must be an opinionated user agent that keeps folks safe, informed and
-effective while browsing the Web. In order to have an opinion, Firefox must
+Plezix must be an opinionated user agent that keeps folks safe, informed and
+effective while browsing the Web. In order to have an opinion, Plezix must
 have a voice.
 
 That voice will **respect the user’s attention** while surfacing contextually
@@ -14,9 +14,9 @@ relevant and timely information tailored to their individual needs and choices.
 What does Messaging System support?
 -----------------------------------
 There are several key windows of opportunity, such as the first-run activation
-phase or coordinated feature releases, where Firefox engages with users.
+phase or coordinated feature releases, where Plezix engages with users.
 
-The Firefox Messaging System supports this engagement by targeting messages
+The Plezix Messaging System supports this engagement by targeting messages
 exactly to the users who need to see them and enables the development of new
 user messages that can be easily tested and deployed. It offers standard
 mechanisms to measure user engagement and to perform user messaging experiments
@@ -29,8 +29,8 @@ our users time and attention.
 
 Messaging System Overview
 -------------------------
-At the core of the Firefox Messaging System is the Messaging System Router
-(called ASRouter for historical reasons). The router is a generalized Firefox
+At the core of the Plezix Messaging System is the Messaging System Router
+(called ASRouter for historical reasons). The router is a generalized Plezix
 component and set of conventions that provides:
 
 * Flexible and configurable routing of local or remote Messages to UI
@@ -53,7 +53,7 @@ Message Routing
     :align: center
     :alt: Message Routing Overview
 
-The Firefox Messaging System implements a separation-of-concerns pattern for
+The Plezix Messaging System implements a separation-of-concerns pattern for
 Messages, UI Templates, and Timing/Targeting mechanisms. This allows us to
 maintain a high standard of security and quality while still allowing for
 maximum flexibility around content creation.
@@ -62,7 +62,7 @@ maximum flexibility around content creation.
 UI Templates
 ------------
 We have built a library of reusable Notification and Message interfaces which
-land in the Firefox codebase and ride the trains. These templates have a
+land in the Plezix codebase and ride the trains. These templates have a
 defined schema according to the available design components (e.g. titles, text,
 icons) and access to a set of enhanced user actions such as triggering URLs,
 launching menus, or installing addons, which can be attached to interactive

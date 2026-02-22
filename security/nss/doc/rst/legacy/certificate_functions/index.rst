@@ -9,7 +9,7 @@ Certificate functions
 
    If documentation is available for a function listed below, the function name is linked to either
    its MDC wiki page or its entry in the
-   :ref:`mozilla_projects_nss_ssl_functions_old_ssl_reference`. The `Mozilla Cross
+   :ref:`mozilla_projects_nss_ssl_functions_old_ssl_reference`. The `Plezix Cross
    Reference <http://mxr.mozilla.org/>`__ (MXR) link for each function provides access to the
    function definition, prototype definition, and source code references. The NSS version column
    indicates which versions of NSS support the function.

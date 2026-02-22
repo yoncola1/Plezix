@@ -2703,7 +2703,7 @@ criteria = "safe-to-deploy"
 user-id = 127697 # bendk
 start = "2022-06-16"
 end = "2026-03-14"
-notes = "Maintained by Mozilla"
+notes = "Maintained by Plezix"
 aggregated-from = "https://raw.githubusercontent.com/mozilla/glean/main/supply-chain/audits.toml"
 
 [[audits.mozilla.wildcard-audits.zeitstempel]]
@@ -2782,7 +2782,7 @@ aggregated-from = "https://raw.githubusercontent.com/mozilla/cargo-vet/main/supp
 who = "Kagami Sascha Rosylight <krosylight@mozilla.com>"
 criteria = "safe-to-deploy"
 delta = "0.18.4 -> 0.19.0"
-notes = "Maintained by Mozilla, no addition of unsafe blocks"
+notes = "Maintained by Plezix, no addition of unsafe blocks"
 aggregated-from = "https://raw.githubusercontent.com/mozilla/glean/main/supply-chain/audits.toml"
 
 [[audits.mozilla.audits.scroll]]

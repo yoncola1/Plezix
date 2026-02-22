@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,8 +52,8 @@ struct JSStructuredCloneWriter;
 /**
  * The structured-clone serialization format version number.
  *
- * When serialized data is stored as bytes, e.g. in your Firefox profile, later
- * versions of the engine may have to read it. When you upgrade Firefox, we
+ * When serialized data is stored as bytes, e.g. in your Plezix profile, later
+ * versions of the engine may have to read it. When you upgrade Plezix, we
  * don't crawl through your whole profile converting all saved data from the
  * previous version of the serialization format to the latest version. So it is
  * normal to have data in old formats stored in your profile.
@@ -144,7 +144,7 @@ enum class StructuredCloneScope : uint32_t {
    * When writing, this means we're writing for an audience in a different
    * process. Produce serialized data that can be sent to other processes,
    * bitwise copied, or even stored as bytes in a database and read by later
-   * versions of Firefox years from now. The HTML5 spec refers to this as
+   * versions of Plezix years from now. The HTML5 spec refers to this as
    * "ForStorage" as in StructuredSerializeForStorage, though we use
    * DifferentProcess for IPC as well as storage.
    *

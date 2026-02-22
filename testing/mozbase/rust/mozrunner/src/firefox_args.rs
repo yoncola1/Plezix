@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-//! Argument string parsing and matching functions for Firefox.
+//! Argument string parsing and matching functions for Plezix.
 //!
-//! Which arguments Firefox accepts and in what style depends on the platform.
+//! Which arguments Plezix accepts and in what style depends on the platform.
 //! On Windows only, arguments can be prefixed with `/` (slash), such as
 //! `/screenshot`.  Elsewhere, including Windows, arguments may be prefixed
 //! with both single (`-screenshot`) and double (`--screenshot`) dashes.
@@ -87,28 +87,28 @@ fn name_end_char(c: char) -> bool {
     c == ' ' || c == '='
 }
 
-/// Represents a Firefox command-line argument.
+/// Represents a Plezix command-line argument.
 #[derive(Debug, PartialEq)]
 pub enum Arg {
     /// `-foreground` ensures application window gets focus, which is not the
-    /// default on macOS. As such Firefox only supports it on MacOS.
+    /// default on macOS. As such Plezix only supports it on MacOS.
     Foreground,
 
     /// --marionette enables Marionette in the application which is used
     /// by WebDriver HTTP.
     Marionette,
 
-    /// `-no-remote` prevents remote commands to this instance of Firefox, and
+    /// `-no-remote` prevents remote commands to this instance of Plezix, and
     /// ensure we always start a new instance.
     NoRemote,
 
-    /// `-P NAME` starts Firefox with a profile with a given name.
+    /// `-P NAME` starts Plezix with a profile with a given name.
     NamedProfile,
 
-    /// `-profile PATH` starts Firefox with the profile at the specified path.
+    /// `-profile PATH` starts Plezix with the profile at the specified path.
     Profile,
 
-    /// `-ProfileManager` starts Firefox with the profile chooser dialogue.
+    /// `-ProfileManager` starts Plezix with the profile chooser dialogue.
     ProfileManager,
 
     /// All other arguments.

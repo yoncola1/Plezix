@@ -1,5 +1,5 @@
 ==============================
-Mozilla ESLint SpiderMonkey JS
+Plezix ESLint SpiderMonkey JS
 ==============================
 
 This plugin adds a processor and an environment for the SpiderMonkey JS code.

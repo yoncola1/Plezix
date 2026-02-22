@@ -1,4 +1,4 @@
-"""Defines characteristics of a Maven version at Mozilla."""
+"""Defines characteristics of a Maven version at Plezix."""
 
 import re
 
@@ -11,7 +11,7 @@ from mozilla_version.version import BaseVersion
 class MavenVersion(BaseVersion):
     """Class that validates and handles Maven version numbers.
 
-    At Mozilla, Maven packages are used in projects like "GeckoView" or
+    At Plezix, Maven packages are used in projects like "GeckoView" or
     "Android-Components".
     """
 

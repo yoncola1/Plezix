@@ -26,7 +26,7 @@ add_task(async function () {
   const { document, tab, window } = await openAboutDebugging({
     enableWorkerUpdates: true,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Open a tab that registers a push service worker.
   const swTab = await addTab(TAB_URL);

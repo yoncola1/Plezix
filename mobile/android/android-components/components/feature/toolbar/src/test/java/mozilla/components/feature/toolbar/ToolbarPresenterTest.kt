@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -123,7 +123,7 @@ class ToolbarPresenterTest {
                 SecurityInfoState(
                     secure = true,
                     host = "mozilla.org",
-                    issuer = "Mozilla",
+                    issuer = "Plezix",
                 ),
             ),
         ).joinBlocking()
@@ -144,7 +144,7 @@ class ToolbarPresenterTest {
                             id = "tab1",
                             content = ContentState(
                                 url = "https://www.mozilla.org",
-                                securityInfo = SecurityInfoState(true, "mozilla.org", "Mozilla"),
+                                securityInfo = SecurityInfoState(true, "mozilla.org", "Plezix"),
                                 searchTerms = "Hello World",
                                 progress = 60,
                             ),
@@ -268,7 +268,7 @@ class ToolbarPresenterTest {
                             id = "tab1",
                             content = ContentState(
                                 url = "https://www.mozilla.org",
-                                securityInfo = SecurityInfoState(true, "mozilla.org", "Mozilla"),
+                                securityInfo = SecurityInfoState(true, "mozilla.org", "Plezix"),
                                 searchTerms = "Hello World",
                                 progress = 60,
                             ),
@@ -311,7 +311,7 @@ class ToolbarPresenterTest {
                             id = "tab1",
                             content = ContentState(
                                 url = "https://www.mozilla.org",
-                                securityInfo = SecurityInfoState(true, "mozilla.org", "Mozilla"),
+                                securityInfo = SecurityInfoState(true, "mozilla.org", "Plezix"),
                                 searchTerms = "Hello World",
                                 progress = 60,
                             ),
@@ -375,7 +375,7 @@ class ToolbarPresenterTest {
                             id = "tab",
                             content = ContentState(
                                 url = "https://www.mozilla.org",
-                                securityInfo = SecurityInfoState(true, "mozilla.org", "Mozilla"),
+                                securityInfo = SecurityInfoState(true, "mozilla.org", "Plezix"),
                                 searchTerms = "Hello World",
                                 progress = 60,
                             ),
@@ -428,7 +428,7 @@ class ToolbarPresenterTest {
                             id = "tab",
                             content = ContentState(
                                 url = "https://www.mozilla.org",
-                                securityInfo = SecurityInfoState(true, "mozilla.org", "Mozilla"),
+                                securityInfo = SecurityInfoState(true, "mozilla.org", "Plezix"),
                                 searchTerms = "Hello World",
                                 progress = 60,
                             ),

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ import mozilla.components.lib.state.ext.observeAsState
 import mozilla.components.support.ktx.util.URLStringUtils.isHttpOrHttps
 import mozilla.components.support.ktx.util.URLStringUtils.isValidHost
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val IconButtonHeight = 48.dp
 
@@ -51,14 +51,14 @@ internal fun AddLoginScreen(store: LoginsStore) {
         topBar = {
             AddLoginTopBar(store)
         },
-        containerColor = FirefoxTheme.colors.layer1,
+        containerColor = PlezixTheme.colors.layer1,
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .width(FirefoxTheme.layout.size.containerMaxWidth),
+                .width(PlezixTheme.layout.size.containerMaxWidth),
         ) {
-            Spacer(modifier = Modifier.height(FirefoxTheme.layout.space.static200))
+            Spacer(modifier = Modifier.height(PlezixTheme.layout.space.static200))
             AddLoginHost(store = store)
             Spacer(modifier = Modifier.height(8.dp))
             AddLoginUsername(store = store)
@@ -78,7 +78,7 @@ private fun AddLoginTopBar(store: LoginsStore) {
     val isLoginValid = isValidHost(host) && username.isNotBlank() && password.isNotBlank()
 
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = FirefoxTheme.colors.layer1),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = PlezixTheme.colors.layer1),
         windowInsets = WindowInsets(
             top = 0.dp,
             bottom = 0.dp,
@@ -86,14 +86,14 @@ private fun AddLoginTopBar(store: LoginsStore) {
         title = {
             Text(
                 text = stringResource(R.string.add_login_2),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline6,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline6,
             )
         },
         navigationIcon = {
             IconButton(
                 modifier = Modifier
-                    .padding(horizontal = FirefoxTheme.layout.space.static50),
+                    .padding(horizontal = PlezixTheme.layout.space.static50),
                 onClick = { store.dispatch(AddLoginBackClicked) },
                 contentDescription = stringResource(
                     R.string.add_login_navigate_back_button_content_description,
@@ -102,7 +102,7 @@ private fun AddLoginTopBar(store: LoginsStore) {
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_back_24),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         },
@@ -110,7 +110,7 @@ private fun AddLoginTopBar(store: LoginsStore) {
             Box {
                 IconButton(
                     modifier = Modifier
-                        .padding(horizontal = FirefoxTheme.layout.space.static50),
+                        .padding(horizontal = PlezixTheme.layout.space.static50),
                     onClick = {
                         store.dispatch(
                             AddLoginAction.AddLoginSaveClicked,
@@ -125,9 +125,9 @@ private fun AddLoginTopBar(store: LoginsStore) {
                         painter = painterResource(R.drawable.mozac_ic_checkmark_24),
                         contentDescription = null,
                         tint = if (isLoginValid) {
-                            FirefoxTheme.colors.textPrimary
+                            PlezixTheme.colors.textPrimary
                         } else {
-                            FirefoxTheme.colors.textDisabled
+                            PlezixTheme.colors.textDisabled
                         },
                     )
                 }
@@ -153,8 +153,8 @@ private fun AddLoginHost(store: LoginsStore) {
         modifier = Modifier
             .onFocusChanged { isFocused = it.isFocused }
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
-                vertical = FirefoxTheme.layout.space.static100,
+                horizontal = PlezixTheme.layout.space.static200,
+                vertical = PlezixTheme.layout.space.static100,
             ),
         label = stringResource(R.string.preferences_passwords_saved_logins_site),
         minHeight = IconButtonHeight,
@@ -170,7 +170,7 @@ private fun AddLoginHost(store: LoginsStore) {
 
         Text(
             text = stringResource(R.string.add_login_hostname_invalid_text_3),
-            modifier = Modifier.padding(horizontal = FirefoxTheme.layout.space.static200),
+            modifier = Modifier.padding(horizontal = PlezixTheme.layout.space.static200),
             style = TextFieldStyle.default().labelStyle,
             color = TextFieldColors.default().placeholderColor,
         )
@@ -195,8 +195,8 @@ private fun AddLoginUsername(store: LoginsStore) {
         modifier = Modifier
             .onFocusChanged { isFocused = it.isFocused }
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
-                vertical = FirefoxTheme.layout.space.static100,
+                horizontal = PlezixTheme.layout.space.static200,
+                vertical = PlezixTheme.layout.space.static100,
             ),
         label = stringResource(R.string.preferences_passwords_saved_logins_username),
         minHeight = IconButtonHeight,
@@ -206,7 +206,7 @@ private fun AddLoginUsername(store: LoginsStore) {
             }
         },
         colors = TextFieldColors.default(
-            placeholderColor = FirefoxTheme.colors.textPrimary,
+            placeholderColor = PlezixTheme.colors.textPrimary,
         ),
     )
 }
@@ -228,8 +228,8 @@ private fun AddLoginPassword(store: LoginsStore) {
         modifier = Modifier
             .onFocusChanged { isFocused = it.isFocused }
             .padding(
-                horizontal = FirefoxTheme.layout.space.static200,
-                vertical = FirefoxTheme.layout.space.static100,
+                horizontal = PlezixTheme.layout.space.static200,
+                vertical = PlezixTheme.layout.space.static100,
             ),
         label = stringResource(R.string.preferences_passwords_saved_logins_password),
         minHeight = IconButtonHeight,
@@ -239,7 +239,7 @@ private fun AddLoginPassword(store: LoginsStore) {
             }
         },
         colors = TextFieldColors.default(
-            placeholderColor = FirefoxTheme.colors.textPrimary,
+            placeholderColor = PlezixTheme.colors.textPrimary,
         ),
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -263,8 +263,8 @@ private fun AddLoginScreenPreview() {
         ),
     )
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(modifier = Modifier.background(color = PlezixTheme.colors.layer1)) {
             AddLoginScreen(store)
         }
     }

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,32 +69,32 @@ class SupportUtilsTest {
     }
 
     @Test
-    fun `getMozillaPageUrl returns the correct URL for the terms of service`() {
+    fun `getPlezixPageUrl returns the correct URL for the terms of service`() {
         Locale.setDefault(Locale.UK)
         assertEquals(
             "https://www.mozilla.org/en-GB/about/legal/terms/firefox-focus/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.TERMS_OF_SERVICE),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.TERMS_OF_SERVICE),
         )
 
         Locale.setDefault(Locale.GERMAN)
         assertEquals(
             "https://www.mozilla.org/de/about/legal/terms/firefox-focus/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.TERMS_OF_SERVICE),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.TERMS_OF_SERVICE),
         )
     }
 
     @Test
-    fun `getMozillaPageUrl returns the correct URL for the privacy notice`() {
+    fun `getPlezixPageUrl returns the correct URL for the privacy notice`() {
         Locale.setDefault(Locale.UK)
         assertEquals(
             "https://www.mozilla.org/en-GB/privacy/firefox-focus/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE),
         )
 
         Locale.setDefault(Locale.GERMAN)
         assertEquals(
             "https://www.mozilla.org/de/privacy/firefox-focus/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE),
         )
     }
 

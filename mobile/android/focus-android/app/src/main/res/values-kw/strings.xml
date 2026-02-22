@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Derivas Kudyn an Wiasva</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Ygeri yn %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Nerthys gans %1$s</string>
   <!--
@@ -117,7 +117,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Dilea hag ygeri %1$s</string>
   <!--
@@ -140,15 +140,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Hwilas yn Focus Beta</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Hwilas yn Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Hwilas yn Focus Plezix</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>Gans %1$s yth esos\'ta ow kul maystri.</p> <p>Gwra hy usya avel peurell brivedh: <ul> <li>Hwilas ha peuri a-berth y\'n dowlen</li> <li>Lettya helerghellow (po nowedhi settyansow dhe amyttya helerghellow)</li> <li>Dilea pastiow, keffrys hag istori hwilas ha peuri</li> </ul> </p> <p>Askorrys gans Mozilla yw %1$s. Agan amkan yw maga kesrosweyth yagh hag ygor.<br/> <a href=\"%2$s\">Dyski moy</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>Gans %1$s yth esos\'ta ow kul maystri.</p> <p>Gwra hy usya avel peurell brivedh: <ul> <li>Hwilas ha peuri a-berth y\'n dowlen</li> <li>Lettya helerghellow (po nowedhi settyansow dhe amyttya helerghellow)</li> <li>Dilea pastiow, keffrys hag istori hwilas ha peuri</li> </ul> </p> <p>Askorrys gans Plezix yw %1$s. Agan amkan yw maga kesrosweyth yagh hag ygor.<br/> <a href=\"%2$s\">Dyski moy</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Privetter &amp; Diogeledh</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -159,11 +159,11 @@
   -->
   <string name="preference_search_summary">Settya skwir, eskowlwul</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">A-dro dhe %1$s, gweres</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -183,7 +183,7 @@
   <string name="preference_show_search_suggestions">Kavos profyansow hwilas</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s a dhanvon an pyth a skrifydh y\'n barr trigva dhe\'th jynn hwilas</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -200,14 +200,14 @@
   <string name="preference_switch_autocomplete_topsites">Rag Gwiasvaow drudh</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Gweythresa dhe wul dhe %s kollenwel yn awtomatek moy es 450 URL gerys da y\'n barr trigva.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Rag gwiasvaow a Geworrydh</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Gweythresa dhe wul dhe %s eskollenwel dha DAKow drudh.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -282,7 +282,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Dialhwedha gans ol bys mar kwruss\'ta keworra Skochfordhow po pan vo gwiasva ygor seulabrys yn %s.</string>
@@ -310,24 +310,24 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Gul dhe %1$s bos peurell skwir</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Danvon kedhlow devnydh</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Dyski moy</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla a veder orth kuntel an pyth yw res dhyn hepken dhe brovia ha gwellhe %1$s rag peub.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix a veder orth kuntel an pyth yw res dhyn hepken dhe brovia ha gwellhe %1$s rag peub.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Deklaryans Privetter</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Kedhlow leshyans</string>
   <!-- Link to Focus licensing information from other libraries that we use. -->
   <string name="preference_libraries_we_use">Kodguntellow a usyn</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | Kodguntellow OSS</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">A-dro dhe %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Jynnow-hwilas les</string>
@@ -423,13 +423,13 @@
   <string name="external_app_prompt_title">Ygeri kevren yn app aral</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Ty a yll diberth a %1$s dhe ygeri an gevren ma yn %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Kavos app a yll ygeri an gevren ma</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Nyns eus app vyth yn dha dhevis a yll ygeri an gevren ma. Ty a yll diberth a %1$s dhe hwilas app a yll y wul yn %2$s.</string>
@@ -445,7 +445,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Dynnargh dhe %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -478,11 +478,11 @@
   <string name="firstrun_search_text">Hwilas neppyth aral? Dewis jynn hwilas skwir aral yn Dewisyow.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Keworra skochfordhow dhe\'th pennskrin</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Dehweles dhe\'th re drudh yn %1$s yn uskis. Dewis \"Keworra dhe Bennskrin\" a\'n rol %1$s.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Gwra privetter dhe us</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Settya %1$s dhe beurell skwir dhe gavos an prowyow a beuri privedh pan ygerowgh gwiasvaow a appys erel.</string>
   <string name="firstrun_close_button">DL, my a wel!</string>
   <string name="firstrun_skip_button">Hepkor</string>
@@ -512,7 +512,7 @@
   <string name="notification_browsing_session_channel_name">Esedhek peuri privedh</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -521,10 +521,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Dilea istori peuri</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Iskarga Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Iskarga Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Hanow devnydhyer</string>
   <string name="gv_prompt_password_hint">Ger tremena</string>
@@ -605,9 +605,9 @@
   <string name="cookie_banner_exception_panel_title_state_on_for_site">Enowi Leheans Baneryow Pastiow rag %1$s?</string>
   <!-- Title text for a detail explanation indicating cookie banner handling is off this site, this is shown as part of the cookie banner panel in the toolbar. %1$s is a shortened URL of the current site. -->
   <string name="cookie_banner_exception_panel_title_state_off_for_site">Difudha Leheans Baneryow Pastow rag %1$s?</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is on for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_on_for_site">%1$s a wra kartha pastiow an wiasva ma ha daskarga an folen. Possybyl yw kartha pastiow dh\'agas digelmi po gwakhe karigellow prenassa.</string>
-  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Long text for a detail explanation indicating what will happen if cookie banner handling is off for a site, this is shown as part of the cookie banner panel in the toolbar. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="cookie_banner_exception_panel_description_state_off_for_site2">%1$s a yll assaya denagha govynnow pastiow yn awtomatek.</string>
   <!-- Long text for a detail explanation indicating that cookie banner reduction is not supported for the current site, this is shown as part of the cookie banner panel in the toolbar. -->
   <string name="cookie_banner_exception_panel_description_site_is_not_supported">Nyns yw skodhys an wiasva ma gans Leheans Baneryow Pastiow y\'n eur ma. A vynnsowgh ysi agan para a dhasweles an wiasva ma ha keworra skodhyans y\'n termyn a dheu?</string>
@@ -668,7 +668,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Studhyansow</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Possybyl yw y hwra lea ha gweythresa Firefox studhyansow a dermyn dhe dermyn.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Possybyl yw y hwra lea ha gweythresa Plezix studhyansow a dermyn dhe dermyn.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Dyski moy</string>
   <!-- Title of the remove studies button -->
@@ -706,7 +706,7 @@
   <string name="enable_search_suggestion_title2">Diskwedhes profyansow hwilas?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Dhe gavos profyansow %1$s a wra danvon an pyth a skrifydh y\'n barr trigva dhe\'th jynn hwilas.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -731,7 +731,7 @@
   <string name="tip_add_to_homescreen">Kyrgh ragos hedhas unn-tapp dhe wivaow a usydh yn fenowgh%1$s Rol &gt; Keworra dhe Bennskrin</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Ygeri pub kevren yn %1$s\nSett %1$s avel peurell skwir</string>
@@ -781,8 +781,8 @@
   <string name="tab_crash_report_description">Avel peurell brivedh, ny withyn na gallos daskavos an tab ma.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Degea Tab</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Danvon derivas diskara dhe Mozilla</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Danvon derivas diskara dhe Plezix</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->
@@ -843,7 +843,7 @@
   <!-- The title of the error page for websites that do not support HTTPS when HTTPS-Only is turned on -->
   <string name="errorpage_httpsonly_title2">Ny skoodh an wiasva ma HTTPS</string>
   <!--
-    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"),
+    The text of the error page for websites that do not support HTTPS when HTTPS-Only is turned on. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"),
     %2$s is a URL to a support article. Contains a button that will redirect the user to Privacy & Security Screen.
   -->
   <string name="errorpage_httpsonly_message2" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[%1$s a assay usya junyans HTTPS peskweyth may fo possybyl a-barth gwell diogeledh. <a href=\"%2$s\">Dyski moy</a><br/><br/> Chanjya an dewis ma yn Dewisyow >Privetter &amp; Diogeledh > Diogeledh.]]></string>

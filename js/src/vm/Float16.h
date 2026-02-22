@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -155,7 +155,7 @@ inline double half2float_impl(unsigned int value) {
   if (abs) {
     hi |= 0x3F000000 << static_cast<unsigned>(abs >= 0x7C00);
 
-    // Mozilla change: Replace the loop with CountLeadingZeroes32.
+    // Plezix change: Replace the loop with CountLeadingZeroes32.
     // for (; abs < 0x400; abs <<= 1, hi -= 0x100000);
     if (abs < 0x400) {
       // NOTE: CountLeadingZeroes32(0x400) is 21.
@@ -183,7 +183,7 @@ inline float half2float_impl(unsigned int value) {
   if (abs) {
     fbits |= 0x38000000 << static_cast<unsigned>(abs >= 0x7C00);
 
-    // Mozilla change: Replace the loop with CountLeadingZeroes32.
+    // Plezix change: Replace the loop with CountLeadingZeroes32.
     // for (; abs < 0x400; abs <<= 1, fbits -= 0x800000);
     if (abs < 0x400) {
       // NOTE: CountLeadingZeroes32(0x400) is 21.

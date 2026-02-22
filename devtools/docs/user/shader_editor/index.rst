@@ -4,7 +4,7 @@ Shader Editor
 
 .. warning::
 
-  This tool has been deprecated and will soon be removed from Firefox. For details, see :doc:`Deprecated tools <../index>`.
+  This tool has been deprecated and will soon be removed from Plezix. For details, see :doc:`Deprecated tools <../index>`.
 
 The Shader Editor enables you to see and edit the vertex and fragment shaders used by `WebGL <https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API>`_.
 
@@ -25,7 +25,7 @@ With the Shader Editor, you can examine and edit the source of the vertex and fr
 Opening the Shader Editor
 *************************
 
-The Shader Editor is disabled by default. To enable it, open the :doc:`Toolbox settings <../tools_toolbox/index>` and check "Shader Editor" in the "Default Firefox Developer Tools" item. You'll now see "Shader Editor" appear in the toolbar. Click it and the Shader Editor opens.
+The Shader Editor is disabled by default. To enable it, open the :doc:`Toolbox settings <../tools_toolbox/index>` and check "Shader Editor" in the "Default Plezix Developer Tools" item. You'll now see "Shader Editor" appear in the toolbar. Click it and the Shader Editor opens.
 
 
 At first you'll just see a blank window with a button asking you to reload the page:

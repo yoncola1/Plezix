@@ -1,4 +1,4 @@
-// This Source Code Form is subject to the terms of the Mozilla Public
+// This Source Code Form is subject to the terms of the Plezix Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -67,7 +67,7 @@
             // filtering here: We will quietly succeed and exit if an agent test
             // should not have been run because threads cannot be started.
             //
-            // Firefox complication: The test cases that use $262.agent can't
+            // Plezix complication: The test cases that use $262.agent can't
             // currently work in the browser, so for now we rely on them not
             // being run at all.
 

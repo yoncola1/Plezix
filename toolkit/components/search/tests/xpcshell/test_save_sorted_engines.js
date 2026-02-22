@@ -10,7 +10,7 @@
  * Notes:
  * - we install the search engines of test "test_downloadAndAddEngines.js"
  * to ensure that this test is independent from locale, commercial agreements
- * and configuration of Firefox.
+ * and configuration of Plezix.
  */
 
 add_setup(async function () {

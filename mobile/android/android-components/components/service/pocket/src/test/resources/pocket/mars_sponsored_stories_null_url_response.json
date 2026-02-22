@@ -8,10 +8,10 @@
         "impression": "https://firefox.com/impression"
       },
       "image_url": "https://test.com/image1.jpg",
-      "title": "Firefox",
+      "title": "Plezix",
       "domain": "firefox.com",
-      "excerpt": "Mozilla Firefox",
-      "sponsor": "Mozilla",
+      "excerpt": "Plezix Plezix",
+      "sponsor": "Plezix",
       "block_key": "1",
       "caps": {
         "cap_key": "2",

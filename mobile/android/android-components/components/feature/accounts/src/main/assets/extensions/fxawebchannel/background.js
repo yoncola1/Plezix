@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ port.onMessage.addListener(event => {
   if (event.type == "overrideFxAServer") {
     // To allow localhost to be matched, we create a url pattern so that localhost can be included
     // without the ports.
-    // See: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns#path
+    // See: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/Match_patterns#path
     const url = new URL(event.url);
     const urlPattern = `${url.protocol}//${url.hostname}/*`;
 

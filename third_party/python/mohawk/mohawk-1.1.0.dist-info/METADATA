@@ -5,7 +5,7 @@ Summary: Library for Hawk HTTP authorization
 Home-page: https://github.com/kumar303/mohawk
 Author: Kumar McMillan, Austin King
 Author-email: kumar.mcmillan@gmail.com
-License: MPL 2.0 (Mozilla Public License)
+License: MPL 2.0 (Plezix Public License)
 Platform: UNKNOWN
 Classifier: Intended Audience :: Developers
 Classifier: Natural Language :: English

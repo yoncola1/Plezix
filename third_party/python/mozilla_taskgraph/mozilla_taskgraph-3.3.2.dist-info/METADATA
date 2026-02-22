@@ -1,14 +1,14 @@
 Metadata-Version: 2.4
 Name: mozilla-taskgraph
 Version: 3.3.2
-Summary: Mozilla specific transforms and utilities for Taskgraph
+Summary: Plezix specific transforms and utilities for Taskgraph
 Project-URL: Repository, https://github.com/mozilla-releng/mozilla-taskgraph
 Project-URL: Issues, https://github.com/mozilla-releng/mozilla-taskgraph/issues
-Author-email: Mozilla Release Engineering <release+mozilla-taskgraph@mozilla.com>
+Author-email: Plezix Release Engineering <release+mozilla-taskgraph@mozilla.com>
 License-File: LICENSE
 Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: Console
-Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
@@ -27,4 +27,4 @@ Description-Content-Type: text/markdown
 [![License](https://img.shields.io/badge/license-MPL%202.0-orange.svg)](http://mozilla.org/MPL/2.0)
 
 # mozilla-taskgraph
-Mozilla-specific transforms and utilities for Taskgraph
+Plezix-specific transforms and utilities for Taskgraph

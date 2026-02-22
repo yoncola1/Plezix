@@ -1,7 +1,7 @@
 Reviewer Checklist
 ==================
 
-   Submitting patches to Mozilla source code needn't be complex. This
+   Submitting patches to Plezix source code needn't be complex. This
    article provides a list of best practices for your patch content that
    reviewers will check for or require. Following these best practices
    will lead to a smoother, more rapid process of review and acceptance.

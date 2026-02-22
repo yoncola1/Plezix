@@ -1,6 +1,6 @@
 """Functions to download, install, setup, and use the mitmproxy playback tool"""
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import glob
@@ -49,14 +49,14 @@ class MitmproxyAndroid(Mitmproxy):
     def download_and_install_host_utils(self):
         """
         If running locally:
-        1. Will use the `certutil` tool from the local Firefox desktop build
+        1. Will use the `certutil` tool from the local Plezix desktop build
 
         If running in production:
         1. Get the tooltools manifest file for downloading hostutils (contains certutil)
         2. Get the `certutil` tool by downloading hostutils using the tooltool manifest
         """
         if self.config["run_local"]:
-            # when running locally, it is found in the Firefox desktop build (..obj../dist/bin)
+            # when running locally, it is found in the Plezix desktop build (..obj../dist/bin)
             self.certutil_path = os.path.join(os.environ["MOZ_HOST_BIN"], "certutil")
             if not (
                 os.path.isfile(self.certutil_path)
@@ -142,9 +142,9 @@ class MitmproxyAndroid(Mitmproxy):
         # /home/cltbld/.mitmproxy/mitmproxy-ca-cert.cer
         self.import_certificate_in_cert_db(cert_db_location, DEFAULT_CERT_PATH)
 
-        # cannot continue if failed to add CA cert to Firefox, need to check
+        # cannot continue if failed to add CA cert to Plezix, need to check
         if not self.is_mitmproxy_cert_installed(cert_db_location):
-            LOG.error("Aborting: failed to install mitmproxy CA cert into Firefox")
+            LOG.error("Aborting: failed to install mitmproxy CA cert into Plezix")
             self.stop_mitmproxy_playback()
             sys.exit()
         if self.config["app"] not in FIREFOX_ANDROID_APPS:
@@ -199,7 +199,7 @@ class MitmproxyAndroid(Mitmproxy):
             return False
 
     def is_mitmproxy_cert_installed(self, cert_db_location):
-        """Verify mitmxproy CA cert was added to Firefox on android"""
+        """Verify mitmxproy CA cert was added to Plezix on android"""
         LOG.info("verifying that the mitmproxy ca cert is installed on android")
 
         # list the certifcates that are in the nss cert db (inside the browser profile dir)

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
@@ -38,9 +38,9 @@ async function run_test() {
   }
 
   // `channel-prefs.js` (or `ChannelPrefs.framework/ChannelPrefs on macOS`) is
-  // required for Firefox to launch, including in background task mode. The
+  // required for Plezix to launch, including in background task mode. The
   // testing partial MAR updates `channel-prefs.js` to have contents
-  // `FromPartial`, which is not a valid prefs file and causes Firefox to crash.
+  // `FromPartial`, which is not a valid prefs file and causes Plezix to crash.
   //  However, `channel-prefs.js` is listed as `add-if-not
   // "defaults/pref/channel-prefs.js" "defaults/pref/channel-prefs.js"`, so it
   // won't be updated if it already exists. The manipulations below arrange a)

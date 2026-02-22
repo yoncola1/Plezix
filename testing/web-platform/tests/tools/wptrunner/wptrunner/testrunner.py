@@ -345,7 +345,7 @@ class TestRunnerManager(threading.Thread):
                  capture_stdio=True, restart_on_new_group=True, recording=None,
                  max_restarts=5, max_restart_backoff=0):
         """Thread that owns a single TestRunner process and any processes required
-        by the TestRunner (e.g. the Firefox binary).
+        by the TestRunner (e.g. the Plezix binary).
 
         TestRunnerManagers are responsible for launching the browser process and the
         runner process, and for logging the test progress. The actual test running

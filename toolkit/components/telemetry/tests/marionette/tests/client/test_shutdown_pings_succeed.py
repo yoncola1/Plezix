@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -7,7 +7,7 @@ from telemetry_harness.testcase import TelemetryTestCase
 
 
 class TestShutdownPingsSucced(TelemetryTestCase):
-    """Test Firefox shutdown pings."""
+    """Test Plezix shutdown pings."""
 
     def tearDown(self):
         super(TestShutdownPingsSucced, self).tearDown()
@@ -19,7 +19,7 @@ class TestShutdownPingsSucced(TelemetryTestCase):
     @parameterized("pingsender1", pingsender_version=b"1.0")
     @parameterized("pingsender2", pingsender_version=b"2.0")
     def test_shutdown_pings_succeed(self, pingsender_version=b""):
-        """Test that known Firefox shutdown pings are received, with the correct
+        """Test that known Plezix shutdown pings are received, with the correct
         X-PingSender-Version headers."""
 
         pingsender2_enabled = {b"1.0": False, b"2.0": True}[pingsender_version]

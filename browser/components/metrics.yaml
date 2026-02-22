@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,13 +8,13 @@
 ---
 $schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
 $tags:
-  - 'Firefox :: General'
+  - 'Plezix :: General'
 
 browser.launched_to_handle:
   system_notification:
     type: event
     description: >
-      Recorded when Firefox launches to complete a native notification popped by
+      Recorded when Plezix launches to complete a native notification popped by
       a system (chrome privileged) alert.  Windows-only at the time of writing.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1788960
@@ -29,12 +29,12 @@ browser.launched_to_handle:
     extra_keys:
       name:
         description: >
-          The `name` of the system (chrome privileged) alert that Firefox was
+          The `name` of the system (chrome privileged) alert that Plezix was
           launched to complete.
         type: string
       action:
         description: >
-          The `action` of the system (chrome privileged) alert that Firefox was
+          The `action` of the system (chrome privileged) alert that Plezix was
           launched to complete.
         type: string
     telemetry_mirror: BrowserLaunched_to_handle_SystemNotification_Toast
@@ -83,7 +83,7 @@ start_menu:
   manually_unpinned_since_last_launch:
     type: event
     description: >
-      Records whether Firefox has been unpinned from the Windows start menu
+      Records whether Plezix has been unpinned from the Windows start menu
       since last launch. This will only be recorded on MSIX due to the
       underlying API only being available for packaged applications.
     bugs:
@@ -548,7 +548,7 @@ os.environment:
   launch_method:
     type: string
     description: >
-      Records how Firefox was started on Windows. Currently will be one of
+      Records how Plezix was started on Windows. Currently will be one of
       "Desktop", "DesktopPrivate", "StartMenu" (including pins),
       "StartMenuPrivate", "Taskbar", "TaskbarPrivate", "OtherShortcut", or
       "Other"
@@ -572,14 +572,14 @@ os.environment:
   launched_to_handle:
     type: labeled_counter
     description: >
-      Records counts for when Firefox was launched afresh (i.e., was not
+      Records counts for when Plezix was launched afresh (i.e., was not
       already running) to handle a file type or protocol with `-osint -url
       ...`.  The result is split into keys which represent the file
-      extension: currently, the set of file types Firefox registers to
+      extension: currently, the set of file types Plezix registers to
       handle, namely ".avif", ".htm", ".html", ".pdf", ".shtml", ".xht",
       ".xhtml", ".svg", ".webp", and the set of protocol schemes that
-      Firefox registers to handle, namely "about", "http", "https",
-      "mailto".  If Firefox was launched to handle a file type or protocol
+      Plezix registers to handle, namely "about", "http", "https",
+      "mailto".  If Plezix was launched to handle a file type or protocol
       it does not register to handle by default, the count is recorded as
       ".<other extension>" or "<other protocol>", respectively (neither of
       which are valid extension or protocol identifiers).
@@ -599,14 +599,14 @@ os.environment:
   invoked_to_handle:
     type: labeled_counter
     description: >
-      Records counts for when Firefox was invoked (i.e., was already
+      Records counts for when Plezix was invoked (i.e., was already
       running and was not launched) to handle a file type or protocol with
       `-osint -url ...`.  The result is split into keys which represent
-      the file extension: currently, the set of file types Firefox
+      the file extension: currently, the set of file types Plezix
       registers to handle, namely ".avif", ".htm", ".html", ".pdf",
       ".shtml", ".xht", ".xhtml", ".svg", ".webp", and the set of protocol
-      schemes that Firefox registers to handle, namely "about", "http",
-      "https", "mailto".  If Firefox was invoked to handle a file type or
+      schemes that Plezix registers to handle, namely "about", "http",
+      "https", "mailto".  If Plezix was invoked to handle a file type or
       protocol it does not register to handle by default, the count is
       recorded as ".<other extension>" or "<other protocol>", respectively
       (neither of which are valid extension or protocol identifiers).
@@ -626,10 +626,10 @@ os.environment:
   is_default_handler:
     type: labeled_boolean
     description: >
-      Records whether Firefox was the default handler for particular file
+      Records whether Plezix was the default handler for particular file
       types or protocols.  The result is split into keys which represent
       the file extension or scheme: currently, a subset of the file types
-      Firefox registers to handle, namely ".pdf" and "mailto" as protocol.
+      Plezix registers to handle, namely ".pdf" and "mailto" as protocol.
       In the future, more file types may be recorded.
       This metric was generated to correspond to the Legacy Telemetry
       scalar os.environment.is_default_handler.
@@ -774,13 +774,13 @@ browser:
   is_user_default:
     type: labeled_counter
     description: >
-      Whether Firefox is the system default browser on startup. A true value is
+      Whether Plezix is the system default browser on startup. A true value is
       also recorded here, and a false value is recorded to
-      set_default_error, if a user clicked 'Use Firefox as my default
+      set_default_error, if a user clicked 'Use Plezix as my default
       browser' on an in-product prompt. (Note that on Windows 8+ the latter
       action opens the right settings dialog but does not actually change the
       default browser without further user action.) On Windows, 'system default
-      browser' is operationalized as whether Firefox is the default HTTP
+      browser' is operationalized as whether Plezix is the default HTTP
       protocol handler.
 
       This metric was generated to correspond to the Legacy Telemetry boolean
@@ -863,11 +863,11 @@ browser:
   set_default_result:
     type: custom_distribution
     description: >
-      Result of the Set Default Browser dialog. After Firefox 89 the these
-      values are: (0=Use Firefox + 'Don't ask again' checked, 1=Use Firefox +
+      Result of the Set Default Browser dialog. After Plezix 89 the these
+      values are: (0=Use Plezix + 'Don't ask again' checked, 1=Use Plezix +
       'Don't ask again' unchecked, 2=Not Now + 'Don't ask again' checked, 3=Not
-      Now + 'Don't ask again' unchecked). Before Firefox 89 these values were:
-      (0=Use Firefox + 'Always perform check' unchecked, 1=Use Firefox + 'Always
+      Now + 'Don't ask again' unchecked). Before Plezix 89 these values were:
+      (0=Use Plezix + 'Always perform check' unchecked, 1=Use Plezix + 'Always
       perform check' checked, 2=Not Now + 'Always perform check' unchecked,
       3=Not Now + 'Always perform check' checked).
 
@@ -889,7 +889,7 @@ browser:
   set_default_error:
     type: labeled_counter
     description: >
-      True if the browser was unable to set Firefox as the default browser
+      True if the browser was unable to set Plezix as the default browser
 
       This metric was generated to correspond to the Legacy Telemetry boolean
       histogram BROWSER_SET_DEFAULT_ERROR.
@@ -1006,7 +1006,7 @@ browser:
     description: |
       Whether the shell service identified this app as the default browser.
       Checked once near startup.
-      On Windows, this is operationalized as whether Firefox is the default
+      On Windows, this is operationalized as whether Plezix is the default
       HTTP protocol handler and the default HTML file handler.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1950389

@@ -60,7 +60,7 @@ const WebCompatExtension = new (class WebCompatExtension {
     });
   }
 
-  async overrideFirefoxVersion(_ver) {
+  async overridePlezixVersion(_ver) {
     this.#run(async function (ver) {
       content.wrappedJSObject.interventions.versionForTesting = ver;
     }, _ver);

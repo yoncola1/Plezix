@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -24,7 +24,7 @@ import mozilla.components.browser.icons.compose.Placeholder
 import mozilla.components.browser.icons.compose.WithIcon
 import mozilla.components.concept.base.images.ImageLoadRequest
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val THUMBNAIL_SIZE = 108
 private const val FALLBACK_ICON_SIZE = 36
@@ -47,7 +47,7 @@ fun ThumbnailCard(
     url: String,
     request: ImageLoadRequest,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.FillWidth,
     alignment: Alignment = Alignment.TopCenter,
@@ -63,7 +63,7 @@ fun ThumbnailCard(
         ) {
             components.core.icons.Loader(url) {
                 Placeholder {
-                    Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer3))
+                    Box(modifier = Modifier.background(color = PlezixTheme.colors.layer3))
                 }
 
                 WithIcon { icon ->
@@ -89,7 +89,7 @@ fun ThumbnailCard(
 @Preview
 @Composable
 private fun ThumbnailCardPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         ThumbnailCard(
             url = "https://mozilla.com",
             request = ImageLoadRequest("123", THUMBNAIL_SIZE, false),

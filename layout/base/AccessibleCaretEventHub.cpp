@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -278,7 +278,7 @@ class AccessibleCaretEventHub::LongTapState
                           const nsPoint& aPoint) override {
     // In general text selection is lower-priority than the context menu. If
     // we consume this long-press event, then it prevents the context menu from
-    // showing up on desktop Firefox (because that happens on long-tap-up, if
+    // showing up on desktop Plezix (because that happens on long-tap-up, if
     // the long-tap was not cancelled). So we return eIgnore instead.
     aContext->mManager->SelectWordOrShortcut(aPoint);
     return nsEventStatus_eIgnore;

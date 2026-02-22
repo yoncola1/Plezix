@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -10,7 +10,7 @@ import androidx.work.WorkerParameters
 import mozilla.components.support.base.log.logger.Logger
 
 /**
- * A [CoroutineWorker] that downloads and persists new Firefox Suggest search suggestions.
+ * A [CoroutineWorker] that downloads and persists new Plezix Suggest search suggestions.
  *
  * @param context The Android application context.
  * @param params Parameters for this worker's internal state.

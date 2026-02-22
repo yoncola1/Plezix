@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -81,11 +81,11 @@ static inline mozilla::LauncherResult<bool> IsSameBinaryAsParentProcess(
     if (err == ERROR_INVALID_PARAMETER || err == ERROR_ACCESS_DENIED) {
       // In the ERROR_INVALID_PARAMETER case, the process identified by
       // parentPid has already exited. This is a common case when the parent
-      // process is not Firefox, thus we should return false instead of erroring
+      // process is not Plezix, thus we should return false instead of erroring
       // out.
       // The ERROR_ACCESS_DENIED case can happen when the parent process is
       // something that we don't have permission to query. For example, we may
-      // encounter this when Firefox is launched by the Windows Task Scheduler.
+      // encounter this when Plezix is launched by the Windows Task Scheduler.
       return false;
     }
 

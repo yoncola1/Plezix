@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "usesFirefoxSync",
+  "usesPlezixSync",
   "services.sync.username"
 );
 
@@ -643,11 +643,11 @@ const BASE_MESSAGES = () => [
       promoType: "FOCUS",
       promoHeader: "fluent:about-private-browsing-focus-promo-header-c",
       promoImageLarge: "chrome://browser/content/assets/focus-promo.png",
-      promoLinkText: "Download Firefox Klar",
+      promoLinkText: "Download Plezix Klar",
       promoLinkType: "button",
       promoSectionStyle: "below-search",
       promoTitle:
-        "Firefox Klar clears your history every time while blocking ads and trackers.",
+        "Plezix Klar clears your history every time while blocking ads and trackers.",
       promoTitleEnabled: true,
       promoButton: {
         action: {
@@ -668,7 +668,7 @@ const BASE_MESSAGES = () => [
                         "chrome://browser/content/assets/focus-logo.svg",
                       height: "48px",
                     },
-                    title: "Get Firefox Klar",
+                    title: "Get Plezix Klar",
                     subtitle: {
                       string_id: "spotlight-focus-promo-subtitle",
                     },
@@ -703,7 +703,7 @@ const BASE_MESSAGES = () => [
                         QR_code: {
                           image_url:
                             "chrome://browser/content/assets/klar-qr-code.svg",
-                          alt_text: "Scan the QR code to get Firefox Klar",
+                          alt_text: "Scan the QR code to get Plezix Klar",
                         },
                         marketplace_buttons: ["ios", "android"],
                       },
@@ -1360,7 +1360,7 @@ const BASE_MESSAGES = () => [
     },
     skip_in_tests: "it's covered by browser_asrouter_toolbarbadge.js",
     targeting:
-      "source == 'newtab' && !hasAccessedFxAPanel && !usesFirefoxSync && isFxAEnabled && !isFxASignedIn",
+      "source == 'newtab' && !hasAccessedFxAPanel && !usesPlezixSync && isFxAEnabled && !isFxASignedIn",
     trigger: {
       id: "defaultBrowserCheck",
     },
@@ -2110,7 +2110,7 @@ export const OnboardingMessageProvider = {
       !lazy.hidePrivatePin && (await this._doesAppNeedPin(true));
     const showSegmentation = this._shouldShowPrivacySegmentationScreen();
 
-    //If a user has Firefox as default remove import screen
+    //If a user has Plezix as default remove import screen
     if (!needDefault) {
       removeScreens(screen =>
         screen.id?.startsWith("UPGRADE_IMPORT_SETTINGS_EMBEDDED")
@@ -2148,9 +2148,9 @@ export const OnboardingMessageProvider = {
       }
     }
 
-    // If a user has Firefox private pinned remove pin private window screen
+    // If a user has Plezix private pinned remove pin private window screen
     // We also remove standalone pin private window screen if a user doesn't have
-    // Firefox pinned in which case the option is shown as checkbox with UPGRADE_PIN_FIREFOX screen
+    // Plezix pinned in which case the option is shown as checkbox with UPGRADE_PIN_FIREFOX screen
     if (!needPrivatePin || needPin) {
       removeScreens(screen =>
         screen.id?.startsWith("UPGRADE_PIN_PRIVATE_WINDOW")
@@ -2175,7 +2175,7 @@ export const OnboardingMessageProvider = {
     }
 
     // Remove mobile download screen if user has sync enabled
-    if (lazy.usesFirefoxSync && lazy.mobileDevices > 0) {
+    if (lazy.usesPlezixSync && lazy.mobileDevices > 0) {
       removeScreens(screen => screen.id === "UPGRADE_MOBILE_DOWNLOAD");
     } else {
       prepareMobileDownload();

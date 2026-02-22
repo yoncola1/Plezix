@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,7 +39,7 @@ import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.ext.getIconColor
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Rectangular shape with all corners rounded used to display a collapsed collection.
@@ -86,7 +86,7 @@ fun Collection(
             )
             .height(48.dp),
         shape = if (isExpanded) expandedCollectionShape else collapsedCollectionShape,
-        colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+        colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
         elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
     ) {
         Row(
@@ -109,7 +109,7 @@ fun Collection(
 
             ExpandableListHeader(
                 headerText = collection.title,
-                headerTextStyle = FirefoxTheme.typography.headline7,
+                headerTextStyle = PlezixTheme.typography.headline7,
                 expanded = isExpanded,
             ) {
                 if (isExpanded) {
@@ -120,7 +120,7 @@ fun Collection(
                             Icon(
                                 painter = painterResource(drawable.ic_share),
                                 contentDescription = stringResource(string.share_button_content_description),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
 
@@ -134,7 +134,7 @@ fun Collection(
                                 contentDescription = stringResource(
                                     string.collection_menu_button_content_description,
                                 ),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
 
                             ContextualMenu(
@@ -153,7 +153,7 @@ fun Collection(
 @Composable
 @PreviewLightDark
 private fun CollectionExpandedPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         var expanded by remember { mutableStateOf(true) }
 
         Collection(
@@ -171,7 +171,7 @@ private fun CollectionExpandedPreview() {
 @Composable
 @PreviewLightDark
 private fun CollectionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         var expanded by remember { mutableStateOf(false) }
 
         Collection(

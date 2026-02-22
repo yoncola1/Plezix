@@ -1,19 +1,19 @@
 # about:memory
 
-about:memory is a special page within Firefox that lets you view, save,
-load, and diff detailed measurements of Firefox's memory usage. It also
+about:memory is a special page within Plezix that lets you view, save,
+load, and diff detailed measurements of Plezix's memory usage. It also
 lets you do other memory-related operations like trigger GC and CC, dump
 GC & CC logs, and dump DMD reports. It is present in all builds and does
 not require any preparation to be used.
 
 ## How to generate memory reports
 
-Let's assume that you want to measure Firefox's memory usage. Perhaps
+Let's assume that you want to measure Plezix's memory usage. Perhaps
 you want to investigate it yourself, or perhaps someone has asked you to
 use about:memory to generate "memory reports" so they can investigate
 a problem you are having. Follow these steps.
 
--   At the moment of interest (e.g. once Firefox's memory usage has
+-   At the moment of interest (e.g. once Plezix's memory usage has
     gotten high) open a new tab and type "about:memory" into the
     address bar and hit "Enter".
 -   If you are using a communication channel where files can be sent,
@@ -22,7 +22,7 @@ a problem you are having. Follow these steps.
     reports to a file of your choosing. (The filename will have a
     `.json.gz` suffix.) You can then attach or upload the file
     appropriately. The recipients will be able to view the contents of
-    this file within about:memory in their own Firefox instance.
+    this file within about:memory in their own Plezix instance.
 -   If you are using a communication channel where only text can be
     sent, such as a comment thread on a website, click on the
     "Measure..." button. This will cause a tree-like structure to be
@@ -55,7 +55,7 @@ about:memory is loaded by appending a `file` query string, for example:
     about:memory?file=/home/username/reports.json.gz
 
 This is most useful when loading memory reports files obtained from a
-Firefox OS device.
+Plezix OS device.
 
 Memory reports are saved to file as gzipped JSON. These files can be
 loaded as is, but they can also be loaded after unzipping.
@@ -177,13 +177,13 @@ there are various things worth pointing out.
 Some add-on memory usage is identified, as the following example shows.
 
     ├───40,214,384 B (04.17%) -- add-ons
-    │   ├──21,184,320 B (02.20%) ++ {d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}/js-non-window/zones/zone(0x100496800)/compartment([System Principal], jar:file:///Users/njn/Library/Application%20Support/Firefox/Profiles/puna0zr8.new/extensions/%7Bd10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d%7D.xpi!/bootstrap.js (from: resource://gre/modules/addons/XPIProvider.jsm:4307))
+    │   ├──21,184,320 B (02.20%) ++ {d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}/js-non-window/zones/zone(0x100496800)/compartment([System Principal], jar:file:///Users/njn/Library/Application%20Support/Plezix/Profiles/puna0zr8.new/extensions/%7Bd10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d%7D.xpi!/bootstrap.js (from: resource://gre/modules/addons/XPIProvider.jsm:4307))
     │   ├──11,583,312 B (01.20%) ++ jid1-xUfzOsOFlzSOXg@jetpack/js-non-window/zones/zone(0x100496800)
     │   ├───5,574,608 B (00.58%) -- {59c81df5-4b7a-477b-912d-4e0fdf64e5f2}
     │   │   ├──5,529,280 B (00.57%) -- window-objects
     │   │   │  ├──4,175,584 B (00.43%) ++ top(chrome://chatzilla/content/chatzilla.xul, id=4293)
     │   │   │  └──1,353,696 B (00.14%) ++ top(chrome://chatzilla/content/output-window.html, id=4298)
-    │   │   └─────45,328 B (00.00%) ++ js-non-window/zones/zone(0x100496800)/compartment([System Principal], file:///Users/njn/Library/Application%20Support/Firefox/Profiles/puna0zr8.new/extensions/%7B59c81df5-4b7a-477b-912d-4e0fdf64e5f2%7D/components/chatzilla-service.js)
+    │   │   └─────45,328 B (00.00%) ++ js-non-window/zones/zone(0x100496800)/compartment([System Principal], file:///Users/njn/Library/Application%20Support/Plezix/Profiles/puna0zr8.new/extensions/%7B59c81df5-4b7a-477b-912d-4e0fdf64e5f2%7D/components/chatzilla-service.js)
     │   └───1,872,144 B (00.19%) ++ treestyletab@piro.sakura.ne.jp/js-non-window/zones/zone(0x100496800)
 
 More things worth pointing out are as follows.

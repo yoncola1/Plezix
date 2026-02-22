@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,9 +13,9 @@ import io.gitlab.arturbosch.detekt.api.Rule
 import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.psi.*
 
-class MozillaBannedPropertyAccess(config: Config = Config.empty) : Rule(config) {
+class PlezixBannedPropertyAccess(config: Config = Config.empty) : Rule(config) {
     override val issue = Issue(
-        "MozillaBannedPropertyAccess",
+        "PlezixBannedPropertyAccess",
         Severity.Defect,
         DESCR,
         Debt.FIVE_MINS,
@@ -43,7 +43,7 @@ class MozillaBannedPropertyAccess(config: Config = Config.empty) : Rule(config) 
             CodeSmell(
                 issue,
                 Entity.from(expression),
-                "Using $possiblyBannedPropertyAccess is not allowed because accessing property $it is against Mozilla policy. See 'mozilla-detekt-rules' stanza in 'config/detekt.yml' for more information.\n",
+                "Using $possiblyBannedPropertyAccess is not allowed because accessing property $it is against Plezix policy. See 'mozilla-detekt-rules' stanza in 'config/detekt.yml' for more information.\n",
             )
         }.forEach { report(it) }
     }

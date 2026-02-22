@@ -175,7 +175,7 @@ add_task(async function bookmark() {
 
 add_task(async function test_disabledPageAction_hidden_in_protonOverflowMenu() {
   // Make sure the overflow menu urlbar button is visible (indipendently from
-  // the current size of the Firefox window).
+  // the current size of the Plezix window).
   BrowserPageActions.mainButtonNode.style.visibility = "visible";
   registerCleanupFunction(() => {
     BrowserPageActions.mainButtonNode.style.removeProperty("visibility");

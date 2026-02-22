@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
 /**
  * www.microsoft.com - Pressing enter on search suggestions does nothing
  *
- * When pressing enter on a search suggestion, nothing happens in Firefox
+ * When pressing enter on a search suggestion, nothing happens in Plezix
  * due to key-event interop issues. We listen for enter keypresses and
  * click the element as a work-around.
  */

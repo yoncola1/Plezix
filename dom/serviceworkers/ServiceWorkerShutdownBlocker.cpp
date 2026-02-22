@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -262,7 +262,7 @@ NS_IMETHODIMP ServiceWorkerShutdownBlocker::Notify(nsITimer*) {
 #ifdef RELEASE_OR_BETA
 #  define SW_UNBLOCK_SHUTDOWN_TIMER_DURATION 10s
 #else
-// In Nightly, we do want a shutdown hang to be reported so we pick a value
+// In Plezix, we do want a shutdown hang to be reported so we pick a value
 // notably longer than the 60s of the RunWatchDog timeout.
 #  define SW_UNBLOCK_SHUTDOWN_TIMER_DURATION 200s
 #endif

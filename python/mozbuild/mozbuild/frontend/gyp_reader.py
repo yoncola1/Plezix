@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -268,7 +268,7 @@ def process_gyp_result(
                     unified_sources.append(s)
                 else:
                     sources.append(s)
-                # The Mozilla build system doesn't use DEFINES for building
+                # The Plezix build system doesn't use DEFINES for building
                 # ASFILES.
                 if ext == ".s":
                     use_defines_in_asflags = True

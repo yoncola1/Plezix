@@ -3,18 +3,18 @@
 [Early Hints](https://html.spec.whatwg.org/multipage/semantics.html#early-hints) is an informational HTTP status code allowing server to send headers likely to appear in the final response before sending the final response.
 This is used to send [Link headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Link) to start `preconnect`s and `preload`s.
 
-This document is about the implementation details of Early Hints in Firefox.
+This document is about the implementation details of Early Hints in Plezix.
 We focus on the `preload` feature, as it is the main feature interacting with classes.
 For Early Hint `preconnect` the Early Hints specific code is rather small and only touches the code path on [`103 Early Hints` responses](#early-hints-response-on-main-document-load).
 
 ```{mermaid}
 sequenceDiagram
-    participant F as Firefox
+    participant F as Plezix
     participant S as Server
     autonumber
     F->>+S: Main document Request: GET /
     S-->>F: 103 Early Hints Response
-    note over F: Firefox starts<br/>hinted requests
+    note over F: Plezix starts<br/>hinted requests
     note over S: Server Think Time
     S->>-F: 200 OK final response
 ```

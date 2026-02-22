@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -62,7 +62,7 @@ import org.mozilla.fenix.compose.Image
 import org.mozilla.fenix.compose.TabThumbnail
 import org.mozilla.fenix.home.fake.FakeHomepagePreview
 import org.mozilla.fenix.home.recenttabs.RecentTab
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private const val THUMBNAIL_SIZE = 108
 
@@ -79,7 +79,7 @@ private const val THUMBNAIL_SIZE = 108
 fun RecentTabs(
     recentTabs: List<RecentTab>,
     menuItems: List<RecentTabMenuItem>,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = PlezixTheme.colors.layer2,
     onRecentTabClick: (String) -> Unit = {},
 ) {
     Column(
@@ -164,7 +164,7 @@ private fun RecentTabItem(
                         testTagsAsResourceId = true
                         testTag = "recent.tab.title"
                     },
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     fontSize = 14.sp,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
@@ -188,7 +188,7 @@ private fun RecentTabItem(
                             testTagsAsResourceId = true
                             testTag = "recent.tab.url"
                         },
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         fontSize = 12.sp,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
@@ -322,7 +322,7 @@ private fun PlaceHolderTabIcon(modifier: Modifier) {
 @PreviewLightDark
 @Composable
 private fun RecentTabsPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         RecentTabs(
             recentTabs = FakeHomepagePreview.recentTabs(),
             menuItems = listOf(

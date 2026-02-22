@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -63,7 +63,7 @@ interface nsIAlertAction : nsISupports
   /**
    * On Windows, chrome-privileged notifications -- i.e., those with a
    * non-actionable principal -- can have actions that are activated by Windows
-   * and not processed by Firefox.  When `windowsSystemActivationType` is true,
+   * and not processed by Plezix.  When `windowsSystemActivationType` is true,
    * we request Windows to process `action`.  At the time of writing, Windows
    * recognizes the following actions:
    *

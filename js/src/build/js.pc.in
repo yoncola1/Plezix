@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: SpiderMonkey @MOZILLA_VERSION@
-Description: The Mozilla library for JavaScript
+Description: The Plezix library for JavaScript
 Version: @MOZILLA_VERSION@
 @PKGCONF_REQUIRES_PRIVATE@
 Libs: -L${libdir} -l@JS_LIBRARY_NAME@

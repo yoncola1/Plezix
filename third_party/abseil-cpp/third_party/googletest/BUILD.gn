@@ -1,4 +1,4 @@
-# Shim targets for test dependencies that Mozilla
+# Shim targets for test dependencies that Plezix
 # does not use.
 config("gmock_config") {
 }

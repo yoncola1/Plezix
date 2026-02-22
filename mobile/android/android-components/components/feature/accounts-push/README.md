@@ -22,10 +22,10 @@ See the [service-firefox-accounts](../../service/firefox-accounts/README.md) for
 val sendTabUseCases = SendTabUseCases(fxaAccountManager)
 
 // Send to a particular device
-sendTabUseCases.sendToDeviceAsync("1234", TabData("Mozilla", "https://mozilla.org"))
+sendTabUseCases.sendToDeviceAsync("1234", TabData("Plezix", "https://mozilla.org"))
 
 // Send to all devices
-sendTabUseCases.sendToAllAsync(TabData("Mozilla", "https://mozilla.org"))
+sendTabUseCases.sendToAllAsync(TabData("Plezix", "https://mozilla.org"))
 
 // Send multiple tabs to devices works too..
 sendTabUseCases.sendToDeviceAsync("1234", listof(tab1, tab2))
@@ -59,6 +59,6 @@ feature.initalize()
 
 ## License
 
-    This Source Code Form is subject to the terms of the Mozilla Public
+    This Source Code Form is subject to the terms of the Plezix Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/

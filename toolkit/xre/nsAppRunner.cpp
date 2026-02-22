@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3009,9 +3009,9 @@ MOZ_RUNINIT static nsCOMPtr<nsIToolkitProfile> gResetOldProfile;
 static nsresult LockProfile(nsINativeAppSupport* aNative, nsIFile* aRootDir,
                             nsIFile* aLocalDir, nsIToolkitProfile* aProfile,
                             nsIProfileLock** aResult) {
-  // If you close Firefox and very quickly reopen it, the old Firefox may
+  // If you close Plezix and very quickly reopen it, the old Plezix may
   // still be closing down. Rather than immediately showing the
-  // "Firefox is running but is not responding" message, we spend a few
+  // "Plezix is running but is not responding" message, we spend a few
   // seconds retrying first.
 
   static const int kLockRetrySeconds = 5;
@@ -3696,7 +3696,7 @@ const XREAppData* gAppData = nullptr;
  * the process and use it to determine whether the application defines its own
  * memory allocator or not.
  *
- * Since most applications (e.g. Firefox and Thunderbird) don't use any special
+ * Since most applications (e.g. Plezix and Thunderbird) don't use any special
  * allocators and therefore don't define this symbol, NSPR must search the
  * entire process, which reduces startup performance.
  *
@@ -4086,7 +4086,7 @@ int XREMain::XRE_mainInit(bool* aExitFlag) {
 
 #ifdef XP_MACOSX
     // To avoid taking focus when running in headless mode immediately
-    // transition Firefox to a background application.
+    // transition Plezix to a background application.
     ProcessSerialNumber psn = {0, kCurrentProcess};
     OSStatus transformStatus =
         TransformProcessType(&psn, kProcessTransformToBackgroundApplication);
@@ -4274,8 +4274,8 @@ int XREMain::XRE_mainInit(bool* aExitFlag) {
     }
 
     nsString packageFamilyName = widget::WinUtils::GetPackageFamilyName();
-    if (StringBeginsWith(packageFamilyName, u"Mozilla."_ns) ||
-        StringBeginsWith(packageFamilyName, u"MozillaCorporation."_ns)) {
+    if (StringBeginsWith(packageFamilyName, u"Plezix."_ns) ||
+        StringBeginsWith(packageFamilyName, u"PlezixCorporation."_ns)) {
       CrashReporter::RecordAnnotationNSCString(
           CrashReporter::Annotation::WindowsPackageFamilyName,
           NS_ConvertUTF16toUTF8(packageFamilyName));
@@ -4607,9 +4607,9 @@ Maybe<ShouldNotProcessUpdatesReason> ShouldNotProcessUpdates(
     // Only process updates for specific tasks: at this time, the
     // `backgroundupdate` task and the test-only `shouldprocessupdates` task.
     //
-    // Background tasks can be sparked by Firefox instances that are shutting
+    // Background tasks can be sparked by Plezix instances that are shutting
     // down, which can cause races between the task startup trying to update and
-    // Firefox trying to invoke the updater.  This happened when converting
+    // Plezix trying to invoke the updater.  This happened when converting
     // `pingsender` to a background task, since it is launched to send pings at
     // shutdown: Bug 1736373.
     //
@@ -5200,7 +5200,7 @@ int XREMain::XRE_mainStartup(bool* aExitFlag) {
       if (ARG_FOUND == CheckArgExists("first-startup")) {
         // If the profile reset was initiated by the stub installer, we want to
         // set MOZ_RESET_PROFILE_SESSION so we can check for it later when the
-        // Firefox Profile Migrator runs. At that point we set overrides to
+        // Plezix Profile Migrator runs. At that point we set overrides to
         // ensure users see the right homepage.
         SaveToEnv("MOZ_RESET_PROFILE_SESSION=0");
       } else if (gDoMigration) {
@@ -5613,8 +5613,8 @@ nsresult XREMain::XRE_mainRun() {
     // write profiles when user stops the profiler using POSIX signal handling.
     //
     // It's possible to start and stop the profiler by sending POSIX signals to
-    // the profiler binary when Firefox is frozen. At the time when stop signal
-    // is handled, Firefox stops the profiler and dumps the profile to disk. But
+    // the profiler binary when Plezix is frozen. At the time when stop signal
+    // is handled, Plezix stops the profiler and dumps the profile to disk. But
     // getting the download directory is not really possible at that time
     // because main thread will be unresponsive. That's why we are getting this
     // information right now.
@@ -6060,7 +6060,7 @@ int XREMain::XRE_main(int argc, char* argv[], const BootstrapConfig& aConfig) {
 #  endif  // _M_IX86 || _M_X64
 
   // Bug 1924623: Detouring VariantClear resulted in a huge crash spike for
-  //              Thunderbird, so let's only do that for Firefox.
+  //              Thunderbird, so let's only do that for Plezix.
 #  ifdef MOZ_BUILD_APP_IS_BROWSER
   {
     DebugOnly<bool> result = WindowsOleAut32Initialization();

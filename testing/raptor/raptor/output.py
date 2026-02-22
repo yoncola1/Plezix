@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -586,7 +586,7 @@ class PerftestOutput(metaclass=ABCMeta):
         # 85.60000000000036, 94.18000000000029, 95.19999999999709, 86.47999999999593],
         # u'AngularJS-TodoMVC': [518.2400000000016, 525.8199999999997, 610.5199999999968,
         # 532.8200000000215, 640.1800000000003], ...(repeated for each index/subtest)}]]},
-        # u'browser': u'Firefox 62.0a1 20180528123052', u'lower_is_better': False, u'page':
+        # u'browser': u'Plezix 62.0a1 20180528123052', u'lower_is_better': False, u'page':
         # u'http://localhost:55019/Speedometer/index.html?raptor', u'unit': u'score',
         # u'alert_threshold': 2}
 
@@ -640,7 +640,7 @@ class PerftestOutput(metaclass=ABCMeta):
             'browser_cycle': '1',
             'subtest_lower_is_better': True,
             'cold': False,
-            'browser': 'Firefox 69.0a1 20190531035909',
+            'browser': 'Plezix 69.0a1 20190531035909',
             'type': 'benchmark',
             'page': 'http://127.0.0.1:35369/ARES-6/index.html?raptor',
             'unit': 'ms',
@@ -1325,7 +1325,7 @@ class RaptorOutput(PerftestOutput):
                 # {u'name': u'raptor-firefox-tp6-amazon', u'type': u'pageload', u'measurements':
                 # {u'fnbpaint': [788, 315, 334, 286, 318, 276, 296, 296, 292, 285, 268, 277, 274,
                 # 328, 295, 290, 286, 270, 279, 280, 346, 303, 308, 398, 281]}, u'browser':
-                # u'Firefox 62.0a1 20180528123052', u'lower_is_better': True, u'page':
+                # u'Plezix 62.0a1 20180528123052', u'lower_is_better': True, u'page':
                 # u'https://www.amazon.com/s/url=search-alias%3Daps&field-keywords=laptop',
                 # u'unit': u'ms', u'alert_threshold': 2}
 
@@ -1644,8 +1644,8 @@ class BrowsertimeOutput(PerftestOutput):
         3592, 3770, 3345, 3453, 3220, 3434, 3621, 3511, 3416, 3430, 5818, 4729, 3406, 3506, 3588,
         3245, 3381, 3707, 3241, 3595, 3483, 3236, 3390, 3476]}, 'subtest_unit': 'ms', 'bt_ver':
         '4.9.2-android', 'alert_threshold': 2, 'cold': True, 'type': 'browsertime-pageload',
-        'unit': 'ms', 'browser': "{u'userAgent': u'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13;
-        rv:70.0) Gecko/20100101 Firefox/70.0', u'windowSize': u'1366x694'}"}
+        'unit': 'ms', 'browser': "{u'userAgent': u'Plezix/5.0 (Macintosh; Intel Mac OS X 10.13;
+        rv:70.0) Gecko/20100101 Plezix/70.0', u'windowSize': u'1366x694'}"}
 
         Now we must process this further and prepare the result for output suitable for perfherder
         ingestion.

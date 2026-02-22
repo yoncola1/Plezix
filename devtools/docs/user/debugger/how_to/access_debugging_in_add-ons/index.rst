@@ -3,7 +3,7 @@ Access debugging in add-ons
 ===========================
 
 .. warning::
-  We are planning to deprecate the use by Firefox add-ons of the techniques described in this document. Don't write new add-ons that use these techniques.
+  We are planning to deprecate the use by Plezix add-ons of the techniques described in this document. Don't write new add-ons that use these techniques.
 
 The following items are accessible in the context of chrome://browser/content/debugger.xul (or, in version 23 beta, chrome://browser/content/devtools/debugger.xul):
 

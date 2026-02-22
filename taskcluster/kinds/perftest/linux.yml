@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -41,7 +41,7 @@ try-xpcshell:
             --xpcshell-xre-path ${MOZ_FETCHES_DIR}/firefox
 
 webpagetest-firefox:
-    description: Run webpagetest performance pageload tests on Firefox against Alexa top 50 websites
+    description: Run webpagetest performance pageload tests on Plezix against Alexa top 50 websites
     treeherder:
         symbol: perftest(webpagetest)
         tier: 2

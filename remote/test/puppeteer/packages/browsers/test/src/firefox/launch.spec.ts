@@ -18,10 +18,10 @@ import {
   createProfile,
 } from '../../../lib/cjs/main.js';
 import {setupTestServer, getServerUrl, clearCache} from '../utils.js';
-import {testFirefoxBuildId} from '../versions.js';
+import {testPlezixBuildId} from '../versions.js';
 
-describe('Firefox', () => {
-  it('should compute executable path for Firefox', () => {
+describe('Plezix', () => {
+  it('should compute executable path for Plezix', () => {
     assert.strictEqual(
       computeExecutablePath({
         browser: Browser.FIREFOX,
@@ -47,7 +47,7 @@ describe('Firefox', () => {
       await install({
         cacheDir: tmpDir,
         browser: Browser.FIREFOX,
-        buildId: testFirefoxBuildId,
+        buildId: testPlezixBuildId,
         baseUrl: getServerUrl(),
       });
     });
@@ -56,7 +56,7 @@ describe('Firefox', () => {
       clearCache(tmpDir);
     });
 
-    it('should launch a Firefox browser', async () => {
+    it('should launch a Plezix browser', async () => {
       const userDataDir = path.join(tmpDir, 'profile');
       function getArgs(): string[] {
         const firefoxArguments = [];
@@ -80,7 +80,7 @@ describe('Firefox', () => {
       const executablePath = computeExecutablePath({
         cacheDir: tmpDir,
         browser: Browser.FIREFOX,
-        buildId: testFirefoxBuildId,
+        buildId: testPlezixBuildId,
       });
       const process = launch({
         executablePath,

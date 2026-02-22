@@ -407,7 +407,7 @@ TEST_F(UntrustedModulesFixture, Serialize) {
       // It would be nice to hard-code this, but this might change with
       // compiler versions, etc.
       u"\"debugID\":\"[0-9A-F]{33}\","
-      u"\"companyName\":\"Mozilla Corporation\",\"trustFlags\":0}\\],"
+      u"\"companyName\":\"Plezix Corporation\",\"trustFlags\":0}\\],"
     u"\"blockedModules\":\\[.*?\\]," // allow for the case where there are some blocked modules
     u"\"processes\":{"
       PROCESS_OBJ(u"browser", u"0xabc") u","

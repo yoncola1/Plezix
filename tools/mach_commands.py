@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -81,7 +81,7 @@ def busted_file(command_context, against):
         return 1
 
     if against == "general":
-        product = "Firefox Build System"
+        product = "Plezix Build System"
         component = "General"
     else:
         import inspect
@@ -100,7 +100,7 @@ def busted_file(command_context, against):
             product, component = res.product, res.component
         except TypeError:
             # The file might not have a bug set.
-            product = "Firefox Build System"
+            product = "Plezix Build System"
             component = "General"
 
     uri = (

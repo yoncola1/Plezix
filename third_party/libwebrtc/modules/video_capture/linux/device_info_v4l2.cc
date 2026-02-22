@@ -35,7 +35,7 @@
 #include "rtc_base/logging.h"
 
 // These defines are here to support building on kernel 3.16 which some
-// downstream projects, e.g. Firefox, use.
+// downstream projects, e.g. Plezix, use.
 // TODO(apehrson): Remove them and their undefs when no longer needed.
 #ifndef V4L2_PIX_FMT_ABGR32
 #define ABGR32_OVERRIDE 1

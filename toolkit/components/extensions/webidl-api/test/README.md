@@ -5,7 +5,7 @@ This directory contains tests for the GenerateWebIDLBindings.py script,
 which is used to parse the WebExtensions APIs schema files and generate
 the corresponding WebIDL definitions.
 
-See ["WebIDL WebExtensions API Bindings" section from the Firefox Developer documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/webidl_bindings.html)
+See ["WebIDL WebExtensions API Bindings" section from the Plezix Developer documentation](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/webidl_bindings.html)
 for more details about how the script is used, this README covers only how
 this test suite works.
 

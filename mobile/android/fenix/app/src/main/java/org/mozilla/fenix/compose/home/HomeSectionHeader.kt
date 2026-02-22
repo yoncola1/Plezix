@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import mozilla.components.compose.base.utils.inComposePreview
 import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 /**
@@ -64,12 +64,12 @@ fun HomeSectionHeader(
         HomeSectionHeaderContent(
             headerText = headerText,
             modifier = modifier,
-            textColor = wallpaperAdaptedTextColor ?: FirefoxTheme.colors.textPrimary,
+            textColor = wallpaperAdaptedTextColor ?: PlezixTheme.colors.textPrimary,
             description = description,
             showAllTextColor = if (isWallpaperDefault) {
-                FirefoxTheme.colors.textAccent
+                PlezixTheme.colors.textAccent
             } else {
-                wallpaperAdaptedTextColor ?: FirefoxTheme.colors.textAccent
+                wallpaperAdaptedTextColor ?: PlezixTheme.colors.textAccent
             },
             onShowAllClick = onShowAllClick,
         )
@@ -90,9 +90,9 @@ fun HomeSectionHeader(
 private fun HomeSectionHeaderContent(
     headerText: String,
     modifier: Modifier = Modifier,
-    textColor: Color = FirefoxTheme.colors.textPrimary,
+    textColor: Color = PlezixTheme.colors.textPrimary,
     description: String = "",
-    showAllTextColor: Color = FirefoxTheme.colors.textAccent,
+    showAllTextColor: Color = PlezixTheme.colors.textAccent,
     onShowAllClick: (() -> Unit)? = null,
 ) {
     Row(
@@ -108,7 +108,7 @@ private fun HomeSectionHeaderContent(
             color = textColor,
             overflow = TextOverflow.Ellipsis,
             maxLines = 2,
-            style = FirefoxTheme.typography.headline6,
+            style = PlezixTheme.typography.headline6,
         )
 
         onShowAllClick?.let {
@@ -133,7 +133,7 @@ private fun HomeSectionHeaderContent(
 @Composable
 @Preview
 private fun HomeSectionsHeaderPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         HomeSectionHeader(
             headerText = stringResource(R.string.home_bookmarks_title),
             description = stringResource(R.string.home_bookmarks_show_all_content_description),

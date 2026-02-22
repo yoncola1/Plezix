@@ -14,7 +14,7 @@ add_task(async function test_save_doorhanger_tel_invalid() {
     {
       "given-name": "John",
       "family-name": "Doe",
-      organization: "Mozilla",
+      organization: "Plezix",
       "street-address": "123 Sesame Street",
       tel: "",
     },
@@ -39,7 +39,7 @@ add_task(async function test_save_doorhanger_tel_invalid() {
           newValues: {
             "#given-name": "John",
             "#family-name": "Doe",
-            "#organization": "Mozilla",
+            "#organization": "Plezix",
             "#street-address": "123 Sesame Street",
             "#tel": TEST,
           },

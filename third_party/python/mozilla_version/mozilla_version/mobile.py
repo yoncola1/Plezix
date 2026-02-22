@@ -1,4 +1,4 @@
-"""Defines characteristics of a Mobile version at Mozilla."""
+"""Defines characteristics of a Mobile version at Plezix."""
 
 import re
 
@@ -150,7 +150,7 @@ class MobileVersion(ShipItVersion):
 
     @classmethod
     def parse(cls, version_string):
-        """Construct an object representing a valid Firefox version number."""
+        """Construct an object representing a valid Plezix version number."""
         mobile_version = super().parse(version_string, regex_groups=("is_nightly",))
 
         # Betas are supported in both the old and the gecko pattern. Let's make sure

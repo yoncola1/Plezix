@@ -11,7 +11,7 @@ The algorithm is notoriously hard to read, write, and modify, which prompts this
 # Example
 For the purpose of a graphical illustration of the example, we will evaluate a scenario with two sources and three resources.
 
-The sources and resource identifiers will be named in concise way (*1* or *A*) to simplify diagrams, while a more tangible names derived from real-world examples in Firefox use-case will be listed in their initial definition.
+The sources and resource identifiers will be named in concise way (*1* or *A*) to simplify diagrams, while a more tangible names derived from real-world examples in Plezix use-case will be listed in their initial definition.
 
 ### Sources
 A source can be a packaged directory, and a language pack, or any other directory, zip file, or remote source which contains localization resource files.
@@ -110,7 +110,7 @@ for set in multi_prod {
 #### Reasons for a custom algorithm
 
 Unfortunately, the computational complexity of generating all possible sets is growing exponentially, both in the cost of CPU and memory use.
-On a high-end laptop, computing the sets for all possible variations of the example above generates *8* sets and takes only *700 nanoseconds*, but computing the same for four sources and 16 resources (a scenario theoretically possible in Firefox with one language pack and Preferences UI for example) generates over *4 billion* sets and takes over *2 minutes*.
+On a high-end laptop, computing the sets for all possible variations of the example above generates *8* sets and takes only *700 nanoseconds*, but computing the same for four sources and 16 resources (a scenario theoretically possible in Plezix with one language pack and Preferences UI for example) generates over *4 billion* sets and takes over *2 minutes*.
 
 Since one part of static cost is the I/O, the application of a [Memoization](https://en.wikipedia.org/wiki/Memoization) technique allows us to minimize the cost of constructing, storing and retrieving sets.
 

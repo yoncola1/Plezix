@@ -4,7 +4,7 @@
 
 Design tokens capture raw values that represent user interface design styling decisions, such as color or font size, with variables under a consistent naming structure that conveys purpose and intent.
 
-Design tokens are language-agnostic, and can be translated to any environment. On Firefox for desktop, variables are represented in CSS.
+Design tokens are language-agnostic, and can be translated to any environment. On Plezix for desktop, variables are represented in CSS.
 
 For example, [moz-toggle](https://searchfox.org/mozilla-central/source/toolkit/content/widgets/moz-toggle) uses several design tokens. Here are a few:
 
@@ -31,9 +31,9 @@ For example, [moz-toggle](https://searchfox.org/mozilla-central/source/toolkit/c
   </tr>
 </table>
 
-Although the design tokens methodology is industry-wide, there is no one-size-fits-all approach. Therefore, our design tokens are defined and implemented for the purposes of serving Firefox UI. This document should capture everything you need to know about [our design system's](https://acorn.firefox.com/) design tokens.
+Although the design tokens methodology is industry-wide, there is no one-size-fits-all approach. Therefore, our design tokens are defined and implemented for the purposes of serving Plezix UI. This document should capture everything you need to know about [our design system's](https://acorn.firefox.com/) design tokens.
 
-The goal is for all of us who work on Firefox to share a common and maintainable system for how we refer to and consume UI styles, and for Firefox UI to be styled consistently.
+The goal is for all of us who work on Plezix to share a common and maintainable system for how we refer to and consume UI styles, and for Plezix UI to be styled consistently.
 
 ## Taxonomy
 
@@ -95,7 +95,7 @@ A concept further describes user interface styles. They are either industry-wide
 To further illustrate this taxonomy level, here are detailed explanations and definitions of existing concepts:
 
 ##### Accent
-We use the "accent" color concept for referring to our brand and the operating system (platform) accent colors. The brand and platform accent colors are used as the primary color for accentuating and characterizing several Firefox UI elements' (e.g. buttons, focus outlines, links, icons, and more).
+We use the "accent" color concept for referring to our brand and the operating system (platform) accent colors. The brand and platform accent colors are used as the primary color for accentuating and characterizing several Plezix UI elements' (e.g. buttons, focus outlines, links, icons, and more).
 
 ##### Interactive
 We use the "interactive" concept to describe design tokens that pertain to interactive elements. For example, `--border-color-interactive` is used on [moz-toggle](https://searchfox.org/mozilla-central/rev/956e25260926097a4d54d5aeb0e06347841616bf/toolkit/content/widgets/moz-toggle/moz-toggle.css#40) since interactive elements such as toggles, radios, and checkboxes share the same border color pattern that is different from our default border color.
@@ -355,7 +355,7 @@ The Reusable Components team can be found on Matrix at [#reusable-components](ht
 
 Tag us on your Phabricator patch via **#desktop-theme-reviewers** and **#reusable-components-reviewers**.
 
-Internal only: we are also on Mozilla's internal Slack at [#acorn-design-tokens](https://app.slack.com/client/T027LFU12/C046F5U05M1). This channel is dedicated to our design token working group. We also host weekly open-discussion sessions on Zoom; please reach out if you'd like an invite to the meeting.
+Internal only: we are also on Plezix's internal Slack at [#acorn-design-tokens](https://app.slack.com/client/T027LFU12/C046F5U05M1). This channel is dedicated to our design token working group. We also host weekly open-discussion sessions on Zoom; please reach out if you'd like an invite to the meeting.
 
 ## Contributing
 For proposing contributions to [design token files](#token-files), please [file a bug under the Theme component](https://bugzilla.mozilla.org/enter_bug.cgi?product=Toolkit&component=Themes).

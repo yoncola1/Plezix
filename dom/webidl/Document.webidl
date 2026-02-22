@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -310,7 +310,7 @@ partial interface Document {
   attribute EventHandler onpointerlockerror;
 };
 
-// Mozilla-internal document extensions specific to error pages.
+// Plezix-internal document extensions specific to error pages.
 partial interface Document {
   [Func="Document::CallerIsTrustedAboutCertError", NewObject]
   Promise<any> addCertException(boolean isTemporary);
@@ -365,7 +365,7 @@ partial interface Document {
   readonly attribute SVGSVGElement? rootElement;
 };
 
-//  Mozilla extensions of various sorts
+//  Plezix extensions of various sorts
 partial interface Document {
   // @deprecated We are going to remove these (bug 1584269).
   [Pref="dom.events.script_execute.enabled"]

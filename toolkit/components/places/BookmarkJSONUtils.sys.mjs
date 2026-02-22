@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -318,7 +318,7 @@ function notifyObservers(topic, replace) {
 
 /**
  * Iterates through a node, fixing up any place: URL queries that are found. This
- * replaces any old (pre Firefox 62) queries that contain "folder=<id>" parts with
+ * replaces any old (pre Plezix 62) queries that contain "folder=<id>" parts with
  * "parent=<guid>".
  *
  * @param {object} aNode

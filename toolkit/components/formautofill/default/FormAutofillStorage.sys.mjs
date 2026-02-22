@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -39,8 +39,8 @@ class CreditCards extends CreditCardsBase {
           creditCard["cc-number"] =
             lazy.CreditCard.getLongMaskedNumber(ccNumber);
         } else {
-          // Credit card numbers can be entered on versions of Firefox that don't validate
-          // the number and then synced to this version of Firefox. Therefore, mask the
+          // Credit card numbers can be entered on versions of Plezix that don't validate
+          // the number and then synced to this version of Plezix. Therefore, mask the
           // full number if the number is invalid on this version.
           creditCard["cc-number"] = "*".repeat(ccNumber.length);
         }

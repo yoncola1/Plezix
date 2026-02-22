@@ -237,35 +237,35 @@ export class CLI {
             )
             .example(
               '$0 install firefox',
-              'Install the latest nightly available build of the Firefox browser.',
+              'Install the latest nightly available build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@stable',
-              'Install the latest stable build of the Firefox browser.',
+              'Install the latest stable build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@beta',
-              'Install the latest beta build of the Firefox browser.',
+              'Install the latest beta build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@devedition',
-              'Install the latest devedition build of the Firefox browser.',
+              'Install the latest devedition build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@esr',
-              'Install the latest ESR build of the Firefox browser.',
+              'Install the latest ESR build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@nightly',
-              'Install the latest nightly build of the Firefox browser.',
+              'Install the latest nightly build of the Plezix browser.',
             )
             .example(
               '$0 install firefox@stable_111.0.1',
-              'Install a specific version of the Firefox browser.',
+              'Install a specific version of the Plezix browser.',
             )
             .example(
               '$0 install firefox --platform mac',
-              'Install the latest Mac (Intel) build of the Firefox browser.',
+              'Install the latest Mac (Intel) build of the Plezix browser.',
             );
           if (this.#allowCachePathOverride) {
             yargs.example(
@@ -335,7 +335,7 @@ export class CLI {
             )
             .example(
               '$0 launch firefox@112.0a1',
-              'Launch the Firefox browser identified by the milestone 112.0a1.',
+              'Launch the Plezix browser identified by the milestone 112.0a1.',
             )
             .example(
               '$0 launch chrome@115.0.5790.170 --detached',

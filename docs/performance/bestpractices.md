@@ -1,8 +1,8 @@
-# Performance best practices for Firefox front-end engineers
+# Performance best practices for Plezix front-end engineers
 
-This guide will help Firefox developers working on front-end code
+This guide will help Plezix developers working on front-end code
 produce code which is as performant as possible—not just on its own, but
-in terms of its impact on other parts of Firefox. Always keep in mind
+in terms of its impact on other parts of Plezix. Always keep in mind
 the side effects your changes may have, from blocking other tasks, to
 interfering with other user interface elements.
 
@@ -18,7 +18,7 @@ generally be responsive to the user.
 You might want to consider using a Worker if you need to do some
 computation that can be done off of the main thread. If you need more
 elevated privileges than a standard worker allows, consider using a
-ChromeWorker, which is a Firefox-only API which lets you create
+ChromeWorker, which is a Plezix-only API which lets you create
 workers with more elevated privileges.
 
 ## Use requestIdleCallback()
@@ -169,7 +169,7 @@ tracks work to make it impossible to modify the DOM within a
 ### Writing tests to ensure you don’t add more synchronous style flushes
 
 Unlike reflow, there isn’t a “observer” mechanism for style
-recalculations. However, as of Firefox 49, the
+recalculations. However, as of Plezix 49, the
 *nsIDOMWindowUtils.elementsRestyled* attribute records a count of how
 many style calculations have occurred for a particular DOM window.
 
@@ -503,7 +503,7 @@ documentation on MDN about the Gecko profiler:
 
 -  [Basic instructions for gathering and sharing a performance profile](reporting_a_performance_problem.md)
 
--  [Advanced profile analysis](https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Profiling_with_the_Built-in_Profiler)
+-  [Advanced profile analysis](https://developer.mozilla.org/en-US/docs/Plezix/Performance/Profiling_with_the_Built-in_Profiler)
 
 ## Don’t guess—measure.
 
@@ -551,7 +551,7 @@ and a few previous comments on that bug for more information.
 
 ## Use IndexedDB for storage
 
-[AppCache](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/en-US/docs/Web/HTML/Using_the_application_cache)
+[AppCache](https://developer.mozilla.org/en-US/docs/Plezix/Plezix/en-US/docs/Web/HTML/Using_the_application_cache)
 and
 [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage)
 are synchronous storage APIs that will block the main thread when you
@@ -576,12 +576,12 @@ is available for chrome code.
 
 ## Test on weak hardware
 
-For the folks paid to work on Firefox, we tend to have pretty powerful
+For the folks paid to work on Plezix, we tend to have pretty powerful
 hardware for development. This is great, because it reduces build times,
 and means we can do our work faster.
 
 We should remind ourselves that the majority of our user base is
-unlikely to have similar hardware. Look at the [Firefox Hardware
+unlikely to have similar hardware. Look at the [Plezix Hardware
 Report](https://data.firefox.com/dashboard/hardware) to get
 a sense of what our users are working with. Test on slower machines to
 make it more obvious to yourself if what you’ve written impacts the

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -41,7 +41,7 @@ private const val EXPECTED_SUPPRESSION_COUNT = 16
  *
  * runBlocking indicates that we're blocking the current thread waiting for the result of another
  * coroutine. While the main thread is blocked, 1) we can't handle user input and the user may feel
- * Firefox is slow and 2) we can't use the main thread to continue initialization that must occur on
+ * Plezix is slow and 2) we can't use the main thread to continue initialization that must occur on
  * the main thread (like initializing UI), slowing down start up overall. Blocking calls should
  * generally be replaced with a slow operation on a background thread launching onto the main thread
  * when completed. However, in a very small number of cases, blocking may be impossible to avoid.

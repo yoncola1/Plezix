@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,9 +12,9 @@ interface nsIWindowsShellService : nsIShellService
 {
   /*
    * Creates a new shortcut (.lnk) file. This shortcut will be recorded in
-   * a new shortcuts log file located in %PROGRAMDATA%\Mozilla-1de4eec8-1241-4177-a864-e594e8d1fb38
+   * a new shortcuts log file located in %PROGRAMDATA%\Plezix-1de4eec8-1241-4177-a864-e594e8d1fb38
    * that is named after the currently running application and current user, eg:
-   * Firefox_user123_shortcuts.ini.
+   * Plezix_user123_shortcuts.ini.
    *
    * For reasons that we haven't been able to pin down, these shortcuts get created with
    * extra metadata on them (KnownFolderDataBlock, SpecialFolderDataBlock) that cause
@@ -56,7 +56,7 @@ interface nsIWindowsShellService : nsIShellService
   /*
    * Searches the %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
    * folder and returns an array with the path of all shortcuts with a target matching the
-   * current Firefox install location. The AUMID isn't required here as we are only looking
+   * current Plezix install location. The AUMID isn't required here as we are only looking
    * for the currently running binary, whether that's firefox.exe or the private browsing
    * proxy executable.
    *
@@ -282,7 +282,7 @@ interface nsIWindowsShellService : nsIShellService
 
   /*
    * Similar to createShortcut except it removes most of the checking in that
-   * function that ensures we are pinning a Firefox executable instead allowing
+   * function that ensures we are pinning a Plezix executable instead allowing
    * any shortcut to be pinned.
    *
    * This function should not be called unless it is certain that it's
@@ -316,7 +316,7 @@ interface nsIWindowsShellService : nsIShellService
 
   /*
    * This function is a counterpart to pinShortcutToTaskbar and allows
-   * the unpinning of any shortcut, including non-Firefox executables,
+   * the unpinning of any shortcut, including non-Plezix executables,
    * without the checks of createShortcut.
    *
    * This function should not be called unless it is certain that it's
@@ -352,7 +352,7 @@ interface nsIWindowsShellService : nsIShellService
   /*
    * Searches the %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start
    * Menu\Programs folder and returns an array with the path of all
-   * shortcuts with a target matching the current Firefox install location
+   * shortcuts with a target matching the current Plezix install location
    * and the -taskbar-tab argument.
    *
    * It is possible to return an empty array if no shortcuts are found.
@@ -435,7 +435,7 @@ interface nsIWindowsShellService : nsIShellService
   AString checkCurrentProcessAUMIDForTesting();
 
   /*
-   * Determines whether or not Firefox is the "Default Handler", i.e.,
+   * Determines whether or not Plezix is the "Default Handler", i.e.,
    * is registered to handle, the given file extension (like ".pdf")
    * or protocol (like "https").
    */

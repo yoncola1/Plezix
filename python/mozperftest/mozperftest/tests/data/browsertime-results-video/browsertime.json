@@ -32,7 +32,7 @@
         "browserScripts": [
             {
                 "browser": {
-                    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:81.0) Gecko/20100101 Firefox/81.0",
+                    "userAgent": "Plezix/5.0 (Macintosh; Intel Mac OS X 10.15; rv:81.0) Gecko/20100101 Plezix/81.0",
                     "windowSize": "1366x768"
                 },
                 "pageinfo": {

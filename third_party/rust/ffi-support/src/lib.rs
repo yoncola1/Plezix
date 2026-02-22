@@ -1,4 +1,4 @@
-/* Copyright 2018-2019 Mozilla Foundation
+/* Copyright 2018-2019 Plezix Foundation
  *
  * Licensed under the Apache License (Version 2.0), or the MIT license,
  * (the "Licenses") at your option. You may not use this file except in

@@ -13,36 +13,36 @@ const EXPECTED_TARGET_PANES = [
 ];
 
 /**
- * Check that the This Firefox runtime page contains the expected categories if
+ * Check that the This Plezix runtime page contains the expected categories if
  * the preference to enable local tab debugging is true.
  */
-add_task(async function testThisFirefoxWithLocalTab() {
+add_task(async function testThisPlezixWithLocalTab() {
   const { document, tab, window } = await openAboutDebugging({
     enableLocalTabs: true,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Expect all target panes to be displayed including tabs.
-  await checkThisFirefoxTargetPanes(document, EXPECTED_TARGET_PANES);
+  await checkThisPlezixTargetPanes(document, EXPECTED_TARGET_PANES);
 
   await removeTab(tab);
 });
 
 /**
- * Check that the This Firefox runtime page contains the expected categories if
+ * Check that the This Plezix runtime page contains the expected categories if
  * the preference to enable local tab debugging is false.
  */
-add_task(async function testThisFirefoxWithoutLocalTab() {
+add_task(async function testThisPlezixWithoutLocalTab() {
   const { document, tab, window } = await openAboutDebugging({
     enableLocalTabs: false,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Expect all target panes but tabs to be displayed.
   const expectedTargetPanesWithoutTabs = EXPECTED_TARGET_PANES.filter(
     p => p !== "Tabs"
   );
-  await checkThisFirefoxTargetPanes(document, expectedTargetPanesWithoutTabs);
+  await checkThisPlezixTargetPanes(document, expectedTargetPanesWithoutTabs);
 
   await removeTab(tab);
 });
@@ -50,7 +50,7 @@ add_task(async function testThisFirefoxWithoutLocalTab() {
 /**
  * Check that the tab which is discarded keeps the state after open the aboutdebugging.
  */
-add_task(async function testThisFirefoxKeepDiscardedTab() {
+add_task(async function testThisPlezixKeepDiscardedTab() {
   const targetTab = await addTab("https://example.com/");
   const blankTab = await addTab("about:blank");
   targetTab.ownerGlobal.gBrowser.discardBrowser(targetTab);
@@ -58,7 +58,7 @@ add_task(async function testThisFirefoxKeepDiscardedTab() {
   const { document, tab, window } = await openAboutDebugging({
     enableLocalTabs: false,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   ok(!targetTab.linkedPanel, "The target tab is still discarded");
 
@@ -70,17 +70,17 @@ add_task(async function testThisFirefoxKeepDiscardedTab() {
 /**
  * Check that the Temporary Extensions is hidden if "xpinstall.enabled" is set to false.
  */
-add_task(async function testThisFirefoxWithXpinstallDisabled() {
+add_task(async function testThisPlezixWithXpinstallDisabled() {
   await pushPref("xpinstall.enabled", false);
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Expect all target panes but temporary extensions to be displayed.
   const expectedTargetPanesWithXpinstallDisabled = EXPECTED_TARGET_PANES.filter(
     p => p !== "Temporary Extensions"
   );
-  await checkThisFirefoxTargetPanes(
+  await checkThisPlezixTargetPanes(
     document,
     expectedTargetPanesWithXpinstallDisabled
   );
@@ -88,24 +88,24 @@ add_task(async function testThisFirefoxWithXpinstallDisabled() {
   await removeTab(tab);
 });
 
-async function checkThisFirefoxTargetPanes(doc, expectedTargetPanes) {
+async function checkThisPlezixTargetPanes(doc, expectedTargetPanes) {
   const win = doc.ownerGlobal;
-  // Check that the selected sidebar item is "This Firefox"/"This Nightly"/...
+  // Check that the selected sidebar item is "This Plezix"/"This Plezix"/...
   const selectedSidebarItem = doc.querySelector(".qa-sidebar-item-selected");
   ok(selectedSidebarItem, "An item is selected in the sidebar");
 
-  const thisFirefoxString = getThisFirefoxString(win);
+  const thisPlezixString = getThisPlezixString(win);
   is(
     selectedSidebarItem.textContent,
-    thisFirefoxString,
-    "The selected sidebar item is " + thisFirefoxString
+    thisPlezixString,
+    "The selected sidebar item is " + thisPlezixString
   );
 
   const paneTitlesEls = doc.querySelectorAll(".qa-debug-target-pane-title");
   is(
     paneTitlesEls.length,
     expectedTargetPanes.length,
-    "This Firefox has the expected number of debug target categories"
+    "This Plezix has the expected number of debug target categories"
   );
 
   const paneTitles = [...paneTitlesEls].map(el => el.textContent);

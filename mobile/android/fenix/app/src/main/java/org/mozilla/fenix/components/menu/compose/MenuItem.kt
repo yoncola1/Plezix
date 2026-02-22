@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.ImageListItem
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val MENU_ITEM_HEIGHT_WITHOUT_DESC = 52.dp
 
@@ -132,7 +132,7 @@ internal fun MenuItem(
             .wrapContentSize()
             .clip(shape = ROUNDED_CORNER_SHAPE)
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = PlezixTheme.colors.layer3,
             ),
         labelModifier = labelModifier,
         labelTextColor = labelTextColor,
@@ -187,7 +187,7 @@ internal fun MenuTextItem(
         modifier = modifier
             .clip(shape = ROUNDED_CORNER_SHAPE)
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = PlezixTheme.colors.layer3,
             ),
         iconPainter = iconPainter,
         onClick = onClick,
@@ -240,7 +240,7 @@ internal fun WebExtensionMenuItem(
             .wrapContentSize()
             .clip(shape = ROUNDED_CORNER_SHAPE)
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = PlezixTheme.colors.layer3,
             ),
         afterListItemAction = {
             Row(
@@ -251,7 +251,7 @@ internal fun WebExtensionMenuItem(
                 if (!badgeText.isNullOrEmpty()) {
                     Badge(
                         badgeText = badgeText,
-                        badgeBackgroundColor = FirefoxTheme.colors.layerSearch,
+                        badgeBackgroundColor = PlezixTheme.colors.layerSearch,
                     )
                 }
 
@@ -260,7 +260,7 @@ internal fun WebExtensionMenuItem(
                         .padding(vertical = 6.dp)
                         .fillMaxHeight()
                         .width(1.dp),
-                    color = FirefoxTheme.colors.borderPrimary,
+                    color = PlezixTheme.colors.borderPrimary,
                 )
 
                 IconButton(
@@ -269,7 +269,7 @@ internal fun WebExtensionMenuItem(
                 ) {
                     Icon(
                         painter = painterResource(R.drawable.mozac_ic_settings_24),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                         contentDescription = null,
                     )
                 }
@@ -291,10 +291,10 @@ internal fun MenuBadgeItem(
     val badgeBackgroundColor: Color
 
     if (checked) {
-        badgeBackgroundColor = FirefoxTheme.colors.badgeActive
+        badgeBackgroundColor = PlezixTheme.colors.badgeActive
         state = MenuItemState.ACTIVE
     } else {
-        badgeBackgroundColor = FirefoxTheme.colors.layerSearch
+        badgeBackgroundColor = PlezixTheme.colors.layerSearch
         state = MenuItemState.DISABLED
     }
 
@@ -306,7 +306,7 @@ internal fun MenuBadgeItem(
             ) { onClick() }
             .clip(shape = ROUNDED_CORNER_SHAPE)
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = PlezixTheme.colors.layer3,
             )
             .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -321,7 +321,7 @@ internal fun MenuBadgeItem(
                     .defaultMinSize(minHeight = 24.dp)
                     .wrapContentHeight(),
                 color = getLabelTextColor(state),
-                style = FirefoxTheme.typography.body1,
+                style = PlezixTheme.typography.body1,
             )
 
             Text(
@@ -329,8 +329,8 @@ internal fun MenuBadgeItem(
                 modifier = Modifier
                     .defaultMinSize(minHeight = 20.dp)
                     .wrapContentHeight(),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.caption,
+                color = PlezixTheme.colors.textSecondary,
+                style = PlezixTheme.typography.caption,
             )
         }
 
@@ -352,7 +352,7 @@ internal fun Badge(
         modifier = Modifier
             .clip(shape = RoundedCornerShape(BADGE_ROUNDED_CORNER))
             .background(
-                color = badgeBackgroundColor ?: FirefoxTheme.colors.layer2,
+                color = badgeBackgroundColor ?: PlezixTheme.colors.layer2,
             )
             .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -362,7 +362,7 @@ internal fun Badge(
             text = badgeText,
             color = getLabelTextColor(state),
             overflow = TextOverflow.Ellipsis,
-            style = FirefoxTheme.typography.subtitle2,
+            style = PlezixTheme.typography.subtitle2,
             maxLines = 1,
         )
     }
@@ -401,39 +401,39 @@ enum class MenuItemState {
 @Composable
 private fun getLabelTextColor(state: MenuItemState): Color {
     return when (state) {
-        MenuItemState.ACTIVE -> FirefoxTheme.colors.textAccent
-        MenuItemState.WARNING -> FirefoxTheme.colors.textCritical
-        else -> FirefoxTheme.colors.textPrimary
+        MenuItemState.ACTIVE -> PlezixTheme.colors.textAccent
+        MenuItemState.WARNING -> PlezixTheme.colors.textCritical
+        else -> PlezixTheme.colors.textPrimary
     }
 }
 
 @Composable
 private fun getDescriptionTextColor(state: MenuItemState): Color {
     return when (state) {
-        MenuItemState.ACTIVE -> FirefoxTheme.colors.textAccent
-        MenuItemState.WARNING -> FirefoxTheme.colors.textCritical
-        MenuItemState.DISABLED -> FirefoxTheme.colors.textDisabled
-        else -> FirefoxTheme.colors.textSecondary
+        MenuItemState.ACTIVE -> PlezixTheme.colors.textAccent
+        MenuItemState.WARNING -> PlezixTheme.colors.textCritical
+        MenuItemState.DISABLED -> PlezixTheme.colors.textDisabled
+        else -> PlezixTheme.colors.textSecondary
     }
 }
 
 @Composable
 private fun getIconTint(state: MenuItemState): Color {
     return when (state) {
-        MenuItemState.ACTIVE -> FirefoxTheme.colors.iconAccentViolet
-        MenuItemState.WARNING -> FirefoxTheme.colors.iconCritical
+        MenuItemState.ACTIVE -> PlezixTheme.colors.iconAccentViolet
+        MenuItemState.WARNING -> PlezixTheme.colors.iconCritical
         MenuItemState.CRITICAL -> Color.Unspecified
-        else -> FirefoxTheme.colors.iconPrimary
+        else -> PlezixTheme.colors.iconPrimary
     }
 }
 
 @PreviewLightDark
 @Composable
 private fun WebExtensionMenuItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2),
+                .background(color = PlezixTheme.colors.layer2),
         ) {
             WebExtensionMenuItem(
                 label = "label",
@@ -450,10 +450,10 @@ private fun WebExtensionMenuItemPreview() {
 @PreviewLightDark
 @Composable
 private fun MenuItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3)
+                .background(color = PlezixTheme.colors.layer3)
                 .padding(16.dp),
         ) {
             MenuGroup {
@@ -465,7 +465,7 @@ private fun MenuItemPreview() {
                         onClick = {},
                     )
 
-                    Divider(color = FirefoxTheme.colors.borderSecondary)
+                    Divider(color = PlezixTheme.colors.borderSecondary)
                 }
 
                 for (state in MenuItemState.entries) {
@@ -477,7 +477,7 @@ private fun MenuItemPreview() {
                         afterIconPainter = painterResource(id = R.drawable.mozac_ic_chevron_right_24),
                     )
 
-                    Divider(color = FirefoxTheme.colors.borderSecondary)
+                    Divider(color = PlezixTheme.colors.borderSecondary)
                 }
 
                 for (state in MenuItemState.entries) {
@@ -491,7 +491,7 @@ private fun MenuItemPreview() {
                         onAfterIconClick = {},
                     )
 
-                    Divider(color = FirefoxTheme.colors.borderSecondary)
+                    Divider(color = PlezixTheme.colors.borderSecondary)
                 }
             }
         }
@@ -501,10 +501,10 @@ private fun MenuItemPreview() {
 @PreviewLightDark
 @Composable
 private fun MenuBadgeItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2),
+                .background(color = PlezixTheme.colors.layer2),
         ) {
             MenuBadgeItem(
                 label = stringResource(id = R.string.protection_panel_etp_toggle_label),

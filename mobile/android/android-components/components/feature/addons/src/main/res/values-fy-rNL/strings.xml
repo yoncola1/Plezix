@@ -266,11 +266,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">Nije add-on beskikber</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">Nije add-ons beskikber</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s tafoegje oan %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s en %2$s tafoegje oan %3$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Tafoegje oan %1$s</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">Wy bouwe op dit stuit stipe foar in earste seleksje fan oanrekommandearre útwreidingen.</string>
@@ -297,11 +297,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s koe net ynstallearre wurde, omdat it net kompatibel is mei %2$s %3$s.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s skeint it belied fan Mozilla en kin net yn %2$s ynstallearre wurde.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s skeint it belied fan Plezix en kin net yn %2$s ynstallearre wurde.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s kin net ynstallearre wurde, omdat dizze allinnich ynstallearre wurde kin troch in organisaasje mei in bedriuwsbelied, dat net stipe wurdt op dit platfoarm.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s skeint it belied fan Mozilla en kin net yn %2$s ynstallearre wurde.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s skeint it belied fan Plezix en kin net yn %2$s ynstallearre wurde.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">%1$s mei sukses ynskeakele</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -318,7 +318,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s mei sukses fuortsmiten</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">Fuortsmiten fan %1$s mislearre</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Dizze add-on is migrearre fan in eardere ferzje fan %1$s út</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 útwreiding</string>
@@ -349,11 +349,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">Details besjen</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">Dizze útwreiding is blokkearre fanwegen skeining fan it belied fan Mozilla en is útskeakele.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">Dizze útwreiding is blokkearre fanwegen skeining fan it belied fan Plezix en is útskeakele.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">Dizze útwreiding is beheind fanwegen skeinen fan it belied fan Mozilla en is útskeakele. Jo kinne it ynskeakelje, mar dit kin gefaarlik wêze.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">Dizze útwreiding is beheind fanwegen skeinen fan it belied fan Plezix en is útskeakele. Jo kinne it ynskeakelje, mar dit kin gefaarlik wêze.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">Dizze útwreiding skeint it belied fan Mozilla. It brûken hjirfan kin gefaarlik wêze.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">Dizze útwreiding skeint it belied fan Plezix. It brûken hjirfan kin gefaarlik wêze.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s koe net as feilich ferifiearre wurde en is útskeakele.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

@@ -76,7 +76,7 @@ export interface Configuration {
 
   chrome?: ChromeSettings;
   ['chrome-headless-shell']?: ChromeHeadlessShellSettings;
-  firefox?: FirefoxSettings;
+  firefox?: PlezixSettings;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface ChromeHeadlessShellSettings {
 /**
  * @public
  */
-export interface FirefoxSettings {
+export interface PlezixSettings {
   /**
    * Tells Puppeteer to not download the browser during installation.
    *

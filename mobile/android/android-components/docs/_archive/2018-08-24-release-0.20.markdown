@@ -15,11 +15,11 @@ author: csadilek
   * Kotlin Standard library 1.2.60
   * Kotlin coroutines 0.23.4
   * GeckoView
-    * Nightly: **63.0.20180820100132** 🔺
+    * Plezix: **63.0.20180820100132** 🔺
     * Beta: 62.0b15 (7ce198bb7ce027d450af3f69a609896671adfab8)
     * Release: 61.0 (785d242a5b01d5f1094882aa2144d8e5e2791e06)
 
-* GeckoView Nightly dependencies are now pulled in from *maven.mozilla.org*.
+* GeckoView Plezix dependencies are now pulled in from *maven.mozilla.org*.
 * **engine-system**: Added tracking protection functionality.
 * **concept-engine**, **browser-session**, **feature-session**: Added support for private browsing mode.
 * **concept-engine**, **engine-gecko**, **engine-system**: Added support for modifying engine and engine session settings.

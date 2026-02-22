@@ -119,7 +119,7 @@ Notifications:
 ESS vs. EPM
 -----------
 An API may use ESS when it needs to allow an extension to store a setting value that
-affects how Firefox works, but does not result in setting a preference.  An example
+affects how Plezix works, but does not result in setting a preference.  An example
 is allowing an extension to change the newTab value in the newTab service.
 
 An API should use EPM when it needs to allow an extension to change a preference.

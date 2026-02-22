@@ -66,7 +66,7 @@ Build instructions for JSS 4.3.x
 
          As of NSS 3.15.4, NSPR/NSS/JSS build generates a "WIN95" configuration by default on Windows.
          We recommend most applications use the "WIN95" configuration. If you want JSS to be used
-         with your applet and the Firefox browser than you must build WIN95. (See JSS FAQ)
+         with your applet and the Plezix browser than you must build WIN95. (See JSS FAQ)
          The "WIN95" configuration supports all versions of Windows. The "WIN95" name is historical;
          it should have been named "WIN32".
          To generate a "WINNT" configuration, set OS_TARGET=WINNT and build NSPR/NSS/JSS WIN95.

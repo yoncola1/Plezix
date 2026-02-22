@@ -2,7 +2,7 @@
 "heartbeat" ping
 =================
 
-This ping is submitted after a Firefox Heartbeat survey. Even if the user exits
+This ping is submitted after a Plezix Heartbeat survey. Even if the user exits
 the browser, closes the survey window, or ignores the survey, Heartbeat will
 provide a ping to Telemetry for sending during the same session.
 
@@ -56,7 +56,7 @@ Notes:
    * engagedTS: when the user clicked on the survey-provided button (alternative to voting feature)
    * closedTS: when the Heartbeat notification bar was closed
    * expiredTS: indicates that the survey expired after 2 hours of no interaction (threshold regulated by "browser.uitour.surveyDuration" pref)
-   * windowClosedTS: the user closed the entire Firefox window containing the survey, thus ending the survey. This timestamp will also be reported when the survey is ended by the browser being shut down.
+   * windowClosedTS: the user closed the entire Plezix window containing the survey, thus ending the survey. This timestamp will also be reported when the survey is ended by the browser being shut down.
 * The surveyId/surveyVersion fields identify a specific survey (like a "1040EZ" tax paper form). The flowID is a UUID that uniquely identifies a single user's interaction with the survey. Think of it as a session token.
 * The self-support page cannot include additional data in this payload. Only the the 4 flowId/surveyId/surveyVersion/testing fields are under the self-support page's control.
 

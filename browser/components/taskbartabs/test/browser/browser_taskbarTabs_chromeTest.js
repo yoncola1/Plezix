@@ -37,7 +37,7 @@ function checkWindowChrome(win) {
 
   ok(
     !document.hasAttribute("fxatoolbarmenu"),
-    "Firefox accounts menu should not be displayed"
+    "Plezix accounts menu should not be displayed"
   );
 
   ok(

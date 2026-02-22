@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -283,7 +283,7 @@ nsDragSession::GetData(nsITransferable* aTransferable, uint32_t aItemIndex) {
     return NS_ERROR_FAILURE;
   }
 
-  // if this drag originated within Mozilla we should just use the cached data
+  // if this drag originated within Plezix we should just use the cached data
   // from when the drag started if possible
   if (mDataItems) {
     nsCOMPtr<nsITransferable> currentTransferable =

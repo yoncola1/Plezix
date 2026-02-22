@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -28,7 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * An horizontally laid out indicator for a [HorizontalPager] with the ability to leave the trail of
@@ -47,8 +47,8 @@ import org.mozilla.fenix.theme.FirefoxTheme
 fun PagerIndicator(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
-    activeColor: Color = FirefoxTheme.colors.indicatorActive,
-    inactiveColor: Color = FirefoxTheme.colors.indicatorInactive,
+    activeColor: Color = PlezixTheme.colors.indicatorActive,
+    inactiveColor: Color = PlezixTheme.colors.indicatorInactive,
     leaveTrail: Boolean = false,
     spacing: Dp = 8.dp,
 ) {
@@ -84,25 +84,25 @@ fun PagerIndicator(
 @PreviewLightDark
 @Composable
 private fun PagerIndicatorPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = "Without trail",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.caption,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             PagerIndicator(
                 pagerState = rememberPagerState(1, pageCount = { 3 }),
-                activeColor = FirefoxTheme.colors.actionPrimary,
-                inactiveColor = FirefoxTheme.colors.actionSecondary,
+                activeColor = PlezixTheme.colors.actionPrimary,
+                inactiveColor = PlezixTheme.colors.actionSecondary,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
 
@@ -110,16 +110,16 @@ private fun PagerIndicatorPreview() {
 
             Text(
                 text = "With trail",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.caption,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             PagerIndicator(
                 pagerState = rememberPagerState(1, pageCount = { 3 }),
-                activeColor = FirefoxTheme.colors.actionPrimary,
-                inactiveColor = FirefoxTheme.colors.actionSecondary,
+                activeColor = PlezixTheme.colors.actionPrimary,
+                inactiveColor = PlezixTheme.colors.actionSecondary,
                 leaveTrail = true,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
@@ -128,8 +128,8 @@ private fun PagerIndicatorPreview() {
 
             Text(
                 text = "Default colors",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = PlezixTheme.typography.caption,
+                color = PlezixTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))

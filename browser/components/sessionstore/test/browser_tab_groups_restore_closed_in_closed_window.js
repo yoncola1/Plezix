@@ -12,7 +12,7 @@ registerCleanupFunction(async () => {
 
 add_task(async function test_restoreClosedTabGroupFromClosedWindow() {
   let win = await promiseNewWindowLoaded();
-  let aboutMozillaTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
+  let aboutPlezixTab = BrowserTestUtils.addTab(win.gBrowser, "about:mozilla");
   let aboutRobotsTab = BrowserTestUtils.addTab(win.gBrowser, "about:robots");
   let aboutAboutTab = BrowserTestUtils.addTab(win.gBrowser, "about:about");
   const tabGroupToClose = win.gBrowser.addTabGroup(
@@ -25,7 +25,7 @@ add_task(async function test_restoreClosedTabGroupFromClosedWindow() {
   const tabGroupToCloseId = tabGroupToClose.id;
   await Promise.all([
     BrowserTestUtils.browserLoaded(
-      aboutMozillaTab.linkedBrowser,
+      aboutPlezixTab.linkedBrowser,
       false,
       "about:mozilla"
     ),

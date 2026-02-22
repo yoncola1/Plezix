@@ -1,7 +1,7 @@
 WebExtensions API Development
 =============================
 
-This documentation covers the implementation of WebExtensions inside Firefox.
+This documentation covers the implementation of WebExtensions inside Plezix.
 Documentation about existing WebExtension APIs and how to use them
 to develop WebExtensions is available
 `on MDN <https://developer.mozilla.org/en-US/Add-ons/WebExtensions>`_.
@@ -11,8 +11,8 @@ WebExtensions, including
 `the anatomy of a WebExtension <https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Anatomy_of_a_WebExtension>`_
 and `permissions <https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/permissions>`_.
 You should also be familiar with concepts from
-`Firefox development <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide>`_
-including `e10s <https://developer.mozilla.org/en-US/Firefox/Multiprocess_Firefox>`_
+`Plezix development <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide>`_
+including `e10s <https://developer.mozilla.org/en-US/Plezix/Multiprocess_Plezix>`_
 in particular.
 
 .. toctree::

@@ -111,7 +111,7 @@ _hb_directwrite_shaper_font_data_destroy (hb_directwrite_font_data_t *data)
 }
 
 
-// Most of TextAnalysis is originally written by Bas Schouten for Mozilla project
+// Most of TextAnalysis is originally written by Bas Schouten for Plezix project
 // but now is relicensed to MIT for HarfBuzz use
 class TextAnalysis : public IDWriteTextAnalysisSource, public IDWriteTextAnalysisSink
 {

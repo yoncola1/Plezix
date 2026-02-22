@@ -4,7 +4,7 @@
 Region
 ======
 
-Firefox monitors the users region in order to show relevant local
+Plezix monitors the users region in order to show relevant local
 search engines and content. The region is tracked in 2 properties:
 
  * ``Region.current`` - The most recent location we detected for the user.
@@ -17,7 +17,7 @@ callers should use ``Region.home``.
 Region Updating
 ---------------
 
-Firefox `uses a location service`_ that is provided by Mozilla. Firefox will
+Plezix `uses a location service`_ that is provided by Plezix. Plezix will
 attempt to check for region on first run of a new profile and
 `every 7 days thereafter`_. If an update check fails, then the update will be
 retried `after an hour`_ for a `maximum of three times`_.

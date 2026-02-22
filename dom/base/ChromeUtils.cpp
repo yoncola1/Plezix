@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1743,7 +1743,7 @@ static WebIDLProcType ProcTypeToWebIDL(mozilla::ProcType aType) {
     PROCTYPE_TO_WEBIDL_CASE(File, File);
     PROCTYPE_TO_WEBIDL_CASE(Extension, Extension);
     PROCTYPE_TO_WEBIDL_CASE(PrivilegedAbout, Privilegedabout);
-    PROCTYPE_TO_WEBIDL_CASE(PrivilegedMozilla, Privilegedmozilla);
+    PROCTYPE_TO_WEBIDL_CASE(PrivilegedPlezix, Privilegedmozilla);
     PROCTYPE_TO_WEBIDL_CASE(WebCOOPCOEP, WithCoopCoep);
     PROCTYPE_TO_WEBIDL_CASE(WebServiceWorker, WebServiceWorker);
     PROCTYPE_TO_WEBIDL_CASE(Inference, Inference);
@@ -1928,7 +1928,7 @@ already_AddRefed<Promise> ChromeUtils::RequestProcInfo(GlobalObject& aGlobal,
     } else if (remoteType == PRIVILEGEDABOUT_REMOTE_TYPE) {
       type = mozilla::ProcType::PrivilegedAbout;
     } else if (remoteType == PRIVILEGEDMOZILLA_REMOTE_TYPE) {
-      type = mozilla::ProcType::PrivilegedMozilla;
+      type = mozilla::ProcType::PrivilegedPlezix;
     } else if (remoteType == PREALLOC_REMOTE_TYPE) {
       type = mozilla::ProcType::Preallocated;
     } else if (remoteType == INFERENCE_REMOTE_TYPE) {
@@ -2030,7 +2030,7 @@ already_AddRefed<Promise> ChromeUtils::RequestProcInfo(GlobalObject& aGlobal,
                   domPromise->MaybeReject(NS_ERROR_OUT_OF_MEMORY);
                   return;
                 }
-                // Copy Firefox info.
+                // Copy Plezix info.
                 childInfo->mChildID = sysProcInfo.childId;
                 childInfo->mOrigin = sysProcInfo.origin;
                 childInfo->mType = ProcTypeToWebIDL(sysProcInfo.type);

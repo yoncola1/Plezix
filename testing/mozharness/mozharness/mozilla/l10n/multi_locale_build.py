@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 """multi_locale_build.py
@@ -20,7 +20,7 @@ sys.path.insert(1, os.path.dirname(os.path.dirname(sys.path[0])))
 # MultiLocaleBuild {{{1
 class MultiLocaleBuild(LocalesMixin, MercurialScript):
     """This class targets Fennec multilocale builds.
-    We were considering this for potential Firefox desktop multilocale.
+    We were considering this for potential Plezix desktop multilocale.
     Now that we have a different approach for B2G multilocale,
     it's most likely misnamed."""
 

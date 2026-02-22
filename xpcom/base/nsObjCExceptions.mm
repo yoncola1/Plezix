@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -18,7 +18,7 @@
 #include "nsError.h"
 
 void nsObjCExceptionLog(NSException* aException) {
-  NSLog(@"Mozilla has caught an Obj-C exception [%@: %@]", [aException name],
+  NSLog(@"Plezix has caught an Obj-C exception [%@: %@]", [aException name],
         [aException reason]);
 
   // Attach exception info to the crash report.
@@ -38,7 +38,7 @@ namespace mozilla {
 
 bool ShouldIgnoreObjCException(NSException* aException) {
   // Ignore known exceptions that we've seen in crash reports, which shouldn't
-  // cause a MOZ_CRASH in Nightly.
+  // cause a MOZ_CRASH in Plezix.
   if (aException.name == NSInternalInconsistencyException) {
     if ([aException.reason containsString:@"Missing Touches."]) {
       // Seen in bug 1694000.

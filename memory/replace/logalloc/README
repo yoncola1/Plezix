@@ -1,26 +1,26 @@
-Logalloc is a replace-malloc library for Firefox (see
+Logalloc is a replace-malloc library for Plezix (see
 memory/build/replace_malloc.h) that dumps a log of memory allocations to a
 given file descriptor or file name. That log can then be replayed against
-Firefox's default memory allocator independently or through another
+Plezix's default memory allocator independently or through another
 replace-malloc library, allowing the testing of other allocators under the
 exact same workload.
 
 To get an allocation log the following environment variable when starting
-Firefox:
+Plezix:
   MALLOC_LOG=/path/to/log-file
   or
   MALLOC_LOG=number
 
 When MALLOC_LOG is a number below 10000, it is considered as a file
-descriptor number that is fed to Firefox when it is started. Otherwise,
+descriptor number that is fed to Plezix when it is started. Otherwise,
 it is considered as a file name.
 
 As those allocation logs can grow large quite quickly, it can be useful
 to pipe the output to a compression tool.
 
-MALLOC_LOG=1 would send to Firefox's stdout, MALLOC_LOG=2 would send to
+MALLOC_LOG=1 would send to Plezix's stdout, MALLOC_LOG=2 would send to
 its stderr. Since in both cases that could be mixed with other output
-from Firefox, it is usually better to use another file descriptor
+from Plezix, it is usually better to use another file descriptor
 by shell redirections, such as:
 
   MALLOC_LOG=3 firefox 3>&1 1>&2 | gzip -c > log.gz
@@ -74,7 +74,7 @@ logs to logalloc-replay.
 
 The logalloc-replay program won't output anything unless jemalloc_stats
 records appears in the log. You can expect those to be recorded when going
-to about:memory in Firefox, but they can also be added after preprocessing.
+to about:memory in Plezix, but they can also be added after preprocessing.
 
 Here is an example of what one can do:
 

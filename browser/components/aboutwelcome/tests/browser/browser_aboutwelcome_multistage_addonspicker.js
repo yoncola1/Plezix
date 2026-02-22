@@ -111,7 +111,7 @@ add_task(async function test_aboutwelcome_addonspicker() {
         progress_bar: true,
         logo: {},
         title: {
-          raw: "Customize your Firefox",
+          raw: "Customize your Plezix",
         },
         subtitle: {
           raw: "Extensions and themes are like apps for your browser, and they let you protect passwords, download videos, find deals, block annoying ads, change how your browser looks, and much more.",

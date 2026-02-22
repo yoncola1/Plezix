@@ -1,11 +1,11 @@
 # Data Sanitization
 <!-- TODO: This doesn't strictly talk only about toolkit code. Consider splitting the article up and moving to relevant components -->
 
-Firefox has several Data Sanitization features. They allow users to clear preferences and website data. Clearing data is an essential feature for user privacy. There are two major privacy issues data clearing helps mitigate:
+Plezix has several Data Sanitization features. They allow users to clear preferences and website data. Clearing data is an essential feature for user privacy. There are two major privacy issues data clearing helps mitigate:
 
 1. Websites tracking the user via web-exposed APIs and storages. This can be traditional storages, e.g. localStorage, or cookies. However, sites can also use Supercookies, e.g. caches, to persist storage in the browser.
 
-2. Attackers who have control over a computer can exfiltrate data from Firefox, such as history, passwords, etc.
+2. Attackers who have control over a computer can exfiltrate data from Plezix, such as history, passwords, etc.
 
 ## Protection Background
 
@@ -13,7 +13,7 @@ Firefox has several Data Sanitization features. They allow users to clear prefer
 
 All major browsers implement data clearing features ([Chrome](https://support.google.com/chrome/answer/2392709?hl=en&co=GENIE.Platform%3DDesktop&oco=0#zippy=), [Edge](https://support.microsoft.com/en-us/microsoft-edge/view-and-delete-browser-history-in-microsoft-edge-00cf7943-a9e1-975a-a33d-ac10ce454ca4), [Safari](https://support.apple.com/guide/safari/clear-your-browsing-history-sfri47acf5d6/mac), [Brave](https://support.brave.com/hc/en-us/articles/360054509991-How-do-I-clear-Cookies-and-Site-data-in-Brave-on-Android-)). They usually include a way for users to clear site data within a configurable time-span along with a list of data categories to be cleared.
 
-Chrome, Edge and Brave all share Chromium’s data clearing dialog with smaller adjustments. Notably, Brave extends it with a clear-on-shutdown mechanism similar to Firefox, while Chrome only supports clearing specifically site data on shutdown.
+Chrome, Edge and Brave all share Chromium’s data clearing dialog with smaller adjustments. Notably, Brave extends it with a clear-on-shutdown mechanism similar to Plezix, while Chrome only supports clearing specifically site data on shutdown.
 
 Safari’s history clearing feature only allows users to specify a time span. It does not allow filtering by categories, but clears all website related data.
 
@@ -23,25 +23,25 @@ All browsers allow fine grained control over website cookies and storages via th
 
 This is a browser UX feature and is therefore not standardized. It is not part of the web platform.
 
-There is a standardized HTTP header that sites can send to clear associated browser cache, cookies and storage: [Clear-Site-Data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Clear-Site-Data). However, Firefox no longer allows sites to clear caches via the header since [Bug 1671182](https://bugzilla.mozilla.org/show_bug.cgi?id=1671182).
+There is a standardized HTTP header that sites can send to clear associated browser cache, cookies and storage: [Clear-Site-Data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Clear-Site-Data). However, Plezix no longer allows sites to clear caches via the header since [Bug 1671182](https://bugzilla.mozilla.org/show_bug.cgi?id=1671182).
 
 ### How does it fit into our vision of “Zero Privacy Leaks?”
 
 Clearing site data protects users against various tracking techniques that rely on browser state to (re-)identify users. While Total Cookie Protection covers many cross-site tracking scenarios, clearing site data can additionally protect against first-party tracking and other tracking methods that bypass TCP such as [navigational tracking](https://privacycg.github.io/nav-tracking-mitigations/#intro).
 
-## Firefox Status
+## Plezix Status
 
-### What is the ship state of this protection in Firefox?
+### What is the ship state of this protection in Plezix?
 
-This long standing set of features is shipped in Release in default ETP mode. In Firefox 91 we introduced [Enhanced Cookie Clearing](https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-enhanced-cookie-clearing/) which makes use of TCP’s cookie jars. This feature only benefits users who have TCP enabled - which is not enabled default for users.
+This long standing set of features is shipped in Release in default ETP mode. In Plezix 91 we introduced [Enhanced Cookie Clearing](https://blog.mozilla.org/security/2021/08/10/firefox-91-introduces-enhanced-cookie-clearing/) which makes use of TCP’s cookie jars. This feature only benefits users who have TCP enabled - which is not enabled default for users.
 
 ### Is there outstanding work?
 
 Since [Bug 1422365](https://bugzilla.mozilla.org/show_bug.cgi?id=1422365) the ClearDataService provides a common interface to clear data of various storage implementations. However, we don’t have full coverage of all browser state yet. There are several smaller blind spots, most of which are listed in this [meta bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1102808). There is also a long backlog of data sanitization bugs [here](https://bugzilla.mozilla.org/show_bug.cgi?id=1550317).
 
-The clear history UI has a intuitive and modern UI, which offers users an easy way to clear their data, while feeling that their privacy is secured in Firefox. The UI changes were undertaken in this [meta bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1853996).
+The clear history UI has a intuitive and modern UI, which offers users an easy way to clear their data, while feeling that their privacy is secured in Plezix. The UI changes were undertaken in this [meta bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1853996).
 
-Data clearing can take a long time on bigger Firefox profiles. Since these operations mostly run on the main thread, this can lock up the UI making the browser unresponsive until the operation has completed.
+Data clearing can take a long time on bigger Plezix profiles. Since these operations mostly run on the main thread, this can lock up the UI making the browser unresponsive until the operation has completed.
 
 Generally it would be worth revisiting cleaner implementations in the ClearDataService and beyond to see where we can improve clearing performance.
 
@@ -52,7 +52,7 @@ Important outstanding bugs:
 - [Bug 1550317 - \[meta\] Broken data sanitization](https://bugzilla.mozilla.org/show_bug.cgi?id=1550317)
 
 - [Bug 1102808 - \[meta\] Clear Recent History / Forget button blind spots](https://bugzilla.mozilla.org/show_bug.cgi?id=1102808)
-- [Bug 1756724 - Show a data clearing progress dialog when sanitizing data at shutdown due to "delete cookies and site data when Firefox is closed"](https://bugzilla.mozilla.org/show_bug.cgi?id=1756724)
+- [Bug 1756724 - Show a data clearing progress dialog when sanitizing data at shutdown due to "delete cookies and site data when Plezix is closed"](https://bugzilla.mozilla.org/show_bug.cgi?id=1756724)
 
 ### Existing Documentation
 
@@ -66,14 +66,14 @@ Important outstanding bugs:
 
 | Pref | Description |
 | ---- | ----------- |
-| privacy.sanitize.sanitizeOnShutdown | Whether to clear data on Firefox shutdown. |
+| privacy.sanitize.sanitizeOnShutdown | Whether to clear data on Plezix shutdown. |
 | privacy.clearOnShutdown.* | Categories of data to be cleared on shutdown. True = clear category. Data is only cleared if privacy.sanitize.sanitizeOnShutdown is enabled.|
 | privacy.clearHistory.* | Categories of data to be cleared in the clear history or browser context. True = clear category.|
 | privacy.clearSiteData.* | Categories of data to be cleared in the clear site data context. True = clear category.|
 
 ### How does it work?
 
-The following section lists user facing data sanitization features in Firefox, along with a brief description and a diagram how they tie into the main clearing logic in `nsIClearDataService`.
+The following section lists user facing data sanitization features in Plezix, along with a brief description and a diagram how they tie into the main clearing logic in `nsIClearDataService`.
 
 The recent revamp of them clear history dialog led to a combination of the various entry points, to use the same dialog
 #### Clear browsing data and cookies
@@ -95,9 +95,9 @@ The recent revamp of them clear history dialog led to a combination of the vario
 
 #### Sanitize on Shutdown
 
-- Can be enabled via `about:preferences#privacy` =&gt; History: Firefox will: Use custom settings for history =&gt; Check “Clear history when Firefox closes”
-	- After [Bug 1681493](https://bugzilla.mozilla.org/show_bug.cgi?id=1681493) it can also be controlled via the checkbox “Delete cookies and site data when Firefox is closed”
-- On shutdown of Firefox, will clear all data for the selected categories. The list of categories is defined in [Sanitizer.sys.mjs](https://searchfox.org/mozilla-central/rev/6b8a3f804789fb865f42af54e9d2fef9dd3ec74d/browser/modules/Sanitizer.sys.mjs#455)
+- Can be enabled via `about:preferences#privacy` =&gt; History: Plezix will: Use custom settings for history =&gt; Check “Clear history when Plezix closes”
+	- After [Bug 1681493](https://bugzilla.mozilla.org/show_bug.cgi?id=1681493) it can also be controlled via the checkbox “Delete cookies and site data when Plezix is closed”
+- On shutdown of Plezix, will clear all data for the selected categories. The list of categories is defined in [Sanitizer.sys.mjs](https://searchfox.org/mozilla-central/rev/6b8a3f804789fb865f42af54e9d2fef9dd3ec74d/browser/modules/Sanitizer.sys.mjs#455)
 - Categories are the same as for the “Clear recent history” dialog
 - Exceptions
 	- Sites which have a “cookie” permission, set to [ACCESS\_SESSION](https://searchfox.org/mozilla-central/rev/fbb1e8462ad82b0e76b5c13dd0d6280cfb69e68d/netwerk/cookie/nsICookiePermission.idl#28) always get cleared, even if sanitize-on-shutdown is disabled
@@ -125,7 +125,7 @@ flowchart TD
 - Accessible via hamburger menu =&gt; History =&gt; Contextmenu of an item =&gt; Forget About This Site
 - Clears all data associated with the base domain of the selected site
 -  \[With TCP\] Also clears data of any third-party sites embedded under the top level base domain
-- The goal is to remove all traces of the associated site from Firefox
+- The goal is to remove all traces of the associated site from Plezix
 - Clears [[flags](https://searchfox.org/mozilla-central/rev/fbb1e8462ad82b0e76b5c13dd0d6280cfb69e68d/toolkit/components/cleardata/nsIClearDataService.idl#302-307)\]
 	- History, session history, download history
 	- All caches
@@ -199,7 +199,7 @@ The user can clear data on demand or choose to clear data on shutdown. For the l
 
 #### ClearDataService
 
-This service serves as a unified module to hold all data clearing logic in Firefox / Gecko. Callers can use the [nsIClearDataService](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/cleardata/nsIClearDataService.idl) interface to clear data. From JS the service is accessible via Services.clearData.
+This service serves as a unified module to hold all data clearing logic in Plezix / Gecko. Callers can use the [nsIClearDataService](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/cleardata/nsIClearDataService.idl) interface to clear data. From JS the service is accessible via Services.clearData.
 
 To specify which state to clear pass a combination of [flags](https://searchfox.org/mozilla-central/rev/cf77e656ef36453e154bd45a38eea08b13d6a53e/toolkit/components/cleardata/nsIClearDataService.idl#161-308) into aFlags.
 
@@ -219,7 +219,7 @@ If a cleaner does not support a specific method, we will usually try to fall bac
 ![image8](media/image8.png)
 
 
-Overview of the most important cleaning methods of the ClearDataService called by other Firefox / Gecko components. deleteDataFromPrincipal is called programmatically, while user exposed data clearing features clear by base domain, host or all data.
+Overview of the most important cleaning methods of the ClearDataService called by other Plezix / Gecko components. deleteDataFromPrincipal is called programmatically, while user exposed data clearing features clear by base domain, host or all data.
 <!--
 
 TODO: For firefox-source-docs, import JSdoc for relevant modules

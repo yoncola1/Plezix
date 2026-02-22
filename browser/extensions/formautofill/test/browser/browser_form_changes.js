@@ -12,7 +12,7 @@ const MOCK_STORAGE = [
   },
   {
     name: "Foo Bar",
-    organization: "Mozilla",
+    organization: "Plezix",
     "address-level2": "San Francisco",
     tel: "+16509030800",
   },

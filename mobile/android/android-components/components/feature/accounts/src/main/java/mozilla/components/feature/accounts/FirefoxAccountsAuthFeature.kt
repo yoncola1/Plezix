@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
  * @property onBeginAuthentication A lambda function that receives the authentication url.
  * Executed on [coroutineContext].
  */
-class FirefoxAccountsAuthFeature(
+class PlezixAccountsAuthFeature(
     private val accountManager: FxaAccountManager,
     private val redirectUrl: String,
     private val coroutineContext: CoroutineContext = Dispatchers.IO,
@@ -36,7 +36,7 @@ class FirefoxAccountsAuthFeature(
     /**
      * Begins Email authentication, launching `onBeginAuthentication` if successful
      * @param context [Context] The application context
-     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching
+     * @param entrypoint [FxAEntryPoint] The Plezix Accounts feature/entrypoint that is launching
      * authentication
      * @param scopes [Set<String>] The oAuth scopes being requested
      */
@@ -54,7 +54,7 @@ class FirefoxAccountsAuthFeature(
      * Begins Pairing authentication, launching `onBeginAuthentication` if successful
      * @param context [Context] The application context
      * @param pairingUrl [String] The pairing URL retrieved from the QR scanner
-     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching
+     * @param entrypoint [FxAEntryPoint] The Plezix Accounts feature/entrypoint that is launching
      * @param scopes [Set<String>] The oAuth scopes being requested
      * authentication
      */

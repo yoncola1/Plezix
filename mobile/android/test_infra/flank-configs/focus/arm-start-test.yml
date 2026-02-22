@@ -22,7 +22,7 @@ gcloud:
   test-targets:
     - class org.mozilla.focus.activity.SearchTest#testBlankSearchDoesNothing
     - class org.mozilla.focus.activity.EraseBrowsingDataTest#deleteHistoryOnRestartTest
-    - class org.mozilla.focus.activity.MozillaSupportPagesTest#openLibrariesThatWeUse
+    - class org.mozilla.focus.activity.PlezixSupportPagesTest#openLibrariesThatWeUse
 
   device:
     - model: MediumPhone.arm

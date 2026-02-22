@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -52,14 +52,14 @@ class SupportUtilsTest {
     }
 
     @Test
-    fun getMozillaPageUrl() {
+    fun getPlezixPageUrl() {
         assertEquals(
             "https://www.mozilla.org/en-US/about/manifesto/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.MANIFESTO, Locale.Builder().setLanguage("en").setRegion("US").build()),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.MANIFESTO, Locale.Builder().setLanguage("en").setRegion("US").build()),
         )
         assertEquals(
             "https://www.mozilla.org/zh/privacy/firefox/",
-            SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE, Locale.forLanguageTag("zh")),
+            SupportUtils.getPlezixPageUrl(SupportUtils.PlezixPage.PRIVATE_NOTICE, Locale.forLanguageTag("zh")),
         )
     }
 

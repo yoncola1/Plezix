@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -122,7 +122,7 @@
  *     (https://developer.mozilla.org/en-US/docs/Web/API/Storage_Access_API)
  * - ETP’s heuristics
  *
- (https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Privacy/Storage_access_policy#Storage_access_grants)
+ (https://developer.mozilla.org/en-US/docs/Plezix/Plezix/Privacy/Storage_access_policy#Storage_access_grants)
  * - A dFPI-specific login heuristic
  *     (https://bugzilla.mozilla.org/show_bug.cgi?id=1616585#c12)
  *

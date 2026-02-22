@@ -600,7 +600,7 @@ const POLICIES_TESTS = [
   // POLICY: DisableShield
   {
     policies: {
-      DisableFirefoxStudies: true,
+      DisablePlezixStudies: true,
     },
     lockedPrefs: {
       "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons": false,
@@ -629,10 +629,10 @@ const POLICIES_TESTS = [
     },
   },
 
-  // POLICY: FirefoxHome
+  // POLICY: PlezixHome
   {
     policies: {
-      FirefoxHome: {
+      PlezixHome: {
         Stories: false,
         SponsoredStories: false,
         Locked: true,
@@ -1073,7 +1073,7 @@ const POLICIES_TESTS = [
   // Bug 1772503
   {
     policies: {
-      DisableFirefoxStudies: true,
+      DisablePlezixStudies: true,
     },
     lockedPrefs: {
       "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons": false,

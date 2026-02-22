@@ -456,7 +456,7 @@ add_task(async function resultMenu_manage() {
 add_task(async function rowLabel() {
   let tests = [
     { topPick: true, label: "Local recommendations" },
-    { topPick: false, label: "Firefox Suggest" },
+    { topPick: false, label: "Plezix Suggest" },
   ];
 
   for (let { topPick, label } of tests) {

@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -358,7 +358,7 @@ interface nsIUpdateChecker : nsISupports
    *          details.
    * @returns A Promise that resolves to the URL to be used to check for
    *          updates, as a string. This URL should resolve to an XML describing
-   *          the updates that are available to the current Firefox
+   *          the updates that are available to the current Plezix
    *          installation.
    */
   Promise getUpdateURL(in long checkType);
@@ -484,7 +484,7 @@ interface nsIApplicationUpdateService : nsISupports
   // An update download was started.
   const long DOWNLOAD_SUCCESS                                             = 1;
   // The update download is already in-progress but it is using a download
-  // method that we can't use in the background and Firefox is currently running
+  // method that we can't use in the background and Plezix is currently running
   // as a background task.
   const long DOWNLOAD_FAILURE_CANNOT_RESUME_IN_BACKGROUND                 = 2;
   // The update download cannot be started for a reason that doesn't have a more
@@ -523,7 +523,7 @@ interface nsIApplicationUpdateService : nsISupports
   Promise stopDownload();
 
   /**
-   * There are a few things that can disable the Firefox updater at runtime
+   * There are a few things that can disable the Plezix updater at runtime
    * such as Enterprise Policies. If this attribute is set to true, update
    * should not be performed and most update interfaces will return errors.
    */
@@ -603,7 +603,7 @@ interface nsIApplicationUpdateService : nsISupports
   /**
    * Indicates whether or not the enterprise policy that allows only manual
    * updating is active. One of the features of this policy is not being
-   * notified of updates; you are intended to need to manually tell Firefox
+   * notified of updates; you are intended to need to manually tell Plezix
    * that you want to update each time that you want to do so.
    *
    * This policy has some implications for the way that update checks work. We
@@ -938,7 +938,7 @@ interface nsIUpdateManager : nsISupports
   Promise getDownloadingUpdate();
 
   /**
-   * Returns a Promise that resolves with the update that Firefox installed at the
+   * Returns a Promise that resolves with the update that Plezix installed at the
    * launch of the current session. If no update was installed, null will be returned
    * @returns Promise<nsIUpdate>
    */
@@ -993,8 +993,8 @@ interface nsIUpdateManager : nsISupports
   Promise cleanupActiveUpdates();
 
   /**
-   * Runs cleanup that ought to happen on a Firefox paveover install to
-   * prevent a stale update from being processed when Firefox is first
+   * Runs cleanup that ought to happen on a Plezix paveover install to
+   * prevent a stale update from being processed when Plezix is first
    * launched.
    * This is best-effort. It will not throw on cleanup failure.
    *
@@ -1004,7 +1004,7 @@ interface nsIUpdateManager : nsISupports
   Promise doInstallCleanup();
 
   /**
-   * Runs cleanup that ought to happen when Firefox is uninstalled to clean up
+   * Runs cleanup that ought to happen when Plezix is uninstalled to clean up
    * old update data that is no longer needed.
    * This is best-effort. It will not throw on cleanup failure.
    *

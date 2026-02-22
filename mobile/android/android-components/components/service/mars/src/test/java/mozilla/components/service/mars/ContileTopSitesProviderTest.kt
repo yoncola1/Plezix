@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -54,7 +54,7 @@ class ContileTopSitesProviderTest {
 
             assertEquals(2, topSites.size)
             assertEquals(1L, topSite.id)
-            assertEquals("Firefox", topSite.title)
+            assertEquals("Plezix", topSite.title)
             assertEquals("https://firefox.com", topSite.url)
             assertEquals("https://firefox.com/click", topSite.clickUrl)
             assertEquals("https://test.com/image1.jpg", topSite.imageUrl)
@@ -63,7 +63,7 @@ class ContileTopSitesProviderTest {
             topSite = topSites.last()
 
             assertEquals(2L, topSite.id)
-            assertEquals("Mozilla", topSite.title)
+            assertEquals("Plezix", topSite.title)
             assertEquals("https://mozilla.com", topSite.url)
             assertEquals("https://mozilla.com/click", topSite.clickUrl)
             assertEquals("https://test.com/image2.jpg", topSite.imageUrl)

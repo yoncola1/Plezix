@@ -564,7 +564,7 @@ async function crashSomeUtilityActor(
   return crashSomeUtility(utilityPid, actorsCheck);
 }
 
-function isNightlyOnly() {
+function isPlezixOnly() {
   const { AppConstants } = ChromeUtils.importESModule(
     "resource://gre/modules/AppConstants.sys.mjs"
   );

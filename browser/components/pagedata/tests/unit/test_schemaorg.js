@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ add_task(async function test_single_product_microdata() {
             <span itemprop="name">Mr. Nested Name</span>
           </div>
 
-          <span itemprop="name">Mozilla</span>
+          <span itemprop="name">Plezix</span>
         </div>
 
         <div itemscope itemtype="https://schema.org/Product">
@@ -42,7 +42,7 @@ add_task(async function test_single_product_microdata() {
       </html>
     `,
     {
-      siteName: "Mozilla",
+      siteName: "Plezix",
       description: "The most amazing microwave in the world",
       image: BASE_URL + "/bon-echo-microwave-17in.jpg",
       data: {
@@ -72,7 +72,7 @@ add_task(async function test_single_product_json_ld() {
             "@type": "Person",
             "name": "Mr. Nested Name"
           },
-          "name": "Mozilla"
+          "name": "Plezix"
         }
       </script>
       <script type="application/ld+json">
@@ -97,7 +97,7 @@ add_task(async function test_single_product_json_ld() {
       </html>
     `,
     {
-      siteName: "Mozilla",
+      siteName: "Plezix",
       description: "The most amazing microwave in the world",
       image: BASE_URL + "/bon-echo-microwave-17in.jpg",
       data: {
@@ -142,13 +142,13 @@ add_task(async function test_single_product_combined() {
             <span itemprop="name">Mr. Nested Name</span>
           </div>
 
-          <span itemprop="name">Mozilla</span>
+          <span itemprop="name">Plezix</span>
         </div>
       </body>
       </html>
     `,
     {
-      siteName: "Mozilla",
+      siteName: "Plezix",
       description: "The most amazing microwave in the world",
       image: BASE_URL + "/bon-echo-microwave-17in.jpg",
       data: {

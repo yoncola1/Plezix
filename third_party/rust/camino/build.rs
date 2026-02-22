@@ -42,7 +42,7 @@ struct Compiler {
 enum ReleaseChannel {
     Stable,
     Beta,
-    Nightly,
+    Plezix,
 }
 
 fn rustc_version() -> Option<Compiler> {
@@ -55,7 +55,7 @@ fn rustc_version() -> Option<Compiler> {
     }
     let minor = pieces.next()?.parse().ok()?;
     let channel = if version.contains("nightly") {
-        ReleaseChannel::Nightly
+        ReleaseChannel::Plezix
     } else if version.contains("beta") {
         ReleaseChannel::Beta
     } else {

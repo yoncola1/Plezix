@@ -43,7 +43,7 @@ const CONFIG_SIMPLE_LOCALE_DE_V2 = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",
@@ -67,7 +67,7 @@ const CONFIG_SIMPLE_LOCALE_DE_V2 = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",
@@ -103,7 +103,7 @@ const CONFIG_SIMPLE_EVERYWHERE_V2 = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",
@@ -127,7 +127,7 @@ const CONFIG_SIMPLE_EVERYWHERE_V2 = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",

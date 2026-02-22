@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -23,7 +23,7 @@ interface XMLSerializer {
   [Throws]
   DOMString serializeToString(Node root);
 
-  // Mozilla-specific stuff
+  // Plezix-specific stuff
   /**
    * The subtree rooted by the specified element is serialized to
    * a byte stream using the character set specified.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -25,7 +25,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.InfoCard
 import org.mozilla.fenix.compose.InfoType
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import java.util.Locale
 
 /**
@@ -44,7 +44,7 @@ fun AutomaticTranslationPreference(
     Column(
         modifier = Modifier
             .background(
-                color = FirefoxTheme.colors.layer1,
+                color = PlezixTheme.colors.layer1,
             ),
     ) {
         LazyColumn {
@@ -143,7 +143,7 @@ internal fun getAutomaticTranslationListPreferences(): List<AutomaticTranslation
 @Composable
 @PreviewLightDark
 private fun AutomaticTranslationPreferencePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         AutomaticTranslationPreference(
             automaticTranslationListPreferences = getAutomaticTranslationListPreferences(),
             onItemClick = {},

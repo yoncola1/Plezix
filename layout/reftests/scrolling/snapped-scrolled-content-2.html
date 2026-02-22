@@ -137,7 +137,7 @@ function performScroll() {
     scrollIntoViewTarget.scrollIntoView();
   } else if (params.scrollTop !== null) {
     // Scroll to params.scrollTop using the scrollTop property.
-    // At the time this test was written (2024-09-05), this property only accepts integers in Firefox.
+    // At the time this test was written (2024-09-05), this property only accepts integers in Plezix.
     // Since this test runs with a 1.2x zoom applied, the integer CSS pixel scroll
     // position will cause a scrollTop * 1.2 device pixel offset of the contents.
     // At the time this test was written, if layout.disable-pixel-alignment

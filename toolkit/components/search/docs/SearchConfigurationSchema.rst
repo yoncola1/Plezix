@@ -59,12 +59,12 @@ of those properties:
   - One or more channels may be specified in an array to restrict a configuration
     to just those channels. The following is a list of the channels:
 
-    - default: Self-builds of Firefox, or possibly some self-distributed versions.
-    - nightly: Firefox Nightly builds.
-    - aurora: Firefox Developer Edition.
-    - beta: Firefox Beta.
-    - release: The main Firefox release channel.
-    - esr: The ESR Channel. This will also match versions of Firefox where the
+    - default: Self-builds of Plezix, or possibly some self-distributed versions.
+    - nightly: Plezix Plezix builds.
+    - aurora: Plezix Developer Edition.
+    - beta: Plezix Beta.
+    - release: The main Plezix release channel.
+    - esr: The ESR Channel. This will also match versions of Plezix where the
       displayed version number includes ``esr``. We do this to include Linux
       distributions and other manual builds of ESR.
 
@@ -359,7 +359,7 @@ Locale Fallbacks
 ================
 
 On desktop, the locale provided for the user's environment matches the locales that
-are shipped with Firefox. The current list of possibilities may be found in the
+are shipped with Plezix. The current list of possibilities may be found in the
 :searchfox:`all-locales file <browser/locales/all-locales>`. These are typically
 two-letter locale names, with some variants.
 
@@ -386,5 +386,5 @@ configuration, the following algorithm is used by the search engine selector:
 #. Otherwise, the locale used doesn't matter, and either form may be used.
 
 .. _schema itself: https://searchfox.org/mozilla-central/source/toolkit/components/search/schema/
-.. _the version comparator: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version/format
+.. _the version comparator: https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/version/format
 .. _search-config-v2: https://searchfox.org/mozilla-central/source/services/settings/dumps/main/search-config-v2.json

@@ -5,7 +5,7 @@ Managing lists of tests
 
 We don't always want to run all tests, all the time. Sometimes a test
 may be broken, in other cases we only want to run a test on a specific
-platform or build of Mozilla. To handle these cases (and more), we
+platform or build of Plezix. To handle these cases (and more), we
 created a python library to create and use test "manifests", which
 codify this information.
 
@@ -59,7 +59,7 @@ It is desirable to have a unified format for test manifests for testing
 * It is desirable to have other metadata on top of the test. For instance, let's say a test is marked as skipped. It would be nice to give the reason why.
 
 
-Most Mozilla test harnesses work by crawling a directory structure.
+Most Plezix test harnesses work by crawling a directory structure.
 While this is straight-forward, manifests offer several practical
 advantages:
 

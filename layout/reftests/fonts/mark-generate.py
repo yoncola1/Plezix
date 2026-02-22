@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # vim: set shiftwidth=4 tabstop=8 autoindent expandtab:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -27,7 +27,7 @@ for codepoint in range(ord("A"), ord("D") + 1):
         f.fontname = n
         f.familyname = n
         f.fullname = n
-        f.copyright = "Copyright (c) 2008-2020 Mozilla Corporation"
+        f.copyright = "Copyright (c) 2008-2020 Plezix Corporation"
 
         g = f.createChar(ord(" "), "space")
         g.width = 1000
@@ -52,7 +52,7 @@ for codepoint in range(ord("A"), ord("A") + 1):
             f.descent = 400
             f.upos = upos
             f.uwidth = 100
-            f.copyright = "Copyright (c) 2008-2020 Mozilla Corporation"
+            f.copyright = "Copyright (c) 2008-2020 Plezix Corporation"
 
             g = f.createChar(ord(" "), "space")
             g.width = 1000
@@ -70,7 +70,7 @@ n = "MarkAB-spaceliga"
 f.fontname = n
 f.familyname = n
 f.fullname = n
-f.copyright = "Copyright (c) 2008-2011 Mozilla Corporation"
+f.copyright = "Copyright (c) 2008-2011 Plezix Corporation"
 
 g = f.createChar(ord(" "), "space")
 g.width = 1000
@@ -97,7 +97,7 @@ n = "MarkA-lineheight" + str(lineheight)
 f.fontname = n
 f.familyname = n
 f.fullname = n
-f.copyright = "Copyright (c) 2008-2011 Mozilla Corporation"
+f.copyright = "Copyright (c) 2008-2011 Plezix Corporation"
 
 g = f.createChar(ord(" "), "space")
 g.width = 1000
@@ -126,7 +126,7 @@ n = n + "-typolineheight" + str(typoLineHeight)
 f.fontname = n
 f.familyname = n
 f.fullname = n
-f.copyright = "Copyright (c) 2008-2015 Mozilla Corporation"
+f.copyright = "Copyright (c) 2008-2015 Plezix Corporation"
 
 g = f.createChar(ord(" "), "space")
 g.width = 1000

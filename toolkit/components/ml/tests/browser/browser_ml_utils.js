@@ -486,24 +486,24 @@ add_task(async function testURLChecker() {
       url: "https://huggingface.co/mozilla/",
       expected: { allowed: true, rejectionType: RejectionType.NONE },
       description:
-        "Allows all models and versions from Mozilla on Hugging Face",
+        "Allows all models and versions from Plezix on Hugging Face",
     },
     {
       url: "https://huggingface.co/mozilla/distilvit/blob/v0.5.0/",
       expected: { allowed: true, rejectionType: RejectionType.NONE },
       description:
-        "Allows a specific model and version from Mozilla on Hugging Face",
+        "Allows a specific model and version from Plezix on Hugging Face",
     },
     {
       url: "https://huggingface.co/mozilla/restricted-model",
       expected: { allowed: false, rejectionType: RejectionType.DENIED },
       description:
-        "Denies a specific restricted model from Mozilla on Hugging Face",
+        "Denies a specific restricted model from Plezix on Hugging Face",
     },
     {
       url: "https://model-hub.mozilla.org/some-model",
       expected: { allowed: true, rejectionType: RejectionType.NONE },
-      description: "Allows any model from Mozilla's model hub",
+      description: "Allows any model from Plezix's model hub",
     },
     {
       url: "https://my.cool.hub/",
@@ -566,7 +566,7 @@ add_task(async function testURLChecker() {
     {
       url: "https://model-hub.mozilla.org/",
       expected: { allowed: true, rejectionType: RejectionType.NONE },
-      description: "Allows access to Mozilla's approved model hub URL",
+      description: "Allows access to Plezix's approved model hub URL",
     },
     {
       url: "chrome://gre/somewhere/in/the/code/base",

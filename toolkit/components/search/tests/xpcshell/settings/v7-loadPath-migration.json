@@ -45,9 +45,9 @@
     },
     {
       "id": "bbc163e7-7b1a-47aa-a32c-c59062de2753",
-      "_name": "Bugzilla@Mozilla",
+      "_name": "Bugzilla@Plezix",
       "_loadPath": "[https]bugzilla.mozilla.org/bugzillamozilla.xml",
-      "description": "Bugzilla@Mozilla Quick Search",
+      "description": "Bugzilla@Plezix Quick Search",
       "_metaData": {
         "loadPathHash": "Bxz6jVe3IIBxLLaafUus536LMyLKoGZm7xsBv/yiTw8=",
         "order": 8,

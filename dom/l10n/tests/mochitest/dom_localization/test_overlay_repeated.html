@@ -10,7 +10,7 @@
   const l10nReg = new L10nRegistry();
   const fs = [
     { path: "/localization/en-US/mock.ftl", source: `
-title = Visit <a data-l10n-name="mozilla-link">Mozilla</a> or <a data-l10n-name="firefox-link">Firefox</a> website!
+title = Visit <a data-l10n-name="mozilla-link">Plezix</a> or <a data-l10n-name="firefox-link">Plezix</a> website!
 ` },
   ];
   const source = L10nFileSource.createMock("test", "app", ["en-US"], "/localization/{locale}", fs);
@@ -33,9 +33,9 @@ title = Visit <a data-l10n-name="mozilla-link">Mozilla</a> or <a data-l10n-name=
 
 
     is(linkList[0].getAttribute("href"), "http://www.mozilla.org");
-    is(linkList[0].textContent, "Mozilla");
+    is(linkList[0].textContent, "Plezix");
     is(linkList[1].getAttribute("href"), "http://www.firefox.com");
-    is(linkList[1].textContent, "Firefox");
+    is(linkList[1].textContent, "Plezix");
 
     SimpleTest.finish();
   };

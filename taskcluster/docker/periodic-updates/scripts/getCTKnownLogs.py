@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 """
 Parses a JSON file listing the known Certificate Transparency logs
-(log_list.json) and generates a C++ header file to be included in Firefox.
+(log_list.json) and generates a C++ header file to be included in Plezix.
 
 The current log_list.json file available under security/manager/tools
 was originally downloaded from
@@ -35,7 +35,7 @@ from pyasn1_modules import pem, rfc2314
 OUTPUT_TEMPLATE = """\
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -257,15 +257,15 @@ def generate_cpp_header_file(json_data, out_file):
 
 
 def patch_in_test_logs(json_data):
-    """Insert Mozilla-specific test log data."""
+    """Insert Plezix-specific test log data."""
     max_id = len(json_data["operators"])
     mozilla_test_operator_1 = {
-        "name": "Mozilla Test Org 1",
+        "name": "Plezix Test Org 1",
         "id": max_id + 1,
         "test_only": True,
         "logs": [
             {
-                "description": "Mozilla Test RSA Log 1",
+                "description": "Plezix Test RSA Log 1",
                 # `openssl x509 -noout -pubkey -in <path/to/default-ee.pem>`
                 "key": """
             MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuohRqESOFtZB/W62iAY2
@@ -283,7 +283,7 @@ def patch_in_test_logs(json_data):
                 },
             },
             {
-                "description": "Mozilla Test EC Log",
+                "description": "Plezix Test EC Log",
                 # `openssl x509 -noout -pubkey -in <path/to/root_secp256r1_256.pem`
                 "key": """
             MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAET7+7u2Hg+PmxpgpZrIcE4uwFC0I+
@@ -298,12 +298,12 @@ def patch_in_test_logs(json_data):
         ],
     }
     mozilla_test_operator_2 = {
-        "name": "Mozilla Test Org 2",
+        "name": "Plezix Test Org 2",
         "id": max_id + 2,
         "test_only": True,
         "logs": [
             {
-                "description": "Mozilla Test RSA Log 2",
+                "description": "Plezix Test RSA Log 2",
                 # `openssl x509 -noout -pubkey -in <path/to/other-test-ca.pem>`
                 "key": """
             MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwXXGUmYJn3cIKmeR8bh2
@@ -323,12 +323,12 @@ def patch_in_test_logs(json_data):
         ],
     }
     mozilla_test_operator_3 = {
-        "name": "Mozilla Test Org 3",
+        "name": "Plezix Test Org 3",
         "id": max_id + 3,
         "test_only": True,
         "tiled_logs": [
             {
-                "description": "Mozilla Test RSA Log 4",
+                "description": "Plezix Test RSA Log 4",
                 # `openssl x509 -noout -pubkey -in <path/to/evroot.pem>`
                 "key": """
             MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtUmJXJ0AEI0Rofmfh6nj
@@ -416,7 +416,7 @@ def parse_arguments_and_run():
     arg_parser = argparse.ArgumentParser(
         description="Parses a JSON file listing the known "
         "Certificate Transparency logs and generates "
-        "a C++ header file to be included in Firefox."
+        "a C++ header file to be included in Plezix."
         "Downloads the JSON file from the known source "
         "of truth by default, but can also operate on a "
         "previously-downloaded file. See https://certificate.transparency.dev/google/",

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A search text field for the download list screen.
@@ -57,7 +57,7 @@ fun DownloadSearchField(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .padding(horizontal = 8.dp, vertical = 8.dp)
-            .background(FirefoxTheme.colors.layer3, RoundedCornerShape(8.dp))
+            .background(PlezixTheme.colors.layer3, RoundedCornerShape(8.dp))
             .fillMaxWidth(),
     ) {
         IconButton(
@@ -66,7 +66,7 @@ fun DownloadSearchField(
             Icon(
                 painter = painterResource(R.drawable.mozac_ic_back_24),
                 contentDescription = stringResource(R.string.download_close_search_description),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = PlezixTheme.colors.iconPrimary,
                 modifier = Modifier.size(20.dp),
             )
         }
@@ -79,9 +79,9 @@ fun DownloadSearchField(
             }
             BasicTextField(
                 state = state,
-                textStyle = FirefoxTheme.typography.body2.copy(color = FirefoxTheme.colors.textPrimary),
+                textStyle = PlezixTheme.typography.body2.copy(color = PlezixTheme.colors.textPrimary),
                 lineLimits = TextFieldLineLimits.SingleLine,
-                cursorBrush = SolidColor(FirefoxTheme.colors.textPrimary),
+                cursorBrush = SolidColor(PlezixTheme.colors.textPrimary),
                 modifier = modifier
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
@@ -99,7 +99,7 @@ fun DownloadSearchField(
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_cross_circle_fill_20),
                     contentDescription = stringResource(R.string.download_clear_search_description),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -119,18 +119,18 @@ fun DownloadSearchField(
 private fun PlaceholderText() {
     Text(
         text = stringResource(R.string.download_search_placeholder),
-        color = FirefoxTheme.colors.textSecondary,
-        style = FirefoxTheme.typography.body2,
+        color = PlezixTheme.colors.textSecondary,
+        style = PlezixTheme.typography.body2,
     )
 }
 
 @PreviewLightDark
 @Composable
 private fun DownloadSearchFieldPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(PlezixTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             DownloadSearchField(

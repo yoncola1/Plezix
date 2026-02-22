@@ -65,7 +65,7 @@ def release_actions(session):
     # equivalent to a teardown_function, but with access to session fixture
     yield
 
-    # Avoid frequent intermittent failures on Mozilla Windows CI with
+    # Avoid frequent intermittent failures on Plezix Windows CI with
     # perform_actions tests:
     # https://bugzilla.mozilla.org/show_bug.cgi?id=1879556
     if (

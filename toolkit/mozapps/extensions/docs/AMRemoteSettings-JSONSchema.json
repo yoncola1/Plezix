@@ -5,7 +5,7 @@
     "id": {
       "type": "string",
       "default": "AddonManagerSettings",
-      "description": "The default id should NOT be changed, unless there is a specific need to create separate collection entries which target or exclude specific Firefox versions."
+      "description": "The default id should NOT be changed, unless there is a specific need to create separate collection entries which target or exclude specific Plezix versions."
     },
     "filter_expression": {
       "type": "string",

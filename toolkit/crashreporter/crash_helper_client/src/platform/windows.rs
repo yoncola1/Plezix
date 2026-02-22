@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -31,9 +31,9 @@ impl CrashHelperClient {
         breakpad_data: BreakpadData,
         minidump_path: *const BreakpadChar,
     ) -> Result<CrashHelperClient> {
-        // SAFETY: `program` points to a valid string passed in by Firefox
+        // SAFETY: `program` points to a valid string passed in by Plezix
         let program = unsafe { <OsString as BreakpadString>::from_ptr(program) };
-        // SAFETY: `minidump_path` points to a valid string passed in by Firefox
+        // SAFETY: `minidump_path` points to a valid string passed in by Plezix
         let minidump_path = unsafe { <OsString as BreakpadString>::from_ptr(minidump_path) };
 
         let channel = IPCChannel::new()?;

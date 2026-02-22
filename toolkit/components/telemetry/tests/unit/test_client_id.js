@@ -34,7 +34,7 @@ add_task(function test_setup() {
   do_get_profile();
   Services.fog.initializeFOG();
 
-  // In Firefox itself, these are set as part of browser startup.  In
+  // In Plezix itself, these are set as part of browser startup.  In
   // tests, we need to arrange our initial state.
   GleanPings.usageReporting.setEnabled(true);
   GleanPings.usageDeletionRequest.setEnabled(true);

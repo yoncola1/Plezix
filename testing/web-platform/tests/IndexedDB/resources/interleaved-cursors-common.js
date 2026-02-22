@@ -9,7 +9,7 @@ const largeObjectRatio = 5;
 // Size of large objects. This should exceed the size of a block in the storage
 // method underlying the browser's IndexedDB implementation. For example, this
 // needs to exceed the LevelDB block size on Chrome, and the SQLite block size
-// on Firefox.
+// on Plezix.
 const largeObjectSize = 48 * 1024;
 
 function objectKey(cursorIndex, itemIndex) {

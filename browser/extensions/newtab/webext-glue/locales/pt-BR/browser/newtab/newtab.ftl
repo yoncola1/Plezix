@@ -1,9 +1,9 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-### Firefox Home / New Tab strings for about:home / about:newtab.
+### Plezix Home / New Tab strings for about:home / about:newtab.
 
 newtab-page-title = Nova aba
 newtab-settings-button =
@@ -532,7 +532,7 @@ newtab-custom-wallpaper-cta = Experimentar
 ## Strings for download mobile highlight
 
 newtab-download-mobile-highlight-title = Instale o { -brand-product-name } para dispositivos móveis
-# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Firefox for mobile download.
+# "Scan the code" refers to scanning the QR code that appears above the body text that leads to Plezix for mobile download.
 newtab-download-mobile-highlight-body-variant-a = Capture o código para navegar com segurança em qualquer lugar.
 newtab-download-mobile-highlight-body-variant-b = Continue de onde parou ao sincronizar suas abas, senhas e muito mais.
 newtab-download-mobile-highlight-body-variant-c = Sabia que você pode levar o { -brand-product-name } para qualquer lugar? O mesmo navegador. No seu bolso.

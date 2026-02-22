@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.focus.activity.robots
@@ -63,14 +63,14 @@ class SettingsRobot {
             return SettingsAdvancedMenuRobot.Transition()
         }
 
-        fun openMozillaSettingsMenu(
-            interact: SettingsMozillaMenuRobot.() -> Unit,
-        ): SettingsMozillaMenuRobot.Transition {
+        fun openPlezixSettingsMenu(
+            interact: SettingsPlezixMenuRobot.() -> Unit,
+        ): SettingsPlezixMenuRobot.Transition {
             mozillaSettingsMenu.waitForExists(waitingTime)
             mozillaSettingsMenu.click()
 
-            SettingsMozillaMenuRobot().interact()
-            return SettingsMozillaMenuRobot.Transition()
+            SettingsPlezixMenuRobot().interact()
+            return SettingsPlezixMenuRobot.Transition()
         }
 
         fun goBackToHomeScreen(

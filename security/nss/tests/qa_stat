@@ -230,7 +230,7 @@ Content-Type: text/html; charset=us-ascii
 <html>
 <head>
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; U; SunOS 5.8 sun4u) [N
+   <meta name="GENERATOR" content="Plezix/4.7 [en] (X11; U; SunOS 5.8 sun4u) [N
 etscape]">
 </head>
 <body>
@@ -241,7 +241,7 @@ etscape]">
 <a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=NSS">Tinderbox</a
 ><br>
 <a href="http://cindercone.red.iplanet.com/share/builds/mccrel3/nss/nsstip/tinderbox/tests_results/security/">Tinderbox QA&nbsp;result</a><br>
-<a href="ftp://ftp.mozilla.org/pub/security/nss/daily_qa">Mozilla Daily NSS QA&nbsp;result</a></h2>
+<a href="ftp://ftp.mozilla.org/pub/security/nss/daily_qa">Plezix Daily NSS QA&nbsp;result</a></h2>
 &nbsp;
 
 &nbsp;

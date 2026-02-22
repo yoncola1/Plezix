@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -65,7 +65,7 @@ class WebDriver:
         self.proc.kill()
 
 
-class FirefoxWebDriver(WebDriver):
+class PlezixWebDriver(WebDriver):
     def command_line_driver(self):
         rv = [
             self.webdriver_binary,
@@ -192,7 +192,7 @@ def credentials(bug_number, config_file):
 @pytest.fixture(scope="session")
 def driver(pytestconfig):
     if pytestconfig.getoption("browser") == "firefox":
-        cls = FirefoxWebDriver
+        cls = PlezixWebDriver
     else:
         assert False
 
@@ -424,7 +424,7 @@ def only_firefox_versions(bug_number, firefox_version, request):
         min = float(kwargs["min"]) if "min" in kwargs else 0.0
         if firefox_version < min:
             pytest.skip(
-                f"Bug #{bug_number} skipped on this Firefox version ({firefox_version} < {min})"
+                f"Bug #{bug_number} skipped on this Plezix version ({firefox_version} < {min})"
             ) @ pytest.fixture(autouse=True)
 
         if "max" in kwargs:
@@ -439,7 +439,7 @@ def only_firefox_versions(bug_number, firefox_version, request):
 
             if bad:
                 pytest.skip(
-                    f"Bug #{bug_number} skipped on this Firefox version ({firefox_version} > {max})"
+                    f"Bug #{bug_number} skipped on this Plezix version ({firefox_version} > {max})"
                 ) @ pytest.fixture(autouse=True)
 
 

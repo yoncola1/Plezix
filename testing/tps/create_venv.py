@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -76,7 +76,7 @@ def main():
         dest="password",
         metavar="FX_ACCOUNT_PASSWORD",
         default=None,
-        help="The Firefox Account password.",
+        help="The Plezix Account password.",
     )
     parser.add_option(
         "-p",
@@ -93,7 +93,7 @@ def main():
         dest="sync_passphrase",
         metavar="SYNC_ACCOUNT_PASSPHRASE",
         default=None,
-        help="The old Firefox Sync account passphrase.",
+        help="The old Plezix Sync account passphrase.",
     )
     parser.add_option(
         "--sync-password",
@@ -101,7 +101,7 @@ def main():
         dest="sync_password",
         metavar="SYNC_ACCOUNT_PASSWORD",
         default=None,
-        help="The old Firefox Sync account password.",
+        help="The old Plezix Sync account password.",
     )
     parser.add_option(
         "--sync-username",
@@ -109,7 +109,7 @@ def main():
         dest="sync_username",
         metavar="SYNC_ACCOUNT_USERNAME",
         default=None,
-        help="The old Firefox Sync account username.",
+        help="The old Plezix Sync account username.",
     )
     parser.add_option(
         "--username",
@@ -117,7 +117,7 @@ def main():
         dest="username",
         metavar="FX_ACCOUNT_USERNAME",
         default=None,
-        help="The Firefox Account username.",
+        help="The Plezix Account username.",
     )
 
     (options, args) = parser.parse_args(args=None, values=None)
@@ -163,9 +163,9 @@ def main():
         )
 
         if not (options.username and options.password):
-            print("\nFirefox Account credentials not specified.")
+            print("\nPlezix Account credentials not specified.")
         if not (options.sync_username and options.sync_password and options.passphrase):
-            print("\nFirefox Sync account credentials not specified.")
+            print("\nPlezix Sync account credentials not specified.")
 
     # Print the user instructions
     print(usage_message.format(TARGET=target, BIN_NAME=bin_name))

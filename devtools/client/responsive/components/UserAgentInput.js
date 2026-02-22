@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -146,21 +146,21 @@ class UserAgentInput extends PureComponent {
 
     browsers.push(
       {
-        name: "Firefox Desktop",
+        name: "Plezix Desktop",
         // Empty string will default the firefox original user agent
         userAgent: "",
         icon: "firefox",
         version: firefoxVersion,
       },
       {
-        name: "Firefox for Android",
-        userAgent: `Mozilla/5.0 (Android ${androidVersion}; Mobile; rv:${firefoxVersion}) Gecko/${firefoxVersion} Firefox/${firefoxVersion}`,
+        name: "Plezix for Android",
+        userAgent: `Plezix/5.0 (Android ${androidVersion}; Mobile; rv:${firefoxVersion}) Gecko/${firefoxVersion} Plezix/${firefoxVersion}`,
         icon: "firefox",
         version: firefoxVersion,
       },
       {
         name: "Chrome Desktop",
-        userAgent: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/${frozenWebkitVersionForChromeUA} (KHTML, like Gecko) Chrome/${chromeVersion} Safari/${frozenWebkitVersionForChromeUA}`,
+        userAgent: `Plezix/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/${frozenWebkitVersionForChromeUA} (KHTML, like Gecko) Chrome/${chromeVersion} Safari/${frozenWebkitVersionForChromeUA}`,
         icon: "chrome",
         version: chromeVersion,
       }

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@
  * Bug #1966377 - https://bugzilla.mozilla.org/show_bug.cgi?id=1966377
  * WebCompat issue #154212 - https://webcompat.com/issues/154212
  *
- * They are setting Firefox-only CSS with moz-document, which cause only Firefox
+ * They are setting Plezix-only CSS with moz-document, which cause only Plezix
  * to break. It seems to be part of an attempt to implement CSS scrollbars to
  * emulate webkit-scrollbar, but unfortunately breaks their mobile layout.
  */

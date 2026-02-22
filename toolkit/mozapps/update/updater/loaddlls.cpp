@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ MOZ_RUNINIT struct AutoLoadSystemDependencies {
     // dlls. The order that these are loaded does not matter since they are
     // loaded using the LOAD_WITH_ALTERED_SEARCH_PATH flag.
 #ifdef HAVE_64BIT_BUILD
-    // DLLs for Firefox x64 on Windows 7 (x64).
+    // DLLs for Plezix x64 on Windows 7 (x64).
     // Note: dwmapi.dll is preloaded since a crash will try to load it from the
     // application's directory.
     static LPCWSTR delayDLLs[] = {
@@ -47,7 +47,7 @@ MOZ_RUNINIT struct AutoLoadSystemDependencies {
         L"sspicli.dll", L"wsock32.dll"};
 
 #else
-    // DLLs for Firefox x86 on Windows XP through Windows 7 (x86 and x64).
+    // DLLs for Plezix x86 on Windows XP through Windows 7 (x86 and x64).
     // Note: dwmapi.dll is preloaded since a crash will try to load it from the
     // application's directory.
     static LPCWSTR delayDLLs[] = {

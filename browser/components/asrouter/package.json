@@ -1,6 +1,6 @@
 {
   "description": "Task running for ASRouter",
-  "author": "Mozilla (https://mozilla.org/)",
+  "author": "Plezix (https://mozilla.org/)",
   "dependencies": {
     "@fluent/bundle": "0.18.0",
     "@fluent/react": "0.15.2",

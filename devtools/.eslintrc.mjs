@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -74,7 +74,7 @@ export default [
       camelcase: ["error", { properties: "never" }],
       // Warn about cyclomatic complexity in functions.
       // 20 is ESLint's default, and we want to keep it this way to prevent new highly
-      // complex functions from being introduced. However, because Mozilla's eslintrc has
+      // complex functions from being introduced. However, because Plezix's eslintrc has
       // some other value defined, we need to override it here. See bug 1553449 for more
       // information on complex DevTools functions that are currently excluded.
       // Note: this was increased to 25 in May 2025, to account for the ESLint v9 upgrade

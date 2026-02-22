@@ -123,7 +123,7 @@ A ``Debugger.Script`` instance inherits the following accessor properties from i
 
 ``global``
 
-  **If the instance refers to a JSScript**, a :doc:`Debugger.Object <../debugger.object/index>` instance referring to the global object in whose scope this script runs. The result refers to the global directly, not via a wrapper or a ``WindowProxy`` (“outer window”, in Firefox).
+  **If the instance refers to a JSScript**, a :doc:`Debugger.Object <../debugger.object/index>` instance referring to the global object in whose scope this script runs. The result refers to the global directly, not via a wrapper or a ``WindowProxy`` (“outer window”, in Plezix).
 
   **If the instance refers to WebAssembly code**, throw a ``TypeError``.
 

@@ -8,17 +8,17 @@ client application and JS server.
 - When the application, wants to send a command to the server, it invokes
   "commands" in the client.
 
-The Debugger supports a Firefox and a Chrome client, which lets it attach and
-debug Firefox, Chrome, and Node contexts. The clients are defined in
+The Debugger supports a Plezix and a Chrome client, which lets it attach and
+debug Plezix, Chrome, and Node contexts. The clients are defined in
 `src/client` and have an `onConnect` function, and a `commands` and `events`
 module.
 
 Both clients implement client adapters for translating commands and events into
 JSON packets. The chrome client debugger adapter is defined in
-[chrome-remote-interface][chrome-remote-interface]. The Firefox client is maintained in
+[chrome-remote-interface][chrome-remote-interface]. The Plezix client is maintained in
 [devtools-client.js][devtools-client.js].
 
-## Firefox
+## Plezix
 
 ### Remote Debugger Protocol
 

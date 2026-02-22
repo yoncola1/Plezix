@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ import org.mozilla.fenix.reviewprompt.CustomReviewPromptState.Feedback
 import org.mozilla.fenix.reviewprompt.CustomReviewPromptState.PrePrompt
 import org.mozilla.fenix.reviewprompt.CustomReviewPromptState.Rate
 import org.mozilla.fenix.reviewprompt.CustomReviewPromptStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Prompt that can show either:
@@ -104,8 +104,8 @@ private fun BottomSheet(
         Column(
             Modifier
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
-                .background(FirefoxTheme.colors.layer3)
-                .widthIn(max = FirefoxTheme.layout.size.maxWidth.medium)
+                .background(PlezixTheme.colors.layer3)
+                .widthIn(max = PlezixTheme.layout.size.maxWidth.medium)
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp)
                 .padding(bottom = 16.dp),
@@ -136,8 +136,8 @@ private fun PrePrompt(
                 R.string.review_prompt_pre_prompt_header,
                 stringResource(R.string.firefox),
             ),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline7,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.headline7,
         )
 
         Spacer(Modifier.height(20.dp))
@@ -173,8 +173,8 @@ private fun FoxEmojiButton(
         modifier
             .height(100.dp)
             .clip(RoundedCornerShape(size = 18.dp))
-            .border(1.dp, FirefoxTheme.colors.borderPrimary, RoundedCornerShape(size = 18.dp))
-            .background(FirefoxTheme.colors.layer1)
+            .border(1.dp, PlezixTheme.colors.borderPrimary, RoundedCornerShape(size = 18.dp))
+            .background(PlezixTheme.colors.layer1)
             .clickable(onClick = onClick),
         Arrangement.Center,
         Alignment.CenterHorizontally,
@@ -185,8 +185,8 @@ private fun FoxEmojiButton(
 
         Text(
             label,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.caption,
+            color = PlezixTheme.colors.textPrimary,
+            style = PlezixTheme.typography.caption,
         )
     }
 }
@@ -207,8 +207,8 @@ private fun RateStep(onRateButtonClick: () -> Unit, modifier: Modifier = Modifie
                     R.string.review_prompt_rate_header,
                     stringResource(R.string.firefox),
                 ),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
             )
         }
 
@@ -238,8 +238,8 @@ private fun FeedbackStep(onLeaveFeedbackButtonClick: () -> Unit, modifier: Modif
                     R.string.review_prompt_feedback_header,
                     stringResource(R.string.firefox),
                 ),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
             )
         }
 
@@ -256,7 +256,7 @@ private fun FeedbackStep(onLeaveFeedbackButtonClick: () -> Unit, modifier: Modif
 @PreviewLightDark
 @Composable
 private fun PrePromptPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         CustomReviewPrompt(
             state = PrePrompt,
             onRequestDismiss = {},
@@ -271,7 +271,7 @@ private fun PrePromptPreview() {
 @PreviewLightDark
 @Composable
 private fun RatePromptPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         CustomReviewPrompt(
             state = Rate,
             onRequestDismiss = {},
@@ -286,7 +286,7 @@ private fun RatePromptPreview() {
 @PreviewLightDark
 @Composable
 private fun FeedbackPromptPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         CustomReviewPrompt(
             state = Feedback,
             onRequestDismiss = {},
@@ -301,7 +301,7 @@ private fun FeedbackPromptPreview() {
 @PreviewLightDark
 @Composable
 private fun FoxEmojiButtonPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         FoxEmojiButton(
             emoji = painterResource(R.drawable.review_prompt_positive_button),
             label = "It’s great!",
@@ -316,7 +316,7 @@ private fun FoxEmojiButtonPreview() {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun BottomSheetPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         BottomSheet(
             onRequestDismiss = {},
         ) {
@@ -335,7 +335,7 @@ private fun BottomSheetPreview() {
 private fun InteractiveCustomReviewPromptPreview() {
     val store = CustomReviewPromptStore(PrePrompt)
     val promptState by store.observeAsState(PrePrompt) { it }
-    FirefoxTheme {
+    PlezixTheme {
         Box(
             Modifier.height(224.dp),
             Alignment.BottomCenter,

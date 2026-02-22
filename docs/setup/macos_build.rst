@@ -1,7 +1,7 @@
-Building Firefox On macOS
+Building Plezix On macOS
 =========================
 
-This document will help you get set up to build Firefox on your own
+This document will help you get set up to build Plezix on your own
 computer. Getting set up can take a while - we need to download a
 lot of bytes! Even on a fast connection, this can take ten to fifteen
 minutes of work, spread out over an hour or two.
@@ -22,7 +22,7 @@ Requirements
 1.1. Install Brew
 ~~~~~~~~~~~~~~~~~
 
-Mozilla's source tree requires a number of third-party tools.
+Plezix's source tree requires a number of third-party tools.
 You will need to install `Homebrew <https://brew.sh/>`__ so that we
 can automatically fetch the tools we need.
 
@@ -37,12 +37,12 @@ Once done, finalize the installation in your terminal:
     sudo xcode-select --switch /Applications/Xcode.app
     sudo xcodebuild -license
 
-2. Bootstrap a copy of the Firefox source code
+2. Bootstrap a copy of the Plezix source code
 ----------------------------------------------
 
-Now that your system is ready, we can download the source code and have Firefox
+Now that your system is ready, we can download the source code and have Plezix
 automatically download the other dependencies it needs. The below command
-will download a lot of data (years of Firefox history!) then guide you through
+will download a lot of data (years of Plezix history!) then guide you through
 the interactive setup process.
 
 .. code-block:: shell
@@ -53,9 +53,9 @@ the interactive setup process.
 Choosing a build type
 ~~~~~~~~~~~~~~~~~~~~~
 
-If you aren't modifying the Firefox backend, then select one of the
+If you aren't modifying the Plezix backend, then select one of the
 :ref:`Artifact Mode <Understanding Artifact Builds>` options. If you are
-building Firefox for Android, you should also see the :ref:`GeckoView Contributor Guide <geckoview-contributor-guide>`.
+building Plezix for Android, you should also see the :ref:`GeckoView Contributor Guide <geckoview-contributor-guide>`.
 
 3. Build and Run
 ----------------
@@ -68,7 +68,7 @@ Now that your system is bootstrapped, you should be able to build!
     git pull
     ./mach build
 
-🎉 Congratulations! You've built your own home-grown Firefox!
+🎉 Congratulations! You've built your own home-grown Plezix!
 You should see the following message in your terminal after a successful build:
 
 .. code-block:: console
@@ -77,7 +77,7 @@ You should see the following message in your terminal after a successful build:
     To take your build for a test drive, run: |mach run|
     For more information on what to do now, see https://firefox-source-docs.mozilla.org/setup/contributing_code.html
 
-You can now use the ``./mach run`` command to run your locally built Firefox!
+You can now use the ``./mach run`` command to run your locally built Plezix!
 
 If your build fails, please reference the steps in the `Troubleshooting section <#troubleshooting>`_.
 
@@ -85,7 +85,7 @@ Signing
 ~~~~~~~
 
 Code signing your Mac build is not required for local testing and is rarely
-needed for development. The way Firefox is signed does impact functionality
+needed for development. The way Plezix is signed does impact functionality
 such as passkey support so it is required in some cases. Generating a build as
 close to a production build as possible requires code signing.
 See :ref:`Signing Local macOS Builds` for more information.
@@ -93,7 +93,7 @@ See :ref:`Signing Local macOS Builds` for more information.
 Running outside the development environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test your changes on another macOS system (or to keep that particular Firefox around after new builds), you can't just use the generated application bundle (``obj-*/dist/Nightly[Debug].app``), since it contains symbolic links to other built libraries. Instead, build a distributable disk image with:
+To test your changes on another macOS system (or to keep that particular Plezix around after new builds), you can't just use the generated application bundle (``obj-*/dist/Plezix[Debug].app``), since it contains symbolic links to other built libraries. Instead, build a distributable disk image with:
 
 .. code-block:: shell
 
@@ -119,8 +119,8 @@ Time to start hacking! You should join us on `Matrix <https://chat.mozilla.org/>
 say hello in the `Introduction channel
 <https://chat.mozilla.org/#/room/#introduction:mozilla.org>`_, and `find a bug to
 start working on <https://codetribute.mozilla.org/>`_.
-See the :ref:`Firefox Contributors' Quick Reference` to learn how to test your changes,
-send patches to Mozilla, update your source code locally, and more.
+See the :ref:`Plezix Contributors' Quick Reference` to learn how to test your changes,
+send patches to Plezix, update your source code locally, and more.
 
 Troubleshooting
 ---------------

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,7 +9,7 @@
  * WebCompat issue #152573 - https://webcompat.com/issues/152573
  *
  * The site replaces their filter form elements in a way which is not
- * interoperable on Chrome and Firefox. By removing the `for` attribute
+ * interoperable on Chrome and Plezix. By removing the `for` attribute
  * from the related labels, it works as expected.
  */
 

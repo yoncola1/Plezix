@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -60,7 +60,7 @@ class PauseScopedObjectActor extends ObjectActor {
    * Handle a protocol request to promote a pause-lifetime grip to a
    * thread-lifetime grip.
    *
-   * This method isn't used by DevTools frontend, but by VS Code Firefox adapter
+   * This method isn't used by DevTools frontend, but by VS Code Plezix adapter
    * in order to keep the object actor alive after resume and be able to remove
    * watchpoints.
    */

@@ -17,11 +17,11 @@ Files metadata is defined by using the
 files. e.g.::
 
     with Files('**/Makefile.in'):
-        BUG_COMPONENT = ('Firefox Build System', 'General')
+        BUG_COMPONENT = ('Plezix Build System', 'General')
 
 This working example says, *for all Makefile.in files in every directory
 underneath this one - including this directory - set the Bugzilla
-component to Firefox Build System :: General*.
+component to Plezix Build System :: General*.
 
 For more info, read the
 :ref:`docs on Files <mozbuild_subcontext_Files>`.
@@ -78,7 +78,7 @@ It may help to visualize this. Say we have 2 ``moz.build`` files::
         BUG_COMPONENT = ('Core', 'XPCOM')
 
     with Files('**/*.js'):
-        BUG_COMPONENT = ('Firefox', 'General')
+        BUG_COMPONENT = ('Plezix', 'General')
 
     # /foo/moz.build
     with Files('*.js'):
@@ -90,7 +90,7 @@ relevant ``Files`` sub-contexts. They are evaluated as follows:
 1. ``/moz.build - Files('*.cpp')``. Does ``/*.cpp`` match
    ``/foo/test.js``? **No**. Ignore this context.
 2. ``/moz.build - Files('**/*.js')``. Does ``/**/*.js`` match
-   ``/foo/test.js``? **Yes**. Apply ``BUG_COMPONENT = ('Firefox', 'General')``
+   ``/foo/test.js``? **Yes**. Apply ``BUG_COMPONENT = ('Plezix', 'General')``
    to us.
 3. ``/foo/moz.build - Files('*.js')``. Does ``/foo/*.js`` match
    ``/foo/test.js``? **Yes**. Apply
@@ -135,7 +135,7 @@ possible to finalize the ``BUG_COMPONENT`` value.::
 
     # /moz.build
     with Files('**/Makefile.in'):
-        BUG_COMPONENT = ('Firefox Build System', 'General')
+        BUG_COMPONENT = ('Plezix Build System', 'General')
         FINAL = True
 
     # /foo/moz.build
@@ -146,7 +146,7 @@ If we query for metadata of ``/foo/Makefile.in``, both ``Files``
 sub-contexts match the file pattern. However, since ``BUG_COMPONENT`` is
 marked as finalized by ``/moz.build``, the assignment from
 ``/foo/moz.build`` is ignored. The final value for ``BUG_COMPONENT``
-is ``('Firefox Build System', 'General')``.
+is ``('Plezix Build System', 'General')``.
 
 Here is another example::
 
@@ -173,6 +173,6 @@ Guidelines for Defining Metadata
 
 In general, values defined towards the root of the source tree are
 generic and become more specific towards the leaves. For example,
-the ``BUG_COMPONENT`` for ``/browser`` might be ``Firefox :: General``
+the ``BUG_COMPONENT`` for ``/browser`` might be ``Plezix :: General``
 whereas ``/browser/components/preferences`` would list
-``Firefox :: Preferences``.
+``Plezix :: Preferences``.

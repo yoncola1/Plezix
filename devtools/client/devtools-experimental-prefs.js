@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,7 +14,7 @@ loader.lazyRequireGetter(
 const PREFERENCES = [
   [
     "fission.autostart",
-    "Enable fission in Firefox. When navigating between two domains, you " +
+    "Enable fission in Plezix. When navigating between two domains, you " +
       "will switch between two distinct processes. And if an iframe is " +
       "hosted from another domain, it will run in another process",
   ],
@@ -30,7 +30,7 @@ const PREFERENCES = [
   ],
   [
     "devtools.debugger.features.javascript-tracing",
-    "Enable the JavaScript tracer. (You need to restart Firefox / the Browser Toolbox to apply this setting)",
+    "Enable the JavaScript tracer. (You need to restart Plezix / the Browser Toolbox to apply this setting)",
   ],
 ];
 
@@ -38,7 +38,7 @@ const PREFERENCES = [
  * Temporary module to show a Tooltip with the currently enabled preferences
  * relevant for DevTools ongoing architectural work (e.g. Fission, EFT, …).
  *
- * This module should be deleted once all experimental prefs are preffed on in Nightly.
+ * This module should be deleted once all experimental prefs are preffed on in Plezix.
  */
 function showTooltip(toolbox) {
   if (!toolbox._experimentalPrefsTooltip) {

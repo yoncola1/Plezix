@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ static constexpr auto kBlobUri = "bloburi"_ns;
 static constexpr auto kDataUri = "dataurl"_ns;
 static constexpr auto kAboutUri = "abouturi"_ns;
 static constexpr auto kSingleString = "singlestring"_ns;
-static constexpr auto kMozillaExtensionFile = "mozillaextension_file"_ns;
+static constexpr auto kPlezixExtensionFile = "mozillaextension_file"_ns;
 static constexpr auto kExtensionURI = "extension_uri"_ns;
 static constexpr auto kSuspectedUserChromeJS = "suspectedUserChromeJS"_ns;
 #if defined(XP_WIN)
@@ -120,7 +120,7 @@ TEST(FilenameEvalParser, MozExtension)
         "study/api.js"_ns;
     FilenameTypeAndDetails ret =
         nsContentSecurityUtils::FilenameToFilenameType(str, false);
-    ASSERT_TRUE(ret.first == kMozillaExtensionFile &&
+    ASSERT_TRUE(ret.first == kPlezixExtensionFile &&
                 ret.second.value() ==
                     "federated-learning@s!/experiments/study/api.js"_ns);
   }
@@ -133,7 +133,7 @@ TEST(FilenameEvalParser, MozExtension)
     FilenameTypeAndDetails ret =
         nsContentSecurityUtils::FilenameToFilenameType(str, false);
     ASSERT_TRUE(
-        ret.first == kMozillaExtensionFile &&
+        ret.first == kPlezixExtensionFile &&
         ret.second.value() ==
             "federated-learning@shigeld.m!/experiments/study/api.js"_ns);
   }
@@ -145,7 +145,7 @@ TEST(FilenameEvalParser, MozExtension)
         "study/apiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.js"_ns;
     FilenameTypeAndDetails ret =
         nsContentSecurityUtils::FilenameToFilenameType(str, false);
-    ASSERT_TRUE(ret.first == kMozillaExtensionFile &&
+    ASSERT_TRUE(ret.first == kPlezixExtensionFile &&
                 ret.second.value() ==
                     "federated-learning@shigeld.m!/experiments/"
                     "study/apiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"_ns);

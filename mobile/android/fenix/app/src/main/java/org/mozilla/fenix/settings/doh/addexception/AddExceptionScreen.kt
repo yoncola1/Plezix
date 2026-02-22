@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ import mozilla.components.compose.base.textfield.TextField
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.doh.DohSettingsState
 import org.mozilla.fenix.settings.doh.ProtectionLevel
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Composable function that displays the exceptions list screen of DoH settings.
@@ -40,7 +40,7 @@ internal fun AddExceptionScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1),
+            .background(PlezixTheme.colors.layer1),
     ) {
         TextField(
             value = urlInput,
@@ -76,7 +76,7 @@ internal fun AddExceptionScreen(
 @Composable
 @FlexibleWindowLightDarkPreview
 private fun AddExceptionScreenPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         AddExceptionScreen(
             state = DohSettingsState(
                 allProtectionLevels = listOf(

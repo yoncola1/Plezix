@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -6,7 +6,7 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: Tags
 description: |
-  Schema for the tags.yaml files for Mozilla's Glean telemetry SDK.
+  Schema for the tags.yaml files for Plezix's Glean telemetry SDK.
 
   The top-level of the `tags.yaml` file has a key defining the name of each
   tag. The values contain metadata about that tag (currently just a

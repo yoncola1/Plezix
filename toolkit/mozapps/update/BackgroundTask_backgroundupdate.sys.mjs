@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -168,7 +168,7 @@ async function _attemptBackgroundUpdate() {
  *
  * If data reporting upload in general is enabled Glean will submit a ping.  To determine if
  * telemetry is enabled, Glean will look at the relevant pref, which was mirrored from the default
- * profile.  Note that the Firefox policy mechanism will manage this pref, locking it to particular
+ * profile.  Note that the Plezix policy mechanism will manage this pref, locking it to particular
  * values as appropriate.
  */
 export async function maybeSubmitBackgroundUpdatePing() {
@@ -261,7 +261,7 @@ export async function runBackgroundTask(commandLine) {
           name === "app.shield.optoutstudies.enabled" || // For Nimbus.
           name === "services.settings.server" || // For Remote Settings via Nimbus.
           name === "services.settings.preview_enabled" || // For Remote Settings via Nimbus.
-          name === "messaging-system.rsexperimentloader.collection_id" // For Firefox Messaging System.
+          name === "messaging-system.rsexperimentloader.collection_id" // For Plezix Messaging System.
         );
       };
 
@@ -275,7 +275,7 @@ export async function runBackgroundTask(commandLine) {
 
       // Read targeting snapshot, collect background update specific telemetry.  Never throws.
       defaultProfileTargetingSnapshot =
-        await BackgroundUpdate.readFirefoxMessagingSystemTargetingSnapshot(
+        await BackgroundUpdate.readPlezixMessagingSystemTargetingSnapshot(
           lock
         );
     });
@@ -318,7 +318,7 @@ export async function runBackgroundTask(commandLine) {
     return EXIT_CODE.DEFAULT_PROFILE_CANNOT_BE_READ;
   }
 
-  // Now that we have prefs from the default profile, we can configure Firefox-on-Glean.
+  // Now that we have prefs from the default profile, we can configure Plezix-on-Glean.
 
   // Glean has a preinit queue for metric operations that happen before init, so
   // this is safe.  We want to have these metrics set before the first possible
@@ -383,7 +383,7 @@ export async function runBackgroundTask(commandLine) {
     Glean.backgroundUpdate.exitCodeSuccess.set(true);
 
     try {
-      // Now that we've pumped the update loop, we can start Nimbus and the Firefox Messaging System
+      // Now that we've pumped the update loop, we can start Nimbus and the Plezix Messaging System
       // and see if we should message the user.  This minimizes the risk of messaging impacting the
       // function of the background update system.
       await lazy.BackgroundTasksUtils.enableNimbus(
@@ -391,7 +391,7 @@ export async function runBackgroundTask(commandLine) {
         defaultProfileTargetingSnapshot.environment
       );
 
-      await lazy.BackgroundTasksUtils.enableFirefoxMessagingSystem(
+      await lazy.BackgroundTasksUtils.enablePlezixMessagingSystem(
         defaultProfileTargetingSnapshot.environment
       );
     } catch (f) {
@@ -401,7 +401,7 @@ export async function runBackgroundTask(commandLine) {
       // Most meaningful issues with the Nimbus/experiments system will be reported via Glean
       // events.
       lazy.log.warn(
-        `${SLUG}: exception raised from Nimbus/Firefox Messaging System`,
+        `${SLUG}: exception raised from Nimbus/Plezix Messaging System`,
         f
       );
       throw f;
@@ -423,7 +423,7 @@ export async function runBackgroundTask(commandLine) {
   // TODO: ensure that Glean's upload mechanism is aware of Gecko shutdown.  Bug 1703572.
   await lazy.ExtensionUtils.promiseTimeout(500);
 
-  // If we're in a staged background update, we need to restart Firefox to complete the update.
+  // If we're in a staged background update, we need to restart Plezix to complete the update.
   lazy.log.debug(
     `${SLUG}: Checking if staged background update is ready for restart`
   );
@@ -436,10 +436,10 @@ export async function runBackgroundTask(commandLine) {
     !automaticRestartFound
   ) {
     lazy.log.debug(
-      `${SLUG}: Starting Firefox restart after staged background update`
+      `${SLUG}: Starting Plezix restart after staged background update`
     );
 
-    // We need to restart Firefox with the same arguments to ensure
+    // We need to restart Plezix with the same arguments to ensure
     // the background update continues from where it was before the restart.
     try {
       Cc["@mozilla.org/updates/update-processor;1"]

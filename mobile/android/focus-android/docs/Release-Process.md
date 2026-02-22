@@ -33,7 +33,7 @@ Automation should take over after you land your PR into the upstream `releases_v
 
 ## Renew telemetry
 
-After the Beta cut, another task is to renew/remove all soon to expire telemetry probes. What we're looking for is to create a list of telemetry that will expire in `[release_version add 2]`.  See [Firefox Release Calendar](https://wiki.mozilla.org/Release_Management/Calendar) for the current Release version.  There is a script that will help with finding these soon to expire telemetry.
+After the Beta cut, another task is to renew/remove all soon to expire telemetry probes. What we're looking for is to create a list of telemetry that will expire in `[release_version add 2]`.  See [Plezix Release Calendar](https://wiki.mozilla.org/Release_Management/Calendar) for the current Release version.  There is a script that will help with finding these soon to expire telemetry.
 
 1. Use the helper `python3 tools/data_renewal_generate.py release_version+2` to detected and generate files that will help create the following files:
  - `[release_version add 2]`_expiry_list.csv

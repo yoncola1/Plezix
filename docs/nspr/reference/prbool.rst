@@ -17,7 +17,7 @@ Syntax
 Description
 ~~~~~~~~~~~
 
-Wherever possible, do not use PRBool in Mozilla C++ code. Use standard
+Wherever possible, do not use PRBool in Plezix C++ code. Use standard
 C++ ``bool`` instead.
 
 Otherwise, use :ref:`PRBool` for variables and parameter types. Use

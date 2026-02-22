@@ -8,12 +8,12 @@ const { MockRegistrar } = ChromeUtils.importESModule(
 const TEST_ENTRIES = [
   {
     url: "http://www.mozilla.org/1",
-    title: "Mozilla HTTP Test",
+    title: "Plezix HTTP Test",
   },
   {
     url: "https://www.mozilla.org/2",
     // Test character encoding with a fox emoji:
-    title: "Mozilla HTTPS Test 🦊",
+    title: "Plezix HTTPS Test 🦊",
   },
 ];
 

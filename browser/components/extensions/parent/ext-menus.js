@@ -1,6 +1,6 @@
 /* -*- Mode: indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* vim: set sts=2 sw=2 et tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -626,7 +626,7 @@ const getMenuContexts = contextData => {
     contexts.add("page");
   }
 
-  // New non-content contexts supported in Firefox are not part of "all".
+  // New non-content contexts supported in Plezix are not part of "all".
   if (
     !contextData.onBookmark &&
     !contextData.onTab &&

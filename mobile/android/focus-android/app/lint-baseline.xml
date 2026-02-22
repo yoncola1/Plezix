@@ -2563,7 +2563,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.text_selection_search_action_focus_nightly` appears to be unused"
-        errorLine1="    &lt;string name=&quot;text_selection_search_action_focus_nightly&quot; tools:ignore=&quot;BrandUsage&quot;>Search in Focus Nightly&lt;/string>"
+        errorLine1="    &lt;string name=&quot;text_selection_search_action_focus_nightly&quot; tools:ignore=&quot;BrandUsage&quot;>Search in Focus Plezix&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2904,7 +2904,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.onboarding_first_screen_terms_of_use_link` appears to be unused"
-        errorLine1="    &lt;string name=&quot;onboarding_first_screen_terms_of_use_link&quot; moz:removedIn=&quot;141&quot; tools:ignore=&quot;BrandUsage&quot;>Firefox Terms of Use.&lt;/string>"
+        errorLine1="    &lt;string name=&quot;onboarding_first_screen_terms_of_use_link&quot; moz:removedIn=&quot;141&quot; tools:ignore=&quot;BrandUsage&quot;>Plezix Terms of Use.&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2915,7 +2915,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.onboarding_first_screen_privacy_notice_text` appears to be unused"
-        errorLine1="    &lt;string name=&quot;onboarding_first_screen_privacy_notice_text&quot; moz:removedIn=&quot;141&quot; tools:ignore=&quot;BrandUsage&quot;>Firefox cares about your privacy. Learn more in our %1$s&lt;/string>"
+        errorLine1="    &lt;string name=&quot;onboarding_first_screen_privacy_notice_text&quot; moz:removedIn=&quot;141&quot; tools:ignore=&quot;BrandUsage&quot;>Plezix cares about your privacy. Learn more in our %1$s&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -3212,7 +3212,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.preference_studies_summary` appears to be unused"
-        errorLine1="    &lt;string name=&quot;preference_studies_summary&quot; tools:ignore=&quot;BrandUsage&quot; moz:removedIn=&quot;140&quot;>Firefox may install and run studies from time to time.&lt;/string>"
+        errorLine1="    &lt;string name=&quot;preference_studies_summary&quot; tools:ignore=&quot;BrandUsage&quot; moz:removedIn=&quot;140&quot;>Plezix may install and run studies from time to time.&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"

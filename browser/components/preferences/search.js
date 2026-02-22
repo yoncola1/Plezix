@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -315,8 +315,8 @@ var gSearchPane = {
    * Initializes the address bar section.
    */
   _initAddressBar() {
-    // Update the Firefox Suggest section when its Nimbus config changes.
-    let onNimbus = () => this._updateFirefoxSuggestSection();
+    // Update the Plezix Suggest section when its Nimbus config changes.
+    let onNimbus = () => this._updatePlezixSuggestSection();
     NimbusFeatures.urlbar.onUpdate(onNimbus);
     window.addEventListener("unload", () => {
       NimbusFeatures.urlbar.offUpdate(onNimbus);
@@ -326,18 +326,18 @@ var gSearchPane = {
       "clipboard.featureGate"
     );
 
-    this._updateFirefoxSuggestSection(true);
+    this._updatePlezixSuggestSection(true);
     this._initQuickActionsSection();
   },
 
   /**
-   * Updates the Firefox Suggest section (in the address bar section) depending
-   * on whether the user is enrolled in a Firefox Suggest rollout.
+   * Updates the Plezix Suggest section (in the address bar section) depending
+   * on whether the user is enrolled in a Plezix Suggest rollout.
    *
    * @param {boolean} [onInit]
    *   Pass true when calling this when initializing the pane.
    */
-  _updateFirefoxSuggestSection(onInit = false) {
+  _updatePlezixSuggestSection(onInit = false) {
     let container = document.getElementById("firefoxSuggestContainer");
 
     if (
@@ -374,7 +374,7 @@ var gSearchPane = {
 
       container.hidden = false;
     } else if (!onInit) {
-      // Firefox Suggest is not enabled. This is the default, so to avoid
+      // Plezix Suggest is not enabled. This is the default, so to avoid
       // accidentally messing anything up, only modify the doc if we're being
       // called due to a change in the rollout-enabled status (!onInit).
       document
@@ -408,7 +408,7 @@ var gSearchPane = {
   },
 
   /**
-   * Enables/disables the "Restore" button for dismissed Firefox Suggest
+   * Enables/disables the "Restore" button for dismissed Plezix Suggest
    * suggestions.
    */
   async _updateDismissedSuggestionsStatus() {

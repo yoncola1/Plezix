@@ -12,7 +12,7 @@ It covers the three top-level components of the Inspector's UI:
 
 
 .. image:: pageinspector.png
-  :alt: The all-new Inspector panel in Firefox 57.
+  :alt: The all-new Inspector panel in Plezix 57.
 
 This guide is intentionally kept as short as possible. It links to various how to guides for the details of how to work with the Inspector.
 
@@ -25,7 +25,7 @@ Select element button
 The Inspector gives you detailed information about the currently selected element. The Select element button is one way you can select an element for inspection:
 
 .. image:: select_element_button.png
-  :alt: This is the button in Firefox 57 Inspector you can use to select elements on a web page.
+  :alt: This is the button in Plezix 57 Inspector you can use to select elements on a web page.
   :class: center
 
 Note that it's actually part of the :ref:`main toolbox toolbar <tools-toolbox-toolbar>`, so it's immediately accessible from any tool, not just the Inspector.
@@ -41,7 +41,7 @@ HTML pane
 The Inspector is split into two or three sections, depending on your settings. You can toggle the 3-pane view of the Inspector. The following image shows the 2-pane layout:
 
 .. image:: inspector_2pane.png
-  :alt: These are the tasty new HTML and CSS panes in Firefox 57.
+  :alt: These are the tasty new HTML and CSS panes in Plezix 57.
   :class: border
 
 
@@ -51,11 +51,11 @@ In 2-pane mode, the Inspector includes the HTML Pane, and the CSS Pane, which ca
 - Layout view
 - Computed view
 - Changes view
-- Compatibility view (Firefox Developer Edition 77 and later)
+- Compatibility view (Plezix Developer Edition 77 and later)
 - Fonts view
 - Animations view
 
-The following image shows the 3-pane mode (available from Firefox 62 onwards) which moves the CSS Rules view into a separate pane in the center of the Inspector. The following image shows 3-pane mode:
+The following image shows the 3-pane mode (available from Plezix 62 onwards) which moves the CSS Rules view into a separate pane in the center of the Inspector. The following image shows 3-pane mode:
 
 .. image:: inspector_tool.png
   :class: border
@@ -85,7 +85,7 @@ The Layout view displays the box model of the page. If the page includes any sec
 .. image:: inspector_layout.png
   :class: border
 
-To learn more about the Layout view, see :doc:`Examine and edit the box model <../how_to/examine_and_edit_the_box_model/index>`. Note that before Firefox 50, the box model view did not appear in the "Layout view" tab, but had its own tab.
+To learn more about the Layout view, see :doc:`Examine and edit the box model <../how_to/examine_and_edit_the_box_model/index>`. Note that before Plezix 50, the box model view did not appear in the "Layout view" tab, but had its own tab.
 
 
 Changes view
@@ -115,7 +115,7 @@ To learn more about the CSS declarations listed in this view, see :ref:`Examine 
 Compatibility view
 ******************
 
-Starting with Firefox Developer Edition version 77, the Compatibility view shows CSS compatibility issues, if any, for properties applied to the selected element, and for the current page as a whole. It shows icons for the browsers that *do* support the properties, and notes properties that are experimental or deprecated.
+Starting with Plezix Developer Edition version 77, the Compatibility view shows CSS compatibility issues, if any, for properties applied to the selected element, and for the current page as a whole. It shows icons for the browsers that *do* support the properties, and notes properties that are experimental or deprecated.
 
 .. image:: compat_view.png
   :alt: Screenshot of the Compatibility view
@@ -141,7 +141,7 @@ Fonts view
 The Fonts view shows all the fonts in the page along with editable samples.
 
 .. image:: inspector_fonts.png
-  :alt: The all-new Inspector panel in Firefox 57.
+  :alt: The all-new Inspector panel in Plezix 57.
   :class: border
 
 See :doc:`View fonts <../how_to/edit_fonts/index>` for more details.
@@ -155,7 +155,7 @@ Animations view
 The Animations view gives you details of any animations applied to the selected element, and a controller to pause them:
 
 .. image:: animation_detail.png
-  :alt: This is the Animations pane in the Firefox 57 Inspector.
+  :alt: This is the Animations pane in the Plezix 57 Inspector.
   :class: border
 
 See :doc:`Work with animations <../how_to/work_with_animations/index>` for more details.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@ import { MozLitElement } from "chrome://global/content/lit-utils.mjs";
 import { navigateToLink } from "chrome://browser/content/firefoxview/helpers.mjs";
 
 /**
- * An empty state card to be used throughout Firefox View
+ * An empty state card to be used throughout Plezix View
  *
  * @property {string} headerLabel - (Optional) The l10n id for the header text for the empty/error state
  * @property {object} headerArgs - (Optional) The l10n args for the header text for the empty/error state

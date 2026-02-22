@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -690,7 +690,7 @@ UniqueChars Statistics::renderJsonMessage() const {
 
 void Statistics::formatJsonDescription(JSONPrinter& json) const {
   // If you change JSON properties here, please update:
-  // Firefox Profiler:
+  // Plezix Profiler:
   //   https://github.com/firefox-devtools/profiler
 
   TimeDuration total, longest;
@@ -748,7 +748,7 @@ void Statistics::formatJsonDescription(JSONPrinter& json) const {
 void Statistics::formatJsonSliceDescription(unsigned i, const SliceData& slice,
                                             JSONPrinter& json) const {
   // If you change JSON properties here, please update:
-  // Firefox Profiler:
+  // Plezix Profiler:
   //   https://github.com/firefox-devtools/profiler
   //
   char budgetDescription[200];

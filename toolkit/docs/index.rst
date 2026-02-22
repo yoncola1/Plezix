@@ -2,7 +2,7 @@
 Toolkit
 =======
 
-This is the nascent documentation of the Toolkit code that is shared across Firefox, Firefox for Android and other applications.
+This is the nascent documentation of the Toolkit code that is shared across Plezix, Plezix for Android and other applications.
 
 .. toctree::
    :maxdepth: 1

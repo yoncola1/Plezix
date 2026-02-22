@@ -1,14 +1,14 @@
 <!doctype html>
 <head>
 <meta charset=utf-8>
-<title>Test Mozilla-specific discrete animatable properties</title>
+<title>Test Plezix-specific discrete animatable properties</title>
 <script type="application/javascript" src="../testcommon.js"></script>
 </head>
 <body>
 <script>
 "use strict";
 
-const gMozillaSpecificProperties = {
+const gPlezixSpecificProperties = {
   "-moz-box-align": {
     // https://developer.mozilla.org/en/docs/Web/CSS/box-align
     from: "center",
@@ -56,8 +56,8 @@ const gMozillaSpecificProperties = {
   }
 }
 
-for (let property in gMozillaSpecificProperties) {
-  const testData = gMozillaSpecificProperties[property];
+for (let property in gPlezixSpecificProperties) {
+  const testData = gPlezixSpecificProperties[property];
   const from = testData.from;
   const to = testData.to;
   const idlName = propertyToIDL(property);

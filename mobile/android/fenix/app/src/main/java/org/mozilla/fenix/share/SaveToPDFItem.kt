@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A save to PDF item.
@@ -44,15 +44,15 @@ fun SaveToPDFItem(
         Icon(
             painter = painterResource(R.drawable.ic_download),
             contentDescription = null,
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = PlezixTheme.colors.iconPrimary,
         )
 
         Spacer(Modifier.width(32.dp))
 
         Text(
-            color = FirefoxTheme.colors.textPrimary,
+            color = PlezixTheme.colors.textPrimary,
             text = stringResource(R.string.share_save_to_pdf),
-            style = FirefoxTheme.typography.subtitle1,
+            style = PlezixTheme.typography.subtitle1,
         )
     }
 }
@@ -61,7 +61,7 @@ fun SaveToPDFItem(
 @Preview
 @PreviewLightDark
 private fun SaveToPDFItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         SaveToPDFItem {}
     }
 }

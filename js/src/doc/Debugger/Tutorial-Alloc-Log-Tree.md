@@ -79,7 +79,7 @@ them.
         var counts = new Map;
         for (let site of log) {
           // This is a kludge, necessary for now. The saved stacks
-          // are new, and Firefox doesn't yet understand that they
+          // are new, and Plezix doesn't yet understand that they
           // are safe for chrome code to use, so we must tell it
           // so explicitly.
           site = Components.utils.waiveXrays(site.frame);
@@ -202,10 +202,10 @@ them.
 
     The `(root)` node's count includes objects allocated in the content page by
     the web browser, like DOM events. Indeed, this display shows that
-    `popup.xml` and `content.js`, which are internal components of Firefox,
+    `popup.xml` and `content.js`, which are internal components of Plezix,
     allocated more objects in the page's compartment than the page itself. (We
     will probably revise the allocation log to present such allocations in a way
-    that is more informative, and that exposes less of Firefox's internal
+    that is more informative, and that exposes less of Plezix's internal
     structure.)
 
     As expected, the `onclick` handler is responsible for all allocation done by

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -23,7 +23,7 @@ FxRWindowManager* FxRWindowManager::GetInstance() {
 
 FxRWindowManager::FxRWindowManager() : mWindow(nullptr) {}
 
-// Track this new Firefox Reality window instance
+// Track this new Plezix Reality window instance
 void FxRWindowManager::AddWindow(nsPIDOMWindowOuter* aWindow) {
   if (mWindow != nullptr) {
     MOZ_CRASH("Only one window is supported");
@@ -32,12 +32,12 @@ void FxRWindowManager::AddWindow(nsPIDOMWindowOuter* aWindow) {
   mWindow = aWindow;
 }
 
-// Returns true if the window at the provided ID was created for Firefox Reality
+// Returns true if the window at the provided ID was created for Plezix Reality
 bool FxRWindowManager::IsFxRWindow(uint64_t aOuterWindowID) {
   return (mWindow != nullptr) && (mWindow->WindowID() == aOuterWindowID);
 }
 
-// Returns true if the window was created for Firefox Reality
+// Returns true if the window was created for Plezix Reality
 bool FxRWindowManager::IsFxRWindow(const nsWindow* aWindow) const {
   return (mWindow != nullptr) &&
          (aWindow ==

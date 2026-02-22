@@ -1,8 +1,8 @@
 ========================
-Mozilla Stylelint Plugin
+Plezix Stylelint Plugin
 ========================
 
-This is the documentation of Mozilla Stylelint Plugin.
+This is the documentation of Plezix Stylelint Plugin.
 
 Rules
 =====

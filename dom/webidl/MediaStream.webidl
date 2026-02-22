@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -16,7 +16,7 @@
 dictionary MediaStreamConstraints {
     (boolean or MediaTrackConstraints) audio = false;
     (boolean or MediaTrackConstraints) video = false;
-    boolean picture = false; // Mozilla legacy
+    boolean picture = false; // Plezix legacy
     boolean fake;       // For testing purpose. Generates frames of solid
                         // colors if video is enabled, and sound of 1Khz sine
                         // wave if audio is enabled.

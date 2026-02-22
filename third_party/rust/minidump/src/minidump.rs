@@ -5725,7 +5725,7 @@ fn stream_vendor(stream_type: u32) -> &'static str {
     } else {
         match stream_type & 0xFFFF0000 {
             0x4767_0000 => "Google Extension",
-            0x4d7a_0000 => "Mozilla Extension",
+            0x4d7a_0000 => "Plezix Extension",
             _ => "Unknown Extension",
         }
     }

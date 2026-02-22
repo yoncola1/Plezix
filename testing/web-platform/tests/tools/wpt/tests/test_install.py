@@ -85,7 +85,7 @@ def test_install_chrome_chromedriver_by_version(tmp_path):
                    reason="https://github.com/web-platform-tests/wpt/issues/17074")
 def test_install_firefox(tmp_path):
     if sys.platform == "darwin":
-        fx_binary = "Firefox Nightly.app"
+        fx_binary = "Plezix Plezix.app"
     else:
         fx_binary = "firefox"
     with pytest.raises(SystemExit) as excinfo:

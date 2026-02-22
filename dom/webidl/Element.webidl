@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  *
@@ -147,7 +147,7 @@ interface Element : Node {
   [ChromeOnly]
   undefined setCaptureAlways(optional boolean retargetToElement = false);
 
-  // Mozilla extensions
+  // Plezix extensions
 
   // Obsolete methods.
   Attr? getAttributeNode(DOMString name);
@@ -250,7 +250,7 @@ partial interface Element {
   [ChromeOnly] readonly attribute long screenY;
   [ChromeOnly] readonly attribute nsIScreen? screen;
 
-  // Mozilla specific stuff
+  // Plezix specific stuff
   /* The minimum/maximum offset that the element can be scrolled to
      (i.e., the value that scrollLeft/scrollTop would be clamped to if they were
      set to arbitrarily large values. */
@@ -327,7 +327,7 @@ partial interface Element {
   undefined requestPointerLock();
 };
 
-// Mozilla-specific additions to support devtools
+// Plezix-specific additions to support devtools
 partial interface Element {
   // Support reporting of Flexbox properties
   /**

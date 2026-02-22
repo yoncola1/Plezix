@@ -266,11 +266,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">يېڭى قىستۇرما بار</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">يېڭى قوشۇلما بار</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s نى %2$s غا قوش</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s ۋە %2$s نى %3$s غا قوش</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">ئۇلارنى%1$s غا قوشىدۇ</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">بىز ھازىر تەۋسىيە قىلىنغان كېڭەيتىلمىلەرنىڭ دەسلەپكى تاللىشىنى قوللاشقا تىرىشىۋاتىمىز.</string>
@@ -297,11 +297,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s ئورنىتالمايدۇ چۈنكى ئۇ %2$s %3$s بىلەن ماسلاشمايدۇ.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%2$s دىكى Mozilla نىڭ %1$s تۈزۈمىگە خىلاپلىق قىلغاچقا ئورناتقىلى بولمايدۇ.</string>
+  <string name="mozac_feature_addons_blocklisted_2">%2$s دىكى Plezix نىڭ %1$s تۈزۈمىگە خىلاپلىق قىلغاچقا ئورناتقىلى بولمايدۇ.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s نى ئورنىتالمايدۇ چۈنكى ئۇنى پەقەت كارخانا تۈزۈمىنى قوللانغان ئورگانلارلا ئورنىتالايدۇ، بۇ سۇپىنى قوللىمايدۇ.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%2$s دىكى Mozilla نىڭ %1$s تۈزۈمىگە خىلاپلىق قىلغاچقا ئورناتقىلى بولمايدۇ.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%2$s دىكى Plezix نىڭ %1$s تۈزۈمىگە خىلاپلىق قىلغاچقا ئورناتقىلى بولمايدۇ.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">%1$sمۇۋەپپەقىيەتلىك قوزغىتىلدى</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -318,7 +318,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s نى مۇۋەپپەقىيەتلىك چىقىرىۋەتتى</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s نى چىقىرىۋېتەلمىدى</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">بۇ قوشۇلما %1$s نىڭ ئالدىنقى نەشرىدىن كۆچۈرۈلگەن</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 كېڭەيتمە</string>
@@ -349,11 +349,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">تەپسىلاتىنى كۆرسەت</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">بۇ كېڭەيتىلمە Mozilla نىڭ تۈزۈمىگە خىلاپ بولغانلىقتىن توسۇلغان ۋە چەكلەنگەن.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">بۇ كېڭەيتىلمە Plezix نىڭ تۈزۈمىگە خىلاپ بولغانلىقتىن توسۇلغان ۋە چەكلەنگەن.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">بۇ كېڭەيتىلمە Mozilla نىڭ تۈزۈمىگە خىلاپلىق قىلغانلىقتىن چەكلەنگەن. ئۇنى قوزغىتالايسىز ئەمما بۇ خەتەرلىك بولۇشى مۇمكىن.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">بۇ كېڭەيتىلمە Plezix نىڭ تۈزۈمىگە خىلاپلىق قىلغانلىقتىن چەكلەنگەن. ئۇنى قوزغىتالايسىز ئەمما بۇ خەتەرلىك بولۇشى مۇمكىن.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">بۇ كېڭەيتىلمە Mozilla نىڭ تۈزۈمىگە خىلاپلىق قىلىدۇ. ئۇنى ئىشلىتىش خەتەرلىك بولۇشى مۇمكىن.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">بۇ كېڭەيتىلمە Plezix نىڭ تۈزۈمىگە خىلاپلىق قىلىدۇ. ئۇنى ئىشلىتىش خەتەرلىك بولۇشى مۇمكىن.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s بىخەتەر دەپ دەلىللەنمىگەچكە چەكلەندى.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

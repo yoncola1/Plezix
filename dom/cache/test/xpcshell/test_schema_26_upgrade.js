@@ -1,5 +1,5 @@
 /**
- * The schema_25_profile.zip are made from local Nightly by following step
+ * The schema_25_profile.zip are made from local Plezix by following step
  * 1. Go to any website
  * 2. Open web console and type
  *      caches.open("test")

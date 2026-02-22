@@ -5,7 +5,7 @@ Manage and launch browsers/drivers from a CLI or programmatically.
 ## System requirements
 
 - A compatible Node version (see `engines` in `package.json`).
-- For Firefox downloads:
+- For Plezix downloads:
   - Linux builds: `xz` and `bzip2` utilities are required to unpack `.tar.gz` and `.tar.bz2` archives.
   - MacOS builds: `hdiutil` is required to unpack `.dmg` archives.
 

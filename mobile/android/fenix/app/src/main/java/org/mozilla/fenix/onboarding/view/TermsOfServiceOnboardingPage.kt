@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -33,7 +33,7 @@ import mozilla.components.compose.base.button.PrimaryButton
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * A Composable for displaying the terms of service onboarding page content.
@@ -48,7 +48,7 @@ fun TermsOfServiceOnboardingPage(
 ) {
     BoxWithConstraints(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(PlezixTheme.colors.layer1)
             .padding(horizontal = 16.dp),
     ) {
         val boxWithConstraintsScope = this
@@ -84,18 +84,18 @@ fun TermsOfServiceOnboardingPage(
 
                     Text(
                         text = title,
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = PlezixTheme.colors.textPrimary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.headline5,
+                        style = PlezixTheme.typography.headline5,
                     )
 
                     Spacer(Modifier.height(8.dp))
 
                     Text(
                         text = description,
-                        color = FirefoxTheme.colors.textSecondary,
+                        color = PlezixTheme.colors.textSecondary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.subtitle1,
+                        style = PlezixTheme.typography.subtitle1,
                     )
                 }
 
@@ -110,7 +110,7 @@ fun TermsOfServiceOnboardingPage(
                     PrimaryButton(
                         text = primaryButton.text,
                         modifier = Modifier
-                            .width(width = FirefoxTheme.layout.size.maxWidth.small)
+                            .width(width = PlezixTheme.layout.size.maxWidth.small)
                             .semantics { testTag = title + "onboarding_card.positive_button" },
                         onClick = primaryButton.onClick,
                     )
@@ -154,9 +154,9 @@ private fun BodyText(
                 linkTextStates = listOf(
                     lineOneState,
                 ),
-                style = FirefoxTheme.typography.caption.copy(
+                style = PlezixTheme.typography.caption.copy(
                     textAlign = TextAlign.Center,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                 ),
                 shouldApplyAccessibleSize = true,
             )
@@ -166,9 +166,9 @@ private fun BodyText(
                 linkTextStates = listOf(
                     lineTwoState,
                 ),
-                style = FirefoxTheme.typography.caption.copy(
+                style = PlezixTheme.typography.caption.copy(
                     textAlign = TextAlign.Center,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                 ),
                 shouldApplyAccessibleSize = true,
             )
@@ -178,9 +178,9 @@ private fun BodyText(
                 linkTextStates = listOf(
                     lineThreeState,
                 ),
-                style = FirefoxTheme.typography.caption.copy(
+                style = PlezixTheme.typography.caption.copy(
                     textAlign = TextAlign.Center,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = PlezixTheme.colors.textSecondary,
                 ),
                 shouldApplyAccessibleSize = true,
             )
@@ -195,7 +195,7 @@ private fun String.updateFirstPlaceholder(text: String) = replace("%1\$s", text)
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun OnboardingPagePreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TermsOfServiceOnboardingPage(
             pageState = OnboardingPageState(
                 title = stringResource(id = R.string.onboarding_welcome_to_firefox),

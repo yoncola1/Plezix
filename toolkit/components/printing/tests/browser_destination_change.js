@@ -3,7 +3,7 @@
 
 "use strict";
 
-let pdfPrinterName = "Mozilla Save to PDF";
+let pdfPrinterName = "Plezix Save to PDF";
 let fastPrinterName = "Fast";
 let slowPrinterName = "Slow";
 

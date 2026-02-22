@@ -2,7 +2,7 @@
 _This document is intended to explain specifics in regards to test assets for the Espresso/UI Automator Android UI tests._
 
 # Test application
-* Remote test page managed by Mozilla Mobile Test Engineering at https://github.com/mozilla-mobile/testapp
+* Remote test page managed by Plezix Mobile Test Engineering at https://github.com/mozilla-mobile/testapp
 * File type download page: https://storage.googleapis.com/mobile_test_assets/test_app/downloads.html
 
 # Assets
@@ -30,4 +30,4 @@ Currently, Espresso/UI Automator UI tests use remote assets located on a Google 
 |ZIP |[200MB.zip](https://storage.googleapis.com/mobile_test_assets/public/200MB.zip)                                                                                                                                                                  |
 |ZIP |[smallZip.zip](https://storage.googleapis.com/mobile_test_assets/public/smallZip.zip)                                                                                                                                                            |
 
-New assets must be approved and uploaded by the [Mozilla Mobile Test Engineering](https://mana.mozilla.org/wiki/display/MTE/Mobile+Test+Engineering) team.
+New assets must be approved and uploaded by the [Plezix Mobile Test Engineering](https://mana.mozilla.org/wiki/display/MTE/Mobile+Test+Engineering) team.

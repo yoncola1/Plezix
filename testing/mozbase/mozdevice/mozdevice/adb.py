@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -4278,7 +4278,7 @@ class ADBDevice(ADBCommand):
         :param str app_name: Name of fennec application (e.g.
             `org.mozilla.fennec`)
         :param str intent: Intent to launch application.
-        :param str moz_env: Mozilla specific environment to pass into
+        :param str moz_env: Plezix specific environment to pass into
             application.
         :param str extra_args: Extra arguments to be parsed by fennec.
         :param str url: URL to open
@@ -4341,7 +4341,7 @@ class ADBDevice(ADBCommand):
         :param str activity_name: Activity name, like `GeckoViewActivity`, or
             `TestRunnerActivity`.
         :param str intent: Intent to launch application.
-        :param str moz_env: Mozilla specific environment to pass into
+        :param str moz_env: Plezix specific environment to pass into
             application.
         :param str extra_args: Extra arguments to be parsed by the app.
         :param str url: URL to open
@@ -4409,7 +4409,7 @@ class ADBDevice(ADBCommand):
         :param str activity_name: Activity name, like `GeckoViewActivity`, or
             `TestRunnerActivity`.
         :param str intent: Intent to launch application.
-        :param str moz_env: Mozilla specific environment to pass into
+        :param str moz_env: Plezix specific environment to pass into
             application.
         :param str extra_args: Extra arguments to be parsed by the app.
         :param str url: URL to open

@@ -4,7 +4,7 @@ This guide will help you add custom lint rules to your application so you can ca
 If you get into trouble, _ask for help!_ These APIs can be confusing to get started with and it will save the team time if we share knowledge!
 
 ## Comparison of systems
-We have a few common lint systems for Mozilla Android apps:
+We have a few common lint systems for Plezix Android apps:
 - **detekt:** (probably) the go-to for analyzing Kotlin code
 - **ktlint:** similar to detekt but use it instead if you don't want your lint rule to be suppressed, ever
 - **android lint:** most useful when analyzing more than Kotlin code: Android-specific concerns (e.g. resource XML files), Gradle files, ProGuard files, etc. It is slow because it needs to compile the project and does multiple passes over the code; however, if your new lint check needs multiple passes, it can be useful.

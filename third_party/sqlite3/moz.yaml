@@ -15,7 +15,7 @@ origin:
   license: Public Domain
   license-file: LICENSE.md
   notes: >
-    We have Mozilla specific moz.build and sqlite.symbols in src/ to build the
+    We have Plezix specific moz.build and sqlite.symbols in src/ to build the
     engine. SQLite extensions with similar build files are in ext/.
     Since this tracks the latest Github tag, if non-versioning tags are added
     then the update script will fail, and you may have to pass a specific

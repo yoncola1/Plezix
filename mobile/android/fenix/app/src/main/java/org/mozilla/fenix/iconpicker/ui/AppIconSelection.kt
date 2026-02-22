@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ import org.mozilla.fenix.iconpicker.ActivityAlias
 import org.mozilla.fenix.iconpicker.IconBackground
 import org.mozilla.fenix.iconpicker.SettingsAppIcon
 import org.mozilla.fenix.iconpicker.SettingsGroupTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val ListItemHeight = 56.dp
 private val AppIconSize = 40.dp
@@ -60,7 +60,7 @@ fun AppIconSelection(
     onClick: (SettingsAppIcon) -> Unit,
 ) {
     Column(
-        modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+        modifier = Modifier.background(color = PlezixTheme.colors.layer1),
     ) {
         groupedIconOptions.forEach { (header, icons) ->
             AppIconGroupHeader(header)
@@ -75,7 +75,7 @@ fun AppIconSelection(
 
             Spacer(modifier = Modifier.height(GroupSpacerHeight))
 
-            Divider(color = FirefoxTheme.colors.borderPrimary)
+            Divider(color = PlezixTheme.colors.borderPrimary)
         }
     }
 }
@@ -89,8 +89,8 @@ private fun AppIconGroupHeader(title: SettingsGroupTitle) {
             .padding(start = GroupHeaderPaddingStart)
             .wrapContentHeight(Alignment.CenterVertically)
             .semantics { heading() },
-        style = FirefoxTheme.typography.headline8,
-        color = FirefoxTheme.colors.textAccent,
+        style = PlezixTheme.typography.headline8,
+        color = PlezixTheme.colors.textAccent,
     )
 }
 
@@ -121,8 +121,8 @@ private fun AppIconOption(
         Text(
             text = stringResource(appIcon.titleId),
             modifier = Modifier.weight(1f),
-            style = FirefoxTheme.typography.subtitle1,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.subtitle1,
+            color = PlezixTheme.colors.textPrimary,
         )
     }
 }
@@ -135,7 +135,7 @@ private fun AppIcon(appIcon: SettingsAppIcon) {
         modifier = Modifier
             .size(AppIconSize)
             .clip(shape)
-            .border(AppIconBorderWidth, FirefoxTheme.colors.borderPrimary, shape),
+            .border(AppIconBorderWidth, PlezixTheme.colors.borderPrimary, shape),
     ) {
         when (val background = appIcon.activityAlias.iconBackground) {
             is IconBackground.Color -> {
@@ -165,7 +165,7 @@ private fun AppIcon(appIcon: SettingsAppIcon) {
 @FlexibleWindowLightDarkPreview
 @Composable
 private fun AppIconSelectionPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         AppIconSelection(
             currentAppIcon = ActivityAlias.AppDefault,
             groupedIconOptions = SettingsAppIcon.groupedAppIcons,
@@ -182,7 +182,7 @@ private fun AppIconOptionPreview() {
         .flatten()
         .firstOrNull()!!
 
-    FirefoxTheme {
+    PlezixTheme {
         AppIconOption(sampleItem, false) {}
     }
 }

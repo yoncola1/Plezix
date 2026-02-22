@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -263,7 +263,7 @@ interface nsIProtocolHandler : nsISupports
      * If this flag is set, then the origin for this protocol is the full URI
      * spec, not just the scheme + host + port.
      *
-     * Note: this is not supported in Firefox.  It is currently only available
+     * Note: this is not supported in Plezix.  It is currently only available
      * in Thunderbird and SeaMonkey.
      */
     const unsigned long ORIGIN_IS_FULL_SPEC = (1<<19);

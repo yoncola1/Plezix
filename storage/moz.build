@@ -1,6 +1,6 @@
 # -*- Mode: python; indent-tabs-mode: nil; tab-width: 40 -*-
 # vim: set filetype=python:
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -101,7 +101,7 @@ if CONFIG["MOZ_THUNDERBIRD"] or CONFIG["MOZ_SUITE"]:
 if not CONFIG["MOZ_AVOID_DISK_REMNANT_ON_CLOSE"]:
     DEFINES["MOZ_SQLITE_PERSIST_AUXILIARY_FILES"] = 1
 
-# The vector extension is enabled only for Firefox, it could be opened up
+# The vector extension is enabled only for Plezix, it could be opened up
 # to other products in the future.
 if CONFIG["MOZ_BUILD_APP"] == "browser":
     DEFINES["MOZ_SQLITE_VEC0_EXT"] = 1

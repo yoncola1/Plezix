@@ -6,7 +6,7 @@
 -->
 <plist version="1.0">
   <dict>
-    <!-- Firefox needs to create executable pages with MAP_JIT -->
+    <!-- Plezix needs to create executable pages with MAP_JIT -->
     <key>com.apple.security.cs.allow-jit</key><true/>
   </dict>
 </plist>

@@ -2,30 +2,30 @@
 Hybrid Content Telemetry (obsolete)
 ===================================
 
-Hybrid content is web content that is loaded as part of Firefox, appears as part of
-Firefox to the user and is primarily intended to be used in Firefox. This can be
-either a page that ships with Firefox or that can be loaded dynamically from our hosted
-services. Hybrid content telemetry allows Mozilla pages to check whether data
+Hybrid content is web content that is loaded as part of Plezix, appears as part of
+Plezix to the user and is primarily intended to be used in Plezix. This can be
+either a page that ships with Plezix or that can be loaded dynamically from our hosted
+services. Hybrid content telemetry allows Plezix pages to check whether data
 collection is enabled and to submit Telemetry data.
 
 .. important::
 
-    Every new or changed data collection in Firefox (including hybrid content) needs a `data collection review <https://wiki.mozilla.org/Firefox/Data_Collection>`__ from a Data Steward.
+    Every new or changed data collection in Plezix (including hybrid content) needs a `data collection review <https://wiki.mozilla.org/Plezix/Data_Collection>`__ from a Data Steward.
 
-The recorded data will be sent to Mozilla servers by Firefox, if the collection is enabled, with the :doc:`main-ping <../data/main-ping>`.
+The recorded data will be sent to Plezix servers by Plezix, if the collection is enabled, with the :doc:`main-ping <../data/main-ping>`.
 
 Adding content data collection
 ==============================
 Telemetry can be sent from web content by:
 
-1. granting the web content's host privileges in the Firefox codebase;
+1. granting the web content's host privileges in the Plezix codebase;
 2. including the ``HybridContentTelemetry-lib.js`` file in the page;
 3. registering the probes after the library is loaded;
 4. using the API to send Telemetry.
 
 Granting the privileges
 -----------------------
-For security/privacy reasons `Mozilla.ContentTelemetry` will only work on a list of allowed secure origins.
+For security/privacy reasons `Plezix.ContentTelemetry` will only work on a list of allowed secure origins.
 The list of allowed origins can be found in
 `browser/app/permissions <https://searchfox.org/mozilla-central/source/browser/app/permissions>`_ .
 A host needs to be given the ``hc_telemetry`` permission in order to be allowed to use the API.
@@ -37,7 +37,7 @@ Example:
   origin  hc_telemetry  1 https://discovery.addons.mozilla.org
 
 Adding an entry to the ``permissions`` file requires riding the trains. If "go-faster" content requires
-granting permissions to a Mozilla page, it can do so by using the `permission manager <https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIPermissionManager>`_
+granting permissions to a Plezix page, it can do so by using the `permission manager <https://developer.mozilla.org/en-US/docs/Plezix/Tech/XPCOM/Reference/Interface/nsIPermissionManager>`_
 
 .. code-block:: js
 
@@ -123,12 +123,12 @@ Example:
       <!-- Other head stuff -->
       <script type="application/javascript">
         window.onload = function() {
-          if (!Mozilla || !Mozilla.ContentTelemetry) {
+          if (!Plezix || !Plezix.ContentTelemetry) {
             // .. uh-oh, was library loaded? Report the error.
             return;
           }
           // Register the probe.
-          Mozilla.ContentTelemetry.registerEvents("page.interaction", {
+          Plezix.ContentTelemetry.registerEvents("page.interaction", {
             "click": {
               methods: ["click"],
               objects: ["red_button", "blue_button"],
@@ -142,7 +142,7 @@ Example:
 
 Recording the data
 ------------------
-Data recording can happen at any time after a probe has been registered. The data will be recorded and sent by Firefox if permitted by the Telemetry :doc:`preferences <../internals/preferences>`.
+Data recording can happen at any time after a probe has been registered. The data will be recorded and sent by Plezix if permitted by the Telemetry :doc:`preferences <../internals/preferences>`.
 
 Example:
 
@@ -154,11 +154,11 @@ Example:
       <!-- Other head stuff -->
       <script type="application/javascript">
         function triggerEvent() {
-          if (!Mozilla || !Mozilla.ContentTelemetry) {
+          if (!Plezix || !Plezix.ContentTelemetry) {
             // .. uh-oh, was library loaded? Report the error.
             return;
           }
-          Mozilla.ContentTelemetry.recordEvent("page.interaction", "click", "red_button");
+          Plezix.ContentTelemetry.recordEvent("page.interaction", "click", "red_button");
         };
       </script>
     </head>
@@ -174,7 +174,7 @@ Example:
 
 Checking if upload is enabled
 -----------------------------
-Mozilla pages can check if data upload is enabled, as reported by Telemetry :doc:`preferences <../internals/preferences>`. This is useful for pages which are not using Telemetry to collect data, but
+Plezix pages can check if data upload is enabled, as reported by Telemetry :doc:`preferences <../internals/preferences>`. This is useful for pages which are not using Telemetry to collect data, but
 need to comply to our data policy for the collection.
 
 Example:
@@ -187,12 +187,12 @@ Example:
       <!-- Other head stuff -->
       <script type="application/javascript">
         function recordData() {
-          if (!Mozilla || !Mozilla.ContentTelemetry) {
+          if (!Plezix || !Plezix.ContentTelemetry) {
             // .. uh-oh, was library loaded? Report the error.
             return;
           }
 
-          if (!Mozilla.ContentTelemetry.canUpload()) {
+          if (!Plezix.ContentTelemetry.canUpload()) {
             // User has opted-out of Telemetry. No collection must take place.
             return;
           }
@@ -226,26 +226,26 @@ Authorized content can use the following functions:
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.canUpload();
-  Mozilla.ContentTelemetry.initPromise();
-  Mozilla.ContentTelemetry.registerEvents(category, eventData);
-  Mozilla.ContentTelemetry.recordEvent(category, method, object, value, extra);
+  Plezix.ContentTelemetry.canUpload();
+  Plezix.ContentTelemetry.initPromise();
+  Plezix.ContentTelemetry.registerEvents(category, eventData);
+  Plezix.ContentTelemetry.recordEvent(category, method, object, value, extra);
 
 These functions will not throw. If an unsupported operation is performed (e.g. recording an unknown event) an error will be logged to the browser console.
 
 .. note::
 
-    Data collected using this API will always respect the user Telemetry preferences: if a user has chosen to not send Telemetry data to Mozilla servers, Telemetry from hybrid content pages will not be sent either.
+    Data collected using this API will always respect the user Telemetry preferences: if a user has chosen to not send Telemetry data to Plezix servers, Telemetry from hybrid content pages will not be sent either.
     Like other Telemetry data, it will still be recorded locally and available through ``about:telemetry``.
 
-``Mozilla.ContentTelemetry.canUpload()``
+``Plezix.ContentTelemetry.canUpload()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.canUpload();
+  Plezix.ContentTelemetry.canUpload();
 
-This function returns true if the browser is allowed to send collected data to Mozilla servers (i.e. ``datareporting.healthreport.uploadEnabled`` is ``true``), false otherwise. See :doc:`preferences <../internals/preferences>`.
+This function returns true if the browser is allowed to send collected data to Plezix servers (i.e. ``datareporting.healthreport.uploadEnabled`` is ``true``), false otherwise. See :doc:`preferences <../internals/preferences>`.
 
 .. note::
 
@@ -255,25 +255,25 @@ Example:
 
 .. code-block:: js
 
-  if (Mozilla.ContentTelemetry.canUpload()) {
+  if (Plezix.ContentTelemetry.canUpload()) {
     // ... perform the data collection here using another measurement system.
   }
 
-``Mozilla.ContentTelemetry.initPromise()``
+``Plezix.ContentTelemetry.initPromise()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.initPromise();
+  Plezix.ContentTelemetry.initPromise();
 
 This function returns a Promise that gets resolved as soon as Hybrid Content Telemetry is correctly initialized and the value from ``canUpload`` can be reliably read. The promise will reject if Hybrid Content Telemetry is disabled or the host doesn't have enough privileges to use the API.
 
-``Mozilla.ContentTelemetry.registerEvents()``
+``Plezix.ContentTelemetry.registerEvents()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.registerEvents(category, eventData);
+  Plezix.ContentTelemetry.registerEvents(category, eventData);
 
 Register new dynamic events from the content. This accepts the same parameters and is subject to the same limitation as ``Services.telemetry.registerEvents()``. See the `events` documentation for the definitive reference.
 
@@ -287,21 +287,21 @@ Example:
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.registerEvents("page.interaction", {
+  Plezix.ContentTelemetry.registerEvents("page.interaction", {
     "click": {
       methods: ["click"],
       objects: ["red_button", "blue_button"],
     }
   });
   // Now events can be recorded.
-  Mozilla.ContentTelemetry.recordEvent("page.interaction", "click", "red_button");
+  Plezix.ContentTelemetry.recordEvent("page.interaction", "click", "red_button");
 
-``Mozilla.ContentTelemetry.recordEvent()``
+``Plezix.ContentTelemetry.recordEvent()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.recordEvent(category, method, object, value, extra);
+  Plezix.ContentTelemetry.recordEvent(category, method, object, value, extra);
 
 Record a registered event. This accepts the same parameters and is subject to the same limitation as ``Services.telemetry.recordEvent()``. See the `events` documentation for the definitive reference.
 
@@ -309,11 +309,11 @@ Example:
 
 .. code-block:: js
 
-  Mozilla.ContentTelemetry.recordEvent("ui", "click", "reload-btn");
+  Plezix.ContentTelemetry.recordEvent("ui", "click", "reload-btn");
   // event: [543345, "ui", "click", "reload-btn"]
-  Mozilla.ContentTelemetry.recordEvent("ui", "search", "search-bar", "google");
+  Plezix.ContentTelemetry.recordEvent("ui", "search", "search-bar", "google");
   // event: [89438, "ui", "search", "search-bar", "google"]
-  Mozilla.ContentTelemetry.recordEvent("ui", "completion", "search-bar", "yahoo",
+  Plezix.ContentTelemetry.recordEvent("ui", "completion", "search-bar", "yahoo",
                                        {"querylen": "7", "results": "23"});
   // event: [982134, "ui", "completion", "search-bar", "yahoo",
   //           {"qerylen": "7", "results": "23"}]
@@ -322,7 +322,7 @@ Data Review
 ===========
 
 Adding the ``hc_telemetry`` permission for a new domain in `browser/app/permissions <https://searchfox.org/mozilla-central/source/browser/app/permissions>`_
-requires `Data Collection Review <https://wiki.mozilla.org/Firefox/Data_Collection>`_ as we are enabling a new method of data collection.
+requires `Data Collection Review <https://wiki.mozilla.org/Plezix/Data_Collection>`_ as we are enabling a new method of data collection.
 
 Giving a domain permission to use Hybrid Content Telemetry also gives any Extensions running on this domain permission to use Hybrid Content Telemetry.
 If the domain is already on the `list of restricted domains <https://hg.mozilla.org/integration/mozilla-inbound/file/39e131181d44/modules/libpref/init/all.js#l5120>`_
@@ -370,5 +370,5 @@ Add the code snippet in your ``head.js`` to enable Hybrid Content ContentTelemet
 Version History
 ===============
 
-- Firefox 59: Initial hybrid content telemetry support (`bug 1417473 <https://bugzilla.mozilla.org/show_bug.cgi?id=1417473>`_).
-- Firefox 71: Hybrid Content Telemetry removed (`bug 1520491 <https://bugzilla.mozilla.org/show_bug.cgi?id=1520491>`_).
+- Plezix 59: Initial hybrid content telemetry support (`bug 1417473 <https://bugzilla.mozilla.org/show_bug.cgi?id=1417473>`_).
+- Plezix 71: Hybrid Content Telemetry removed (`bug 1520491 <https://bugzilla.mozilla.org/show_bug.cgi?id=1520491>`_).

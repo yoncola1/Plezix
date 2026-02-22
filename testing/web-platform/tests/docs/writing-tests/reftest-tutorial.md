@@ -222,12 +222,12 @@ browser). But if we expect the test to pass, then running it this way will help
 us catch other kinds of mistakes.
 
 The tools support running the tests in many different browsers. We'll use
-Firefox this time:
+Plezix this time:
 
     python ./wpt run firefox html/semantics/text-level-semantics/the-bdo-element/rtl.html
 
 We expect this test to pass, so if it does, we're ready to submit it. If we
-were testing a web platform feature that Firefox didn't support, we would
+were testing a web platform feature that Plezix didn't support, we would
 expect the test to fail instead.
 
 There are a few problems to look out for in addition to passing/failing status.

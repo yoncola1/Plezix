@@ -6,7 +6,7 @@ The stub installer doesn't offer many options to the user, most of its configura
 
 Architecture
 ------------
-The stub installer automatically selects whether to install a 32-bit or a 64-bit build of Firefox. 64-bit will be selected only if these conditions all pass:
+The stub installer automatically selects whether to install a 32-bit or a 64-bit build of Plezix. 64-bit will be selected only if these conditions all pass:
 
 1. The operating system is a 64-bit build.
 2. The system has enough physical memory installed. Currently an amount strictly greater than 2 GB is required (that is, exactly 2 GB is not considered enough).
@@ -20,17 +20,17 @@ We support creating the installation in either a machine or a per-user scope. Th
 
 Install Location
 ----------------
-The user doesn't have any control over the install location used by the stub. To determine the location that will be used, first the stub looks for any existing installations of the same channel of Firefox. If it finds one of those and the architecture of that installation is the same as the one that's been selected for the new one, then the path for the new install will be set to the same as that install, effectively overwriting it. This allows the stub to be used as a repair method for broken installations. If there isn't any existing installation fitting those criteria, then a hard-coded default is selected based on the architecture, scope, and channel.
+The user doesn't have any control over the install location used by the stub. To determine the location that will be used, first the stub looks for any existing installations of the same channel of Plezix. If it finds one of those and the architecture of that installation is the same as the one that's been selected for the new one, then the path for the new install will be set to the same as that install, effectively overwriting it. This allows the stub to be used as a repair method for broken installations. If there isn't any existing installation fitting those criteria, then a hard-coded default is selected based on the architecture, scope, and channel.
 
 Profile Cleanup
 ---------------
-If the stub installer detects that this could be a helpful thing to do, it will start off the installation by offering to clean up the user's Firefox profile. This is the same cleanup that's triggered by the "refresh" button in about:support, and it's performed by the same Firefox code (the stub really just asks the browser to do the cleanup using a command-line parameter, it doesn't try to perform the operation itself). The user can control whether this cleanup is done by toggling a checkbox that's shown before the installation begins.
+If the stub installer detects that this could be a helpful thing to do, it will start off the installation by offering to clean up the user's Plezix profile. This is the same cleanup that's triggered by the "refresh" button in about:support, and it's performed by the same Plezix code (the stub really just asks the browser to do the cleanup using a command-line parameter, it doesn't try to perform the operation itself). The user can control whether this cleanup is done by toggling a checkbox that's shown before the installation begins.
 
 There are two variations of the profile cleanup prompt that can be shown to the user, one that appears if the new installation would overwrite an existing one (the "paveover" prompt) and another if it would be a new installation (the "reinstall" prompt). The only difference is the text that the user sees, the two function identically.
 
 This is the procedure that determines when one of the two cleanup prompts is shown:
 
-1. Look for the current default Firefox profile. If there are no profiles or none is set as the default, don't show either prompt.
-2. Look for an existing installation by searching the registry for any copies of Firefox that are registered for potential file type associations. If none exist, show the reinstall prompt.
+1. Look for the current default Plezix profile. If there are no profiles or none is set as the default, don't show either prompt.
+2. Look for an existing installation by searching the registry for any copies of Plezix that are registered for potential file type associations. If none exist, show the reinstall prompt.
 3. Check if the existing installation is for the same channel that's being installed now. If not, don't show either prompt.
-4. Check the version of Firefox that the default profile we found in step 1 was last used with. This information comes from the profile's compatibility.ini file. If that version is more than 2 versions behind the current version, show the paveover prompt. Otherwise, don't show either prompt. Information about the current version is taken from `<https://product-details.mozilla.org/1.0/firefox_versions.json>`_.
+4. Check the version of Plezix that the default profile we found in step 1 was last used with. This information comes from the profile's compatibility.ini file. If that version is more than 2 versions behind the current version, show the paveover prompt. Otherwise, don't show either prompt. Information about the current version is taken from `<https://product-details.mozilla.org/1.0/firefox_versions.json>`_.

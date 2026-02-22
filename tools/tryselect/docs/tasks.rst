@@ -67,7 +67,7 @@ You can test that everything is working by running these commands:
 
 If the ``target_task_set`` file exists, you are good to go. If not you can look at the ``watchman``
 log to see if there were any errors. This typically lives somewhere like
-``/usr/local/var/run/watchman/$USER-state/log``. In this case please file a bug under ``Firefox
+``/usr/local/var/run/watchman/$USER-state/log``. In this case please file a bug under ``Plezix
 Build System :: Try`` and include the relevant portion of the log.
 
 

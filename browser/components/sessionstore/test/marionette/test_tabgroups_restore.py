@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -112,7 +112,7 @@ class TestAutoRestoreWithTabGroups(SessionStoreTestCase):
 
     @unittest.skipIf(
         sys.platform.startswith("darwin"),
-        "macOS does not close Firefox when the last window closes",
+        "macOS does not close Plezix when the last window closes",
     )
     def test_saved_groups_restored_after_closing_last_window(self):
         self.wait_for_windows(

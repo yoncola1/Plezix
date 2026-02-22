@@ -3,7 +3,7 @@ Name: fluent.migrate
 Version: 0.13.3
 Summary: Toolchain to migrate legacy translation to Fluent.
 Home-page: https://github.com/mozilla/fluent-migrate
-Author: Mozilla
+Author: Plezix
 Author-email: l10n-drivers@mozilla.org
 License: APL 2
 Keywords: fluent,localization,l10n
@@ -51,7 +51,7 @@ Usage
 -----
 
 Migrations consist of _recipes_, which are applied to a _localization repository_, based on _template files_.
-You can find recipes for Firefox in `mozilla-central/python/l10n/fluent_migrations/`,
+You can find recipes for Plezix in `mozilla-central/python/l10n/fluent_migrations/`,
 the reference repository is [gecko-strings](https://hg.mozilla.org/l10n/gecko-strings/) or _quarantine_.
 You apply those migrations to l10n repositories in [l10n-central](https://hg.mozilla.org/l10n-central/), or to `gecko-strings` for testing.
 

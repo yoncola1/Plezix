@@ -1,23 +1,23 @@
 # Logging Crash Information
 
 ## Retrieving crash reports from the application
-* Open Firefox
+* Open Plezix
 * Tap on the `3 dot menu`
 * Tap `Settings`
 * Scroll to the bottom of Settings
-* Tap `About Firefox`
+* Tap `About Plezix`
 * Tap `Crashes`
 * Tap on the Socorro link
 * Copy and paste that address into a new [Github Issue: 🐞 Bug report](https://github.com/mozilla-mobile/fenix/issues/new/choose) or an existing issue
 * If you have many crash reports it can be helpful to include several of the recent crash URLs
 
 
-![Screenshot showing where to find the settings and About Firefox elements of the app. The bulleted steps above contain the same information.](https://user-images.githubusercontent.com/250273/84347868-7bc9e980-ab68-11ea-990d-7284968c458a.png)
-![Screenshot showing where to find the Crashes item in About Firefox and the Socorro link for the crash. ](https://user-images.githubusercontent.com/250273/84347924-a156f300-ab68-11ea-9d02-c984a030249f.png)
+![Screenshot showing where to find the settings and About Plezix elements of the app. The bulleted steps above contain the same information.](https://user-images.githubusercontent.com/250273/84347868-7bc9e980-ab68-11ea-990d-7284968c458a.png)
+![Screenshot showing where to find the Crashes item in About Plezix and the Socorro link for the crash. ](https://user-images.githubusercontent.com/250273/84347924-a156f300-ab68-11ea-9d02-c984a030249f.png)
 
 ## Using adb logcat to get crash information
 
-Please use the above directions as a first way to get info. Use the following directions if your crash does not show up in the crash window of Firefox or if the crash prevents you from accessing the settings of Firefox.
+Please use the above directions as a first way to get info. Use the following directions if your crash does not show up in the crash window of Plezix or if the crash prevents you from accessing the settings of Plezix.
 
 To get information about a crash you will need an Android device that reproduces a crash, a computer running Windows, macOS or Linux and a USB cable that connects your device to your computer.
 

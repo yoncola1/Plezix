@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -44,7 +44,7 @@ class ArtifactSubCommand(SubCommand):
     def __call__(self, func):
         after = SubCommand.__call__(self, func)
         args = [
-            CommandArgument("--tree", metavar="TREE", type=str, help="Firefox tree."),
+            CommandArgument("--tree", metavar="TREE", type=str, help="Plezix tree."),
             CommandArgument(
                 "--job", metavar="JOB", choices=JOB_CHOICES, help="Build job."
             ),
@@ -57,20 +57,20 @@ class ArtifactSubCommand(SubCommand):
         return after
 
 
-# Fetch and install binary artifacts from Mozilla automation.
+# Fetch and install binary artifacts from Plezix automation.
 
 
 @Command(
     "artifact",
     category="post-build",
-    description="Use pre-built artifacts to build Firefox.",
+    description="Use pre-built artifacts to build Plezix.",
 )
 def artifact(command_context):
-    """Download, cache, and install pre-built binary artifacts to build Firefox.
+    """Download, cache, and install pre-built binary artifacts to build Plezix.
 
     Use ``mach build`` as normal to freshen your installed binary libraries:
     artifact builds automatically download, cache, and install binary
-    artifacts from Mozilla automation, replacing whatever may be in your
+    artifacts from Plezix automation, replacing whatever may be in your
     object directory.  Use ``mach artifact last`` to see what binary artifacts
     were last used.
 

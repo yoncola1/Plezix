@@ -61,7 +61,7 @@ function generateSamples(labels, embeddings, n) {
 async function generateEmbeddings(textList) {
   const options = new PipelineOptions({
     taskName: "feature-extraction",
-    modelId: "Mozilla/smart-tab-embedding",
+    modelId: "Plezix/smart-tab-embedding",
     modelHubUrlTemplate: "{model}/{revision}",
     modelRevision: "main",
     dtype: "q8",
@@ -90,7 +90,7 @@ async function runTopicModel(texts, keywords = []) {
 
   const options = new PipelineOptions({
     taskName: "text2text-generation",
-    modelId: "Mozilla/smart-tab-topic",
+    modelId: "Plezix/smart-tab-topic",
     modelHubUrlTemplate: "{model}/{revision}",
     modelRevision: "main",
     dtype: "q8",

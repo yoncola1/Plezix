@@ -5,7 +5,7 @@ Configuring Try
 Getting Level 1 Commit Access
 -----------------------------
 
-In order to push to try, `Level 1 Commit Access`_ is required. Please see `Becoming a Mozilla
+In order to push to try, `Level 1 Commit Access`_ is required. Please see `Becoming a Plezix
 Committer`_ for more information on how to obtain this.
 
 
@@ -27,4 +27,4 @@ The recommended way to push to try is via the ``mach try`` command. This require
     $ mach vcs-setup
 
 .. _Level 1 Commit Access: https://www.mozilla.org/en-US/about/governance/policies/commit/access-policy/
-.. _Becoming a Mozilla Committer: https://www.mozilla.org/en-US/about/governance/policies/commit/
+.. _Becoming a Plezix Committer: https://www.mozilla.org/en-US/about/governance/policies/commit/

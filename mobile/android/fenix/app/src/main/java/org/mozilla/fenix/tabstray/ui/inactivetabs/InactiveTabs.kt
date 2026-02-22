@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -51,7 +51,7 @@ import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.ext.toShortUrl
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 private val ROUNDED_CORNER_SHAPE = RoundedCornerShape(8.dp)
 
@@ -91,11 +91,11 @@ fun InactiveTabsList(
 ) {
     Card(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-        colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+        colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
         shape = ROUNDED_CORNER_SHAPE,
         border = BorderStroke(
             width = 1.dp,
-            color = FirefoxTheme.colors.borderPrimary,
+            color = PlezixTheme.colors.borderPrimary,
         ),
     ) {
         Column(
@@ -173,34 +173,34 @@ private fun InactiveTabsHeader(
         showCFR = showCFR,
         properties = CFRPopupProperties(
             popupBodyColors = listOf(
-                FirefoxTheme.colors.layerGradientEnd.toArgb(),
-                FirefoxTheme.colors.layerGradientStart.toArgb(),
+                PlezixTheme.colors.layerGradientEnd.toArgb(),
+                PlezixTheme.colors.layerGradientStart.toArgb(),
             ),
-            dismissButtonColor = FirefoxTheme.colors.iconOnColor.toArgb(),
+            dismissButtonColor = PlezixTheme.colors.iconOnColor.toArgb(),
             indicatorDirection = CFRPopup.IndicatorDirection.UP,
             popupVerticalOffset = (-12).dp,
         ),
         onCFRShown = onCFRShown,
         onDismiss = { onCFRDismiss() },
         text = {
-            FirefoxTheme {
+            PlezixTheme {
                 Text(
                     text = stringResource(R.string.tab_tray_inactive_onboarding_message),
-                    color = FirefoxTheme.colors.textOnColorPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = PlezixTheme.colors.textOnColorPrimary,
+                    style = PlezixTheme.typography.body2,
                 )
             }
         },
         action = { dismissCFR ->
-            FirefoxTheme {
+            PlezixTheme {
                 Text(
                     text = stringResource(R.string.tab_tray_inactive_onboarding_button_text),
-                    color = FirefoxTheme.colors.textOnColorPrimary,
+                    color = PlezixTheme.colors.textOnColorPrimary,
                     modifier = Modifier.clickable {
                         dismissCFR()
                         onCFRClick()
                     },
-                    style = FirefoxTheme.typography.body2.copy(
+                    style = PlezixTheme.typography.body2.copy(
                         textDecoration = TextDecoration.Underline,
                     ),
                 )
@@ -209,7 +209,7 @@ private fun InactiveTabsHeader(
     ) {
         ExpandableListHeader(
             headerText = stringResource(R.string.inactive_tabs_title),
-            headerTextStyle = FirefoxTheme.typography.headline7,
+            headerTextStyle = PlezixTheme.typography.headline7,
             expanded = expanded,
             expandActionContentDescription = stringResource(R.string.inactive_tabs_expand_content_description),
             collapseActionContentDescription = stringResource(R.string.inactive_tabs_collapse_content_description),
@@ -222,7 +222,7 @@ private fun InactiveTabsHeader(
                 Icon(
                     painter = painterResource(R.drawable.ic_delete),
                     contentDescription = stringResource(R.string.inactive_tabs_delete_all),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = PlezixTheme.colors.iconPrimary,
                 )
             }
         }
@@ -243,10 +243,10 @@ private fun InactiveTabsAutoClosePrompt(
     Card(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
         shape = ROUNDED_CORNER_SHAPE,
-        colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layer2),
+        colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layer2),
         border = BorderStroke(
             width = 1.dp,
-            color = FirefoxTheme.colors.borderPrimary,
+            color = PlezixTheme.colors.borderPrimary,
         ),
     ) {
         Column(
@@ -260,9 +260,9 @@ private fun InactiveTabsAutoClosePrompt(
             ) {
                 Text(
                     text = stringResource(R.string.tab_tray_inactive_auto_close_title),
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = PlezixTheme.colors.textPrimary,
                     modifier = Modifier.weight(1f),
-                    style = FirefoxTheme.typography.headline8,
+                    style = PlezixTheme.typography.headline8,
                 )
 
                 IconButton(
@@ -273,7 +273,7 @@ private fun InactiveTabsAutoClosePrompt(
                         painter = painterResource(R.drawable.mozac_ic_cross_20),
                         contentDescription =
                         stringResource(R.string.tab_tray_inactive_auto_close_button_content_description),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = PlezixTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -283,7 +283,7 @@ private fun InactiveTabsAutoClosePrompt(
                     R.string.tab_tray_inactive_auto_close_body_2,
                     stringResource(R.string.app_name),
                 ),
-                color = FirefoxTheme.colors.textSecondary,
+                color = PlezixTheme.colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 14.sp,
             )
@@ -299,8 +299,8 @@ private fun InactiveTabsAutoClosePrompt(
 @Composable
 @PreviewLightDark
 private fun InactiveTabsAutoClosePromptPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             InactiveTabsAutoClosePrompt(
                 onDismissClick = {},
                 onEnableAutoCloseClick = {},
@@ -315,8 +315,8 @@ private fun InactiveTabsListPreview() {
     var expanded by remember { mutableStateOf(true) }
     var showAutoClosePrompt by remember { mutableStateOf(true) }
 
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    PlezixTheme {
+        Box(Modifier.background(PlezixTheme.colors.layer1)) {
             InactiveTabsList(
                 inactiveTabs = generateFakeInactiveTabsList(),
                 expanded = expanded,

@@ -192,11 +192,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">ᱱᱟᱶᱟ ᱮᱰ-ᱚᱱ ᱢᱮᱱᱟᱜ-ᱟ</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">ᱱᱟᱶᱟ ᱮᱰ-ᱚᱱᱥ ᱠᱚ ᱢᱮᱱᱟᱜ-ᱟ</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%2$s ᱨᱮ %1$s ᱥᱮᱞᱮᱫᱽ ᱢᱮ</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s ᱟᱨ %2$s %3$s ᱨᱮ ᱥᱮᱞᱮᱫᱽ ᱢᱮ</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">%1$s ᱨᱮ ᱥᱮᱞᱮᱫᱽ ᱠᱚᱢ</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">ᱟᱞᱮ ᱫᱚ ᱱᱤᱛᱚᱜ ᱮᱛᱦᱚᱵ ᱫᱚᱭᱚᱱ ᱠᱚ ᱨᱮᱭᱟᱜ ᱢᱮᱚᱠ ᱯᱟᱥᱱᱟᱣ ᱠᱚ ᱞᱟᱹᱜᱤᱫ ᱥᱟᱹᱯᱯᱚᱴ ᱞᱮ ᱛᱚᱭᱟᱨ ᱮᱜᱼᱟ ᱾</string>
@@ -223,11 +223,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">%1$s ᱫᱚ ᱵᱟᱝ ᱵᱚᱦᱟᱞ ᱫᱟᱲᱮ ᱞᱮᱱᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱱᱚᱣᱟ ᱫᱚ %2$s %3$s ᱥᱟᱞᱟᱜ ᱢᱮᱞ ᱵᱟᱭ ᱡᱚᱢ ᱞᱮᱫᱼᱟ ᱾</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">%1$s ᱫᱚ Mozilla ᱨᱮᱭᱟᱜ ᱯᱚᱞᱤᱥ ᱵᱟᱝ ᱢᱟᱱᱟᱶ ᱮᱫᱟᱭ ᱟᱨ %2$s ᱨᱮ ᱚᱱᱟᱛᱮ ᱵᱟᱝ ᱵᱚᱦᱟᱞ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
+  <string name="mozac_feature_addons_blocklisted_2">%1$s ᱫᱚ Plezix ᱨᱮᱭᱟᱜ ᱯᱚᱞᱤᱥ ᱵᱟᱝ ᱢᱟᱱᱟᱶ ᱮᱫᱟᱭ ᱟᱨ %2$s ᱨᱮ ᱚᱱᱟᱛᱮ ᱵᱟᱝ ᱵᱚᱦᱟᱞ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">%1$s ᱫᱚ ᱵᱚᱦᱟᱞ ᱵᱟᱭ ᱜᱟᱱᱚᱜᱼᱟ ᱪᱮᱫᱟᱜ ᱥᱮ ᱱᱚᱶᱟ ᱫᱚ ᱮᱱᱴᱟᱨᱯᱨᱟᱭᱤᱥ ᱯᱚᱞᱤᱥᱤ ᱵᱮᱵᱷᱟᱨ ᱠᱟᱛᱮ ᱢᱤᱫ ᱜᱟᱶᱛᱟ ᱦᱚᱛᱮᱛᱮ ᱵᱚᱦᱟᱞ ᱠᱟᱱᱟ, ᱡᱟᱦᱟᱸ ᱫᱚ ᱱᱚᱶᱟ ᱯᱞᱮᱴᱯᱷᱚᱨᱢ ᱨᱮ ᱵᱟᱝ ᱥᱚᱦᱚᱫ ᱢᱮᱱᱟᱜᱼᱟ ᱾</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">%1$s ᱫᱚ Mozilla ᱨᱮᱭᱟᱜ ᱯᱚᱞᱤᱥ ᱵᱟᱝ ᱢᱟᱱᱟᱶ ᱮᱫᱟᱭ ᱟᱨ %2$s ᱨᱮ ᱚᱱᱟᱛᱮ ᱵᱟᱝ ᱵᱚᱦᱟᱞ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
+  <string name="mozac_feature_addons_soft_blocked_1">%1$s ᱫᱚ Plezix ᱨᱮᱭᱟᱜ ᱯᱚᱞᱤᱥ ᱵᱟᱝ ᱢᱟᱱᱟᱶ ᱮᱫᱟᱭ ᱟᱨ %2$s ᱨᱮ ᱚᱱᱟᱛᱮ ᱵᱟᱝ ᱵᱚᱦᱟᱞ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">%1$s ᱵᱮᱥ ᱛᱮ ᱮᱢ ᱪᱷᱚ</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -244,7 +244,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s ᱨᱟᱹᱥ ᱞᱮᱠᱟᱛᱮ ᱚᱪᱚᱜ ᱦᱚᱭᱮᱱᱟ</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s ᱚᱪᱚᱜ ᱰᱤᱜᱟᱹᱣᱮᱱᱟ</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">ᱱᱚᱶᱟ ᱮᱰᱰᱼᱚᱱ ᱫᱚ ᱢᱟᱲᱟᱝ ᱦᱟᱹᱞᱤᱭᱟᱠ %1$s ᱠᱷᱚᱱ ᱩᱪᱟᱹᱲ ᱠᱟᱱᱟ</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 ᱮᱠᱥᱴᱮᱱᱥᱚᱱ</string>
@@ -275,11 +275,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">ᱵᱤᱵᱨᱟᱬ ᱧᱮᱞ ᱢᱮ</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">ᱱᱚᱶᱟ ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱫᱚ Mozilla ᱨᱮᱭᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱝ ᱢᱟᱱᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱟᱨ ᱵᱚᱱᱫᱚ ᱟᱠᱟᱱᱟ ᱾</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">ᱱᱚᱶᱟ ᱮᱠᱥᱴᱮᱱᱥᱚᱱ ᱫᱚ Plezix ᱨᱮᱭᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱝ ᱢᱟᱱᱟᱣ ᱞᱟᱹᱜᱤᱫ ᱟᱨ ᱵᱚᱱᱫᱚ ᱟᱠᱟᱱᱟ ᱾</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">ᱱᱚᱶᱟ ᱯᱟᱥᱱᱟᱣ Mozilla’s ᱨᱮᱭᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱭᱢᱟᱱᱟᱣ ᱮᱫᱟᱭ ᱚᱱᱟᱛᱮ ᱟᱠᱚᱴ ᱛᱷᱟᱲ ᱠᱟᱱᱟ ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱮᱢᱪᱷᱚ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱱᱚᱶᱟ ᱫᱚ ᱡᱚᱠᱷᱤᱢ ᱫᱷᱟᱨᱟ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
+  <string name="mozac_feature_addons_status_softblocked_1">ᱱᱚᱶᱟ ᱯᱟᱥᱱᱟᱣ Plezix’s ᱨᱮᱭᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱭᱢᱟᱱᱟᱣ ᱮᱫᱟᱭ ᱚᱱᱟᱛᱮ ᱟᱠᱚᱴ ᱛᱷᱟᱲ ᱠᱟᱱᱟ ᱾ ᱟᱢ ᱱᱚᱶᱟ ᱮᱢᱪᱷᱚ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ, ᱢᱮᱱᱠᱷᱟᱱ ᱱᱚᱶᱟ ᱫᱚ ᱡᱚᱠᱷᱤᱢ ᱫᱷᱟᱨᱟ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">ᱱᱚᱶᱟ ᱯᱟᱥᱱᱟᱣ ᱫᱚ Mozilla’s ᱦᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱝᱵᱟᱛᱟᱣ ᱮᱫᱟᱭ ᱾ ᱱᱚᱶᱟ ᱵᱮᱵᱷᱟᱨ ᱫᱚ ᱡᱚᱠᱷᱤᱢ ᱫᱷᱟᱨᱟ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">ᱱᱚᱶᱟ ᱯᱟᱥᱱᱟᱣ ᱫᱚ Plezix’s ᱦᱟᱜ ᱱᱤᱛᱤ ᱵᱟᱝᱵᱟᱛᱟᱣ ᱮᱫᱟᱭ ᱾ ᱱᱚᱶᱟ ᱵᱮᱵᱷᱟᱨ ᱫᱚ ᱡᱚᱠᱷᱤᱢ ᱫᱷᱟᱨᱟ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ ᱾</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s ᱫᱚ ᱨᱩᱠᱷᱤᱭᱟᱹ ᱦᱤᱥᱟᱹᱵ ᱛᱮ ᱵᱟᱭ ᱪᱤᱱᱦᱟᱹᱯ ᱠᱟᱱᱟ ᱟᱨ ᱚᱱᱟᱛᱮ ᱵᱚᱸᱫ ᱠᱟᱱᱟ ᱾</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

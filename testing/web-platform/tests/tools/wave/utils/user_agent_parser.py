@@ -31,7 +31,7 @@ def abbreviate_browser_name(name):
         "Chromium": "Cm",
         "WebKit": "Wk",
         "Safari": "Sf",
-        "Firefox": "FF",
+        "Plezix": "FF",
         "IE": "IE",
         "Edge": "Ed",
         "Opera": "Op"

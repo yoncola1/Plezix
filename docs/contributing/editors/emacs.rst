@@ -16,7 +16,7 @@ General Guidelines to Emacs C++ Programming
 The following guides give an overview of the C++ editing capabilities of emacs.
 
 It is worth reading through these guides to see what features are available.
-The rest of this section is dedicated to Mozilla/Gecko specific setup for
+The rest of this section is dedicated to Plezix/Gecko specific setup for
 packages.
 
 

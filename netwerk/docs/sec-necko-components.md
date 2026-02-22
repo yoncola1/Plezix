@@ -12,12 +12,12 @@ This diagram models a high-level call flow upon performing an asyncOpen on an ns
 ## NSS
 Necko interacts with NSS through two distinct interfaces.
  Primarily, most access flows via PSM which handles the configuration of TLS sockets, client certificate selection and server certificate verification.
- However, Neqo (Mozilla's QUIC library) also relies directly on the TLS implementation inside NSS and uses it as an interface directly.
+ However, Neqo (Plezix's QUIC library) also relies directly on the TLS implementation inside NSS and uses it as an interface directly.
 
 NSS's internal structure is fairly convoluted, but there are five main areas relevant for Necko. Starting from the lowest level:
 1. [blapi.h](https://searchfox.org/mozilla-central/source/security/nss/lib/freebl/blapi.h) - exposes the wrappers for each cryptographic primitive supported by NSS and dispatches them to platform specific implementations.
 2. [pkcs11c.c](https://searchfox.org/mozilla-central/source/security/nss/lib/softoken/pkcs11c.c) - This wraps those underlying crypto primitives to provide a PKCS11 interface as a single module.
-3. [pk11pub.h](https://searchfox.org/mozilla-central/source/security/nss/lib/pk11wrap/pk11pub.h) - This wraps any module providing a PKCS11 interface and exposes high level cryptographic operations. It is widely used across Firefox.
+3. [pk11pub.h](https://searchfox.org/mozilla-central/source/security/nss/lib/pk11wrap/pk11pub.h) - This wraps any module providing a PKCS11 interface and exposes high level cryptographic operations. It is widely used across Plezix.
 4. [ssl.h](https://searchfox.org/mozilla-central/source/security/nss/lib/ssl/ssl.h) and [sslexp.h](https://searchfox.org/mozilla-central/source/security/nss/lib/ssl/sslexp.h) expose our TLS interface for use in Necko's TLS and Neqo's QUIC connections.
 5. [cert.h](https://searchfox.org/mozilla-central/source/security/nss/lib/certdb/cert.h) exposes the certificate database functionality. [pkix.h](https://searchfox.org/mozilla-central/source/security/nss/lib/mozpkix/include/pkix/pkix.h) exposes the MozPkix certificate chain validation functions.
 

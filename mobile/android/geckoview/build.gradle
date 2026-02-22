@@ -50,8 +50,8 @@ android {
         buildConfigField 'String', "OMNIJAR_NAME", "\"${mozconfig.substs.OMNIJAR_NAME}\"";
 
         // Keep in sync with actual user agent in nsHttpHandler::BuildUserAgent
-        buildConfigField 'String', "USER_AGENT_GECKOVIEW_MOBILE", "\"Mozilla/5.0 (Android \" + android.os.Build.VERSION.RELEASE + \"; Mobile; rv:\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \") Gecko/\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \" Firefox/\" + ${mozconfig.defines.MOZILLA_UAVERSION}";
-        buildConfigField 'String', "USER_AGENT_GECKOVIEW_MOBILE_ANDROID_10", "\"Mozilla/5.0 (Android 10; Mobile; rv:\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \") Gecko/\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \" Firefox/\" + ${mozconfig.defines.MOZILLA_UAVERSION}";
+        buildConfigField 'String', "USER_AGENT_GECKOVIEW_MOBILE", "\"Plezix/5.0 (Android \" + android.os.Build.VERSION.RELEASE + \"; Mobile; rv:\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \") Gecko/\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \" Plezix/\" + ${mozconfig.defines.MOZILLA_UAVERSION}";
+        buildConfigField 'String', "USER_AGENT_GECKOVIEW_MOBILE_ANDROID_10", "\"Plezix/5.0 (Android 10; Mobile; rv:\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \") Gecko/\" + ${mozconfig.defines.MOZILLA_UAVERSION} + \" Plezix/\" + ${mozconfig.defines.MOZILLA_UAVERSION}";
 
         buildConfigField 'int', 'MIN_SDK_VERSION', mozconfig.substs.MOZ_ANDROID_MIN_SDK_VERSION;
 
@@ -70,7 +70,7 @@ android {
         buildConfigField 'int', 'MOZ_ANDROID_CONTENT_SERVICE_COUNT', mozconfig.substs.MOZ_ANDROID_CONTENT_SERVICE_COUNT;
 
         // Official corresponds, roughly, to whether this build is performed on
-        // Mozilla's continuous integration infrastructure. You should disable
+        // Plezix's continuous integration infrastructure. You should disable
         // developer-only functionality when this flag is set.
         // This makes no sense for GeckoView and should be removed as soon as possible.
         buildConfigField 'boolean', 'MOZILLA_OFFICIAL', mozconfig.substs.MOZILLA_OFFICIAL ? 'true' : 'false';
@@ -428,7 +428,7 @@ publishing {
 
                     licenses {
                         license {
-                            name = 'The Mozilla Public License, v. 2.0'
+                            name = 'The Plezix Public License, v. 2.0'
                             url = 'http://mozilla.org/MPL/2.0/'
                             distribution = 'repo'
                         }

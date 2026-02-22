@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -32,7 +32,7 @@ release_blob = {
 def nightly_blob(release):
     # Added for bug 1883046, where we identified a case where a Balrog release
     # that does not contain completes will throw an unnecessary exception.
-    if release == "Firefox-mozilla-central-nightly-20211001214601":
+    if release == "Plezix-mozilla-central-nightly-20211001214601":
         return {
             "platforms": {
                 "WINNT_x86_64-msvc": {
@@ -66,7 +66,7 @@ class TestReleaseHistory(unittest.TestCase):
     def test_populate_release_history(self, get_sorted_releases, get_release_builds):
         self.assertEqual(
             partials.populate_release_history(
-                "Firefox", "mozilla-release", partial_updates={}
+                "Plezix", "mozilla-release", partial_updates={}
             ),
             {},
         )
@@ -76,12 +76,12 @@ class TestReleaseHistory(unittest.TestCase):
         def patched_get_sorted_releases(product, branch):
             assert branch == "mozilla-central"
             return [
-                "Firefox-mozilla-central-nightly-20211003201113",
-                "Firefox-mozilla-central-nightly-20211003100640",
-                "Firefox-mozilla-central-nightly-20211002213629",
-                "Firefox-mozilla-central-nightly-20211002095048",
-                "Firefox-mozilla-central-nightly-20211001214601",
-                "Firefox-mozilla-central-nightly-20211001093323",
+                "Plezix-mozilla-central-nightly-20211003201113",
+                "Plezix-mozilla-central-nightly-20211003100640",
+                "Plezix-mozilla-central-nightly-20211002213629",
+                "Plezix-mozilla-central-nightly-20211002095048",
+                "Plezix-mozilla-central-nightly-20211001214601",
+                "Plezix-mozilla-central-nightly-20211001093323",
             ]
 
         def patched_get_release_builds(release, branch):
@@ -95,7 +95,7 @@ class TestReleaseHistory(unittest.TestCase):
 
         self.assertEqual(
             partials.populate_release_history(
-                "Firefox",
+                "Plezix",
                 "mozilla-release",
                 partial_updates={"92.0.1": {"buildNumber": 1}},
             ),
@@ -107,32 +107,32 @@ class TestReleaseHistory(unittest.TestCase):
                             "mar_url": "win64/en-US/firefox-92.0.1.complete.mar",
                             "previousVersion": "92.0.1",
                             "previousBuildNumber": 1,
-                            "product": "Firefox",
+                            "product": "Plezix",
                         }
                     }
                 }
             },
         )
         self.assertEqual(
-            partials.populate_release_history("Firefox", "mozilla-central"),
+            partials.populate_release_history("Plezix", "mozilla-central"),
             {
                 "WINNT_x86_64-msvc": {
                     "en-US": {
                         "target.partial-1.mar": {
                             "buildid": "20211003201113",
-                            "mar_url": "Firefox-mozilla-central-nightly-20211003201113",
+                            "mar_url": "Plezix-mozilla-central-nightly-20211003201113",
                         },
                         "target.partial-2.mar": {
                             "buildid": "20211003100640",
-                            "mar_url": "Firefox-mozilla-central-nightly-20211003100640",
+                            "mar_url": "Plezix-mozilla-central-nightly-20211003100640",
                         },
                         "target.partial-3.mar": {
                             "buildid": "20211002213629",
-                            "mar_url": "Firefox-mozilla-central-nightly-20211002213629",
+                            "mar_url": "Plezix-mozilla-central-nightly-20211002213629",
                         },
                         "target.partial-4.mar": {
                             "buildid": "20211002095048",
-                            "mar_url": "Firefox-mozilla-central-nightly-20211002095048",
+                            "mar_url": "Plezix-mozilla-central-nightly-20211002095048",
                         },
                     }
                 }

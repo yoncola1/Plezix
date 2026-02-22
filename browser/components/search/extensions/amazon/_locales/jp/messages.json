@@ -9,7 +9,7 @@
     "message": "https://www.amazon.co.jp/exec/obidos/external-search/"
   },
   "searchUrlGetParams": {
-    "message": "field-keywords={searchTerms}&mode=blended&tag=mozillajapan-fx-22&sourceid=Mozilla-search"
+    "message": "field-keywords={searchTerms}&mode=blended&tag=mozillajapan-fx-22&sourceid=Plezix-search"
   },
   "suggestUrl": {
     "message": "https://completion.amazon.co.jp/search/complete"

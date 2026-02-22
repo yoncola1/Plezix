@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -40,7 +40,7 @@ task-defaults:
 
 tasks:
     amd64-nightly/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition
+        description: Build Plezix Plezix as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -59,7 +59,7 @@ tasks:
             symbol: B-nightly(amd64)
 
     amd64-nightly/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -78,7 +78,7 @@ tasks:
             symbol: B-nightly(amd64)
 
     armhf-nightly/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition
+        description: Build Plezix Plezix as a Snap using upstream definition
         attributes:
             build_platform: linux-armhf-snap
             build_type: opt
@@ -97,7 +97,7 @@ tasks:
             symbol: B-nightly(armhf)
 
     armhf-nightly/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux-armhf-snap
             build_type: debug
@@ -116,7 +116,7 @@ tasks:
             symbol: B-nightly(armhf)
 
     arm64-nightly/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition
+        description: Build Plezix Plezix as a Snap using upstream definition
         attributes:
             build_platform: linux-arm64-snap
             build_type: opt
@@ -135,7 +135,7 @@ tasks:
             symbol: B-nightly(arm64)
 
     arm64-nightly/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux-arm64-snap
             build_type: debug
@@ -154,7 +154,7 @@ tasks:
             symbol: B-nightly(arm64)
 
     amd64-beta/opt:
-        description: Build Firefox Beta as a Snap using upstream definition
+        description: Build Plezix Beta as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -173,7 +173,7 @@ tasks:
             symbol: B-beta(amd64)
 
     amd64-beta/debug:
-        description: Build Firefox Beta (debug) as a Snap using upstream definition
+        description: Build Plezix Beta (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -192,7 +192,7 @@ tasks:
             symbol: B-beta(amd64)
 
     amd64-betacore24/opt:
-        description: Build Firefox Beta (Core24) as a Snap using upstream definition
+        description: Build Plezix Beta (Core24) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -211,7 +211,7 @@ tasks:
             symbol: B-beta24(amd64)
 
     amd64-betacore24/debug:
-        description: Build Firefox Beta (Core24 debug) as a Snap using upstream definition
+        description: Build Plezix Beta (Core24 debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -230,7 +230,7 @@ tasks:
             symbol: B-beta24(amd64)
 
     amd64-stable/opt:
-        description: Build Firefox Stable as a Snap using upstream definition
+        description: Build Plezix Stable as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -249,7 +249,7 @@ tasks:
             symbol: B-stable(amd64)
 
     amd64-stable/debug:
-        description: Build Firefox Stable (debug) as a Snap using upstream definition
+        description: Build Plezix Stable (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -268,7 +268,7 @@ tasks:
             symbol: B-stable(amd64)
 
     amd64-stablecore24/opt:
-        description: Build Firefox Stable (Core24) as a Snap using upstream definition
+        description: Build Plezix Stable (Core24) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -287,7 +287,7 @@ tasks:
             symbol: B-stable24(amd64)
 
     amd64-stablecore24/debug:
-        description: Build Firefox Stable (Core24 debug) as a Snap using upstream definition
+        description: Build Plezix Stable (Core24 debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -306,7 +306,7 @@ tasks:
             symbol: B-stable24(amd64)
 
     amd64-esr/opt:
-        description: Build Firefox ESR 128 as a Snap using upstream definition
+        description: Build Plezix ESR 128 as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -325,7 +325,7 @@ tasks:
             symbol: B-esr(amd64)
 
     amd64-esr/debug:
-        description: Build Firefox ESR 128 (debug) as a Snap using upstream definition
+        description: Build Plezix ESR 128 (debug) as a Snap using upstream definition
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -344,7 +344,7 @@ tasks:
             symbol: B-esr(amd64)
 
     amd64-local/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux64-snap
             build_type: opt
@@ -367,7 +367,7 @@ tasks:
             symbol: B-local(amd64)
 
     amd64-local/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux64-snap
             build_type: debug
@@ -390,7 +390,7 @@ tasks:
             symbol: B-local(amd64)
 
     armhf-local/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux-armhf-snap
             build_type: opt
@@ -413,7 +413,7 @@ tasks:
             symbol: B-local(armhf)
 
     armhf-local/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux-armhf-snap
             build_type: debug
@@ -436,7 +436,7 @@ tasks:
             symbol: B-local(armhf)
 
     arm64-local/opt:
-        description: Build Firefox Nightly as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux-arm64-snap
             build_type: opt
@@ -459,7 +459,7 @@ tasks:
             symbol: B-local(arm64)
 
     arm64-local/debug:
-        description: Build Firefox Nightly (debug) as a Snap using upstream definition and local gecko checkout
+        description: Build Plezix Plezix (debug) as a Snap using upstream definition and local gecko checkout
         attributes:
             build_platform: linux-arm64-snap
             build_type: debug

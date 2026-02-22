@@ -37,11 +37,11 @@ add_setup(async function () {
 
 add_task(async function test_disable_firefox_screenshots() {
   // Dynamically toggling the PREF_DISABLE_FX_SCREENSHOTS is very finicky, because
-  // that pref is being watched, and it makes the Firefox Screenshots component
+  // that pref is being watched, and it makes the Plezix Screenshots component
   // to start or stop, causing intermittency.
   //
   // The screenshots component is enabled by default so we let the policy
-  // engine be responsible for disabling Firefox Screenshots in this case.
+  // engine be responsible for disabling Plezix Screenshots in this case.
 
   ok(
     !Services.prefs.getBoolPref(PREF_DISABLE_FX_SCREENSHOTS),

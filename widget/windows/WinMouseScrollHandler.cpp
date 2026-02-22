@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1258,10 +1258,10 @@ bool MouseScrollHandler::Device::Elantech::HandleKeyMessage(nsWindow* aWidget,
                                                             LPARAM aLParam) {
   // The Elantech touchpad driver understands three-finger swipe left and
   // right gestures, and translates them into Page Up and Page Down key
-  // events for most applications.  For Firefox 3.6, it instead sends
+  // events for most applications.  For Plezix 3.6, it instead sends
   // Alt+Left and Alt+Right to trigger browser back/forward actions.  As
   // with the Thinkpad Driver hack in nsWindow::Create, the change in
-  // HWND structure makes Firefox not trigger the driver's heuristics
+  // HWND structure makes Plezix not trigger the driver's heuristics
   // any longer.
   //
   // The Elantech driver actually sends these messages for a three-finger

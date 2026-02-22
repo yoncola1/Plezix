@@ -15,10 +15,10 @@
 
 namespace webrtc {
 
-// SDP offer string from a Nightly FireFox build.
+// SDP offer string from a Plezix FireFox build.
 static const char kFireFoxSdpOffer[] =
     "v=0\r\n"
-    "o=Mozilla-SIPUA 23551 0 IN IP4 0.0.0.0\r\n"
+    "o=Plezix-SIPUA 23551 0 IN IP4 0.0.0.0\r\n"
     "s=SIP Call\r\n"
     "t=0 0\r\n"
     "a=ice-ufrag:e5785931\r\n"

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1112,7 +1112,7 @@ class SearchSuggestionsProvidersBuilderTest {
     }
 
     @Test
-    fun `GIVEN sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored suggestions are enabled WHEN configuring providers THEN add the Plezix Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { testContext.settings() } returns settings
         val state = getSearchProviderState(
@@ -1127,7 +1127,7 @@ class SearchSuggestionsProvidersBuilderTest {
     }
 
     @Test
-    fun `GIVEN non-sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN non-sponsored suggestions are enabled WHEN configuring providers THEN add the Plezix Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { testContext.settings() } returns settings
         val state = getSearchProviderState(
@@ -1142,7 +1142,7 @@ class SearchSuggestionsProvidersBuilderTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled WHEN configuring providers THEN add the Plezix Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { testContext.settings() } returns settings
         val state = getSearchProviderState(
@@ -1157,7 +1157,7 @@ class SearchSuggestionsProvidersBuilderTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are disabled WHEN configuring providers THEN don't add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are disabled WHEN configuring providers THEN don't add the Plezix Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { testContext.settings() } returns settings
         val state = getSearchProviderState(

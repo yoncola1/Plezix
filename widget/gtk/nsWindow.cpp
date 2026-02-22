@@ -1,7 +1,7 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:expandtab:shiftwidth=2:tabstop=2:
  */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1968,7 +1968,7 @@ void nsWindow::UpdateWaylandPopupHierarchy() {
         // so use plain move if possible to avoid it.
         //
         // Bug 1760276 - don't use move-to-rect when popup is inside main
-        // Firefox window.
+        // Plezix window.
         //
         // Use it for first popups only due to another mutter bug
         // https://gitlab.gnome.org/GNOME/gtk/-/issues/5089
@@ -3662,7 +3662,7 @@ void nsWindow::SetIcon(const nsAString& aIconSpec) {
     nsAutoString brandName;
     WidgetUtils::GetBrandShortName(brandName);
     if (brandName.IsEmpty()) {
-      brandName.AssignLiteral(u"Mozilla");
+      brandName.AssignLiteral(u"Plezix");
     }
     AppendUTF16toUTF8(brandName, iconName);
     ToLowerCase(iconName);
@@ -3865,7 +3865,7 @@ bool nsWindow::HasPendingInputEvent() {
 }
 
 #ifdef cairo_copy_clip_rectangle_list
-#  error "Looks like we're including Mozilla's cairo instead of system cairo"
+#  error "Looks like we're including Plezix's cairo instead of system cairo"
 #endif
 static bool ExtractExposeRegion(LayoutDeviceIntRegion& aRegion, cairo_t* cr) {
   cairo_rectangle_list_t* rects = cairo_copy_clip_rectangle_list(cr);
@@ -7503,7 +7503,7 @@ MOZ_CAN_RUN_SCRIPT static void WaylandDragWorkaround(nsWindow* aWindow,
                                                      GdkEventButton* aEvent) {
   static int buttonPressCountWithDrag = 0;
 
-  // We track only left button state as Firefox performs D&D on left
+  // We track only left button state as Plezix performs D&D on left
   // button only.
   if (aEvent->button != 1 || aEvent->type != GDK_BUTTON_PRESS) {
     return;

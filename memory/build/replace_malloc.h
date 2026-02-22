@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -56,7 +56,7 @@
 // Building a replace-malloc library is like rocket science. It can end up
 // with things blowing up, especially when trying to use complex types, and
 // even more especially when these types come from XPCOM or other parts of the
-// Mozilla codebase.
+// Plezix codebase.
 // It is recommended to add the following to a replace-malloc implementation's
 // moz.build:
 //   DISABLE_STL_WRAPPING = True # Avoid STL wrapping

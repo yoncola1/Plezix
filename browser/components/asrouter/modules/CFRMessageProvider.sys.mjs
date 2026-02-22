@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -98,7 +98,7 @@ const CFR_MESSAGES = [
         icon: "chrome://browser/skin/addons/addon-install-downloading.svg",
         rating: "4.6",
         users: "299019",
-        author: "Mozilla",
+        author: "Plezix",
         amo_url: "https://addons.mozilla.org/firefox/addon/facebook-container/",
       },
       text: "Stop Facebook from tracking your activity across the web. Use Facebook the way you normally do without annoying ads following you around.",
@@ -476,7 +476,7 @@ const CFR_MESSAGES = [
         },
         sumo_path: "extensionrecommendations",
       },
-      notification_text: "Message from Firefox",
+      notification_text: "Message from Plezix",
       category: "cfrFeatures",
     },
     trigger: {
@@ -491,7 +491,7 @@ const CFR_MESSAGES = [
       lifetime: 3,
     },
     targeting:
-      "(!type || type == 'save') && isFxAEnabled == true && usesFirefoxSync == false",
+      "(!type || type == 'save') && isFxAEnabled == true && usesPlezixSync == false",
     template: "cfr_doorhanger",
     content: {
       layout: "icon_and_message",
@@ -563,7 +563,7 @@ const CFR_MESSAGES = [
       lifetime: 3,
     },
     targeting:
-      "type == 'update' && isFxAEnabled == true && usesFirefoxSync == false",
+      "type == 'update' && isFxAEnabled == true && usesPlezixSync == false",
     template: "cfr_doorhanger",
     content: {
       layout: "icon_and_message",
@@ -673,7 +673,7 @@ const CFR_MESSAGES = [
       layout: "chiclet_open_url",
       category: "cfrHeartbeat",
       bucket_id: "HEARTBEAT_TACTIC_2",
-      notification_text: "Improve Firefox",
+      notification_text: "Improve Plezix",
       active_color: "#595e91",
       action: {
         url: "http://example.com/%VERSION%/",
@@ -700,7 +700,7 @@ const CFR_MESSAGES = [
     template: "cfr_doorhanger",
     content: {
       layout: "icon_and_message",
-      text: "Update your homepage to search Google while also being able to search your Firefox history and bookmarks.",
+      text: "Update your homepage to search Google while also being able to search your Plezix history and bookmarks.",
       icon: "chrome://global/skin/icons/search-glass.svg",
       buttons: {
         secondary: [
@@ -840,7 +840,7 @@ const CFR_MESSAGES = [
         icon: "https://firefox-settings-attachments.cdn.mozilla.net/main-workspace/ms-images/03c866df-82ea-489c-83c7-df6d0662d893.svg",
         rating: "4.5",
         users: "1.1M",
-        author: "Mozilla",
+        author: "Plezix",
         amo_url: "https://addons.mozilla.org/firefox/addon/facebook-container/",
       },
       text: "Make it harder for Facebook to track your browsing activity, including info from medical and financial sites.",

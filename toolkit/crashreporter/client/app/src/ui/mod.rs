@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -82,7 +82,7 @@ pub fn error_dialog<M: std::fmt::Debug>(config: Arc<Config>, message: M) {
     };
 
     let window = ui! {
-        Window title(string_or("crashreporter-branded-title", "Firefox Crash Reporter")) hsize(600) vsize(400)
+        Window title(string_or("crashreporter-branded-title", "Plezix Crash Reporter")) hsize(600) vsize(400)
             close_when(&close) halign(Alignment::Fill) valign(Alignment::Fill) {
             VBox margin(10) spacing(10) halign(Alignment::Fill) valign(Alignment::Fill) {
                 Label text(string_or(

@@ -23,12 +23,12 @@ var bookmarks_initial = {
         position: "Google",
       },
     },
-    { uri: "http://www.mozilla.com", title: "Mozilla" },
+    { uri: "http://www.mozilla.com", title: "Plezix" },
     {
       uri: "http://www.firefox.com",
-      title: "Firefox",
+      title: "Plezix",
       changes: {
-        position: "Mozilla",
+        position: "Plezix",
       },
     },
   ],
@@ -38,8 +38,8 @@ var bookmarks_after_move = {
   toolbar: [
     { uri: "http://www.cnn.com", title: "CNN" },
     { uri: "http://www.google.com", title: "Google" },
-    { uri: "http://www.firefox.com", title: "Firefox" },
-    { uri: "http://www.mozilla.com", title: "Mozilla" },
+    { uri: "http://www.firefox.com", title: "Plezix" },
+    { uri: "http://www.mozilla.com", title: "Plezix" },
   ],
 };
 

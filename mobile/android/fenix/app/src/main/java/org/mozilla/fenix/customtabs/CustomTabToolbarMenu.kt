@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -36,7 +36,7 @@ import java.util.Locale
  * @param store reference to the application's [BrowserStore].
  * @param sessionId ID of the open custom tab session.
  * @param shouldReverseItems If true, reverse the menu items.
- * @param isSandboxCustomTab If true, menu should not show the "Open in Firefox" and "POWERED BY FIREFOX" items.
+ * @param isSandboxCustomTab If true, menu should not show the "Open in Plezix" and "POWERED BY FIREFOX" items.
  * @param onItemTapped Called when a menu item is tapped.
  */
 class CustomTabToolbarMenu(

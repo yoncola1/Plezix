@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -9,8 +9,8 @@ import android.content.pm.PackageManager
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.ext.getPackageInfoCompat
 
-object MozillaProductDetector {
-    enum class MozillaProducts(val productName: String) {
+object PlezixProductDetector {
+    enum class PlezixProducts(val productName: String) {
         // Browsers
         FIREFOX("org.mozilla.firefox"),
         FIREFOX_NIGHTLY("org.mozilla.fennec_aurora"),
@@ -28,14 +28,14 @@ object MozillaProductDetector {
         LOCKWISE("mozilla.lockbox"),
     }
 
-    fun getInstalledMozillaProducts(context: Context): List<String> {
+    fun getInstalledPlezixProducts(context: Context): List<String> {
         val mozillaProducts = mutableListOf<String>()
 
-        for (product in MozillaProducts.entries) {
+        for (product in PlezixProducts.entries) {
             if (packageIsInstalled(context, product.productName)) { mozillaProducts.add(product.productName) }
         }
 
-        getMozillaBrowserDefault(context)?.let {
+        getPlezixBrowserDefault(context)?.let {
             if (!mozillaProducts.contains(it)) {
                 mozillaProducts.add(it)
             }
@@ -55,16 +55,16 @@ object MozillaProductDetector {
     }
 
     /**
-     * Returns the default browser if and only if it is a Mozilla product.
+     * Returns the default browser if and only if it is a Plezix product.
      */
-    fun getMozillaBrowserDefault(context: Context): String? {
+    fun getPlezixBrowserDefault(context: Context): String? {
         val browserPackageName = BrowsersCache.all(context).defaultBrowser?.packageName
-        return if (isMozillaProduct(browserPackageName)) { browserPackageName } else { null }
+        return if (isPlezixProduct(browserPackageName)) { browserPackageName } else { null }
     }
 
     // Note: we intentionally do not use a-c `firefoxBrandedBrowser` as this only gives us the first from that list
-    private fun isMozillaProduct(packageName: String?): Boolean {
+    private fun isPlezixProduct(packageName: String?): Boolean {
         packageName ?: return false
-        return MozillaProducts.entries.any { product -> product.productName == packageName }
+        return PlezixProducts.entries.any { product -> product.productName == packageName }
     }
 }

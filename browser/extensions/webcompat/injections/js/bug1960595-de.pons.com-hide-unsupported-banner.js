@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,7 +20,7 @@ const descriptor = Object.getOwnPropertyDescriptor(proto, "test");
 const { value } = descriptor;
 
 descriptor.value = exportFunction(function (test) {
-  if (this.source === "^(?!.*Seamonkey)(?=.*Firefox).*") {
+  if (this.source === "^(?!.*Seamonkey)(?=.*Plezix).*") {
     descriptor.value = value;
     Object.defineProperty(proto, "test", descriptor);
     return false;

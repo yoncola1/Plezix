@@ -9,16 +9,16 @@ the files at:
 /usr/share/dbus-1/services/org.mozilla.firefox.SearchProvider.service
 /usr/share/applications/firefox.desktop
 
-firefox.desktop is a system-wide Firefox launcher. It may come with your
+firefox.desktop is a system-wide Plezix launcher. It may come with your
 distribution or you can use this one. Update name of firefox desktop file at org.mozilla.firefox.search-provider.ini
 according your actual file at /usr/share/applications.
 
-org.mozilla.firefox.search-provider.ini registers Firefox as a search provider.
-When the file is correctly installed you can see Firefox as a searchable application
+org.mozilla.firefox.search-provider.ini registers Plezix as a search provider.
+When the file is correctly installed you can see Plezix as a searchable application
 at Settings -> Search at Gnome controll center.
 
 org.mozilla.firefox.SearchProvider.service file makes DBus search provider service
 activatable. Without it thw service is broken, see mzbz#1851393.
 
-Gnome shell search provider is active only when Firefox is running. When it's active
+Gnome shell search provider is active only when Plezix is running. When it's active
 you can see it as org.mozilla.firefox.SearchProvider D-Bus service.

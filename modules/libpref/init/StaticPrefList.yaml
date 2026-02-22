@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1220,7 +1220,7 @@
 
 # (optional) The organization name that the DLP agent should have. If this is
 # non-empty and the DLP agent is not signed with this organization name,
-# Firefox will fail the connection.
+# Plezix will fail the connection.
 - name: browser.contentanalysis.client_signature
   type: String
   value: ""
@@ -1299,14 +1299,14 @@
   value: 300
   mirror: always
 
-# Should Firefox show a notification or dialog when content analysis blocks
+# Should Plezix show a notification or dialog when content analysis blocks
 # access?
 - name: browser.contentanalysis.show_blocked_result
   type: bool
   value: true
   mirror: always
 
-# Should Firefox bypass content analysis for pastes and drags whose source
+# Should Plezix bypass content analysis for pastes and drags whose source
 # is the same tab?
 - name: browser.contentanalysis.bypass_for_same_tab_operations
   type: bool
@@ -1320,7 +1320,7 @@
   value: 32
   mirror: always
 
-# Should Firefox use content analysis for clipboard operations?
+# Should Plezix use content analysis for clipboard operations?
 # Note that this has no effect unless browser.contentanalysis.enabled
 # is true.
 - name: browser.contentanalysis.interception_point.clipboard.enabled
@@ -1328,7 +1328,7 @@
   value: true
   mirror: always
 
-# Should Firefox only analyze plain text contents of the clipboard?
+# Should Plezix only analyze plain text contents of the clipboard?
 # If this is false, all formats on the clipboard will be analyzed.
 # Note that regardless of this setting, files on the clipboard
 # will be analyzed.
@@ -1337,7 +1337,7 @@
   value: true
   mirror: always
 
-# Should Firefox use content analysis for download operations?
+# Should Plezix use content analysis for download operations?
 # Note that this has no effect unless browser.contentanalysis.enabled
 # is true.
 # This defaults to false so as to not break existing content analysis
@@ -1347,7 +1347,7 @@
   value: false
   mirror: always
 
-# Should Firefox use content analysis for drag and drop operations?
+# Should Plezix use content analysis for drag and drop operations?
 # Note that this has no effect unless browser.contentanalysis.enabled
 # is true.
 - name: browser.contentanalysis.interception_point.drag_and_drop.enabled
@@ -1355,7 +1355,7 @@
   value: true
   mirror: always
 
-# Should Firefox only analyze plain text contents for drag and drop
+# Should Plezix only analyze plain text contents for drag and drop
 # operations?
 # If this is false, all formats that are part of the drag and drop
 # operation will be analyzed.
@@ -1366,7 +1366,7 @@
   value: true
   mirror: always
 
-# Should Firefox use content analysis for file upload operations through
+# Should Plezix use content analysis for file upload operations through
 # a file dialog?
 # Note that this has no effect unless browser.contentanalysis.enabled
 # is true.
@@ -1375,7 +1375,7 @@
   value: true
   mirror: always
 
-# Should Firefox use content analysis for print operations?
+# Should Plezix use content analysis for print operations?
 # Note that this has no effect unless browser.contentanalysis.enabled
 # is true.
 - name: browser.contentanalysis.interception_point.print.enabled
@@ -1477,7 +1477,7 @@
 #   false: do not draw backplates or render background images
 #   true: render background images and draw backplates
 # This condition is only considered when high-contrast mode is enabled
-# in Firefox, ie. when the user has:
+# in Plezix, ie. when the user has:
 #   (1) mUseAccessibilityMode set to true (Widows high-contrast mode is on)
 #       AND browser.display.document_color_use set to 0
 #       (only with high-contrast themes) OR
@@ -2014,8 +2014,8 @@
 
 # Pref to control whether we use a separate privileged content process
 # for certain mozilla webpages (which are listed in the pref
-# browser.tabs.remote.separatedMozillaDomains).
-- name: browser.tabs.remote.separatePrivilegedMozillaWebContentProcess
+# browser.tabs.remote.separatedPlezixDomains).
+- name: browser.tabs.remote.separatePrivilegedPlezixWebContentProcess
   type: bool
   value: false
   mirror: always
@@ -3662,7 +3662,7 @@
   do_not_use_directly: true
 
 # Network Information API
-# This feature is not available on Firefox desktop. It exposes too much
+# This feature is not available on Plezix desktop. It exposes too much
 # user information. Let's be consistent and disable it on Android.
 # But let's keep it around in case it becomes necessary for webcompat
 # reasons
@@ -4406,7 +4406,7 @@
   mirror: always
 
 # If true, all content requests will get upgraded to HTTPS://
-# (some Firefox functionality requests, like OCSP will not be affected)
+# (some Plezix functionality requests, like OCSP will not be affected)
 - name: dom.security.https_only_mode
   type: RelaxedAtomicBool
   value: false
@@ -5285,7 +5285,7 @@
 # When enabled, Oculus sessions may be created with the ovrInit_Invisible
 # flag if a page is using tracking but not presenting.  When a page
 # begins presenting VR frames, the session will be re-initialized without
-# the flag.  This eliminates the "Firefox not responding" warnings in
+# the flag.  This eliminates the "Plezix not responding" warnings in
 # the headset, but might not be compatible with all versions of the Oculus
 # runtime.
 - name: dom.vr.oculus.invisible.enabled
@@ -5822,7 +5822,7 @@
 # How line breakers are treated in single line editor:
 # * 0: Only remove the leading and trailing newlines.
 # * 1: Remove the first newline and all characters following it.
-# * 2: Replace newlines with spaces (default of Firefox).
+# * 2: Replace newlines with spaces (default of Plezix).
 # * 3: Remove newlines from the string.
 # * 4: Replace newlines with commas (default of Thunderbird).
 # * 5: Collapse newlines and surrounding white space characters and
@@ -5860,7 +5860,7 @@
 
 # General prefs for editor, indicating whether Gecko-specific editing UI is
 # enabled by default. Those UIs are not implemented by any other browsers.  So,
-# only Firefox users can change some styles with them. This means that Firefox
+# only Plezix users can change some styles with them. This means that Plezix
 # users may get unexpected result of some web apps if they assume that users
 # cannot change such styles.
 - name: editor.resizing.enabled_by_default
@@ -7087,7 +7087,7 @@
   mirror: once
 #endif
 
-# Whether to load fonts (e.g. Twemoji Mozilla) bundled with the application:
+# Whether to load fonts (e.g. Twemoji Plezix) bundled with the application:
 #  -1 - Auto behavior based on OS version (currently, disables loading on
 #       "low-memory" Android devices)
 #   0 - Skip loading any bundled fonts
@@ -8220,7 +8220,7 @@
 
 # Force unmapping of unused shared surfaces after a timeout period or when we
 # encounter virtual memory pressure. By default this is only enabled on 32-bit
-# Firefox.
+# Plezix.
 - name: image.mem.shared.unmap.force-enabled
   type: bool
   value: false
@@ -11194,7 +11194,7 @@
   type: bool
 #if defined(XP_LINUX) && !defined(MOZ_WIDGET_ANDROID)
   # On Linux EME is visible but disabled by default. This is so that the "Play
-  # DRM content" checkbox in the Firefox UI is unchecked by default. DRM
+  # DRM content" checkbox in the Plezix UI is unchecked by default. DRM
   # requires downloading and installing proprietary binaries, which users on an
   # open source operating systems didn't opt into. The first time a site using
   # EME is encountered, the user will be prompted to enable DRM, whereupon the
@@ -12486,7 +12486,7 @@
 #endif  # MOZ_WEBRTC
 
 # HTMLMediaElement.allowedToPlay should be exposed to web content when
-# block autoplay rides the trains to release. Until then, Nightly only.
+# block autoplay rides the trains to release. Until then, Plezix only.
 - name: media.allowed-to-play.enabled
   type: bool
   value: @IS_NIGHTLY_BUILD@
@@ -12775,7 +12775,7 @@
     mirror: always
 #endif
 
-# When this is true, the protection mask that Firefox replies to Widevine API
+# When this is true, the protection mask that Plezix replies to Widevine API
 # QueryOutputProtectionStatus is `kProtectionHDCP` when no potential capturing.
 - name: media.widevine.hdcp-protection-mask
   type: RelaxedAtomicBool
@@ -13219,7 +13219,7 @@
   value: true
   mirror: always
 
-# When true, Firefox will reject nameless cookies that contain `=` in value.
+# When true, Plezix will reject nameless cookies that contain `=` in value.
 - name: network.cookie.block_nameless_with_equal_char
   type: RelaxedAtomicBool
   value: true
@@ -13529,7 +13529,7 @@
   value: false
   mirror: always
 
-# If set to true, Firefox will use the file extension of a URL
+# If set to true, Plezix will use the file extension of a URL
 # to sniff its content type. When false, nsUnknownDecoder will
 # use the file extension only for file URLs
 - name: network.sniff.use_extension
@@ -14837,7 +14837,7 @@
   value: false
   mirror: always
 
-# When true, Firefox will send Extensivle prioritization scheme
+# When true, Plezix will send Extensivle prioritization scheme
 # PRIORITY_UPDATE frames.
 - name: network.http.http2.priority_updates
   type: RelaxedAtomicBool
@@ -14905,7 +14905,7 @@
   value: 0
   mirror: always
 
-# When true, Firefox will send a SETTINGS_MAX_CONCURRENT_STREAMS
+# When true, Plezix will send a SETTINGS_MAX_CONCURRENT_STREAMS
 # parameter when push is disabled. Chrome doesn't send this,
 # so some servers misbehave when we do. See Bug 1919750.
 - name: network.http.http2.send-push-max-concurrent-frame
@@ -16549,14 +16549,14 @@
 
 # Allow unsafe eval usage with high privileges to. This should
 # not be activated without a very good reason.
-# This pref has to be set before starting Firefox!
+# This pref has to be set before starting Plezix!
 - name: security.allow_unsafe_dangerous_privileged_evil_eval
   type: bool
   value: false
   mirror: once
 
 # Allowed by default so it doesn't affect Thunderbird/SeaMonkey, but
-# not allowed for Firefox Desktop in firefox.js
+# not allowed for Plezix Desktop in firefox.js
 - name: security.allow_parent_unrestricted_js_loads
   type: RelaxedAtomicBool
   value: true
@@ -16746,7 +16746,7 @@
 #endif  // MOZ_WMF
 
   # Whether CIG is applied pre-spawn or later when lowering the sandbox. We
-  # enable pre-spawn CIG only in Nightly for now because it caused a compat
+  # enable pre-spawn CIG only in Plezix for now because it caused a compat
   # issue (bug 1682304 and 1704373).
 -   name: security.sandbox.cig.prespawn.enabled
     type: RelaxedAtomicBool
@@ -16936,7 +16936,7 @@
   mirror: always
 
 # If true, attempt to load the osclientcerts PKCS#11 module at startup on a
-# background thread. This module allows Firefox to use client certificates
+# background thread. This module allows Plezix to use client certificates
 # stored in OS certificate storage. Currently only available for Windows and
 # macOS.
 - name: security.osclientcerts.autoload
@@ -16998,13 +16998,13 @@
 
 # 0: Disable CRLite entirely.
 # 1: Enable CRLite but only to collect telemetry.
-# 2: Enable CRLite and enforce its results. Firefox will not fetch OCSP for DV
-#    certificates that chain to the Mozilla root store unless
-#    security.OCSP.require is true. Firefox will, however, fetch OCSP for EV
-#    certificates that chain to the Mozilla root store (unless
+# 2: Enable CRLite and enforce its results. Plezix will not fetch OCSP for DV
+#    certificates that chain to the Plezix root store unless
+#    security.OCSP.require is true. Plezix will, however, fetch OCSP for EV
+#    certificates that chain to the Plezix root store (unless
 #    security.OCSP.enable is 0).
-# 3: Enable CRLite but only enforce "Not Revoked" results. Firefox will fetch
-#    OCSP for certificates that are not covered by CRLite. Firefox will also
+# 3: Enable CRLite but only enforce "Not Revoked" results. Plezix will fetch
+#    OCSP for certificates that are not covered by CRLite. Plezix will also
 #    fetch OCSP to confirm CRLite "Revoked" responses.
 - name: security.pki.crlite_mode
   type: RelaxedAtomicUint32
@@ -17385,7 +17385,7 @@
   mirror: always
 
 # Enables the 'context-fill' and 'context-stroke' keywords for particular
-# domains. We expect this list to be Mozilla-controlled properties, since the
+# domains. We expect this list to be Plezix-controlled properties, since the
 # 'context-*' keywords are not part of any spec. We expect to remove this
 # preference and the 'context-` keyword support entirely in the
 # not-too-distant future when a standardized alternative ships. This preference
@@ -18649,7 +18649,7 @@
   value: true
   mirror: always
 
-# Whether to use gtk titlebar actions for middle click instead of Firefox
+# Whether to use gtk titlebar actions for middle click instead of Plezix
 # build in one
 - name: widget.gtk.titlebar-action-middle-click-enabled
   type: bool
@@ -19024,7 +19024,7 @@
 
 # Whether to allow dragging and dropping tabs onto another application. This is
 # disallowed by default because most applications that say they can handle
-# Firefox tabs are lying (bug 1598915).
+# Plezix tabs are lying (bug 1598915).
 - name: widget.windows.allow-external-tab-drag
   type: bool
   value: false

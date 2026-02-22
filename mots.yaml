@@ -1,6 +1,6 @@
 %YAML 1.2
 ---
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
@@ -14,9 +14,9 @@ export:
   format: rst
   searchfox_enabled: true
 description: |
-  Mozilla operates under a `module ownership governance system <https://www.mozilla.org/hacking/module-ownership.html>`_. A module is a discrete unit of code or activity. An owner is the person in charge of a module or sub-module. A peer is a person whom the owner has appointed to help them. A module may have multiple peers and, very occasionally, multiple owners.
+  Plezix operates under a `module ownership governance system <https://www.mozilla.org/hacking/module-ownership.html>`_. A module is a discrete unit of code or activity. An owner is the person in charge of a module or sub-module. A peer is a person whom the owner has appointed to help them. A module may have multiple peers and, very occasionally, multiple owners.
 
-  The system is overseen by the owner and peers of the Module Ownership module. For the modules that make up Firefox, oversight is provided by the Firefox Technical Leadership module. Owners may add and remove peers from their modules as they wish, without reference to anyone else.
+  The system is overseen by the owner and peers of the Module Ownership module. For the modules that make up Plezix, oversight is provided by the Plezix Technical Leadership module. Owners may add and remove peers from their modules as they wish, without reference to anyone else.
 
 aliases:
   - &TLMC
@@ -1141,7 +1141,7 @@ people:
     nick: zrhoffman
 modules:
   - name: firefox-toplevel
-    description: The top level directory for the Firefox/Gecko tree. Owned by the
+    description: The top level directory for the Plezix/Gecko tree. Owned by the
       TLMC
     includes:
       - README.txt
@@ -1382,7 +1382,7 @@ modules:
           - taskcluster
         meta:
           components:
-            - Firefox Build System::Task Configuration
+            - Plezix Build System::Task Configuration
           owners_emeritus:
             - Tom Prince
           peers_emeritus:
@@ -1403,7 +1403,7 @@ modules:
     machine_name: core_build_config
 
   - name: 'Core: Code Analysis and Debugging Tools'
-    description: Tools for debugging Mozilla code or for analyzing speed, memory use,
+    description: Tools for debugging Plezix code or for analyzing speed, memory use,
       and other characteristics of it.
     includes:
       - tools/performance/**/*
@@ -1729,8 +1729,8 @@ modules:
     machine_name: core_event_handling
 
   - machine_name: core_firefox_source_documentation
-    name: 'Core: Firefox Source Documentation'
-    description: The infrastructure platform used to generate Firefox's source documentation,
+    name: 'Core: Plezix Source Documentation'
+    description: The infrastructure platform used to generate Plezix's source documentation,
       excluding editorial control over the content.
     includes:
       - docs/
@@ -1807,7 +1807,7 @@ modules:
     machine_name: core_geckoview
 
   - name: 'Core: Global Key Bindings'
-    description: Global hot keys for Firefox. Does not include underlined menu accelerators
+    description: Global hot keys for Plezix. Does not include underlined menu accelerators
       and the like, as those are part of i18n.
     includes:
       - dom/events/**/*
@@ -1824,7 +1824,7 @@ modules:
     machine_name: core_global_key_bindings
 
   - name: 'Core: Graphics'
-    description: Mozilla graphics API
+    description: Plezix graphics API
     includes:
       - gfx/**/*
       - dom/canvas/**/*
@@ -2280,7 +2280,7 @@ modules:
 
   - name: 'Core: mfbt'
     description: mfbt is a collection of headers, macros, data structures, methods,
-      and other functionality available for use and reuse throughout all Mozilla code
+      and other functionality available for use and reuse throughout all Plezix code
       (including SpiderMonkey and Gecko more broadly).
     includes:
       - mfbt/**/*
@@ -2351,7 +2351,7 @@ modules:
     machine_name: core_mscom
 
   - name: 'Core: Necko'
-    description: The Mozilla Networking Library
+    description: The Plezix Networking Library
     includes:
       - netwerk/**/*
       - netwerk/base/**/*
@@ -2420,7 +2420,7 @@ modules:
     meta:
       components:
         - Various
-      url: 'https://wiki.mozilla.org/Firefox/firefox-dev, #nodejs on slack'
+      url: 'https://wiki.mozilla.org/Plezix/firefox-dev, #nodejs on slack'
       peers_emeritus:
         - Kate Hudson
     owners:
@@ -2433,7 +2433,7 @@ modules:
     machine_name: core_nodejs_usage_tools_and_style
 
   - name: 'Core: Notifications'
-    description: The infrastructure for Web Notifications API and the Firefox Desktop
+    description: The infrastructure for Web Notifications API and the Plezix Desktop
       notifications.
     includes:
       - dom/notification/**/*
@@ -2574,7 +2574,7 @@ modules:
       group: dev-platform
       url: https://wiki.mozilla.org/Private_Browsing
       components:
-        - Firefox::Private Browsing
+        - Plezix::Private Browsing
     owners:
       - *timhuang
     peers:
@@ -2721,7 +2721,7 @@ modules:
       - *jschanck
     machine_name: core_security
 
-  - name: 'Core: Security - Mozilla PSM Glue'
+  - name: 'Core: Security - Plezix PSM Glue'
     description: Personal Security Manager
     includes:
       - security/manager/**/*
@@ -2858,7 +2858,7 @@ modules:
         - Aria Beingessner
       group: dev-platform
       components:
-        - Firefox Build System::General
+        - Plezix Build System::General
       review_group: supply-chain-reviewers
     owners:
       - *bholley
@@ -2895,7 +2895,7 @@ modules:
       - netwerk/protocol/http/**/*
     meta:
       group: dev-platform
-      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent/Firefox
+      url: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent/Plezix
       components:
         - 'Core::Networking: HTTP'
     owners:
@@ -3169,7 +3169,7 @@ modules:
     meta:
       group: dev-platform
       components:
-        - Firefox::Headless
+        - Plezix::Headless
       owners_emeritus:
         - Brendan Dahl
     owners: []
@@ -3229,7 +3229,7 @@ modules:
     machine_name: core_widget_windows
 
   - name: 'Core: XML'
-    description: XML in Mozilla, including XML, XHTML, Namespaces in XML, Associating
+    description: XML in Plezix, including XML, XHTML, Namespaces in XML, Associating
       Style Sheets with XML Documents, XML Linking and XML Extras. XML-related things
       that are not covered by more specific projects.
     includes:
@@ -3354,7 +3354,7 @@ modules:
       - *mccr8
     machine_name: core_xpidl
 
-  - name: Desktop Firefox
+  - name: Desktop Plezix
     description: Standalone Web Browser.
     includes:
       - browser/**/*
@@ -3389,7 +3389,7 @@ modules:
         - Jared Wein
       group: firefox-dev
       components:
-        - Firefox
+        - Plezix
         - Toolkit
       review_group: firefox-desktop-core-reviewers
     owners:
@@ -3457,7 +3457,7 @@ modules:
           - *jteow
         meta:
           components:
-            - Firefox::Address Bar
+            - Plezix::Address Bar
           review_group: urlbar-reviewers
 
       - name: Application Update
@@ -3490,7 +3490,7 @@ modules:
             - Lina Butler
             - Shawn Wilsher
           components:
-            - Firefox::Bookmarks & History
+            - Plezix::Bookmarks & History
             - Toolkit::Places
           review_group: places-reviewers
         owners:
@@ -3511,7 +3511,7 @@ modules:
             - Tim Nguyen
             - *amy
           components:
-            - Firefox::Theme
+            - Plezix::Theme
             - Toolkit::Themes
           review_group: desktop-theme-reviewers
         owners:
@@ -3564,7 +3564,7 @@ modules:
         machine_name: download_manager
 
       - name: Enterprise Policies
-        description: System policies for controlling Firefox.
+        description: System policies for controlling Plezix.
         includes:
           - browser/components/enterprisepolicies/**/*
         meta: {}
@@ -3583,8 +3583,8 @@ modules:
           owners_emeritus:
             - Michael Cooper
           components:
-            - Firefox::Normandy
-            - Firefox::Nimbus Desktop Client
+            - Plezix::Normandy
+            - Plezix::Nimbus Desktop Client
           review_group: nimbus-reviewers
           url: https://experimenter.info/
         owners:
@@ -3597,8 +3597,8 @@ modules:
         machine_name: normandy
 
       - machine_name: firefox_view
-        name: Firefox View
-        description: The Firefox View page and its modules.
+        name: Plezix View
+        description: The Plezix View page and its modules.
         includes:
           - browser/components/firefoxview/**/*
         excludes: []
@@ -3638,8 +3638,8 @@ modules:
           - toolkit/components/messaging-system/**/*
         meta:
           components:
-            - Firefox::Messaging System
-            - Firefox::Tours
+            - Plezix::Messaging System
+            - Plezix::Tours
           owners_emeritus:
             - *Mardak
           peers_emeritus:
@@ -3663,7 +3663,7 @@ modules:
             - Aaron Klotz
             - *toshi
           components:
-            - Firefox::Launcher Process
+            - Plezix::Launcher Process
         owners:
           - *rkraesig
         peers:
@@ -3691,7 +3691,7 @@ modules:
           - browser/extensions/newtab/**/*
         meta:
           components:
-            - Firefox::New Tab Page
+            - Plezix::New Tab Page
           owners_emeritus:
             - *Mardak
           peers_emeritus:
@@ -3725,7 +3725,7 @@ modules:
             - Toolkit::Password Manager
             - 'Toolkit::Password Manager: Site'
             - Compatibility
-            - Firefox::about:logins
+            - Plezix::about:logins
         owners:
           - *joschmidt
           - *micah
@@ -3778,7 +3778,7 @@ modules:
           peers_emeritus:
             - Barry Chen
           components:
-            - Firefox::Screenshots
+            - Plezix::Screenshots
         owners:
           - *sfoster
           - *niklas
@@ -3793,7 +3793,7 @@ modules:
           - toolkit/components/search/**/*
         meta:
           components:
-            - Firefox::Search
+            - Plezix::Search
           peers_emeritus:
             - Michael de Boer
           review_group: search-reviewers
@@ -3820,16 +3820,16 @@ modules:
           owners_emeritus:
             - Johann Hofmann
           components:
-            - Firefox::Security
-            - Firefox::Protections UI
-            - Firefox::Site Identity
-            - Firefox::Site Permissions
+            - Plezix::Security
+            - Plezix::Protections UI
+            - Plezix::Site Identity
+            - Plezix::Site Permissions
         owners:
           - *emz
         machine_name: security_and_privacy_ui
 
       - name: Session Restore
-        description: Restoring a user's session after starting Firefox.
+        description: Restoring a user's session after starting Plezix.
         includes:
           - browser/components/sessionstore/**/*
           - toolkit/components/sessionstore/**/*
@@ -3842,7 +3842,7 @@ modules:
           peers_emeritus:
             - Anny Gakhokidze
           components:
-            - Firefox::Session Restore
+            - Plezix::Session Restore
           review_group: sessionstore-reviewers
         owners:
           - *sclements
@@ -3881,7 +3881,7 @@ modules:
           - browser/themes/shared/tabbrowser/*
         meta:
           components:
-            - Firefox::Tabbed Browser
+            - Plezix::Tabbed Browser
           peers_emeritus:
             - Jared Wein
             - Matthew N
@@ -3905,7 +3905,7 @@ modules:
           - toolkit/mozapps/installer/**/*
         meta:
           components:
-            - Firefox::Installer
+            - Plezix::Installer
           review_group: browser-installer-reviewers
         owners:
           - *molly
@@ -3917,7 +3917,7 @@ modules:
 
   - machine_name: devtools
     name: DevTools
-    description: Mozilla Developer Tools
+    description: Plezix Developer Tools
     includes:
       - devtools/**/*
     excludes: []
@@ -3977,7 +3977,7 @@ modules:
       review_group: devtools-reviewers
   - machine_name: fenix
     name: Fenix
-    description: Android Project to build Firefox for Android
+    description: Android Project to build Plezix for Android
     includes:
       - mobile/android/fenix/**/*
     excludes: []
@@ -3992,7 +3992,7 @@ modules:
 
       - machine_name: fenix_addons
         name: Fenix - Add-ons
-        description: Submodule for the add-ons code in Firefox for Android.
+        description: Submodule for the add-ons code in Plezix for Android.
         includes:
           - mobile/android/android-components/components/browser/engine-gecko/src/*/java/mozilla/components/browser/engine/gecko/webextension/*
           - mobile/android/android-components/components/browser/state/src/*/java/mozilla/components/browser/state/state/extension/*
@@ -4004,7 +4004,7 @@ modules:
           - mobile/android/fenix/app/src/*/java/org/mozilla/fenix/extension/*
         meta:
           components:
-            - 'Firefox for Android :: WebExtensions'
+            - 'Plezix for Android :: WebExtensions'
             - 'WebExtensions :: Android'
         owners:
           - *willdurand
@@ -4112,7 +4112,7 @@ modules:
 
       - machine_name: remote_protocol_agent
         name: Agent
-        description: Underlying transport layer and server to allow remoting of Firefox
+        description: Underlying transport layer and server to allow remoting of Plezix
           for automation and debugging.
         includes:
           - remote/**/*
@@ -4202,7 +4202,7 @@ modules:
 
   - machine_name: sync
     name: Sync
-    description: Firefox Sync client
+    description: Plezix Sync client
     includes:
       - services/sync/**/*
     excludes: []
@@ -4223,14 +4223,14 @@ modules:
 
   - machine_name: testing_firefox_ui
     name: firefox-ui
-    description: Firefox UI test framework.
+    description: Plezix UI test framework.
     includes:
       - testing/firefox-ui/**/*
     meta:
       peers_emeritus:
         - Maja Frydrychowicz
       components:
-        - 'Testing :: Firefox UI'
+        - 'Testing :: Plezix UI'
     owners:
       - *whimboo
     peers:
@@ -4416,7 +4416,7 @@ modules:
     meta:
       group: firefox-dev
       components:
-        - Firefox
+        - Plezix
         - Toolkit
       peers_emeritus:
         - Matthew Noorenberghe
@@ -4446,9 +4446,9 @@ modules:
 
       - name: Telemetry
         description: >
-          The core infrastructure in the Firefox client to send back telemetry
+          The core infrastructure in the Plezix client to send back telemetry
           data. Includes the common mechanisms to record, view and submit data: Legacy
-          Telemetry and Glean (via Firefox on Glean (FOG)). This module
+          Telemetry and Glean (via Plezix on Glean (FOG)). This module
           does ''not'' include responsibility for every piece of submitted Telemetry
           data. Each team/module is responsible for their own measurements (histograms,
           scalars, other ping submissions, etc.).
@@ -4534,7 +4534,7 @@ modules:
     machine_name: toolkit
   - machine_name: translation
     name: Translation
-    description: Support for translation in Firefox, and the infrastructure to train
+    description: Support for translation in Plezix, and the infrastructure to train
       new translation language models.
     includes:
       - toolkit/components/translations/**/*
@@ -4551,7 +4551,7 @@ modules:
       url: https://github.com/mozilla/firefox-translations-training https://github.com/mozilla/firefox-translations-models
         https://github.com/mozilla/firefox-translations-evaluations https://github.com/mozilla/firefox-translations
       components:
-        - Firefox::Translation
+        - Plezix::Translation
       review_group: translations-reviewers
   - machine_name: tree_sheriffs
     name: Tree Sheriffs

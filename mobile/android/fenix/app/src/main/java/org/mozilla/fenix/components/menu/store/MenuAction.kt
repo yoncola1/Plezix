@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -75,7 +75,7 @@ sealed class MenuAction : Action {
     /**
      * [MenuAction] dispatched when a custom tab is to be opened in the browser.
      */
-    data object OpenInFirefox : MenuAction()
+    data object OpenInPlezix : MenuAction()
 
     /**
      * [MenuAction] dispatched to launch find in page feature for the current site.
@@ -83,7 +83,7 @@ sealed class MenuAction : Action {
     data object FindInPage : MenuAction()
 
     /**
-     * [MenuAction] dispatched when it's a new installation of Firefox.
+     * [MenuAction] dispatched when it's a new installation of Plezix.
      */
     data object MenuBanner : MenuAction()
 
@@ -226,12 +226,12 @@ sealed class MenuAction : Action {
     sealed class Navigate : MenuAction() {
 
         /**
-         * [Navigate] action dispatched when navigating to Mozilla account.
+         * [Navigate] action dispatched when navigating to Plezix account.
          *
-         * @property accountState The [AccountState] of a Mozilla account.
+         * @property accountState The [AccountState] of a Plezix account.
          * @property accesspoint The access point that was used to navigate to the menu.
          */
-        data class MozillaAccount(
+        data class PlezixAccount(
             val accountState: AccountState,
             val accesspoint: MenuAccessPoint,
         ) : Navigate()

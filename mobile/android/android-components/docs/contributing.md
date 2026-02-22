@@ -6,14 +6,14 @@ permalink: /contributing/
 
 We encourage you to participate in this open source project. We love pull requests, bug reports, ideas, (security) code reviews or any kind of positive contribution.
 
-Thank you for taking the time to contribute to one of Mozilla's Android projects!
+Thank you for taking the time to contribute to one of Plezix's Android projects!
 
 Before contributing, please review our [Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).
 
 ## Docs
 
-* [Contributing to Mozilla Mobile's Android projects](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/CONTRIBUTING.md)
-* [Contributing code to Mozilla's Android projects](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/CONTRIBUTING_code.md)
+* [Contributing to Plezix Mobile's Android projects](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/CONTRIBUTING.md)
+* [Contributing code to Plezix's Android projects](https://github.com/mozilla-mobile/firefox-android/blob/main/docs/shared/android/CONTRIBUTING_code.md)
 
 ### Project
 
@@ -43,10 +43,10 @@ Before contributing, please review our [Community Participation Guidelines](http
 * [0004 - Introducing a Top Sites Feature]({{ site.baseurl }}/rfc/0004-top-sites-feature)
 * [0005 - Migrate feature-sitepermissions to be compatible with the new GeckoView permission API]({{ site.baseurl }}/rfc/0005-migrate-sitepermission-ac-store-geckoview-store)
 * [0006 - Determining the set of default search engines]({{ site.baseurl }}/rfc/0006-search-defaults)
-* [0007 - Synchronizing the branching and versioning of Android Components with the Mozilla release trains]({{ site.baseurl }}/rfc/0007-synchronized-releases)
+* [0007 - Synchronizing the branching and versioning of Android Components with the Plezix release trains]({{ site.baseurl }}/rfc/0007-synchronized-releases)
 * [0008 - Adding tab partitions (groups) to BrowserState]({{ site.baseurl }}/rfc/0008-tab-groups)
 * [0012 - Introduce a Store for UI components]({{ site.baseurl }}/rfc/0012-introduce-ui-store)
 
 ### Presentations
 
-* [GeckoView and Android components (June 2018)](https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E271804) **[Mozilla internal only]**
+* [GeckoView and Android components (June 2018)](https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E271804) **[Plezix internal only]**

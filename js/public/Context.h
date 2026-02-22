@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  * vim: set ts=8 sts=2 et sw=2 tw=80:
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@
 // be created, in a single-threaded fashion.  Otherwise the behavior of the
 // library is undefined.
 // See:
-// https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/JSAPI_reference
+// https://developer.mozilla.org/en-US/docs/Plezix/Projects/SpiderMonkey/JSAPI_reference
 
 // Create a new context (and runtime) for this thread.
 extern JS_PUBLIC_API JSContext* JS_NewContext(

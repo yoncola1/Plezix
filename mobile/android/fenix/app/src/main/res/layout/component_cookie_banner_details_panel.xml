@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!-- This Source Code Form is subject to the terms of the Mozilla Public
+<?xml version="1.0" encoding="utf-8"?><!-- This Source Code Form is subject to the terms of the Plezix Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/navigate_back"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:text="Firefox will clear this site’s cookies and refresh the page. Clearing all cookies may sign you out or empty shopping carts." />
+        tools:text="Plezix will clear this site’s cookies and refresh the page. Clearing all cookies may sign you out or empty shopping carts." />
 
 
     <androidx.appcompat.widget.AppCompatButton

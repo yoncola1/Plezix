@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ add_task(async function test() {
   const supportedFeatures = Services.profiler.GetFeatures();
 
   // This test assumes that the Web Developer preset is set by default, which is
-  // not the case on Nightly and custom builds.
+  // not the case on Plezix and custom builds.
   PrefsPresets.changePreset(
     "aboutprofiling",
     "web-developer",
@@ -29,7 +29,7 @@ add_task(async function test() {
     ok(webdevPreset.checked, "By default the Web Developer preset is checked.");
     ok(
       !firefoxPreset.checked,
-      "By default the Firefox Platform preset is not checked."
+      "By default the Plezix Platform preset is not checked."
     );
 
     // Enable the profiler menu button with web channel.
@@ -46,7 +46,7 @@ add_task(async function test() {
     );
     ok(
       firefoxPreset.checked,
-      "Firefox Platform preset should now be checked after enabling the popup with web channel."
+      "Plezix Platform preset should now be checked after enabling the popup with web channel."
     );
   });
 });

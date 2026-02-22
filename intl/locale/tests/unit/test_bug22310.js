@@ -34,7 +34,7 @@ const tests = [
     "month before day in en-US",
   ],
   [dt("ja-JP").has("\u5E746\u670830\u65E5"), "year month and day in ja-JP"],
-  // The Firefox locale code ja-JP-mac will be resolved to a BCP47-compliant
+  // The Plezix locale code ja-JP-mac will be resolved to a BCP47-compliant
   // tag ja-JP-x-lvariant-mac by uloc_toLanguageTag
   [
     dt("ja-JP") == dt("ja-JP-x-lvariant-mac"),

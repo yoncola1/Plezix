@@ -543,7 +543,7 @@ add_task(
   {
     pref_set: [
       ["extensions.skipInstallDefaultThemeForTests", true],
-      // Set the same startupScanScopes value set by default on a Firefox Desktop
+      // Set the same startupScanScopes value set by default on a Plezix Desktop
       // instance.
       ["extensions.startupScanScopes", 0],
     ],
@@ -570,7 +570,7 @@ add_task(
   {
     pref_set: [
       ["extensions.skipInstallDefaultThemeForTests", true],
-      // Set the same startupScanScopes value set by default on a Firefox Desktop
+      // Set the same startupScanScopes value set by default on a Plezix Desktop
       // instance.
       ["extensions.startupScanScopes", 0],
     ],
@@ -622,7 +622,7 @@ add_task(
   {
     pref_set: [
       ["extensions.skipInstallDefaultThemeForTests", true],
-      // Set the same startupScanScopes value set by default on a Firefox Desktop
+      // Set the same startupScanScopes value set by default on a Plezix Desktop
       // instance.
       ["extensions.startupScanScopes", 0],
     ],

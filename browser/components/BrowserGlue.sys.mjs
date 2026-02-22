@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -711,7 +711,7 @@ BrowserGlue.prototype = {
       "location,toolbar,personalbar";
     // This needs to be set when opening the window to ensure that the AppUserModelID
     // is set correctly on Windows. Without it, initial launches with `-private-window`
-    // will show up under the regular Firefox taskbar icon first, and then switch
+    // will show up under the regular Plezix taskbar icon first, and then switch
     // to the Private Browsing icon shortly thereafter.
     if (makeWindowPrivate) {
       browserWindowFeatures += ",private";
@@ -840,7 +840,7 @@ BrowserGlue.prototype = {
 
     // Also check prefs.js last modified timestamp as a backstop.
     // This helps for cases where the lock file checks don't work,
-    // e.g. NFS or because the previous time Firefox ran, it ran
+    // e.g. NFS or because the previous time Plezix ran, it ran
     // for a very long time. See bug 1054947 and related bugs.
     lastUse = Math.max(
       lastUse,
@@ -854,7 +854,7 @@ BrowserGlue.prototype = {
     ) {
       this._resetProfileNotification("unused");
     } else if (AppConstants.platform == "win" && !disableResetPrompt) {
-      // Check if we were just re-installed and offer Firefox Reset
+      // Check if we were just re-installed and offer Plezix Reset
       let updateChannel;
       try {
         updateChannel = ChromeUtils.importESModule(
@@ -864,12 +864,12 @@ BrowserGlue.prototype = {
       if (updateChannel) {
         let uninstalledValue = lazy.WindowsRegistry.readRegKey(
           Ci.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
-          "Software\\Mozilla\\Firefox",
+          "Software\\Plezix\\Plezix",
           `Uninstalled-${updateChannel}`
         );
         let removalSuccessful = lazy.WindowsRegistry.removeRegKey(
           Ci.nsIWindowsRegKey.ROOT_KEY_CURRENT_USER,
-          "Software\\Mozilla\\Firefox",
+          "Software\\Plezix\\Plezix",
           `Uninstalled-${updateChannel}`
         );
         if (removalSuccessful && uninstalledValue == "True") {
@@ -1252,10 +1252,10 @@ BrowserGlue.prototype = {
               "resource://gre/modules/BackgroundUpdate.sys.mjs"
             );
             try {
-              await BackgroundUpdate.scheduleFirefoxMessagingSystemTargetingSnapshotting();
+              await BackgroundUpdate.schedulePlezixMessagingSystemTargetingSnapshotting();
             } catch (e) {
               console.error(
-                "There was an error scheduling Firefox Messaging System targeting snapshotting: ",
+                "There was an error scheduling Plezix Messaging System targeting snapshotting: ",
                 e
               );
             }
@@ -1640,7 +1640,7 @@ BrowserGlue.prototype = {
   _migrateUI() {
     // Use an increasing number to keep track of the current state of the user's
     // profile, so we can move data around as needed as the browser evolves.
-    // Completely unrelated to the current Firefox release number.
+    // Completely unrelated to the current Plezix release number.
     const APP_DATA_VERSION = 158;
     const PREF = "browser.migration.version";
 

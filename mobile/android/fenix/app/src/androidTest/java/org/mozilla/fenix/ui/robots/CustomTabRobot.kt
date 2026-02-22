@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.fenix.ui.robots
@@ -81,15 +81,15 @@ class CustomTabRobot {
         assertUIObjectExists(itemContainingText("POWERED BY $appName"))
 
     fun verifyOpenInBrowserButtonExists() {
-        Log.i(TAG, "verifyOpenInBrowserButtonExists: Trying to verify that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserButtonExists: Trying to verify that the \"Open in Plezix\" button is displayed")
         openInBrowserButton().check(matches(isDisplayed()))
-        Log.i(TAG, "verifyOpenInBrowserButtonExists: Verified that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserButtonExists: Verified that the \"Open in Plezix\" button is displayed")
     }
 
     fun verifyOpenInBrowserComposeButtonExists(composeTestRule: ComposeTestRule) {
-        Log.i(TAG, "verifyOpenInBrowserComposeButtonExists: Trying to verify that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserComposeButtonExists: Trying to verify that the \"Open in Plezix\" button is displayed")
         composeTestRule.openInBrowserButtonFromRedesignedToolbar().assertIsDisplayed()
-        Log.i(TAG, "verifyOpenInBrowserComposeButtonExists: Verified that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserComposeButtonExists: Verified that the \"Open in Plezix\" button is displayed")
     }
 
     fun verifyBackButtonExists() = assertUIObjectExists(itemWithDescription("Back"))
@@ -260,18 +260,18 @@ class CustomTabRobot {
         }
 
         fun clickOpenInBrowserButton(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
-            Log.i(TAG, "clickOpenInBrowserButton: Trying to click the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButton: Trying to click the \"Open in Plezix\" button")
             openInBrowserButton().perform(click())
-            Log.i(TAG, "clickOpenInBrowserButton: Clicked the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButton: Clicked the \"Open in Plezix\" button")
 
             BrowserRobot().interact()
             return BrowserRobot.Transition()
         }
 
         fun clickOpenInBrowserButtonFromRedesignedToolbar(composeTestRule: ComposeTestRule, interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
-            Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Trying to click the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Trying to click the \"Open in Plezix\" button")
             composeTestRule.openInBrowserButtonFromRedesignedToolbar().performClick()
-            Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Clicked the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Clicked the \"Open in Plezix\" button")
             Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Waiting for device to be idle to be idle")
             mDevice.waitForIdle(waitingTime)
             Log.i(TAG, "clickOpenInBrowserButtonFromRedesignedToolbar: Waited for device to be idle")

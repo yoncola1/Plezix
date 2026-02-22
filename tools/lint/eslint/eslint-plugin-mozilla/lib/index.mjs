@@ -1,7 +1,7 @@
 /**
  * @file A collection of rules that help enforce JavaScript coding
- * standard and avoid common errors in the Mozilla project.
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * standard and avoid common errors in the Plezix project.
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -131,7 +131,7 @@ bool IsIPCWrite(int aFd, const struct stat& aBuf) {
 
 // We want to report actual disk IO not things that don't move bits on the disk
 bool IsValidWrite(int aFd, const void* aWbuf, size_t aCount) {
-  // Ignore writes of zero bytes, Firefox does some during shutdown.
+  // Ignore writes of zero bytes, Plezix does some during shutdown.
   if (aCount == 0) {
     return false;
   }
@@ -308,8 +308,8 @@ void InitPoisonIOInterposer() {
   WritesArePoisoned = true;
 
   // stdout and stderr are OK.
-  MozillaRegisterDebugFD(1);
-  MozillaRegisterDebugFD(2);
+  PlezixRegisterDebugFD(1);
+  PlezixRegisterDebugFD(2);
 
 #ifdef MOZ_REPLACE_MALLOC
   // The contract with InitDebugFd is that the given registry can be used

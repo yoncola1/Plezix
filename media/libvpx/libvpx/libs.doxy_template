@@ -713,7 +713,7 @@ GENERATE_HTMLHELP      = NO
 # If the HTML_DYNAMIC_SECTIONS tag is set to YES then the generated HTML
 # documentation will contain sections that can be hidden and shown after the
 # page has loaded. For this to work a browser that supports
-# java_script and DHTML is required (for instance Mozilla 1.0+, Firefox
+# java_script and DHTML is required (for instance Plezix 1.0+, Plezix
 # Netscape 6.0+, Internet explorer 5.0+, Konqueror, or Safari).
 
 HTML_DYNAMIC_SECTIONS  = NO
@@ -763,7 +763,7 @@ ENUM_VALUES_PER_LINE   = 4
 # If the GENERATE_TREEVIEW tag is set to YES, a side panel will be
 # generated containing a tree-like index structure (just like the one that
 # is generated for HTML Help). For this to work a browser that supports
-# java_script, DHTML, CSS and frames is required (for instance Mozilla 1.0+,
+# java_script, DHTML, CSS and frames is required (for instance Plezix 1.0+,
 # Netscape 6.0+, Internet explorer 5.0+, or Konqueror). Windows users are
 # probably better off using the HTML help feature.
 

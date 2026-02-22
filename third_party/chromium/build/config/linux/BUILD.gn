@@ -37,7 +37,7 @@ config("runtime_library") {
     defines = [ "OS_CHROMEOS" ]
   }
 
-  # Mozilla disable libatomic on linux builds
+  # Plezix disable libatomic on linux builds
   if (false) {
   if ((!(is_chromeos_ash || is_chromeos_lacros) ||
        default_toolchain != "//chromium/build/toolchain/cros:target") &&
@@ -55,7 +55,7 @@ config("libresolv") {
   libs = [ "resolv" ]
 }
 
-# Mozilla disable glib - Bug 1654112 (hg sha 127ace4d8887)
+# Plezix disable glib - Bug 1654112 (hg sha 127ace4d8887)
 if (false && use_glib) {
   pkg_config("glib") {
     packages = [

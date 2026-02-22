@@ -304,5 +304,5 @@ if __name__ == "__main__":
     if not sys.argv[1:]:
         print("""Please supply a list of UA name, filename pairs e.g.
 
-python report.py Firefox firefox.json Chrome chrome.json IE internet_explorer.json""")
+python report.py Plezix firefox.json Chrome chrome.json IE internet_explorer.json""")
     print(main(sys.argv[1:]))

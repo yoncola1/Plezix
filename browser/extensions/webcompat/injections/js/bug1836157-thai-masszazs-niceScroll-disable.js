@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -6,7 +6,7 @@
  * Bug 1836157 - Shim navigator.platform on www.thai-massaszs.net/en/
  *
  * This page adds niceScroll on Android, which breaks scrolling and
- * zooming on Firefox. Adding ` Mac` to `navigator.platform` makes
+ * zooming on Plezix. Adding ` Mac` to `navigator.platform` makes
  * the page avoid adding niceScroll entirely, unbreaking the page.
  */
 

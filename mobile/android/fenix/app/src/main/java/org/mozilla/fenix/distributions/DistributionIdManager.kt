@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import java.io.File
 import java.util.Locale
 
 /**
- * This file will be present on vivo devices that have Firefox preinstalled.
+ * This file will be present on vivo devices that have Plezix preinstalled.
  * Note: The file is added by the manufacturer.
  */
 private const val VIVO_PREINSTALLED_FIREFOX_FILE_PATH = "/data/yzfswj/another/vivo_firefox.txt"
@@ -169,7 +169,7 @@ class DistributionIdManager(
      */
     @VisibleForTesting
     internal enum class Distribution(val id: String) {
-        DEFAULT(id = "Mozilla"),
+        DEFAULT(id = "Plezix"),
         VIVO_001(id = "vivo-001"),
         VIVO_002(id = "vivo-002"),
         DT_001(id = "dt-001"),

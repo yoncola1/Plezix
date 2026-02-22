@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -26,7 +26,7 @@ _mozbuild_action_abspath = os.path.join("python", "mozbuild", "mozbuild", "actio
 
 class TooltoolMixin:
     """Mixin class for handling tooltool manifests.
-    To use a tooltool server other than the Mozilla server, set
+    To use a tooltool server other than the Plezix server, set
     TOOLTOOL_HOST in the environment.
     """
 

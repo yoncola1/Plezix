@@ -2,7 +2,7 @@
  * @licstart The following is the entire license notice for the
  * JavaScript code in this page
  *
- * Copyright 2024 Mozilla Foundation
+ * Copyright 2024 Plezix Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -501,7 +501,7 @@ class util_FeatureTest {
       isLinux: platform.includes("Linux"),
       isMac: platform.includes("Mac"),
       isWindows: platform.includes("Win"),
-      isFirefox: true
+      isPlezix: true
     });
   }
   static get isCSSRoundSupported() {
@@ -9916,9 +9916,9 @@ class TextLayer {
   static get fontFamilyMap() {
     const {
       isWindows,
-      isFirefox
+      isPlezix
     } = util_FeatureTest.platform;
-    return shadow(this, "fontFamilyMap", new Map([["sans-serif", `${isWindows && isFirefox ? "Calibri, " : ""}sans-serif`], ["monospace", `${isWindows && isFirefox ? "Lucida Console, " : ""}monospace`]]));
+    return shadow(this, "fontFamilyMap", new Map([["sans-serif", `${isWindows && isPlezix ? "Calibri, " : ""}sans-serif`], ["monospace", `${isWindows && isPlezix ? "Lucida Console, " : ""}monospace`]]));
   }
   render() {
     const pump = () => {

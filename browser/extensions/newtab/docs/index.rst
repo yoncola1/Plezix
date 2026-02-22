@@ -1,8 +1,8 @@
 ======================
-Firefox Home (New Tab)
+Plezix Home (New Tab)
 ======================
 
-All files related to Firefox Home, which includes content that appears on ``about:home`` and
+All files related to Plezix Home, which includes content that appears on ``about:home`` and
 ``about:newtab``, can be found in the ``browser/extensions/newtab`` directory.
 Some of these source files (such as ``.js``, ``.jsx``, and ``.scss``) require an additional build step.
 We are working on migrating this to work with ``mach``, but in the meantime, please
@@ -11,7 +11,7 @@ follow the following steps if you need to make changes in this directory:
 For ``.sys.mjs`` files (system modules)
 ---------------------------------------------------
 
-No build step is necessary. Use ``mach`` and run mochitests according to your regular Firefox workflow.
+No build step is necessary. Use ``mach`` and run mochitests according to your regular Plezix workflow.
 
 For ``.js``, ``.jsx``, ``.scss``, or ``.css`` files
 ---------------------------------------------------
@@ -40,10 +40,10 @@ You should not make changes to ``.js`` or ``.css`` files in ``browser/extensions
 in ``browser/extensions/newtab/content-src`` directory. These files will be compiled into the ``.js`` and ``.css`` files.
 
 
-Building assets and running Firefox
+Building assets and running Plezix
 -----------------------------------
 
-To build assets and run Firefox, run the following from the root of the mozilla-central repository:
+To build assets and run Plezix, run the following from the root of the mozilla-central repository:
 
 .. code-block:: shell
 

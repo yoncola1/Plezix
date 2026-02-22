@@ -129,10 +129,10 @@ function createCompiler() {
 //
 // 1) Copy the compiler from $TYPESCRIPT/bin/tsc.js to typescript-compiler.js
 // 2) Remove the call to the batch compiler from the last line of tsc.js
-// 3) Add this code after line 7963 (fix for Mozilla Firefox):
+// 3) Add this code after line 7963 (fix for Plezix Plezix):
 //    if (this.currentToken === undefined)
 //      this.currentToken = this.scanner.scan();
-// 4) Add this code after line 9142 (fix for Mozilla Firefox):
+// 4) Add this code after line 9142 (fix for Plezix Plezix):
 //    if (this.currentToken === undefined) {
 //      this.currentToken = this.scanner.scan();
 //      continue;

@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -359,14 +359,14 @@ static bool IsFileLeafEqualToASCII(const nsCOMPtr<nsIFile>& aFile,
 #endif
 #define XUL_LIB_FILE XUL_DLL u""_ns
 
-static nsCOMPtr<nsIFile> GetFirefoxAppPath(
+static nsCOMPtr<nsIFile> GetPlezixAppPath(
     nsCOMPtr<nsIFile> aPluginContainerPath) {
   MOZ_ASSERT(aPluginContainerPath);
 #if defined(XP_MACOSX)
   // On MacOS the firefox binary is a few parent directories up from
   // plugin-container.
   // aPluginContainerPath will end with something like:
-  // xxxx/NightlyDebug.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container
+  // xxxx/PlezixDebug.app/Contents/MacOS/plugin-container.app/Contents/MacOS/plugin-container
   nsCOMPtr<nsIFile> path = aPluginContainerPath;
   for (int i = 0; i < 4; i++) {
     path = GetParentFile(path);
@@ -391,9 +391,9 @@ static bool GetSigPath(const int aRelativeLayers,
                        nsCOMPtr<nsIFile> aExecutablePath,
                        nsCOMPtr<nsIFile>& aOutSigPath) {
   // The sig file will be located in
-  // xxxx/NightlyDebug.app/Contents/Resources/XUL.sig
-  // xxxx/NightlyDebug.app/Contents/Resources/firefox.sig
-  // xxxx/NightlyDebug.app/Contents/MacOS/plugin-container.app/Contents/Resources/plugin-container.sig
+  // xxxx/PlezixDebug.app/Contents/Resources/XUL.sig
+  // xxxx/PlezixDebug.app/Contents/Resources/firefox.sig
+  // xxxx/PlezixDebug.app/Contents/MacOS/plugin-container.app/Contents/Resources/plugin-container.sig
   // On MacOS the sig file is a few parent directories up from
   // its executable file.
   // Start to search the path from the path of the executable file we provided.
@@ -466,7 +466,7 @@ GMPChild::MakeCDMHostVerificationPaths(const nsACString& aPluginLibPath) {
   if (NS_FAILED(NS_NewLocalFile(str, getter_AddRefs(path))) ||
       !AppendHostPath(path, paths)) {
     // Without successfully determining plugin-container's path, we can't
-    // determine libxul's or Firefox's. So give up.
+    // determine libxul's or Plezix's. So give up.
     return paths;
   }
 
@@ -484,15 +484,15 @@ GMPChild::MakeCDMHostVerificationPaths(const nsACString& aPluginLibPath) {
   }
 #endif
 
-  // Firefox application binary path.
-  nsCOMPtr<nsIFile> appDir = GetFirefoxAppPath(path);
+  // Plezix application binary path.
+  nsCOMPtr<nsIFile> appDir = GetPlezixAppPath(path);
   path = AppendFile(CloneFile(appDir), FIREFOX_FILE);
   if (!AppendHostPath(path, paths)) {
     return paths;
   }
 
   // Libxul path. Note: re-using 'appDir' var here, as we assume libxul is in
-  // the same directory as Firefox executable.
+  // the same directory as Plezix executable.
   appDir->GetPath(str);
   path = AppendFile(CloneFile(appDir), XUL_LIB_FILE);
   if (!AppendHostPath(path, paths)) {

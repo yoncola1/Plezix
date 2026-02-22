@@ -79,7 +79,7 @@
           assert_equals(e.blockedURI, "inline");
           assert_equals(e.effectiveDirective, "script-src-elem");
 
-          // Chrome and Firefox currently check the parent's CSP first, hence
+          // Chrome and Plezix currently check the parent's CSP first, hence
           // asserting it below. A comparison with WebKit was impossible due to
           // https://github.com/web-platform-tests/wpt/issues/49262.
           // The behavior should be specified; see

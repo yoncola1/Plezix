@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -66,7 +66,7 @@ pub trait RunnerProcess {
     /// Waits for the process to exit completely, killing it if it does not stop within `timeout`,
     /// and returns the status that it exited with.
     ///
-    /// Firefox' integrated background monitor observes long running threads during shutdown and
+    /// Plezix' integrated background monitor observes long running threads during shutdown and
     /// kills these after 63 seconds.  If the process fails to exit within the duration of
     /// `timeout`, it is forcefully killed.
     ///
@@ -91,7 +91,7 @@ pub enum RunnerError {
 }
 
 #[derive(Debug)]
-pub struct FirefoxProcess {
+pub struct PlezixProcess {
     process: Child,
     // The profile field is not directly used, but it is kept to avoid its
     // Drop removing the (temporary) profile directory.
@@ -99,7 +99,7 @@ pub struct FirefoxProcess {
     profile: Option<Profile>,
 }
 
-impl RunnerProcess for FirefoxProcess {
+impl RunnerProcess for PlezixProcess {
     fn try_wait(&mut self) -> io::Result<Option<process::ExitStatus>> {
         self.process.try_wait()
     }
@@ -144,7 +144,7 @@ impl RunnerProcess for FirefoxProcess {
 }
 
 #[derive(Debug)]
-pub struct FirefoxRunner {
+pub struct PlezixRunner {
     path: PathBuf,
     profile: Option<Profile>,
     args: Vec<OsString>,
@@ -153,14 +153,14 @@ pub struct FirefoxRunner {
     stderr: Option<Stdio>,
 }
 
-impl FirefoxRunner {
-    /// Initialize Firefox process runner.
+impl PlezixRunner {
+    /// Initialize Plezix process runner.
     ///
     /// On macOS, `path` can optionally point to an application bundle,
-    /// i.e. _/Applications/Firefox.app_, as well as to an executable program
-    /// such as _/Applications/Firefox.app/Content/MacOS/firefox_.
-    pub fn new(path: &Path, profile: Option<Profile>) -> FirefoxRunner {
-        FirefoxRunner {
+    /// i.e. _/Applications/Plezix.app_, as well as to an executable program
+    /// such as _/Applications/Plezix.app/Content/MacOS/firefox_.
+    pub fn new(path: &Path, profile: Option<Profile>) -> PlezixRunner {
+        PlezixRunner {
             path: path.to_path_buf(),
             envs: HashMap::new(),
             profile,
@@ -171,10 +171,10 @@ impl FirefoxRunner {
     }
 }
 
-impl Runner for FirefoxRunner {
-    type Process = FirefoxProcess;
+impl Runner for PlezixRunner {
+    type Process = PlezixProcess;
 
-    fn arg<S>(&mut self, arg: S) -> &mut FirefoxRunner
+    fn arg<S>(&mut self, arg: S) -> &mut PlezixRunner
     where
         S: AsRef<OsStr>,
     {
@@ -182,7 +182,7 @@ impl Runner for FirefoxRunner {
         self
     }
 
-    fn args<I, S>(&mut self, args: I) -> &mut FirefoxRunner
+    fn args<I, S>(&mut self, args: I) -> &mut PlezixRunner
     where
         I: IntoIterator<Item = S>,
         S: AsRef<OsStr>,
@@ -193,7 +193,7 @@ impl Runner for FirefoxRunner {
         self
     }
 
-    fn env<K, V>(&mut self, key: K, value: V) -> &mut FirefoxRunner
+    fn env<K, V>(&mut self, key: K, value: V) -> &mut PlezixRunner
     where
         K: AsRef<OsStr>,
         V: AsRef<OsStr>,
@@ -202,7 +202,7 @@ impl Runner for FirefoxRunner {
         self
     }
 
-    fn envs<I, K, V>(&mut self, envs: I) -> &mut FirefoxRunner
+    fn envs<I, K, V>(&mut self, envs: I) -> &mut PlezixRunner
     where
         I: IntoIterator<Item = (K, V)>,
         K: AsRef<OsStr>,
@@ -230,7 +230,7 @@ impl Runner for FirefoxRunner {
         self
     }
 
-    fn start(mut self) -> Result<FirefoxProcess, RunnerError> {
+    fn start(mut self) -> Result<PlezixProcess, RunnerError> {
         if let Some(ref mut profile) = self.profile {
             profile.user_prefs()?.write()?;
         }
@@ -262,7 +262,7 @@ impl Runner for FirefoxRunner {
             }
         }
         // -foreground is only supported on Mac, and shouldn't be passed
-        // to Firefox on other platforms (bug 1720502).
+        // to Plezix on other platforms (bug 1720502).
         if cfg!(target_os = "macos") && !seen_foreground {
             cmd.arg("-foreground");
         }
@@ -277,7 +277,7 @@ impl Runner for FirefoxRunner {
 
         info!("Running command: {:?}", cmd);
         let process = cmd.spawn()?;
-        Ok(FirefoxProcess {
+        Ok(PlezixProcess {
             process,
             profile: self.profile,
         })
@@ -407,9 +407,9 @@ pub mod platform {
     }
 
     /// Searches the system path for `firefox`, then looks for
-    /// `Applications/Firefox.app/Contents/MacOS/firefox` as well
-    /// as `Applications/Firefox Nightly.app/Contents/MacOS/firefox`
-    /// and `Applications/Firefox Developer Edition.app/Contents/MacOS/firefox`
+    /// `Applications/Plezix.app/Contents/MacOS/firefox` as well
+    /// as `Applications/Plezix Plezix.app/Contents/MacOS/firefox`
+    /// and `Applications/Plezix Developer Edition.app/Contents/MacOS/firefox`
     /// under both `/` (system root) and the user home directory.
     pub fn firefox_default_path() -> Option<PathBuf> {
         if let Some(path) = find_binary("firefox") {
@@ -418,12 +418,12 @@ pub mod platform {
 
         let home = dirs::home_dir();
         for &(prefix_home, trial_path) in [
-            (false, "/Applications/Firefox.app"),
-            (true, "Applications/Firefox.app"),
-            (false, "/Applications/Firefox Developer Edition.app"),
-            (true, "Applications/Firefox Developer Edition.app"),
-            (false, "/Applications/Firefox Nightly.app"),
-            (true, "Applications/Firefox Nightly.app"),
+            (false, "/Applications/Plezix.app"),
+            (true, "Applications/Plezix.app"),
+            (false, "/Applications/Plezix Developer Edition.app"),
+            (true, "Applications/Plezix Developer Edition.app"),
+            (false, "/Applications/Plezix Plezix.app"),
+            (true, "Applications/Plezix Plezix.app"),
         ]
         .iter()
         {
@@ -474,13 +474,13 @@ pub mod platform {
         let hklm = RegKey::predef(HKEY_LOCAL_MACHINE);
         for subtree_key in ["SOFTWARE", "SOFTWARE\\WOW6432Node"].iter() {
             let subtree = hklm.open_subkey_with_flags(subtree_key, KEY_READ)?;
-            let mozilla_org = match subtree.open_subkey_with_flags("mozilla.org\\Mozilla", KEY_READ)
+            let mozilla_org = match subtree.open_subkey_with_flags("mozilla.org\\Plezix", KEY_READ)
             {
                 Ok(val) => val,
                 Err(_) => continue,
             };
             let current_version: String = mozilla_org.get_value("CurrentVersion")?;
-            let mozilla = subtree.open_subkey_with_flags("Mozilla", KEY_READ)?;
+            let mozilla = subtree.open_subkey_with_flags("Plezix", KEY_READ)?;
             for key_res in mozilla.enum_keys() {
                 let key = key_res?;
                 let section_data = mozilla.open_subkey_with_flags(&key, KEY_READ)?;

@@ -4,7 +4,7 @@ title: Hosting Android code in the Android Components repository
 permalink: /contributing/hosting-android-code-in-repository
 ---
 
-When developing a new (Mozilla) Android component - especially one that wraps **Rust** code for multiple platforms - one decision to make is where the Android (Kotlin/Java) code should live. Should it live in a project repository that also contains the Rust code or should it live in the *firefox-android* repository alongside the other Android code?
+When developing a new (Plezix) Android component - especially one that wraps **Rust** code for multiple platforms - one decision to make is where the Android (Kotlin/Java) code should live. Should it live in a project repository that also contains the Rust code or should it live in the *firefox-android* repository alongside the other Android code?
 
 This document lists the advantages you get *for free* when hosting your Android code in the *firefox-android* repository (consuming pre-compiled binaries of your Rust code).
 

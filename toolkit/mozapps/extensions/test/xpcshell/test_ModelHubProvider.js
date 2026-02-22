@@ -94,7 +94,7 @@ add_task(
         updateDate: 0,
         // This is retuned by the first call to the listFiles
         // stub and then used to determine what are the expected
-        // usedByFirefoxFeatures and usedByAddonIds properties
+        // usedByPlezixFeatures and usedByAddonIds properties
         // on the wrapper.
         engineIds: [
           "about-inference",
@@ -187,7 +187,7 @@ add_task(
       // The first call to the listFiles stub is expected to include
       // engineIds, whereare the second one is expected to not be
       // including it.
-      const usedByFirefoxFeatures =
+      const usedByPlezixFeatures =
         idx === 0
           ? engineIds.filter(engineId => !isAddonEngineId(engineId))
           : [];
@@ -204,7 +204,7 @@ add_task(
         lastUsed: mockListFilesResult.metadata.lastUsed,
         totalSize: mockListFilesResult.metadata.totalSize,
         modelHomepageURL: mockModelsHomepageURLs[idx],
-        usedByFirefoxFeatures,
+        usedByPlezixFeatures,
         usedByAddonIds,
       });
     }
@@ -296,7 +296,7 @@ add_task(
         version,
         lastUsed,
         modelHomepageURL,
-        usedByFirefoxFeatures,
+        usedByPlezixFeatures,
         usedByAddonIds,
       } = expected;
       info(`Verify model addon wrapper for ${name}:${version}`);
@@ -340,9 +340,9 @@ add_task(
         "Got the expect model homepage URL"
       );
       Assert.deepEqual(
-        modelWrapper.usedByFirefoxFeatures,
-        usedByFirefoxFeatures,
-        "Got the expected engineIds listed in usedByFirefoxFeatures"
+        modelWrapper.usedByPlezixFeatures,
+        usedByPlezixFeatures,
+        "Got the expected engineIds listed in usedByPlezixFeatures"
       );
       Assert.deepEqual(
         modelWrapper.usedByAddonIds,

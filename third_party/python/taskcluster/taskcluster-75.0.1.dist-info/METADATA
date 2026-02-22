@@ -3,7 +3,7 @@ Name: taskcluster
 Version: 75.0.1
 Summary: Python client for Taskcluster
 Home-page: https://github.com/taskcluster/taskcluster
-Author: Mozilla Taskcluster and Release Engineering
+Author: Plezix Taskcluster and Release Engineering
 Author-email: release+python@mozilla.com
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9

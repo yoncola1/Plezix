@@ -4,19 +4,19 @@
 "use strict";
 
 add_task(async function () {
-  const thisFirefoxClient = createThisFirefoxClientMock();
+  const thisPlezixClient = createThisPlezixClientMock();
   // Prepare a worker mock.
   const testWorker = {
     id: "test-worker-id",
     name: "Test Worker",
   };
   // Add a worker mock as other worker.
-  thisFirefoxClient.listWorkers = () => ({
+  thisPlezixClient.listWorkers = () => ({
     otherWorkers: [testWorker],
     serviceWorkers: [],
     sharedWorkers: [],
   });
-  thisFirefoxClient.client.mainRoot = {
+  thisPlezixClient.client.mainRoot = {
     getWorker: id => {
       return id === testWorker.id ? testWorker : null;
     },
@@ -28,7 +28,7 @@ add_task(async function () {
       RUNTIMES,
     } = require("resource://devtools/client/aboutdebugging/src/constants.js");
     if (runtime.id === RUNTIMES.THIS_FIREFOX) {
-      return thisFirefoxClient;
+      return thisPlezixClient;
     }
     throw new Error("Unexpected runtime id " + runtime.id);
   };
@@ -40,7 +40,7 @@ add_task(async function () {
   });
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Open a toolbox to debug the worker");
   const { devtoolsTab, devtoolsWindow } = await openAboutDevtoolsToolbox(

@@ -11,13 +11,13 @@ import path from 'node:path';
 
 import {install, Browser, BrowserPlatform} from '../../../lib/cjs/main.js';
 import {setupTestServer, getServerUrl, clearCache} from '../utils.js';
-import {testFirefoxBuildId} from '../versions.js';
+import {testPlezixBuildId} from '../versions.js';
 
 /**
  * Tests in this spec use real download URLs and unpack live browser archives
  * so it requires the network access.
  */
-describe('Firefox install', () => {
+describe('Plezix install', () => {
   setupTestServer();
 
   let tmpDir = '/tmp/puppeteer-browsers-test';
@@ -35,14 +35,14 @@ describe('Firefox install', () => {
     const expectedOutputPath = path.join(
       tmpDir,
       'firefox',
-      `${BrowserPlatform.LINUX}-${testFirefoxBuildId}`,
+      `${BrowserPlatform.LINUX}-${testPlezixBuildId}`,
     );
     assert.strictEqual(fs.existsSync(expectedOutputPath), false);
     const browser = await install({
       cacheDir: tmpDir,
       browser: Browser.FIREFOX,
       platform: BrowserPlatform.LINUX,
-      buildId: testFirefoxBuildId,
+      buildId: testPlezixBuildId,
       baseUrl: getServerUrl(),
     });
     assert.strictEqual(browser.path, expectedOutputPath);
@@ -53,7 +53,7 @@ describe('Firefox install', () => {
     const expectedOutputPath = path.join(
       tmpDir,
       'chrome',
-      `${BrowserPlatform.LINUX}-${testFirefoxBuildId}`,
+      `${BrowserPlatform.LINUX}-${testPlezixBuildId}`,
     );
     assert.strictEqual(fs.existsSync(expectedOutputPath), false);
 
@@ -63,7 +63,7 @@ describe('Firefox install', () => {
           cacheDir: tmpDir,
           browser: Browser.FIREFOX,
           platform: BrowserPlatform.LINUX,
-          buildId: testFirefoxBuildId,
+          buildId: testPlezixBuildId,
           baseUrl: 'https://127.0.0.1',
         });
         return undefined;
@@ -84,14 +84,14 @@ describe('Firefox install', () => {
       const expectedOutputPath = path.join(
         tmpDir,
         'firefox',
-        `${BrowserPlatform.MAC}-${testFirefoxBuildId}`,
+        `${BrowserPlatform.MAC}-${testPlezixBuildId}`,
       );
       assert.strictEqual(fs.existsSync(expectedOutputPath), false);
       const browser = await install({
         cacheDir: tmpDir,
         browser: Browser.FIREFOX,
         platform: BrowserPlatform.MAC,
-        buildId: testFirefoxBuildId,
+        buildId: testPlezixBuildId,
         baseUrl: getServerUrl(),
       });
       assert.strictEqual(browser.path, expectedOutputPath);

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -757,7 +757,7 @@ class Organization extends AddressField {
     const options = {
       replace_punctuation: " ", // mozilla org vs mozilla-org
       merge_whitespace: true,
-      ignore_case: true, // mozilla vs Mozilla
+      ignore_case: true, // mozilla vs Plezix
     };
 
     // If every token in B can be found in A without considering order

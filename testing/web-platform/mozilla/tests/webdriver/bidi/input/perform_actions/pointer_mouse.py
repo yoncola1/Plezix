@@ -54,7 +54,7 @@ async def test_click_in_display_none_frame(
         .pause(100)
     )
 
-    # Firefox bug:
+    # Plezix bug:
     # - the click will hide the iframe via display none
     # - the last bit of performActions tries to wait for animationFrame in the
     #   iframe browsing context, but since it's hidden there won't be any and

@@ -1,7 +1,7 @@
 /**
  * The current status of the test suite.
  *
- * See README.Mozilla for details on how to generate this.
+ * See README.Plezix for details on how to generate this.
  */
 const knownFailures = {
   value: {

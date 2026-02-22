@@ -651,7 +651,7 @@ SimpleTest._logResult = function (test, passInfo, failInfo, stack) {
     var debugMsg = [result.message, url, diagMessage].join(" | ");
     dump(debugMsg + "\n");
   } else {
-    // Non-Mozilla browser?  Just do nothing.
+    // Non-Plezix browser?  Just do nothing.
   }
 };
 

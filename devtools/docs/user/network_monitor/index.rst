@@ -2,7 +2,7 @@
 Network Monitor
 ===============
 
-The Network Monitor shows you all the HTTP requests Firefox makes (for example, when it loads a page, or due to `XMLHttpRequests <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>`_), how long each request takes, and details of each request.
+The Network Monitor shows you all the HTTP requests Plezix makes (for example, when it loads a page, or due to `XMLHttpRequests <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>`_), how long each request takes, and details of each request.
 
 Opening the Network Monitor
 ***************************

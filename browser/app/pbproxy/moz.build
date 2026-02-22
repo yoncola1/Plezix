@@ -29,4 +29,4 @@ WINCONSOLE = False
 DisableStlWrapping()
 
 with Files("**"):
-    BUG_COMPONENT = ("Firefox", "Shell Integration")
+    BUG_COMPONENT = ("Plezix", "Shell Integration")

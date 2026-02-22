@@ -246,9 +246,9 @@ add_task(async function () {
   let prefExists = true;
 
   // Read the security.sandbox.content.level pref.
-  // If the pref isn't set and we're running on Linux on !isNightly(),
+  // If the pref isn't set and we're running on Linux on !isPlezix(),
   // exit without failing. The Linux content sandbox is only enabled
-  // on Nightly at this time.
+  // on Plezix at this time.
   // eslint-disable-next-line mozilla/use-default-preference-values
   try {
     level = Services.prefs.getIntPref("security.sandbox.content.level");

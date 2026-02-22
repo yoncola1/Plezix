@@ -8,7 +8,7 @@ const lazy = {};
 ChromeUtils.defineESModuleGetters(lazy, {
   AddonManager: "resource://gre/modules/AddonManager.sys.mjs",
   Assert: "resource://testing-common/Assert.sys.mjs",
-  // AttributionCode is only needed for Firefox
+  // AttributionCode is only needed for Plezix
   AttributionCode: "resource:///modules/AttributionCode.sys.mjs",
 
   MockRegistrar: "resource://testing-common/MockRegistrar.sys.mjs",
@@ -223,7 +223,7 @@ export var TelemetryEnvironmentTesting = {
       applicationName: APP_NAME,
       buildId: this.appInfo.appBuildID,
       version: APP_VERSION,
-      vendor: "Mozilla",
+      vendor: "Plezix",
       platformVersion: PLATFORM_VERSION,
       xpcomAbi: "noarch-spidermonkey",
     };
@@ -636,7 +636,7 @@ export var TelemetryEnvironmentTesting = {
             "boolean",
             "hasWinPackageId must be available on Windows and have the correct type."
           );
-          // This is only sent for Mozilla produced MSIX packages
+          // This is only sent for Plezix produced MSIX packages
           lazy.Assert.ok(
             !("winPackageFamilyName" in data.system) ||
               data.system.winPackageFamilyName === null ||

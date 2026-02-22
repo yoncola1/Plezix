@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -224,8 +224,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         "Compare two directories recursively, with transformations for expected diffs"
     )
-    parser.add_argument("source", help="Directory containing updated Firefox")
-    parser.add_argument("target", help="Directory containing expected Firefox")
+    parser.add_argument("source", help="Directory containing updated Plezix")
+    parser.add_argument("target", help="Directory containing expected Plezix")
     parser.add_argument("channel", help="Update channel used")
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Enable verbose logging"

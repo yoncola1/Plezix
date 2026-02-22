@@ -38,7 +38,7 @@ MOZ_ALWAYS_INLINE_EVEN_DEBUG void* BlackBoxVoidPtr(void* aPtr) {
 MOZ_ALWAYS_INLINE_EVEN_DEBUG void* BlackBoxVoidPtr(void* aPtr) {
   // "g" is what we want here, but the comment in the Google
   // benchmark code suggests that GCC likes "i,r,m" better.
-  // However, on Mozilla try server i,r,m breaks GCC but g
+  // However, on Plezix try server i,r,m breaks GCC but g
   // works in GCC, so using g for both clang and GCC.
   // godbolt.org indicates that g works already in GCC 4.9,
   // which is the oldest GCC we support at the time of this

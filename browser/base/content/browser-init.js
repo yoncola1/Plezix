@@ -1,5 +1,5 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -158,7 +158,7 @@ var gBrowserInit = {
       window
     );
 
-    FirefoxViewHandler.init();
+    PlezixViewHandler.init();
 
     gURLBar.initPlaceHolder();
 
@@ -1054,7 +1054,7 @@ var gBrowserInit = {
       "moz-src:///browser/components/genai/LinkPreview.sys.mjs"
     ).LinkPreview.teardown(window);
 
-    FirefoxViewHandler.uninit();
+    PlezixViewHandler.uninit();
 
     // Now either cancel delayedStartup, or clean up the services initialized from
     // it.

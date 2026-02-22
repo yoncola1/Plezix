@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -264,8 +264,8 @@ this.AccessibilityUtils = (function () {
   }
 
   /**
-   * Determine if an accessible is a keyboard focusable control within a Firefox
-   * View list. The main landmark of the Firefox View has role="application" for
+   * Determine if an accessible is a keyboard focusable control within a Plezix
+   * View list. The main landmark of the Plezix View has role="application" for
    * users to expect a custom keyboard navigation pattern. Controls within this
    * area aren't keyboard focusable in the usual way. Instead, focus is managed
    * by JS code which sets tabindex on a single control within each list at a
@@ -276,13 +276,13 @@ this.AccessibilityUtils = (function () {
     if (!node || !node.ownerGlobal) {
       return false;
     }
-    // Firefox View application rows currently include only buttons and links:
+    // Plezix View application rows currently include only buttons and links:
     if (
       !node.className.includes("fxview-tab-row-") ||
       (accessible.role != Ci.nsIAccessibleRole.ROLE_PUSHBUTTON &&
         accessible.role != Ci.nsIAccessibleRole.ROLE_LINK)
     ) {
-      return false; // Not a button or a link in a Firefox View app.
+      return false; // Not a button or a link in a Plezix View app.
     }
     // ToDo: We may eventually need to support intervening generics between
     // a list and its listitem here and/or aria-owns lists.

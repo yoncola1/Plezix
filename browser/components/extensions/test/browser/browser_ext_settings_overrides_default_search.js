@@ -28,7 +28,7 @@ const ALTERNATE_ENGINE = {
   id: "simple",
   name: "Simple Engine",
   loadPath: "[app]simple",
-  submissionUrl: "https://example.com/?sourceId=Mozilla-search&search=",
+  submissionUrl: "https://example.com/?sourceId=Plezix-search&search=",
 };
 const ALTERNATE2_ENGINE = {
   id: "another",
@@ -65,7 +65,7 @@ const CONFIG = [
           params: [
             {
               name: "sourceId",
-              value: "Mozilla-search",
+              value: "Plezix-search",
             },
           ],
           searchTermParamName: "search",

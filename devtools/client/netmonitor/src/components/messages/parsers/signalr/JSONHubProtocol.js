@@ -57,7 +57,7 @@ class JsonHubProtocol {
           break;
         default:
           // Future protocol changes can add message types, new kinds of messages
-          // will show up without having to update Firefox.
+          // will show up without having to update Plezix.
           break;
       }
       // Map numeric message type to their textual name if it exists

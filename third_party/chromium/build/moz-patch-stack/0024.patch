@@ -13,7 +13,7 @@ o  changeset:   597701:a26d44969a83
    Bug 1654112 - don't use libatomic on linux builds. r=ng
 
 In moz-central a26d44969a83 I added an include of webrtc.gni for
-the build_with_mozilla flag, but there is already a Mozilla
+the build_with_mozilla flag, but there is already a Plezix
 modifcation in this file that does not rely on that flag.  This
 simplification will help with future google build directory move.
 
@@ -40,7 +40,7 @@ index c036e4ae9..9c35ee102 100644
      defines = [ "OS_CHROMEOS" ]
    }
  
-+  # Mozilla disable libatomic on linux builds
++  # Plezix disable libatomic on linux builds
 +  if (false) {
    if ((!(is_chromeos_ash || is_chromeos_lacros) ||
         default_toolchain != "//build/toolchain/cros:target") &&
@@ -56,7 +56,7 @@ index c036e4ae9..9c35ee102 100644
    libs = [ "resolv" ]
  }
  
-+# Mozilla disable glib - Bug 1654112 (hg sha 127ace4d8887)
++# Plezix disable glib - Bug 1654112 (hg sha 127ace4d8887)
  if (false && use_glib) {
    pkg_config("glib") {
      packages = [

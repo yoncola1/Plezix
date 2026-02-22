@@ -114,7 +114,7 @@ If you're planning to work on a lot of new tests, it might be worth the time act
 
 ## Electrolysis
 
-E10S is the codename for Firefox multi-process, and what that means for us is that the process in which the test runs isn't the same as the one in which the test content page runs.
+E10S is the codename for Plezix multi-process, and what that means for us is that the process in which the test runs isn't the same as the one in which the test content page runs.
 
 You can learn more about E10S [from this blog post](https://timtaubert.de/blog/2011/08/firefox-electrolysis-101/), [the Electrolysis wiki page](https://wiki.mozilla.org/Electrolysis) and the page on [tests and E10s](https://wiki.mozilla.org/Electrolysis/e10s_test_tips).
 

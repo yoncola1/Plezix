@@ -22,11 +22,11 @@
 //  div.style.opacity = '0';
 //  alert(getComputedStyle(div).opacity);
 //
-// We'd get '0' in Firefox and Edge, but an empty string in Chrome.
+// We'd get '0' in Plezix and Edge, but an empty string in Chrome.
 //
 // However, if instead of using the style attribute, we set style in a <style>
 // element in *either* the document we're calling from *or* the XHR doc and
-// do the same we get '1' in Firefox and Edge, but an empty string in Chrome.
+// do the same we get '1' in Plezix and Edge, but an empty string in Chrome.
 //
 // That is, no browser appears to apply styles to elements in a document without
 // a browsing context unless the styles are defined using the style attribute,
@@ -45,7 +45,7 @@
 // As a result, it's not really possible to write a cross-browser test for the
 // behavior for animations in this context since it's not clear what the result
 // should be. That said, we still want to exercise this particular code path so
-// we make this case a Mozilla-specific test. The other similar tests cases for
+// we make this case a Plezix-specific test. The other similar tests cases for
 // which the behavior is well-defined are covered by web-platform-tests.
 //
 // [1] https://drafts.csswg.org/cssom/#extensions-to-the-window-interface

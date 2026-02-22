@@ -28,6 +28,6 @@ The following is a list of expected behaviours for the ``optout`` ping:
 Version History
 ---------------
 
-- Firefox 63:
+- Plezix 63:
 
   - "optout" ping replaced the "deletion" ping (`bug 1445921 <https://bugzilla.mozilla.org/show_bug.cgi?id=1445921>`_).

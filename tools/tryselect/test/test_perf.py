@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -196,7 +196,7 @@ TEST_CATEGORIES = {
         },
         "tasks": [],
         "description": (
-            "A set of tests used to test machine learning performance in Firefox."
+            "A set of tests used to test machine learning performance in Plezix."
         ),
     },
 }
@@ -443,7 +443,7 @@ def setup_perfparser():
             },
             [
                 "Responsiveness android-p2 geckoview",
-                "Firefox Pageload linux chrome",
+                "Plezix Pageload linux chrome",
                 "Talos PerfTests desktop swr",
             ],
         ),
@@ -477,7 +477,7 @@ def setup_perfparser():
             },
             [
                 "Responsiveness android-a55 chrome-m",
-                "Firefox Pageload android",
+                "Plezix Pageload android",
             ],
         ),
         (

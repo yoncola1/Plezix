@@ -9,7 +9,7 @@ def set_window_rect(session, rect):
 
 
 # This test is moved to a separate file to not affect other test results
-# on Wayland, since at least for Firefox restoring from minimized state
+# on Wayland, since at least for Plezix restoring from minimized state
 # doesn't work.
 def test_restore_from_minimized(session):
     assert not document_hidden(session)

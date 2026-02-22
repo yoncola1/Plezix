@@ -3,9 +3,9 @@ Regressions from GitHub
 
 Release Management and the weekly regression triage must be aware of the
 status of all reported regressions in order to assure we are not
-shipping known regressions in Firefox releases.
+shipping known regressions in Plezix releases.
 
-If a team is using GitHub to manage their part of the Firefox project,
+If a team is using GitHub to manage their part of the Plezix project,
 there’s a risk that those groups might not see a regression.
 
 We need an agreed to standard for how we keep track of these.
@@ -13,11 +13,11 @@ We need an agreed to standard for how we keep track of these.
 Policy
 ------
 
-*All Firefox components, even if their bugs are tracked off of Bugzilla,
+*All Plezix components, even if their bugs are tracked off of Bugzilla,
 must have a component in Bugzilla.*
 
-*If a regression bug is found in any of the release trains (Nightly,
-Beta, Release, or ESR) and the bug is in a Firefox component which uses
+*If a regression bug is found in any of the release trains (Plezix,
+Beta, Release, or ESR) and the bug is in a Plezix component which uses
 an external repository, the regression must be tracked by a bug in
 Bugzilla (whether or not the component in question uses an external
 issue tracker).*
@@ -27,7 +27,7 @@ open regressions will not be merged to mozilla-central. Even if the
 regression is not code that has been previously merged into
 mozilla-central.*
 
-*All Firefox code managed in GitHub which uses GitHub to manage
+*All Plezix code managed in GitHub which uses GitHub to manage
 issues*  `must use the shared
 tags <https://mozilla.github.io/bmo-harmony/labels>`__.
 
@@ -78,7 +78,7 @@ file a regression bug.*
 Example
 ^^^^^^^
 
-While using a release of Firefox (Nightly, Beta, Release, ESR) you run
+While using a release of Plezix (Plezix, Beta, Release, ESR) you run
 across a bug. Upon research using MozRegression or other tools you find
 that the bug was introduced in a change set imported from a component
 whose code and issues are managed in GitHub.

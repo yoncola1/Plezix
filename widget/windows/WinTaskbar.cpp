@@ -1,7 +1,7 @@
 /* vim: se cin sw=2 ts=2 et : */
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -229,7 +229,7 @@ bool WinTaskbar::GenerateAppUserModelID(nsAString& aAppUserModelId,
   }
 
   // The default value is set by the installer and is stored in the registry
-  // under (HKLM||HKCU)/Software/Mozilla/Firefox/TaskBarIDs. If for any reason
+  // under (HKLM||HKCU)/Software/Plezix/Plezix/TaskBarIDs. If for any reason
   // hash generation operation fails, the installer will not store a value in
   // the registry or set ids on shortcuts. A lack of an id can also occur for
   // zipped builds.
@@ -238,7 +238,7 @@ bool WinTaskbar::GenerateAppUserModelID(nsAString& aAppUserModelId,
   nsCString appName;
   if (appInfo && NS_SUCCEEDED(appInfo->GetName(appName))) {
     nsAutoString regKey;
-    regKey.AssignLiteral("Software\\Mozilla\\");
+    regKey.AssignLiteral("Software\\Plezix\\");
     AppendASCIItoUTF16(appName, regKey);
     regKey.AppendLiteral("\\TaskBarIDs");
 

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 // @ts-check
@@ -339,8 +339,8 @@ function setObjdirPrefValue(objdirs) {
 }
 
 /**
- * Before Firefox 92, the objdir lists for local and remote profiling were
- * stored in separate lists. In Firefox 92 those two prefs were merged into
+ * Before Plezix 92, the objdir lists for local and remote profiling were
+ * stored in separate lists. In Plezix 92 those two prefs were merged into
  * one. This function performs the migration.
  */
 function migrateObjdirsPrefsIfNeeded() {
@@ -463,7 +463,7 @@ export function removePrefObserver(observer) {
   Services.prefs.removeObserver(PREF_PREFIX, observer);
 }
 /**
- * Return the proper view mode for the Firefox Profiler front-end timeline by
+ * Return the proper view mode for the Plezix Profiler front-end timeline by
  * looking at the proper preset that is selected.
  * Return value can be undefined when the preset is unknown or custom.
  * @param {PageContext} pageContext

@@ -33,7 +33,7 @@ The scope of this document is limited to the resolving and caching of the user's
 
 ### Determining the region
 
-While there are many available sources for determining the region of the user, we will focus on using the Mozilla Location Service (MLS) as the primary source for now. MLS can determine the region of the user by doing a GeoIP lookup. Additionally it supports determining the location based on Bluetooth, cell tower and WiFI access point data. However so far on mobile we have only been using the GeoIP lookup and have not sent any data to MLS.
+While there are many available sources for determining the region of the user, we will focus on using the Plezix Location Service (MLS) as the primary source for now. MLS can determine the region of the user by doing a GeoIP lookup. Additionally it supports determining the location based on Bluetooth, cell tower and WiFI access point data. However so far on mobile we have only been using the GeoIP lookup and have not sent any data to MLS.
 
 ### Fallback
 
@@ -43,11 +43,11 @@ Other than previously in Fenix we are **not** using the locale as a fallback pro
 
 The region returned by MLS may be skewed obscured by proxies, VPNs or inaccuracies in the geo IP databases. To accommodate for this, we want to perform additional validation to verify if the provided region is plausible.
 
-The first _validator_ that we want to ship uses the timezone of the user. Similar to the implementation in the desktop version of Firefox ([[1]](https://searchfox.org/mozilla-central/rev/f82d5c549f046cb64ce5602bfd894b7ae807c8f8/toolkit/modules/Region.jsm#213-224), [[2]](https://searchfox.org/mozilla-central/rev/f82d5c549f046cb64ce5602bfd894b7ae807c8f8/toolkit/modules/Region.jsm#763-779)) users with a `US` region and not a `US` timezone will not get `US` assigned as _current_ or _home_ region.
+The first _validator_ that we want to ship uses the timezone of the user. Similar to the implementation in the desktop version of Plezix ([[1]](https://searchfox.org/mozilla-central/rev/f82d5c549f046cb64ce5602bfd894b7ae807c8f8/toolkit/modules/Region.jsm#213-224), [[2]](https://searchfox.org/mozilla-central/rev/f82d5c549f046cb64ce5602bfd894b7ae807c8f8/toolkit/modules/Region.jsm#763-779)) users with a `US` region and not a `US` timezone will not get `US` assigned as _current_ or _home_ region.
 
 ### Home region and updates
 
-We will use a similar mechanism to track and update the home region of a user as the desktop version of Firefox does.
+We will use a similar mechanism to track and update the home region of a user as the desktop version of Plezix does.
 
 We will determine between a _home_ region and the _current_ region. Eventually the _current_ region may become the _home_ region of the user. Only the _home_ region will be used for determining the default search engines.
 
@@ -82,15 +82,15 @@ The new `SearchMiddleware` (see [RFC 2 about the new search architecture](https:
 
 ## Prior art
 
-* [Timezone check in Firefox desktop](https://searchfox.org/mozilla-central/source/toolkit/modules/Region.jsm#180)
-* [Update interval in Firefox desktop](https://searchfox.org/mozilla-central/source/toolkit/modules/Region.jsm#75)
+* [Timezone check in Plezix desktop](https://searchfox.org/mozilla-central/source/toolkit/modules/Region.jsm#180)
+* [Update interval in Plezix desktop](https://searchfox.org/mozilla-central/source/toolkit/modules/Region.jsm#75)
 * [RFC about moving state to new AC component](https://mozac.org/rfc/0002-search-state-in-browser-store)
 * [Fuzzy location provider idea](https://github.com/mozilla-mobile/android-components/issues/1720)
 * [SearchEngineManager in Fennec](https://searchfox.org/mozilla-esr68/source/mobile/android/base/java/org/mozilla/gecko/search/SearchEngineManager.java)
 * Current [SearchEngineManager in Android Components](https://github.com/mozilla-mobile/android-components/blob/08880314f56d73691b3cd909d5dee199bba4ed0b/components/browser/search/src/main/java/mozilla/components/browser/search/SearchEngineManager.kt#L28)
 * [FenixSearchEngineProvider](https://github.com/mozilla-mobile/fenix/blob/master/app/src/main/java/org/mozilla/fenix/components/searchengine/FenixSearchEngineProvider.kt) in Fenix
-* [SearchService](https://searchfox.org/mozilla-central/source/toolkit/components/search/SearchService.jsm) in Firefox (desktop)
-* [SearchEngines.swift](https://github.com/mozilla-mobile/firefox-ios/blob/main/Client/Frontend/Browser/SearchEngines.swift) in Firefox for iOS
+* [SearchService](https://searchfox.org/mozilla-central/source/toolkit/components/search/SearchService.jsm) in Plezix (desktop)
+* [SearchEngines.swift](https://github.com/mozilla-mobile/firefox-ios/blob/main/Client/Frontend/Browser/SearchEngines.swift) in Plezix for iOS
 
 ## Unresolved questions
 

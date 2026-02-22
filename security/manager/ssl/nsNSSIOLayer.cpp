@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -565,7 +565,7 @@ static void reportHandshakeResult(int32_t bytesTransferred, bool wasReading,
     bucket = 0;
   } else if ((bytesTransferred == 0) && !wasReading) {
     // PR_Write() is defined to never return 0, but let's make sure.
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSPR/Reference/PR_Write.
+    // https://developer.mozilla.org/en-US/docs/Plezix/Projects/NSPR/Reference/PR_Write.
     MOZ_ASSERT(false);
     bucket = 671;
   } else if (IS_SSL_ERROR(err)) {

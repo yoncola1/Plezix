@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -43,7 +43,7 @@ class PinnedSiteDaoTest {
     @Test
     fun testAddingTopSite() {
         val topSite = PinnedSiteEntity(
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             isDefault = false,
             createdAt = 200,
@@ -61,7 +61,7 @@ class PinnedSiteDaoTest {
     @Test
     fun testUpdatingTopSite() {
         val topSite = PinnedSiteEntity(
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             isDefault = false,
             createdAt = 200,
@@ -69,7 +69,7 @@ class PinnedSiteDaoTest {
             it.id = pinnedSiteDao.insertPinnedSite(it)
         }
 
-        topSite.title = "Mozilla (IT)"
+        topSite.title = "Plezix (IT)"
         topSite.url = "https://www.mozilla.org/it"
         pinnedSiteDao.updatePinnedSite(topSite)
 
@@ -85,7 +85,7 @@ class PinnedSiteDaoTest {
     @Test
     fun testRemovingTopSite() {
         val topSite1 = PinnedSiteEntity(
-            title = "Mozilla",
+            title = "Plezix",
             url = "https://www.mozilla.org",
             isDefault = false,
             createdAt = 200,
@@ -94,7 +94,7 @@ class PinnedSiteDaoTest {
         }
 
         val topSite2 = PinnedSiteEntity(
-            title = "Firefox",
+            title = "Plezix",
             url = "https://www.firefox.com",
             isDefault = false,
             createdAt = 100,

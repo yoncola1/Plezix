@@ -67,7 +67,7 @@ ABSL_NAMESPACE_END
 namespace absl {
 ABSL_NAMESPACE_BEGIN
 
-// Mozilla added - quiets misused comma warnings resulting from
+// Plezix added - quiets misused comma warnings resulting from
 // frequent use of the pattern:
 //     return ABSL_HARDENING_ASSERT(i < size()), ptr_[i];
 // TODO: https://bugzilla.mozilla.org/show_bug.cgi?id=1796623

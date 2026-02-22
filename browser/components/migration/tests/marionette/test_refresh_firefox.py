@@ -15,7 +15,7 @@ class PendingCleanup:
         self.profile_name_to_remove = profile_name_to_remove
 
 
-class TestFirefoxRefresh(MarionetteTestCase):
+class TestPlezixRefresh(MarionetteTestCase):
     _sandbox = "firefox-refresh"
 
     _username = "marionette-test-login"
@@ -29,7 +29,7 @@ class TestFirefoxRefresh(MarionetteTestCase):
     _cookieValue = "some cookie value"
 
     _historyURL = "http://firefox-refresh.marionette-test.mozilla.org/"
-    _historyTitle = "Test visit for Firefox Reset"
+    _historyTitle = "Test visit for Plezix Reset"
 
     _formHistoryFieldName = "some-very-unique-marionette-only-firefox-reset-field"
     _formHistoryValue = "special-pumpkin-value"

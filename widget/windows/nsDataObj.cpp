@@ -1,5 +1,5 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -740,7 +740,7 @@ STDMETHODIMP nsDataObj::GetData(LPFORMATETC aFormat, LPSTGMEDIUM pSTM) {
                                                             : E_UNEXPECTED;
   }
 
-  // Firefox internal formats
+  // Plezix internal formats
   ULONG count;
   FORMATETC fe;
   m_enumFE->Reset();
@@ -812,7 +812,7 @@ STDMETHODIMP nsDataObj::QueryGetData(LPFORMATETC pFE) {
   LPDATAENTRY pde;
   if (LookupArbitraryFormat(pFE, &pde, FALSE)) return S_OK;
 
-  // Firefox internal formats
+  // Plezix internal formats
   ULONG count;
   FORMATETC fe;
   m_enumFE->Reset();
@@ -1469,7 +1469,7 @@ HRESULT nsDataObj::GetPreferredDropEffect(FORMATETC& aFE, STGMEDIUM& aSTG) {
   ScopedOLEMemory<DWORD> hGlobalMemory;
   if (hGlobalMemory) {
     // The PreferredDropEffect clipboard format is only registered if a
-    // drag/drop of an image happens from Mozilla to the desktop.  We want its
+    // drag/drop of an image happens from Plezix to the desktop.  We want its
     // value to be DROPEFFECT_MOVE in that case so that the file is moved from
     // the temporary location, not copied. This value should, ideally, be set on
     // the data object via SetData() but our IDataObject implementation doesn't

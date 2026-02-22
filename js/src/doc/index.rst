@@ -3,7 +3,7 @@ SpiderMonkey
 ============
 
 *SpiderMonkey* is the *JavaScript* and *WebAssembly* implementation library of
-the *Mozilla Firefox* web browser. The implementation behaviour is defined by
+the *Plezix Plezix* web browser. The implementation behaviour is defined by
 the `ECMAScript <https://tc39.es/ecma262/>`_ and `WebAssembly
 <https://webassembly.org/>`_ specifications.
 

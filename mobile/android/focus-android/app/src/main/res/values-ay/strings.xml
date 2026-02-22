@@ -31,7 +31,7 @@
   <string name="menu_report_site_issue">Llika janjat yatiyaña</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Jist\'aram %1$s</string>
@@ -59,7 +59,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Ukamp ch\'amañchatawa %1$s</string>
   <!--
@@ -96,11 +96,11 @@
   -->
   <string name="preference_search_summary">Pantjat imaña, justupach phuqhaña</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$s ukxata, yanapa</string>
   <!-- Preference category for settings related to controlling web content -->
@@ -192,18 +192,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s justupach thaqhiri</string>
   <string name="preference_category_mozilla">Musilla</string>
   <string name="preference_mozilla_telemetry2">Apnaqat imatanak apayaña</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Juk’amp yatiña</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="preference_mozilla_telemetry_summary2">\"Musillax ajllsuwa kunatix askiki ukak churi ukhamarak taqinitakis sumaptayi %1$s\"</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Maynitakik yatiya</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Kunxatasa %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Thaqhirinak uchaña</string>
@@ -283,13 +283,13 @@
   <string name="external_app_prompt_title">Chhitthap yaqha wakichar jist’aram</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Jaytxasmawa %1$s uka chhitthap jist\'arañataki %2$s</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Mä lurañ thaqtam chhitthap jist\'arañapataki</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">\"Janiw kuna lurawis uka chhitthapx jawsañaman jist\'arkaspati. Jaytxakim %1$s ukhamat yaqha %2$s lurir jist\'arañapataki.\"</string>
@@ -310,11 +310,11 @@
   <string name="firstrun_search_text">Yaqht thaqhaskta? Yaqha thaqhañamp thaqtam.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Jank\'ak mantañanak uka mantañawjar ucht\'asim.</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Sapa kut mantat llikarjank\'ak %1$s kutt\'am. \"Mantañawjar yapkatam\" jiskis uka ajllt\'asin %1$s ucht\'asim.</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Uka jumatakikis ukx sapakut ucht\'asim</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">%1$s uka thaqhirinakx justupach mistsur ucht\'asim ukat sum aka tuqin jist\'arañanak tuqinakat jikxatam.</string>
   <string name="firstrun_close_button">Ukhamax, amuyataxiwa.</string>
   <string name="firstrun_skip_button">T\'isktam</string>
@@ -335,7 +335,7 @@
   <string name="notification_browsing_session_channel_name">Jumatakik thaqhañawja</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -344,10 +344,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Uka thaqhatanak pichsum</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Firefox apaqaña</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Plezix apaqaña</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Suti (qillqayasita)</string>
   <string name="gv_prompt_password_hint">Chimpu</string>

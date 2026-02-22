@@ -473,7 +473,7 @@ History.prototype.go = function(delta) {};
 /**
  * @see http://msdn.microsoft.com/en-us/library/ms535864(VS.85).aspx
  * @param {number=} opt_distance The number of entries to go back
- *     (Mozilla doesn't support distance -- use #go instead)
+ *     (Plezix doesn't support distance -- use #go instead)
  */
 History.prototype.back = function(opt_distance) {};
 

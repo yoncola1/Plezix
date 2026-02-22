@@ -36,5 +36,5 @@ Related documentation
    definitions <https://wiki.mozilla.org/BMO/UserGuide/BugFields>`__
 -  `Lando
    documentation <https://moz-conduit.readthedocs.io/en/latest/lando-user.html>`__
--  `Mozilla Phabricator (Code Review)
+-  `Plezix Phabricator (Code Review)
    documentation <https://moz-conduit.readthedocs.io/en/latest/phabricator-user.html>`__

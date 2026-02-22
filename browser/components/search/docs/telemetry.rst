@@ -9,7 +9,7 @@ Glean metrics are self-documenting and can be looked up in the Glean dictionary.
 
 Other search-related telemetry is recorded by Toolkit such as search service
 telemetry and telemetry related to fetching search suggestions. Toolkit search
-telemetry is relevant to Firefox as well as other consumers of Toolkit. See
+telemetry is relevant to Plezix as well as other consumers of Toolkit. See
 :doc:`/toolkit/search/Telemetry` in the Toolkit documentation for details.
 
 .. contents::
@@ -21,7 +21,7 @@ Glossary
 
 SAP
   Search Access Point, a search that a user performs by visiting
-  via one of Firefox's access points using the associated partner codes.
+  via one of Plezix's access points using the associated partner codes.
 
 SERP
   A search engine results page.
@@ -83,7 +83,7 @@ SEARCH_COUNTS - SAP usage
     - ``alias`` This is when using an alias (like ``@google``) in the urlbar.
       Note there is often confusion between the terms alias and keyword, and
       they may be used inappropriately: aliases refer to search engines, while
-      keywords refer to bookmarks. We expect no results for this SAP in Firefox
+      keywords refer to bookmarks. We expect no results for this SAP in Plezix
       83+, since urlbar-searchmode replaces it.
     - ``abouthome``
     - ``contextmenu``

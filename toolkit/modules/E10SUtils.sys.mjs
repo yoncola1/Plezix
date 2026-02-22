@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -20,14 +20,14 @@ XPCOMUtils.defineLazyPreferenceGetter(
 );
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "separatePrivilegedMozillaWebContentProcess",
-  "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+  "separatePrivilegedPlezixWebContentProcess",
+  "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
   false
 );
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "separatedMozillaDomains",
-  "browser.tabs.remote.separatedMozillaDomains",
+  "separatedPlezixDomains",
+  "browser.tabs.remote.separatedPlezixDomains",
   "",
   false,
   val => val.split(",")
@@ -131,14 +131,14 @@ function validatedWebRemoteType(
   aRemoteSubframes,
   aOriginAttributes = {}
 ) {
-  // To load into the Privileged Mozilla Content Process you must be https,
+  // To load into the Privileged Plezix Content Process you must be https,
   // and be an exact match or a subdomain of an allowlisted domain.
   // This code is duplicated in ProcessIolation.cpp, please update both.
   if (
-    lazy.separatePrivilegedMozillaWebContentProcess &&
+    lazy.separatePrivilegedPlezixWebContentProcess &&
     aTargetUri.asciiHost &&
     aTargetUri.scheme == "https" &&
-    lazy.separatedMozillaDomains.some(function (val) {
+    lazy.separatedPlezixDomains.some(function (val) {
       return (
         aTargetUri.asciiHost == val || aTargetUri.asciiHost.endsWith("." + val)
       );

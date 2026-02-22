@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_5">Uslig %s</string>
-  <!-- App name for private browsing mode. %s is the name of the app (for example "Firefox"). -->
+  <!-- App name for private browsing mode. %s is the name of the app (for example "Plezix"). -->
   <string name="app_name_private_4">%s (Uslig)</string>
   <!-- Placeholder text shown in the search bar before a user enters text for the default engine -->
   <string name="search_hint">Rzu neɣ ssekcem tansa</string>
@@ -36,7 +36,7 @@
   <string name="browser_menu_share">Bḍu</string>
   <!--
     Browser menu button shown in custom tabs that opens the current tab in Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="browser_menu_open_in_fenix">Rẓem g %1$s</string>
   <!-- Browser menu button to open the current page in an external app -->
@@ -75,7 +75,7 @@
   <string name="preferences_search">Arezzu</string>
   <!--
     Preference linking to about page for Fenix
-    %1$s is the name of the app (for example "Firefox").
+    %1$s is the name of the app (for example "Plezix").
   -->
   <string name="preferences_about">Ɣef %1$s</string>
   <!-- Preference for opening links in a private tab -->
@@ -100,7 +100,7 @@
   <string name="preferences_sync_device_name">Isem n wallal</string>
   <!--
     Text for displaying the default device name.
-    %1$s is the name of the app (for example "Firefox"). %2$s is the device manufacturer name
+    %1$s is the name of the app (for example "Plezix"). %2$s is the device manufacturer name
     and %3$s is the device model.
   -->
   <string name="default_device_name_2">%1$s g %2$s %3$s</string>
@@ -273,7 +273,7 @@
   <string name="notification_pbm_delete_text_2">Mdel iseksal usligen</string>
   <!--
     QR code scanner prompt which appears after scanning a code, but before navigating to it
-    %1$s is the name of the app (for example "Firefox"), %2$s is the URL or text scanned
+    %1$s is the name of the app (for example "Plezix"), %2$s is the URL or text scanned
   -->
   <string name="qr_scanner_confirmation_dialog_message">Ssureg %1$s ad irẓem %2$s</string>
   <!-- QR code scanner prompt dialog positive option to allow navigation to scanned link -->

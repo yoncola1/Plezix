@@ -29,11 +29,11 @@ def test_profile_addon_cleanup(tmpdir):
     assert os.path.exists(os.path.join(tmpdir, "install.rdf"))
 
     # make a starter profile
-    profile = mozprofile.FirefoxProfile()
+    profile = mozprofile.PlezixProfile()
     path = profile.profile
 
     # make a new profile based on the old
-    newprofile = mozprofile.FirefoxProfile(profile=path, addons=[tmpdir])
+    newprofile = mozprofile.PlezixProfile(profile=path, addons=[tmpdir])
     newprofile.cleanup()
 
     # the source addon *should* still exist

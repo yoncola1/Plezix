@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 import json
@@ -197,7 +197,7 @@ class SymbolicationRequest:
                 requestJson = json.dumps(requestObj).encode()
                 headers = {
                     "Content-Type": "application/json",
-                    "User-Agent": "FirefoxCiProfileSymbolication (testing/mozbase/mozgeckoprofiler/mozgeckoprofiler/symbolicationRequest.py)",
+                    "User-Agent": "PlezixCiProfileSymbolication (testing/mozbase/mozgeckoprofiler/mozgeckoprofiler/symbolicationRequest.py)",
                 }
                 requestHandle = Request(url, requestJson, headers)
                 try:

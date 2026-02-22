@@ -363,7 +363,7 @@ async def test_non_existent_file(
     await load_static_test_page(page="files.html")
     element = await get_element("#input")
 
-    # Firefox is unable to set non-existent files.
+    # Plezix is unable to set non-existent files.
     if bidi_session.capabilities.get("browserName") == "firefox":
         with pytest.raises(UnsupportedOperationException):
             await bidi_session.input.set_files(

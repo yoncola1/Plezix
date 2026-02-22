@@ -14,7 +14,7 @@ async function cleanup() {
   await SimpleTest.promiseFocus(window);
   await promiseAllButPrimaryWindowClosed();
   await BrowserTestUtils.switchTab(gBrowser, gInitialTab);
-  await closeFirefoxViewTab(window);
+  await closePlezixViewTab(window);
 
   // clean up extra tabs
   while (gBrowser.tabs.length > 1) {
@@ -30,7 +30,7 @@ add_task(async function search_open_tabs() {
   await NonPrivateTabs.readyWindowsPromise;
   await BrowserTestUtils.openNewForegroundTab(win2.gBrowser, TEST_URL);
 
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToOpenTabs(browser);
     const openTabs = getOpenTabsComponent(browser);
@@ -97,7 +97,7 @@ add_task(async function search_open_tabs_recent_browsing() {
   for (let i = 0; i < NUMBER_OF_TABS; i++) {
     await BrowserTestUtils.openNewForegroundTab(win2.gBrowser, TEST_URL);
   }
-  await openFirefoxViewTab(window).then(async viewTab => {
+  await openPlezixViewTab(window).then(async viewTab => {
     const browser = viewTab.linkedBrowser;
     await navigateToViewAndWait(browser.contentDocument, "recentbrowsing");
     const recentBrowsing = browser.contentDocument.querySelector(

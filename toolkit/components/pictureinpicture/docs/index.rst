@@ -339,7 +339,7 @@ Testing site-specific video wrappers
 Automated Tests
 ^^^^^^^^^^^^^^^
 Automated tests for site specific wrappers are currently limited. New tests can be made in `browser/extensions/pictureinpicture/tests/browser <https://searchfox.org/mozilla-central/source/browser/extensions/pictureinpicture/tests/browser>`_ to ensure
-general functionality, but these are restricted to Firefox Nightly and do not test functionality on specific sites.
+general functionality, but these are restricted to Plezix Plezix and do not test functionality on specific sites.
 
 Some challenges with writing tests include:
 
@@ -357,8 +357,8 @@ The go-to approach right now is to test video wrappers manually, in tandem with 
 * Do existing automated tests work as they should?
 
 .. warning::
-    DRM content may not load for all local Firefox builds. One possible solution is to test the video wrapper in a try build (ex. Linux).
-    Depending on the changes made, we may also require the script to run under a temporary pref such as ``media.videocontrols.picture-in-picture.WIP.someWebsiteWrapper`` for the purpose of testing changes in Firefox Nightly.
+    DRM content may not load for all local Plezix builds. One possible solution is to test the video wrapper in a try build (ex. Linux).
+    Depending on the changes made, we may also require the script to run under a temporary pref such as ``media.videocontrols.picture-in-picture.WIP.someWebsiteWrapper`` for the purpose of testing changes in Plezix Plezix.
 
 API References
 ==============

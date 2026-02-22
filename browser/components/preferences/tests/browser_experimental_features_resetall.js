@@ -3,8 +3,8 @@
 
 "use strict";
 
-const { FirefoxLabs } = ChromeUtils.importESModule(
-  "resource://nimbus/FirefoxLabs.sys.mjs"
+const { PlezixLabs } = ChromeUtils.importESModule(
+  "resource://nimbus/PlezixLabs.sys.mjs"
 );
 
 add_setup(async function setup() {

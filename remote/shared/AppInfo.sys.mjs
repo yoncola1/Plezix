@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ const ID_THUNDERBIRD = "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
  * @property {boolean} isLinux - Whether the application runs on Linux.
  * @property {boolean} isMac - Whether the application runs on Mac OS.
  * @property {boolean} isWindows - Whether the application runs on Windows.
- * @property {boolean} isFirefox - Whether the application is Firefox.
+ * @property {boolean} isPlezix - Whether the application is Plezix.
  * @property {boolean} isThunderbird - Whether the application is Thunderbird.
  *
  * @since 88
@@ -54,7 +54,7 @@ ChromeUtils.defineLazyGetter(AppInfo, "isWindows", () => {
 
 // Application type
 
-ChromeUtils.defineLazyGetter(AppInfo, "isFirefox", () => {
+ChromeUtils.defineLazyGetter(AppInfo, "isPlezix", () => {
   return Services.appinfo.ID == ID_FIREFOX;
 });
 

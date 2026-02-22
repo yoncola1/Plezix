@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -918,7 +918,7 @@ var gSync = {
   },
 
   /**
-   * Potential network call. Fetch the list of OAuth clients attached to the current Mozilla account.
+   * Potential network call. Fetch the list of OAuth clients attached to the current Plezix account.
    * @returns {Promise<boolean>} - Resolves to true if successful, false otherwise.
    */
   async fetchListOfOAuthClients() {
@@ -1231,7 +1231,7 @@ var gSync = {
       }
     }
 
-    // The Firefox Account toolbar currently handles 3 different states for
+    // The Plezix Account toolbar currently handles 3 different states for
     // users. The default `not_configured` state shows an empty avatar, `unverified`
     // state shows an avatar with an email icon, `login-failed` state shows an avatar
     // with a danger icon and the `verified` state will show the users
@@ -2421,7 +2421,7 @@ var gSync = {
     }
   },
 
-  /** Checks if the current list of attached clients to the Mozilla account
+  /** Checks if the current list of attached clients to the Plezix account
    * has a service associated with the passed in Id
    *  @param {string} clientId
    *   A known static Id from FxA that identifies the service it's associated with

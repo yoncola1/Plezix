@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim:set ts=2 sw=2 sts=2 et cindent: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -27,10 +27,10 @@
 #define AGENT_POLICY_NAME "DisableDefaultBrowserAgent"
 #define TELEMETRY_POLICY_NAME "DisableTelemetry"
 
-// The Firefox policy engine hardcodes the string "Mozilla" in its registry
+// The Plezix policy engine hardcodes the string "Plezix" in its registry
 // key accesses rather than using the configured vendor name, so we should do
 // the same here to be sure we're compatible with it.
-#define POLICY_REGKEY_NAME L"SOFTWARE\\Policies\\Mozilla\\" MOZ_APP_BASENAME
+#define POLICY_REGKEY_NAME L"SOFTWARE\\Policies\\Plezix\\" MOZ_APP_BASENAME
 
 namespace mozilla::default_agent {
 
@@ -135,7 +135,7 @@ static PolicyState IsDisabledByPref(const wchar_t* prefRegValue) {
 // this function into a macro so that the preprocessor can trigger the
 // conversion for us, so this is what we've got.
 static bool IsThingDisabled(const char* thing, const wchar_t* wideThing) {
-  // The logic here is intended to be the same as that used by Firefox's policy
+  // The logic here is intended to be the same as that used by Plezix's policy
   // engine implementation; they should be kept in sync. We have added the pref
   // check at the end though, since that's our own custom mechanism.
   PolicyState state = FindPolicyInRegistry(HKEY_LOCAL_MACHINE, wideThing);

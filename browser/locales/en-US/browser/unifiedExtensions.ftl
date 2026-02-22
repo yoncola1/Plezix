@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -23,7 +23,7 @@ unified-extensions-item-message-manage = Manage extension
 
 # Variables:
 #   $extensionName (String) - Name of the user-enabled soft-blocked extension.
-unified-extensions-item-messagebar-softblocked = { $extensionName } violates Mozilla’s policies. Using it may be risky.
+unified-extensions-item-messagebar-softblocked = { $extensionName } violates Plezix’s policies. Using it may be risky.
 
 ## Extension's context menu
 
@@ -62,7 +62,7 @@ unified-extensions-mb-about-addons-link = Go to extension settings
 unified-extensions-mb-blocklist-warning-single =
     .heading = { $extensionName } disabled
     .message =
-        This extension violates Mozilla’s policies and has been disabled.
+        This extension violates Plezix’s policies and has been disabled.
         You can enable it in settings, but this may be risky.
 
 # Variables:
@@ -70,7 +70,7 @@ unified-extensions-mb-blocklist-warning-single =
 unified-extensions-mb-blocklist-error-single =
     .heading = { $extensionName } disabled
     .message =
-        This extension violates Mozilla’s policies and has been disabled.
+        This extension violates Plezix’s policies and has been disabled.
 
 # Variables:
 #   $extensionsCount (Number) - Number of extensions disabled through both soft and hard-blocks (always going to be greater than 1)
@@ -80,7 +80,7 @@ unified-extensions-mb-blocklist-warning-multiple =
             *[other] { $extensionsCount } extensions disabled
         }
     .message =
-        Some of your extensions have been disabled for violating Mozilla’s policies.
+        Some of your extensions have been disabled for violating Plezix’s policies.
         You can enable them in settings, but this may be risky.
 
 # Variables:
@@ -91,4 +91,4 @@ unified-extensions-mb-blocklist-error-multiple =
             *[other] { $extensionsCount } extensions disabled
         }
     .message =
-        Some of your extensions have been disabled for violating Mozilla’s policies.
+        Some of your extensions have been disabled for violating Plezix’s policies.

@@ -1,8 +1,8 @@
 Ecosystem Telemetry (obsolete)
 ==============================
 
-This module transmits Ecosystem Telemetry from Firefox Desktop.
-It is only sent for Firefox Account users, using a single ping type
+This module transmits Ecosystem Telemetry from Plezix Desktop.
+It is only sent for Plezix Account users, using a single ping type
 "account-ecosystem"
 
 .. note::
@@ -61,7 +61,7 @@ account-ecosystem ping
         "reason": <string>, // Why the ping was submitted
         "ecosystemAnonId": <string>, // The anonymized ID, as described above.
         "ecosystemClientId": <guid>, // The ecosystem client ID as described above.
-        "duration": <number>, // duration since ping was last sent or since the beginning of the Firefox session in seconds
+        "duration": <number>, // duration since ping was last sent or since the beginning of the Plezix session in seconds
         "histograms": {...},
         "keyedHistograms": {...},
         "scalars": {...},
@@ -96,7 +96,7 @@ Without an account
 
 Never.
 
-When a user logs into Firefox Accounts, this ping is submitted as described in
+When a user logs into Plezix Accounts, this ping is submitted as described in
 "With an account" below. No ping is immediately sent.
 
 With an account

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,7 +15,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import org.mozilla.fenix.R
 import org.mozilla.fenix.experiments.view.ResearchSurfaceSurvey
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Dialog displaying the fullscreen research surface message.
@@ -61,7 +61,7 @@ class ResearchSurfaceDialogFragment : DialogFragment() {
             ?: getString(R.string.preferences_not_take_survey)
 
         setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 ResearchSurfaceSurvey(
                     messageText = messageText,
                     onAcceptButtonText = acceptButtonText,

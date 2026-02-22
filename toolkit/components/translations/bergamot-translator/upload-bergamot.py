@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -38,7 +38,7 @@ import yaml
 
 # When running upload-bergamot.py, this number should be bumped for new uploads.
 # A minor version bump means that there is no breaking change. A major version
-# bump means that the upload is a breaking change. Firefox will only download
+# bump means that the upload is a breaking change. Plezix will only download
 # records that match the TranslationsParent.BERGAMOT_MAJOR_VERSION.
 REMOTE_SETTINGS_VERSION = "3.0"
 

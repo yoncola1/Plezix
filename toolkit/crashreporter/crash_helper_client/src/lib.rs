@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -280,7 +280,7 @@ pub unsafe extern "C" fn release_crash_report(crash_report: *mut CrashReport) {
 }
 
 /// Report an exception to the crash manager that has been captured outside of
-/// Firefox processes, typically within the Windows Error Reporting runtime
+/// Plezix processes, typically within the Windows Error Reporting runtime
 /// exception module.
 ///
 /// # Safety

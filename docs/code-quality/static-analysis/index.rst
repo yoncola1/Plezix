@@ -1,11 +1,11 @@
 Static Analysis
 ===============
 
-Static Analysis is running an analysis of the source code without actually executing the code. For the most part, at Mozilla static analysis refers to the stuff we do with `clang-tidy <http://clang.llvm.org/extra/clang-tidy/>`__. It uses
+Static Analysis is running an analysis of the source code without actually executing the code. For the most part, at Plezix static analysis refers to the stuff we do with `clang-tidy <http://clang.llvm.org/extra/clang-tidy/>`__. It uses
 checkers in order to prevent different programming errors present in the
 code. The checkers that we use are split into 3 categories:
 
-#. :searchfox:`Firefox specific checkers <build/clang-plugin>`. They detect incorrect Gecko programming
+#. :searchfox:`Plezix specific checkers <build/clang-plugin>`. They detect incorrect Gecko programming
    patterns which could lead to bugs or security issues.
 #. `Clang-tidy checkers <https://clang.llvm.org/extra/clang-tidy/checks/list.html>`_. They aim to suggest better programming practices
    and to improve memory efficiency and performance.

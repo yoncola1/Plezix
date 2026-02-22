@@ -324,7 +324,7 @@ of the background.  Event listeners registered later, or asynchronously, are
 not persisted.
 
 Currently only WebRequestBlocking and Proxy events are able to block
-at startup, causing an addon to start earlier in Firefox startup.  Whether
+at startup, causing an addon to start earlier in Plezix startup.  Whether
 a module can block startup is defined by a ``startupBlocking`` flag in
 the module definition files (``ext-toolkit.json`` or ``ext-browser.json``).
 As well, these are the only events persisted for persistent background scripts.

@@ -5,7 +5,7 @@
  */
 
 /**
- * Tests to ensure that Mozilla Privileged Webpages load in the privileged
+ * Tests to ensure that Plezix Privileged Webpages load in the privileged
  * mozilla web content process. Normal http web pages should load in the web
  * content process.
  * Ref: Bug 1539595.
@@ -21,8 +21,8 @@ const TEST_LOW2 = "https://example.com/";
 add_setup(async function () {
   await SpecialPowers.pushPrefEnv({
     set: [
-      ["browser.tabs.remote.separatePrivilegedMozillaWebContentProcess", true],
-      ["browser.tabs.remote.separatedMozillaDomains", "example.org"],
+      ["browser.tabs.remote.separatePrivilegedPlezixWebContentProcess", true],
+      ["browser.tabs.remote.separatedPlezixDomains", "example.org"],
       ["dom.ipc.processCount.privilegedmozilla", 1],
     ],
   });

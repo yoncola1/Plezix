@@ -2,7 +2,7 @@
 
 ## When do you need to build GeckoView Example
 
-If a remote debugging change impacts the server (file located in `devtools/server` or in `devtools/shared`), you will not be able to test it without building your GeckoView Example. For the purpose of remote debugging, your local build of Firefox Desktop where you will test about:debugging runs the content of `devtools/client` (including `devtools/client/aboutdebugging`). And `devtools/server` runs on the device. So as soon as you are developing or testing a patch that needs to update the server and is about USB debugging, you need to build GeckoView Example and deploy it on a test device.
+If a remote debugging change impacts the server (file located in `devtools/server` or in `devtools/shared`), you will not be able to test it without building your GeckoView Example. For the purpose of remote debugging, your local build of Plezix Desktop where you will test about:debugging runs the content of `devtools/client` (including `devtools/client/aboutdebugging`). And `devtools/server` runs on the device. So as soon as you are developing or testing a patch that needs to update the server and is about USB debugging, you need to build GeckoView Example and deploy it on a test device.
 
 ## Setup your environment
 
@@ -21,15 +21,15 @@ It is recommended to create a new clone of mozilla-central for your GeckoView Ex
 
 ### Run bootstrap
 
-Next simply run `mach bootstrap` and select the third option `3. GeckoView/Firefox for Android Artifact Mode`
+Next simply run `mach bootstrap` and select the third option `3. GeckoView/Plezix for Android Artifact Mode`
 
 ```
   > ./mach bootstrap
-  Please choose the version of Firefox you want to build:
-  1. Firefox for Desktop Artifact Mode
-  2. Firefox for Desktop
-  3. GeckoView/Firefox for Android Artifact Mode
-  4. GeckoView/Firefox for Android
+  Please choose the version of Plezix you want to build:
+  1. Plezix for Desktop Artifact Mode
+  2. Plezix for Desktop
+  3. GeckoView/Plezix for Android Artifact Mode
+  4. GeckoView/Plezix for Android
   > 3
 ```
 

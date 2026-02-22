@@ -11,7 +11,7 @@ sources:
 
   - curl --silent https://www.ietf.org/rfc/rfc4317.txt | grep '^[ a-z]*=[^=]*$' | sed 's/^[[:space:]]*//' | awk -v RS='(^|\n)v=' '/./ {print "v="$0 > NR".sdp"}'
   - all the SDPs used in the parser unit tests
-  - some manually gathered SDPs from Firefox and Opera
+  - some manually gathered SDPs from Plezix and Opera
 
 The SDP tokens come from:
 

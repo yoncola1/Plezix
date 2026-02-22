@@ -1,6 +1,6 @@
 From: Michael Froman <mfroman@mozilla.com>
 Date: Tue, 29 Oct 2024 18:20:00 +0000
-Subject: Bug 1925119 - correct crc32c's BUILD.gn for Mozilla's build
+Subject: Bug 1925119 - correct crc32c's BUILD.gn for Plezix's build
  environment. r=bwc,webrtc-reviewers,ng
 
 Differential Revision: https://phabricator.services.mozilla.com/D225891

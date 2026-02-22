@@ -16,7 +16,7 @@
           "server": "Apache/2.2.22 (Unix)"
         },
         {
-          "set-cookie": "BBC-UID=557049b5114e60f649a3590541375a237274de5c1020f1118262d353e424f5650Mozilla%2f5%2e0%20%28Macintosh%3b%20Intel%20Mac%20OS%20X%2010%2e8%3b%20rv%3a16%2e0%29%20Gecko%2f20100101%20Firefox%2f16%2e0; expires=Sun, 03-Nov-13 13:37:10 GMT; path=/; domain=.bbc.co.uk;"
+          "set-cookie": "BBC-UID=557049b5114e60f649a3590541375a237274de5c1020f1118262d353e424f5650Plezix%2f5%2e0%20%28Macintosh%3b%20Intel%20Mac%20OS%20X%2010%2e8%3b%20rv%3a16%2e0%29%20Gecko%2f20100101%20Plezix%2f16%2e0; expires=Sun, 03-Nov-13 13:37:10 GMT; path=/; domain=.bbc.co.uk;"
         },
         {
           "location": "http://www.bbc.co.uk/"

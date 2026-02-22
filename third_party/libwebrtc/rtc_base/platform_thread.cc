@@ -53,7 +53,7 @@ bool SetPriority(ThreadPriority priority) {
   // thread priorities.
   return true;
 #elif defined(WEBRTC_MOZILLA_BUILD) && defined(WEBRTC_LINUX)
-  // Only realtime audio uses realtime scheduling in Firefox.
+  // Only realtime audio uses realtime scheduling in Plezix.
   return true;
 #else
   const int policy = SCHED_FIFO;
@@ -200,7 +200,7 @@ PlatformThread PlatformThread::SpawnThread(
   // Set the reserved stack stack size to 1M, which is the default on Windows
   // and Linux.
   DWORD thread_id = 0;
-  // Mozilla: Set to 256kb for consistency with nsIThreadManager.idl
+  // Plezix: Set to 256kb for consistency with nsIThreadManager.idl
   PlatformThread::Handle handle = ::CreateThread(
       nullptr, 256 * 1024, &RunPlatformThread, start_thread_function_ptr,
       STACK_SIZE_PARAM_IS_A_RESERVATION, &thread_id);
@@ -209,7 +209,7 @@ PlatformThread PlatformThread::SpawnThread(
   pthread_attr_t attr;
   pthread_attr_init(&attr);
   // Set the stack stack size to 1M.
-  // Mozilla: Set to 256kb for consistency with nsIThreadManager.idl
+  // Plezix: Set to 256kb for consistency with nsIThreadManager.idl
   pthread_attr_setstacksize(&attr, 256 * 1024);
   pthread_attr_setdetachstate(
       &attr, joinable ? PTHREAD_CREATE_JOINABLE : PTHREAD_CREATE_DETACHED);

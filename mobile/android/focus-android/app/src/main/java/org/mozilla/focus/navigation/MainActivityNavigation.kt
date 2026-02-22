@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import org.mozilla.focus.settings.AboutLibrariesFragment
 import org.mozilla.focus.settings.GeneralSettingsFragment
 import org.mozilla.focus.settings.InstalledSearchEnginesSettingsFragment
 import org.mozilla.focus.settings.ManualAddSearchEngineSettingsFragment
-import org.mozilla.focus.settings.MozillaSettingsFragment
+import org.mozilla.focus.settings.PlezixSettingsFragment
 import org.mozilla.focus.settings.RemoveSearchEnginesSettingsFragment
 import org.mozilla.focus.settings.SearchSettingsFragment
 import org.mozilla.focus.settings.SettingsFragment
@@ -281,7 +281,7 @@ class MainActivityNavigation(
             Screen.Settings.Page.Privacy -> PrivacySecuritySettingsFragment()
             Screen.Settings.Page.Search -> SearchSettingsFragment()
             Screen.Settings.Page.Advanced -> AdvancedSettingsFragment()
-            Screen.Settings.Page.Mozilla -> MozillaSettingsFragment()
+            Screen.Settings.Page.Plezix -> PlezixSettingsFragment()
             Screen.Settings.Page.PrivacyExceptions -> ExceptionsListFragment()
             Screen.Settings.Page.PrivacyExceptionsRemove -> ExceptionsRemoveFragment()
             Screen.Settings.Page.SitePermissions -> SitePermissionsFragment()

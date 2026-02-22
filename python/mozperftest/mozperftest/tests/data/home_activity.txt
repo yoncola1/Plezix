@@ -1015,12 +1015,12 @@
 05-26 11:45:42.430  1876  1894 I libprocessgroup: Successfully killed process cgroup uid 10072 pid 27012 in 89ms
 05-26 11:45:42.438  1740 16222 W MediaAnalyticsItem: Failed to record: [1:drm.vendor.Google.WidevineCDM:5770:-1:com.google.android.youtube:0:-1:1:0:0:] [forcenew=0]
 05-26 11:45:42.438  1740 16222 E PluginMetricsReporting: selfrecord() returned false. sessioId 5770
-05-26 11:45:42.487  2233  2233 I FirefoxAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@83c4938, mozilla.components.service.fxa.SyncEngine$Bookmarks@94a6d11, mozilla.components.service.fxa.SyncEngine$Passwords@e11ce76], syncPeriodInMinutes=240)
+05-26 11:45:42.487  2233  2233 I PlezixAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@83c4938, mozilla.components.service.fxa.SyncEngine$Bookmarks@94a6d11, mozilla.components.service.fxa.SyncEngine$Passwords@e11ce76], syncPeriodInMinutes=240)
 05-26 11:45:42.491  2233  2233 I BgSyncManager: Periodic syncing enabled at a 240 interval
-05-26 11:45:42.492  2233  2233 I FirefoxAccountStateMachine: Sync is enabled
+05-26 11:45:42.492  2233  2233 I PlezixAccountStateMachine: Sync is enabled
 05-26 11:45:42.496  2233  2328 D GeckoSysInfo: System memory: 1494MB.
 05-26 11:45:42.499  2233  2328 D GeckoThread: State changed to JNI_READY
-05-26 11:45:42.510  2233  2384 I FirefoxAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
+05-26 11:45:42.510  2233  2384 I PlezixAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
 05-26 11:45:42.513  1876  2204 I GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fb8e6c5)
 05-26 11:45:42.514  1876  1890 I GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@fb8e6c5)
 05-26 11:45:42.530  2233  2233 E ActivityThread: Failed to find provider info for org.mozilla.fennec_aurora.fxa.auth
@@ -1038,8 +1038,8 @@
 05-26 11:45:42.585  2233  2233 D OpenGLRenderer: Skia GL Pipeline
 05-26 11:45:42.599  2233  2347 D NetworkSecurityConfig: No Network Security Config specified, using platform default
 05-26 11:45:42.603  1733  2205 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
-05-26 11:45:42.639  2233  2384 I FirefoxAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
-05-26 11:45:42.640  2233  2384 I FirefoxAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
+05-26 11:45:42.639  2233  2384 I PlezixAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
+05-26 11:45:42.640  2233  2384 I PlezixAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
 05-26 11:45:42.641  2233  2384 D RustNativeSupport: findMegazordLibraryName(fxaclient, 0.58.1
 05-26 11:45:42.641  2233  2384 D RustNativeSupport: lib in use: none
 05-26 11:45:42.641  2233  2384 D RustNativeSupport: lib configured: megazord
@@ -1048,7 +1048,7 @@
 05-26 11:45:42.642  2233  2384 D fxaclient_ffi: fxa_new
 05-26 11:45:42.668  2233  2295 I libglean_ffi: glean_core::ping: Collecting baseline
 05-26 11:45:42.678  2393  2393 D GeckoThread: State changed to LAUNCHED
-05-26 11:45:42.684  2233  2384 W FirefoxAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
+05-26 11:45:42.684  2233  2384 W PlezixAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
 05-26 11:45:42.685  2233  2233 D GeckoNetworkManager: Incoming event receivedUpdate for state OnNoListeners -> OnNoListeners
 05-26 11:45:42.688  2233  2233 D GeckoNetworkManager: New network state: UP, WIFI, WIFI
 05-26 11:45:42.692  2393  2429 I GeckoThread: preparing to run Gecko
@@ -1590,10 +1590,10 @@
 05-26 11:45:52.759  2819  2819 W nec_aurora:tab: Unexpected CPU variant for X86 using defaults: x86
 05-26 11:45:52.763  1876  1893 I ActivityManager: Start proc 2819:org.mozilla.fennec_aurora:tab0/u0a92 for service org.mozilla.fennec_aurora/org.mozilla.gecko.process.GeckoChildProcessServices$tab0
 05-26 11:45:52.794  2819  2819 I nec_aurora:tab: The ClassLoaderContext is a special shared library.
-05-26 11:45:52.803  2726  2726 I FirefoxAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@5c45c02, mozilla.components.service.fxa.SyncEngine$Bookmarks@42ff913, mozilla.components.service.fxa.SyncEngine$Passwords@e030750], syncPeriodInMinutes=240)
+05-26 11:45:52.803  2726  2726 I PlezixAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@5c45c02, mozilla.components.service.fxa.SyncEngine$Bookmarks@42ff913, mozilla.components.service.fxa.SyncEngine$Passwords@e030750], syncPeriodInMinutes=240)
 05-26 11:45:52.806  2726  2726 I BgSyncManager: Periodic syncing enabled at a 240 interval
-05-26 11:45:52.807  2726  2726 I FirefoxAccountStateMachine: Sync is enabled
-05-26 11:45:52.831  2726  2844 I FirefoxAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
+05-26 11:45:52.807  2726  2726 I PlezixAccountStateMachine: Sync is enabled
+05-26 11:45:52.831  2726  2844 I PlezixAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
 05-26 11:45:52.842  2819  2819 D GeckoThread: State changed to LAUNCHED
 05-26 11:45:52.843  2819  2847 I GeckoThread: preparing to run Gecko
 05-26 11:45:52.849  2726  2726 E ActivityThread: Failed to find provider info for org.mozilla.fennec_aurora.fxa.auth
@@ -1604,8 +1604,8 @@
 05-26 11:45:52.895  2726  2726 D GeckoRuntime: Lifecycle: onResume
 05-26 11:45:52.899  2726  2726 D GeckoNetworkManager: Incoming event start for state OffNoListeners -> OnNoListeners
 05-26 11:45:52.900  2726  2726 D GeckoNetworkManager: New network state: UP, WIFI, WIFI
-05-26 11:45:52.905  2726  2844 I FirefoxAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
-05-26 11:45:52.905  2726  2844 I FirefoxAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
+05-26 11:45:52.905  2726  2844 I PlezixAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
+05-26 11:45:52.905  2726  2844 I PlezixAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
 05-26 11:45:52.906  2726  2726 D OpenGLRenderer: Skia GL Pipeline
 05-26 11:45:52.911  2726  2844 D RustNativeSupport: findMegazordLibraryName(fxaclient, 0.58.1
 05-26 11:45:52.911  2726  2844 D RustNativeSupport: lib in use: none
@@ -1617,7 +1617,7 @@
 05-26 11:45:52.927  1733  2119 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
 05-26 11:45:52.972  2726  2760 I libglean_ffi: glean_core::ping: Collecting baseline
 05-26 11:45:52.979  2726  2726 D GeckoNetworkManager: Incoming event receivedUpdate for state OnNoListeners -> OnNoListeners
-05-26 11:45:52.979  2726  2844 W FirefoxAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
+05-26 11:45:52.979  2726  2844 W PlezixAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
 05-26 11:45:52.981  2726  2726 D GeckoNetworkManager: New network state: UP, WIFI, WIFI
 05-26 11:45:52.995  2726  2760 D libglean_ffi: glean_core::ping: Storing ping 'f465c424-af4c-4a9b-bfc4-c1f4a2161777' at '/data/user/0/org.mozilla.fennec_aurora/glean_data/pending_pings/f465c424-af4c-4a9b-bfc4-c1f4a2161777'
 05-26 11:45:52.995  2726  2760 I libglean_ffi: glean_core: The ping 'baseline' was submitted and will be sent as soon as possible
@@ -2567,10 +2567,10 @@
 05-26 11:46:02.501  3143  3179 I Gecko:DumpUtils: Fifo watcher disabled via pref.
 05-26 11:46:02.551  1876  2204 I GnssLocationProvider: WakeLock acquired by sendMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1b47420)
 05-26 11:46:02.552  1876  1890 I GnssLocationProvider: WakeLock released by handleMessage(REPORT_SV_STATUS, 0, com.android.server.location.GnssLocationProvider$SvStatusInfo@1b47420)
-05-26 11:46:02.571  3143  3143 I FirefoxAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@83c4938, mozilla.components.service.fxa.SyncEngine$Bookmarks@94a6d11, mozilla.components.service.fxa.SyncEngine$Passwords@e11ce76], syncPeriodInMinutes=240)
+05-26 11:46:02.571  3143  3143 I PlezixAccountStateMachine: Enabling/updating sync with a new SyncConfig: SyncConfig(supportedEngines=[mozilla.components.service.fxa.SyncEngine$History@83c4938, mozilla.components.service.fxa.SyncEngine$Bookmarks@94a6d11, mozilla.components.service.fxa.SyncEngine$Passwords@e11ce76], syncPeriodInMinutes=240)
 05-26 11:46:02.579  3143  3143 I BgSyncManager: Periodic syncing enabled at a 240 interval
-05-26 11:46:02.579  3143  3143 I FirefoxAccountStateMachine: Sync is enabled
-05-26 11:46:02.589  3143  3211 I FirefoxAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
+05-26 11:46:02.579  3143  3143 I PlezixAccountStateMachine: Sync is enabled
+05-26 11:46:02.589  3143  3211 I PlezixAccountStateMachine: Processing event Event$Init for state Start. Next state is Start
 05-26 11:46:02.594  3143  3179 D GeckoSysInfo: System memory: 1494MB.
 05-26 11:46:02.605  3143  3179 D GeckoThread: State changed to JNI_READY
 05-26 11:46:02.610  3143  3143 E ActivityThread: Failed to find provider info for org.mozilla.fennec_aurora.fxa.auth
@@ -2587,8 +2587,8 @@
 05-26 11:46:02.661  3143  3143 D OpenGLRenderer: Skia GL Pipeline
 05-26 11:46:02.661  3143  3185 D NetworkSecurityConfig: No Network Security Config specified, using platform default
 05-26 11:46:02.666  3222  3222 I nec_aurora:tab: The ClassLoaderContext is a special shared library.
-05-26 11:46:02.675  3143  3211 I FirefoxAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
-05-26 11:46:02.675  3143  3211 I FirefoxAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
+05-26 11:46:02.675  3143  3211 I PlezixAccountStateMachine: Ran 'Event$Init' side-effects for state Start, got successive event Event$AccountNotFound
+05-26 11:46:02.675  3143  3211 I PlezixAccountStateMachine: Processing event Event$AccountNotFound for state Start. Next state is NotAuthenticated
 05-26 11:46:02.676  1733  2119 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
 05-26 11:46:02.676  3143  3211 D RustNativeSupport: findMegazordLibraryName(fxaclient, 0.58.1
 05-26 11:46:02.676  3143  3211 D RustNativeSupport: lib in use: none
@@ -2603,7 +2603,7 @@
 05-26 11:46:02.765  3143  3173 I libglean_ffi: glean_core: The ping 'baseline' was submitted and will be sent as soon as possible
 05-26 11:46:02.782  3143  3143 D GeckoNetworkManager: Incoming event receivedUpdate for state OnNoListeners -> OnNoListeners
 05-26 11:46:02.785  3143  3143 D GeckoNetworkManager: New network state: UP, WIFI, WIFI
-05-26 11:46:02.787  3143  3211 W FirefoxAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
+05-26 11:46:02.787  3143  3211 W PlezixAccountStateMachine: Got invalid event Event$Init for state NotAuthenticated.
 05-26 11:46:02.820  1876  8003 D ConnectivityService: requestNetwork for uid/pid:10092/3143 NetworkRequest [ TRACK_DEFAULT id=238, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED Unwanted:  Uid: 10092] ]
 05-26 11:46:02.823  1876  1975 D WIFI    : got request NetworkRequest [ TRACK_DEFAULT id=238, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED Unwanted:  Uid: 10092] ] with score 60
 05-26 11:46:02.823  1876  1975 D WIFI_UT : got request NetworkRequest [ TRACK_DEFAULT id=238, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED Unwanted:  Uid: 10092] ] with score 60

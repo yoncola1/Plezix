@@ -1,18 +1,18 @@
 # Push
 <div class="note">
 <div class="admonition-title">Note</div>
-This document describes how Firefox implements the Web Push standard internally, and is intended for developers working directly on Push. If you are looking for how to consume push, please refer to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API" target="_blank">following MDN document</a>
+This document describes how Plezix implements the Web Push standard internally, and is intended for developers working directly on Push. If you are looking for how to consume push, please refer to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API" target="_blank">following MDN document</a>
 
 </div>
 
 ## High level push architecture
-The following sequence diagram describes the high level push architecture as observed by web application. The diagram describes the interactions between a Web application's client code running in the browser, Firefox, [Autopush](https://autopush.readthedocs.io/en/latest/) (Firefox's push server that delivers push notifications) and a third party server that sends the push notifications to Autopush
+The following sequence diagram describes the high level push architecture as observed by web application. The diagram describes the interactions between a Web application's client code running in the browser, Plezix, [Autopush](https://autopush.readthedocs.io/en/latest/) (Plezix's push server that delivers push notifications) and a third party server that sends the push notifications to Autopush
 
 The dotted lines are done by the consumer of push.
 ```{mermaid}
 sequenceDiagram
 	participant TP as Web Application JS
-	participant F as Firefox
+	participant F as Plezix
 	participant A as Autopush
 	participant TPS as Third party Server
 		TP->>F: subscribe(scope)
@@ -39,7 +39,7 @@ sequenceDiagram
 		deactivate F
 ```
 
-## Firefox Desktop
+## Plezix Desktop
 
 ### Flow diagram for source code
 
@@ -73,7 +73,7 @@ flowchart TD
 ```
 
 ### The Push Web Socket
-Push in Firefox Desktop communicates with Autopush using a web socket connection.
+Push in Plezix Desktop communicates with Autopush using a web socket connection.
 
 The web socket connection is created as the browser initializes and is managed by the following state diagram.
 
@@ -119,7 +119,7 @@ erDiagram
     }
 ```
 
-## Firefox for Android
+## Plezix for Android
 
 See also:
 

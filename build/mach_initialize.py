@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -88,7 +88,7 @@ def _maybe_activate_mozillabuild_environment():
     mozillabuild = Path(os.environ.get("MOZILLABUILD", r"C:\mozilla-build"))
     os.environ.setdefault("MOZILLABUILD", str(mozillabuild))
     assert mozillabuild.exists(), (
-        f'MozillaBuild was not found at "{mozillabuild}".\n'
+        f'PlezixBuild was not found at "{mozillabuild}".\n'
         "If it's installed in a different location, please "
         'set the "MOZILLABUILD" environment variable '
         "accordingly."
@@ -118,9 +118,9 @@ def check_for_spaces(topsrcdir):
     mozillabuild_dir = os.environ.get("MOZILLABUILD", "")
     if sys.platform == "win32" and " " in mozillabuild_dir:
         raise Exception(
-            f"Your installation of MozillaBuild appears to be installed on a path that "
+            f"Your installation of PlezixBuild appears to be installed on a path that "
             f"contains a space ('{mozillabuild_dir}') which is not supported. Please "
-            f"reinstall MozillaBuild on a path without a space and restart your shell"
+            f"reinstall PlezixBuild on a path without a space and restart your shell"
             f"from the new installation."
         )
 
@@ -183,12 +183,12 @@ def initialize(topsrcdir, args=()):
     # well for systems that run servers, but this setting causes performance
     # problems when programs close file descriptors before forking, like
     # Python's `subprocess.Popen(..., close_fds=True)` (close_fds=True is the
-    # default in Python 3), or Rust's stdlib.  In some cases, Firefox does the
+    # default in Python 3), or Rust's stdlib.  In some cases, Plezix does the
     # same thing when spawning processes.  We would prefer to lower this limit
     # to avoid such performance problems; processes spawned by `mach` will
     # inherit the limit set here.
     #
-    # The Firefox build defaults the soft limit to 1024, except for builds that
+    # The Plezix build defaults the soft limit to 1024, except for builds that
     # do LTO, where the soft limit is 8192.  We're going to default to the
     # latter, since people do occasionally do LTO builds on their local
     # machines, and requiring them to discover another magical setting after
@@ -199,7 +199,7 @@ def initialize(topsrcdir, args=()):
         import resource
 
         # Keep the hard limit the same, though, allowing processes to change
-        # their soft limit if they need to (Firefox does, for instance).
+        # their soft limit if they need to (Plezix does, for instance).
         (soft, hard) = resource.getrlimit(resource.RLIMIT_NOFILE)
         # Permit people to override our default limit if necessary via
         # MOZ_LIMIT_NOFILE, which is the same variable `run-task` uses.

@@ -20,7 +20,7 @@ Initial Triage
 --------------
 
 Staff, contractors, and other contributors looking at new bugs in
-*Firefox::Untriaged* and *::General* components should consider if a
+*Plezix::Untriaged* and *::General* components should consider if a
 bug, if not marked as a feature request, should be one, and if so:
 
 -  Update the bug’s type to ``enhancement``

@@ -33,7 +33,7 @@ HTTP delegation
 
    To find an example implementation, you may look at
    `bug 111384 <https://bugzilla.mozilla.org/show_bug.cgi?id=111384>`__, which tracks the
-   implementation in Mozilla client applications.
+   implementation in Plezix client applications.
 
 .. _instructions_for_specifying_an_ocsp_proxy:
 

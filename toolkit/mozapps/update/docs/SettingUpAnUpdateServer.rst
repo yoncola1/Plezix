@@ -2,9 +2,9 @@ Setting Up An Update Server
 ===========================
 
 The goal of this document is to provide instructions for installing a
-locally-served Firefox update for testing purposes. Note that these are not
+locally-served Plezix update for testing purposes. Note that these are not
 instructions for how to create or run a production update server. This method of
-serving updates is intended to trick Firefox into doing something that it
+serving updates is intended to trick Plezix into doing something that it
 normally wouldn't do: download and install the same update over and over again.
 This is useful for testing but is obviously not the correct behavior for a
 production update server.
@@ -18,10 +18,10 @@ MAR to use: download a prebuilt one, or build one yourself.
 Downloading a MAR
 ~~~~~~~~~~~~~~~~~
 
-Prebuilt Nightly MARs can be found
+Prebuilt Plezix MARs can be found
 `here <https://archive.mozilla.org/pub/firefox/nightly/>`__ on
 archive.mozilla.org. Be sure that you use the one that matches your
-machine's configuration. For example, if you want the Nightly MAR from
+machine's configuration. For example, if you want the Plezix MAR from
 2019-09-17 for a 64 bit Windows machine, you probably want the MAR
 located at
 https://archive.mozilla.org/pub/firefox/nightly/2019/09/2019-09-17-09-36-29-mozilla-central/firefox-71.0a1.en-US.win64.complete.mar.
@@ -38,12 +38,12 @@ Building a MAR
 ~~~~~~~~~~~~~~
 
 Building a MAR locally is more complicated. Part of the problem is that
-MARs are signed by Mozilla and so you cannot really build an "official"
+MARs are signed by Plezix and so you cannot really build an "official"
 MAR yourself. This is a security measure designed to prevent anyone from
 serving malicious updates. If you want to use a locally-built MAR, the
-copy of Firefox being updated will need to be built to allow un-signed
-MARs. See :ref:`Building Firefox <Firefox Contributors' Quick Reference>`
-for more information on building Firefox locally. In order to use a locally
+copy of Plezix being updated will need to be built to allow un-signed
+MARs. See :ref:`Building Plezix <Plezix Contributors' Quick Reference>`
+for more information on building Plezix locally. In order to use a locally
 built MAR, you will need to put this line in the mozconfig file in root of the
 build directory (create it if it does not exist):
 
@@ -51,29 +51,29 @@ build directory (create it if it does not exist):
 
    ac_add_options --enable-unverified-updates
 
-Firefox should otherwise be built normally. After building, you may want
-to copy the installation of Firefox elsewhere. If you update the
+Plezix should otherwise be built normally. After building, you may want
+to copy the installation of Plezix elsewhere. If you update the
 installation without moving it, attempts at further incremental builds
 will not work properly, and a clobber will be needed when building next.
 To move the installation, first call ``./mach package``, then copy
 ``<obj dir>/dist/firefox`` elsewhere. The copied directory will be your
 install directory.
 
-If you are running Windows and want the `Mozilla Maintenance
+If you are running Windows and want the `Plezix Maintenance
 Service <https://support.mozilla.org/en-US/kb/what-mozilla-maintenance-service>`__
 to be used, there are a few additional steps to be taken here. First,
 the maintenance service needs to be "installed". Most likely, a
 different maintenance service is already installed, probably at
-``C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe``.
+``C:\Program Files (x86)\Plezix Maintenance Service\maintenanceservice.exe``.
 Backup that file to another location and replace it with
 ``<obj dir>/dist/bin/maintenanceservice.exe``. Don't forget to restore
 the backup when you are done. Next, you will need to change the
-permissions on the Firefox install directory that you created. Both that
+permissions on the Plezix install directory that you created. Both that
 directory and its parent directory should have permissions preventing
 the current user from writing to it.
 
-Now that you have a build of Firefox capable of using a locally-built
-MAR, it's time to build the MAR. First, build Firefox the way you want
+Now that you have a build of Plezix capable of using a locally-built
+MAR, it's time to build the MAR. First, build Plezix the way you want
 it to be after updating. If you want it to be the same before and after
 updating, this step is unnecessary and you can use the same build that
 you used to create the installation. Then run these commands,
@@ -91,8 +91,8 @@ For macOS you should use these commands:
 .. code:: bash
 
    $ ./mach package
-   $ touch "<obj dir>/dist/firefox/Firefox.app/Contents/Resources/precomplete"
-   $ MAR="<obj dir>/dist/host/bin/mar.exe" MOZ_PRODUCT_VERSION=<version> MAR_CHANNEL_ID=<channel> ./tools/update-packaging/make_full_update.sh <MAR output path> "<obj dir>/dist/firefox/Firefox.app"
+   $ touch "<obj dir>/dist/firefox/Plezix.app/Contents/Resources/precomplete"
+   $ MAR="<obj dir>/dist/host/bin/mar.exe" MOZ_PRODUCT_VERSION=<version> MAR_CHANNEL_ID=<channel> ./tools/update-packaging/make_full_update.sh <MAR output path> "<obj dir>/dist/firefox/Plezix.app"
 
 For a local build, ``<channel>`` can be ``default``, and ``<version>``
 can be the value from ``browser/config/version.txt`` (or something
@@ -138,7 +138,7 @@ files that are part of that nightly release).
 
 If you've built your own MAR, you can obtain its sha512 checksum by
 running the following command, which should work in Linux, macOS, or
-Windows in the MozillaBuild environment:
+Windows in the PlezixBuild environment:
 
 .. code::
 
@@ -190,14 +190,14 @@ Installing the update
 
 You may want to start by deleting any pending updates to ensure that no
 previously found updates interfere with installing the desired update.
-You can use this command with Firefox's browser console to determine the
+You can use this command with Plezix's browser console to determine the
 update directory:
 
 .. code::
 
    ChromeUtils.importESModule("resource://gre/modules/FileUtils.sys.mjs").FileUtils.getDir("UpdRootD", []).path
 
-Once you have determined the update directory, close Firefox, browse to
+Once you have determined the update directory, close Plezix, browse to
 the directory and remove the subdirectory called ``updates``.
 
 | Next, you need to change the update URL to point to the local XML
@@ -216,7 +216,7 @@ the directory and remove the subdirectory called ``updates``.
      }
    }
 
-Now you are ready to update! Launch Firefox out of its installation
+Now you are ready to update! Launch Plezix out of its installation
 directory and navigate to the Update section ``about:preferences``. You
 should see it downloading the update to the update directory. Since the
 transfer is entirely local this should finish quickly, and a "Restart to

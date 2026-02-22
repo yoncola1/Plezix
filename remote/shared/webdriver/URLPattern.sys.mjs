@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -121,7 +121,7 @@ export function matchURLPattern(urlPattern, url) {
  * @throws {InvalidArgumentError}
  *     Raised if an argument is of an invalid type or value.
  * @throws {UnsupportedOperationError}
- *     Raised if the pattern uses a protocol not supported by Firefox.
+ *     Raised if the pattern uses a protocol not supported by Plezix.
  */
 export function parseURLPattern(pattern) {
   lazy.assert.object(
@@ -400,7 +400,7 @@ function parseSearch(search) {
 
 /**
  * Parse a string URL. This tries to be close to Basic URL Parser, however since
- * this is not currently implemented in Firefox and URL parsing has many edge
+ * this is not currently implemented in Plezix and URL parsing has many edge
  * cases, it does not try to be a faithful implementation.
  *
  * Edge cases which are not supported are mostly about non-special URLs, which

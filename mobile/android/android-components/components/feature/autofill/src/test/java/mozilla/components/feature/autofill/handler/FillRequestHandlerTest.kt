@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -154,7 +154,7 @@ internal class FillRequestHandlerTest {
     }
 
     @Test
-    fun `Browser - Fenix Nightly - amazon-co-uk`() {
+    fun `Browser - Fenix Plezix - amazon-co-uk`() {
         val credentials = generateRandomLoginFor("amazon.co.uk")
         createTestCase<LoginFillResponseBuilder>(
             filename = "fixtures/browser_fenix_amazon.co.uk.xml",

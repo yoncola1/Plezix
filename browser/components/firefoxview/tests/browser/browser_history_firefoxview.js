@@ -176,7 +176,7 @@ add_task(async function test_list_ordering() {
   await PlacesUtils.history.clear();
   const historyEntries = createHistoryEntries();
   await PlacesUtils.history.insertMany(historyEntries);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "history");
@@ -213,7 +213,7 @@ add_task(async function test_list_ordering() {
     await EventUtils.synthesizeMouseAtCenter(firstHistoryLink, {}, content);
     await historyTelemetry();
     await promiseHidden;
-    await openFirefoxViewTab(browser.ownerGlobal);
+    await openPlezixViewTab(browser.ownerGlobal);
 
     // Test number of cards when sorted by site/domain
     await clearAllParentTelemetryEvents();
@@ -272,7 +272,7 @@ add_task(async function test_list_ordering() {
 
 add_task(async function test_empty_states() {
   await PlacesUtils.history.clear();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "history");
@@ -361,7 +361,7 @@ add_task(async function test_observers_removed_when_view_is_hidden() {
     gBrowser,
     NEW_TAB_URL
   );
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "history");
     const historyComponent = document.querySelector("view-history");
@@ -387,11 +387,11 @@ add_task(async function test_observers_removed_when_view_is_hidden() {
     is(
       visitList.rowEls.length,
       1,
-      "The list does not update when Firefox View is hidden."
+      "The list does not update when Plezix View is hidden."
     );
 
-    info("The list should update when Firefox View is visible.");
-    await openFirefoxViewTab(browser.ownerGlobal);
+    info("The list should update when Plezix View is visible.");
+    await openPlezixViewTab(browser.ownerGlobal);
     visitList = await TestUtils.waitForCondition(() =>
       historyComponent.cards?.[0]?.querySelector("fxview-tab-list")
     );
@@ -405,7 +405,7 @@ add_task(async function test_show_all_history_telemetry() {
   await PlacesUtils.history.clear();
   const historyEntries = createHistoryEntries();
   await PlacesUtils.history.insertMany(historyEntries);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
 
     await navigateToViewAndWait(document, "history");
@@ -434,7 +434,7 @@ add_task(async function test_search_history() {
   await PlacesUtils.history.clear();
   const historyEntries = createHistoryEntries();
   await PlacesUtils.history.insertMany(historyEntries);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "history");
     const historyComponent = document.querySelector("view-history");
@@ -535,7 +535,7 @@ add_task(async function test_search_ignores_stale_queries() {
     .stub(PlacesUtils, "promiseLargeCacheDBConnection")
     .resolves(mockDatabase);
 
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "history");
     const historyComponent = document.querySelector("view-history");
@@ -580,7 +580,7 @@ add_task(async function test_search_ignores_stale_queries() {
 add_task(async function test_persist_collapse_card_after_view_change() {
   await PlacesUtils.history.clear();
   await addHistoryItems(today);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "history");
     const historyComponent = document.querySelector("view-history");

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.browser.state.state.CustomTabMenuItem
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.menu.compose.header.MenuNavHeader
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -47,7 +47,7 @@ import org.mozilla.fenix.theme.Theme
  * @param onSwitchToDesktopSiteMenuClick Invoked when the user clicks on the switch to desktop site
  * menu toggle.
  * @param onFindInPageMenuClick Invoked when the user clicks on the find in page menu item.
- * @param onOpenInFirefoxMenuClick Invoked when the user clicks on the open in browser menu item.
+ * @param onOpenInPlezixMenuClick Invoked when the user clicks on the open in browser menu item.
  * @param onBackButtonClick Invoked when the user clicks on the back button.
  * @param onForwardButtonClick Invoked when the user clicks on the forward button.
  * @param onRefreshButtonClick Invoked when the user clicks on the refresh button.
@@ -68,7 +68,7 @@ internal fun CustomTabMenu(
     scrollState: ScrollState,
     onSwitchToDesktopSiteMenuClick: () -> Unit,
     onFindInPageMenuClick: () -> Unit,
-    onOpenInFirefoxMenuClick: () -> Unit,
+    onOpenInPlezixMenuClick: () -> Unit,
     onBackButtonClick: (longPress: Boolean) -> Unit,
     onForwardButtonClick: (longPress: Boolean) -> Unit,
     onRefreshButtonClick: (longPress: Boolean) -> Unit,
@@ -107,11 +107,11 @@ internal fun CustomTabMenu(
 
             if (isDesktopMode) {
                 badgeText = stringResource(id = R.string.browser_feature_desktop_site_on)
-                badgeBackgroundColor = FirefoxTheme.colors.badgeActive
+                badgeBackgroundColor = PlezixTheme.colors.badgeActive
                 menuItemState = if (isPdf) MenuItemState.DISABLED else MenuItemState.ACTIVE
             } else {
                 badgeText = stringResource(id = R.string.browser_feature_desktop_site_off)
-                badgeBackgroundColor = FirefoxTheme.colors.layerSearch
+                badgeBackgroundColor = PlezixTheme.colors.layerSearch
                 menuItemState = if (isPdf) MenuItemState.DISABLED else MenuItemState.ENABLED
             }
 
@@ -121,7 +121,7 @@ internal fun CustomTabMenu(
                     stringResource(id = R.string.app_name),
                 ),
                 beforeIconPainter = painterResource(id = R.drawable.mozac_ic_open_in),
-                onClick = onOpenInFirefoxMenuClick,
+                onClick = onOpenInPlezixMenuClick,
                 state = if (isSandboxCustomTab) {
                     MenuItemState.DISABLED
                 } else {
@@ -164,17 +164,17 @@ internal fun CustomTabMenu(
             }
         }
 
-        PoweredByFirefoxItem()
+        PoweredByPlezixItem()
     }
 }
 
 /**
- * A menu item that shows the "Powered by Firefox" text and logo.
+ * A menu item that shows the "Powered by Plezix" text and logo.
  *
  * @param modifier [Modifier] to be applied to the layout.
  */
 @Composable
-private fun PoweredByFirefoxItem(modifier: Modifier = Modifier) {
+private fun PoweredByPlezixItem(modifier: Modifier = Modifier) {
     Row(
         horizontalArrangement = Arrangement.Center,
         modifier = modifier.fillMaxWidth(),
@@ -194,8 +194,8 @@ private fun PoweredByFirefoxItem(modifier: Modifier = Modifier) {
                 id = R.string.browser_menu_powered_by2,
                 stringResource(id = R.string.app_name),
             ),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.caption,
+            color = PlezixTheme.colors.textSecondary,
+            style = PlezixTheme.typography.caption,
         )
     }
 }
@@ -203,10 +203,10 @@ private fun PoweredByFirefoxItem(modifier: Modifier = Modifier) {
 @PreviewLightDark
 @Composable
 private fun CustomTabMenuPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             CustomTabMenu(
                 canGoBack = true,
@@ -220,7 +220,7 @@ private fun CustomTabMenuPreview() {
                 scrollState = rememberScrollState(),
                 onSwitchToDesktopSiteMenuClick = {},
                 onFindInPageMenuClick = {},
-                onOpenInFirefoxMenuClick = {},
+                onOpenInPlezixMenuClick = {},
                 onBackButtonClick = {},
                 onForwardButtonClick = {},
                 onRefreshButtonClick = {},
@@ -234,10 +234,10 @@ private fun CustomTabMenuPreview() {
 @Preview
 @Composable
 private fun CustomTabMenuPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    PlezixTheme(theme = Theme.Private) {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer3),
+                .background(color = PlezixTheme.colors.layer3),
         ) {
             CustomTabMenu(
                 canGoBack = false,
@@ -251,7 +251,7 @@ private fun CustomTabMenuPrivatePreview() {
                 scrollState = rememberScrollState(),
                 onSwitchToDesktopSiteMenuClick = {},
                 onFindInPageMenuClick = {},
-                onOpenInFirefoxMenuClick = {},
+                onOpenInPlezixMenuClick = {},
                 onBackButtonClick = {},
                 onForwardButtonClick = {},
                 onRefreshButtonClick = {},

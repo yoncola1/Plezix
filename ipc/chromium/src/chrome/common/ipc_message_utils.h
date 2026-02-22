@@ -1060,22 +1060,22 @@ struct ParamTraitsIPC<mozilla::UniqueMachSendRight> {
 };
 #endif
 
-// Mozilla-specific types.
+// Plezix-specific types.
 
 template <class P>
-struct ParamTraitsMozilla : ParamTraitsIPC<P> {};
+struct ParamTraitsPlezix : ParamTraitsIPC<P> {};
 
 // Sending-only specialization for mozilla::Span<T const>. Uses an identical
 // serialization format as `const nsTArray<T>&`.
 template <class T>
-struct ParamTraitsMozilla<mozilla::Span<const T>> {
+struct ParamTraitsPlezix<mozilla::Span<const T>> {
   static void Write(MessageWriter* writer, mozilla::Span<const T> p) {
     WriteSequenceParam<const T>(writer, p.Elements(), p.Length());
   }
 };
 
 template <>
-struct ParamTraitsMozilla<nsresult> {
+struct ParamTraitsPlezix<nsresult> {
   typedef nsresult param_type;
   static void Write(MessageWriter* writer, const param_type& p) {
     writer->WriteUInt32(static_cast<uint32_t>(p));
@@ -1088,7 +1088,7 @@ struct ParamTraitsMozilla<nsresult> {
 // See comments for the IPDLParamTraits specializations for RefPtr<T> and
 // nsCOMPtr<T> for more details.
 template <class T>
-struct ParamTraitsMozilla<RefPtr<T>> {
+struct ParamTraitsPlezix<RefPtr<T>> {
   static void Write(MessageWriter* writer, const RefPtr<T>& p) {
     ParamTraits<T*>::Write(writer, p.get());
   }
@@ -1099,7 +1099,7 @@ struct ParamTraitsMozilla<RefPtr<T>> {
 };
 
 template <class T>
-struct ParamTraitsMozilla<nsCOMPtr<T>> {
+struct ParamTraitsPlezix<nsCOMPtr<T>> {
   static void Write(MessageWriter* writer, const nsCOMPtr<T>& p) {
     ParamTraits<T*>::Write(writer, p.get());
   }
@@ -1115,7 +1115,7 @@ struct ParamTraitsMozilla<nsCOMPtr<T>> {
 };
 
 template <class T>
-struct ParamTraitsMozilla<mozilla::NotNull<T>> {
+struct ParamTraitsPlezix<mozilla::NotNull<T>> {
   static void Write(MessageWriter* writer, const mozilla::NotNull<T>& p) {
     ParamTraits<T>::Write(writer, p.get());
   }
@@ -1136,7 +1136,7 @@ struct ParamTraitsMozilla<mozilla::NotNull<T>> {
 // Finally, ParamTraits itself.
 
 template <class P>
-struct ParamTraits : ParamTraitsMozilla<P> {};
+struct ParamTraits : ParamTraitsPlezix<P> {};
 
 }  // namespace IPC
 

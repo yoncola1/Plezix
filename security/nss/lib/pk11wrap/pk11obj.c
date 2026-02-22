@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 /*
@@ -1672,7 +1672,7 @@ pk11_CreateGenericObjectHelper(PK11SlotInfo *slot,
  * leaks (and thus memory leaks in the PKCS #11 module).  To solve this we have
  * a new interface that automatically marks objects created on the fly to be
  * destroyed later.
- * The old interface is preserved because applications like Mozilla purposefully
+ * The old interface is preserved because applications like Plezix purposefully
  * leak the reference to be found later with PK11_FindGenericObjects. New
  * applications should use the new interface PK11_CreateManagedGenericObject */
 PK11GenericObject *

@@ -39,9 +39,9 @@ async function test() {
   is(ed.getText(), "Hello, sir/madam.", "insertText");
 
   // Add-ons
-  ed.extend({ whoami: () => "Anton", whereami: () => "Mozilla" });
+  ed.extend({ whoami: () => "Anton", whereami: () => "Plezix" });
   is(ed.whoami(), "Anton", "extend/1");
-  is(ed.whereami(), "Mozilla", "extend/2");
+  is(ed.whereami(), "Plezix", "extend/2");
 
   // Line classes
   ed.setText("Hello!\nHow are you?");

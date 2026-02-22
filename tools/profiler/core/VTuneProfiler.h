@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -11,7 +11,7 @@
 // the VTune profiler code at all --enable-vtune-instrumentation needs to be
 // set as a build option. Even then, when none of the environment variables
 // is specified that allow us to find the ittnotify DLL, these functions
-// should be minimal overhead. When starting Firefox under VTune, these
+// should be minimal overhead. When starting Plezix under VTune, these
 // env vars will be automatically defined, otherwise INTEL_LIBITTNOTIFY32/64
 // should be set to point at the ittnotify DLL.
 #ifndef MOZ_VTUNE_INSTRUMENTATION

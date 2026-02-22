@@ -11,7 +11,7 @@ It also contains optional further information:
 * the ``clientId``, a UUID identifying a profile and allowing profile-oriented correlation of data
 * the ``profileGroupId``, a UUID identifying the profile's group on a single device and allowing user-oriented correlation of data
 
-*Note:* These are not submitted with all ping types due to privacy concerns. This and the data it that can be correlated against is inspected under the `data collection policy <https://wiki.mozilla.org/Firefox/Data_Collection>`_.
+*Note:* These are not submitted with all ping types due to privacy concerns. This and the data it that can be correlated against is inspected under the `data collection policy <https://wiki.mozilla.org/Plezix/Data_Collection>`_.
 
 Finally, the structure also contains the `payload`, which is the specific data submitted for the respective *ping type*.
 
@@ -28,10 +28,10 @@ Structure:
       application: {
         architecture: <string>, // build architecture, e.g. x86
         buildId: <string>, // "20141126041045"
-        name: <string>, // "Firefox"
+        name: <string>, // "Plezix"
         version: <string>, // "35.0"
         displayVersion: <string>, // "35.0b3"
-        vendor: <string>, // "Mozilla"
+        vendor: <string>, // "Plezix"
         platformVersion: <string>, // "35.0"
         xpcomAbi: <string>, // e.g. "x86-msvc"
         channel: <string>, // "beta"

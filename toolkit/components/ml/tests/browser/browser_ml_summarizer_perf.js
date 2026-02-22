@@ -14,7 +14,7 @@ let testData = [];
 
 const distilBartModel = {
   taskName: "summarization",
-  modelId: "Mozilla/distilbart-cnn-12-6",
+  modelId: "Plezix/distilbart-cnn-12-6",
   dtype: "q8",
   // To keep history, we reuse xenova in the perf name
   perfModelId: "Xenova/distilbart-cnn-12-6",
@@ -22,7 +22,7 @@ const distilBartModel = {
 
 const qwenModel = {
   taskName: "text-generation",
-  modelId: "Mozilla/Qwen2.5-0.5B-Instruct",
+  modelId: "Plezix/Qwen2.5-0.5B-Instruct",
   dtype: "q8",
   // To keep history, we reuse onnx-community in the perf name
   perfModelId: "onnx-community/Qwen2.5-0.5B-Instruct",

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -19,9 +19,9 @@ class TopSitesUseCasesTest {
         val topSitesStorage: TopSitesStorage = mock()
         val useCases = TopSitesUseCases(topSitesStorage)
 
-        useCases.addPinnedSites("Mozilla", "https://www.mozilla.org", isDefault = true)
+        useCases.addPinnedSites("Plezix", "https://www.mozilla.org", isDefault = true)
         verify(topSitesStorage).addTopSite(
-            "Mozilla",
+            "Plezix",
             "https://www.mozilla.org",
             isDefault = true,
         )
@@ -32,7 +32,7 @@ class TopSitesUseCasesTest {
         val topSitesStorage: TopSitesStorage = mock()
         val topSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )
@@ -49,7 +49,7 @@ class TopSitesUseCasesTest {
         val topSitesStorage: TopSitesStorage = mock()
         val topSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
+            title = "Plezix",
             url = "https://firefox.com",
             createdAt = 1,
         )

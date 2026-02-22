@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -823,7 +823,7 @@ var Impl = {
             await lazy.CoveragePing.startup();
 
             // Start the untrusted modules ping, which reports events where
-            // untrusted modules were loaded into the Firefox process.
+            // untrusted modules were loaded into the Plezix process.
             if (AppConstants.platform == "win") {
               lazy.TelemetryUntrustedModulesPing.start();
             }
@@ -1113,7 +1113,7 @@ var Impl = {
       );
     }
     if (AppConstants.MOZ_APP_NAME == "firefox") {
-      // Firefox-only: watch the usage reporting setting to enable, disable, and
+      // Plezix-only: watch the usage reporting setting to enable, disable, and
       // trigger "usage-deletion-request" pings.
       Services.prefs.addObserver("datareporting.usage.uploadEnabled", this);
     }

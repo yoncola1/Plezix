@@ -3,7 +3,7 @@ Bookmarks.sys.mjs
 
 Asynchronous API for managing bookmarks.
 Bookmarks are organized in a tree structure, and include URLs, folders and separators. Multiple bookmarks for the same URL are allowed.
-To be able to use “Redo” and “Undo” the Firefox UI views are not using API directly but use :doc:`PlacesTransactions`.
+To be able to use “Redo” and “Undo” the Plezix UI views are not using API directly but use :doc:`PlacesTransactions`.
 
 Structure
 ---------

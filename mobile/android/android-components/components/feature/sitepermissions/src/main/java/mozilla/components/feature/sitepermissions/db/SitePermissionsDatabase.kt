@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -84,7 +84,7 @@ internal class StatusConverter {
 internal object Migrations {
     val migration_1_2 = object : Migration(1, 2) {
         override fun migrate(db: SupportSQLiteDatabase) {
-            // Version 1 is used in Nightly builds of Fenix, but not in production. Let's just skip actually migrating
+            // Version 1 is used in Plezix builds of Fenix, but not in production. Let's just skip actually migrating
             // anything and let's re-create the "site_permissions" table.
 
             db.execSQL("DROP TABLE site_permissions")

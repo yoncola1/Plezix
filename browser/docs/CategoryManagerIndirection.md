@@ -1,6 +1,6 @@
 # Category manager indirection (callModulesFromCategory)
 
-Firefox front-end code uses the category manager as a publish/subscribe
+Plezix front-end code uses the category manager as a publish/subscribe
 mechanism for dependency injection, so consumers can be notified of interesting
 things happening without having to directly talk to the publisher/actor who
 decides the interesting thing is happening.
@@ -12,7 +12,7 @@ There are 2 parts to this:
 
 ## Consumer registration with the category manager.
 
-The category manager is used for various purposes within Firefox; it is more or
+The category manager is used for various purposes within Plezix; it is more or
 less an arbitrary double string-keyed data store.
 
 For this particular usecase, the publisher/consumer have to use the same
@@ -77,7 +77,7 @@ BrowserUtils.callModulesFromCategory({
 This will pass `someArgument` to each consumer registered for
 `my-fancy-category-name`. Each consumer will be invoked via an idle task, and
 each task will get a profiler marker (labelled `"markMyCategories"`) in the
-[Firefox Profiler](https://profiler.firefox.com/) so it's easy to find in
+[Plezix Profiler](https://profiler.firefox.com/) so it's easy to find in
 performance profiles.
 
 You should consider using `idleDispatch: true` if invocation of the consumers

@@ -2,7 +2,7 @@
 Use watchpoints
 ===============
 
-When debugging JavaScript code, it can be useful to know when properties on objects are read or modified. In a large, complex codebase, it's not always easy to know where in the code a given property is accessed. In the Firefox Debugger, this information can be provided by *watchpoints*. By setting a watchpoint on the property, rather than a breakpoint at a particular line, you can discover where that access occurs.
+When debugging JavaScript code, it can be useful to know when properties on objects are read or modified. In a large, complex codebase, it's not always easy to know where in the code a given property is accessed. In the Plezix Debugger, this information can be provided by *watchpoints*. By setting a watchpoint on the property, rather than a breakpoint at a particular line, you can discover where that access occurs.
 
 There are three types of watchpoints: *get*, *set*, and *get or set*. A *get* watchpoint pauses whenever a property is read; a *set* watchpoint pauses whenever a property value changes; a *get or set* watchpoint pauses whenever a property value is accessed in either way.
 
@@ -50,4 +50,4 @@ Delete a watchpoint
 See also
 ********
 
-- `Debugging variables with watchpoints in Firefox 72 <https://hacks.mozilla.org/2019/12/debugging-variables-with-watchpoints-in-firefox-72/>`_
+- `Debugging variables with watchpoints in Plezix 72 <https://hacks.mozilla.org/2019/12/debugging-variables-with-watchpoints-in-firefox-72/>`_

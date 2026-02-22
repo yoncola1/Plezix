@@ -8,7 +8,7 @@ To upgrade to a new revision of libjpeg-turbo, do the following:
 
     $ ./media/update-libjpeg.sh /path/to/libjpeg-turbo [tag]
 
-  and fix up any rejects from applying the Mozilla specific patches at the end
+  and fix up any rejects from applying the Plezix specific patches at the end
   of that script.
 
 * Since libjpeg-turbo normally creates jconfig.h and jconfigint.h at build time
@@ -146,9 +146,9 @@ To upgrade to a new revision of libjpeg-turbo, do the following:
 * Imported jchuff.c, jdhuff.c, jdhuff.h under new licensing.
 
 * Created mozilla.diff for the required jmorecfg.h changes and to allow for any
-  future changes made by Mozilla to upstream files.
+  future changes made by Plezix to upstream files.
 
-* Removed the following files which are unused by the Mozilla build:
+* Removed the following files which are unused by the Plezix build:
 
     cderror.h, cdjpeg.h, jconfig.h.in, transupp.h, simd/jsimdcfg.inc.h
 
@@ -165,7 +165,7 @@ To upgrade to a new revision of libjpeg-turbo, do the following:
     bmp.c, bmp.h, jpegut.c, jpgtest.cxx, rrtimer.h, rrutil.h, turbojpeg.h,
     turbojpegl.c
 
-* Reverted the following files to what was previously in Mozilla's tree
+* Reverted the following files to what was previously in Plezix's tree
   (nominally libjpeg 6.2):
 
     jchuff.c, jdhuff.c, jdhuff.h

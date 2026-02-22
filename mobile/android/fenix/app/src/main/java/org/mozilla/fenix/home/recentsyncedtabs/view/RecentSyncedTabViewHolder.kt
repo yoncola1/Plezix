@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -14,7 +14,7 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState
 import org.mozilla.fenix.home.recentsyncedtabs.interactor.RecentSyncedTabInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 
 /**
@@ -58,7 +58,7 @@ class RecentSyncedTabViewHolder(
             }
             val buttonBackgroundColor = when {
                 syncedTab != null -> wallpaperState.buttonBackgroundColor
-                else -> FirefoxTheme.colors.layer3
+                else -> PlezixTheme.colors.layer3
             }
 
             RecentSyncedTab(

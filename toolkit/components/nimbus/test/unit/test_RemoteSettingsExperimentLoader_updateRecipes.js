@@ -1536,7 +1536,7 @@ add_task(async function test_updateRecipesClearsOptIns() {
   const now = new Date().getTime();
   const recipes = [
     NimbusTestUtils.factories.recipe("opt-in-1", {
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "opt-in-1-title",
       firefoxLabsDescription: "opt-in-1-desc",
       firefoxLabsDescriptionLinks: null,
@@ -1547,7 +1547,7 @@ add_task(async function test_updateRecipesClearsOptIns() {
       publishedDate: new Date(now).toISOString(),
     }),
     NimbusTestUtils.factories.recipe("opt-in-2", {
-      isFirefoxLabsOptIn: true,
+      isPlezixLabsOptIn: true,
       firefoxLabsTitle: "opt-in-2-title",
       firefoxLabsDescription: "opt-in-2-desc",
       firefoxLabsDescriptionLinks: null,
@@ -1590,7 +1590,7 @@ add_task(async function test_updateRecipes_optInsStayEnrolled() {
       },
     ],
     targeting: "true",
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "opt-in-title",
     firefoxLabsDescription: "opt-in-desc",
     firefoxLabsDescriptionLinks: null,
@@ -1630,7 +1630,7 @@ add_task(async function test_updateRecipes_optInsUnerollOnFalseTargeting() {
       },
     ],
     targeting: "true",
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     firefoxLabsTitle: "opt-in-title",
     firefoxLabsDescription: "opt-in-desc",
     firefoxLabsDescriptionLinks: null,
@@ -1663,7 +1663,7 @@ add_task(async function test_updateRecipes_bucketingCausesOptInUnenrollments() {
       },
     ],
     targeting: "true",
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     isRollout: true,
     firefoxLabsTitle: "opt-in-title",
     firefoxLabsDescription: "opt-in-desc",
@@ -1699,7 +1699,7 @@ add_task(async function test_updateRecipes_reEnrollRolloutOptin() {
       },
     ],
     targeting: "true",
-    isFirefoxLabsOptIn: true,
+    isPlezixLabsOptIn: true,
     isRollout: true,
     firefoxLabsTitle: "opt-in-title",
     firefoxLabsDescription: "opt-in-desc",

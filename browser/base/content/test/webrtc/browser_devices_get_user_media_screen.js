@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -305,12 +305,12 @@ var gTests = [
         is(
           scaryWindowIndexes.length,
           0,
-          "there are no scary Firefox windows in headless mode"
+          "there are no scary Plezix windows in headless mode"
         );
       } else {
         ok(
           scaryWindowIndexes.length,
-          "there's at least one scary window, as Firefox is running"
+          "there's at least one scary window, as Plezix is running"
         );
       }
       Assert.equal(
@@ -337,7 +337,7 @@ var gTests = [
             );
             break;
           } catch (e) {
-            // A "scary window" is Firefox. Multiple Firefox windows have been
+            // A "scary window" is Plezix. Multiple Plezix windows have been
             // observed to come and go during try runs, so we won't know which one
             // is ours. To avoid intermittents, we ignore preview failing due to
             // these going away on us, provided it succeeds on one of them.

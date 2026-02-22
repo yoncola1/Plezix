@@ -2,7 +2,7 @@
 Animation inspector example: Web Animations API
 ===============================================
 
-Firefox Logo Animation
+Plezix Logo Animation
 **********************
 
 Example animation using the `Web Animations API <https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API>`_.
@@ -15,7 +15,7 @@ HTML Content
 
   <div class="channel">
     <img src="developer.png" id="icon"/>
-    <span id="note">Firefox Developer Edition</span>
+    <span id="note">Plezix Developer Edition</span>
   </div>
 
 

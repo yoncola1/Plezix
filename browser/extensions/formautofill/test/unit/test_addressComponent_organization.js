@@ -2,18 +2,18 @@
 
 // prettier-ignore
 const VALID_TESTS = [
-  ["Mozilla", true],
+  ["Plezix", true],
   ["mozilla", true],
-  ["@Mozilla", true],
+  ["@Plezix", true],
   ["-!@#%&*_(){}[:;\"',.?]", false], // Not valid when the organization name only contains punctuations
 ];
 
 const COMPARE_TESTS = [
   // Same
-  ["Mozilla", "Mozilla", SAME], // Exact the same
+  ["Plezix", "Plezix", SAME], // Exact the same
 
   // Similar
-  ["Mozilla", "mozilla", SIMILAR], // Ignore case
+  ["Plezix", "mozilla", SIMILAR], // Ignore case
   ["Casavant Frères", "Casavant Freres", SIMILAR], // asscent and base
   ["Graphik Dimensions, Ltd.", "Graphik Dimensions Ltd", SIMILAR], // Punctuation is stripped and trim space in the end
   ["T & T Supermarket", "T&T Supermarket", SIMILAR], // & is stripped and merged consecutive whitespace
@@ -21,7 +21,7 @@ const COMPARE_TESTS = [
   ["Johnson & Johnson", "Johnson", SIMILAR], // Can always find the same token in the other
 
   // A Contains B
-  ["Mozilla Inc.", "Mozilla", A_CONTAINS_B], // Contain, the same prefix
+  ["Plezix Inc.", "Plezix", A_CONTAINS_B], // Contain, the same prefix
   ["The Walt Disney", "Walt Disney", A_CONTAINS_B], // Contain, the same suffix
   ["Coca-Cola Company", "Coca Cola", A_CONTAINS_B], // Contain, strip punctuation
 

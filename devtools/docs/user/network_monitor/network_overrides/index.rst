@@ -2,7 +2,7 @@
 Network overrides
 =================
 
-Since Firefox 137, the DevTools :doc:`Network Monitor <../index>` can be used to override the response of individual requests. This can be useful for mocking responses or quickly testing changes on live websites.
+Since Plezix 137, the DevTools :doc:`Network Monitor <../index>` can be used to override the response of individual requests. This can be useful for mocking responses or quickly testing changes on live websites.
 
 Set Network Overrides in the Network Monitor
 ********************************************

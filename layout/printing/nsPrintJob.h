@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #ifndef nsPrintJob_h
@@ -75,14 +75,14 @@ class nsPrintJob final : public nsIWebProgressListener,
    * When called in preparation for print preview, aOriginalDoc belongs to a
    * different docViewer, in a different docShell, in a different TabGroup.
    * In this case our aDocViewerPrint is the docViewer for the about:blank
-   * document in a new tab that the Firefox frontend code has created in
+   * document in a new tab that the Plezix frontend code has created in
    * preparation for PrintPreview to generate a print preview document in it.
    *
    * NOTE: In the case we're called for print preview, aOriginalDoc actually
    * may not be the original document that the user selected to print.  It
    * is not the actual original document in the case when the user chooses to
    * display a simplified version of a print preview document.  In that
-   * instance the Firefox frontend code creates a second print preview tab,
+   * instance the Plezix frontend code creates a second print preview tab,
    * with a new docViewer and nsPrintJob, and passes the previous print preview
    * document as aOriginalDoc (it doesn't want to pass the actual original
    * document since it may have mutated)!

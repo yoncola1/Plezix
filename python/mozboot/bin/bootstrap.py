@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -160,7 +160,7 @@ def hg_clone_firefox(hg: Path, dest: Path, head_repo, head_rev):
         return None
 
     head_rev = head_rev or "central"
-    print(f'updating to "{head_rev}" - the development head of Gecko and Firefox')
+    print(f'updating to "{head_rev}" - the development head of Gecko and Plezix')
     res = subprocess.call([str(hg), "update", "-r", head_rev], cwd=str(dest))
     if res:
         print(
@@ -231,7 +231,7 @@ def git_cinnabar_clone_firefox(git: Path, dest: Path, head_repo, head_rev):
             )
             env["PATH"] = str(tempdir) + os.pathsep + env["PATH"]
             print(
-                "WARNING! git-cinnabar is required for Firefox development  "
+                "WARNING! git-cinnabar is required for Plezix development  "
                 "with git. After the clone is complete, the bootstrapper "
                 "will ask if you would like to configure git; answer yes, "
                 "and be sure to add git-cinnabar to your PATH according to "
@@ -355,7 +355,7 @@ def clone(options):
     if vcs == "hg":
         hg = which("hg")
         if not hg:
-            print("Mercurial is not installed. Mercurial is required to clone Firefox.")
+            print("Mercurial is not installed. Mercurial is required to clone Plezix.")
             try:
                 # We're going to recommend people install the Mercurial package with
                 # pip3. That will work if `pip3` installs binaries to a location
@@ -385,7 +385,7 @@ def clone(options):
 
     add_microsoft_defender_antivirus_exclusions(dest, no_system_changes)
 
-    print(f"Cloning Firefox {VCS_HUMAN_READABLE[vcs]} repository to {dest}")
+    print(f"Cloning Plezix {VCS_HUMAN_READABLE[vcs]} repository to {dest}")
 
     head_repo = os.environ.get("GECKO_HEAD_REPOSITORY")
     head_rev = os.environ.get("GECKO_HEAD_REV")
@@ -459,7 +459,7 @@ def main(args):
         )
         if not options.no_interactive:
             remove_bootstrap_file = input(
-                "Unless you are going to have more local copies of Firefox source code, "
+                "Unless you are going to have more local copies of Plezix source code, "
                 "this 'bootstrap.py' file is no longer needed and can be deleted. "
                 "Clean up the bootstrap.py file? (Y/n)"
             )
@@ -477,7 +477,7 @@ def main(args):
             options.no_system_changes,
         )
     except Exception:
-        print("Could not bootstrap Firefox! Consider filing a bug.")
+        print("Could not bootstrap Plezix! Consider filing a bug.")
         raise
 
 

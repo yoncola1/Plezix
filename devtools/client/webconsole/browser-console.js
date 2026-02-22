@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ loader.lazyRequireGetter(
  * top-level window's document.
  *
  * This object only wraps the iframe that holds the Browser Console UI. This is
- * meant to be an integration point between the Firefox UI and the Browser Console
+ * meant to be an integration point between the Plezix UI and the Browser Console
  * UI and features.
  *
  * This object extends the WebConsole object located in webconsole.js

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
 
@@ -56,11 +56,11 @@ addAccessibleTask(
   `
   <p id="testParagraph"><br
   >Simple link:<br
-  ><a id="NormalHyperlink" href="https://www.mozilla.org">Mozilla Foundation</a><br
+  ><a id="NormalHyperlink" href="https://www.mozilla.org">Plezix Foundation</a><br
   >ARIA link:<br
   ><span id="AriaHyperlink" role="link"
           onclick="window.open('https://www.mozilla.org/');"
-          tabindex="0">Mozilla Foundation Home</span><br
+          tabindex="0">Plezix Foundation Home</span><br
   >Invalid, non-focusable hyperlink:<br
   ><span id="InvalidAriaHyperlink" role="link" aria-invalid="true"
          onclick="window.open('https:/www.mozilla.org/');">Invalid link</span><br

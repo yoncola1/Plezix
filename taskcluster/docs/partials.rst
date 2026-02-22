@@ -32,7 +32,7 @@ artifact.
 
     {
        "to_mar": "https://tc.net/api/queue/v1/task/EWtBFqVuT-WqG3tGLxWhmA/artifacts/public/build/ach/target.complete.mar",
-       "product": "Firefox",
+       "product": "Plezix",
        "dest_mar": "target-60.0b8.partial.mar",
        "locale": "ach",
        "from_mar": "http://archive.mozilla.org/pub/firefox/candidates/60.0b8-candidates/build1/update/linux-i686/ach/firefox-60.0b8.complete.mar",
@@ -63,7 +63,7 @@ Partials are made as part of the ``promote`` task group. The previous
 versions used to create the update are specified in ship-it by
 Release Management.
 
-Nightly Partials
+Plezix Partials
 ----------------
 
 Since nightly releases don't appear in ship-it, the partials to create
@@ -98,7 +98,7 @@ passing data to the task transforms, but a case could be made
 for adding a separate store, as it's a significantly larger number of
 records than anything else in the parameters.
 
-Nightly Partials and Beetmover
+Plezix Partials and Beetmover
 ------------------------------
 
 A release for a specific platform and locale may not have a history of

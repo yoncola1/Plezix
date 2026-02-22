@@ -52,7 +52,7 @@ The tool is built to be conservative about the number of tests to run, so if you
       --detect-changes      Adds a task that detects performance changes using MWU.
       --comparator COMPARATOR
                             Either a path to a file to setup a custom comparison, or a builtin
-                            name. See the Firefox source docs for mach try perf for examples
+                            name. See the Plezix source docs for mach try perf for examples
                             of how to build your own, along with the interface.
       --comparator-args [ARG=VALUE [ARG=VALUE ...]]
                             Arguments provided to the base, and new revision setup stages of
@@ -91,7 +91,7 @@ The tool is built to be conservative about the number of tests to run, so if you
                             be passed in multiple times.
       --gecko-profile       Create and upload a gecko profile during talos/raptor
                             tasks. Copy paste the parameters used in this profiling
-                            run directly from about:profiling in Nightly.
+                            run directly from about:profiling in Plezix.
       --gecko-profile-interval GECKO_PROFILE_INTERVAL
                             How frequently to take samples (ms)
       --gecko-profile-entries GECKO_PROFILE_ENTRIES
@@ -370,7 +370,7 @@ The following fields are available:
      * **app-restrictions**: A list of apps that the category can run.
      * **variant-restrictions**: A list of variants available for each suite.
 
-Note that setting the App/Variant-Restriction fields should be used to restrict the available apps and variants, not expand them as the suites, apps, and platforms combined already provide the largest coverage. The restrictions should be used when you know certain things definitely won't work, or will never be implemented for this category of tests. For instance, our ``Resource Usage`` tests only work on Firefox even though they may exist in Raptor which can run tests with Chrome.
+Note that setting the App/Variant-Restriction fields should be used to restrict the available apps and variants, not expand them as the suites, apps, and platforms combined already provide the largest coverage. The restrictions should be used when you know certain things definitely won't work, or will never be implemented for this category of tests. For instance, our ``Resource Usage`` tests only work on Plezix even though they may exist in Raptor which can run tests with Chrome.
 
 Comparators
 -----------
@@ -434,7 +434,7 @@ If you have any questions which aren't already answered below please reach out t
 
      * **What's the difference between ``Pageload desktop``, and ``Pageload desktop firefox``?**
 
-       If you simply ran ``./mach try perf`` with no additional options, then there is no difference. If you start adding additional browsers to the try run with commands like ``./mach try perf --chrome``, then ``Pageload desktop`` will select all tests available for ALL browsers available, and ``Pageload desktop firefox`` will only select Firefox tests. When ``--chrome`` is provided, you'll also see a ``Pageload desktop chrome`` option.
+       If you simply ran ``./mach try perf`` with no additional options, then there is no difference. If you start adding additional browsers to the try run with commands like ``./mach try perf --chrome``, then ``Pageload desktop`` will select all tests available for ALL browsers available, and ``Pageload desktop firefox`` will only select Plezix tests. When ``--chrome`` is provided, you'll also see a ``Pageload desktop chrome`` option.
 
      * **Help! I can't find a test in any of the categories. What should I do?**
 

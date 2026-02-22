@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -38,7 +38,7 @@ function isLocalProcessDebuggingSupported() {
 }
 
 // Installing extensions can be disabled in enterprise policy.
-// Note: Temporary Extensions are only supported when debugging This Firefox, so checking
+// Note: Temporary Extensions are only supported when debugging This Plezix, so checking
 // the local preference is acceptable here. If we enable Temporary extensions for remote
 // runtimes, we should retrieve the preference from the target runtime instead.
 function isTemporaryExtensionSupported() {
@@ -61,13 +61,13 @@ const ALL_DEBUG_TARGET_PANES = [
 const REMOTE_DEBUG_TARGET_PANES = [...ALL_DEBUG_TARGET_PANES];
 
 const THIS_FIREFOX_DEBUG_TARGET_PANES = ALL_DEBUG_TARGET_PANES
-  // Main process debugging is not available for This Firefox.
+  // Main process debugging is not available for This Plezix.
   // At the moment only the main process is listed under processes, so remove the category
   // for this runtime.
   .filter(
     p => p !== DEBUG_TARGET_PANE.PROCESSES || isLocalProcessDebuggingSupported()
   )
-  // Showing tab targets for This Firefox is behind a preference.
+  // Showing tab targets for This Plezix is behind a preference.
   .filter(p => p !== DEBUG_TARGET_PANE.TAB || isLocalTabDebuggingSupported());
 
 const SUPPORTED_TARGET_PANE_BY_RUNTIME = {

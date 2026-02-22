@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -69,7 +69,7 @@ class SimpleBrowserMenuItemTest {
     @Test
     fun `simple browser menu item should have the right text, textSize, and textColorResource`() {
         val item = SimpleBrowserMenuItem(
-            "Powered by Mozilla",
+            "Powered by Plezix",
             10f,
             android.R.color.holo_green_dark,
         )
@@ -77,7 +77,7 @@ class SimpleBrowserMenuItemTest {
         val view = inflate(item)
 
         val textView = view.findViewById<TextView>(R.id.simple_text)
-        assertEquals(textView.text, "Powered by Mozilla")
+        assertEquals(textView.text, "Powered by Plezix")
         assertEquals(textView.textSize, 10f)
         assertEquals(textView.currentTextColor, testContext.getColor(android.R.color.holo_green_dark))
     }
@@ -99,14 +99,14 @@ class SimpleBrowserMenuItemTest {
 
         assertEquals(
             DecorativeTextMenuCandidate(
-                "Powered by Mozilla",
+                "Powered by Plezix",
                 textStyle = TextStyle(
                     size = 10f,
                     color = getColor(testContext, android.R.color.holo_green_dark),
                 ),
             ),
             SimpleBrowserMenuItem(
-                "Powered by Mozilla",
+                "Powered by Plezix",
                 10f,
                 android.R.color.holo_green_dark,
             ).asCandidate(testContext),

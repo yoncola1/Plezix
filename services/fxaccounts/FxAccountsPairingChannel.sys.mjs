@@ -1,6 +1,6 @@
 /*!
  * 
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  * 
@@ -8,7 +8,7 @@
  * it implements a shared library for two javascript environments to create an encrypted and authenticated
  * communication channel by sharing a secret key and by relaying messages through a websocket server.
  * 
- * It is used by the Firefox Accounts pairing flow, with one side of the channel being web
+ * It is used by the Plezix Accounts pairing flow, with one side of the channel being web
  * content from https://accounts.firefox.com and the other side of the channel being chrome native code.
  * 
  * This uses the event-target-shim node library published under the MIT license:
@@ -19,7 +19,7 @@
  */
 
 // This header provides a little bit of plumbing to use `FxAccountsPairingChannel`
-// from Firefox browser code, hence the presence of these privileged browser APIs.
+// from Plezix browser code, hence the presence of these privileged browser APIs.
 // If you're trying to use this from ordinary web content you're in for a bad time.
 
 import { setTimeout } from "resource://gre/modules/Timer.sys.mjs";
@@ -137,7 +137,7 @@ __webpack_require__.d(__webpack_exports__, "utf8ToBytes", function() { return /*
 __webpack_require__.d(__webpack_exports__, "_internals", function() { return /* binding */ _internals; });
 
 // CONCATENATED MODULE: ./src/alerts.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -215,7 +215,7 @@ class TLSError extends TLSAlert {
 }
 
 // CONCATENATED MODULE: ./src/utils.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -240,7 +240,7 @@ function assert(cond, msg) {
 }
 
 function assertIsBytes(value, msg = 'value must be a Uint8Array') {
-  // Using `value instanceof Uint8Array` seems to fail in Firefox chrome code
+  // Using `value instanceof Uint8Array` seems to fail in Plezix chrome code
   // for inscrutable reasons, so we do a less direct check.
   assert(ArrayBuffer.isView(value), msg);
   assert(value.BYTES_PER_ELEMENT === 1, msg);
@@ -634,7 +634,7 @@ class utils_BufferWriter extends utils_BufferWithPointer {
 }
 
 // CONCATENATED MODULE: ./src/crypto.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -757,7 +757,7 @@ async function getRandomBytes(size) {
 }
 
 // CONCATENATED MODULE: ./src/extensions.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1030,7 +1030,7 @@ class extensions_PskKeyExchangeModesExtension extends extensions_Extension {
 }
 
 // CONCATENATED MODULE: ./src/constants.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1041,7 +1041,7 @@ const TLS_AES_128_GCM_SHA256 = 0x1301;
 const PSK_MODE_KE = 0;
 
 // CONCATENATED MODULE: ./src/messages.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1439,7 +1439,7 @@ class messages_NewSessionTicket extends messages_HandshakeMessage {
 }
 
 // CONCATENATED MODULE: ./src/states.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1854,7 +1854,7 @@ class states_SERVER_WAIT_FINISHED extends states_MidHandshakeState {
 }
 
 // CONCATENATED MODULE: ./src/keyschedule.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1982,7 +1982,7 @@ class keyschedule_KeySchedule {
 }
 
 // CONCATENATED MODULE: ./src/recordlayer.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -2322,7 +2322,7 @@ class recordlayer_RecordLayer {
 }
 
 // CONCATENATED MODULE: ./src/tlsconnection.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -3440,7 +3440,7 @@ if (
 
 
 // CONCATENATED MODULE: ./src/index.js
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 

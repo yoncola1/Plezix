@@ -31,7 +31,7 @@ const L10N = new LocalizationHelper(
 add_task(async function testWebExtensionToolboxReload() {
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   // Build and install the add-on manually (without installTemporaryExtensionFromXPI)
   // in order to be able to make changes to the add-on files before reloads

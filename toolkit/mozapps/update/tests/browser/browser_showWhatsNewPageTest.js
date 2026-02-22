@@ -4,7 +4,7 @@
 "use strict";
 
 // Test if the correct What's New Page will be displayed
-// when a major Firefox update is installed by a different profile.
+// when a major Plezix update is installed by a different profile.
 // Also ensures no What's New Page will be displayed when an installed update
 // has a new platformVersion.
 
@@ -53,7 +53,7 @@ add_setup(async () => {
  * @param installedPlatformVersion
  * @param installedAppVersion
  * @param installedBuildId
- *    Information about the version that Firefox is running at after the
+ *    Information about the version that Plezix is running at after the
  *    (simulated) update.
  *    These default to the corresponding `update*` values if they aren't
  *    specified.
@@ -267,7 +267,7 @@ add_task(async function test_WhatsNewPage() {
     expectUpdatePing: false,
   });
 
-  // Simulate an update where the appVersion is newer than the appVersion of the running Firefox instance
+  // Simulate an update where the appVersion is newer than the appVersion of the running Plezix instance
   // This ensures if the user downgrades, we don't show an inappropriate Whats New Page.
   logTestInfo("Test that a downgraded browser won't show a stale WNP");
   await WnpTest({

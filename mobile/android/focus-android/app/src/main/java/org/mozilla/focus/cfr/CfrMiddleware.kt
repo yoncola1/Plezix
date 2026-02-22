@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -87,7 +87,7 @@ class CfrMiddleware(private val appContext: Context) : Middleware<BrowserState, 
         }
     }
 
-    private fun isMozillaUrl(browserState: BrowserState): Boolean {
+    private fun isPlezixUrl(browserState: BrowserState): Boolean {
         return browserState.findTabOrCustomTabOrSelectedTab(
             browserState.selectedTabId,
         )?.content?.url?.toUri()?.truncatedHost()?.substringBefore(".") == ("mozilla")
@@ -101,7 +101,7 @@ class CfrMiddleware(private val appContext: Context) : Middleware<BrowserState, 
         browserState: BrowserState,
     ) = (
         isActionSecure(action = action) &&
-            !isMozillaUrl(browserState = browserState) &&
+            !isPlezixUrl(browserState = browserState) &&
             components.settings.shouldShowCfrForTrackingProtection &&
             !components.appStore.state.showEraseTabsCfr
         )

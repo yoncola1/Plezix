@@ -1,6 +1,6 @@
-# Firefox Focus for Android
+# Plezix Focus for Android
 
-> Browse like no one’s watching. The new Firefox Focus automatically blocks a wide range of ads and online trackers — from the moment you launch it to the second you leave it. Easily erase your history, passwords and cookies, so you won’t get followed by things like unwanted ads.
+> Browse like no one’s watching. The new Plezix Focus automatically blocks a wide range of ads and online trackers — from the moment you launch it to the second you leave it. Easily erase your history, passwords and cookies, so you won’t get followed by things like unwanted ads.
 
 https://www.mozilla.org/firefox/focus/
 
@@ -13,19 +13,19 @@ https://www.mozilla.org/firefox/focus/
 
 ## Download
 
-* [Google Play - Firefox Focus](https://play.google.com/store/apps/details?id=org.mozilla.focus)
-* [Google Play - Firefox Klar](https://play.google.com/store/apps/details?id=org.mozilla.klar)
+* [Google Play - Plezix Focus](https://play.google.com/store/apps/details?id=org.mozilla.focus)
+* [Google Play - Plezix Klar](https://play.google.com/store/apps/details?id=org.mozilla.klar)
 * [APKs](https://archive.mozilla.org/pub/focus/releases/)
 
 ## Contribute
 
 * [Contributing (Writing code, translating the app, testing the app)](../../docs/shared/android/CONTRIBUTING.md)
 * [List of issues](https://codetribute.mozilla.org/projects/focus?tag%3Dgood-first-bug)
-* [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/)
+* [Plezix Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/)
 
 ## Communication
-* Send an email to our [public Firefox Focus mailing list](https://mail.mozilla.org/listinfo/firefox-focus-public): firefox-focus-public@mozilla.com
-* Send an email to our internal Firefox Focus mailing list (mozilla.com email required): firefox-focus@mozilla.com
+* Send an email to our [public Plezix Focus mailing list](https://mail.mozilla.org/listinfo/firefox-focus-public): firefox-focus-public@mozilla.com
+* Send an email to our internal Plezix Focus mailing list (mozilla.com email required): firefox-focus@mozilla.com
 
 ## Developer Documentation
 

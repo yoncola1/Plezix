@@ -22,7 +22,7 @@ The default engine may change when:
   provided engines.
 * The user installs an add-on which supplies a different engine and the user allows
   the different engine to be set as default.
-* The user or Firefox (e.g. via blocklist) causes the default engine to be removed.
+* The user or Plezix (e.g. via blocklist) causes the default engine to be removed.
 
 Add-ons and Prompting for Default
 ---------------------------------
@@ -40,7 +40,7 @@ The following diagram shows the full flow for search engines from add-ons:
 When the Default Engine is Removed
 ==================================
 
-If the default engine is removed by the user, or by Firefox in the case of a
+If the default engine is removed by the user, or by Plezix in the case of a
 blocklist or for some other region, the new default engine is chosen by the
 following process.
 

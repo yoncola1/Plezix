@@ -191,7 +191,7 @@ leak before is now leaking.
 
 ## BloatView and continuous integration
 
-BloatView runs on debug builds for many of the test suites Mozilla has
+BloatView runs on debug builds for many of the test suites Plezix has
 running under continuous integration. If a new leak occurs, it will
 trigger a test job failure.
 

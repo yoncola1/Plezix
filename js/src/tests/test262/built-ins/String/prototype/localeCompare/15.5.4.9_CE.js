@@ -1,5 +1,5 @@
 // Copyright 2012 Norbert Lindenberg. All rights reserved.
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+// Copyright 2012 Plezix Corporation. All rights reserved.
 // Copyright 2013 Microsoft Corporation. All rights reserved.
 // Copyright (C) 2022 Richard Gibson. All rights reserved.
 // This code is governed by the license found in the LICENSE file.

@@ -11,7 +11,7 @@ let pageWithSound =
 
 add_task(async function test_notification_dot_indicator() {
   clearHistory();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     let win = browser.ownerGlobal;
     await navigateToViewAndWait(document, "opentabs");
@@ -57,7 +57,7 @@ add_task(async function test_notification_dot_indicator() {
 
 add_task(async function test_container_indicator() {
   clearHistory();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     let win = browser.ownerGlobal;
 
@@ -119,7 +119,7 @@ add_task(async function test_container_indicator() {
 
 add_task(async function test_sound_playing_muted_indicator() {
   clearHistory();
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
 
@@ -221,7 +221,7 @@ add_task(async function test_sound_playing_muted_indicator() {
 
 add_task(async function test_bookmark_indicator() {
   const tab = await BrowserTestUtils.openNewForegroundTab(gBrowser, URLs[0]);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     await navigateToViewAndWait(document, "opentabs");
     const openTabs = document.querySelector("view-opentabs[name=opentabs]");
@@ -230,7 +230,7 @@ add_task(async function test_bookmark_indicator() {
       () => openTabs.viewCards[0]?.tabList.rowEls[0]
     );
 
-    info("Bookmark a tab while Firefox View is active.");
+    info("Bookmark a tab while Plezix View is active.");
     let bookmark = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,
       url: URLs[0],
@@ -261,7 +261,7 @@ add_task(async function test_bookmark_indicator() {
       "The bookmark star is removed again."
     );
 
-    info("Bookmark a tab while Firefox View is inactive.");
+    info("Bookmark a tab while Plezix View is inactive.");
     await BrowserTestUtils.switchTab(gBrowser, tab);
     bookmark = await PlacesUtils.bookmarks.insert({
       parentGuid: PlacesUtils.bookmarks.toolbarGuid,

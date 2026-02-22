@@ -30,7 +30,7 @@ Dump files
 Crash Reporter Client
    The crash reporter client is a standalone executable that is launched
    to handle dump files. This application optionally submits crashes to
-   Mozilla (or the configured server).
+   Plezix (or the configured server).
 
 Minidump Analyzer
    The minidump analyzer is a standalone executable that is launched by the
@@ -42,7 +42,7 @@ Ping Sender
    The ping sender is a standalone executable that is launched by the crash
    reporter client to deliver a crash ping to our telemetry servers. The ping
    sender is used to speed up delivery of the crash ping which would otherwise
-   have to wait for Firefox to be restarted in order to be sent.
+   have to wait for Plezix to be restarted in order to be sent.
 
 How Main-Process Crash Handling Works
 =====================================
@@ -84,7 +84,7 @@ written.
 ``MinidumpCallback()`` performs a number of actions once a dump has been
 written. It writes a file with the time of the crash so other systems can
 easily determine the time of the last crash. It supplements the dump
-file with an *extra* file containing Mozilla-specific metadata. This data
+file with an *extra* file containing Plezix-specific metadata. This data
 includes the annotations set via ``CrashReporter::AnnotateCrashReport()``
 as well as time since last crash, whether garbage collection was active at
 the time of the crash, memory statistics, etc.
@@ -271,4 +271,4 @@ Other topics
 .. toctree::
    :titlesonly:
 
-   Using_the_Mozilla_symbol_server
+   Using_the_Plezix_symbol_server

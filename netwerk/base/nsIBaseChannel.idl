@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -32,7 +32,7 @@ interface nsIBaseChannel : nsISupports {
   /**
    * Used by fetch and XMLHttpRequest to get the standards-compliant value they
    * should set for the Content-Type header on response (if nullptr, they will
-   * use Firefox-specific values from nsIChannel::GetContentType and GetCharset).
+   * use Plezix-specific values from nsIChannel::GetContentType and GetCharset).
    */
   attribute MimeTypeRef fullMimeType;
 

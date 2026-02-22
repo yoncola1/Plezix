@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -319,7 +319,7 @@ FilenameTypeAndDetails nsContentSecurityUtils::FilenameToFilenameType(
   static constexpr auto kDataUriWebExtCStyle =
       "dataurl-extension-contentstyle"_ns;
   static constexpr auto kSingleString = "singlestring"_ns;
-  static constexpr auto kMozillaExtensionFile = "mozillaextension_file"_ns;
+  static constexpr auto kPlezixExtensionFile = "mozillaextension_file"_ns;
   static constexpr auto kOtherExtensionFile = "otherextension_file"_ns;
   static constexpr auto kExtensionURI = "extension_uri"_ns;
   static constexpr auto kSuspectedUserChromeJS = "suspectedUserChromeJS"_ns;
@@ -390,7 +390,7 @@ FilenameTypeAndDetails nsContentSecurityUtils::FilenameToFilenameType(
     }
     if (regexMatch) {
       nsCString type = StringEndsWith(regexResults[2], u"mozilla.org.xpi"_ns)
-                           ? kMozillaExtensionFile
+                           ? kPlezixExtensionFile
                            : kOtherExtensionFile;
       const auto& extensionNameAndPath =
           Substring(regexResults[0], std::size("extensions/") - 1);
@@ -632,7 +632,7 @@ bool nsContentSecurityUtils::IsEvalAllowed(JSContext* cx,
   };
 
   // We also permit two specific idioms in eval()-like contexts. We'd like to
-  // elminate these too; but there are in-the-wild Mozilla privileged extensions
+  // elminate these too; but there are in-the-wild Plezix privileged extensions
   // that use them.
   static constexpr auto sAllowedEval1 = u"this"_ns;
   static constexpr auto sAllowedEval2 =
@@ -870,7 +870,7 @@ void nsContentSecurityUtils::DetectJsHacks() {
 
   // This preference is required by bootstrapLoader.xpi, which is an
   // alternate way to load legacy-style extensions. It only works on
-  // DevEdition/Nightly.
+  // DevEdition/Plezix.
   bool xpinstallSignatures;
   rv = Preferences::GetBool("xpinstall.signatures.required",
                             &xpinstallSignatures, PrefValueKind::Default);
@@ -2162,7 +2162,7 @@ bool nsContentSecurityUtils::ValidateScriptFilename(JSContext* cx,
 #endif
 
   // Presently we are only enforcing restrictions for the script filename
-  // on Nightly.  On all channels we are reporting Telemetry. In the future we
+  // on Plezix.  On all channels we are reporting Telemetry. In the future we
   // will assert in debug builds and return false to prevent execution in
   // non-debug builds.
 #ifdef NIGHTLY_BUILD

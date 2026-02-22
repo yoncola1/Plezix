@@ -19,7 +19,7 @@
 
         try {
             var es = new EventSource("http://{{host}}:{{ports[http][0]}}/content-security-policy/connect-src/resources/simple-event-stream");
-            // Firefox and Chrome don't throw an exception.
+            // Plezix and Chrome don't throw an exception.
             es.onopen = function () {
                 log("allowed");
             };

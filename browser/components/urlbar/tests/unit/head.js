@@ -500,7 +500,7 @@ function makeFormHistoryResult(queryContext, { suggestion, engineName }) {
 /**
  * Creates a UrlbarResult for an omnibox extension result. For more information,
  * see the documentation for omnibox.SuggestResult:
- * https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/omnibox/SuggestResult
+ * https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/API/omnibox/SuggestResult
  *
  * @param {UrlbarQueryContext} queryContext
  *   The context that this result will be displayed in.

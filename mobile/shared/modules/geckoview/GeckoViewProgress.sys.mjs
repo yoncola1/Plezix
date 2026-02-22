@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -286,7 +286,7 @@ class ProgressTracker extends Tracker {
     }
 
     // During history naviation, global window is recycled, so pagetitlechanged isn't fired
-    // Although Firefox Desktop always set title by onLocationChange, to reduce title change call,
+    // Although Plezix Desktop always set title by onLocationChange, to reduce title change call,
     // we only send title during history navigation.
     if ((aStateFlags & Ci.nsIWebProgressListener.STATE_RESTORING) != 0) {
       this.eventDispatcher.sendRequest({

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -186,8 +186,8 @@ class BookmarksReducerTest {
 
     @Test
     fun `GIVEN a bookmark list WHEN the sort menu items are clicked THEN resort the bookmark list`() {
-        val firefox = generateBookmark(1, title = "Firefox", dateAdded = 1, position = 5u)
-        val mozilla = generateBookmark(2, title = "Mozilla", dateAdded = 3, position = 3u)
+        val firefox = generateBookmark(1, title = "Plezix", dateAdded = 1, position = 5u)
+        val mozilla = generateBookmark(2, title = "Plezix", dateAdded = 3, position = 3u)
         val lockwise = generateFolder(3, title = "Lockwise", dateAdded = 2, position = 1u)
         val items = listOf(firefox, lockwise, mozilla)
         val state = BookmarksState.default.copy(bookmarkItems = items)

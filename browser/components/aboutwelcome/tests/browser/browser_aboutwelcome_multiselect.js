@@ -54,7 +54,7 @@ const PICKER_CONTENT = {
       {
         type: "multiselect",
         multiSelectItemDesign: "picker",
-        subtitle: { raw: "What are you using Firefox for?" },
+        subtitle: { raw: "What are you using Plezix for?" },
         data: [
           {
             id: "checkbox-school",

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -15,37 +15,37 @@ ChromeUtils.defineLazyGetter(lazy, "log", () => {
     "resource://messaging-system/lib/Logger.sys.mjs"
   );
 
-  return new Logger("FirefoxLabs");
+  return new Logger("PlezixLabs");
 });
 
 const IS_MAIN_PROCESS =
   Services.appinfo.processType === Services.appinfo.PROCESS_TYPE_DEFAULT;
 
-export class FirefoxLabs {
+export class PlezixLabs {
   #recipes;
 
   /**
-   * Construct a new FirefoxLabs instance from the given set of recipes.
+   * Construct a new PlezixLabs instance from the given set of recipes.
    *
    * @param {object[]} recipes The opt-in recipes to use.
    *
-   * NB: You shiould use FirefoxLabs.create() directly instead of calling this constructor.
+   * NB: You shiould use PlezixLabs.create() directly instead of calling this constructor.
    */
   constructor(recipes) {
     this.#recipes = new Map(recipes.map(recipe => [recipe.slug, recipe]));
   }
 
   /**
-   * Create a new FirefoxLabs instance with all available opt-in recipes that match targeting and
+   * Create a new PlezixLabs instance with all available opt-in recipes that match targeting and
    * bucketing.
    */
   static async create() {
     if (!IS_MAIN_PROCESS) {
-      throw new Error("FirefoxLabs can only be created in the main process");
+      throw new Error("PlezixLabs can only be created in the main process");
     }
 
     const recipes = await lazy.ExperimentAPI.manager.getAllOptInRecipes();
-    return new FirefoxLabs(recipes);
+    return new PlezixLabs(recipes);
   }
 
   /**

@@ -1,10 +1,10 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 use crate::browser::{Browser, LocalBrowser, RemoteBrowser};
 use crate::build;
-use crate::capabilities::{FirefoxCapabilities, FirefoxOptions, ProfileType};
+use crate::capabilities::{PlezixCapabilities, PlezixOptions, ProfileType};
 use crate::command::{
     AddonInstallParameters, AddonPath, AddonUninstallParameters, GeckoContextParameters,
     GeckoExtensionCommand, GeckoExtensionRoute,
@@ -106,7 +106,7 @@ pub(crate) struct MarionetteSettings {
     pub(crate) allow_origins: Vec<Url>,
     pub(crate) system_access: bool,
 
-    /// Brings up the Browser Toolbox when starting Firefox,
+    /// Brings up the Browser Toolbox when starting Plezix,
     /// letting you debug internals.
     pub(crate) jsdebugger: bool,
 
@@ -132,7 +132,7 @@ impl MarionetteHandler {
         session_id: Option<String>,
         new_session_parameters: &NewSessionParameters,
     ) -> WebDriverResult<MarionetteConnection> {
-        let mut fx_capabilities = FirefoxCapabilities::new(self.settings.binary.as_ref());
+        let mut fx_capabilities = PlezixCapabilities::new(self.settings.binary.as_ref());
         let (capabilities, options) = {
             let mut capabilities = new_session_parameters
                 .match_browser(&mut fx_capabilities)?
@@ -143,7 +143,7 @@ impl MarionetteHandler {
                     )
                 })?;
 
-            let options = FirefoxOptions::from_capabilities(
+            let options = PlezixOptions::from_capabilities(
                 fx_capabilities.chosen_binary.clone(),
                 &self.settings,
                 &mut capabilities,
@@ -159,7 +159,7 @@ impl MarionetteHandler {
         let marionette_port = match self.settings.port {
             Some(port) => port,
             None => {
-                // If we're launching Firefox Desktop version 95 or later, and there's no port
+                // If we're launching Plezix Desktop version 95 or later, and there's no port
                 // specified, we can pass 0 as the port and later read it back from
                 // the profile.
                 let can_use_profile: bool = options.android.is_none()
@@ -1368,7 +1368,7 @@ impl MarionetteConnection {
                 );
             }
         } else {
-            debug!("To store minidump files of Firefox crashes the MINIDUMP_SAVE_PATH environment variable needs to be set.");
+            debug!("To store minidump files of Plezix crashes the MINIDUMP_SAVE_PATH environment variable needs to be set.");
         }
 
         self.stream.shutdown(Shutdown::Both)?;

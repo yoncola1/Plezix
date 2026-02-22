@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -16,7 +16,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.mozilla.fenix.addons.AddonPermissionsUpdateRequest
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 class AddonPermissionsScreenTest {
     @get:Rule
@@ -25,7 +25,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testNoPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = emptyList(),
                     optionalPermissions = emptyList(),
@@ -54,7 +54,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testRequiredPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = listOf("Access browser tabs"),
                     optionalPermissions = emptyList(),
@@ -85,7 +85,7 @@ class AddonPermissionsScreenTest {
     fun testOptionalPermissions() {
         var request: AddonPermissionsUpdateRequest? = null
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = emptyList(),
                     optionalPermissions = listOf(
@@ -129,7 +129,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testRequiredAndOptionalPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = listOf("Access browser tabs"),
                     optionalPermissions = listOf(
@@ -165,7 +165,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testRequiredDataCollectionPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = emptyList(),
                     optionalPermissions = emptyList(),
@@ -196,7 +196,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testNoneDataCollectionPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = emptyList(),
                     optionalPermissions = emptyList(),
@@ -229,7 +229,7 @@ class AddonPermissionsScreenTest {
     fun testOptionalDataCollectionPermissions() {
         var request: AddonPermissionsUpdateRequest? = null
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = emptyList(),
                     optionalPermissions = emptyList(),
@@ -273,7 +273,7 @@ class AddonPermissionsScreenTest {
     @Test
     fun testAllPermissions() {
         composeTestRule.setContent {
-            FirefoxTheme {
+            PlezixTheme {
                 AddonPermissionsScreen(
                     permissions = listOf("Access browser tabs"),
                     optionalPermissions = listOf(

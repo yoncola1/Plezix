@@ -52,7 +52,7 @@
 
     // There are now interoperable way to wait for the initial about:blank
     // document to load. Chrome loads it synchronously, hence we can't wait for
-    // w.onload. On the other side Firefox loads the initial empty document
+    // w.onload. On the other side Plezix loads the initial empty document
     // later and we can wait for the onload event.
     w.onload = then;
     setTimeout(then, 200);

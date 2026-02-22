@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,9 +30,9 @@ class AccountUiView(
 
     private val preferenceSignIn =
         fragment.requirePreference<Preference>(R.string.pref_key_sign_in)
-    private val preferenceFirefoxAccount =
+    private val preferencePlezixAccount =
         fragment.requirePreference<AccountPreference>(R.string.pref_key_account)
-    private val preferenceFirefoxAccountAuthError =
+    private val preferencePlezixAccountAuthError =
         fragment.requirePreference<AccountAuthErrorPreference>(R.string.pref_key_account_auth_error)
     private val accountPreferenceCategory =
         fragment.requirePreference<PreferenceCategory>(R.string.pref_key_account_category)
@@ -55,37 +55,37 @@ class AccountUiView(
             if (avatarUrl != null) {
                 avatarJob = scope.launch {
                     val roundedAvatarDrawable = toRoundedDrawable(avatarUrl, context)
-                    preferenceFirefoxAccount.icon = roundedAvatarDrawable ?: genericAvatar(context)
+                    preferencePlezixAccount.icon = roundedAvatarDrawable ?: genericAvatar(context)
                 }
             } else {
                 avatarJob = null
-                preferenceFirefoxAccount.icon = genericAvatar(context)
+                preferencePlezixAccount.icon = genericAvatar(context)
             }
 
             preferenceSignIn.onPreferenceClickListener = null
-            preferenceFirefoxAccountAuthError.isVisible = false
-            preferenceFirefoxAccount.isVisible = true
+            preferencePlezixAccountAuthError.isVisible = false
+            preferencePlezixAccount.isVisible = true
             accountPreferenceCategory.isVisible = true
 
-            preferenceFirefoxAccount.displayName = profile?.displayName
-            preferenceFirefoxAccount.email = profile?.email
+            preferencePlezixAccount.displayName = profile?.displayName
+            preferencePlezixAccount.email = profile?.email
 
             // Signed-in, need to re-authenticate.
         } else if (account != null && accountManager.accountNeedsReauth()) {
-            preferenceFirefoxAccount.isVisible = false
-            preferenceFirefoxAccountAuthError.isVisible = true
+            preferencePlezixAccount.isVisible = false
+            preferencePlezixAccountAuthError.isVisible = true
             accountPreferenceCategory.isVisible = true
 
             preferenceSignIn.isVisible = false
             preferenceSignIn.onPreferenceClickListener = null
 
-            preferenceFirefoxAccountAuthError.email = profile?.email
+            preferencePlezixAccountAuthError.email = profile?.email
 
             // Signed-out.
         } else {
             preferenceSignIn.isVisible = true
-            preferenceFirefoxAccount.isVisible = false
-            preferenceFirefoxAccountAuthError.isVisible = false
+            preferencePlezixAccount.isVisible = false
+            preferencePlezixAccountAuthError.isVisible = false
             accountPreferenceCategory.isVisible = false
         }
     }

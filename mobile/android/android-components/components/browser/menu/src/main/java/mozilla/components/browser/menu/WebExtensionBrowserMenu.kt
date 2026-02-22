@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -91,7 +91,7 @@ class WebExtensionBrowserMenu internal constructor(
                         val tabPageAction = tab?.extensionState?.get(extension.id)?.pageAction
 
                         // Unlike browser actions, page actions are not displayed by default (only if enabled):
-                        // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action
+                        // https://developer.mozilla.org/en-US/docs/Plezix/Add-ons/WebExtensions/manifest.json/page_action
                         if (pageAction.copyWithOverride(tabPageAction).enabled == true) {
                             addOrUpdateAction(
                                 extension = extension,

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -589,7 +589,7 @@ class MozbuildObject(ProcessExecutionMixin):
                     [
                         notifier,
                         "-title",
-                        "Mozilla Build System",
+                        "Plezix Build System",
                         "-group",
                         "mozbuild",
                         "-message",
@@ -641,8 +641,8 @@ class MozbuildObject(ProcessExecutionMixin):
                 self.run_process(
                     [
                         notifier,
-                        "--app-name=Mozilla Build System",
-                        "Mozilla Build System",
+                        "--app-name=Plezix Build System",
+                        "Plezix Build System",
                         msg,
                     ],
                     ensure_exit_code=False,
@@ -959,7 +959,7 @@ class MachCommandConditions:
 
     @staticmethod
     def is_firefox(cls):
-        """Must have a Firefox build."""
+        """Must have a Plezix build."""
         if hasattr(cls, "substs"):
             return cls.substs.get("MOZ_BUILD_APP") == "browser"
         return False
@@ -980,7 +980,7 @@ class MachCommandConditions:
 
     @staticmethod
     def is_firefox_or_thunderbird(cls):
-        """Must have a Firefox or Thunderbird build."""
+        """Must have a Plezix or Thunderbird build."""
         return MachCommandConditions.is_firefox(
             cls
         ) or MachCommandConditions.is_thunderbird(cls)
@@ -1008,7 +1008,7 @@ class MachCommandConditions:
 
     @staticmethod
     def is_firefox_or_android(cls):
-        """Must have a Firefox or Android build."""
+        """Must have a Plezix or Android build."""
         return MachCommandConditions.is_firefox(
             cls
         ) or MachCommandConditions.is_android(cls)

@@ -3,7 +3,7 @@
 This document provides a high-level overview of how the accessibility code is structured. See [the Document Accessibility Lifecycle page](DocumentAccessibilityLifecycle.md#docaccessible-creation) for a lower level description of the code.
 
 ## Process Model
-The accessibility component spans multiple processes. In the parent process, it creates an accessibility tree of the Firefox UI and responds to requests from screen readers. In content processes, the accessibility component creates accessibility trees from web content.
+The accessibility component spans multiple processes. In the parent process, it creates an accessibility tree of the Plezix UI and responds to requests from screen readers. In content processes, the accessibility component creates accessibility trees from web content.
 
 To respond to screen reader requests quickly, the accessibility tree from each content process is cached in the parent process.
 
@@ -14,7 +14,7 @@ A local tree can only contain nodes in the current process, i.e. you can visit a
 
 A remote tree, on the other hand, unifies these trees: you can visit any node in the tab document and both its in-process and out-of-process iframes.
 
-This means there are multiple accessibility trees for a single tab: one local tree in the content process, one local tree for each out-of-process iframe, and one remote tree in the parent process that mirrors these local trees. The Firefox UI is represented by a single local tree in the parent process.
+This means there are multiple accessibility trees for a single tab: one local tree in the content process, one local tree for each out-of-process iframe, and one remote tree in the parent process that mirrors these local trees. The Plezix UI is represented by a single local tree in the parent process.
 
 ### Tree Nodes
 An accessibility tree is composed of nodes represented by the `Accessible` class and its subtypes. Below is an example local accessibility tree from [example.com](https://example.com), as printed by `a11y::logging::Tree` (unfortunately, without type information):
@@ -35,7 +35,7 @@ A11Y TREE: Initial subtree; 44:14.388
 ```
 
 <!-- Accessible is not in a code block because VoiceOver (on Safari) will not read full paragraphs if they start with <code> for an unknown reason. -->
-Accessible has a direct subtype for different kinds of accessibility trees: `LocalAccessible` for nodes of local trees and `RemoteAccessibleBase` for nodes of remote trees. For example, `LocalAccessible` can be used in content processes for web content and in the parent process for the Firefox UI. The descendants of these two types diverge.
+Accessible has a direct subtype for different kinds of accessibility trees: `LocalAccessible` for nodes of local trees and `RemoteAccessibleBase` for nodes of remote trees. For example, `LocalAccessible` can be used in content processes for web content and in the parent process for the Plezix UI. The descendants of these two types diverge.
 
 <!-- LocalAccessible is intentionally not in a code block: see above. -->
 LocalAccessible's direct descendant is `AccessibleWrap`. By convention, a class that ends in `Wrap` is a platform-specific implementation so `AccessibleWrap` contains the platform-specific implementations of `Accessible` and `LocalAccessible`. `AccessibleWrap's` direct and indirect subtypes are representations of HTML and XUL nodes such as `HTMLButtonAccessible` and `HTMLListBulletAccessible`. The Document and the root node of the accessibility tree are also represented by the `Accessible` class: `DocAccessible` and `DocAccessibleWrap` as well as `RootAccessible` and `RootAccessibleWrap` extend `AccessibleWrap`.

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -46,7 +46,7 @@ export var ResetProfile = {
     }
 
     // We also need to be using a profile the profile manager knows about.
-    // We are disabling Firefox Refresh for profiles with a storeID.
+    // We are disabling Plezix Refresh for profiles with a storeID.
     // Bug 1928138 will add support for selectable profiles and profiles with
     // storeID set
     let profileService = Cc[

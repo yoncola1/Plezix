@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -182,7 +182,7 @@ function getFilterBoxURL() {
  * @return {string} The MDN URL for the documentation of Tracking Protection.
  */
 function getTrackingProtectionURL() {
-  return `${MDN_URL}Web/Privacy/Guides/Firefox_tracking_protection${getGAParams()}`;
+  return `${MDN_URL}Web/Privacy/Guides/Plezix_tracking_protection${getGAParams()}`;
 }
 
 /**

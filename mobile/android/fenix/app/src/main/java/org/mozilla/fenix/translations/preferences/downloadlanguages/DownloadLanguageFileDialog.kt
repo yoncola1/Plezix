@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -34,7 +34,7 @@ import mozilla.components.compose.base.button.TextButton
 import mozilla.components.feature.downloads.DefaultFileSizeFormatter
 import mozilla.components.feature.downloads.FileSizeFormatter
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Download Languages File Dialog.
@@ -62,7 +62,7 @@ fun DownloadLanguageFileDialog(
         Column(
             modifier = Modifier
                 .background(
-                    color = FirefoxTheme.colors.layer2,
+                    color = PlezixTheme.colors.layer2,
                     shape = RoundedCornerShape(8.dp),
                 )
                 .padding(16.dp),
@@ -83,8 +83,8 @@ fun DownloadLanguageFileDialog(
                 text = title,
                 modifier = Modifier
                     .semantics { heading() },
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline7,
+                color = PlezixTheme.colors.textPrimary,
+                style = PlezixTheme.typography.headline7,
             )
 
             if (downloadLanguageDialogType is DownloadLanguageFileDialogType.AllLanguages ||
@@ -93,8 +93,8 @@ fun DownloadLanguageFileDialog(
                 Text(
                     text = stringResource(R.string.download_language_file_dialog_message_all_languages),
                     modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
-                    style = FirefoxTheme.typography.body2,
-                    color = FirefoxTheme.colors.textPrimary,
+                    style = PlezixTheme.typography.body2,
+                    color = PlezixTheme.colors.textPrimary,
                 )
             }
 
@@ -159,8 +159,8 @@ private fun DownloadLanguageFileDialogCheckbox(
             checked = isCheckBoxEnabled,
             onCheckedChange = onSavingModeStateChange,
             colors = CheckboxDefaults.colors(
-                checkedColor = FirefoxTheme.colors.formSelected,
-                uncheckedColor = FirefoxTheme.colors.formDefault,
+                checkedColor = PlezixTheme.colors.formSelected,
+                uncheckedColor = PlezixTheme.colors.formDefault,
             ),
         )
 
@@ -170,8 +170,8 @@ private fun DownloadLanguageFileDialogCheckbox(
             modifier = Modifier
                 .align(Alignment.CenterVertically),
             text = checkBoxText,
-            style = FirefoxTheme.typography.body2,
-            color = FirefoxTheme.colors.textPrimary,
+            style = PlezixTheme.typography.body2,
+            color = PlezixTheme.colors.textPrimary,
         )
     }
 }
@@ -179,7 +179,7 @@ private fun DownloadLanguageFileDialogCheckbox(
 @Composable
 @PreviewLightDark
 private fun PrefDownloadLanguageFileDialogPreviewAllLanguages() {
-    FirefoxTheme {
+    PlezixTheme {
         DownloadLanguageFileDialog(
             downloadLanguageDialogType = DownloadLanguageFileDialogType.AllLanguages,
             fileSizeFormatter = DefaultFileSizeFormatter(LocalContext.current),
@@ -218,7 +218,7 @@ sealed class DownloadLanguageFileDialogType {
 @Composable
 @PreviewLightDark
 private fun PrefDownloadLanguageFileDialogPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         DownloadLanguageFileDialog(
             downloadLanguageDialogType = DownloadLanguageFileDialogType.Default,
             fileSizeFormatter = DefaultFileSizeFormatter(LocalContext.current),

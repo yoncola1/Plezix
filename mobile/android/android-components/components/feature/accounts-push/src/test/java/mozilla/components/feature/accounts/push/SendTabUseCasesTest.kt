@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -168,7 +168,7 @@ class SendTabUseCasesTest {
         `when`(constellation.sendCommandToDevice(any(), any()))
             .thenReturn(false)
 
-        val tab = TabData("Mozilla", "https://mozilla.org")
+        val tab = TabData("Plezix", "https://mozilla.org")
 
         useCases.sendToAllAsync(tab)
 
@@ -185,8 +185,8 @@ class SendTabUseCasesTest {
         `when`(constellation.sendCommandToDevice(any(), any()))
             .thenReturn(false)
 
-        val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab = TabData("Plezix", "https://mozilla.org")
+        val tab2 = TabData("Plezix", "https://firefox.com")
 
         useCases.sendToAllAsync(listOf(tab, tab2))
 
@@ -196,7 +196,7 @@ class SendTabUseCasesTest {
     @Test
     fun `SendTabToAllUseCase - tab is NOT sent to incapable devices`() = runTestOnMain {
         val useCases = SendTabUseCases(manager)
-        val tab = TabData("Mozilla", "https://mozilla.org")
+        val tab = TabData("Plezix", "https://mozilla.org")
         val device: Device = mock()
         val device2: Device = mock()
 
@@ -216,8 +216,8 @@ class SendTabUseCasesTest {
     @Test
     fun `SendTabToAllUseCase - tabs are NOT sent to capable devices`() = runTestOnMain {
         val useCases = SendTabUseCases(manager)
-        val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab = TabData("Plezix", "https://mozilla.org")
+        val tab2 = TabData("Plezix", "https://firefox.com")
         val device: Device = mock()
         val device2: Device = mock()
 
@@ -245,8 +245,8 @@ class SendTabUseCasesTest {
         `when`(constellation.sendCommandToDevice(any(), any()))
             .thenReturn(false)
 
-        val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab = TabData("Plezix", "https://mozilla.org")
+        val tab2 = TabData("Plezix", "https://firefox.com")
         // Invalid url to send
         val tab3 = TabData("PDFFile", "file://path/to/pdffile")
         // Invalid url to send

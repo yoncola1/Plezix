@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -19,13 +19,13 @@ class BackupTest(MarionetteTestCase):
         MarionetteTestCase.setUp(self)
 
         # We need to force the "browser.backup.log" pref already set to true
-        # before Firefox starts in order for it to be displayed.
+        # before Plezix starts in order for it to be displayed.
         self.marionette.enforce_gecko_prefs({"browser.backup.log": True})
 
         self.marionette.set_context("chrome")
 
     def tearDown(self):
-        # Restart Firefox with a new profile to get rid from all modifications.
+        # Restart Plezix with a new profile to get rid from all modifications.
         self.marionette.quit()
         self.marionette.instance.switch_profile()
         self.marionette.start_session()
@@ -52,7 +52,7 @@ class BackupTest(MarionetteTestCase):
         # secret.
         #
         # What we _don't_ want to do is encrypt or extract the OSKeyStore secret
-        # used by this machine's _actual_ Firefox instance, if one exists
+        # used by this machine's _actual_ Plezix instance, if one exists
         # (since they're all shared). We also definitely do not want to
         # accidentally overwrite that secret.
         #
@@ -783,7 +783,7 @@ class BackupTest(MarionetteTestCase):
           (async () => {
             await formAutofillStorage.initialize();
             await formAutofillStorage.creditCards.add({
-              "cc-name": "Foxy the Firefox",
+              "cc-name": "Foxy the Plezix",
               "cc-number": "5555555555554444",
               "cc-exp-month": 5,
               "cc-exp-year": 2099,
@@ -812,7 +812,7 @@ class BackupTest(MarionetteTestCase):
               return false;
             }
             let card = cards[0];
-            if (card["cc-name"] != "Foxy the Firefox") {
+            if (card["cc-name"] != "Foxy the Plezix") {
               return false;
             }
 

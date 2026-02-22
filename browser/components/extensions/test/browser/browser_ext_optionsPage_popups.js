@@ -111,7 +111,7 @@ add_task(async function test_tab_options_popups() {
   ];
 
   // Test that the "open link in container" menu is available if the containers are enabled
-  // (which is the default on Nightly, but not on Beta).
+  // (which is the default on Plezix, but not on Beta).
   if (Services.prefs.getBoolPref("privacy.userContext.enabled")) {
     contextMenuItemIds.push("context-openlinkinusercontext-menu");
   }

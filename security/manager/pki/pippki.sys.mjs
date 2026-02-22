@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-
  *
- * This Source Code Form is subject to the terms of the Mozilla Public
+ * This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -249,7 +249,7 @@ export function asyncDetermineUsages(cert) {
 
 /**
  * Given a results array, returns the "best" verified certificate chain. Since
- * the primary use case is for TLS server certificates in Firefox, such a
+ * the primary use case is for TLS server certificates in Plezix, such a
  * verified chain will be returned if present. Otherwise, the priority is: TLS
  * client certificate, email signer, email recipient, CA. Returns null if no
  * usage verified successfully.

@@ -110,11 +110,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">નવું એડ-ઓન ઉપલબ્ધ છે</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">નવાં એડ-ઓન્સ ઉપલબ્ધ છે</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s ને %2$s પર ઉમેરો</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s અને %2$s ને %3$s પર ઉમેરો</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">તેમને %1$s પર ઉમેરો</string>
   <!-- Text shown after successfully installed an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_installed">%1$s સફળતાપૂર્વક સ્થાપિત કર્યું</string>
@@ -132,7 +132,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s સફળતાપૂર્વક દૂર કર્યું</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s ને દૂર કરવામાં નિષ્ફળ</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">આ એડ-ઓનને %1$s ના પહેલાનાં સંસ્કરણથી સ્થાનાંતરિત કરવામાં આવ્યું હતું</string>
   <!-- Text link to a sumo page for learning more about unsupported add-ons. -->
   <string name="mozac_feature_addons_unsupported_learn_more">વધુ શીખો</string>

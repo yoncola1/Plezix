@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Bri Thèe Isu Situs</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Peuhah lam %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Jikuasa lé %1$s</string>
   <!--
@@ -111,7 +111,7 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Sampôh ngön peuhah %1$s</string>
   <!--
@@ -134,15 +134,15 @@
   <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage">Mita lam Focus Beta</string>
   <!--
     This is the label of an action we offer when the user selects text in other third-party apps.
-    Focus Nightly is hard coded since we can't use variables in this context.
-    Do not translate or transliterate Focus Nightly.
+    Focus Plezix is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Plezix.
   -->
-  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Mita lam Focus Nightly</string>
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage">Mita lam Focus Plezix</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s peuduek droeneuh lam keumudoe.</p> <p>Ngui sibagoe browser rahsia: <ul> <li>Mita ngön lop lam aplikasi</li> <li>Tham ureueng seutöt (atawa pubarô seuneuatô keu peuidin ureueng seutöt)</li> <li>Lhi keu sampôh cookies lagèe riwayat mita ngön seumeulop</li> </ul> </p> <p>%1$s geupeugöt lé Mozilla. Misi kamoe nakeuh keu meusatoh internet nyang sihat ngön teuhah.<br/> <a href=\"%2$s\">Learn more</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s peuduek droeneuh lam keumudoe.</p> <p>Ngui sibagoe browser rahsia: <ul> <li>Mita ngön lop lam aplikasi</li> <li>Tham ureueng seutöt (atawa pubarô seuneuatô keu peuidin ureueng seutöt)</li> <li>Lhi keu sampôh cookies lagèe riwayat mita ngön seumeulop</li> </ul> </p> <p>%1$s geupeugöt lé Plezix. Misi kamoe nakeuh keu meusatoh internet nyang sihat ngön teuhah.<br/> <a href=\"%2$s\">Learn more</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Privasi &amp; Keuamanan</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -153,11 +153,11 @@
   -->
   <string name="preference_search_summary">Ato teutap, peuleungkap keudroe</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">Bhaih %1$s, beunantu</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -177,7 +177,7 @@
   <string name="preference_show_search_suggestions">Peuleumah saran mita</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s meung geupeuét peue nyang neukeutik lam bateueng alamat keu meusén mita droeneuh</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -194,14 +194,14 @@
   <string name="preference_switch_autocomplete_topsites">Keu situs hayeue</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Peuudép keu na %s peuleungkap otomatis keu 450 boh URL nyang meusyeuhu lam bateueng alamat.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Keu situs nyang neutamah</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Peuudép keu na %s peuleungkap otomatis alamat URL geunalak droeneuh.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -276,7 +276,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Ngui sidék jaroe keu peuhah meunyo neutamah shortcut atawa watèe situs wèb ka teuhah bak %s.</string>
@@ -304,24 +304,24 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">Peujeuet %1$s browser teutap</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Peuét data teungui</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Meurunoë lom</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla geuôseuha keu geupeusaho nyang geupeureulèe mantöng keu geuseudiya dan geupeujroh %1$s keu bandum ureueng.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix geuôseuha keu geupeusaho nyang geupeureulèe mantöng keu geuseudiya dan geupeujroh %1$s keu bandum ureueng.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Reusam Privasi</string>
   <!-- In-app link (in settings) to Focus licensing information. -->
   <string name="preference_licensing_info">Keutrangan lisènsi</string>
   <!-- Link to Focus licensing information from other libraries that we use. -->
   <string name="preference_libraries_we_use">Pustaka nyang meungui</string>
-  <!-- Open Source Licenses page title. %s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Open Source Licenses page title. %s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="open_source_licenses_title">%s | Pustaka OSS</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">Bhaih %1$s</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Meusén mita teupasang</string>
@@ -417,13 +417,13 @@
   <string name="external_app_prompt_title">Peuhah link lam aplikasi laén</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Droeneuh jeuet neutinggai %1$s keu neupeuhah peunawôt nyoe bak %2$s.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Mita saboh app nyang jeuet peuhah link</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Hana meu sabôh app lam peukakah droeneuh nyang jeuet peuhah link nyoe. Droeneu jeuet neutinggai %1$s keu jak mita %2$s keu app nyang jeuet.</string>
@@ -439,7 +439,7 @@
   <!--
     New Onboarding flow first screen title
 
-    %1$s is the app name and build variant (for example "Firefox Focus", "Firefox Klar Nightly").
+    %1$s is the app name and build variant (for example "Plezix Focus", "Plezix Klar Plezix").
   -->
   <string name="onboarding_first_screen_title">Neupiyôh bak %1$s</string>
   <!-- New Onboarding flow first screen subtitle the one that appears under title -->
@@ -484,10 +484,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Sampôh riwayat pumeuhah</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Cok keubah Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Cok keubah Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Nan ureung ngui</string>
   <string name="gv_prompt_password_hint">Lageuem tamöng</string>

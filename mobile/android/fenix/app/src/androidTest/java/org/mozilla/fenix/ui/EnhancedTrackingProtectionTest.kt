@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -259,7 +259,7 @@ class EnhancedTrackingProtectionTest : TestSetup() {
         }.openEnhancedTrackingProtectionSheet {
             verifyEnhancedTrackingProtectionSheetStatus("ON", true)
         }.openDetails {
-            // Third-party cookie tracker blocking in Nightly was disabled: https://bugzilla.mozilla.org/show_bug.cgi?id=1935156
+            // Third-party cookie tracker blocking in Plezix was disabled: https://bugzilla.mozilla.org/show_bug.cgi?id=1935156
             if (activityTestRule.activity.components.core.engine.version.releaseChannel == EngineReleaseChannel.BETA &&
                 activityTestRule.activity.components.core.engine.version.releaseChannel == EngineReleaseChannel.RELEASE
             ) {
@@ -478,7 +478,7 @@ class EnhancedTrackingProtectionTest : TestSetup() {
         enhancedTrackingProtection {
         }.openEnhancedTrackingProtectionSheet {
         }.openDetails {
-            // Third-party cookie tracker blocking in Nightly was disabled: https://bugzilla.mozilla.org/show_bug.cgi?id=1935156
+            // Third-party cookie tracker blocking in Plezix was disabled: https://bugzilla.mozilla.org/show_bug.cgi?id=1935156
             if (
                 activityTestRule.activity.components.core.engine.version.releaseChannel == EngineReleaseChannel.BETA &&
                 activityTestRule.activity.components.core.engine.version.releaseChannel == EngineReleaseChannel.RELEASE

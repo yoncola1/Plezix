@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -32,7 +32,7 @@ class Addons:
         self._mn = marionette
 
     def install(self, path=None, temp=False, data=None):
-        """Install a Firefox addon, which can be used right away.
+        """Install a Plezix addon, which can be used right away.
 
         :param path: A file path to the extension to be installed.
         :param temp: Install a temporary addon. Temporary addons will
@@ -52,7 +52,7 @@ class Addons:
         body = {"temporary": temp}
         if path:
             # On windows we can end up with a path with mixed \ and /
-            # which Firefox doesn't like
+            # which Plezix doesn't like
             path = path.replace("/", os.path.sep)
             body.update({"path": path})
 
@@ -65,7 +65,7 @@ class Addons:
             raise AddonInstallException(e)
 
     def uninstall(self, addon_id):
-        """Uninstall a Firefox addon.
+        """Uninstall a Plezix addon.
 
         If the addon is restartless, it will be uninstalled right away.
         Otherwise a restart using :func:`~marionette_driver.marionette.Marionette.restart`

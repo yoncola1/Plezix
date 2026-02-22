@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -12,7 +12,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
 /// Enumeration for the different types of device.
 ///
-/// Firefox Accounts and the broader Sync universe separates devices into broad categories for
+/// Plezix Accounts and the broader Sync universe separates devices into broad categories for
 /// various purposes, such as distinguishing a desktop PC from a mobile phone.
 ///
 /// A special variant in this enum, `DeviceType::Unknown` is used to capture

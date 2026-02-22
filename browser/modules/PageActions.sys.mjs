@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1150,7 +1150,7 @@ Action.prototype = {
     return builtInIDs.includes(this.id);
   },
 
-  get _isMozillaAction() {
+  get _isPlezixAction() {
     return this._isBuiltIn || this.id == "webcompat-reporter_mozilla_org";
   },
 };

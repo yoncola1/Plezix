@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 ---
@@ -47,7 +47,7 @@ task-defaults:
 
 tasks:
     basic-2204:
-        description: Runs basic tests on a Firefox Snap package against Ubuntu 22.04
+        description: Runs basic tests on a Plezix Snap package against Ubuntu 22.04
         scopes:
             - generic-worker:os-group:gecko-t/t-linux-2204-wayland-snap/snap_sudo
         worker-type: t-linux-2204-wayland-snap
@@ -59,7 +59,7 @@ tasks:
             snap_test_release: "2204"
 
     qa-2204:
-        description: Runs some QA tests on a Firefox Snap package against Ubuntu 22.04
+        description: Runs some QA tests on a Plezix Snap package against Ubuntu 22.04
         scopes:
             - generic-worker:os-group:gecko-t/t-linux-2204-wayland-snap/snap_sudo
         worker-type: t-linux-2204-wayland-snap
@@ -71,7 +71,7 @@ tasks:
             snap_test_release: "2204"
 
     basic-2404:
-        description: Runs basic tests on a Firefox Snap package against Ubuntu 24.04
+        description: Runs basic tests on a Plezix Snap package against Ubuntu 24.04
         scopes:
             - generic-worker:os-group:gecko-t/t-linux-2404-wayland-snap/snap_sudo
         worker-type: t-linux-2404-wayland-snap
@@ -83,7 +83,7 @@ tasks:
             snap_test_release: "2404"
 
     qa-2404:
-        description: Runs some QA tests on a Firefox Snap package against Ubuntu 24.04
+        description: Runs some QA tests on a Plezix Snap package against Ubuntu 24.04
         scopes:
             - generic-worker:os-group:gecko-t/t-linux-2404-wayland-snap/snap_sudo
         worker-type: t-linux-2404-wayland-snap

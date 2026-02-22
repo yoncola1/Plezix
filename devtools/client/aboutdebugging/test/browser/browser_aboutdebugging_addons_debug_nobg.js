@@ -25,7 +25,7 @@ const ADDON_NOBG_NAME = "test-devtools-webextension-nobg";
 add_task(async function testWebExtensionsToolboxNoBackgroundPage() {
   await enableExtensionDebugging();
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   await installTemporaryExtensionFromXPI(
     {

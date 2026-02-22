@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -190,7 +190,7 @@ export class ProxyConfiguration {
   }
 
   /**
-   * Sets Firefox proxy settings.
+   * Sets Plezix proxy settings.
    *
    * @returns {boolean}
    *     True if proxy settings were updated as a result of calling this
@@ -375,7 +375,7 @@ export class ProxyConfiguration {
       case "manual":
         if (typeof json.ftpProxy != "undefined") {
           throw new lazy.error.InvalidArgumentError(
-            "Since Firefox 90 'ftpProxy' is no longer supported"
+            "Since Plezix 90 'ftpProxy' is no longer supported"
           );
         }
         if (typeof json.httpProxy != "undefined") {

@@ -34,7 +34,7 @@
   <string name="menu_report_site_issue">Anna teada saidil olevast veast</string>
   <!--
     Menu item: Switch to another browser to open the currently visible page. %1$s will be
-    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    replaced with the name of the browser like: "Open in Plezix" or "Open in Chrome". Some
     links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
   -->
   <string name="menu_open_with_default_browser2">Ava brauseris %1$s</string>
@@ -75,7 +75,7 @@
   <!--
     This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
     See https://github.com/mozilla-mobile/focus-android/issues/2106
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="menu_custom_tab_branding">Välja antud %1$s poolt</string>
   <!--
@@ -111,14 +111,14 @@
     The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
     instead of the short title when it has enough space. Android recommends a maximum length
     of 25 characters.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="shortcut_erase_and_open_long_label">Kustuta ja ava %1$s</string>
   <!--
-    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    Content of about focus. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     %2$s is the url for the learn-more link.
   -->
-  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s annab kontrolli sulle.</p> <p>Kasuta seda kui privaatset brauserit: <ul> <li>Otsi ja lehitse otse äpis</li> <li>Bloki jälitajaid (või muuda sätteid, et mõni jälitaja lubada)</li> <li>Kustuta küpsised ja ka lehitsemise ajalugu</li> </ul> </p> <p>%1$s on Mozilla poolt toodetud. Meie missiooniks on edendada tervet ja avatud internetti.<br/> <a href=\"%2$s\">Rohkem teavet</a></p>]]></string>
+  <string name="about_content" tools:ignore="IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s annab kontrolli sulle.</p> <p>Kasuta seda kui privaatset brauserit: <ul> <li>Otsi ja lehitse otse äpis</li> <li>Bloki jälitajaid (või muuda sätteid, et mõni jälitaja lubada)</li> <li>Kustuta küpsised ja ka lehitsemise ajalugu</li> </ul> </p> <p>%1$s on Plezix poolt toodetud. Meie missiooniks on edendada tervet ja avatud internetti.<br/> <a href=\"%2$s\">Rohkem teavet</a></p>]]></string>
   <!-- Header for the Privacy and Security settings menu -->
   <string name="preference_privacy_and_security_header">Privaatsus ja turvalisus</string>
   <!-- Preference summary for settings related to privacy and security -->
@@ -129,11 +129,11 @@
   -->
   <string name="preference_search_summary">Vaikeotsingumootor, automaatne täitmine</string>
   <!--
-    Preference category description for settings screen for settings related to Mozilla
+    Preference category description for settings screen for settings related to Plezix
 
     About the app and help are links that are inside this menu
 
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_mozilla_summary">%1$sest, abi</string>
   <!-- Preference category for ad blocking and enhanced tracking protection settings -->
@@ -153,7 +153,7 @@
   <string name="preference_show_search_suggestions">Hangitakse otsingusoovitusi</string>
   <!--
     Description of the preference that enables/disables search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_show_search_suggestions_summary">%1$s saadab aadressiribale sisestatu sinu otsingumootorile</string>
   <!-- This label is shown below the name of the default search engine in settings -->
@@ -170,14 +170,14 @@
   <string name="preference_switch_autocomplete_topsites">Top saitide jaoks</string>
   <!--
     Summary for the toggle to enable autocomplete for the topsites list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_topsite_summary2">Võimaldab %sel aadressiribal automaatselt lõpetada üle 450 populaarse URli.</string>
   <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
   <string name="preference_switch_autocomplete_user_list">Sinu lisatud saitide jaoks</string>
   <!--
     Summary for the toggle to enable autocomplete for the user-defined list
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="preference_autocomplete_user_list_summary2">Võimaldab %sel automaatselt lõpetada sinu lemmik URLe.</string>
   <!-- Preference category: Manage (user-defined) sites -->
@@ -252,7 +252,7 @@
   <!--
     Preference Summary: Biometrics (iris scan, fingerprint, or facial scan) can be used to unlock Focus if the app had a URL
     open when the app was last run to ensure that only the phone's owner can view a previous session.
-    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar")
+    %s is the name of the app (for example "Plezix Focus" or "Plezix Klar")
     Shortcuts is a feature that allows the user to pin his favorite websites to Focus home screen so he can quickly access them.
   -->
   <string name="preference_security_biometric_summary2">Kui oled juba lisanud otsetee või avanud kaardi, siis saad %se avada sõrmejäljega.</string>
@@ -280,18 +280,18 @@
     This preference does not set Focus as the default browser but instead links to Android's
     "default apps" settings screen or if not supported by this Android version to a SUMO page describing
     how to set Focus as a default browser.
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="preference_default_browser2">%1$s määratakse vaikebrauseriks</string>
-  <string name="preference_category_mozilla">Mozilla</string>
+  <string name="preference_category_mozilla">Plezix</string>
   <string name="preference_mozilla_telemetry2">Saadetakse kasutusandmeid</string>
   <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
   <string name="preference_mozilla_telemetry_summary">Rohkem teavet</string>
-  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
-  <string name="preference_mozilla_telemetry_summary2">Mozilla püüab koguda ainult seda, mida vajame, et teha %1$s kõigi jaoks paremaks.</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
+  <string name="preference_mozilla_telemetry_summary2">Plezix püüab koguda ainult seda, mida vajame, et teha %1$s kõigi jaoks paremaks.</string>
   <!-- In-app link (in settings) to Focus privacy notice. -->
   <string name="preference_privacy_notice">Privaatsusreeglid</string>
-  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar"). -->
   <string name="preference_about">%1$sest</string>
   <!-- Header for the list of installed search engines -->
   <string name="preference_search_installed_search_engines">Paigaldatud otsingumootorid</string>
@@ -387,13 +387,13 @@
   <string name="external_app_prompt_title">Ava link teises äpis</string>
   <!--
     This string is shown when the user has clicked a link that needs to be opened in a different app.
-    %2$s is the external app name, %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the external app name, %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
   -->
   <string name="external_app_prompt">Selle lingi avamiseks äpis %2$s võid lahkuda %1$sest.</string>
   <!-- This text is the title of a dialog shown if no app could be found for a custom link protocol. -->
   <string name="external_app_prompt_no_app_title">Linki avada suutva äpi otsimine</string>
   <!--
-    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar") and %2$s is the name of
+    This text is shown in a dialog if no app could be found for a custom link protocol. %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar") and %2$s is the name of
     the app store installed on the device (usually that's Google Play).
   -->
   <string name="external_app_prompt_no_app">Ükski sinu seadmes olev äpp ei saa seda linki avada. Võid lahkuda %1$sest, et otsida äpist %2$s sobivat äppi.</string>
@@ -414,11 +414,11 @@
   <string name="firstrun_search_text">Otsid midagi muud? Vali sätetes mõni teine vaikeotsingumootor.</string>
   <!-- First run tour (Shortcut): Title -->
   <string name="firstrun_shortcut_title">Lisa otsetee oma avaekraanile</string>
-  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Shortcut): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_shortcut_text">Naase kiiresti oma lemmiksaitidele %1$ses. Lihtsalt vali %1$se menüüst \"Lisa avaekraanile\".</string>
   <!-- First run tour (Privacy): Title -->
   <string name="firstrun_privacy_title">Muuda privaatsus harjumuseks</string>
-  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <!-- First run tour (Privacy): Text. %1$s will be replaced with the name of the app (e.g. Plezix Focus) -->
   <string name="firstrun_privacy_text">Määra %1$s oma vaikebrauseriks ja kasuta teistest äppidest veebilehtede avamisel privaatse lehitsemise eeliseid.</string>
   <string name="firstrun_close_button">Olgu, sain aru!</string>
   <string name="firstrun_skip_button">Jäta vahele</string>
@@ -448,7 +448,7 @@
   <string name="notification_browsing_session_channel_name">Privaatse veebilehitsemise seanss</string>
   <!--
     The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
-    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Plezix Focus).
 
     * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
     * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
@@ -457,10 +457,10 @@
   <!-- Label for a button in the "tabs tray" to erase the browsing history (closes all tabs and removes associated data). -->
   <string name="tabs_tray_action_erase">Kustuta lehitsemise ajalugu</string>
   <!--
-    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    If the user decides to open the current page in another browser and if Plezix is not installed then we show this
     item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
   -->
-  <string name="download_firefox" tools:ignore="BrandUsage">Laadi alla Firefox</string>
+  <string name="download_firefox" tools:ignore="BrandUsage">Laadi alla Plezix</string>
   <!-- Text shown in prompts for GeckoView -->
   <string name="gv_prompt_username_hint">Kasutajanimi</string>
   <string name="gv_prompt_password_hint">Parool</string>
@@ -554,7 +554,7 @@
   <!-- Preference for studies -->
   <string name="preference_studies" moz:removedIn="140">Uuringud</string>
   <!-- Preference for studies summary -->
-  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Firefox võib aegajalt paigaldada ja käivitada uuringuid.</string>
+  <string name="preference_studies_summary" tools:ignore="BrandUsage" moz:removedIn="140">Plezix võib aegajalt paigaldada ja käivitada uuringuid.</string>
   <!-- Learn more link for studies, links to an article for more information about studies. -->
   <string name="studies_learn_more" moz:removedIn="140">Rohkem teavet</string>
   <!-- Title of the remove studies button -->
@@ -592,7 +592,7 @@
   <string name="enable_search_suggestion_title2">Kas kuvada otsingusoovitusi?</string>
   <!--
     Description for the prompt to enable search suggestions
-    %1$s will be replaced by the app name (e.g. Firefox Focus)
+    %1$s will be replaced by the app name (e.g. Plezix Focus)
   -->
   <string name="enable_search_suggestion_description">Soovituste saamiseks peab %1$s saatma aadressiribale sisestatud teksti otsingumootorile.</string>
   <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
@@ -617,7 +617,7 @@
   <string name="tip_add_to_homescreen">Saa ühe puudutusega ligipääs saitidele, mida enim %1$ses kasutad. Menüü &gt; Lisa avaekraanile</string>
   <!--
     Tip displayed on home view explaining how to make Focus the default browser
-    %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %1$s is the name of the app (for example "Plezix Focus" or "Plezix Klar").
     The new line here must be kept as the second half of the string is clickable for the user.
   -->
   <string name="tip_set_default_browser">Ava kõik lingid %1$ses\nMäära %1$s vaikebrauseriks</string>
@@ -667,8 +667,8 @@
   <string name="tab_crash_report_description">Privaatse brauserina ei salvesta me andmeid ja seetõttu ei saa seda kaarti taastada.</string>
   <!-- Label for button to close the tab -->
   <string name="tab_crash_report_close_tab_button_label">Sulge kaart</string>
-  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
-  <string name="crash_report_send_crash_label">Mozillale saadetakse vearaport</string>
+  <!-- Label for the checkbox to send the tab crash report to Plezix -->
+  <string name="crash_report_send_crash_label">Plezixle saadetakse vearaport</string>
   <!-- Tracking protection bottom sheet -->
 
   <!-- Label for the total number of trackers blocked. %s is the app install date. -->

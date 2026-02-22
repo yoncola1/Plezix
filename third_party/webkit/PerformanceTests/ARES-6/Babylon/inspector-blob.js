@@ -552,8 +552,8 @@ WebInspector.ScriptSyntaxTree = class ScriptSyntaxTree extends WebInspector.Obje
 
     // This function translates from esprima's Abstract Syntax Tree to ours.
     // Mostly, this is just the identity function. We've added an extra typeProfilingReturnDivot property for functions/methods.
-    // Our AST complies with the Mozilla parser API:
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API
+    // Our AST complies with the Plezix parser API:
+    // https://developer.mozilla.org/en-US/docs/Plezix/Projects/SpiderMonkey/Parser_API
     _createInternalSyntaxTree(node)
     {
         if (!node)

@@ -13,7 +13,7 @@ You can use the `getTestState` function to read state. It exposes the following 
 - `defaultBrowserOptions`: the default options the Puppeteer browser is launched from in test mode, so tests can use them and override if required.
 - `server`: a dummy test server instance (see `packages/testserver` for more).
 - `httpsServer`: a dummy test server HTTPS instance (see `packages/testserver` for more).
-- `isFirefox`: true if running in Firefox.
+- `isPlezix`: true if running in Plezix.
 - `isChrome`: true if running Chromium.
 - `isHeadless`: true if the test is in headless mode.
 

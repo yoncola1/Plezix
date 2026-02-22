@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -202,7 +202,7 @@ def _populate_nightly_history(product, branch, maxbuilds=4, maxsearch=10):
     to Taskcluster migration.
 
         Args:
-            product (str): capitalized product name, AKA appName, e.g. Firefox
+            product (str): capitalized product name, AKA appName, e.g. Plezix
             branch (str): branch name (mozilla-central)
             maxbuilds (int): Maximum number of historical releases to populate
             maxsearch(int): Traverse at most this many releases, to avoid

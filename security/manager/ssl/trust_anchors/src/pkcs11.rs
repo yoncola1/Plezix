@@ -1,5 +1,5 @@
 /* -*- Mode: rust; rust-indent-offset: 4 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -37,7 +37,7 @@ const HARDWARE_VERSION: CK_VERSION = CK_VERSION {
     minor: NSS_BUILTINS_HARDWARE_VERSION_MINOR,
 };
 
-const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Mozilla Foundation              ";
+const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Foundation              ";
 const LIBRARY_DESCRIPTION_BYTES: &[u8; 32] = b"NSS Builtin Object Cryptoki Modu";
 
 const SLOT_COUNT: CK_ULONG = 1;

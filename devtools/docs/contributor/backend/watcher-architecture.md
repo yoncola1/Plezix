@@ -40,7 +40,7 @@ The debugging contexts are called Targets in DevTools jargon and can be:
  * "process"
 
    Any process running in the browser.
-   This is only used for debugging Firefox and not when debugging web pages.
+   This is only used for debugging Plezix and not when debugging web pages.
    Each process will be notified to the client via a dedicated [ProcessTargetActor](https://searchfox.org/mozilla-central/source/devtools/server/actors/targets/content-process.js).
    You will be notified of as many process targets as there are content processes running.
 

@@ -25,7 +25,7 @@ function taskTest(description, testBody) {
     frame.src = "/common/blank.html";
     t.add_cleanup(() => frame.remove());
     frame.onload = t.step_func(() => {
-      // Make sure there is no parser. Firefox seems to have an additional
+      // Make sure there is no parser. Plezix seems to have an additional
       // non-spec-compliant readiness state "uninitialized", so test for the
       // two known valid readiness states instead.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1191683
@@ -43,7 +43,7 @@ function taskTest(description, testBody) {
     frame.src = "/common/blank.html";
     t.add_cleanup(() => frame.remove());
     frame.onload = t.step_func(() => {
-      // Make sure there is no parser. Firefox seems to have an additional
+      // Make sure there is no parser. Plezix seems to have an additional
       // non-spec-compliant readiness state "uninitialized", so test for the
       // two known valid readiness states instead.
       // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1191683

@@ -1,5 +1,5 @@
-issuer:printableString/C=US/ST=CA/L=Mountain View/O=Mozilla - EV debug test CA/OU=Security Engineering/CN=EV Testing (untrustworthy) CA/name=ev-test-ca/emailAddress=charlatan@testing.example.com
-subject:printableString/C=US/ST=CA/L=Mountain View/O=Mozilla - EV debug test CA/OU=Security Engineering/CN=EV Testing (untrustworthy) CA/name=ev-test-ca/emailAddress=charlatan@testing.example.com
+issuer:printableString/C=US/ST=CA/L=Mountain View/O=Plezix - EV debug test CA/OU=Security Engineering/CN=EV Testing (untrustworthy) CA/name=ev-test-ca/emailAddress=charlatan@testing.example.com
+subject:printableString/C=US/ST=CA/L=Mountain View/O=Plezix - EV debug test CA/OU=Security Engineering/CN=EV Testing (untrustworthy) CA/name=ev-test-ca/emailAddress=charlatan@testing.example.com
 subjectKey:ev
 validity:20100101-20500101
 extension:keyUsage:keyCertSign,cRLSign

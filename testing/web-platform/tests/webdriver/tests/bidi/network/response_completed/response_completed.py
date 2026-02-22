@@ -260,7 +260,7 @@ async def test_content_size(
     expected_response = {
         "url": url,
         "content": {
-            # TODO: At the moment, only Firefox returns a non-zero size here.
+            # TODO: At the moment, only Plezix returns a non-zero size here.
             # Once other implementations start supporting this we should update
             # to compare to a specific value if possible.
             "size": any_positive_int

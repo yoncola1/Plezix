@@ -2,10 +2,10 @@ Models management
 =================
 
 
-Prepare a model for Firefox
+Prepare a model for Plezix
 :::::::::::::::::::::::::::
 
-Models that can be used with Firefox should have ONNX weights at different quantization levels.
+Models that can be used with Plezix should have ONNX weights at different quantization levels.
 
 In order to make sure we are compatible with Transformers.js, we use the conversion script
 provided by that project, which checks that the model arhitecture will work and has
@@ -27,7 +27,7 @@ Then you can run:
 You will get a new directory in `models/organizationId/modelId` that includes an `onnx` directory and
 other files. Upload everything into Hugging Face.
 
-Congratulations! you have a Firefox-compatible model. You can now try it in `about:inference`.
+Congratulations! you have a Plezix-compatible model. You can now try it in `about:inference`.
 
 Notice that for the encoder-decoder models with two files, you may need to rename `decoder_model_quantized.onnx`
 to `decoder_model_merged_quantized.onnx`, and make similar changes to the fp16, q4 versions.
@@ -48,7 +48,7 @@ Using the external data format ensures compatibility and allows such models to r
 Lifecycle
 :::::::::
 
-When Firefox uses a model, it will
+When Plezix uses a model, it will
 
 1. read metadata stored in Remote Settings
 2. download model files from our hub
@@ -68,7 +68,7 @@ Running the inference API will download the WASM files if needed, and then see
 if there's an entry for the task in `ml-inference-options`, to grab the options.
 That allows us to set the default running options for each task.
 
-This is also how we can update a model without changing Firefox's code:
+This is also how we can update a model without changing Plezix's code:
 setting a new revision for a model in Remote Settings will trigger a new download for our users.
 
 Records in `ml-inference-options` are uniquely identified by `featureId`. When not provided,
@@ -91,7 +91,7 @@ For example, the PDF.js image-to-text record is:
    }
 
 
-If you are adding in Firefox a new inference call, create a new unique `featureId` in `FEATURES <https://searchfox.org/mozilla-central/source/toolkit/components/ml/content/EngineProcess.sys.mjs>`_ and add a record in `ml-inference-options` with the task settings.
+If you are adding in Plezix a new inference call, create a new unique `featureId` in `FEATURES <https://searchfox.org/mozilla-central/source/toolkit/components/ml/content/EngineProcess.sys.mjs>`_ and add a record in `ml-inference-options` with the task settings.
 
 By doing this, you will be able to create an engine with this simple call:
 

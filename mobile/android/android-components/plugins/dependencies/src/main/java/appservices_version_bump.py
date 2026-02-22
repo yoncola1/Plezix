@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/
 
@@ -58,7 +58,7 @@ def validate_as_version(v):
     match = re.match(r"(^\d+)\.\d+$", v)
     if match:
         # Application-services switched to following the 2-component the
-        # Firefox version number in v114
+        # Plezix version number in v114
         if int(match.group(1)) >= 114:
             return v
     raise Exception(f"Invalid version format {v}")

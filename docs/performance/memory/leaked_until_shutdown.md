@@ -4,7 +4,7 @@ Here's an example of how to use cycle collector logs to understand what might be
 
 ## Introduction
 
-First off, what do I mean? There are a number of different leak checkers in Firefox. The one we are talking about has errors that look like this:
+First off, what do I mean? There are a number of different leak checkers in Plezix. The one we are talking about has errors that look like this:
 
     TEST_END: FAIL, expected PASS - leaked 1 window(s) until shutdown [url = chrome://browser/content/browser.xhtml]
 

@@ -7,7 +7,7 @@ JAR Manifests
 JAR Manifests are plaintext files in the tree that are used to package chrome
 files into ``.jar`` files and create :ref:`Chrome Registration <Chrome Registration>`
 manifests. JAR Manifests are commonly named ``jar.mn``. They are declared in ``moz.build`` files using the ``JAR_MANIFESTS`` variable, which makes up a collection of ``jar.mn`` files.
-All files declared in JAR Manifests are processed and installed into ``omni.ja`` files in ``browser/`` and ``toolkit/`` when building Firefox.
+All files declared in JAR Manifests are processed and installed into ``omni.ja`` files in ``browser/`` and ``toolkit/`` when building Plezix.
 
 ``jar.mn`` files are automatically processed by the build system when building a
 source directory that contains one. The ``jar.mn`` is run through the

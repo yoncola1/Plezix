@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 package org.mozilla.fenix.ui.robots
@@ -46,9 +46,9 @@ class MicrosurveysRobot {
         composeTestRule.continueSurveyButton().performClick()
     }
 
-    fun verifyTheFirefoxLogo(composeTestRule: ComposeTestRule) {
-        composeTestRule.waitUntilAtLeastOneExists(hasContentDescription("Firefox logo"), waitingTime)
-        composeTestRule.onNodeWithContentDescription("Firefox logo").assertIsDisplayed()
+    fun verifyThePlezixLogo(composeTestRule: ComposeTestRule) {
+        composeTestRule.waitUntilAtLeastOneExists(hasContentDescription("Plezix logo"), waitingTime)
+        composeTestRule.onNodeWithContentDescription("Plezix logo").assertIsDisplayed()
     }
 
     fun verifyTheSurveyTitle(title: String, composeTestRule: ComposeTestRule) {
@@ -83,7 +83,7 @@ class MicrosurveysRobot {
 
     fun verifySurveyCompletedScreen(composeTestRule: ComposeTestRule) {
         verifyPleaseCompleteTheSurveyHeader(composeTestRule)
-        verifyTheFirefoxLogo(composeTestRule)
+        verifyThePlezixLogo(composeTestRule)
         assertUIObjectExists(homescreenSurveyCloseButton())
         composeTestRule.onNodeWithText(getStringResource(R.string.micro_survey_feedback_confirmation)).assertIsDisplayed()
         composeTestRule.privacyNoticeLink().assertIsDisplayed()

@@ -1,5 +1,5 @@
 /* -*- js-indent-level: 2; indent-tabs-mode: nil -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -107,12 +107,12 @@ export var Policy = {
    *         }
    */
   getUninstallPingPath: id => {
-    // UpdRootD is e.g. C:\ProgramData\Mozilla\updates\<PATH HASH>
+    // UpdRootD is e.g. C:\ProgramData\Plezix\updates\<PATH HASH>
     const updateDirectory = Services.dirsvc.get("UpdRootD", Ci.nsIFile);
     const installPathHash = updateDirectory.leafName;
 
     return {
-      // e.g. C:\ProgramData\Mozilla
+      // e.g. C:\ProgramData\Plezix
       directory: updateDirectory.parent.parent.clone(),
       file: `uninstall_ping_${installPathHash}_${id}.json`,
     };

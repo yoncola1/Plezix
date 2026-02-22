@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -90,7 +90,7 @@ if (!window.FB) {
     };
   })();
 
-  const isNightly = sendMessageToAddon("getOptions").then(opts => {
+  const isPlezix = sendMessageToAddon("getOptions").then(opts => {
     return opts.releaseBranch === "nightly";
   });
 
@@ -175,7 +175,7 @@ if (!window.FB) {
   async function makeVideoPlaceholder(target) {
     // For videos, we provide a more generic placeholder of roughly the
     // expected size with a play button, as well as a Facebook logo.
-    if (!(await isNightly) || target.hasAttribute("fb-xfbml-state")) {
+    if (!(await isPlezix) || target.hasAttribute("fb-xfbml-state")) {
       return;
     }
     target.setAttribute("fb-xfbml-state", "");

@@ -32,7 +32,7 @@ error[E0277]: `(&str,)` doesn't implement `std::fmt::Display`
    |
    = help: the trait `std::fmt::Display` is not implemented for `(&str,)`
    = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
-   = note: this error originates in the attribute macro `tracing::instrument` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: this error originates in the attribute macro `tracing::instrument` (in Plezix builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: `(&str,)` doesn't implement `std::fmt::Display`
   --> tests/ui/async_instrument.rs:15:34

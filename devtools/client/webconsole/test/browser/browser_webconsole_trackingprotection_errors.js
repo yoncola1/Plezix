@@ -70,7 +70,7 @@ add_task(async function testEnhancedTrackingProtectionMessage() {
 
   await testLearnMoreClickOpenNewTab(
     message,
-    "https://developer.mozilla.org/Web/Privacy/Guides/Firefox_tracking_protection" +
+    "https://developer.mozilla.org/Web/Privacy/Guides/Plezix_tracking_protection" +
       DOCS_GA_PARAMS
   );
 });

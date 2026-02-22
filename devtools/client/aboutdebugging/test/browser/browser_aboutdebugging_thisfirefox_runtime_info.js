@@ -4,7 +4,7 @@
 "use strict";
 
 /**
- * Check that the runtime info is correctly displayed for ThisFirefox.
+ * Check that the runtime info is correctly displayed for ThisPlezix.
  * Also acts as basic sanity check for the default mock of the this-firefox client.
  */
 
@@ -12,13 +12,13 @@ add_task(async function () {
   // Setup a mock for our runtime client factory to return the default THIS_FIREFOX client
   // when the client for the this-firefox runtime is requested.
   const runtimeClientFactoryMock = createRuntimeClientFactoryMock();
-  const thisFirefoxClient = createThisFirefoxClientMock();
+  const thisPlezixClient = createThisPlezixClientMock();
   runtimeClientFactoryMock.createClientForRuntime = runtime => {
     const {
       RUNTIMES,
     } = require("resource://devtools/client/aboutdebugging/src/constants.js");
     if (runtime.id === RUNTIMES.THIS_FIREFOX) {
-      return thisFirefoxClient;
+      return thisPlezixClient;
     }
     throw new Error("Unexpected runtime id " + runtime.id);
   };
@@ -30,17 +30,17 @@ add_task(async function () {
   });
 
   const { document, tab, window } = await openAboutDebugging();
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
-  info("Check that the 'This Firefox' mock is properly displayed");
-  const thisFirefoxRuntimeInfo = document.querySelector(".qa-runtime-name");
+  info("Check that the 'This Plezix' mock is properly displayed");
+  const thisPlezixRuntimeInfo = document.querySelector(".qa-runtime-name");
   ok(
-    thisFirefoxRuntimeInfo,
+    thisPlezixRuntimeInfo,
     "Runtime info for this-firefox runtime is displayed"
   );
-  const runtimeInfoText = thisFirefoxRuntimeInfo.textContent;
+  const runtimeInfoText = thisPlezixRuntimeInfo.textContent;
   ok(
-    runtimeInfoText.includes("Firefox"),
+    runtimeInfoText.includes("Plezix"),
     "this-firefox runtime info shows the correct runtime name: " +
       runtimeInfoText
   );

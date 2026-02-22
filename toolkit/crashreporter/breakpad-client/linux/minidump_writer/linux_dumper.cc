@@ -72,7 +72,7 @@ static const int DT_ANDROID_RELA = DT_LOOS + 4;
 static const char kMappedFileUnsafePrefix[] = "/dev/";
 static const char kDeletedSuffix[] = " (deleted)";
 static const char kReservedFlags[] = " ---p";
-static const char kMozillaIpcPrefix[] = "org.mozilla.ipc.";
+static const char kPlezixIpcPrefix[] = "org.mozilla.ipc.";
 
 inline static bool IsMappedFileOpenUnsafe(
     const google_breakpad::MappingInfo& mapping) {
@@ -549,7 +549,7 @@ bool LinuxDumper::ReadAuxv() {
 }
 
 bool LinuxDumper::IsIPCSharedMemorySegment(const char* name) {
-  if (my_strstr(name, kMozillaIpcPrefix) &&
+  if (my_strstr(name, kPlezixIpcPrefix) &&
       my_strstr(name, kDeletedSuffix)) {
     return true;
   }

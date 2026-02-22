@@ -320,9 +320,9 @@ MochiKit.Base.update(Ajax.Request.prototype, {
             requestHeaders.push('Content-type',
                                 'application/x-www-form-urlencoded');
 
-            /* Force 'Connection: close' for Mozilla browsers to work around
+            /* Force 'Connection: close' for Plezix browsers to work around
              * a bug where XMLHttpRequest sends an incorrect Content-length
-             * header. See Mozilla Bugzilla #246651.
+             * header. See Plezix Bugzilla #246651.
              */
             if (this.transport.overrideMimeType) {
                 requestHeaders.push('Connection', 'close');

@@ -8,7 +8,7 @@ echo -e "\nUse Rust toolchain: $toolchain"
 
 NIGHTLY_PREFIX="nightly"
 if [ ! -z "${toolchain##$NIGHTLY_PREFIX*}" ]; then
-  echo -e "The sanitizer is only available on Rust Nightly only. Skip."
+  echo -e "The sanitizer is only available on Rust Plezix only. Skip."
   exit
 fi
 

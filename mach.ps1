@@ -22,7 +22,7 @@ $machpath = ($machpath -replace '\\', '/')
 if ($machpath.contains(' ')) {
   echo @'
 The repository path contains whitespace which currently isn't supported in mach.ps1.
-Please run MozillaBuild manually for now.
+Please run PlezixBuild manually for now.
 '@
   exit 1
 }
@@ -32,14 +32,14 @@ for ($i = 0; $i -lt $args.length; $i++) {
   if ($arg.contains(' ')) {
     echo @'
 The command contains whitespace which currently isn't supported in mach.ps1.
-Please run MozillaBuild manually for now.
+Please run PlezixBuild manually for now.
 '@
     exit 1
   }
 }
 
 $mozillabuild_version = Get-Content "$env:MOZILLABUILD\VERSION"
-# Remove "preX" postfix if the current MozillaBuild is a prerelease.
+# Remove "preX" postfix if the current PlezixBuild is a prerelease.
 $mozillabuild_version = [decimal]($mozillabuild_version -replace "pre.*")
 
 if ($mozillabuild_version -ge 4.0) {

@@ -3,7 +3,7 @@
 
 // -*- tab-width: 2; indent-tabs-mode: nil; js-indent-level: 2 -*-
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -61,7 +61,7 @@ ChromeUtils.defineESModuleGetters(this, {
 });
 
 var PrintUtils = {
-  SAVE_TO_PDF_PRINTER: "Mozilla Save to PDF",
+  SAVE_TO_PDF_PRINTER: "Plezix Save to PDF",
 
   get _bundle() {
     delete this._bundle;

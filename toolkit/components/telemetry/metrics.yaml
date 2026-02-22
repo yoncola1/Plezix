@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -1047,7 +1047,7 @@ usage:
     no_lint:
       - BASELINE_PING
     description: |
-      Whether Firefox is set as the default browser.
+      Whether Plezix is set as the default browser.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1944090
     data_reviews:
@@ -1068,7 +1068,7 @@ usage:
     no_lint:
       - BASELINE_PING
     description: |
-      The distribution id associated with the install of Firefox.
+      The distribution id associated with the install of Plezix.
     bugs:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=1944090
     data_reviews:
@@ -1235,7 +1235,7 @@ third.party.modules:
   modules:
     type: object
     description: |
-      The third-party modules we saw get loaded into Firefox.
+      The third-party modules we saw get loaded into Plezix.
       Maximum of 100 modules.
       ```text
       [{

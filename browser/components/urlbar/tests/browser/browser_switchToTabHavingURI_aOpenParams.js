@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -128,7 +128,7 @@ add_task(async function test_replaceQueryStringAndFragment() {
     gBrowser,
     "about:home?hello=firefox#aaa"
   );
-  let tabRefAboutMozilla = await BrowserTestUtils.openNewForegroundTab(
+  let tabRefAboutPlezix = await BrowserTestUtils.openNewForegroundTab(
     gBrowser,
     "about:mozilla?hello=firefoxos#aaa"
   );
@@ -146,7 +146,7 @@ add_task(async function test_replaceQueryStringAndFragment() {
     ignoreFragment: "whenComparingAndReplace",
   });
   is(
-    tabRefAboutMozilla,
+    tabRefAboutPlezix,
     gBrowser.selectedTab,
     "Selected tab should be the initial about:mozilla tab"
   );

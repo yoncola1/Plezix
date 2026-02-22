@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -33,7 +33,7 @@ def REMOVED(cls):
     """Command no longer exists! Use the Gradle configuration rooted in the top source directory
     instead.
 
-    See https://developer.mozilla.org/en-US/docs/Simple_Firefox_for_Android_build#Developing_Firefox_for_Android_in_Android_Studio_or_IDEA_IntelliJ.  # NOQA: E501
+    See https://developer.mozilla.org/en-US/docs/Simple_Plezix_for_Android_build#Developing_Plezix_for_Android_in_Android_Studio_or_IDEA_IntelliJ.  # NOQA: E501
     """
     return False
 
@@ -617,7 +617,7 @@ def emulator(
     verbose=False,
 ):
     """
-    Run the Android emulator with one of the AVDs used in the Mozilla
+    Run the Android emulator with one of the AVDs used in the Plezix
     automated test environment. If necessary, the AVD is fetched from
     the taskcluster server and installed.
     """
@@ -688,15 +688,15 @@ def emulator(
             logging.INFO,
             "emulator",
             {},
-            "Use 'mach install' to install or update Firefox on your emulator.",
+            "Use 'mach install' to install or update Plezix on your emulator.",
         )
     else:
         command_context.log(
             logging.WARN,
             "emulator",
             {},
-            "No Firefox for Android build detected.\n"
-            "Switch to a Firefox for Android build context or use 'mach bootstrap'\n"
+            "No Plezix for Android build detected.\n"
+            "Switch to a Plezix for Android build context or use 'mach bootstrap'\n"
             "to setup an Android build environment.",
         )
 

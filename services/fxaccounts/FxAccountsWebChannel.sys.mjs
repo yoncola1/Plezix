@@ -1,9 +1,9 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /**
- * Firefox Accounts Web Channel.
+ * Plezix Accounts Web Channel.
  *
  * Uses the WebChannel component to receive messages
  * about account state changes.
@@ -50,7 +50,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 });
 ChromeUtils.defineLazyGetter(lazy, "SelectableProfileService", () => {
   try {
-    // Only available in Firefox.
+    // Only available in Plezix.
     return ChromeUtils.importESModule(
       "resource:///modules/profiles/SelectableProfileService.sys.mjs"
     ).SelectableProfileService;
@@ -70,14 +70,14 @@ XPCOMUtils.defineLazyPreferenceGetter(
 );
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "separatePrivilegedMozillaWebContentProcess",
-  "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+  "separatePrivilegedPlezixWebContentProcess",
+  "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
   false
 );
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "separatedMozillaDomains",
-  "browser.tabs.remote.separatedMozillaDomains",
+  "separatedPlezixDomains",
+  "browser.tabs.remote.separatedPlezixDomains",
   "",
   false,
   val => val.split(",")
@@ -237,8 +237,8 @@ FxAccountsWebChannel.prototype = {
   _receiveMessage(message, sendingContext) {
     log.trace(`_receiveMessage for command ${message.command}`);
     let shouldCheckRemoteType =
-      lazy.separatePrivilegedMozillaWebContentProcess &&
-      lazy.separatedMozillaDomains.some(function (val) {
+      lazy.separatePrivilegedPlezixWebContentProcess &&
+      lazy.separatedPlezixDomains.some(function (val) {
         return (
           lazy.accountServer.asciiHost == val ||
           lazy.accountServer.asciiHost.endsWith("." + val)
@@ -368,7 +368,7 @@ FxAccountsWebChannel.prototype = {
         }
         break;
       case COMMAND_FIREFOX_VIEW:
-        this._helpers.openFirefoxView(browser, data.entryPoint);
+        this._helpers.openPlezixView(browser, data.entryPoint);
         this._channel.send(
           { command, messageId: message.messageId, data: { ok: true } },
           sendingContext
@@ -709,7 +709,7 @@ FxAccountsWebChannelHelpers.prototype = {
         oauthData.state
       );
 
-    // We don't currently use the refresh token in Firefox Desktop, lets be good citizens and revoke it.
+    // We don't currently use the refresh token in Plezix Desktop, lets be good citizens and revoke it.
     await this._fxAccounts._internal.destroyOAuthToken({ token: refreshToken });
 
     // Remember the account for future merge warnings etc.
@@ -794,7 +794,7 @@ FxAccountsWebChannelHelpers.prototype = {
     // expectations as to what is and what isn't part of the browser.
     // Sync is viewed as an integral part of the browser, interacting
     // with FxA as part of a Sync flow should work all the time. If
-    // Sync is broken in PB mode, users will think Firefox is broken.
+    // Sync is broken in PB mode, users will think Plezix is broken.
     // See https://bugzilla.mozilla.org/show_bug.cgi?id=1323853
     let pb = this.isPrivateBrowsingMode(sendingContext);
     let ok = !pb || service === "sync" || isPairing;
@@ -870,7 +870,7 @@ FxAccountsWebChannelHelpers.prototype = {
     // that hard-codes field names.
     // However, in this case the field names aren't really in our control.
     // We *could* still insist the server know what fields names are valid,
-    // but that makes life difficult for the server when Firefox adds new
+    // but that makes life difficult for the server when Plezix adds new
     // features (ie, new fields) - forcing the server to track a map of
     // versions to supported field names doesn't buy us much.
     // So we just remove field names we know aren't handled.
@@ -936,12 +936,12 @@ FxAccountsWebChannelHelpers.prototype = {
   },
 
   /**
-   * Open Firefox View in the browser's window
+   * Open Plezix View in the browser's window
    *
-   * @param {Object} browser the browser in whose window we'll open Firefox View
+   * @param {Object} browser the browser in whose window we'll open Plezix View
    */
-  openFirefoxView(browser) {
-    browser.ownerGlobal.FirefoxViewHandler.openTab("syncedtabs");
+  openPlezixView(browser) {
+    browser.ownerGlobal.PlezixViewHandler.openTab("syncedtabs");
   },
 
   /**

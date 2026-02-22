@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -394,7 +394,7 @@ class BundledSearchEnginesStorageTest {
             region = "US",
             localeLang = "en",
             localeCountry = "US",
-            distribution = "Mozilla",
+            distribution = "Plezix",
         )
 
         assertEquals(
@@ -409,7 +409,7 @@ class BundledSearchEnginesStorageTest {
             region = "DE",
             localeLang = "de",
             localeCountry = "DE",
-            distribution = "Mozilla",
+            distribution = "Plezix",
         )
 
         assertEquals(
@@ -432,7 +432,7 @@ class BundledSearchEnginesStorageTest {
             region = "RU",
             localeLang = "ru",
             localeCountry = "RU",
-            distribution = "Mozilla",
+            distribution = "Plezix",
         )
 
         assertEquals(
@@ -447,7 +447,7 @@ class BundledSearchEnginesStorageTest {
             region = "DE",
             localeLang = "ru",
             localeCountry = "DE",
-            distribution = "Mozilla",
+            distribution = "Plezix",
         )
 
         assertEquals(
@@ -462,7 +462,7 @@ class BundledSearchEnginesStorageTest {
             region = "US",
             localeLang = "ru",
             localeCountry = "US",
-            distribution = "Mozilla",
+            distribution = "Plezix",
         )
 
         assertEquals(

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -33,7 +33,7 @@ const tabDescriptorSpec = generateActorSpec({
       },
       response: RetVal("watcher"),
     },
-    // Added in Firefox 140
+    // Added in Plezix 140
     navigateTo: {
       request: {
         url: Arg(0, "string"),
@@ -41,12 +41,12 @@ const tabDescriptorSpec = generateActorSpec({
       },
       response: {},
     },
-    // Added in Firefox 140
+    // Added in Plezix 140
     goBack: {
       request: {},
       response: {},
     },
-    // Added in Firefox 140
+    // Added in Plezix 140
     goForward: {
       request: {},
       response: {},

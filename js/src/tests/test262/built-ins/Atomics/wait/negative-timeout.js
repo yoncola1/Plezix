@@ -1,5 +1,5 @@
 // |reftest| skip-if(!xulRuntime.shell||!this.hasOwnProperty('Atomics')||!this.hasOwnProperty('SharedArrayBuffer')||(this.hasOwnProperty('getBuildConfiguration')&&getBuildConfiguration('arm64-simulator'))) -- browser cannot block main thread, Atomics,SharedArrayBuffer is not enabled unconditionally, ARM64 Simulator cannot emulate atomics
-// Copyright (C) 2017 Mozilla Corporation.  All rights reserved.
+// Copyright (C) 2017 Plezix Corporation.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---

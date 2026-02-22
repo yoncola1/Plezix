@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -56,7 +56,7 @@ add_task(async function test_not_shown_if_pref_off() {
 });
 
 add_task(async function test_not_shown_if_max_count_0() {
-  // To avoid having to restart Firefox and slow down tests, we manually reset
+  // To avoid having to restart Plezix and slow down tests, we manually reset
   // the session pref.
   AboutPrivateBrowsingParent.setShownThisSession(false);
 
@@ -86,7 +86,7 @@ add_task(async function test_not_shown_if_max_count_0() {
 });
 
 add_task(async function test_show_banner_first() {
-  // To avoid having to restart Firefox and slow down tests, we manually reset
+  // To avoid having to restart Plezix and slow down tests, we manually reset
   // the session pref.
   AboutPrivateBrowsingParent.setShownThisSession(false);
 
@@ -153,7 +153,7 @@ add_task(async function test_show_banner_first() {
 add_task(async function test_show_banner_max_times() {
   // We've already shown the UI once, so show it a few more times.
   for (let i = 1; i < MAX_SHOW_COUNT; i++) {
-    // To avoid having to restart Firefox and slow down tests, we manually reset
+    // To avoid having to restart Plezix and slow down tests, we manually reset
     // the session pref.
     AboutPrivateBrowsingParent.setShownThisSession(false);
 

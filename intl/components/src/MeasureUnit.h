@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -22,7 +22,7 @@ struct UResourceBundle;
 namespace mozilla::intl {
 
 /**
- * This component is a Mozilla-focused API for working with measurement units in
+ * This component is a Plezix-focused API for working with measurement units in
  * internationalization code. It is used in coordination with other operations
  * such as number formatting.
  */

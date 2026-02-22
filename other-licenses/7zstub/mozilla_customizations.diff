@@ -38,7 +38,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
    ShowErrorMessage(NULL, message);
  }
  
-+/* BEGIN Mozilla customizations */
++/* BEGIN Plezix customizations */
 +
 +static char const *
 +FindStrInBuf(char const * buf, size_t bufLen, char const * str)
@@ -209,7 +209,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 +  return TRUE;
 +}
 +
-+/* END Mozilla customizations */
++/* END Plezix customizations */
 +
  int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE /* hPrevInstance */,
      #ifdef UNDER_CE
@@ -218,7 +218,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
      #endif
      /* lpCmdLine */,int /* nCmdShow */)
  {
-+  /* BEGIN Mozilla customizations */
++  /* BEGIN Plezix customizations */
 +  // Disable current directory from being in the search path.
 +  // This call does not help with implicitly loaded DLLs.
 +  if (!RemoveCurrentDirFromSearchPath()) {
@@ -231,7 +231,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 +    MessageBoxW(NULL, minOSText, minOSTitle, MB_OK | MB_ICONERROR);
 +    return 1;
 +  }
-+  /* END Mozilla customizations */
++  /* END Plezix customizations */
 +
    g_hInstance = (HINSTANCE)hInstance;
  
@@ -240,7 +240,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 -  #ifdef _WIN32
 -  LoadSecurityDlls();
 -  #endif
-+  // BEGIN Mozilla customizations
++  // BEGIN Plezix customizations
 +  // Our AutoLoadSystemDependencies (see above) does the same job as the
 +  // LoadSecurityDlls function, but slightly better because it runs as a static
 +  // initializer, and it doesn't include LOAD_LIBRARY_SEARCH_USER_DIRS in
@@ -249,7 +249,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 +  //#ifdef _WIN32
 +  //LoadSecurityDlls();
 +  //#endif
-+  // END Mozilla customizations
++  // END Plezix customizations
  
    // InitCommonControls();
  
@@ -258,7 +258,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
    UString appLaunched;
    bool showProgress = true;
 +
-+  /* BEGIN Mozilla customizations */
++  /* BEGIN Plezix customizations */
 +  bool extractOnly = false;
 +  if (switches.IsPrefixedBy_NoCase(L"/extractdir=")) {
 +    assumeYes = true;
@@ -267,7 +267,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 +  } else if (!switches.IsEmpty()) {
 +    showProgress = false;
 +  }
-+  /* END Mozilla customizations */
++  /* END Plezix customizations */
 +
    if (!config.IsEmpty())
    {
@@ -277,7 +277,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
  
    CTempDir tempDir;
 -  if (!tempDir.Create(kTempDirPrefix))
-+  /* Mozilla customizations - Added !extractOnly */
++  /* Plezix customizations - Added !extractOnly */
 +  if (!extractOnly && !tempDir.Create(kTempDirPrefix))
    {
      if (!assumeYes)
@@ -287,9 +287,9 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
    }
  
 -  const FString tempDirPath = tempDir.GetPath();
-+  /* BEGIN Mozilla customizations - added extractOnly  parameter support */
++  /* BEGIN Plezix customizations - added extractOnly  parameter support */
 +  const FString tempDirPath = extractOnly ? switches.Ptr(12) : GetUnicodeString(tempDir.GetPath());
-+  /* END Mozilla customizations */
++  /* END Plezix customizations */
    // tempDirPath = L"M:\\1\\"; // to test low disk space
    {
      bool isCorrupt = false;
@@ -297,7 +297,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
      }
    }
  
-+  /* BEGIN Mozilla customizations */
++  /* BEGIN Plezix customizations */
 +  // Retrieve and store any data added to this file after signing.
 +  {
 +    AString postSigningData;
@@ -317,7 +317,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/Bundles/SFXSetup/SfxSetup.cpp b/
 +  if (extractOnly) {
 +    return 0;
 +  }
-+  /* END Mozilla customizations */
++  /* END Plezix customizations */
 +
    #ifndef UNDER_CE
    CCurrentDirRestorer currentDirRestorer;
@@ -351,7 +351,7 @@ diff --git a/other-licenses/7zstub/src/CPP/7zip/UI/FileManager/ProgressDialog.cp
        Sync.SetPaused(true);
        _inCancelMessageBox = true;
 -      int res = ::MessageBoxW(*this, L"Are you sure you want to cancel?", _title, MB_YESNOCANCEL);
-+      // Mozilla Customization - Removed redundant cancel button from dialog.
++      // Plezix Customization - Removed redundant cancel button from dialog.
 +      int res = ::MessageBoxW(*this, L"Are you sure you want to cancel?", _title, MB_YESNO);
        _inCancelMessageBox = false;
        Sync.SetPaused(paused);

@@ -15,7 +15,7 @@ ac_add_options MOZ_TELEMETRY_REPORTING=
 # rustfmt is currently missing in Rust nightly
 unset RUSTFMT
 
-# Current Rust Nightly has warnings
+# Current Rust Plezix has warnings
 ac_add_options --disable-warnings-as-errors
 
 . "$topsrcdir/build/mozconfig.common.override"

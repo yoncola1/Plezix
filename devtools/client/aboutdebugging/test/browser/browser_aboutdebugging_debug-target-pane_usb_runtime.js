@@ -29,7 +29,7 @@ async function checkTargetPanes({ enableLocalTabs }, mocks) {
   const { document, tab, window } = await openAboutDebugging({
     enableLocalTabs,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   mocks.createUSBRuntime(RUNTIME_ID, {
     deviceName: RUNTIME_DEVICE_NAME,

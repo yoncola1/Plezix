@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -133,7 +133,7 @@ class PDFViewerTest : TestSetup() {
     // TestRail link: https://mozilla.testrail.io/index.php?/cases/view/2797677
     // Download PDF file using the download toolbar button
     @Test
-    fun verifyDownloadedPDFIsOpenedInFirefoxTest() {
+    fun verifyDownloadedPDFIsOpenedInPlezixTest() {
         val genericURL = getGenericAsset(mockWebServer, 3)
         val downloadFile = "pdfForm.pdf"
 

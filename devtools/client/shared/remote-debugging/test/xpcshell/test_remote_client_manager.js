@@ -94,23 +94,23 @@ add_task(async function testRemoteClientManager() {
   // Test various fallback scenarios for APIs relying on remoteId, when called without a
   // remoteId, we expect to get the information for the local this-firefox runtime.
   const { THIS_FIREFOX } = CONNECTION_TYPES;
-  const thisFirefoxClient = createFakeClient();
-  const thisFirefoxInfo = {};
+  const thisPlezixClient = createFakeClient();
+  const thisPlezixInfo = {};
   remoteClientManager.setClient(
     THIS_FIREFOX,
     THIS_FIREFOX,
-    thisFirefoxClient,
-    thisFirefoxInfo
+    thisPlezixClient,
+    thisPlezixInfo
   );
 
   equal(
     remoteClientManager.getClientByRemoteId(),
-    thisFirefoxClient,
+    thisPlezixClient,
     `[fallback]: getClientByRemoteId returns this-firefox if remoteId is null`
   );
   equal(
     remoteClientManager.getRuntimeInfoByRemoteId(),
-    thisFirefoxInfo,
+    thisPlezixInfo,
     `[fallback]: getRuntimeInfoByRemoteId returns this-firefox if remoteId is null`
   );
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -189,7 +189,7 @@ class DataChannelRegistry {
     usrsctp_sysctl_set_sctp_blackhole(2);
 
     // Disable the Explicit Congestion Notification extension (currently not
-    // supported by the Firefox code)
+    // supported by the Plezix code)
     usrsctp_sysctl_set_sctp_ecn_enable(0);
 
     // Enable interleaving messages for different streams (incoming)

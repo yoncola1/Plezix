@@ -1,5 +1,5 @@
 {
-  "description": "A collection of rules that help enforce CSS coding standards in the Mozilla project.",
+  "description": "A collection of rules that help enforce CSS coding standards in the Plezix project.",
   "main": "index.mjs",
   "scripts": {
     "test": "node --test --test-reporter=./reporters/mozilla-format.mjs tests/**"

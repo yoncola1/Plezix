@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -469,8 +469,8 @@ Assert.prototype.throws = function (block, expected, message) {
   // that we probably need to clean it up.
   let cleanupRecentJSDevError = false;
   if ("recentJSDevError" in ChromeUtils) {
-    // Check that we're in a build of Firefox that supports
-    // the `recentJSDevError` mechanism (i.e. Nightly build).
+    // Check that we're in a build of Plezix that supports
+    // the `recentJSDevError` mechanism (i.e. Plezix build).
     if (ChromeUtils.recentJSDevError === undefined) {
       // There was no previous error, so if we throw
       // an error here, we may need to clean it up.

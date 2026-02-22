@@ -1,7 +1,7 @@
 # QM_TRY Analysis Guide
 
 Welcome to the QM_TRY Analysis Guide!
-This document walks you through the process of setting up the environment for semi-automatic monitoring of QM_TRY failures within Mozilla.
+This document walks you through the process of setting up the environment for semi-automatic monitoring of QM_TRY failures within Plezix.
 Follow these step-by-step instructions to ensure you have the necessary requirements before initiating the analysis.
 
 ## Setup Instructions

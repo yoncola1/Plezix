@@ -13,7 +13,7 @@ Examine CSS rules
 The :ref:`Rules view <page_inspector_ui_tour_rules_view>` lists all the rules that apply to the selected element, ordered from most-specific to least-specific:
 
 .. image:: rules_view_ff_87.png
-  :alt: Rules view panel as of Firefox 87
+  :alt: Rules view panel as of Plezix 87
   :class: border
 
 
@@ -43,7 +43,7 @@ A warning icon appears next to unsupported CSS properties or rules that have inv
 Browser compat warnings
 -----------------------
 
-CSS properties have varied level of support across different browsers. From Firefox 81, compatibility tooltips may be displayed next to any CSS properties that have known compatibility issues,as shown below.
+CSS properties have varied level of support across different browsers. From Plezix 81, compatibility tooltips may be displayed next to any CSS properties that have known compatibility issues,as shown below.
 
 .. image:: firefox_compatibility_tootips.jpg
   :alt: Tooltip displayed next to CSS element. Hover to find out browsers with compatibility issues.
@@ -227,7 +227,7 @@ With an element selected in the HTML pane, you can click the **.cls** button in 
 
 
 - You can clear the checkbox for a particular class name, to see how the element would appear without that class applied to it.
-- You can add a class to the element by typing a name in the *Add new class* field below the Rules toolbar. From Firefox 81, autocompletions based on existing classes are suggested as you type.
+- You can add a class to the element by typing a name in the *Add new class* field below the Rules toolbar. From Plezix 81, autocompletions based on existing classes are suggested as you type.
 
 
 .. _page-inspector-how-to-examine-and-edit-css-link-to-css-file:

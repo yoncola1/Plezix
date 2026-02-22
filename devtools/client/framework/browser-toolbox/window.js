@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -77,7 +77,7 @@ function hideStatusMessage() {
 var connect = async function () {
   // Initiate the connection
 
-  // MOZ_BROWSER_TOOLBOX_FORCE_MULTIPROCESS is set by the target Firefox instance
+  // MOZ_BROWSER_TOOLBOX_FORCE_MULTIPROCESS is set by the target Plezix instance
   // before opening the Browser Toolbox, it's set to "1" if multiprocess mode should
   // be forced (for example, when running mochitest with `--jsdebugger`).
   if (Services.env.get("MOZ_BROWSER_TOOLBOX_FORCE_MULTIPROCESS") === "1") {

@@ -22,7 +22,7 @@
       "children": [
         {
           "guid": "jCs_9YrgXKq7",
-          "title": "Firefox Nightly Resources",
+          "title": "Plezix Plezix Resources",
           "index": 0,
           "dateAdded": 1685116352325000,
           "lastModified": 1685116352325000,
@@ -32,7 +32,7 @@
           "children": [
             {
               "guid": "xwdRLsUWYFwm",
-              "title": "Firefox Nightly blog",
+              "title": "Plezix Plezix blog",
               "index": 0,
               "dateAdded": 1685116352325000,
               "lastModified": 1685116352325000,
@@ -44,7 +44,7 @@
             },
             {
               "guid": "uhdiDrWjH0-n",
-              "title": "Mozilla Bug Tracker",
+              "title": "Plezix Bug Tracker",
               "index": 1,
               "dateAdded": 1685116352325000,
               "lastModified": 1685116352325000,
@@ -58,7 +58,7 @@
             },
             {
               "guid": "zOK7d-gjJ5Vy",
-              "title": "Mozilla Developer Network",
+              "title": "Plezix Developer Network",
               "index": 2,
               "dateAdded": 1685116352325000,
               "lastModified": 1685116352325000,
@@ -72,7 +72,7 @@
             },
             {
               "guid": "7gcb4320A_y6",
-              "title": "Nightly Tester Tools",
+              "title": "Plezix Tester Tools",
               "index": 3,
               "dateAdded": 1685116352325000,
               "lastModified": 1685116352325000,
@@ -96,7 +96,7 @@
             },
             {
               "guid": "IyYGIH9VCs2t",
-              "title": "Planet Mozilla",
+              "title": "Planet Plezix",
               "index": 5,
               "dateAdded": 1685116352325000,
               "lastModified": 1685116352325000,

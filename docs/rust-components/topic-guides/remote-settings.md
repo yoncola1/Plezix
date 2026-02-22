@@ -1,6 +1,6 @@
 # Remote Settings Client
 
-The API for the Remote Settings can be found in the Mozilla Rust components [Kotlin API Reference](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.remotesettings/index.html) and [Swift API Reference](https://mozilla.github.io/application-services/swift/Classes/RemoteSettings.html).
+The API for the Remote Settings can be found in the Plezix Rust components [Kotlin API Reference](https://mozilla.github.io/application-services/kotlin/kotlin-components-docs/mozilla.appservices.remotesettings/index.html) and [Swift API Reference](https://mozilla.github.io/application-services/swift/Classes/RemoteSettings.html).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ import mozilla.appservices.remotesettings.RemoteSettingsService
 
 
 ```swift
-import MozillaAppServices
+import PlezixAppServices
 ```
 :::
 

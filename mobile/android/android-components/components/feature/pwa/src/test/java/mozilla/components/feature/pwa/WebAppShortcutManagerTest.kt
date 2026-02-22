@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -169,11 +169,11 @@ class WebAppShortcutManagerTest {
     fun `buildBasicShortcut uses manifest short name as label by default`() = runTest {
         setSdkInt(Build.VERSION_CODES.O)
 
-        val session = createTab("https://www.mozilla.org", title = "Internet for people, not profit — Mozilla").let {
+        val session = createTab("https://www.mozilla.org", title = "Internet for people, not profit — Plezix").let {
             it.copy(
                 content = it.content.copy(
                     webAppManifest = WebAppManifest(
-                        name = "Mozilla",
+                        name = "Plezix",
                         shortName = "Moz",
                         startUrl = "https://mozilla.org",
                     ),
@@ -190,11 +190,11 @@ class WebAppShortcutManagerTest {
     fun `buildBasicShortcut uses manifest name as label by default`() = runTest {
         setSdkInt(Build.VERSION_CODES.O)
 
-        val session = createTab("https://www.mozilla.org", title = "Internet for people, not profit — Mozilla").let {
+        val session = createTab("https://www.mozilla.org", title = "Internet for people, not profit — Plezix").let {
             it.copy(
                 content = it.content.copy(
                     webAppManifest = WebAppManifest(
-                        name = "Mozilla",
+                        name = "Plezix",
                         startUrl = "https://mozilla.org",
                     ),
                 ),
@@ -203,14 +203,14 @@ class WebAppShortcutManagerTest {
 
         val shortcut = manager.buildBasicShortcut(context, session)
 
-        assertEquals("Mozilla", shortcut.shortLabel)
+        assertEquals("Plezix", shortcut.shortLabel)
     }
 
     @Test
     fun `buildBasicShortcut uses session title as label if there is no manifest`() = runTest {
         setSdkInt(Build.VERSION_CODES.O)
 
-        val expectedTitle = "Internet for people, not profit — Mozilla"
+        val expectedTitle = "Internet for people, not profit — Plezix"
 
         val session = createTab("https://mozilla.org", title = expectedTitle)
 
@@ -223,8 +223,8 @@ class WebAppShortcutManagerTest {
     fun `buildBasicShortcut can create a shortcut with a custom name`() = runTest {
         setSdkInt(Build.VERSION_CODES.O)
 
-        val title = "Internet for people, not profit — Mozilla"
-        val expectedName = "Mozilla"
+        val title = "Internet for people, not profit — Plezix"
+        val expectedName = "Plezix"
 
         val session = createTab("https://mozilla.org", title = title)
 

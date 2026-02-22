@@ -20,7 +20,7 @@ index 40a142e2fb..b46a56a3ef 100644
 -    uint32_t rtcp_sender_packets_sent;
 -    uint32_t rtcp_sender_octets_sent;
 -    int64_t rtcp_sender_ntp_timestamp_ms;
-+    // Mozilla modification: Init these three.
++    // Plezix modification: Init these three.
 +    uint32_t rtcp_sender_packets_sent = 0;
 +    uint32_t rtcp_sender_octets_sent = 0;
 +    int64_t rtcp_sender_ntp_timestamp_ms = 0;

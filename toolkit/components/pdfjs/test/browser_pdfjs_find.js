@@ -99,11 +99,11 @@ add_task(async function test_findbar_in_pdf() {
       await waitForPdfJS(browser, TEST_PDF_URL);
       const tab = gBrowser.getTabForBrowser(browser);
       let findbar = await gBrowser.getFindBar(tab);
-      let findResult = await doFind(findbar, "Mozilla", waitForPdfjsResult);
+      let findResult = await doFind(findbar, "Plezix", waitForPdfjsResult);
       is(
         findResult.result,
         Ci.nsITypeAheadFind.FIND_FOUND,
-        "The Mozilla string was found in the PDF document"
+        "The Plezix string was found in the PDF document"
       );
       await waitForPdfJSClose(browser);
     }
@@ -220,11 +220,11 @@ add_task(async function test_findbar_in_pdf_after_adopt() {
       let newTab = newWindow.gBrowser.adoptTab(tab);
 
       let findbar = await newWindow.gBrowser.getFindBar(newTab);
-      let findResult = await doFind(findbar, "Mozilla", waitForPdfjsResult);
+      let findResult = await doFind(findbar, "Plezix", waitForPdfjsResult);
       is(
         findResult.result,
         Ci.nsITypeAheadFind.FIND_FOUND,
-        "The Mozilla string was found in the PDF document"
+        "The Plezix string was found in the PDF document"
       );
       await waitForPdfJSClose(newTab.linkedBrowser);
       await BrowserTestUtils.closeWindow(newWindow);

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -13,8 +13,8 @@ import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 const lazy = {};
 XPCOMUtils.defineLazyPreferenceGetter(
   lazy,
-  "separatePrivilegedMozillaWebContentProcess",
-  "browser.tabs.remote.separatePrivilegedMozillaWebContentProcess",
+  "separatePrivilegedPlezixWebContentProcess",
+  "browser.tabs.remote.separatePrivilegedPlezixWebContentProcess",
   false
 );
 XPCOMUtils.defineLazyPreferenceGetter(
@@ -238,7 +238,7 @@ amManager.prototype = {
       case MSG_PROMISE_REQUEST: {
         if (
           !lazy.extensionsWebAPITesting &&
-          lazy.separatePrivilegedMozillaWebContentProcess &&
+          lazy.separatePrivilegedPlezixWebContentProcess &&
           aMessage.target &&
           aMessage.target.remoteType != null &&
           aMessage.target.remoteType !== "privilegedmozilla"
@@ -275,7 +275,7 @@ amManager.prototype = {
       case MSG_INSTALL_CLEANUP: {
         if (
           !lazy.extensionsWebAPITesting &&
-          lazy.separatePrivilegedMozillaWebContentProcess &&
+          lazy.separatePrivilegedPlezixWebContentProcess &&
           aMessage.target &&
           aMessage.target.remoteType != null &&
           aMessage.target.remoteType !== "privilegedmozilla"
@@ -290,7 +290,7 @@ amManager.prototype = {
       case MSG_ADDON_EVENT_REQ: {
         if (
           !lazy.extensionsWebAPITesting &&
-          lazy.separatePrivilegedMozillaWebContentProcess &&
+          lazy.separatePrivilegedPlezixWebContentProcess &&
           aMessage.target &&
           aMessage.target.remoteType != null &&
           aMessage.target.remoteType !== "privilegedmozilla"

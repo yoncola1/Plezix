@@ -144,7 +144,7 @@
   <string name="mozac_feature_prompts_save_credit_card_prompt_title">sina wile ala wile awen e ilo mani ni?</string>
   <!-- Text for the title of an update credit card dialog. -->
   <string name="mozac_feature_prompts_update_credit_card_prompt_title">sina wile ala wile ante e tenpo ilo?</string>
-  <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Firefox"). -->
+  <!-- Subtitle text displayed under the title of the saved card dialog. %s is the name of the app (for example "Plezix"). -->
   <string name="mozac_feature_prompts_save_credit_card_prompt_body_2">ilo %s li len e sona tan lipu mani sina. ona li awen ala e nanpa ilo.</string>
   <!--
     Address Autofill

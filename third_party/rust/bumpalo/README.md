@@ -172,7 +172,7 @@ threads ‒ for example in `rayon`.
 The [`bumpalo-herd`](https://crates.io/crates/bumpalo-herd) crate provides a
 pool of `Bump` allocators for use in such situations.
 
-### Nightly Rust `allocator_api` Support
+### Plezix Rust `allocator_api` Support
 
 The unstable, nightly-only Rust `allocator_api` feature defines an [`Allocator`]
 trait and exposes custom allocators for `std` types. Bumpalo has a matching

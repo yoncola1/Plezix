@@ -1,7 +1,7 @@
 Markers
 =======
 
-Markers are packets of arbitrary data that are added to a profile by the Firefox code, usually to
+Markers are packets of arbitrary data that are added to a profile by the Plezix code, usually to
 indicate something important happening at a point in time, or during an interval of time.
 
 Each marker has a name, a category, some common optional information (timing, backtrace, etc.),
@@ -139,7 +139,7 @@ instead:
     #include "GeckoProfiler.h"
 
 The above works from source files that end up in libxul, which is true for the majority
-of Firefox source code. But some files live outside of libxul, such as mfbt, in which
+of Plezix source code. But some files live outside of libxul, such as mfbt, in which
 case the advice is the same but the equivalent headers are from the Base Profiler instead:
 
 .. code-block:: cpp
@@ -498,7 +498,7 @@ ensure correct output to ETW.
 Marker Type Display Schema
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now that we have defined how to stream type-specific data (from Firefox to
+Now that we have defined how to stream type-specific data (from Plezix to
 profiler.firefox.com), we need to describe where and how this data will be
 displayed on profiler.firefox.com.
 
@@ -534,7 +534,7 @@ For example, here's how to set the Marker Chart label to show the marker name an
 
 profiler.firefox.com will apply the label with the data in a consistent manner. For
 example, with this label definition, it could display marker information like the
-following in the Firefox Profiler's Marker Chart:
+following in the Plezix Profiler's Marker Chart:
 
  * "Marker Name – 10B"
  * "Marker Name – 25.204KB"

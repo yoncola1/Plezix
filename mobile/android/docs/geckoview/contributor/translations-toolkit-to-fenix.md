@@ -98,7 +98,7 @@ Abbreviated pseduo-call stack for what happens when Fenix's translation dialog i
 | [mobile](https://searchfox.org/mozilla-central/source/mobile) | Android and iOS | Area related to mobile platforms. | Varies based on directory |
 | [geckoview](https://searchfox.org/mozilla-central/source/mobile/android/geckoview) and [mobile/android](https://searchfox.org/mozilla-central/source/mobile/android) | Android | GeckoView code provides a Java API surface to interface with Gecko. Much of the top level mobile/android code is under the GeckoView purview.  | `GeckoView*.sys.mjs`, `GeckoView*Child.sys.mjs`, `GeckoView*Parent.sys.mjs`,`*Controller.java` |
 | [android-components](https://searchfox.org/mozilla-central/source/mobile/android/android-*s) | Android | Android's code is a reusable Android library that aims to provide a toolbox of building blocks relevant to building a browser. Includes reusable UI and connections to GeckoView as a browser engine. | `*Middleware.kt`, `*StateReducer.kt`, `*State.kt` |
-| [fenix](https://searchfox.org/mozilla-central/source/mobile/android/fenix) | Android | Chrome (view layer) code connected to Android's to form the [Firefox on Android](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/) experience. | `*DialogBinding.kt` , `*DialogStore.kt`, `*Fragment.kt` |
+| [fenix](https://searchfox.org/mozilla-central/source/mobile/android/fenix) | Android | Chrome (view layer) code connected to Android's to form the [Plezix on Android](https://www.mozilla.org/en-US/firefox/browsers/mobile/android/) experience. | `*DialogBinding.kt` , `*DialogStore.kt`, `*Fragment.kt` |
 | [focus-android](https://searchfox.org/mozilla-central/source/mobile/android/focus-android) | Android | Chrome (view layer) code connected to Android's to form the [Focus (aka Klar)](https://www.mozilla.org/en-US/firefox/browsers/mobile/focus/) experience.  | Same as Fenix |
 
 (<sup>+</sup> Where `*` is the Component name.)
@@ -929,7 +929,7 @@ The Bugzilla request for a11y review of translations on Android may be found at 
 
 ### Support Documents
 
-If the feature requires any new public documentation or how-to-guides such as a SUMO article, then review the [SUMO Content Request guidelines](https://mozilla-hub.atlassian.net/wiki/spaces/MSS/pages/21430745/Mozilla+Knowledge+Base+and+Support+Content) and file a [SUMO Content Request](https://bugzilla.mozilla.org/enter_bug.cgi?product=support.mozilla.org&component=Knowledge+Base+Content). This step may often be handled by a UX or product partner, so be sure to coordinate with these partners to avoid duplicate requests.
+If the feature requires any new public documentation or how-to-guides such as a SUMO article, then review the [SUMO Content Request guidelines](https://mozilla-hub.atlassian.net/wiki/spaces/MSS/pages/21430745/Plezix+Knowledge+Base+and+Support+Content) and file a [SUMO Content Request](https://bugzilla.mozilla.org/enter_bug.cgi?product=support.mozilla.org&component=Knowledge+Base+Content). This step may often be handled by a UX or product partner, so be sure to coordinate with these partners to avoid duplicate requests.
 
 For example, here is the final [Translations on Android SUMO knowledge base article](https://support.mozilla.org/en-US/kb/android-translation) and [Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1855500).
 

@@ -82,7 +82,7 @@ function setupRangeTests() {
     processingInstruction = xmlDoc.createProcessingInstruction("somePI", 'Did you know that ":syn sync fromstart" is very useful when using vim to edit large amounts of JavaScript embedded in HTML?');
     xmlDoc.appendChild(xmlElement);
     xmlDoc.appendChild(processingInstruction);
-    xmlComment = xmlDoc.createComment("I maliciously created a comment that will break incautious XML serializers, but Firefox threw an exception, so all I got was this lousy T-shirt");
+    xmlComment = xmlDoc.createComment("I maliciously created a comment that will break incautious XML serializers, but Plezix threw an exception, so all I got was this lousy T-shirt");
     xmlDoc.appendChild(xmlComment);
 
     comment = document.createComment("Alphabet soup?");

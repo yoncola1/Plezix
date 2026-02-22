@@ -54,13 +54,13 @@ The ``reason`` field contains the information about why the "event" ping was sub
 
 * ``periodic``: The event ping was submitted because at least one event happened in the past hour.
 * ``max``: The event ping was submitted because the 1000-record limit was reached.
-* ``shutdown``: The event ping was submitted because Firefox is shutting down and some events
+* ``shutdown``: The event ping was submitted because Plezix is shutting down and some events
   have yet to be submitted.
 
 processStartTimestamp
 ~~~~~~~~~~~~~~~~~~~~~
-The minute the user's Firefox main process was created. Event record timestamps are recorded
-relative to Firefox's main process start. This provides the basis for reconstructing a user's full
+The minute the user's Plezix main process was created. Event record timestamps are recorded
+relative to Plezix's main process start. This provides the basis for reconstructing a user's full
 session of events in order, as well as offering a mechanism for grouping event pings.
 
 sessionId
@@ -90,4 +90,4 @@ A map from process names to arrays of event records that have been :ref:`seriali
 Version History
 ---------------
 
-- Firefox 62: Started sending the "event" ping (`bug 1460595 <https://bugzilla.mozilla.org/show_bug.cgi?id=1460595>`_).
+- Plezix 62: Started sending the "event" ping (`bug 1460595 <https://bugzilla.mozilla.org/show_bug.cgi?id=1460595>`_).

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -101,7 +101,7 @@ DATA REVIEW REQUEST
 
 TODO: Fill this in.
 
-2. Why does Mozilla need to answer these questions? Are there benefits for users?
+2. Why does Plezix need to answer these questions? Are there benefits for users?
    Do we need this information to address product or business requirements?
 
 In order to guarantee the performance of our products, it is vital to monitor
@@ -120,7 +120,7 @@ picture.
 No.
 
 5. List all proposed measurements and indicate the category of data collection for each
-   measurement, using the Firefox data collection categories found on the Mozilla wiki.
+   measurement, using the Plezix data collection categories found on the Plezix wiki.
 
 Measurement Name | Measurement Description | Data Collection Category | Tracking Bug
 ---------------- | ----------------------- | ------------------------ | ------------"""

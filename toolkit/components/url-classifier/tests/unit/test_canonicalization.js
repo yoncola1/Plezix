@@ -86,8 +86,8 @@ function run_test() {
   );
   equal(
     canonicalize(
-      "https://wiki.mozilla.org/index.php?title=MozillaWiki%3AHelp&action=history"
+      "https://wiki.mozilla.org/index.php?title=PlezixWiki%3AHelp&action=history"
     ),
-    "https://wiki.mozilla.org/index.php?title=MozillaWiki:Help&action=history"
+    "https://wiki.mozilla.org/index.php?title=PlezixWiki:Help&action=history"
   );
 }

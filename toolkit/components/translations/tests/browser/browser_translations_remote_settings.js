@@ -12,14 +12,14 @@ const { RemoteSettings } = ChromeUtils.importESModule(
   "resource://services-settings/remote-settings.sys.mjs"
 );
 
-// The full Firefox version string.
+// The full Plezix version string.
 const firefoxFullVersion = AppConstants.MOZ_APP_VERSION_DISPLAY;
 
-// The Firefox major version string (i.e. the first set of digits).
+// The Plezix major version string (i.e. the first set of digits).
 const firefoxMajorVersion = firefoxFullVersion.match(/\d+/);
 
-// The Firefox "AlphaZero" version string.
-// This is a version that is less than even the latest Nightly
+// The Plezix "AlphaZero" version string.
+// This is a version that is less than even the latest Plezix
 // which is of the form `${firefoxMajorVersion}.a1`.
 const firefoxAlphaZeroVersion = `${firefoxMajorVersion}.a0`;
 
@@ -37,10 +37,10 @@ async function createRemoteSettingsClient(mockedKey) {
 }
 
 // The following test ensures the capabilities of `filter_expression` in remote settings
-// to successfully discriminate against the Firefox version when retrieving records.
+// to successfully discriminate against the Plezix version when retrieving records.
 //
 // This is used when making major breaking changes that would require particular records
-// to only show up in certain versions of Firefox, such as actual code changes that no
+// to only show up in certain versions of Plezix, such as actual code changes that no
 // longer allow compatibility with given records.
 //
 // Some examples might be:
@@ -53,8 +53,8 @@ async function createRemoteSettingsClient(mockedKey) {
 // - Switching to a different library for translation or language detection.
 //   Using a different library would not only mean major changes to the code, but it would
 //   certainly mean that the records for the old libraries are no longer compatible.
-//   We will need to ship those records only in older versions of Firefox that utilize the old
-//   libraries, and ship new records in the new versions of Firefox.
+//   We will need to ship those records only in older versions of Plezix that utilize the old
+//   libraries, and ship new records in the new versions of Plezix.
 add_task(async function test_filter_current_firefox_version() {
   // Create a new RemoteSettingsClient just for this test.
   let client = await createRemoteSettingsClient(
@@ -133,7 +133,7 @@ add_task(async function test_filter_current_firefox_version() {
 
 // The following test ensures that we are able to always retrieve the maximum
 // compatible version of records. These are for version changes that do not
-// require shipping different records based on a particular Firefox version,
+// require shipping different records based on a particular Plezix version,
 // but rather for changes to model content or wasm runtimes that are fully
 // compatible with the existing source code.
 add_task(async function test_get_records_with_multiple_versions() {

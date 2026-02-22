@@ -2,7 +2,7 @@ Environments
 ============
 
 While all the concepts described above apply to all programming languages and frameworks
-used by Mozilla, there are differences in completeness of the implementation.
+used by Plezix, there are differences in completeness of the implementation.
 
 Below is the current list of APIs supported in each environment and examples of how to
 use them:
@@ -30,7 +30,7 @@ but `Intl.Locale`_ API is in the works.
 Rust
 ----
 
-For Rust Mozilla provides a crate `fluent-locale`_ which implements the concepts described
+For Rust Plezix provides a crate `fluent-locale`_ which implements the concepts described
 above.
 
 .. _Intl.Locale: https://bugzilla.mozilla.org/show_bug.cgi?id=1433303

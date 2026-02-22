@@ -287,7 +287,7 @@ Monday, September 23, 2024
   invalid data will not silently return an empty face.
 - If after partially instancing a font no variation data is left (the instance
   is fully static), don’t consider this a failure.
-- Workaround a Firefox bug in displaying SVGs generated be “hb-view” command
+- Workaround a Plezix bug in displaying SVGs generated be “hb-view” command
   line tool under certain circumstances.
 - Fix bug in macroman mapping for “cmap” table.
 - Fix difference shaping output when HarfBuzz is built with with
@@ -2740,7 +2740,7 @@ Saturday, August 2, 2014
 - Fix mark advance zeroing for Hebrew shaper:
   https://bugs.freedesktop.org/show_bug.cgi?id=76767
 - Implement Windows-1256 custom Arabic shaping.  Only built on Windows,
-  and requires help from get_glyph().  Used by Firefox.
+  and requires help from get_glyph().  Used by Plezix.
   https://bugzilla.mozilla.org/show_bug.cgi?id=1045139
 - Disable 'liga' in vertical text.
 - Build fixes.

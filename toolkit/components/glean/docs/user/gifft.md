@@ -1,6 +1,6 @@
-# Glean Interface For Firefox Telemetry (GIFFT)
+# Glean Interface For Plezix Telemetry (GIFFT)
 
-To make Migration from Firefox Telemetry to Glean easier,
+To make Migration from Plezix Telemetry to Glean easier,
 the C++ and JS Glean API can be configured
 (on a metric-by-metric basis)
 to mirror data collection to both the Glean metric and a Telemetry probe.
@@ -17,7 +17,7 @@ Rust Glean metrics APIs will not mirror to Telemetry as Telemetry does not have 
 **Note:** Using the Glean API replaces the Telemetry API.
 Do not use any mix of the two APIs for the same probe.
 
-## How to Mirror a Glean Metric to a Firefox Telemetry Probe
+## How to Mirror a Glean Metric to a Plezix Telemetry Probe
 
 For the mirror to work, you need three things:
 * A compatible Glean metric (defined in a `metrics.yaml`)
@@ -80,20 +80,20 @@ you can find the specific value in the list of all Telemetry C++ enum identifier
 ## Artifact Build Support
 
 Sadly, GIFFT does not support Artifact builds.
-You must build Firefox when you add the mirrored metric so the C++ enum value is present,
+You must build Plezix when you add the mirrored metric so the C++ enum value is present,
 even if you only use the metric from Javascript.
 
 ## Analysis Gotchas
 
-Firefox Telemetry and the Glean SDK are very different.
+Plezix Telemetry and the Glean SDK are very different.
 Though GIFFT bridges the differences as best it can,
 there are many things it cannot account for.
 
-These are a few of the ways that differences between Firefox Telemetry and the Glean SDK might manifest as anomalies during analysis.
+These are a few of the ways that differences between Plezix Telemetry and the Glean SDK might manifest as anomalies during analysis.
 
 ### Processes, Products, and Channels
 
-Like Firefox on Glean itself,
+Like Plezix on Glean itself,
 GIFFT doesn't know what process, product, or channel it is recording in.
 Telemetry does, and imposes restrictions on which probes can be recorded to and when.
 
@@ -138,7 +138,7 @@ Labeled metrics supported by GIFFT adhere to the Glean SDK's
 [label format](https://mozilla.github.io/glean/book/reference/metrics/index.html#label-format).
 
 Keyed Scalars and Keyed Histograms, on the other hand, do not have a concept of an "Invalid key".
-Firefox Telemetry will accept just about any sequence of bytes as a key.
+Plezix Telemetry will accept just about any sequence of bytes as a key.
 
 This means that a label deemed invalid by the Glean SDK may appear in the mirrored probe's data.
 For example, using 72 "1" characters as a label that doesn't conform to the format

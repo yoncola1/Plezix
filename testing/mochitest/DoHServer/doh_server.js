@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -47,7 +47,7 @@ let server = http2.createSecureServer(
       req.on("end", function finishedData() {
         let packet = dnsPacket.decode(payload);
         let answers = [];
-        // Return the HTTPS RR to let Firefox connect to the HTTP/3 server
+        // Return the HTTPS RR to let Plezix connect to the HTTP/3 server
         if (packet.questions[0].type === "HTTPS") {
           answers.push({
             name: packet.questions[0].name,

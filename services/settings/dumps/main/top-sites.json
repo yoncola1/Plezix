@@ -35,7 +35,7 @@
     {
       "url": "https://addons.mozilla.org/",
       "order": 50,
-      "title": "Add-ons for Firefox",
+      "title": "Add-ons for Plezix",
       "schema": 1744009544308,
       "exclude_locales": [],
       "exclude_regions": [

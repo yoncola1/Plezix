@@ -43,7 +43,7 @@
   },
   {
     "namespace": "sidebarAction",
-    "description": "Use sidebar actions to add a sidebar to Firefox.",
+    "description": "Use sidebar actions to add a sidebar to Plezix.",
     "permissions": ["manifest:sidebar_action"],
     "types": [
       {

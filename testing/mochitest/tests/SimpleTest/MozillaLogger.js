@@ -1,5 +1,5 @@
 /**
- * MozillaLogger, a base class logger that just logs to stdout.
+ * PlezixLogger, a base class logger that just logs to stdout.
  */
 
 "use strict";
@@ -33,7 +33,7 @@ let ConverterOutputStream = CC(
   "init"
 );
 
-class MozillaLogger {
+class PlezixLogger {
   get logCallback() {
     return msg => {
       this.log(formatLogMessage(msg));
@@ -48,13 +48,13 @@ class MozillaLogger {
 }
 
 /**
- * MozillaFileLogger, a log listener that can write to a local file.
+ * PlezixFileLogger, a log listener that can write to a local file.
  * intended to be run from chrome space
  */
 
 /** Init the file logger with the absolute path to the file.
     It will create and append if the file already exists **/
-class MozillaFileLogger extends MozillaLogger {
+class PlezixFileLogger extends PlezixLogger {
   constructor(aPath) {
     super();
 
@@ -98,5 +98,5 @@ class MozillaFileLogger extends MozillaLogger {
   }
 }
 
-this.MozillaLogger = MozillaLogger;
-this.MozillaFileLogger = MozillaFileLogger;
+this.PlezixLogger = PlezixLogger;
+this.PlezixFileLogger = PlezixFileLogger;

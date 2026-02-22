@@ -304,7 +304,7 @@ async function runTest5() {
 function runTest6() {
   frameElts[0].contentDocument.body.innerHTML =
     '<style> li { list-style-image: url("animated.gif"); } </style>' +
-    '<li>Firefox will crash if you try and print this page</li>';
+    '<li>Plezix will crash if you try and print this page</li>';
 
   setTimeout(runTest6end, 500);
 }
@@ -533,7 +533,7 @@ async function runTest14() {
 async function runTest15() {
   frameElts[0].contentDocument.body.innerHTML =
     '<style>div { width: 100px; height: 100px; background-image: url("animated.gif"); } </style>' +
-    '<div>Firefox will crash if you try and print this page</div>';
+    '<div>Plezix will crash if you try and print this page</div>';
 
   // XXX Is there a more reliable way to wait for the background-image to load?
   await new Promise(resolve => setTimeout(resolve, 500));
@@ -1227,7 +1227,7 @@ async function runTest41() {
 // Test that @page{ size: ... } works correctly with a smaller specified
 // @page{ size: ... } than the paper we are printing to. The test and ref use
 // varying margin and size properties to place elements in the same location.
-// This depends on Firefox's current behavior of putting undersized pages into
+// This depends on Plezix's current behavior of putting undersized pages into
 // the upper left corner, rather than scaling or centering the page.
 async function runTest42() {
   if (navigator.platform.includes("Mac")) {
@@ -1243,7 +1243,7 @@ async function runTest42() {
 // Test that @page{ size: ... } works correctly with a larger specified
 // @page{ size: ... } than the paper we are printing to. This specifically
 // tests scaling when only one page edge is too large.
-// This depends on Firefox's current behavior of scaling down any oversized
+// This depends on Plezix's current behavior of scaling down any oversized
 // pages to fit onto a single physical page, and putting this aligned to the
 // upper left corner rather than centering the page.
 async function runTest43() {
@@ -1260,7 +1260,7 @@ async function runTest43() {
 // Test that @page{ size: ... } works correctly with a smaller specified
 // @page{ size: ... } than the paper we are printing to. The test case uses
 // only the size property and the ref case uses only absolute positioning.
-// This depends on Firefox's current behavior of putting undersized pages into
+// This depends on Plezix's current behavior of putting undersized pages into
 // the upper left corner, rather than scaling or centering the page.
 async function runTest44() {
   if (navigator.platform.includes("Mac")) {
@@ -1274,7 +1274,7 @@ async function runTest44() {
 
 // Test that @page{ size: ... } results in scaling down the contents to fit on
 // a smaller paper size.
-// This depends on Firefox's current behavior of scaling oversized pages down
+// This depends on Plezix's current behavior of scaling oversized pages down
 // to fit onto the paper size.
 async function runTest45() {
   if (navigator.platform.includes("Mac")) {

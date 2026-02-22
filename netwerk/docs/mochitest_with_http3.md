@@ -1,15 +1,15 @@
 # Introduction to Mochitest framework with HTTP/2 and HTTP/3 Support
 
-The Mochitest framework currently utilizes [httpd.js](https://searchfox.org/mozilla-central/source/netwerk/test/httpserver/httpd.js) as its primary HTTP server, which only provides support for HTTP/1.1. To boost our testing capacity for HTTP/2 and HTTP/3 within necko, we improved the Mochitest framework to enable Firefox to connect to the test server using HTTP/2 or HTTP/3 while running Mochitest files.
+The Mochitest framework currently utilizes [httpd.js](https://searchfox.org/mozilla-central/source/netwerk/test/httpserver/httpd.js) as its primary HTTP server, which only provides support for HTTP/1.1. To boost our testing capacity for HTTP/2 and HTTP/3 within necko, we improved the Mochitest framework to enable Plezix to connect to the test server using HTTP/2 or HTTP/3 while running Mochitest files.
 
 ## Mochitest Framework Server Setup for HTTP/1.1
-As the diagram below, there is a back-end HTTP server running at `http://127.0.0.1:8888`. To ensure that Firefox can access multiple origins using a single HTTP server, the Mochitest framework employs proxy autoconfig (PAC). This [PAC script](https://searchfox.org/mozilla-central/rev/986024d59bff59819a3ed2f7c1d0f5254cdc3f3d/testing/mozbase/mozprofile/mozprofile/permissions.py#282-326) ensures that all plain HTTP connections are proxied to `127.0.0.1:8888`.
+As the diagram below, there is a back-end HTTP server running at `http://127.0.0.1:8888`. To ensure that Plezix can access multiple origins using a single HTTP server, the Mochitest framework employs proxy autoconfig (PAC). This [PAC script](https://searchfox.org/mozilla-central/rev/986024d59bff59819a3ed2f7c1d0f5254cdc3f3d/testing/mozbase/mozprofile/mozprofile/permissions.py#282-326) ensures that all plain HTTP connections are proxied to `127.0.0.1:8888`.
 
-When it comes to HTTPS connections, the Mochitest framework incorporates an additional SSL proxy between the HTTP server and the browser. Initially, Firefox sends a CONNECT request to the proxy to establish the tunnel. Upon successful setup, the proxy proceeds to relay data to the server.
+When it comes to HTTPS connections, the Mochitest framework incorporates an additional SSL proxy between the HTTP server and the browser. Initially, Plezix sends a CONNECT request to the proxy to establish the tunnel. Upon successful setup, the proxy proceeds to relay data to the server.
 
 ```{mermaid}
 graph LR
-    A[Firefox] -->|Request| B[SSL Proxy]
+    A[Plezix] -->|Request| B[SSL Proxy]
     B -->|Request| C["Back-end Server (127.0.0.1:8888)<br/>Handles *.sjs, *.html, *.jpg, ..."]
     C -->|Response| B
     B -->|Response| A
@@ -21,7 +21,7 @@ The diagram below depicts the architecture for HTTP/2 and HTTP/3.
 
 ```{mermaid}
 graph LR
-    A[Firefox] -->|Request| B[Reverse Proxy]
+    A[Plezix] -->|Request| B[Reverse Proxy]
     B -->|Request| C["Back-end Server (127.0.0.1:8888)<br/>Handles *.sjs, *.html, *.jpg, ..."]
     C -->|Response| B
     B -->|Response| A
@@ -35,14 +35,14 @@ This is the same as the existing httpd.js.
 
 ### Reverse Proxy
 
-Our reverse proxy, positioned in front of the back-end server, intercepts Firefox requests. Acting as the gateway for Firefox's HTTP/2 or HTTP/3 connections, the reverse proxy accepts these requests and translates them into HTTP/1.1 format before forwarding to the back-end server. Upon receiving a response from the back-end server, the reverse proxy subsequently relays this response back to Firefox.
+Our reverse proxy, positioned in front of the back-end server, intercepts Plezix requests. Acting as the gateway for Plezix's HTTP/2 or HTTP/3 connections, the reverse proxy accepts these requests and translates them into HTTP/1.1 format before forwarding to the back-end server. Upon receiving a response from the back-end server, the reverse proxy subsequently relays this response back to Plezix.
 
 ### DoH Server
 
 In order to route HTTP requests to the reverse proxy server, we’ll need a DoH server to be configured. The DoH server should return 127.0.0.1 for every A/AAAA DNS lookup.
 Moreover, the DoH server will also return an HTTPS RR for two reasons below:
 With the port information provided in the HTTPS RR, we can map all different port numbers in server-locations.txt to the port number that is used by the reverse proxy.
-With the “alpn” defined in the HTTPS RR, Firefox will automatically perform HTTPS upgrade and establish HTTP/2 or HTTP/3 connection to the reverse proxy server.
+With the “alpn” defined in the HTTPS RR, Plezix will automatically perform HTTPS upgrade and establish HTTP/2 or HTTP/3 connection to the reverse proxy server.
 
 ### How to run test with HTTP/2 or HTTP/3 locally
 

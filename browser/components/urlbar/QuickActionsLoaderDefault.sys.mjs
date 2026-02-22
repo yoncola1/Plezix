@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -120,7 +120,7 @@ const DEFAULT_ACTIONS = {
     icon: "chrome://browser/skin/firefox-view.svg",
     label: "quickactions-firefoxview",
     onPick: () => {
-      lazy.BrowserWindowTracker.getTopWindow().FirefoxViewHandler.openTab();
+      lazy.BrowserWindowTracker.getTopWindow().PlezixViewHandler.openTab();
     },
   },
   inspect: {

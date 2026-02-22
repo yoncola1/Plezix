@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -66,7 +66,7 @@ import org.mozilla.fenix.compose.SwipeToDismissState2
 import org.mozilla.fenix.compose.TabThumbnail
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.PlezixTheme
 
 /**
  * Tab grid item used to display a tab that supports clicks,
@@ -140,7 +140,7 @@ private fun TabContent(
     val tabBorderModifier = if (isSelected) {
         Modifier.border(
             4.dp,
-            FirefoxTheme.colors.borderAccent,
+            PlezixTheme.colors.borderAccent,
             RoundedCornerShape(12.dp),
         )
     } else {
@@ -187,10 +187,10 @@ private fun TabContent(
                     selected = isSelected
                 },
             shape = RoundedCornerShape(dimensionResource(id = R.dimen.tab_tray_grid_item_border_radius)),
-            border = BorderStroke(1.dp, FirefoxTheme.colors.borderPrimary),
+            border = BorderStroke(1.dp, PlezixTheme.colors.borderPrimary),
         ) {
             Column(
-                modifier = Modifier.background(FirefoxTheme.colors.layer2),
+                modifier = Modifier.background(PlezixTheme.colors.layer2),
             ) {
                 Row(
                     modifier = Modifier
@@ -217,7 +217,7 @@ private fun TabContent(
                                 painter = painterResource(id = R.drawable.mozac_ic_globe_24),
                                 contentDescription = null,
                                 modifier = Modifier.size(20.dp),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
                     }
@@ -229,7 +229,7 @@ private fun TabContent(
                             .requiredHeight(30.dp)
                             .padding(7.dp, 5.dp)
                             .clipToBounds(),
-                        backgroundColor = FirefoxTheme.colors.layer2,
+                        backgroundColor = PlezixTheme.colors.layer2,
                         isContentRtl = BidiFormatter.getInstance().isRtl(tab.content.title),
                     ) {
                         Text(
@@ -239,7 +239,7 @@ private fun TabContent(
                             maxLines = 1,
                             softWrap = false,
                             style = TextStyle(
-                                color = FirefoxTheme.colors.textPrimary,
+                                color = PlezixTheme.colors.textPrimary,
                                 textDirection = TextDirection.Content,
                             ),
                         )
@@ -260,7 +260,7 @@ private fun TabContent(
                                     id = R.string.close_tab_title,
                                     tab.toDisplayTitle(),
                                 ),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = PlezixTheme.colors.iconPrimary,
                             )
                         }
                     }
@@ -310,7 +310,7 @@ private fun Thumbnail(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer2)
+            .background(PlezixTheme.colors.layer2)
             .semantics(mergeDescendants = true) {
                 testTag = TabsTrayTestTag.TAB_ITEM_THUMBNAIL
             },
@@ -325,7 +325,7 @@ private fun Thumbnail(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(FirefoxTheme.colors.layerAccentNonOpaque),
+                    .background(PlezixTheme.colors.layerAccentNonOpaque),
             )
 
             Card(
@@ -333,7 +333,7 @@ private fun Thumbnail(
                     .size(size = 40.dp)
                     .align(alignment = Alignment.Center),
                 shape = CircleShape,
-                colors = CardDefaults.cardColors(containerColor = FirefoxTheme.colors.layerAccent),
+                colors = CardDefaults.cardColors(containerColor = PlezixTheme.colors.layerAccent),
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_checkmark_24),
@@ -341,7 +341,7 @@ private fun Thumbnail(
                         .fillMaxSize()
                         .padding(all = 8.dp),
                     contentDescription = null,
-                    tint = FirefoxTheme.colors.iconActionPrimary,
+                    tint = PlezixTheme.colors.iconActionPrimary,
                 )
             }
         }
@@ -351,11 +351,11 @@ private fun Thumbnail(
 @Composable
 @PreviewLightDark
 private fun TabGridItemPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabContent(
             tab = createTab(
                 url = "www.mozilla.com",
-                title = "Mozilla Domain",
+                title = "Plezix Domain",
             ),
             thumbnailSize = 108,
             onCloseClick = {},
@@ -368,9 +368,9 @@ private fun TabGridItemPreview() {
 @Composable
 @PreviewLightDark
 private fun TabGridItemSelectedPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabContent(
-            tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
+            tab = createTab(url = "www.mozilla.com", title = "Plezix"),
             thumbnailSize = 108,
             isSelected = true,
             onCloseClick = {},
@@ -384,9 +384,9 @@ private fun TabGridItemSelectedPreview() {
 @Composable
 @PreviewLightDark
 private fun TabGridItemMultiSelectedPreview() {
-    FirefoxTheme {
+    PlezixTheme {
         TabContent(
-            tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
+            tab = createTab(url = "www.mozilla.com", title = "Plezix"),
             thumbnailSize = 108,
             multiSelectionEnabled = true,
             multiSelectionSelected = true,

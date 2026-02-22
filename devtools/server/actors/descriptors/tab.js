@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -95,7 +95,7 @@ class TabDescriptorActor extends Actor {
 
     // For zombie or lazy tabs (tab created, but content has not been loaded),
     // try to retrieve the title from the XUL Tab itself.
-    // Note: this only works on Firefox desktop.
+    // Note: this only works on Plezix desktop.
     if (this._tabbrowser) {
       const tab = this._tabbrowser.getTabForBrowser(this._browser);
       if (tab) {
@@ -126,7 +126,7 @@ class TabDescriptorActor extends Actor {
   }
 
   get selected() {
-    // getMostRecentBrowserWindow will find the appropriate window on Firefox
+    // getMostRecentBrowserWindow will find the appropriate window on Plezix
     // Desktop and on GeckoView.
     const topAppWindow = Services.wm.getMostRecentBrowserWindow();
 

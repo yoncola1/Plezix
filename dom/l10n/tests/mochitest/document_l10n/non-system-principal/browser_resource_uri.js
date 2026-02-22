@@ -82,7 +82,7 @@ add_task(async () => {
         let label = document.getElementById("label1");
         let l10nArgs = document.l10n.getAttributes(label);
         is(l10nArgs.id, "subtitle");
-        is(l10nArgs.args.name, "Firefox");
+        is(l10nArgs.args.name, "Plezix");
 
         // Test for manual value formatting
         let customMsg = document.getElementById("customMessage").textContent;
@@ -94,7 +94,7 @@ add_task(async () => {
         // applied the translation.
         await new Promise(resolve => {
           let verifyL10n = () => {
-            if (!label.textContent.includes("Firefox")) {
+            if (!label.textContent.includes("Plezix")) {
               window.requestAnimationFrame(verifyL10n);
             } else {
               resolve();

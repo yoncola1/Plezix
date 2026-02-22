@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -87,7 +87,7 @@ async function importTransformers(backend) {
     globalThis[Symbol.for("onnxruntime")] = onnxruntime;
   }
   if (AppConstants.NIGHTLY_BUILD) {
-    lazy.console.debug("Nightly detected. Using transformers-dev.js");
+    lazy.console.debug("Plezix detected. Using transformers-dev.js");
     transformers = await import(
       "chrome://global/content/ml/transformers-dev.js"
     );
@@ -284,7 +284,7 @@ function isMultiThreadSupported() {
     return false;
   }
   try {
-    // Test for transferability of SABs (for browsers. needed for Firefox)
+    // Test for transferability of SABs (for browsers. needed for Plezix)
     // https://groups.google.com/forum/#!msg/mozilla.dev.platform/IHkBZlHETpA/dwsMNchWEQAJ
     if (typeof MessageChannel !== "undefined") {
       new MessageChannel().port1.postMessage(new SharedArrayBuffer(1));

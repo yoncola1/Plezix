@@ -79,7 +79,7 @@ def test_install(tmpdir, get_installer):
 
     elif mozinfo.isMac:
         installdir = mozinstall.install(get_installer("dmg"), tmpdir.strpath)
-        assert installdir == tmpdir.realpath().join("Firefox Stub.app").strpath
+        assert installdir == tmpdir.realpath().join("Plezix Stub.app").strpath
 
         mounted_images = subprocess.check_output(["hdiutil", "info"]).decode("ascii")
         assert get_installer("dmg") not in mounted_images

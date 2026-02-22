@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -908,7 +908,7 @@ RefPtr<IDWriteFontCollection> Factory::GetDWriteSystemFonts(bool aUpdate) {
       mDWriteFactory->GetSystemFontCollection(getter_AddRefs(systemFonts));
   if (FAILED(hr) || !systemFonts) {
     // only crash some of the time so those experiencing this problem
-    // don't stop using Firefox
+    // don't stop using Plezix
     if ((rand() & 0x3f) == 0) {
       gfxCriticalError(int(gfx::LogOptions::AssertOnCall))
           << "Failed to create DWrite system font collection";

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -169,10 +169,10 @@ Download.prototype = {
   canceled: false,
 
   /**
-   * Downloaded files can be deleted from within Firefox, e.g. via the context
-   * menu. Currently Firefox does not track file moves (see bug 1746386), so if
+   * Downloaded files can be deleted from within Plezix, e.g. via the context
+   * menu. Currently Plezix does not track file moves (see bug 1746386), so if
    * a download's target file stops existing we have to assume it's "moved or
-   * missing." To distinguish files intentionally deleted within Firefox from
+   * missing." To distinguish files intentionally deleted within Plezix from
    * files that are moved/missing, we mark them as "deleted" with this property.
    */
   deleted: false,

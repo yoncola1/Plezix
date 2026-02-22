@@ -66,7 +66,7 @@ Blob.prototype.slice = function(start, length) {};
 Blob.prototype.webkitSlice = function(start, end) {};
 
 /**
- * This replaces Blob.slice in Firefox.
+ * This replaces Blob.slice in Plezix.
  * @see http://lists.w3.org/Archives/Public/public-webapps/2011AprJun/0222.html
  * @param {number} start
  * @param {number} end

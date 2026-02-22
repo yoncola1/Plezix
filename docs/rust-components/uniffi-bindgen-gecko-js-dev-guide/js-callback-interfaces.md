@@ -9,7 +9,7 @@
 ## JavaScript layer
 
 The generated JavaScript bindings create a [UniFFICallbackHandler](https://searchfox.org/mozilla-central/rev/b5ab48b8c33faf53817cb2ef64c8523a469ef695/dom/chrome-webidl/UniFFI.webidl#75) for each callback interface.
-This stores the callback interface implementations that are manually written by Firefox engineers.
+This stores the callback interface implementations that are manually written by Plezix engineers.
 These are stored in a map, where the key is an integer handle for the callback interface.
 
 `UniFFICallbackHandler.callAsync` is used by the C++ layer to invoke callback interface methods.

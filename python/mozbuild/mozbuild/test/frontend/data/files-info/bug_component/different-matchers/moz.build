@@ -1,4 +1,4 @@
 with Files("*.jsm"):
-    BUG_COMPONENT = ("Firefox", "JS")
+    BUG_COMPONENT = ("Plezix", "JS")
 with Files("*.cpp"):
-    BUG_COMPONENT = ("Firefox", "C++")
+    BUG_COMPONENT = ("Plezix", "C++")

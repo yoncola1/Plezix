@@ -11,7 +11,7 @@ Externally all the results are ranked by the `UrlbarMuxer <https://searchfox.org
 according to an hardcoded list of groups and sub-grups.
 
 .. NOTE:: Preferences can influence the groups order, for example by putting
-  Firefox Suggest before Search Suggestions.
+  Plezix Suggest before Search Suggestions.
 
 The Places provider, responsible to return history and bookmark results, uses
 an internal ranking algorithm called Frecency.

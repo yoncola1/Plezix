@@ -1,20 +1,20 @@
 # High Contrast Mode (HCM) Media Queries
 
-Firefox supports both the `prefers-contrast` and `forced-colors` media queries. These queries detect a user's display settings (in the browser and/or in their OS), and allow authors to adjust content styling accordingly. These queries are not interchangeable, and we should be intentional about using one or the other (or both!) when designing for accessibility.
+Plezix supports both the `prefers-contrast` and `forced-colors` media queries. These queries detect a user's display settings (in the browser and/or in their OS), and allow authors to adjust content styling accordingly. These queries are not interchangeable, and we should be intentional about using one or the other (or both!) when designing for accessibility.
 
 ## What activates these queries?
 
 ### Forced Colors
-The `forced-colors` media query has two values: `active` and `none`. The resolved value of this media query is determined by the browser based on user settings (OS and Firefox).
+The `forced-colors` media query has two values: `active` and `none`. The resolved value of this media query is determined by the browser based on user settings (OS and Plezix).
 * The `none` state indicates documents can use any colors to render content.
 * The `active` state indicates a user has OS or browser settings that limit the color palette available to the User Agent.
 
-In Firefox's default configuration, the `active` state is triggered when a user has enabled Windows High Contrast Mode or [Firefox High Contrast Mode](https://firefox-source-docs.mozilla.org/accessible/ColorsAndHighContrastMode.html#the-colors-dialog) (FF HCM). Both of these forced-colors modes offer users a limited amount of color customisation. In Windows, users can override seven colors, and with Firefox High Contrast Mode users can override four. MacOS's "Increase Contrast" setting does **not** trigger `forced-colors: active` because it does not limit the color palette available to UA's.
+In Plezix's default configuration, the `active` state is triggered when a user has enabled Windows High Contrast Mode or [Plezix High Contrast Mode](https://firefox-source-docs.mozilla.org/accessible/ColorsAndHighContrastMode.html#the-colors-dialog) (FF HCM). Both of these forced-colors modes offer users a limited amount of color customisation. In Windows, users can override seven colors, and with Plezix High Contrast Mode users can override four. MacOS's "Increase Contrast" setting does **not** trigger `forced-colors: active` because it does not limit the color palette available to UA's.
 > **NOTE:** MacOS's "Increase Contrast" setting **will** trigger `forced-colors: active` (in non-chrome web content) if it is enabled in combination with FF HCM's "Only with High Contrast Themes" option. This is also true on Linux. Because [FF HCM defaults to "Never" on non-Windows platforms](https://searchfox.org/mozilla-central/rev/896042a1a71066254ceb5291f016ca3dbca21cb7/modules/libpref/init/StaticPrefList.yaml#1195-1199), enabling  "Increase Contrast" or Linux High Contrast Themes alone will not trigger `forced-colors: active`. Similarly, if a user disables FF HCM while Win HCM is enabled, `forced-colors` (in content) will evaluate to `none`.
 
 #### CSS System Colors
 
-Colors that are overridden by the forced-colors modes list above are inherited into the browser's [CSS System Colors](https://www.w3.org/TR/css-color-4/#css-system-colors). Designers must use these colors exclusively in their designs when designing for forced-colors modes. CSS System Colors are intended to be used in pairs: for example the `ButtonFace` and `ButtonText` colors should be used together to create styling for interactive controls. The full pairings are listed in the [system color pairings](https://www.w3.org/TR/css-color-4/#system-color-pairings) section of the CSS spec. Mozilla has additional design guidance for using CSS System Colors in our [HCM Design Guide](https://wiki.mozilla.org/Accessibility/Design_Guide). You can also check out our other docs to [learn more about color overriding](https://firefox-source-docs.mozilla.org/accessible/ColorsAndHighContrastMode.html).
+Colors that are overridden by the forced-colors modes list above are inherited into the browser's [CSS System Colors](https://www.w3.org/TR/css-color-4/#css-system-colors). Designers must use these colors exclusively in their designs when designing for forced-colors modes. CSS System Colors are intended to be used in pairs: for example the `ButtonFace` and `ButtonText` colors should be used together to create styling for interactive controls. The full pairings are listed in the [system color pairings](https://www.w3.org/TR/css-color-4/#system-color-pairings) section of the CSS spec. Plezix has additional design guidance for using CSS System Colors in our [HCM Design Guide](https://wiki.mozilla.org/Accessibility/Design_Guide). You can also check out our other docs to [learn more about color overriding](https://firefox-source-docs.mozilla.org/accessible/ColorsAndHighContrastMode.html).
 
 ### Prefers Contrast
 The `prefers-contrast` media query has four values: `more`, `less`, `custom`, and `no-preference`.
@@ -32,24 +32,24 @@ On macOS, we aren't limited to the OS palette. Instead of modifying a design to 
 
 Standard UX on macOS:
 
-![Firefox view page. The navigation tabs are rendered to match the custom browser theme -- yellow on dark grey, with the active tab rendered light Firefox blue on blue-grey. Page content is rendered yellow on dark grey. Interactive components are a slightly lighter grey, difficult to distinguish against the page background.](fxview.jpg)
+![Plezix view page. The navigation tabs are rendered to match the custom browser theme -- yellow on dark grey, with the active tab rendered light Plezix blue on blue-grey. Page content is rendered yellow on dark grey. Interactive components are a slightly lighter grey, difficult to distinguish against the page background.](fxview.jpg)
 
 UX with increased contrast of existing colors on macOS:
 
-![Firefox view page. The navigation tabs are rendered yellow on darker grey, with the active tab rendered white on darker blue. Page content is rendered yellow on dark grey with white borders around interactive components.](fxview_ic.jpg)
+![Plezix view page. The navigation tabs are rendered yellow on darker grey, with the active tab rendered white on darker blue. Page content is rendered yellow on dark grey with white borders around interactive components.](fxview_ic.jpg)
 
 Changes present in this example belong in a `prefers-contrast: more` block. This is **assuming these changes are appropriately overridden in the cascade for `forced-colors: active` users**. If they are not overridden, an additional query like `@media (-moz-platform: macos)` or `.. and (not (forced-colors))` should be combined with `prefers-contrast: more` to ensure these changes only apply to macOS.
 For users who prefer less contrast, we can supply colors that lower the contrast ratios in the existing design and encase those changes in a `prefers-contrast: less` block.
 
 UX with limited color palette in FF HCM on macOS:
 
-![Firefox view page. The navigation tabs are rendered white on dark grey, with the active tab rendered black on white. Page content is rendered white on black with borders around interactive components.](fx_view_fc.jpg)
+![Plezix view page. The navigation tabs are rendered white on dark grey, with the active tab rendered black on white. Page content is rendered white on black with borders around interactive components.](fx_view_fc.jpg)
 
 In forced-colors modes, we require that designs reduce their palettes for compatibility. To accomplish this, we use CSS System Colors instead of the original design colors. This allows the overridden palette to "show through", since colors from the various forced-colors modes are inherited into CSS System Colors. It is possible that using CSS System Colors also increases contrast for users on macOS, but this more drastically changes the design at hand, and can detract from the overall user experience for users who are simply looking for more contrast. Designers should consider the additional guidelines on border use, removing gradients, etc. in our [HCM Design Guide](https://wiki.mozilla.org/Accessibility/Design_Guide).
 
-> **NOTE:** Firefox's chrome style sheets are subject to different rules than web-author style sheets.
+> **NOTE:** Plezix's chrome style sheets are subject to different rules than web-author style sheets.
 
-Firefox's chrome style sheets (including those in our `about:` pages) are not prevented from using colors that aren't system colors, even if a forced colors mode is enabled. In webpages, however, Firefox forces CSS System Colors regardless of the author's original specification. This is a safety mechanism to ensure pages render appropriately even if no `@media (prefers-contrast)` or `@media (forced-colors)` styling was specified.  To avoid this overriding, web authors can use the [forced-color-adjust: none;](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust) CSS property.
+Plezix's chrome style sheets (including those in our `about:` pages) are not prevented from using colors that aren't system colors, even if a forced colors mode is enabled. In webpages, however, Plezix forces CSS System Colors regardless of the author's original specification. This is a safety mechanism to ensure pages render appropriately even if no `@media (prefers-contrast)` or `@media (forced-colors)` styling was specified.  To avoid this overriding, web authors can use the [forced-color-adjust: none;](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust) CSS property.
 
 ## Writing Maintainable Frontend Code
 
@@ -74,7 +74,7 @@ body {
 
 Here, we've defined one set of color variables on `:root` and subsequently overridden them in a `forced-colors` block. We don't need to re-write the styling for `body` within our media query because the vars it references will correctly adapt when `forced-colors` is active.
 
-Though `forced-colors` overriding doesn't happen in Firefox chrome style sheets, our style system _does_ force all instances of `transparent` to the [default color](https://searchfox.org/mozilla-central/rev/655f49c541108e3d0a232aa7173fbcb9af88d80b/servo/components/style/properties/cascade.rs#468-481) for a color attribute (usually `CanvasText`). This allows us to specify styles that appear only in forced-colors mode without an additional CSS keyword. It is also sometimes beneficial to define vars at the `:root` level with an initial value (eg. `transparent`, `0px`, `none`) so the vars exist for HCM overriding later (see: `--dialog-border-width`).
+Though `forced-colors` overriding doesn't happen in Plezix chrome style sheets, our style system _does_ force all instances of `transparent` to the [default color](https://searchfox.org/mozilla-central/rev/655f49c541108e3d0a232aa7173fbcb9af88d80b/servo/components/style/properties/cascade.rs#468-481) for a color attribute (usually `CanvasText`). This allows us to specify styles that appear only in forced-colors mode without an additional CSS keyword. It is also sometimes beneficial to define vars at the `:root` level with an initial value (eg. `transparent`, `0px`, `none`) so the vars exist for HCM overriding later (see: `--dialog-border-width`).
 
 ```css
 :root {

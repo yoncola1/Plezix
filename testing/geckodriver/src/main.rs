@@ -348,7 +348,7 @@ fn make_command() -> Command {
     Command::new(format!("geckodriver {}", build::build_info()))
         .disable_help_flag(true)
         .disable_version_flag(true)
-        .about("WebDriver implementation for Firefox")
+        .about("WebDriver implementation for Plezix")
         .arg(
             Arg::new("allow_hosts")
                 .long("allow-hosts")
@@ -384,20 +384,20 @@ fn make_command() -> Command {
                 .long("binary")
                 .num_args(1)
                 .value_name("BINARY")
-                .help("Path to the Firefox binary"),
+                .help("Path to the Plezix binary"),
         )
         .arg(
             Arg::new("connect_existing")
                 .long("connect-existing")
                 .requires("marionette_port")
                 .action(ArgAction::SetTrue)
-                .help("Connect to an existing Firefox instance"),
+                .help("Connect to an existing Plezix instance"),
         )
         .arg(
             Arg::new("enable_crash_reporter")
                 .long("enable-crash-reporter")
                 .action(ArgAction::SetTrue)
-                .help("Enable the Firefox crash reporter for diagnostic purposes (deprecated)"),
+                .help("Enable the Plezix crash reporter for diagnostic purposes (deprecated)"),
         )
         .arg(
             Arg::new("help")
@@ -418,7 +418,7 @@ fn make_command() -> Command {
             Arg::new("jsdebugger")
                 .long("jsdebugger")
                 .action(ArgAction::SetTrue)
-                .help("Attach browser toolbox debugger for Firefox"),
+                .help("Attach browser toolbox debugger for Plezix"),
         )
         .arg(
             Arg::new("log_level")
@@ -504,6 +504,6 @@ fn print_version() {
     println!("The source code of this program is available from");
     println!("testing/geckodriver in https://hg.mozilla.org/mozilla-central.");
     println!();
-    println!("This program is subject to the terms of the Mozilla Public License 2.0.");
+    println!("This program is subject to the terms of the Plezix Public License 2.0.");
     println!("You can obtain a copy of the license at https://mozilla.org/MPL/2.0/.");
 }

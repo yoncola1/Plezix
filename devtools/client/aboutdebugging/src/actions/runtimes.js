@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -201,9 +201,9 @@ function connectRuntime(id) {
   };
 }
 
-function createThisFirefoxRuntime() {
+function createThisPlezixRuntime() {
   return ({ dispatch }) => {
-    const thisFirefoxRuntime = {
+    const thisPlezixRuntime = {
       id: RUNTIMES.THIS_FIREFOX,
       isConnecting: false,
       isConnectionFailed: false,
@@ -216,7 +216,7 @@ function createThisFirefoxRuntime() {
     };
     dispatch({
       type: THIS_FIREFOX_RUNTIME_CREATED,
-      runtime: thisFirefoxRuntime,
+      runtime: thisPlezixRuntime,
     });
   };
 }
@@ -504,7 +504,7 @@ function removeRuntimeListeners() {
 
 module.exports = {
   connectRuntime,
-  createThisFirefoxRuntime,
+  createThisPlezixRuntime,
   disconnectRuntime,
   removeRuntimeListeners,
   unwatchRuntime,

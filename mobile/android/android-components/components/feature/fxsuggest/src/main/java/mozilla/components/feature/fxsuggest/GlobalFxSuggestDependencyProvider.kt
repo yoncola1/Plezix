@@ -1,11 +1,11 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 package mozilla.components.feature.fxsuggest
 
 /**
- * Provides global access to the dependencies needed to access Firefox Suggest search suggestions.
+ * Provides global access to the dependencies needed to access Plezix Suggest search suggestions.
  */
 object GlobalFxSuggestDependencyProvider {
     internal var storage: FxSuggestStorage? = null

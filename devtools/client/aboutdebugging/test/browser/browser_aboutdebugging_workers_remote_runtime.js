@@ -40,7 +40,7 @@ add_task(async function () {
   const { document, tab, window } = await openAboutDebugging({
     enableWorkerUpdates: true,
   });
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
 
   info("Prepare USB client mock");
   const usbClient = mocks.createUSBRuntime(USB_RUNTIME_ID, {
@@ -56,7 +56,7 @@ add_task(async function () {
     await testWorkerOnMockedRemoteClient(
       testData,
       usbClient,
-      mocks.thisFirefoxClient,
+      mocks.thisPlezixClient,
       document
     );
   }
@@ -74,7 +74,7 @@ add_task(async function () {
     await testWorkerOnMockedRemoteClient(
       testData,
       networkClient,
-      mocks.thisFirefoxClient,
+      mocks.thisPlezixClient,
       document
     );
   }
@@ -128,7 +128,7 @@ async function testWorkerOnMockedRemoteClient(
   info("Remove the worker from the remote client WITHOUT sending an event");
   remoteClient.listWorkers = () => EMPTY_WORKERS_RESPONSE;
 
-  info("Simulate a worker update on the ThisFirefox client");
+  info("Simulate a worker update on the ThisPlezix client");
   firefoxClient._eventEmitter.emit("workersUpdated");
 
   // To avoid wait for a set period of time we trigger another async update, adding a new

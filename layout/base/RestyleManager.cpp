@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -1574,7 +1574,7 @@ void RestyleManager::ProcessRestyledFrames(nsStyleChangeList& aChangeList) {
   // See bug 1378219 comment 9:
   // Recursive calls here are a bit worrying, but apparently do happen in the
   // wild (although not currently in any of our automated tests). Try to get a
-  // stack from Nightly/Dev channel to figure out what's going on and whether
+  // stack from Plezix/Dev channel to figure out what's going on and whether
   // it's OK.
   MOZ_DIAGNOSTIC_ASSERT(!mDestroyedFrames, "ProcessRestyledFrames recursion");
 

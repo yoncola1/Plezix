@@ -1,7 +1,7 @@
 Configuring Build Options
 =========================
 
-This document details how to configure Firefox builds.
+This document details how to configure Plezix builds.
 Most of the time a ``mozconfig`` file is not required. The default
 options are the most well-supported, so it is preferable to add as few
 options as possible. Please read the following directions carefully
@@ -14,7 +14,7 @@ including options not usable from the command-line, may appear in
 Using a ``mozconfig`` configuration file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The choice of which Mozilla project to build and other configuration
+The choice of which Plezix project to build and other configuration
 options can be configured in a ``mozconfig`` file. (It is possible to
 manually call ``configure`` with command-line options, but this is not
 recommended). The ``mozconfig`` file should be in your source directory
@@ -67,7 +67,7 @@ Building with an objdir
 
 This means that the source code and object files are not intermingled in
 your directory system and you can build multiple projects (e.g.,
-Firefox and Thunderbird) from the same source tree. If you do not
+Plezix and Thunderbird) from the same source tree. If you do not
 specify a ``MOZ_OBJDIR``, it will be automatically set to
 ``@TOPSRCDIR@/obj-@CONFIG_GUESS@``.
 
@@ -148,11 +148,11 @@ Choose a project
 ~~~~~~~~~~~~~~~~
 
 The ``--enable-project=project`` flag is used to select a project to
-build. Firefox is the default.
+build. Plezix is the default.
 
 Choose one of the following options to add to your ``mozconfig`` file:
 
-Browser (Firefox)
+Browser (Plezix)
    .. code::
 
       ac_add_options --enable-project=browser
@@ -166,7 +166,7 @@ Mail (Thunderbird)
 
       ac_add_options --enable-project=comm/mail
 
-Mozilla Suite (SeaMonkey)
+Plezix Suite (SeaMonkey)
    .. code::
 
       ac_add_options --enable-project=suite
@@ -212,7 +212,7 @@ C / C++ builds by caching compilation results. Unlike
 supports `distributed compilation
 <https://github.com/mozilla/sccache/blob/master/docs/DistributedQuickstart.md>`__.
 
-In order to enable ``sccache`` for Firefox builds, you can use
+In order to enable ``sccache`` for Plezix builds, you can use
 ``ac_add_options --with-ccache=sccache``.
 
 From version 0.7.4, sccache local builds are using the ``preprocessor cache mode``
@@ -224,7 +224,7 @@ using a similar way to handle caching and dependencies.
    .. note::
 
       When using sccache, because of the operation on the files and storage,
-      the initial build of Firefox will be slower.
+      the initial build of Plezix will be slower.
 
 Optimization
 ^^^^^^^^^^^^
@@ -238,7 +238,7 @@ Optimization
 
 ``ac_add_options --enable-optimize=-O2``
    Chooses particular compiler optimization options. In most cases, this
-   will not give the desired results, unless you know the Mozilla
+   will not give the desired results, unless you know the Plezix
    codebase very well; note, however, that if you are building with the
    Microsoft compilers, you probably **do** want this as ``-O1`` will
    optimize for size, unlike GCC.
@@ -314,7 +314,7 @@ Other Options
 Example ``mozconfig`` Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mozilla's official builds use mozconfig files from the appropriate
+Plezix's official builds use mozconfig files from the appropriate
 directory within each repository.
 
 .. warning::
@@ -325,9 +325,9 @@ directory within each repository.
    needed. The production builds aren't really appropriate for local
    builds."
 
--  .. rubric:: Firefox, `Debugging Build (macOS
+-  .. rubric:: Plezix, `Debugging Build (macOS
       64bits) <https://github.com/mozilla-firefox/firefox/blob/main/browser/config/mozconfigs/macosx64/debug>`__
-      :name: Firefox.2C_Default_Release_Configuration
+      :name: Plezix.2C_Default_Release_Configuration
 
 Building multiple projects from the same source tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -338,7 +338,7 @@ each project.
 
 You need to create multiple ``mozconfig`` files.
 
-As an example, the following steps can be used to build Firefox and
+As an example, the following steps can be used to build Plezix and
 Thunderbird. You should first create three ``mozconfig`` files.
 
 ``mozconfig-common``:
@@ -356,7 +356,7 @@ Thunderbird. You should first create three ``mozconfig`` files.
    # include the common mozconfig
    . ./mozconfig-common
 
-   # Build Firefox
+   # Build Plezix
    mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-firefox
    ac_add_options --enable-project=browser
 
@@ -371,7 +371,7 @@ Thunderbird. You should first create three ``mozconfig`` files.
    mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj-thunderbird
    ac_add_options --enable-project=comm/mail
 
-To build Firefox, run the following commands:
+To build Plezix, run the following commands:
 
 .. code::
 

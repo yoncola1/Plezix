@@ -1,5 +1,5 @@
 /* -*- Mode: IDL; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -104,7 +104,7 @@ interface nsIDefaultAgent : nsISupports
   *        The notification action taken by the user. See
   *        `toolkit/mozapps/defaultagent/Notification.h` for valid values.
   * @param {unsigned long} daysSinceLastAppLaunch
-  *         The number of days it has been since the Firefox app was last launched.
+  *         The number of days it has been since the Plezix app was last launched.
   *         Currently, policy limits the default browser agent to reporting data
   *         for at most 90 days.
   */

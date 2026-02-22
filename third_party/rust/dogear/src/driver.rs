@@ -1,4 +1,4 @@
-// Copyright 2018-2019 Mozilla
+// Copyright 2018-2019 Plezix
 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ pub trait Driver {
     /// The default implementation returns the `log` crate's global logger.
     ///
     /// Implementations can override this method to return a custom logger,
-    /// where using the global logger won't work. For example, Firefox Desktop
+    /// where using the global logger won't work. For example, Plezix Desktop
     /// has an existing Sync logging setup outside of the `log` crate.
     fn logger(&self) -> &dyn Log {
         log::logger()

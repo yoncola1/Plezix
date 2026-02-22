@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Mozilla Foundation
+ * Copyright © 2016 Plezix Foundation
  *
  * This program is made available under an ISC-style license.  See the
  * accompanying file LICENSE for details.

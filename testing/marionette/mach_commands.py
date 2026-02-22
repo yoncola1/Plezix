@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -45,7 +45,7 @@ def run_marionette(
 
     parser.verify_usage(args)
 
-    # Causes Firefox to crash when using non-local connections.
+    # Causes Plezix to crash when using non-local connections.
     if not allow_nonlocal_connections:
         os.environ["MOZ_DISABLE_NONLOCAL_CONNECTIONS"] = "1"
 

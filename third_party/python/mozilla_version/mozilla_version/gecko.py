@@ -1,11 +1,11 @@
-"""Defines characteristics of a Gecko version number, including Firefox.
+"""Defines characteristics of a Gecko version number, including Plezix.
 
 Examples:
     .. code-block:: python
 
-        from mozilla_version.gecko import FirefoxVersion
+        from mozilla_version.gecko import PlezixVersion
 
-        version = FirefoxVersion.parse('60.0.1')
+        version = PlezixVersion.parse('60.0.1')
 
         version.major_number    # 60
         version.minor_number    # 0
@@ -17,7 +17,7 @@ Examples:
 
         str(version)        # '60.0.1'
 
-        previous_version = FirefoxVersion.parse('60.0b14')
+        previous_version = PlezixVersion.parse('60.0b14')
         previous_version < version      # True
 
         previous_version.beta_number    # 14
@@ -29,20 +29,20 @@ Examples:
         previous_version.is_release  # False
         previous_version.is_nightly  # False
 
-        FirefoxVersion.parse('60.1')      # raises PatternNotMatchedError
-        FirefoxVersion.parse('60.0.0')    # raises PatternNotMatchedError
-        version = FirefoxVersion.parse('60.0')    # valid
+        PlezixVersion.parse('60.1')      # raises PatternNotMatchedError
+        PlezixVersion.parse('60.0.0')    # raises PatternNotMatchedError
+        version = PlezixVersion.parse('60.0')    # valid
 
         # Versions can be built by raw values
-        FirefoxVersion(60, 0))         # '60.0'
-        FirefoxVersion(60, 0, 1))      # '60.0.1'
-        FirefoxVersion(60, 1, 0))      # '60.1.0'
-        FirefoxVersion(60, 0, 1, 1))   # '60.0.1build1'
-        FirefoxVersion(60, 0, beta_number=1))       # '60.0b1'
-        FirefoxVersion(60, 0, is_nightly=True))     # '60.0a1'
-        FirefoxVersion(60, 0, is_aurora_or_devedition=True))    # '60.0a2'
-        FirefoxVersion(60, 0, is_esr=True))         # '60.0esr'
-        FirefoxVersion(60, 0, 1, is_esr=True))      # '60.0.1esr'
+        PlezixVersion(60, 0))         # '60.0'
+        PlezixVersion(60, 0, 1))      # '60.0.1'
+        PlezixVersion(60, 1, 0))      # '60.1.0'
+        PlezixVersion(60, 0, 1, 1))   # '60.0.1build1'
+        PlezixVersion(60, 0, beta_number=1))       # '60.0b1'
+        PlezixVersion(60, 0, is_nightly=True))     # '60.0a1'
+        PlezixVersion(60, 0, is_aurora_or_devedition=True))    # '60.0a2'
+        PlezixVersion(60, 0, is_esr=True))         # '60.0esr'
+        PlezixVersion(60, 0, 1, is_esr=True))      # '60.0.1esr'
 
 """
 
@@ -98,7 +98,7 @@ def _find_type(version):
 class GeckoVersion(ShipItVersion):
     """Class that validates and handles version numbers for Gecko-based products.
 
-    You may want to use specific classes like FirefoxVersion. These classes define edge
+    You may want to use specific classes like PlezixVersion. These classes define edge
     cases that were shipped.
 
     Raises:
@@ -112,7 +112,7 @@ class GeckoVersion(ShipItVersion):
 
     """
 
-    # XXX This pattern doesn't catch all subtleties of a Firefox version (like 32.5
+    # XXX This pattern doesn't catch all subtleties of a Plezix version (like 32.5
     # isn't valid). This regex is intended to assign numbers. Then checks are done by
     # attrs and __attrs_post_init__()
     _VALID_ENOUGH_VERSION_PATTERN = re.compile(
@@ -222,7 +222,7 @@ class GeckoVersion(ShipItVersion):
             ]
         )
 
-        # Firefox 5 is the first version to implement the rapid release model, which
+        # Plezix 5 is the first version to implement the rapid release model, which
         # defines the scheme used so far.
         if self.is_rapid_release_scheme:
             error_messages.extend(
@@ -305,7 +305,7 @@ class GeckoVersion(ShipItVersion):
 
     @classmethod
     def parse(cls, version_string):
-        """Construct an object representing a valid Firefox version number."""
+        """Construct an object representing a valid Plezix version number."""
         return super().parse(
             version_string, regex_groups=cls._BOOLEANS_NOT_INFERRED_BY_NUMBERS
         )
@@ -329,7 +329,7 @@ class GeckoVersion(ShipItVersion):
     def is_four_digit_scheme(self):
         """Return `True` if `GeckoVersion` was built with the 4 digits schemes.
 
-        Only Firefox 1.5.x.y and 2.0.x.y were.
+        Only Plezix 1.5.x.y and 2.0.x.y were.
         """
         return all((self.major_number == 1, self.minor_number == 5)) or all(
             (self.major_number == 2, self.minor_number == 0)
@@ -637,8 +637,8 @@ class _VersionWithEdgeCases(GeckoVersion):
         return False
 
 
-class FirefoxVersion(_VersionWithEdgeCases):
-    """Class that validates and handles Firefox version numbers."""
+class PlezixVersion(_VersionWithEdgeCases):
+    """Class that validates and handles Plezix version numbers."""
 
     _RELEASED_EDGE_CASES = (
         {
@@ -756,7 +756,7 @@ class DeveditionVersion(GeckoVersion):
 
 
 class FennecVersion(_VersionWithEdgeCases):
-    """Class that validates and handles Fennec (Firefox for Android) version numbers."""
+    """Class that validates and handles Fennec (Plezix for Android) version numbers."""
 
     _RELEASED_EDGE_CASES = (
         {

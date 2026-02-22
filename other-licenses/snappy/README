@@ -1,6 +1,6 @@
 See src/README for the README that ships with snappy.
 
-Mozilla does not modify the actual snappy source with the exception of the
+Plezix does not modify the actual snappy source with the exception of the
 'snappy-stubs-public.h' header and one small patch to resolve implicit
 constructor warnings. We have replaced its build system with our own.
 

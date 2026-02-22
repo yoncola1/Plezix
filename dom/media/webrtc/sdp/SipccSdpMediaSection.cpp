@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -367,7 +367,7 @@ void SipccSdpMediaSection::AddDataChannel(const std::string& name,
     sctpmap->PushEntry(port_str, name, streams);
     mAttributeList.SetAttribute(sctpmap);
     if (message_size) {
-      // This is a workaround to allow detecting Firefox's w/o EOR support
+      // This is a workaround to allow detecting Plezix's w/o EOR support
       mAttributeList.SetAttribute(new SdpNumberAttribute(
           SdpAttribute::kMaxMessageSizeAttribute, message_size));
     }

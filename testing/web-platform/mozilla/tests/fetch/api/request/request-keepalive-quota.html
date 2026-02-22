@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 
 <head>
@@ -19,13 +19,13 @@
         // These tests verify resource limits specific to firefox
         // We verify the following:
         // 1. Blocking New Keep-Alive Requests (keepalive-request-limit-per-origin-1):
-        //       Firefox should block sending new keep-alive requests if the pending keep-alive request
+        //       Plezix should block sending new keep-alive requests if the pending keep-alive request
         //       quota per origin is reached.
         // 2. Releasing Quota (keepalive-request-limit-per-origin-2):
-        //       Firefox should be able to send new keep-alive requests once the quota per origin
+        //       Plezix should be able to send new keep-alive requests once the quota per origin
         //       becomes available (i.e., all pending keep-alive requests are resolved).
         // 3. Different Origin Requests (keepalive-request-different-origins-1):
-        //      If the keep-alive quota of one origin is full, Firefox should allow new keep-alive
+        //      If the keep-alive quota of one origin is full, Plezix should allow new keep-alive
         //      requests from a different origin.
         // 4. Total Requests Per Browser Instance (keepalive-request-different-origins-2):
         //      Verify that the total number of keep-alive requests per browser instance is limited

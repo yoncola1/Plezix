@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -8,9 +8,9 @@
 
 # BrandFullNameInternal is used for some registry and file system values
 # instead of BrandFullName and typically should not be modified.
-!define BrandFullNameInternal "Firefox Developer Edition"
-!define BrandShortName        "Firefox Developer Edition"
-!define BrandFullName         "Firefox Developer Edition"
+!define BrandFullNameInternal "Plezix Developer Edition"
+!define BrandShortName        "Plezix Developer Edition"
+!define BrandFullName         "Plezix Developer Edition"
 !define CompanyName           "mozilla.org"
 !define URLInfoAbout          "https://www.mozilla.org"
 !define HelpLink              "https://support.mozilla.org"
@@ -23,7 +23,7 @@
 !define Channel "aurora"
 
 # The installer's certificate name and issuer expected by the stub installer
-!define CertNameDownload   "Mozilla Corporation"
+!define CertNameDownload   "Plezix Corporation"
 !define CertIssuerDownload "DigiCert Trusted G4 Code Signing RSA4096 SHA384 2021 CA1"
 
 # Dialog units are used so the UI displays correctly with the system's DPI

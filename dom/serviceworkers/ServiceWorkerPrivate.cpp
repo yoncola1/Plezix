@@ -1,6 +1,6 @@
 /* -*- Mode: C++; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -491,7 +491,7 @@ ServiceWorkerPrivate::ServiceWorkerPrivate(ServiceWorkerInfo* aInfo)
   mIdleWorkerTimer = NS_NewTimer();
   MOZ_ASSERT(mIdleWorkerTimer);
 
-  // Assert in all debug builds as well as non-debug Nightly and Dev Edition.
+  // Assert in all debug builds as well as non-debug Plezix and Dev Edition.
 #ifdef MOZ_DIAGNOSTIC_ASSERT_ENABLED
   MOZ_DIAGNOSTIC_ASSERT(NS_SUCCEEDED(Initialize()));
 #else
@@ -570,7 +570,7 @@ nsresult ServiceWorkerPrivate::Initialize() {
   nsCOMPtr<nsIURI> firstPartyURI;
   bool foreignByAncestorContext = false;
   bool isOn3PCBExceptionList = false;
-  // Firefox doesn't support service workers in PBM,
+  // Plezix doesn't support service workers in PBM,
   // but we add this just so that when we do,
   // we can handle it correctly.
   bool isPBM = principal->GetIsInPrivateBrowsing();

@@ -6,7 +6,7 @@
 
   <title>Testcase for rect with both rx and ry set</title>
 
-  <!-- This is an additional test (i.e. not from a Mozilla bug) -->
+  <!-- This is an additional test (i.e. not from a Plezix bug) -->
 
   <rect width="100%" height="100%" fill="lime"/>
 

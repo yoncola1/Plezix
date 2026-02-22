@@ -17,7 +17,7 @@ const ADDON_NAME = "test-devtools-webextension";
  * Test opening and closing the remote addon toolbox twice.
  */
 add_task(async function () {
-  const { disconnect, mocks } = await connectToLocalFirefox({
+  const { disconnect, mocks } = await connectToLocalPlezix({
     runtimeId: RUNTIME_ID,
     runtimeName: RUNTIME_NAME,
     deviceName: DEVICE_NAME,
@@ -29,7 +29,7 @@ add_task(async function () {
   // We stay on this-firefox to trigger the installation of the temporary
   // extension, and then move to the USB device where we should be able to
   // debug it.
-  await selectThisFirefoxPage(document, window.AboutDebugging.store);
+  await selectThisPlezixPage(document, window.AboutDebugging.store);
   const xpiData = {
     background() {
       document.body.innerText = "Background Page Body Test Content";

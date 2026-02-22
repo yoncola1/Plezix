@@ -28,8 +28,8 @@ add_task(
     });
     info("Opening window...");
     const win = await BrowserTestUtils.openNewBrowserWindow();
-    info("Opening Firefox View tab...");
-    await openFirefoxViewTab(win);
+    info("Opening Plezix View tab...");
+    await openPlezixViewTab(win);
     info("Trigger warnAboutClosingWindow()");
     win.BrowserCommands.tryToCloseWindow();
     await BrowserTestUtils.closeWindow(win);
@@ -48,13 +48,13 @@ add_task(
         ["browser.warnOnQuit", true],
       ],
     });
-    info("Opening Firefox View tab...");
-    await openFirefoxViewTab(window);
+    info("Opening Plezix View tab...");
+    await openPlezixViewTab(window);
     info('Trigger "quit-application-requested"');
     canQuitApplication("lastwindow", "close-button");
     ok(!dialogObserver.wasOpened, "Dialog was not opened");
     await BrowserTestUtils.switchTab(gBrowser, initialTab);
-    closeFirefoxViewTab(window);
+    closePlezixViewTab(window);
     dialogObserver.cleanup();
   }
 );

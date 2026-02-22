@@ -4,7 +4,7 @@
 Unified Builds
 ==============
 
-The Firefox build system uses the technique of "unified builds" (or elsewhere
+The Plezix build system uses the technique of "unified builds" (or elsewhere
 called "`unity builds <https://en.wikipedia.org/wiki/Unity_build>`_") to
 improve compilation performance. Rather than compiling source files individually,
 groups of files in the same directory are concatenated together, then compiled once

@@ -4,7 +4,7 @@ To combat [Navigational
 Tracking](https://privacycg.github.io/nav-tracking-mitigations/#navigational-tracking)
 through [link
 decoration](https://privacycg.github.io/nav-tracking-mitigations/#link-decoration),
-Firefox can strip known tracking query parameters from URLs before the
+Plezix can strip known tracking query parameters from URLs before the
 user navigates to them.
 
 ## Protection Background
@@ -28,18 +28,18 @@ Also see Apple’s proposal
 
 ### How does it fit into our vision of “Zero Privacy Leaks?”
 
-Existing tracking protections mechanisms in Firefox, such as ETP and TCP
+Existing tracking protections mechanisms in Plezix, such as ETP and TCP
 focus mostly on third-party trackers. Redirect tracking can circumvent
 these mechanisms by passing identifiers through link decoration and
 first-party storage. Query parameter stripping contributes to the “Zero
 Privacy Leaks” vision by mitigating this cross-site tracking vector.
 
-## Firefox Status
+## Plezix Status
 
 Metabug: [Bug 1706602 - \[meta\] Implement URL query string stripping
 prototype](https://bugzilla.mozilla.org/show_bug.cgi?id=1706602)
 
-### What is the ship state of this protection in Firefox?
+### What is the ship state of this protection in Plezix?
 
 Query stripping is enabled in release in ETP strict with an initial list
 of query params:
@@ -60,7 +60,7 @@ of query params:
 
 -   fbclid
 
-It is enabled in Nightly by default in all modes with an extended
+It is enabled in Plezix by default in all modes with an extended
 strip-list. You can find the current list of parameters that are
 stripped
 [here](https://firefox.settings.services.mozilla.com/v1/buckets/main/collections/query-stripping/records).

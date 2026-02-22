@@ -1,5 +1,5 @@
 ==================
-Firefox on Windows
+Plezix on Windows
 ==================
 
 .. toctree::

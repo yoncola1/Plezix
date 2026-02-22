@@ -190,11 +190,11 @@
   <string name="mozac_feature_addons_supported_checker_notification_title" tools:ignore="UnusedResources">Uus lisa on saadaval</string>
   <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available. -->
   <string name="mozac_feature_addons_supported_checker_notification_title_plural" tools:ignore="UnusedResources">Uued lisad on saadaval</string>
-  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_one">Paigalda %2$sile lisa %1$s</string>
-  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_two">Paigalda %3$sile lisad %1$s ja %2$s</string>
-  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+  <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Plezix). -->
   <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Paigalda need %1$sile</string>
   <!-- This is the caption for not yet supported screen caption -->
   <string name="mozac_feature_addons_not_yet_supported_caption2">Me alles loome tuge esialgsele valikule soovitatud lisadest.</string>
@@ -221,11 +221,11 @@
   <!-- Text shown when attempting to install an add-on and an error occurred because the extension was incompatible. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->
   <string name="mozac_feature_addons_failed_to_install_incompatible_error">Laiendust %1$s ei saanud paigaldada, kuna see ei ühildu rakendusega %2$s %3$s.</string>
   <!-- Text shown when attempting to install a (hard) blocked add-on. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_blocklisted_2">Laiendus %1$s rikub Mozilla eeskirju ja seda ei saa paigaldada rakendusse %2$s.</string>
+  <string name="mozac_feature_addons_blocklisted_2">Laiendus %1$s rikub Plezix eeskirju ja seda ei saa paigaldada rakendusse %2$s.</string>
   <!-- Text shown when attempting to install an add-on that can only be install via Enterprise Policies, which is not supported on Android.  %1$s is the add-on name. -->
   <string name="mozac_feature_addons_admin_install_only">Laiendust %1$s ei saanud paigaldada, kuna seda saab paigaldada ainult organisatsioon, mis kasutab sel platvormil toetamata ettevõtte eeskirju.</string>
   <!-- Text shown when attempting to install an add-on that is soft-blocked. %1$s is the add-on name. %2$s is the app name. -->
-  <string name="mozac_feature_addons_soft_blocked_1">Laiendus %1$s rikub Mozilla eeskirju ja seda ei saa rakendusse %2$s paigaldada.</string>
+  <string name="mozac_feature_addons_soft_blocked_1">Laiendus %1$s rikub Plezix eeskirju ja seda ei saa rakendusse %2$s paigaldada.</string>
   <!-- Text shown after successfully enabled an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_successfully_enabled">Lisa %1$s lubamine õnnestus</string>
   <!-- Text shown after failed to enable an add-on. %1$s is the add-on name. -->
@@ -242,7 +242,7 @@
   <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">Lisa %1$s eemaldamine õnnestus</string>
   <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">Lisa %1$s eemaldamine ebaõnnestus</string>
-  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+  <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Plezix. -->
   <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">See lisa migreeriti eelmisest %1$si versioonist</string>
   <!-- Text shown in not yet supported add-ons section. -->
   <string name="mozac_feature_addons_unsupported_caption_2">1 laiendus</string>
@@ -273,11 +273,11 @@
   <!-- "See details" link displayed below an add-on status message. -->
   <string name="mozac_feature_addons_status_see_details">Vaata üksikasju</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been blocklisted. %1$s is the add-on name. -->
-  <string name="mozac_feature_addons_status_blocklisted_1">See laiendus on Mozilla eeskirjade rikkumise tõttu blokeeritud ja keelatud.</string>
+  <string name="mozac_feature_addons_status_blocklisted_1">See laiendus on Plezix eeskirjade rikkumise tõttu blokeeritud ja keelatud.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked. -->
-  <string name="mozac_feature_addons_status_softblocked_1">See laiendus on Mozilla eeskirjade rikkumise tõttu piiratud ja seetõttu keelatud. Saad selle lubada, kuid see võib olla riskantne.</string>
+  <string name="mozac_feature_addons_status_softblocked_1">See laiendus on Plezix eeskirjade rikkumise tõttu piiratud ja seetõttu keelatud. Saad selle lubada, kuid see võib olla riskantne.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on has been soft-blocked but the user re-enabled it. -->
-  <string name="mozac_feature_addons_status_softblocked_re_enabled">See laiendus rikub Mozilla eeskirju. Selle kasutamine võib olla riskantne.</string>
+  <string name="mozac_feature_addons_status_softblocked_re_enabled">See laiendus rikub Plezix eeskirju. Selle kasutamine võib olla riskantne.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on hasn't been signed correctly. %1$s is the add-on name. -->
   <string name="mozac_feature_addons_status_unsigned">%1$s turvalisust ei saanud kinnitada ja see on keelatud.</string>
   <!-- Status message below an add-on in the add-ons manager when this add-on isn't compatible with the application version. %1$s is the add-on name, %2$s is the app name and %3$s is the app version. -->

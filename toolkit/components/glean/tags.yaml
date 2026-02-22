@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -13,7 +13,7 @@ $schema: moz://mozilla.org/schemas/glean/tags/1-0-0
   description: The Bugzilla component which applies to this object.
 'Application Services :: Remote Settings':
   description: The Bugzilla component which applies to this object.
-'Cloud Services :: Firefox: Common':
+'Cloud Services :: Plezix: Common':
   description: The Bugzilla component which applies to this object.
 'Conduit :: mots':
   description: The Bugzilla component which applies to this object.
@@ -311,103 +311,103 @@ $schema: moz://mozilla.org/schemas/glean/tags/1-0-0
   description: The Bugzilla component which applies to this object.
 'Developer Infrastructure :: Try':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Address Bar':
+'Plezix :: Address Bar':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Bookmarks & History':
+'Plezix :: Bookmarks & History':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Data Loss Prevention':
+'Plezix :: Data Loss Prevention':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Distributions':
+'Plezix :: Distributions':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Downloads Panel':
+'Plezix :: Downloads Panel':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Enterprise Policies':
+'Plezix :: Enterprise Policies':
   description: The Bugzilla component which applies to this object.
-'Firefox :: File Handling':
+'Plezix :: File Handling':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Firefox Accounts':
+'Plezix :: Plezix Accounts':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Firefox View':
+'Plezix :: Plezix View':
   description: The Bugzilla component which applies to this object.
-'Firefox :: General':
+'Plezix :: General':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Headless':
+'Plezix :: Headless':
   description: The Bugzilla component which applies to this object.
-'Firefox :: IP Protection':
+'Plezix :: IP Protection':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Installer':
+'Plezix :: Installer':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Keyboard Navigation':
+'Plezix :: Keyboard Navigation':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Menus':
+'Plezix :: Menus':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Messaging System':
+'Plezix :: Messaging System':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Migration':
+'Plezix :: Migration':
   description: The Bugzilla component which applies to this object.
-'Firefox :: New Tab Page':
+'Plezix :: New Tab Page':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Nimbus Desktop Client':
+'Plezix :: Nimbus Desktop Client':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Normandy Client':
+'Plezix :: Normandy Client':
   description: The Bugzilla component which applies to this object.
-'Firefox :: PDF Viewer':
+'Plezix :: PDF Viewer':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Page Info Window':
+'Plezix :: Page Info Window':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Pocket':
+'Plezix :: Pocket':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Private Browsing':
+'Plezix :: Private Browsing':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Profiles':
+'Plezix :: Profiles':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Protections UI':
+'Plezix :: Protections UI':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Remote Settings Client':
+'Plezix :: Remote Settings Client':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Screenshots':
+'Plezix :: Screenshots':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Search':
+'Plezix :: Search':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Security':
+'Plezix :: Security':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Session Restore':
+'Plezix :: Session Restore':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Settings UI':
+'Plezix :: Settings UI':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Shell Integration':
+'Plezix :: Shell Integration':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Sidebar':
+'Plezix :: Sidebar':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Site Identity':
+'Plezix :: Site Identity':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Site Permissions':
+'Plezix :: Site Permissions':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Sync':
+'Plezix :: Sync':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Tabbed Browser':
+'Plezix :: Tabbed Browser':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Theme':
+'Plezix :: Theme':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Toolbars and Customization':
+'Plezix :: Toolbars and Customization':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Top Sites':
+'Plezix :: Top Sites':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Tours':
+'Plezix :: Tours':
   description: The Bugzilla component which applies to this object.
-'Firefox :: Translations':
+'Plezix :: Translations':
   description: The Bugzilla component which applies to this object.
-'Firefox :: about:logins':
+'Plezix :: about:logins':
   description: The Bugzilla component which applies to this object.
-'Firefox Build System :: Bootstrap Configuration':
+'Plezix Build System :: Bootstrap Configuration':
   description: The Bugzilla component which applies to this object.
-'Firefox Build System :: General':
+'Plezix Build System :: General':
   description: The Bugzilla component which applies to this object.
-'Firefox Build System :: Mach Core':
+'Plezix Build System :: Mach Core':
   description: The Bugzilla component which applies to this object.
-'Firefox Build System :: Source Code Analysis':
+'Plezix Build System :: Source Code Analysis':
   description: The Bugzilla component which applies to this object.
-'Firefox Build System :: Task Configuration':
+'Plezix Build System :: Task Configuration':
   description: The Bugzilla component which applies to this object.
 'GeckoView :: General':
   description: The Bugzilla component which applies to this object.
@@ -441,7 +441,7 @@ $schema: moz://mozilla.org/schemas/glean/tags/1-0-0
   description: The Bugzilla component which applies to this object.
 'Testing :: Code Coverage':
   description: The Bugzilla component which applies to this object.
-'Testing :: Firefox UI Tests':
+'Testing :: Plezix UI Tests':
   description: The Bugzilla component which applies to this object.
 'Testing :: GTest':
   description: The Bugzilla component which applies to this object.
@@ -547,5 +547,5 @@ $schema: moz://mozilla.org/schemas/glean/tags/1-0-0
   description: The Bugzilla component which applies to this object.
 'mozilla.org :: Licensing':
   description: The Bugzilla component which applies to this object.
-'mozilla.org :: MozillaBuild':
+'mozilla.org :: PlezixBuild':
   description: The Bugzilla component which applies to this object.

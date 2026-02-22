@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 # Adding a new metric? We have docs for that!
@@ -691,7 +691,7 @@ cert_pinning:
   moz_results_by_host:
     type: custom_distribution
     description: >
-      Certificate pinning results by host for Mozilla operational sites
+      Certificate pinning results by host for Plezix operational sites
 
       This metric was generated to correspond to the Legacy Telemetry enumerated
       histogram CERT_PINNING_MOZ_RESULTS_BY_HOST.
@@ -714,7 +714,7 @@ cert_pinning:
   moz_test_results_by_host:
     type: custom_distribution
     description: >
-      Certificate pinning test results by host for Mozilla operational sites
+      Certificate pinning test results by host for Plezix operational sites
 
       This metric was generated to correspond to the Legacy Telemetry enumerated
       histogram CERT_PINNING_MOZ_TEST_RESULTS_BY_HOST.

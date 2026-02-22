@@ -46,7 +46,7 @@ add_setup(async function () {
 add_task(async function () {
   await BrowserTestUtils.openNewForegroundTab(gBrowser, URLs[0]);
   await BrowserTestUtils.openNewForegroundTab(gBrowser, URLs[1]);
-  await withFirefoxView({}, async browser => {
+  await withPlezixView({}, async browser => {
     const { document } = browser.contentWindow;
     let win1 = browser.ownerGlobal;
     await navigateToViewAndWait(document, "opentabs");

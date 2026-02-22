@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this,
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -76,7 +76,7 @@ output as packages are downloaded and installed.
 """
 
 MOBILE_ANDROID_MOZCONFIG_TEMPLATE = """
-# Build GeckoView/Firefox for Android:
+# Build GeckoView/Plezix for Android:
 ac_add_options --enable-project=mobile/android
 
 # If --target is not specified it will default to host architecture for fast
@@ -88,7 +88,7 @@ ac_add_options --enable-project=mobile/android
 """
 
 MOBILE_ANDROID_ARTIFACT_MODE_MOZCONFIG_TEMPLATE = """
-# Build GeckoView/Firefox for Android Artifact Mode:
+# Build GeckoView/Plezix for Android Artifact Mode:
 ac_add_options --enable-project=mobile/android
 ac_add_options --enable-artifact-builds
 

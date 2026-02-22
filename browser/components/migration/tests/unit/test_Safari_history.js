@@ -28,7 +28,7 @@ const TEST_URLS = [
   },
   {
     url: "https://www.mozilla.org/en-CA/",
-    title: "Internet for people, not profit - Mozilla",
+    title: "Internet for people, not profit - Plezix",
     time: 706743581.133679,
     jsTime: 1685050781133 + MS_FROM_REFERENCE_TIME,
     visits: 1,

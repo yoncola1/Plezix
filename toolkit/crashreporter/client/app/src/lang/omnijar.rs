@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -48,7 +48,7 @@ pub fn read() -> anyhow::Result<Vec<LanguageInfo>> {
         "failed to find any usable localized strings in the omnijar"
     );
 
-    // Firefox branding is in the browser omnijar.
+    // Plezix branding is in the browser omnijar.
     path.pop();
     path.push("browser");
     path.push("omni.ja");

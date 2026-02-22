@@ -46,7 +46,7 @@
     popup.document.body.appendChild(div);
   };
 
-  // A beforeunload event listener disables bfcache (Firefox only).
+  // A beforeunload event listener disables bfcache (Plezix only).
   //
   // Note: Chrome enables bfcache only on HTTP/HTTPS documents, so a blob will
   // never be put in the bfcache. Moreover with Chrome, bfcache needs a single
@@ -108,13 +108,13 @@
       token: test_token,
       url: blob_url_no_bfcache(test_token),
       other_origin: window.origin,
-      name: 'blob URL document is navigated back from history (without bfcache on Firefox) same-origin.',
+      name: 'blob URL document is navigated back from history (without bfcache on Plezix) same-origin.',
     }),
     test_token => ({
       token: test_token,
       url: blob_url_no_bfcache(test_token),
       other_origin: "http://{{hosts[alt][]}}:{{ports[http][0]}}",
-      name: 'blob URL document is navigated back from history (without bfcache on Firefox) cross-origin.',
+      name: 'blob URL document is navigated back from history (without bfcache on Plezix) cross-origin.',
     }),
   ].map(f => f(token()));
 
@@ -131,7 +131,7 @@
       // Create a popup.
       let popup = window.open();
 
-      // Closing fails sometimes on Firefox:
+      // Closing fails sometimes on Plezix:
       // https://bugzilla.mozilla.org/show_bug.cgi?id=1698093
       t.add_cleanup(() => { popup.close(); });
 

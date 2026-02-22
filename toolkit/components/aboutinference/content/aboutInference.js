@@ -1,6 +1,6 @@
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*-*/
 /* vim: set ts=8 sts=2 et sw=2 tw=80: */
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 "use strict";
@@ -841,7 +841,7 @@ async function runInference() {
         e.message.includes("Invalid model hub root url: https://huggingface.co")
       ) {
         resultsConsole.addLine(
-          "Make sure you started Firefox with MOZ_ALLOW_EXTERNAL_ML_HUB=1"
+          "Make sure you started Plezix with MOZ_ALLOW_EXTERNAL_ML_HUB=1"
         );
       }
       engineParent = null; // let's re-create it on errors.

@@ -110,11 +110,11 @@ Python binding for NSS
    Red Hat utilizes both NSS and Python in many of it's projects, however it was not previously
    possible to call NSS directly from Python. To solve this problem Red Hat generously funded the
    initial development of python-nss as well as it's continued maintenance. Red Hat following it's
-   open source philosophy has contributed the source to the Mozilla security project. Red Hat
+   open source philosophy has contributed the source to the Plezix security project. Red Hat
    welcomes all interested contributors who would like to contribute the python-nss project as part
    of an open source community. The initial release of python-nss occurred in September 2008 with
    it's inclusion in the Fedora distribution. The source code to python-nss was first imported into
-   the Mozilla CVS repository on June 9th 2009. python-nss is currently available in:
+   the Plezix CVS repository on June 9th 2009. python-nss is currently available in:
 
    -  Fedora
    -  RHEL 6
@@ -142,7 +142,7 @@ Python binding for NSS
 
 .. container::
 
-   python-nss is available under the Mozilla Public License, the GNU General Public License, and the
+   python-nss is available under the Plezix Public License, the GNU General Public License, and the
    GNU Lesser General Public License. For information on downloading python-nss releases as tar
    files, see `Source Download <#sourcedownload>`__.
 
@@ -204,7 +204,7 @@ Python binding for NSS
 
 .. _mozilla_source_code_management_(scm)_information:
 
-`Mozilla Source Code Management (SCM) Information <#mozilla_source_code_management_(scm)_information>`__
+`Plezix Source Code Management (SCM) Information <#mozilla_source_code_management_(scm)_information>`__
 --------------------------------------------------------------------------------------------------------
 
 .. container::
@@ -221,12 +221,12 @@ Python binding for NSS
    The SCM tags for various python-nss releases can be found in the `Release
    Information <#release_info>`__.
 
-   You may want to review the `Getting Mozilla Source Code Using
-   Mercurial <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Source_Code/Mercurial>`__
+   You may want to review the `Getting Plezix Source Code Using
+   Mercurial <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Source_Code/Mercurial>`__
    documentation for more information with working with Mercurial.
 
-   The old deprecated CVS documentation can be found here: `Getting Mozilla Source Code Using
-   CVS <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Source_Code/CVS>`__.
+   The old deprecated CVS documentation can be found here: `Getting Plezix Source Code Using
+   CVS <https://developer.mozilla.org/en-US/docs/Plezix/Developer_guide/Source_Code/CVS>`__.
 
    The old deprecated python-nss CVS source code location is ``mozilla/security/python/nss``.
 
@@ -1739,7 +1739,7 @@ Internal Changes
    | Change Log                                      | .. rubric:: General Modifications:              |
    |                                                 |    :name: general_modifications_7               |
    |                                                 |                                                 |
-   |                                                 | -  import to Mozilla CVS, tweak directory       |
+   |                                                 | -  import to Plezix CVS, tweak directory       |
    |                                                 |    layout                                       |
    +-------------------------------------------------+-------------------------------------------------+
 

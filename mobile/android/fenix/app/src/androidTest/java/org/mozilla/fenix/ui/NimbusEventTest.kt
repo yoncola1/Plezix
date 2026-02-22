@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -7,7 +7,7 @@ package org.mozilla.fenix.ui
 import android.content.Intent
 import io.mockk.mockk
 import mozilla.components.concept.sync.AuthType
-import mozilla.components.service.fxa.FirefoxAccount
+import mozilla.components.service.fxa.PlezixAccount
 import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
@@ -42,7 +42,7 @@ class NimbusEventTest : TestSetup() {
     fun telemetryAccountObserverTest() {
         val observer = TelemetryAccountObserver(appContext)
         // replacing interface mock with implementation mock.
-        observer.onAuthenticated(mockk<FirefoxAccount>(), AuthType.Signin)
+        observer.onAuthenticated(mockk<PlezixAccount>(), AuthType.Signin)
 
         Experimentation.withHelper {
             assertTrue(evalJexl("'sync_auth.sign_in'|eventSum('Days', 28, 0) > 0"))

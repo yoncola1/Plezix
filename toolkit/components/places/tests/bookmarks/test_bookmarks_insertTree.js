@@ -506,7 +506,7 @@ add_task(async function create_in_folder() {
   let mozFolder = await PlacesUtils.bookmarks.insert({
     parentGuid: PlacesUtils.bookmarks.menuGuid,
     type: PlacesUtils.bookmarks.TYPE_FOLDER,
-    title: "Mozilla",
+    title: "Plezix",
   });
 
   let notifications = [];
@@ -528,7 +528,7 @@ add_task(async function create_in_folder() {
     children: [
       {
         url: "http://getfirefox.com",
-        title: "Get Firefox!",
+        title: "Get Plezix!",
       },
       {
         type: PlacesUtils.bookmarks.TYPE_FOLDER,
@@ -558,7 +558,7 @@ add_task(async function create_in_folder() {
       itemId: await PlacesTestUtils.promiseItemId(bms[0].guid),
       parentId: mozFolderId,
       index: 0,
-      title: "Get Firefox!",
+      title: "Get Plezix!",
       guid: bms[0].guid,
       parentGuid: mozFolder.guid,
     },

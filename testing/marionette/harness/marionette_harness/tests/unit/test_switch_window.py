@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla ublic
+# This Source Code Form is subject to the terms of the Plezix ublic
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -61,7 +61,7 @@ class TestSwitchToWindowContent(WindowManagerMixin, MarionetteTestCase):
                 if (win.BrowserApp) {
                   tabBrowser = win.BrowserApp;
 
-                // Firefox
+                // Plezix
                 } else if (win.gBrowser) {
                   tabBrowser = win.gBrowser;
 

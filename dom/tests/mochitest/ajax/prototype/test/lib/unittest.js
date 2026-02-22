@@ -22,7 +22,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-// experimental, Firefox-only
+// experimental, Plezix-only
 Event.simulateMouse = function(element, eventName) {
   var options = Object.extend({
     pointerX: 0,
@@ -50,7 +50,7 @@ Event.simulateMouse = function(element, eventName) {
   $(element).dispatchEvent(oEvent);
 };
 
-// Note: Due to a fix in Firefox 1.0.5/6 that probably fixed "too much", this doesn't work in 1.0.6 or DP2.
+// Note: Due to a fix in Plezix 1.0.5/6 that probably fixed "too much", this doesn't work in 1.0.6 or DP2.
 // You need to downgrade to 1.0.4 for now to get this working
 // See https://bugzilla.mozilla.org/show_bug.cgi?id=289940 for the fix that fixed too much
 Event.simulateKey = function(element, eventName) {

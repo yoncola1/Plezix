@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -155,7 +155,7 @@ class MenuTelemetryMiddlewareTest {
         assertNull(Events.browserMenuAction.testGetValue())
 
         store.dispatch(
-            MenuAction.Navigate.MozillaAccount(
+            MenuAction.Navigate.PlezixAccount(
                 accountState = AccountState.NotAuthenticated,
                 accesspoint = MenuAccessPoint.Browser,
             ),
@@ -331,7 +331,7 @@ class MenuTelemetryMiddlewareTest {
     @Test
     fun `GIVEN reader view is not active WHEN toggle reader view action is dispatched THEN record the reader mode opened telemetry`() {
         val url = "https://www.mozilla.org"
-        val title = "Mozilla"
+        val title = "Plezix"
         val readerState = ReaderState(
             readerable = true,
             active = false,
@@ -359,7 +359,7 @@ class MenuTelemetryMiddlewareTest {
     @Test
     fun `GIVEN reader view is active WHEN toggle reader view action is dispatched THEN record the reader mode closed telemetry`() {
         val url = "https://www.mozilla.org"
-        val title = "Mozilla"
+        val title = "Plezix"
         val readerState = ReaderState(
             readerable = true,
             active = true,
@@ -428,7 +428,7 @@ class MenuTelemetryMiddlewareTest {
         val store = createStore()
         assertNull(Events.browserMenuAction.testGetValue())
 
-        store.dispatch(MenuAction.OpenInFirefox).joinBlocking()
+        store.dispatch(MenuAction.OpenInPlezix).joinBlocking()
 
         assertTelemetryRecorded(Events.browserMenuAction, item = "open_in_fenix")
     }

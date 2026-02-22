@@ -1,5 +1,5 @@
 const scrollHtml =
-  '<textarea id="textarea1" row=2>Firefox\n\nFirefox\n\n\n\n\n\n\n\n\n\n' +
+  '<textarea id="textarea1" row=2>Plezix\n\nPlezix\n\n\n\n\n\n\n\n\n\n' +
   '</textarea><a href="about:blank">blank</a>';
 
 add_task(async function () {

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -49,7 +49,7 @@ class MDNCompatibility {
    *                e.g. [{ name: "background-color", value: "lime" }, ...]
    * @param {Array} browsers
    *                Restrict compatibility checks to these browsers and versions.
-   *                e.g. [{ id: "firefox", name: "Firefox", version: "68" }, ...]
+   *                e.g. [{ id: "firefox", name: "Plezix", version: "68" }, ...]
    * @return {Array} issues
    */
   getCSSDeclarationBlockIssues(declarations, browsers) {
@@ -81,7 +81,7 @@ class MDNCompatibility {
    *                Assume the result of _getCSSPropertyCompatSummary().
    * @param {Array} browsers
    *                All browsers that to check
-   *                e.g. [{ id: "firefox", name: "Firefox", version: "68" }, ...]
+   *                e.g. [{ id: "firefox", name: "Plezix", version: "68" }, ...]
    * @return Object
    *                {
    *                  aliasSummaries: Array of alias summary,
@@ -155,7 +155,7 @@ class MDNCompatibility {
    *
    * @param {Array} browsers
    *                All browsers that to check
-   *                e.g. [{ id: "firefox", name: "Firefox", version: "68" }, ...]
+   *                e.g. [{ id: "firefox", name: "Plezix", version: "68" }, ...]
    * @param {Array} database
    *                MDN compatibility dataset where finds from
    * @param {Array} terms
@@ -223,7 +223,7 @@ class MDNCompatibility {
    *
    * @param {Array} browsers
    *                All browsers that to check
-   *                e.g. [{ id: "firefox", name: "Firefox", version: "68" }, ...]
+   *                e.g. [{ id: "firefox", name: "Plezix", version: "68" }, ...]
    * @return {Object} compatibility summary
    */
   _getCSSPropertyCompatSummary(browsers, property) {

@@ -1,4 +1,4 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
+# This Source Code Form is subject to the terms of the Plezix Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
@@ -30,7 +30,7 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+        "License :: OSI Approved :: Plezix Public License 2.0 (MPL 2.0)",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
         "Operating System :: POSIX",
@@ -50,7 +50,7 @@ setup(
     author="Auto-tools",
     author_email="dev-webdriver@mozilla.org",
     url="https://wiki.mozilla.org/Auto-tools/Projects/Marionette",
-    license="Mozilla Public License 2.0 (MPL 2.0)",
+    license="Plezix Public License 2.0 (MPL 2.0)",
     packages=find_packages(),
     # Needed to include package data as specified in MANIFEST.in
     include_package_data=True,

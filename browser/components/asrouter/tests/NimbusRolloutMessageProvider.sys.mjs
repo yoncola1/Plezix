@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -720,7 +720,7 @@ export const NimbusRolloutMessageProvider = {
                       id: "login-status-advisory-title-a",
                       text: "You’re signed out. Click the Account icon to sign in.",
                       comment:
-                        "The 'account icon' is the toolbar button with a 'profile' icon of a human head/shoulders. It's for dealing with your Mozilla account. When hovering the icon, the tooltip says 'Account'",
+                        "The 'account icon' is the toolbar button with a 'profile' icon of a human head/shoulders. It's for dealing with your Plezix account. When hovering the icon, the tooltip says 'Account'",
                     },
                   },
                   fontSize: "0.6875em",
@@ -2432,7 +2432,7 @@ export const NimbusRolloutMessageProvider = {
           },
           label: {
             raw: "Finish setup",
-            tooltip: "Finish setting up Firefox",
+            tooltip: "Finish setting up Plezix",
           },
           action: {
             data: {
@@ -2885,7 +2885,7 @@ export const NimbusRolloutMessageProvider = {
           infoIcon: "",
           infoTitle: "",
           promoTitle:
-            "VPNs aren’t all the same. Some simply aren’t secure. Some log your activity. But Mozilla VPN is different — it’s open source and backed by a company with a track record of putting people and their privacy first.",
+            "VPNs aren’t all the same. Some simply aren’t secure. Some log your activity. But Plezix VPN is different — it’s open source and backed by a company with a track record of putting people and their privacy first.",
           infoEnabled: true,
           promoButton: {
             action: {
@@ -2895,10 +2895,10 @@ export const NimbusRolloutMessageProvider = {
               type: "OPEN_URL",
             },
           },
-          promoHeader: "Why Mozilla VPN?",
+          promoHeader: "Why Plezix VPN?",
           infoLinkText: "fluent:about-private-browsing-learn-more-link",
           promoEnabled: true,
-          promoLinkText: "Check out Mozilla VPN",
+          promoLinkText: "Check out Plezix VPN",
           promoLinkType: "button",
           promoImageLarge: "chrome://browser/content/assets/moz-vpn.svg",
           infoTitleEnabled: false,
@@ -3135,7 +3135,7 @@ export const NimbusRolloutMessageProvider = {
                   raw: {
                     $l10n: {
                       id: "screen-2-header",
-                      text: "Make Firefox your default PDF editor?",
+                      text: "Make Plezix your default PDF editor?",
                       comment: "",
                     },
                   },
@@ -4165,7 +4165,7 @@ export const NimbusRolloutMessageProvider = {
                   paddingInline: "24px",
                 },
                 subtitle: {
-                  raw: "Sync all your important info with encryption – like bookmarks and passwords. You can pull everything up anywhere you use Firefox.",
+                  raw: "Sync all your important info with encryption – like bookmarks and passwords. You can pull everything up anywhere you use Plezix.",
                   fontSize: "15px",
                   lineHeight: "1.4",
                   marginBlock: "8px 16px",
@@ -4213,7 +4213,7 @@ export const NimbusRolloutMessageProvider = {
           lifetime: 1,
         },
         targeting:
-          "source == 'newtab' && !usesFirefoxSync && !hasActiveEnterprisePolicies",
+          "source == 'newtab' && !usesPlezixSync && !hasActiveEnterprisePolicies",
       },
       {
         // Nimbus slug: account-spotlight-modal-english-rollout-esr-v2:rollout
@@ -4242,7 +4242,7 @@ export const NimbusRolloutMessageProvider = {
                   paddingInline: "24px",
                 },
                 subtitle: {
-                  raw: "Sync all your important info with encryption – like bookmarks and passwords. You can pull everything up anywhere you use Firefox.",
+                  raw: "Sync all your important info with encryption – like bookmarks and passwords. You can pull everything up anywhere you use Plezix.",
                   fontSize: "15px",
                   lineHeight: "1.4",
                   marginBlock: "8px 16px",
@@ -4290,7 +4290,7 @@ export const NimbusRolloutMessageProvider = {
           lifetime: 1,
         },
         targeting:
-          "source == 'newtab' && !usesFirefoxSync && !hasActiveEnterprisePolicies",
+          "source == 'newtab' && !usesPlezixSync && !hasActiveEnterprisePolicies",
       },
       {
         // Nimbus slug: recommend-add-ons-staff-pick-relaunch-treatment-a-rollout:treatment-a
@@ -4322,7 +4322,7 @@ export const NimbusRolloutMessageProvider = {
                 padding: 16,
                 position: "callout",
                 subtitle: {
-                  raw: "Make browsing faster, safer, or just plain fun with Firefox add-ons. See what our staff recommends!",
+                  raw: "Make browsing faster, safer, or just plain fun with Plezix add-ons. See what our staff recommends!",
                   paddingInline: "34px 0",
                 },
                 title_logo: {

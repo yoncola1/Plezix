@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -26,7 +26,7 @@ import org.robolectric.annotation.Config
 @Config(sdk = [30]) // Run all tests on Android 11 because of better support for URL inference in tests
 class PageOriginContextualMenuBuilderTest {
     private val clipboardUrl = "https://www.mozilla.org"
-    private val clipboardText = "Mozilla"
+    private val clipboardText = "Plezix"
     private val clipboard = ClipboardHandler(testContext)
 
     @Test

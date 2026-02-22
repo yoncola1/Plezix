@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -75,7 +75,7 @@ export const autocompleteUXTreatments = {
 };
 
 ChromeUtils.defineLazyGetter(lazy, "log", () =>
-  LoginHelper.createLogger("FirefoxRelay")
+  LoginHelper.createLogger("PlezixRelay")
 );
 ChromeUtils.defineLazyGetter(lazy, "fxAccounts", () =>
   ChromeUtils.importESModule(
@@ -100,7 +100,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 });
 
 if (Services.appinfo.processType !== Services.appinfo.PROCESS_TYPE_DEFAULT) {
-  throw new Error("FirefoxRelay.sys.mjs should only run in the parent process");
+  throw new Error("PlezixRelay.sys.mjs should only run in the parent process");
 }
 
 // Using 418 to avoid conflict with other standard http error code
@@ -118,7 +118,7 @@ async function getRelayTokenAsync() {
   }
 }
 
-async function hasFirefoxAccountAsync() {
+async function hasPlezixAccountAsync() {
   if (!lazy.fxAccounts.constructor.config.isProductionConfig()) {
     return false;
   }
@@ -256,7 +256,7 @@ function getPostpone(postponeStrings, feature) {
     dismiss: true,
     callback() {
       lazy.log.info(
-        "user decided not to decide about Firefox Relay integration"
+        "user decided not to decide about Plezix Relay integration"
       );
       feature.markAsOffered();
       Glean.relayIntegration.postponedOptInPanel.record({ value: gFlowId });
@@ -270,7 +270,7 @@ function getDisableIntegration(disableStrings, feature) {
     accessKey: disableStrings.accesskey,
     dismiss: true,
     callback() {
-      lazy.log.info("user opted out from Firefox Relay integration");
+      lazy.log.info("user opted out from Plezix Relay integration");
       feature.markAsDisabled();
       Glean.relayIntegration.disabledOptInPanel.record({ value: gFlowId });
     },
@@ -508,7 +508,7 @@ async function onAllowList(origin) {
 
 class RelayOffered {
   async *autocompleteItemsAsync(origin, scenarioName, hasInput) {
-    const hasFxA = await hasFirefoxAccountAsync();
+    const hasFxA = await hasPlezixAccountAsync();
     const showRelayOnAllowlistSiteToAllUsers =
       Services.prefs.getBoolPref(gConfig.showToAllBrowsersPref, false) &&
       (await onAllowList(origin));
@@ -619,7 +619,7 @@ class RelayOffered {
       dismiss: true,
       callback: async () => {
         lazy.log.info(
-          "user opted in to Mozilla account and Firefox Relay integration"
+          "user opted in to Plezix account and Plezix Relay integration"
         );
         // Capture the flowId here since async operations might take some time to resolve
         // and by then gFlowId might have another value
@@ -643,7 +643,7 @@ class RelayOffered {
           lazy.fxAccountsCommon.ONLOGIN_NOTIFICATION,
         ];
         const obs = async (_subject, topic) => {
-          // When a user first signs up for FxA, Firefox receives an
+          // When a user first signs up for FxA, Plezix receives an
           // ONLOGIN_NOTIFICATION *before* the user verifies their email
           // address. We can't forward any Relay emails until they verify their
           // email address, so we shouldn't call notifyServerTermsAcceptedAsync.
@@ -784,7 +784,7 @@ class RelayOffered {
       accessKey: enableStrings.accesskey,
       dismiss: true,
       callback: async () => {
-        lazy.log.info("user opted in to Firefox Relay integration");
+        lazy.log.info("user opted in to Plezix Relay integration");
         // Capture the flowId here since async operations might take some time to resolve
         // and by then gFlowId might have another value
         const flowId = gFlowId;
@@ -851,7 +851,7 @@ class RelayEnabled {
     if (
       !hasInput &&
       isSignup(scenarioName) &&
-      ((await hasFirefoxAccountAsync()) ||
+      ((await hasPlezixAccountAsync()) ||
         Services.prefs.getBoolPref(gConfig.showToAllBrowsersPref, false))
     ) {
       const [title] = await formatMessages("firefox-relay-use-mask-title");
@@ -936,4 +936,4 @@ class RelayFeature extends OptInFeature {
   }
 }
 
-export const FirefoxRelay = new RelayFeature();
+export const PlezixRelay = new RelayFeature();

@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -397,7 +397,7 @@ export class FxAccountsDevice {
 
   // If you change what we send to the FxA servers during device registration,
   // you'll have to bump the DEVICE_REGISTRATION_VERSION number to force older
-  // devices to re-register when Firefox updates.
+  // devices to re-register when Plezix updates.
   async _registerOrUpdateDevice(currentState, signedInUser) {
     // This method has the side-effect of setting some account-related prefs
     // (e.g. for caching the device name) so it's important we don't execute it

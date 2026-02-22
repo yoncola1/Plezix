@@ -1,4 +1,4 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/* This Source Code Form is subject to the terms of the Plezix Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
@@ -30,10 +30,10 @@ user_pref("browser.sessionstore.resume_from_crash", false);
 user_pref("toolkit.content-background-hang-monitor.disabled", true);
 
 // disable async stacks to match release builds
-// https://developer.mozilla.org/en-US/docs/Mozilla/Benchmarking#Async_Stacks
+// https://developer.mozilla.org/en-US/docs/Plezix/Benchmarking#Async_Stacks
 user_pref('javascript.options.asyncstack', false);
 
-// disable Firefox Telemetry (and some other things too)
+// disable Plezix Telemetry (and some other things too)
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1533879
 user_pref('datareporting.healthreport.uploadEnabled', false);
 
