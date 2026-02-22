@@ -48,7 +48,8 @@ static const RedirEntry kRedirMap[] = {
     {"myhome", "chrome://browser/content/new_tab_page.html",
      nsIAboutModule::URI_SAFE_FOR_UNTRUSTED_CONTENT |
       nsIAboutModule::URI_MUST_LOAD_IN_CHILD |
-      nsIAboutModule::ALLOW_SCRIPT},
+      nsIAboutModule::ALLOW_SCRIPT |
+      nsIAboutModule::URI_CAN_LOAD_IN_PRIVILEGEDABOUT_PROCESS},
     {"asrouter", "chrome://browser/content/asrouter/asrouter-admin.html",
      nsIAboutModule::URI_SAFE_FOR_UNTRUSTED_CONTENT |
          nsIAboutModule::URI_CAN_LOAD_IN_PRIVILEGEDABOUT_PROCESS |
