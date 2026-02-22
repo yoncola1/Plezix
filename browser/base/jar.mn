@@ -32,6 +32,8 @@ browser.jar:
         content/browser/aboutTabCrashed.js            (content/aboutTabCrashed.js)
         content/browser/aboutTabCrashed.xhtml         (content/aboutTabCrashed.xhtml)
         content/browser/blanktab.html                 (content/blanktab.html)
+        content/browser/new_tab_page.html             (content/new_tab_page.html)
+        content/browser/tailwind.js                   (content/tailwind.js)
         content/browser/browser.js                    (content/browser.js)
 *       content/browser/browser.xhtml                 (content/browser.xhtml)
         content/browser/browser-a11yUtils.js          (content/browser-a11yUtils.js)
