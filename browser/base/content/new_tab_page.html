@@ -380,14 +380,28 @@
 
         // Preload helpers for faster wallpaper rendering (hardware accelerated)
         function preloadWallpapers() {
-            builtInWallpapers.forEach(url => {
-                const resolved = resolveUrl(url);
-                if (resolved) {
-                    const img = new Image();
-                    img.decoding = 'async';
-                    img.src = resolved;
-                }
-            });
+            try {
+                builtInWallpapers.forEach(url => {
+                    const resolved = resolveUrl(url);
+                    if (!resolved) return;
+
+                    // add preload link
+                    try {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = resolved;
+                        document.head.appendChild(link);
+                    } catch (e) {}
+
+                    // warm up decoder
+                    try {
+                        const img = new Image();
+                        img.decoding = 'async';
+                        img.src = resolved;
+                    } catch (e) {}
+                });
+            } catch (e) {}
         }
 
         let settings = {
@@ -417,13 +431,15 @@
         // we fall back to storing a JSON blob in a preference.
         function storageAvailable() {
             try {
-                localStorage.setItem('__test__', '__test__');
-                localStorage.removeItem('__test__');
+                const test = '__storage_test__';
+                localStorage.setItem(test, test);
+                localStorage.removeItem(test);
                 return true;
             } catch (e) {
                 try {
-                    sessionStorage.setItem('__test__', '__test__');
-                    sessionStorage.removeItem('__test__');
+                    const test = '__storage_test__';
+                    sessionStorage.setItem(test, test);
+                    sessionStorage.removeItem(test);
                     storageFallback = 'session';
                     return false;
                 } catch (e2) {
@@ -471,49 +487,72 @@
         function saveSettingsToStorage() {
             const payload = JSON.stringify(settings);
             let ok = false;
+            // try localStorage first
             try {
                 localStorage.setItem(STORAGE_KEY, payload);
+                // also write some quick-access keys for debugging
+                localStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
+                localStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
                 ok = true;
             } catch (e) {
+                // fallback to sessionStorage if possible
                 if (storageFallback === 'session') {
                     try {
                         sessionStorage.setItem(STORAGE_KEY, payload);
+                        sessionStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
+                        sessionStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
                         ok = true;
                     } catch (e2) {
                         ok = false;
                     }
                 }
             }
+
+            // always mirror to prefs if available; not using result since it
+            // sometimes throws in unprivileged contexts, but that's fine.
             try { saveSettingsToPrefs(); } catch(e) {}
-            if (ok) showSaveIndicator();
+
+            if (ok) {
+                showSaveIndicator();
+            }
             return ok;
         }
 
         function loadSettingsFromStorage() {
+            // prefer prefs over localStorage when both exist, because prefs
+            // aren't wiped by private browsing or chrome resets.
+            let loaded = null;
             if (prefsAvailable()) {
-                const loaded = loadSettingsFromPrefs();
-                if (loaded) return loaded;
+                loaded = loadSettingsFromPrefs();
             }
-            try {
-                const loaded = localStorage.getItem(STORAGE_KEY);
-                return loaded ? JSON.parse(loaded) : null;
-            } catch (e) {
-                if (storageFallback === 'session') {
-                    try {
-                        const loaded = sessionStorage.getItem(STORAGE_KEY);
-                        return loaded ? JSON.parse(loaded) : null;
-                    } catch (e2) {}
+            if (!loaded) {
+                try {
+                    loaded = localStorage.getItem(STORAGE_KEY);
+                    if (loaded) {
+                        loaded = JSON.parse(loaded);
+                    }
+                } catch (e) {
+                    if (storageFallback === 'session') {
+                        try {
+                            loaded = sessionStorage.getItem(STORAGE_KEY);
+                            if (loaded) loaded = JSON.parse(loaded);
+                        } catch (e2) {
+                            loaded = null;
+                        }
+                    }
                 }
             }
-            return null;
+            return loaded;
         }
 
         function showSaveIndicator() {
-            const el = document.getElementById('save-indicator');
-            if (!el) return;
-            el.style.display = 'block';
-            clearTimeout(el._hideTimer);
-            el._hideTimer = setTimeout(() => { el.style.display = 'none'; }, 1400);
+            try {
+                const el = document.getElementById('save-indicator');
+                if (!el) return;
+                el.style.display = 'block';
+                clearTimeout(el._hideTimer);
+                el._hideTimer = setTimeout(() => { el.style.display = 'none'; }, 1400);
+            } catch(e){}
         }
 
         const posMap = {
@@ -815,11 +854,13 @@
                     ? settings.customUrl.replace('{q}', encodeURIComponent(q))
                     : (engines[settings.engine] || engines.duckduckgo).replace('{q}', encodeURIComponent(q));
             }
+            console.log('Search submit ->', { engine: settings.engine, url });
 
+            if(!isSearchUrl(url)) {
                 addRecentTab(url);
             }
 
-            try { window.open(url, '_blank'); } catch(e) {}
+            try { window.open(url, '_blank'); } catch(e) { console.error('Open failed', e); }
         };
 
         function resetAll() {
@@ -877,23 +918,33 @@
                 }
             } catch (e) {}
 
-            // Unified storage listener for tabs synchronization
+            // Listen for other tabs recording a last-visited site
             window.addEventListener('storage', (ev) => {
                 if (ev.key === 'plezix_last_visited' && ev.newValue) {
-                    if (!isSearchUrl(ev.newValue)) {
-                        addRecentTab(ev.newValue);
-                    }
-                } else if (ev.key === STORAGE_KEY && ev.newValue) {
+                    try { if (!isSearchUrl(ev.newValue)) addRecentTab(ev.newValue); } catch(e) {}
+                }
+            });
+
+            // Listen for settings changes from other tabs and apply them
+            window.addEventListener('storage', (ev) => {
+                if (ev.key === STORAGE_KEY && ev.newValue) {
                     try {
                         const parsed = JSON.parse(ev.newValue);
                         applyLoadedSettings(parsed);
                         showSaveIndicator();
                     } catch(e) {}
-                } else if (ev.key === STORAGE_KEY + '_sync') {
-                    const loaded = loadSettingsFromStorage();
-                    if (loaded) {
-                        applyLoadedSettings(loaded);
-                    }
+                }
+            });
+
+            // Listen for sync trigger (when engine or other critical settings change)
+            window.addEventListener('storage', (ev) => {
+                if (ev.key === STORAGE_KEY + '_sync') {
+                    try {
+                        const loaded = loadSettingsFromStorage();
+                        if (loaded) {
+                            applyLoadedSettings(loaded);
+                        }
+                    } catch(e) {}
                 }
             });
 
