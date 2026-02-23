@@ -19,6 +19,7 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
+          model: gpt-4.1-mini
           prompt: |
             You are classifying a GitHub issue.
 
