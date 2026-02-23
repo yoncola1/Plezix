@@ -447,7 +447,7 @@ function testListing(metadata, response) {
         }),
         SCRIPT({
           type: "text/javascript",
-          src: "/tests/SimpleTest/PlezixLogger.js",
+          src: "/tests/SimpleTest/MozillaLogger.js",
         }),
         SCRIPT({ type: "text/javascript", src: "/chunkifyTests.js" }),
         SCRIPT({ type: "text/javascript", src: "/manifestLibrary.js" }),

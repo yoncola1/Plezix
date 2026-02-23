@@ -100,7 +100,7 @@ ChromeUtils.defineESModuleGetters(lazy, {
 });
 
 if (Services.appinfo.processType !== Services.appinfo.PROCESS_TYPE_DEFAULT) {
-  throw new Error("PlezixRelay.sys.mjs should only run in the parent process");
+  throw new Error("FirefoxRelay.sys.mjs should only run in the parent process");
 }
 
 // Using 418 to avoid conflict with other standard http error code

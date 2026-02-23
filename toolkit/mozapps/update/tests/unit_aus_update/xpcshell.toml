@@ -38,14 +38,14 @@ skip-if = ["socketprocess_networking"] # Bug 1759035
 ["disableBackgroundUpdatesNonBackgroundTask.js"]
 skip-if = ["socketprocess_networking"] # Bug 1759035
 
-["downloadExtrasPlezix.js"]
+["downloadExtrasFirefox.js"]
 firefox-appdir = "browser"
 skip-if = [
   "socketprocess_networking", # Bug 1759035
   "appname != 'firefox'"
 ]
 
-["downloadExtrasNotPlezix.js"]
+["downloadExtrasNotFirefox.js"]
 skip-if = [
   "socketprocess_networking", # Bug 1759035
   "appname == 'firefox'"

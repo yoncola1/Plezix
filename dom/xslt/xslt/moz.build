@@ -6,6 +6,7 @@
 
 EXPORTS.mozilla.dom += [
     "txMozillaXSLTProcessor.h",
+    "txPlezixXSLTProcessor.h",
 ]
 
 XPIDL_MODULE = "dom_xslt"

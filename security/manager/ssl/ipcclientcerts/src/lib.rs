@@ -71,7 +71,7 @@ extern "C" fn C_Finalize(_pReserved: CK_VOID_PTR) -> CK_RV {
 // The specification mandates that these strings be padded with spaces to the appropriate length.
 // Since the length of fixed-size arrays in rust is part of the type, the compiler enforces that
 // these byte strings are of the correct length.
-const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Corporation             ";
+const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Corporation              ";
 const LIBRARY_DESCRIPTION_BYTES: &[u8; 32] = b"IPC Client Cert Module          ";
 
 /// This gets called to gather some information about the module. In particular, this implementation

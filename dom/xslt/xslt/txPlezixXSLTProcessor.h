@@ -1,0 +1,6 @@
+#ifndef TRANSFRMX_TXPLEZIXXSLTPROCESSOR_H
+#define TRANSFRMX_TXPLEZIXXSLTPROCESSOR_H
+
+#include "txMozillaXSLTProcessor.h"
+
+#endif

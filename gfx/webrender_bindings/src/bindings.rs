@@ -427,7 +427,7 @@ pub struct WrExternalImageHandler {
 }
 
 impl ExternalImageHandler for WrExternalImageHandler {
-    fn lock(&mut self, id: ExternalImageId, channel_index: u8) -> ExternalImage {
+    fn lock(&mut self, id: ExternalImageId, channel_index: u8) -> ExternalImage<'_> {
         let image = unsafe { wr_renderer_lock_external_image(self.external_image_obj, id, channel_index) };
         ExternalImage {
             uv: TexelRect::new(image.u0, image.v0, image.u1, image.v1),

@@ -90,6 +90,7 @@ LOCAL_INCLUDES += [
     "/dom/xml",
     "/dom/xslt/base",
     "/dom/xslt/xpath",
+    "/dom/xslt/xslt",
     "/dom/xul",
     "/js/xpconnect/src",
     "/js/xpconnect/wrappers",

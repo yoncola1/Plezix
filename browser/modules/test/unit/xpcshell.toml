@@ -16,10 +16,10 @@ prefs = ["browser.contextual-services.contextId.rust-component.enabled=true"]
 ["test_FilterAdult.js"]
 prefs = ["browser.newtabpage.activity-stream.filterAdult=true"]
 
-["test_PlezixBridgeExtensionUtils.js"]
+["test_FirefoxBridgeExtensionUtils.js"]
 run-if = ["os == 'win'"] # Test of a Windows-specific feature
 
-["test_PlezixBridgeExtensionUtilsNativeManifest.js"]
+["test_FirefoxBridgeExtensionUtilsNativeManifest.js"]
 run-if = [
   "os == 'win'",
   "os == 'mac'",

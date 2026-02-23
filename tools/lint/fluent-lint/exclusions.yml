@@ -199,4 +199,4 @@ CO01:
         - add-engine-name-placeholder
     files:
         - browser/locales/en-US/browser/profile/default-bookmarks.ftl
-        - toolkit/locales/en-US/toolkit/about/aboutPlezix.ftl
+        - toolkit/locales/en-US/toolkit/about/aboutMozilla.ftl

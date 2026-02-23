@@ -37,7 +37,7 @@ const HARDWARE_VERSION: CK_VERSION = CK_VERSION {
     minor: NSS_BUILTINS_HARDWARE_VERSION_MINOR,
 };
 
-const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Foundation              ";
+const MANUFACTURER_ID_BYTES: &[u8; 32] = b"Plezix Foundation               ";
 const LIBRARY_DESCRIPTION_BYTES: &[u8; 32] = b"NSS Builtin Object Cryptoki Modu";
 
 const SLOT_COUNT: CK_ULONG = 1;

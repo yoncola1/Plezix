@@ -9,7 +9,7 @@
 // This file expects the following files to be loaded.
 /* import-globals-from LogController.js */
 /* import-globals-from MemoryStats.js */
-/* import-globals-from PlezixLogger.js */
+/* import-globals-from MozillaLogger.js */
 
 /* eslint-disable no-unsanitized/property */
 

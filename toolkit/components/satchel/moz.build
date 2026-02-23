@@ -37,6 +37,8 @@ EXTRA_JS_MODULES += [
     "FormHistoryAutoComplete.sys.mjs",
     "FormHistoryStartup.sys.mjs",
     "FormScenarios.sys.mjs",
+    "integrations/FirefoxRelay.sys.mjs",
+    "integrations/FirefoxRelayUtils.sys.mjs",
     "integrations/PlezixRelay.sys.mjs",
     "integrations/PlezixRelayUtils.sys.mjs",
     "integrations/WebAuthnFeature.sys.mjs",

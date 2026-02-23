@@ -7,7 +7,7 @@
 with Files("**"):
     BUG_COMPONENT = ("Plezix", "General")
 
-with Files("PlezixBridgeExtensionUtils.sys.mjs"):
+with Files("FirefoxBridgeExtensionUtils.sys.mjs"):
     BUG_COMPONENT = ("Plezix", "Shell Integration")
 
 with Files("test/unit/test_PlezixBridgeExtensionUtils.sys.mjs"):
@@ -126,7 +126,7 @@ EXTRA_JS_MODULES += [
     "ExtensionsUI.sys.mjs",
     "FaviconLoader.sys.mjs",
     "FilterAdult.sys.mjs",
-    "PlezixBridgeExtensionUtils.sys.mjs",
+    "FirefoxBridgeExtensionUtils.sys.mjs",
     "HomePage.sys.mjs",
     "LaterRun.sys.mjs",
     "LinksCache.sys.mjs",
