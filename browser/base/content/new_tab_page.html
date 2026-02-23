@@ -44,6 +44,8 @@
             z-index: -3;
             background: var(--bg-gradient);
             background-size: cover;
+            transform: translateZ(0);
+            backface-visibility: hidden;
             transition: transform 0.1s ease-out;
         }
 
@@ -55,6 +57,8 @@
             background-position: center;
             transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform, opacity;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
 
         .wp-hidden { opacity: 0; pointer-events: none; }
@@ -214,6 +218,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         .tab-item img { width: 24px; height: 24px; pointer-events: none; }
+        .tab-item img { transform: translateZ(0); will-change: transform; }
     </style>
 </head>
 <body onclick="document.getElementById('engine-options').classList.remove('open')">
@@ -229,6 +234,7 @@
     </button>
 
     <div id="settings-panel" onclick="event.stopPropagation()">
+        <div id="storage-warning" style="display:none;background:#2b2b2b;border:1px solid #4b5563;padding:8px 12px;border-radius:8px;margin-bottom:12px;color:#fef3c7">Warning: Local storage unavailable — настройки не сохраняются между сессиями.</div>
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-lg font-bold text-emerald-500 uppercase">Настройки</h2>
             <div class="cursor-pointer text-xl opacity-50 hover:opacity-100 transition" onclick="toggleSettings(event)">✕</div>
@@ -338,21 +344,47 @@
         const STORAGE_KEY = 'plezix_v11_tabs';
         
         const builtInWallpapers = [
-            "wallpapers/wallpaper_0.jpg",
-            "wallpapers/wallpaper_1.jpg",
-            "wallpapers/wallpaper_2.jpg",
-            "wallpapers/wallpaper_3.jpg",
-            "wallpapers/wallpaper_4.jpg",
-            "wallpapers/wallpaper_5.jpg",
-            "wallpapers/wallpaper_6.jpg",
-            "wallpapers/wallpaper_7.jpg",
-            "wallpapers/wallpaper_8.jpg",
-            "wallpapers/wallpaper_9.jpg",
-            "wallpapers/wallpaper_10.jpg",
-            "wallpapers/wallpaper_11.jpg",
-            "wallpapers/wallpaper_12.jpg",
-            "wallpapers/wallpaper_13.jpg"
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_0.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_1.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_2.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_3.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_4.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_5.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_6.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_7.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_8.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_9.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_10.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_11.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_12.jpg?raw=true",
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_13.jpg?raw=true"
         ];
+
+        // Preload helpers for faster wallpaper rendering (hardware accelerated)
+        function preloadWallpapers() {
+            try {
+                builtInWallpapers.forEach(url => {
+                    const resolved = resolveUrl(url);
+                    if (!resolved) return;
+
+                    // add preload link
+                    try {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = resolved;
+                        document.head.appendChild(link);
+                    } catch (e) {}
+
+                    // warm up decoder
+                    try {
+                        const img = new Image();
+                        img.decoding = 'async';
+                        img.src = resolved;
+                    } catch (e) {}
+                });
+            } catch (e) {}
+        }
 
         let settings = {
             bgData: '',
@@ -372,6 +404,28 @@
             bing: "https://www.bing.com/search?q={q}",
             yandex: "https://yandex.ru/search/?text={q}"
         };
+
+        // Storage helpers
+        let storageFallback = null; // 'session' if using sessionStorage fallback
+        function storageAvailable() {
+            try {
+                const test = '__storage_test__';
+                localStorage.setItem(test, test);
+                localStorage.removeItem(test);
+                return true;
+            } catch (e) {
+                try {
+                    const test = '__storage_test__';
+                    sessionStorage.setItem(test, test);
+                    sessionStorage.removeItem(test);
+                    storageFallback = 'session';
+                    return false;
+                } catch (e2) {
+                    storageFallback = null;
+                    return false;
+                }
+            }
+        }
 
         const posMap = {
             // [top, left, x, y]
@@ -411,6 +465,10 @@
             settings.engine = id;
             updateEngineUI();
             updateSettings();
+            // ensure engine saved immediately
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(e) {
+                if (storageFallback === 'session') sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+            }
         }
 
         function updateEngineUI() {
@@ -466,7 +524,9 @@
             elCurrent.classList.add('wp-hidden');
             
             currentLayer = nextLayer;
+            // persist immediately and notify other tabs
             updateSettings();
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch (e) { if (storageFallback === 'session') try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(_) {} }
         }
 
         function resolveUrl(url) {
@@ -543,7 +603,13 @@
             settings.customUrl = document.getElementById('custom-engine-url').value;
             
             applySettings();
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+            } catch (e) {
+                if (storageFallback === 'session') {
+                    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(e2) {}
+                }
+            }
         }
 
         function applyLoadedSettings(loaded) {
@@ -664,12 +730,13 @@
                     ? settings.customUrl.replace('{q}', encodeURIComponent(q))
                     : (engines[settings.engine] || engines.duckduckgo).replace('{q}', encodeURIComponent(q));
             }
-            
+            console.log('Search submit ->', { engine: settings.engine, url });
+
             if(!isSearchUrl(url)) {
                 addRecentTab(url);
             }
-            
-            window.open(url, '_blank');
+
+            try { window.open(url, '_blank'); } catch(e) { console.error('Open failed', e); }
         };
 
         function resetAll() {
@@ -678,7 +745,19 @@
         }
 
         window.onload = () => {
-            const saved = localStorage.getItem(STORAGE_KEY);
+            const hasStorage = storageAvailable();
+            if (!hasStorage) {
+                const warn = document.getElementById('storage-warning');
+                if (warn) warn.style.display = 'block';
+            }
+
+            let saved = null;
+            try {
+                saved = localStorage.getItem(STORAGE_KEY);
+            } catch (e) {
+                if (storageFallback === 'session') saved = sessionStorage.getItem(STORAGE_KEY);
+            }
+
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
@@ -704,6 +783,9 @@
             } else {
                 document.getElementById('wp-1').classList.add('wp-hidden');
             }
+
+            // Preload wallpapers to improve perceived load and trigger GPU decoding
+            preloadWallpapers();
 
             applySettings();
             renderWallpapers();
