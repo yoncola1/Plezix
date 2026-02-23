@@ -328,3 +328,61 @@ menupopup[touchmode] :is(menu, menuitem, menucaption) {
 #context-sep-navigation {
   padding-inline: 0;
 }
+/* ============================================================================
+ * Hardware Acceleration & Performance Optimizations
+ * ============================================================================ */
+
+/* Enable hardware acceleration for main browser elements */
+:root {
+  /* Force GPU acceleration for smooth animations */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize tab rendering */
+#tabbrowser-tabs {
+  will-change: scroll-position;
+  backface-visibility: hidden;
+}
+
+.tabbrowser-tab {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize toolbar rendering */
+#navigator-toolbox {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize scrollbar and sidebar */
+#navigator-toolbox,
+#sidebar-box,
+#urlbar {
+  transform: translateZ(0);
+}
+
+/* Optimize transitions and animations */
+* {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Reduce repaints during scrolling */
+#main-window {
+  contain: layout style paint;
+}
+
+/* Optimize menu popups */
+menupopup {
+  transform: translateZ(0);
+}
+
+/* GPU acceleration for active tabs */
+.tabbrowser-tab[selected] {
+  will-change: opacity;
+  transform: translateZ(0);
+}

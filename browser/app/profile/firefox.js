@@ -3405,3 +3405,61 @@ pref("browser.contextual-services.contextId.rust-component.enabled", true);
 
 // Pref to enable the IP protection feature
 pref("browser.ipProtection.enabled", false);
+// ============================================================================
+// Plezix Performance & Hardware Acceleration Optimizations
+// ============================================================================
+
+// Optimize startup performance
+pref("browser.startup.preload-content.enabled", true);
+pref("browser.link.open_newwindow", 3);
+pref("browser.link.open_newwindow.restriction", 0);
+
+// Tab and window performance
+pref("browser.tab.animate", true);
+pref("browser.tabs.closeButtons", 1);
+pref("browser.sessionhistory.max_entries", 50);
+
+// Network optimizations
+pref("network.http.pipelining", true);
+pref("network.http.pipelining.ssl", true);
+pref("network.http.pipelining.max-optimistic-requests", 3);
+pref("network.http.max-connections", 768);
+pref("network.http.max-persistent-connections-per-server", 10);
+pref("network.http.max-persistent-connections-per-proxy", 32);
+pref("network.standard-url.max-length", 2147483647);
+
+// Enable DNS prefetching and prediction
+pref("network.dns.disablePrefetch", false);
+pref("network.predictor.enabled", true);
+pref("network.predictor.promote-on-use", true);
+
+// Rendering and display optimizations
+pref("browser.display.use_document_fonts", 1);
+pref("browser.display.background_color", "#f0f0f0");
+pref("gfx.direct2d.disabled", false);
+
+// Reduce memory usage
+pref("browser.sessionstore.interval", 15000);
+pref("browser.cache.disk.enable", true);
+pref("browser.cache.disk.capacity", 358400);
+pref("browser.cache.memory.enable", true);
+pref("browser.cache.memory.capacity", 51200);
+
+// Optimize video playback
+pref("media.gpu-process-decoder", true);
+pref("media.av1.enabled", true);
+
+// Enable smooth scrolling with performance in mind
+pref("general.smoothScroll.msd.ordinalDistance", 1000);
+pref("general.smoothScroll.msd.exponentialDistance", 2000);
+pref("general.smoothScroll.lines.durationMS", 300);
+pref("general.smoothScroll.pages.durationMS", 400);
+pref("general.smoothScroll.other.durationMS", 400);
+
+// Reduce power consumption
+pref("dom.vibrator.enabled", true);
+pref("dom.disable_window_move_resize", false);
+
+// JavaScript optimization
+pref("javascript.options.baselinejit", true);
+pref("javascript.options.ion", true);
