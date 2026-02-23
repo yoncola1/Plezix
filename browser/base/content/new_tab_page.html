@@ -141,6 +141,7 @@
             font-weight: 800; 
             line-height: 1.1;
             background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); 
+            background-clip: text;
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             transition: font-size 0.3s ease;
@@ -337,20 +338,20 @@
         const STORAGE_KEY = 'plezix_v11_tabs';
         
         const builtInWallpapers = [
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_0.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_1.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_2.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_3.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_4.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_5.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_6.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_7.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_8.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_9.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_10.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_11.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_12.jpg",
-            "C:/Plezix/browser/base/content/wallpapers/wallpaper_13.jpg"
+            "wallpapers/wallpaper_0.jpg",
+            "wallpapers/wallpaper_1.jpg",
+            "wallpapers/wallpaper_2.jpg",
+            "wallpapers/wallpaper_3.jpg",
+            "wallpapers/wallpaper_4.jpg",
+            "wallpapers/wallpaper_5.jpg",
+            "wallpapers/wallpaper_6.jpg",
+            "wallpapers/wallpaper_7.jpg",
+            "wallpapers/wallpaper_8.jpg",
+            "wallpapers/wallpaper_9.jpg",
+            "wallpapers/wallpaper_10.jpg",
+            "wallpapers/wallpaper_11.jpg",
+            "wallpapers/wallpaper_12.jpg",
+            "wallpapers/wallpaper_13.jpg"
         ];
 
         let settings = {
@@ -433,8 +434,9 @@
 
             builtInWallpapers.forEach((url, index) => {
                 const item = document.createElement('div');
+                const resolved = resolveUrl(url);
                 item.className = `wallpaper-item ${settings.bgData === url ? 'active' : ''}`;
-                item.style.backgroundImage = `url(${url})`;
+                if (resolved) item.style.backgroundImage = `url("${resolved}")`;
                 item.onclick = () => { setBackground(url); renderWallpapers(); };
                 grid.appendChild(item);
             });
@@ -450,7 +452,8 @@
             const elNext = document.getElementById(`wp-${nextLayer}`);
             
             if (url) {
-                elNext.style.backgroundImage = `url(${url})`;
+                const resolved = resolveUrl(url);
+                elNext.style.backgroundImage = resolved ? `url("${resolved}")` : `url(${url})`;
                 elNext.classList.remove('wp-hidden');
                 elNext.classList.add('wp-visible');
             } else {
@@ -464,6 +467,21 @@
             
             currentLayer = nextLayer;
             updateSettings();
+        }
+
+        function resolveUrl(url) {
+            if (!url) return null;
+            // If already absolute or data URI, return as-is
+            try {
+                if (/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(url) || url.startsWith('data:')) return url;
+                // Resolve relative to document base
+                return new URL(url, document.baseURI).href;
+            } catch (e) {
+                try {
+                    // last resort, return the original string
+                    return url;
+                } catch (e2) { return null; }
+            }
         }
 
         function removeTab(url, e) {
@@ -483,20 +501,26 @@
             container.innerHTML = '';
             
             settings.recentTabs.slice(0, 6).forEach(tab => {
-                const item = document.createElement('div');
-                item.className = 'tab-item';
-                item.title = tab.url + " (ПКМ для удаления)";
-                const domain = new URL(tab.url).hostname;
-                item.innerHTML = `<img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="ico">`;
-                
-                item.onclick = () => {
-                    window.open(tab.url, '_blank');
-                    addRecentTab(tab.url);
-                };
+                try {
+                    if (!tab || !tab.url) return;
+                    const parsed = new URL(tab.url);
+                    const domain = parsed.hostname;
+                    const item = document.createElement('div');
+                    item.className = 'tab-item';
+                    item.title = tab.url + " (ПКМ для удаления)";
+                    item.innerHTML = `<img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="ico">`;
 
-                item.oncontextmenu = (e) => removeTab(tab.url, e);
+                    item.onclick = () => {
+                        try { window.open(tab.url, '_blank'); } catch(e) {}
+                        addRecentTab(tab.url);
+                    };
 
-                container.appendChild(item);
+                    item.oncontextmenu = (e) => removeTab(tab.url, e);
+
+                    container.appendChild(item);
+                } catch (e) {
+                    // skip invalid URLs
+                }
             });
         }
 
@@ -522,6 +546,45 @@
             localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
         }
 
+        function applyLoadedSettings(loaded) {
+            if (!loaded) return;
+            try {
+                settings = {...settings, ...loaded};
+                settings.clockSize = Number(settings.clockSize) || 1;
+                settings.searchWidth = Number(settings.searchWidth) || 440;
+                settings.shakeEnabled = (settings.shakeEnabled === true || settings.shakeEnabled === 'true');
+
+                // update UI inputs to reflect loaded settings
+                const cs = document.getElementById('clock-size');
+                if (cs) cs.value = settings.clockSize;
+                const cp = document.getElementById('clock-pos');
+                if (cp) cp.value = settings.clockPos;
+                const sp = document.getElementById('search-pos');
+                if (sp) sp.value = settings.searchPos;
+                const sw = document.getElementById('search-width-slider');
+                if (sw) sw.value = settings.searchWidth;
+                const shake = document.getElementById('shake-effect');
+                if (shake) shake.checked = settings.shakeEnabled;
+                const custom = document.getElementById('custom-engine-url');
+                if (custom) custom.value = settings.customUrl || '';
+
+                // apply visuals
+                applySettings();
+
+                // apply wallpaper if present
+                if (settings.bgData) {
+                    const resolved = resolveUrl(settings.bgData);
+                    if (resolved) document.getElementById('wp-1').style.backgroundImage = `url("${resolved}")`;
+                    document.getElementById('wp-1').classList.add('wp-visible');
+                } else {
+                    document.getElementById('wp-1').classList.add('wp-hidden');
+                }
+
+                renderWallpapers();
+                updateRecentTabsUI();
+            } catch (e) {}
+        }
+
         function applySettings() {
             const root = document.documentElement;
             root.style.setProperty('--clock-scale', settings.clockSize);
@@ -540,30 +603,43 @@
             root.style.setProperty('--search-y', sp[3]);
             
             updateEngineUI();
+
+            // When shake effect is disabled, clear any inline transforms
+            // applied by the mousemove handler so elements fall back to CSS.
+            if (!settings.shakeEnabled) {
+                const bg = document.getElementById('bg-container');
+                if (bg) bg.style.transform = '';
+                document.querySelectorAll('.wp-layer').forEach(l => l.style.transform = '');
+                const clockEl = document.getElementById('clock');
+                if (clockEl) clockEl.style.transform = '';
+                const searchEl = document.getElementById('search');
+                if (searchEl) searchEl.style.transform = '';
+            }
         }
 
         window.addEventListener('mousemove', (e) => {
             if (!settings.shakeEnabled) return;
-            const x = (e.clientX / window.innerWidth - 0.5); 
+            const x = (e.clientX / window.innerWidth - 0.5);
             const y = (e.clientY / window.innerHeight - 0.5);
-            
-            document.getElementById('bg-container').style.transform = `translate(${x * -8}px, ${y * -8}px)`;
-            
+
+            const bg = document.getElementById('bg-container');
+            if (bg) bg.style.transform = `translate(${x * -8}px, ${y * -8}px)`;
+
             const layers = document.querySelectorAll('.wp-layer');
             layers.forEach(layer => {
                 layer.style.transform = `translate(${x * -12}px, ${y * -12}px)`;
             });
-            
+
             const clock = document.getElementById('clock');
             const search = document.getElementById('search');
-            
-            const cx = getComputedStyle(document.documentElement).getPropertyValue('--clock-x');
-            const cy = getComputedStyle(document.documentElement).getPropertyValue('--clock-y');
-            clock.style.transform = `translate(calc(${cx} + ${x * 15}px), calc(${cy} + ${y * 15}px))`;
-            
-            const sx = getComputedStyle(document.documentElement).getPropertyValue('--search-x');
-            const sy = getComputedStyle(document.documentElement).getPropertyValue('--search-y');
-            search.style.transform = `translate(calc(${sx} + ${x * 10}px), calc(${sy} + ${y * 10}px))`;
+
+            const cx = getComputedStyle(document.documentElement).getPropertyValue('--clock-x').trim();
+            const cy = getComputedStyle(document.documentElement).getPropertyValue('--clock-y').trim();
+            if (clock) clock.style.transform = `translate(calc(${cx} + ${x * 15}px), calc(${cy} + ${y * 15}px))`;
+
+            const sx = getComputedStyle(document.documentElement).getPropertyValue('--search-x').trim();
+            const sy = getComputedStyle(document.documentElement).getPropertyValue('--search-y').trim();
+            if (search) search.style.transform = `translate(calc(${sx} + ${x * 10}px), calc(${sy} + ${y * 10}px))`;
         });
 
         function updateTime() {
@@ -607,6 +683,10 @@
                 try {
                     const parsed = JSON.parse(saved);
                     settings = {...settings, ...parsed};
+                    // Normalize types (localStorage may store strings)
+                    settings.clockSize = Number(settings.clockSize) || 1;
+                    settings.searchWidth = Number(settings.searchWidth) || 440;
+                    settings.shakeEnabled = (settings.shakeEnabled === true || settings.shakeEnabled === 'true');
                 } catch(e) {}
             }
             
@@ -618,7 +698,8 @@
             document.getElementById('custom-engine-url').value = settings.customUrl || '';
             
             if (settings.bgData) {
-                document.getElementById('wp-1').style.backgroundImage = `url(${settings.bgData})`;
+                const resolved = resolveUrl(settings.bgData);
+                if (resolved) document.getElementById('wp-1').style.backgroundImage = `url("${resolved}")`;
                 document.getElementById('wp-1').classList.add('wp-visible');
             } else {
                 document.getElementById('wp-1').classList.add('wp-hidden');
@@ -627,6 +708,45 @@
             applySettings();
             renderWallpapers();
             updateRecentTabsUI();
+            // Restore last visited site (if any) and add to recent tabs
+            try {
+                const lastVisited = localStorage.getItem('plezix_last_visited');
+                if (lastVisited && !isSearchUrl(lastVisited)) {
+                    addRecentTab(lastVisited);
+                }
+                // If this page was opened from another page, use referrer
+                if (document.referrer && !isSearchUrl(document.referrer)) {
+                    // prefer referrer over stored value
+                    addRecentTab(document.referrer);
+                    localStorage.setItem('plezix_last_visited', document.referrer);
+                }
+            } catch (e) {}
+
+            // Listen for other tabs recording a last-visited site
+            window.addEventListener('storage', (ev) => {
+                if (ev.key === 'plezix_last_visited' && ev.newValue) {
+                    try { if (!isSearchUrl(ev.newValue)) addRecentTab(ev.newValue); } catch(e) {}
+                }
+            });
+
+            // Listen for settings changes from other tabs and apply them
+            window.addEventListener('storage', (ev) => {
+                if (ev.key === STORAGE_KEY && ev.newValue) {
+                    try {
+                        const parsed = JSON.parse(ev.newValue);
+                        applyLoadedSettings(parsed);
+                    } catch(e) {}
+                }
+            });
+
+            // Expose helper so other pages on same origin can record last visited URL:
+            // other pages can call: localStorage.setItem('plezix_last_visited', location.href)
+            window.recordLastVisited = function(url) {
+                try {
+                    const u = url || location.href;
+                    localStorage.setItem('plezix_last_visited', u);
+                } catch(e) {}
+            };
             updateTime();
         };
     </script>
