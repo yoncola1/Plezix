@@ -6,6 +6,12 @@
     <title>Plezix | Start Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
@@ -16,115 +22,86 @@
             --bg-gradient: radial-gradient(circle at center, #064e3b 0%, #000000 100%);
             
             --clock-top: 50%;
-            --clock-left: 10%;
-            --clock-x: 0%;
+            --clock-left: 50%;
+            --clock-x: -50%;
             --clock-y: -50%;
             
             --search-top: 85%;
             --search-left: 50%;
             --search-x: -50%;
-            --search-y: 0%;
+            --search-y: -100%;
         }
 
         body {
             background: #000;
             color: white;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             height: 100vh;
-            margin: 0;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         #bg-container {
             position: fixed;
-            top: -10%; left: -10%; width: 120%; height: 120%;
+            inset: -10%;
             z-index: -3;
             background: var(--bg-gradient);
             background-size: cover;
-            transform: translateZ(0);
-            backface-visibility: hidden;
             transition: transform 0.1s ease-out;
         }
 
         .wp-layer {
             position: fixed;
-            top: -10%; left: -10%; width: 120%; height: 120%;
+            inset: -10%;
             z-index: -2;
             background-size: cover;
             background-position: center;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, opacity;
-            transform: translateZ(0);
-            backface-visibility: hidden;
+            transition: opacity 0.5s ease;
         }
 
-        .wp-hidden { opacity: 0; pointer-events: none; }
+        .wp-hidden { opacity: 0; }
         .wp-visible { opacity: 1; }
 
         #settings-btn {
             position: fixed;
-            top: 30px; right: 30px;
+            top: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            width: 48px; height: 48px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 16px; cursor: pointer; z-index: 100;
+            border-radius: 16px;
+            cursor: pointer;
+            z-index: 100;
             backdrop-filter: blur(15px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
         }
 
         #settings-btn:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--accent);
-            transform: scale(1.05);
             box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        #settings-btn svg {
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            color: white;
-        }
-
-        #settings-btn:hover svg {
-            transform: rotate(180deg);
-            color: var(--accent);
         }
 
         #settings-panel {
             position: fixed;
-            top: 0; right: -400px; 
+            top: 0;
+            right: -400px;
             width: 100%;
-            max-width: 380px; 
+            max-width: 380px;
             height: 100vh;
             background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(35px);
             border-left: 1px solid var(--glass-border);
-            z-index: 1000; padding: 25px;
-            transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; flex-direction: column; 
+            z-index: 1000;
+            padding: 25px;
+            transition: right 0.3s ease;
             overflow-y: auto;
-            box-sizing: border-box;
         }
 
         #settings-panel.open { right: 0; }
-        .setting-group { margin-bottom: 24px; }
-        .label-text { display: block; font-size: 0.65rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
-        
-        .custom-select-trigger { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; cursor: pointer; }
-        .custom-options { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: #111; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; display: none; z-index: 50; }
-        .custom-options.open { display: block; }
-        .custom-option { padding: 12px 16px; cursor: pointer; transition: 0.2s; }
-        .custom-option:hover { background: var(--accent); color: black; }
-
-        select, .custom-input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #e2e8f0; padding: 12px 16px; border-radius: 12px; outline: none; box-sizing: border-box; }
-        
-        .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-        .wallpaper-item { aspect-ratio: 16/9; border-radius: 8px; background-size: cover; background-position: center; cursor: pointer; border: 2px solid transparent; transition: 0.2s; position: relative; overflow: hidden; }
-        .wallpaper-item.active { border-color: var(--accent); }
-        .wallpaper-item.no-bg { background: var(--bg-gradient); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: rgba(255,255,255,0.5); }
 
         .clock-container { 
             position: absolute; 
@@ -135,22 +112,20 @@
             flex-direction: column; 
             align-items: center; 
             gap: 12px; 
-            pointer-events: none; 
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             z-index: 10; 
             padding: 40px;
+            transition: all 0.3s ease;
         }
+
         .time-block { 
             font-size: calc(8rem * var(--clock-scale)); 
             font-weight: 800; 
             line-height: 1.1;
             background: linear-gradient(to bottom, #fff 40%, var(--accent) 100%); 
-            background-clip: text;
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
-            transition: font-size 0.3s ease;
-            display: inline-block;
         }
+
         .time-divider { 
             width: calc(45px * var(--clock-scale)); 
             height: calc(4px * var(--clock-scale)); 
@@ -169,10 +144,11 @@
             flex-direction: column;
             align-items: center; 
             gap: 24px;
-            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             z-index: 20; 
             padding: 40px;
         }
+
         .search-wrapper { 
             width: var(--search-width); 
             max-width: 90vw;
@@ -180,8 +156,8 @@
             backdrop-filter: blur(20px); 
             border: 1px solid var(--glass-border); 
             border-radius: 50px; 
-            transition: width 0.4s ease;
         }
+
         .search-input { 
             background: transparent; 
             border: none; 
@@ -196,134 +172,130 @@
             display: flex;
             gap: 16px;
             opacity: 0.8;
-            transition: opacity 0.3s;
         }
-        .recent-tabs:hover { opacity: 1; }
+
         .tab-item {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            transition: 0.2s;
             backdrop-filter: blur(10px);
-            position: relative;
         }
+
         .tab-item:hover {
             border-color: var(--accent);
             transform: translateY(-5px) scale(1.05);
             background: rgba(255,255,255,0.08);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-        .tab-item img { width: 24px; height: 24px; pointer-events: none; }
-        .tab-item img { transform: translateZ(0); will-change: transform; }
+
+        .tab-item img { width: 24px; height: 24px; }
+
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .wallpaper-item {
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .wallpaper-item.active { border-color: var(--accent); }
+        .wallpaper-item.no-bg { background: var(--bg-gradient); }
     </style>
 </head>
-<body onclick="document.getElementById('engine-options').classList.remove('open')">
-
+<body>
     <div id="bg-container"></div>
     <div id="wp-1" class="wp-layer wp-visible"></div>
     <div id="wp-2" class="wp-layer wp-hidden"></div>
 
-    <button id="settings-btn" onclick="toggleSettings(event)" title="Настройки">
+    <button id="settings-btn" onclick="toggleSettings(event)">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4a.488.488 0 0 0-.48.41l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64L4.57 11c-.04.34-.07.67-.07 1s.03.66.07 1l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.41.48.41h4c.24 0 .45-.17.48-.41l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65z"/>
         </svg>
     </button>
 
     <div id="settings-panel" onclick="event.stopPropagation()">
-        <div id="storage-warning" style="display:none;background:#2b2b2b;border:1px solid #4b5563;padding:8px 12px;border-radius:8px;margin-bottom:12px;color:#fef3c7">Warning: Local storage unavailable — настройки не сохраняются между сессиями.</div>
-        <div id="save-indicator" style="display:none;background:#052e16;border:1px solid #065f46;padding:8px 12px;border-radius:8px;margin-bottom:12px;color:#bbf7d0">Настройки сохранены</div>
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-lg font-bold text-emerald-500 uppercase">Настройки</h2>
             <div class="cursor-pointer text-xl opacity-50 hover:opacity-100 transition" onclick="toggleSettings(event)">✕</div>
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Поисковик</span>
-            <div class="relative">
-                <div class="custom-select-trigger" onclick="toggleEngineDropdown(event)">
-                    <span id="current-engine-name">DuckDuckGo</span>
-                    <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
-                </div>
-                <div class="custom-options" id="engine-options">
-                    <div class="custom-option" onclick="selectEngine('duckduckgo')">DuckDuckGo</div>
-                    <div class="custom-option" onclick="selectEngine('google')">Google</div>
-                    <div class="custom-option" onclick="selectEngine('bing')">Bing</div>
-                    <div class="custom-option" onclick="selectEngine('custom')">Своя ссылка</div>
-                    <div class="custom-option" onclick="selectEngine('yandex')">Yandex</div>
-                </div>
-            </div>
-            <div id="custom-url-container" class="mt-2 hidden">
-                <input type="text" id="custom-engine-url" class="custom-input" placeholder="https://site.com/search?q={q}" onchange="updateSettings()">
-            </div>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Поисковик</span>
+            <select id="engine-select" onchange="updateSettings()" class="w-full bg-white/5 border border-white/10 text-white p-3 rounded-xl">
+                <option value="duckduckgo">DuckDuckGo</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="yandex">Yandex</option>
+            </select>
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Ширина поиска</span>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Ширина поиска</span>
             <input type="range" id="search-width-slider" min="300" max="850" step="10" oninput="updateSettings()" class="w-full accent-emerald-500">
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Размер часов</span>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Размер часов</span>
             <input type="range" id="clock-size" min="0.5" max="1.5" step="0.05" oninput="updateSettings()" class="w-full accent-emerald-500">
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Расположение часов</span>
-            <select id="clock-pos" onchange="updateSettings()">
-                <optgroup label="Верх">
-                    <option value="top-left">Верхний левый угол</option>
-                    <option value="top-center">Верх по центру</option>
-                    <option value="top-right">Верхний правый угол</option>
-                </optgroup>
-                <optgroup label="Центр">
-                    <option value="center-left">Слева</option>
-                    <option value="center" selected>По центру</option>
-                    <option value="center-right">Справа</option>
-                </optgroup>
-                <optgroup label="Низ">
-                    <option value="bottom-left">Нижний левый угол</option>
-                    <option value="bottom-center">Низ по центру</option>
-                    <option value="bottom-right">Нижний правый угол</option>
-                </optgroup>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Расположение часов</span>
+            <select id="clock-pos" onchange="updateSettings()" class="w-full bg-white/5 border border-white/10 text-white p-3 rounded-xl">
+                <option value="top-left">Верхний левый</option>
+                <option value="top-center">Верх по центру</option>
+                <option value="top-right">Верхний правый</option>
+                <option value="center-left">Слева</option>
+                <option value="center" selected>По центру</option>
+                <option value="center-right">Справа</option>
+                <option value="bottom-left">Нижний левый</option>
+                <option value="bottom-center">Низ по центру</option>
+                <option value="bottom-right">Нижний правый</option>
             </select>
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Расположение поиска</span>
-            <select id="search-pos" onchange="updateSettings()">
-                <optgroup label="Верх">
-                    <option value="top-left">Верхний левый угол</option>
-                    <option value="top-center">Верх по центру</option>
-                    <option value="top-right">Верхний правый угол</option>
-                </optgroup>
-                <optgroup label="Центр">
-                    <option value="center-left">Слева</option>
-                    <option value="center">По центру</option>
-                    <option value="center-right">Справа</option>
-                </optgroup>
-                <optgroup label="Низ">
-                    <option value="bottom-left">Нижний левый угол</option>
-                    <option value="bottom-center" selected>Низ по центру</option>
-                    <option value="bottom-right">Нижний правый угол</option>
-                </optgroup>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Расположение поиска</span>
+            <select id="search-pos" onchange="updateSettings()" class="w-full bg-white/5 border border-white/10 text-white p-3 rounded-xl">
+                <option value="top-left">Верхний левый</option>
+                <option value="top-center">Верх по центру</option>
+                <option value="top-right">Верхний правый</option>
+                <option value="center-left">Слева</option>
+                <option value="center">По центру</option>
+                <option value="center-right">Справа</option>
+                <option value="bottom-left">Нижний левый</option>
+                <option value="bottom-center" selected>Низ по центру</option>
+                <option value="bottom-right">Нижний правый</option>
             </select>
         </div>
 
-        <div class="setting-group">
-            <span class="label-text">Обои</span>
+        <div class="mb-6">
+            <span class="block text-xs uppercase text-gray-400 mb-2">Обои</span>
             <div class="wallpaper-grid" id="wallpaperGrid"></div>
         </div>
 
-        <div class="setting-group flex items-center justify-between pb-10">
-            <span class="label-text m-0">Эффект покачивания</span>
+        <div class="mb-6 flex items-center justify-between">
+            <span class="text-xs uppercase text-gray-400">Эффект покачивания</span>
             <input type="checkbox" id="shake-effect" onchange="updateSettings()" class="w-5 h-5 accent-emerald-500">
         </div>
 
-        <button onclick="resetAll()" class="mt-auto mb-4 border border-red-500 text-red-500 p-3 rounded-xl text-[10px] uppercase font-bold hover:bg-red-500 hover:text-white transition">Сбросить всё</button>
+        <button onclick="resetAll()" class="w-full border border-red-500 text-red-500 p-3 rounded-xl text-xs uppercase font-bold hover:bg-red-500 hover:text-white transition">
+            Сбросить всё
+        </button>
     </div>
 
     <div id="clock" class="clock-container">
@@ -334,7 +306,7 @@
 
     <div id="search" class="search-container">
         <div class="search-wrapper">
-            <form id="searchForm" class="w-full">
+            <form id="searchForm">
                 <input type="text" id="searchInput" class="search-input" placeholder="Поиск..." autofocus autocomplete="off">
             </form>
         </div>
@@ -342,221 +314,22 @@
     </div>
 
     <script>
-        // If this page is running as a privileged chrome document the
-        // Services module can be used for storing preferences.  Import it
-        // lazily so that the same code still works when the page is shown
-        // from file:// or http:// (where ChromeUtils is undefined).
-        try {
-            if (typeof ChromeUtils !== 'undefined' &&
-                !("Services" in this)) {
-                ChromeUtils.import("resource://gre/modules/Services.jsm");
-            }
-        } catch (e) {}
-        const Ci = (typeof Components !== 'undefined' && Components.interfaces) || {};
-
-        // Primary storage key in web storage.  We also keep a mirror in
-        // a prefs branch when the page is loaded as a privileged chrome
-        // document (about:newtab, chrome://, etc.) where localStorage may
-        // be unavailable or wiped between launches.
-        const STORAGE_KEY = 'plezix_v11_tabs';
-        const PREF_KEY = 'browser.newtab.plezix.settings';
-        
-        const builtInWallpapers = [
+        const STORAGE_KEY = 'plezix_settings';
+        const WALLPAPERS = [
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_0.jpg?raw=true",
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_1.jpg?raw=true",
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_2.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_3.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_4.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_5.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_6.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_7.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_8.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_9.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_10.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_11.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_12.jpg?raw=true",
-            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_13.jpg?raw=true"
+            "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_3.jpg?raw=true"
         ];
 
-        // Preload helpers for faster wallpaper rendering (hardware accelerated)
-        function preloadWallpapers() {
-            try {
-                builtInWallpapers.forEach(url => {
-                    const resolved = resolveUrl(url);
-                    if (!resolved) return;
-
-                    // add preload link
-                    try {
-                        const link = document.createElement('link');
-                        link.rel = 'preload';
-                        link.as = 'image';
-                        link.href = resolved;
-                        document.head.appendChild(link);
-                    } catch (e) {}
-
-                    // warm up decoder
-                    try {
-                        const img = new Image();
-                        img.decoding = 'async';
-                        img.src = resolved;
-                    } catch (e) {}
-                });
-            } catch (e) {}
-        }
-
-        let settings = {
-            bgData: '',
-            clockSize: 1,
-            clockPos: 'center',
-            searchPos: 'bottom-center',
-            searchWidth: 440,
-            shakeEnabled: true,
-            engine: 'duckduckgo',
-            customUrl: '',
-            recentTabs: []
-        };
-
-        const engines = {
+        const ENGINES = {
             duckduckgo: "https://duckduckgo.com/?q={q}",
-            google: "https://www.google.com/search?q={q}&ie=UTF-8",
+            google: "https://www.google.com/search?q={q}",
             bing: "https://www.bing.com/search?q={q}",
             yandex: "https://yandex.ru/search/?text={q}"
         };
 
-        // Storage helpers
-        let storageFallback = null; // 'session' if using sessionStorage fallback
-        // Attempt to detect whether DOM storage is usable.  If the code is
-        // running in a privileged chrome context (about:newtab, chrome://),
-        // localStorage often throws or is reset on every launch.  In that case
-        // we fall back to storing a JSON blob in a preference.
-        function storageAvailable() {
-            try {
-                const test = '__storage_test__';
-                localStorage.setItem(test, test);
-                localStorage.removeItem(test);
-                return true;
-            } catch (e) {
-                try {
-                    const test = '__storage_test__';
-                    sessionStorage.setItem(test, test);
-                    sessionStorage.removeItem(test);
-                    storageFallback = 'session';
-                    return false;
-                } catch (e2) {
-                    storageFallback = null;
-                    return false;
-                }
-            }
-        }
-
-        // helpers for prefs-based storage when Services is available.  We
-        // treat this as a backup that is written alongside localStorage so
-        // the user's settings survive even if the web storage is ephemeral.
-        function prefsAvailable() {
-            return typeof Services !== 'undefined' && Services.prefs;
-        }
-
-        function loadSettingsFromPrefs() {
-            try {
-                if (!prefsAvailable()) {
-                    return null;
-                }
-                let type = Services.prefs.getPrefType(PREF_KEY);
-                if (type == Ci.nsIPrefBranch.PREF_STRING) {
-                    let str = Services.prefs.getCharPref(PREF_KEY);
-                    return JSON.parse(str);
-                }
-            } catch (e) {
-                // ignore
-            }
-            return null;
-        }
-
-        function saveSettingsToPrefs() {
-            try {
-                if (!prefsAvailable()) {
-                    return false;
-                }
-                Services.prefs.setCharPref(PREF_KEY, JSON.stringify(settings));
-                return true;
-            } catch (e) {
-                return false;
-            }
-        }
-
-        function saveSettingsToStorage() {
-            const payload = JSON.stringify(settings);
-            let ok = false;
-            // try localStorage first
-            try {
-                localStorage.setItem(STORAGE_KEY, payload);
-                // also write some quick-access keys for debugging
-                localStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
-                localStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
-                ok = true;
-            } catch (e) {
-                // fallback to sessionStorage if possible
-                if (storageFallback === 'session') {
-                    try {
-                        sessionStorage.setItem(STORAGE_KEY, payload);
-                        sessionStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
-                        sessionStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
-                        ok = true;
-                    } catch (e2) {
-                        ok = false;
-                    }
-                }
-            }
-
-            // always mirror to prefs if available; not using result since it
-            // sometimes throws in unprivileged contexts, but that's fine.
-            try { saveSettingsToPrefs(); } catch(e) {}
-
-            if (ok) {
-                showSaveIndicator();
-            }
-            return ok;
-        }
-
-        function loadSettingsFromStorage() {
-            // prefer prefs over localStorage when both exist, because prefs
-            // aren't wiped by private browsing or chrome resets.
-            let loaded = null;
-            if (prefsAvailable()) {
-                loaded = loadSettingsFromPrefs();
-            }
-            if (!loaded) {
-                try {
-                    loaded = localStorage.getItem(STORAGE_KEY);
-                    if (loaded) {
-                        loaded = JSON.parse(loaded);
-                    }
-                } catch (e) {
-                    if (storageFallback === 'session') {
-                        try {
-                            loaded = sessionStorage.getItem(STORAGE_KEY);
-                            if (loaded) loaded = JSON.parse(loaded);
-                        } catch (e2) {
-                            loaded = null;
-                        }
-                    }
-                }
-            }
-            return loaded;
-        }
-
-        function showSaveIndicator() {
-            try {
-                const el = document.getElementById('save-indicator');
-                if (!el) return;
-                el.style.display = 'block';
-                clearTimeout(el._hideTimer);
-                el._hideTimer = setTimeout(() => { el.style.display = 'none'; }, 1400);
-            } catch(e){}
-        }
-
-        const posMap = {
-            // [top, left, x, y]
+        const POS_MAP = {
             'top-left': ['0%', '0%', '0%', '0%'],
             'top-center': ['0%', '50%', '-50%', '0%'],
             'top-right': ['0%', '100%', '-100%', '0%'],
@@ -568,63 +341,90 @@
             'bottom-right': ['100%', '100%', '-100%', '-100%']
         };
 
-        const searchPatterns = [
-            /duckduckgo\.com\/\?q=/i,
-            /google\.[a-z]+\/search\?q=/i,
-            /bing\.com\/search\?q=/i,
-            /yandex\.[a-z]+\/search/i
-        ];
+        let settings = {
+            engine: 'duckduckgo',
+            searchWidth: 440,
+            clockSize: 1,
+            clockPos: 'center',
+            searchPos: 'bottom-center',
+            bgData: '',
+            shakeEnabled: true,
+            recentTabs: []
+        };
 
-        function isSearchUrl(url) {
-            return searchPatterns.some(pattern => pattern.test(url));
-        }
-
-        function toggleSettings(e) {
-            if(e) e.stopPropagation();
-            document.getElementById('settings-panel').classList.toggle('open');
-        }
-
-        function toggleEngineDropdown(e) {
-            e.stopPropagation();
-            document.getElementById('engine-options').classList.toggle('open');
-        }
-
-        function selectEngine(id) {
-            settings.engine = id;
-            updateEngineUI();
-            updateSettings();
-            saveSettingsToStorage();
-            // Notify all tabs of the change
+        function loadSettings() {
             try {
-                localStorage.setItem(STORAGE_KEY + '_sync', Math.random().toString());
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    settings = { ...settings, ...parsed };
+                }
+            } catch (e) {}
+            applySettings();
+            renderWallpapers();
+            updateRecentTabs();
+        }
+
+        function saveSettings() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
             } catch (e) {}
         }
 
-        function updateEngineUI() {
-            const names = { yandex: "Yandex", google: "Google", bing: "Bing", duckduckgo: "DuckDuckGo", custom: "Своя ссылка" };
-            const el = document.getElementById('current-engine-name');
-            if(el) el.textContent = names[settings.engine];
-            const container = document.getElementById('custom-url-container');
-            if(container) container.classList.toggle('hidden', settings.engine !== 'custom');
+        function updateSettings() {
+            settings.engine = document.getElementById('engine-select').value;
+            settings.searchWidth = document.getElementById('search-width-slider').value;
+            settings.clockSize = document.getElementById('clock-size').value;
+            settings.clockPos = document.getElementById('clock-pos').value;
+            settings.searchPos = document.getElementById('search-pos').value;
+            settings.shakeEnabled = document.getElementById('shake-effect').checked;
+            
+            applySettings();
+            saveSettings();
+        }
+
+        function applySettings() {
+            const root = document.documentElement;
+            root.style.setProperty('--clock-scale', settings.clockSize);
+            root.style.setProperty('--search-width', settings.searchWidth + 'px');
+            
+            const cp = POS_MAP[settings.clockPos] || POS_MAP.center;
+            root.style.setProperty('--clock-top', cp[0]);
+            root.style.setProperty('--clock-left', cp[1]);
+            root.style.setProperty('--clock-x', cp[2]);
+            root.style.setProperty('--clock-y', cp[3]);
+
+            const sp = POS_MAP[settings.searchPos] || POS_MAP['bottom-center'];
+            root.style.setProperty('--search-top', sp[0]);
+            root.style.setProperty('--search-left', sp[1]);
+            root.style.setProperty('--search-x', sp[2]);
+            root.style.setProperty('--search-y', sp[3]);
+
+            document.getElementById('engine-select').value = settings.engine;
+            document.getElementById('search-width-slider').value = settings.searchWidth;
+            document.getElementById('clock-size').value = settings.clockSize;
+            document.getElementById('clock-pos').value = settings.clockPos;
+            document.getElementById('search-pos').value = settings.searchPos;
+            document.getElementById('shake-effect').checked = settings.shakeEnabled;
         }
 
         function renderWallpapers() {
             const grid = document.getElementById('wallpaperGrid');
-            if(!grid) return;
+            if (!grid) return;
+            
             grid.innerHTML = '';
             
             const noBg = document.createElement('div');
-            noBg.className = `wallpaper-item no-bg ${settings.bgData === '' ? 'active' : ''}`;
-            noBg.innerHTML = '<span class="uppercase">Без фона</span>';
-            noBg.onclick = () => { setBackground(''); renderWallpapers(); };
+            noBg.className = `wallpaper-item no-bg ${!settings.bgData ? 'active' : ''}`;
+            noBg.innerHTML = '<span class="text-xs">Без фона</span>';
+            noBg.onclick = () => setBackground('');
             grid.appendChild(noBg);
 
-            builtInWallpapers.forEach((url, index) => {
+            WALLPAPERS.forEach(url => {
                 const item = document.createElement('div');
-                const resolved = resolveUrl(url);
                 item.className = `wallpaper-item ${settings.bgData === url ? 'active' : ''}`;
-                if (resolved) item.style.backgroundImage = `url("${resolved}")`;
-                item.onclick = () => { setBackground(url); renderWallpapers(); };
+                item.style.backgroundImage = `url("${url}")`;
+                item.onclick = () => setBackground(url);
                 grid.appendChild(item);
             });
         }
@@ -639,197 +439,60 @@
             const elNext = document.getElementById(`wp-${nextLayer}`);
             
             if (url) {
-                const resolved = resolveUrl(url);
-                elNext.style.backgroundImage = resolved ? `url("${resolved}")` : `url(${url})`;
+                elNext.style.backgroundImage = `url("${url}")`;
                 elNext.classList.remove('wp-hidden');
                 elNext.classList.add('wp-visible');
             } else {
                 elNext.classList.remove('wp-visible');
                 elNext.classList.add('wp-hidden');
-                elNext.style.backgroundImage = 'none';
             }
             
             elCurrent.classList.remove('wp-visible');
             elCurrent.classList.add('wp-hidden');
             
             currentLayer = nextLayer;
-            // persist immediately and notify other tabs
-            updateSettings();
-            saveSettingsToStorage();
+            renderWallpapers();
+            saveSettings();
         }
 
-        function resolveUrl(url) {
-            if (!url) return null;
-            // If already absolute or data URI, return as-is
-            try {
-                if (/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(url) || url.startsWith('data:')) return url;
-                // Resolve relative to document base
-                return new URL(url, document.baseURI).href;
-            } catch (e) {
-                try {
-                    // last resort, return the original string
-                    return url;
-                } catch (e2) { return null; }
-            }
-        }
-
-        function removeTab(url, e) {
-            if(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            settings.recentTabs = settings.recentTabs.filter(t => t.url !== url);
-            updateRecentTabsUI();
-            updateSettings();
-            return false;
-        }
-
-        function updateRecentTabsUI() {
+        function updateRecentTabs() {
             const container = document.getElementById('recent-tabs-container');
             if (!container) return;
-            container.innerHTML = '';
             
-            settings.recentTabs.slice(0, 6).forEach(tab => {
+            container.innerHTML = '';
+            settings.recentTabs.slice(0, 6).forEach(url => {
                 try {
-                    if (!tab || !tab.url) return;
-                    const parsed = new URL(tab.url);
-                    const domain = parsed.hostname;
+                    const domain = new URL(url).hostname;
                     const item = document.createElement('div');
                     item.className = 'tab-item';
-                    item.title = tab.url + " (ПКМ для удаления)";
-                    item.innerHTML = `<img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="ico">`;
-
-                    item.onclick = () => {
-                        try { window.open(tab.url, '_blank'); } catch(e) {}
-                        addRecentTab(tab.url);
-                    };
-
-                    item.oncontextmenu = (e) => removeTab(tab.url, e);
-
+                    item.title = url;
+                    item.innerHTML = `<img src="https://www.google.com/s2/favicons?sz=64&domain=${domain}" alt="">`;
+                    item.onclick = () => window.open(url, '_blank');
                     container.appendChild(item);
-                } catch (e) {
-                    // skip invalid URLs
-                }
+                } catch (e) {}
             });
         }
 
         function addRecentTab(url) {
-            if (!url.startsWith('http') || isSearchUrl(url)) return;
+            if (!url.startsWith('http')) return;
             
-            let tabs = settings.recentTabs.filter(t => t.url !== url);
-            tabs.unshift({ url, timestamp: Date.now() });
+            let tabs = settings.recentTabs.filter(u => u !== url);
+            tabs.unshift(url);
             settings.recentTabs = tabs.slice(0, 12);
-            updateRecentTabsUI();
-            updateSettings();
-        }
-
-        function updateSettings() {
-            settings.clockSize = document.getElementById('clock-size').value;
-            settings.clockPos = document.getElementById('clock-pos').value;
-            settings.searchPos = document.getElementById('search-pos').value;
-            settings.searchWidth = document.getElementById('search-width-slider').value;
-            settings.shakeEnabled = document.getElementById('shake-effect').checked;
-            settings.customUrl = document.getElementById('custom-engine-url').value;
-            
-            applySettings();
-            // robust save (writes main payload and short keys)
-            saveSettingsToStorage();
-        }
-
-        function applyLoadedSettings(loaded) {
-            if (!loaded) return;
-            try {
-                settings = {...settings, ...loaded};
-                settings.clockSize = Number(settings.clockSize) || 1;
-                settings.searchWidth = Number(settings.searchWidth) || 440;
-                settings.shakeEnabled = (settings.shakeEnabled === true || settings.shakeEnabled === 'true');
-
-                // update UI inputs to reflect loaded settings
-                const cs = document.getElementById('clock-size');
-                if (cs) cs.value = settings.clockSize;
-                const cp = document.getElementById('clock-pos');
-                if (cp) cp.value = settings.clockPos;
-                const sp = document.getElementById('search-pos');
-                if (sp) sp.value = settings.searchPos;
-                const sw = document.getElementById('search-width-slider');
-                if (sw) sw.value = settings.searchWidth;
-                const shake = document.getElementById('shake-effect');
-                if (shake) shake.checked = settings.shakeEnabled;
-                const custom = document.getElementById('custom-engine-url');
-                if (custom) custom.value = settings.customUrl || '';
-
-                // apply visuals
-                applySettings();
-
-                // apply wallpaper if present
-                if (settings.bgData) {
-                    const resolved = resolveUrl(settings.bgData);
-                    if (resolved) document.getElementById('wp-1').style.backgroundImage = `url("${resolved}")`;
-                    document.getElementById('wp-1').classList.add('wp-visible');
-                } else {
-                    document.getElementById('wp-1').classList.add('wp-hidden');
-                }
-
-                renderWallpapers();
-                updateRecentTabsUI();
-            } catch (e) {}
-        }
-
-        function applySettings() {
-            const root = document.documentElement;
-            root.style.setProperty('--clock-scale', settings.clockSize);
-            root.style.setProperty('--search-width', settings.searchWidth + 'px');
-            
-            const cp = posMap[settings.clockPos] || posMap['center'];
-            root.style.setProperty('--clock-top', cp[0]);
-            root.style.setProperty('--clock-left', cp[1]);
-            root.style.setProperty('--clock-x', cp[2]);
-            root.style.setProperty('--clock-y', cp[3]);
-
-            const sp = posMap[settings.searchPos] || posMap['bottom-center'];
-            root.style.setProperty('--search-top', sp[0]);
-            root.style.setProperty('--search-left', sp[1]);
-            root.style.setProperty('--search-x', sp[2]);
-            root.style.setProperty('--search-y', sp[3]);
-            
-            updateEngineUI();
-
-            // When shake effect is disabled, clear any inline transforms
-            // applied by the mousemove handler so elements fall back to CSS.
-            if (!settings.shakeEnabled) {
-                const bg = document.getElementById('bg-container');
-                if (bg) bg.style.transform = '';
-                document.querySelectorAll('.wp-layer').forEach(l => l.style.transform = '');
-                const clockEl = document.getElementById('clock');
-                if (clockEl) clockEl.style.transform = '';
-                const searchEl = document.getElementById('search');
-                if (searchEl) searchEl.style.transform = '';
-            }
+            updateRecentTabs();
+            saveSettings();
         }
 
         window.addEventListener('mousemove', (e) => {
             if (!settings.shakeEnabled) return;
+            
             const x = (e.clientX / window.innerWidth - 0.5);
             const y = (e.clientY / window.innerHeight - 0.5);
 
-            const bg = document.getElementById('bg-container');
-            if (bg) bg.style.transform = `translate(${x * -8}px, ${y * -8}px)`;
-
-            const layers = document.querySelectorAll('.wp-layer');
-            layers.forEach(layer => {
-                layer.style.transform = `translate(${x * -12}px, ${y * -12}px)`;
+            document.getElementById('bg-container').style.transform = `translate(${x * -8}px, ${y * -8}px)`;
+            document.querySelectorAll('.wp-layer').forEach(l => {
+                l.style.transform = `translate(${x * -12}px, ${y * -12}px)`;
             });
-
-            const clock = document.getElementById('clock');
-            const search = document.getElementById('search');
-
-            const cx = getComputedStyle(document.documentElement).getPropertyValue('--clock-x').trim();
-            const cy = getComputedStyle(document.documentElement).getPropertyValue('--clock-y').trim();
-            if (clock) clock.style.transform = `translate(calc(${cx} + ${x * 15}px), calc(${cy} + ${y * 15}px))`;
-
-            const sx = getComputedStyle(document.documentElement).getPropertyValue('--search-x').trim();
-            const sy = getComputedStyle(document.documentElement).getPropertyValue('--search-y').trim();
-            if (search) search.style.transform = `translate(calc(${sx} + ${x * 10}px), calc(${sy} + ${y * 10}px))`;
         });
 
         function updateTime() {
@@ -837,7 +500,16 @@
             document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
             document.getElementById('min').textContent = String(now.getMinutes()).padStart(2, '0');
         }
-        setInterval(updateTime, 1000);
+
+        function toggleSettings(e) {
+            e.stopPropagation();
+            document.getElementById('settings-panel').classList.toggle('open');
+        }
+
+        function resetAll() {
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+        }
 
         document.getElementById('searchForm').onsubmit = (e) => {
             e.preventDefault();
@@ -850,113 +522,29 @@
             } else if (q.includes('.') && !q.includes(' ')) {
                 url = 'https://' + q;
             } else {
-                url = (settings.engine === 'custom' && settings.customUrl) 
-                    ? settings.customUrl.replace('{q}', encodeURIComponent(q))
-                    : (engines[settings.engine] || engines.duckduckgo).replace('{q}', encodeURIComponent(q));
-            }
-            console.log('Search submit ->', { engine: settings.engine, url });
-
-            if(!isSearchUrl(url)) {
-                addRecentTab(url);
+                url = ENGINES[settings.engine].replace('{q}', encodeURIComponent(q));
             }
 
-            try { window.open(url, '_blank'); } catch(e) { console.error('Open failed', e); }
+            addRecentTab(url);
+            window.open(url, '_blank');
+            document.getElementById('searchInput').value = '';
         };
 
-        function resetAll() {
-            try {
-                localStorage.removeItem(STORAGE_KEY);
-            } catch (e) {}
-            try {
-                if (prefsAvailable()) {
-                    Services.prefs.clearUserPref(PREF_KEY);
-                }
-            } catch (e) {}
-            location.reload();
-        }
+        window.addEventListener('storage', (e) => {
+            if (e.key === STORAGE_KEY && e.newValue) {
+                try {
+                    settings = JSON.parse(e.newValue);
+                    applySettings();
+                    renderWallpapers();
+                    updateRecentTabs();
+                } catch (err) {}
+            }
+        });
 
         window.onload = () => {
-            const hasStorage = storageAvailable();
-            if (!hasStorage) {
-                const warn = document.getElementById('storage-warning');
-                if (warn) warn.style.display = 'block';
-            }
-
-            // Load settings from prefs (preferred) or localStorage/sessionStorage
-            let saved = loadSettingsFromStorage();
-
-            if (saved) {
-                try {
-                    // Normalize types (localStorage may store strings)
-                    saved.clockSize = Number(saved.clockSize) || 1;
-                    saved.searchWidth = Number(saved.searchWidth) || 440;
-                    saved.shakeEnabled = (saved.shakeEnabled === true || saved.shakeEnabled === 'true');
-                    
-                    // Merge with defaults and apply
-                    applyLoadedSettings(saved);
-                } catch(e) {}
-            } else {
-                // No saved settings, just apply defaults
-                applySettings();
-                renderWallpapers();
-                updateRecentTabsUI();
-            }
-
-            // Preload wallpapers to improve perceived load and trigger GPU decoding
-            preloadWallpapers();
-            // Restore last visited site (if any) and add to recent tabs
-            try {
-                const lastVisited = localStorage.getItem('plezix_last_visited');
-                if (lastVisited && !isSearchUrl(lastVisited)) {
-                    addRecentTab(lastVisited);
-                }
-                // If this page was opened from another page, use referrer
-                if (document.referrer && !isSearchUrl(document.referrer)) {
-                    // prefer referrer over stored value
-                    addRecentTab(document.referrer);
-                    localStorage.setItem('plezix_last_visited', document.referrer);
-                }
-            } catch (e) {}
-
-            // Listen for other tabs recording a last-visited site
-            window.addEventListener('storage', (ev) => {
-                if (ev.key === 'plezix_last_visited' && ev.newValue) {
-                    try { if (!isSearchUrl(ev.newValue)) addRecentTab(ev.newValue); } catch(e) {}
-                }
-            });
-
-            // Listen for settings changes from other tabs and apply them
-            window.addEventListener('storage', (ev) => {
-                if (ev.key === STORAGE_KEY && ev.newValue) {
-                    try {
-                        const parsed = JSON.parse(ev.newValue);
-                        applyLoadedSettings(parsed);
-                        showSaveIndicator();
-                    } catch(e) {}
-                }
-            });
-
-            // Listen for sync trigger (when engine or other critical settings change)
-            window.addEventListener('storage', (ev) => {
-                if (ev.key === STORAGE_KEY + '_sync') {
-                    try {
-                        const loaded = loadSettingsFromStorage();
-                        if (loaded) {
-                            applyLoadedSettings(loaded);
-                        }
-                    } catch(e) {}
-                }
-            });
-
-            // Expose helper so other pages on same origin can record last visited URL:
-            // other pages can call: localStorage.setItem('plezix_last_visited', location.href)
-            window.recordLastVisited = function(url) {
-                try {
-                    const u = url || location.href;
-                    localStorage.setItem('plezix_last_visited', u);
-                } catch(e) {}
-            };
+            loadSettings();
             updateTime();
+            setInterval(updateTime, 1000);
         };
     </script>
 </body>
