@@ -1835,11 +1835,11 @@ browser.ui.interaction:
     record_in_processes:
       - 'main'
 
-  preferences_paneMoreFromPlezix:
+  preferences_paneMoreFromMozilla:
     bug_numbers:
       - 1738187
     description: >
-      Records the items interacted with in the More From Plezix section of
+      Records the items interacted with in the More From Mozilla section of
       preferences.
       See https://firefox-source-docs.mozilla.org/browser/BrowserUsageTelemetry.html
     expires: never

@@ -3485,7 +3485,7 @@ firefoxview_next:
   change_page:
     objects: ["navigation"]
     description: >
-      Recorded when the page/view is changed in Plezix View
+      Recorded when the page/view is changed in Firefox View
     extra_keys:
       page: The short page name that the user is navigating to
       source: Whether the page was changed via the side navigation vs the 'View all' link on cards on the Recent browsing page
@@ -3502,7 +3502,7 @@ firefoxview_next:
   context_menu:
     objects: ["tabs"]
     description: >
-      Recorded when a context menu selection is made in Plezix View
+      Recorded when a context menu selection is made in Firefox View
     extra_keys:
       menu_action: The menu action the user has selected for a given tab
       data_type: The type of data the user has used the context menu for
@@ -3533,10 +3533,10 @@ firefoxview_next:
   browser_context_menu:
     objects: ["tabs"]
     description: >
-      Recorded when a browser context menu selection is made in Plezix View
+      Recorded when a browser context menu selection is made in Firefox View
     extra_keys:
       menu_action: The menu action the user has selected for a given tab
-      page: The short page name used as the location hash when selecting the Plezix View tab
+      page: The short page name used as the location hash when selecting the Firefox View tab
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3550,9 +3550,9 @@ firefoxview_next:
   entered:
     objects: ["firefoxview"]
     description: >
-      Recorded when the Plezix View tab is selected
+      Recorded when the Firefox View tab is selected
     extra_keys:
-      page: The short page name used as the location hash when selecting the Plezix View tab
+      page: The short page name used as the location hash when selecting the Firefox View tab
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3580,7 +3580,7 @@ firefoxview_next:
   fxa_mobile:
     objects: ["sync"]
     description: >
-      Recorded when the 'Try Plezix for mobile' button is clicked
+      Recorded when the 'Try Firefox for mobile' button is clicked
     extra_keys:
       has_devices: True if user has other devices signed into sync
     notification_emails:
@@ -3626,7 +3626,7 @@ firefoxview_next:
   sort_history:
     objects: ["tabs"]
     description: >
-      Recorded when the sort option is changed for History in Plezix View
+      Recorded when the sort option is changed for History in Firefox View
     extra_keys:
       sort_type: The type of sort the user has switched to
       search_start: Boolean for if the sort by click occured during search activity.
@@ -3643,7 +3643,7 @@ firefoxview_next:
   show_all_history:
     objects: ["tabs"]
     description: >
-      Recorded when the 'Show all history' button is clicked on the History page in Plezix View
+      Recorded when the 'Show all history' button is clicked on the History page in Firefox View
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3673,7 +3673,7 @@ firefoxview_next:
   tab_selected:
     objects: ["toolbarbutton"]
     description: >
-      Recorded when the Plezix View tab is clicked
+      Recorded when the Firefox View tab is clicked
     notification_emails:
       - firefoxview@mozilla.com
     products:
@@ -3689,7 +3689,7 @@ firefoxview_next:
     description: >
       Recorded when search is initiated and from what page.
     extra_keys:
-      page: The short page name used as the location hash when selecting the Plezix View tab.
+      page: The short page name used as the location hash when selecting the Firefox View tab.
     notification_emails:
       - firefoxview@mozilla.com
     products:
