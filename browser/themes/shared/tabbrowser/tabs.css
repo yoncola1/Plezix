@@ -5,14 +5,14 @@
 :root {
   --tabstrip-inner-border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
   --tabstrip-min-height: calc(var(--tab-min-height) + 2 * var(--tab-block-margin));
-  --tab-min-height: 36px;
+  --tab-min-height: 22px;
   --tab-group-suggestions-loading-animation-color-1: color-mix(in srgb, currentColor 5%, transparent);
   --tab-group-suggestions-loading-animation-color-2: color-mix(in srgb, currentColor 35%, transparent);
   &[uidensity="compact"] {
-    --tab-min-height: 29px;
+    --tab-min-height: 22px;
   }
   &[uidensity="touch"] {
-    --tab-min-height: 41px;
+    --tab-min-height: 22px;
   }
   --tab-group-label-height: max(1.5em, var(--tab-min-height) - 14px);
   --tab-group-label-padding: 4px;

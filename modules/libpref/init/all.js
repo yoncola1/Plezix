@@ -4130,3 +4130,48 @@ pref("captchadetection.actor.enabled", true);
 // Make general.smoothScroll sticky to avoid being clobbered by
 // preferes-reduced-motion system setting.
 pref("general.smoothScroll", true, sticky);
+// ============================================================================
+// Hardware Acceleration & Performance Optimization
+// ============================================================================
+
+// Force enable hardware acceleration for improved rendering performance
+pref("layers.acceleration.force-enabled", true);
+
+// Enable GPU-accelerated rendering for WebGL
+pref("webgl.force-enabled", true);
+pref("webgl.disable", false);
+
+// WebRender: Enable high-performance rendering backend when available
+pref("gfx.webrender.enabled", true);
+pref("gfx.webrender.quality.force-low-quality-for-perf", false);
+
+// Optimize canvas rendering with GPU acceleration
+pref("canvas.canvas-service.enabled", true);
+pref("canvas.max-canvas-size", 32767);
+
+// Optimize image rendering
+pref("image.cache.size.threshold", 10485760);
+pref("image.expensive-operation.enabled", true);
+
+// Optimize video decoding with hardware acceleration when available
+pref("media.ffmpeg.enabled", true);
+pref("media.hardware-video-decoding.enabled", true);
+
+// Memory and cache optimization
+pref("browser.sessionstore.max_tabs_undo", 10);
+pref("network.http.keep-alive.timeout", 300);
+pref("network.http.max-persistent-connections-per-server", 6);
+pref("network.dns.disablePrefetch", false);
+
+// Smooth scrolling and animation performance
+pref("layout.frame_rate", 60);
+pref("privacy.trackingprotection.enabled", true);
+pref("dom.disable_beforeunload", false);
+
+// Network optimization
+pref("network.prefetch-next", true);
+pref("network.predictor.enabled", true);
+
+// CSS and rendering optimizations
+pref("gfx.content.always-paint", false);
+pref("layout.css.devPixelsPerPx", 1);

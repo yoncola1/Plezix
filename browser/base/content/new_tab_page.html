@@ -200,10 +200,10 @@
         }
         .recent-tabs:hover { opacity: 1; }
         .tab-item {
-            width: 52px; height: 52px;
+            width: 48px; height: 48px;
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -235,6 +235,7 @@
 
     <div id="settings-panel" onclick="event.stopPropagation()">
         <div id="storage-warning" style="display:none;background:#2b2b2b;border:1px solid #4b5563;padding:8px 12px;border-radius:8px;margin-bottom:12px;color:#fef3c7">Warning: Local storage unavailable — настройки не сохраняются между сессиями.</div>
+        <div id="save-indicator" style="display:none;background:#052e16;border:1px solid #065f46;padding:8px 12px;border-radius:8px;margin-bottom:12px;color:#bbf7d0">Настройки сохранены</div>
         <div class="flex justify-between items-center mb-8">
             <h2 class="text-lg font-bold text-emerald-500 uppercase">Настройки</h2>
             <div class="cursor-pointer text-xl opacity-50 hover:opacity-100 transition" onclick="toggleSettings(event)">✕</div>
@@ -341,7 +342,24 @@
     </div>
 
     <script>
+        // If this page is running as a privileged chrome document the
+        // Services module can be used for storing preferences.  Import it
+        // lazily so that the same code still works when the page is shown
+        // from file:// or http:// (where ChromeUtils is undefined).
+        try {
+            if (typeof ChromeUtils !== 'undefined' &&
+                !("Services" in this)) {
+                ChromeUtils.import("resource://gre/modules/Services.jsm");
+            }
+        } catch (e) {}
+        const Ci = (typeof Components !== 'undefined' && Components.interfaces) || {};
+
+        // Primary storage key in web storage.  We also keep a mirror in
+        // a prefs branch when the page is loaded as a privileged chrome
+        // document (about:newtab, chrome://, etc.) where localStorage may
+        // be unavailable or wiped between launches.
         const STORAGE_KEY = 'plezix_v11_tabs';
+        const PREF_KEY = 'browser.newtab.plezix.settings';
         
         const builtInWallpapers = [
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_0.jpg?raw=true",
@@ -400,13 +418,17 @@
 
         const engines = {
             duckduckgo: "https://duckduckgo.com/?q={q}",
-            google: "https://www.google.com/search?q={q}",
+            google: "https://www.google.com/search?q={q}&ie=UTF-8",
             bing: "https://www.bing.com/search?q={q}",
             yandex: "https://yandex.ru/search/?text={q}"
         };
 
         // Storage helpers
         let storageFallback = null; // 'session' if using sessionStorage fallback
+        // Attempt to detect whether DOM storage is usable.  If the code is
+        // running in a privileged chrome context (about:newtab, chrome://),
+        // localStorage often throws or is reset on every launch.  In that case
+        // we fall back to storing a JSON blob in a preference.
         function storageAvailable() {
             try {
                 const test = '__storage_test__';
@@ -425,6 +447,112 @@
                     return false;
                 }
             }
+        }
+
+        // helpers for prefs-based storage when Services is available.  We
+        // treat this as a backup that is written alongside localStorage so
+        // the user's settings survive even if the web storage is ephemeral.
+        function prefsAvailable() {
+            return typeof Services !== 'undefined' && Services.prefs;
+        }
+
+        function loadSettingsFromPrefs() {
+            try {
+                if (!prefsAvailable()) {
+                    return null;
+                }
+                let type = Services.prefs.getPrefType(PREF_KEY);
+                if (type == Ci.nsIPrefBranch.PREF_STRING) {
+                    let str = Services.prefs.getCharPref(PREF_KEY);
+                    return JSON.parse(str);
+                }
+            } catch (e) {
+                // ignore
+            }
+            return null;
+        }
+
+        function saveSettingsToPrefs() {
+            try {
+                if (!prefsAvailable()) {
+                    return false;
+                }
+                Services.prefs.setCharPref(PREF_KEY, JSON.stringify(settings));
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function saveSettingsToStorage() {
+            const payload = JSON.stringify(settings);
+            let ok = false;
+            // try localStorage first
+            try {
+                localStorage.setItem(STORAGE_KEY, payload);
+                // also write some quick-access keys for debugging
+                localStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
+                localStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
+                ok = true;
+            } catch (e) {
+                // fallback to sessionStorage if possible
+                if (storageFallback === 'session') {
+                    try {
+                        sessionStorage.setItem(STORAGE_KEY, payload);
+                        sessionStorage.setItem(STORAGE_KEY + '_engine', settings.engine || '');
+                        sessionStorage.setItem(STORAGE_KEY + '_bg', settings.bgData || '');
+                        ok = true;
+                    } catch (e2) {
+                        ok = false;
+                    }
+                }
+            }
+
+            // always mirror to prefs if available; not using result since it
+            // sometimes throws in unprivileged contexts, but that's fine.
+            try { saveSettingsToPrefs(); } catch(e) {}
+
+            if (ok) {
+                showSaveIndicator();
+            }
+            return ok;
+        }
+
+        function loadSettingsFromStorage() {
+            // prefer prefs over localStorage when both exist, because prefs
+            // aren't wiped by private browsing or chrome resets.
+            let loaded = null;
+            if (prefsAvailable()) {
+                loaded = loadSettingsFromPrefs();
+            }
+            if (!loaded) {
+                try {
+                    loaded = localStorage.getItem(STORAGE_KEY);
+                    if (loaded) {
+                        loaded = JSON.parse(loaded);
+                    }
+                } catch (e) {
+                    if (storageFallback === 'session') {
+                        try {
+                            loaded = sessionStorage.getItem(STORAGE_KEY);
+                            if (loaded) loaded = JSON.parse(loaded);
+                        } catch (e2) {
+                            loaded = null;
+                        }
+                    }
+                }
+            }
+            return loaded;
+        }
+
+        function showSaveIndicator() {
+            try {
+                const el = document.getElementById('save-indicator');
+                if (!el) return;
+                el.style.display = 'block';
+                clearTimeout(el._hideTimer);
+                el._hideTimer = setTimeout(() => { el.style.display = 'none'; }, 1400);
+            } catch(e){}
         }
 
         const posMap = {
@@ -465,10 +593,11 @@
             settings.engine = id;
             updateEngineUI();
             updateSettings();
-            // ensure engine saved immediately
-            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(e) {
-                if (storageFallback === 'session') sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-            }
+            saveSettingsToStorage();
+            // Notify all tabs of the change
+            try {
+                localStorage.setItem(STORAGE_KEY + '_sync', Math.random().toString());
+            } catch (e) {}
         }
 
         function updateEngineUI() {
@@ -526,7 +655,7 @@
             currentLayer = nextLayer;
             // persist immediately and notify other tabs
             updateSettings();
-            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch (e) { if (storageFallback === 'session') try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(_) {} }
+            saveSettingsToStorage();
         }
 
         function resolveUrl(url) {
@@ -603,13 +732,8 @@
             settings.customUrl = document.getElementById('custom-engine-url').value;
             
             applySettings();
-            try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-            } catch (e) {
-                if (storageFallback === 'session') {
-                    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch(e2) {}
-                }
-            }
+            // robust save (writes main payload and short keys)
+            saveSettingsToStorage();
         }
 
         function applyLoadedSettings(loaded) {
@@ -740,7 +864,14 @@
         };
 
         function resetAll() {
-            localStorage.removeItem(STORAGE_KEY);
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+            } catch (e) {}
+            try {
+                if (prefsAvailable()) {
+                    Services.prefs.clearUserPref(PREF_KEY);
+                }
+            } catch (e) {}
             location.reload();
         }
 
@@ -751,45 +882,28 @@
                 if (warn) warn.style.display = 'block';
             }
 
-            let saved = null;
-            try {
-                saved = localStorage.getItem(STORAGE_KEY);
-            } catch (e) {
-                if (storageFallback === 'session') saved = sessionStorage.getItem(STORAGE_KEY);
-            }
+            // Load settings from prefs (preferred) or localStorage/sessionStorage
+            let saved = loadSettingsFromStorage();
 
             if (saved) {
                 try {
-                    const parsed = JSON.parse(saved);
-                    settings = {...settings, ...parsed};
                     // Normalize types (localStorage may store strings)
-                    settings.clockSize = Number(settings.clockSize) || 1;
-                    settings.searchWidth = Number(settings.searchWidth) || 440;
-                    settings.shakeEnabled = (settings.shakeEnabled === true || settings.shakeEnabled === 'true');
+                    saved.clockSize = Number(saved.clockSize) || 1;
+                    saved.searchWidth = Number(saved.searchWidth) || 440;
+                    saved.shakeEnabled = (saved.shakeEnabled === true || saved.shakeEnabled === 'true');
+                    
+                    // Merge with defaults and apply
+                    applyLoadedSettings(saved);
                 } catch(e) {}
-            }
-            
-            document.getElementById('clock-size').value = settings.clockSize;
-            document.getElementById('clock-pos').value = settings.clockPos;
-            document.getElementById('search-pos').value = settings.searchPos;
-            document.getElementById('search-width-slider').value = settings.searchWidth;
-            document.getElementById('shake-effect').checked = settings.shakeEnabled;
-            document.getElementById('custom-engine-url').value = settings.customUrl || '';
-            
-            if (settings.bgData) {
-                const resolved = resolveUrl(settings.bgData);
-                if (resolved) document.getElementById('wp-1').style.backgroundImage = `url("${resolved}")`;
-                document.getElementById('wp-1').classList.add('wp-visible');
             } else {
-                document.getElementById('wp-1').classList.add('wp-hidden');
+                // No saved settings, just apply defaults
+                applySettings();
+                renderWallpapers();
+                updateRecentTabsUI();
             }
 
             // Preload wallpapers to improve perceived load and trigger GPU decoding
             preloadWallpapers();
-
-            applySettings();
-            renderWallpapers();
-            updateRecentTabsUI();
             // Restore last visited site (if any) and add to recent tabs
             try {
                 const lastVisited = localStorage.getItem('plezix_last_visited');
@@ -817,6 +931,19 @@
                     try {
                         const parsed = JSON.parse(ev.newValue);
                         applyLoadedSettings(parsed);
+                        showSaveIndicator();
+                    } catch(e) {}
+                }
+            });
+
+            // Listen for sync trigger (when engine or other critical settings change)
+            window.addEventListener('storage', (ev) => {
+                if (ev.key === STORAGE_KEY + '_sync') {
+                    try {
+                        const loaded = loadSettingsFromStorage();
+                        if (loaded) {
+                            applyLoadedSettings(loaded);
+                        }
                     } catch(e) {}
                 }
             });
