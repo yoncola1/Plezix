@@ -1,4 +1,4 @@
-name: Summarize and label new issues
+name: Summarize new issues
 
 on:
   issues:
@@ -9,69 +9,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      models: read
       contents: read
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Run AI inference (summary + label)
+      - name: Run AI inference
         id: inference
         uses: actions/ai-inference@v1
         with:
-          model: gpt-4.1-mini
           prompt: |
-            You are classifying a GitHub issue.
-
-            First, summarize the issue in one short paragraph.
-
-            Then, choose exactly ONE label from this list:
-            bug, question, build, invalid, documentation
-
-            Respond strictly in this JSON format:
-            {
-              "summary": "...",
-              "label": "bug"
-            }
-
-            Issue Title: ${{ github.event.issue.title }}
-            Issue Body: ${{ github.event.issue.body }}
-
-      - name: Extract AI output
-        id: parse
-        run: |
-          echo '${{ steps.inference.outputs.response }}' > response.json
-          SUMMARY=$(jq -r .summary response.json)
-          LABEL=$(jq -r .label response.json)
-          echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
-          echo "label=$LABEL" >> $GITHUB_OUTPUT
-
+            Summarize the following GitHub issue in one paragraph:
+            Title: ${{ github.event.issue.title }}
+            Body: ${{ github.event.issue.body }}
       - name: Comment with AI summary
         run: |
-          gh issue comment $ISSUE_NUMBER --body "${{ steps.parse.outputs.summary }}"
+          gh issue comment $ISSUE_NUMBER --body '${{ steps.inference.outputs.response }}'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-
-      - name: Ensure label exists
-        run: |
-          gh label list --json name | jq -e ".[] | select(.name==\"${{ steps.parse.outputs.label }}\")" \
-          || gh label create "${{ steps.parse.outputs.label }}" --color FFFFFF
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add label to issue
-        run: |
-          gh issue edit $ISSUE_NUMBER --add-label "${{ steps.parse.outputs.label }}"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-
-      - name: Auto-close if invalid
-        if: steps.parse.outputs.label == 'invalid'
-        run: |
-          gh issue comment $ISSUE_NUMBER --body "This issue has been automatically closed because it was classified as invalid."
-          gh issue close $ISSUE_NUMBER
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESPONSE: ${{ steps.inference.outputs.response }}
