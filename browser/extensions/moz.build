@@ -10,4 +10,5 @@ DIRS += [
     "pictureinpicture",
     "search-detection",
     "newtab",
+    "builtin",
 ]
