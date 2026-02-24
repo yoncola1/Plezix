@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 @import url("chrome://browser/skin/browser-colors.css");
+@import url("chrome://browser/skin/liquid-glass.css");
 @import url("chrome://browser/skin/addons/extension-controlled.css");
 @import url("chrome://browser/skin/addons/unified-extensions.css");
 @import url("chrome://browser/skin/downloads/indicator.css");
