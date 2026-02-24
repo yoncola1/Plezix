@@ -18,6 +18,7 @@
   skin/classic/browser/blockedSite.css                         (../shared/blockedSite.css)
   skin/classic/browser/browser-colors.css                      (../shared/browser-colors.css)
   skin/classic/browser/browser-shared.css                      (../shared/browser-shared.css)
+  skin/classic/browser/liquid-glass.css                      (../shared/liquid-glass.css)
   skin/classic/browser/formautofill-notification.css           (../shared/formautofill-notification.css)
   skin/classic/browser/identity-credential-notification.css    (../shared/identity-credential-notification.css)
   skin/classic/browser/menupanel.css                           (../shared/menupanel.css)
