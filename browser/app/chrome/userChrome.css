@@ -1,0 +1,655 @@
+/* ==========================================================================
+   Plezix Browser - Pill-Shaped URL Bar
+   ========================================================================== */
+
+/* Enable pill-shaped URL bar with rounded corners */
+#urlbar-background, #searchbar {
+    border-radius: 24px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+#urlbar-background:hover, #searchbar:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+#urlbar-background[focused], #searchbar[focused] {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Round the URL bar container */
+#urlbar-container {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+#urlbar {
+    --urlbar-container-height: 40px !important;
+    --urlbar-height: 40px !important;
+}
+
+/* Make the address bar floating */
+#urlbar[breakout-extend="true"] #urlbar-background {
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Smooth animations for URL bar */
+#urlbar-background {
+    transition: border-radius 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Tab bar styling */
+#TabsToolbar {
+    background: rgba(0, 0, 0, 0.02) !important;
+}
+
+.tabbrowser-tab {
+    border-radius: 8px 8px 0 0 !important;
+    margin-right: 2px !important;
+    transition: all 0.15s ease !important;
+}
+
+.tabbrowser-tab:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Navigation bar cleanup */
+#navbar {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+/* Bookmarks bar styling */
+#PersonalToolbar {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+#PersonalToolbar .bookmark-item {
+    border-radius: 6px !important;
+    transition: background-color 0.15s ease !important;
+}
+
+#PersonalToolbar .bookmark-item:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Search bar in content */
+.searchbar-textbox {
+    border-radius: 24px !important;
+}
+
+/* Context menu rounding */
+menupopup, panel {
+    --panel-border-radius: 12px !important;
+}
+
+/* Button styling */
+.toolbarbutton-1 {
+    border-radius: 8px !important;
+    transition: background-color 0.15s ease !important;
+}
+
+.toolbarbutton-1:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    border-radius: 8px !important;
+}
+
+scrollbar thumb {
+    border-radius: 8px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+scrollbar thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Find bar styling */
+.findbar-container {
+    border-radius: 12px !important;
+}
+
+/* Sidebar styling */
+#sidebar-box {
+    border-radius: 0 !important;
+}
+
+/* Download panel */
+#downloadsPanel {
+    --panel-border-radius: 12px !important;
+}
+
+/* Notification styling */
+.popup-notification-body {
+    border-radius: 12px !important;
+}
+
+/* Permission panel */
+#permission-popup {
+    --panel-border-radius: 12px !important;
+}
+
+/* Identity box (lock icon) */
+#identity-box {
+    border-radius: 20px !important;
+    margin: 2px !important;
+}
+
+/* Page action buttons */
+#page-action-buttons {
+    margin-right: 4px !important;
+}
+
+.urlbar-page-action {
+    border-radius: 6px !important;
+}
+
+/* Reader mode button */
+#reader-mode-button {
+    border-radius: 6px !important;
+}
+
+/* Star button (bookmarks) */
+#star-button {
+    border-radius: 6px !important;
+}
+
+/* Zoom controls */
+#zoom-controls {
+    border-radius: 8px !important;
+}
+
+/* Extension buttons */
+#unified-extensions-button {
+    border-radius: 8px !important;
+}
+
+/* Application menu button */
+#PanelUI-menu-button {
+    border-radius: 8px !important;
+}
+
+/* Back/forward buttons */
+#back-button, #forward-button, #reload-button, #stop-button, #home-button {
+    border-radius: 8px !important;
+}
+
+/* Cut/copy/paste buttons */
+#cut-button, #copy-button, #paste-button {
+    border-radius: 8px !important;
+}
+
+/* Print button */
+#print-button {
+    border-radius: 8px !important;
+}
+
+/* Full screen button */
+#fullscreen-button {
+    border-radius: 8px !important;
+}
+
+/* Developer tools button */
+#developer-button {
+    border-radius: 8px !important;
+}
+
+/* Add-ons button */
+#add-ons-button {
+    border-radius: 8px !important;
+}
+
+/* Preferences button */
+#preferences-button {
+    border-radius: 8px !important;
+}
+
+/* Sync button */
+#sync-button {
+    border-radius: 8px !important;
+}
+
+/* History button */
+#history-panelmenu {
+    border-radius: 8px !important;
+}
+
+/* Downloads button */
+#downloads-button {
+    border-radius: 8px !important;
+}
+
+/* Library button */
+#library-button {
+    border-radius: 8px !important;
+}
+
+/* Email link button */
+#email-link-button {
+    border-radius: 8px !important;
+}
+
+/* Save page button */
+#save-page-button {
+    border-radius: 8px !important;
+}
+
+/* Feed button */
+#feed-button {
+    border-radius: 8px !important;
+}
+
+/* Character encoding button */
+#characterencoding-button {
+    border-radius: 8px !important;
+}
+
+/* Screenshot button */
+#screenshot-button {
+    border-radius: 8px !important;
+}
+
+/* Picture-in-picture button */
+#picture-in-picture-button {
+    border-radius: 6px !important;
+}
+
+/* Proton UI improvements */
+:root {
+    --toolbarbutton-border-radius: 8px !important;
+    --arrowpanel-border-radius: 12px !important;
+    --panel-border-radius: 12px !important;
+    --urlbar-border-radius: 24px !important;
+    --tab-border-radius: 8px 8px 0 0 !important;
+    --toolbarbutton-inner-padding: 8px !important;
+}
+
+/* URL bar results panel */
+#urlbar-results {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.urlbarView-row {
+    border-radius: 6px !important;
+    margin: 2px 4px !important;
+}
+
+.urlbarView-row:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.urlbarView-row[selected] {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Search suggestions */
+.urlbarView-row[sponsored] {
+    border-left: 3px solid rgba(16, 185, 129, 0.5) !important;
+}
+
+/* Quick actions */
+.urlbarView-row[has-action] {
+    border-radius: 6px !important;
+}
+
+/* Search one-offs */
+.search-one-offs {
+    border-radius: 8px !important;
+    margin: 4px !important;
+}
+
+.searchbar-engine-one-off-item {
+    border-radius: 6px !important;
+}
+
+/* Tab close button */
+.tab-close-button {
+    border-radius: 50% !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Tab icon */
+.tab-icon-image {
+    border-radius: 4px !important;
+}
+
+/* Tab audio indicator */
+.tab-icon-overlay {
+    border-radius: 50% !important;
+}
+
+/* New tab button */
+#new-tab-button {
+    border-radius: 8px !important;
+}
+
+/* All tabs button */
+#alltabs-button {
+    border-radius: 8px !important;
+}
+
+/* List all tabs button */
+#tabbrowser-tabs[overflow] .tabbrowser-tab[selected] {
+    box-shadow: none !important;
+}
+
+/* Tab strip */
+#tabbrowser-tabs {
+    --tab-min-height: 36px !important;
+}
+
+/* Titlebar */
+#titlebar {
+    padding-top: 0px !important;
+}
+
+/* Window controls */
+.titlebar-button {
+    border-radius: 8px !important;
+    margin: 4px !important;
+}
+
+.titlebar-button:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.titlebar-close:hover {
+    background-color: #e81123 !important;
+}
+
+/* Status panel */
+#statuspanel-label {
+    border-radius: 6px !important;
+    padding: 4px 8px !important;
+}
+
+/* Tooltip styling */
+tooltip {
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+}
+
+/* Dialog styling */
+dialog {
+    border-radius: 12px !important;
+}
+
+/* Input fields */
+input, textbox {
+    border-radius: 8px !important;
+}
+
+/* Buttons */
+button {
+    border-radius: 8px !important;
+}
+
+/* Checkbox */
+checkbox {
+    border-radius: 4px !important;
+}
+
+/* Radio */
+radio {
+    border-radius: 50% !important;
+}
+
+/* Progress bar */
+progress {
+    border-radius: 8px !important;
+}
+
+/* Meter */
+meter {
+    border-radius: 8px !important;
+}
+
+/* Select dropdown */
+menulist {
+    border-radius: 8px !important;
+}
+
+/* Tree view */
+tree {
+    border-radius: 8px !important;
+}
+
+/* Listbox */
+listbox {
+    border-radius: 8px !important;
+}
+
+/* Richlistbox */
+richlistbox {
+    border-radius: 8px !important;
+}
+
+/* Groupbox */
+groupbox {
+    border-radius: 12px !important;
+}
+
+/* Fieldset */
+fieldset {
+    border-radius: 12px !important;
+}
+
+/* Legend */
+legend {
+    border-radius: 6px !important;
+}
+
+/* Label */
+label {
+    border-radius: 4px !important;
+}
+
+/* Description */
+description {
+    border-radius: 4px !important;
+}
+
+/* Text */
+text {
+    border-radius: 4px !important;
+}
+
+/* Caption */
+caption {
+    border-radius: 6px !important;
+}
+
+/* Separator */
+separator {
+    border-radius: 2px !important;
+}
+
+/* Spacer */
+spacer {
+    border-radius: 2px !important;
+}
+
+/* Box */
+box {
+    border-radius: 8px !important;
+}
+
+/* Hbox */
+hbox {
+    border-radius: 8px !important;
+}
+
+/* Vbox */
+vbox {
+    border-radius: 8px !important;
+}
+
+/* Grid */
+grid {
+    border-radius: 8px !important;
+}
+
+/* Rows */
+rows {
+    border-radius: 8px !important;
+}
+
+/* Columns */
+columns {
+    border-radius: 8px !important;
+}
+
+/* Row */
+row {
+    border-radius: 8px !important;
+}
+
+/* Column */
+column {
+    border-radius: 8px !important;
+}
+
+/* Deck */
+deck {
+    border-radius: 8px !important;
+}
+
+/* Stack */
+stack {
+    border-radius: 8px !important;
+}
+
+/* Bulb */
+bulb {
+    border-radius: 50% !important;
+}
+
+/* Bullet */
+bullet {
+    border-radius: 50% !important;
+}
+
+/* Image */
+image {
+    border-radius: 8px !important;
+}
+
+/* Video */
+video {
+    border-radius: 12px !important;
+}
+
+/* Audio */
+audio {
+    border-radius: 8px !important;
+}
+
+/* Canvas */
+canvas {
+    border-radius: 8px !important;
+}
+
+/* Content */
+content {
+    border-radius: 8px !important;
+}
+
+/* Content area */
+#content {
+    border-radius: 0 !important;
+}
+
+/* Browser */
+browser {
+    border-radius: 0 !important;
+}
+
+/* Find bar */
+findbar {
+    border-radius: 12px !important;
+    margin: 4px !important;
+}
+
+/* Find textbox */
+.findbar-textbox {
+    border-radius: 8px !important;
+}
+
+/* Find buttons */
+.findbar-find-previous, .findbar-find-next {
+    border-radius: 8px !important;
+}
+
+/* Highlight all checkbox */
+.findbar-highlight {
+    border-radius: 6px !important;
+}
+
+/* Case sensitive checkbox */
+.findbar-case-sensitive {
+    border-radius: 6px !important;
+}
+
+/* Entire word checkbox */
+.findbar-entire-word {
+    border-radius: 6px !important;
+}
+
+/* Search again checkbox */
+.findbar-search-backwards {
+    border-radius: 6px !important;
+}
+
+/* Done button */
+.findbar-closebutton {
+    border-radius: 6px !important;
+}
+
+/* Browser notification */
+.browser-notification {
+    border-radius: 12px !important;
+}
+
+/* Browser container */
+.browserContainer {
+    border-radius: 0 !important;
+}
+
+/* Browser stack */
+.browserStack {
+    border-radius: 0 !important;
+}
+
+/* Browser sidebar */
+#sidebar-box {
+    border-radius: 0 !important;
+}
+
+/* Browser sidebar splitter */
+#sidebar-splitter {
+    border-radius: 0 !important;
+}
+
+/* Browser sidebar header */
+#sidebar-header {
+    border-radius: 0 !important;
+}
+
+/* Browser sidebar content */
+#sidebar {
+    border-radius: 0 !important;
+}
+
+/* End of pill-shaped URL bar styling */

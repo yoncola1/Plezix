@@ -521,6 +521,73 @@ class EngineStore {
   async init() {
     let engines = await Services.search.getEngines();
 
+    // Fallback: If no engines are loaded from Remote Settings, add default engines manually
+    if (!engines || engines.length === 0) {
+      console.warn("[Search] No search engines loaded from Remote Settings. Adding fallback engines.");
+      
+      // Add Google as default
+      await Services.search.addEngine(
+        "https://www.google.com/opensearch.xml",
+        Ci.nsISearchEngine.TYPE_OPENSEARCH,
+        false,
+        false
+      );
+      
+      // Reload engines after adding fallback
+      engines = await Services.search.getEngines();
+      
+      // If still empty, create manual engine definitions
+      if (!engines || engines.length === 0) {
+        const fallbackEngines = [
+          {
+            name: "Google",
+            url: "https://www.google.com/search?q=",
+            icon: "chrome://branding/content/icon.ico"
+          },
+          {
+            name: "Yandex",
+            url: "https://yandex.ru/search/?text=",
+            icon: "chrome://branding/content/icon.ico"
+          },
+          {
+            name: "DuckDuckGo",
+            url: "https://duckduckgo.com/?q=",
+            icon: "chrome://branding/content/icon.ico"
+          },
+          {
+            name: "Bing",
+            url: "https://www.bing.com/search?q=",
+            icon: "chrome://branding/content/icon.ico"
+          },
+          {
+            name: "Wikipedia",
+            url: "https://en.wikipedia.org/wiki/Special:Search?search=",
+            icon: "chrome://branding/content/icon.ico"
+          }
+        ];
+        
+        for (const engineData of fallbackEngines) {
+          try {
+            await Services.search.addEngineWithDetails({
+              name: engineData.name,
+              keyword: engineData.name.toLowerCase(),
+              iconURL: engineData.icon,
+              url: {
+                type: "text/html",
+                template: engineData.url + "{searchTerms}",
+                rel: "search",
+                method: "GET"
+              }
+            });
+          } catch (ex) {
+            console.error("[Search] Failed to add fallback engine:", engineData.name, ex);
+          }
+        }
+        
+        engines = await Services.search.getEngines();
+      }
+    }
+
     let visibleEngines = engines.filter(e => !e.hidden);
     for (let engine of visibleEngines) {
       this.addEngine(engine);

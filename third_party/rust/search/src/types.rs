@@ -22,10 +22,10 @@ pub enum SearchApplicationName {
 impl SearchApplicationName {
     pub fn as_str(&self) -> &'static str {
         match self {
-            SearchApplicationName::Plezix => "firefox",
-            SearchApplicationName::PlezixAndroid => "firefox-android",
+            SearchApplicationName::Plezix => "plezix",
+            SearchApplicationName::PlezixAndroid => "plezix-android",
             SearchApplicationName::FocusAndroid => "focus-android",
-            SearchApplicationName::PlezixIos => "firefox-ios",
+            SearchApplicationName::PlezixIos => "plezix-ios",
             SearchApplicationName::FocusIos => "focus-ios",
         }
     }

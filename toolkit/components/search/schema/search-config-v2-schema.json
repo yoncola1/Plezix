@@ -109,8 +109,9 @@
             "pattern": "^[a-z-]{0,100}$",
             "enum": [
               "firefox",
-              "firefox-android",
-              "firefox-ios",
+              "plezix",
+              "plezix-android",
+              "plezix-ios",
               "focus-android",
               "focus-ios"
             ]

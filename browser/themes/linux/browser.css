@@ -269,3 +269,79 @@
     display: none;
   }
 }
+
+/* ============================================================================
+ * Pill-Shaped URL Bar (Tablet-style design)
+ * ============================================================================ */
+
+#urlbar-background {
+  border-radius: 24px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+#urlbar-background:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+#urlbar-background[focused] {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+#urlbar {
+  --urlbar-container-height: 40px !important;
+  --urlbar-height: 40px !important;
+  --urlbar-min-height: 40px !important;
+}
+
+#urlbar-container {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+#urlbar[breakout-extend="true"] #urlbar-background {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+#urlbar-background {
+  transition: border-radius 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+#searchbar {
+  border-radius: 24px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+#searchbar:focus-within {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+#urlbar-results {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.urlbarView-row {
+  border-radius: 6px !important;
+  margin: 2px 4px !important;
+}
+
+.urlbarView-row:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.urlbarView-row[selected] {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#identity-box {
+  border-radius: 20px !important;
+  margin: 2px !important;
+}
+
+.urlbar-page-action,
+#star-button,
+#picture-in-picture-button {
+  border-radius: 6px !important;
+}

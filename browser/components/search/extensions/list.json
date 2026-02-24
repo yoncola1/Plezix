@@ -1,0 +1,41 @@
+{
+  "engines": [
+    {
+      "id": "google@search.mozilla.org",
+      "name": "Google",
+      "enabled": true,
+      "default": true,
+      "locales": ["en-US", "en-GB", "ru", "uk", "be", "kk", "tr", "by", "kz"]
+    },
+    {
+      "id": "yandex@search.mozilla.org",
+      "name": "Yandex",
+      "enabled": true,
+      "default": false,
+      "locales": ["ru", "uk", "be", "kk", "tr", "by", "kz", "en-US"]
+    },
+    {
+      "id": "ddg@search.mozilla.org",
+      "name": "DuckDuckGo",
+      "enabled": true,
+      "default": false,
+      "locales": ["en-US", "en-GB", "ru", "uk", "de", "fr", "es", "it"]
+    },
+    {
+      "id": "bing@search.mozilla.org",
+      "name": "Bing",
+      "enabled": true,
+      "default": false,
+      "locales": ["en-US", "en-GB", "ru", "uk", "de", "fr", "es", "it"]
+    },
+    {
+      "id": "wikipedia@search.mozilla.org",
+      "name": "Wikipedia",
+      "enabled": true,
+      "default": false,
+      "locales": ["all"]
+    }
+  ],
+  "region": "US",
+  "official": false
+}

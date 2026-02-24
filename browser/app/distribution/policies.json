@@ -1,0 +1,160 @@
+{
+  "policies": {
+    "SearchEngines": {
+      "Default": "Google",
+      "PreventInstalls": false,
+      "DefaultPrivate": "Google"
+    },
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "DontCheckDefaultBrowser": true,
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": false,
+    "DisableSetDesktopBackground": false,
+    "DisplayBookmarksToolbar": "newtab",
+    "DisplayMenuBar": "default",
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": false,
+      "Cryptomining": true,
+      "Fingerprinting": true
+    },
+    "ExtensionSettings": {},
+    "ExtensionRecommendations": {
+      "Value": false
+    },
+    "FeaturePolicy": {
+      "Default": ["geolocation", "camera", "microphone"],
+      "Sources": {
+        "geolocation": ["self"],
+        "camera": ["self"],
+        "microphone": ["self"]
+      }
+    },
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "SponsoredTopSites": false,
+      "Highlights": true,
+      "Pocket": false,
+      "Snippets": false,
+      "Locked": false
+    },
+    "HardwareAcceleration": true,
+    "Homepage": {
+      "URL": "about:newtab",
+      "Locked": false,
+      "StartPage": "homepage"
+    },
+    "NoDefaultBookmarks": false,
+    "PasswordManagerEnabled": true,
+    "Permissions": {
+      "Camera": {
+        "Allow": [],
+        "Block": [],
+        "Default": "ask",
+        "Locked": false
+      },
+      "Location": {
+        "Allow": [],
+        "Block": [],
+        "Default": "ask",
+        "Locked": false
+      },
+      "Microphone": {
+        "Allow": [],
+        "Block": [],
+        "Default": "ask",
+        "Locked": false
+      },
+      "Notifications": {
+        "Allow": [],
+        "Block": [],
+        "Default": "ask",
+        "Locked": false
+      }
+    },
+    "Preferences": {
+      "gfx.webrender.all": {
+        "Value": true,
+        "Status": "default"
+      },
+      "layers.acceleration.force-enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "network.http.http3.enable": {
+        "Value": true,
+        "Status": "default"
+      },
+      "dom.webgpu.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "layout.css.backdrop-filter.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "javascript.options.wasm_simd": {
+        "Value": true,
+        "Status": "default"
+      },
+      "general.smoothScroll": {
+        "Value": true,
+        "Status": "default"
+      },
+      "general.smoothScroll.msdPhysics.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      "toolkit.legacyUserProfileCustomizations.stylesheets": {
+        "Value": true,
+        "Status": "default"
+      }
+    },
+    "PromptForDownloadLocation": false,
+    "Proxy": {
+      "Mode": "system",
+      "Locked": false
+    },
+    "SanitizeOnShutdown": {
+      "Cache": false,
+      "Cookies": false,
+      "Downloads": false,
+      "FormData": false,
+      "History": false,
+      "Sessions": false,
+      "SiteSettings": false,
+      "Locked": false
+    },
+    "SecureDNS": {
+      "Enabled": true,
+      "Provider": "cloudflare",
+      "Locked": false
+    },
+    "SecurityDevices": {},
+    "SSLVersionMax": "tls1.3",
+    "SSLVersionMin": "tls1.2",
+    "SupportMenu": {},
+    "ThirdParty": {},
+    "Update": {
+      "Auto": true,
+      "Channel": "release",
+      "Deferred": false,
+      "Enabled": true
+    },
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "FeatureRecommendations": false,
+      "Locked": false,
+      "MoreFromMozilla": false,
+      "SkipOnboarding": false,
+      "WhatsNew": true
+    },
+    "WebsiteFilter": {
+      "Block": [],
+      "Exceptions": []
+    }
+  }
+}

@@ -810,6 +810,23 @@ pref("browser.helperApps.showOpenOptionForViewableInternally", true);
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
 
+// PLEZIX: Force search engines to appear regardless of geo-IP
+// Set region to US (can be changed to any region code)
+pref("browser.search.region", "US");
+// Set official to false to allow custom engines
+pref("browser.search.official", false);
+// Force English locale for consistent engine loading
+pref("browser.search.currentLocale", "en-US");
+// Disable geo-specific engine filtering
+pref("browser.search.geoSpecificDefaults", false);
+pref("browser.search.geoSpecificDefaults.override", true);
+// Ensure all engines are visible
+pref("browser.search.showOneOffButtons", true);
+// Enable multiple search engines
+pref("browser.search.showSearchSuggestionsFirst", true);
+pref("browser.search.suggest.enabled", true);
+pref("browser.search.suggest.enabled.private", true);
+
 // search bar results always open in a new tab
 pref("browser.search.openintab", false);
 
@@ -3463,3 +3480,119 @@ pref("dom.disable_window_move_resize", false);
 // JavaScript optimization
 pref("javascript.options.baselinejit", true);
 pref("javascript.options.ion", true);
+
+// ============================================================================
+// Plezix Memory Optimization - Aggressive memory saving for 1MB target
+// ============================================================================
+
+// Limit content processes to minimum
+pref("dom.ipc.processCount", 2);
+pref("dom.ipc.processCount.web", 2);
+pref("dom.ipc.processCount.file", 1);
+
+// Reduce memory caches
+pref("browser.cache.memory.capacity", 16384);
+pref("browser.cache.disk.capacity", 51200);
+pref("content.notify.interval", 120000);
+pref("content.switch.threshold", 120000);
+
+// Minimize tab memory usage
+pref("browser.sessionhistory.max_entries", 10);
+pref("browser.sessionhistory.max_total_viewers", 0);
+pref("browser.tabs.remote.tabCacheSize", 0);
+pref("browser.tabs.unloadOnLowMemory", true);
+pref("browser.tabs.min_inactive_duration_before_unload", 300000);
+
+// Disable unnecessary features
+pref("browser.startup.homepage.abouthome_cache.enabled", false);
+pref("browser.pocket.enabled", false);
+pref("browser.newtabpage.activity-stream.enabled", false);
+pref("browser.newtabpage.activity-stream.showSponsored", false);
+pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+pref("browser.discovery.enabled", false);
+pref("browser.newtabpage.activity-stream.feeds.topsites", false);
+pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+pref("browser.newtabpage.activity-stream.feeds.snippets", false);
+pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+pref("browser.newtabpage.activity-stream.feeds.section.bookmarks", false);
+pref("browser.newtabpage.activity-stream.feeds.section.pinned", false);
+
+// Optimize images and media
+pref("image.mem.decode_bytes_at_a_time", 32768);
+pref("image.mem.shared.unmap.min_expiration_ms", 120000);
+pref("media.memory_cache_max_size", 65536);
+pref("media.cache_readahead_limit", 30);
+pref("media.cache_resume_threshold", 15);
+
+// Reduce JavaScript memory usage
+pref("javascript.options.mem.high_water_mark", 32);
+pref("javascript.options.mem.max", 33554432);
+pref("javascript.options.asyncstack", false);
+
+// Optimize network memory usage
+pref("network.buffer.cache.size", 262144);
+pref("network.buffer.cache.count", 32);
+pref("network.http.max-connections", 128);
+pref("network.http.max-persistent-connections-per-server", 4);
+
+// Disable telemetry and data collection to reduce memory
+pref("toolkit.telemetry.enabled", false);
+pref("toolkit.telemetry.unified", false);
+pref("toolkit.telemetry.archive.enabled", false);
+pref("toolkit.telemetry.coverage.opt-out", true);
+pref("datareporting.healthreport.uploadEnabled", false);
+pref("datareporting.healthreport.service.enabled", false);
+
+// Optimize renderer memory
+pref("gfx.canvas.accelerated.limit-internal-size", true);
+pref("layers.acceleration.disabled", false);
+pref("layers.offmainthreadcomposition.enabled", false);
+
+// Aggressive garbage collection
+pref("javascript.options.mem.gc_allocation_threshold_mb", 32);
+pref("javascript.options.mem.gc_decommit_threshold_mb", 16);
+pref("javascript.options.mem.gc_dynamic_heap_growth", false);
+pref("javascript.options.mem.gc_high_frequency_heap_growth_max", 1.5);
+pref("javascript.options.mem.gc_high_frequency_heap_growth_min", 1.2);
+pref("javascript.options.mem.gc_high_frequency_time_limit_ms", 1000);
+pref("javascript.options.mem.gc_low_frequency_heap_growth", 1.5);
+pref("javascript.options.mem.gc_max_empty_chunk_count", 1);
+pref("javascript.options.mem.gc_min_empty_chunk_count", 0);
+pref("javascript.options.mem.gc_per_zone", false);
+pref("javascript.options.mem.gc_slice_time_budget_ms", 10);
+pref("javascript.options.mem.gc_incremental_slice_ms", 10);
+
+// Reduce Chrome process memory
+pref("chrome.chrome_buffer_settings", 0);
+pref("chrome.content_buffer_settings", 0);
+
+// Optimize storage
+pref("dom.quotaManager.temporaryStorage", 10240);
+pref("dom.storage.default_quota", 5120);
+pref("dom.storage.enabled", true);
+pref("dom.storage.next_gen", true);
+
+// Disable unnecessary animations
+pref("toolkit.cosmeticAnimations.enabled", false);
+pref("browser.tabs.animate", false);
+pref("browser.fullscreen.animate", false);
+
+// Reduce font memory usage
+pref("browser.display.use_document_fonts", 0);
+pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+
+// Optimize SSL/TLS memory
+pref("security.ssl.disable_session_identifiers", true);
+pref("security.ssl.session_tickets.enabled", false);
+
+// Limit worker memory
+pref("dom.workers.maxPerDomain", 2);
+pref("dom.serviceWorkers.enabled", false);
+
+// Reduce IPC memory overhead
+pref("dom.ipc.tabs.shutdownTimeoutSecs", 10);
+pref("dom.ipc.processShutDownTimeout", 5000);
+
+// Memory pressure handling
+pref("memory.free_dirty_pages_on_memory_pressure", true);
+pref("config.trim_on_minimize", true);

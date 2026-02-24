@@ -708,7 +708,7 @@ add_task(async function test_engine_selector_match_applications() {
       locale: "en-CA",
       region: "CA",
       channel: "esr",
-      appName: "firefox-android",
+      appName: "plezix-android",
     },
     ["engine-channel"],
     "Should match engine for esr channel."
@@ -719,7 +719,7 @@ add_task(async function test_engine_selector_match_applications() {
     {
       locale: "en-CA",
       region: "CA",
-      appName: "firefox",
+      appName: "plezix",
     },
     ["engine-application"],
     "Should match engine for application."
@@ -800,7 +800,7 @@ add_task(async function test_engine_selector_does_not_match_optional_engines() {
     {
       locale: "en-CA",
       region: "CA",
-      appName: "firefox",
+      appName: "plezix",
     },
     ["engine-optional-false", "engine-optional-undefined"],
     "Should match engines where optional flag is false or undefined"

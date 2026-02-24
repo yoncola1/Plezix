@@ -1,4 +1,4 @@
-﻿{
+{
   "data": [
     {
       "id": "96ad4fd9-4bbb-454d-bbe5-24225a2cbe04",
@@ -308,7 +308,7 @@
         {
           "environment": {
             "applications": [
-              "firefox"
+              "plezix"
             ],
             "regions": [
               "us"
@@ -346,11 +346,11 @@
     {
       "base": {
         "aliases": [
-          "з™ѕеє¦",
+          "百度",
           "baidu"
         ],
         "classification": "general",
-        "name": "з™ѕеє¦",
+        "name": "百度",
         "urls": {
           "search": {
             "base": "https://www.baidu.com/baidu",
@@ -395,9 +395,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "urls": {
@@ -460,7 +460,7 @@
           "environment": {
             "allRegionsAndLocales": true,
             "applications": [
-              "firefox",
+              "plezix",
               "plezix-android",
               "plezix-ios"
             ]
@@ -525,7 +525,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ],
                 "distributions": [
                   "dt-001"
@@ -553,7 +553,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ],
                 "distributions": [
                   "vivo-001"
@@ -670,8 +670,8 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "Cб»‘c Cб»‘c",
-        "partnerCode": "firefox",
+        "name": "Cốc Cốc",
+        "partnerCode": "plezix",
         "urls": {
           "search": {
             "base": "https://coccoc.com/search",
@@ -720,9 +720,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "ffmobile"
@@ -734,7 +734,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "л‹¤мќЊ",
+        "name": "다음",
         "urls": {
           "search": {
             "base": "https://search.daum.net/search",
@@ -779,7 +779,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "urls": {
@@ -851,7 +851,7 @@
             "allRegionsAndLocales": true,
             "applications": [
               "plezix-android",
-              "focus-android"
+              "plezix-android"
             ]
           },
           "partnerCode": "fpas"
@@ -861,7 +861,7 @@
             "allRegionsAndLocales": true,
             "applications": [
               "plezix-ios",
-              "focus-ios"
+              "plezix-ios"
             ]
           },
           "partnerCode": "ffip"
@@ -948,7 +948,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1030,7 +1030,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1113,7 +1113,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1198,7 +1198,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1281,7 +1281,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1302,7 +1302,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1388,7 +1388,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1409,7 +1409,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1493,7 +1493,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1579,7 +1579,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1664,7 +1664,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1747,7 +1747,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1768,7 +1768,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1851,7 +1851,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1933,7 +1933,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -1954,7 +1954,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -2031,7 +2031,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -2115,7 +2115,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -2137,7 +2137,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "5338791379"
@@ -2191,7 +2191,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "813cf1dd"
@@ -2200,7 +2200,7 @@
               "environment": {
                 "applications": [
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "16eeffc4"
@@ -2225,7 +2225,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "813cf1dd"
@@ -2234,7 +2234,7 @@
               "environment": {
                 "applications": [
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "16eeffc4"
@@ -2303,9 +2303,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "urls": {
@@ -2417,7 +2417,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "GMX - BГєsqueda web",
+        "name": "GMX - Búsqueda web",
         "urls": {
           "search": {
             "base": "https://go.gmx.es/br/moz_search_web/",
@@ -2582,7 +2582,7 @@
             "params": [
               {
                 "name": "client",
-                "value": "firefox"
+                "value": "plezix"
               },
               {
                 "experimentConfig": "search_rich_suggestions",
@@ -2597,7 +2597,7 @@
             "params": [
               {
                 "name": "client",
-                "value": "firefox"
+                "value": "plezix"
               },
               {
                 "name": "channel",
@@ -2632,9 +2632,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "firefox-b-m",
@@ -2683,9 +2683,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "firefox-b-1-m",
@@ -2784,7 +2784,7 @@
           "environment": {
             "applications": [
               "plezix-android",
-              "focus-android"
+              "plezix-android"
             ],
             "distributions": [
               "vivo-001"
@@ -2797,7 +2797,7 @@
           "environment": {
             "applications": [
               "plezix-android",
-              "focus-android"
+              "plezix-android"
             ],
             "distributions": [
               "dt-001"
@@ -2898,7 +2898,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "аёћаё€аё™аёІаё™аёёаёЃаёЈаёЎ аёҐаё­аё‡аё”аё№",
+        "name": "พจนานุกรม ลองดู",
         "urls": {
           "search": {
             "base": "https://dict.longdo.com/",
@@ -3126,7 +3126,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "л„¤мќґлІ„",
+        "name": "네이버",
         "urls": {
           "search": {
             "base": "https://search.naver.com/search.naver",
@@ -3184,7 +3184,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "Odpiralni ДЊasi",
+        "name": "Odpiralni Časi",
         "urls": {
           "search": {
             "base": "https://www.odpiralnicasi.com/spots",
@@ -3246,7 +3246,7 @@
         ],
         "classification": "general",
         "name": "Perplexity",
-        "partnerCode": "firefox",
+        "partnerCode": "plezix",
         "urls": {
           "search": {
             "base": "https://www.perplexity.ai/search",
@@ -3404,7 +3404,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "ff_android"
@@ -3413,7 +3413,7 @@
               "environment": {
                 "applications": [
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "ff_ios"
@@ -3436,7 +3436,7 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android"
+                  "plezix-android"
                 ]
               },
               "partnerCode": "ff_android"
@@ -3445,7 +3445,7 @@
               "environment": {
                 "applications": [
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "ff_ios"
@@ -3515,7 +3515,7 @@
       "base": {
         "charset": "EUC-JP",
         "classification": "unknown",
-        "name": "жҐЅе¤©её‚е ґ",
+        "name": "楽天市場",
         "urls": {
           "search": {
             "base": "https://pt.afl.rakuten.co.jp/c/013ca98b.cd7c5f0c/",
@@ -3552,7 +3552,7 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "Readmoo и®ЂеўЁй›»е­ђж›ё",
+        "name": "Readmoo 讀墨電子書",
         "urls": {
           "search": {
             "base": "https://readmoo.com/search/keyword",
@@ -3651,9 +3651,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "firefox_mobile"
@@ -3666,7 +3666,7 @@
       "base": {
         "classification": "unknown",
         "name": "Seznam",
-        "partnerCode": "firefox",
+        "partnerCode": "plezix",
         "urls": {
           "search": {
             "base": "https://search.seznam.cz/",
@@ -3701,9 +3701,9 @@
               "environment": {
                 "applications": [
                   "plezix-android",
-                  "focus-android",
+                  "plezix-android",
                   "plezix-ios",
-                  "focus-ios"
+                  "plezix-ios"
                 ]
               },
               "partnerCode": "SearchBox"
@@ -3973,7 +3973,7 @@
         "name": "Wikipedia (nn)",
         "urls": {
           "search": {
-            "base": "https://nn.wikipedia.org/wiki/Spesial:SГёk",
+            "base": "https://nn.wikipedia.org/wiki/Spesial:Søk",
             "params": [
               {
                 "name": "sourceid",
@@ -4018,7 +4018,7 @@
         "name": "Wikipedia (nb)",
         "urls": {
           "search": {
-            "base": "https://no.wikipedia.org/wiki/Spesial:SГёk",
+            "base": "https://no.wikipedia.org/wiki/Spesial:Søk",
             "params": [
               {
                 "name": "sourceid",
@@ -4148,14 +4148,14 @@
     {
       "base": {
         "aliases": [
-          "Щ€ЩЉЩѓЩЉШЁЩЉШЇЩЉШ§",
+          "ويكيبيديا",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Щ€ЩЉЩѓЩЉШЁЩЉШЇЩЉШ§ (ar)",
+        "name": "ويكيبيديا (ar)",
         "urls": {
           "search": {
-            "base": "https://ar.wikipedia.org/wiki/Ш®Ш§Шµ:ШЁШ­Ш«",
+            "base": "https://ar.wikipedia.org/wiki/خاص:بحث",
             "params": [
               {
                 "name": "sourceid",
@@ -4246,7 +4246,7 @@
         "name": "Vikipediya (az)",
         "urls": {
           "search": {
-            "base": "https://az.wikipedia.org/wiki/XГјsusi:Axtar",
+            "base": "https://az.wikipedia.org/wiki/Xüsusi:Axtar",
             "params": [
               {
                 "name": "sourceid",
@@ -4285,14 +4285,14 @@
     {
       "base": {
         "aliases": [
-          "РІС–РєС–РїРµРґС‹СЏ",
+          "вікіпедыя",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Р’С–РєС–РїРµРґС‹СЏ (be)",
+        "name": "Вікіпедыя (be)",
         "urls": {
           "search": {
-            "base": "https://be.wikipedia.org/wiki/РђРґРјС‹СЃР»РѕРІР°Рµ:Search",
+            "base": "https://be.wikipedia.org/wiki/Адмысловае:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -4331,13 +4331,13 @@
     {
       "base": {
         "aliases": [
-          "РІС–РєС–РїСЌРґС‹СЏ"
+          "вікіпэдыя"
         ],
         "classification": "unknown",
-        "name": "Р’С–РєС–РїСЌРґС‹СЏ (be-tarask)",
+        "name": "Вікіпэдыя (be-tarask)",
         "urls": {
           "search": {
-            "base": "https://be-tarask.wikipedia.org/wiki/РЎРїСЌС†С‹СЏР»СЊРЅС‹СЏ:РџРѕС€СѓРє",
+            "base": "https://be-tarask.wikipedia.org/wiki/Спэцыяльныя:Пошук",
             "params": [
               {
                 "name": "sourceid",
@@ -4376,14 +4376,14 @@
     {
       "base": {
         "aliases": [
-          "СѓРёРєРёРїРµРґРёСЏ",
+          "уикипедия",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "РЈРёРєРёРїРµРґРёСЏ (bg)",
+        "name": "Уикипедия (bg)",
         "urls": {
           "search": {
-            "base": "https://bg.wikipedia.org/wiki/РЎРїРµС†РёР°Р»РЅРё:РўСЉСЂСЃРµРЅРµ",
+            "base": "https://bg.wikipedia.org/wiki/Специални:Търсене",
             "params": [
               {
                 "name": "sourceid",
@@ -4422,14 +4422,14 @@
     {
       "base": {
         "aliases": [
-          "а¦‰а¦‡а¦•а¦їа¦Єа¦їа¦Ўа¦їа¦Їа¦ја¦ѕ",
+          "উইকিপিডিয়া",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а¦‰а¦‡а¦•а¦їа¦Єа¦їа¦Ўа¦їа¦Їа¦ја¦ѕ (bn)",
+        "name": "উইকিপিডিয়া (bn)",
         "urls": {
           "search": {
-            "base": "https://bn.wikipedia.org/wiki/а¦¬а¦їа¦¶а§‡а¦·:Search",
+            "base": "https://bn.wikipedia.org/wiki/বিশেষ:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -4560,11 +4560,11 @@
     {
       "base": {
         "aliases": [
-          "viquipГЁdia",
+          "viquipèdia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "ViquipГЁdia (ca)",
+        "name": "Viquipèdia (ca)",
         "urls": {
           "search": {
             "base": "https://ca.wikipedia.org/wiki/Especial:Cerca",
@@ -4660,7 +4660,7 @@
         "name": "Wikipedie (cs)",
         "urls": {
           "search": {
-            "base": "https://cs.wikipedia.org/wiki/SpeciГЎlnГ­:HledГЎnГ­",
+            "base": "https://cs.wikipedia.org/wiki/Speciální:Hledání",
             "params": [
               {
                 "name": "sourceid",
@@ -4705,7 +4705,7 @@
         "name": "Wikipedia (da)",
         "urls": {
           "search": {
-            "base": "https://da.wikipedia.org/wiki/Speciel:SГёgning",
+            "base": "https://da.wikipedia.org/wiki/Speciel:Søgning",
             "params": [
               {
                 "name": "sourceid",
@@ -4796,7 +4796,7 @@
         "name": "Wikipedija (dsb)",
         "urls": {
           "search": {
-            "base": "https://dsb.wikipedia.org/wiki/Specialne:PytaЕ›",
+            "base": "https://dsb.wikipedia.org/wiki/Specialne:Pytaś",
             "params": [
               {
                 "name": "sourceid",
@@ -4835,14 +4835,14 @@
     {
       "base": {
         "aliases": [
-          "ОІО№ОєО№ПЂО±ОЇОґОµО№О±",
+          "βικιπαίδεια",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "О’О№ОєО№ПЂО±ОЇОґОµО№О± (el)",
+        "name": "Βικιπαίδεια (el)",
         "urls": {
           "search": {
-            "base": "https://el.wikipedia.org/wiki/О•О№ОґО№ОєПЊ:О‘ОЅО±О¶О®П„О·ПѓО·",
+            "base": "https://el.wikipedia.org/wiki/Ειδικό:Αναζήτηση",
             "params": [
               {
                 "name": "sourceid",
@@ -4888,7 +4888,7 @@
         "name": "Vikipedio (eo)",
         "urls": {
           "search": {
-            "base": "https://eo.wikipedia.org/wiki/SpecialaДµo:SerД‰i",
+            "base": "https://eo.wikipedia.org/wiki/Specialaĵo:Serĉi",
             "params": [
               {
                 "name": "sourceid",
@@ -5068,14 +5068,14 @@
     {
       "base": {
         "aliases": [
-          "Щ€ЫЊЪ©ЫЊвЂЊЩѕШЇЫЊШ§",
+          "ویکی‌پدیا",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Щ€ЫЊЪ©ЫЊвЂЊЩѕШЇЫЊШ§ (fa)",
+        "name": "ویکی‌پدیا (fa)",
         "urls": {
           "search": {
-            "base": "https://fa.wikipedia.org/wiki/Щ€ЫЊЪЩ‡:Ш¬ШіШЄШ¬Щ€",
+            "base": "https://fa.wikipedia.org/wiki/ویژه:جستجو",
             "params": [
               {
                 "name": "sourceid",
@@ -5159,14 +5159,14 @@
     {
       "base": {
         "aliases": [
-          "wikipГ©dia",
+          "wikipédia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "WikipГ©dia (fr)",
+        "name": "Wikipédia (fr)",
         "urls": {
           "search": {
-            "base": "https://fr.wikipedia.org/wiki/SpГ©cial:Recherche",
+            "base": "https://fr.wikipedia.org/wiki/Spécial:Recherche",
             "params": [
               {
                 "name": "sourceid",
@@ -5253,11 +5253,11 @@
     {
       "base": {
         "aliases": [
-          "vicipГ©id",
+          "vicipéid",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "VicipГ©id (ga)",
+        "name": "Vicipéid (ga)",
         "urls": {
           "search": {
             "base": "https://ga.wikipedia.org/wiki/Speisialta:Search",
@@ -5306,7 +5306,7 @@
         "name": "Uicipeid (gd)",
         "urls": {
           "search": {
-            "base": "https://gd.wikipedia.org/wiki/SГІnraichte:Search",
+            "base": "https://gd.wikipedia.org/wiki/Sònraichte:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -5390,14 +5390,14 @@
     {
       "base": {
         "aliases": [
-          "vikipetГЈ",
+          "vikipetã",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "VikipetГЈ (gn)",
+        "name": "Vikipetã (gn)",
         "urls": {
           "search": {
-            "base": "https://gn.wikipedia.org/wiki/Mba'echД©chД©:Buscar",
+            "base": "https://gn.wikipedia.org/wiki/Mba'echĩchĩ:Buscar",
             "params": [
               {
                 "name": "sourceid",
@@ -5436,14 +5436,14 @@
     {
       "base": {
         "aliases": [
-          "аЄµаЄїаЄ•аЄїаЄЄа«ЂаЄЎаЄїаЄЇаЄѕ",
+          "વિકિપીડિયા",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "аЄµаЄїаЄ•аЄїаЄЄа«ЂаЄЎаЄїаЄЇаЄѕ (gu)",
+        "name": "વિકિપીડિયા (gu)",
         "urls": {
           "search": {
-            "base": "https://gu.wikipedia.org/wiki/аЄµаЄїаЄ¶а«‡аЄ·:аЄ¶а«‹аЄ§",
+            "base": "https://gu.wikipedia.org/wiki/વિશેષ:શોધ",
             "params": [
               {
                 "name": "sourceid",
@@ -5482,14 +5482,14 @@
     {
       "base": {
         "aliases": [
-          "Ч•Ч™Ч§Ч™Ч¤Ч“Ч™Ч”",
+          "ויקיפדיה",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Ч•Ч™Ч§Ч™Ч¤Ч“Ч™Ч”",
+        "name": "ויקיפדיה",
         "urls": {
           "search": {
-            "base": "https://he.wikipedia.org/wiki/ЧћЧ™Ч•Ч—Ч“:Ч—Ч™Ч¤Ч•Ч©",
+            "base": "https://he.wikipedia.org/wiki/מיוחד:חיפוש",
             "params": [
               {
                 "name": "sourceid",
@@ -5528,14 +5528,14 @@
     {
       "base": {
         "aliases": [
-          "а¤µа¤їа¤•а¤їа¤ЄаҐЂа¤Ўа¤їа¤Їа¤ѕ",
+          "विकिपीडिया",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а¤µа¤їа¤•а¤їа¤ЄаҐЂа¤Ўа¤їа¤Їа¤ѕ (hi)",
+        "name": "विकिपीडिया (hi)",
         "urls": {
           "search": {
-            "base": "https://hi.wikipedia.org/wiki/а¤µа¤їа¤¶аҐ‡а¤·:а¤–аҐ‹а¤њ",
+            "base": "https://hi.wikipedia.org/wiki/विशेष:खोज",
             "params": [
               {
                 "name": "sourceid",
@@ -5581,7 +5581,7 @@
         "name": "Wikipedija (hr)",
         "urls": {
           "search": {
-            "base": "https://hr.wikipedia.org/wiki/Posebno:TraЕѕi",
+            "base": "https://hr.wikipedia.org/wiki/Posebno:Traži",
             "params": [
               {
                 "name": "sourceid",
@@ -5627,7 +5627,7 @@
         "name": "Wikipedija (hsb)",
         "urls": {
           "search": {
-            "base": "https://hsb.wikipedia.org/wiki/Specialnje:PytaД‡",
+            "base": "https://hsb.wikipedia.org/wiki/Specialnje:Pytać",
             "params": [
               {
                 "name": "sourceid",
@@ -5666,14 +5666,14 @@
     {
       "base": {
         "aliases": [
-          "wikipГ©dia",
+          "wikipédia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "WikipГ©dia (hu)",
+        "name": "Wikipédia (hu)",
         "urls": {
           "search": {
-            "base": "https://hu.wikipedia.org/wiki/SpeciГЎlis:KeresГ©s",
+            "base": "https://hu.wikipedia.org/wiki/Speciális:Keresés",
             "params": [
               {
                 "name": "sourceid",
@@ -5712,14 +5712,14 @@
     {
       "base": {
         "aliases": [
-          "ХѕХ«Ц„Х«ХєХҐХ¤Х«ХЎ",
+          "վիքիպեդիա",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "ХЋХ«Ц„Х«ХєХҐХ¤Х«ХЎ (hy)",
+        "name": "Վիքիպեդիա (hy)",
         "urls": {
           "search": {
-            "base": "https://hy.wikipedia.org/wiki/ХЌХєХЎХЅХЎЦЂХЇХёХІ:Х€ЦЂХёХ¶ХҐХ¬",
+            "base": "https://hy.wikipedia.org/wiki/Սպասարկող:Որոնել",
             "params": [
               {
                 "name": "sourceid",
@@ -5854,7 +5854,7 @@
         "name": "Wikipedia (is)",
         "urls": {
           "search": {
-            "base": "https://is.wikipedia.org/wiki/KerfissГ­Г°a:Leit",
+            "base": "https://is.wikipedia.org/wiki/Kerfissíða:Leit",
             "params": [
               {
                 "name": "sourceid",
@@ -5946,7 +5946,7 @@
         "name": "Wikipedia (ja)",
         "urls": {
           "search": {
-            "base": "https://ja.wikipedia.org/wiki/з‰№е€Ґ:ж¤њзґў",
+            "base": "https://ja.wikipedia.org/wiki/特別:検索",
             "params": [
               {
                 "name": "sourceid",
@@ -5986,14 +5986,14 @@
     {
       "base": {
         "aliases": [
-          "бѓ•бѓбѓ™бѓбѓћбѓ”бѓ“бѓбѓђ",
+          "ვიკიპედია",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "бѓ•бѓбѓ™бѓбѓћбѓ”бѓ“бѓбѓђ (ka)",
+        "name": "ვიკიპედია (ka)",
         "urls": {
           "search": {
-            "base": "https://ka.wikipedia.org/wiki/бѓЎбѓћбѓ”бѓЄбѓбѓђбѓљбѓЈбѓ бѓ:бѓ«бѓбѓ”бѓ‘бѓђ",
+            "base": "https://ka.wikipedia.org/wiki/სპეციალური:ძიება",
             "params": [
               {
                 "name": "sourceid",
@@ -6077,14 +6077,14 @@
     {
       "base": {
         "aliases": [
-          "СѓРёРєРёРїРµРґРёСЏ",
+          "уикипедия",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "РЈРёРєРёРїРµРґРёСЏ (kk)",
+        "name": "Уикипедия (kk)",
         "urls": {
           "search": {
-            "base": "https://kk.wikipedia.org/wiki/РђСЂРЅР°Р№С‹:Р†Р·РґРµСѓ",
+            "base": "https://kk.wikipedia.org/wiki/Арнайы:Іздеу",
             "params": [
               {
                 "name": "sourceid",
@@ -6123,14 +6123,14 @@
     {
       "base": {
         "aliases": [
-          "бћњбћ·бћ‚бћёбћ—бћёбћЊбћ¶",
+          "វិគីភីឌា",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "бћњбћ·бћ‚бћёбћ—бћёбћЊбћ¶ (km)",
+        "name": "វិគីភីឌា (km)",
         "urls": {
           "search": {
-            "base": "https://km.wikipedia.org/wiki/бћ–бћ·бћџбџЃбћџ:бћџбџ’бћњбџ‚бћ„бћљбћЂ",
+            "base": "https://km.wikipedia.org/wiki/ពិសេស:ស្វែងរក",
             "params": [
               {
                 "name": "sourceid",
@@ -6169,14 +6169,14 @@
     {
       "base": {
         "aliases": [
-          "аІµаІїаІ•аІїаІЄаіЂаІЎаІїаІЇ",
+          "ವಿಕಿಪೀಡಿಯ",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "аІµаІїаІ•аІїаІЄаіЂаІЎаІїаІЇ (kn)",
+        "name": "ವಿಕಿಪೀಡಿಯ (kn)",
         "urls": {
           "search": {
-            "base": "https://kn.wikipedia.org/wiki/аІµаІїаІ¶аі‡аІ·:Search",
+            "base": "https://kn.wikipedia.org/wiki/ವಿಶೇಷ:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -6215,14 +6215,14 @@
     {
       "base": {
         "aliases": [
-          "мњ„н‚¤л°±кіј",
+          "위키백과",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "мњ„н‚¤л°±кіј (ko)",
+        "name": "위키백과 (ko)",
         "urls": {
           "search": {
-            "base": "https://ko.wikipedia.org/wiki/нЉ№м€кё°лЉҐ:м°ѕкё°",
+            "base": "https://ko.wikipedia.org/wiki/특수기능:찾기",
             "params": [
               {
                 "name": "sourceid",
@@ -6267,7 +6267,7 @@
         "name": "Wikipedia (lij)",
         "urls": {
           "search": {
-            "base": "https://lij.wikipedia.org/wiki/SpeГ§iale:RiГ§erca",
+            "base": "https://lij.wikipedia.org/wiki/Speçiale:Riçerca",
             "params": [
               {
                 "name": "sourceid",
@@ -6306,14 +6306,14 @@
     {
       "base": {
         "aliases": [
-          "ає§аєґаєЃаєґаєћаєµа»Ђає”аєЌ",
+          "ວິກິພີເດຍ",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "ає§аєґаєЃаєґаєћаєµа»Ђає”аєЌ (lo)",
+        "name": "ວິກິພີເດຍ (lo)",
         "urls": {
           "search": {
-            "base": "https://lo.wikipedia.org/wiki/аєћаєґа»ЂаєЄає”:аєЉає­аєЃає«аєІ",
+            "base": "https://lo.wikipedia.org/wiki/ພິເສດ:ຊອກຫາ",
             "params": [
               {
                 "name": "sourceid",
@@ -6359,7 +6359,7 @@
         "name": "Vikipedija (lt)",
         "urls": {
           "search": {
-            "base": "https://lt.wikipedia.org/wiki/Specialus:PaieЕЎka",
+            "base": "https://lt.wikipedia.org/wiki/Specialus:Paieška",
             "params": [
               {
                 "name": "sourceid",
@@ -6405,7 +6405,7 @@
         "name": "Vikipedeja (ltg)",
         "urls": {
           "search": {
-            "base": "https://ltg.wikipedia.org/wiki/SeviЕЎkuo:Search",
+            "base": "https://ltg.wikipedia.org/wiki/Seviškuo:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -6444,11 +6444,11 @@
     {
       "base": {
         "aliases": [
-          "vikipД“dija",
+          "vikipēdija",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "VikipД“dija (lv)",
+        "name": "Vikipēdija (lv)",
         "urls": {
           "search": {
             "base": "https://lv.wikipedia.org/wiki/Special:Search",
@@ -6490,14 +6490,14 @@
     {
       "base": {
         "aliases": [
-          "РІРёРєРёРїРµРґРёСР°",
+          "википедија",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Р’РёРєРёРїРµРґРёСР° (mk)",
+        "name": "Википедија (mk)",
         "urls": {
           "search": {
-            "base": "https://mk.wikipedia.org/wiki/РЎРїРµС†РёСР°Р»РЅР°:Р‘Р°СЂР°С",
+            "base": "https://mk.wikipedia.org/wiki/Специјална:Барај",
             "params": [
               {
                 "name": "sourceid",
@@ -6536,14 +6536,14 @@
     {
       "base": {
         "aliases": [
-          "а¤µа¤їа¤•а¤їа¤ЄаҐЂа¤Ўа¤їа¤Їа¤ѕ",
+          "विकिपीडिया",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а¤µа¤їа¤•а¤їа¤ЄаҐЂа¤Ўа¤їа¤Їа¤ѕ (mr)",
+        "name": "विकिपीडिया (mr)",
         "urls": {
           "search": {
-            "base": "https://mr.wikipedia.org/wiki/а¤µа¤їа¤¶аҐ‡а¤·:а¤¶аҐ‹а¤§а¤ѕ",
+            "base": "https://mr.wikipedia.org/wiki/विशेष:शोधा",
             "params": [
               {
                 "name": "sourceid",
@@ -6627,11 +6627,11 @@
     {
       "base": {
         "aliases": [
-          "бЂќбЂ®бЂЂбЂ®бЂ•бЂ®бЂёбЂ’бЂ®бЂёбЂљбЂ¬бЂё",
+          "ဝီကီပီးဒီးယား",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "бЂќбЂ®бЂЂбЂ®бЂ•бЂ®бЂёбЂ’бЂ®бЂёбЂљбЂ¬бЂё (my)",
+        "name": "ဝီကီပီးဒီးယား (my)",
         "urls": {
           "search": {
             "base": "https://my.wikipedia.org/wiki/Special:Search",
@@ -6673,14 +6673,14 @@
     {
       "base": {
         "aliases": [
-          "а¤µа¤їа¤•а¤їа¤Єа¤їа¤Ўа¤їа¤Їа¤ѕ",
+          "विकिपिडिया",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а¤µа¤їа¤•а¤їа¤Єа¤їа¤Ўа¤їа¤Їа¤ѕ (ne)",
+        "name": "विकिपिडिया (ne)",
         "urls": {
           "search": {
-            "base": "https://ne.wikipedia.org/wiki/а¤µа¤їа¤¶аҐ‡а¤·:Search",
+            "base": "https://ne.wikipedia.org/wiki/विशेष:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -6764,14 +6764,14 @@
     {
       "base": {
         "aliases": [
-          "wikipГЁdia",
+          "wikipèdia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "WikipГЁdia (oc)",
+        "name": "Wikipèdia (oc)",
         "urls": {
           "search": {
-            "base": "https://oc.wikipedia.org/wiki/Especial:RecГЁrca",
+            "base": "https://oc.wikipedia.org/wiki/Especial:Recèrca",
             "params": [
               {
                 "name": "sourceid",
@@ -6810,14 +6810,14 @@
     {
       "base": {
         "aliases": [
-          "аЁµаЁїаЁ•а©ЂаЁЄа©ЂаЁЎа©ЂаЁ†",
+          "ਵਿਕੀਪੀਡੀਆ",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "аЁµаЁїаЁ•а©ЂаЁЄа©ЂаЁЎа©ЂаЁ† (pa)",
+        "name": "ਵਿਕੀਪੀਡੀਆ (pa)",
         "urls": {
           "search": {
-            "base": "https://pa.wikipedia.org/wiki/аЁ–аЁјаЁѕаЁё:аЁ–а©‹аЁња©‹",
+            "base": "https://pa.wikipedia.org/wiki/ਖ਼ਾਸ:ਖੋਜੋ",
             "params": [
               {
                 "name": "sourceid",
@@ -6902,11 +6902,11 @@
     {
       "base": {
         "aliases": [
-          "wikipГ©dia",
+          "wikipédia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "WikipГ©dia (pt)",
+        "name": "Wikipédia (pt)",
         "urls": {
           "search": {
             "base": "https://pt.wikipedia.org/wiki/Especial:Pesquisar",
@@ -7000,7 +7000,7 @@
         "name": "Wikipedia (ro)",
         "urls": {
           "search": {
-            "base": "https://ro.wikipedia.org/wiki/Special:CДѓutare",
+            "base": "https://ro.wikipedia.org/wiki/Special:Căutare",
             "params": [
               {
                 "name": "sourceid",
@@ -7039,14 +7039,14 @@
     {
       "base": {
         "aliases": [
-          "РІРёРєРёРїРµРґРёСЏ",
+          "википедия",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Р’РёРєРёРїРµРґРёСЏ (ru)",
+        "name": "Википедия (ru)",
         "urls": {
           "search": {
-            "base": "https://ru.wikipedia.org/wiki/РЎР»СѓР¶РµР±РЅР°СЏ:РџРѕРёСЃРє",
+            "base": "https://ru.wikipedia.org/wiki/Служебная:Поиск",
             "params": [
               {
                 "name": "sourceid",
@@ -7085,14 +7085,14 @@
     {
       "base": {
         "aliases": [
-          "а·Ђа·’а¶ља·’а¶ґа·“а¶©а·’а¶єа·Џ",
+          "විකිපීඩියා",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а·Ђа·’а¶ља·’а¶ґа·“а¶©а·’а¶єа·Џ (si)",
+        "name": "විකිපීඩියා (si)",
         "urls": {
           "search": {
-            "base": "https://si.wikipedia.org/wiki/а·Ђа·’а·Ѓа·ља·‚:а¶ња·Ђа·ља·‚а¶«а¶є",
+            "base": "https://si.wikipedia.org/wiki/විශේෂ:ගවේෂණය",
             "params": [
               {
                 "name": "sourceid",
@@ -7131,14 +7131,14 @@
     {
       "base": {
         "aliases": [
-          "wikipГ©dia",
+          "wikipédia",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "WikipГ©dia (sk)",
+        "name": "Wikipédia (sk)",
         "urls": {
           "search": {
-            "base": "https://sk.wikipedia.org/wiki/Е peciГЎlne:HДѕadanie",
+            "base": "https://sk.wikipedia.org/wiki/Špeciálne:Hľadanie",
             "params": [
               {
                 "name": "sourceid",
@@ -7229,7 +7229,7 @@
         "name": "Wikipedia (sq)",
         "urls": {
           "search": {
-            "base": "https://sq.wikipedia.org/wiki/Speciale:KГ«rkim",
+            "base": "https://sq.wikipedia.org/wiki/Speciale:Kërkim",
             "params": [
               {
                 "name": "sourceid",
@@ -7268,14 +7268,14 @@
     {
       "base": {
         "aliases": [
-          "РІРёРєРёРїРµРґРёСР°",
+          "википедија",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Р’РёРєРёРїРµРґРёСР° (sr)",
+        "name": "Википедија (sr)",
         "urls": {
           "search": {
-            "base": "https://sr.wikipedia.org/wiki/РџРѕСЃРµР±РЅРѕ:РџСЂРµС‚СЂР°Р¶Рё",
+            "base": "https://sr.wikipedia.org/wiki/Посебно:Прет��ажи",
             "params": [
               {
                 "name": "sourceid",
@@ -7320,7 +7320,7 @@
         "name": "Wikipedia (sv)",
         "urls": {
           "search": {
-            "base": "https://sv.wikipedia.org/wiki/Special:SГ¶k",
+            "base": "https://sv.wikipedia.org/wiki/Special:Sök",
             "params": [
               {
                 "name": "sourceid",
@@ -7359,14 +7359,14 @@
     {
       "base": {
         "aliases": [
-          "а®µа®їа®•аЇЌа®•а®їа®ЄаЇЌа®ЄаЇЂа®џа®їа®Їа®ѕ",
+          "விக்கிப்பீடியா",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а®µа®їа®•аЇЌа®•а®їа®ЄаЇЌа®ЄаЇЂа®џа®їа®Їа®ѕ (ta)",
+        "name": "விக்கிப்பீடியா (ta)",
         "urls": {
           "search": {
-            "base": "https://ta.wikipedia.org/wiki/а®ља®їа®±а®ЄаЇЌа®ЄаЇЃ:Search",
+            "base": "https://ta.wikipedia.org/wiki/சிறப்பு:Search",
             "params": [
               {
                 "name": "sourceid",
@@ -7405,14 +7405,14 @@
     {
       "base": {
         "aliases": [
-          "а°µа°їа°•а±Ђа°Єа±Ђа°Ўа°їа°Їа°ѕ",
+          "వికీపీడియా",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "а°µа°їа°•а±Ђа°Єа±Ђа°Ўа°їа°Їа°ѕ (te)",
+        "name": "వికీపీడియా (te)",
         "urls": {
           "search": {
-            "base": "https://te.wikipedia.org/wiki/а°Єа±Ќа°°а°¤а±Ќа°Їа±‡а°•:а°…а°Ёа±Ќа°µа±‡а°·а°Ј",
+            "base": "https://te.wikipedia.org/wiki/ప్రత్యేక:అన్వేషణ",
             "params": [
               {
                 "name": "sourceid",
@@ -7451,14 +7451,14 @@
     {
       "base": {
         "aliases": [
-          "аё§аёґаёЃаёґаёћаёµа№Ђаё”аёµаёў",
+          "วิกิพีเดีย",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "аё§аёґаёЃаёґаёћаёµа№Ђаё”аёµаёў",
+        "name": "วิกิพีเดีย",
         "urls": {
           "search": {
-            "base": "https://th.wikipedia.org/wiki/аёћаёґа№ЂаёЁаё©:аё„а№‰аё™аё«аёІ",
+            "base": "https://th.wikipedia.org/wiki/พิเศษ:ค้นหา",
             "params": [
               {
                 "name": "sourceid",
@@ -7549,7 +7549,7 @@
         "name": "Vikipedi (tr)",
         "urls": {
           "search": {
-            "base": "https://tr.wikipedia.org/wiki/Г–zel:Ara",
+            "base": "https://tr.wikipedia.org/wiki/Özel:Ara",
             "params": [
               {
                 "name": "sourceid",
@@ -7588,14 +7588,14 @@
     {
       "base": {
         "aliases": [
-          "РІС–РєС–РїРµРґС–СЏ",
+          "вікіпедія",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Р’С–РєС–РїРµРґС–СЏ (uk)",
+        "name": "Вікіпедія (uk)",
         "urls": {
           "search": {
-            "base": "https://uk.wikipedia.org/wiki/РЎРїРµС†С–Р°Р»СЊРЅР°:РџРѕС€СѓРє",
+            "base": "https://uk.wikipedia.org/wiki/Спеціальна:Пошук",
             "params": [
               {
                 "name": "sourceid",
@@ -7634,14 +7634,14 @@
     {
       "base": {
         "aliases": [
-          "Щ€ЫЊЪ©ЫЊЩѕЫЊЪ€ЫЊШ§",
+          "ویکیپیڈیا",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "Щ€ЫЊЪ©ЫЊЩѕЫЊЪ€ЫЊШ§ (ur)",
+        "name": "ویکیپیڈیا (ur)",
         "urls": {
           "search": {
-            "base": "https://ur.wikipedia.org/wiki/Ш®Ш§Шµ:ШЄЩ„Ш§Шґ",
+            "base": "https://ur.wikipedia.org/wiki/خاص:تلاش",
             "params": [
               {
                 "name": "sourceid",
@@ -7732,7 +7732,7 @@
         "name": "Wikipedia (vi)",
         "urls": {
           "search": {
-            "base": "https://vi.wikipedia.org/wiki/Дђбє·c_biб»‡t:TГ¬m_kiбєїm",
+            "base": "https://vi.wikipedia.org/wiki/Đặc_biệt:Tìm_kiếm",
             "params": [
               {
                 "name": "sourceid",
@@ -7816,14 +7816,14 @@
     {
       "base": {
         "aliases": [
-          "з»ґеџєз™ѕз§‘",
+          "维基百科",
           "wikipedia"
         ],
         "classification": "unknown",
-        "name": "з»ґеџєз™ѕз§‘",
+        "name": "维基百科",
         "urls": {
           "search": {
-            "base": "https://zh.wikipedia.org/wiki/Special:жђњзґў",
+            "base": "https://zh.wikipedia.org/wiki/Special:搜索",
             "params": [
               {
                 "name": "sourceid",
@@ -7862,14 +7862,14 @@
     {
       "base": {
         "aliases": [
-          "з¶­еџєз™ѕз§‘",
+          "維基百科",
           "wikipedia"
         ],
         "classification": "unknown",
         "name": "Wikipedia (zh)",
         "urls": {
           "search": {
-            "base": "https://zh.wikipedia.org/wiki/Special:жђњзґў",
+            "base": "https://zh.wikipedia.org/wiki/Special:搜索",
             "params": [
               {
                 "name": "sourceid",
@@ -7912,10 +7912,10 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "аІµаІїаІ•аіЌаІ·аІЁаІ°аІї (kn)",
+        "name": "ವಿಕ್ಷನರಿ (kn)",
         "urls": {
           "search": {
-            "base": "https://kn.wiktionary.org/wiki/аІµаІїаІ¶аі‡аІ·:Search",
+            "base": "https://kn.wiktionary.org/wiki/ವಿಶೇಷ:Search",
             "searchTermParamName": "search"
           },
           "suggestions": {
@@ -7955,7 +7955,7 @@
         "name": "Wikiccionari (oc)",
         "urls": {
           "search": {
-            "base": "https://oc.wiktionary.org/wiki/Especial:RecГЁrca",
+            "base": "https://oc.wiktionary.org/wiki/Especial:Recèrca",
             "searchTermParamName": "search"
           },
           "suggestions": {
@@ -7992,10 +7992,10 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "а®µа®їа®•аЇЌа®ља®©а®°а®ї (ta)",
+        "name": "விக்சனரி (ta)",
         "urls": {
           "search": {
-            "base": "https://ta.wiktionary.org/wiki/а®ља®їа®±а®ЄаЇЌа®ЄаЇЃ:Search",
+            "base": "https://ta.wiktionary.org/wiki/சிறப்பு:Search",
             "searchTermParamName": "search"
           },
           "suggestions": {
@@ -8032,10 +8032,10 @@
     {
       "base": {
         "classification": "unknown",
-        "name": "а°µа°їа°•а±Ќа°·а°Ёа°°а±Ђ (te)",
+        "name": "విక్షనరీ (te)",
         "urls": {
           "search": {
-            "base": "https://te.wiktionary.org/wiki/а°Єа±Ќа°°а°¤а±Ќа°Їа±‡а°•:а°…а°Ёа±Ќа°µа±‡а°·а°Ј",
+            "base": "https://te.wiktionary.org/wiki/ప్రత్యేక:అన్వేషణ",
             "searchTermParamName": "search"
           },
           "suggestions": {
@@ -8148,7 +8148,7 @@
       "base": {
         "charset": "EUC-JP",
         "classification": "unknown",
-        "name": "Yahoo!г‚Єгѓјг‚Їг‚·гѓ§гѓі",
+        "name": "Yahoo!オークション",
         "urls": {
           "search": {
             "base": "https://auctions.yahoo.co.jp/search/search",
@@ -8214,15 +8214,28 @@
       "orders": [
         {
           "environment": {
+            "allRegionsAndLocales": true
+          },
+          "order": [
+            "google",
+            "yandex",
+            "wikipedia",
+            "duckduckgo",
+            "bing"
+          ]
+        },
+        {
+          "environment": {
             "distributions": [
               "PlezixOnline"
             ]
           },
           "order": [
-            "baidu",
-            "bing",
             "google",
-            "wikipedia*"
+            "yandex",
+            "wikipedia",
+            "duckduckgo",
+            "bing"
           ]
         },
         {
@@ -8240,6 +8253,95 @@
       ],
       "recordType": "engineOrders",
       "schema": 1707824831520
+    },
+    {
+      "id": "duckduckgo-001",
+      "identifier": "duckduckgo",
+      "last_modified": 1749848937100,
+      "name": "DuckDuckGo",
+      "recordType": "engine",
+      "schema": 1747180809142,
+      "variants": [
+        {
+          "environment": {
+            "allRegionsAndLocales": true,
+            "applications": [
+              "plezix",
+              "plezix-android",
+              "plezix-ios"
+            ]
+          },
+          "urls": {
+            "search": {
+              "base": "https://duckduckgo.com/",
+              "params": [
+                {
+                  "name": "q",
+                  "value": "{searchTerms}"
+                }
+              ],
+              "searchTermParamName": "q"
+            },
+            "suggestions": {
+              "base": "https://duckduckgo.com/ac/",
+              "params": [
+                {
+                  "name": "q",
+                  "value": "{searchTerms}"
+                },
+                {
+                  "name": "type",
+                  "value": "list"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "yandex-001",
+      "identifier": "yandex",
+      "last_modified": 1749848937101,
+      "name": "Yandex",
+      "recordType": "engine",
+      "schema": 1747180809142,
+      "variants": [
+        {
+          "environment": {
+            "allRegionsAndLocales": true,
+            "applications": [
+              "plezix",
+              "plezix-android",
+              "plezix-ios"
+            ]
+          },
+          "urls": {
+            "search": {
+              "base": "https://yandex.ru/search/",
+              "params": [
+                {
+                  "name": "text",
+                  "value": "{searchTerms}"
+                }
+              ],
+              "searchTermParamName": "text"
+            },
+            "suggestions": {
+              "base": "https://suggest.yandex.ru/suggest-guru/",
+              "params": [
+                {
+                  "name": "part",
+                  "value": "{searchTerms}"
+                }
+              ]
+            },
+            "search_form": {
+              "base": "https://yandex.ru/"
+            }
+          }
+        }
+      ]
     }
   ],
   "timestamp": 1749848937099

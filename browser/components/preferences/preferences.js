@@ -212,13 +212,14 @@ function init_all() {
     register_module("paneExperimental", gExperimentalPane);
   }
 
-  NimbusFeatures.moreFromPlezix.recordExposureEvent({ once: true });
-  if (NimbusFeatures.moreFromPlezix.getVariable("enabled")) {
-    document.getElementById("category-more-from-mozilla").hidden = false;
-    gMoreFromPlezixPane.option =
-      NimbusFeatures.moreFromPlezix.getVariable("template");
-    register_module("paneMoreFromPlezix", gMoreFromPlezixPane);
-  }
+  // Disabled moreFromPlezix - file not found
+  // NimbusFeatures.moreFromPlezix.recordExposureEvent({ once: true });
+  // if (NimbusFeatures.moreFromPlezix.getVariable("enabled")) {
+  //   document.getElementById("category-more-from-mozilla").hidden = false;
+  //   gMoreFromPlezixPane.option =
+  //     NimbusFeatures.moreFromPlezix.getVariable("template");
+  //   register_module("paneMoreFromPlezix", gMoreFromPlezixPane);
+  // }
   // The Sync category needs to be the last of the "real" categories
   // registered and inititalized since many tests wait for the
   // "sync-pane-loaded" observer notification before starting the test.

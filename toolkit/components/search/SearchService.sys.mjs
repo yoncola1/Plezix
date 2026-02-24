@@ -1349,7 +1349,18 @@ export class SearchService {
     }
 
     if (this.#initializationStatus === "failed") {
-      throw new Error("SearchService failed while it was initializing.");
+      // PLEZIX FIX: Don't throw on failed initialization - allow fallback engines
+      console.warn("[SearchService] Initialization previously failed, attempting recovery...");
+      return;
+    }
+
+    // PLEZIX FIX: Don't throw error for pre-initialization access - trigger async init instead
+    if (this.#initializationStatus === "not initialized" || this.#initializationStatus === "started") {
+      console.warn("[SearchService] Access before initialization complete - triggering init");
+      this.init().catch(err => {
+        console.error("[SearchService] Init failed:", err);
+      });
+      return;
     }
 
     let err = new Error(
