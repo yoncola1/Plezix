@@ -1,5 +1,11 @@
 # .gitignore - List of filenames git should ignore
 
+# ignoring build logs
+
+build.log
+build_*.txt
+build_*.log
+
 # See docs/code-quality/lint/linters/ignorefile.rst for lint-ignore-next-line
 # syntax.
 
