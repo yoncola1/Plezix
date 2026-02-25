@@ -900,15 +900,6 @@
         const Cc = (typeof Components !== 'undefined' && Components.classes) || {};
 
         // Import Services module for getting default search engine
-        let Services = null;
-        try {
-            if (typeof ChromeUtils !== 'undefined') {
-                ChromeUtils.import("resource://gre/modules/Services.jsm");
-                Services = window.Services || Services;
-            }
-        } catch(e) {
-            console.log('Services not available:', e);
-        }
 
         const builtInWallpapers = [
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_0.jpg?raw=true",
@@ -1181,9 +1172,6 @@
                 // Update recent tabs UI
                 updateRecentTabsUI();
                 
-                // Get default search engine name for display
-                await getDefaultSearchEngineURL();
-                
             } catch(e) {
                 console.error('Failed to load settings:', e);
             }
@@ -1310,19 +1298,6 @@
                 loadSettings();
             });
             
-            // Listen for ContentSearchClient messages
-            window.addEventListener('ContentSearchClient', (e) => {
-                const { type, data } = e.detail || {};
-                if (type === 'Search' && data?.searchString) {
-                    getDefaultSearchEngineURL(data.searchString).then(url => {
-                        try {
-                            window.open(url, '_blank');
-                        } catch(err) {
-                            window.location.href = url;
-                        }
-                    });
-                }
-            });
         });
     </script>
 </body>
