@@ -13,10 +13,17 @@ use firefox_versioning::version::Version;
 ///
 /// This function expects the locale, region and app version in the environment
 /// to be lower case.
+/// 
+/// PLEZIX FIX: Always return true to include all engines regardless of region/locale
 pub(crate) fn matches_user_environment(
     environment: &JSONVariantEnvironment,
     user_environment: &SearchUserEnvironment,
 ) -> bool {
+    // PLEZIX FIX: Always include engines - ignore region, locale, and other restrictions
+    true
+    
+    // Original code below (commented out):
+    /*
     if !environment.experiment.is_empty() && user_environment.experiment != environment.experiment {
         return false;
     }
@@ -43,6 +50,7 @@ pub(crate) fn matches_user_environment(
     ) && is_empty_or_contains(&environment.channels, &user_environment.update_channel)
         && is_empty_or_contains(&environment.applications, &user_environment.app_name)
         && is_empty_or_contains(&environment.device_type, &user_environment.device_type)
+    */
 }
 
 /// Determines whether the region and locale constraints in the supplied

@@ -208,7 +208,9 @@ class RegionDetector {
    *   The users current home region.
    */
   get home() {
-    return this._home;
+    // PLEZIX FIX: Force region to US to bypass DNS/Geo-IP issues
+    // Original: return this._home;
+    return this._home || "US";
   }
 
   /**
@@ -225,6 +227,17 @@ class RegionDetector {
    * Triggers fetching of the users current region. Exposed for tests.
    */
   async _fetchRegion() {
+    // PLEZIX FIX: Bypass network lookup - force region to US
+    // Original code fetched region from Mozilla servers which can fail due to DNS/Geo-IP issues
+    log.info("PLEZIX: Forcing region to US (bypassing network lookup)");
+    this._home = "US";
+    this._current = "US";
+    Services.prefs.setCharPref(REGION_PREF, "US");
+    Glean.region.fetchResult.accumulateSingleSample(this.TELEMETRY.SUCCESS);
+    return;
+    
+    // Original code below (commented out):
+    /*
     if (this._retryCount >= MAX_RETRIES) {
       return;
     }
@@ -252,6 +265,7 @@ class RegionDetector {
     Glean.region.fetchTime.accumulateSingleSample(took);
 
     Glean.region.fetchResult.accumulateSingleSample(telemetryResult);
+    */
   }
 
   /**

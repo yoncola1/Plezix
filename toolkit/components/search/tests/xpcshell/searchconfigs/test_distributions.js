@@ -229,7 +229,7 @@ tests.push({
   locale: "en-GB",
   region: "GB",
   distribution: "vivo-001",
-  application: "firefox-android",
+  application: "plezix-android",
   test: engines =>
     hasParams(engines, "Bing", "pc=MZCP") &&
     hasParams(engines, "Bing", "form=MZVIVO") &&
@@ -246,7 +246,7 @@ tests.push({
   locale: "en-GB",
   region: "GB",
   distribution: "dt-001",
-  application: "firefox-android",
+  application: "plezix-android",
   test: engines =>
     hasParams(engines, "Google", "client=firefox-b-tf") &&
     hasDefault(engines, "Google") &&
@@ -260,7 +260,7 @@ tests.push({
   locale: "en-GB",
   region: "GB",
   distribution: "dt-001",
-  application: "firefox-android",
+  application: "plezix-android",
   test: engines =>
     hasParams(engines, "Bing", "pc=MZTOF") &&
     hasParams(engines, "Bing", "form=MZTOFO") &&

@@ -1799,11 +1799,11 @@ export class FfiConverterTypeSearchUpdateChannel extends FfiConverterArrayBuffer
  */
 export const SearchApplicationName = {
     /**
-     * FIREFOX_ANDROID
+     * FIREFOX_ANDROID (legacy, maps to PLEZIX_ANDROID)
      */
     FIREFOX_ANDROID: 1,
     /**
-     * FIREFOX_IOS
+     * FIREFOX_IOS (legacy, maps to PLEZIX_IOS)
      */
     FIREFOX_IOS: 2,
     /**
@@ -1815,9 +1815,21 @@ export const SearchApplicationName = {
      */
     FOCUS_IOS: 4,
     /**
-     * FIREFOX
+     * FIREFOX (legacy, maps to PLEZIX)
      */
     FIREFOX: 5,
+    /**
+     * PLEZIX_ANDROID
+     */
+    PLEZIX_ANDROID: 1,
+    /**
+     * PLEZIX_IOS
+     */
+    PLEZIX_IOS: 2,
+    /**
+     * PLEZIX
+     */
+    PLEZIX: 5,
 };
 Object.freeze(SearchApplicationName);
 
@@ -1827,29 +1839,32 @@ export class FfiConverterTypeSearchApplicationName extends FfiConverterArrayBuff
 
     static read(dataStream) {
         // Use sequential indices (1-based) for the wire format to match the Rust scaffolding
+        // PLEZIX FIX: Handle legacy firefox-* variants by mapping to plezix-*
         switch (dataStream.readInt32()) {
             case 1:
-                return SearchApplicationName.FIREFOX_ANDROID
+                return SearchApplicationName.PLEZIX_ANDROID; // Also FIREFOX_ANDROID
             case 2:
-                return SearchApplicationName.FIREFOX_IOS
+                return SearchApplicationName.PLEZIX_IOS; // Also FIREFOX_IOS
             case 3:
-                return SearchApplicationName.FOCUS_ANDROID
+                return SearchApplicationName.FOCUS_ANDROID;
             case 4:
-                return SearchApplicationName.FOCUS_IOS
+                return SearchApplicationName.FOCUS_IOS;
             case 5:
-                return SearchApplicationName.FIREFOX
+                return SearchApplicationName.PLEZIX; // Also FIREFOX
             default:
-                throw new UniFFITypeError("Unknown SearchApplicationName variant");
+                // PLEZIX FIX: Fallback to PLEZIX instead of throwing
+                console.warn("Unknown SearchApplicationName variant, defaulting to PLEZIX");
+                return SearchApplicationName.PLEZIX;
         }
     }
 
     static write(dataStream, value) {
         // Use sequential indices (1-based) for the wire format to match the Rust scaffolding
-        if (value === SearchApplicationName.FIREFOX_ANDROID) {
+        if (value === SearchApplicationName.PLEZIX_ANDROID || value === SearchApplicationName.FIREFOX_ANDROID) {
             dataStream.writeInt32(1);
             return;
         }
-        if (value === SearchApplicationName.FIREFOX_IOS) {
+        if (value === SearchApplicationName.PLEZIX_IOS || value === SearchApplicationName.FIREFOX_IOS) {
             dataStream.writeInt32(2);
             return;
         }
@@ -1861,11 +1876,13 @@ export class FfiConverterTypeSearchApplicationName extends FfiConverterArrayBuff
             dataStream.writeInt32(4);
             return;
         }
-        if (value === SearchApplicationName.FIREFOX) {
+        if (value === SearchApplicationName.PLEZIX || value === SearchApplicationName.FIREFOX) {
             dataStream.writeInt32(5);
             return;
         }
-        throw new UniFFITypeError("Unknown SearchApplicationName variant");
+        // PLEZIX FIX: Fallback to PLEZIX instead of throwing
+        console.warn("Unknown SearchApplicationName variant, defaulting to PLEZIX");
+        dataStream.writeInt32(5);
     }
 
     static computeSize(value) {

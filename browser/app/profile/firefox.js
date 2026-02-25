@@ -807,6 +807,10 @@ pref("browser.download.clearHistoryOnDelete", 0);
 pref("browser.helperApps.showOpenOptionForPdfJS", true);
 pref("browser.helperApps.showOpenOptionForViewableInternally", true);
 
+// PLEZIX: Disable Rust-based search selector until it's rebuilt
+// This prevents JSON parsing errors from crashing search initialization
+pref("browser.search.rustSelector.featureGate", false);
+
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
 

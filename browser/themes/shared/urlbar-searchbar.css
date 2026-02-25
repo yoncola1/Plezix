@@ -103,7 +103,7 @@
   background-color: var(--plezix-urlbar-glass-bg);
   background-clip: border-box;
   border: 1px solid var(--plezix-urlbar-glass-border);
-  border-radius: 24px;
+  border-radius: 30px; /* PLEZIX: Pill/capsule shape */
   backdrop-filter: saturate(140%) blur(16px);
   -moz-backdrop-filter: saturate(140%) blur(16px);
   transition: border-radius 0.2s ease, box-shadow 0.2s ease !important;
@@ -116,13 +116,13 @@
 
 #urlbar[focused] > #urlbar-background,
 #searchbar:focus-within {
-  border-radius: 24px !important;
+  border-radius: 30px !important; /* PLEZIX: Maintain pill shape when focused */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
 }
 
 .urlbar-input-container,
 #searchbar {
-  border-radius: 24px;
+  border-radius: 30px; /* PLEZIX: Pill/capsule shape */
   overflow: clip;
 }
 

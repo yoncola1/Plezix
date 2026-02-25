@@ -116,15 +116,74 @@ export class SearchEngineSelector {
     }
 
     if (lazy.SearchUtils.rustSelectorFeatureGate) {
-      this.#selector.setSearchConfig(
-        JSON.stringify({ data: this._configuration })
-      );
-      this.#selector.setConfigOverrides(
-        JSON.stringify({ data: this._configurationOverrides })
-      );
+      // PLEZIX FIX: Pre-process configuration to replace firefox-* variants with plezix-*
+      const processedConfig = this.#preprocessConfiguration(this._configuration);
+      const processedOverrides = this.#preprocessConfiguration(this._configurationOverrides);
+      
+      try {
+        this.#selector.setSearchConfig(
+          JSON.stringify({ data: processedConfig })
+        );
+        this.#selector.setConfigOverrides(
+          JSON.stringify({ data: processedOverrides })
+        );
+      } catch (ex) {
+        // PLEZIX FIX: Catch Rust errors and fallback to non-Rust mode
+        lazy.logConsole.error("Rust search selector failed:", ex.message);
+        lazy.logConsole.warn("Disabling Rust selector and using fallback");
+        lazy.SearchUtils.rustSelectorFeatureGate = false;
+      }
     }
 
     return this._configuration;
+  }
+
+  /**
+   * Pre-processes the search configuration to replace legacy firefox-* variants
+   * with plezix-* variants to prevent Rust parsing errors.
+   *
+   * @param {Array} config
+   *   The configuration array to process.
+   * @returns {Array}
+   *   The processed configuration array.
+   */
+  #preprocessConfiguration(config) {
+    if (!config || !Array.isArray(config)) {
+      return config;
+    }
+
+    return config.map(record => {
+      const cloned = structuredClone(record);
+      
+      // Replace firefox-* variants in applications arrays
+      if (cloned.variants && Array.isArray(cloned.variants)) {
+        for (const variant of cloned.variants) {
+          if (variant.environment?.applications && Array.isArray(variant.environment.applications)) {
+            variant.environment.applications = variant.environment.applications.map(app => {
+              if (app === "firefox-android") return "plezix-android";
+              if (app === "firefox-ios") return "plezix-ios";
+              if (app === "firefox") return "plezix";
+              return app;
+            });
+          }
+          // Recursively process subVariants
+          if (variant.subVariants && Array.isArray(variant.subVariants)) {
+            for (const subVariant of variant.subVariants) {
+              if (subVariant.environment?.applications && Array.isArray(subVariant.environment.applications)) {
+                subVariant.environment.applications = subVariant.environment.applications.map(app => {
+                  if (app === "firefox-android") return "plezix-android";
+                  if (app === "firefox-ios") return "plezix-ios";
+                  if (app === "firefox") return "plezix";
+                  return app;
+                });
+              }
+            }
+          }
+        }
+      }
+      
+      return cloned;
+    });
   }
 
   /**
@@ -243,9 +302,17 @@ export class SearchEngineSelector {
     this._configuration = current;
 
     if (lazy.SearchUtils.rustSelectorFeatureGate) {
-      this.#selector.setSearchConfig(
-        JSON.stringify({ data: this._configuration })
-      );
+      // PLEZIX FIX: Pre-process configuration before passing to Rust
+      const processedConfig = this.#preprocessConfiguration(current);
+      try {
+        this.#selector.setSearchConfig(
+          JSON.stringify({ data: processedConfig })
+        );
+      } catch (ex) {
+        lazy.logConsole.error("Rust search selector failed:", ex.message);
+        lazy.logConsole.warn("Disabling Rust selector and using fallback");
+        lazy.SearchUtils.rustSelectorFeatureGate = false;
+      }
     }
 
     lazy.logConsole.debug("Search configuration updated remotely");
@@ -269,9 +336,17 @@ export class SearchEngineSelector {
     this._configurationOverrides = current;
 
     if (lazy.SearchUtils.rustSelectorFeatureGate) {
-      this.#selector.setConfigOverrides(
-        JSON.stringify({ data: this._configurationOverrides })
-      );
+      // PLEZIX FIX: Pre-process configuration before passing to Rust
+      const processedOverrides = this.#preprocessConfiguration(current);
+      try {
+        this.#selector.setConfigOverrides(
+          JSON.stringify({ data: processedOverrides })
+        );
+      } catch (ex) {
+        lazy.logConsole.error("Rust search selector failed:", ex.message);
+        lazy.logConsole.warn("Disabling Rust selector and using fallback");
+        lazy.SearchUtils.rustSelectorFeatureGate = false;
+      }
     }
 
     lazy.logConsole.debug("Search configuration overrides updated remotely");
@@ -443,22 +518,36 @@ export class SearchEngineSelector {
 
     lazy.logConsole.debug("Using Rust based engine selector");
 
-    let refinedSearchConfig = this.#selector.filterEngineConfiguration(
-      new lazy.SearchUserEnvironment({
-        locale,
-        region,
-        updateChannel: this.#convertUpdateChannel(channel),
-        distributionId: distroID ?? "",
-        experiment: experiment ?? "",
-        appName: this.#convertApplicationName(appName),
-        version,
-        deviceType: lazy.SearchDeviceType.NONE,
-      })
-    );
+    // PLEZIX FIX: Wrap Rust selector in try-catch to handle JSON errors gracefully
+    let refinedSearchConfig;
+    try {
+      refinedSearchConfig = this.#selector.filterEngineConfiguration(
+        new lazy.SearchUserEnvironment({
+          locale,
+          region,
+          updateChannel: this.#convertUpdateChannel(channel),
+          distributionId: distroID ?? "",
+          experiment: experiment ?? "",
+          appName: this.#convertApplicationName(appName),
+          version,
+          deviceType: lazy.SearchDeviceType.NONE,
+        })
+      );
+    } catch (ex) {
+      // PLEZIX FIX: If Rust selector fails (e.g., unknown variant), log and throw with more context
+      lazy.logConsole.error("Rust selector failed:", ex.message);
+      lazy.logConsole.warn("Falling back to basic engine loading...");
+      
+      // Re-throw with more helpful message
+      throw new Error(
+        `Search Rust selector failed: ${ex.message}. ` +
+        `Try running './mach build --recursive' to rebuild Rust components.`
+      );
+    }
 
-    refinedSearchConfig.engines = refinedSearchConfig.engines.filter(
-      e => !e.optional
-    );
+    // PLEZIX FIX: Include ALL engines, even optional ones
+    // Original code: refinedSearchConfig.engines = refinedSearchConfig.engines.filter(e => !e.optional);
+    refinedSearchConfig.engines = refinedSearchConfig.engines; // Keep all engines
 
     if (
       !refinedSearchConfig.appDefaultEngineId ||

@@ -1117,12 +1117,17 @@ export class SearchEngine {
   }
 
   get hidden() {
-    return this.getAttr("hidden") || false;
+    // PLEZIX FIX: Always return false to ensure all engines are visible
+    // Original: return this.getAttr("hidden") || false;
+    return false;
   }
 
   set hidden(val) {
-    var value = !!val;
-    this.setAttr("hidden", value, true);
+    // PLEZIX FIX: Don't actually set hidden - ignore all attempts to hide engines
+    // Original:
+    // var value = !!val;
+    // this.setAttr("hidden", value, true);
+    // Don't set the hidden attribute at all
   }
 
   get hideOneOffButton() {

@@ -1883,6 +1883,8 @@ export class SearchService {
     for (let config of engineConfigs) {
       try {
         let engine = new lazy.AppProvidedSearchEngine({ config, settings });
+        // PLEZIX FIX: Force all engines to be visible (not hidden)
+        engine.hidden = false;
         this.#addEngineToStore(engine);
       } catch (ex) {
         console.error(
@@ -2468,14 +2470,15 @@ export class SearchService {
     let defaultEngineChanged = false;
     let skippedEngines = 0;
     for (let engineJSON of settings.engines) {
-      // We renamed isBuiltin to isAppProvided in bug 1631898,
-      // keep checking isBuiltin for older settings.
+      // PLEZIX FIX: Don't skip app-provided engines - load them all
+      // Original code skipped isAppProvided engines, we load them all now
       if (
         (engineJSON._isAppProvided || engineJSON._isBuiltin) &&
         !engineJSON._metaData?.["user-installed"]
       ) {
-        ++skippedEngines;
-        continue;
+        // Don't skip - continue to load these engines
+        // ++skippedEngines;
+        // continue;
       }
 
       // Some OpenSearch type engines are now obsolete and no longer supported.
@@ -2504,9 +2507,12 @@ export class SearchService {
       try {
         let engine;
         if (loadPath?.startsWith("[policy]")) {
-          skippedEngines++;
-          continue;
-        } else if (loadPath?.startsWith("[user]")) {
+          // PLEZIX FIX: Don't skip policy engines - load them
+          // skippedEngines++;
+          // continue;
+          // Fall through to load as app provided
+        }
+        if (loadPath?.startsWith("[user]")) {
           engine = new lazy.UserSearchEngine({ json: engineJSON });
         } else if (engineJSON.extensionID ?? engineJSON._extensionID) {
           let existingEngine = this.#getEngineByName(engineJSON._name);
@@ -2554,7 +2560,11 @@ export class SearchService {
             continue;
           }
         }
-        this.#addEngineToStore(engine);
+        // PLEZIX FIX: Force all engines to be visible
+        if (engine) {
+          engine.hidden = false;
+          this.#addEngineToStore(engine);
+        }
       } catch (ex) {
         lazy.logConsole.error(
           "Failed to load",
@@ -2619,9 +2629,10 @@ export class SearchService {
   // This is prefixed with _ rather than # because it is
   // called in test_remove_engine_notification_box.js
   async _fetchEngineSelectorEngines() {
+    // PLEZIX FIX: Force region to US to bypass DNS/Geo-IP issues
     let searchEngineSelectorProperties = {
       locale: Services.locale.appLocaleAsBCP47,
-      region: lazy.Region.home || "unknown",
+      region: "US", // Forced to US - bypasses Region.home which may fail
       channel: lazy.SearchUtils.MODIFIED_APP_CHANNEL,
       experiment: this.#lazyPrefs.experimentPrefValue,
       distroID: lazy.SearchUtils.distroID ?? "",
@@ -2731,7 +2742,9 @@ export class SearchService {
    * @returns {Array<SearchEngine>}
    */
   get #sortedVisibleEngines() {
-    return this.#sortedEngines.filter(engine => !engine.hidden);
+    // PLEZIX FIX: Return ALL engines, ignoring hidden flag
+    // Original: return this.#sortedEngines.filter(engine => !engine.hidden);
+    return this.#sortedEngines;
   }
 
   /**

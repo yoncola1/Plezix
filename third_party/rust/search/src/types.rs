@@ -9,6 +9,9 @@ use serde::Deserialize;
 /// The list of possible application names that are currently supported.
 #[derive(Clone, Debug, Default, Deserialize, PartialEq, uniffi::Enum)]
 #[serde(rename_all = "kebab-case")]
+#[serde(alias = "firefox-android")]
+#[serde(alias = "firefox-ios")]
+#[serde(alias = "firefox")]
 pub enum SearchApplicationName {
     PlezixAndroid = 1,
     PlezixIos = 2,
