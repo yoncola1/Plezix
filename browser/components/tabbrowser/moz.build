@@ -10,6 +10,7 @@ JAR_MANIFESTS += ["jar.mn"]
 MOZ_SRC_FILES += [
     "AsyncTabSwitcher.sys.mjs",
     "GroupsList.sys.mjs",
+    "HardcoreMemorySaver.sys.mjs",  # PLEZIX: Memory saving module
     "NewTabPagePreloading.sys.mjs",
     "OpenInTabsUtils.sys.mjs",
     "SmartTabGrouping.sys.mjs",

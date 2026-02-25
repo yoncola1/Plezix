@@ -266,7 +266,7 @@
         .shake-label { margin: 0; }
     </style>
 </head>
-<body onclick="document.getElementById('engine-options').classList.remove('open')">
+<body>
     <div id="bg-container"></div>
     <div id="wp-1" class="wp-layer wp-visible"></div>
 
@@ -287,7 +287,15 @@
         <div class="setting-group">
             <span class="label-text">Поисковик</span>
             <div style="padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #94a3b8; font-size: 14px;">
-                Используется поисковик браузера
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    <span>Используется поисковик браузера по умолчанию</span>
+                </div>
+                <div style="margin-top: 8px; font-size: 12px; color: #64748b;">
+                    Для изменения откройте Настройки браузера → Поиск
+                </div>
             </div>
         </div>
 
@@ -427,19 +435,21 @@
 
         function isSearchUrl(url) { return searchPatterns.some(p => p.test(url)); }
         function toggleSettings(e) { if(e) e.stopPropagation(); document.getElementById('settings-panel').classList.toggle('open'); }
-        function toggleEngineDropdown(e) { e.stopPropagation(); document.getElementById('engine-options').classList.toggle('open'); }
 
-        function selectEngine(id) {
-            settings.engine = id;
-            updateEngineUI();
-            updateSettings();
-            saveSettings();
-        }
-
-        function updateEngineUI() {
-            const names = { yandex: "Yandex", google: "Google", bing: "Bing", duckduckgo: "DuckDuckGo" };
-            const el = document.getElementById('current-engine-name');
-            if (el) el.textContent = names[settings.engine];
+        // Get default search engine URL from browser settings
+        function getDefaultSearchEngineURL() {
+            try {
+                if (typeof Services !== 'undefined' && Services.search) {
+                    const defaultEngine = Services.search.defaultEngine;
+                    if (defaultEngine) {
+                        return defaultEngine.searchURL;
+                    }
+                }
+            } catch(e) {
+                console.log('Could not get default search engine:', e);
+            }
+            // Fallback to DuckDuckGo
+            return 'https://duckduckgo.com/?q={searchTerms}';
         }
 
         function resolveUrl(url) {
@@ -539,7 +549,6 @@
             root.style.setProperty('--search-left', sp[1]);
             root.style.setProperty('--search-x', sp[2]);
             root.style.setProperty('--search-y', sp[3]);
-            updateEngineUI();
             if (!settings.shakeEnabled) {
                 const bg = document.getElementById('bg-container');
                 if (bg) bg.style.transform = '';
@@ -634,7 +643,9 @@
             } else if (q.includes('.') && !q.includes(' ')) {
                 url = 'https://' + q;
             } else {
-                url = (engines[settings.engine] || engines.duckduckgo).replace('{q}', encodeURIComponent(q));
+                // Use the browser's default search engine
+                const searchURL = getDefaultSearchEngineURL();
+                url = searchURL.replace('{searchTerms}', encodeURIComponent(q));
             }
             if (!isSearchUrl(url)) addRecentTab(url);
             try { window.open(url, '_blank'); } catch(e) {}

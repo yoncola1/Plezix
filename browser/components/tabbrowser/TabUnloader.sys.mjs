@@ -8,12 +8,16 @@
  * are reached. The discarded tabs are determined using a heuristic that
  * accounts for when the tab was last used, how many resources the tab uses,
  * and whether the tab is likely to affect the user if it is closed.
+ * 
+ * PLEZIX: Integrated with HardcoreMemorySaver for aggressive memory management
  */
+
 const lazy = {};
 
 ChromeUtils.defineESModuleGetters(lazy, {
   PrivateBrowsingUtils: "resource://gre/modules/PrivateBrowsingUtils.sys.mjs",
   webrtcUI: "resource:///modules/webrtcUI.sys.mjs",
+  HardcoreMemorySaver: "resource:///modules/HardcoreMemorySaver.sys.mjs",
 });
 
 // If there are only this many or fewer tabs open, just sort by weight, and close
@@ -193,6 +197,20 @@ export var TabUnloader = {
       Services.console.logStringMessage("Unloading a tab is in progress.");
       watcher.onUnloadAttemptCompleted(Cr.NS_ERROR_ABORT);
       return;
+    }
+
+    // PLEZIX: Check with HardcoreMemorySaver if we should proceed
+    try {
+      const memoryStats = lazy.HardcoreMemorySaver.getMemoryStats();
+      if (!memoryStats.shouldUnload && !memoryStats.isUnloading) {
+        // Memory pressure is acceptable, skip unloading
+        log.debug("HardcoreMemorySaver: Memory pressure acceptable, skipping unload");
+        watcher.onUnloadAttemptCompleted(Cr.NS_ERROR_NOT_AVAILABLE);
+        return;
+      }
+    } catch (ex) {
+      // If HardcoreMemorySaver fails, continue with normal unload
+      Services.console.logStringMessage(`HardcoreMemorySaver check failed: ${ex}`);
     }
 
     this._isUnloading = true;
