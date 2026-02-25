@@ -16,6 +16,29 @@
   user-select: text;
 }
 
+/* Smooth pane transition animations */
+@keyframes paneFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paneFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
 #preferences-root {
   text-rendering: optimizeLegibility;
 }
@@ -63,6 +86,8 @@
   display: block;
   width: min(100%, var(--page-main-content-width));
   min-width: min-content;
+  /* Smooth transitions between panes */
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 #mainPrefPane {
@@ -73,6 +98,24 @@
 html|div[data-category],
 groupbox[data-category] {
   margin: 0 0 32px;
+  /* Smooth fade and slide animation for category content */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Active pane animation */
+html|div[data-category]:not([hidden]),
+groupbox[data-category]:not([hidden]) {
+  animation: paneFadeIn 0.25s ease forwards;
+}
+
+/* Hidden pane animation */
+html|div[data-category][hidden],
+groupbox[data-category][hidden] {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
 }
 
 html|h1 {
@@ -209,6 +252,21 @@ radio {
   overflow: visible;
   min-height: auto;
   padding: 1px; /* Adding padding around richlistitem in order to make entire keyboard focusing outline visible */
+  /* Smooth transitions for category switching */
+  scroll-behavior: smooth;
+}
+
+#categories .category {
+  /* Smooth hover and selection transitions */
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+#categories .category:hover {
+  transform: translateX(2px);
+}
+
+#categories .category[selected] {
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 #category-general > .category-icon {

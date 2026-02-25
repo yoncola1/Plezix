@@ -280,6 +280,7 @@ async function gotoPref(
   aShowReason = aCategory ? "Click" : "Initial"
 ) {
   let categories = document.getElementById("categories");
+  let mainPrefPane = document.getElementById("mainPrefPane");
   const kDefaultCategoryInternalName = "paneGeneral";
   const kDefaultCategory = "general";
   let hash = document.location.hash;
@@ -383,7 +384,14 @@ async function gotoPref(
   search(category, "data-category");
 
   if (aShowReason != "Initial") {
-    document.querySelector(".main-content").scrollTop = 0;
+    // Smooth scroll to top with animation
+    const mainContent = document.querySelector(".main-content");
+    if (mainContent) {
+      mainContent.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   }
 
   // Check to see if the category module wants to do any special
@@ -398,6 +406,7 @@ async function gotoPref(
   // Record which category is shown
   Glean.aboutpreferences["show" + aShowReason].record({ value: category });
 
+  // Dispatch custom event for pane transition animation
   document.dispatchEvent(
     new CustomEvent("paneshown", {
       bubbles: true,
@@ -407,6 +416,17 @@ async function gotoPref(
       },
     })
   );
+  
+  // Trigger fade-in animation for the new pane
+  requestAnimationFrame(() => {
+    const activePane = mainPrefPane.querySelector(`[data-category="${category}"]:not([hidden])`);
+    if (activePane) {
+      activePane.style.animation = "none";
+      requestAnimationFrame(() => {
+        activePane.style.animation = "paneFadeIn 0.25s ease forwards";
+      });
+    }
+  });
 }
 
 function search(aQuery, aAttribute) {

@@ -1110,10 +1110,7 @@
             settings.searchWidth = document.getElementById('search-width-slider').value;
             settings.shakeEnabled = document.getElementById('shake-effect').checked;
             applySettings();
-            saveSettings(true); // Force save and broadcast
-            
-            // Dispatch custom event for cross-tab sync
-            window.dispatchEvent(new CustomEvent('plezix-settings-updated'));
+            saveSettings();
         }
 
         function applySettings() {
@@ -1140,23 +1137,14 @@
             }
         }
 
-        function saveSettings(force = false) {
+        function saveSettings() {
             try {
-                const saved = localStorage.getItem(STORAGE_KEY);
-                const newSettings = JSON.stringify(settings);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
                 
-                // Always save and broadcast if forced or settings changed
-                if (force || saved !== newSettings) {
-                    localStorage.setItem(STORAGE_KEY, newSettings);
-                    
-                    // Broadcast to other tabs immediately
-                    window.dispatchEvent(new StorageEvent('storage', {
-                        key: STORAGE_KEY,
-                        newValue: newSettings,
-                        url: window.location.href
-                    }));
-                }
+                // Dispatch custom event for cross-tab sync
+                window.dispatchEvent(new CustomEvent('plezix-settings-updated'));
                 
+                // Show save indicator
                 const indicator = document.getElementById('save-indicator');
                 if (indicator) {
                     indicator.style.display = 'block';
@@ -1170,14 +1158,23 @@
             }
         }
 
-        async function loadSettings(force = false) {
+        async function loadSettings() {
             try {
-                // Always try to load from localStorage
                 const loaded = localStorage.getItem(STORAGE_KEY);
                 
                 if (loaded) {
                     const parsed = JSON.parse(loaded);
-                    settings = { ...settings, ...parsed };
+                    // Merge with defaults
+                    settings = {
+                        bgData: parsed.bgData || '',
+                        clockSize: Number(parsed.clockSize) || 1,
+                        clockPos: parsed.clockPos || 'center',
+                        searchPos: parsed.searchPos || 'bottom-center',
+                        searchWidth: Number(parsed.searchWidth) || 440,
+                        shakeEnabled: parsed.shakeEnabled !== false,
+                        recentTabs: Array.isArray(parsed.recentTabs) ? parsed.recentTabs : [],
+                        defaultEngineName: parsed.defaultEngineName || ''
+                    };
                 }
                 
                 // Load recent tabs from separate storage
@@ -1189,11 +1186,6 @@
                         settings.recentTabs = [];
                     }
                 }
-                
-                // Ensure numeric values
-                settings.clockSize = Number(settings.clockSize) || 1;
-                settings.searchWidth = Number(settings.searchWidth) || 440;
-                settings.shakeEnabled = (settings.shakeEnabled === true);
                 
                 // Update UI controls
                 const cs = document.getElementById('clock-size');
@@ -1276,33 +1268,29 @@
             e.preventDefault();
             const q = document.getElementById('searchInput').value.trim();
             if (!q) return;
-            
-            let url;
+
             if (q.startsWith('http')) {
-                url = q;
-            } else if (q.includes('.') && !q.includes(' ')) {
-                url = 'https://' + q;
-            } else {
-                // Use the browser's default search engine with getSubmission
-                url = await getDefaultSearchEngineURL(q);
+                window.open(q, '_blank');
+                return;
             }
-            
-            if (!isSearchUrl(url)) {
-                addRecentTab(url);
-                // Save last visited for tracking
-                try { localStorage.setItem('plezix_last_visited', url); } catch(e) {}
+
+            if (q.includes('.') && !q.includes(' ')) {
+                window.open('https://' + q, '_blank');
+                return;
             }
-            
-            try { 
-                window.open(url, '_blank'); 
-            } catch(e) {
-                // Fallback: open in same tab
-                window.location.href = url;
-            }
+
+            window.dispatchEvent(new CustomEvent("ContentSearchClient", {
+                detail: {
+                    type: "Search",
+                    data: {
+                        searchString: q
+                    }
+                }
+            }));
         };
 
         // Init
-        window.onload = async () => {
+        window.addEventListener('DOMContentLoaded', async () => {
             const hasStorage = (() => { 
                 try { 
                     localStorage.setItem('_t','_t'); 
@@ -1318,11 +1306,10 @@
                 if (w) w.style.display = 'block'; 
             }
             
-            // Force load settings from localStorage on every page load
-            await loadSettings(true);
+            // Load settings from localStorage
+            await loadSettings();
             
             renderWallpapers();
-            updateRecentTabsUI();
             updateTime();
             setInterval(updateTime, 1000);
             
@@ -1338,30 +1325,28 @@
                 }
             } catch(e) {}
             
-            // Listen for settings changes from other tabs (force sync)
+            // Listen for settings changes from other tabs
             window.addEventListener('storage', (ev) => {
                 if (ev.key === STORAGE_KEY && ev.newValue) {
-                    console.log('Settings updated from another tab, reloading...');
-                    loadSettings(true);
+                    loadSettings();
                 }
-                if (ev.key === TABS_STORAGE_KEY && ev.newValue) {
+                if (ev.key === TABS_STORAGE_KEY) {
                     try {
-                        settings.recentTabs = JSON.parse(ev.newValue);
+                        settings.recentTabs = ev.newValue ? JSON.parse(ev.newValue) : [];
                         updateRecentTabsUI();
                     } catch(e) {}
                 }
             });
             
-            // Also listen for custom settings update events
+            // Listen for custom settings update events
             window.addEventListener('plezix-settings-updated', () => {
-                loadSettings(true);
+                loadSettings();
             });
             
             // Listen for ContentSearchClient messages
             window.addEventListener('ContentSearchClient', (e) => {
                 const { type, data } = e.detail || {};
                 if (type === 'Search' && data?.searchString) {
-                    // Perform search with default engine
                     getDefaultSearchEngineURL(data.searchString).then(url => {
                         try {
                             window.open(url, '_blank');
@@ -1371,7 +1356,7 @@
                     });
                 }
             });
-        };
+        });
     </script>
 </body>
 </html>
