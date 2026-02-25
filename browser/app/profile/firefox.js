@@ -811,6 +811,36 @@ pref("browser.helperApps.showOpenOptionForViewableInternally", true);
 // This prevents JSON parsing errors from crashing search initialization
 pref("browser.search.rustSelector.featureGate", false);
 
+// ============================================================================
+// PLEZIX HARDCORE MEMORY SAVER
+// ============================================================================
+// Агрессивная экономия памяти с автоматической выгрузкой неактивных вкладок
+
+// Включить Hardcore Memory Saver
+pref("plezix.hardcore-memory-saver.enabled", true);
+
+// Минимальное время неактивности вкладки перед выгрузкой (мс)
+// 300000 мс = 5 минут
+pref("plezix.hardcore-memory-saver.minInactiveDurationMs", 300000);
+
+// Порог свободной памяти системы (%) - выгружать вкладки когда < 20%
+pref("plezix.hardcore-memory-saver.systemMemoryThresholdPercent", 20);
+
+// Порог потребления памяти браузером (MB) - выгружать когда > 1500MB
+pref("plezix.hardcore-memory-saver.browserMemoryThresholdMB", 1500);
+
+// Интервал проверки памяти (мс) - проверять каждые 30 секунд
+pref("plezix.hardcore-memory-saver.checkIntervalMs", 30000);
+
+// Минимальное количество вкладок для начала выгрузки
+pref("plezix.hardcore-memory-saver.minTabsCount", 3);
+
+// Максимальное количество вкладок для выгрузки за один цикл
+pref("plezix.hardcore-memory-saver.maxTabsToUnloadPerCycle", 2);
+
+// Уровень логирования: Debug, Info, Warn, Error
+pref("plezix.hardcore-memory-saver.logLevel", "Info");
+
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
 
