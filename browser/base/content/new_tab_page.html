@@ -58,71 +58,223 @@
             transition: background 0.2s ease, border-color 0.2s ease;
         }
         #settings-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
-        #settings-btn svg { width: 24px; height: 24px; color: white; transition: transform 0.3s ease; }
+        #settings-btn svg { width: 24px; height: 24px; color: white; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
         #settings-btn:hover svg { transform: rotate(90deg); color: var(--accent); }
+        #settings-btn:active { transform: scale(0.95); }
         #settings-panel {
             position: fixed;
             top: 0; right: -380px;
             width: 380px;
             height: 100vh;
-            background: rgba(10,10,10,0.98);
+            background: linear-gradient(180deg, rgba(15,15,15,0.98) 0%, rgba(10,10,10,0.99) 100%);
             border-left: 1px solid var(--glass-border);
             z-index: 1000;
             padding: 25px;
-            transition: right 0.3s ease;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
         }
-        #settings-panel.open { right: 0; }
-        .setting-group { margin-bottom: 20px; }
-        .label-text { display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; margin-bottom: 8px; font-weight: 700; }
+        #settings-panel.open { 
+            right: 0;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        #settings-panel .setting-group {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        #settings-panel.open .setting-group {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        #settings-panel.open .setting-group:nth-child(3) { transition-delay: 0.05s; }
+        #settings-panel.open .setting-group:nth-child(4) { transition-delay: 0.1s; }
+        #settings-panel.open .setting-group:nth-child(5) { transition-delay: 0.15s; }
+        #settings-panel.open .setting-group:nth-child(6) { transition-delay: 0.2s; }
+        #settings-panel.open .setting-group:nth-child(7) { transition-delay: 0.25s; }
+        #settings-panel.open .setting-group:nth-child(8) { transition-delay: 0.3s; }
+        #settings-panel.open .setting-group:nth-child(9) { transition-delay: 0.35s; }
+        #settings-panel.open .setting-group:nth-child(10) { transition-delay: 0.4s; }
+        
+        /* Smooth scroll behavior */
+        #settings-panel {
+            scroll-behavior: smooth;
+        }
+        
+        /* Fade in animation for panel content */
+        @keyframes settingsFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        #settings-panel.open .header-row {
+            animation: settingsFadeIn 0.4s ease forwards;
+        }
+        
+        /* Stagger animation for setting groups */
+        .setting-group {
+            backface-visibility: hidden;
+        }
+        
+        /* Input animations */
+        input[type="range"], select, input[type="checkbox"] {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Wallpaper item enter animation */
+        @keyframes wallpaperEnter {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .wallpaper-item {
+            animation: wallpaperEnter 0.4s ease forwards;
+        }
+        
+        /* Panel overlay effect */
+        #settings-panel::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        #settings-panel.open::before {
+            opacity: 1;
+        }
+        .setting-group { margin-bottom: 24px; }
+        .label-text { 
+            display: block; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            color: #64748b; 
+            margin-bottom: 10px; 
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
         .custom-select-trigger {
             display: flex; align-items: center; justify-content: space-between;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
             color: #e2e8f0;
-            padding: 10px 14px;
-            border-radius: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .custom-select-trigger:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(16,185,129,0.3);
         }
         .custom-options {
             position: absolute;
             top: calc(100% + 6px);
             left: 0; right: 0;
-            background: #111;
+            background: #0f0f0f;
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             display: none;
             z-index: 50;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            animation: slideDown 0.2s ease;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .custom-options.open { display: block; }
-        .custom-option { padding: 10px 14px; cursor: pointer; transition: background 0.15s; font-size: 14px; }
-        .custom-option:hover { background: var(--accent); color: #000; }
+        .custom-option { 
+            padding: 12px 16px; 
+            cursor: pointer; 
+            transition: all 0.15s ease; 
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .custom-option:last-child { border-bottom: none; }
+        .custom-option:hover { 
+            background: linear-gradient(90deg, rgba(16,185,129,0.15) 0%, transparent 100%);
+            color: var(--accent);
+            padding-left: 20px;
+        }
         select, .custom-input {
             width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
             color: #e2e8f0;
-            padding: 10px 14px;
-            border-radius: 10px;
+            padding: 12px 16px;
+            border-radius: 12px;
             outline: none;
             font-size: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
-        .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+        select:hover, .custom-input:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(16,185,129,0.3);
+        }
+        select:focus, .custom-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+        }
+        .wallpaper-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
         .wallpaper-item {
             aspect-ratio: 16/9;
-            border-radius: 8px;
+            border-radius: 12px;
             background-size: cover;
             background-position: center;
             cursor: pointer;
             border: 2px solid transparent;
-            transition: border-color 0.15s;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow: hidden;
+            position: relative;
         }
-        .wallpaper-item.active { border-color: var(--accent); }
+        .wallpaper-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .wallpaper-item:hover {
+            transform: scale(1.05);
+            border-color: rgba(16,185,129,0.5);
+            box-shadow: 0 8px 30px rgba(16,185,129,0.2);
+        }
+        .wallpaper-item:hover::before { opacity: 1; }
+        .wallpaper-item.active { 
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+            transform: scale(1.02);
+        }
         .wallpaper-item.no-bg {
             background: var(--bg-gradient);
             display: flex;
@@ -132,6 +284,7 @@
             font-weight: bold;
             color: rgba(255,255,255,0.5);
         }
+        .wallpaper-item.no-bg::before { display: none; }
         .clock-container {
             position: absolute;
             top: var(--clock-top);
@@ -208,42 +361,105 @@
             text-align: center;
             overflow: hidden;
         }
-        .tab-item:hover { border-color: var(--accent); transform: translateY(-2px); background: rgba(255,255,255,0.08); }
+        .tab-item:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-4px) scale(1.05); 
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 8px 20px rgba(16,185,129,0.15);
+        }
         #save-indicator {
             display: none;
-            background: #052e16;
+            background: linear-gradient(135deg, #052e16 0%, #065f46 100%);
             border: 1px solid #065f46;
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 10px 14px;
+            border-radius: 10px;
             margin-bottom: 12px;
             color: #bbf7d0;
             font-size: 13px;
+            animation: slideInDown 0.3s ease;
+        }
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         #storage-warning {
             display: none;
-            background: #2b2b2b;
+            background: linear-gradient(135deg, #2b2b2b 0%, #3d3d3d 100%);
             border: 1px solid #4b5563;
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 10px 14px;
+            border-radius: 10px;
             margin-bottom: 12px;
             color: #fef3c7;
             font-size: 13px;
+            animation: shake 0.5s ease;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
         .close-btn {
             cursor: pointer;
             font-size: 24px;
             opacity: 0.5;
-            transition: opacity 0.15s;
+            transition: all 0.2s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
         }
-        .close-btn:hover { opacity: 1; }
+        .close-btn:hover { 
+            opacity: 1; 
+            background: rgba(255,255,255,0.05);
+            transform: rotate(90deg);
+        }
         input[type="range"] {
             width: 100%;
-            accent-color: var(--accent);
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.1);
+            outline: none;
+            -webkit-appearance: none;
         }
-        input[type="checkbox"] {
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
             width: 18px;
             height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 10px rgba(16,185,129,0.3);
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 15px rgba(16,185,129,0.5);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 10px rgba(16,185,129,0.3);
+        }
+        input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 15px rgba(16,185,129,0.5);
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
             accent-color: var(--accent);
+            transition: all 0.2s ease;
+        }
+        input[type="checkbox"]:hover {
+            transform: scale(1.1);
         }
         .reset-btn {
             margin-top: auto;
@@ -251,19 +467,311 @@
             border: 1px solid #ef4444;
             color: #ef4444;
             background: transparent;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             font-size: 11px;
             text-transform: uppercase;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
         }
-        .reset-btn:hover { background: #ef4444; color: white; }
-        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-        .header-title { font-size: 18px; font-weight: bold; color: var(--accent); text-transform: uppercase; }
-        .shake-group { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; }
+        .reset-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        .reset-btn:hover { 
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239,68,68,0.3);
+        }
+        .reset-btn:hover::before { opacity: 1; }
+        .reset-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        .header-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header-title { 
+            font-size: 16px; 
+            font-weight: 800; 
+            color: var(--accent); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--accent) 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .shake-group { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding-bottom: 16px;
+        }
         .shake-label { margin: 0; }
+        .setting-group .label-text {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .setting-group .label-text svg {
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            :root {
+                --search-width: 90vw;
+                --clock-scale: 0.6;
+            }
+
+            #settings-btn {
+                top: 16px;
+                right: 16px;
+                width: 44px;
+                height: 44px;
+            }
+
+            #settings-panel {
+                width: 100%;
+                right: -100%;
+                padding: 20px 16px;
+            }
+
+            .header-title {
+                font-size: 14px;
+            }
+
+            .clock-container {
+                pointer-events: auto;
+            }
+
+            .time-block {
+                font-size: calc(18vw * var(--clock-scale));
+            }
+
+            .time-divider {
+                width: calc(10vw * var(--clock-scale));
+                height: calc(2px * var(--clock-scale));
+            }
+
+            .search-input {
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+
+            .wallpaper-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+
+            .wallpaper-item {
+                border-radius: 8px;
+            }
+
+            .tab-item {
+                width: 50px;
+                height: 36px;
+                font-size: 9px;
+            }
+
+            input[type="range"] {
+                height: 4px;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                width: 16px;
+                height: 16px;
+            }
+
+            input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --clock-scale: 0.5;
+                --search-width: 95vw;
+            }
+
+            #settings-btn {
+                width: 40px;
+                height: 40px;
+                top: 12px;
+                right: 12px;
+            }
+
+            #settings-panel {
+                padding: 16px 12px;
+            }
+
+            .header-row {
+                margin-bottom: 20px;
+                padding-bottom: 12px;
+            }
+
+            .header-title {
+                font-size: 13px;
+                letter-spacing: 0.5px;
+            }
+
+            .setting-group {
+                margin-bottom: 16px;
+            }
+
+            .label-text {
+                font-size: 9px;
+                margin-bottom: 8px;
+            }
+
+            .custom-select-trigger,
+            select,
+            .custom-input {
+                padding: 10px 12px;
+                font-size: 13px;
+                border-radius: 10px;
+            }
+
+            .custom-option {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .wallpaper-grid {
+                gap: 4px;
+            }
+
+            .wallpaper-item {
+                border-radius: 6px;
+            }
+
+            .time-block {
+                font-size: calc(20vw * var(--clock-scale));
+            }
+
+            .search-wrapper {
+                border-radius: 40px;
+            }
+
+            .search-input {
+                padding: 10px 16px;
+                font-size: 15px;
+            }
+
+            .recent-tabs {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tab-item {
+                width: 45px;
+                height: 32px;
+                font-size: 8px;
+                border-radius: 6px;
+            }
+
+            .reset-btn {
+                padding: 12px;
+                font-size: 10px;
+            }
+
+            #save-indicator,
+            #storage-warning {
+                padding: 8px 10px;
+                font-size: 11px;
+                border-radius: 8px;
+            }
+
+            .close-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-height: 600px) and (orientation: landscape) {
+            :root {
+                --clock-scale: 0.5;
+                --clock-pos: center-left;
+                --search-pos: bottom-center;
+            }
+
+            .clock-container {
+                left: 20px;
+                top: 50%;
+                transform: translate(0, -50%);
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .time-block {
+                font-size: calc(12vw * var(--clock-scale));
+            }
+
+            .time-divider {
+                width: calc(8vw * var(--clock-scale));
+                height: calc(3px * var(--clock-scale));
+            }
+
+            .search-container {
+                top: auto;
+                bottom: 10%;
+            }
+
+            #settings-panel {
+                width: 85%;
+                max-width: 320px;
+            }
+        }
+
+        /* Touch-friendly adjustments */
+        @media (hover: none) and (pointer: coarse) {
+            #settings-btn:active {
+                transform: scale(0.9);
+            }
+
+            .wallpaper-item:active {
+                transform: scale(0.95);
+            }
+
+            .tab-item:active {
+                transform: scale(0.95);
+            }
+
+            .custom-select-trigger:active,
+            select:active,
+            .custom-option:active {
+                transform: scale(0.98);
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                width: 22px;
+                height: 22px;
+            }
+
+            input[type="checkbox"] {
+                width: 22px;
+                height: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -285,16 +793,21 @@
         </div>
 
         <div class="setting-group">
-            <span class="label-text">Поисковик</span>
-            <div style="padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #94a3b8; font-size: 14px;">
+            <span class="label-text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                Поисковик
+            </span>
+            <div style="padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #e2e8f0; font-size: 14px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                     </svg>
-                    <span>Используется поисковик браузера по умолчанию</span>
+                    <span id="defaultEngineName">Загрузка...</span>
                 </div>
-                <div style="margin-top: 8px; font-size: 12px; color: #64748b;">
-                    Для изменения откройте Настройки браузера → Поиск
+                <div style="margin-top: 8px; font-size: 11px; color: #64748b;">
+                    Для изменения: Настройки браузера → Поиск
                 </div>
             </div>
         </div>
@@ -380,17 +893,22 @@
     </div>
 
     <script>
-        const STORAGE_KEY = 'plezix_v11_tabs';
-        const PREF_KEY = 'browser.newtab.plezix.settings';
+        const STORAGE_KEY = 'plezix_v11_settings';
+        const TABS_STORAGE_KEY = 'plezix_v11_tabs';
         const Ci = (typeof Components !== 'undefined' && Components.interfaces) || {};
         const Cu = (typeof Components !== 'undefined' && Components.utils) || {};
-        
-        // Import Services module if available (for getting default search engine)
+        const Cc = (typeof Components !== 'undefined' && Components.classes) || {};
+
+        // Import Services module for getting default search engine
+        let Services = null;
         try {
             if (typeof ChromeUtils !== 'undefined') {
                 ChromeUtils.import("resource://gre/modules/Services.jsm");
+                Services = window.Services || Services;
             }
-        } catch(e) {}
+        } catch(e) {
+            console.log('Services not available:', e);
+        }
 
         const builtInWallpapers = [
             "https://github.com/yoncola1/Plezix/blob/main/browser/base/content/wallpapers/wallpaper_0.jpg?raw=true",
@@ -416,7 +934,8 @@
             searchPos: 'bottom-center',
             searchWidth: 440,
             shakeEnabled: true,
-            recentTabs: []
+            recentTabs: [],
+            defaultEngineName: ''
         };
 
         const posMap = {
@@ -434,22 +953,59 @@
         const searchPatterns = [/duckduckgo\.com\/\?q=/i, /google\.[a-z]+\/search\?q=/i, /bing\.com\/search\?q=/i, /yandex\.[a-z]+\/search/i];
 
         function isSearchUrl(url) { return searchPatterns.some(p => p.test(url)); }
-        function toggleSettings(e) { if(e) e.stopPropagation(); document.getElementById('settings-panel').classList.toggle('open'); }
+        
+        function toggleSettings(e) {
+            if(e) e.stopPropagation();
+            const panel = document.getElementById('settings-panel');
+            const btn = document.getElementById('settings-btn');
+            
+            panel.classList.toggle('open');
+            
+            // Animate button
+            if (panel.classList.contains('open')) {
+                btn.style.transform = 'rotate(90deg)';
+                btn.style.background = 'rgba(16,185,129,0.2)';
+                btn.style.borderColor = 'var(--accent)';
+            } else {
+                btn.style.transform = 'rotate(0deg)';
+                btn.style.background = 'var(--glass)';
+                btn.style.borderColor = 'var(--glass-border)';
+            }
+        }
 
-        // Get default search engine URL from browser settings
-        function getDefaultSearchEngineURL() {
+        // Get default search engine submission URL using Services.search
+        async function getDefaultSearchEngineURL(query = '') {
             try {
-                if (typeof Services !== 'undefined' && Services.search) {
-                    const defaultEngine = Services.search.defaultEngine;
-                    if (defaultEngine) {
-                        return defaultEngine.searchURL;
+                if (Services && Services.search) {
+                    const engine = await Services.search.getDefault();
+                    if (engine) {
+                        settings.defaultEngineName = engine.name;
+                        // Update UI
+                        const nameEl = document.getElementById('defaultEngineName');
+                        if (nameEl) {
+                            nameEl.textContent = engine.name;
+                        }
+                        if (query) {
+                            // Use getSubmission for proper URL generation
+                            const submission = engine.getSubmission(query);
+                            return submission.uri.spec;
+                        }
+                        // Return template URL
+                        return engine.searchURL;
                     }
                 }
             } catch(e) {
                 console.log('Could not get default search engine:', e);
             }
             // Fallback to DuckDuckGo
-            return 'https://duckduckgo.com/?q={searchTerms}';
+            const fallbackName = 'DuckDuckGo';
+            const nameEl = document.getElementById('defaultEngineName');
+            if (nameEl) {
+                nameEl.textContent = fallbackName;
+            }
+            return query 
+                ? 'https://duckduckgo.com/?q=' + encodeURIComponent(query)
+                : 'https://duckduckgo.com/?q={searchTerms}';
         }
 
         function resolveUrl(url) {
@@ -472,23 +1028,25 @@
                 el.classList.add('wp-hidden');
                 el.style.backgroundImage = 'none';
             }
-            updateSettings();
-            saveSettings();
+            updateSettings(); // This will force save
         }
 
         function renderWallpapers() {
             const grid = document.getElementById('wallpaperGrid');
             if (!grid) return;
             grid.innerHTML = '';
+            
             const noBg = document.createElement('div');
             noBg.className = 'wallpaper-item no-bg' + (settings.bgData === '' ? ' active' : '');
             noBg.innerHTML = '<span>Без фона</span>';
             noBg.onclick = () => { setBackground(''); renderWallpapers(); };
             grid.appendChild(noBg);
-            builtInWallpapers.forEach(url => {
+            
+            builtInWallpapers.forEach((url, index) => {
                 const item = document.createElement('div');
                 const resolved = resolveUrl(url);
                 item.className = 'wallpaper-item' + (settings.bgData === url ? ' active' : '');
+                item.style.animationDelay = (index * 0.05) + 's';
                 if (resolved) item.style.backgroundImage = `url("${resolved}")`;
                 item.onclick = () => { setBackground(url); renderWallpapers(); };
                 grid.appendChild(item);
@@ -516,13 +1074,33 @@
             tabs.unshift({ url, timestamp: Date.now() });
             settings.recentTabs = tabs.slice(0, 6);
             updateRecentTabsUI();
-            updateSettings();
+            
+            // Save to separate storage for tabs
+            try {
+                localStorage.setItem(TABS_STORAGE_KEY, JSON.stringify(settings.recentTabs));
+                // Broadcast to other tabs
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: TABS_STORAGE_KEY,
+                    newValue: JSON.stringify(settings.recentTabs),
+                    url: window.location.href
+                }));
+            } catch(e) {}
         }
 
         function removeTab(url) {
             settings.recentTabs = settings.recentTabs.filter(t => t.url !== url);
             updateRecentTabsUI();
-            updateSettings();
+            
+            // Save to separate storage for tabs
+            try {
+                localStorage.setItem(TABS_STORAGE_KEY, JSON.stringify(settings.recentTabs));
+                // Broadcast to other tabs
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: TABS_STORAGE_KEY,
+                    newValue: JSON.stringify(settings.recentTabs),
+                    url: window.location.href
+                }));
+            } catch(e) {}
         }
 
         function updateSettings() {
@@ -532,7 +1110,10 @@
             settings.searchWidth = document.getElementById('search-width-slider').value;
             settings.shakeEnabled = document.getElementById('shake-effect').checked;
             applySettings();
-            saveSettings();
+            saveSettings(true); // Force save and broadcast
+            
+            // Dispatch custom event for cross-tab sync
+            window.dispatchEvent(new CustomEvent('plezix-settings-updated'));
         }
 
         function applySettings() {
@@ -559,9 +1140,23 @@
             }
         }
 
-        function saveSettings() {
+        function saveSettings(force = false) {
             try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+                const saved = localStorage.getItem(STORAGE_KEY);
+                const newSettings = JSON.stringify(settings);
+                
+                // Always save and broadcast if forced or settings changed
+                if (force || saved !== newSettings) {
+                    localStorage.setItem(STORAGE_KEY, newSettings);
+                    
+                    // Broadcast to other tabs immediately
+                    window.dispatchEvent(new StorageEvent('storage', {
+                        key: STORAGE_KEY,
+                        newValue: newSettings,
+                        url: window.location.href
+                    }));
+                }
+                
                 const indicator = document.getElementById('save-indicator');
                 if (indicator) {
                     indicator.style.display = 'block';
@@ -571,43 +1166,87 @@
             } catch(e) {
                 const warning = document.getElementById('storage-warning');
                 if (warning) warning.style.display = 'block';
+                console.error('Failed to save settings:', e);
             }
         }
 
-        function loadSettings() {
+        async function loadSettings(force = false) {
             try {
+                // Always try to load from localStorage
                 const loaded = localStorage.getItem(STORAGE_KEY);
+                
                 if (loaded) {
                     const parsed = JSON.parse(loaded);
                     settings = { ...settings, ...parsed };
-                    settings.clockSize = Number(settings.clockSize) || 1;
-                    settings.searchWidth = Number(settings.searchWidth) || 440;
-                    settings.shakeEnabled = (settings.shakeEnabled === true);
-                    const cs = document.getElementById('clock-size');
-                    if (cs) cs.value = settings.clockSize;
-                    const cp = document.getElementById('clock-pos');
-                    if (cp) cp.value = settings.clockPos;
-                    const sp = document.getElementById('search-pos');
-                    if (sp) sp.value = settings.searchPos;
-                    const sw = document.getElementById('search-width-slider');
-                    if (sw) sw.value = settings.searchWidth;
-                    const shake = document.getElementById('shake-effect');
-                    if (shake) shake.checked = settings.shakeEnabled;
-                    applySettings();
-                    if (settings.bgData) {
-                        const resolved = resolveUrl(settings.bgData);
-                        const el = document.getElementById('wp-1');
-                        if (el) {
-                            el.style.backgroundImage = resolved ? `url("${resolved}")` : `url(${settings.bgData})`;
-                            el.classList.add('wp-visible');
-                        }
+                }
+                
+                // Load recent tabs from separate storage
+                const tabsLoaded = localStorage.getItem(TABS_STORAGE_KEY);
+                if (tabsLoaded) {
+                    try {
+                        settings.recentTabs = JSON.parse(tabsLoaded);
+                    } catch(e) {
+                        settings.recentTabs = [];
                     }
                 }
-            } catch(e) {}
+                
+                // Ensure numeric values
+                settings.clockSize = Number(settings.clockSize) || 1;
+                settings.searchWidth = Number(settings.searchWidth) || 440;
+                settings.shakeEnabled = (settings.shakeEnabled === true);
+                
+                // Update UI controls
+                const cs = document.getElementById('clock-size');
+                if (cs) cs.value = settings.clockSize;
+                const cp = document.getElementById('clock-pos');
+                if (cp) cp.value = settings.clockPos;
+                const sp = document.getElementById('search-pos');
+                if (sp) sp.value = settings.searchPos;
+                const sw = document.getElementById('search-width-slider');
+                if (sw) sw.value = settings.searchWidth;
+                const shake = document.getElementById('shake-effect');
+                if (shake) shake.checked = settings.shakeEnabled;
+                
+                applySettings();
+                
+                // Load background
+                if (settings.bgData) {
+                    const resolved = resolveUrl(settings.bgData);
+                    const el = document.getElementById('wp-1');
+                    if (el) {
+                        el.style.backgroundImage = resolved ? `url("${resolved}")` : `url(${settings.bgData})`;
+                        el.classList.add('wp-visible');
+                    }
+                }
+                
+                // Update recent tabs UI
+                updateRecentTabsUI();
+                
+                // Get default search engine name for display
+                await getDefaultSearchEngineURL();
+                
+            } catch(e) {
+                console.error('Failed to load settings:', e);
+            }
         }
 
         function resetAll() {
-            try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                localStorage.removeItem(TABS_STORAGE_KEY);
+                
+                // Broadcast reset to other tabs
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: STORAGE_KEY,
+                    newValue: null,
+                    url: window.location.href
+                }));
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: TABS_STORAGE_KEY,
+                    newValue: null,
+                    url: window.location.href
+                }));
+            } catch(e) {}
             location.reload();
         }
 
@@ -633,44 +1272,103 @@
             document.getElementById('min').textContent = String(now.getMinutes()).padStart(2, '0');
         }
 
-        document.getElementById('searchForm').onsubmit = (e) => {
+        document.getElementById('searchForm').onsubmit = async (e) => {
             e.preventDefault();
             const q = document.getElementById('searchInput').value.trim();
             if (!q) return;
+            
             let url;
             if (q.startsWith('http')) {
                 url = q;
             } else if (q.includes('.') && !q.includes(' ')) {
                 url = 'https://' + q;
             } else {
-                // Use the browser's default search engine
-                const searchURL = getDefaultSearchEngineURL();
-                url = searchURL.replace('{searchTerms}', encodeURIComponent(q));
+                // Use the browser's default search engine with getSubmission
+                url = await getDefaultSearchEngineURL(q);
             }
-            if (!isSearchUrl(url)) addRecentTab(url);
-            try { window.open(url, '_blank'); } catch(e) {}
+            
+            if (!isSearchUrl(url)) {
+                addRecentTab(url);
+                // Save last visited for tracking
+                try { localStorage.setItem('plezix_last_visited', url); } catch(e) {}
+            }
+            
+            try { 
+                window.open(url, '_blank'); 
+            } catch(e) {
+                // Fallback: open in same tab
+                window.location.href = url;
+            }
         };
 
         // Init
-        window.onload = () => {
-            const hasStorage = (() => { try { localStorage.setItem('_t','_t'); localStorage.removeItem('_t'); return true; } catch(e) { return false; } })();
-            if (!hasStorage) { const w = document.getElementById('storage-warning'); if (w) w.style.display = 'block'; }
-            loadSettings();
+        window.onload = async () => {
+            const hasStorage = (() => { 
+                try { 
+                    localStorage.setItem('_t','_t'); 
+                    localStorage.removeItem('_t'); 
+                    return true; 
+                } catch(e) { 
+                    return false; 
+                } 
+            })();
+            
+            if (!hasStorage) { 
+                const w = document.getElementById('storage-warning'); 
+                if (w) w.style.display = 'block'; 
+            }
+            
+            // Force load settings from localStorage on every page load
+            await loadSettings(true);
+            
             renderWallpapers();
             updateRecentTabsUI();
             updateTime();
             setInterval(updateTime, 1000);
+            
+            // Track last visited page
             try {
                 const lastVisited = localStorage.getItem('plezix_last_visited');
-                if (lastVisited && !isSearchUrl(lastVisited)) addRecentTab(lastVisited);
+                if (lastVisited && !isSearchUrl(lastVisited)) {
+                    addRecentTab(lastVisited);
+                }
                 if (document.referrer && !isSearchUrl(document.referrer)) {
                     addRecentTab(document.referrer);
                     localStorage.setItem('plezix_last_visited', document.referrer);
                 }
             } catch(e) {}
+            
+            // Listen for settings changes from other tabs (force sync)
             window.addEventListener('storage', (ev) => {
                 if (ev.key === STORAGE_KEY && ev.newValue) {
-                    try { loadSettings(); } catch(e) {}
+                    console.log('Settings updated from another tab, reloading...');
+                    loadSettings(true);
+                }
+                if (ev.key === TABS_STORAGE_KEY && ev.newValue) {
+                    try {
+                        settings.recentTabs = JSON.parse(ev.newValue);
+                        updateRecentTabsUI();
+                    } catch(e) {}
+                }
+            });
+            
+            // Also listen for custom settings update events
+            window.addEventListener('plezix-settings-updated', () => {
+                loadSettings(true);
+            });
+            
+            // Listen for ContentSearchClient messages
+            window.addEventListener('ContentSearchClient', (e) => {
+                const { type, data } = e.detail || {};
+                if (type === 'Search' && data?.searchString) {
+                    // Perform search with default engine
+                    getDefaultSearchEngineURL(data.searchString).then(url => {
+                        try {
+                            window.open(url, '_blank');
+                        } catch(err) {
+                            window.location.href = url;
+                        }
+                    });
                 }
             });
         };
