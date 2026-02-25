@@ -1141,7 +1141,7 @@ mod tests {
                   },
                   "variants": [{
                     "environment": {
-                      "applications": ["plezix-android", "focus-ios"]
+                      "applications": ["firefox-android", "focus-ios"]
                     }
                   }],
                 },
