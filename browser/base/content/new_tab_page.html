@@ -974,40 +974,7 @@
         }
 
         // Get default search engine submission URL using Services.search
-        async function getDefaultSearchEngineURL(query = '') {
-            try {
-                if (Services && Services.search) {
-                    const engine = await Services.search.getDefault();
-                    if (engine) {
-                        settings.defaultEngineName = engine.name;
-                        // Update UI
-                        const nameEl = document.getElementById('defaultEngineName');
-                        if (nameEl) {
-                            nameEl.textContent = engine.name;
-                        }
-                        if (query) {
-                            // Use getSubmission for proper URL generation
-                            const submission = engine.getSubmission(query);
-                            return submission.uri.spec;
-                        }
-                        // Return template URL
-                        return engine.searchURL;
-                    }
-                }
-            } catch(e) {
-                console.log('Could not get default search engine:', e);
-            }
-            // Fallback to DuckDuckGo
-            const fallbackName = 'DuckDuckGo';
-            const nameEl = document.getElementById('defaultEngineName');
-            if (nameEl) {
-                nameEl.textContent = fallbackName;
-            }
-            return query 
-                ? 'https://duckduckgo.com/?q=' + encodeURIComponent(query)
-                : 'https://duckduckgo.com/?q={searchTerms}';
-        }
-
+        
         function resolveUrl(url) {
             if (!url) return null;
             if (/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(url) || url.startsWith('data:')) return url;
