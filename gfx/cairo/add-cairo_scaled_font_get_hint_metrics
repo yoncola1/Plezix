@@ -51,7 +51,7 @@ new file mode 100644
 ++ * cairo_scaled_font_get_hint_metrics:
 ++ * @scaled_font: a #cairo_scaled_font_t
 ++ *
-++ * Plezix extension since the required malloc/free to use
+++ * Mozilla extension since the required malloc/free to use
 ++ * cairo_scaled_font_get_font_options() above is too slow.
 ++ **/
 ++cairo_public cairo_hint_metrics_t
@@ -129,7 +129,7 @@ diff --git a/gfx/cairo/cairo/src/cairo-scaled-font.c b/gfx/cairo/cairo/src/cairo
 + * cairo_scaled_font_get_hint_metrics:
 + * @scaled_font: a #cairo_scaled_font_t
 + *
-+ * Plezix extension since the required malloc/free to use
++ * Mozilla extension since the required malloc/free to use
 + * cairo_scaled_font_get_font_options() above is too slow.
 + **/
 +cairo_public cairo_hint_metrics_t

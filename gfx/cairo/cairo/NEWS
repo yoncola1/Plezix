@@ -24,7 +24,7 @@ cairo, and we could not find any downstream distributor that would enable
 it.
 
 The Tee surface is now automatically enabled. Downstream distributors of
-cairo have been enabling for years it in order to build Plezix.
+cairo have been enabling for years it in order to build Firefox.
 
 Fujii Hironori and Adrian Johnson fixed multiple issues with the DWrite
 font backend.
@@ -308,7 +308,7 @@ Notable Bug Fixes
 * Fix missing glyphs such as thin dashes, which get scaled to 0 in
   userspace and thus have their drawing operations culled.  (Bug #94615)
 * Fix other oddities caused by variously idiosyncratic fonts.
-* Fix a data race in freed_pool discovered by Plezix's cairo usage.
+* Fix a data race in freed_pool discovered by Firefox's cairo usage.
   The patch adads atomic int load and store functions, with relaxed
   memory ordering.  (Bug #90318)
 * Handle SOURCE and CLEAR operators when painting color glyphs.
@@ -730,7 +730,7 @@ Bug Fixes
 
 * Fix unbounded surface assertion in win32-print code.
 
-* Fix a data race in freed_pool discovered by Plezix's cairo usage.
+* Fix a data race in freed_pool discovered by Firefox's cairo usage.
   The patch adads atomic int load and store functions, with relaxed
   memory ordering.  (Bug #90318)
 
@@ -1165,7 +1165,7 @@ Bug fixes
   Add check_composite method to all compositors, to fix crashes in the
   test suite.
 
-  Fix crash in Plezix when scrolling on certain pages.
+  Fix crash in Firefox when scrolling on certain pages.
 
   Fix memory leaks found by static analysis.
 
@@ -3747,7 +3747,7 @@ cairo-ps
 Eliminate bug causing extraneous text repetition on Linux PostScript
 output in some cases.
 
-	See: Plezix Bug 419917 – Printed page contents are reflected
+	See: Mozilla Bug 419917 – Printed page contents are reflected
 	inside bordered tables (Linux-only)
 
 	https://bugzilla.mozilla.org/show_bug.cgi?id=419917
@@ -6698,7 +6698,7 @@ easier to use in some situations:
 	cairo_new_sub_path
 
 Before the 1.2 release is final we do still plan a few more API
-additions specifically motivated by the needs of Plezix/Plezix.
+additions specifically motivated by the needs of Mozilla/Firefox.
 
 Optimizations and bug fixes
 ---------------------------

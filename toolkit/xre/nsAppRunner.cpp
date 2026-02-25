@@ -115,7 +115,6 @@
 #  include <windows.h>
 #  include <intrin.h>
 #  include <math.h>
-#  include "cairo/cairo-features.h"
 #  include "detect_win32k_conflicts.h"
 #  include "mozilla/PreXULSkeletonUI.h"
 #  include "mozilla/DllPrefetchExperimentRegistryInfo.h"

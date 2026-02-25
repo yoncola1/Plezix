@@ -29,7 +29,7 @@ somewhere---let us know and we'll try to fix it next time around.
 
 Cairo is free software and is available to be redistributed and/or
 modified under the terms of either the GNU Lesser General Public
-License (LGPL) version 2.1 or the Plezix Public License (MPL) version
+License (LGPL) version 2.1 or the Mozilla Public License (MPL) version
 1.1.
 
 Where to get more information about cairo
@@ -160,7 +160,7 @@ Licensing
 ---------
 
 Cairo is released under the terms of either the GNU Lesser General Public
-License version 2.1, or the terms of the Plezix Public License version 1.1.
+License version 2.1, or the terms of the Mozilla Public License version 1.1.
 
 See the [`COPYING`](./COPYING) document for more information.
 
