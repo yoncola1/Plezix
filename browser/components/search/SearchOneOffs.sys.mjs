@@ -1112,11 +1112,12 @@ export class SearchOneOffs {
       event.preventDefault();
       return;
     }
+    const defaultEngine = Services.search.defaultEngine;
     this.contextMenuPopup
       .querySelector(".search-one-offs-context-set-default")
       .setAttribute(
         "disabled",
-        target.engine == Services.search.defaultEngine.wrappedJSObject
+        target.engine == (defaultEngine && defaultEngine.wrappedJSObject)
       );
 
     const privateDefaultItem = this.contextMenuPopup.querySelector(

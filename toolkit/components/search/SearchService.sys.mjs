@@ -2681,12 +2681,27 @@ export class SearchService {
    */
   #createFallbackConfig() {
     lazy.logConsole.debug("Creating fallback engine configuration");
-    
-    // Return a minimal valid configuration
+
+    // PLEZIX FIX: Return a valid fallback configuration with Google as default
+    // instead of empty config that causes crashes
     return {
-      engines: [],
-      appDefaultEngineId: null,
-      appPrivateDefaultEngineId: null
+      engines: [
+        {
+          identifier: "google",
+          name: "Google",
+          isAppProvided: true,
+          searchUrlDomain: "google.com",
+          urls: {
+            search: {
+              telemetryPath: "/search",
+              searchForm: "https://www.google.com/search",
+              extensionID: "google@search.mozilla.org"
+            }
+          }
+        }
+      ],
+      appDefaultEngineId: "google",
+      appPrivateDefaultEngineId: "google"
     };
   }
 
@@ -2694,21 +2709,21 @@ export class SearchService {
     // PLEZIX FIX: Add null-check for refinedConfig to prevent crash
     if (!refinedConfig) {
       lazy.logConsole.error("refinedConfig is null/undefined, using fallback defaults");
-      this._searchDefault = null;
-      this.#searchPrivateDefault = null;
+      this._searchDefault = "google";
+      this.#searchPrivateDefault = "google";
       return;
     }
 
     // PLEZIX FIX: Validate appDefaultEngineId before assigning
     if (!refinedConfig.appDefaultEngineId) {
-      lazy.logConsole.error("refinedConfig missing appDefaultEngineId, using fallback");
-      this._searchDefault = null;
+      lazy.logConsole.error("refinedConfig missing appDefaultEngineId, using fallback to google");
+      this._searchDefault = "google";
     } else {
       this._searchDefault = refinedConfig.appDefaultEngineId;
     }
 
-    // Private default is optional
-    this.#searchPrivateDefault = refinedConfig.appPrivateDefaultEngineId || null;
+    // Private default is optional, fallback to main default if missing
+    this.#searchPrivateDefault = refinedConfig.appPrivateDefaultEngineId || this._searchDefault;
   }
 
   #saveSortedEngineList() {

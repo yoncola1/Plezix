@@ -2374,8 +2374,9 @@ export class UrlbarView {
       return row.result.rowLabel;
     }
 
+    let defaultEngine = Services.search.defaultEngine;
     let engineName =
-      row.result.payload.engine || Services.search.defaultEngine.name;
+      row.result.payload.engine || (defaultEngine && defaultEngine.name) || "Google";
 
     if (row.result.payload.trending) {
       return {

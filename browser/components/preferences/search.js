@@ -1039,8 +1039,8 @@ class EngineView {
       this.selectedIndex != -1 &&
       this.lastEngineIndex != 0 &&
       !this._getLocalShortcut(this.selectedIndex) &&
-      this.selectedEngine.name != defaultEngine.name &&
-      this.selectedEngine.name != defaultPrivateEngine.name
+      (!defaultEngine || this.selectedEngine.name != defaultEngine.name) &&
+      (!defaultPrivateEngine || this.selectedEngine.name != defaultPrivateEngine.name)
     );
   }
 

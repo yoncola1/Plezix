@@ -71,8 +71,12 @@ const DEFAULT_SITES_OVERRIDE_PREF =
 const DEFAULT_SITES_EXPERIMENTS_PREF_BRANCH = "browser.topsites.experiment.";
 
 function getShortHostnameForCurrentSearch() {
+  const defaultEngine = Services.search.defaultEngine;
+  if (!defaultEngine || !defaultEngine.searchUrlDomain) {
+    return "google.com";
+  }
   const url = lazy.NewTabUtils.shortHostname(
-    Services.search.defaultEngine.searchUrlDomain
+    defaultEngine.searchUrlDomain
   );
   return url;
 }

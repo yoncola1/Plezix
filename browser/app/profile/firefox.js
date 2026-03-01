@@ -854,6 +854,8 @@ pref("browser.search.currentLocale", "en-US");
 // Disable geo-specific engine filtering
 pref("browser.search.geoSpecificDefaults", false);
 pref("browser.search.geoSpecificDefaults.override", true);
+// Set default search engine to Google
+pref("browser.search.defaultenginename", "Google");
 // Ensure all engines are visible
 pref("browser.search.showOneOffButtons", true);
 // Enable multiple search engines

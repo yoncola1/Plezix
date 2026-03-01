@@ -207,21 +207,23 @@ export class EngineURL {
    * @throws NS_ERROR_NOT_IMPLEMENTED if aType is unsupported.
    */
   constructor(mimeType, requestMethod, template) {
+    // PLEZIX FIX: Handle missing or invalid parameters gracefully
     if (!mimeType || !requestMethod || !template) {
-      throw Components.Exception(
-        "missing mimeType, method or template for EngineURL!",
-        Cr.NS_ERROR_INVALID_ARG
-      );
+      lazy.logConsole?.warn?.("Plezix: Invalid EngineURL parameters", { mimeType, requestMethod, template });
+      // Set safe defaults to prevent crash
+      this.type = "text/html";
+      this.method = "GET";
+      this.template = "https://www.google.com/search?q={searchTerms}";
+      this.#searchTermParam = "q";
+      return;
     }
 
     var method = requestMethod.toUpperCase();
     var type = mimeType.toLowerCase();
 
     if (method != "GET" && method != "POST") {
-      throw Components.Exception(
-        'method passed to EngineURL must be "GET" or "POST"',
-        Cr.NS_ERROR_INVALID_ARG
-      );
+      lazy.logConsole?.warn?.("Plezix: Invalid method, defaulting to GET");
+      method = "GET";
     }
 
     this.type = type;
@@ -229,10 +231,9 @@ export class EngineURL {
 
     var templateURI = lazy.SearchUtils.makeURI(template);
     if (!templateURI) {
-      throw Components.Exception(
-        "new EngineURL: template is not a valid URI!",
-        Cr.NS_ERROR_FAILURE
-      );
+      lazy.logConsole?.error?.("Plezix: Invalid template URI, using Google fallback");
+      template = "https://www.google.com/search?q={searchTerms}";
+      templateURI = lazy.SearchUtils.makeURI(template);
     }
 
     switch (templateURI.scheme) {
@@ -241,10 +242,8 @@ export class EngineURL {
         this.template = template;
         break;
       default:
-        throw Components.Exception(
-          "new EngineURL: template uses invalid scheme!",
-          Cr.NS_ERROR_FAILURE
-        );
+        lazy.logConsole?.warn?.("Plezix: Invalid template scheme, using https");
+        this.template = "https://www.google.com/search?q={searchTerms}";
     }
 
     this.templateHost = templateURI.host;

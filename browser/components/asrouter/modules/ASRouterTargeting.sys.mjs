@@ -716,8 +716,9 @@ const TargetingGetters = {
       Services.search
         .getAppProvidedEngines()
         .then(engines => {
+          const defaultEngine = Services.search.defaultEngine;
           resolve({
-            current: Services.search.defaultEngine.identifier,
+            current: defaultEngine && defaultEngine.identifier || "unknown",
             installed: engines.map(engine => engine.identifier),
           });
         })

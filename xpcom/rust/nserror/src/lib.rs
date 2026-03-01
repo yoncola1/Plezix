@@ -72,6 +72,16 @@ extern "C" {
     fn Gecko_GetErrorName(rv: nsresult, cstr: *mut nsACString);
 }
 
+// PLEZIX FIX: Handle missing error_list.rs during early build stages
+#[cfg(not(feature = "gecko"))]
+mod error_list {
+    // Fallback error codes when error_list.rs is not available
+    pub const NS_OK: super::nsresult = super::nsresult(0);
+    pub const NS_ERROR_FAILURE: super::nsresult = super::nsresult(0x80004005);
+    pub const NS_ERROR_NULL_POINTER: super::nsresult = super::nsresult(0x80004003);
+}
+
+#[cfg(feature = "gecko")]
 mod error_list {
     include!(mozbuild::objdir_path!("xpcom/base/error_list.rs"));
 }

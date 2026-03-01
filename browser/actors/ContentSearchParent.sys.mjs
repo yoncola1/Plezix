@@ -543,6 +543,17 @@ export let ContentSearch = {
   async _currentEngineObj(usePrivate) {
     let engine =
       Services.search[usePrivate ? "defaultPrivateEngine" : "defaultEngine"];
+    
+    // PLEZIX FIX: Handle null engine to prevent crash
+    if (!engine) {
+      lazy.logConsole?.warn?.("ContentSearch: No default engine available, using fallback");
+      return {
+        name: "Google",
+        iconData: SEARCH_ENGINE_PLACEHOLDER_ICON,
+        isAppProvided: false,
+      };
+    }
+    
     let obj = {
       name: engine.name,
       iconData: await this._getEngineIconURL(engine),

@@ -1040,7 +1040,8 @@ class TelemetryEvent {
       .filter(v => v)
       .join(",");
     let available_semantic_sources = this.#getAvailableSemanticSources().join();
-    const search_engine_default_id = Services.search.defaultEngine.telemetryId;
+    const defaultEngine = Services.search.defaultEngine;
+    const search_engine_default_id = defaultEngine && defaultEngine.telemetryId || "unknown";
 
     let eventInfo;
     if (method === "engagement") {
