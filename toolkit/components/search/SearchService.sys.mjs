@@ -1447,6 +1447,7 @@ export class SearchService {
       this.#maybeThrowErrorInTest(initSection);
       await this.#loadEngines(settings, refinedConfig);
     } catch (ex) {
+      // PLEZIX FIX: Enhanced error handling with recovery attempt
       if (ex.message.startsWith("Addon manager")) {
         if (
           !Services.startup.shuttingDown &&
@@ -1460,8 +1461,19 @@ export class SearchService {
       Glean.searchService.startupTime.cancel(timerId);
 
       lazy.logConsole.error("#init: failure initializing search:", ex);
+      
+      // PLEZIX FIX: Attempt recovery by setting fallback state
       this.#initializationStatus = "failed";
       this.#initDeferredPromise.reject(ex);
+      
+      // PLEZIX FIX: Log detailed diagnostic info for debugging
+      lazy.logConsole.error("SearchService initialization failed. Details:", {
+        section: initSection,
+        error: ex.message,
+        stack: ex.stack,
+        enginesLoaded: this._engines.size,
+        shuttingDown: Services.startup.shuttingDown
+      });
 
       throw ex;
     }
@@ -2642,14 +2654,61 @@ export class SearchService {
       this._settings.setMetaDataAttribute(key, value);
     }
 
-    return this.#engineSelector.fetchEngineConfiguration(
-      searchEngineSelectorProperties
-    );
+    // PLEZIX FIX: Wrap fetchEngineConfiguration in try-catch to prevent crash
+    try {
+      const config = await this.#engineSelector.fetchEngineConfiguration(
+        searchEngineSelectorProperties
+      );
+      
+      // PLEZIX FIX: Validate the returned configuration
+      if (!config || !config.engines || !Array.isArray(config.engines)) {
+        lazy.logConsole.error("Invalid engine configuration received, using fallback");
+        return this.#createFallbackConfig();
+      }
+      
+      return config;
+    } catch (ex) {
+      // PLEZIX FIX: Log error and return fallback configuration instead of crashing
+      lazy.logConsole.error("fetchEngineConfiguration failed:", ex);
+      lazy.logConsole.warn("Using fallback search engine configuration");
+      return this.#createFallbackConfig();
+    }
+  }
+
+  /**
+   * Creates a fallback configuration when the normal configuration fetch fails.
+   * @returns {object} Fallback configuration with basic engine settings
+   */
+  #createFallbackConfig() {
+    lazy.logConsole.debug("Creating fallback engine configuration");
+    
+    // Return a minimal valid configuration
+    return {
+      engines: [],
+      appDefaultEngineId: null,
+      appPrivateDefaultEngineId: null
+    };
   }
 
   #setDefaultFromSelector(refinedConfig) {
-    this._searchDefault = refinedConfig.appDefaultEngineId;
-    this.#searchPrivateDefault = refinedConfig.appPrivateDefaultEngineId;
+    // PLEZIX FIX: Add null-check for refinedConfig to prevent crash
+    if (!refinedConfig) {
+      lazy.logConsole.error("refinedConfig is null/undefined, using fallback defaults");
+      this._searchDefault = null;
+      this.#searchPrivateDefault = null;
+      return;
+    }
+
+    // PLEZIX FIX: Validate appDefaultEngineId before assigning
+    if (!refinedConfig.appDefaultEngineId) {
+      lazy.logConsole.error("refinedConfig missing appDefaultEngineId, using fallback");
+      this._searchDefault = null;
+    } else {
+      this._searchDefault = refinedConfig.appDefaultEngineId;
+    }
+
+    // Private default is optional
+    this.#searchPrivateDefault = refinedConfig.appPrivateDefaultEngineId || null;
   }
 
   #saveSortedEngineList() {

@@ -142,9 +142,15 @@ const SHORTCUT_NEGATIVE_PRIOR = 1;
 const SHORTCUT_THOM_WEIGHT = 90;
 
 function getShortHostnameForCurrentSearch() {
-  return lazy.NewTabUtils.shortHostname(
-    Services.search.defaultEngine.searchUrlDomain
-  );
+  // PLEZIX FIX: Add null-check for defaultEngine to prevent crash
+  const defaultEngine = Services.search.defaultEngine;
+  if (!defaultEngine || !defaultEngine.searchUrlDomain) {
+    lazy.logConsole.warn(
+      "Search defaultEngine not available, using fallback hostname"
+    );
+    return "google.com"; // Fallback to a safe default
+  }
+  return lazy.NewTabUtils.shortHostname(defaultEngine.searchUrlDomain);
 }
 
 class TopSitesTelemetry {

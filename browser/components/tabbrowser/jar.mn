@@ -12,3 +12,13 @@ browser.jar:
    content/browser/tabbrowser/tabgroup.js            (content/tabgroup.js)
    content/browser/tabbrowser/tabgroup-menu.js       (content/tabgroup-menu.js)
    content/browser/tabbrowser/tabs.js                (content/tabs.js)
+
+# PLEZIX: Memory management modules
+   content/browser/tabbrowser/AsyncTabSwitcher.sys.mjs (AsyncTabSwitcher.sys.mjs)
+   content/browser/tabbrowser/GroupsList.sys.mjs (GroupsList.sys.mjs)
+   content/browser/tabbrowser/NewTabPagePreloading.sys.mjs (NewTabPagePreloading.sys.mjs)
+   content/browser/tabbrowser/OpenInTabsUtils.sys.mjs (OpenInTabsUtils.sys.mjs)
+   content/browser/tabbrowser/SmartTabGrouping.sys.mjs (SmartTabGrouping.sys.mjs)
+   content/browser/tabbrowser/TabMetrics.sys.mjs (TabMetrics.sys.mjs)
+   content/browser/tabbrowser/TabsList.sys.mjs (TabsList.sys.mjs)
+   content/browser/tabbrowser/TabUnloader.sys.mjs (TabUnloader.sys.mjs)

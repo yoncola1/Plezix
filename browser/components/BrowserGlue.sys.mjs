@@ -395,10 +395,15 @@ BrowserGlue.prototype = {
     }
 
     lazy.DesktopActorRegistry.init();
-    
+
     // PLEZIX: Initialize Hardcore Memory Saver
     try {
-      lazy.HardcoreMemorySaver.init();
+      // PLEZIX FIX: Add null-check for HardcoreMemorySaver before calling init
+      if (lazy.HardcoreMemorySaver && typeof lazy.HardcoreMemorySaver.init === "function") {
+        lazy.HardcoreMemorySaver.init();
+      } else {
+        console.warn("HardcoreMemorySaver not available, skipping initialization");
+      }
     } catch (ex) {
       console.error("Failed to initialize HardcoreMemorySaver:", ex);
     }

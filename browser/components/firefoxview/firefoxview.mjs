@@ -130,7 +130,7 @@ document.addEventListener("visibilitychange", () => {
 });
 
 function recordEnteredTelemetry() {
-  Glean.firefoxviewNext.enteredPlezixview.record({
+  Glean.firefoxviewNext.enteredFirefoxview.record({
     page: document.location?.hash?.substring(1) || "recentbrowsing",
   });
 }

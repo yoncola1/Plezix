@@ -856,8 +856,19 @@ class RefResolver:
         finally:
             self.pop_scope()
 
-    def _find_in_referrer(self, key):
-        return self._get_subschemas_cache()[key]
+    def _find_in_subschemas(self, url):
+        uri, fragment = urldefrag(url)
+        for subschema in self.iter_subschemas():
+            id_value = subschema.get("$id")
+            if not isinstance(id_value, str):
+                continue
+            target_uri = self._urljoin_cache(self.resolution_scope, id_value)
+            if target_uri.rstrip("/") == uri.rstrip("/"):
+                if fragment:
+                    subschema = self.resolve_fragment(subschema, fragment)
+                self.store[url] = subschema
+                return url, subschema
+        return None
 
     @lru_cache()  # noqa: B019
     def _get_subschemas_cache(self):
@@ -875,8 +886,13 @@ class RefResolver:
             return None
         uri, fragment = urldefrag(url)
         for subschema in subschemas:
+            # Защита от Python 3.12+ и вложенных словарей в $id
+            sub_id = subschema.get("$id", "")
+            if not isinstance(sub_id, str):
+                sub_id = str(sub_id)
+
             target_uri = self._urljoin_cache(
-                self.resolution_scope, subschema["$id"],
+                self.resolution_scope, sub_id,
             )
             if target_uri.rstrip("/") == uri.rstrip("/"):
                 if fragment:
@@ -936,20 +952,25 @@ class RefResolver:
             return document
 
         if document is self.referrer:
-            find = self._find_in_referrer
+            find = getattr(self, "_find_in_referrer", self._find_in_subschemas)
         else:
 
             def find(key):
                 yield from _search_schema(document, _match_keyword(key))
 
         for keyword in ["$anchor", "$dynamicAnchor"]:
-            for subschema in find(keyword):
-                if fragment == subschema[keyword]:
-                    return subschema
+            subschemas = find(keyword)
+            if subschemas is not None:  # <--- Защита
+                for subschema in subschemas:
+                    if fragment == subschema.get(keyword):
+                        return subschema
+
         for keyword in ["id", "$id"]:
-            for subschema in find(keyword):
-                if "#" + fragment == subschema[keyword]:
-                    return subschema
+            subschemas = find(keyword)
+            if subschemas is not None:  # <--- Защита
+                for subschema in subschemas:
+                    if "#" + fragment == subschema.get(keyword):
+                        return subschema
 
         # Resolve via path
         parts = unquote(fragment).split("/") if fragment else []

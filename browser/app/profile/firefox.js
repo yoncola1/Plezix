@@ -3579,17 +3579,18 @@ pref("datareporting.healthreport.service.enabled", false);
 
 // Optimize renderer memory
 pref("gfx.canvas.accelerated.limit-internal-size", true);
-pref("layers.acceleration.disabled", false);
+pref("layers.acceleration.disabled", true);
 pref("layers.offmainthreadcomposition.enabled", false);
+
+// Disable WebRender for stability in troubleshoot mode
+pref("gfx.webrender.all", false);
+pref("gfx.webrender.enabled", false);
 
 // Aggressive garbage collection
 pref("javascript.options.mem.gc_allocation_threshold_mb", 32);
 pref("javascript.options.mem.gc_decommit_threshold_mb", 16);
 pref("javascript.options.mem.gc_dynamic_heap_growth", false);
-pref("javascript.options.mem.gc_high_frequency_heap_growth_max", 1.5);
-pref("javascript.options.mem.gc_high_frequency_heap_growth_min", 1.2);
 pref("javascript.options.mem.gc_high_frequency_time_limit_ms", 1000);
-pref("javascript.options.mem.gc_low_frequency_heap_growth", 1.5);
 pref("javascript.options.mem.gc_max_empty_chunk_count", 1);
 pref("javascript.options.mem.gc_min_empty_chunk_count", 0);
 pref("javascript.options.mem.gc_per_zone", false);

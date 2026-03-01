@@ -464,7 +464,17 @@ export class SearchEngineSelector {
           engine = this.#deepCopyObject(engine, subVariant);
         }
 
+        // PLEZIX FIX: Add null-check for engine before accessing identifier
+        if (!engine || !engine.identifier) {
+          lazy.logConsole.warn(`Skipping engine with invalid identifier: ${config.identifier}`);
+          continue;
+        }
+
         for (let override of this._configurationOverrides) {
+          // PLEZIX FIX: Skip overrides without identifier or non-engine records
+          if (!override.identifier || override.recordType !== "engine") {
+            continue;
+          }
           if (override.identifier == engine.identifier) {
             engine = this.#deepCopyObject(engine, override);
           }
@@ -473,17 +483,29 @@ export class SearchEngineSelector {
         engines.push(engine);
       }
 
+      // PLEZIX FIX: Ensure defaultsConfig exists before using it
+      if (!defaultsConfig) {
+        lazy.logConsole.error("No defaultEngines configuration found, using fallback");
+        defaultsConfig = {
+          specificDefaults: [],
+          globalDefault: engines[0]?.identifier
+        };
+      }
+
       let { defaultEngine, privateDefault } = this.#defaultEngines(
         engines,
         defaultsConfig,
         userEnv
       );
 
-      for (const orderData of engineOrders.orders) {
-        let environment = orderData.environment;
+      // PLEZIX FIX: Add null-check for engineOrders before iterating
+      if (engineOrders && engineOrders.orders) {
+        for (const orderData of engineOrders.orders) {
+          let environment = orderData.environment;
 
-        if (this.#matchesUserEnvironment({ environment }, userEnv)) {
-          this.#setEngineOrders(engines, orderData.order);
+          if (this.#matchesUserEnvironment({ environment }, userEnv)) {
+            this.#setEngineOrders(engines, orderData.order);
+          }
         }
       }
 

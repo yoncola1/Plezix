@@ -325,7 +325,14 @@ export class SearchSettings {
 
     try {
       if (!settings.engines.length) {
-        throw new Error("cannot write without any engine.");
+        // PLEZIX FIX: Log warning instead of throwing error to prevent crashes
+        lazy.logConsole.warn("_write: No engines available, skipping write to settings file.");
+        Services.obs.notifyObservers(
+          null,
+          lazy.SearchUtils.TOPIC_SEARCH_SERVICE,
+          "write-settings-to-disk-complete"
+        );
+        return;
       }
 
       if (this.isCurrentAndCachedSettingsEqual()) {

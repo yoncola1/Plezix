@@ -36,6 +36,10 @@
 
 #include "cairo.h"
 
+#ifndef CAIRO_HAS_DWRITE_FONT
+#define CAIRO_HAS_DWRITE_FONT 1
+#endif
+
 #if CAIRO_HAS_DWRITE_FONT
 
 #ifdef __cplusplus
