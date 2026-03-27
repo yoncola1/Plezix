@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plezix</title>
+    <style>
+        :root {
+            --chrome-bg: #ebedf0;
+            --tab-active: #ffffff;
+            --tab-inactive: #dee1e6;
+            --toolbar-bg: #ffffff;
+            --address-bar: #f1f3f4;
+            --text-main: #202124;
+            --accent-blue: #1a73e8;
+        }
+
+        * { box-sizing: border-box; }
+        
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            background: var(--chrome-bg); 
+            color: var(--text-main); 
+        }
+
+        /* TAB STRIP */
+        .tab-strip {
+            height: 40px;
+            display: flex;
+            align-items: flex-end;
+            padding-top: 8px;
+            padding-left: 8px;
+            background: var(--chrome-bg);
+            -webkit-app-region: drag;
+        }
+
+        .tab {
+            position: relative;
+            height: 34px;
+            width: 200px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 12px;
+            cursor: default;
+            background: var(--tab-inactive);
+            border-radius: 8px 8px 0 0;
+            margin-right: 2px;
+        }
+
+        .tab.active {
+            background: var(--tab-active);
+            z-index: 5;
+        }
+
+        .tab-title {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .tab-close {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+
+        .tab-close:hover {
+            background: #ccc;
+        }
+
+        /* TOOLBAR */
+        .toolbar {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            background: var(--toolbar-bg);
+            gap: 8px;
+        }
+
+        .nav-button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .nav-button:hover {
+            background: #e8e8e8;
+        }
+
+        .address-bar {
+            flex: 1;
+            height: 32px;
+            background: var(--address-bar);
+            border-radius: 16px;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+        
+        .address-bar input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        /* CONTENT */
+        .content {
+            flex: 1;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .welcome {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .welcome p {
+            font-size: 16px;
+            color: #5f6368;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 4px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tab Strip -->
+    <div class="tab-strip">
+        <div class="tab active">
+            <span class="tab-title">New Tab</span>
+            <span class="tab-close">×</span>
+        </div>
+        <div class="tab">
+            <span class="tab-title">Welcome</span>
+            <span class="tab-close">×</span>
+        </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <button class="nav-button" onclick="goBack()">←</button>
+        <button class="nav-button" onclick="goForward()">→</button>
+        <button class="nav-button" onclick="reload()">⟳</button>
+        <div class="address-bar">
+            <span>🔒</span>
+            <input type="text" id="addressInput" placeholder="Введите URL или поиск..." value="zero-track.local">
+        </div>
+        <button class="nav-button">⋮</button>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="welcome">
+            <h1>🎉 Plezix</h1>
+            <p>CEF Chromium работает успешно!</p>
+            <p>Версия: CEF 147 (Chromium 147)</p>
+            <div class="status">
+                ✅ Браузер запущен<br>
+                ✅ Рендеринг работает<br>
+                ✅ JavaScript активен
+            </div>
+            <br>
+            <a href="https://google.com" class="btn">Открыть Google</a>
+        </div>
+    </div>
+
+    <script>
+        console.log('Zero-Track Browser loaded successfully!');
+        
+        // Навигация
+        function navigate(url) {
+            // Добавляем https:// если нет протокола
+            if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('file://')) {
+                // Если это похоже на домен - добавляем https://
+                if (url.includes('.') && !url.includes(' ')) {
+                    url = 'https://' + url;
+                } else {
+                    // Иначе это поиск через Google
+                    url = 'https://www.google.com/search?q=' + encodeURIComponent(url);
+                }
+            }
+            window.location.href = url;
+        }
+        
+        function goBack() {
+            window.history.back();
+        }
+        
+        function goForward() {
+            window.history.forward();
+        }
+        
+        function reload() {
+            window.location.reload();
+        }
+        
+        // Обработка адресной строки
+        const addressInput = document.getElementById('addressInput');
+        
+        addressInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                navigate(addressInput.value.trim());
+            }
+        });
+        
+        addressInput.addEventListener('blur', () => {
+            // Обновляем адрес при загрузке страницы
+            addressInput.value = window.location.href;
+        });
+        
+        // Обновляем адресную строку при навигации
+        window.addEventListener('popstate', () => {
+            addressInput.value = window.location.href;
+        });
+        
+        // Добавим интерактивности
+        document.querySelectorAll('.tab-close').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                alert('Закрытие вкладки (демо)');
+            });
+        });
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.nav-button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                console.log('Button clicked:', btn.textContent);
+            });
+        });
+        
+        // Инициализация адресной строки
+        setTimeout(() => {
+            addressInput.value = window.location.href;
+        }, 100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plezix - Security Check</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle { color: #666; margin-bottom: 40px; }
+        
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h2 .icon { font-size: 24px; }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.safe { background: #00ff8822; color: #00ff88; }
+        .status.danger { background: #ff444422; color: #ff4444; }
+        .status.warning { background: #ffaa0022; color: #ffaa00; }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: #888; }
+        .info-value { 
+            color: #00d9ff; 
+            font-family: 'Consolas', monospace;
+            word-break: break-all;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-secondary {
+            background: #222;
+            color: #fff;
+        }
+        
+        .log {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            color: #00ff88;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .log-item {
+            padding: 5px 0;
+            border-bottom: 1px solid #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Plezix Security Check</h1>
+        <p class="subtitle">Проверка анонимности и подмены данных</p>
+
+        <!-- IP Address -->
+        <div class="card">
+            <h2><span class="icon">🌐</span> IP Address <span id="ip-status" class="status warning">Checking...</span></h2>
+            <div class="info-row">
+                <span class="info-label">Ваш IP:</span>
+                <span class="info-value" id="ip-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Провайдер:</span>
+                <span class="info-value" id="isp-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Страна:</span>
+                <span class="info-value" id="country-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">WebRTC IP:</span>
+                <span class="info-value" id="webrtc-ip">...</span>
+            </div>
+        </div>
+
+        <!-- User Agent -->
+        <div class="card">
+            <h2><span class="icon">🆔</span> User Agent <span id="ua-status" class="status safe">✓ Plezix</span></h2>
+            <div class="info-row">
+                <span class="info-label">User Agent:</span>
+                <span class="info-value" id="ua-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Платформа:</span>
+                <span class="info-value" id="platform-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Язык:</span>
+                <span class="info-value" id="language-value">...</span>
+            </div>
+        </div>
+
+        <!-- Hardware -->
+        <div class="card">
+            <h2><span class="icon">💻</span> Hardware Fingerprint <span id="hw-status" class="status safe">✓ Protected</span></h2>
+            <div class="info-row">
+                <span class="info-label">CPU Cores:</span>
+                <span class="info-value" id="cpu-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">RAM:</span>
+                <span class="info-value" id="ram-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Screen:</span>
+                <span class="info-value" id="screen-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">GPU:</span>
+                <span class="info-value" id="gpu-value">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Canvas:</span>
+                <span class="info-value" id="canvas-value">...</span>
+            </div>
+        </div>
+
+        <!-- Security Features -->
+        <div class="card">
+            <h2><span class="icon">🔒</span> Security Features</h2>
+            <div class="info-row">
+                <span class="info-label">WebRTC:</span>
+                <span class="info-value" id="webrtc-status">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Do Not Track:</span>
+                <span class="info-value" id="dnt-status">...</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Cookies:</span>
+                <span class="info-value" id="cookies-status">...</span>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="card">
+            <h2><span class="icon">⚡</span> Actions</h2>
+            <button class="btn" onclick="checkAll()">🔄 Re-check</button>
+            <button class="btn btn-secondary" onclick="testWebRTC()">📡 Test WebRTC</button>
+            <button class="btn btn-secondary" onclick="testCanvas()">🎨 Test Canvas</button>
+            <a href="https://coveryourtracks.eff.org/" class="btn btn-secondary" target="_blank">🔍 EFF Test</a>
+            <a href="https://browserleaks.com/" class="btn btn-secondary" target="_blank">🔎 BrowserLeaks</a>
+        </div>
+
+        <!-- Log -->
+        <div class="card">
+            <h2><span class="icon">📜</span> Security Log</h2>
+            <div class="log" id="security-log"></div>
+        </div>
+    </div>
+
+    <script>
+        const log = document.getElementById('security-log');
+        
+        function addLog(message, type = 'info') {
+            const item = document.createElement('div');
+            item.className = 'log-item';
+            item.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.insertBefore(item, log.firstChild);
+        }
+
+        // Check IP
+        async function checkIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ip-value').textContent = data.ip;
+                
+                // Check if IP is masked
+                const ispResponse = await fetch(`https://ipapi.co/${data.ip}/json/`);
+                const ispData = await ispResponse.json();
+                document.getElementById('isp-value').textContent = ispData.org || 'Unknown';
+                document.getElementById('country-value').textContent = ispData.country_name || 'Unknown';
+                
+                if (ispData.org && ispData.org.includes('VPN') || ispData.org.includes('Proxy')) {
+                    document.getElementById('ip-status').className = 'status safe';
+                    document.getElementById('ip-status').textContent = '✓ Masked';
+                    addLog('IP is masked via VPN/Proxy', 'success');
+                } else {
+                    document.getElementById('ip-status').className = 'status warning';
+                    document.getElementById('ip-status').textContent = '⚠ Visible';
+                    addLog('WARNING: Real IP may be visible', 'warning');
+                }
+            } catch (e) {
+                document.getElementById('ip-value').textContent = 'Blocked';
+                addLog('IP check blocked - good sign for privacy!', 'success');
+            }
+        }
+
+        // Check User Agent
+        function checkUA() {
+            const ua = navigator.userAgent;
+            document.getElementById('ua-value').textContent = ua;
+            document.getElementById('platform-value').textContent = navigator.platform;
+            document.getElementById('language-value').textContent = navigator.language;
+            
+            if (ua.includes('Plezix')) {
+                document.getElementById('ua-status').className = 'status safe';
+                document.getElementById('ua-status').textContent = '✓ Plezix';
+                addLog('User Agent shows Plezix - Good!', 'success');
+            } else if (ua.includes('Chrome')) {
+                document.getElementById('ua-status').className = 'status warning';
+                document.getElementById('ua-status').textContent = '⚠ Chrome';
+                addLog('User Agent shows Chrome', 'info');
+            }
+        }
+
+        // Check Hardware
+        function checkHardware() {
+            document.getElementById('cpu-value').textContent = navigator.hardwareConcurrency || 'Hidden';
+            document.getElementById('ram-value').textContent = (navigator.deviceMemory || 'Hidden') + ' GB';
+            document.getElementById('screen-value').textContent = `${screen.width}x${screen.height}`;
+            
+            // GPU Check
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                if (debugInfo) {
+                    const gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    document.getElementById('gpu-value').textContent = gpu;
+                    if (gpu.includes('Google') || gpu.includes('SwiftShader')) {
+                        document.getElementById('hw-status').className = 'status safe';
+                        addLog('GPU is masked (Google/SwiftShader)', 'success');
+                    }
+                }
+            } else {
+                document.getElementById('gpu-value').textContent = 'WebGL Disabled';
+                addLog('WebGL disabled - Good for privacy!', 'success');
+            }
+            
+            // Canvas fingerprint
+            const ctx = canvas.getContext('2d');
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillText('Plezix', 0, 0);
+            const canvasData = canvas.toDataURL();
+            document.getElementById('canvas-value').textContent = canvasData.substring(0, 50) + '...';
+        }
+
+        // Test WebRTC
+        async function testWebRTC() {
+            addLog('Testing WebRTC...', 'info');
+            const pc = new RTCPeerConnection({iceServers: []});
+            pc.createDataChannel('');
+            await pc.createOffer().then(offer => pc.setLocalDescription(offer));
+            
+            pc.onicecandidate = (ice) => {
+                if (ice.candidate) {
+                    const candidate = ice.candidate.candidate;
+                    const ipMatch = /([0-9]{1,3}(\.[0-9]{1,3}){3})/.exec(candidate);
+                    if (ipMatch) {
+                        document.getElementById('webrtc-ip').textContent = ipMatch[1];
+                        if (ipMatch[1] !== document.getElementById('ip-value').textContent) {
+                            document.getElementById('webrtc-status').textContent = '✓ Protected';
+                            document.getElementById('webrtc-status').className = 'status safe';
+                            addLog('WebRTC IP differs from main IP - Good!', 'success');
+                        } else {
+                            document.getElementById('webrtc-status').textContent = '⚠ Leaked';
+                            document.getElementById('webrtc-status').className = 'status danger';
+                            addLog('WARNING: WebRTC leaking real IP!', 'danger');
+                        }
+                    }
+                }
+            };
+            
+            setTimeout(() => {
+                if (document.getElementById('webrtc-ip').textContent === '...') {
+                    document.getElementById('webrtc-ip').textContent = 'Blocked';
+                    document.getElementById('webrtc-status').textContent = '✓ Disabled';
+                    document.getElementById('webrtc-status').className = 'status safe';
+                    addLog('WebRTC is disabled - Maximum privacy!', 'success');
+                }
+            }, 2000);
+        }
+
+        // Test Canvas
+        function testCanvas() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.fillRect(0, 0, 100, 100);
+            const data = canvas.toDataURL();
+            addLog(`Canvas fingerprint: ${data.substring(0, 40)}...`, 'info');
+        }
+
+        // Check all
+        function checkAll() {
+            addLog('Starting security check...', 'info');
+            checkIP();
+            checkUA();
+            checkHardware();
+            testWebRTC();
+        }
+
+        // Init
+        addLog('Plezix Security Check initialized', 'success');
+        checkIP();
+        checkUA();
+        checkHardware();
+        testWebRTC();
+    </script>
+</body>
+</html>

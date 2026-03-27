@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plezix Settings</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #16213e;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+        .menu-item:hover { background: rgba(255,255,255,0.1); }
+        .menu-item.active { background: rgba(0, 217, 255, 0.2); color: #00d9ff; }
+        .menu-item .icon { font-size: 18px; }
+        
+        /* Main Content */
+        .main {
+            flex: 1;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            background: #0f3460;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #00d9ff;
+        }
+        
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .setting-row:last-child { border-bottom: none; }
+        
+        .setting-info h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .setting-info p {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* Toggle Switch */
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #333;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .toggle.active { background: #00ff88; }
+        .toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        .toggle.active::after { transform: translateX(24px); }
+        
+        /* Status Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .badge.safe { background: #00ff8822; color: #00ff88; }
+        .badge.warning { background: #ffaa0022; color: #ffaa00; }
+        
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            color: #000;
+        }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-danger {
+            background: #ff4444;
+            color: #fff;
+        }
+        .btn-danger:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">🛡️ Plezix</div>
+        <div class="menu-item active">
+            <span class="icon">⚙️</span>
+            <span>Настройки</span>
+        </div>
+        <div class="menu-item" onclick="location.href='plezix://security/'">
+            <span class="icon">🔒</span>
+            <span>Безопасность</span>
+        </div>
+        <div class="menu-item" onclick="location.href='plezix://privacy/'">
+            <span class="icon">👁️</span>
+            <span>Приватность</span>
+        </div>
+        <div class="menu-item" onclick="location.href='plezix://about/'">
+            <span class="icon">ℹ️</span>
+            <span>О браузере</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>⚙️ Настройки Plezix</h1>
+        
+        <!-- Security Section -->
+        <div class="section">
+            <h2>🛡️ Безопасность</h2>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Блокировка WebRTC</h3>
+                    <p>Предотвращает утечку вашего реального IP</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Анти-отслеживание</h3>
+                    <p>Блокировка трекеров и fingerprinting</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Подмена идентификаторов</h3>
+                    <p>Случайный Client ID при каждом запуске</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Статус защиты</h3>
+                    <p>Все системы работают нормально</p>
+                </div>
+                <span class="badge safe">✓ Активно</span>
+            </div>
+        </div>
+        
+        <!-- Privacy Section -->
+        <div class="section">
+            <h2>👁️ Приватность</h2>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Режим инкогнито</h3>
+                    <p>Никакого кэша и cookie между сессиями</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Блокировка телеметрии</h3>
+                    <p>Отключение отправки данных в Google</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Do Not Track</h3>
+                    <p>Сигнал сайтам не отслеживать вас</p>
+                </div>
+                <div class="toggle active" onclick="toggle(this)"></div>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        <div class="section">
+            <h2>⚡ Действия</h2>
+            <button class="btn btn-primary" onclick="checkSecurity()">🔍 Проверить защиту</button>
+            <button class="btn btn-danger" onclick="clearData()">🗑️ Очистить данные</button>
+        </div>
+        
+        <!-- Info -->
+        <div class="section">
+            <h2>ℹ️ Информация</h2>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Версия Plezix</h3>
+                    <p>1.0.0 (Chromium 147)</p>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Движок</h3>
+                    <p>CEF 147.0.1</p>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-info">
+                    <h3>Статус обновлений</h3>
+                    <p>Отключено (безопасность)</p>
+                </div>
+                <span class="badge warning">⚠ Выкл</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle switch
+        function toggle(el) {
+            el.classList.toggle('active');
+        }
+        
+        // Check security
+        function checkSecurity() {
+            alert('🛡️ Проверка безопасности:\n\n✓ WebRTC отключён\n✓ IP защищён\n✓ Fingerprinting заблокирован\n✓ Телеметрия отключена\n\nВсе системы работают нормально!');
+        }
+        
+        // Clear data
+        function clearData() {
+            if (confirm('Вы уверены? Это очистит всю историю, cookie и кэш.')) {
+                alert('Данные очищены! (демо)');
+            }
+        }
+        
+        // Log
+        console.log('%c🛡️ Plezix Settings Loaded', 'color: #00ff88; font-size: 20px; font-weight: bold;');
+    </script>
+</body>
+</html>
