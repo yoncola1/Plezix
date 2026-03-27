@@ -1,4 +1,7 @@
 ; --- СКРИПТ УСТАНОВЩИКА PLEZIX ---
+; Для Linux сборки используйте CMakeLists.txt с CEF SDK для Linux
+; Скачайте CEF для Linux и замените cef_sdk/
+; Команда сборки: mkdir build && cd build && cmake .. && make
 #define MyAppName "Plezix Browser"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Plezix Team"
