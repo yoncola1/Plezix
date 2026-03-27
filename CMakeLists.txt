@@ -10,22 +10,37 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 3. Пути к CEF SDK
-set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk")
+if(WIN32)
+    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk")
+else()
+    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk_linux")
+endif()
 list(APPEND CMAKE_MODULE_PATH ${CEF_ROOT}/cmake)
 find_package(CEF REQUIRED)
 
 # 4. Исполняемый файл
-add_executable(browser WIN32 main.cpp browser.rc)
+if(WIN32)
+    add_executable(browser WIN32 main.cpp browser.rc)
+else()
+    add_executable(browser main.cpp)
+endif()
 
 # Заголовки
 target_include_directories(browser PRIVATE ${CEF_ROOT})
 
 # 5. Линковка
 # Пути к библиотекам
-target_link_directories(browser PRIVATE 
-    ${CMAKE_SOURCE_DIR}/cef_sdk/build_lib/libcef_dll_wrapper/$<CONFIG>
-    ${CMAKE_SOURCE_DIR}/cef_sdk/$<CONFIG>
-)
+if(WIN32)
+    target_link_directories(browser PRIVATE 
+        ${CMAKE_SOURCE_DIR}/cef_sdk/build_lib/libcef_dll_wrapper/$<CONFIG>
+        ${CMAKE_SOURCE_DIR}/cef_sdk/$<CONFIG>
+    )
+else()
+    target_link_directories(browser PRIVATE 
+        ${CMAKE_SOURCE_DIR}/cef_sdk_linux/build_lib/libcef_dll_wrapper
+        ${CMAKE_SOURCE_DIR}/cef_sdk_linux/Release
+    )
+endif()
 
 # Библиотеки
 target_link_libraries(browser
@@ -45,9 +60,17 @@ if(MSVC)
 endif()
 
 # 7. Копирование ресурсов после сборки
-add_custom_command(
-    TARGET browser POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${CEF_ROOT}/$<CONFIG>" "$<TARGET_FILE_DIR:browser>"
+if(WIN32)
+    add_custom_command(
+        TARGET browser POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CEF_ROOT}/$<CONFIG>" "$<TARGET_FILE_DIR:browser>"
+    )
+else()
+    add_custom_command(
+        TARGET browser POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory "${CEF_ROOT}/Release" "$<TARGET_FILE_DIR:browser>"
+    )
+endif()
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CEF_ROOT}/Resources" "$<TARGET_FILE_DIR:browser>"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/icon.ico" "$<TARGET_FILE_DIR:browser>"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/newtab.html" "$<TARGET_FILE_DIR:browser>"
