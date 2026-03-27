@@ -65,8 +65,8 @@ public:
         // Логируем все запросы
         OutputDebugStringA(("Browse: " + url + "\n").c_str());
 
-        // Перехват chrome://settings и plezix:// страниц
-        if (url == "chrome://settings/" || url.find("plezix://") == 0) {
+        // Перехват plezix:// страниц
+        if (url.find("plezix://") == 0) {
             char path_buf[MAX_PATH];
             GetModuleFileNameA(nullptr, path_buf, MAX_PATH);
             std::string exe_dir = std::string(path_buf).substr(0, std::string(path_buf).find_last_of("\\/"));
@@ -131,6 +131,14 @@ public:
         command_line->AppendSwitchWithValue("--max-tiles-for-interest-area", "512");
         command_line->AppendSwitchWithValue("--num-raster-threads", "4");
         command_line->AppendSwitch("--disable-gpu-vsync");
+
+        // === АНОНИМНОСТЬ ===
+        command_line->AppendSwitchWithValue("--user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Plezix/1.0");
+        command_line->AppendSwitch("--disable-web-security");
+        command_line->AppendSwitch("--disable-features=VizDisplayCompositor,TranslateUI,BlinkGenPropertyTrees");
+        command_line->AppendSwitch("--no-default-browser-check");
+        command_line->AppendSwitch("--disable-logging");
+        command_line->AppendSwitch("--disable-dev-tools");
     }
 
     IMPLEMENT_REFCOUNTING(MyApp);
