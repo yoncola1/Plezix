@@ -11,9 +11,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 3. Пути к CEF SDK
 if(WIN32)
-    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk")
+    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk/windows")
 else()
-    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk_linux")
+    set(CEF_ROOT "${CMAKE_SOURCE_DIR}/cef_sdk/linux")
 endif()
 list(APPEND CMAKE_MODULE_PATH ${CEF_ROOT}/cmake)
 find_package(CEF REQUIRED)
