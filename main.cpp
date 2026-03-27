@@ -123,6 +123,14 @@ public:
         command_line->AppendSwitch("--disable-features=VizDisplayCompositor");
         command_line->AppendSwitch("--disable-background-timer-throttling");
         command_line->AppendSwitch("--disable-features=VideoCapture"); // Отключить video capture
+
+        // === ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ ===
+        command_line->AppendSwitch("--disable-low-end-device-mode");
+        command_line->AppendSwitch("--disable-backgrounding-occluded-windows");
+        command_line->AppendSwitch("--disable-features=HeavyAdPrivacyMitigations");
+        command_line->AppendSwitchWithValue("--max-tiles-for-interest-area", "512");
+        command_line->AppendSwitchWithValue("--num-raster-threads", "4");
+        command_line->AppendSwitch("--disable-gpu-vsync");
     }
 
     IMPLEMENT_REFCOUNTING(MyApp);

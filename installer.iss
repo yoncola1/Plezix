@@ -30,21 +30,21 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 ; --- ПРОГРАММА И ИКОНКА ---
-Source: "build\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\Debug\icon.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "icon.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 ; --- DLL БИБЛИОТЕКИ (ОБЯЗАТЕЛЬНО) ---
-Source: "build\Debug\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 ; --- РЕСУРСЫ CEF (.pak, .dat, .bin) ---
-Source: "build\Debug\*.pak"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\Debug\*.bin"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\Debug\*.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\Debug\*.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "build\Debug\index.html"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\*.pak"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\*.bin"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\*.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "build_new\Release\*.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "index.html"; DestDir: "{app}"; Flags: ignoreversion
 
 ; --- ПОДПАПКА LOCALES (ВАЖНО ДЛЯ CEF) ---
-Source: "build\Debug\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "build_new\Release\locales\*"; DestDir: "{app}\locales"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 ; Ярлык в меню Пуск
@@ -55,3 +55,5 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilen
 [Run]
 ; Предложить запустить браузер после установки
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+; Открыть страницу обновлений на GitHub
+Filename: "https://github.com/yoncola1/Plezix/releases"; Description: "Проверить обновления на GitHub"; Flags: nowait postinstall skipifsilent unchecked
