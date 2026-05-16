@@ -1,4 +1,4 @@
-# ![Logo](chrome/app/theme/Plezix/product_logo_64.png) Plezix
+# ![Logo](chrome/app/theme/chromium/product_logo_64.png) Plezix
 
 Plezix is an open-source browser project that aims to build a safer, faster,
 and more stable way for all users to experience the web.
