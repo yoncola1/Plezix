@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Минималистичная Стартовая</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-blur: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+        }
+
+        body {
+            background-color: #121212;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        #bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            display: none;
+        }
+
+        .glass {
+            background: var(--bg-blur);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-input {
+            background: rgba(150, 150, 150, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 9999px;
+            color: inherit;
+        }
+
+        .search-input:focus {
+            background: rgba(150, 150, 150, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+
+        #clock {
+            font-size: 5.5rem;
+            font-weight: 600;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        #theme-panel {
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+
+        #theme-panel.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .theme-option {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .theme-option:hover {
+            transform: scale(1.2);
+        }
+
+        .search-option {
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .search-option.active {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+        
+        body.light-mode {
+            --text-color: #1a1a1a;
+            --bg-blur: rgba(0, 0, 0, 0.05);
+        }
+        body.light-mode .search-input {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Избранные вкладки */
+        #bookmarks-container {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 800px;
+        }
+
+        .bookmark-item {
+            position: relative;
+            transition: transform 0.2s, opacity 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 80px;
+        }
+
+        .bookmark-item:hover .remove-bookmark {
+            opacity: 1;
+        }
+
+        .remove-bookmark {
+            position: absolute;
+            top: -5px;
+            right: 5px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .bookmark-name {
+            font-size: 11px;
+            opacity: 0.8;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .hidden-bookmarks {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-container">
+        <video id="bg-video" autoplay loop muted playsinline></video>
+    </div>
+
+    <div class="flex flex-col items-center fade-in w-full px-4">
+        <div class="text-center mb-8">
+            <div id="clock">00:00</div>
+            <div id="date" class="text-xs opacity-60 uppercase tracking-[0.5em] mt-3 font-semibold">...</div>
+        </div>
+
+        <div class="search-container w-full max-w-[480px] mb-8">
+            <form id="search-form" action="https://www.google.com/search" method="GET" class="relative w-full">
+                <input type="text" id="search-input" name="q" placeholder="Поиск" autocomplete="off"
+                       class="search-input w-full py-4 px-14 text-base glass placeholder-gray-400">
+                <i id="search-icon" class="fab fa-google absolute left-6 top-1/2 -translate-y-1/2 opacity-50 text-sm"></i>
+            </form>
+        </div>
+
+        <!-- Избранные вкладки -->
+        <div id="bookmarks-container" class="flex flex-wrap justify-center gap-6 w-full">
+            <!-- Вкладки будут здесь -->
+            <button onclick="addBookmarkPrompt()" class="glass w-12 h-12 rounded-2xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity">
+                <i class="fas fa-plus text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Кнопка настройки -->
+    <div class="fixed bottom-6 right-6 flex flex-col items-end gap-4">
+        <div id="theme-panel" class="glass p-5 rounded-3xl flex flex-col gap-4 shadow-2xl items-center">
+            <!-- Смена тем/обоев -->
+            <div class="flex gap-3">
+                <div class="theme-option bg-[#121212]" onclick="setTheme('color', '#121212')" title="Темная"></div>
+                <div class="theme-option bg-[#f5f5f7]" onclick="setTheme('color', '#f5f5f7', true)" title="Светлая"></div>
+                <div class="theme-option bg-gradient-to-br from-indigo-900 to-slate-900" onclick="setTheme('gradient', 'linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%)')" title="Синий"></div>
+                <label class="theme-option bg-white/20 border-dashed border-white/40 cursor-pointer hover:bg-white/30 transition-colors" title="Загрузить обои">
+                    <i class="fas fa-image text-xs text-white"></i>
+                    <input type="file" id="bg-upload" accept="image/*,video/mp4" class="hidden" onchange="handleFileUpload(this)">
+                </label>
+            </div>
+            
+            <!-- Смена поисковика -->
+            <div class="flex flex-wrap justify-center gap-2 max-w-[180px]">
+                <div class="search-option active" data-engine="google" onclick="setSearchEngine('google')">Google</div>
+                <div class="search-option" data-engine="yandex" onclick="setSearchEngine('yandex')">Yandex</div>
+                <div class="search-option" data-engine="duckduckgo" onclick="setSearchEngine('duckduckgo')">DuckDuckGo</div>
+                <div class="search-option" data-engine="bing" onclick="setSearchEngine('bing')">Bing</div>
+            </div>
+        </div>
+
+        <button onclick="toggleThemePanel()" class="glass w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
+            <i class="fas fa-pencil-alt text-sm"></i>
+        </button>
+    </div>
+
+    <script>
+        const bgContainer = document.getElementById('bg-container');
+        const bgVideo = document.getElementById('bg-video');
+        const searchInput = document.getElementById('search-input');
+        const searchForm = document.getElementById('search-form');
+        const searchIcon = document.getElementById('search-icon');
+        const bookmarksContainer = document.getElementById('bookmarks-container');
+        
+        const DB_NAME = 'StarterPageDB';
+        const DB_VERSION = 2;
+        const STORE_SETTINGS = 'settings';
+        const STORE_BOOKMARKS = 'bookmarks';
+
+        const ENGINES = {
+            google: { action: "https://www.google.com/search", icon: "fab fa-google", query: "q" },
+            yandex: { action: "https://yandex.ru/search/", icon: "fas fa-search", query: "text" },
+            duckduckgo: { action: "https://duckduckgo.com/", icon: "fas fa-search", query: "q" },
+            bing: { action: "https://www.bing.com/search", icon: "fab fa-microsoft", query: "q" }
+        };
+
+        // Инициализация БД
+        function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_SETTINGS)) db.createObjectStore(STORE_SETTINGS);
+                    if (!db.objectStoreNames.contains(STORE_BOOKMARKS)) db.createObjectStore(STORE_BOOKMARKS, { keyPath: 'id', autoIncrement: true });
+                };
+                request.onsuccess = (e) => resolve(e.target.result);
+                request.onerror = (e) => reject(e.target.error);
+            });
+        }
+
+        async function saveToDB(storeName, key, value) {
+            const db = await initDB();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(storeName, 'readwrite');
+                const store = transaction.objectStore(storeName);
+                store.put(value, key);
+                transaction.oncomplete = () => resolve();
+            });
+        }
+
+        async function getFromDB(storeName, key) {
+            const db = await initDB();
+            return new Promise((resolve) => {
+                const transaction = db.transaction(storeName, 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.get(key);
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => resolve(null);
+            });
+        }
+
+        async function getAllBookmarks() {
+            const db = await initDB();
+            return new Promise((resolve) => {
+                const transaction = db.transaction(STORE_BOOKMARKS, 'readonly');
+                const store = transaction.objectStore(STORE_BOOKMARKS);
+                const request = store.getAll();
+                request.onsuccess = () => resolve(request.result);
+            });
+        }
+
+        async function removeBookmark(id) {
+            const db = await initDB();
+            const transaction = db.transaction(STORE_BOOKMARKS, 'readwrite');
+            transaction.objectStore(STORE_BOOKMARKS).delete(id);
+            transaction.oncomplete = renderBookmarks;
+        }
+
+        // Рендер вкладок
+        async function renderBookmarks() {
+            const bookmarks = await getAllBookmarks();
+            const addButton = `<button onclick="addBookmarkPrompt()" class="glass w-12 h-12 rounded-2xl flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity"><i class="fas fa-plus text-sm"></i></button>`;
+            
+            bookmarksContainer.innerHTML = bookmarks.map(b => `
+                <div class="bookmark-item">
+                    <a href="${b.url}" class="glass w-12 h-12 rounded-2xl flex items-center justify-center hover:scale-105 transition-transform overflow-hidden shadow-lg">
+                        <img src="https://www.google.com/s2/favicons?sz=64&domain=${b.url}" class="w-6 h-6" alt="">
+                    </a>
+                    <span class="bookmark-name">${b.name || 'Вкладка'}</span>
+                    <div class="remove-bookmark" onclick="removeBookmark(${b.id})"><i class="fas fa-times"></i></div>
+                </div>
+            `).join('') + addButton;
+        }
+
+        async function addBookmarkPrompt() {
+            const name = prompt("Введите название вкладки:");
+            if (name === null) return;
+            
+            const url = prompt("Введите URL (например, github.com):");
+            if (url) {
+                const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
+                const db = await initDB();
+                const transaction = db.transaction(STORE_BOOKMARKS, 'readwrite');
+                transaction.objectStore(STORE_BOOKMARKS).add({ 
+                    url: formattedUrl, 
+                    name: name || formattedUrl.replace('https://', '').split('/')[0] 
+                });
+                transaction.oncomplete = renderBookmarks;
+            }
+        }
+
+        // Поисковые системы
+        async function setSearchEngine(engineKey) {
+            const engine = ENGINES[engineKey] || ENGINES.google;
+            searchForm.action = engine.action;
+            searchInput.name = engine.query;
+            searchIcon.className = engine.icon + " absolute left-6 top-1/2 -translate-y-1/2 opacity-50 text-sm";
+            
+            // Обновляем визуальный выбор
+            document.querySelectorAll('.search-option').forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.engine === engineKey);
+            });
+
+            await saveToDB(STORE_SETTINGS, 'userSearch', engineKey);
+        }
+
+        // Поиск: скрытие вкладок при фокусе или вводе
+        searchInput.addEventListener('focus', () => {
+            bookmarksContainer.classList.add('hidden-bookmarks');
+        });
+
+        searchInput.addEventListener('blur', (e) => {
+            if (e.target.value.length === 0) {
+                bookmarksContainer.classList.remove('hidden-bookmarks');
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            if (e.target.value.length > 0) {
+                bookmarksContainer.classList.add('hidden-bookmarks');
+            }
+        });
+
+        function setupLanguage() {
+            const lang = navigator.language || 'ru-RU';
+            document.documentElement.lang = lang.split('-')[0];
+            
+            const placeholders = {
+                'ru': 'Поиск в интернете',
+                'en': 'Search the web',
+                'de': 'Im Web suchen',
+                'fr': 'Rechercher sur le web'
+            };
+            searchInput.placeholder = placeholders[document.documentElement.lang] || 'Search';
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}`;
+            const options = { weekday: 'short', day: 'numeric', month: 'short' };
+            document.getElementById('date').textContent = now.toLocaleDateString(undefined, options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function toggleThemePanel() {
+            document.getElementById('theme-panel').classList.toggle('active');
+        }
+
+        async function setTheme(type, value, isLight = false) {
+            document.body.classList.toggle('light-mode', isLight);
+            bgContainer.style.backgroundImage = 'none';
+            bgContainer.style.backgroundColor = 'transparent';
+            bgVideo.style.display = 'none';
+            bgVideo.pause();
+
+            if (type === 'color') bgContainer.style.backgroundColor = value;
+            else if (type === 'gradient') bgContainer.style.background = value;
+            else if (type === 'image') bgContainer.style.backgroundImage = `url('${value}')`;
+            else if (type === 'video') {
+                bgVideo.src = value;
+                bgVideo.style.display = 'block';
+                bgVideo.play().catch(() => {});
+            }
+            await saveToDB(STORE_SETTINGS, 'userTheme', {type, value, isLight});
+        }
+
+        function handleFileUpload(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const result = e.target.result;
+                await setTheme(file.type.startsWith('video/') ? 'video' : 'image', result, false);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        window.onload = async () => {
+            setupLanguage();
+            renderBookmarks();
+            
+            // Загрузка настроек поисковика
+            const savedEngine = await getFromDB(STORE_SETTINGS, 'userSearch');
+            setSearchEngine(savedEngine || 'google');
+
+            // Загрузка темы
+            try {
+                const savedTheme = await getFromDB(STORE_SETTINGS, 'userTheme');
+                if (savedTheme) setTheme(savedTheme.type, savedTheme.value, savedTheme.isLight);
+                else setTheme('gradient', 'linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%)');
+            } catch (e) {
+                setTheme('gradient', 'linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%)');
+            }
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!document.getElementById('theme-panel').contains(e.target) && !e.target.closest('button')) {
+                document.getElementById('theme-panel').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

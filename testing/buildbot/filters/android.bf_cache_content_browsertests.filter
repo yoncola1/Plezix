@@ -1,0 +1,12 @@
+# https://crbug.com/483438557
+-TextFragmentAnchorBrowserTest.HistoryDoesntGenerateToken
+-TextFragmentAnchorBrowserTest.UserGestureConsumed
+
+# https://crbug.com/484183125
+-SignedExchangePrefetchBrowserTest.PrefetchMainResourceSXG_CrossOrigin
+-SignedExchangePrefetchBrowserTest.PrefetchMainResourceSXG_SameURL
+-SignedExchangePrefetchBrowserTest.PrefetchMainResourceSXG_SameOrigin
+
+# https://crbug.com/511921842
+-SecurityExploitKillDisabledBrowserTest.ForbiddenOriginHeaderInOpenURL_KillDisabled
+-SecurityExploitKillDisabledBrowserTest.OriginHeaderPOSTMismatchesInitiator_KillDisabled

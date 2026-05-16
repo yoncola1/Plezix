@@ -1,0 +1,227 @@
+{
+    "0": {
+        "benchmarks": {
+            "ad_frames.fencedframe": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.accessibility": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.bindings": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.css": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.dom": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.events": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.image_decoder": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.layout": {
+                "end": 88,
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        }
+    },
+    "1": {
+        "benchmarks": {
+            "blink_perf.layout": {
+                "begin": 88,
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.owp_storage": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.parser": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.shadow_dom": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.webaudio": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.webcodecs": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.webgl": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.webgpu": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "blink_perf.webgpu_compat": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "dummy_benchmark.noisy_benchmark_1": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "dummy_benchmark.stable_benchmark_1": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "jetstream2": {
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        },
+        "executables": {
+            "components_perftests": {
+                "arguments": [
+                    "--xvfb"
+                ],
+                "path": "components_perftests"
+            }
+        },
+        "crossbench": {
+            "loadline_tablet.crossbench": {
+                "crossbench_name": "loadline-tablet-fast",
+                "arguments": [
+                    "--cool-down-threshold=moderate"
+                ]
+            }
+        }
+    },
+    "2": {
+        "benchmarks": {
+            "media.mobile": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "rasterize_and_record_micro.top_25": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "rendering.mobile": {
+                "end": 113,
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        }
+    },
+    "3": {
+        "benchmarks": {
+            "rendering.mobile": {
+                "begin": 113,
+                "end": 266,
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        }
+    },
+    "4": {
+        "benchmarks": {
+            "rendering.mobile": {
+                "begin": 266,
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        }
+    },
+    "5": {
+        "benchmarks": {
+            "rendering.mobile.notracing": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "speedometer3": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "speedometer3-future": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "startup.mobile": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "system_health.common_mobile": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "system_health.memory_mobile": {
+                "end": 14,
+                "abridged": false,
+                "pageset_repeat": 3
+            }
+        }
+    },
+    "6": {
+        "benchmarks": {
+            "system_health.memory_mobile": {
+                "begin": 14,
+                "end": 62,
+                "abridged": false,
+                "pageset_repeat": 3
+            }
+        }
+    },
+    "7": {
+        "benchmarks": {
+            "system_health.memory_mobile": {
+                "begin": 62,
+                "abridged": false,
+                "pageset_repeat": 3
+            },
+            "system_health.webview_startup": {
+                "abridged": false,
+                "pageset_repeat": 20
+            },
+            "v8.browsing_mobile": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "v8.browsing_mobile-future": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "wasmpspdfkit": {
+                "abridged": false,
+                "pageset_repeat": 1
+            },
+            "webrtc": {
+                "abridged": false,
+                "pageset_repeat": 1
+            }
+        }
+    },
+    "extra_infos": {
+        "num_stories": 1118,
+        "predicted_min_shard_time": 3601.0,
+        "predicted_min_shard_index": 4,
+        "predicted_max_shard_time": 5490.0,
+        "predicted_max_shard_index": 1,
+        "shard #0": 3992.0,
+        "shard #1": 5490.0,
+        "shard #2": 3730.0,
+        "shard #3": 3734.0,
+        "shard #4": 3601.0,
+        "shard #5": 3919.0,
+        "shard #6": 3735.0,
+        "shard #7": 3689.0
+    }
+}

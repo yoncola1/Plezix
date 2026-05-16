@@ -1,0 +1,13 @@
+include_rules = [
+  "+components/multistep_filter/content",
+  "+components/multistep_filter/core",
+  "+components/keyed_service/core",
+  "+components/tabs",
+]
+
+specific_include_rules = {
+  ".*browsertest\.cc": [
+    "+components/signin/public/identity_manager",
+    "+components/version_info",
+  ],
+}

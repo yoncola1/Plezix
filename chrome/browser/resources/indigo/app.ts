@@ -1,0 +1,93 @@
+// Copyright 2026 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import './motion_overlay.js';
+
+import {CrLitElement} from 'chrome://resources/lit/v3_0/lit.rollup.js';
+
+import {getCss} from './app.css.js';
+import {getHtml} from './app.html.js';
+
+export interface IndigoImageReplacementAppElement {
+  $: {
+    image: HTMLImageElement,
+  };
+}
+
+export class IndigoImageReplacementAppElement extends CrLitElement {
+  static get is() {
+    return 'indigo-image-replacement-app';
+  }
+
+  static override get styles() {
+    return getCss();
+  }
+
+  override render() {
+    return getHtml.bind(this)();
+  }
+
+  static override get properties() {
+    return {
+      showOverlay_: {type: Boolean},
+      overlayAnimationState_: {type: String},
+      imageSrc_: {type: String},
+    };
+  }
+
+  protected accessor showOverlay_: boolean = false;
+  protected accessor overlayAnimationState_: 'entry'|'exit'|'none' = 'none';
+  protected accessor imageSrc_: string = '';
+
+  override async connectedCallback() {
+    super.connectedCallback();
+    await this.loadOriginalImage_();
+    requestAnimationFrame(async () => {
+      await chrome.indigoPrivate.readyToRender();
+      this.startAnimation_();
+      this.getReplacementImage_();
+    });
+  }
+
+  protected onMotionComplete_() {
+    this.showOverlay_ = false;
+  }
+
+  private async loadOriginalImage_() {
+    const imageData = await chrome.indigoPrivate.getOriginalImage();
+    if (imageData.value instanceof ArrayBuffer) {
+      const blob = new Blob([imageData.value], {type: 'image/webp'});
+      await this.updateAndDecodeImage_(URL.createObjectURL(blob));
+    }
+  }
+
+  private startAnimation_() {
+    this.showOverlay_ = true;
+    this.overlayAnimationState_ = 'entry';
+  }
+
+  private async getReplacementImage_() {
+    const imageData = await chrome.indigoPrivate.getReplacementImage();
+    if (typeof imageData.value === 'string') {
+      URL.revokeObjectURL(this.imageSrc_);
+      await this.updateAndDecodeImage_(imageData.value);
+      this.overlayAnimationState_ = 'exit';
+    }
+  }
+
+  private async updateAndDecodeImage_(src: string) {
+    this.imageSrc_ = src;
+    await this.updateComplete;
+    await this.$.image.decode();
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'indigo-image-replacement-app': IndigoImageReplacementAppElement;
+  }
+}
+
+customElements.define(
+    IndigoImageReplacementAppElement.is, IndigoImageReplacementAppElement);

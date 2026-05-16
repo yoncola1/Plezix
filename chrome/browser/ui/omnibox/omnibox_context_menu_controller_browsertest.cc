@@ -1,0 +1,554 @@
+// Copyright 2025 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+#include "chrome/browser/ui/omnibox/omnibox_context_menu_controller.h"
+
+#include "base/run_loop.h"
+#include "base/test/metrics/histogram_tester.h"
+#include "base/test/metrics/user_action_tester.h"
+#include "base/test/scoped_feature_list.h"
+#include "build/build_config.h"
+#include "chrome/app/chrome_command_ids.h"
+#include "chrome/browser/ui/browser.h"
+#include "chrome/browser/ui/browser_window.h"
+#include "chrome/browser/ui/browser_window/public/browser_window_features.h"
+#include "chrome/browser/ui/contextual_search/searchbox_context_data.h"
+#include "chrome/browser/ui/location_bar/location_bar.h"
+#include "chrome/browser/ui/omnibox/omnibox_controller.h"
+#include "chrome/browser/ui/omnibox/omnibox_edit_model.h"
+#include "chrome/browser/ui/omnibox/omnibox_next_features.h"
+#include "chrome/browser/ui/omnibox/omnibox_popup_state_manager.h"
+#include "chrome/browser/ui/omnibox/test_omnibox_popup_file_selector.h"
+#include "chrome/browser/ui/tabs/tab_strip_model.h"
+#include "chrome/browser/ui/views/location_bar/omnibox_popup_file_selector.h"
+#include "chrome/browser/ui/webui/cr_components/composebox/composebox_handler.h"
+#include "chrome/browser/ui/webui/omnibox_popup/omnibox_popup_ui.h"
+#include "chrome/browser/ui/webui/omnibox_popup/omnibox_popup_web_contents_helper.h"
+#include "chrome/browser/ui/webui/webui_embedding_context.h"
+#include "chrome/common/webui_url_constants.h"
+#include "chrome/grit/generated_resources.h"
+#include "chrome/test/base/in_process_browser_test.h"
+#include "chrome/test/base/ui_test_utils.h"
+#include "components/omnibox/browser/aim_eligibility_service_features.h"
+#include "components/omnibox/common/omnibox_metrics_utils.h"
+#include "components/prefs/testing_pref_service.h"
+#include "content/public/browser/web_contents.h"
+#include "content/public/browser/web_ui.h"
+#include "content/public/browser/web_ui_controller.h"
+#include "content/public/test/browser_test.h"
+#include "net/dns/mock_host_resolver.h"
+#include "net/test/embedded_test_server/embedded_test_server.h"
+#include "third_party/omnibox_proto/tool_mode.pb.h"
+#include "ui/base/l10n/l10n_util.h"
+#include "ui/gfx/native_ui_types.h"
+#include "ui/menus/simple_menu_model.h"
+
+namespace {
+
+constexpr int kMinOmniboxContextMenuRecentTabsCommandId = 33000;
+
+size_t GetVisibleItemCount(const ui::SimpleMenuModel* menu_model) {
+  size_t visible_count = 0;
+  for (size_t i = 0; i < menu_model->GetItemCount(); i++) {
+    if (menu_model->IsVisibleAt(i)) {
+      visible_count++;
+    }
+  }
+  return visible_count;
+}
+
+}  // namespace
+
+class OmniboxContextMenuControllerBrowserTest : public InProcessBrowserTest {
+ public:
+  OmniboxContextMenuControllerBrowserTest() {
+    scoped_feature_list_.InitWithFeaturesAndParameters(
+        /*enabled_features=*/
+        {{omnibox::internal::kWebUIOmniboxAimPopup,
+          {{omnibox::kWebUIOmniboxAimPopupAddContextButtonVariantParam.name,
+            "inline"},
+           {omnibox::kShowToolsAndModels.name, "true"}}},
+         {omnibox::internal::kWebUIOmniboxPopup, {}}},
+        /*disabled_features=*/{omnibox::kAimServerEligibilityEnabled,
+                               omnibox::kAimFuseboxEligibilityCheckEnabled,
+                               omnibox::kAimUsePecApi});
+  }
+
+  OmniboxContextMenuControllerBrowserTest(
+      const OmniboxContextMenuControllerBrowserTest&) = delete;
+  OmniboxContextMenuControllerBrowserTest& operator=(
+      const OmniboxContextMenuControllerBrowserTest&) = delete;
+
+  void SetUpOnMainThread() override {
+    host_resolver()->AddRule("*", "127.0.0.1");
+    ASSERT_TRUE(embedded_test_server()->Start());
+    InProcessBrowserTest::SetUpOnMainThread();
+
+    OmniboxPopupWebContentsHelper::CreateForWebContents(GetWebContents());
+    LocationBar* location_bar = browser()->window()->GetLocationBar();
+    OmniboxPopupWebContentsHelper::FromWebContents(GetWebContents())
+        ->set_omnibox_controller(location_bar->GetOmniboxController());
+  }
+
+  content::WebContents* GetWebContents() {
+    return browser()->tab_strip_model()->GetActiveWebContents();
+  }
+
+ private:
+  base::test::ScopedFeatureList scoped_feature_list_;
+};
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerBrowserTest,
+                       AddRecentTabsToMenu) {
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupURL)));
+
+  auto* web_contents = GetWebContents();
+  // TODO(crbug.com/458463536): Use proper web contents for the
+  // aim popup.
+  auto owning_window = gfx::NativeWindow();
+  auto omnibox_popup_file_selector = std::make_unique<OmniboxPopupFileSelector>(
+      owning_window);
+  OmniboxContextMenuController base_controller(
+      omnibox_popup_file_selector.get(), web_contents);
+  ui::SimpleMenuModel* model = base_controller.menu_model();
+
+  // The model should have the following visible items:
+  //   - 2 contextual input items
+  //   - 1 separator
+  //   - 2 tool input items
+  EXPECT_EQ(5u, GetVisibleItemCount(model));
+
+  // Add exactly two additional tabs to the tab strip model.
+  GURL url1(embedded_test_server()->GetURL("/title1.html"));
+  ASSERT_TRUE(AddTabAtIndex(1, url1, ui::PAGE_TRANSITION_TYPED));
+
+  GURL url2(embedded_test_server()->GetURL("/title2.html"));
+  ASSERT_TRUE(AddTabAtIndex(2, url2, ui::PAGE_TRANSITION_TYPED));
+
+  OmniboxContextMenuController controller(omnibox_popup_file_selector.get(),
+                                          web_contents);
+  model = controller.menu_model();
+
+  // The model should have the following visible items:
+  //   - 1 header ("Most recent tabs")
+  //   - 2 recent tab items
+  //   - 1 separator
+  //   - 2 contextual input items
+  //   - 1 separator
+  //   - 2 tool input items
+  EXPECT_EQ(9u, GetVisibleItemCount(model));
+}
+
+// TODO(crbug.com/460910010): Flaky, especially on ASAN/LSAN bots and certain
+// Windows bots.
+#if defined(ADDRESS_SANITIZER) || defined(LEAK_SANITIZER) || \
+    BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC)
+#define MAYBE_ExecuteCommand DISABLED_ExecuteCommand
+#else
+#define MAYBE_ExecuteCommand ExecuteCommand
+#endif
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerBrowserTest,
+                       MAYBE_ExecuteCommand) {
+  TestingPrefServiceSimple pref_service;
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+  OmniboxContextMenuController controller(&file_selector, GetWebContents());
+
+  BrowserWindowInterface* browser_window_interface =
+      webui::GetBrowserWindowInterface(GetWebContents());
+  SearchboxContextData* searchbox_context_data =
+      browser_window_interface->GetFeatures().searchbox_context_data();
+  ASSERT_TRUE(searchbox_context_data);
+
+  // Test Add Image.
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_ADD_IMAGE, 0);
+  EXPECT_EQ(1, file_selector.open_file_upload_dialog_calls());
+
+  // Test Add File.
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_ADD_FILE, 0);
+  EXPECT_EQ(2, file_selector.open_file_upload_dialog_calls());
+}
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerBrowserTest,
+                       RecordHistogramOnTabSelected) {
+  base::HistogramTester histogram_tester;
+  base::UserActionTester user_action_tester;
+
+  // Navigate the initial tab to the popup URL.
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupURL)));
+  auto* popup_web_contents = GetWebContents();
+
+  // Add a recent tab.
+  GURL url(embedded_test_server()->GetURL("/title1.html"));
+  ASSERT_TRUE(AddTabAtIndex(1, url, ui::PAGE_TRANSITION_TYPED));
+
+  // The controller should be associated with the popup web contents.
+  auto owning_window = browser()->window()->GetNativeWindow();
+  auto omnibox_popup_file_selector =
+      std::make_unique<OmniboxPopupFileSelector>(owning_window);
+  OmniboxContextMenuController controller(omnibox_popup_file_selector.get(),
+                                          popup_web_contents);
+
+  // The first recent tab item should be at
+  // kMinOmniboxContextMenuRecentTabsCommandId.
+  controller.ExecuteCommand(kMinOmniboxContextMenuRecentTabsCommandId, 0);
+
+  histogram_tester.ExpectUniqueSample(
+      "ContextualSearch.ContextAdded.ContextAddedMethod.Omnibox", 0, 1);
+
+  histogram_tester.ExpectUniqueSample(
+      "Omnibox.AimEntrypoint.ClassicPopup.ContextualElement.Clicked",
+      omnibox::ContextType::kTab, 1);
+
+  EXPECT_EQ(
+      1,
+      user_action_tester.GetActionCount(
+          "Omnibox.AimEntrypoint.ClassicPopup.ContextualElement.Clicked.Tab"));
+}
+
+class OmniboxContextMenuControllerBrowserTestWithCommand
+    : public OmniboxContextMenuControllerBrowserTest,
+      public testing::WithParamInterface<int> {
+ protected:
+  int GetCommandId() const { return GetParam(); }
+};
+
+IN_PROC_BROWSER_TEST_P(OmniboxContextMenuControllerBrowserTestWithCommand,
+                       ExecuteCommand_AiModeOpen_ReopensOnCancel) {
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+  OmniboxContextMenuController controller(&file_selector, GetWebContents());
+
+  auto* omnibox_controller =
+      OmniboxPopupWebContentsHelper::FromWebContents(GetWebContents())
+          ->get_omnibox_controller();
+  ASSERT_TRUE(omnibox_controller);
+
+  // Start with the popup in AIM state.
+  omnibox_controller->popup_state_manager()->SetPopupState(
+      OmniboxPopupState::kAim);
+
+  // Executing the command should record that AIM was open.
+  controller.ExecuteCommand(GetCommandId(), 0);
+  EXPECT_TRUE(file_selector.last_was_ai_mode_open());
+  EXPECT_EQ(1, file_selector.open_file_upload_dialog_calls());
+
+  // Simulate popup closure that would happen as a result of the dialog opening.
+  omnibox_controller->popup_state_manager()->SetPopupState(
+      OmniboxPopupState::kNone);
+
+  // Canceling the file selection should restore the AIM state.
+  file_selector.FileSelectionCanceled();
+  EXPECT_EQ(OmniboxPopupState::kAim,
+            omnibox_controller->popup_state_manager()->popup_state());
+}
+
+IN_PROC_BROWSER_TEST_P(OmniboxContextMenuControllerBrowserTestWithCommand,
+                       ExecuteCommand_AiModeClosed_DoesNotReopenOnCancel) {
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+  OmniboxContextMenuController controller(&file_selector, GetWebContents());
+
+  auto* omnibox_controller =
+      OmniboxPopupWebContentsHelper::FromWebContents(GetWebContents())
+          ->get_omnibox_controller();
+  ASSERT_TRUE(omnibox_controller);
+
+  // Start with the popup in Classic state.
+  omnibox_controller->popup_state_manager()->SetPopupState(
+      OmniboxPopupState::kClassic);
+
+  // Executing the command should record that AIM was NOT open.
+  controller.ExecuteCommand(GetCommandId(), 0);
+  EXPECT_FALSE(file_selector.last_was_ai_mode_open());
+  EXPECT_EQ(1, file_selector.open_file_upload_dialog_calls());
+
+  // Canceling the file selection should NOT switch to AIM state.
+  file_selector.FileSelectionCanceled();
+  EXPECT_EQ(OmniboxPopupState::kClassic,
+            omnibox_controller->popup_state_manager()->popup_state());
+}
+
+INSTANTIATE_TEST_SUITE_P(All,
+                         OmniboxContextMenuControllerBrowserTestWithCommand,
+                         testing::Values(IDC_OMNIBOX_CONTEXT_ADD_IMAGE,
+                                         IDC_OMNIBOX_CONTEXT_ADD_FILE));
+
+class OmniboxContextMenuControllerPecBrowserTest : public InProcessBrowserTest {
+ public:
+  OmniboxContextMenuControllerPecBrowserTest() {
+    scoped_feature_list_.InitWithFeaturesAndParameters(
+        /*enabled_features=*/
+        {{omnibox::internal::kWebUIOmniboxAimPopup,
+          {{omnibox::kWebUIOmniboxAimPopupAddContextButtonVariantParam.name,
+            "inline"},
+           {omnibox::kShowToolsAndModels.name, "true"}}},
+         {omnibox::internal::kWebUIOmniboxPopup, {}},
+         {omnibox::kAimUsePecApi, {}},
+         {omnibox::kComposeboxDriveContextMenuOption, {}}},
+        /*disabled_features=*/{omnibox::kAimServerEligibilityEnabled,
+                               omnibox::kAimFuseboxEligibilityCheckEnabled});
+  }
+
+  OmniboxContextMenuControllerPecBrowserTest(
+      const OmniboxContextMenuControllerPecBrowserTest&) = delete;
+  OmniboxContextMenuControllerPecBrowserTest& operator=(
+      const OmniboxContextMenuControllerPecBrowserTest&) = delete;
+
+  void SetUpOnMainThread() override {
+    host_resolver()->AddRule("*", "127.0.0.1");
+    ASSERT_TRUE(embedded_test_server()->Start());
+    InProcessBrowserTest::SetUpOnMainThread();
+
+    OmniboxPopupWebContentsHelper::CreateForWebContents(GetWebContents());
+    LocationBar* location_bar = browser()->window()->GetLocationBar();
+    OmniboxPopupWebContentsHelper::FromWebContents(GetWebContents())
+        ->set_omnibox_controller(location_bar->GetOmniboxController());
+  }
+
+  content::WebContents* GetWebContents() {
+    return browser()->tab_strip_model()->GetActiveWebContents();
+  }
+
+ private:
+  base::test::ScopedFeatureList scoped_feature_list_;
+};
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerPecBrowserTest,
+                       RecordHistogramOnCanvasCommand) {
+  base::HistogramTester histogram_tester;
+
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+  OmniboxContextMenuController controller(&file_selector, GetWebContents());
+
+  // Execute the command for canvas. This should not crash even if the
+  // composebox_handler is null (which it is by default in this test setup).
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_CANVAS, 0);
+
+  // When AimUsePecApi is enabled and composebox_handler is null, it should
+  // fallback to the default logic and log the histogram.
+  histogram_tester.ExpectUniqueSample(
+      "Omnibox.AimEntrypoint.ClassicPopup.ContextualElement.Clicked",
+      omnibox::ContextType::kCanvas, 1);
+}
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerPecBrowserTest,
+                       ExecuteCommandSetsToolMode) {
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupAimURL)));
+
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+  OmniboxContextMenuController controller(&file_selector, GetWebContents());
+
+  base::HistogramTester histogram_tester;
+
+  auto* web_ui = GetWebContents()->GetWebUI();
+  ASSERT_TRUE(web_ui) << "WebContents must have a WebUI";
+
+  auto* web_ui_controller = web_ui->GetController();
+  ASSERT_TRUE(web_ui_controller) << "WebUI must have a Controller";
+
+  auto* popup_ui = web_ui_controller->GetAs<OmniboxPopupUI>();
+  ASSERT_TRUE(popup_ui) << "Controller must cast to OmniboxPopupUI";
+
+  auto* composebox_handler = popup_ui->composebox_handler();
+  ASSERT_TRUE(composebox_handler)
+      << "Composebox handler must be initialized for this test!";
+
+  auto* input_state_model = composebox_handler->input_state_model();
+  ASSERT_TRUE(input_state_model) << "Input state model must exist!";
+
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_DEEP_RESEARCH, 0);
+  EXPECT_EQ(omnibox::TOOL_MODE_DEEP_SEARCH,
+            input_state_model->GetInputState().active_tool);
+  histogram_tester.ExpectBucketCount("ContextualSearch.Tools.Omnibox",
+                                     omnibox::TOOL_MODE_DEEP_SEARCH, 1);
+
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_CREATE_IMAGES, 0);
+  EXPECT_EQ(omnibox::TOOL_MODE_IMAGE_GEN,
+            input_state_model->GetInputState().active_tool);
+  histogram_tester.ExpectBucketCount("ContextualSearch.Tools.Omnibox",
+                                     omnibox::TOOL_MODE_IMAGE_GEN, 1);
+
+  controller.ExecuteCommand(IDC_OMNIBOX_CONTEXT_CANVAS, 0);
+  EXPECT_EQ(omnibox::TOOL_MODE_CANVAS,
+            input_state_model->GetInputState().active_tool);
+  histogram_tester.ExpectBucketCount("ContextualSearch.Tools.Omnibox",
+                                     omnibox::TOOL_MODE_CANVAS, 1);
+}
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerPecBrowserTest,
+                       ExecuteCommandRecordsModelMetrics) {
+  base::HistogramTester histogram_tester;
+
+  // Navigate to the AIM page.
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupAimURL)));
+
+  auto* web_contents = GetWebContents();
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+
+  // Manually inject InputState to ensure models appear in the menu.
+  auto* web_ui = web_contents->GetWebUI();
+  auto* popup_ui = web_ui->GetController()->GetAs<OmniboxPopupUI>();
+  auto* handler = popup_ui->composebox_handler();
+
+  omnibox::InputState test_state;
+  // Explicitly allow Gemini Pro and Auto models.
+  test_state.allowed_models.push_back(
+      omnibox::ModelMode::MODEL_MODE_GEMINI_PRO);
+  test_state.allowed_models.push_back(
+      omnibox::ModelMode::MODEL_MODE_GEMINI_PRO_AUTOROUTE);
+  handler->input_state_model()->set_state_for_testing(test_state);
+
+  // Create the controller after the state has been injected.
+  OmniboxContextMenuController controller(&file_selector, web_contents);
+  ui::SimpleMenuModel* menu_model = controller.menu_model();
+
+  // Get the localized labels for the models.
+  std::u16string thinking_label =
+      l10n_util::GetStringUTF16(IDS_NTP_COMPOSE_THINKING_3_PRO);
+  std::u16string auto_label =
+      l10n_util::GetStringUTF16(IDS_NTP_COMPOSE_AUTO_MODEL);
+
+  int thinking_model_cmd_id = -1;
+  int auto_model_cmd_id = -1;
+
+  // Iterate through the menu to find the dynamic command IDs for the models.
+  for (size_t i = 0; i < menu_model->GetItemCount(); ++i) {
+    std::u16string label = menu_model->GetLabelAt(i);
+    if (label == thinking_label) {
+      thinking_model_cmd_id = menu_model->GetCommandIdAt(i);
+    } else if (label == auto_label) {
+      auto_model_cmd_id = menu_model->GetCommandIdAt(i);
+    }
+  }
+
+  // Verify and execute the "Thinking" model click.
+  ASSERT_NE(thinking_model_cmd_id, -1) << "Thinking model not found in menu";
+  controller.ExecuteCommand(thinking_model_cmd_id, 0);
+  histogram_tester.ExpectBucketCount("ContextualSearch.Models.Omnibox",
+                                     omnibox::ModelMode::MODEL_MODE_GEMINI_PRO,
+                                     1);
+
+  // Verify and execute the "Auto" model click.
+  ASSERT_NE(auto_model_cmd_id, -1) << "Auto model not found in menu";
+  controller.ExecuteCommand(auto_model_cmd_id, 0);
+  histogram_tester.ExpectBucketCount(
+      "ContextualSearch.Models.Omnibox",
+      omnibox::ModelMode::MODEL_MODE_GEMINI_PRO_AUTOROUTE, 1);
+}
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerPecBrowserTest,
+                       ExecuteCommandRecordsToolMetricsPec) {
+  base::HistogramTester histogram_tester;
+
+  // Navigate to the AIM page to initialize the environment.
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupAimURL)));
+
+  auto* web_contents = GetWebContents();
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+
+  // Manually inject InputState to ensure tools are populated in the menu.
+  auto* web_ui = web_contents->GetWebUI();
+  auto* popup_ui = web_ui->GetController()->GetAs<OmniboxPopupUI>();
+  auto* handler = popup_ui->composebox_handler();
+
+  omnibox::InputState test_state;
+  test_state.allowed_tools.push_back(omnibox::ToolMode::TOOL_MODE_DEEP_SEARCH);
+  test_state.allowed_tools.push_back(omnibox::ToolMode::TOOL_MODE_IMAGE_GEN);
+  handler->input_state_model()->set_state_for_testing(test_state);
+
+  // Create the controller after the state is injected.
+  OmniboxContextMenuController controller(&file_selector, web_contents);
+  ui::SimpleMenuModel* menu_model = controller.menu_model();
+
+  // Define the tools and their corresponding localized label IDs to verify.
+  struct {
+    int string_id;
+    omnibox::ToolMode expected_mode;
+  } tool_cases[] = {
+      {IDS_NTP_COMPOSE_DEEP_SEARCH, omnibox::ToolMode::TOOL_MODE_DEEP_SEARCH},
+      {IDS_NTP_COMPOSE_CREATE_IMAGES, omnibox::ToolMode::TOOL_MODE_IMAGE_GEN}};
+
+  // Iterate through and verify each tool.
+  for (const auto& test : tool_cases) {
+    std::u16string target_label = l10n_util::GetStringUTF16(test.string_id);
+    int command_id = -1;
+
+    // Find the tool's command ID from the dynamically generated menu.
+    for (size_t i = 0; i < menu_model->GetItemCount(); ++i) {
+      if (menu_model->GetLabelAt(i) == target_label) {
+        command_id = menu_model->GetCommandIdAt(i);
+        break;
+      }
+    }
+
+    // Execute the command and verify the metrics.
+    ASSERT_NE(command_id, -1) << "Tool not found in menu: " << target_label;
+
+    controller.ExecuteCommand(command_id, 0);
+
+    // Verify the 'ContextualSearch.Tools.Omnibox' histogram.
+    histogram_tester.ExpectBucketCount("ContextualSearch.Tools.Omnibox",
+                                       test.expected_mode, 1);
+  }
+}
+
+IN_PROC_BROWSER_TEST_F(OmniboxContextMenuControllerPecBrowserTest,
+                       ExecuteCommandHandlesDriveOption) {
+  ASSERT_TRUE(ui_test_utils::NavigateToURL(
+      browser(), GURL(chrome::kChromeUIOmniboxPopupAimURL)));
+
+  auto* web_contents = GetWebContents();
+  auto owning_window = gfx::NativeWindow();
+  TestOmniboxPopupFileSelector file_selector(owning_window);
+
+  auto* web_ui = web_contents->GetWebUI();
+  ASSERT_TRUE(web_ui);
+  auto* popup_ui = web_ui->GetController()->GetAs<OmniboxPopupUI>();
+  ASSERT_TRUE(popup_ui);
+  auto* handler = popup_ui->composebox_handler();
+  ASSERT_TRUE(handler);
+  ASSERT_TRUE(handler->input_state_model());
+
+  omnibox::InputState test_state;
+  test_state.allowed_input_types.push_back(
+      omnibox::InputType::INPUT_TYPE_DRIVE);
+  handler->input_state_model()->set_state_for_testing(test_state);
+
+  OmniboxContextMenuController controller(&file_selector, web_contents);
+  ui::SimpleMenuModel* menu_model = controller.menu_model();
+
+  std::u16string target_label =
+      l10n_util::GetStringUTF16(IDS_NTP_COMPOSE_ADD_DRIVE);
+  int command_id = -1;
+
+  for (size_t i = 0; i < menu_model->GetItemCount(); ++i) {
+    if (menu_model->GetLabelAt(i) == target_label) {
+      command_id = menu_model->GetCommandIdAt(i);
+      break;
+    }
+  }
+
+  auto* omnibox_controller =
+      OmniboxPopupWebContentsHelper::FromWebContents(web_contents)
+          ->get_omnibox_controller();
+  ASSERT_TRUE(omnibox_controller);
+  omnibox_controller->popup_state_manager()->SetPopupState(
+      OmniboxPopupState::kClassic);
+
+  ASSERT_NE(command_id, -1) << "Drive option not found in menu";
+  controller.ExecuteCommand(command_id, 0);
+
+  EXPECT_EQ(OmniboxPopupState::kAim,
+            omnibox_controller->popup_state_manager()->popup_state());
+}

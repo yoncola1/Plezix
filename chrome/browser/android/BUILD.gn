@@ -1,0 +1,94 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("//chrome/common/features.gni")
+import("//third_party/protobuf/proto_library.gni")
+
+source_set("tabs_public") {
+  public = [
+    "tab_android.h",
+    "tab_android_data_provider.h",
+    "tab_features.h",
+  ]
+
+  public_deps = [
+    "//base",
+    "//chrome/browser/tab",
+    "//chrome/browser/ui/side_panel:side_panel_views_dependent",
+    "//chrome/common:buildflags",
+    "//components/sessions:session_id",
+    "//components/split_tabs",
+    "//components/tab_groups",
+    "//components/tabs:public",
+    "//ui/base/unowned_user_data",
+  ]
+}
+
+source_set("tabs_impl") {
+  # TODO(crbug.com/486820940): Split tab_android.cc into smaller build target
+  # files.
+  sources = [ "tab_features.cc" ]
+
+  deps = [
+    ":tabs_public",
+    "//chrome/browser/actor",
+    "//chrome/browser/actor/android",
+    "//chrome/browser/contextual_search",
+    "//chrome/browser/glic",
+    "//chrome/browser/net",
+    "//chrome/browser/preloading/new_tab_page_preload",
+    "//chrome/browser/sync",
+    "//chrome/browser/ui/contextual_search",
+    "//chrome/browser/ui/side_panel/android",
+
+    # TODO(crbug.com/489548570): Remove "side_panel_container/internal:android"
+    # since it's for the tab-scoped dev feature.
+    "//chrome/browser/ui/side_panel_container/internal:android",
+    "//components/external_intents/android",
+    "//components/favicon/content",
+    "//components/lens",
+    "//components/metrics:content",
+    "//components/tabs:public",
+    "//content/public/browser",
+  ]
+}
+
+source_set("resource_mapper") {
+  sources = [
+    "android_theme_resources.h",
+    "resource_id.h",
+    "resource_mapper.cc",
+    "resource_mapper.h",
+  ]
+  deps = [
+    "//base",
+    "//chrome/android:chrome_jni_headers",
+    "//chrome/app:generated_resources",
+    "//chrome/app/theme:theme_resources",
+    "//chrome/browser/page_info:page_info_buildflags",
+    "//components/password_manager/core/browser:password_manager_buildflags",
+    "//components/resources:android_resources",
+    "//components/resources:components_scaled_resources",
+  ]
+}
+
+proto_library("delta_file_proto") {
+  sources = [ "proto/delta_file.proto" ]
+}
+
+proto_library("language_data_proto") {
+  sources = [ "persisted_tab_data/language_data.proto" ]
+}
+
+proto_library("profile_token") {
+  sources = [ "proto/profile_token.proto" ]
+}
+
+proto_library("sensitivity_data_proto") {
+  sources = [ "persisted_tab_data/sensitivity_data.proto" ]
+}
+
+proto_library("usage_stats_proto") {
+  sources = [ "usage_stats/website_event.proto" ]
+}

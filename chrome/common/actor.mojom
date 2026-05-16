@@ -1,0 +1,264 @@
+// Copyright 2025 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+module actor.mojom;
+
+import "components/actor/public/mojom/actor_types.mojom";
+import "mojo/public/mojom/base/time.mojom";
+import "mojo/public/mojom/base/unguessable_token.mojom";
+import "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom";
+import "third_party/blink/public/mojom/content_extraction/script_tools.mojom";
+import "ui/gfx/geometry/mojom/geometry.mojom";
+
+// This interface is meant to largely mirror the
+// BrowserAction::ActionInformation proto.
+
+// Tool-specific target.
+union ToolTarget {
+  // DOMNodeId for the node this invocation should be applied to.
+  int32 dom_node_id;
+
+  // An x,y pair representing a location relative to the origin at the top-left
+  // corner of the local root frame (i.e. the blink::WebWidget/RenderWidget). In
+  // DIP.
+  //
+  // Note: Renderer-side hit testing uses BlinkSpace (device pixels). This
+  // coordinate is converted via WebFrameWidget::DIPsToBlinkSpace() before
+  // performing a hit test.
+  gfx.mojom.Point coordinate_dip;
+};
+
+// Attributes of the Node target returned from hit test on last observed APC.
+struct ObservedToolTarget {
+  blink.mojom.AIPageContentAttributes node_attribute;
+};
+
+// Corresponds to ClickAction.ClickType
+enum ClickType {
+  kLeft = 1,
+  kRight = 2,
+};
+
+// Corresponds to ClickAction.ClickCount
+enum ClickCount {
+  kSingle = 1,
+  kDouble = 2,
+};
+
+// Information specific to a click action.
+struct ClickAction {
+  ClickType type;
+  ClickCount count;
+};
+
+// Information specific to a mouse move action.
+// Has no members because the target, included in ToolInvocation, is the only
+// needed parameter.
+struct MouseMoveAction {};
+
+// Information specific to a scroll-to action.
+// Has no members because the target, included in ToolInvocation, is the only
+// needed parameter.
+struct ScrollToAction {};
+
+// Information specific to the type (keyboard input) action.  Note: TypeAction
+// may be implemented in multiple steps (e.g.  individual key events). In some
+// situations, part of the action may complete while another part fails.
+// TypeAction currently returns failure if any part of the action fails.
+// TODO(crbug.com/409333494): Consider how to handle partial success cases like
+// this.
+struct TypeAction {
+  // How the text should be inserted into the target.
+  enum Mode {
+    kDeleteExisting = 0,
+    kPrepend = 1,
+    kAppend = 2,
+  };
+
+  Mode mode;
+  // text should be ASCII only for now.
+  string text;
+  bool follow_by_enter;
+};
+
+// Scroll action performs a scroll on the page's viewport or on a specified
+// target element.
+// It currently returns true even for a partial scroll to the given distance
+// and direction.
+// It will provide more precise information about how much it scrolls.
+struct ScrollAction {
+  // Corresponds to ScrollAction.ScrollDirection.
+  // This must be kept in sync with ScrollAction.ScrollDirection enum in
+  // components/optimization_guide/proto/features/actions_data.proto.
+  enum ScrollDirection {
+    // Scroll left.
+    kLeft = 1,
+    // Scroll right.
+    kRight = 2,
+    // Scroll up.
+    kUp = 3,
+    // Scroll down.
+    kDown = 4,
+  };
+
+  ScrollDirection direction;
+  // Scroll distance in DIPs, and it should always be positive.
+  float distance;
+};
+
+// Action for selecting an option from a <select> element.
+struct SelectAction {
+  // The value of the option to set as the currently selected option. The action
+  // fails if the given value doesn't match the value of one of the element's
+  // <option> children. Case-sensitive.
+  string value;
+};
+
+// Performs a left mouse button down on the from_target, then moves to and
+// releases on the to_target.
+struct DragAndReleaseAction {
+  ToolTarget to_target;
+};
+
+// Executes a script tool associated with the Document.
+struct ScriptToolAction {
+  string name;
+  string input_arguments;
+};
+
+// Union of tool-specific actions.
+union ToolAction {
+  ClickAction click;
+  DragAndReleaseAction drag_and_release;
+  MouseMoveAction mouse_move;
+  ScrollAction scroll;
+  SelectAction select;
+  TypeAction type;
+  ScriptToolAction script_tool;
+  ScrollToAction scroll_to;
+};
+
+// The task ID associated with the tool invocation.
+struct TaskId {
+  int32 id;
+};
+
+// All information required to invoke a tool in the renderer.
+struct ToolInvocation {
+  // The task ID owning this invocation.
+  TaskId task_id;
+
+  // The execution ID for state tracking (e.g., across navigations).
+  // This is null for tools that do not require state tracking across
+  // navigations
+  // (e.g., PageTools). Currently, it is only set by ScriptToolHost to associate
+  // the tool invocation with any navigations it triggers.
+  mojo_base.mojom.UnguessableToken? execution_id;
+
+  // The action to carry out in this invocation.
+  ToolAction action;
+
+  // Target of this tool invocation.
+  ToolTarget target;
+
+  // Target from hit test on the last observed page content.
+  // This is optional and is used for checking if the action target has changed
+  // since last observation.
+  ObservedToolTarget? observed_target;
+};
+
+struct ScriptToolResponse {
+  // The input arguments provided to the script tool action.
+  string input_arguments;
+
+  // The corresponding tool declaration.
+  blink.mojom.ScriptTool tool;
+
+  // The result of executing the action. If not provided, the action resulted in
+  // a navigation and the result will be on the next Document.
+  string? result;
+};
+
+// Represents the outcome of tool initialization.
+// This union covers three possible outcomes:
+// 1. Success with a target: `success_point` is set to a valid Point.
+// 2. Success without a target: `success_point` is explicitly set to null.
+// 3. Failure: `error_result` is populated.
+union InitializeToolResult {
+  // Populated when the tool is successfully initialized.
+  // Contains the resolved target point in Blink (physical) pixels relative
+  // to the widget's origin.
+  //
+  // NOTE: Not all tools provide a point. In those success cases, this
+  // field will be null.
+  gfx.mojom.Point? success_point;
+
+  // Populated when initialization fails.
+  ActionResult error_result;
+};
+
+struct ActionResult {
+  // A code with the outcome of the tool invocation.
+  ActionResultCode code;
+
+  // Whether any action was taken on the page. This is used to know if we need
+  // to wait for the page to settle.
+  bool requires_page_stabilization;
+
+  // If the code is not kOk, an English language message describing the error.
+  string message;
+
+  // If the action is a script tool, provides the result of that execution. This
+  // is only populated if the execution was successful.
+  ScriptToolResponse? script_tool_response;
+
+  // Time at which execution of the action was complete and page
+  // stabilization was started. This field may not be available if the action's
+  // execution did not fully complete.
+  mojo_base.mojom.TimeTicks? execution_end_time;
+};
+
+// The type of the journal entry.
+enum JournalEntryType {
+  kBegin,
+  kEnd,
+  kInstant,
+};
+
+// Details of a journal entry.
+struct JournalDetails {
+  string key;
+  string value;
+};
+
+// Represents a journal entry. This should only be used for logging and
+// debugging. It should not be used to make logic decisions since a
+// compromised renderer could lie about events (such as mismatched
+// or missing begin and end events).
+struct JournalEntry {
+  // What type of entry this is.
+  JournalEntryType type;
+
+  // The task ID associated with this entry.
+  TaskId task_id;
+
+  // The time the event occurred at.
+  mojo_base.mojom.Time timestamp;
+
+  // The event name.
+  string event;
+
+  // Track UUID.
+  uint64 track_uuid;
+
+  // Specific details of the event logged.
+  array<JournalDetails> details;
+};
+
+// Use to listen for new journal entries. Lives in the browser process and
+// is used to receive entries from renderer processes.
+interface JournalClient {
+  // New log messages are sent in batches to limit the frequency of calls.
+  AddEntriesToJournal(array<JournalEntry> entries);
+};
