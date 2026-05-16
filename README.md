@@ -3,15 +3,10 @@
 Plezix is an open-source browser project that aims to build a safer, faster,
 and more stable way for all users to experience the web.
 
-The project's web site is https://www.Plezix.org.
-
 To check out the source code locally, don't use `git clone`! Instead,
 follow [the instructions on how to get the code](docs/get_the_code.md).
 
 Documentation in the source is rooted in [docs/README.md](docs/README.md).
-
-Learn how to [Get Around the Plezix Source Code Directory
-Structure](https://www.Plezix.org/developers/how-tos/getting-around-the-chrome-source-code).
 
 For historical reasons, there are some small top level directories. Now the
 guidance is that new top level directories are for product (e.g. Chrome,
