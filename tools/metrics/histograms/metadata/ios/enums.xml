@@ -412,6 +412,17 @@ chromium-metrics-reviews@google.com.
 
 <!-- LINT.ThenChange(//components/desktop_to_mobile_promos/promos_types.h:PromoType) -->
 
+<!-- LINT.IfChange(IOSDarkModeDetectionCrossedState) -->
+
+<enum name="IOSDarkModeDetectionCrossedState">
+  <int value="0" label="Not supported, Light mode"/>
+  <int value="1" label="Not supported, Dark mode"/>
+  <int value="2" label="Supported, Light mode"/>
+  <int value="3" label="Supported, Dark mode"/>
+</enum>
+
+<!-- LINT.ThenChange(/ios/chrome/browser/web/model/dark_mode_detection/dark_mode_detection_java_script_feature.mm:DarkModeDetectionCrossedState) -->
+
 <!-- LINT.IfChange(IOSDataProtectionScreenshotBlockSource) -->
 
 <enum name="IOSDataProtectionScreenshotBlockSource">
@@ -817,6 +828,7 @@ chromium-metrics-reviews@google.com.
   <int value="9" label="Direct Omnibox Badge"/>
   <int value="10" label="AI Hub Sign-in Sheet"/>
   <int value="11" label="External App Store Event"/>
+  <int value="12" label="Toolbar"/>
 </enum>
 
 <!-- LINT.ThenChange(/ios/chrome/browser/intelligence/bwg/utils/gemini_constants.h:EntryPoint) -->
@@ -889,7 +901,7 @@ chromium-metrics-reviews@google.com.
   <int value="12" label="Bottom Banner (e.g. Download Banner)"/>
   <int value="13" label="Keyboard"/>
   <int value="14" label="Gesture IPH"/>
-  <int value="15" label="Search Related Page"/>
+  <int value="15" label="Search Related Page (Deprecated)"/>
 </enum>
 
 <!-- LINT.ThenChange(/ios/chrome/browser/intelligence/bwg/utils/gemini_constants.h:FloatyUpdateSource) -->
@@ -963,6 +975,22 @@ chromium-metrics-reviews@google.com.
 
 <!-- LINT.ThenChange(ios/chrome/browser/intelligence/bwg/utils/gemini_constants.h:InputPlateAttachmentOption) -->
 
+<!-- LINT.IfChange(IOSGeminiInvocationPageType) -->
+
+<enum name="IOSGeminiInvocationPageType">
+  <summary>
+    Enum describing the page type from which Gemini was started.
+  </summary>
+  <int value="0" label="Extractable Web Page"/>
+  <int value="1" label="PDF Document"/>
+  <int value="2" label="New Tab Page"/>
+  <int value="3" label="Chrome Internal Other"/>
+  <int value="4" label="Other Non-Extractable"/>
+  <int value="5" label="No WebState"/>
+</enum>
+
+<!-- LINT.ThenChange(/ios/chrome/browser/intelligence/bwg/metrics/gemini_metrics.h:IOSGeminiInvocationPageType) -->
+
 <!-- LINT.IfChange(IOSGeminiOSCameraAuthorizationInitialStatus) -->
 
 <enum name="IOSGeminiOSCameraAuthorizationInitialStatus">
@@ -984,7 +1012,7 @@ chromium-metrics-reviews@google.com.
 <enum name="IOSGeminiPageAvailability">
   <int value="0" label="Unavailable"/>
   <int value="1" label="Available"/>
-  <int value="2" label="Search Result Page"/>
+  <int value="2" label="Search Result Page (Deprecated)"/>
 </enum>
 
 <!-- LINT.ThenChange(/ios/chrome/browser/intelligence/bwg/metrics/gemini_metrics.h:IOSGeminiPageAvailability) -->
@@ -1394,6 +1422,7 @@ chromium-metrics-reviews@google.com.
   <int value="9" label="SpotlightDebugger"/>
   <int value="10" label="PriceNotifications"/>
   <int value="11" label="Cobalt"/>
+  <int value="12" label="LevelUp"/>
 </enum>
 
 <!-- LINT.ThenChange(
@@ -2589,6 +2618,17 @@ chromium-metrics-reviews@google.com.
 
 <!-- LINT.ThenChange(/ios/chrome/browser/autofill/scan_save_and_fill/ui/payments_scan_save_and_fill_edit_view_controller.h:ScanCardOfferToSaveAction) -->
 
+<!-- LINT.IfChange(ScanCardSuggestionBottomSheetExitReason) -->
+
+<enum name="ScanCardSuggestionBottomSheetExitReason">
+  <int value="0" label="Ignore"/>
+  <int value="1" label="Accept Suggestion"/>
+  <int value="2" label="Reject Suggestion"/>
+  <int value="3" label="Could Not Present"/>
+</enum>
+
+<!-- LINT.ThenChange(/ios/chrome/browser/autofill/scan_save_and_fill/coordinator/payments_scan_save_and_fill_offer_bottom_sheet_mediator.h:ScanCardSuggestionBottomSheetExitReason) -->
+
 <!-- LINT.IfChange(SyncedSetUpAppliedPref) -->
 
 <enum name="SyncedSetUpAppliedPref">
@@ -2719,6 +2759,21 @@ chromium-metrics-reviews@google.com.
   <int value="13" label="Imperial Volume"/>
   <int value="14" label="Metric Volume"/>
 </enum>
+
+<!-- LINT.IfChange(UserFeedbackSender) -->
+
+<enum name="UserFeedbackSender">
+  <int value="0" label="ToolsMenu"/>
+  <int value="1" label="SadTab"/>
+  <int value="2" label="Feed"/>
+  <int value="3" label="KeyCommand"/>
+  <int value="4" label="MiniMap"/>
+  <int value="5" label="ParcelTracking"/>
+  <int value="6" label="UnitConversion"/>
+  <int value="7" label="ContentNotification"/>
+</enum>
+
+<!-- LINT.ThenChange(/ios/public/provider/chrome/browser/user_feedback/user_feedback_sender.h:UserFeedbackSender) -->
 
 <enum name="VariationsFirstRunSeedApplicationStage">
   <int value="0" label="Seed missing">

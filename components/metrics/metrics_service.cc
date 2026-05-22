@@ -462,10 +462,6 @@ void MetricsService::Stop() {
 }
 
 void MetricsService::EnableReporting() {
-  // Plezix: Disable telemetry and Google tracking for privacy
-  // This ensures metrics/UMA data is never uploaded
-  return;
-  
   if (reporting_service_.reporting_active()) {
     return;
   }

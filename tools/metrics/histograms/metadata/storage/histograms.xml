@@ -131,7 +131,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="API.StorageAccess.DocumentLoadedWithStorageAccess"
-    enum="Boolean" expires_after="2026-09-15">
+    enum="Boolean" expires_after="2026-11-15">
   <owner>cfredric@chromium.org</owner>
   <owner>johannhof@chromium.org</owner>
   <summary>
@@ -213,7 +213,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="API.TopLevelStorageAccess.RequestOutcome"
-    enum="TopLevelStorageAccessRequestOutcome" expires_after="2026-07-13">
+    enum="TopLevelStorageAccessRequestOutcome" expires_after="2026-11-15">
   <owner>cfredric@chromium.org</owner>
   <owner>mreichhoff@chromium.org</owner>
   <summary>
@@ -559,7 +559,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="IndexedDB.LargeValueReadResult" enum="FileErrorCode"
-    expires_after="2026-09-06">
+    expires_after="2026-11-15">
   <owner>leimy@chromium.org</owner>
   <owner>evanstade@microsoft.com</owner>
   <owner>chrome-owp-storage@google.com</owner>
@@ -659,7 +659,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="IndexedDB.QuotaCheckTime2.{QuotaCheckResult}" units="ms"
-    expires_after="2026-08-30">
+    expires_after="2026-11-08">
   <owner>estade@chromium.org</owner>
   <owner>chrome-owp-storage@google.com</owner>
   <summary>
@@ -921,7 +921,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="IndexedDB.WrappedBlobLoadTime" units="ms"
-    expires_after="2026-09-13">
+    expires_after="2026-11-15">
   <owner>estade@chromium.org</owner>
   <owner>chrome-owp-storage@google.com</owner>
   <summary>
@@ -1264,7 +1264,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="Storage.ClearSiteDataHeader.Parameters"
-    enum="ClearSiteDataParameters" expires_after="2026-09-13">
+    enum="ClearSiteDataParameters" expires_after="2026-11-15">
   <owner>estade@chromium.org</owner>
   <owner>chrome-owp-storage@google.com</owner>
   <summary>
@@ -1368,7 +1368,7 @@ chromium-metrics-reviews@google.com.
 </histogram>
 
 <histogram name="Storage.FileSystemAccess.ObserverUsageQuotaExceeded"
-    enum="Boolean" expires_after="2026-08-31">
+    enum="Boolean" expires_after="2026-11-15">
   <owner>mych@chromium.org</owner>
   <owner>src/content/browser/file_system_access/OWNERS</owner>
   <summary>
@@ -1437,54 +1437,6 @@ chromium-metrics-reviews@google.com.
     <variant name="Directory" summary="Requested permission to a directory"/>
     <variant name="File" summary="Requested permission to a file"/>
   </token>
-</histogram>
-
-<histogram name="Storage.ImportantSites.CBDChosenReason"
-    enum="ImportantSitesReason" expires_after="2024-10-06">
-  <owner>ayui@chromium.org</owner>
-  <owner>chrome-owp-storage@google.com</owner>
-  <summary>
-    When a user chooses to blocklist one or more sites when they clear browsing
-    data, this is recorded for every reason each chosen site was marked as
-    important. It indicates which signals were used to show the given site to
-    the user that the user then chose to exclude from clearing. This histogram
-    has expired between M95-M106.
-  </summary>
-</histogram>
-
-<histogram name="Storage.ImportantSites.CBDChosenReasonCount" units="count"
-    expires_after="2024-08-01">
-  <owner>ayui@chromium.org</owner>
-  <owner>chrome-owp-storage@google.com</owner>
-  <summary>
-    This records the number of reasons each important site had that the user
-    chose to blocklist when clearing browsing data. This histogram has expired
-    between M95-M106.
-  </summary>
-</histogram>
-
-<histogram name="Storage.ImportantSites.CBDIgnoredReason"
-    enum="ImportantSitesReason" expires_after="2024-08-01">
-  <owner>ayui@chromium.org</owner>
-  <owner>chrome-owp-storage@google.com</owner>
-  <summary>
-    When a user chooses to blocklist one or more sites when they clear browsing
-    data, this is recorded for every reason each unchosen site was marked as
-    important. It indicates which signals were used to show the given site to
-    the user, which the user then ignored and did not select to blocklist from
-    clearing data. This histogram has expired between M95-M106.
-  </summary>
-</histogram>
-
-<histogram name="Storage.ImportantSites.CBDIgnoredReasonCount" units="count"
-    expires_after="2024-08-01">
-  <owner>ayui@chromium.org</owner>
-  <owner>chrome-owp-storage@google.com</owner>
-  <summary>
-    This records the number of reasons each important site had that the user
-    chose to NOT blocklist when clearing browsing data. This histogram has
-    expired between M95-M106.
-  </summary>
 </histogram>
 
 <histogram name="Storage.ImportantSites.GeneratedReason"

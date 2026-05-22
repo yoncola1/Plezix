@@ -211,6 +211,13 @@ chromium-metrics-reviews@google.com.
   <int value="3" label="Disconnecting"/>
 </enum>
 
+<enum name="AudioDeviceEnumerationOutcome">
+  <int value="0" label="Success (Empty Result)"/>
+  <int value="1" label="Success (Non-Empty Result)"/>
+  <int value="2" label="Failed (Empty Result)"/>
+  <int value="3" label="Failed (Non-Empty Result)"/>
+</enum>
+
 <enum name="AudioFocusRequestResult">
   <int value="0" label="Failed"/>
   <int value="1" label="Granted"/>
@@ -1893,12 +1900,6 @@ chromium-metrics-reviews@google.com.
   <int value="3" label="kUserSelectedWindow"/>
   <int value="4" label="kUserSelectedOtherTab"/>
   <int value="5" label="kUserSelectedThisTab"/>
-</enum>
-
-<enum name="MediaUiGetDisplayMediaPermissionInteraction">
-  <int value="0" label="PermissionButtonNotShown"/>
-  <int value="1" label="PermissionButtonShown"/>
-  <int value="2" label="PermissionButtonClicked"/>
 </enum>
 
 <enum name="MediaUiGetDisplayMediaPreferCurrentTabFlowUserInteraction">
