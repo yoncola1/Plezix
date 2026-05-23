@@ -1,7 +1,10 @@
-// Copyright 2025 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "chrome/app/vector_icons/vector_icons.h"
+#include "components/vector_icons/vector_icons.h"
+#include "ui/views/vector_icons.h"
 #include "chrome/browser/ui/views/tabs/vertical/vertical_tab_group_header_view.h"
 
 #include <numeric>
@@ -100,20 +103,20 @@ void UpdateEditorButtonColors(views::LabelButton* button,
   button->SetImageModel(
       views::Button::STATE_NORMAL,
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kMoreVertIcon
-                                         : kBrowserToolsChromeRefreshOldIcon,
+                                         ? kBrowserToolsChromeRefreshIcon
+                                         : kBrowserToolsChromeRefreshIcon,
                                      foreground_color, kIconSize));
   button->SetImageModel(
       views::Button::STATE_HOVERED,
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kMoreVertIcon
-                                         : kBrowserToolsChromeRefreshOldIcon,
+                                         ? kBrowserToolsChromeRefreshIcon
+                                         : kBrowserToolsChromeRefreshIcon,
                                      foreground_color, kIconSize));
   button->SetImageModel(
       views::Button::STATE_PRESSED,
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kMoreVertIcon
-                                         : kBrowserToolsChromeRefreshOldIcon,
+                                         ? kBrowserToolsChromeRefreshIcon
+                                         : kBrowserToolsChromeRefreshIcon,
                                      foreground_color, kIconSize));
 }
 
@@ -492,10 +495,10 @@ void VerticalTabGroupHeaderView::OnDataChanged(
         tab_group_visual_data_.is_collapsed()
             ? features::IsRoundedIconsEnabled()
                   ? kKeyboardArrowDownIcon
-                  : kKeyboardArrowDownChromeRefreshOldIcon
+                  : kKeyboardArrowDownChromeRefreshIcon
         : features::IsRoundedIconsEnabled()
-            ? kKeyboardControlKeyIcon
-            : kKeyboardArrowUpChromeRefreshOldIcon,
+            ? kKeyboardArrowUpChromeRefreshIcon
+            : kKeyboardArrowUpChromeRefreshIcon,
         foreground_color, kIconSize));
 
     // Update background.

@@ -717,8 +717,8 @@ void VerticalTabDragHandlerImpl::StartedDragging(
          {tab_strip_view->pinned_tabs_scroll_view(),
           tab_strip_view->unpinned_tabs_scroll_view()}) {
       CHECK(scroll_view);
-      scroll_synchronizers_.push_back(
-          scroll_view->EnableScrollSynchronization());
+//      scroll_synchronizers_.push_back(
+//          scroll_view->EnableScrollSynchronization());
     }
   }
 
@@ -748,12 +748,12 @@ void VerticalTabDragHandlerImpl::StartedDragging(
 
 void VerticalTabDragHandlerImpl::DraggedTabsDetached() {
   expand_on_hover_lock_.reset();
-  scroll_synchronizers_.clear();
+//  scroll_synchronizers_.clear();
 }
 
 void VerticalTabDragHandlerImpl::StoppedDragging() {
   expand_on_hover_lock_.reset();
-  scroll_synchronizers_.clear();
+//  scroll_synchronizers_.clear();
 
   for (auto& [_, slot_view] : slot_views_) {
     views::View* dragged_view = ViewFromTabSlot(slot_view);
@@ -876,7 +876,7 @@ void VerticalTabDragHandlerImpl::OnNodeWillDestroy(TabCollectionNode& node) {
 
 void VerticalTabDragHandlerImpl::ResetDragState() {
   drag_controller_.reset();
-  scroll_synchronizers_.clear();
+//  scroll_synchronizers_.clear();
 }
 
 bool VerticalTabDragHandlerImpl::HandleDraggedTabsIntoPosition(

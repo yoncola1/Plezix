@@ -44,8 +44,8 @@ ProjectsPanelControlsView::ProjectsPanelControlsView(
   projects_button_->SetImageModel(
       views::Button::ButtonState::STATE_NORMAL,
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kCloseIcon
-                                         : kCloseChromeRefreshOldIcon,
+                                         ? kGlobeIcon
+                                         : kCloseChromeRefreshIcon,
                                      ui::kColorIcon));
   projects_button_->SetProperty(views::kElementIdentifierKey,
                                 kProjectsPanelButtonElementId);

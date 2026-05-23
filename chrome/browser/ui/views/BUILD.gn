@@ -1,4 +1,4 @@
-# Copyright 2014 The Chromium Authors
+# Copyright 2026 The Plezix Authors
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
@@ -19,6 +19,50 @@ component("views") {
     "tabs/shared/tab_strip_observer.cc",
     "tabs/shared/tab_strip_observer.h",
     "tabs/shared/tab_strip_types.h",
+
+    # Полная и абсолютная сборка вертикальных табов
+    "tabs/vertical/root_tab_collection_node.cc",
+    "tabs/vertical/root_tab_collection_node.h",
+    "tabs/vertical/tab_collection_animating_layout_manager.cc",
+    "tabs/vertical/tab_collection_animating_layout_manager.h",
+    "tabs/vertical/tab_collection_node.cc",
+    "tabs/vertical/tab_collection_node.h",
+    "tabs/vertical/tab_drag_scroll_handler.cc",
+    "tabs/vertical/tab_drag_scroll_handler.h",
+    "tabs/vertical/top_container_button.cc",
+    "tabs/vertical/top_container_button.h",
+    "tabs/vertical/vertical_dragged_tabs_container.cc",
+    "tabs/vertical/vertical_dragged_tabs_container.h",
+    "tabs/vertical/vertical_pinned_tab_container_view.cc",
+    "tabs/vertical/vertical_pinned_tab_container_view.h",
+    "tabs/vertical/vertical_split_tab_view.cc",
+    "tabs/vertical/vertical_split_tab_view.h",
+    "tabs/vertical/vertical_tab_drag_handler.cc",       # Поправил имя (без _impl)
+    "tabs/vertical/vertical_tab_drag_handler.h",         # Поправил имя
+    "tabs/vertical/vertical_tab_group_header_view.cc",   # Добавлено!
+    "tabs/vertical/vertical_tab_group_header_view.h",     # Добавлено!
+    "tabs/vertical/vertical_tab_group_view.cc",
+    "tabs/vertical/vertical_tab_group_view.h",
+    "tabs/vertical/vertical_tab_link_drop_handler.cc",   # Добавлено!
+    "tabs/vertical/vertical_tab_link_drop_handler.h",     # Добавлено!
+    "tabs/vertical/vertical_tab_strip_bottom_container.cc",
+    "tabs/vertical/vertical_tab_strip_bottom_container.h",
+    "tabs/vertical/vertical_tab_strip_controller.cc",
+    "tabs/vertical/vertical_tab_strip_controller.h",
+    "tabs/vertical/vertical_tab_strip_expand_on_hover_lock.cc",
+    "tabs/vertical/vertical_tab_strip_expand_on_hover_lock.h",
+    "tabs/vertical/vertical_tab_strip_scroll_bar.cc",
+    "tabs/vertical/vertical_tab_strip_scroll_bar.h",
+    "tabs/vertical/vertical_tab_strip_top_container.cc",
+    "tabs/vertical/vertical_tab_strip_top_container.h",
+    "tabs/vertical/vertical_tab_strip_utils.cc",
+    "tabs/vertical/vertical_tab_strip_utils.h",
+    "tabs/vertical/vertical_tab_strip_view.cc",
+    "tabs/vertical/vertical_tab_strip_view.h",
+    "tabs/vertical/vertical_tab_view.cc",
+    "tabs/vertical/vertical_tab_view.h",
+    "tabs/vertical/vertical_unpinned_tab_container_view.cc",
+    "tabs/vertical/vertical_unpinned_tab_container_view.h",
   ]
 
   configs += [ "//build/config/compiler:wexit_time_destructors" ]

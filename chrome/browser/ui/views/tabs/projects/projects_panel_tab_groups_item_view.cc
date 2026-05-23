@@ -1,7 +1,8 @@
-// Copyright 2026 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "components/vector_icons/vector_icons.h"
 #include "chrome/browser/ui/views/tabs/projects/projects_panel_tab_groups_item_view.h"
 
 #include "base/task/single_thread_task_runner.h"
@@ -62,11 +63,8 @@ ProjectsPanelTabGroupsItemView::ProjectsPanelTabGroupsItemView(
       more_button_callback_(std::move(more_button_callback)),
       tab_group_color_id_(group.color()),
       tab_group_vector_icon_(
-          group.local_group_id().has_value() ? features::IsRoundedIconsEnabled()
-                                                   ? kCircleFilledIcon
-                                                   : kTabGroupOldIcon
-          : features::IsRoundedIconsEnabled() ? kCircleCircleFilledIcon
-                                              : kTabGroupClosedOldIcon) {
+          group.local_group_id().has_value() ? kAddCircleIcon
+                                             : kTabGroupIcon) {
   SetLayoutManager(std::make_unique<views::FlexLayout>())
       ->SetInteriorMargin(projects_panel::kListItemMargins)
       .SetOrientation(views::LayoutOrientation::kHorizontal)
@@ -122,10 +120,7 @@ ProjectsPanelTabGroupsItemView::ProjectsPanelTabGroupsItemView(
             weak_this->OnMoreButtonPressed();
           },
           weak_ptr_factory_.GetWeakPtr())));
-  ui::ImageModel menu_icon_image_model = ui::ImageModel::FromVectorIcon(
-      features::IsRoundedIconsEnabled() ? kMoreVertIcon
-                                        : kBrowserToolsChromeRefreshOldIcon,
-      kColorProjectsPanelButtonIcon, projects_panel::kTrailingIconSize);
+  ui::ImageModel menu_icon_image_model = ui::ImageModel::FromVectorIcon(kAddIcon, kColorProjectsPanelButtonIcon, projects_panel::kTrailingIconSize);
   more_button_->SetPreferredSize(kMoreButtonSize);
   more_button_->SetImageModel(ButtonState::STATE_NORMAL, menu_icon_image_model);
   auto more_button_accessibility_label =

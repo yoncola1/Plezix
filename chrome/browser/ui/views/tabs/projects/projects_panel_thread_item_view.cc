@@ -1,4 +1,4 @@
-// Copyright 2026 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -89,7 +89,7 @@ ProjectsPanelThreadItemView::ProjectsPanelThreadItemView(
   trailing_icon_->SetProperty(views::kMarginsKey,
                               projects_panel::kTrailingIconMargins);
   ui::ImageModel open_in_new_image_model = ui::ImageModel::FromVectorIcon(
-      features::IsRoundedIconsEnabled() ? kOpenInNewIcon : kOpenInNewOldIcon,
+      features::IsRoundedIconsEnabled() ? kOpenInNewIcon : kOpenInNewIcon,
       kColorProjectsPanelButtonDisabledIcon, projects_panel::kTrailingIconSize);
   trailing_icon_->SetImage(open_in_new_image_model);
 

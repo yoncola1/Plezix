@@ -1,7 +1,9 @@
-// Copyright 2025 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "components/vector_icons/vector_icons.h"
+#include "ui/views/vector_icons.h"
 #include "chrome/browser/ui/views/tabs/projects/projects_panel_view.h"
 
 #include <algorithm>
@@ -139,8 +141,8 @@ class ProjectsPanelNewTabGroupButton : public views::Button {
     icon->SetCanProcessEventsWithinSubtree(false);
     icon->SetProperty(views::kMarginsKey, kCreateNewTabGroupIconMargins);
     icon->SetImage(ui::ImageModel::FromVectorIcon(
-        features::IsRoundedIconsEnabled() ? kLibraryAddIcon
-                                          : kCreateNewTabGroupOldIcon,
+        features::IsRoundedIconsEnabled() ? kAddIcon
+                                          : kCreateNewTabGroupIcon,
         kColorProjectsPanelButtonIcon, kCreateNewTabGroupIconSize));
 
     auto* title = AddChildView(std::make_unique<views::Label>(
@@ -353,8 +355,8 @@ ProjectsPanelView::ProjectsPanelView(
     threads_activity_menu_button_->SetImageModel(
         views::Button::STATE_NORMAL,
         ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                           ? kMoreVertIcon
-                                           : kBrowserToolsChromeRefreshOldIcon,
+                                           ? kTabCloseNormalIcon
+                                           : kBrowserToolsChromeRefreshIcon,
                                        kColorProjectsPanelButtonIcon,
                                        kThreadsActivityMenuButtonIconSize));
     threads_activity_menu_button_->SetPreferredSize(

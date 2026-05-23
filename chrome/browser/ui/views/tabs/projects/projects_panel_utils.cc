@@ -67,7 +67,7 @@ const gfx::VectorIcon& GetIconForThreadType(
   }
 #endif  // BUILDFLAG(GOOGLE_CHROME_BRANDING)
   return features::IsRoundedIconsEnabled() ? vector_icons::kChatSparkIcon
-                                           : vector_icons::kChatSparkOldIcon;
+                                           : vector_icons::kChatSparkIcon;
 }
 
 bool IsFirstFocusableViewInPanel(views::View* view) {

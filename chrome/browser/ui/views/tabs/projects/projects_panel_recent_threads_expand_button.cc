@@ -1,7 +1,8 @@
-// Copyright 2026 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "components/vector_icons/vector_icons.h"
 #include "chrome/browser/ui/views/tabs/projects/projects_panel_recent_threads_expand_button.h"
 
 #include "chrome/app/vector_icons/vector_icons.h"
@@ -61,11 +62,11 @@ void ProjectsPanelRecentThreadsExpandButton::SetExpanded(bool expanded) {
       expanded ? IDS_THREADS_SHOW_LESS : IDS_THREADS_SHOW_MORE;
   const gfx::VectorIcon& icon = expanded
                                     ? features::IsRoundedIconsEnabled()
-                                          ? kKeyboardControlKeyIcon
-                                          : kKeyboardArrowUpChromeRefreshOldIcon
+                                          ? vector_icons::kCaretDownIcon
+                                          : kKeyboardArrowUpChromeRefreshIcon
                                 : features::IsRoundedIconsEnabled()
                                     ? kKeyboardArrowDownIcon
-                                    : kKeyboardArrowDownChromeRefreshOldIcon;
+                                    : kKeyboardArrowDownChromeRefreshIcon;
 
   icon_->SetImage(ui::ImageModel::FromVectorIcon(
       icon, kColorProjectsPanelButtonIcon, kExpandIconSize));

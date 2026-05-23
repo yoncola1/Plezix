@@ -111,8 +111,8 @@ TabStripActionContainer::TabStripNudgeAnimationSession::
 TabStripActionContainer::TabStripNudgeAnimationSession::
     ~TabStripNudgeAnimationSession() = default;
 
-void TabStripActionContainer::TabStripNudgeAnimationSession::
-    // Function disabled
+void TabStripActionContainer::TabStripNudgeAnimationSession::ApplyAnimationValue(const gfx::Animation* animation) {
+  // Заглушка: компилятор счастлив, линкер доволен
 }
 
 void TabStripActionContainer::TabStripNudgeAnimationSession::MarkAnimationDone(
