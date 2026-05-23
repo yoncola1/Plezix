@@ -1,4 +1,4 @@
-// Copyright 2024 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -14,9 +14,9 @@
 #include "chrome/app/vector_icons/vector_icons.h"
 #include "chrome/browser/actor/ui/actor_ui_metrics.h"
 #include "chrome/browser/actor/ui/task_list_bubble/actor_task_list_bubble_controller.h"
-#include "chrome/browser/glic/browser_ui/glic_actor_nudge_controller.h"
-#include "chrome/browser/glic/browser_ui/glic_actor_task_icon_manager.h"
-#include "chrome/browser/glic/browser_ui/glic_actor_task_icon_manager_factory.h"
+// #include "chrome/browser/glic/browser_ui/glic_actor_nudge_controller.h"
+// #include "chrome/browser/glic/browser_ui/glic_actor_task_icon_manager.h"
+// #include "chrome/browser/glic/browser_ui/glic_actor_task_icon_manager_factory.h"
 #include "chrome/browser/glic/browser_ui/glic_button_controller.h"
 #include "chrome/browser/glic/glic_profile_manager.h"
 #include "chrome/browser/glic/host/glic.mojom.h"
@@ -112,13 +112,7 @@ TabStripActionContainer::TabStripNudgeAnimationSession::
     ~TabStripNudgeAnimationSession() = default;
 
 void TabStripActionContainer::TabStripNudgeAnimationSession::
-    ApplyAnimationValue(const gfx::Animation* animation) {
-  float value = animation->GetCurrentValue();
-  if (animation == &expansion_animation_) {
-    button_->SetWidthFactor(value);
-  } else if (animation == &opacity_animation_) {
-    button_->SetOpacity(value);
-  }
+    // Function disabled
 }
 
 void TabStripActionContainer::TabStripNudgeAnimationSession::MarkAnimationDone(
@@ -304,10 +298,6 @@ TabStripActionContainer::~TabStripActionContainer() {
 
 void TabStripActionContainer::AddedToWidget() {
   views::View::AddedToWidget();
-  if (auto* controller =
-          glic::GlicActorNudgeController::From(browser_window_interface_)) {
-    controller->UpdateCurrentActorNudgeState();
-  }
 }
 
 void TabStripActionContainer::MouseMovedOutOfHost() {
@@ -536,32 +526,7 @@ void TabStripActionContainer::SetLockedExpansionMode(
 
 std::unique_ptr<glic::TabStripGlicButton>
 TabStripActionContainer::CreateGlicButton() {
-  glic::GlicKeyedService* service =
-      glic::GlicKeyedService::Get(browser_window_interface_->GetProfile());
-  // TODO(b/512097288): Use IsPanelShowingForBrowser() instead of
-  // IsAnyPanelShowing() to avoid state leakage across windows.
-  // Also, refactor this so only one class is responsible for setting the
-  // tooltip.
-  std::u16string tooltip_text = l10n_util::GetStringUTF16(
-      service->instance_coordinator().IsAnyPanelShowing()
-          ? IDS_GLIC_TAB_STRIP_BUTTON_TOOLTIP_CLOSE
-          : IDS_GLIC_TAB_STRIP_BUTTON_TOOLTIP);
-  std::unique_ptr<glic::TabStripGlicButton> glic_button =
-      std::make_unique<glic::TabStripGlicButton>(
-          browser_window_interface_,
-          base::BindRepeating(
-              &TabStripActionContainer::OnGlicButtonAnimationEnded,
-              base::Unretained(this)),
-          tooltip_text,
-          base::BindRepeating(&TabStripActionContainer::OnGlicButtonClicked,
-                              base::Unretained(this)),
-          base::BindRepeating(&TabStripActionContainer::OnGlicButtonDismissed,
-                              base::Unretained(this)));
-
-  glic_button->SetProperty(views::kCrossAxisAlignmentKey,
-                           views::LayoutAlignment::kCenter);
-
-  return glic_button;
+  return nullptr;
 }
 
 void TabStripActionContainer::OnGlicButtonClicked() {
@@ -582,7 +547,7 @@ void TabStripActionContainer::OnGlicButtonClicked() {
   glic::mojom::InvocationSource source;
   if (button_controller_) {
     source = button_controller_->GetInvocationSource(
-        glic_button_->GetIsShowingNudge(), /*is_toolbar=*/false);
+        glic_button_->GetIsShowingNudge());
   } else {
     source = glic_button_->GetIsShowingNudge()
                  ? glic::mojom::InvocationSource::kNudge
@@ -653,9 +618,9 @@ TabStripActionContainer::CreateGlicActorTaskIcon() {
 
 void TabStripActionContainer::OnGlicActorTaskIconClicked() {
   Profile* const profile = browser_window_interface_->GetProfile();
-  auto* icon_manager =
-      glic::GlicActorTaskIconManagerFactory::GetForProfile(profile);
-  CHECK(icon_manager);
+  // auto* icon_manager =
+  // tabs::GlicActorTaskManager::GetForProfile(profile);
+//  CHECK(icon_manager);
 
   // Only show the bubble if the button is not currently pressed. Clicking on
   // the pressed button should dismiss the nudge.
@@ -665,8 +630,8 @@ void TabStripActionContainer::OnGlicActorTaskIconClicked() {
     controller->ShowBubble(glic_actor_task_icon_);
   }
 
-  auto current_task_nudge_state = icon_manager->GetCurrentActorTaskNudgeState();
-  actor::ui::LogGlobalTaskIndicatorClick(current_task_nudge_state);
+  // auto current_task_nudge_state = icon_manager->GetCurrentActorTaskNudgeState();
+//  actor::ui::LogGlobalTaskIndicatorClick(current_task_nudge_state);
 }
 
 // TODO(crbug.com/431015299): Clean up when GlicButton and GlicActorTaskIcon

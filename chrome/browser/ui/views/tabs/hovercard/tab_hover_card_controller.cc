@@ -163,18 +163,18 @@ bool IsBrowserForSystemWebApp(
   return false;
 }
 
-views::WidgetFadeAnimator::SlideDirection ComputeSlideDirection(
+views::WidgetFadeAnimator::FadeType ComputeSlideDirection(
     const BrowserWindowInterface* browser) {
   if (!features::IsTabStripDeclutterEnabled()) {
-    return views::WidgetFadeAnimator::SlideDirection::kNone;
+    return views::WidgetFadeAnimator::FadeType::kNone;
   }
 
   auto* controller = tabs::VerticalTabStripStateController::From(browser);
 
   if (controller && controller->ShouldDisplayVerticalTabs()) {
-    return views::WidgetFadeAnimator::SlideDirection::kTrailing;
+    return views::WidgetFadeAnimator::FadeType::kNone;
   } else {
-    return views::WidgetFadeAnimator::SlideDirection::kDown;
+    return views::WidgetFadeAnimator::FadeType::kNone;
   }
 }
 
@@ -647,7 +647,7 @@ void TabHoverCardController::UpdateOrShowCard(
       fade_animator_->CancelFadeOut();
     }
 
-    fade_animator_->CancelSlide(false);
+//    fade_animator_->CancelSlide(false);
 
     // If the card was visible we need to update the card now, before any slide
     // or snap occurs.
@@ -730,8 +730,7 @@ void TabHoverCardController::ShowHoverCard(
     return;
   }
 
-  fade_animator_->FadeIn(GetLayoutConstant(LayoutConstant::kTabStripPadding),
-                         ComputeSlideDirection(browser_window_interface_));
+  fade_animator_->FadeIn();
 }
 
 void TabHoverCardController::HideHoverCard() {
@@ -765,10 +764,7 @@ void TabHoverCardController::HideHoverCard() {
     return;
   }
 
-  fade_animator_->FadeOut(
-      GetLayoutConstant(LayoutConstant::kTabStripPadding),
-      slide_on_fade_out ? ComputeSlideDirection(browser_window_interface_)
-                        : views::WidgetFadeAnimator::SlideDirection::kNone);
+  fade_animator_->FadeOut();
 }
 
 bool TabHoverCardController::ShouldShowImmediately(

@@ -1,4 +1,4 @@
-// Copyright 2018 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -166,7 +166,7 @@ class TabHoverCardBubbleView::ThumbnailView
   void SetPlaceholderImage() {
     SetImageFromIcon(ImageType::kPlaceholder, features::IsRoundedIconsEnabled()
                                                   ? kGlobeIcon
-                                                  : kGlobeOldIcon);
+                                                  : kGlobeIcon);
   }
 
   // Clears the preview image and replaces it with a crashed image. The old
@@ -174,7 +174,7 @@ class TabHoverCardBubbleView::ThumbnailView
   void SetCrashedImage() {
     SetImageFromIcon(ImageType::kCrashed, features::IsRoundedIconsEnabled()
                                               ? kSadTabIcon
-                                              : kCrashedTabOldIcon);
+                                              : kCrashedTabIcon);
   }
 
   void ClearImage() {

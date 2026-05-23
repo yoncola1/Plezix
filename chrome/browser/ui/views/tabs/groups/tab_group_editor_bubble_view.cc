@@ -695,8 +695,8 @@ TabGroupEditorBubbleView::BuildNewTabInGroupButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::NewTabInGroupPressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kLibraryAddIcon
-                                         : kNewTabInGroupRefreshOldIcon,
+                                         ? kNewTabInGroupRefreshIcon
+                                         : kNewTabInGroupRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize),
       GetAcceleratorText(IDC_ADD_NEW_TAB_TO_GROUP, browser_));
 
@@ -713,8 +713,8 @@ TabGroupEditorBubbleView::BuildUngroupButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::UngroupPressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kUngroupIcon
-                                         : kUngroupRefreshOldIcon));
+                                         ? kUngroupRefreshIcon
+                                         : kUngroupRefreshIcon));
 }
 
 std::unique_ptr<views::LabelButton>
@@ -724,8 +724,8 @@ TabGroupEditorBubbleView::BuildCloseGroupButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::CloseGroupPressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kTabCloseIcon
-                                         : kCloseGroupRefreshOldIcon,
+                                         ? kCloseGroupRefreshIcon
+                                         : kCloseGroupRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize),
       GetAcceleratorText(IDC_CLOSE_TAB_GROUP, browser_));
 
@@ -743,8 +743,8 @@ TabGroupEditorBubbleView::BuildConvertToBookmarkButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::ConvertToBookmarkPressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kHotelClassIcon
-                                         : kBookmarkAllTabsChromeRefreshOldIcon,
+                                         ? kBookmarkAllTabsChromeRefreshIcon
+                                         : kBookmarkAllTabsChromeRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize));
 
   bookmark_group_menu_item->SetProperty(
@@ -762,7 +762,7 @@ TabGroupEditorBubbleView::BuildDeleteGroupButton() {
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
                                          ? kDeleteIcon
-                                         : kTrashCanRefreshOldIcon,
+                                         : kTrashCanRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize));
 
   delete_group_menu_item->SetProperty(views::kElementIdentifierKey,
@@ -784,7 +784,7 @@ TabGroupEditorBubbleView::BuildLeaveGroupButton() {
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
                                          ? kDeleteIcon
-                                         : kTrashCanRefreshOldIcon,
+                                         : kTrashCanRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize));
 
   leave_group_menu_item->SetProperty(views::kElementIdentifierKey,
@@ -807,8 +807,8 @@ TabGroupEditorBubbleView::BuildMoveGroupToNewWindowButton() {
           &TabGroupEditorBubbleView::MoveGroupToNewWindowPressed,
           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kMoveGroupIcon
-                                         : kMoveGroupToNewWindowRefreshOldIcon,
+                                         ? kMoveGroupToNewWindowRefreshIcon
+                                         : kMoveGroupToNewWindowRefreshIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize));
 
   menu_item->SetProperty(views::kElementIdentifierKey,
@@ -826,7 +826,7 @@ TabGroupEditorBubbleView::BuildFocusGroupButton() {
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
                                          ? kZoomInMapIcon
-                                         : kZoomInMapOldIcon,
+                                         : kZoomInMapIcon,
                                      ui::kColorMenuIcon, kDefaultIconSize));
 
   menu_item->SetProperty(views::kElementIdentifierKey,
@@ -841,7 +841,7 @@ TabGroupEditorBubbleView::BuildUnfocusGroupButton() {
       l10n_util::GetStringUTF16(IDS_TAB_GROUP_HEADER_CXMENU_UNFOCUS_GROUP),
       base::BindRepeating(&TabGroupEditorBubbleView::UnfocusGroupPressed,
                           base::Unretained(this)),
-      ui::ImageModel::FromVectorIcon(kZoomOutMapOldIcon, ui::kColorMenuIcon,
+      ui::ImageModel::FromVectorIcon(kZoomOutMapIcon, ui::kColorMenuIcon,
                                      kDefaultIconSize));
 
   menu_item->SetProperty(views::kElementIdentifierKey,
@@ -888,7 +888,7 @@ TabGroupEditorBubbleView::BuildRecentActivityButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::RecentActivityPressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(
-          features::IsRoundedIconsEnabled() ? kHistoryIcon : kHistoryOldIcon,
+          features::IsRoundedIconsEnabled() ? kHistoryIcon : kHistoryIcon,
           ui::kColorMenuIcon, kDefaultIconSize));
   menu_item->SetProperty(views::kElementIdentifierKey,
                          kTabGroupEditorBubbleRecentActivityButtonId);
@@ -1165,7 +1165,7 @@ tab_groups::TabGroupColorId TabGroupEditorBubbleView::InitColorSet() {
 
   // In the tab group color update, the yellow and pink are better described
   // as lime and magenta. We update the tooltip accordingly.
-  if (features::IsTabGroupColorRefreshEnabled()) {
+  if (features::IsTabGroupHoverCardsEnabled()) {
     color_map[tab_groups::TabGroupColorId::kYellow] =
         l10n_util::GetStringUTF16(IDS_TAB_GROUP_COLOR_LIME);
 

@@ -1,4 +1,4 @@
-// Copyright 2025 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -13,7 +13,8 @@ enum class SplitTabLayout {
   kVertical,
   // A tab will stretch out horizontally so one tab in the split will be on top
   // of the other.
-  kHorizontal
+  kHorizontal,
+  kSideBySide,
 };
 
 // Represents the visual state of a split tab, including its layout type and the
