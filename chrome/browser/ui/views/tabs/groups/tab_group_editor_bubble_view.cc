@@ -873,8 +873,8 @@ TabGroupEditorBubbleView::BuildShareGroupButton() {
       base::BindRepeating(&TabGroupEditorBubbleView::ShareOrManagePressed,
                           base::Unretained(this)),
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kGroupCustomIcon
-                                         : kTabGroupSharingOldIcon));
+                     ? kTabGroupIcon
+                     : kTabGroupSharingIcon));
   menu_item->SetProperty(views::kElementIdentifierKey,
                          kTabGroupEditorBubbleShareGroupButtonId);
   return menu_item;

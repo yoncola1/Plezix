@@ -471,9 +471,9 @@ void VerticalTabGroupHeaderView::OnDataChanged(
     sync_icon_->SetVisible(is_shared_);
     if (is_shared_) {
       sync_icon_->SetImage(ui::ImageModel::FromVectorIcon(
-          features::IsRoundedIconsEnabled() ? kGroupCustomIcon
-                                            : kPeopleGroupOldIcon,
-          foreground_color, kIconSize));
+        features::IsRoundedIconsEnabled() ? kTabGroupIcon
+                          : kPeopleGroupIcon,
+        foreground_color, kIconSize));
     }
     if (tab_group_visual_data_.is_collapsed() && needs_attention_) {
       attention_indicator_->SetVisible(true);

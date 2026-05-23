@@ -1,4 +1,4 @@
-// Copyright 2025 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -233,8 +233,8 @@ class VerticalTabDragHandlerImpl : public VerticalTabDragHandler,
 
   std::unique_ptr<ExpandOnHoverLock> expand_on_hover_lock_;
 
-  std::vector<std::unique_ptr<views::ScrollView::ScopedScrollSynchronizer>>
-      scroll_synchronizers_;
+//  std::vector<std::unique_ptr<views::ScrollView::ScopedScrollSynchronizer>>
+//      scroll_synchronizers_;
 
   // A mapping from nodes to their `TabSlotView`, used for compatibility
   // with the core dragging system.

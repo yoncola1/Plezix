@@ -88,8 +88,8 @@ void ManageSharingRow::RebuildChildren() {
 
   manage_group_icon_ = AddChildView(std::make_unique<views::ImageView>(
       ui::ImageModel::FromVectorIcon(features::IsRoundedIconsEnabled()
-                                         ? kGroupCustomIcon
-                                         : kTabGroupSharingOldIcon)));
+                                         ? kTabGroupIcon
+                                         : kTabGroupSharingIcon)));
   manage_group_icon_->SetProperty(
       views::kMarginsKey, gfx::Insets::TLBR(0, 0, 0, kImageLabelSpacing));
   manage_group_icon_->SetProperty(

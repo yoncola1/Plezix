@@ -92,8 +92,8 @@ TEST_F(ProjectsPanelTabGroupsItemViewTest, TestChildrenSharedTabGroup) {
       collaboration_group_view->shared_icon_for_testing();
   EXPECT_NE(nullptr, collaboration_view);
   EXPECT_TRUE(collaboration_view->GetImageModel().IsVectorIcon());
-  EXPECT_EQ(&(features::IsRoundedIconsEnabled() ? kGroupCustomIcon
-                                                : kPeopleGroupOldIcon),
+  EXPECT_EQ(&(features::IsRoundedIconsEnabled() ? kTabGroupIcon
+                                                : kPeopleGroupIcon),
             collaboration_view->GetImageModel().GetVectorIcon().vector_icon());
 }
 

@@ -1,7 +1,8 @@
-// Copyright 2012 The Chromium Authors
+// Copyright 2026 The Plezix Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "components/policy/core/browser/url_list/url_list_policy_pref_names.h"
 #include "chrome/browser/prefs/browser_prefs.h"
 
 #include <array>
@@ -162,7 +163,6 @@
 #include "components/policy/core/browser/url_list/url_blocklist_manager.h"
 #include "components/policy/core/common/local_test_policy_provider.h"
 #include "components/policy/core/common/management/management_service.h"
-#include "components/policy/core/common/policy_pref_names.h"
 #include "components/policy/core/common/policy_statistics_collector.h"
 #include "components/pref_registry/pref_registry_syncable.h"
 #include "components/prefs/pref_registry.h"
@@ -487,6 +487,7 @@
 #include "chromeos/constants/pref_names.h"
 #include "chromeos/ui/wm/fullscreen/pref_names.h"
 #include "components/account_manager_core/chromeos/account_manager.h"
+#include "components/policy/core/common/policy_pref_names.h"
 #include "components/onc/onc_pref_names.h"  // nogncheck
 #include "components/quirks/quirks_manager.h"
 #include "components/user_manager/user_manager_impl.h"

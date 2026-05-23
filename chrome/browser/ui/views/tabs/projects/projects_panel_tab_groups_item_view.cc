@@ -99,9 +99,9 @@ ProjectsPanelTabGroupsItemView::ProjectsPanelTabGroupsItemView(
     shared_icon_->SetProperty(views::kMarginsKey,
                               projects_panel::kTrailingIconMargins);
     ui::ImageModel shared_group_image_model = ui::ImageModel::FromVectorIcon(
-        features::IsRoundedIconsEnabled() ? kGroupCustomIcon
-                                          : kPeopleGroupOldIcon,
-        kColorProjectsPanelButtonIcon, projects_panel::kTrailingIconSize);
+      features::IsRoundedIconsEnabled() ? kTabGroupIcon
+                        : kPeopleGroupIcon,
+      kColorProjectsPanelButtonIcon, projects_panel::kTrailingIconSize);
     shared_icon_->SetImage(shared_group_image_model);
     shared_icon_->SetProperty(
         views::kElementIdentifierKey,

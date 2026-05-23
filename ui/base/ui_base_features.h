@@ -328,6 +328,9 @@ BASE_DECLARE_FEATURE(kGlassFrame);
 COMPONENT_EXPORT(UI_BASE_FEATURES)
 bool IsGlassFrameEnabled();
 
+COMPONENT_EXPORT(UI_BASE_FEATURES)
+bool IsRoundedIconsEnabled();
+
 }  // namespace features
 
 #endif  // UI_BASE_UI_BASE_FEATURES_H_

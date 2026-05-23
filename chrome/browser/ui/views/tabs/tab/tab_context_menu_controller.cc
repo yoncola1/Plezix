@@ -57,9 +57,9 @@ void TabContextMenuController::CloseMenu() {
 bool TabContextMenuController::IsCommandIdChecked(int command_id) const {
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   if (extensions::ContextMenuMatcher::IsExtensionsCustomCommandId(command_id)) {
-    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
-      return tab_menu_model_->extension_items()->IsCommandIdChecked(command_id);
-    }
+//    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
+//      return tab_menu_model_->extension_items()->IsCommandIdChecked(command_id);
+//    }
     return false;
   }
 #endif
@@ -70,9 +70,9 @@ bool TabContextMenuController::IsCommandIdChecked(int command_id) const {
 bool TabContextMenuController::IsCommandIdEnabled(int command_id) const {
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   if (extensions::ContextMenuMatcher::IsExtensionsCustomCommandId(command_id)) {
-    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
-      return tab_menu_model_->extension_items()->IsCommandIdEnabled(command_id);
-    }
+//    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
+//      return tab_menu_model_->extension_items()->IsCommandIdEnabled(command_id);
+//    }
     return false;
   }
 #endif
@@ -86,9 +86,9 @@ bool TabContextMenuController::IsCommandIdEnabled(int command_id) const {
 bool TabContextMenuController::IsCommandIdVisible(int command_id) const {
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   if (extensions::ContextMenuMatcher::IsExtensionsCustomCommandId(command_id)) {
-    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
-      return tab_menu_model_->extension_items()->IsCommandIdVisible(command_id);
-    }
+//    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
+//      return tab_menu_model_->extension_items()->IsCommandIdVisible(command_id);
+//    }
     return false;
   }
 #endif
@@ -103,16 +103,16 @@ bool TabContextMenuController::IsCommandIdAlerted(int command_id) const {
 void TabContextMenuController::ExecuteCommand(int command_id, int event_flags) {
 #if BUILDFLAG(ENABLE_EXTENSIONS)
   if (extensions::ContextMenuMatcher::IsExtensionsCustomCommandId(command_id)) {
-    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
-      content::WebContents* web_contents =
-          tab_handle_.Get() ? tab_handle_.Get()->GetContents() : nullptr;
-      if (web_contents) {
-        content::ContextMenuParams params;
-        params.page_url = web_contents->GetLastCommittedURL();
-        tab_menu_model_->extension_items()->ExecuteCommand(
-            command_id, web_contents, nullptr, params);
-      }
-    }
+//    if (tab_menu_model_ && tab_menu_model_->extension_items()) {
+//      content::WebContents* web_contents =
+//          tab_handle_.Get() ? tab_handle_.Get()->GetContents() : nullptr;
+//      if (web_contents) {
+//        content::ContextMenuParams params;
+//        params.page_url = web_contents->GetLastCommittedURL();
+//        tab_menu_model_->extension_items()->ExecuteCommand(
+//            command_id, web_contents, nullptr, params);
+//      }
+//    }
     return;
   }
 #endif

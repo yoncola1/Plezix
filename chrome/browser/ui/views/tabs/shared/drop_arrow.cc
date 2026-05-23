@@ -32,16 +32,16 @@ const gfx::VectorIcon& GetDropArrowIcon(DropArrow::Direction direction) {
   switch (direction) {
     case DropArrow::Direction::kUp:
       return features::IsRoundedIconsEnabled() ? kArrowUpwardIcon
-                                               : kArrowUpwardOldIcon;
+                                               : kArrowUpwardIcon;
     case DropArrow::Direction::kDown:
       return features::IsRoundedIconsEnabled() ? kArrowDownwardIcon
-                                               : kArrowDownwardOldIcon;
+                                               : kArrowDownwardIcon;
     case DropArrow::Direction::kLeft:
       return features::IsRoundedIconsEnabled() ? kArrowBackIcon
-                                               : kArrowBackOldIcon;
+                                               : kArrowBackIcon;
     case DropArrow::Direction::kRight:
       return features::IsRoundedIconsEnabled() ? kArrowForwardIcon
-                                               : kArrowForwardOldIcon;
+                                               : kArrowForwardIcon;
     default:
       NOTREACHED();
   }

@@ -34,6 +34,7 @@ BASE_DECLARE_FEATURE(kImportExportFlags);
 
 // All feature flags associated with Glow Up
 BASE_DECLARE_FEATURE(kTabStripDeclutter);
+bool IsTabStripDeclutterEnabled();
 BASE_DECLARE_FEATURE(kToolbarGlowUp);
 BASE_DECLARE_FEATURE(kRoundedIcons);
 BASE_DECLARE_FEATURE(kMenuSimplification);

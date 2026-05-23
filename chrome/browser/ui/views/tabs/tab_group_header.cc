@@ -18,6 +18,7 @@
 #include "base/strings/utf_string_conversions.h"
 #include "build/build_config.h"
 #include "chrome/app/vector_icons/vector_icons.h"
+#include "components/vector_icons/vector_icons.h"
 #include "chrome/browser/tab_group_sync/tab_group_sync_service_factory.h"
 #include "chrome/browser/ui/browser.h"
 #include "chrome/browser/ui/browser_element_identifiers.h"
@@ -638,12 +639,13 @@ void TabGroupHeader::UpdateSyncIconView() {
   if (should_show_header_icon_) {
     bool use_share_icon = SupportsDataSharing();
     sync_icon_->SetImage(ui::ImageModel::FromVectorIcon(
-        use_share_icon ? features::IsRoundedIconsEnabled() ? kGroupCustomIcon
-                                                           : kPeopleGroupOldIcon
-        : features::IsRoundedIconsEnabled() ? kSyncIcon
-                                            : kTabGroupsSyncOldIcon,
-        color_utils::GetColorWithMaxContrast(color_),
-        group_style_->GetSyncIconWidth()));
+      use_share_icon
+        ? (features::IsRoundedIconsEnabled() ? kTabGroupIcon
+                           : kPeopleGroupIcon)
+        : (features::IsRoundedIconsEnabled() ? vector_icons::kSyncIcon
+                           : kTabGroupsSyncIcon),
+      color_utils::GetColorWithMaxContrast(color_),
+      group_style_->GetSyncIconWidth()));
   }
 }
 
