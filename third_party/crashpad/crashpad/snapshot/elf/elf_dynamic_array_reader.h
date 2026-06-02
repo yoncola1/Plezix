@@ -1,4 +1,4 @@
-// Copyright 2017 The Crashpad Authors
+// Copyright 2026 The Plezix Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ class ElfDynamicArrayReader {
   bool GetValue(uint64_t tag, bool log, V* value) {
     auto iter = values_.find(tag);
     if (iter == values_.end()) {
-      LOG_IF(ERROR, log) << "tag not found";
+//      LOG_IF(ERROR, log) << "tag not found";
       return false;
     }
     return ReinterpretBytes(iter->second, value);

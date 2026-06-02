@@ -560,9 +560,12 @@ void TabStripActionContainer::OnGlicButtonClicked() {
                  /*prevent_close=*/false, source, prompt_suggestion);
 
   if (glic_button_->GetIsShowingNudge()) {
+  if (glic_nudge_controller_) {  // ДОБАВЬ ЭТУ СТРОКУ
     glic_nudge_controller_->OnNudgeActivity(
         glic::GlicNudgeActivity::kNudgeClicked);
-  }
+  } // И ЭТУ СКОБКУ
+}
+
 
   ExecuteHideTabStripNudge(glic_button_);
   // Reset state manually since there wont be a mouse up event as the animation
@@ -571,12 +574,12 @@ void TabStripActionContainer::OnGlicButtonClicked() {
 }
 
 void TabStripActionContainer::OnGlicButtonDismissed() {
-  glic_nudge_controller_->OnNudgeActivity(
-      glic::GlicNudgeActivity::kNudgeDismissed);
-
-  // Force hide the button when pressed, bypassing locked expansion mode.
-  ExecuteHideTabStripNudge(glic_button_);
+  if (glic_nudge_controller_) { // ДОБАВЬ ПРОВЕРКУ ТУТ
+    glic_nudge_controller_->OnNudgeActivity(
+        glic::GlicNudgeActivity::kNudgeDismissed);
+  }
 }
+
 
 void TabStripActionContainer::OnGlicButtonAnimationEnded() {
   if (!glic_button_->GetIsShowingNudge()) {
@@ -617,7 +620,7 @@ TabStripActionContainer::CreateGlicActorTaskIcon() {
 }
 
 void TabStripActionContainer::OnGlicActorTaskIconClicked() {
-  Profile* const profile = browser_window_interface_->GetProfile();
+//  Profile* const profile = browser_window_interface_->GetProfile();
   // auto* icon_manager =
   // tabs::GlicActorTaskManager::GetForProfile(profile);
 //  CHECK(icon_manager);

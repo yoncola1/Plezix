@@ -1,0 +1,87 @@
+# [PLATFORM & BASE]
+target_cpu = "x64"
+target_os = "linux"
+is_debug = false
+is_official_build = true
+is_component_build = false
+use_lld = true
+
+# [HARDWARE OPTIMIZATION] - Быстрее чем стоковый Chrome
+x64_arch_level = "x86-64-v3"
+optimize_for_speed = true
+optimize_for_size = false
+chrome_pgo_phase = 2
+
+# [COMPILATION & STABILITY] - Чтобы не падал билд
+treat_warnings_as_errors = false
+fatal_linker_warnings = false
+use_thin_lto = true
+thin_lto_enable_optimizations = true
+
+# [V8 ENGINE] - Настройки для максимального балла в Speedometer
+v8_enable_builtins_optimization = true
+v8_enable_turboshaft = true
+v8_enable_minor_mc = true
+v8_enable_webassembly = true
+v8_enable_lite_mode = false
+v8_use_external_startup_data = true
+v8_enable_i18n_support = true
+
+# [STORAGE ECONOMY] - Оставляем 0, как ты просил
+symbol_level = 1
+blink_symbol_level = 0
+v8_symbol_level = 0
+
+# [DEVTOOLS FIX] - Добавляем это, чтобы DevTools работали при symbol_level=0
+enable_devtools = true
+devtools_frontend_resources = true
+devtools_frontend_type = "bundled"
+# Важно: отключаем фильтрацию ресурсов, которая может ломать фронтенд в официальных билдах
+enable_resource_allowlist_generation = false
+
+# [MEDIA & CODECS] - Как в Chrome (Full Multimedia)
+proprietary_codecs = true
+ffmpeg_branding = "Chrome"
+enable_websockets = true
+enable_webrtc = true
+
+# [FEATURES]
+enable_extensions = true
+enable_extensions_core = true
+enable_pdf = true
+enable_printing = true
+enable_remote_dev_tools = true
+
+# [PLEZIX PRIVACY & PERFORMANCE] - Anti-Brave/Chrome optimization
+enable_translate = false
+enable_nacl = false
+enable_vr = false
+enable_remoting = false
+enable_reporting = false
+enable_configuration_policy = false
+enable_background_mode = false
+safe_browsing_mode = 1
+# Plezix: Complete privacy mode - disable all Google services
+enable_service_discovery = false
+enable_mdns = false
+enable_wayland_server = false
+enable_google_now = false
+use_official_google_api_keys = false
+enable_rlz = false  # No Google analytics
+enable_crash_reporting = false  # No crash reports to Google
+enable_sync = false  # Disable Chrome Sync
+google_api_key = ""
+google_default_client_id = ""
+google_default_client_secret = ""
+enable_preconnect_component = false
+enable_profiling = false
+enable_logging = false
+
+# [GRAPHICS]
+enable_gpu_rasterization = true
+enable_oop_rasterization = true
+
+# [SYSTEM]
+dcheck_always_on = false
+build_with_xnnpack = false
+
