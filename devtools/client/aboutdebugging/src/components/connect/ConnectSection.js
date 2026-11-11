@@ -1,0 +1,75 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+"use strict";
+
+const {
+  createElement,
+  PureComponent,
+} = require("resource://devtools/client/shared/vendor/react.mjs");
+const dom = require("resource://devtools/client/shared/vendor/react-dom-factories.js");
+const PropTypes = require("resource://devtools/client/shared/vendor/react-prop-types.mjs");
+
+class ConnectSection extends PureComponent {
+  static get propTypes() {
+    return {
+      children: PropTypes.node,
+      className: PropTypes.string,
+      extraContent: PropTypes.node,
+      headerButton: PropTypes.node,
+      icon: PropTypes.string.isRequired,
+      title: PropTypes.node.isRequired,
+    };
+  }
+
+  renderExtraContent() {
+    const { extraContent } = this.props;
+    return dom.section(
+      {
+        className: "connect-section__extra",
+      },
+      extraContent
+    );
+  }
+
+  render() {
+    const { headerButton, extraContent } = this.props;
+
+    return createElement(
+      "moz-card",
+      {
+        // "className" does not get applied as "class" on web components
+        class: `connect-section ${this.props.className || ""}`,
+      },
+      dom.header(
+        {
+          className: "connect-section__header",
+        },
+        dom.img({
+          className: "connect-section__header__icon",
+          src: this.props.icon,
+          alt: "",
+        }),
+        dom.h3(
+          {
+            className: "connect-section__header__title",
+          },
+          this.props.title
+        ),
+        headerButton
+      ),
+      this.props.children
+        ? dom.div(
+            {
+              className: "connect-section__content",
+            },
+            this.props.children
+          )
+        : null,
+      extraContent ? this.renderExtraContent() : null
+    );
+  }
+}
+
+module.exports = ConnectSection;

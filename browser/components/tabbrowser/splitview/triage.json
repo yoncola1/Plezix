@@ -1,0 +1,56 @@
+{
+  "triagers": {
+    "Jonathan Sudiaman": {
+      "bzmail": "jsudiaman@mozilla.com"
+    },
+    "Kelly Cochrane": {
+      "bzmail": "kcochrane@mozilla.com"
+    },
+    "Nikki Sharpley": {
+      "bzmail": "nsharpley@mozilla.com"
+    },
+    "Sam Foster": {
+      "bzmail": "sfoster@mozilla.com"
+    },
+    "Sarah Clements": {
+      "bzmail": "sclements@mozilla.com"
+    }
+  },
+  "duty-start-dates": {
+    "2026-09-09": "Jonathan Sudiaman",
+    "2026-09-23": "Sam Foster",
+    "2026-10-07": "Sarah Clements",
+    "2026-10-21": "Nikki Sharpley",
+    "2026-11-04": "Kelly Cochrane",
+    "2026-11-18": "Jonathan Sudiaman",
+    "2026-12-02": "Sam Foster",
+    "2026-12-16": "Sarah Clements",
+    "2026-12-30": "Nikki Sharpley",
+    "2027-01-13": "Kelly Cochrane",
+    "2027-01-27": "Jonathan Sudiaman",
+    "2027-02-10": "Sam Foster",
+    "2027-02-24": "Sarah Clements",
+    "2027-03-10": "Nikki Sharpley",
+    "2027-03-24": "Kelly Cochrane",
+    "2027-04-07": "Jonathan Sudiaman",
+    "2027-04-21": "Sam Foster",
+    "2027-05-05": "Sarah Clements",
+    "2027-05-19": "Nikki Sharpley",
+    "2027-06-02": "Kelly Cochrane",
+    "2027-06-16": "Jonathan Sudiaman",
+    "2027-06-30": "Sam Foster",
+    "2027-07-14": "Sarah Clements",
+    "2027-07-28": "Nikki Sharpley",
+    "2027-08-11": "Kelly Cochrane",
+    "2027-08-25": "Jonathan Sudiaman",
+    "2027-09-08": "Sam Foster",
+    "2027-09-22": "Sarah Clements",
+    "2027-10-06": "Nikki Sharpley",
+    "2027-10-20": "Kelly Cochrane",
+    "2027-11-03": "Jonathan Sudiaman",
+    "2027-11-17": "Sam Foster",
+    "2027-12-01": "Sarah Clements",
+    "2027-12-15": "Nikki Sharpley",
+    "2027-12-29": "Kelly Cochrane"
+  }
+}

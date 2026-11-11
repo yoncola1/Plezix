@@ -1,0 +1,584 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="20">
+  <defs>
+    <path id="b" fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5" d="m0 0 3.5 3.5L7 0" />
+    <path id="c" fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5" d="M0 9.499V0" />
+  </defs>
+  <svg width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="a">
+        <path d="M2 1h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 13.75v1.256c0 1.009-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.991V13.75" />
+    <g clip-path="url(#a)">
+      <use href="#b" transform="translate(6.5 10)" />
+      <use href="#c" transform="translate(10 3.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="20" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="d">
+        <path d="M2 1h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 13.788v1.226c0 1.01-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.99v-1.224" />
+    <g clip-path="url(#d)">
+      <use href="#b" transform="translate(6.5 10.023)" />
+      <use href="#c" transform="translate(10 3.773)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="40" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="e">
+        <path d="M2 1h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 13.903v1.134c0 1.009-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.991v-1.131" />
+    <g clip-path="url(#e)">
+      <use href="#b" transform="translate(6.5 10.094)" />
+      <use href="#c" transform="translate(10 3.844)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="60" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="f">
+        <path d="M2 1h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 14.096v.976c0 1.009-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.991v-.974" />
+    <g clip-path="url(#f)">
+      <use href="#b" transform="translate(6.5 10.22)" />
+      <use href="#c" transform="translate(10 3.97)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="80" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="g">
+        <path d="M2 1.009h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 14.366v.75c0 1.01-.748 1.87-1.75 1.987a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.991v-.748" />
+    <g clip-path="url(#g)">
+      <use href="#b" transform="translate(6.5 10.412)" />
+      <use href="#c" transform="translate(10 4.162)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="100" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="h">
+        <path d="M2 1.026h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 14.714v.457c0 1.01-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.99v-.455" />
+    <g clip-path="url(#h)">
+      <use href="#b" transform="translate(6.5 10.681)" />
+      <use href="#c" transform="translate(10 4.431)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="120" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="i">
+        <path d="M2 1.053h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.25 15.14v.094c0 1.009-.748 1.87-1.75 1.986a39.2 39.2 0 0 1-8.976.002 2.007 2.007 0 0 1-1.774-1.991v-.091" />
+    <g clip-path="url(#i)">
+      <use href="#b" transform="translate(6.5 11.038)" />
+      <use href="#c" transform="translate(10 4.788)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="140" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="j">
+        <path d="M2 1.091h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.222 15.638A1.99 1.99 0 0 1 14.5 17.29a39.2 39.2 0 0 1-8.976.002 2.01 2.01 0 0 1-1.745-1.654" />
+    <g clip-path="url(#j)">
+      <use href="#b" transform="translate(6.5 11.496)" />
+      <use href="#c" transform="translate(10 5.246)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="160" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="k">
+        <path d="M2 1.142h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M16.083 16.185a1.98 1.98 0 0 1-1.583 1.182 39.2 39.2 0 0 1-8.976.002 2.01 2.01 0 0 1-1.604-1.184" />
+    <g clip-path="url(#k)">
+      <use href="#b" transform="translate(6.5 12.071)" />
+      <use href="#c" transform="translate(10 5.821)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="180" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="l">
+        <path d="M2 1.206h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M15.8 16.733a1.96 1.96 0 0 1-1.3.717 39.2 39.2 0 0 1-8.976.002 2 2 0 0 1-1.319-.721" />
+    <g clip-path="url(#l)">
+      <use href="#b" transform="translate(6.5 12.789)" />
+      <use href="#c" transform="translate(10 6.539)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="200" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="m">
+        <path d="M2 1.287h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M15.367 17.219c-.252.17-.547.283-.867.32a39.2 39.2 0 0 1-8.976.002 2 2 0 0 1-.884-.326" />
+    <g clip-path="url(#m)">
+      <use href="#b" transform="translate(6.5 13.682)" />
+      <use href="#c" transform="translate(10 7.433)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="220" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="n">
+        <path d="M2 1.386h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5"
+      d="M14.808 17.572q-.15.043-.308.061a39.2 39.2 0 0 1-8.976.002 2 2 0 0 1-.325-.065" />
+    <g clip-path="url(#n)">
+      <use href="#b" transform="translate(6.5 14.804)" />
+      <use href="#c" transform="translate(10 8.554)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="240" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="o">
+        <path d="M2 1.508h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5" d="M14.184 17.768a39.2 39.2 0 0 1-8.362 0" />
+    <g clip-path="url(#o)">
+      <use href="#b" transform="translate(6.5 16.241)" />
+      <use href="#c" transform="translate(10 9.992)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="260" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="p">
+        <path d="M2 1.659h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5" d="M13.558 17.934a39.4 39.4 0 0 1-7.11 0" />
+    <g clip-path="url(#p)">
+      <use href="#b" transform="translate(6.5 18.173)" />
+      <use href="#c" transform="translate(10 11.923)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="280" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="q">
+        <path d="M2 1.853h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-stroke" stroke-linecap="round" stroke-linejoin="round"
+      stroke-width="1.5" d="M12.952 18.094a39 39 0 0 1-5.899 0" />
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.4999850000000001"
+      d="M13.44 17.498a9 9 0 0 1-.682.278" />
+    <g clip-path="url(#q)">
+      <use href="#b" transform="translate(6.5 21.123)" />
+      <use href="#c" transform="translate(10 14.873)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="300" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="r">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.50006"
+      d="M12.634 17.82a8.25 8.25 0 0 1-10.536-5.446" />
+    <g clip-path="url(#r)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="320" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="s">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M12.223 17.944A8.25 8.25 0 0 1 2.798 5.976" />
+    <g clip-path="url(#s)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="340" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="t">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.500015"
+      d="M11.915 18.025a8.25 8.25 0 0 1-5.62-15.398" />
+    <g clip-path="url(#t)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="360" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="u">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5000750000000003"
+      d="M11.664 18.082a8.25 8.25 0 1 1-1.543-16.333" />
+    <g clip-path="url(#u)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="380" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="v">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.500015"
+      d="M11.452 18.122a8.25 8.25 0 1 1 1.895-15.663" />
+    <g clip-path="url(#v)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="400" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="w">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M11.269 18.152A8.25 8.25 0 1 1 15.704 4.04" />
+    <g clip-path="url(#w)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="420" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="x">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.4999850000000001"
+      d="M11.11 18.175a8.25 8.25 0 1 1 6.106-12.178" />
+    <g clip-path="url(#x)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="440" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="y">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5000299999999998"
+      d="M10.968 18.193a8.25 8.25 0 1 1 7.042-10.17" />
+    <g clip-path="url(#y)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="460" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="z">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5000750000000003"
+      d="M10.843 18.207a8.25 8.25 0 1 1 7.407-8.271" />
+    <g clip-path="url(#z)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="480" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="A">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.49994"
+      d="M10.734 18.217a8.25 8.25 0 1 1 7.353-6.576" />
+    <g clip-path="url(#A)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="500" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="B">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.49994"
+      d="M10.635 18.225a8.25 8.25 0 1 1 7.01-5.121" />
+    <g clip-path="url(#B)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="520" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="C">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.4999850000000001"
+      d="M10.545 18.231a8.25 8.25 0 1 1 6.482-3.909" />
+    <g clip-path="url(#C)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="540" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="D">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M10.467 18.237a8.25 8.25 0 1 1 5.847-2.925" />
+    <g clip-path="url(#D)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="560" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="E">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.499925"
+      d="M10.397 18.24a8.25 8.25 0 1 1 5.162-2.144" />
+    <g clip-path="url(#E)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="580" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="F">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5000299999999998"
+      d="M10.334 18.244a8.25 8.25 0 1 1 4.472-1.536" />
+    <g clip-path="url(#F)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="600" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="G">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.49994"
+      d="M10.278 18.245a8.25 8.25 0 1 1 3.802-1.072" />
+    <g clip-path="url(#G)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="620" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="H">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.49997"
+      d="M10.228 18.247a8.25 8.25 0 1 1 3.172-.728" />
+    <g clip-path="url(#H)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="640" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="I">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5000750000000003"
+      d="M10.184 18.249a8.25 8.25 0 1 1 2.594-.477" />
+    <g clip-path="url(#I)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="660" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="J">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.49994"
+      d="M10.147 18.248a8.25 8.25 0 1 1 2.073-.3" />
+    <g clip-path="url(#J)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="680" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="K">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.4999850000000001"
+      d="M10.113 18.25a8.25 8.25 0 1 1 1.613-.18" />
+    <g clip-path="url(#K)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="700" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="L">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.499925"
+      d="M10.086 18.249a8.25 8.25 0 1 1 1.215-.101" />
+    <g clip-path="url(#L)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="720" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="M">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.500045"
+      d="M10.06 18.25a8.25 8.25 0 1 1 .878-.052" />
+    <g clip-path="url(#M)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="740" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="N">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.500015"
+      d="M10.04 18.25a8.25 8.25 0 1 1 .6-.024" />
+    <g clip-path="url(#N)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="760" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="O">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.500015"
+      d="M10.027 18.25a8.25 8.25 0 1 1 .377-.009" />
+    <g clip-path="url(#O)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="780" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="P">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M10.015 18.25a8.25 8.25 0 1 1 .208-.003" />
+    <g clip-path="url(#P)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="800" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="Q">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M10.007 18.25a8.25 8.25 0 1 1 .09 0" />
+    <g clip-path="url(#Q)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="820" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="R">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M10.002 18.25a8.25 8.25 0 1 1 .022 0" />
+    <g clip-path="url(#R)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+  <svg width="20" height="20" x="840" viewBox="0 0 20 20">
+    <defs>
+      <clipPath id="S">
+        <path d="M2 2h16v16H2z" />
+      </clipPath>
+    </defs>
+    <path fill="none" stroke="context-fill" stroke-linecap="round" stroke-width="1.5"
+      d="M10 18.25a8.25 8.25 0 1 1 0-16.5 8.25 8.25 0 0 1 0 16.5Z" />
+    <g clip-path="url(#S)">
+      <use href="#b" transform="translate(6.5 25)" />
+      <use href="#c" transform="translate(10 18.75)" />
+    </g>
+  </svg>
+</svg>

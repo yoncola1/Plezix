@@ -1,0 +1,66 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Theme Selection
+#
+# Shared (toolkit/themes/shared/) is always included.
+#
+# MacOS X                 osx (toolkit/themes/osx)
+# Windows                 windows (toolkit/themes/windows) +
+#                         non-mac (toolkit/themes/shared/non-mac)
+# GNOME/Linux             linux (toolkit/themes/linux)
+#                         non-mac (toolkit/themes/shared/non-mac)
+# mobile                  native UIs that do not use XUL for UI
+
+toolkit = CONFIG["MOZ_WIDGET_TOOLKIT"]
+app = CONFIG["MOZ_BUILD_APP"]
+
+if toolkit == "cocoa":
+    DIRS += ["osx"]
+elif toolkit == "gtk":
+    DIRS += ["linux"]
+elif app == "mobile/android":
+    DIRS += ["mobile"]
+else:
+    DIRS += ["windows"]
+
+CONTENT_ACCESSIBLE_FILES.media += [
+    "shared/media/audio-muted.svg",
+    "shared/media/audio.svg",
+    "shared/media/audioNoAudioButton.svg",
+    "shared/media/closedCaptionButton-cc-off.svg",
+    "shared/media/closedCaptionButton-cc-on.svg",
+    "shared/media/error.png",
+    "shared/media/fullscreenEnterButton.svg",
+    "shared/media/fullscreenExitButton.svg",
+    "shared/media/imagedoc-darknoise.png",
+    "shared/media/imagedoc-lightnoise.png",
+    "shared/media/pause-fill.svg",
+    "shared/media/picture-in-picture-open.svg",
+    "shared/media/pipToggle.css",
+    "shared/media/play-fill.svg",
+    "shared/media/stalled.png",
+    "shared/media/throbber.png",
+    "shared/media/videocontrols.css",
+]
+
+CONTENT_ACCESSIBLE_FILES += [
+    "shared/pictureinpicture/texttracks.css",
+]
+
+if app == "mobile/android":
+    CONTENT_ACCESSIBLE_FILES.media += [
+        "shared/media/picture-in-picture-open-android.svg",
+    ]
+else:
+    CONTENT_ACCESSIBLE_FILES.illustrations += [
+        "shared/illustrations/no-connection.svg",
+        "shared/illustrations/security-error.svg",
+    ]
+
+
+with Files("**"):
+    BUG_COMPONENT = ("Toolkit", "Themes")
+
+SPHINX_TREES["shared/design-system/docs"] = "shared/design-system/docs"

@@ -1,0 +1,30 @@
+diff --git a/sdk/perfetto.h b/sdk/perfetto.h
+--- a/sdk/perfetto.h
++++ b/sdk/perfetto.h
+@@ -512,8 +512,7 @@ static const int kPerfettoBuildFlagsCount = sizeof(kPerfettoBuildFlags) / sizeof
+
+ #if defined(__clang__)
+ #if __has_feature(address_sanitizer) || defined(__SANITIZE_ADDRESS__)
+-extern "C" void __asan_poison_memory_region(void const volatile*, size_t);
+-extern "C" void __asan_unpoison_memory_region(void const volatile*, size_t);
++#include "mozilla/MemoryChecking.h"
+ #define PERFETTO_ASAN_POISON(a, s) __asan_poison_memory_region((a), (s))
+ #define PERFETTO_ASAN_UNPOISON(a, s) __asan_unpoison_memory_region((a), (s))
+ #else
+@@ -23286,6 +23285,7 @@ PERFETTO_DECLARE_DATA_SOURCE_STATIC_MEMBERS_WITH_ATTRS(
+ #define PERFETTO_INTERNAL_EVENT_FINALIZER_KEYWORD default
+ #endif
+
++#include <mozilla/Attributes.h>
+ #define PERFETTO_INTERNAL_SCOPED_EVENT_FINALIZER(category)                    \
+   struct PERFETTO_UID(ScopedEvent) {                                          \
+     struct EventFinalizer {                                                   \
+@@ -23296,7 +23296,7 @@ PERFETTO_DECLARE_DATA_SOURCE_STATIC_MEMBERS_WITH_ATTRS(
+       /* TrackEventArgumentFunction in |__VA_ARGS__|. This is required so  */ \
+       /* that the scoped event is exactly ONE line and can't escape the    */ \
+       /* scope if used in a single line if statement.                      */ \
+-      EventFinalizer(...) {}                                                  \
++      MOZ_IMPLICIT EventFinalizer(...) {}                                     \
+       ~EventFinalizer() {                                                     \
+         TRACE_EVENT_END(category);                                            \
+       }                                                                       \

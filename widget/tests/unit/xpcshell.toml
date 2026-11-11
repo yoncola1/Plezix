@@ -1,0 +1,14 @@
+[DEFAULT]
+head = ""
+tags = "os_integration"
+
+["test_JumpListBuilder_obtainAndCacheFaviconAsync.js"]
+run-if = [
+  "os == 'win'",
+]
+support-files = ["favicon.ico"]
+
+["test_macwebapputils.js"]
+run-if = [
+  "os == 'mac'",
+]

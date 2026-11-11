@@ -1,0 +1,4 @@
+/* eslint-disable import-x/no-unresolved, no-undef */
+import { x } from "simple";
+
+result_scope2 = x;

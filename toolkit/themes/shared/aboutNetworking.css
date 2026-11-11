@@ -1,0 +1,147 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/in-content/common.css");
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+}
+
+#sectionTitle {
+  flex-grow: 1;
+}
+
+#refreshDiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-small);
+}
+
+#refreshButton {
+  margin-top: 0;
+}
+
+/** Categories **/
+
+.category {
+  cursor: pointer;
+  /* Center category names */
+  display: flex;
+  align-items: center;
+}
+
+.category .category-name {
+  pointer-events: none;
+}
+
+@media (max-width: 830px) {
+  #categories > .category {
+    padding-inline-start: 5px;
+    margin-inline-start: 0;
+  }
+}
+
+/** Content area **/
+
+.main-content {
+  flex: 1;
+}
+
+.tab {
+  padding: var(--space-small) 0;
+}
+
+.tab table {
+  width: 100%;
+  margin-block-end: var(--space-large);
+  background-color: var(--table-background-color);
+  color: var(--text-color);
+  border: 1px solid var(--table-border-color);
+  border-radius: var(--border-radius-small);
+  border-spacing: 0;
+  overflow: hidden;
+  text-align: start;
+}
+
+th,
+td {
+  padding: var(--space-small) var(--space-medium);
+  text-align: start;
+}
+
+th {
+  background-color: var(--table-header-background-color);
+  color: var(--table-header-text-color);
+  font-size: var(--font-size-large);
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--table-row-background-color-alternate);
+}
+
+tbody tr:hover {
+  background-color: var(--background-color-list-item-hover);
+  color: var(--text-color-list-item-hover);
+}
+
+#clearHTTPCache,
+#clearDNSCache {
+  margin-bottom: var(--space-large);
+}
+
+.dns-lookup-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+}
+
+/** SSL tokens cache **/
+
+.ssltokens-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-medium);
+  margin-bottom: var(--space-small);
+}
+
+.ssltokens-summary progress {
+  width: 150px;
+}
+
+#ssltokens td {
+  vertical-align: top;
+}
+
+.ssltokens-key {
+  overflow-wrap: anywhere;
+}
+
+.ssltokens-token-count-multiple {
+  font-weight: var(--font-weight-bold);
+}
+
+.ssltokens-icon {
+  width: var(--icon-size-small);
+  height: var(--icon-size-small);
+  vertical-align: middle;
+  margin-inline-end: var(--space-xsmall);
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+#ssltokens summary {
+  cursor: pointer;
+}

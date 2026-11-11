@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="chrome://global/skin"?>
+<?xml-stylesheet type="text/css" href="chrome://mochikit/content/tests/SimpleTest/test.css"?>
+<window title="about:memory"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"/>
+  <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"></script>
+
+  <!-- This file tests the saving of GC and CC logs in both concise and
+       verbose formats. -->
+
+  <!-- test results are displayed in the html:body -->
+  <body xmlns="http://www.w3.org/1999/xhtml"></body>
+
+  <iframe id="amFrame"  height="400" src="about:memory"></iframe>
+
+  <script type="application/javascript">
+  <![CDATA[
+  "use strict";
+
+  async function onFocus() {
+    let frame = document.getElementById("amFrame");
+    frame.focus();
+
+    // Checks that a file exists on the local file system and removes it if it
+    // is present.
+    function checkForFileAndRemove(aFilename) {
+      let localFile = Cc["@mozilla.org/file/local;1"]
+                        .createInstance(Ci.nsIFile);
+      localFile.initWithPath(aFilename);
+
+      let exists = localFile.exists();
+      if (exists) {
+        localFile.remove(/* recursive = */ false);
+      }
+
+      return exists;
+    }
+
+    // Given a save log button, triggers the action and checks that both CC &
+    // GC logs were written to disk for every listed process.
+    async function saveLogs(aLogButton)
+    {
+      // trigger the log saving
+      aLogButton.click();
+
+      // mainDiv
+      // |-> section
+      //        | -> div per process
+      //               | -> div name and paths
+      //                      | -> div process name
+      //                      | -> div cc log path
+      //                      | -> div gc log path
+      //               | -> buttons
+      let mainDiv = frame.contentWindow.document.getElementById("mainDiv");
+      let section = mainDiv.childNodes[0];
+
+      // The log list is rendered asynchronously once all dumps finished.
+      await SimpleTest.promiseWaitForCondition(
+        () => section.querySelector(".ccgcLogProcess"),
+        "log entries rendered");
+
+      let entries = section.querySelectorAll(".ccgcLogProcess");
+      ok(entries.length >= 1, "at least one process log entry generated");
+
+      for (let entry of entries) {
+        let paths = entry.querySelectorAll(".ccgcLogEntryPath");
+        is(paths.length, 2, "two log paths listed for the process");
+
+        for (let path of paths) {
+          let match = path.textContent.match(/^(GC|CC): (.+)$/);
+          ok(match, "log path has the expected format: " + path.textContent);
+          if (match) {
+            ok(checkForFileAndRemove(match[2]), match[1] + " log file exists");
+          }
+        }
+      }
+    }
+
+    // get the log buttons to test
+    let saveConcise = frame.contentWindow.document
+                        .getElementById("saveLogsConcise");
+    let saveVerbose = frame.contentWindow.document
+                        .getElementById("saveLogsVerbose");
+
+    await saveLogs(saveConcise);
+    await saveLogs(saveVerbose);
+
+    SimpleTest.finish();
+  }
+
+  SimpleTest.waitForFocus(onFocus);
+  SimpleTest.waitForExplicitFinish();
+  ]]>
+  </script>
+</window>

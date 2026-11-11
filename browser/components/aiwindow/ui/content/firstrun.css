@@ -1,0 +1,492 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@keyframes springUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#multi-stage-message-root {
+  @media not (forced-colors) {
+    --header-text-color: transparent;
+    /* TODO: Bug 2033070 - desaturated tokens only exist in Nova, remove after it becomes default */
+    --card-text-color: light-dark(var(--color-violet-desaturated-90, #180e30), var(--color-violet-desaturated-0, #f2f0f8));
+    --card-text-color-selected: light-dark(var(--color-violet-desaturated-90, #180e30), var(--color-violet-desaturated-0, #f2f0f8));
+    --card-subtitle-text-color: light-dark(var(--color-violet-60), var(--color-violet-20));
+    --card-icon-bg: light-dark(var(--color-violet-0), var(--color-white-alpha-10));
+    --button-icon-color: var(--card-text-color);
+
+    /* TODO: Bug 2033070 - remove these media queries after Nova launch */
+    @media not -moz-pref("browser.nova.enabled") {
+      /* using linear gradient for text effect */
+      --header-bg-image: light-dark(linear-gradient(91deg, #7630c0 22.04%, #5c66ee 78.7%), linear-gradient(65deg, #9165ff 18.85%, #d8c9ff 78.79%));
+      --card-bg: light-dark(var(--color-white-alpha-50), var(--color-gray-80));
+      --card-bg-hover: var(--background-color-box);
+      --card-border-color: light-dark(var(--color-violet-10), var(--color-white-alpha-30));
+      --card-border-color-hover: var(--color-violet-20);
+      --button-background-color-primary: light-dark(var(--aiwindow-gradient-button), var(--aiwindow-gradient-button-dark));
+      --button-text-color-primary: light-dark(var(--color-white), #fbfbfe);
+      --button-text-color-primary-hover: var(--button-text-color-primary);
+      --button-text-color-primary-selected: var(--button-text-color-primary);
+      --button-text-color-primary-active: var(--button-text-color-primary);
+      --card-border-color-gradient: var(--smartwindow-border-color-gradient);
+    }
+
+    /* TODO: Bug 2033070 - remove these media queries after Nova launch */
+    @media -moz-pref("browser.nova.enabled") {
+      --header-bg-image: light-dark(
+        linear-gradient(270deg, var(--color-violet-40) 11.55%, var(--color-violet-60) 90.5%),
+        linear-gradient(270deg, var(--color-violet-30) 11.55%, var(--color-violet-50) 90.5%)
+      );
+      --card-bg: light-dark(var(--color-white), var(--color-gray-75));
+      --card-bg-hover: var(--card-bg);
+      --card-border-color: light-dark(var(--color-violet-desaturated-20), var(--color-violet-desaturated-50));
+      --card-border-color-hover: var(--color-violet-desaturated-30);
+      --card-icon-bg: light-dark(var(--color-violet-0), color-mix(in srgb, var(--color-violet-40) 25%, transparent));
+      --card-border-color-gradient: linear-gradient(244deg, var(--color-orange-30) 14.32%, var(--color-pink-30) 28.57%, var(--color-violet-40) 59.95%);
+    }
+  }
+
+  @media (forced-colors) {
+    --header-text-color: CanvasText;
+    --card-text-color: CanvasText;
+    --button-icon-color: CanvasText;
+    --card-subtitle-text-color: CanvasText;
+    --card-icon-bg: transparent;
+    --card-bg: Canvas;
+    --card-bg-hover: Canvas;
+    --card-border-color: CanvasText;
+    --card-border-color-hover: SelectedItem;
+    --card-border-color-gradient: SelectedItem;
+    --card-text-color-selected: SelectedItemText;
+  }
+
+  .main-content,
+  .section-main,
+  .dialog-initial,
+  .onboardingContainer {
+    box-shadow: none;
+  }
+
+  button.primary {
+    width: calc(var(--size-item-large) * 7);
+    height: var(--size-item-xlarge);
+    margin: 0 auto;
+    font-size: var(--button-font-size);
+    letter-spacing: -0.3px;
+    cursor: pointer;
+
+    /* TODO: Bug 2033070 - remove these media queries after Nova launch */
+    @media not -moz-pref("browser.nova.enabled") {
+      border: none;
+      border-radius: var(--border-radius-medium);
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-paired-color-tokens -- custom gradient per Figma design; the button's text color comes from its default styles */
+      background-image: var(--button-background-color-primary);
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  button.secondary {
+    width: calc(var(--size-item-xlarge) * 2.5);
+    height: var(--size-item-xlarge);
+    /* Hide the label text but keep it for assistive technology. */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- transparent intentionally hides the visible label text in favor of the arrow icon */
+    color: transparent;
+    background-image: url("chrome://browser/skin/back.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: var(--icon-size-medium);
+    -moz-context-properties: fill;
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom brand color per Figma design */
+    fill: var(--button-icon-color);
+    cursor: pointer;
+
+    /* TODO: Bug 2033070 - remove these media queries after Nova launch */
+    @media not -moz-pref("browser.nova.enabled") {
+      background-color: var(--card-border-color);
+    }
+
+    &:dir(rtl) {
+      background-image: url("chrome://browser/skin/forward.svg");
+    }
+
+    &:hover {
+      border-color: var(--card-border-color-hover);
+    }
+  }
+}
+
+.onboardingContainer .screen[pos="center"] {
+  background-color: transparent;
+  border-radius: 0;
+  min-width: 100%;
+}
+
+#mainContentHeader {
+  background-image: var(--header-bg-image);
+  background-clip: text;
+  /* transparent needed for gradient text effect */
+  color: var(--header-text-color);
+
+  .screen.AI_WINDOW_INTRO & {
+    opacity: 0;
+    animation: springUp 0.3s ease-in forwards;
+    animation-delay: 0.3s;
+  }
+
+  .screen:not(.AI_WINDOW_INTRO) & {
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom title size per Figma design */
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+}
+
+.welcome-text {
+  .screen:not(.AI_WINDOW_INTRO) & {
+    margin-block-end: 0;
+
+    h2 {
+      opacity: var(--opacity-deemphasized);
+      margin-block-start: var(--space-medium);
+      font-size: var(--font-size-root);
+      font-weight: normal;
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom subtitle width per Figma design */
+      max-width: 556px;
+    }
+  }
+
+  .screen.AI_WINDOW_MEMORIES &,
+  .screen.AI_WINDOW_SET_DEFAULT & {
+    margin-block-end: var(--space-large);
+
+    p {
+      opacity: var(--opacity-deemphasized);
+      margin-block: var(--space-small) 0;
+    }
+  }
+}
+
+.screen:not(.AI_WINDOW_INTRO) {
+  h2,
+  p {
+    letter-spacing: 0.3px;
+    line-height: normal;
+    color: var(--card-text-color);
+  }
+}
+
+.screen.AI_WINDOW_MEMORIES,
+.screen.AI_WINDOW_SET_DEFAULT {
+  .section-main {
+    margin-block-start: calc(var(--space-xxlarge) * 3);
+  }
+
+  #content-tiles-container {
+    margin: 0;
+  }
+
+  .confirmation-checklist-container {
+    gap: var(--space-medium);
+    transition: var(--transition);
+
+    .onboardingContainer.transition-in .screen & {
+      opacity: 0;
+      translate: 0 calc(-1 * var(--translate));
+    }
+
+    .onboardingContainer.transition-out .screen:not(.dialog-last) & {
+      opacity: 0;
+      translate: 0 var(--translate);
+    }
+
+    .confirmation-checklist-item {
+      display: grid;
+      grid-template-columns: 35px 1fr;
+      align-items: start;
+      margin-inline-start: 0;
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom spacing per Figma design */
+      margin-block-end: 10px;
+    }
+
+    .confirmation-checklist-icon-wrapper {
+      display: contents;
+    }
+
+    .confirmation-checklist-icon {
+      margin-block-start: var(--space-xxsmall);
+      -moz-context-properties: fill;
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom brand color per Figma design */
+      fill: var(--card-text-color);
+    }
+
+    .confirmation-checklist-text {
+      grid-column: 2;
+      margin: 0;
+      text-align: start;
+
+      .body-text {
+        margin: 0;
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-root);
+      }
+    }
+
+    .confirmation-checklist-subtext {
+      grid-column: 2;
+      opacity: var(--opacity-deemphasized);
+      text-align: start;
+      margin: 0;
+      font-size: var(--font-size-small);
+
+      p {
+        margin: 0;
+        transition: unset;
+      }
+    }
+  }
+
+  #multi-stage-multi-select-label {
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- custom width per Figma design */
+    width: 420px;
+    margin-block: 0 var(--space-small);
+    font-size: var(--font-size-root);
+  }
+
+  #multi-stage-multi-select-footer-label {
+    margin-block: var(--space-small) 0;
+    font-size: var(--font-size-root);
+    font-weight: normal;
+    opacity: var(--opacity-deemphasized);
+  }
+
+  .multi-select-container {
+    gap: 0;
+    align-items: center;
+
+    .checkbox-container.multi-select-item {
+      width: var(--size-layout-large);
+      font-size: var(--font-size-root);
+      display: grid;
+      grid-template-columns: 35px 1fr;
+      padding: var(--space-medium) var(--space-large);
+      background: var(--card-bg);
+      border-inline: var(--border-width) solid var(--card-border-color);
+      border-block-end: var(--border-width) solid var(--card-border-color);
+
+      &:first-of-type {
+        border-block-start: var(--border-width) solid var(--card-border-color);
+        border-start-start-radius: var(--border-radius-medium);
+        border-start-end-radius: var(--border-radius-medium);
+      }
+
+      &:last-of-type {
+        border-end-start-radius: var(--border-radius-medium);
+        border-end-end-radius: var(--border-radius-medium);
+      }
+    }
+  }
+
+  .action-buttons {
+    gap: var(--space-small);
+    margin-block-start: var(--space-small);
+  }
+}
+
+.screen.AI_WINDOW_SET_DEFAULT {
+  .multi-select-container {
+    margin-block-start: var(--space-large);
+
+    .checkbox-container.multi-select-item {
+      padding: var(--space-xlarge);
+    }
+  }
+
+  .multi-select-item {
+    input {
+      grid-row: span 2;
+      align-self: center;
+    }
+
+    label {
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-small);
+    }
+
+    p {
+      margin: 0;
+      font-size: var(--font-size-small);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: fixed;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: calc(var(--size-image-xxlarge) * 4.5);
+    height: calc(var(--size-image-xxlarge) * 4.5);
+    background: center / contain no-repeat url("chrome://browser/content/aiwindow/assets/set-default-onboarding.svg");
+    pointer-events: none;
+  }
+}
+
+.screen.AI_WINDOW_MEMORIES {
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  min-height: 750px;
+}
+
+.screen.AI_WINDOW_CHOOSE_MODEL {
+  .tiles-single-select-container {
+    align-items: stretch;
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens -- 550px per Figma */
+    max-width: 550px;
+
+    > div {
+      display: flex;
+    }
+  }
+}
+
+.screen.AI_WINDOW_CHOOSE_MODEL .tiles-single-select-section.single-select {
+  flex-direction: column;
+  gap: var(--space-small);
+  margin-block: var(--space-xlarge);
+  margin-inline: 0;
+  padding-inline: 0;
+  width: 100%;
+
+  .select-item {
+    align-items: center;
+    background-color: var(--card-bg);
+    border: var(--border-width) solid var(--card-border-color);
+    border-radius: var(--border-radius-large);
+    box-sizing: border-box;
+    color: var(--card-text-color);
+    column-gap: var(--space-medium);
+    display: grid;
+    grid-template-areas:
+      "icon title model"
+      "icon description model";
+    grid-template-columns: var(--size-image-medium) 1fr auto;
+    height: auto;
+    padding: calc(var(--space-large) + var(--border-width));
+    transition:
+      height 0.4s ease,
+      margin-block 0.4s ease,
+      box-shadow 0.4s ease;
+    width: 100%;
+
+    /* TODO: Bug 2033070 - remove these media queries after Nova launch */
+    @media not -moz-pref("browser.nova.enabled") {
+      /* outline color is the button background color, which is a gradient for MVP
+      and doesn't work on outline */
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+      &:has(.input:focus-visible) {
+        outline: var(--focus-outline-width) solid var(--focus-outline-color);
+        outline-offset: var(--focus-outline-offset);
+      }
+    }
+
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+    &:hover:not(:has(.selected)) {
+      background-color: var(--card-bg-hover);
+      border: var(--border-width) solid var(--card-border-color-hover);
+      box-shadow: var(--box-shadow-level-2);
+    }
+
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+    &:has(.selected) {
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+      background:
+        image(var(--card-bg-hover)) padding-box,
+        var(--card-border-color-gradient) border-box;
+      border: calc(2 * var(--border-width)) solid var(--border-color-transparent);
+      box-shadow: var(--box-shadow-level-4);
+      color: var(--card-text-color-selected);
+      padding: var(--space-large);
+    }
+
+    .label-text {
+      grid-area: title;
+      margin-block: 0;
+      line-height: normal;
+      text-align: start;
+    }
+
+    .body-text {
+      font-size: var(--font-size-small);
+      grid-area: description;
+      line-height: normal;
+      margin: 0;
+      text-align: start;
+    }
+
+    .subtitle-text {
+      color: var(--card-subtitle-text-color);
+      font-size: var(--font-size-small);
+      grid-row-end: 3;
+      grid-row-start: 1;
+      line-height: normal;
+      margin-block: 0;
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+      max-width: 196px;
+      text-align: end;
+    }
+
+    .icon {
+      border-radius: var(--border-radius-circle);
+      height: var(--size-image-small);
+      grid-area: icon;
+      width: var(--size-image-small);
+    }
+
+    /* Render the "Recommended" badge as an inline pill in the right column,
+       vertically centered, rather than the shared top-corner banner. */
+    .flair {
+      --flair-background-color: light-dark(
+        var(--color-violet-desaturated-0, var(--color-violet-0)),
+        var(--color-violet-desaturated-50, var(--color-violet-50))
+      );
+      background-color: var(--flair-background-color);
+      border-radius: var(--border-radius-xlarge, var(--border-radius-large));
+      color: var(--text-color);
+      font-size: var(--font-size-small);
+      grid-area: model;
+      height: auto;
+      inset: unset;
+      line-height: normal;
+      padding: var(--space-xxsmall) var(--space-small);
+      position: static;
+      width: fit-content;
+    }
+
+    /* The recommended card shows the badge in place of the model subtitle. */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+    &:has(.flair) .subtitle-text {
+      display: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #multi-stage-message-root .select-item {
+    transition: none;
+
+    .icon,
+    .label-text {
+      transition: none;
+    }
+  }
+}

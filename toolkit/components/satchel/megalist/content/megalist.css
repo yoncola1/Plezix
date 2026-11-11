@@ -1,0 +1,115 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Bug 1869845 - Styles in this file are still experimental!  */
+
+:root {
+  background-color: transparent;
+  color: var(--sidebar-text-color);
+}
+
+/* Use the system font like the other sidebar panels, so rem-based spacing
+ * matches theirs (overriding common.css). Content size is kept via `body`. */
+:root:not(.system-font-size) {
+  font: menu;
+}
+
+body {
+  overflow: hidden;
+  font-size: var(--font-size-root);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-medium);
+}
+
+/* Password Card styles */
+password-card,
+.empty-state-card {
+  margin-block: var(--space-small);
+}
+
+@media -moz-pref("browser.nova.enabled") {
+  .empty-state-card {
+    --card-padding: var(--space-medium);
+  }
+}
+
+.passwords-list {
+  display: flex;
+  flex-direction: column;
+}
+
+moz-card {
+  background-color: var(--sidebar-box-background);
+  box-shadow: none;
+  color: var(--sidebar-box-color);
+  border: var(--sidebar-box-border);
+  border-radius: var(--border-radius-medium);
+  border-width: var(--sidebar-box-border-width);
+  border-color: var(--sidebar-box-border-color);
+}
+
+login-form {
+  margin-block-start: var(--space-small);
+}
+
+.first-row {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-gap: var(--space-small);
+  align-items: center;
+  margin-block-end: var(--space-medium);
+}
+
+.second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-small);
+}
+
+.no-logins-card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+
+  > moz-button {
+    width: 100%;
+  }
+}
+
+.no-logins-card-content,
+.reauth-card-content {
+  display: flex;
+  flex-direction: column;
+
+  > img {
+    max-width: 232px;
+    align-self: center;
+    margin-block-end: var(--space-medium);
+  }
+}
+
+.reauth-card-content {
+  gap: var(--space-large);
+}
+
+.alert-card {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--space-medium);
+
+  > ul {
+    list-style-type: none;
+    padding-inline: var(--space-small);
+    margin-block: var(--space-small);
+
+    > li:not(:last-child) {
+      margin-block-end: var(--space-medium);
+    }
+  }
+}

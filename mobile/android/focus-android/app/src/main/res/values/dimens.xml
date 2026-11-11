@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="tab_sheet_end_margin">40dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="material_dialog_corner_radius">28dp</dimen>"
+
+    <item name="match_parent" type="dimen">-1</item>
+
+    <dimen name="adaptive_icon_drawable_dimen">108dp</dimen> <!-- Specified in AdaptiveIconDrawable docs. -->
+
+    <dimen name="preference_root_layout_padding">16dp</dimen>
+    <dimen name="preference_icon_drawable_size">24dp</dimen>
+    <dimen name="preference_drawable_padding">32dp</dimen>
+    <dimen name="preference_padding_top">8dp</dimen>
+    <dimen name="preference_padding_horizontal">16dp</dimen>
+    <dimen name="preference_padding_vertical">12dp</dimen>
+    <dimen name="preference_row_height">48dp</dimen>
+
+    <dimen name="textinputlayout_spacing">8dp</dimen>
+
+    <dimen name="urlinput_height">57dp</dimen>
+
+    <dimen name="browser_toolbar_height">56dp</dimen>
+    <dimen name="dropdown_item_text_size">16sp</dimen>
+
+    <!-- Override the default menu item heights from AC. -->
+    <dimen name="mozac_menu_item_min_height" tools:ignore="UnusedResources">48dp</dimen>
+    <dimen name="mozac_menu_item_with_summary_min_height" tools:ignore="UnusedResources">52dp</dimen>
+
+    <!-- Preferences. -->
+    <dimen name="radio_button_preference_height">48dp</dimen>
+    <dimen name="radio_button_preference_width">48dp</dimen>
+    <dimen name="radio_button_preference_start_margin">18dp</dimen>
+    <dimen name="radio_button_preference_title_margins">16dp</dimen>
+
+    <!-- DisplayToolbar -->
+    <dimen name="mozac_browser_toolbar_background_margin_end" tools:ignore="UnusedResources">8dp</dimen>
+
+    <!-- Default values for Material Bottom sheet. -->
+    <dimen name="tablet_bottom_sheet_width">@dimen/match_parent</dimen>
+    <dimen name="tablet_bottom_sheet_peekheight">64dp</dimen>
+</resources>

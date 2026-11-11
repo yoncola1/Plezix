@@ -1,0 +1,60 @@
+platform(linux,mac) == border-clamp-corner-radius.yaml border-clamp-corner-radius.png
+fuzzy(1,840) == border-gradient-simple.yaml border-gradient-simple-ref.yaml
+platform(linux,mac) fuzzy(255,110) == border-gradient-nine-patch.yaml border-gradient-nine-patch.png
+fuzzy-if(platform(swgl),1,4) == border-radial-gradient-simple.yaml border-radial-gradient-simple-ref.yaml
+platform(linux,mac) == border-radial-gradient-nine-patch.yaml border-radial-gradient-nine-patch.png
+== fuzzy(1,10) border-radii.yaml border-radii.png
+scale(*) == border-none.yaml border-none-ref.yaml
+fuzzy(128,69) fuzzy-if(platform(swgl),2,118) == border-overlapping-corner.yaml border-overlapping-corner-ref.yaml
+scale(*) == border-overlapping-edge.yaml border-overlapping-edge-ref.yaml
+fuzzy(20,100) == border-fractional-overlap.yaml border-fractional-overlap-ref.yaml
+== border-widths-exceed-box.yaml border-widths-exceed-box-ref.yaml
+== border-image-widths-exceed-box.yaml border-image-widths-exceed-box-ref.yaml
+scale(*) == long-solid-edge-with-rounded-corner.yaml long-solid-edge-with-rounded-corner-ref.yaml
+scale(*) == long-edge-all-styles.yaml long-edge-all-styles-ref.yaml
+scale(*) == border-invisible.yaml border-invisible-ref.yaml
+platform(linux,mac) fuzzy(3,80) == border-suite.yaml border-suite.png
+platform(linux,mac) fuzzy(8,105) == border-suite-2.yaml border-suite-2.png
+platform(linux,mac) fuzzy(1,10) == border-suite-3.yaml border-suite-3.png
+fuzzy(1,60) skip_on(android,device) == border-double-simple.yaml border-double-simple-ref.yaml  # Fails on Pixel2
+fuzzy(1,60) == border-double-simple-2.yaml border-double-simple-2-ref.yaml
+skip_on(android,device) fuzzy(64,24) == border-groove-simple.yaml border-groove-simple-ref.yaml  # Fails on Pixel2
+skip_on(android,device) fuzzy(64,24) == border-ridge-simple.yaml border-ridge-simple-ref.yaml  # Fails on Pixel2
+platform(linux,mac) fuzzy(1,26) == degenerate-curve.yaml degenerate-curve.png
+platform(linux,mac) == border-image.yaml border-image-ref.png
+platform(linux,mac) == border-image-empty-slice.yaml border-image-empty-slice-ref.png
+platform(linux,mac) == border-image-round.yaml border-image-round-ref.png
+scale(*) == border-image-crash.yaml border-image-crash-ref.yaml
+scale(*) == border-image-empty.yaml border-image-empty-ref.yaml
+platform(linux,mac) fuzzy(32,700) == border-image-fill.yaml border-image-fill-ref.png
+platform(linux,mac) fuzzy(2,25360) == border-image-fill-2.yaml border-image-fill-2-ref.png
+== border-image-fill-zero-width.yaml border-image-fill-zero-width-ref.yaml
+fuzzy-if(platform(swgl),1,8) == border-no-bogus-line.yaml border-no-bogus-line-ref.png
+platform(linux,mac) fuzzy(1,130) == dotted-corner-small-radius.yaml dotted-corner-small-radius.png
+fuzzy-if(platform(swgl),1,20) == overlapping.yaml overlapping.png
+scale(*) == zero-width.yaml blank.yaml
+platform(linux,mac) == small-dotted-border.yaml small-dotted-border.png
+fuzzy(1,30) fuzzy-if(platform(win),1,80) == discontinued-dash.yaml discontinued-dash.png
+platform(linux,mac) == border-dashed-dotted-caching.yaml border-dashed-dotted-caching.png
+scale(*) != small-inset-outset.yaml small-inset-outset-notref.yaml
+fuzzy(1,90) == no-aa.yaml green-square.yaml
+fuzzy(1,20) skip_on(android,device) == border-double-1px.yaml border-double-1px-ref.yaml  # Fails on Pixel2
+== max-scale.yaml max-scale-ref.yaml
+platform(linux,mac) == border-shape.yaml border-shape.png
+platform(linux,mac) == border-shape-2.yaml border-shape-2.png
+platform(linux,mac) == border-shape-3.yaml border-shape-3.png
+platform(linux,mac) == border-shape-4.yaml border-shape-4.png
+platform(linux,mac) == border-shape-inset.yaml border-shape-inset.png
+== border-corner-fractional-radius.yaml border-corner-fractional-radius-ref.yaml
+
+# The interior split of an over-thick border must land at the same device pixel
+# for both neighbouring segments (bug 2059620).
+fuzzy(1,40) == border-overlap-split.yaml border-overlap-split.png
+
+# Content meeting a border in layout meets it on screen under a fractional
+# scale, and the border stays one device pixel wide (bug 2074176).
+== border-content-snap-scale.yaml border-content-snap-scale-ref.yaml
+
+# A rounded border under a static downscale that isn't a power of two is
+# rasterized at its exact scale, so it matches the same border drawn at scale 1.
+== border-radius-static-downscale.yaml border-radius-static-downscale-ref.yaml

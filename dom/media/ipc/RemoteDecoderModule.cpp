@@ -1,0 +1,156 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+#include "RemoteDecoderModule.h"
+
+#include "AOMDecoder.h"
+#include "MediaCodecsSupport.h"
+#include "RemoteAudioDecoder.h"
+#include "RemoteMediaDataDecoder.h"
+#include "RemoteMediaManagerChild.h"
+#include "RemoteVideoDecoder.h"
+#include "VideoUtils.h"
+#include "gfxConfig.h"
+#include "mozilla/RemoteDecodeUtils.h"
+
+namespace mozilla {
+
+using namespace ipc;
+using namespace layers;
+
+already_AddRefed<PlatformDecoderModule> RemoteDecoderModule::Create(
+    RemoteMediaIn aLocation) {
+  MOZ_ASSERT(!XRE_IsGPUProcess() && !XRE_IsRDDProcess(),
+             "Should not be created in GPU or RDD process.");
+  if (!XRE_IsContentProcess()) {
+    // For now, the RemoteDecoderModule is only available in the content
+    // process.
+    return nullptr;
+  }
+  return MakeAndAddRef<RemoteDecoderModule>(aLocation);
+}
+
+RemoteDecoderModule::RemoteDecoderModule(RemoteMediaIn aLocation)
+    : mLocation(aLocation) {}
+
+const char* RemoteDecoderModule::Name() const {
+  switch (mLocation) {
+    case RemoteMediaIn::Unspecified:
+      return "Remote: Unspecified";
+    case RemoteMediaIn::RddProcess:
+      return "Remote: RddProcess";
+    case RemoteMediaIn::GpuProcess:
+      return "Remote: GpuProcess";
+    case RemoteMediaIn::UtilityProcess_Generic:
+      return "Remote: Utility_Generic";
+    case RemoteMediaIn::UtilityProcess_AppleMedia:
+      return "Remote: Utility_AppleMedia";
+    case RemoteMediaIn::UtilityProcess_WMF:
+      return "Remote: Utility_WMF";
+    case RemoteMediaIn::UtilityProcess_MFMediaEngineCDM:
+      return "Remote: Utility_MFMediaEngineCDM";
+    default:
+      MOZ_CRASH("Missing enum handling");
+  }
+}
+
+media::DecodeSupportSet RemoteDecoderModule::SupportsMimeType(
+    const nsACString& aMimeType, DecoderDoctorDiagnostics* aDiagnostics) const {
+  MOZ_CRASH("Deprecated: Use RemoteDecoderModule::Supports");
+}  // namespace mozilla
+
+media::DecodeSupportSet RemoteDecoderModule::Supports(
+    const SupportDecoderParams& aParams,
+    DecoderDoctorDiagnostics* aDiagnostics) const {
+  media::DecodeSupportSet support =
+      RemoteMediaManagerChild::Supports(mLocation, aParams, aDiagnostics);
+#ifdef MOZ_WMF_CDM
+  // This should only be supported by mf media engine cdm process.
+  if (aParams.mMediaEngineId &&
+      mLocation != RemoteMediaIn::UtilityProcess_MFMediaEngineCDM) {
+    support = {};
+  }
+#endif
+#ifdef ANDROID
+  // Decoders using a CDM must be in the same process as the CDM. Otherwise
+  // audio is only decoded in the utility process.
+  if (aParams.mCDM) {
+    if (aParams.mCDM->GetLocation() != mLocation) {
+      support = {};
+    }
+  } else if (aParams.mConfig.IsAudio() &&
+             mLocation != RemoteMediaIn::UtilityProcess_Generic) {
+    support = {};
+  } else if (mLocation == RemoteMediaIn::RddProcess &&
+             RemoteMediaManagerChild::IsGpuProcessDecodingAvailable()) {
+    // Platform decoders must be used in the GPU process, unless it is disabled.
+    // Pure software decoding may still be performed in the RDD process since it
+    // is not permitted in the GPU process.
+    support -= media::DecodeSupport::HardwareDecode;
+  }
+  if (const auto* videoInfo = aParams.mConfig.GetAsVideoInfo()) {
+    const media::MediaCodec codec =
+        media::MCSInfo::GetMediaCodecFromMimeType(aParams.MimeType());
+    support = media::MCSInfo::GetMediaCodecDecodeSupportForSize(
+        codec,
+        media::MCSInfo::GetMediaCodecDecodeSupportForColorDepth(
+            codec, support, videoInfo->mColorDepth),
+        videoInfo->mImage);
+  }
+#endif
+  MOZ_LOG_FMT(
+      sPDMLog, LogLevel::Debug, "Sandbox {} decoder {} requested type {}",
+      RemoteMediaInToStr(mLocation), support.isEmpty() ? "rejects" : "supports",
+      aParams.MimeType().get());
+  return support;
+}
+
+RefPtr<RemoteDecoderModule::SupportsDecoderPromise>
+RemoteDecoderModule::SupportsAsync(const SupportDecoderParams& aParams) const {
+  // The media engine CDM process only creates decoders for media engine
+  // playback, so don't wait for it to report support for other queries.
+  if (mLocation == RemoteMediaIn::UtilityProcess_MFMediaEngineCDM &&
+      !aParams.mMediaEngineId) {
+    return SupportsDecoderPromise::CreateAndResolve(media::DecodeSupportSet{},
+                                                    __func__);
+  }
+
+  // SupportDecoderParams is stack-only and holds a reference to its config, so
+  // clone the bits we need to survive the asynchronous wait below.
+  UniquePtr<TrackInfo> config = aParams.mConfig.Clone();
+  const media::VideoFrameRate rate = aParams.mRate;
+  const Maybe<uint64_t> mediaEngineId = aParams.mMediaEngineId;
+
+  RefPtr<const RemoteDecoderModule> self = this;
+  return RemoteMediaManagerChild::EnsureCodecSupportFor(mLocation)->Then(
+      GetCurrentSerialEventTarget(), __func__,
+      [self, config = std::move(config), rate, mediaEngineId](bool) {
+        SupportDecoderParams params{*config, rate};
+        params.mMediaEngineId = mediaEngineId;
+        return SupportsDecoderPromise::CreateAndResolve(
+            self->Supports(params, nullptr), __func__);
+      },
+      [](nsresult aRv) {
+        return SupportsDecoderPromise::CreateAndReject(aRv, __func__);
+      });
+}
+
+RefPtr<RemoteDecoderModule::CreateDecoderPromise>
+RemoteDecoderModule::AsyncCreateDecoder(const CreateDecoderParams& aParams) {
+  if (aParams.mConfig.IsAudio()) {
+    // OpusDataDecoder will check this option to provide the same info
+    // that IsDefaultPlaybackDeviceMono provides.  We want to avoid calls
+    // to IsDefaultPlaybackDeviceMono on RDD because initializing audio
+    // backends on RDD will be blocked by the sandbox.
+    if (aParams.mConfig.mMimeType.Equals("audio/opus") &&
+        IsDefaultPlaybackDeviceMono()) {
+      CreateDecoderParams params = aParams;
+      params.mOptions += CreateDecoderParams::Option::DefaultPlaybackDeviceMono;
+      return RemoteMediaManagerChild::CreateAudioDecoder(params, mLocation);
+    }
+    return RemoteMediaManagerChild::CreateAudioDecoder(aParams, mLocation);
+  }
+  return RemoteMediaManagerChild::CreateVideoDecoder(aParams, mLocation);
+}
+
+}  // namespace mozilla

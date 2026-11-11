@@ -1,0 +1,96 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:host([scrolledtostart])::part(overflow-start-indicator),
+:host([scrolledtoend])::part(overflow-end-indicator),
+:host(:not([overflowing])) > toolbarbutton {
+  visibility: collapse;
+}
+
+scrollbox {
+  min-width: 0;
+  min-height: 0;
+
+  /* Vertical mode scrolls natively. Horizontal mode is scrolled from script,
+   * see arrowscrollbox.js.
+   *
+   * Only a box with something to scroll becomes a scroll container, so that one
+   * that fits doesn't get an APZ scroll frame. The scrollbar and the overscroll
+   * effect are off by default; a consumer can opt into either. */
+  :host([orient="vertical"][overflowing]) > & {
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+    scrollbar-width: none;
+  }
+}
+
+slot {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: inherit;
+}
+
+/* Scroll arrows */
+
+toolbarbutton {
+  color: inherit;
+  /* Width of list-style-image SVG and padding-block used to calculate
+   * --scrollbutton-height in menu.css.
+   */
+  list-style-image: url("chrome://global/skin/icons/arrow-down-12.svg");
+  padding: 2px;
+  -moz-context-properties: fill, fill-opacity;
+  fill: currentColor;
+  fill-opacity: 1;
+  /* Make sure we draw on top of our scrollbox, since otherwise the up button
+   * won't be hittable */
+  position: relative;
+
+  &[disabled] {
+    color: var(--button-text-color-ghost-disabled);
+    opacity: var(--toolbarbutton-opacity-disabled);
+
+    @media (forced-colors) {
+      --toolbarbutton-icon-fill: var(--toolbarbutton-icon-fill-disabled);
+    }
+  }
+
+  > .toolbarbutton-icon {
+    padding: var(--arrowscrollbox-scrollicon-padding, 0);
+    border-radius: var(--arrowscrollbox-scrollicon-border-radius, 0);
+    background-color: var(--arrowscrollbox-scrollicon-background-color, transparent);
+    transition: var(--arrowscrollbox-scrollicon-transition, none);
+  }
+
+  &:not([disabled]):hover > .toolbarbutton-icon {
+    background-color: var(--arrowscrollbox-scrollicon-hover-background-color, transparent);
+
+    :active > & {
+      background-color: var(--arrowscrollbox-scrollicon-active-background-color, transparent);
+    }
+  }
+
+  :host([orient="horizontal"]) > & {
+    list-style-image: url("chrome://global/skin/icons/arrow-left.svg");
+  }
+
+  @media not (-moz-platform: macos) {
+    :host(:not([clicktoscroll])) > & {
+      appearance: none;
+    }
+  }
+
+  > .toolbarbutton-text {
+    display: none;
+  }
+}
+
+#scrollbutton-up > .toolbarbutton-icon {
+  transform: scaleY(-1);
+}
+
+:host([orient="horizontal"]) > #scrollbutton-down:-moz-locale-dir(ltr) > .toolbarbutton-icon,
+:host([orient="horizontal"]) > #scrollbutton-up:-moz-locale-dir(rtl) > .toolbarbutton-icon {
+  transform: scaleX(-1);
+}

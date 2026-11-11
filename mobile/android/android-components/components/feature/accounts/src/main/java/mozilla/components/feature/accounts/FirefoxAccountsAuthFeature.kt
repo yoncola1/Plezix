@@ -1,0 +1,149 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package mozilla.components.feature.accounts
+
+import android.content.Context
+import androidx.core.net.toUri
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import mozilla.appservices.fxaclient.contentUrl
+import mozilla.components.concept.engine.EngineSession
+import mozilla.components.concept.engine.request.RequestInterceptor
+import mozilla.components.concept.sync.FxAEntryPoint
+import mozilla.components.service.fxa.FxaAuthData
+import mozilla.components.service.fxa.manager.FxaAccountManager
+import mozilla.components.service.fxa.toAuthType
+
+/**
+ * Ties together an account manager with a session manager/tabs implementation, facilitating an authentication flow.
+ *
+ * @property accountManager [FxaAccountManager].
+ * @property redirectUrl This is the url that will be reached at the final authentication state.
+ * @property coroutineContext The context which will be used to execute network requests necessary to initiate
+ *   authentication. Note that [onBeginAuthentication] will be executed using this context.
+ * @property onBeginAuthentication A lambda function that receives the authentication url. Executed on
+ *   [coroutineContext].
+ */
+class FirefoxAccountsAuthFeature(
+    private val accountManager: FxaAccountManager,
+    private val redirectUrl: String,
+    private val coroutineContext: CoroutineContext = Dispatchers.IO,
+    private val onBeginAuthentication: (Context, String) -> Unit = { _, _ -> },
+) {
+    /**
+     * Begins Email authentication, launching `onBeginAuthentication` if successful
+     *
+     * @param context [Context] The application context
+     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching authentication
+     * @param service The FxA service being authenticated into
+     * @param scopes [Set<String>] The oAuth scopes being requested
+     */
+    fun beginAuthentication(
+        context: Context,
+        entrypoint: FxAEntryPoint,
+        service: String,
+        scopes: Set<String> = emptySet(),
+    ) {
+        beginAuthenticationAsync(context) {
+            accountManager.beginAuthentication(service = service, entrypoint = entrypoint, authScopes = scopes)
+        }
+    }
+
+    /**
+     * Begins Pairing authentication, launching `onBeginAuthentication` if successful
+     *
+     * @param context [Context] The application context
+     * @param pairingUrl [String] The pairing URL retrieved from the QR scanner
+     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching
+     * @param service The FxA service being authenticated into
+     * @param scopes [Set<String>] The oAuth scopes being requested authentication
+     */
+    fun beginPairingAuthentication(
+        context: Context,
+        pairingUrl: String,
+        entrypoint: FxAEntryPoint,
+        service: String,
+        scopes: Set<String> = emptySet(),
+    ) {
+        beginAuthenticationAsync(
+            context,
+            // Pairing initiation can fail for any reason the state machine reports (the user
+            // backs out of the QR camera, scans an invalid code, or a transient error). Fall
+            // back to a normal sync sign-in that still carries the entrypoint, instead of a
+            // bare URL that sends the user to Account Settings.
+            fallbackAuthentication = {
+                accountManager.beginAuthentication(service = service, entrypoint = entrypoint, authScopes = scopes)
+            },
+        ) {
+            accountManager.beginAuthentication(
+                service = service,
+                pairingUrl = pairingUrl,
+                entrypoint = entrypoint,
+                authScopes = scopes,
+            )
+        }
+    }
+
+    private fun beginAuthenticationAsync(
+        context: Context,
+        fallbackAuthentication: suspend () -> String? = { null },
+        beginAuthentication: suspend () -> String?,
+    ) {
+        CoroutineScope(coroutineContext).launch {
+            // TODO
+            // We may fail to obtain an authentication URL, for example due to transient network errors.
+            // The fallback does not help then, because it fails for the same reason. The server sign-in
+            // URL below is a last resort, and the account manager does not honour it because it did not
+            // start that flow. Instead, present some kind of a "no network" UI to the user.
+            val authUrl =
+                beginAuthentication()
+                    ?: fallbackAuthentication()
+                    ?: "${accountManager.serverConfig.server.contentUrl()}/signin"
+
+            onBeginAuthentication(context, authUrl)
+        }
+    }
+
+    val interceptor =
+        object : RequestInterceptor {
+            override fun onLoadRequest(
+                engineSession: EngineSession,
+                uri: String,
+                lastUri: String?,
+                hasUserGesture: Boolean,
+                isSameDomain: Boolean,
+                isRedirect: Boolean,
+                isDirectNavigation: Boolean,
+                isSubframeRequest: Boolean,
+            ): RequestInterceptor.InterceptionResponse? {
+                if (uri.startsWith(redirectUrl)) {
+                    val parsedUri = uri.toUri()
+                    val code = parsedUri.getQueryParameter("code")
+
+                    if (code != null) {
+                        val authType = parsedUri.getQueryParameter("action").toAuthType()
+                        val state = parsedUri.getQueryParameter("state") as String
+
+                        // Notify the state machine about our success.
+                        CoroutineScope(Dispatchers.Main).launch {
+                            accountManager.finishAuthentication(
+                                FxaAuthData(
+                                    authType = authType,
+                                    code = code,
+                                    state = state,
+                                )
+                            )
+                        }
+
+                        return RequestInterceptor.InterceptionResponse.Url(redirectUrl)
+                    }
+                }
+
+                return null
+            }
+        }
+}

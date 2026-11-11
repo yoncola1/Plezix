@@ -1,0 +1,500 @@
+/* Any copyright is dedicated to the Public Domain.
+   https://creativecommons.org/publicdomain/zero/1.0/ */
+
+"use strict";
+
+add_setup(async function () {
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["browser.contextual-password-manager.enabled", true],
+      ["signon.rememberSignons", true],
+    ],
+  });
+  registerCleanupFunction(LoginTestUtils.clearData);
+});
+
+const getShadowBtn = (el, selector) =>
+  el.querySelector(selector).shadowRoot.querySelector("button");
+
+async function openLoginForm(megalist, isFromMenuDropdown = true) {
+  info("Opening login form.");
+
+  let button = null;
+  if (isFromMenuDropdown) {
+    await TestUtils.waitForCondition(
+      () => megalist.querySelector("#more-options-menubutton"),
+      "menu button failed to render"
+    );
+
+    const menu = megalist.querySelector("panel-list");
+
+    const menuButton = megalist.querySelector("#more-options-menubutton");
+    menuButton.click();
+    await BrowserTestUtils.waitForEvent(menu, "shown");
+    button = getShadowBtn(menu, "[action='add-password']");
+  } else {
+    button = megalist.querySelector(".empty-state-add-password");
+  }
+
+  const loginFormPromise = TestUtils.waitForCondition(
+    () => megalist.querySelector("login-form"),
+    "Login form failed to load."
+  );
+  button.click();
+  return loginFormPromise;
+}
+
+function addLogin(megalist, { origin, username, password }) {
+  const loginForm = megalist.querySelector("login-form");
+  setInputValue(loginForm, "moz-input-url", origin);
+  setInputValue(loginForm, "moz-input-text", username);
+  setInputValue(loginForm, "moz-input-password", password);
+  const saveButton = loginForm.shadowRoot.querySelector(
+    "moz-button[type=primary]"
+  );
+  info("Submitting form.");
+  saveButton.buttonEl.click();
+}
+
+function waitForPopup(megalist, element) {
+  info(`Wait for ${element} popup`);
+  const loginForm = megalist.querySelector("login-form");
+  const popupPromise = TestUtils.waitForCondition(
+    () =>
+      loginForm.shadowRoot
+        .querySelector(`${element}`)
+        .classList.contains("invalid-input"),
+    `${element} popup did not render.`
+  );
+  return popupPromise;
+}
+
+function waitForRecords(count) {
+  info(`Wait for records to reach expected amount ${count}.`);
+  const sidebar = document.getElementById("sidebar");
+  const megalistComponent =
+    sidebar.contentDocument.querySelector("megalist-alpha");
+  return TestUtils.waitForCondition(
+    () => megalistComponent.records.length == count,
+    `records did not he ${count} elements`
+  );
+}
+
+function getScrollPromise(megalist) {
+  const scrollingElement = megalist.ownerDocument.scrollingElement;
+  const scrollPromise = TestUtils.waitForCondition(
+    () => scrollingElement.scrollTopMax == scrollingElement.scrollTop,
+    "Did not scroll to new login."
+  );
+  return scrollPromise;
+}
+
+add_task(async function test_add_login_success() {
+  Services.fog.testResetFOG();
+  await Services.fog.testFlushAllChildren();
+
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  let toolbarEvents = Glean.contextualManager.toolbarAction.testGetValue();
+  Assert.equal(toolbarEvents.length, 1, "Recorded add password once.");
+  assertCPMGleanEvent(toolbarEvents[0], {
+    trigger: "empty_state_card",
+    option_name: "add_new",
+  });
+
+  addLogin(megalist, TEST_LOGIN_1);
+  const notifMsgBar = await checkNotificationAndTelemetry(
+    megalist,
+    "add-login-success"
+  );
+
+  await checkAllLoginsRendered(megalist);
+
+  checkNotificationInteractionTelemetry(notifMsgBar, "primary-action", {
+    notification_detail: "add_login_success",
+    action_type: "nav_record",
+  });
+
+  let updateEvents = Glean.contextualManager.recordsUpdate.testGetValue();
+  Assert.equal(updateEvents.length, 1, "Recorded manual add password once.");
+  assertCPMGleanEvent(updateEvents[0], {
+    change_type: "add",
+  });
+
+  LoginTestUtils.clearData();
+});
+
+add_task(async function test_add_duplicate_login() {
+  Services.fog.testResetFOG();
+  await Services.fog.testFlushAllChildren();
+
+  await addMockPasswords();
+
+  const megalist = await openPasswordsSidebar();
+  await waitForRecords(3);
+  await openLoginForm(megalist);
+  addLogin(megalist, TEST_LOGIN_1);
+  const notifMsgBar = await checkNotificationAndTelemetry(
+    megalist,
+    "login-already-exists-warning"
+  );
+  checkNotificationInteractionTelemetry(notifMsgBar, "primary-action", {
+    notification_detail: "login_already_exists_warning",
+    action_type: "nav_record",
+  });
+
+  LoginTestUtils.clearData();
+});
+
+add_task(async function test_add_login_empty_origin() {
+  Services.fog.testResetFOG();
+  await Services.fog.testFlushAllChildren();
+
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+  addLogin(megalist, {
+    ...TEST_LOGIN_1,
+    origin: "",
+  });
+  await waitForPopup(megalist, "origin-warning");
+
+  const logins = await Services.logins.getAllLogins();
+  is(logins.length, 0, "No login was added after submitting form.");
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_empty_password_and_resubmit() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+  const loginForm = megalist.querySelector("login-form");
+  setInputValue(loginForm, "moz-input-url", TEST_LOGIN_1.origin);
+  setInputValue(loginForm, "moz-input-text", TEST_LOGIN_1.username);
+  setInputValue(loginForm, "moz-input-password", "");
+
+  const saveButton = loginForm.shadowRoot.querySelector(
+    "moz-button[type=primary]"
+  );
+  info("Submitting empty password once.");
+  saveButton.buttonEl.click();
+
+  await waitForPopup(megalist, "password-warning");
+  ok(
+    !loginForm.shadowRoot
+      .querySelector("origin-warning")
+      .classList.contains("invalid-input"),
+    "Origin field should not be marked invalid when only the password is empty."
+  );
+
+  info("Submitting empty password a second time without changing value.");
+  saveButton.buttonEl.click();
+  await waitForPopup(megalist, "password-warning");
+  ok(
+    loginForm.isConnected,
+    "Login form remains open after repeated invalid submissions."
+  );
+
+  const logins = await Services.logins.getAllLogins();
+  is(logins.length, 0, "No login was added after submitting form.");
+
+  info("Entering a valid password clears the warning.");
+  setInputValue(loginForm, "moz-input-password", TEST_LOGIN_1.password);
+  await TestUtils.waitForCondition(
+    () =>
+      !loginForm.shadowRoot
+        .querySelector("password-warning")
+        .classList.contains("invalid-input"),
+    "Password warning should be removed after entering a valid password."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_edit_login_empty_password_requires_new_value() {
+  const login = TEST_LOGIN_1;
+  await LoginTestUtils.addLogin(login);
+
+  const megalist = await openPasswordsSidebar();
+  await checkAllLoginsRendered(megalist);
+
+  const passwordCard = megalist.querySelector("password-card");
+  await waitForReauth(() => passwordCard.editBtn.click());
+  await TestUtils.waitForCondition(
+    () => megalist.querySelector("login-form"),
+    "Login form failed to render in edit mode."
+  );
+
+  let loginForm = megalist.querySelector("login-form");
+  setInputValue(loginForm, "moz-input-password", "");
+
+  const saveButton = loginForm.shadowRoot.querySelector(
+    "moz-button[type=primary]"
+  );
+  info("Submitting edit form with empty password.");
+  saveButton.buttonEl.click();
+  await waitForPopup(megalist, "password-warning");
+
+  const passwordField =
+    loginForm.shadowRoot.querySelector("moz-input-password");
+  await TestUtils.waitForCondition(
+    () => passwordField.inputEl.value === "",
+    "Password input should remain empty after an invalid submission."
+  );
+  is(passwordField.value, "", "Password component state cleared.");
+
+  info("Trying to save again after the first error.");
+  saveButton.buttonEl.click();
+  await TestUtils.waitForCondition(() => {
+    const form = megalist.querySelector("login-form");
+    return (
+      form &&
+      form.shadowRoot
+        .querySelector("password-warning")
+        .classList.contains("invalid-input")
+    );
+  }, "Password warning should persist after repeated invalid edits.");
+
+  loginForm = megalist.querySelector("login-form");
+  ok(loginForm, "Login form remains open after invalid edit submissions.");
+
+  const logins = await Services.logins.getAllLogins();
+  Assert.equal(logins.length, 1, "Stored login count unchanged.");
+  Assert.equal(
+    logins[0].password,
+    login.password,
+    "Existing login password not overwritten with empty value."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+  const closeWithoutSavingButton = await TestUtils.waitForCondition(() =>
+    megalist
+      .querySelector("notification-message-bar")
+      ?.shadowRoot.querySelector("moz-message-bar")
+      ?.querySelector("#primary-action")
+  );
+  info("Closing without saving");
+  closeWithoutSavingButton.buttonEl.click();
+});
+
+add_task(async function test_view_login_command() {
+  Services.fog.testResetFOG();
+  await Services.fog.testFlushAllChildren();
+  await addMockPasswords();
+
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist);
+  addLogin(megalist, {
+    ...TEST_LOGIN_1,
+    origin: "https://zzz.com",
+  });
+
+  const notifMsgBar = await checkNotificationAndTelemetry(
+    megalist,
+    "add-login-success"
+  );
+  await checkAllLoginsRendered(megalist);
+  const scrollPromise = getScrollPromise(megalist);
+  checkNotificationInteractionTelemetry(notifMsgBar, "primary-action", {
+    notification_detail: "add_login_success",
+    action_type: "nav_record",
+  });
+  await scrollPromise;
+  LoginTestUtils.clearData();
+});
+
+add_task(async function test_passwords_add_password_empty_state() {
+  Services.fog.testResetFOG();
+  await Services.fog.testFlushAllChildren();
+
+  const megalist = await openPasswordsSidebar();
+  await checkEmptyState(".no-logins-card-content", megalist);
+  ok(true, "Empty state rendered.");
+
+  info("Add a password via empty state");
+  await openLoginForm(megalist, false);
+  let events = Glean.contextualManager.toolbarAction.testGetValue();
+  assertCPMGleanEvent(events[0], {
+    trigger: "empty_state_card",
+    option_name: "add_new",
+  });
+  addLogin(megalist, TEST_LOGIN_1);
+  const notifMsgBar = await waitForNotification(megalist, "add-login-success");
+  await checkAllLoginsRendered(megalist);
+  checkNotificationInteractionTelemetry(notifMsgBar, "primary-action", {
+    notification_detail: "add_login_success",
+    action_type: "nav_record",
+  });
+
+  LoginTestUtils.clearData();
+
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_password_reveal_button_hidden() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  const loginForm = megalist.querySelector("login-form");
+  const passwordField =
+    loginForm.shadowRoot.querySelector("moz-input-password");
+  await passwordField.updateComplete;
+  const input = passwordField.inputEl;
+
+  let revealButton;
+  await TestUtils.waitForCondition(() => {
+    revealButton = InspectorUtils.getChildrenForNode(input, true, false).find(
+      node => node.localName === "button"
+    );
+    return !!revealButton;
+  }, "Native password reveal button should be created in the input.");
+
+  is(
+    input.documentGlobal.getComputedStyle(revealButton).display,
+    "none",
+    "Native password reveal button is hidden by the megalist agent sheet."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_origin_without_scheme_is_normalized() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  addLogin(megalist, { ...TEST_LOGIN_1, origin: "www.example.com" });
+  await waitForNotification(megalist, "add-login-success");
+
+  const logins = await Services.logins.getAllLogins();
+  is(logins.length, 1, "Login was saved.");
+  is(
+    logins[0].origin,
+    "https://www.example.com",
+    "Scheme-less origin was normalized to https://."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_origin_recovers_after_warning() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  info("Submit with an empty origin to raise the warning.");
+  addLogin(megalist, { ...TEST_LOGIN_1, origin: "" });
+  await waitForPopup(megalist, "origin-warning");
+
+  info("Type a scheme-less origin and submit again.");
+  const loginForm = megalist.querySelector("login-form");
+  setInputValue(loginForm, "moz-input-url", "www.example.com");
+  loginForm.shadowRoot
+    .querySelector("moz-button[type=primary]")
+    .buttonEl.click();
+  await waitForNotification(megalist, "add-login-success");
+
+  const logins = await Services.logins.getAllLogins();
+  is(logins.length, 1, "Login was saved on the second attempt.");
+  is(logins[0].origin, "https://www.example.com", "Origin was normalized.");
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_origin_still_invalid_after_prefix() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  info("https://foo bar is not a parseable URL, so the warning must show.");
+  addLogin(megalist, { ...TEST_LOGIN_1, origin: "foo bar" });
+  await waitForPopup(megalist, "origin-warning");
+
+  const logins = await Services.logins.getAllLogins();
+  is(logins.length, 0, "Nothing was saved for an unparseable origin.");
+  ok(
+    megalist.querySelector("login-form"),
+    "Login form stays open so the value can be corrected."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_origin_prefixed_on_change() {
+  const megalist = await openPasswordsSidebar();
+  await waitForSnapshots();
+  await openLoginForm(megalist, false);
+
+  const loginForm = megalist.querySelector("login-form");
+  const originField = loginForm.shadowRoot.querySelector("moz-input-url");
+  await originField.updateComplete;
+
+  setInputValue(loginForm, "moz-input-url", "www.example.com");
+  originField.inputEl.dispatchEvent(new Event("change", { bubbles: true }));
+
+  is(
+    originField.inputEl.value,
+    "https://www.example.com",
+    "Prefix reached the input synchronously."
+  );
+  is(
+    originField.value,
+    "https://www.example.com",
+    "Prefix reached the moz-input-url value property."
+  );
+  ok(originField.inputEl.checkValidity(), "Prefixed value is a valid URL.");
+  ok(
+    !loginForm.shadowRoot
+      .querySelector("origin-warning")
+      .classList.contains("invalid-input"),
+    "No origin warning for a value that only needed a scheme."
+  );
+
+  LoginTestUtils.clearData();
+  info("Closing the sidebar");
+  SidebarController.hide();
+});
+
+add_task(async function test_add_login_origin_normalization_cases() {
+  const CASES = [
+    { typed: "example.com/some/path", stored: "https://example.com" },
+    { typed: "http://mochi.test", stored: "http://mochi.test" },
+  ];
+
+  for (const { typed, stored } of CASES) {
+    info(`Adding a login with origin '${typed}'.`);
+    const megalist = await openPasswordsSidebar();
+    await waitForSnapshots();
+    await openLoginForm(megalist, false);
+
+    addLogin(megalist, { ...TEST_LOGIN_1, origin: typed });
+    await waitForNotification(megalist, "add-login-success");
+
+    const logins = await Services.logins.getAllLogins();
+    is(logins.length, 1, `One login stored for '${typed}'.`);
+    is(logins[0].origin, stored, `'${typed}' stored as '${stored}'.`);
+
+    LoginTestUtils.clearData();
+    SidebarController.hide();
+  }
+});

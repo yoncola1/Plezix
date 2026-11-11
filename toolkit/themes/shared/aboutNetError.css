@@ -1,0 +1,348 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/error-pages.css");
+
+body {
+  --warning-color: #ffa436;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --warning-color: #ffbd4f;
+  }
+}
+
+@media (prefers-contrast) {
+  body {
+    --warning-color: var(--text-color);
+  }
+}
+
+body.certerror {
+  width: 100%;
+}
+
+/* Normally, setting e.g. `display: flex` overrides the hidden attribute.
+ * This allows for element hiding to be controlled entirely in HTML & JS. */
+[hidden] {
+  display: none !important;
+}
+
+#sslKeyLoggingWarning {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  margin: 0;
+  border-radius: 0;
+  z-index: 1;
+  --message-bar-background-color: var(--background-color-warning);
+  --message-bar-icon-background-color: var(--background-color-warning);
+  --message-bar-icon-color: var(--icon-color-warning);
+}
+
+body.captiveportal .title {
+  background-image: url("chrome://global/skin/in-content/wifi.svg");
+}
+
+body.certerror .title {
+  background-image: url("chrome://global/skin/icons/warning.svg");
+  fill: var(--warning-color);
+}
+
+body.blocked .title {
+  background-image: url("chrome://global/skin/icons/blocked.svg");
+}
+
+body.clockSkewError .title {
+  background-image: none;
+  background-repeat: no-repeat;
+}
+
+/* Pressing the retry button will cause the cursor to flicker from a pointer to
+ * not-allowed. Override the disabled cursor behaviour since we will never show
+ * the button disabled as the initial state. */
+button:disabled {
+  cursor: pointer;
+}
+
+#errorWhatToDoTitle {
+  font-weight: var(--font-weight-bold);
+  margin-top: 2em;
+}
+
+#advancedPanelButtonContainer {
+  background-color: rgba(128, 128, 147, 0.1);
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+  margin-top: 2em;
+}
+
+#certErrorAndCaptivePortalButtonContainer {
+  display: flex;
+}
+
+#netErrorButtonContainer > button {
+  margin-top: 1.2em;
+}
+
+#openPortalLoginPageButton {
+  margin-inline-start: 0;
+}
+
+.advanced-panel-container {
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.trr-message-container {
+  background-color: var(--background-color-box);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  padding: 10px;
+}
+
+#badCertAdvancedPanel {
+  background-color: var(--background-color-box);
+  border: 1px solid var(--border-color);
+}
+
+.advanced-panel {
+  margin: 48px auto;
+}
+
+.custom-net-error-card h3,
+.advanced-container h3 {
+  margin-block-end: var(--space-small);
+
+  & + p,
+  & + ul {
+    margin-block-start: var(--space-large);
+  }
+}
+
+.what-can-you-do-list {
+  margin: 0;
+  margin-block-end: var(--space-xxlarge);
+  padding-inline-start: var(--space-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxsmall);
+
+  & > li {
+    padding-inline-start: var(--space-small);
+  }
+}
+
+.custom-net-error-card h1 + p:last-of-type {
+  margin-block-end: var(--space-xxlarge);
+}
+
+/* Search call-to-action on the online dnsNotFound error page (bug 2055637). */
+/* Not moz-button-group: it reorders its slotted children by moving them in the
+   light DOM, which breaks Lit's markers for the button slot this page swaps
+   between the Search button and an offline message. */
+.search-cta-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-small);
+  margin-block: var(--space-large) var(--space-xxlarge);
+}
+
+.search-cta-offline {
+  margin-block: 0;
+}
+
+/* Keep the error code and Learn More lines tight together, one above the
+   other, at a slightly smaller size (bug 2055637). */
+.search-cta-error-code,
+.search-cta-learn-more {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}
+
+#errorCode {
+  white-space: nowrap;
+}
+
+#viewCertificate {
+  margin: 0 3em;
+}
+
+#badCertTechnicalInfo {
+  margin: 3em 3em 1em;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+#certificateErrorDebugInformation {
+  background-color: var(--background-color-box-info) !important;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  padding: var(--space-large);
+  box-sizing: border-box;
+}
+
+#certificateErrorText {
+  font-family: monospace;
+  white-space: pre-wrap;
+  padding: var(--space-small) 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cert_domain_link:not([href]) {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.clockSkewError .try-again {
+  margin-top: 0.3em;
+}
+
+#errorLongDesc strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+#errorShortDesc {
+  font-size: 1.15em;
+  line-height: 1.3;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+#prefChangeContainer {
+  margin-block-end: var(--space-large);
+}
+
+/* Felt Privacy v1 LARGER SCREEN! */
+@media -moz-pref("security.certerrors.felt-privacy-v1") {
+  .felt-privacy-body {
+    justify-content: start;
+  }
+
+  net-error-card {
+    @media (max-width: 640px) {
+      /* min-content holds the card wider than a narrow viewport, which is what
+         forces a horizontal scrollbar. */
+      min-width: 0;
+      margin-top: var(--space-xxlarge);
+    }
+  }
+
+  /* Narrow viewports buy width back with padding rather than by shrinking type.
+     This selector matches the page itself, and the card's own rules below reach
+     into its shadow tree. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  body:has(net-error-card) {
+    @media (max-width: 640px) {
+      padding-inline: var(--space-xxlarge);
+    }
+
+    @media (max-width: 480px) {
+      padding-inline: var(--space-large);
+    }
+
+    @media (max-width: 320px) {
+      padding-inline: var(--space-small);
+    }
+  }
+
+  .felt-privacy-container {
+    display: flex;
+    flex-direction: row;
+
+    > .container {
+      width: 100%;
+    }
+
+    /* Without the illustration, shrink the text to its widest line and center
+       it, so short messages do not sit left of center in the full-width card. */
+    @media not -moz-pref("browser.netError.illustration.enabled") {
+      justify-content: center;
+
+      > .container {
+        width: fit-content;
+      }
+    }
+
+    /* Stack the illustration above the text, both left aligned. */
+    @media (max-width: 640px) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  .img-container > img {
+    width: 8.75em;
+    margin-block-start: 2em;
+    margin-inline-end: 2.5em;
+
+    &.no-connection {
+      width: 13em;
+    }
+
+    @media (max-width: 640px) {
+      margin-block: 0 var(--space-large);
+      margin-inline-end: 0;
+    }
+  }
+
+  #viewCertificate {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  #certificateErrorText {
+    /* The encoded certificate chain looks better when we're not
+     * wrapping words on big screens, but at some point we need
+     * to wrap to avoid overflowing */
+    word-wrap: anywhere;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #badCertTechnicalInfo {
+    margin: 10px 10px 5px;
+  }
+
+  #viewCertificate {
+    margin: 0 10px;
+  }
+
+  #errorCode {
+    /* Break the error code to avoid long codes overflowing the screen */
+    white-space: normal;
+    word-wrap: anywhere;
+  }
+}
+
+@media (max-width: 970px) {
+  body.certerror .title {
+    /* !important is necessary here until Bug 1723718 is resolved */
+    background-image: url("chrome://global/skin/icons/warning.svg") !important;
+    background-position: top left;
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+  /* Reduce the negative margin on small viewport sizes to avoid exceeding the
+   * 38px body vertical padding error-pages.css sets, leaving 8px space: */
+  @media (max-height: 480px) {
+    body.certerror .title {
+      margin-top: -30px;
+    }
+  }
+
+  body.certerror .title:dir(rtl) {
+    background-position-x: right;
+  }
+}

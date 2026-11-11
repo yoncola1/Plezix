@@ -1,0 +1,51 @@
+schema: 1
+
+bugzilla:
+  product: Core
+  component: "Graphics: ANGLE"
+
+origin:
+  name: angle
+
+  description: ANGLE - Almost Native Graphics Layer Engine
+
+  url: https://chromium.googlesource.com/angle/angle
+
+  release: 76fb6f485785021e6e4c09e449bde7e413627f99 (Mon Oct 26 18:33:35 2026).
+  revision: 76fb6f485785021e6e4c09e449bde7e413627f99
+
+  license: BSD-3-Clause
+  license-file: LICENSE
+
+updatebot:
+  maintainer-phab: ahale
+  maintainer-bz: ahale@mozilla.com
+  try-preset: webgl
+  tasks:
+    - type: vendoring
+      enabled: True
+      # Chromium Beta's ANGLE revision typically changes every ~7 days. Waiting
+      # 6 days folds faster bursts of Beta updates into one job, while still
+      # filing soon after each weekly change.
+      frequency: 6 days
+      needinfo: ["ahale@mozilla.com"]
+      blocking: 1212878  # meta-angle-update
+
+vendoring:
+  url: https://chromium.googlesource.com/angle/angle
+  source-hosting: angle
+  vendor-directory: third_party/angle
+  skip-vendoring-steps:
+    - move-contents
+    - update-moz-build
+
+  update-actions:
+    - action: run-command
+      command: ./mach
+      args:
+        - python
+        - --
+        - '{yaml_dir}/update-angle.py'
+        - '{tmpextractdir}'
+        - '{vendor_dir}'
+      cwd: '{topsrcdir}'

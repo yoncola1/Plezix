@@ -1,0 +1,325 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+* License, v. 2.0. If a copy of the MPL was not distributed with this
+* file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+pub mod incoming;
+pub mod outgoing;
+
+use super::engine::{ConfigSyncEngine, EngineConfig, SyncEngineStorageImpl};
+use super::{
+    MergeResult, Metadata, ProcessIncomingRecordImpl, ProcessOutgoingRecordImpl, SyncRecord,
+    UnknownFields,
+};
+use crate::db::models::credit_card::InternalCreditCard;
+use crate::error::*;
+#[cfg(test)]
+use crate::static_key_encryptor;
+use crate::sync_merge_field_check;
+use db_crypto::EncryptorDecryptor;
+use incoming::IncomingCreditCardsImpl;
+
+use crate::db::models::credit_card::{
+    decrypt_optional_str, decrypt_str, encrypt_optional_str, encrypt_str, get_last_4,
+};
+use outgoing::OutgoingCreditCardsImpl;
+use rusqlite::Transaction;
+use serde::{Deserialize, Serialize};
+use std::sync::Arc;
+use sync_guid::Guid;
+use types::Timestamp;
+
+// The engine.
+pub(crate) fn create_engine(store: Arc<crate::Store>) -> ConfigSyncEngine<InternalCreditCard> {
+    ConfigSyncEngine::new(
+        EngineConfig {
+            namespace: "credit_cards".to_string(),
+            collection: "creditcards".into(),
+        },
+        store,
+        Box::new(CreditCardsEngineStorageImpl {}),
+    )
+}
+
+pub(super) struct CreditCardsEngineStorageImpl {}
+
+impl SyncEngineStorageImpl<InternalCreditCard> for CreditCardsEngineStorageImpl {
+    fn get_incoming_impl(
+        &self,
+        encdec: &Arc<dyn EncryptorDecryptor>,
+    ) -> Result<Box<dyn ProcessIncomingRecordImpl<Record = InternalCreditCard>>> {
+        Ok(Box::new(IncomingCreditCardsImpl {
+            encdec: Arc::clone(encdec),
+        }))
+    }
+
+    fn reset_storage(&self, tx: &Transaction<'_>) -> Result<()> {
+        tx.execute_batch(
+            "DELETE FROM credit_cards_mirror;
+            DELETE FROM credit_cards_tombstones;",
+        )?;
+        Ok(())
+    }
+
+    fn get_outgoing_impl(
+        &self,
+        encdec: &Arc<dyn EncryptorDecryptor>,
+    ) -> Result<Box<dyn ProcessOutgoingRecordImpl<Record = InternalCreditCard>>> {
+        Ok(Box::new(OutgoingCreditCardsImpl {
+            encdec: Arc::clone(encdec),
+        }))
+    }
+}
+
+// These structs are a representation of what's stored on the sync server for non-tombstone records.
+// (The actual server doesn't have `id` in the payload but instead in the envelope)
+#[derive(Default, Debug, Deserialize, Serialize)]
+pub(crate) struct CreditCardPayload {
+    id: Guid,
+
+    // For some historical reason and unlike most other sync records, creditcards
+    // are serialized with this explicit 'entry' object.
+    pub(super) entry: PayloadEntry,
+}
+
+// Note that the sync payload contains the "unencrypted" cc_number - but our
+// internal structs have the cc_number_enc/cc_number_last_4 pair, so we need to
+// take care going to and from.
+// (The scare-quotes around "unencrypted" are to reflect that, obviously, the
+// payload itself *is* encrypted by sync, but the number is plain-text in that
+// payload)
+#[derive(Default, Debug, Deserialize, Serialize)]
+#[serde(default, rename_all = "kebab-case")]
+pub(super) struct PayloadEntry {
+    pub cc_name: String,
+    pub cc_number: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub cc_cvv: Option<String>,
+    pub cc_exp_month: i64,
+    pub cc_exp_year: i64,
+    pub cc_type: String,
+    // metadata (which isn't kebab-case for some historical reason...)
+    #[serde(rename = "timeCreated")]
+    pub time_created: Timestamp,
+    #[serde(rename = "timeLastUsed")]
+    pub time_last_used: Timestamp,
+    #[serde(rename = "timeLastModified")]
+    pub time_last_modified: Timestamp,
+    #[serde(rename = "timesUsed")]
+    pub times_used: i64,
+    pub version: u32, // always 3 for credit-cards
+    // Fields that the current schema did not expect, we store them only internally
+    // to round-trip them back to sync without processing them in any way
+    #[serde(flatten)]
+    pub unknown_fields: UnknownFields,
+}
+
+impl InternalCreditCard {
+    fn from_payload(p: CreditCardPayload, encdec: &dyn EncryptorDecryptor) -> Result<Self> {
+        if p.entry.version != 3 {
+            // when new versions are introduced we will start accepting and
+            // converting old ones - but 3 is the lowest we support.
+            return Err(Error::InvalidSyncPayload(format!(
+                "invalid version - {}",
+                p.entry.version
+            )));
+        }
+        // need to encrypt the cleartext in the sync record.
+        let cc_number_enc = encrypt_str(encdec, &p.entry.cc_number)?;
+        let cc_number_last_4 = get_last_4(&p.entry.cc_number);
+
+        Ok(InternalCreditCard {
+            guid: p.id,
+            cc_name: p.entry.cc_name,
+            cc_number_enc,
+            cc_cvv_enc: encrypt_optional_str(encdec, p.entry.cc_cvv.as_deref())?,
+            cc_number_last_4,
+            cc_exp_month: p.entry.cc_exp_month,
+            cc_exp_year: p.entry.cc_exp_year,
+            cc_type: p.entry.cc_type,
+            metadata: Metadata {
+                time_created: p.entry.time_created.sanitized(),
+                time_last_used: p.entry.time_last_used.sanitized(),
+                time_last_modified: p.entry.time_last_modified.sanitized(),
+                times_used: p.entry.times_used,
+                sync_change_counter: 0,
+            },
+        })
+    }
+
+    pub(crate) fn into_payload(self, encdec: &dyn EncryptorDecryptor) -> Result<CreditCardPayload> {
+        let cc_number = decrypt_str(encdec, &self.cc_number_enc)?;
+        let cc_cvv = decrypt_optional_str(encdec, &self.cc_cvv_enc)?;
+        Ok(CreditCardPayload {
+            id: self.guid,
+            entry: PayloadEntry {
+                cc_name: self.cc_name,
+                cc_number,
+                cc_cvv,
+                cc_exp_month: self.cc_exp_month,
+                cc_exp_year: self.cc_exp_year,
+                cc_type: self.cc_type,
+                time_created: self.metadata.time_created,
+                time_last_used: self.metadata.time_last_used,
+                time_last_modified: self.metadata.time_last_modified,
+                times_used: self.metadata.times_used,
+                version: 3,
+                unknown_fields: Default::default(),
+            },
+        })
+    }
+}
+
+impl SyncRecord for InternalCreditCard {
+    fn record_name() -> &'static str {
+        "CreditCard"
+    }
+
+    fn id(&self) -> &Guid {
+        &self.guid
+    }
+
+    fn metadata(&self) -> &Metadata {
+        &self.metadata
+    }
+
+    fn metadata_mut(&mut self) -> &mut Metadata {
+        &mut self.metadata
+    }
+
+    /// Performs a three-way merge between an incoming, local, and mirror record.
+    /// If a merge cannot be successfully completed (ie, if we find the same
+    /// field has changed both locally and remotely since the last sync), the
+    /// local record data is returned with a new guid and updated sync metadata.
+    /// Note that mirror being None is an edge-case and typically means first
+    /// sync since a "reset" (eg, disconnecting and reconnecting.
+    #[allow(clippy::cognitive_complexity)] // Looks like clippy considers this after macro-expansion...
+    fn merge(incoming: &Self, local: &Self, mirror: &Option<Self>) -> MergeResult<Self> {
+        let mut merged_record: Self = Default::default();
+        // guids must be identical
+        assert_eq!(incoming.guid, local.guid);
+
+        if let Some(m) = mirror {
+            assert_eq!(incoming.guid, m.guid)
+        };
+
+        merged_record.guid = incoming.guid.clone();
+
+        sync_merge_field_check!(cc_name, incoming, local, mirror, merged_record);
+        // XXX - It looks like this will allow us to merge a locally changed
+        // cc_number_enc and remotely changed cc_number_last_4, which is nonsensical.
+        // Given sync itself is populating this it needs more thought.
+        sync_merge_field_check!(cc_number_enc, incoming, local, mirror, merged_record);
+        sync_merge_field_check!(cc_number_last_4, incoming, local, mirror, merged_record);
+        sync_merge_field_check!(cc_exp_month, incoming, local, mirror, merged_record);
+        sync_merge_field_check!(cc_exp_year, incoming, local, mirror, merged_record);
+        sync_merge_field_check!(cc_type, incoming, local, mirror, merged_record);
+
+        merged_record.metadata = incoming.metadata;
+        merged_record
+            .metadata
+            .merge(&local.metadata, mirror.as_ref().map(|m| m.metadata()));
+
+        MergeResult::Merged {
+            merged: merged_record,
+        }
+    }
+}
+
+/// Returns a with the given local record's data but with a new guid and
+/// fresh sync metadata.
+fn get_forked_record(local_record: InternalCreditCard) -> InternalCreditCard {
+    let mut local_record_data = local_record;
+    local_record_data.guid = Guid::random();
+    local_record_data.metadata.time_created = Timestamp::now();
+    local_record_data.metadata.time_last_used = Timestamp::now();
+    local_record_data.metadata.time_last_modified = Timestamp::now();
+    local_record_data.metadata.times_used = 0;
+    local_record_data.metadata.sync_change_counter = 1;
+
+    local_record_data
+}
+
+#[test]
+fn test_last_4() {
+    assert_eq!(get_last_4("testing"), "ting".to_string());
+    assert_eq!(get_last_4("abc"), "abc".to_string());
+    assert_eq!(get_last_4(""), "".to_string());
+}
+
+#[test]
+fn test_to_from_payload() {
+    nss_as::ensure_initialized();
+    let key = crate::create_autofill_key().unwrap();
+    let cc_number = "1234567812345678";
+    let encdec = static_key_encryptor(&key).unwrap();
+    let cc_number_enc = encrypt_str(&encdec, cc_number).unwrap();
+    let cc = InternalCreditCard {
+        cc_name: "Shaggy".to_string(),
+        cc_number_enc,
+        cc_cvv_enc: encrypt_optional_str(&encdec, Some("123")).unwrap(),
+        cc_number_last_4: "5678".to_string(),
+        cc_exp_month: 12,
+        cc_exp_year: 2021,
+        cc_type: "foo".to_string(),
+        ..Default::default()
+    };
+    let payload: CreditCardPayload = cc.clone().into_payload(&encdec).unwrap();
+
+    assert_eq!(payload.id, cc.guid);
+    assert_eq!(payload.entry.cc_name, "Shaggy".to_string());
+    assert_eq!(payload.entry.cc_number, cc_number.to_string());
+    assert_eq!(payload.entry.cc_cvv.as_deref(), Some("123"));
+    assert_eq!(payload.entry.cc_exp_month, 12);
+    assert_eq!(payload.entry.cc_exp_year, 2021);
+    assert_eq!(payload.entry.cc_type, "foo".to_string());
+
+    // and back.
+    let cc2 = InternalCreditCard::from_payload(payload, &encdec).unwrap();
+    // sadly we can't just check equality because the encrypted value will be
+    // different even if the card number is identical.
+    assert_eq!(cc2.guid, cc.guid);
+    assert_eq!(cc2.cc_name, "Shaggy".to_string());
+    assert_eq!(cc2.cc_number_last_4, cc.cc_number_last_4);
+    assert_eq!(cc2.cc_exp_month, cc.cc_exp_month);
+    assert_eq!(cc2.cc_exp_year, cc.cc_exp_year);
+    assert_eq!(cc2.cc_type, cc.cc_type);
+    // The decrypted number should be the same.
+    assert_eq!(decrypt_str(&encdec, &cc2.cc_number_enc).unwrap(), cc_number);
+    // But the encrypted value should not.
+    assert_ne!(cc2.cc_number_enc, cc.cc_number_enc);
+    // The CVV came back too.
+    assert_eq!(decrypt_str(&encdec, &cc2.cc_cvv_enc).unwrap(), "123");
+
+    // A payload without the field - written by an older client - stores no CVV.
+    let mut old_payload = cc.into_payload(&encdec).unwrap();
+    old_payload.entry.cc_cvv = None;
+    let cc3 = InternalCreditCard::from_payload(old_payload, &encdec).unwrap();
+    assert_eq!(cc3.cc_cvv_enc, "");
+}
+
+/// Surface 3: the sync server is a source we cannot refuse. A record whose
+/// timestamps are not representable dates must be repaired on the way in, not
+/// stored and then allowed to win every "latest wins" merge.
+#[test]
+fn test_from_payload_sanitizes_out_of_range_timestamps() {
+    nss_as::ensure_initialized();
+    let key = crate::create_autofill_key().unwrap();
+    let encdec = static_key_encryptor(&key).unwrap();
+    let cc = InternalCreditCard {
+        cc_number_enc: encrypt_str(&encdec, "1234567812345678").unwrap(),
+        ..Default::default()
+    };
+
+    let mut payload = cc.into_payload(&encdec).unwrap();
+    // the value from bug 2066257, a u64-reinterpreted negative, and one just
+    // past the largest date a JS `Date` can hold.
+    payload.entry.time_created = Timestamp(18446744071857664);
+    payload.entry.time_last_used = Timestamp(u64::MAX);
+    payload.entry.time_last_modified = Timestamp(types::MAX_DATE_MS as u64 + 1);
+
+    let cc = InternalCreditCard::from_payload(payload, &encdec).unwrap();
+    assert_eq!(cc.metadata.time_created.as_millis(), 0);
+    assert_eq!(cc.metadata.time_last_used.as_millis(), 0);
+    assert_eq!(cc.metadata.time_last_modified.as_millis(), 0);
+}

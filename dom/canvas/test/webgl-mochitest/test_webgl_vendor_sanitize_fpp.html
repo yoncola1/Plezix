@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>WebGL Vendor FPP precedence - added WebGLVendorSanitize does not override an enabled Randomize/Constant</title>
+<script src="/tests/SimpleTest/SimpleTest.js"></script>
+<script>
+/* global SimpleTest SpecialPowers */
+SimpleTest.waitForExplicitFinish();
+
+// RFPTarget enum values, from
+// toolkit/components/resistfingerprinting/RFPTargets.inc. The precedence is
+// "Randomize overrides Constant overrides Sanitize".
+const RFPTarget = {
+  WebGLVendorConstant: 78,
+  WebGLVendorRandomize: 79,
+};
+
+// Whether a given RFPTarget is in the currently-enabled fingerprinting
+// protection set (compiled defaults plus the overrides pref). Evaluated in the
+// parent process and returned as a plain boolean, so the test follows the
+// actual configuration instead of assuming a particular build channel.
+function isFPPTargetEnabled(target) {
+  return SpecialPowers.spawnChrome([target], t => {
+    let set = Services.rfp.enabledFingerprintingProtections;
+    let part = set.getNth32BitSet(t >>> 5);
+    return (part & (1 << (t & 31))) !== 0;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", async function() {
+  // Additively enable WebGLVendorSanitize on top of the defaults.
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["privacy.fingerprintingProtection", true],
+      ["privacy.fingerprintingProtection.overrides", "+WebGLVendorSanitize"],
+      ["privacy.resistFingerprinting", false]
+    ]
+  });
+
+  let canvas = document.body.appendChild(document.createElement("canvas"));
+  if (!canvas) {
+    SimpleTest.ok(false, "Cannot create canvas");
+    SimpleTest.finish();
+    return;
+  }
+
+  let gl = canvas.getContext("webgl");
+  if (!gl) {
+    SimpleTest.ok(false, "Cannot get WebGL context");
+    SimpleTest.finish();
+    return;
+  }
+
+  // Try to get the WEBGL_debug_renderer_info extension
+  let ext = gl.getExtension("WEBGL_debug_renderer_info");
+  if (!ext) {
+    SimpleTest.ok(false, "WEBGL_debug_renderer_info extension should be available with FPP");
+    SimpleTest.finish();
+    return;
+  }
+
+  let vendor = gl.getParameter(ext.UNMASKED_VENDOR_WEBGL);
+
+  // List of valid sanitized vendor strings
+  const validVendors = [
+    "NVIDIA Corporation",
+    "Intel",
+    "AMD",
+    "Apple",
+    "Other"
+  ];
+
+  if (await isFPPTargetEnabled(RFPTarget.WebGLVendorRandomize)) {
+    // The higher-precedence WebGLVendorRandomize is enabled, so it overrides
+    // the added WebGLVendorSanitize and the vendor is randomized.
+    SimpleTest.ok(vendor.startsWith("Mozilla "),
+      "Vendor should be the randomized 'Mozilla <Base64>'. Got: " + vendor);
+    SimpleTest.ok(!validVendors.includes(vendor),
+      "Added WebGLVendorSanitize must not override the enabled WebGLVendorRandomize. Got: " + vendor);
+  } else if (await isFPPTargetEnabled(RFPTarget.WebGLVendorConstant)) {
+    // WebGLVendorConstant is enabled and also outranks Sanitize, so the vendor
+    // is the constant "Mozilla".
+    SimpleTest.is(vendor, "Mozilla",
+      "Added WebGLVendorSanitize must not override the enabled WebGLVendorConstant");
+  } else {
+    // Only WebGLVendorSanitize applies, so the vendor is sanitized to a known
+    // value (and is not "Mozilla").
+    SimpleTest.ok(validVendors.includes(vendor),
+      "WebGLVendorSanitize should yield a known vendor value. Got: " + vendor);
+    SimpleTest.isnot(vendor, "Mozilla",
+      "Sanitized vendor should not be 'Mozilla'");
+  }
+
+  SimpleTest.finish();
+});
+</script>

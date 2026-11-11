@@ -1,0 +1,160 @@
+[DEFAULT]
+run-if = [
+  "os != 'android'",
+]
+firefox-appdir = "browser"
+head = "head.js"
+support-files = ["../fixtures/**"]
+prefs = [
+  "extensions.formautofill.test.ignoreVisibilityCheck=true",
+  "extensions.formautofill.heuristics.detectDynamicFormChanges=false",
+]
+
+["test_activeStatus.js"]
+
+["test_addressComponent_city.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_country.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_email.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_name.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_organization.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_postal_code.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_state.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_street_address.js"]
+head = "head_addressComponent.js"
+
+["test_addressComponent_tel.js"]
+head = "head_addressComponent.js"
+
+["test_addressDataLoader.js"]
+
+["test_addressRecords.js"]
+
+["test_autofillDataTypes.js"]
+
+["test_autofillFormFields.js"]
+
+["test_autofill_ios_library.js"]
+
+["test_createRecords.js"]
+
+["test_creditCardCVVPrefs.js"]
+
+["test_creditCardRecords.js"]
+
+["test_extractLabelStrings.js"]
+
+["test_findLabelElements.js"]
+
+["test_getAdaptedProfiles.js"]
+
+["test_getAdaptedProfiles_locales.js"]
+
+["test_getCreditCardLogo.js"]
+
+["test_getInfo.js"]
+
+["test_getRecords.js"]
+
+["test_inspectFields.js"]
+
+["test_isAddressAutofillAvailable.js"]
+
+["test_isCJKName.js"]
+
+["test_isCreditCardAutofillAvailable.js"]
+
+["test_isCreditCardOrAddressFieldType.js"]
+
+["test_known_strings.js"]
+
+["test_migrateRecords.js"]
+
+["test_ml_regex_hint.js"]
+
+["test_nameUtils.js"]
+
+["test_parseAddressFormat.js"]
+
+["test_parseStreetAddress.js"]
+
+["test_passportStorage.js"]
+
+["test_paymentsListItems.js"]
+
+["test_phoneNumber.js"]
+
+["test_profileAutocompleteResult.js"]
+
+["test_reconcile.js"]
+
+["test_rustStoreShutdown.js"]
+
+["test_rust_autofill_address_adapter.js"]
+
+["test_rust_autofill_address_bridged_engine.js"]
+# The dry runs start on the storage singleton when the add-on starts, before
+# the test body runs, and can still be in flight when the test shuts down.
+prefs = [
+  "extensions.formautofill.addresses.storage.rust.runMigrationTest=false",
+  "extensions.formautofill.creditCards.storage.rust.runMigrationTest=false",
+]
+
+["test_rust_autofill_address_migration.js"]
+
+["test_rust_autofill_address_parity.js"]
+
+["test_rust_autofill_address_sync_engine.js"]
+head = "head.js ../../../../../services/sync/tests/unit/head_appinfo.js ../../../../../services/common/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_http_server.js"
+# Registering the addresses engine at all is conditional, and the pref is read
+# when Service builds its engine table -- too early for the test body to set it.
+prefs = ["services.sync.engine.addresses.available=true"]
+
+["test_rust_autofill_credit_card_adapter.js"]
+
+["test_rust_autofill_credit_card_bridged_engine.js"]
+
+["test_rust_autofill_credit_card_migration.js"]
+
+["test_rust_autofill_credit_card_sync_engine.js"]
+head = "head.js ../../../../../services/sync/tests/unit/head_appinfo.js ../../../../../services/common/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_http_server.js"
+# Registering the credit cards engine at all is conditional, and the pref is
+# read when Service builds its engine table -- too early for the test body to
+# set it.
+prefs = ["services.sync.engine.creditcards.available=true"]
+
+["test_savedCreditCardCounts.js"]
+
+["test_savedFieldNames.js"]
+
+["test_storage_remove.js"]
+
+["test_storage_syncfields.js"]
+
+["test_storage_tombstones.js"]
+
+["test_sync.js"]
+head = "head.js ../../../../../services/sync/tests/unit/head_appinfo.js ../../../../../services/common/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_http_server.js"
+
+["test_sync_deprecate_address_x_name_fields.js"]
+head = "head.js ../../../../../services/sync/tests/unit/head_appinfo.js ../../../../../services/common/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_http_server.js"
+
+["test_sync_deprecate_credit_card_v4.js"]
+head = "head.js ../../../../../services/sync/tests/unit/head_appinfo.js ../../../../../services/common/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_helpers.js ../../../../../services/sync/tests/unit/head_http_server.js"
+
+["test_toOneLineAddress.js"]
+
+["test_transformFields.js"]

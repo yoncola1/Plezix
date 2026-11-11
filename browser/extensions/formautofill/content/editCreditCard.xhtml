@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title data-l10n-id="autofill-add-card-title"></title>
+    <meta http-equiv="Content-Security-Policy" content="default-src chrome:" />
+    <link rel="localization" href="browser/preferences/formAutofill.ftl" />
+    <link
+      rel="stylesheet"
+      href="chrome://formautofill/content/skin/editDialog-shared.css"
+    />
+    <link
+      rel="stylesheet"
+      href="chrome://formautofill/content/skin/editCreditCard.css"
+    />
+    <script
+      type="module"
+      src="chrome://formautofill/content/editCreditCard.mjs"
+    ></script>
+  </head>
+  <body>
+    <form id="form" class="editCreditCardForm contentPane" autocomplete="off">
+      <div id="cc-number-container" class="container">
+        <span
+          id="invalidCardNumberString"
+          hidden="hidden"
+          data-l10n-id="autofill-card-invalid-number"
+        ></span>
+        <moz-input-text
+          id="cc-number"
+          data-l10n-id="autofill-card-number-2"
+        ></moz-input-text>
+      </div>
+      <div id="cc-name-container" class="container">
+        <moz-input-text
+          id="cc-name"
+          data-l10n-id="autofill-card-name-on-card-2"
+        ></moz-input-text>
+      </div>
+      <div id="cc-exp-month-container" class="container">
+        <moz-select
+          id="cc-exp-month"
+          data-l10n-id="autofill-card-expires-month-2"
+        >
+          <moz-option value=""></moz-option>
+        </moz-select>
+      </div>
+      <div id="cc-exp-year-container" class="container">
+        <moz-select
+          id="cc-exp-year"
+          data-l10n-id="autofill-card-expires-year-2"
+        >
+          <moz-option value=""></moz-option>
+        </moz-select>
+      </div>
+      <div id="cc-csc-container" class="container" hidden="hidden">
+        <moz-input-text
+          id="cc-csc"
+          iconsrc="chrome://browser/skin/payment-methods-16.svg"
+        ></moz-input-text>
+      </div>
+      <div
+        id="billingAddressGUID-container"
+        class="billingAddressRow container"
+      >
+        <moz-select
+          id="billingAddressGUID"
+          data-l10n-id="autofill-card-billing-address-2"
+        ></moz-select>
+      </div>
+    </form>
+    <div id="controls-container">
+      <moz-button-group>
+        <moz-button
+          id="cancel"
+          data-l10n-id="autofill-cancel-button"
+        ></moz-button>
+        <moz-button
+          id="save"
+          type="primary"
+          data-l10n-id="autofill-save-button"
+        ></moz-button>
+      </moz-button-group>
+    </div>
+  </body>
+</html>

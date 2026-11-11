@@ -1,0 +1,42 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsRedirectHistoryEntry.h"
+
+#include "nsCOMPtr.h"
+#include "nsIPrincipal.h"
+#include "nsIURI.h"
+
+namespace mozilla {
+namespace net {
+
+NS_IMPL_ISUPPORTS(nsRedirectHistoryEntry, nsIRedirectHistoryEntry)
+
+nsRedirectHistoryEntry::nsRedirectHistoryEntry(nsIPrincipal* aPrincipal,
+                                               nsIURI* aReferrer,
+                                               const nsACString& aRemoteAddress)
+    : mPrincipal(aPrincipal),
+      mReferrer(aReferrer),
+      mRemoteAddress(aRemoteAddress) {}
+
+NS_IMETHODIMP
+nsRedirectHistoryEntry::GetRemoteAddress(nsACString& result) {
+  result = mRemoteAddress;
+  return NS_OK;
+}
+
+NS_IMETHODIMP
+nsRedirectHistoryEntry::GetReferrerURI(nsIURI** referrer) {
+  *referrer = do_AddRef(mReferrer).take();
+  return NS_OK;
+}
+
+NS_IMETHODIMP
+nsRedirectHistoryEntry::GetPrincipal(nsIPrincipal** principal) {
+  *principal = do_AddRef(mPrincipal).take();
+  return NS_OK;
+}
+
+}  // namespace net
+}  // namespace mozilla

@@ -1,0 +1,75 @@
+name: Rust
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      CARGO_TERM_COLOR: always
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: mozilla/actions/rust@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+        with:
+          components: llvm-tools
+          tools: cargo-llvm-cov
+          token: ${{ github.token }}
+      - name: Run tests and determine coverage
+        run: cargo llvm-cov test --codecov --output-path codecov.json
+      - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        with:
+          files: codecov.json
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }} # zizmor: ignore[secrets-outside-env]
+          verbose: true
+          flags: linux
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }} # zizmor: ignore[secrets-outside-env]
+
+  rustfmt:
+    uses: mozilla/actions/.github/workflows/rustfmt.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  clippy:
+    uses: mozilla/actions/.github/workflows/clippy.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  deny:
+    uses: mozilla/actions/.github/workflows/deny.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  machete:
+    uses: mozilla/actions/.github/workflows/machete.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  semver:
+    name: Check semver
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mozilla/actions/semver@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  mutants-pr:
+    if: github.event_name == 'pull_request'
+    uses: mozilla/actions/.github/workflows/mutants-pr.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    uses: mozilla/actions/.github/workflows/dependency-review.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+
+  actionlint:
+    uses: mozilla/actions/.github/workflows/actionlint.yml@42622e57e54d96514373f5234c0220b014e64740 # v3.1.1
+    permissions:
+      contents: read
+      security-events: write # Required to upload SARIF results to GitHub

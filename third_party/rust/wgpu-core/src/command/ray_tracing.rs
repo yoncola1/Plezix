@@ -1,0 +1,1203 @@
+use alloc::{sync::Arc, vec::Vec};
+use core::{
+    cmp::max,
+    mem,
+    num::NonZeroU64,
+    ops::{Deref, Range},
+};
+
+use wgt::{math::align_to, BufferUsages, BufferUses, Features};
+
+use crate::{
+    command::encoder::EncodingState,
+    ray_tracing::{AsAction, AsBuild, TlasBuild, ValidateAsActionsError},
+    resource::{Buffer, InvalidResourceError},
+};
+use crate::{command::EncoderStateError, device::resource::CommandIndices};
+use crate::{
+    command::{ArcCommand, ArcReferences, CommandBufferMutable},
+    device::queue::TempResource,
+    init_tracker::MemoryInitKind,
+    ray_tracing::{
+        ArcBlasAabbGeometry, ArcBlasBuildEntry, ArcBlasGeometries, ArcBlasTriangleGeometry,
+        ArcTlasPackage, BlasBuildEntry, BlasGeometries, BuildAccelerationStructureError,
+        OwnedBlasBuildEntry, OwnedTlasPackage,
+    },
+    resource::{Blas, BlasCompactState, Labeled, StagingBuffer, Tlas, Trackable},
+    scratch::ScratchBuffer,
+    snatch::SnatchGuard,
+    track::TrackerIndex,
+    FastHashSet,
+};
+use crate::{lock::RwLockWriteGuard, resource::RawResourceAccess};
+
+struct BlasStore<'a> {
+    blas: Arc<Blas>,
+    entries: hal::AccelerationStructureEntries<'a, dyn hal::DynBuffer>,
+    scratch_buffer_offset: u64,
+}
+
+struct UnsafeTlasStore<'a> {
+    tlas: Arc<Tlas>,
+    entries: hal::AccelerationStructureEntries<'a, dyn hal::DynBuffer>,
+    scratch_buffer_offset: u64,
+}
+
+struct TlasStore<'a> {
+    internal: UnsafeTlasStore<'a>,
+    range: Range<usize>,
+}
+
+impl super::CommandEncoder {
+    fn mark_acceleration_structures_built_inner(
+        self: &Arc<Self>,
+        blases: &[Arc<Blas>],
+        tlases: &[Arc<Tlas>],
+    ) -> Result<(), EncoderStateError> {
+        profiling::scope!("CommandEncoder::mark_acceleration_structures_built");
+
+        let mut cmd_buf_data = self.data.lock();
+        cmd_buf_data.with_buffer(
+            crate::command::EncodingApi::Raw,
+            |cmd_buf_data| -> Result<(), BuildAccelerationStructureError> {
+                let device = &self.device;
+                device.check_is_valid()?;
+                device.require_features(Features::EXPERIMENTAL_RAY_QUERY)?;
+
+                let mut build_command = AsBuild::with_capacity(blases.len(), tlases.len());
+
+                for blas in blases {
+                    let blas = blas.clone();
+                    blas.check_is_valid()?;
+                    build_command.blas_s_built.push(blas);
+                }
+
+                for tlas in tlases {
+                    let tlas = tlas.clone();
+                    tlas.check_is_valid()?;
+                    build_command.tlas_s_built.push(TlasBuild {
+                        tlas,
+                        dependencies: Vec::new(),
+                    });
+                }
+
+                cmd_buf_data.as_actions.push(AsAction::Build(build_command));
+                Ok(())
+            },
+        )
+    }
+
+    pub fn mark_acceleration_structures_built(
+        self: &Arc<Self>,
+        blases: &[Arc<Blas>],
+        tlases: &[Arc<Tlas>],
+    ) {
+        if let Err(err) = self.mark_acceleration_structures_built_inner(blases, tlases) {
+            self.device.handle_error(
+                err,
+                Some(self.label()),
+                "CommandEncoder::mark_acceleration_structures_built",
+            );
+        }
+    }
+
+    fn build_acceleration_structures_inner<'a>(
+        self: &Arc<Self>,
+        blas_iter: impl Iterator<Item = BlasBuildEntry<'a, Arc<Blas>, Arc<Buffer>>>,
+        tlases: Vec<ArcTlasPackage>,
+    ) -> Result<(), EncoderStateError> {
+        profiling::scope!("CommandEncoder::build_acceleration_structures");
+
+        let mut cmd_buf_data = self.data.lock();
+
+        cmd_buf_data.push_with(|| -> Result<_, BuildAccelerationStructureError> {
+            let blas = blas_iter
+                .map(|blas_entry| {
+                    let geometries = match blas_entry.geometries {
+                        BlasGeometries::TriangleGeometries(triangle_geometries) => {
+                            let tri_geo = triangle_geometries
+                                .map(|tg| {
+                                    let vertex_buffer = tg.vertex_buffer;
+                                    vertex_buffer.check_is_valid()?;
+                                    Ok(ArcBlasTriangleGeometry {
+                                        size: tg.size.clone(),
+                                        vertex_buffer,
+                                        index_buffer: tg
+                                            .index_buffer
+                                            .map(|index_buffer| -> Result<_, InvalidResourceError> {
+                                                index_buffer.check_is_valid()?;
+                                                Ok(index_buffer)
+                                            })
+                                            .transpose()?,
+                                        transform_buffer: tg
+                                            .transform_buffer
+                                            .map(|transform_buffer| -> Result<_, InvalidResourceError> {
+                                                transform_buffer.check_is_valid()?;
+                                                Ok(transform_buffer)
+                                            })
+                                            .transpose()?,
+                                        first_vertex: tg.first_vertex,
+                                        vertex_stride: tg.vertex_stride,
+                                        first_index: tg.first_index,
+                                        transform_buffer_offset: tg.transform_buffer_offset,
+                                    })
+                                })
+                                .collect::<Result<_, BuildAccelerationStructureError>>()?;
+                            ArcBlasGeometries::TriangleGeometries(tri_geo)
+                        }
+                        BlasGeometries::AabbGeometries(aabb_geometries) => {
+                            let aabb_geo = aabb_geometries
+                                .map(|ag| {
+                                    ag.aabb_buffer.check_is_valid()?;
+                                    Ok(ArcBlasAabbGeometry {
+                                        size: ag.size.clone(),
+                                        stride: ag.stride,
+                                        aabb_buffer: ag.aabb_buffer,
+                                        primitive_offset: ag.primitive_offset,
+                                    })
+                                })
+                                .collect::<Result<_, BuildAccelerationStructureError>>()?;
+                            ArcBlasGeometries::AabbGeometries(aabb_geo)
+                        }
+                    };
+                    let blas = blas_entry.blas;
+                    blas.check_is_valid()?;
+                    Ok(ArcBlasBuildEntry { blas, geometries })
+                })
+                .collect::<Result<_, BuildAccelerationStructureError>>()?;
+
+            for tlas_package in &tlases {
+                tlas_package.tlas.check_is_valid()?;
+                for instance in tlas_package.instances.iter().flatten() {
+                    instance.blas.check_is_valid()?;
+                }
+            }
+
+            Ok(ArcCommand::BuildAccelerationStructures { blas, tlas: tlases })
+        })
+    }
+
+    pub fn build_acceleration_structures<'a>(
+        self: &Arc<Self>,
+        blas_iter: impl Iterator<Item = BlasBuildEntry<'a, Arc<Blas>, Arc<Buffer>>>,
+        tlases: Vec<ArcTlasPackage>,
+    ) {
+        if let Err(err) = self.build_acceleration_structures_inner(blas_iter, tlases) {
+            self.device.handle_error(
+                err,
+                Some(self.label()),
+                "CommandEncoder::build_acceleration_structures",
+            );
+        }
+    }
+}
+
+pub(crate) fn build_acceleration_structures(
+    state: &mut EncodingState,
+    blases: Vec<OwnedBlasBuildEntry<ArcReferences>>,
+    mut tlases: Vec<OwnedTlasPackage<ArcReferences>>,
+) -> Result<(), BuildAccelerationStructureError> {
+    profiling::scope!("build_acceleration_structures");
+    state
+        .device
+        .require_features(Features::EXPERIMENTAL_RAY_QUERY)?;
+
+    let mut build_command = AsBuild::with_capacity(blases.len(), tlases.len());
+    let mut input_barriers = Vec::<hal::BufferBarrier<dyn hal::DynBuffer>>::new();
+    let mut scratch_buffer_blas_size = 0;
+    let mut blas_storage = Vec::with_capacity(blases.len());
+    iter_blas(
+        blases.iter(),
+        &mut build_command,
+        &mut input_barriers,
+        &mut scratch_buffer_blas_size,
+        &mut blas_storage,
+        state,
+    )?;
+
+    let mut scratch_buffer_tlas_size: u64 = 0;
+    let mut tlas_storage = Vec::<TlasStore>::with_capacity(tlases.len());
+    let mut instance_buffer_staging_source = Vec::<u8>::new();
+
+    // We cannot move out of `tlases` because it will be borrowed by `tlas_storage`,
+    // but each package’s `instances` is consumed by the `mem::take` below.
+    for package in tlases.iter_mut() {
+        profiling::scope!("tlas validation");
+        let tlas = &package.tlas;
+        state.tracker.tlas_s.insert_single(tlas.clone());
+
+        let scratch_buffer_offset = scratch_buffer_tlas_size;
+        scratch_buffer_tlas_size = scratch_buffer_tlas_size.saturating_add(align_to(
+            tlas.size_info.build_scratch_size,
+            u64::from(state.device.alignments.ray_tracing_scratch_buffer_alignment),
+        ));
+
+        let first_byte_index = instance_buffer_staging_source.len();
+
+        let mut dependencies = Vec::new();
+        let mut seen_dependencies = FastHashSet::<TrackerIndex>::default();
+
+        let mut instance_count = 0;
+        for instance in mem::take(&mut package.instances).into_iter().flatten() {
+            if instance.custom_data >= (1u32 << 24u32) {
+                return Err(BuildAccelerationStructureError::TlasInvalidCustomIndex(
+                    tlas.error_ident(),
+                ));
+            }
+            let blas = instance.blas;
+            let is_new_dependency = seen_dependencies.insert(blas.tracker_index());
+
+            if is_new_dependency {
+                state.tracker.blas_s.insert_single(blas.clone());
+            }
+
+            state.device.raw().tlas_instance_to_bytes(
+                hal::TlasInstance {
+                    transform: instance.transform,
+                    custom_data: instance.custom_data,
+                    mask: instance.mask,
+                    blas_address: blas.handle,
+                    pipeline_intersection_data_offset: 0,
+                },
+                &mut instance_buffer_staging_source,
+            );
+
+            if tlas
+                .flags
+                .contains(wgpu_types::AccelerationStructureFlags::ALLOW_RAY_HIT_VERTEX_RETURN)
+                && !blas
+                    .flags
+                    .contains(wgpu_types::AccelerationStructureFlags::ALLOW_RAY_HIT_VERTEX_RETURN)
+            {
+                return Err(
+                    BuildAccelerationStructureError::TlasDependentMissingVertexReturn(
+                        tlas.error_ident(),
+                        blas.error_ident(),
+                    ),
+                );
+            }
+
+            instance_count += 1;
+
+            if is_new_dependency {
+                dependencies.push(blas);
+            }
+        }
+
+        build_command.tlas_s_built.push(TlasBuild {
+            tlas: tlas.clone(),
+            dependencies,
+        });
+
+        if instance_count > tlas.max_instance_count {
+            return Err(BuildAccelerationStructureError::TlasInstanceCountExceeded(
+                tlas.error_ident(),
+                instance_count,
+                tlas.max_instance_count,
+            ));
+        }
+
+        tlas_storage.push(TlasStore {
+            internal: UnsafeTlasStore {
+                tlas: tlas.clone(),
+                entries: hal::AccelerationStructureEntries::Instances(
+                    hal::AccelerationStructureInstances {
+                        buffer: Some(tlas.state()?.instance_buffer.as_ref()),
+                        offset: 0,
+                        count: instance_count,
+                    },
+                ),
+                scratch_buffer_offset,
+            },
+            range: first_byte_index..instance_buffer_staging_source.len(),
+        });
+    }
+
+    let Some(scratch_size) =
+        wgt::BufferSize::new(max(scratch_buffer_blas_size, scratch_buffer_tlas_size))
+    else {
+        // if the size is zero there is nothing to build
+        return Ok(());
+    };
+
+    if scratch_size.get() == u64::MAX {
+        return Err(crate::device::DeviceError::OutOfMemory.into());
+    }
+
+    let scratch_buffer = ScratchBuffer::new(state.device, scratch_size)?;
+
+    let scratch_buffer_barrier = hal::BufferBarrier::<dyn hal::DynBuffer> {
+        buffer: scratch_buffer.raw(),
+        usage: hal::StateTransition {
+            from: BufferUses::ACCELERATION_STRUCTURE_SCRATCH,
+            to: BufferUses::ACCELERATION_STRUCTURE_SCRATCH,
+        },
+    };
+
+    let mut tlas_descriptors = Vec::with_capacity(tlas_storage.len());
+
+    for &TlasStore {
+        internal:
+            UnsafeTlasStore {
+                ref tlas,
+                ref entries,
+                ref scratch_buffer_offset,
+            },
+        ..
+    } in &tlas_storage
+    {
+        if tlas.update_mode == wgt::AccelerationStructureUpdateMode::PreferUpdate {
+            log::warn!("build_acceleration_structures called with PreferUpdate, but only rebuild is implemented");
+        }
+        tlas_descriptors.push(hal::BuildAccelerationStructureDescriptor {
+            entries,
+            mode: hal::AccelerationStructureBuildMode::Build,
+            flags: tlas.flags,
+            source_acceleration_structure: None,
+            destination_acceleration_structure: tlas.try_raw(state.snatch_guard)?,
+            scratch_buffer: scratch_buffer.raw(),
+            scratch_buffer_offset: *scratch_buffer_offset,
+        })
+    }
+
+    let blas_present = !blas_storage.is_empty();
+    let tlas_present = !tlas_storage.is_empty();
+
+    let raw_encoder = &mut state.raw_encoder;
+
+    let mut blas_s_compactable = Vec::new();
+    let mut descriptors = Vec::with_capacity(blases.len());
+
+    for storage in &blas_storage {
+        descriptors.push(map_blas(
+            storage,
+            scratch_buffer.raw(),
+            state.snatch_guard,
+            &mut blas_s_compactable,
+        )?);
+    }
+
+    build_blas(
+        *raw_encoder,
+        blas_present,
+        tlas_present,
+        input_barriers,
+        &descriptors,
+        scratch_buffer_barrier,
+        blas_s_compactable,
+    );
+
+    if tlas_present {
+        let staging_buffer = if !instance_buffer_staging_source.is_empty() {
+            let mut staging_buffer = StagingBuffer::new(
+                state.device,
+                wgt::BufferSize::new(instance_buffer_staging_source.len() as u64).unwrap(),
+            )?;
+            staging_buffer.write_exact(&instance_buffer_staging_source);
+            let flushed = staging_buffer.flush();
+            Some(flushed)
+        } else {
+            None
+        };
+
+        unsafe {
+            if let Some(ref staging_buffer) = staging_buffer {
+                raw_encoder.transition_buffers(&[hal::BufferBarrier::<dyn hal::DynBuffer> {
+                    buffer: staging_buffer.raw(),
+                    usage: hal::StateTransition {
+                        from: BufferUses::MAP_WRITE,
+                        to: BufferUses::COPY_SRC,
+                    },
+                }]);
+            }
+        }
+
+        let mut instance_buffer_barriers = Vec::new();
+        for &TlasStore {
+            internal: UnsafeTlasStore { ref tlas, .. },
+            ref range,
+        } in &tlas_storage
+        {
+            let size = match wgt::BufferSize::new((range.end - range.start) as u64) {
+                None => continue,
+                Some(size) => size,
+            };
+            let tlas_state = tlas.state()?;
+            instance_buffer_barriers.push(hal::BufferBarrier::<dyn hal::DynBuffer> {
+                buffer: tlas_state.instance_buffer.as_ref(),
+                usage: hal::StateTransition {
+                    from: BufferUses::COPY_DST,
+                    to: BufferUses::TOP_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                },
+            });
+            unsafe {
+                raw_encoder.transition_buffers(&[hal::BufferBarrier::<dyn hal::DynBuffer> {
+                    buffer: tlas_state.instance_buffer.as_ref(),
+                    usage: hal::StateTransition {
+                        from: BufferUses::TOP_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                        to: BufferUses::COPY_DST,
+                    },
+                }]);
+                let temp = hal::BufferCopy {
+                    src_offset: range.start as u64,
+                    dst_offset: 0,
+                    size,
+                };
+                raw_encoder.copy_buffer_to_buffer(
+                    staging_buffer.as_ref().unwrap().raw(),
+                    tlas_state.instance_buffer.as_ref(),
+                    &[temp],
+                );
+            }
+        }
+
+        unsafe {
+            raw_encoder.transition_buffers(&instance_buffer_barriers);
+
+            raw_encoder.build_acceleration_structures(&tlas_descriptors);
+
+            raw_encoder.place_acceleration_structure_barrier(hal::AccelerationStructureBarrier {
+                usage: hal::StateTransition {
+                    from: hal::AccelerationStructureUses::BUILD_OUTPUT,
+                    to: hal::AccelerationStructureUses::SHADER_INPUT,
+                },
+            });
+        }
+
+        if let Some(staging_buffer) = staging_buffer {
+            state
+                .temp_resources
+                .push(TempResource::StagingBuffer(staging_buffer));
+        }
+    }
+
+    state
+        .temp_resources
+        .push(TempResource::ScratchBuffer(scratch_buffer));
+
+    state.as_actions.push(AsAction::Build(build_command));
+
+    Ok(())
+}
+
+impl CommandBufferMutable {
+    pub(crate) fn validate_acceleration_structure_actions(
+        &self,
+        snatch_guard: &SnatchGuard,
+        command_index_guard: &mut RwLockWriteGuard<CommandIndices>,
+    ) -> Result<(), ValidateAsActionsError> {
+        profiling::scope!("CommandEncoder::[submission]::validate_as_actions");
+        for action in &self.as_actions {
+            match action {
+                AsAction::Build(build) => {
+                    let build_command_index = NonZeroU64::new(
+                        command_index_guard.next_acceleration_structure_build_command_index,
+                    )
+                    .unwrap();
+
+                    command_index_guard.next_acceleration_structure_build_command_index += 1;
+                    for blas in build.blas_s_built.iter() {
+                        let mut state_lock = blas.compacted_state.lock();
+                        *state_lock = match *state_lock {
+                            BlasCompactState::Compacted => {
+                                unreachable!("Should be validated out in build.")
+                            }
+                            // Reset the compacted state to idle. This means any prepares, before mapping their
+                            // internal buffer, will terminate.
+                            _ => BlasCompactState::Idle,
+                        };
+                        *blas.built_index.write() = Some(build_command_index);
+                    }
+
+                    for tlas_build in build.tlas_s_built.iter() {
+                        for blas in &tlas_build.dependencies {
+                            if blas.built_index.read().is_none() {
+                                return Err(ValidateAsActionsError::UsedUnbuiltBlas(
+                                    blas.error_ident(),
+                                    tlas_build.tlas.error_ident(),
+                                ));
+                            }
+                        }
+                        *tlas_build.tlas.built_index.write() = Some(build_command_index);
+                        tlas_build
+                            .tlas
+                            .dependencies
+                            .write()
+                            .clone_from(&tlas_build.dependencies)
+                    }
+                }
+                AsAction::UseTlas(tlas) => {
+                    let tlas_build_index = tlas.built_index.read();
+                    let dependencies = tlas.dependencies.read();
+
+                    if (*tlas_build_index).is_none() {
+                        return Err(ValidateAsActionsError::UsedUnbuiltTlas(tlas.error_ident()));
+                    }
+                    for blas in dependencies.deref() {
+                        let blas_build_index = *blas.built_index.read();
+                        if blas_build_index.is_none() {
+                            return Err(ValidateAsActionsError::UsedUnbuiltBlas(
+                                tlas.error_ident(),
+                                blas.error_ident(),
+                            ));
+                        }
+                        if blas_build_index.unwrap() > tlas_build_index.unwrap() {
+                            return Err(ValidateAsActionsError::BlasNewerThenTlas(
+                                blas.error_ident(),
+                                tlas.error_ident(),
+                            ));
+                        }
+                        blas.try_raw(snatch_guard)?;
+                    }
+                }
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn set_acceleration_structure_dependencies(&self, snatch_guard: &SnatchGuard) {
+        profiling::scope!("CommandEncoder::[submission]::set_acceleration_structure_dependencies");
+        let mut dependencies = Vec::new();
+        for action in &self.as_actions {
+            match action {
+                AsAction::Build(build) => {
+                    dependencies.extend(build.blas_s_built.iter().map(Arc::clone));
+                }
+                AsAction::UseTlas(tlas) => {
+                    dependencies.extend(tlas.dependencies.read().iter().map(Arc::clone));
+                }
+            }
+        }
+
+        let raw_dependencies = dependencies
+            .iter()
+            .flat_map(|blas| blas.raw(snatch_guard))
+            .collect::<Vec<_>>();
+
+        if !dependencies.is_empty() {
+            unsafe {
+                self.encoder
+                    .raw
+                    .set_acceleration_structure_dependencies(&self.encoder.list, &raw_dependencies);
+            }
+        }
+    }
+}
+
+///iterates over the blas iterator, and it's geometry, pushing the buffers into a storage vector (and also some validation).
+fn iter_blas<'snatch_guard: 'buffers, 'buffers>(
+    blas_iter: impl Iterator<Item = &'buffers OwnedBlasBuildEntry<ArcReferences>>,
+    build_command: &mut AsBuild,
+    input_barriers: &mut Vec<hal::BufferBarrier<'buffers, dyn hal::DynBuffer>>,
+    scratch_buffer_blas_size: &mut u64,
+    blas_storage: &mut Vec<BlasStore<'buffers>>,
+    state: &mut EncodingState<'snatch_guard, '_>,
+) -> Result<(), BuildAccelerationStructureError> {
+    for entry in blas_iter {
+        let blas = &entry.blas;
+        state.tracker.blas_s.insert_single(blas.clone());
+
+        build_command.blas_s_built.push(blas.clone());
+
+        match &entry.geometries {
+            ArcBlasGeometries::TriangleGeometries(triangle_geometries) => {
+                let mut triangle_entries =
+                    Vec::<hal::AccelerationStructureTriangles<dyn hal::DynBuffer>>::new();
+
+                for (i, mesh) in triangle_geometries.iter().enumerate() {
+                    let size_desc = match &blas.sizes {
+                        wgt::BlasGeometrySizeDescriptors::Triangles { descriptors } => descriptors,
+                        _ => {
+                            return Err(BuildAccelerationStructureError::BlasGeometryKindMismatch(
+                                blas.error_ident(),
+                            ));
+                        }
+                    };
+                    if i >= size_desc.len() {
+                        return Err(BuildAccelerationStructureError::IncompatibleBlasBuildSizes(
+                            blas.error_ident(),
+                        ));
+                    }
+                    let size_desc = &size_desc[i];
+
+                    if size_desc.flags != mesh.size.flags {
+                        return Err(BuildAccelerationStructureError::IncompatibleBlasFlags(
+                            blas.error_ident(),
+                            size_desc.flags,
+                            mesh.size.flags,
+                        ));
+                    }
+
+                    if size_desc.vertex_count < mesh.size.vertex_count {
+                        return Err(
+                            BuildAccelerationStructureError::IncompatibleBlasVertexCount(
+                                blas.error_ident(),
+                                size_desc.vertex_count,
+                                mesh.size.vertex_count,
+                            ),
+                        );
+                    }
+
+                    if size_desc.vertex_format != mesh.size.vertex_format {
+                        return Err(BuildAccelerationStructureError::DifferentBlasVertexFormats(
+                            blas.error_ident(),
+                            size_desc.vertex_format,
+                            mesh.size.vertex_format,
+                        ));
+                    }
+
+                    if size_desc
+                        .vertex_format
+                        .min_acceleration_structure_vertex_stride()
+                        > mesh.vertex_stride
+                    {
+                        return Err(BuildAccelerationStructureError::VertexStrideTooSmall(
+                            blas.error_ident(),
+                            size_desc
+                                .vertex_format
+                                .min_acceleration_structure_vertex_stride(),
+                            mesh.vertex_stride,
+                        ));
+                    }
+
+                    if mesh.vertex_stride
+                        % size_desc
+                            .vertex_format
+                            .acceleration_structure_stride_alignment()
+                        != 0
+                    {
+                        return Err(BuildAccelerationStructureError::VertexStrideUnaligned(
+                            blas.error_ident(),
+                            size_desc
+                                .vertex_format
+                                .acceleration_structure_stride_alignment(),
+                            mesh.vertex_stride,
+                        ));
+                    }
+
+                    match (size_desc.index_count, mesh.size.index_count) {
+                        (Some(_), None) | (None, Some(_)) => {
+                            return Err(
+                                BuildAccelerationStructureError::BlasIndexCountProvidedMismatch(
+                                    blas.error_ident(),
+                                ),
+                            )
+                        }
+                        (Some(create), Some(build)) if create < build => {
+                            return Err(
+                                BuildAccelerationStructureError::IncompatibleBlasIndexCount(
+                                    blas.error_ident(),
+                                    create,
+                                    build,
+                                ),
+                            )
+                        }
+                        _ => {}
+                    }
+
+                    if size_desc.index_format != mesh.size.index_format {
+                        return Err(BuildAccelerationStructureError::DifferentBlasIndexFormats(
+                            blas.error_ident(),
+                            size_desc.index_format,
+                            mesh.size.index_format,
+                        ));
+                    }
+
+                    if size_desc.index_count.is_some() && mesh.index_buffer.is_none() {
+                        return Err(BuildAccelerationStructureError::MissingIndexBuffer(
+                            blas.error_ident(),
+                        ));
+                    }
+                    let vertex_buffer = mesh.vertex_buffer.clone();
+                    let vertex_pending = state.tracker.buffers.set_single(
+                        &vertex_buffer,
+                        BufferUses::BOTTOM_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                    );
+                    let vertex_buffer = {
+                        let vertex_raw = mesh.vertex_buffer.as_ref().try_raw(state.snatch_guard)?;
+                        let vertex_buffer = &mesh.vertex_buffer;
+                        vertex_buffer.check_usage(BufferUsages::BLAS_INPUT)?;
+
+                        if let Some(barrier) = vertex_pending.map(|pending| {
+                            pending.into_hal(vertex_buffer.as_ref(), state.snatch_guard)
+                        }) {
+                            input_barriers.push(barrier);
+                        }
+                        if u64::from(mesh.size.vertex_count)
+                            .checked_add(u64::from(mesh.first_vertex))
+                            .and_then(|end_vertex| end_vertex.checked_mul(mesh.vertex_stride))
+                            .is_none_or(|end| vertex_buffer.size < end)
+                        {
+                            return Err(BuildAccelerationStructureError::InsufficientBufferSize {
+                                buffer_ident: vertex_buffer.error_ident(),
+                                offset: u64::from(mesh.first_vertex)
+                                    .saturating_mul(mesh.vertex_stride),
+                                region_size: u64::from(mesh.size.vertex_count)
+                                    .saturating_mul(mesh.vertex_stride),
+                                buffer_size: vertex_buffer.size,
+                            });
+                        }
+                        let vertex_buffer_offset = mesh.first_vertex as u64 * mesh.vertex_stride;
+                        state.buffer_memory_init_actions.extend(
+                            vertex_buffer.initialization_status.read().create_action(
+                                vertex_buffer,
+                                vertex_buffer_offset
+                                    ..(vertex_buffer_offset
+                                        + mesh.size.vertex_count as u64 * mesh.vertex_stride),
+                                MemoryInitKind::NeedsInitializedMemory,
+                            ),
+                        );
+                        vertex_raw
+                    };
+                    let index_buffer = if let Some(ref index_buffer) = mesh.index_buffer {
+                        if mesh.first_index.is_none()
+                            || mesh.size.index_count.is_none()
+                            || mesh.size.index_count.is_none()
+                        {
+                            return Err(BuildAccelerationStructureError::MissingAssociatedData(
+                                index_buffer.error_ident(),
+                            ));
+                        }
+                        let index_pending = state.tracker.buffers.set_single(
+                            index_buffer,
+                            BufferUses::BOTTOM_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                        );
+                        let index_raw = index_buffer.try_raw(state.snatch_guard)?;
+                        index_buffer.check_usage(BufferUsages::BLAS_INPUT)?;
+
+                        if let Some(barrier) = index_pending.map(|pending| {
+                            pending.into_hal(index_buffer.as_ref(), state.snatch_guard)
+                        }) {
+                            input_barriers.push(barrier);
+                        }
+                        let index_stride = mesh.size.index_format.unwrap().byte_size();
+                        // `hal::AccelerationStructureTriangleIndices` accepts only `u32` offset
+                        let Some(vertex_offset) =
+                            mesh.first_index.unwrap().checked_mul(index_stride)
+                        else {
+                            return Err(BuildAccelerationStructureError::OffsetLimitedTo4GB {
+                                buffer_ident: index_buffer.error_ident(),
+                                offset: u64::from(mesh.first_index.unwrap())
+                                    .saturating_mul(u64::from(index_stride)),
+                                count: u64::from(mesh.first_index.unwrap()),
+                                stride: u64::from(index_stride),
+                            });
+                        };
+                        let Some(indexes_size) =
+                            mesh.size.index_count.unwrap().checked_mul(index_stride)
+                        else {
+                            return Err(BuildAccelerationStructureError::OffsetLimitedTo4GB {
+                                buffer_ident: index_buffer.error_ident(),
+                                offset: u64::from(mesh.size.index_count.unwrap())
+                                    .saturating_mul(u64::from(index_stride)),
+                                count: u64::from(mesh.size.index_count.unwrap()),
+                                stride: u64::from(index_stride),
+                            });
+                        };
+
+                        if mesh.size.index_count.unwrap() % 3 != 0 {
+                            return Err(BuildAccelerationStructureError::InvalidIndexCount(
+                                index_buffer.error_ident(),
+                                mesh.size.index_count.unwrap(),
+                            ));
+                        }
+                        if index_buffer.size < u64::from(vertex_offset)
+                            || index_buffer.size - u64::from(vertex_offset)
+                                < u64::from(indexes_size)
+                        {
+                            return Err(BuildAccelerationStructureError::InsufficientBufferSize {
+                                buffer_ident: index_buffer.error_ident(),
+                                offset: u64::from(vertex_offset),
+                                region_size: u64::from(indexes_size),
+                                buffer_size: index_buffer.size,
+                            });
+                        }
+
+                        state.buffer_memory_init_actions.extend(
+                            index_buffer.initialization_status.read().create_action(
+                                index_buffer,
+                                u64::from(vertex_offset)
+                                    ..(u64::from(vertex_offset) + u64::from(indexes_size)),
+                                MemoryInitKind::NeedsInitializedMemory,
+                            ),
+                        );
+                        Some((index_raw, vertex_offset))
+                    } else {
+                        None
+                    };
+                    let transform_buffer = if let Some(ref transform_buffer) = mesh.transform_buffer
+                    {
+                        if !blas
+                            .flags
+                            .contains(wgt::AccelerationStructureFlags::USE_TRANSFORM)
+                        {
+                            return Err(BuildAccelerationStructureError::UseTransformMissing(
+                                blas.error_ident(),
+                            ));
+                        }
+                        if mesh.transform_buffer_offset.is_none() {
+                            return Err(BuildAccelerationStructureError::MissingAssociatedData(
+                                transform_buffer.error_ident(),
+                            ));
+                        }
+                        let transform_pending = state.tracker.buffers.set_single(
+                            transform_buffer,
+                            BufferUses::BOTTOM_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                        );
+                        if mesh.transform_buffer_offset.is_none() {
+                            return Err(BuildAccelerationStructureError::MissingAssociatedData(
+                                transform_buffer.error_ident(),
+                            ));
+                        }
+                        let transform_raw = transform_buffer.try_raw(state.snatch_guard)?;
+                        transform_buffer.check_usage(BufferUsages::BLAS_INPUT)?;
+
+                        if let Some(barrier) = transform_pending.map(|pending| {
+                            pending.into_hal(transform_buffer.as_ref(), state.snatch_guard)
+                        }) {
+                            input_barriers.push(barrier);
+                        }
+
+                        // `hal::AccelerationStructureTriangleTransform` accepts only `u32` offset
+                        let Ok(offset) = u32::try_from(mesh.transform_buffer_offset.unwrap())
+                        else {
+                            return Err(BuildAccelerationStructureError::OffsetLimitedTo4GB {
+                                buffer_ident: transform_buffer.error_ident(),
+                                offset: mesh.transform_buffer_offset.unwrap(),
+                                count: mesh.transform_buffer_offset.unwrap(),
+                                stride: 1,
+                            });
+                        };
+
+                        if offset % wgt::TRANSFORM_BUFFER_ALIGNMENT as u32 != 0 {
+                            return Err(
+                                BuildAccelerationStructureError::UnalignedTransformBufferOffset(
+                                    transform_buffer.error_ident(),
+                                ),
+                            );
+                        }
+                        if transform_buffer.size < 48
+                            || transform_buffer.size - 48 < u64::from(offset)
+                        {
+                            return Err(BuildAccelerationStructureError::InsufficientBufferSize {
+                                buffer_ident: transform_buffer.error_ident(),
+                                region_size: 48,
+                                offset: u64::from(offset),
+                                buffer_size: transform_buffer.size,
+                            });
+                        }
+                        state.buffer_memory_init_actions.extend(
+                            transform_buffer.initialization_status.read().create_action(
+                                transform_buffer,
+                                u64::from(offset)..(u64::from(offset) + 48),
+                                MemoryInitKind::NeedsInitializedMemory,
+                            ),
+                        );
+                        Some((transform_raw, offset))
+                    } else {
+                        if blas
+                            .flags
+                            .contains(wgt::AccelerationStructureFlags::USE_TRANSFORM)
+                        {
+                            return Err(BuildAccelerationStructureError::TransformMissing(
+                                blas.error_ident(),
+                            ));
+                        }
+                        None
+                    };
+
+                    let triangles = hal::AccelerationStructureTriangles {
+                        vertex_buffer: Some(vertex_buffer),
+                        vertex_format: mesh.size.vertex_format,
+                        first_vertex: mesh.first_vertex,
+                        vertex_count: mesh.size.vertex_count,
+                        vertex_stride: mesh.vertex_stride,
+                        indices: index_buffer.map(|(index_raw, vertex_offset)| {
+                            hal::AccelerationStructureTriangleIndices::<dyn hal::DynBuffer> {
+                                format: mesh.size.index_format.unwrap(),
+                                buffer: Some(index_raw),
+                                offset: vertex_offset,
+                                count: mesh.size.index_count.unwrap(),
+                            }
+                        }),
+                        transform: transform_buffer.map(|(transform_raw, offset)| {
+                            hal::AccelerationStructureTriangleTransform {
+                                buffer: transform_raw,
+                                offset,
+                            }
+                        }),
+                        flags: mesh.size.flags,
+                    };
+                    triangle_entries.push(triangles);
+                }
+
+                {
+                    let scratch_buffer_offset = *scratch_buffer_blas_size;
+                    *scratch_buffer_blas_size = scratch_buffer_blas_size.saturating_add(align_to(
+                        blas.size_info.build_scratch_size,
+                        u64::from(state.device.alignments.ray_tracing_scratch_buffer_alignment),
+                    ));
+
+                    blas_storage.push(BlasStore {
+                        blas: blas.clone(),
+                        entries: hal::AccelerationStructureEntries::Triangles(triangle_entries),
+                        scratch_buffer_offset,
+                    });
+                }
+            }
+            ArcBlasGeometries::AabbGeometries(aabb_geometries) => {
+                let mut aabb_entries =
+                    Vec::<hal::AccelerationStructureAABBs<dyn hal::DynBuffer>>::new();
+
+                for (i, aabb) in aabb_geometries.iter().enumerate() {
+                    let size_desc = match &blas.sizes {
+                        wgt::BlasGeometrySizeDescriptors::AABBs { descriptors } => descriptors,
+                        _ => {
+                            return Err(BuildAccelerationStructureError::BlasGeometryKindMismatch(
+                                blas.error_ident(),
+                            ));
+                        }
+                    };
+                    if i >= size_desc.len() {
+                        return Err(BuildAccelerationStructureError::IncompatibleBlasBuildSizes(
+                            blas.error_ident(),
+                        ));
+                    }
+                    let size_desc = &size_desc[i];
+
+                    if size_desc.flags != aabb.size.flags {
+                        return Err(BuildAccelerationStructureError::IncompatibleBlasFlags(
+                            blas.error_ident(),
+                            size_desc.flags,
+                            aabb.size.flags,
+                        ));
+                    }
+
+                    if size_desc.primitive_count < aabb.size.primitive_count {
+                        return Err(
+                            BuildAccelerationStructureError::IncompatibleBlasAabbPrimitiveCount(
+                                blas.error_ident(),
+                                size_desc.primitive_count,
+                                aabb.size.primitive_count,
+                            ),
+                        );
+                    }
+
+                    if aabb.primitive_offset % 8 != 0 {
+                        return Err(
+                            BuildAccelerationStructureError::UnalignedAabbPrimitiveOffset(
+                                blas.error_ident(),
+                            ),
+                        );
+                    }
+
+                    if aabb.stride < wgt::AABB_GEOMETRY_MIN_STRIDE || aabb.stride % 8 != 0 {
+                        return Err(BuildAccelerationStructureError::InvalidAabbStride(
+                            blas.error_ident(),
+                            aabb.stride,
+                        ));
+                    }
+
+                    let aabb_buffer = aabb.aabb_buffer.clone();
+                    let aabb_pending = state.tracker.buffers.set_single(
+                        &aabb_buffer,
+                        BufferUses::BOTTOM_LEVEL_ACCELERATION_STRUCTURE_INPUT,
+                    );
+                    let aabb_raw = {
+                        let aabb_raw = aabb.aabb_buffer.as_ref().try_raw(state.snatch_guard)?;
+                        let aabb_buffer = &aabb.aabb_buffer;
+                        aabb_buffer.check_usage(BufferUsages::BLAS_INPUT)?;
+
+                        if let Some(barrier) = aabb_pending.map(|pending| {
+                            pending.into_hal(aabb_buffer.as_ref(), state.snatch_guard)
+                        }) {
+                            input_barriers.push(barrier);
+                        }
+
+                        // `hal::AccelerationStructureAABBs` accepts only `u32` offset
+                        let Some(aabb_size) = u32::try_from(aabb.stride)
+                            .ok()
+                            .and_then(|stride| aabb.size.primitive_count.checked_mul(stride))
+                        else {
+                            return Err(BuildAccelerationStructureError::OffsetLimitedTo4GB {
+                                buffer_ident: aabb_buffer.error_ident(),
+                                offset: u64::from(aabb.size.primitive_count)
+                                    .saturating_mul(aabb.stride),
+                                count: u64::from(aabb.size.primitive_count),
+                                stride: aabb.stride,
+                            });
+                        };
+
+                        if aabb_buffer.size < u64::from(aabb.primitive_offset)
+                            || aabb_buffer.size - u64::from(aabb.primitive_offset)
+                                < u64::from(aabb_size)
+                        {
+                            return Err(BuildAccelerationStructureError::InsufficientBufferSize {
+                                buffer_ident: aabb_buffer.error_ident(),
+                                region_size: u64::from(aabb_size),
+                                offset: u64::from(aabb.primitive_offset),
+                                buffer_size: aabb_buffer.size,
+                            });
+                        }
+
+                        state.buffer_memory_init_actions.extend(
+                            aabb_buffer.initialization_status.read().create_action(
+                                aabb_buffer,
+                                u64::from(aabb.primitive_offset)
+                                    ..u64::from(aabb.primitive_offset) + u64::from(aabb_size),
+                                MemoryInitKind::NeedsInitializedMemory,
+                            ),
+                        );
+                        aabb_raw
+                    };
+
+                    aabb_entries.push(hal::AccelerationStructureAABBs {
+                        buffer: Some(aabb_raw),
+                        offset: aabb.primitive_offset,
+                        count: aabb.size.primitive_count,
+                        stride: aabb.stride,
+                        flags: aabb.size.flags,
+                    });
+                }
+
+                {
+                    let scratch_buffer_offset = *scratch_buffer_blas_size;
+                    *scratch_buffer_blas_size = scratch_buffer_blas_size.saturating_add(align_to(
+                        blas.size_info.build_scratch_size,
+                        u64::from(state.device.alignments.ray_tracing_scratch_buffer_alignment),
+                    ));
+
+                    blas_storage.push(BlasStore {
+                        blas: blas.clone(),
+                        entries: hal::AccelerationStructureEntries::AABBs(aabb_entries),
+                        scratch_buffer_offset,
+                    });
+                }
+            }
+        }
+    }
+    Ok(())
+}
+
+fn map_blas<'a>(
+    storage: &'a BlasStore<'_>,
+    scratch_buffer: &'a dyn hal::DynBuffer,
+    snatch_guard: &'a SnatchGuard,
+    blases_compactable: &mut Vec<(
+        &'a dyn hal::DynBuffer,
+        &'a dyn hal::DynAccelerationStructure,
+    )>,
+) -> Result<
+    hal::BuildAccelerationStructureDescriptor<
+        'a,
+        dyn hal::DynBuffer,
+        dyn hal::DynAccelerationStructure,
+    >,
+    BuildAccelerationStructureError,
+> {
+    let BlasStore {
+        blas,
+        entries,
+        scratch_buffer_offset,
+    } = storage;
+    if blas.update_mode == wgt::AccelerationStructureUpdateMode::PreferUpdate {
+        log::debug!("only rebuild implemented")
+    }
+    let raw = blas.try_raw(snatch_guard)?;
+
+    let state_lock = blas.compacted_state.lock();
+    if let BlasCompactState::Compacted = *state_lock {
+        return Err(BuildAccelerationStructureError::CompactedBlas(
+            blas.error_ident(),
+        ));
+    }
+
+    if blas
+        .flags
+        .contains(wgpu_types::AccelerationStructureFlags::ALLOW_COMPACTION)
+    {
+        blases_compactable.push((blas.compaction_buffer.as_ref().unwrap().as_ref(), raw));
+    }
+    Ok(hal::BuildAccelerationStructureDescriptor {
+        entries,
+        mode: hal::AccelerationStructureBuildMode::Build,
+        flags: blas.flags,
+        source_acceleration_structure: None,
+        destination_acceleration_structure: raw,
+        scratch_buffer,
+        scratch_buffer_offset: *scratch_buffer_offset,
+    })
+}
+
+fn build_blas<'a>(
+    cmd_buf_raw: &mut dyn hal::DynCommandEncoder,
+    blas_present: bool,
+    tlas_present: bool,
+    input_barriers: Vec<hal::BufferBarrier<dyn hal::DynBuffer>>,
+    blas_descriptors: &[hal::BuildAccelerationStructureDescriptor<
+        'a,
+        dyn hal::DynBuffer,
+        dyn hal::DynAccelerationStructure,
+    >],
+    scratch_buffer_barrier: hal::BufferBarrier<dyn hal::DynBuffer>,
+    blas_s_for_compaction: Vec<(
+        &'a dyn hal::DynBuffer,
+        &'a dyn hal::DynAccelerationStructure,
+    )>,
+) {
+    unsafe {
+        cmd_buf_raw.transition_buffers(&input_barriers);
+    }
+
+    if blas_present {
+        unsafe {
+            cmd_buf_raw.place_acceleration_structure_barrier(hal::AccelerationStructureBarrier {
+                usage: hal::StateTransition {
+                    from: hal::AccelerationStructureUses::BUILD_INPUT,
+                    to: hal::AccelerationStructureUses::BUILD_OUTPUT,
+                },
+            });
+
+            cmd_buf_raw.build_acceleration_structures(blas_descriptors);
+        }
+    }
+
+    if blas_present && tlas_present {
+        unsafe {
+            cmd_buf_raw.transition_buffers(&[scratch_buffer_barrier]);
+        }
+    }
+
+    let mut source_usage = hal::AccelerationStructureUses::empty();
+    let mut destination_usage = hal::AccelerationStructureUses::empty();
+    for &(buf, blas) in blas_s_for_compaction.iter() {
+        unsafe {
+            cmd_buf_raw.transition_buffers(&[hal::BufferBarrier {
+                buffer: buf,
+                usage: hal::StateTransition {
+                    from: BufferUses::ACCELERATION_STRUCTURE_QUERY,
+                    to: BufferUses::ACCELERATION_STRUCTURE_QUERY,
+                },
+            }])
+        }
+        unsafe { cmd_buf_raw.read_acceleration_structure_compact_size(blas, buf) }
+        destination_usage |= hal::AccelerationStructureUses::COPY_SRC;
+    }
+
+    if blas_present {
+        source_usage |= hal::AccelerationStructureUses::BUILD_OUTPUT;
+        destination_usage |= hal::AccelerationStructureUses::BUILD_INPUT
+    }
+    if tlas_present {
+        source_usage |= hal::AccelerationStructureUses::SHADER_INPUT;
+        destination_usage |= hal::AccelerationStructureUses::BUILD_OUTPUT;
+    }
+    unsafe {
+        cmd_buf_raw.place_acceleration_structure_barrier(hal::AccelerationStructureBarrier {
+            usage: hal::StateTransition {
+                from: source_usage,
+                to: destination_usage,
+            },
+        });
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<link rel="author" title="Xidorn Quan" href="https://www.upsuper.org">
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+<div id="log"></div>
+<div id="display"></div>
+<script>
+// Serialization of font-family names,
+// see https://github.com/w3c/csswg-drafts/issues/5846:
+//   - Quote if it matches an existing keyword (already required per spec).
+//   - Quote if it cannot be serialized as a keyword without escapes, e.g.:
+//     - contains non-alphanumeric ASCII;
+//     - contains a word that begins with a number.
+//   - Otherwise serialize as space-separated idents.
+
+// format: [input, expected serialization]
+const tests = [
+  // Basic cases
+  ['simple', 'simple'],
+  ['    simple    ', 'simple'],
+  ['multi idents font', 'multi idents font'],
+  ['    multi   idents   font    ', 'multi idents font'],
+  ['"wrapped name"', 'wrapped name'],
+  ['"   wrapped  name   "', '"   wrapped  name   "'],
+
+  // Special whitespaces
+  ['\\ leading ws', '" leading ws"'],
+  [' \\   leading ws', '"  leading ws"'],
+  ['\\ \\ leading ws', '"  leading ws"'],
+  [' \\ \\   leading ws', '"   leading ws"'],
+  ['\\ \\ \\ leading ws', '"   leading ws"'],
+  ['trailing ws\\ ', '"trailing ws "'],
+  ['trailing ws\\   ', '"trailing ws "'],
+  ['trailing ws   \\ ', '"trailing ws  "'],
+  ['trailing ws\\ \\ ', '"trailing ws  "'],
+  ['escaped\\ ws', 'escaped ws'],
+  ['escaped\\    ws', '"escaped  ws"'],
+  ['escaped\\ \\ ws', '"escaped  ws"'],
+  ['escaped   \\ ws', '"escaped  ws"'],
+  ['escaped \\  ws', '"escaped   ws"'],
+  ['escaped number\\ 5', '"escaped number 5"'],
+];
+
+let el = document.getElementById("display");
+for (let [input, expected] of tests) {
+  test(function() {
+    el.style.fontFamily = input;
+    assert_equals(el.style.fontFamily, expected);
+  }, "Reserialization for " + JSON.stringify(input));
+}
+</script>

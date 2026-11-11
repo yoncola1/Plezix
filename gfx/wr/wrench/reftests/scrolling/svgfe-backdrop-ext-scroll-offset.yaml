@@ -1,0 +1,37 @@
+# Tests that an SVGFE *backdrop* filter subregion is normalized by the external
+# scroll offset exactly like the item geometry it applies to, so that subregion
+# and geometry live in one space. The backdrop filter's picture composites in
+# backdrop-root space rather than the scrolling node's, but that is a difference
+# of spatial node, which frame building maps through the spatial tree
+# (SurfaceInfo::svgfe_source_map) - it is not a reason to author the two in
+# different spaces. The green flood subregion is therefore authored at the same
+# y as the backdrop-filter item (50), not pre-offset by the 50px external scroll
+# offset; both are normalized identically and the flood exactly covers the red
+# backdrop. Originally written for bug 2046779, which compensated for the
+# mismatch by skipping normalization; bug 1975275 showed that cannot be made
+# correct - a scaling reference frame between the element and the backdrop root
+# (e.g. pdf.js scaling its text spans) needs a full mapping, not a translation.
+root:
+  items:
+    - type: scroll-frame
+      bounds: [0, 0, 100, 100]
+      content-size: [100, 1000]
+      scroll-offset: [0, 0]
+      external-scroll-offset: [0, 50]
+      items:
+        - type: rect
+          color: red
+          bounds: [0, 50, 100, 100]
+        - type: backdrop-filter
+          bounds: [0, 50, 100, 100]
+          filters:
+            - svgfe: SourceGraphic
+            - svgfe: flood
+              linear: false
+              color: green
+              subregion: [0, 50, 100, 100]
+            - svgfe: compositeover
+              linear: false
+              subregion: [0, 0, 100, 1000]
+              in: 1
+              in2: 0

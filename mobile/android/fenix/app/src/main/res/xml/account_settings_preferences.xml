@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/preferences_category_account"
+        android:layout="@layout/preference_category_no_icon_style">
+
+        <org.mozilla.fenix.settings.account.AccountPreference
+            android:icon="@drawable/mozac_ic_avatar_circle_24"
+            android:key="@string/pref_key_account"
+            android:selectable="false" />
+
+        <Preference
+            android:key="@string/pref_key_sync_manage_account"
+            android:title="@string/preferences_manage_account"
+            app:iconSpaceReserved="false"
+            app:widgetLayout="@layout/preference_widget_external_link" />
+
+        <Preference
+            android:key="@string/pref_key_sign_out"
+            android:title="@string/preferences_sign_out"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_padding_top_no_icon_style"
+        android:title="@string/preferences_category_sync_controls">
+
+      <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_key_sync_enable_sync"
+        android:title="@string/preferences_enable_sync_title"
+        app:iconSpaceReserved="false" />
+
+      <Preference
+        android:key="@string/pref_key_sync_now"
+        android:title="@string/preferences_sync_now"
+        app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="@string/preferences_sync_category"
+        android:layout="@layout/preference_category_with_summary_no_icon_style"
+        android:summary="@string/preferences_sync_category_summary"
+        android:title="@string/preferences_category_sync">
+
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_bookmarks"
+            android:title="@string/preferences_sync_bookmarks"
+            app:icon="@drawable/mozac_ic_save_24" />
+
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_history"
+            android:title="@string/preferences_sync_history"
+            app:icon="@drawable/mozac_ic_history_24" />
+
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_logins"
+            android:title="@string/preferences_sync_logins_2"
+            app:icon="@drawable/mozac_ic_login_24" />
+
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_tabs"
+            android:title="@string/preferences_sync_tabs_2"
+            app:icon="@drawable/mozac_ic_tab_tray_24" />
+
+        <!-- The default visibility is 'false' because we don't display this on most channels. -->
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_address"
+            android:title="@string/preferences_sync_address"
+            android:visible="false"
+            app:icon="@drawable/mozac_ic_location_24" />
+
+        <org.mozilla.fenix.settings.account.AccountSettingsSwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_sync_credit_cards"
+            android:title="@string/preferences_sync_credit_cards_2"
+            app:icon="@drawable/mozac_ic_credit_card_24" />
+    </PreferenceCategory>
+
+  <PreferenceCategory
+    android:key="@string/preferences_device_name_category"
+    android:title="@string/preferences_device_name_category"
+    android:layout="@layout/preference_category_no_icon_style">
+
+    <EditTextPreference
+      android:key="@string/pref_key_sync_device_name"
+      android:title="@string/preferences_sync_change_device_name"
+      app:iconSpaceReserved="false" />
+
+  </PreferenceCategory>
+</PreferenceScreen>

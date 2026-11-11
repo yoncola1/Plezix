@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <module name="TreeWalker">
+        <module name="FinalParameters">
+          <property name="tokens" value="METHOD_DEF, CTOR_DEF, LITERAL_CATCH, FOR_EACH_CLAUSE"/>
+        </module>
+        <module name="FinalLocalVariableCheck">
+          <property name="tokens" value="VARIABLE_DEF"/>
+        </module>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="OneStatementPerLine"/>
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+        <module name="JavadocMethod">
+          <property name="id" value="checkstyle:javadocmethod"/>
+          <property name="accessModifiers" value="public"/>
+          <property name="allowMissingReturnTag" value="true"/>
+        </module>
+
+        <module name="MemberName">
+            <!-- Private members must use mHungarianNotation -->
+            <property name="format" value="m[A-Z][A-Za-z]*$"/>
+            <property name="applyToPublic" value="false" />
+            <property name="applyToPackage" value="false" />
+            <property name="applyToProtected" value="false" />
+        </module>
+
+        <module name="ClassTypeParameterName">
+            <property name="format" value="^[A-Z][A-Za-z]*$"/>
+        </module>
+        <module name="InterfaceTypeParameterName">
+            <property name="format" value="^[A-Z][A-Za-z]*$"/>
+        </module>
+        <module name="LocalVariableName"/>
+
+        <module name="OuterTypeFilename"/>
+        <module name="WhitespaceAfter">
+            <property name="tokens" value="COMMA, SEMI"/>
+        </module>
+        <module name="OneTopLevelClass"/>
+    </module>
+</module>

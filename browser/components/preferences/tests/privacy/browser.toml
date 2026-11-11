@@ -1,0 +1,61 @@
+[DEFAULT]
+prefs = [
+  # Push BackupService idle observer past test runtime; otherwise
+  # takeMeasurements -> PathUtils.join throws on empty
+  # DEFAULT_PARENT_DIR_PATH in headless test environments, surfacing
+  # an unhandled rejection in whatever test happens to be running.
+  "browser.backup.scheduled.idle-threshold-seconds=86400",
+]
+support-files = [
+  "head.js",
+  "privacypane_tests_perwindow.js",
+]
+
+tags = "os_integration"
+
+["browser_container_select.js"]
+
+["browser_containers_dialog_size.js"]
+
+["browser_containers_name_input.js"]
+
+["browser_containers_reorder.js"]
+
+["browser_containers_site_associations.js"]
+
+["browser_containers_telemetry.js"]
+
+["browser_privacy_dnsoverhttps.js"]
+
+["browser_privacy_dnsoverhttps_policy.js"]
+
+["browser_privacy_gpc.js"]
+
+["browser_privacy_history_search_l10n_ids.js"]
+
+["browser_privacy_ipprotection.js"]
+
+["browser_privacy_ipprotection_siterules.js"]
+
+["browser_privacy_passwordGenerationAndAutofill.js"]
+
+["browser_privacy_relayIntegration.js"]
+
+["browser_privacy_status_card.js"]
+
+["browser_privacy_syncDataClearing_v2.js"]
+
+["browser_privacy_uploadEnabled.js"]
+
+["browser_privacypane_2.js"]
+
+["browser_privacypane_3.js"]
+skip-if = [
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11' && opt && a11y_checks",
+]
+
+["browser_sanitizeOnShutdown_prefLocked.js"]
+
+["browser_shutdownClearingExceptions.js"]
+
+["browser_warning_permanent_private_browsing.js"]

@@ -1,0 +1,70 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Adding a new metric? We have docs for that!
+# https://firefox-source-docs.mozilla.org/toolkit/components/glean/user/new_definitions_file.html
+
+---
+$schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
+$tags:
+  - 'Core :: Audio/Video'
+
+hls:
+  canplay_requested:
+    type: counter
+    description: >
+      Record when a page requests canPlayType for a HLS media type.
+    metadata:
+      tags:
+        - 'Core :: Audio/Video: Playback'
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - media-alerts@mozilla.com
+    expires: 168
+
+  canplay_supported:
+    type: counter
+    description: >
+      Record when a canPlayType request supports HLS.
+    metadata:
+      tags:
+        - 'Core :: Audio/Video: Playback'
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - media-alerts@mozilla.com
+    expires: 168
+
+  media_load:
+    type: event
+    description: >
+      Record the information about the HLS playback on Android using ExoPlayer.
+      The value of this event contains the media format.
+    metadata:
+      tags:
+        - 'Core :: Audio/Video: Playback'
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2082232
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - media-alerts@mozilla.com
+    extra_keys:
+      media_content_type:
+        description: >
+          The content type of the media, could be 'video/mp2t' (for MPEG-TS),
+          'video/mp4', 'audio/aac', 'audio/mpeg', ...
+        type: string
+    expires: 168

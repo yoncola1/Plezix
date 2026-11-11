@@ -1,0 +1,7 @@
+[DEFAULT]
+support-files = ["referrer_page.sjs"]
+
+["browser_referrer_disallow_cross_site_relaxing.js"]
+
+["browser_session_history.js"]
+support-files = ["file_session_history.sjs"]

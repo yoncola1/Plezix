@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        gradle.configureMavenRepositories(delegate)
+    }
+
+    dependencies {
+        classpath libs.mozilla.glean.gradle.plugin
+        classpath libs.osslicenses.plugin
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id "mozac.ConfigPlugin"
+    alias(libs.plugins.dependency.analysis)
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.ksp)
+}
+
+mozilla {
+    ktfmtSourcePaths = ["app/**/*.kt", "buildSrc/**/*.kt", "!**/build/**/*.kt"]
+}
+
+dependencyAnalysis {
+    structure {
+        bundle("leakcanary") {
+            includeGroup("com.squareup.leakcanary")
+        }
+        // Ignore Android KTX dependencies. See https://developer.android.com/kotlin/ktx#modules
+        //ignoreKtx(true)
+    }
+    issues {
+        all {
+            onAny {
+                // Fail the run if any issues are found (default = 'warn')
+                //severity('fail')
+            }
+        }
+    }
+}
+
+// Spotless applies the base plugin, which already registers an equivalent clean.
+if (!tasks.names.contains('clean')) {
+    tasks.register('clean', Delete) {
+        delete rootProject.layout.buildDirectory
+    }
+}
+
+tasks.register("listRepositories") {
+    def reposData = project.provider {
+        project.repositories.collect { repo ->
+            [name: repo.name, url: repo.url.toString()]
+        }
+    }
+    doLast {
+        println "Repositories:"
+        reposData.get().each { println "Name: " + it.name + "; url: " + it.url }
+    }
+}

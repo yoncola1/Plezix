@@ -1,0 +1,713 @@
+// Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
+// http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
+// <LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
+// option. This file may not be copied, modified, or distributed
+// except according to those terms.
+
+#![expect(
+    clippy::unwrap_used,
+    clippy::iter_over_hash_type,
+    reason = "OK in a build script."
+)]
+
+use std::{
+    collections::{HashMap, HashSet},
+    env, fs,
+    path::{Path, PathBuf},
+    process::Command,
+};
+
+use bindgen::{
+    Builder,
+    callbacks::{IntKind, ParseCallbacks},
+};
+use serde_derive::Deserialize;
+
+const BINDINGS_DIR: &str = "bindings";
+const BINDINGS_CONFIG: &str = "bindings.toml";
+
+// The minimum version of NSS that this version of nss-rs requires.
+fn min_nss_version() -> String {
+    let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+    let manifest = fs::read_to_string(Path::new(&manifest_dir).join("Cargo.toml")).unwrap();
+    let manifest: ::toml::Value = ::toml::from_str(&manifest).unwrap();
+    manifest["package"]["metadata"]["nss"]["min-version"]
+        .as_str()
+        .unwrap()
+        .to_owned()
+}
+
+// This is the format of a single section of the configuration file.
+#[derive(Deserialize)]
+struct Bindings {
+    /// types that are explicitly included
+    #[serde(default)]
+    types: Vec<String>,
+    /// functions that are explicitly included
+    #[serde(default)]
+    functions: Vec<String>,
+    /// variables (and `#define`s) that are explicitly included
+    #[serde(default)]
+    variables: Vec<String>,
+    /// types that should be explicitly marked as opaque
+    #[serde(default)]
+    opaque: Vec<String>,
+    /// enumerations that are turned into a module (without this, the enum is
+    /// mapped using the default, which means that the individual values are
+    /// formed with an underscore as <`enum_type`>_<`enum_value_name`>).
+    #[serde(default)]
+    enums: Vec<String>,
+
+    /// Any item that is specifically excluded; if none of the types, functions,
+    /// or variables fields are specified, everything defined will be mapped,
+    /// so this can be used to limit that.
+    #[serde(default)]
+    exclude: Vec<String>,
+
+    /// Whether the file is to be interpreted as C++
+    #[serde(default)]
+    cplusplus: bool,
+}
+
+impl Bindings {
+    fn check_sorted(&self, name: &str) {
+        for (field, values) in [
+            ("types", &self.types),
+            ("functions", &self.functions),
+            ("variables", &self.variables),
+            ("opaque", &self.opaque),
+            ("enums", &self.enums),
+            ("exclude", &self.exclude),
+        ] {
+            if let Some((a, b)) = values
+                .iter()
+                .zip(values.iter().skip(1))
+                .find(|(a, b)| a >= b)
+            {
+                panic!("{name}.{field} is not sorted (or has duplicates): {a:?} >= {b:?}");
+            }
+        }
+    }
+}
+
+// bindgen needs access to libclang.
+// On windows, this doesn't just work, you have to set LIBCLANG_PATH.
+// Rather than download the 400Mb+ files, like gecko does, let's just reuse their work.
+// On macOS, clang-sys prefers the highest-versioned libclang it can find, which may be a
+// Homebrew LLVM that doesn't have the correct macOS SDK include paths, resulting in broken
+// bindings. Force use of Xcode's libclang instead.
+fn setup_clang() {
+    println!("cargo:rerun-if-env-changed=LIBCLANG_PATH");
+    println!("cargo:rerun-if-env-changed=CI");
+    // In CI, the environment is already configured correctly.
+    if env::var("CI").is_ok() {
+        return;
+    }
+    if env::var("LIBCLANG_PATH").is_ok() {
+        return;
+    }
+    if env::consts::OS == "macos" {
+        if let Ok(output) = Command::new("xcode-select").arg("--print-path").output() {
+            if output.status.success() {
+                let xcode_path = String::from_utf8_lossy(&output.stdout).trim().to_string();
+                let candidates = [
+                    PathBuf::from(&xcode_path).join("Toolchains/XcodeDefault.xctoolchain/usr/lib"),
+                    PathBuf::from(&xcode_path).join("usr/lib"),
+                ];
+                if let Some(libclang_dir) = candidates.iter().find(|p| p.is_dir()) {
+                    unsafe {
+                        env::set_var("LIBCLANG_PATH", libclang_dir.to_str().unwrap());
+                    }
+                } else {
+                    println!(
+                        "cargo:warning=Xcode toolchain libclang not found at {}; set LIBCLANG_PATH if build fails",
+                        candidates[0].display()
+                    );
+                }
+            } else {
+                println!(
+                    "cargo:warning=xcode-select returned an error; set LIBCLANG_PATH if build fails"
+                );
+            }
+        } else {
+            println!("cargo:warning=xcode-select not found; set LIBCLANG_PATH if build fails");
+        }
+    } else if env::consts::OS == "windows" {
+        println!("cargo:rerun-if-env-changed=MOZBUILD_STATE_PATH");
+        let mozbuild_root = if let Ok(dir) = env::var("MOZBUILD_STATE_PATH") {
+            PathBuf::from(dir.trim())
+        } else {
+            println!("cargo:warning=Building without a gecko setup is not likely to work.");
+            println!("cargo:warning=A working libclang is needed to build nss-rs.");
+            println!("cargo:warning=Either LIBCLANG_PATH or MOZBUILD_STATE_PATH needs to be set.");
+            println!(
+                "cargo:warning=We recommend checking out https://github.com/mozilla/gecko-dev"
+            );
+            println!("cargo:warning=Then run `./mach bootstrap` which will retrieve clang.");
+            println!("cargo:warning=Make sure to export MOZBUILD_STATE_PATH when building.");
+            return;
+        };
+        let libclang_dir = mozbuild_root.join("clang").join("lib");
+        if libclang_dir.is_dir() {
+            unsafe {
+                env::set_var("LIBCLANG_PATH", libclang_dir.to_str().unwrap());
+            }
+        } else {
+            println!(
+                "cargo:warning=LIBCLANG_PATH isn't set; maybe run ./mach bootstrap with gecko"
+            );
+        }
+    }
+}
+
+fn nss_dir() -> String {
+    let dir = env::var("NSS_DIR").map_or_else(
+        |_| {
+            let out_dir = env::var("OUT_DIR").unwrap();
+            let dir = Path::new(&out_dir).join("nss");
+            if !dir.exists() {
+                Command::new("hg")
+                    .args([
+                        "clone",
+                        "https://hg.mozilla.org/projects/nss",
+                        dir.to_str().unwrap(),
+                    ])
+                    .status()
+                    .expect("can't clone nss");
+            }
+            let nspr_dir = Path::new(&out_dir).join("nspr");
+            if !nspr_dir.exists() {
+                Command::new("hg")
+                    .args([
+                        "clone",
+                        "https://hg.mozilla.org/projects/nspr",
+                        nspr_dir.to_str().unwrap(),
+                    ])
+                    .status()
+                    .expect("can't clone nspr");
+            }
+            dir
+        },
+        |dir| {
+            let path = PathBuf::from(dir.trim());
+            assert!(
+                !path.is_relative(),
+                "The NSS_DIR environment variable is expected to be an absolute path."
+            );
+            path
+        },
+    );
+    assert!(dir.is_dir(), "NSS_DIR {} doesn't exist", dir.display());
+    // Note that this returns a relative path because UNC
+    // paths on windows cause certain tools to explode.
+    dir.to_string_lossy().to_string()
+}
+
+fn get_bash() -> PathBuf {
+    // If BASH is set, use that.
+    if let Ok(bash) = env::var("BASH") {
+        return PathBuf::from(bash);
+    }
+
+    // When running under MOZILLABUILD, we need to make sure not to invoke
+    // another instance of bash that might be sitting around (like WSL).
+    env::var("MOZILLABUILD").map_or_else(
+        |_| PathBuf::from("bash"),
+        |d| PathBuf::from(d).join("msys").join("bin").join("bash.exe"),
+    )
+}
+
+fn build_nss(dir: PathBuf) {
+    let mut build_nss = vec![
+        String::from("./build.sh"),
+        String::from("-Ddisable_tests=1"),
+        String::from("-Ddisable_dbm=1"),
+        String::from("-Ddisable_libpkix=1"),
+        String::from("-Ddisable_ckbi=1"),
+        String::from("-Ddisable_fips=1"),
+        String::from("--opt"),
+        // Generate static libraries in addition to shared libraries.
+        String::from("--static"),
+    ];
+    if env::var("CARGO_CFG_TARGET_ARCH").unwrap() == "aarch64" {
+        build_nss.push(String::from("--target=arm64"));
+    }
+    let status = Command::new(get_bash())
+        .args(build_nss)
+        .current_dir(dir)
+        .status()
+        .expect("couldn't start NSS build");
+    assert!(status.success(), "NSS build failed");
+}
+
+/// A library name without the `lib` prefix or any extension, so that the names we link and
+/// the files on disk can be compared: `nss3` for `nss3`, `libnss3.so.3` and `nss3.dll`.
+fn lib_stem(name: &str) -> &str {
+    let name = name.strip_prefix("lib").unwrap_or(name);
+    name.split_once('.').map_or(name, |(stem, _)| stem)
+}
+
+/// Re-run the build script when any of `libs` found in `dir` changes or goes away.
+///
+/// Naming the library files rather than `dir` keeps Cargo from scanning a shared system
+/// library directory recursively on every freshness check.  Only files that are present are
+/// named, because a path that is already absent makes Cargo treat the script as dirty on
+/// every later build.
+fn rerun_if_libs_changed<S: AsRef<str>>(dir: &Path, libs: &[S]) {
+    let wanted: HashSet<&str> = libs.iter().map(|l| lib_stem(l.as_ref())).collect();
+    let Ok(entries) = fs::read_dir(dir) else {
+        println!(
+            "cargo:warning=can't read {}, so NSS changes there won't trigger a rebuild",
+            dir.display()
+        );
+        return;
+    };
+    for entry in entries.flatten() {
+        let (name, path) = (entry.file_name(), entry.path());
+        let (Some(name), Some(path)) = (name.to_str(), path.to_str()) else {
+            continue;
+        };
+        if !path.contains('\n') && wanted.contains(lib_stem(name)) {
+            println!("cargo:rerun-if-changed={path}");
+        }
+    }
+}
+
+/// Emit the link search path for `dir`, and watch the `libs` found there.
+fn link_search<S: AsRef<str>>(dir: &Path, libs: &[S]) {
+    println!("cargo:rustc-link-search=native={}", dir.display());
+    rerun_if_libs_changed(dir, libs);
+}
+
+fn dynamic_link() -> Vec<&'static str> {
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+    let dynamic_libs = if target_os == "windows" {
+        [
+            "nssutil3.dll",
+            "nss3.dll",
+            "ssl3.dll",
+            "libplds4.dll",
+            "libplc4.dll",
+            "libnspr4.dll",
+        ]
+    } else {
+        ["nssutil3", "nss3", "ssl3", "plds4", "plc4", "nspr4"]
+    };
+    for lib in dynamic_libs {
+        println!("cargo:rustc-link-lib=dylib={lib}");
+    }
+    dynamic_libs
+        .into_iter()
+        .chain(maybe_link_freebl3())
+        .collect()
+}
+
+fn maybe_link_freebl3() -> Option<&'static str> {
+    if env::var("CARGO_FEATURE_BLAPI").is_ok() {
+        println!("cargo:rustc-link-lib=dylib=freebl3");
+        return Some("freebl3");
+    }
+    None
+}
+
+fn static_link(libdir: &Path) -> Vec<&'static str> {
+    let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+    let mut static_libs = vec![
+        "certdb",
+        "certhi",
+        "cryptohi",
+        "freebl_static",
+        if target_os == "windows" {
+            "libnspr4"
+        } else {
+            "nspr4"
+        },
+        "gcm",
+        "nss_static",
+        "nssb",
+        "nssdev",
+        "nsspki",
+        "nssutil",
+        "pk11wrap_static",
+        if target_os == "windows" {
+            "libplc4"
+        } else {
+            "plc4"
+        },
+        if target_os == "windows" {
+            "libplds4"
+        } else {
+            "plds4"
+        },
+        "softokn_static",
+        "ssl",
+    ];
+    // macOS always dynamically links against the system sqlite library.
+    // See https://github.com/nss-dev/nss/blob/a8c22d8fc0458db3e261acc5e19b436ab573a961/coreconf/Darwin.mk#L130-L135
+    if target_os == "macos" {
+        println!("cargo:rustc-link-lib=dylib=sqlite3");
+    } else {
+        static_libs.push("sqlite");
+    }
+    // Hardware specific libs.
+    let target_arch = env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+    if target_arch == "arm" || target_arch == "aarch64" {
+        static_libs.push("armv8_c_lib");
+    }
+    if target_arch == "arm" {
+        static_libs.push("ghash-aes-arm32-neon_c_lib");
+    }
+    if target_arch == "aarch64" {
+        static_libs.push("ghash-aes-aarch64_c_lib");
+        static_libs.push("aarch64-gcm-wrap_c_lib");
+    }
+    if target_arch == "x86_64" || target_arch == "x86" {
+        static_libs.push("ghash-aes-x86_c_lib");
+        static_libs.push("sha-x86_c_lib");
+    }
+    if target_arch == "x86_64" {
+        static_libs.push("hw-acc-crypto-avx");
+        static_libs.push("hw-acc-crypto-avx2");
+        static_libs.push("intel-gcm-wrap_c_lib");
+    }
+    // For libraries added in an NSS version greater than our minimum,
+    // check that they are present before linking them.
+    for libname in ["pqcwrap_static", "crux"] {
+        if [format!("{libname}.lib"), format!("lib{libname}.a")]
+            .iter()
+            .any(|f| libdir.join(f).is_file())
+        {
+            static_libs.push(libname);
+        }
+    }
+    for lib in &static_libs {
+        println!("cargo:rustc-link-lib=static={lib}");
+    }
+    static_libs
+}
+
+fn get_includes(nsstarget: &Path, nssdist: &Path) -> Vec<PathBuf> {
+    let nsprinclude = nsstarget.join("include").join("nspr");
+    let nssinclude = nssdist.join("public").join("nss");
+    vec![nsprinclude, nssinclude]
+}
+
+fn include_flags(includes: &[PathBuf]) -> Vec<String> {
+    includes
+        .iter()
+        .map(|i| format!("-I{}", i.to_str().unwrap()))
+        .collect()
+}
+
+/// Type PKCS#11 `#define`s as the `CK_*` typedefs they belong to. Bindgen otherwise picks the
+/// smallest integer that fits the value, which needs a conversion at every use.
+#[derive(Debug)]
+struct Pkcs11Types;
+
+impl ParseCallbacks for Pkcs11Types {
+    fn int_macro(&self, name: &str, _: i64) -> Option<IntKind> {
+        // `CKD_*` gets CK_ULONG because CK_EC_KDF_TYPE isn't among the generated types, and
+        // that is what PK11_PubDeriveWithKDF's `kdf` parameter is declared as anyway.
+        let name = match name {
+            "CK_INVALID_HANDLE" => "CK_OBJECT_HANDLE",
+            n if n.starts_with("CKA_") => "CK_ATTRIBUTE_TYPE",
+            n if n.starts_with("CKF_") => "CK_FLAGS",
+            n if n.starts_with("CKG_") => "CK_GENERATOR_FUNCTION",
+            n if n.starts_with("CKM_") => "CK_MECHANISM_TYPE",
+            n if n.starts_with("CKD_") || n.starts_with("CK_") => "CK_ULONG",
+            _ => return None,
+        };
+        Some(IntKind::Custom {
+            name,
+            is_signed: false,
+        })
+    }
+}
+
+fn build_bindings(base: &str, bindings: &Bindings, flags: &[String], gecko: bool) {
+    let suffix = if bindings.cplusplus { ".hpp" } else { ".h" };
+    let header_path = PathBuf::from(BINDINGS_DIR).join(String::from(base) + suffix);
+    let header = header_path.to_str().unwrap();
+    let out = PathBuf::from(env::var("OUT_DIR").unwrap()).join(String::from(base) + ".rs");
+
+    println!("cargo:rerun-if-changed={header}");
+
+    let mut builder = Builder::default().header(header);
+    builder = builder.generate_comments(false);
+    builder = builder.size_t_is_usize(true);
+    if base == "nss_p11" {
+        builder = builder.parse_callbacks(Box::new(Pkcs11Types));
+    }
+
+    builder = builder.clang_arg("-v");
+
+    if !gecko {
+        let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
+        builder = builder.clang_arg("-DNO_NSPR_10_SUPPORT");
+        if target_os == "windows" {
+            builder = builder.clang_arg("-DWIN");
+        } else if target_os == "macos" {
+            builder = builder.clang_arg("-DDARWIN");
+        } else if target_os == "linux" {
+            builder = builder.clang_arg("-DLINUX");
+        } else if target_os == "android" {
+            builder = builder.clang_arg("-DLINUX");
+            builder = builder.clang_arg("-DANDROID");
+        }
+        if bindings.cplusplus {
+            builder = builder.clang_args(["-x", "c++", "-std=c++14"]);
+        }
+    }
+
+    builder = builder.clang_args(flags);
+
+    // Apply the configuration.
+    for v in &bindings.types {
+        builder = builder.allowlist_type(v);
+    }
+    for v in &bindings.functions {
+        builder = builder.allowlist_function(v);
+    }
+    for v in &bindings.variables {
+        builder = builder.allowlist_var(v);
+    }
+    for v in &bindings.exclude {
+        builder = builder.blocklist_item(v);
+    }
+    for v in &bindings.opaque {
+        builder = builder.opaque_type(v);
+    }
+    for v in &bindings.enums {
+        builder = builder.constified_enum_module(v);
+    }
+
+    let bindings = builder.generate().expect("unable to generate bindings");
+    bindings
+        .write_to_file(out)
+        .expect("couldn't write bindings");
+}
+
+fn setup_pkg_config(min_version: &str) -> Option<Vec<String>> {
+    // `print_system_libs` is on by default, so a -L is reported even for default library
+    // paths like /usr/lib64 on RHEL/Fedora.  Its cflags counterpart is on by default too,
+    // but turned off here, because -I/usr/include would shadow clang's own headers.
+    // `env_metadata` covers the target-suffixed PKG_CONFIG_* variables.
+    let library = match pkg_config::Config::new()
+        .atleast_version(min_version)
+        .print_system_cflags(false)
+        .env_metadata(true)
+        .statik(false)
+        .probe("nss")
+    {
+        Ok(library) => library,
+        Err(e) => {
+            // Absent and too old fail alike; only the former should build NSS from source.
+            if let Ok(found) = pkg_config::Config::new()
+                .cargo_metadata(false)
+                .env_metadata(false)
+                .probe("nss")
+            {
+                panic!(
+                    "nss-rs has NSS version requirement >={min_version}, found {}; \
+                     set NSS_DIR to a newer checkout, or NSS_NO_PKG_CONFIG=1 to build NSS from source",
+                    found.version
+                );
+            }
+            let detail = e
+                .to_string()
+                .split_whitespace()
+                .collect::<Vec<_>>()
+                .join(" ");
+            println!("cargo:warning=pkg-config found no usable NSS: {detail}");
+            return None;
+        }
+    };
+
+    let libs = library
+        .libs
+        .iter()
+        .map(String::as_str)
+        .chain(maybe_link_freebl3())
+        .collect::<Vec<_>>();
+    for dir in &library.link_paths {
+        rerun_if_libs_changed(dir, &libs);
+    }
+
+    let mut flags = include_flags(&library.include_paths);
+    let mut defines = library.defines.iter().collect::<Vec<_>>();
+    defines.sort();
+    flags.extend(defines.into_iter().map(|(name, value)| {
+        value
+            .as_ref()
+            .map_or_else(|| format!("-D{name}"), |value| format!("-D{name}={value}"))
+    }));
+
+    Some(flags)
+}
+
+fn setup_standalone(nss_dir: String) -> Vec<String> {
+    let nss = PathBuf::from(nss_dir);
+
+    // $NSS_DIR/../dist/
+    let nssdist = nss.parent().unwrap().join("dist");
+    let nsstarget = "Release";
+
+    // If NSS_PREBUILT is set to a non-zero value, we assume that the NSS libraries are already
+    // built.
+    if !env::var("NSS_PREBUILT").is_ok_and(|v| v != "0") {
+        build_nss(nss);
+    }
+
+    let nsstarget = nssdist.join(nsstarget);
+    let includes = get_includes(&nsstarget, &nssdist);
+
+    let nsslibdir = nsstarget.join("lib");
+    let libs = if env::var("CARGO_CFG_FUZZING").is_ok()
+        || env::var("PROFILE").unwrap_or_default() == "debug"
+        // FIXME: NSPR doesn't build proper dynamic libraries on Windows.
+        || env::var("CARGO_CFG_TARGET_OS").unwrap() == "windows"
+    {
+        static_link(&nsslibdir)
+    } else {
+        dynamic_link()
+    };
+    link_search(&nsslibdir, &libs);
+
+    include_flags(&includes)
+}
+
+#[cfg(feature = "gecko")]
+fn setup_for_gecko() -> Vec<String> {
+    use mozbuild::{
+        TOPOBJDIR,
+        config::{BINDGEN_SYSTEM_FLAGS, NSPR_CFLAGS, NSS_CFLAGS},
+    };
+
+    let fold_libs = mozbuild::config::MOZ_FOLD_LIBS;
+    let libs = if fold_libs {
+        vec!["nss3"]
+    } else {
+        vec!["nssutil3", "nss3", "ssl3", "plds4", "plc4", "nspr4"]
+    };
+
+    for lib in &libs {
+        println!("cargo:rustc-link-lib=dylib={}", lib);
+    }
+
+    let lib_dirs = if fold_libs {
+        vec![TOPOBJDIR.join("security")]
+    } else {
+        let nsslib_path = TOPOBJDIR.join("security").join("nss").join("lib");
+        vec![
+            TOPOBJDIR.join("dist").join("bin"),
+            nsslib_path.join("nss").join("nss_nss3"),
+            nsslib_path.join("ssl").join("ssl_ssl3"),
+            TOPOBJDIR
+                .join("config")
+                .join("external")
+                .join("nspr")
+                .join("pr"),
+        ]
+    };
+    for dir in &lib_dirs {
+        link_search(dir, &libs);
+    }
+
+    let mut flags = BINDGEN_SYSTEM_FLAGS
+        .iter()
+        .chain(&NSPR_CFLAGS)
+        .chain(&NSS_CFLAGS)
+        .map(|s| s.to_string())
+        .collect::<Vec<_>>();
+
+    flags.push(String::from("-include"));
+    flags.push(
+        TOPOBJDIR
+            .join("dist")
+            .join("include")
+            .join("mozilla-config.h")
+            .to_str()
+            .unwrap()
+            .to_string(),
+    );
+    flags
+}
+
+#[cfg(not(feature = "gecko"))]
+fn setup_for_gecko() -> Vec<String> {
+    unreachable!()
+}
+
+fn process_config(config: &mut HashMap<String, Bindings>) {
+    for (n, b) in config.iter() {
+        b.check_sorted(n);
+    }
+
+    let names = config.keys().cloned().collect::<Vec<_>>();
+    for name in names {
+        // Collect the list of types, functions, and variables configured
+        // for generation in any other configured header, and add it to the list
+        // of items excluded from generation in this header. This ensures that
+        // each item only appears in one bindings module, which prevents some
+        // type conflicts. (However, it does mean that appropriate `use`
+        // declarations must be added for the generated modules.)
+        let excl = config
+            .iter()
+            .filter(|(n, _)| **n != name)
+            .flat_map(|(_, b)| [&b.types, &b.functions, &b.variables])
+            .flatten()
+            .cloned()
+            .collect::<Vec<_>>();
+
+        config
+            .get_mut(&name)
+            .expect("key disappeared from config?") // impossible
+            .exclude
+            .extend(excl);
+    }
+
+    for b in config.values_mut() {
+        b.exclude.sort_unstable();
+        b.exclude.dedup();
+    }
+}
+
+fn main() {
+    println!("cargo:rerun-if-changed=Cargo.toml");
+    println!("cargo:rustc-check-cfg=cfg(nss_nodb)");
+
+    let config_file = PathBuf::from(BINDINGS_DIR).join(BINDINGS_CONFIG);
+    println!("cargo:rerun-if-changed={}", config_file.to_str().unwrap());
+    let config = fs::read_to_string(config_file).expect("unable to read binding configuration");
+    let mut config: HashMap<String, Bindings> = ::toml::from_str(&config).unwrap();
+    process_config(&mut config);
+
+    setup_clang();
+
+    let min_version = min_nss_version();
+    println!("cargo:rustc-env=NSS_MIN_VERSION={min_version}");
+
+    for var in [
+        "NSS_DIR",
+        "NSS_PREBUILT",
+        "PKG_CONFIG_PATH",
+        "PKG_CONFIG_LIBDIR",
+        "PKG_CONFIG_SYSROOT_DIR",
+        "PKG_CONFIG_SYSTEM_INCLUDE_PATH",
+        "PKG_CONFIG_ALLOW_SYSTEM_CFLAGS",
+    ] {
+        println!("cargo:rerun-if-env-changed={var}");
+    }
+
+    let flags = if cfg!(feature = "gecko") {
+        setup_for_gecko()
+    } else if let Ok(nss_dir) = env::var("NSS_DIR") {
+        setup_standalone(nss_dir.trim().to_string())
+    } else {
+        setup_pkg_config(&min_version).unwrap_or_else(|| setup_standalone(nss_dir()))
+    };
+
+    for (k, v) in &config {
+        build_bindings(k, v, &flags[..], cfg!(feature = "gecko"));
+    }
+}

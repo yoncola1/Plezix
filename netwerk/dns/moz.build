@@ -1,0 +1,133 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    BUG_COMPONENT = ("Core", "Networking: DNS")
+
+XPIDL_SOURCES += [
+    "nsIDNSAdditionalInfo.idl",
+    "nsIDNSByTypeRecord.idl",
+    "nsIDNSListener.idl",
+    "nsIDNSRecord.idl",
+    "nsIDNSService.idl",
+    "nsIEffectiveTLDService.idl",
+    "nsIIDNService.idl",
+    "nsINativeDNSResolverOverride.idl",
+    "nsITRRSkipReason.idl",
+    "nsPIDNSService.idl",
+]
+
+XPIDL_MODULE = "necko_dns"
+
+XPCSHELL_TESTS_MANIFESTS += ["tests/unit/xpcshell.toml"]
+
+EXPORTS += [
+    "nsEffectiveTLDService.h",
+]
+
+EXPORTS.mozilla.net += [
+    "ChildDNSService.h",
+    "DNS.h",
+    "DNSByTypeRecord.h",
+    "DNSListenerProxy.h",
+    "DNSPacket.h",
+    "DNSRequestBase.h",
+    "DNSRequestChild.h",
+    "DNSRequestParent.h",
+    "DNSServiceBase.h",
+    "HTTPSSVC.h",
+    "IDNBlocklistUtils.h",
+    "TRRService.h",
+    "TRRServiceBase.h",
+]
+
+SOURCES += [
+    "GetAddrInfo.cpp",  # Undefines UNICODE
+    "nsEffectiveTLDService.cpp",  # Excluded from UNIFIED_SOURCES due to special build flags.
+]
+
+if CONFIG["MOZ_WIDGET_TOOLKIT"] == "windows":
+    SOURCES += ["PlatformDNSWin.cpp"]
+elif CONFIG["OS_TARGET"] == "Linux":
+    SOURCES += ["PlatformDNSUnix.cpp"]
+    OS_LIBS += ["resolv"]
+elif CONFIG["OS_TARGET"] == "FreeBSD":
+    SOURCES += ["PlatformDNSUnix.cpp"]
+elif CONFIG["MOZ_WIDGET_TOOLKIT"] == "cocoa":
+    SOURCES += ["PlatformDNSMac.cpp"]
+    SOURCE_HEADERS += ["PlatformDNSMac.h"]
+elif CONFIG["MOZ_WIDGET_TOOLKIT"] == "android":
+    SOURCES += ["PlatformDNSAndroid.cpp"]
+else:
+    DEFINES["MOZ_NO_HTTPS_IMPL"] = 1
+
+UNIFIED_SOURCES += [
+    "ChildDNSService.cpp",
+    "DNS.cpp",
+    "DNSAdditionalInfo.cpp",
+    "DNSListenerProxy.cpp",
+    "DNSPacket.cpp",
+    "DNSRequestChild.cpp",
+    "DNSRequestParent.cpp",
+    "DNSServiceBase.cpp",
+    "DNSUtils.cpp",
+    "HostRecordQueue.cpp",
+    "HTTPSSVC.cpp",
+    "IDNBlocklistUtils.cpp",
+    "nsDNSService2.cpp",
+    "nsHostRecord.cpp",
+    "nsHostResolver.cpp",
+    "nsIDNService.cpp",
+    "TRR.cpp",
+    "TRRQuery.cpp",
+    "TRRService.cpp",
+    "TRRServiceBase.cpp",
+]
+
+IPDL_SOURCES = [
+    "PDNSRequest.ipdl",
+    "PDNSRequestParams.ipdlh",
+]
+
+include("/ipc/chromium/chromium-config.mozbuild")
+
+FINAL_LIBRARY = "xul"
+
+GeneratedFile(
+    "etld_data.inc", script="prepare_tlds.py", inputs=["effective_tld_names.dat"]
+)
+
+# need to include etld_data.inc
+LOCAL_INCLUDES += [
+    "/netwerk/base",
+    "/netwerk/ipc",
+    "/netwerk/protocol/http",
+]
+
+USE_LIBS += ["icu"]
+
+LICENSES += ["jpnic"]
+LICENSES["jpnic"].title = "Japan Network Information Center License"
+LICENSES["jpnic"].text = "LICENSE-NOTICE.txt"
+LICENSES["jpnic"].notice = """
+<p>This license applies to certain files in the directory <code>netwerk/dns/</code>.</p>
+"""
+
+LICENSED_UNDER += [
+    "jpnic",
+]
+
+SOURCE_HEADERS += [
+    "DNSAdditionalInfo.h",
+    "DNSLogging.h",
+    "DNSUtils.h",
+    "GetAddrInfo.h",
+    "HostRecordQueue.h",
+    "nsDNSService2.h",
+    "nsHostRecord.h",
+    "nsHostResolver.h",
+    "nsIDNService.h",
+    "TRR.h",
+    "TRRQuery.h",
+]

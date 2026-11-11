@@ -1,0 +1,336 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--background-color-canvas);
+}
+
+#pdf-notification {
+  flex-shrink: 0;
+  border-radius: 0;
+  border-inline: none;
+  border-block-start: none;
+}
+
+#scroll-container {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+#container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100%;
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  max-width: 1458px;
+  margin-inline: auto;
+  padding: var(--space-xxlarge);
+  box-sizing: border-box;
+}
+
+#col-left,
+#col-right {
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  width: 154px;
+  flex-shrink: 0;
+}
+
+#col-mid {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-xlarge);
+  padding-inline: var(--space-xlarge);
+}
+
+#main-view,
+#features-view {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xlarge);
+}
+
+body:not(.view-features) #features-view,
+body:not(.view-features) #features-back,
+body.view-features #main-view {
+  display: none;
+}
+
+.logo-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-small);
+
+  h1 {
+    margin: 0;
+  }
+}
+
+#features-cta {
+  margin-inline-start: auto;
+
+  &:dir(rtl) {
+    --button-icon-content: url("chrome://global/skin/icons/shaft-arrow-left.svg");
+  }
+}
+
+#features-back:dir(rtl) {
+  --button-icon-content: url("chrome://global/skin/icons/arrow-right.svg");
+}
+
+.firefox-logo {
+  width: var(--size-item-medium);
+  height: var(--size-item-medium);
+}
+
+#tagline {
+  margin: 0;
+}
+
+#features-intro {
+  margin: 0;
+  color: var(--text-color-deemphasized);
+}
+
+#dropzone {
+  background-color: var(--background-color-box);
+  border: 2px dashed var(--focus-outline-color);
+  border-radius: var(--border-radius-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  min-height: 450px;
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  max-width: 1200px;
+  padding: var(--space-large);
+  box-shadow: var(--box-shadow-level-3);
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
+
+  &:hover:not(.drag-over, :active) {
+    background-color: var(--button-background-color-hover);
+  }
+
+  &:active,
+  &.drag-over {
+    background-color: var(--button-background-color-active);
+  }
+
+  &:focus-within {
+    border-style: solid;
+    outline: 2px solid var(--focus-outline-color);
+    outline-offset: 2px;
+  }
+
+  @media (forced-colors: active) {
+    box-shadow: none;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border-color: currentColor;
+    /* Color transitions flash through unrelated system colors in HCM. */
+    transition: none;
+
+    &:hover:not(.drag-over, :active),
+    &:active,
+    &.drag-over {
+      background-color: var(--background-color-list-item-hover);
+      color: var(--text-color-accent-primary-selected);
+    }
+
+    &:focus-within {
+      outline-color: currentColor;
+    }
+  }
+}
+
+#dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-small);
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+#dropzone-privacy-hint {
+  font-size: var(--font-size-small);
+  color: var(--text-color-deemphasized);
+  padding-block-start: var(--space-small);
+}
+
+#dropzone-error {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-xsmall);
+  color: var(--text-color);
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: var(--size-item-small);
+    height: var(--size-item-small);
+    background: url("chrome://global/skin/icons/warning.svg") no-repeat center / contain;
+    -moz-context-properties: fill;
+    fill: var(--icon-color-warning);
+    flex-shrink: 0;
+  }
+}
+
+/* Inherit dropzone color in HCM so hover/drag-over pick up SelectedItemText. */
+@media (forced-colors: active) {
+  #dropzone-hint,
+  #dropzone-privacy-hint,
+  #dropzone-error {
+    color: currentColor;
+  }
+}
+
+#feature-card {
+  /* No design token has a 32px radius. */
+  --card-border-radius: 32px;
+  --card-box-shadow: var(--box-shadow-level-3);
+  --card-padding: var(--space-xlarge);
+}
+
+#feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxlarge);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-small);
+}
+
+.feature-icon {
+  box-sizing: content-box;
+  flex-shrink: 0;
+  width: var(--size-item-medium);
+  height: var(--size-item-medium);
+  padding: var(--space-xlarge);
+  border: var(--border-width) solid var(--border-color-transparent);
+  border-radius: var(--border-radius-circle);
+  background-color: var(--background-color-information);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--size-item-medium) var(--size-item-medium);
+  -moz-context-properties: fill;
+  fill: var(--icon-color);
+}
+
+.feature-icon-organize {
+  background-image: url("chrome://global/skin/icons/page-portrait.svg");
+}
+.feature-icon-signatures {
+  background-image: url("chrome://global/skin/icons/signature-24.svg");
+}
+.feature-icon-comments {
+  background-image: url("chrome://global/skin/icons/comment-24.svg");
+}
+.feature-icon-annotate {
+  background-image: url("chrome://global/skin/icons/highlighter-24.svg");
+}
+.feature-icon-images {
+  background-image: url("chrome://global/skin/icons/canvas.svg");
+}
+.feature-icon-view {
+  background-image: url("chrome://global/skin/icons/odd-spreads-24.svg");
+}
+.feature-icon-presentation {
+  background-image: url("chrome://global/skin/icons/presentation-mode-24.svg");
+}
+.feature-icon-details {
+  background-image: url("chrome://global/skin/icons/find-in-page-24.svg");
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xsmall);
+  min-width: 0;
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-color-deemphasized);
+  }
+}
+
+#promo-row {
+  display: flex;
+  justify-content: center;
+}
+
+#promo {
+  width: 100%;
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  max-width: 700px;
+  --promo-image-size: 100px;
+}
+
+/* Stack features before hiding the side columns. */
+@media (max-width: 1150px) {
+  #feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  #col-left,
+  #col-right {
+    display: none;
+  }
+
+  #container {
+    padding: var(--space-xlarge);
+  }
+
+  #col-mid {
+    padding-inline: 0;
+  }
+
+  /* Keep Back above the features content. */
+  body.view-features #container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.view-features #col-left {
+    display: block;
+  }
+}

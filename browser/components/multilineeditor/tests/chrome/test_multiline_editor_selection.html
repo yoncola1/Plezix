@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Multiline editor selection test</title>
+    <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+    <link
+      rel="stylesheet"
+      href="chrome://mochikit/content/tests/SimpleTest/test.css"
+    />
+    <link rel="stylesheet" href="chrome://global/skin/global.css" />
+    <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"></script>
+    <script src="../../../../../toolkit/content/tests/widgets/lit-test-helpers.js"></script>
+    <script
+      type="module"
+      src="chrome://browser/content/multilineeditor/multiline-editor.mjs"
+    ></script>
+    <script>
+      let html;
+      let testHelpers;
+
+      add_setup(async function setup() {
+        testHelpers = new LitTestHelpers();
+        ({ html } = await testHelpers.setupLit());
+        testHelpers.setupTests({
+          templateFn: (attributes) => html`<moz-multiline-editor ${attributes}></moz-multiline-editor>`,
+        });
+      });
+
+      add_task(async function testSelectionProperties() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Hello World";
+        is(editor.selectionStart, 11, "Selection starts at end of text after setting value");
+        is(editor.selectionEnd, 11, "Selection ends at end of text after setting value");
+      });
+
+      add_task(async function testSetSelectionRange() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Hello World";
+        editor.setSelectionRange(0, 5);
+        is(editor.selectionStart, 0, "Selection start is 0");
+        is(editor.selectionEnd, 5, "Selection end is 5");
+      });
+
+      add_task(async function testSelectAll() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        const text = "Hello World";
+        editor.value = text;
+        editor.select();
+        is(editor.selectionStart, 0, "Selection starts at beginning");
+        is(editor.selectionEnd, text.length, "Selection ends at text length");
+      });
+
+      add_task(async function testSelectionWithMultiline() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Line 1\nLine 2";
+        editor.setSelectionRange(0, 6);
+        is(editor.selectionStart, 0, "Selection start is correct");
+        is(editor.selectionEnd, 6, "Selection end is correct");
+      });
+
+      add_task(async function testSelectionStartProperty() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Hello World";
+        const initialEnd = editor.selectionEnd;
+        editor.selectionStart = 6;
+        is(editor.selectionStart, 6, "Selection start is set via property");
+        is(editor.selectionEnd, initialEnd, "Selection end remains unchanged");
+      });
+
+      add_task(async function testSelectionEndProperty() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Hello World";
+        editor.setSelectionRange(0, 5);
+        editor.selectionEnd = 11;
+        is(editor.selectionStart, 0, "Selection start remains at 0");
+        is(editor.selectionEnd, 11, "Selection end is set via property");
+      });
+
+      add_task(async function testSelectionchangeEvent() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "Hello World";
+
+        let selectionChangeEventCount = 0;
+        editor.addEventListener("selectionchange", () => {
+          selectionChangeEventCount++;
+        });
+        editor.setSelectionRange(0, 5);
+
+        is(
+          selectionChangeEventCount,
+          1,
+          "Selectionchange event fired once"
+        );
+      });
+
+      add_task(async function testSetRangeText() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        // select
+        editor.value = "exam";
+        editor.setRangeText("ple.com/", 4, 4, "select");
+        is(editor.value, "example.com/", "Range text is inserted");
+        is(editor.selectionStart, 4, "selectionMode 'select' selects from start");
+        is(editor.selectionEnd, 12, "selectionMode 'select' selects to end");
+
+        // start
+        editor.value = "abcdef";
+        editor.setRangeText("XYZ", 1, 4, "start");
+        is(editor.value, "aXYZef", "Range replaced");
+        is(editor.selectionStart, 1, "selectionMode 'start' collapses before");
+        is(editor.selectionEnd, 1, "selectionMode 'start' collapses before");
+
+        // end
+        editor.value = "abcdef";
+        editor.setRangeText("XYZ", 1, 4, "end");
+        is(editor.value, "aXYZef", "Range replaced");
+        is(editor.selectionStart, 4, "selectionMode 'end' collapses after");
+        is(editor.selectionEnd, 4, "selectionMode 'end' collapses after");
+
+        // preserve
+        editor.value = "abcdef";
+        editor.setSelectionRange(5, 6);
+        editor.setRangeText("XY", 1, 4, "preserve");
+        is(editor.value, "aXYef", "Range replaced");
+        is(editor.selectionStart, 4, "selectionMode 'preserve' maps the start");
+        is(editor.selectionEnd, 5, "selectionMode 'preserve' maps the end");
+
+        // preserve inside
+        editor.value = "abcdef";
+        editor.setSelectionRange(2, 3);
+        editor.setRangeText("XY", 1, 4, "preserve");
+        is(editor.value, "aXYef", "Range replaced");
+        is(editor.selectionStart, 3, "selectionMode 'preserve' maps start to end");
+        is(editor.selectionEnd, 3, "selectionMode 'preserve' maps end to end");
+      });
+
+      add_task(async function testSetRangeTextSingleTransaction() {
+        const result = await testHelpers.renderTemplate();
+        const editor = result.querySelector("moz-multiline-editor");
+
+        editor.value = "exam";
+
+        let dispatchCount = 0;
+        const originalDispatch = editor.view.dispatch.bind(editor.view);
+        editor.view.dispatch = (...args) => {
+          dispatchCount++;
+          originalDispatch(...args);
+        };
+
+        try {
+          editor.setRangeText("ple.com/", 4, 4, "select");
+        } finally {
+          editor.view.dispatch = originalDispatch;
+        }
+
+        is(dispatchCount, 1, "Text and selection set in a single transaction");
+        is(editor.value, "example.com/", "Value is set correctly");
+        is(editor.selectionStart, 4, "Selection start is updated");
+        is(editor.selectionEnd, 12, "Selection end is updated");
+      });
+    </script>
+  </head>
+  <body>
+    <p id="display"></p>
+    <div id="content" style="display: none"></div>
+    <pre id="test"></pre>
+  </body>
+</html>

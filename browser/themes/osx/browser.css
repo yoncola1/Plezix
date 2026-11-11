@@ -1,0 +1,202 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://browser/skin/browser-shared.css");
+
+:root {
+  --panel-field-background: light-dark(rgba(249, 249, 250, 0.3), rgba(12, 12, 13, 0.3));
+}
+
+@media (-moz-native-theme) {
+  :root:not([lwtheme]) {
+    @media (prefers-color-scheme: dark) {
+      --tab-background-color-selected: color-mix(in srgb, -moz-dialog 75%, white);
+    }
+    @media -moz-pref("browser.nova.enabled") {
+      /* Blend against the native window background. The window background
+       * already reflects the activeness. */
+      --toolbox-background-color: light-dark(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.05));
+      --toolbox-background-color-inactive: var(--toolbox-background-color);
+
+      /* These look a bit better than the native color */
+      --tabs-navbar-separator-color: var(--chrome-content-separator-color);
+    }
+  }
+}
+
+/** Begin titlebar **/
+
+.titlebar-button {
+  display: none;
+}
+
+.titlebar-buttonbox-container {
+  align-items: center;
+  /* Hide window controls in fullscreen */
+  :root[inFullscreen] & {
+    display: none;
+  }
+}
+
+.titlebar-buttonbox {
+  &:-moz-locale-dir(ltr) {
+    /* Traffic-light spacing; rem space tokens don't preserve 12px under macOS 11px root. */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    margin-inline: 12px 0;
+
+    @media (-moz-mac-rtl) {
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+      margin-inline: 12px;
+    }
+  }
+
+  &:-moz-locale-dir(rtl) {
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    margin-inline: 12px;
+
+    @media (-moz-mac-rtl) {
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+      margin-inline: 12px 0;
+    }
+  }
+}
+
+/* ----- BOOKMARK TOOLBAR ----- */
+
+#nav-bar-customization-target > #wrapper-personal-bookmarks > #personal-bookmarks {
+  min-height: var(--size-item-large);
+  align-items: center;
+}
+
+/* Workaround for native menubar inheritance */
+.openintabs-menuitem {
+  list-style-image: none;
+}
+
+/* Inactive elements are faded out on OSX */
+.toolbarbutton-1:not(:hover):-moz-window-inactive,
+.bookmark-item:not(:hover):-moz-window-inactive,
+:root:not([customizing]) .toolbarbutton-1:-moz-window-inactive[disabled] {
+  opacity: var(--toolbarbutton-opacity-disabled);
+}
+
+/* Address bar */
+
+.urlbar,
+#searchbar {
+  /* macOS address/search bar font-size multiplier; no design token equivalent. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  font-size: 1.25em;
+}
+
+/* ----- AUTOCOMPLETE ----- */
+
+#PopupAutoComplete > richlistbox > richlistitem[originaltype~="datalist-first"] {
+  /* macOS autocomplete separator color; no design token equivalent. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  border-top: 1px solid #c7c7c7;
+}
+
+/* Bookmarking panel */
+
+/* The following elements come from editBookmarkPanel.inc.xhtml. Styling that's
+   specific to the editBookmarkPanel should be in browser.css. Styling that
+   should be shared by all editBookmarkPanel.inc.xhtml consumers should be in
+   editBookmark.css. */
+
+/**** folder tree and tag selector ****/
+
+#editBMPanel_folderTree,
+#editBMPanel_tagsSelector {
+  appearance: none;
+  /* Local semi-transparent panel field background; no design token equivalent. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  background-color: var(--panel-field-background);
+  color: inherit;
+  border-radius: var(--border-radius-xsmall);
+  border: 1px solid var(--panel-separator-color);
+  margin: 0;
+}
+
+#editBMPanel_folderTree > treechildren::-moz-tree-row(blur, selected),
+#editBMPanel_tagsSelector:not(:focus) > richlistitem[selected] {
+  background-color: var(--background-color-list-item-hover);
+}
+
+#editBMPanel_folderTree > treechildren::-moz-tree-twisty(blur, selected),
+#editBMPanel_folderTree > treechildren::-moz-tree-image(blur, selected),
+#editBMPanel_folderTree > treechildren::-moz-tree-cell-text(blur, selected),
+#editBMPanel_tagsSelector:not(:focus) > richlistitem[selected] {
+  color: var(--text-color-list-item-hover);
+}
+
+#editBMPanel_folderTree {
+  border-bottom: none;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+  /* Implements editBookmarkPanel resizing on folderTree un-collapse. */
+  margin: 0 !important;
+  min-width: 27em;
+  position: relative;
+}
+
+/* ----- SIDEBAR ELEMENTS ----- */
+
+#sidebar-box {
+  /* Default font size is 11px on mac, so this is 12px */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  font-size: 1.0909rem;
+}
+
+/* ::::: tabbrowser ::::: */
+
+@media not -moz-pref("browser.nova.enabled") {
+  .tab-group-label {
+    margin-block: 1px 0;
+  }
+}
+
+.tabbrowser-tab:not(:hover) > .tab-stack > .tab-content .tab-icon-image:not([selected], [multiselected]) {
+  opacity: var(--opacity-deemphasized);
+}
+
+/*
+ * Force the overlay to create a new stacking context so it always appears on
+ * top of the icon.
+ */
+.tab-icon-overlay {
+  /* Near-opaque value used only to create a stacking context. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  opacity: 0.9999;
+}
+
+.tab-label-container:not([selected], [multiselected]) {
+  opacity: var(--opacity-deemphasized-strong);
+}
+
+.tabbrowser-tab {
+  border: none;
+}
+
+/* Bookmark drag and drop styles */
+
+.bookmark-item[dragover-into="true"] {
+  background: SelectedItem !important;
+  color: SelectedItemText !important;
+}
+
+#UITourTooltipDescription {
+  /* macOS-specific UITour description size; no design-token equivalent. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  font-size: 1.18rem;
+  line-height: 2rem;
+}
+
+#UITourTooltipClose {
+  /* Compensates for macOS panel chrome; rem space tokens don't preserve these px values. */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  margin-inline-end: -10px;
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  margin-top: -14px;
+}

@@ -1,0 +1,21 @@
+<html><body>
+Creating WebSocket
+<script type="application/javascript">
+onmessage = function(e) {
+  parent.postMessage(e.data, '*');
+}
+
+try{
+  let worker = new Worker("data:text/javascript,try { let ws = new WebSocket('ws://mochi.test:8888/tests/dom/websocket/tests/file_websocket_hello'); ws.onerror = () => postMessage('SecurityError: The operation is insecure.'); } catch(e) { postMessage(e.name + ': ' + e.message); }");
+  worker.onerror = (e) => {
+    parent.postMessage(e.message, '*');
+    close();
+  };
+  worker.onmessage = (e) => {
+    parent.postMessage(e.data, '*');
+    close();
+  };
+} catch(e) {}
+
+</script>
+</body></html>

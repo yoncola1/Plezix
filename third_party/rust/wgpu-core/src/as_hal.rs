@@ -1,0 +1,294 @@
+use core::{mem::ManuallyDrop, ops::Deref};
+
+use alloc::sync::Arc;
+use hal::DynResource;
+
+use crate::{lock::RankData, resource::RawResourceAccess, snatch::SnatchGuard};
+
+/// A guard which holds alive a wgpu-core resource and dereferences to the Hal type.
+struct SimpleResourceGuard<Resource, HalType> {
+    _guard: Resource,
+    ptr: *const HalType,
+}
+
+impl<Resource, HalType> SimpleResourceGuard<Resource, HalType> {
+    /// Creates a new guard from a resource, using a callback to derive the Hal type.
+    pub fn new<C>(guard: Resource, callback: C) -> Option<Self>
+    where
+        C: Fn(&Resource) -> Option<&HalType>,
+    {
+        // Derive the hal type from the resource and coerce it to a pointer.
+        let ptr: *const HalType = callback(&guard)?;
+
+        Some(Self { _guard: guard, ptr })
+    }
+}
+
+impl<Resource, HalType> Deref for SimpleResourceGuard<Resource, HalType> {
+    type Target = HalType;
+
+    fn deref(&self) -> &Self::Target {
+        // SAFETY: The pointer is guaranteed to be valid as the original resource is
+        // still alive and this guard cannot be used with snatchable resources.
+        unsafe { &*self.ptr }
+    }
+}
+
+unsafe impl<Resource, HalType> Send for SimpleResourceGuard<Resource, HalType>
+where
+    Resource: Send,
+    HalType: Send,
+{
+}
+unsafe impl<Resource, HalType> Sync for SimpleResourceGuard<Resource, HalType>
+where
+    Resource: Sync,
+    HalType: Sync,
+{
+}
+
+/// A guard which holds alive a snatchable wgpu-core resource and dereferences to the Hal type.
+struct SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess,
+{
+    resource: Arc<Resource>,
+    snatch_lock_rank_data: ManuallyDrop<RankData>,
+    ptr: *const HalType,
+}
+
+impl<Resource, HalType> SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess,
+    HalType: 'static,
+{
+    /// Creates a new guard from a snatchable resource.
+    ///
+    /// Returns `None` if:
+    /// - The resource is not of the expected Hal type.
+    /// - The resource has been destroyed.
+    pub fn new(resource: Arc<Resource>) -> Option<Self> {
+        // Grab the snatchable lock.
+        let snatch_guard = resource.device().snatchable_lock.read();
+
+        // Get the raw resource and downcast it to the expected Hal type.
+        let underlying = resource
+            .raw(&snatch_guard)?
+            .as_any()
+            .downcast_ref::<HalType>()?;
+
+        // Cast the raw resource to a pointer to get rid of the lifetime
+        // connecting us to the snatch guard.
+        let ptr: *const HalType = underlying;
+
+        // SAFETY: At this point all panicking or divergance has already happened,
+        // so we can safely forget the snatch guard without causing the lock to be left open.
+        let snatch_lock_rank_data = SnatchGuard::forget(snatch_guard);
+
+        // SAFETY: We only construct this guard while the snatchable lock is held,
+        // as the `drop` implementation of this guard will unsafely release the lock.
+        Some(Self {
+            resource,
+            snatch_lock_rank_data: ManuallyDrop::new(snatch_lock_rank_data),
+            ptr,
+        })
+    }
+}
+
+impl<Resource, HalType> Deref for SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess,
+{
+    type Target = HalType;
+
+    fn deref(&self) -> &Self::Target {
+        // SAFETY: The pointer is guaranteed to be valid as the original resource is
+        // still alive and the snatchable lock is still being held due to the forgotten
+        // snatch guard.
+        unsafe { &*self.ptr }
+    }
+}
+
+impl<Resource, HalType> Drop for SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess,
+{
+    fn drop(&mut self) {
+        // SAFETY:
+        // - We are not going to access the rank data anymore.
+        let data = unsafe { ManuallyDrop::take(&mut self.snatch_lock_rank_data) };
+
+        // SAFETY:
+        // - The pointer is no longer going to be accessed.
+        // - The snatchable lock is being held because this type was not created
+        //   until after the snatchable lock was forgotten.
+        unsafe {
+            self.resource
+                .device()
+                .snatchable_lock
+                .force_unlock_read(data)
+        };
+    }
+}
+
+unsafe impl<Resource, HalType> Send for SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess + Send,
+    HalType: Send,
+{
+}
+unsafe impl<Resource, HalType> Sync for SnatchableResourceGuard<Resource, HalType>
+where
+    Resource: RawResourceAccess + Sync,
+    HalType: Sync,
+{
+}
+
+impl crate::resource::Buffer {
+    /// # Safety
+    ///
+    /// - The raw buffer handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Buffer>> {
+        profiling::scope!("Buffer::as_hal");
+
+        SnatchableResourceGuard::new(self)
+    }
+}
+
+impl crate::resource::Texture {
+    /// # Safety
+    ///
+    /// - The raw texture handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Texture>> {
+        profiling::scope!("Texture::as_hal");
+
+        SnatchableResourceGuard::new(self)
+    }
+}
+
+impl crate::resource::TextureView {
+    /// # Safety
+    ///
+    /// - The raw texture view handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(
+        self: Arc<Self>,
+    ) -> Option<impl Deref<Target = A::TextureView>> {
+        profiling::scope!("TextureView::as_hal");
+
+        SnatchableResourceGuard::new(self)
+    }
+}
+
+impl crate::instance::Adapter {
+    /// # Safety
+    ///
+    /// - The raw adapter handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Adapter>> {
+        profiling::scope!("Adapter::as_hal");
+
+        SimpleResourceGuard::new(self, move |adapter| {
+            adapter.raw.adapter.as_any().downcast_ref()
+        })
+    }
+}
+
+impl crate::device::Device {
+    /// # Safety
+    ///
+    /// - The raw device handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Device>> {
+        profiling::scope!("Device::as_hal");
+
+        SimpleResourceGuard::new(self, move |device| device.raw().as_any().downcast_ref())
+    }
+
+    /// # Safety
+    ///
+    /// - The raw fence handle must not be manually destroyed
+    pub unsafe fn fence_as_hal<A: hal::Api>(
+        self: Arc<Self>,
+    ) -> Option<impl Deref<Target = A::Fence>> {
+        profiling::scope!("Device::fence_as_hal");
+
+        SimpleResourceGuard::new(self, move |device| device.fence.as_any().downcast_ref())
+    }
+}
+
+impl crate::instance::Surface {
+    /// # Safety
+    ///
+    /// - The raw surface handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Surface>> {
+        profiling::scope!("Surface::as_hal");
+
+        SimpleResourceGuard::new(self, move |surface| {
+            surface.raw(A::VARIANT)?.as_any().downcast_ref()
+        })
+    }
+}
+
+impl crate::command::CommandEncoder {
+    /// Encode commands using the raw HAL command encoder.
+    ///
+    /// # Panics
+    ///
+    /// If the command encoder has already been used with the wgpu encoding API.
+    ///
+    /// # Safety
+    ///
+    /// - The raw command encoder handle must not be manually destroyed
+    pub unsafe fn as_hal_mut<A: hal::Api, F: FnOnce(Option<&mut A::CommandEncoder>) -> R, R>(
+        self: &Arc<Self>,
+        hal_command_encoder_callback: F,
+    ) -> R {
+        profiling::scope!("CommandEncoder::as_hal");
+
+        let mut cmd_buf_data = self.data.lock();
+        cmd_buf_data.record_as_hal_mut(|opt_cmd_buf| -> R {
+            hal_command_encoder_callback(opt_cmd_buf.and_then(|cmd_buf| {
+                cmd_buf
+                    .encoder
+                    .open()
+                    .ok()
+                    .and_then(|encoder| encoder.as_any_mut().downcast_mut())
+            }))
+        })
+    }
+}
+
+impl crate::device::queue::Queue {
+    /// # Safety
+    ///
+    /// - The raw queue handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(self: Arc<Self>) -> Option<impl Deref<Target = A::Queue>> {
+        profiling::scope!("Queue::as_hal");
+
+        SimpleResourceGuard::new(self, move |queue| queue.raw().as_any().downcast_ref())
+    }
+}
+
+impl crate::resource::Blas {
+    /// # Safety
+    ///
+    /// - The raw blas handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(
+        self: Arc<Self>,
+    ) -> Option<impl Deref<Target = A::AccelerationStructure>> {
+        profiling::scope!("Blas::as_hal");
+
+        SnatchableResourceGuard::new(self)
+    }
+}
+
+impl crate::resource::Tlas {
+    /// # Safety
+    ///
+    /// - The raw tlas handle must not be manually destroyed
+    pub unsafe fn as_hal<A: hal::Api>(
+        self: Arc<Self>,
+    ) -> Option<impl Deref<Target = A::AccelerationStructure>> {
+        profiling::scope!("Tlas::as_hal");
+
+        SnatchableResourceGuard::new(self)
+    }
+}

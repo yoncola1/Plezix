@@ -1,0 +1,18 @@
+[DEFAULT]
+support-files = ["head.js"]
+
+["browser_accessibility.js"]
+
+["browser_basic.js"]
+
+["browser_clipboard.js"]
+
+["browser_edit.js"]
+
+["browser_locked.js"]
+
+["browser_observe.js"]
+
+["browser_search.js"]
+
+["browser_warning.js"]

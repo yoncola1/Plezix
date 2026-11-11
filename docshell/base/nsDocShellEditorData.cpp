@@ -1,0 +1,111 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsDocShellEditorData.h"
+
+#include "mozilla/dom/Document.h"
+#include "mozilla/HTMLEditor.h"
+#include "nsIInterfaceRequestorUtils.h"
+#include "nsComponentManagerUtils.h"
+#include "nsPIDOMWindow.h"
+#include "nsEditingSession.h"
+#include "nsIDocShell.h"
+
+using namespace mozilla;
+using namespace mozilla::dom;
+
+nsDocShellEditorData::nsDocShellEditorData(nsDocShell* aOwningDocShell)
+    : mDocShell(aOwningDocShell), mMakeEditable(false) {
+  NS_ASSERTION(mDocShell, "Where is my docShell?");
+}
+
+nsDocShellEditorData::~nsDocShellEditorData() { TearDownEditor(); }
+
+void nsDocShellEditorData::TearDownEditor() {
+  if (mHTMLEditor) {
+    RefPtr<HTMLEditor> htmlEditor = std::move(mHTMLEditor);
+    htmlEditor->PreDestroy();
+  }
+  mEditingSession = nullptr;
+}
+
+nsresult nsDocShellEditorData::MakeEditable(bool aInWaitForUriLoad) {
+  if (mMakeEditable) {
+    return NS_OK;
+  }
+
+  // if we are already editable, and are getting turned off,
+  // nuke the editor.
+  if (mHTMLEditor) {
+    NS_WARNING("Destroying existing editor on frame");
+
+    RefPtr<HTMLEditor> htmlEditor = std::move(mHTMLEditor);
+    htmlEditor->PreDestroy();
+  }
+
+  if (aInWaitForUriLoad) {
+    mMakeEditable = true;
+  }
+  return NS_OK;
+}
+
+bool nsDocShellEditorData::GetEditable() {
+  return mMakeEditable || (mHTMLEditor != nullptr);
+}
+
+nsEditingSession* nsDocShellEditorData::GetEditingSession() {
+  EnsureEditingSession();
+
+  return mEditingSession.get();
+}
+
+nsresult nsDocShellEditorData::SetHTMLEditor(HTMLEditor* aHTMLEditor) {
+  // destroy any editor that we have. Checks for equality are
+  // necessary to ensure that assigment into the nsCOMPtr does
+  // not temporarily reduce the refCount of the editor to zero
+  if (mHTMLEditor == aHTMLEditor) {
+    return NS_OK;
+  }
+
+  if (mHTMLEditor) {
+    RefPtr<HTMLEditor> htmlEditor = std::move(mHTMLEditor);
+    htmlEditor->PreDestroy();
+    MOZ_ASSERT(!mHTMLEditor,
+               "Nested call of nsDocShellEditorData::SetHTMLEditor() detected");
+  }
+
+  mHTMLEditor = aHTMLEditor;  // owning addref
+  if (!mHTMLEditor) {
+    mMakeEditable = false;
+  }
+
+  return NS_OK;
+}
+
+// This creates the editing session on the content docShell that owns 'this'.
+void nsDocShellEditorData::EnsureEditingSession() {
+  NS_ASSERTION(mDocShell, "Should have docShell here");
+
+  if (!mEditingSession) {
+    mEditingSession = MakeRefPtr<nsEditingSession>();
+  }
+}
+
+nsresult nsDocShellEditorData::DetachFromWindow() {
+  NS_ASSERTION(mEditingSession,
+               "Can't detach when we don't have a session to detach!");
+
+  nsCOMPtr<nsPIDOMWindowOuter> domWindow =
+      mDocShell ? mDocShell->GetWindow() : nullptr;
+  NS_ENSURE_TRUE(domWindow, NS_ERROR_NOT_AVAILABLE);
+
+  nsresult rv = mEditingSession->DetachFromWindow(domWindow);
+  NS_ENSURE_SUCCESS(rv, rv);
+
+  mMakeEditable = false;
+
+  mDocShell = nullptr;
+
+  return NS_OK;
+}

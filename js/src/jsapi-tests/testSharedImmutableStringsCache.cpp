@@ -1,0 +1,115 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "jsapi-tests/tests.h"
+
+#include "mozilla/IntegerRange.h"
+
+#include "js/Vector.h"
+#include "threading/Thread.h"
+#include "util/Text.h"
+#include "vm/SharedImmutableStringsCache.h"
+
+// Use only 32 threads on 32-bit ASan builds to avoid OOMs.
+#if defined(MOZ_ASAN) && !defined(JS_64BIT)
+const int NUM_THREADS = 32;
+#else
+const int NUM_THREADS = 256;
+#endif
+
+const int NUM_ITERATIONS = 256;
+
+const int NUM_STRINGS = 4;
+const char16_t* const STRINGS[NUM_STRINGS] = {u"uno", u"dos", u"tres",
+                                              u"quattro"};
+
+struct CacheAndIndex {
+  js::SharedImmutableStringsCache* cache;
+  int index;
+
+  CacheAndIndex(js::SharedImmutableStringsCache* cache, int index)
+      : cache(cache), index(index) {}
+};
+
+static void getString(CacheAndIndex* cacheAndIndex) {
+  for (int i = 0; i < NUM_ITERATIONS; i++) {
+    auto str = STRINGS[cacheAndIndex->index % NUM_STRINGS];
+
+    auto dupe = js::DuplicateString(str);
+    MOZ_RELEASE_ASSERT(dupe);
+
+    auto deduped =
+        cacheAndIndex->cache->getOrCreate(std::move(dupe), js_strlen(str));
+    MOZ_RELEASE_ASSERT(deduped);
+    MOZ_RELEASE_ASSERT(
+        js::EqualChars(str, deduped.chars(), js_strlen(str) + 1));
+
+    {
+      auto cloned = deduped.clone();
+      // We should be de-duplicating and giving back the same string.
+      MOZ_RELEASE_ASSERT(deduped.chars() == cloned.chars());
+    }
+  }
+
+  js_delete(cacheAndIndex);
+}
+
+BEGIN_TEST(testSharedImmutableStringsCache) {
+  auto& cache = js::SharedImmutableStringsCache::getSingleton();
+
+  js::Vector<js::Thread> threads(cx);
+  CHECK(threads.reserve(NUM_THREADS));
+
+  for (auto i : mozilla::IntegerRange(NUM_THREADS)) {
+    auto cacheAndIndex = js_new<CacheAndIndex>(&cache, i);
+    CHECK(cacheAndIndex);
+    threads.infallibleEmplaceBack();
+    CHECK(threads.back().init(getString, cacheAndIndex));
+  }
+
+  for (auto& thread : threads) {
+    thread.join();
+  }
+
+  return true;
+}
+END_TEST(testSharedImmutableStringsCache)
+
+// Strings whose last reference is dropped must be removed from the cache right
+// away, so that creating, releasing and re-creating the same string many times
+// works and keeps de-duplicating live strings.
+BEGIN_TEST(testSharedImmutableStringsCache_ReleaseAndRecreate) {
+  auto& cache = js::SharedImmutableStringsCache::getSingleton();
+
+  alignas(char16_t) static const char str[] = "ReleaseAndRecreate";
+  constexpr size_t len = sizeof(str) - 1;
+  static_assert(len % sizeof(char16_t) == 0,
+                "must be viewable as a two-byte string");
+
+  const size_t numEntries = cache.numEntriesForTesting();
+  for (int i = 0; i < 10000; i++) {
+    {
+      auto a = cache.getOrCreate(str, len);
+      CHECK(a);
+      CHECK(a.chars() != str);
+      CHECK(memcmp(a.chars(), str, len) == 0);
+
+      auto b = cache.getOrCreate(str, len);
+      CHECK(b);
+      CHECK(a.chars() == b.chars());
+
+      // The same bytes viewed as a two-byte string share the box.
+      auto c = cache.getOrCreate(reinterpret_cast<const char16_t*>(str),
+                                 len / sizeof(char16_t));
+      CHECK(c);
+      CHECK(reinterpret_cast<const char*>(c.chars()) == a.chars());
+      CHECK(cache.numEntriesForTesting() == numEntries + 1);
+    }
+
+    CHECK(cache.numEntriesForTesting() == numEntries);
+  }
+
+  return true;
+}
+END_TEST(testSharedImmutableStringsCache_ReleaseAndRecreate)

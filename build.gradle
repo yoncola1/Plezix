@@ -1,0 +1,292 @@
+import org.gradle.api.services.BuildServiceParameters
+import org.mozilla.conventions.VerifyGleanVersionTask
+
+buildscript {
+    repositories {
+        gradle.mozconfig.substs.GRADLE_MAVEN_REPOSITORIES.each { repository ->
+            maven {
+                url = repository
+                if (gradle.mozconfig.substs.ALLOW_INSECURE_GRADLE_REPOSITORIES) {
+                    allowInsecureProtocol = true
+                }
+            }
+        }
+    }
+
+    dependencies {
+        // Used in mobile/android/fenix/app/build.gradle
+        classpath libs.androidx.benchmark.gradle
+        classpath libs.androidx.navigation.safeargs
+        classpath libs.osslicenses.plugin
+        classpath libs.mozilla.glean.gradle.plugin
+    }
+}
+
+plugins {
+    id 'ApkSizePlugin'
+    id "mozac.ConfigPlugin"
+    id 'org.mozilla.conventions.mach-tasks'
+    id 'com.diffplug.spotless'
+    alias(libs.plugins.dependency.analysis)
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.ksp)
+    id 'idea'
+}
+
+idea {
+    module {
+        def indexedDirs = ['gradle', 'mobile', 'taskcluster', 'widget']
+        excludeDirs += projectDir.listFiles().findAll {
+            it.isDirectory() && !indexedDirs.contains(it.name)
+        }
+    }
+}
+
+def tryInt = { string ->
+    if (string == null) {
+        return string
+    }
+    if (string.isInteger()) {
+        return string as Integer
+    }
+    return string
+}
+
+tasks.register("verifyGleanVersion", VerifyGleanVersionTask) {
+    source.convention(layout.projectDirectory.file("Cargo.lock"))
+    expectedVersion.set(libs.versions.glean.get())
+    outputFile.convention(layout.buildDirectory.file("glean/verifyGleanVersion.marker"))
+}
+
+allprojects {
+    // Expose the per-object-directory configuration to all projects.
+    ext {
+        mozconfig = gradle.mozconfig
+        topsrcdir = gradle.mozconfig.topsrcdir
+        topobjdir = gradle.mozconfig.topobjdir
+
+        artifactSuffix = getArtifactSuffix()
+        versionName = getVersionName()
+        versionCode = computeVersionCode()
+        versionNumber = getVersionNumber()
+        buildId = getBuildId()
+
+        buildToolsVersion = mozconfig.substs.ANDROID_BUILD_TOOLS_VERSION
+        compileSdkMajorVersion = tryInt(mozconfig.substs.ANDROID_COMPILE_SDK_MAJOR)
+        compileSdkMinorVersion = tryInt(mozconfig.substs.ANDROID_COMPILE_SDK_MINOR)
+        minSdkVersion = tryInt(mozconfig.substs.MOZ_ANDROID_MIN_SDK_VERSION)
+        targetSdkVersion = tryInt(mozconfig.substs.ANDROID_TARGET_SDK)
+        manifestPlaceholders = [
+            ANDROID_TARGET_SDK: mozconfig.substs.ANDROID_TARGET_SDK,
+            MOZ_ANDROID_MIN_SDK_VERSION: mozconfig.substs.MOZ_ANDROID_MIN_SDK_VERSION,
+        ]
+    }
+
+    afterEvaluate {
+        if (it.hasProperty('android')) {
+            android {
+                buildToolsVersion gradle.mozconfig.substs.ANDROID_BUILD_TOOLS_VERSION
+                testOptions {
+                    unitTests.includeAndroidResources = true
+                }
+            }
+        }
+    }
+
+    // Use the scip-javac and scip-kotlinc plugins to generate SCIP files for Searchfox
+    if (mozconfig.substs.ENABLE_MOZSEARCH_PLUGIN || mozconfig.substs.DOWNLOAD_ALL_GRADLE_DEPENDENCIES) {
+        def targetRoot = new File(topobjdir, "mozsearch_java_index")
+
+        afterEvaluate {
+            def addDependencyToConfigurationIfExists = { configurationName, dependency ->
+                def configuration = configurations.findByName(configurationName)
+                if (configuration != null) {
+                    dependencies.add(configurationName, dependency)
+                }
+            }
+
+            addDependencyToConfigurationIfExists("compileOnly", libs.scip.java)
+            addDependencyToConfigurationIfExists("testCompileOnly", libs.scip.java)
+            addDependencyToConfigurationIfExists("androidTestCompileOnly", libs.scip.java)
+            addDependencyToConfigurationIfExists("kotlinCompilerPluginClasspath", libs.scip.kotlin)
+        }
+
+        tasks.withType(JavaCompile) {
+            options.compilerArgs += [
+                "-Xplugin:scip -sourceroot:${topsrcdir} -targetroot:${targetRoot}",
+            ]
+        }
+
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+            compilerOptions.freeCompilerArgs.addAll([
+                "-P", "plugin:scip-kotlinc:sourceroot=${topsrcdir}".toString(),
+                "-P", "plugin:scip-kotlinc:targetroot=${targetRoot}".toString(),
+            ])
+        }
+    }
+}
+
+// Non-official versions are like "61.0a1" or "61.0b1", where "a1" and "b1"
+// are the milestone.
+// This simply strips that off, leaving "61.0" in this example.
+def getAppVersionWithoutMilestone() {
+    return project.ext.mozconfig.substs.MOZ_APP_VERSION.replaceFirst(/[ab][0-9]/, "")
+}
+
+// This converts MOZ_APP_VERSION into an integer
+// version code.
+//
+// We take something like 58.1.2a1 and come out with 5800102
+// This gives us 3 digits for the major number, and 2 digits
+// each for the minor and build number. Beta and Release
+//
+// This must be synchronized with _compute_gecko_version(...) in /taskcluster/gecko_taskgraph/transforms/task.py
+def computeVersionCode() {
+    String appVersion = getAppVersionWithoutMilestone()
+
+    // Split on the dot delimiter, e.g. 58.1.1a1 -> ["58, "1", "1a1"]
+    String[] parts = appVersion.split('\\.')
+
+    assert parts.size() == 2 || parts.size() == 3
+
+    // Major
+    int code = Integer.parseInt(parts[0]) * 100000
+
+    // Minor
+    code += Integer.parseInt(parts[1]) * 100
+
+    // Build
+    if (parts.size() == 3) {
+        code += Integer.parseInt(parts[2])
+    }
+
+    return code;
+}
+
+def getVersionName() {
+    return "${mozconfig.substs.MOZ_APP_VERSION}-${mozconfig.substs.MOZ_UPDATE_CHANNEL}"
+}
+
+// Mimic Python: open(os.path.join(buildconfig.topobjdir, 'buildid.h')).readline().split()[2]
+def getBuildId() {
+    def buildidFile = file("${topobjdir}/buildid.h")
+    if (!buildidFile.exists()) {
+        throw new GradleException(
+            "A required build file is missing from the object directory:\n" +
+                "  - ${buildidFile}\n\n" +
+                "This file is produced by a full build, not by Gradle.\n" +
+                "Run `./mach build` from the source directory first, then retry your Gradle build."
+        )
+    }
+    return buildidFile.getText('utf-8').split()[2]
+}
+
+def getVersionNumber() {
+    def appVersion = getAppVersionWithoutMilestone()
+    def parts = appVersion.split('\\.')
+    def version = parts[0] + "." + parts[1] + "." + getBuildId()
+    def substs = project.ext.mozconfig.substs
+    if (!substs.MOZILLA_OFFICIAL && !substs.MOZ_ANDROID_FAT_AAR_ARCHITECTURES) {
+        // Use -SNAPSHOT versions locally to enable the local GeckoView substitution flow.
+        version += "-SNAPSHOT"
+    }
+    return version
+}
+
+def getArtifactSuffix() {
+    def substs = project.ext.mozconfig.substs
+
+    def suffix = ""
+    // Release artifacts don't specify the channel, for the sake of simplicity.
+    if (substs.MOZ_UPDATE_CHANNEL != 'release') {
+        suffix += "-${mozconfig.substs.MOZ_UPDATE_CHANNEL}"
+    }
+
+    return suffix
+}
+
+subprojects { project ->
+    // Perform spotless lint in GeckoView projects only.
+    // Sync with spotless_projects in mobile/android/gradle.configure.
+    def projectName = project.getName()
+    if (projectName.startsWith('geckoview')
+            || projectName == 'annotations'
+            || projectName == 'messaging_example'
+            || projectName == 'port_messaging_example'
+            || projectName == 'test_runner'
+    ) {
+        apply plugin: "com.diffplug.spotless"
+        mozilla {
+            ktfmtSourcePaths = ["**/*.kt", "!**/thirdparty/**"]
+        }
+
+        spotless {
+            lineEndings = com.diffplug.spotless.LineEnding.UNIX
+            java {
+                target project.fileTree(project.projectDir) {
+                    include '**/*.java'
+                    exclude '**/thirdparty/**'
+                }
+                googleJavaFormat(libs.versions.google.java.format.get())
+            }
+        }
+
+        // Work around https://github.com/diffplug/spotless/issues/1958 by
+        // explicitly depending on Spotless plugin dependencies.
+        project.configurations {
+            googleJavaFormat
+        }
+
+        project.dependencies {
+            googleJavaFormat libs.google.java.format
+        }
+    }
+
+    afterEvaluate {
+        if (it.hasProperty('android')
+                && (project.projectDir.absolutePath.contains("android-components")
+                || projectName == "fenix"
+                || projectName == "focus-android")
+        ) {
+            dependencies {
+                lintChecks project.project(':components:tooling-lint')
+            }
+
+            android {
+                // Copied from subbproject's build.gradle
+                lint {
+                    baseline = file("${project.projectDir}/lint-baseline.xml")
+                }
+            }
+        }
+    }
+}
+
+// These are convenience helpers to run lints over all the subprojects
+def mobileProjects = [":fenix", ":focus-android", ":android-components"]
+tasks.register("lint") {
+    group = "verification"
+    description = "Runs lint on all mobile projects."
+    mobileProjects.each { dependsOn "${it}:lint" }
+}
+tasks.named("ktfmtCheck").configure {
+    group = "verification"
+    description = "Runs ktfmtCheck on all mobile projects."
+    mobileProjects.each { dependsOn "${it}:ktfmtCheck" }
+}
+tasks.named("ktfmtFormat").configure {
+    group = "formatting"
+    description = "Runs ktfmtFormat on all mobile projects."
+    mobileProjects.each { dependsOn "${it}:ktfmtFormat" }
+}
+tasks.named("detekt").configure {
+    group = "verification"
+    description = "Runs detekt on all mobile projects."
+    mobileProjects.each { dependsOn "${it}:detekt" }
+}
+
+tasks.register("lint-a-c") {
+    group = "verification"
+    description = "(Deprecated) alias for :android-components:lint"
+    dependsOn ":android-components:lint"
+}

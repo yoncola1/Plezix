@@ -1,0 +1,208 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "OptionalPermission",
+        "choices": [
+          {
+            "type": "string",
+            "enum": ["find"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "find",
+    "description": "Use the <code>browser.find</code> API to interact with the browser's <code>Find</code> interface.",
+    "permissions": ["find"],
+    "functions": [
+      {
+        "name": "find",
+        "type": "function",
+        "async": "callback",
+        "description": "Search for text in document and store found ranges in array, in document order.",
+        "parameters": [
+          {
+            "name": "queryphrase",
+            "type": "string",
+            "description": "The string to search for."
+          },
+          {
+            "name": "params",
+            "type": "object",
+            "description": "Search parameters.",
+            "optional": true,
+            "properties": {
+              "tabId": {
+                "type": "integer",
+                "description": "Tab to query. Defaults to the active tab.",
+                "optional": true,
+                "minimum": 0
+              },
+              "caseSensitive": {
+                "type": "boolean",
+                "description": "Find only ranges with case sensitive match.",
+                "optional": true
+              },
+              "matchDiacritics": {
+                "type": "boolean",
+                "description": "Find only ranges with diacritic sensitive match.",
+                "optional": true
+              },
+              "entireWord": {
+                "type": "boolean",
+                "description": "Find only ranges that match entire word.",
+                "optional": true
+              },
+              "includeRectData": {
+                "description": "Return rectangle data which describes visual position of search results.",
+                "type": "boolean",
+                "optional": true
+              },
+              "includeRangeData": {
+                "description": "Return range data which provides range data in a serializable form.",
+                "type": "boolean",
+                "optional": true
+              }
+            }
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "results",
+                "type": "object",
+                "description": "The number of matches found, and the range and rectangle data if requested.",
+                "properties": {
+                  "count": {
+                    "type": "integer",
+                    "description": "The number of matches found."
+                  },
+                  "rangeData": {
+                    "type": "array",
+                    "optional": true,
+                    "description": "Present if <code>includeRangeData</code> was set.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "framePos": {
+                          "type": "integer",
+                          "description": "The index of the frame that contains the match, counting only frames that have matches."
+                        },
+                        "text": {
+                          "type": "string",
+                          "description": "The text of the match."
+                        },
+                        "startTextNodePos": {
+                          "type": "integer",
+                          "description": "The index of the text node in which the match starts."
+                        },
+                        "startOffset": {
+                          "type": "integer",
+                          "description": "The offset of the start of the match in its start text node."
+                        },
+                        "endTextNodePos": {
+                          "type": "integer",
+                          "description": "The index of the text node in which the match ends."
+                        },
+                        "endOffset": {
+                          "type": "integer",
+                          "description": "The offset of the end of the match in its end text node."
+                        }
+                      }
+                    }
+                  },
+                  "rectData": {
+                    "type": "array",
+                    "optional": true,
+                    "description": "Present if <code>includeRectData</code> was set.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string",
+                          "description": "The text of the match."
+                        },
+                        "rectsAndTexts": {
+                          "type": "object",
+                          "properties": {
+                            "rectList": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "top": { "type": "number" },
+                                  "left": { "type": "number" },
+                                  "bottom": { "type": "number" },
+                                  "right": { "type": "number" }
+                                }
+                              }
+                            },
+                            "textList": {
+                              "type": "array",
+                              "items": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "highlightResults",
+        "type": "function",
+        "async": true,
+        "description": "Highlight a range",
+        "parameters": [
+          {
+            "name": "params",
+            "type": "object",
+            "description": "highlightResults parameters",
+            "optional": true,
+            "properties": {
+              "rangeIndex": {
+                "type": "integer",
+                "description": "Found range to be highlighted. Default highlights all ranges.",
+                "minimum": 0,
+                "optional": true
+              },
+              "tabId": {
+                "type": "integer",
+                "description": "Tab to highlight. Defaults to the active tab.",
+                "minimum": 0,
+                "optional": true
+              },
+              "noScroll": {
+                "type": "boolean",
+                "description": "Don't scroll to highlighted item.",
+                "optional": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "removeHighlighting",
+        "type": "function",
+        "async": true,
+        "description": "Remove all highlighting from previous searches.",
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer",
+            "description": "Tab to highlight. Defaults to the active tab.",
+            "optional": true
+          }
+        ]
+      }
+    ]
+  }
+]

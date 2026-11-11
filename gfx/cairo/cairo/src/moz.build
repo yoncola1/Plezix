@@ -1,0 +1,400 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXPORTS.cairo += [
+    'cairo-deprecated.h',
+    'cairo-features.h',
+    'cairo-platform.h',
+    'cairo-rename.h',
+    'cairo-tee.h',
+    'cairo-version.h',
+    'cairo.h',
+    'pixman-rename.h',
+]
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] not in ('cocoa', 'uikit'):
+    EXPORTS.cairo += [
+        'cairo-pdf.h',
+    ]
+    SOURCES += [
+        'cairo-base85-stream.c',
+        'cairo-cff-subset.c',
+        'cairo-deflate-stream.c',
+        'cairo-pdf-interchange.c',
+        'cairo-pdf-operators.c',
+        'cairo-pdf-shading.c',
+        'cairo-pdf-surface.c',
+        'cairo-truetype-subset.c',
+        'cairo-type1-fallback.c',
+        'cairo-type1-glyph-names.c',
+        'cairo-type1-subset.c',
+        'cairo-type3-glyph-surface.c',
+    ]
+
+if CONFIG['MOZ_WIDGET_TOOLKIT'] == 'windows':
+    DEFINES['MOZ_DISABLE_WINDOWS_WRAPPER'] = True
+    EXPORTS.cairo += [
+        'cairo-win32.h',
+    ]
+    SOURCES += [
+        'win32/cairo-dwrite-font.cpp',
+        'win32/cairo-win32-device.c',
+        'win32/cairo-win32-display-surface.c',
+        'win32/cairo-win32-font.c',
+        'win32/cairo-win32-gdi-compositor.c',
+        'win32/cairo-win32-printing-surface.c',
+        'win32/cairo-win32-surface.c',
+        'win32/cairo-win32-system.c',
+        'win32/cairo-win32-thread-data.c',
+    ]
+    DEFINES['DISABLE_SOME_FLOATING_POINT'] = True
+    DEFINES['CAIRO_WIN32_STATIC_BUILD'] = True
+elif CONFIG['MOZ_WIDGET_TOOLKIT'] in {'cocoa', 'uikit'}:
+    EXPORTS.cairo += [
+        'cairo-quartz-image.h',
+        'cairo-quartz.h',
+    ]
+    SOURCES += [
+        'cairo-quartz-font.c',
+        'cairo-quartz-image-surface.c',
+        'cairo-quartz-surface.c',
+    ]
+elif CONFIG['MOZ_WIDGET_TOOLKIT'] == 'beos':
+    EXPORTS.cairo += [
+        'cairo-beos.h',
+    ]
+    SOURCES += [
+        'cairo-beos-surface.cpp',
+    ]
+
+if CONFIG['MOZ_X11']:
+    EXPORTS.cairo += [
+        'cairo-xlib-xrender.h',
+        'cairo-xlib.h',
+    ]
+    SOURCES += [
+        'cairo-xlib-core-compositor.c',
+        'cairo-xlib-display.c',
+        'cairo-xlib-fallback-compositor.c',
+        'cairo-xlib-render-compositor.c',
+        'cairo-xlib-screen.c',
+        'cairo-xlib-source.c',
+        'cairo-xlib-surface-shm.c',
+        'cairo-xlib-surface.c',
+        'cairo-xlib-visual.c',
+        'cairo-xlib-xcb-surface.c',
+    ]
+
+if CONFIG['MOZ_ENABLE_CAIRO_FT']:
+    EXPORTS.cairo += [
+        'cairo-ft.h',
+    ]
+    SOURCES += [
+        'cairo-ft-font.c',
+    ]
+    # Dates back to at least FreeType 2.1, and used without guards elsewhere
+    # in thebes/moz2d code anyhow.
+    DEFINES['HAVE_FT_LOAD_SFNT_TABLE'] = True
+
+SOURCES += [
+    'cairo-bentley-ottmann-rectangular.c', # redefinition of '_cairo_bo_trap'
+    'cairo-bentley-ottmann-rectilinear.c', # redefinition of '_cairo_bo_trap'
+    'cairo-bentley-ottmann.c', # redefinition of '_cairo_bo_trap'
+    'cairo-boxes-intersect.c', # a bunch of redefinitions
+    'cairo-clip-surface.c', #  redefinition of '_cairo_path_fixed_add_box'
+    'cairo-image-source.c', #  redefinition of 'fill'
+    'cairo-mask-compositor.c', #  redefinition of 'fill'
+    'cairo-path-stroke-traps.c', #  redefinition of 'stroker'
+    'cairo-path-stroke-tristrip.c', #  redefinition of 'stroker'
+    'cairo-polygon-intersect.c',  #  redefinition of 'edge_compare_for_y_against_x'
+    'cairo-polygon-reduce.c',  #  redefinition of 'edge_compare_for_y_against_x'
+    'cairo-rectangular-scan-converter.c', #  redefinition of '_pqueue'
+    'cairo-surface-wrapper.c', #  redefinition of '_copy_transformed_pattern'
+    'cairo-tor-scan-converter.c', #  redefinition of 'struct cell'
+    'cairo-traps-compositor.c', #  redefinition of 'is_recording_pattern'
+]
+
+UNIFIED_SOURCES += [
+    'cairo-analysis-surface.c',
+    'cairo-arc.c',
+    'cairo-array.c',
+    'cairo-atomic.c',
+    'cairo-base64-stream.c',
+    'cairo-botor-scan-converter.c',
+    'cairo-boxes.c',
+    'cairo-cache.c',
+    'cairo-clip-boxes.c',
+    'cairo-clip-polygon.c',
+    'cairo-clip-region.c',
+    'cairo-clip.c',
+    'cairo-color.c',
+    'cairo-composite-rectangles.c',
+    'cairo-compositor.c',
+    'cairo-contour.c',
+    'cairo-damage.c',
+    'cairo-debug.c',
+    'cairo-default-context.c',
+    'cairo-device.c',
+    'cairo-error.c',
+    'cairo-fallback-compositor.c',
+    'cairo-fixed.c',
+    'cairo-font-face-twin-data.c',
+    'cairo-font-face-twin.c',
+    'cairo-font-face.c',
+    'cairo-font-options.c',
+    'cairo-freed-pool.c',
+    'cairo-freelist.c',
+    'cairo-gstate.c',
+    'cairo-hash.c',
+    'cairo-hull.c',
+    'cairo-image-compositor.c',
+    'cairo-image-info.c',
+    'cairo-image-surface.c',
+    'cairo-line.c',
+    'cairo-lzw.c',
+    'cairo-matrix.c',
+    'cairo-mesh-pattern-rasterizer.c',
+    'cairo-misc.c',
+    'cairo-mono-scan-converter.c',
+    'cairo-mutex.c',
+    'cairo-no-compositor.c',
+    'cairo-observer.c',
+    'cairo-output-stream.c',
+    'cairo-paginated-surface.c',
+    'cairo-path-bounds.c',
+    'cairo-path-fill.c',
+    'cairo-path-fixed.c',
+    'cairo-path-in-fill.c',
+    'cairo-path-stroke-boxes.c',
+    'cairo-path-stroke-polygon.c',
+    'cairo-path-stroke.c',
+    'cairo-path.c',
+    'cairo-pattern.c',
+    'cairo-pen.c',
+    'cairo-polygon.c',
+    'cairo-raster-source-pattern.c',
+    'cairo-recording-surface.c',
+    'cairo-rectangle.c',
+    'cairo-region.c',
+    'cairo-scaled-font-subsets.c',
+    'cairo-scaled-font.c',
+    'cairo-shape-mask-compositor.c',
+    'cairo-slope.c',
+    'cairo-spans-compositor.c',
+    'cairo-spans.c',
+    'cairo-spline.c',
+    'cairo-stroke-dash.c',
+    'cairo-stroke-style.c',
+    'cairo-surface-clipper.c',
+    'cairo-surface-fallback.c',
+    'cairo-surface-offset.c',
+    'cairo-surface-snapshot.c',
+    'cairo-surface-subsurface.c',
+    'cairo-surface.c',
+    'cairo-tag-attributes.c',
+    'cairo-tag-stack.c',
+    'cairo-tee-surface.c',
+    'cairo-tor22-scan-converter.c',
+    'cairo-toy-font-face.c',
+    'cairo-traps.c',
+    'cairo-tristrip.c',
+    'cairo-unicode.c',
+    'cairo-user-font.c',
+    'cairo-version.c',
+    'cairo-wideint.c',
+    'cairo.c',
+]
+
+# We allow warnings for third-party code that can be updated from upstream.
+AllowCompilerWarnings()
+
+FINAL_LIBRARY = 'xul'
+
+DEFINES['PACKAGE_VERSION'] = '"moz"'
+DEFINES['PACKAGE_BUGREPORT'] = '"http://bugzilla.mozilla.org/"'
+
+for var in ('CAIRO_HAS_PTHREAD', '_GNU_SOURCE'):
+    DEFINES[var] = True
+
+if CONFIG['MOZ_TREE_PIXMAN']:
+    DEFINES['MOZ_TREE_PIXMAN'] = True
+
+if CONFIG['CC_TYPE'] in ('clang', 'gcc'):
+    # We would normally use autoconf to set these up, using AC_CHECK_SIZEOF.
+    # But AC_CHECK_SIZEOF requires running programs to determine the sizes,
+    # and that doesn't work so well with cross-compiling.  So instead we
+    # use these magic macros, available since at least GCC 4.3, to define
+    # the preprocessor macros cairo wanted from autoconf.
+    DEFINES['SIZEOF_VOID_P'] = '__SIZEOF_POINTER__'
+    DEFINES['SIZEOF_INT'] = '__SIZEOF_INT__'
+    DEFINES['SIZEOF_LONG'] = '__SIZEOF_LONG__'
+    DEFINES['SIZEOF_LONG_LONG'] = '__SIZEOF_LONG_LONG__'
+
+# Normally determined by cairo's configure script.
+DEFINES['HAVE_UINT64_T'] = True
+DEFINES['HAVE_CXX11_ATOMIC_PRIMITIVES'] = True
+
+if CONFIG['MOZ_TREE_FREETYPE']:
+    DEFINES['HAVE_FT_LIBRARY_SETLCDFILTER'] = True
+    DEFINES['FT_LCD_FILTER_H'] = '../../../modules/freetype2/include/freetype/ftlcdfil.h'
+
+# Suppress warnings in third-party code.
+CFLAGS += [
+    '-Wno-enum-compare',
+    '-Wno-int-to-pointer-cast',
+    '-Wno-int-conversion',
+    '-Wno-incompatible-pointer-types',
+    '-Wno-sign-compare',
+    '-Wno-type-limits',
+    '-Wno-missing-field-initializers',
+    '-Wno-conversion',
+    '-Wno-narrowing',
+    '-Wno-switch',
+    '-Wno-unused',
+    '-Wno-unused-variable',
+    '-Wno-error=uninitialized',
+]
+if CONFIG['CC_TYPE'] in ('clang', 'clang-cl'):
+    CFLAGS += [
+        '-Wno-absolute-value',
+        '-Wno-deprecated-register',
+        '-Wno-incompatible-pointer-types',
+        '-Wno-macro-redefined',
+        '-Wno-shift-negative-value',
+        '-Wno-tautological-compare',
+        '-Wno-tautological-constant-out-of-range-compare',
+        '-Wno-unreachable-code',
+    ]
+else:
+    CFLAGS += ['-Wno-unused-but-set-variable']
+
+# See bug 386897.
+if CONFIG['CC_TYPE'] in ('clang', 'gcc') and CONFIG['OS_TARGET'] == 'Android' and CONFIG['MOZ_OPTIMIZE']:
+    CFLAGS += ['-O2']
+    CXXFLAGS += ['-O2']
+
+if CONFIG['MOZ_X11']:
+    CFLAGS += CONFIG['MOZ_X11_CFLAGS']
+
+if CONFIG['MOZ_ENABLE_CAIRO_FT']:
+    CFLAGS += CONFIG['CAIRO_FT_CFLAGS']
+    CXXFLAGS += CONFIG['CAIRO_FT_CFLAGS']
+
+# A lot of security-sensitive invariants are checked using debug
+# assertions.
+CFLAGS += ['-UNDEBUG']
+
+SOURCE_HEADERS += [
+	"cairo-analysis-surface-private.h",
+	"cairo-arc-private.h",
+	"cairo-array-private.h",
+	"cairo-atomic-private.h",
+	"cairo-backend-private.h",
+	"cairo-box-inline.h",
+	"cairo-boxes-private.h",
+	"cairo-cache-private.h",
+	"cairo-clip-inline.h",
+	"cairo-clip-private.h",
+	"cairo-combsort-inline.h",
+	"cairo-compiler-private.h",
+	"cairo-composite-rectangles-private.h",
+	"cairo-compositor-private.h",
+	"cairo-contour-inline.h",
+	"cairo-contour-private.h",
+	"cairo-ctype-inline.h",
+	"cairo-damage-private.h",
+	"cairo-default-context-private.h",
+	"cairo-device-private.h",
+	"cairo-dwrite.h",
+	"cairo-error-inline.h",
+	"cairo-error-private.h",
+	"cairo-fixed-private.h",
+	"cairo-fixed-type-private.h",
+	"cairo-fontconfig-private.h",
+	"cairo-freed-pool-private.h",
+	"cairo-freelist-private.h",
+	"cairo-freelist-type-private.h",
+	"cairo-ft-private.h",
+	"cairo-gstate-private.h",
+	"cairo-hash-private.h",
+	"cairo-image-info-private.h",
+	"cairo-image-surface-inline.h",
+	"cairo-image-surface-private.h",
+	"cairo-line-inline.h",
+	"cairo-line-private.h",
+	"cairo-list-inline.h",
+	"cairo-list-private.h",
+	"cairo-malloc-private.h",
+	"cairo-mempool-private.h",
+	"cairo-mutex-impl-private.h",
+	"cairo-mutex-list-private.h",
+	"cairo-mutex-private.h",
+	"cairo-mutex-type-private.h",
+	"cairo-output-stream-private.h",
+	"cairo-paginated-private.h",
+	"cairo-paginated-surface-private.h",
+	"cairo-path-fixed-private.h",
+	"cairo-path-private.h",
+	"cairo-pattern-inline.h",
+	"cairo-pattern-private.h",
+	"cairo-pdf-operators-private.h",
+	"cairo-pdf-shading-private.h",
+	"cairo-pdf-surface-private.h",
+	"cairo-pixman-private.h",
+	"cairo-private.h",
+	"cairo-ps-surface-private.h",
+	"cairo-ps.h",
+	"cairo-quartz-private.h",
+	"cairo-recording-surface-inline.h",
+	"cairo-recording-surface-private.h",
+	"cairo-reference-count-private.h",
+	"cairo-region-private.h",
+	"cairo-rtree-private.h",
+	"cairo-scaled-font-private.h",
+	"cairo-scaled-font-subsets-private.h",
+	"cairo-script-private.h",
+	"cairo-script.h",
+	"cairo-slope-private.h",
+	"cairo-spans-compositor-private.h",
+	"cairo-spans-private.h",
+	"cairo-stroke-dash-private.h",
+	"cairo-surface-backend-private.h",
+	"cairo-surface-clipper-private.h",
+	"cairo-surface-fallback-private.h",
+	"cairo-surface-inline.h",
+	"cairo-surface-observer-inline.h",
+	"cairo-surface-observer-private.h",
+	"cairo-surface-offset-private.h",
+	"cairo-surface-private.h",
+	"cairo-surface-snapshot-inline.h",
+	"cairo-surface-snapshot-private.h",
+	"cairo-surface-subsurface-inline.h",
+	"cairo-surface-subsurface-private.h",
+	"cairo-surface-wrapper-private.h",
+	"cairo-svg-surface-private.h",
+	"cairo-svg.h",
+	"cairo-tag-attributes-private.h",
+	"cairo-tag-stack-private.h",
+	"cairo-time-private.h",
+	"cairo-traps-private.h",
+	"cairo-tristrip-private.h",
+	"cairo-truetype-subset-private.h",
+	"cairo-type1-private.h",
+	"cairo-type3-glyph-surface-private.h",
+	"cairo-types-private.h",
+	"cairo-user-font-private.h",
+	"cairo-wideint-private.h",
+	"cairo-wideint-type-private.h",
+	"cairo-xcb-private.h",
+	"cairo-xcb.h",
+	"cairo-xlib-private.h",
+	"cairo-xlib-surface-private.h",
+	"cairo-xlib-xrender-private.h",
+	"cairoint.h",
+	"config.h",
+	"test-compositor-surface-private.h",
+	"test-compositor-surface.h",
+	"test-null-compositor-surface.h",
+	"test-paginated-surface.h",
+]

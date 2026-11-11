@@ -1,0 +1,69 @@
+.section-empty-state {
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--border-radius-small);
+  display: flex;
+  height: $card-height-compact;
+  width: 100%;
+
+  @include wallpaper-contrast-fix;
+
+  // Sections have no header above the empty state, so add spacing.
+  .sections-empty & {
+    margin-block-start: var(--space-medium);
+  }
+
+  @media (min-width: $break-point-sections-variant) {
+    width: 936px;
+  }
+
+  .empty-state-message {
+    color: var(--newtab-text-secondary-color);
+    font-size: var(--font-size-root);
+    text-align: center;
+    margin: auto;
+    max-width: 936px;
+  }
+
+  .try-again-button {
+    margin-block-start: var(--space-medium);
+  }
+
+  // The masked background draws the spinner and hides the text, which screen readers still read.
+  .try-again-spinner {
+    display: block;
+    width: 20px;
+    height: var(--button-min-height);
+    margin: var(--space-medium) auto 0;
+    color: transparent;
+    background: var(--newtab-text-secondary-color);
+    mask: url('chrome://newtab/content/data/content/assets/spinner.svg') center / 20px no-repeat;
+    animation: spinner 1s linear infinite;
+  }
+
+  h2 {
+    font-size: var(--font-size-heading-medium);
+    font-weight: var(--font-weight-heading);
+    margin: 0;
+  }
+
+  p {
+    margin: var(--space-small) 0 0;
+  }
+}
+
+// @nova-cleanup(remove-conditional): Remove .nova-enabled selector and fold into the rules above.
+.nova-enabled :is(.content, .content-full-width) .ds-card-grid.empty {
+  @include nova-centering-grid(4);
+
+  .section-empty-state {
+    grid-column: 1 / -1;
+    width: auto;
+    color: var(--text-color);
+    border-color: var(--border-color-deemphasized);
+    border-radius: var(--border-radius-large);
+  }
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}

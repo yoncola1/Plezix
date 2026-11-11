@@ -1,0 +1,43 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+include $(topsrcdir)/toolkit/mozapps/installer/package-name.mk
+
+CONFIG_DIR = instgen
+
+include $(topsrcdir)/config/config.mk
+
+SFX_MODULE = $(topsrcdir)/$(NSIS_SFX_MODULE)
+INSTALLER_FILES = $(NSIS_INSTALLER_FILES)
+BRANDING_FILES = $(NSIS_BRANDING_FILES)
+
+ifdef IS_LANGUAGE_REPACK
+PPL_LOCALE_ARGS = \
+  --l10n-dir=$(REAL_LOCALE_MERGEDIR)/browser/installer \
+  --l10n-dir=$(call EXPAND_LOCALE_SRCDIR,browser/locales)/installer \
+  --l10n-dir=$(topsrcdir)/browser/locales/en-US/installer \
+  $(NULL)
+else
+PPL_LOCALE_ARGS=$(call EXPAND_LOCALE_SRCDIR,browser/locales)/installer
+endif
+
+stage_installer:
+	$(call py_action,nsis_stage installer,$(NSIS_STAGE_ARGS) \
+	$(addprefix --install=,$(addprefix $(MOZILLA_DIR)/other-licenses/nsis/,$(NSIS_CUSTOM_UI))) \
+	--single-file nsisstrings.properties nsisstrings.nlf \
+	--convert-utf8 $(srcdir)/nsis/extensionsLocale.nsh $(CONFIG_DIR)/extensionsLocale.nsh)
+
+$(CONFIG_DIR)/setup.exe::
+	$(MAKE) stage_installer
+	$(call py_action,nsis_build setup.exe,--config-dir=$(CONFIG_DIR) --nsi=installer.nsi \
+	--makensis=$(MAKENSISU) $(addprefix --makensis-flag=,$(MAKENSISU_FLAGS)) \
+	--buildid-header=$(topobjdir)/buildid.h --output=$(CONFIG_DIR)/setup.exe)
+ifdef MOZ_STUB_INSTALLER
+	$(call py_action,nsis_build setup-stub.exe,--config-dir=$(CONFIG_DIR) --nsi=stub.nsi \
+	--makensis=$(MAKENSISU) $(addprefix --makensis-flag=,$(MAKENSISU_FLAGS)) \
+	--buildid-header=$(topobjdir)/buildid.h --output=$(CONFIG_DIR)/setup-stub.exe)
+endif
+
+include $(topsrcdir)/config/rules.mk
+include $(topsrcdir)/toolkit/mozapps/installer/windows/nsis/makensis.mk

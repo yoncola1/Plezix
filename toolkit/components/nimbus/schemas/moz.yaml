@@ -1,0 +1,30 @@
+schema: 1
+
+bugzilla:
+  product: "Firefox"
+  component: "Nimbus Desktop Client"
+
+origin:
+  name: "mozilla-nimbus-schemas"
+  description: "Schemas used by Mozilla Nimbus and related projects."
+  url: "https://github.com/mozilla/experimenter"
+  license: "MPL-2.0"
+  # mozilla-nimbus-schemas v3001.0.0. Leave release and revision in the form
+  # `mach vendor` writes them, or it rewrites them on the next update.
+  revision: bfa19cb37b8e818a2ee218aa71251aca1caa19fa
+  release: bfa19cb37b8e818a2ee218aa71251aca1caa19fa (2025-03-19T16:19:26Z).
+
+vendoring:
+  url: "https://github.com/mozilla/experimenter"
+  source-hosting: "github"
+  tracking: "commit"
+  flavor: "individual-files"
+  individual-files:
+    - upstream: schemas/schemas/DesktopNimbusExperiment.schema.json
+      destination: NimbusExperiment.schema.json
+
+    - upstream: schemas/schemas/DesktopFeature.schema.json
+      destination: ExperimentFeature.schema.json
+
+    - upstream: schemas/schemas/DesktopFeatureManifest.schema.json
+      destination: ExperimentFeatureManifest.schema.json

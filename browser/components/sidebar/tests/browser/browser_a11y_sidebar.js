@@ -1,0 +1,401 @@
+/* Any copyright is dedicated to the Public Domain.
+   https://creativecommons.org/publicdomain/zero/1.0/ */
+
+"use strict";
+
+const lazy = {};
+
+ChromeUtils.defineESModuleGetters(lazy, {
+  GenAI: "moz-src:///browser/components/genai/GenAI.sys.mjs",
+});
+
+async function focusAndActivateElement(elem, activateMethod) {
+  elem.setAttribute("tabindex", "-1");
+  elem.focus();
+  try {
+    await activateMethod(elem);
+  } finally {
+    elem.removeAttribute("tabindex");
+  }
+}
+
+add_setup(async () => {
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["browser.ml.chat.enabled", true],
+      ["sidebar.main.tools", "aichat,syncedtabs,history,bookmarks"],
+    ],
+  });
+
+  const sidebarLauncher = document.querySelector("sidebar-main");
+  const sidebarButton = document.getElementById("sidebar-button");
+
+  // This test expects the launcher and tools to be initially visible, so toggle it open
+  // if necessary
+  if (!BrowserTestUtils.isVisible(sidebarLauncher)) {
+    await SimpleTest.promiseFocus(window);
+
+    info("Focus on the button and send Space key to show the launcher.");
+    await focusAndActivateElement(sidebarButton, () =>
+      EventUtils.synthesizeKey("VK_SPACE")
+    );
+    Assert.ok(isActiveElement(sidebarButton), "Button has focus");
+    await sidebarLauncher.updateComplete;
+    await SidebarController.waitUntilStable();
+  }
+  Assert.ok(
+    BrowserTestUtils.isVisible(sidebarLauncher),
+    "Sidebar launcher is now visible"
+  );
+});
+
+function isActiveElement(el) {
+  return el.getRootNode().activeElement == el;
+}
+
+add_task(async function test_keyboard_navigation() {
+  const sidebar = document.querySelector("sidebar-main");
+  let promisePanelFocused;
+  info("Waiting for tool buttons to be present");
+  await BrowserTestUtils.waitForMutationCondition(
+    sidebar,
+    { subTree: true, childList: true },
+    () => !!sidebar.toolButtons.length
+  );
+
+  const toolButtons = sidebar.toolButtons;
+  await TestUtils.waitForCondition(
+    () => BrowserTestUtils.isVisible(toolButtons[0]),
+    "The first toolbutton is rendered"
+  );
+
+  // When the launcher gets shown in setUp, the last button is the activeChild.
+  // In order to focus and test keyboard navigation on the first button, we currently
+  // need to manually update the activeChild before we focus it
+  sidebar.buttonGroup.activeChild = toolButtons[0];
+  toolButtons[0].focus();
+  info(
+    `activeElement view: ${toolButtons[0].getRootNode().activeElement.getAttribute("view")}`
+  );
+  ok(isActiveElement(toolButtons[0]), "First tool button is focused.");
+
+  info("Press Arrow Down key.");
+  EventUtils.synthesizeKey("KEY_ArrowDown", {});
+  info(
+    `activeElement view: ${toolButtons[1].getRootNode().activeElement.getAttribute("view")}`
+  );
+  ok(isActiveElement(toolButtons[1]), "Second tool button is focused.");
+
+  info("Press Arrow Down key.");
+  EventUtils.synthesizeKey("KEY_ArrowDown", {});
+  ok(isActiveElement(toolButtons[2]), "Third tool button is focused.");
+
+  // 3rd tool is history, which is a less-moving target than the chat panel
+  info("Press Enter key.");
+  promisePanelFocused = BrowserTestUtils.waitForEvent(window, "SidebarFocused");
+  EventUtils.synthesizeKey("KEY_Enter", {});
+  await promisePanelFocused;
+  await SidebarController.waitUntilStable();
+
+  ok(sidebar.open, "Sidebar is open.");
+  ok(
+    isActiveElement(SidebarController.browser),
+    "The focus moved to the sidebar panel browser"
+  );
+
+  info("selectedView is:" + sidebar.selectedView);
+  is(
+    sidebar.selectedView,
+    toolButtons[2].getAttribute("view"),
+    "Sidebar is showing the 3rd tool."
+  );
+  // Moz-button is passing an "aria-selected" attribute to the actual buttonEl:
+  is(
+    toolButtons[2].buttonEl.getAttribute("aria-selected"),
+    "true",
+    "aria-selected is true for the active tool button."
+  );
+  is(
+    toolButtons[0].buttonEl.getAttribute("aria-selected"),
+    "false",
+    "aria-selected is false for the inactive tool button."
+  );
+
+  info("Press Shift+tab to move focus to the close button in the panel");
+  EventUtils.synthesizeKey("KEY_Tab", { shiftKey: true }, window);
+
+  info("Press Enter key to click the panel close button.");
+  let panelClosedPromise = BrowserTestUtils.waitForEvent(
+    SidebarController._box,
+    "sidebar-hide"
+  );
+  EventUtils.synthesizeKey("KEY_Enter", {});
+  await panelClosedPromise;
+  await SidebarController.waitUntilStable();
+  ok(
+    isActiveElement(toolButtons[2]),
+    "The focus moved to the launcher button when the panel closed"
+  );
+
+  ok(!sidebar.open, "Sidebar panel is closed.");
+  is(
+    toolButtons[2].buttonEl.getAttribute("aria-selected"),
+    "false",
+    "Tool is no longer active, aria-selected becomes false."
+  );
+
+  // We seem to need to wait here before re-focusing the tool button
+  await waitForRepaint();
+  info("Re-focus the first tool button");
+  sidebar.buttonGroup.activeChild = toolButtons[0];
+  toolButtons[0].focus();
+  await SidebarController.waitUntilStable();
+
+  const customizeButton = sidebar.customizeButton;
+
+  info(
+    "Press Tab key to the next control group - which should be the customize button"
+  );
+  EventUtils.synthesizeKey("KEY_Tab", {});
+  ok(isActiveElement(customizeButton), "Customize button is focused.");
+
+  info("Press Enter key to open the customize panel");
+  promisePanelFocused = BrowserTestUtils.waitForEvent(window, "SidebarFocused");
+  EventUtils.synthesizeKey("KEY_Enter", {});
+  await promisePanelFocused;
+  await SidebarController.waitUntilStable();
+  ok(sidebar.open, "Sidebar is open.");
+
+  let customizeDocument = SidebarController.browser.contentDocument;
+  const customizeComponent =
+    customizeDocument.querySelector("sidebar-customize");
+  const sidebarPanelHeader = SidebarController.panelHeader;
+  let closeButton = sidebarPanelHeader.closeButton;
+  info("Press Tab key.");
+  EventUtils.synthesizeKey("KEY_Tab", {});
+  ok(isActiveElement(closeButton), "Close button is focused.");
+
+  info("Press Tab key.");
+  EventUtils.synthesizeKey("KEY_Tab", {});
+  ok(
+    isActiveElement(customizeComponent.verticalTabsInput),
+    "First customize component is focused"
+  );
+
+  info("Press Tab and Shift key.");
+  EventUtils.synthesizeKey("KEY_Tab", { shiftKey: true }, window);
+  ok(isActiveElement(closeButton), "Close button is focused.");
+  EventUtils.synthesizeKey("KEY_Enter", {});
+  await sidebar.updateComplete;
+  await SidebarController.waitUntilStable();
+  ok(!sidebar.open, "Sidebar is closed.");
+});
+
+/**
+ * Open a panel, remove the button that was used to open it, then close it with
+ * the 'x' button.
+ *
+ * The launcher should still be focused, even though the exact button isn't
+ * there anymore.
+ */
+add_task(async function test_kb_close_panel_after_launcher_button_removed() {
+  const sidebar = SidebarController.sidebarMain;
+
+  // Open the history panel.
+  const historyButton = [...sidebar.toolButtons].find(
+    button => button.getAttribute("view") === "viewHistorySidebar"
+  );
+  await SidebarController.show("viewHistorySidebar", historyButton);
+
+  // Remove the history button.
+  await SpecialPowers.pushPrefEnv({
+    set: [["sidebar.main.tools", "aichat,syncedtabs,bookmarks"]],
+  });
+  await BrowserTestUtils.waitForMutationCondition(
+    sidebar.buttonGroup,
+    { childList: true, subtree: true },
+    () =>
+      ![...sidebar.toolButtons].find(
+        button => button.getAttribute("view") === "viewHistorySidebar"
+      ),
+    { msg: "History launcher button is removed" }
+  );
+
+  // Close the history panel with keyboard.
+  const fallback = sidebar.buttonGroup.firstElementChild;
+  const closeButton = SidebarController.panelHeader.closeButton;
+  closeButton.focus();
+  EventUtils.synthesizeKey("KEY_Enter", {}, window);
+  await SidebarController.waitUntilStable();
+
+  Assert.ok(!SidebarController.isOpen, "History panel is closed");
+  Assert.ok(
+    isActiveElement(fallback),
+    "Focus returns to the first launcher button when the panel button is removed"
+  );
+  Assert.equal(
+    fallback.tabIndex,
+    0,
+    "The focused button is the group's tab stop"
+  );
+
+  await SpecialPowers.popPrefEnv();
+});
+
+/**
+ * Open and close a panel while the launcher is hidden.
+ *
+ * The active tab's `<browser>` should be focused.
+ */
+add_task(async function test_kb_close_panel_with_hidden_launcher() {
+  for (const [verticalTabs, visibility] of [
+    [false, "hide-launcher"],
+    [true, "hide-sidebar"],
+  ]) {
+    // Open a new window, where the sidebar launcher is hidden.
+    await SpecialPowers.pushPrefEnv({
+      set: [
+        [VERTICAL_TABS_PREF, verticalTabs],
+        [SIDEBAR_VISIBILITY_PREF, visibility],
+      ],
+    });
+    const win = await BrowserTestUtils.openNewBrowserWindow();
+    await SidebarTestUtils.ensureLauncherHidden(win);
+
+    // Open the history panel, then close it with keyboard.
+    await SidebarTestUtils.showPanel(win, "viewHistorySidebar");
+    const closeButton = win.SidebarController.panelHeader.closeButton;
+    closeButton.focus();
+    EventUtils.synthesizeKey("KEY_Enter", {}, win);
+    await win.SidebarController.waitUntilStable();
+
+    Assert.ok(!win.SidebarController.isOpen, `${visibility}: panel is closed`);
+    Assert.ok(
+      isActiveElement(win.gBrowser.selectedBrowser),
+      `${visibility}: focus returns to the page when the launcher is hidden`
+    );
+
+    await BrowserTestUtils.closeWindow(win);
+    await SpecialPowers.popPrefEnv();
+  }
+});
+
+add_task(async function test_menu_items_labeled() {
+  const sidebar = document.querySelector("sidebar-main");
+  info("Waiting for tool buttons to be present");
+  await BrowserTestUtils.waitForMutationCondition(
+    sidebar,
+    { subTree: true, childList: true },
+    () => !!sidebar.toolButtons.length
+  );
+  const allButtons = sidebar.allButtons;
+  const dynamicTooltips = Object.keys(SidebarController.sidebarMain.tooltips);
+
+  await SidebarController.updateUIState({ launcherExpanded: false });
+  await sidebar.updateComplete;
+  for (const button of allButtons) {
+    const view = button.getAttribute("view");
+    const title = button.title;
+    ok(title, `${view} button has a tooltip.`);
+    if (dynamicTooltips.includes(view)) {
+      await SidebarController.show(view);
+      isnot(
+        title,
+        button.title,
+        `${view} button has a different tooltip when the panel is open.`
+      );
+      SidebarController.hide();
+    }
+    ok(!button.hasVisibleLabel, `Collapsed ${view} button has no label.`);
+  }
+});
+
+add_task(async function test_genai_chat_sidebar_tooltip() {
+  const chatbotButton = document
+    .querySelector("sidebar-main")
+    .shadowRoot.querySelector("[view=viewGenaiChatSidebar]");
+
+  await SidebarController.updateUIState({ launcherExpanded: false });
+
+  const view = chatbotButton.getAttribute("view");
+  ok(
+    chatbotButton.title,
+    `${view} chatbot button (${chatbotButton.title}) has a tooltip.`
+  );
+  const sandbox = sinon.createSandbox();
+
+  const mockTooltipName = "test-tooltip-name";
+
+  sandbox.stub(lazy.GenAI, "currentChatProviderInfo").value({
+    name: mockTooltipName,
+    iconUrl: "chrome://global/skin/icons/highlights.svg",
+  });
+  await SpecialPowers.pushPrefEnv({
+    set: [["browser.ml.chat.provider", "https://localhost"]],
+  });
+
+  Assert.ok(
+    chatbotButton.title.includes(mockTooltipName),
+    `${chatbotButton.title} should include ${mockTooltipName}.`
+  );
+
+  sandbox.restore();
+});
+
+add_task(async function test_keyboard_navigation_vertical_tabs() {
+  await SpecialPowers.pushPrefEnv({
+    set: [[VERTICAL_TABS_PREF, true]],
+  });
+  await SidebarTestUtils.waitForTabstripOrientation(window, "vertical");
+  await SidebarController.updateUIState({ launcherExpanded: false });
+  const sidebar = document.querySelector("sidebar-main");
+  const syncedTabsButton = await BrowserTestUtils.waitForMutationCondition(
+    sidebar.shadowRoot,
+    { childList: true, subtree: true },
+    () => sidebar.shadowRoot.querySelector("moz-button[view=viewTabsSidebar]"),
+    { msg: "Waiting for Synced Tabs button to be present." }
+  );
+  await SidebarTestUtils.showPanel(window, "viewTabsSidebar");
+  await sidebar.updateComplete;
+  Assert.equal(
+    sidebar.buttonGroup.activeChild,
+    syncedTabsButton,
+    "Synced Tabs button is active."
+  );
+  const newTabButton = sidebar.querySelector("#tabs-newtab-button");
+
+  window.gBrowser.tabs[0].focus();
+  ok(isActiveElement(window.gBrowser.tabs[0]), "First tab is focused.");
+
+  info("Tab to new tab button.");
+  EventUtils.synthesizeKey("KEY_Tab", {});
+  ok(isActiveElement(newTabButton), "New tab button is focused.");
+
+  info("Press Enter key.");
+  EventUtils.synthesizeKey("KEY_Enter", {});
+  await TestUtils.waitForCondition(
+    () => window.gBrowser.tabs.length === 2,
+    "Two tabs are open."
+  );
+
+  // URL bar will be focused after opening a new tab,
+  // so we need to move it back down to the new tab button
+  newTabButton.focus();
+  ok(isActiveElement(newTabButton), "New tab button is focused again.");
+
+  info("Tab to get to tools.");
+  await BrowserTestUtils.waitForMutationCondition(
+    syncedTabsButton,
+    { attributes: true },
+    () => BrowserTestUtils.isVisible(syncedTabsButton)
+  );
+  EventUtils.synthesizeKey("KEY_Tab", {});
+  ok(isActiveElement(syncedTabsButton), "Synced tabs tool button is focused.");
+
+  info("Shift+Tab back to new tab button.");
+  EventUtils.synthesizeKey("KEY_Tab", { shiftKey: true }, window);
+  ok(isActiveElement(newTabButton), "New tab button is focused.");
+
+  await SpecialPowers.popPrefEnv();
+  cleanUpExtraTabs();
+});

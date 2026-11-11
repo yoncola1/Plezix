@@ -1,0 +1,11 @@
+[DEFAULT]
+support-files = ["head.js"]
+
+["browser_CustomKeys.js"]
+
+["browser_CustomKeys_macHiddenWindow.js"]
+run-if = ["os == 'mac'"]
+
+["browser_aboutKeyboard.js"]
+
+["browser_aboutKeyboard_systemAssigned.js"]

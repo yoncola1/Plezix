@@ -1,0 +1,78 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef WEBGPU_TYPES_H_
+#define WEBGPU_TYPES_H_
+
+#include <cstdint>
+
+#include "ipc/IPCMessageUtils.h"
+#include "mozilla/GfxMessageUtils.h"
+#include "mozilla/Maybe.h"
+#include "mozilla/layers/LayersSurfaces.h"
+#include "nsString.h"
+
+namespace mozilla::webgpu {
+
+using RawId = uint64_t;
+using BufferAddress = uint64_t;
+
+enum class WebGPUCompilationMessageType { Error, Warning, Info };
+
+// TODO: Better name? CompilationMessage alread taken by the dom object.
+/// The serializable counterpart of the dom object CompilationMessage.
+struct WebGPUCompilationMessage {
+  nsString message;
+  uint64_t lineNum = 0;
+  uint64_t linePos = 0;
+  // In utf16 code units.
+  uint64_t offset = 0;
+  // In utf16 code units.
+  uint64_t length = 0;
+  WebGPUCompilationMessageType messageType =
+      WebGPUCompilationMessageType::Error;
+};
+
+/// A helper to reduce the boiler plate of turning the many Optional<nsAString>
+/// we get from the dom to the nullable nsACString* we pass to the wgpu ffi.
+class StringHelper {
+ public:
+  explicit StringHelper(const nsString& aWide) {
+    if (!aWide.IsEmpty()) {
+      mNarrow = Some(NS_ConvertUTF16toUTF8(aWide));
+    }
+  }
+
+  const nsACString* Get() const {
+    if (mNarrow.isSome()) {
+      return mNarrow.ptr();
+    }
+    return nullptr;
+  }
+
+ private:
+  Maybe<NS_ConvertUTF16toUTF8> mNarrow;
+};
+
+// Used to create an ExternalTextureSourceHost.
+struct ExternalTextureSourceDescriptor {
+  std::array<RawId, 3> mTextureIds;
+  std::array<RawId, 3> mViewIds;
+  layers::SurfaceDescriptor mSurfaceDescriptor;
+  gfx::IntSize mSize;
+  std::array<float, 6> mSampleTransform;
+  std::array<float, 6> mLoadTransform;
+};
+
+}  // namespace mozilla::webgpu
+
+namespace IPC {
+
+DEFINE_IPC_SERIALIZER_WITH_FIELDS(
+    mozilla::webgpu::ExternalTextureSourceDescriptor, mTextureIds, mViewIds,
+    mSurfaceDescriptor, mSize, mSampleTransform, mLoadTransform);
+
+}  // namespace IPC
+
+#endif  // WEBGPU_TYPES_H_

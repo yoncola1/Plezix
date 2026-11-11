@@ -1,0 +1,124 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "OptionalPermission",
+        "choices": [
+          {
+            "type": "string",
+            "enum": ["pkcs11"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "pkcs11",
+    "description": "PKCS#11 module management API",
+    "permissions": ["pkcs11"],
+    "functions": [
+      {
+        "name": "isModuleInstalled",
+        "type": "function",
+        "description": "checks whether a PKCS#11 module, given by name, is installed",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "result",
+                "type": "boolean",
+                "description": "Whether the module is installed."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "installModule",
+        "type": "function",
+        "description": "Install a PKCS#11 module with a given name",
+        "async": true,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "type": "integer",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "uninstallModule",
+        "type": "function",
+        "description": "Remove an installed PKCS#11 module from firefox",
+        "async": true,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "getModuleSlots",
+        "type": "function",
+        "description": "Enumerate a module's slots, each with their name and whether a token is present",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "slots",
+                "type": "array",
+                "description": "The slots of the module.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the slot."
+                    },
+                    "token": {
+                      "choices": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "name": { "type": "string" },
+                            "manufacturer": { "type": "string" },
+                            "HWVersion": { "type": "string" },
+                            "FWVersion": { "type": "string" },
+                            "serial": { "type": "string" },
+                            "isLoggedIn": { "type": "boolean" }
+                          }
+                        },
+                        { "type": "null" }
+                      ],
+                      "description": "The token in the slot, or null if the slot is disabled or empty."
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

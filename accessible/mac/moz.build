@@ -1,0 +1,92 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    SCHEDULES.exclusive = ["macosx"]
+
+EXPORTS += [
+    "mozAccessibleProtocol.h",
+]
+
+EXPORTS.mozilla.a11y += [
+    "AccessibleWrap.h",
+    "PlatformExtTypes.h",
+]
+
+UNIFIED_SOURCES += [
+    "AccessibleWrap.mm",
+    "DocAccessibleWrap.mm",
+    "GeckoTextMarker.mm",
+    "MacUtils.mm",
+    "MOXAccessibleBase.mm",
+    "MOXLandmarkAccessibles.mm",
+    "MOXMathAccessibles.mm",
+    "MOXOuterDoc.mm",
+    "MOXSearchInfo.mm",
+    "MOXTextMarkerDelegate.mm",
+    "MOXWebAreaAccessible.mm",
+    "mozAccessible.mm",
+    "mozActionElements.mm",
+    "mozHTMLAccessible.mm",
+    "mozSelectableElements.mm",
+    "mozTableAccessible.mm",
+    "mozTextAccessible.mm",
+    "Platform.mm",
+    "RotorRules.mm",
+]
+
+SOURCES += [
+    "!MacSelectorMap.mm",
+]
+
+LOCAL_INCLUDES += [
+    "/accessible/base",
+    "/accessible/generic",
+    "/accessible/html",
+    "/accessible/ipc",
+    "/accessible/xul",
+    "/layout/generic",
+    "/layout/xul",
+    "/widget",
+    "/widget/cocoa",
+]
+
+GeneratedFile(
+    "MacSelectorMap.h",
+    script="/accessible/mac/SelectorMapGen.py",
+    entry_point="gen_h",
+    inputs=["MOXAccessibleProtocol.h"],
+)
+GeneratedFile(
+    "MacSelectorMap.mm",
+    script="/accessible/mac/SelectorMapGen.py",
+    entry_point="gen_mm",
+    inputs=["MOXAccessibleProtocol.h"],
+)
+
+FINAL_LIBRARY = "xul"
+
+include("/ipc/chromium/chromium-config.mozbuild")
+
+SOURCE_HEADERS += [
+    "ApplicationAccessibleWrap.h",
+    "DocAccessibleWrap.h",
+    "GeckoTextMarker.h",
+    "MacUtils.h",
+    "MOXAccessibleBase.h",
+    "MOXLandmarkAccessibles.h",
+    "MOXMathAccessibles.h",
+    "MOXOuterDoc.h",
+    "MOXSearchInfo.h",
+    "MOXTextMarkerDelegate.h",
+    "MOXWebAreaAccessible.h",
+    "mozAccessible.h",
+    "mozActionElements.h",
+    "mozHTMLAccessible.h",
+    "mozSelectableElements.h",
+    "mozTableAccessible.h",
+    "mozTextAccessible.h",
+    "RootAccessibleWrap.h",
+    "RotorRules.h",
+]

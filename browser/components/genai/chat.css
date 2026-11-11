@@ -1,0 +1,308 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+body {
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  margin: 0;
+  position: absolute;
+}
+
+browser {
+  flex: 1;
+}
+
+#browser-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+#header {
+  align-items: center;
+  background-color: var(--sidebar-background-color);
+  color: var(--sidebar-text-color);
+  border-block-end: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  padding-inline: var(--space-large);
+  /* Leave room for the buttons' focus outlines so they aren't clipped by the
+     header edges. */
+  padding-block: var(--space-xsmall);
+
+  ::part(button) {
+    margin: 0;
+  }
+
+  /* The provider switcher is a <select> styled like a button; the moz-buttons
+     keep their default (design-system) radius so the close button matches the
+     close buttons in other sidebar panels (notably with nova enabled). */
+  select {
+    border-radius: var(--border-radius-small);
+    margin: 0;
+  }
+
+  #header-more {
+    margin-inline-end: var(--space-xsmall);
+  }
+
+  select {
+    --caret-anchor: left;
+    --caret-padding: var(--space-xsmall);
+    --end-padding: 0px;
+    --start-padding: calc(var(--caret-padding) + var(--background-image-width) + var(--space-xsmall));
+    background-color: var(--button-background-color-ghost);
+    background-position-x: var(--caret-anchor) var(--caret-padding);
+    color: var(--button-text-color-ghost);
+    flex: 1;
+    height: var(--button-size-icon);
+    margin-block: var(--space-xsmall);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:hover {
+      background-color: var(--button-background-color-ghost-hover);
+      color: var(--button-text-color-ghost-hover);
+    }
+
+    &:dir(rtl) {
+      --caret-anchor: right;
+    }
+  }
+}
+
+#header-close {
+  position: relative;
+  z-index: 1;
+  /* The close button is ordered early in the DOM (for keyboard focus order) but
+     should stay visually last in the default single-row header. */
+  order: 1;
+
+  @media (not -moz-pref("sidebar.revamp")) or -moz-pref("sidebar.visibility", "hide-launcher") {
+    display: none;
+  }
+}
+
+#multi-stage-message-root {
+  background-color: var(--background-color-overlay);
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  overflow: auto;
+  position: absolute;
+  z-index: 2;
+
+  .onboardingContainer {
+    height: unset;
+    margin: auto var(--space-large);
+    min-height: unset;
+  }
+
+  .screen {
+    border-radius: var(--border-radius-medium);
+    min-height: unset;
+  }
+
+  .main-content {
+    height: unset;
+  }
+
+  .main-content-inner {
+    max-width: initial;
+    padding: var(--space-large);
+  }
+
+  .welcome-text {
+    margin-block-end: var(--space-xlarge);
+    padding-inline: 0;
+  }
+
+  .content-tile {
+    width: 100%;
+  }
+
+  .tiles-single-select-container {
+    margin-block-start: 0;
+
+    @media not -moz-pref("browser.ml.chat.onboarding.unresponsive") {
+      --fade-height: 20px;
+      --fade-padding: 8px;
+      margin-block: calc(-1 * var(--fade-padding));
+      max-height: max(144px, 100vh - 310px);
+      overflow-y: auto;
+
+      &::after,
+      &::before {
+        content: "\00a0";
+        font-size: var(--fade-height);
+        margin-block-start: calc(-1 * var(--fade-height) + var(--fade-padding));
+        pointer-events: none;
+        position: sticky;
+        z-index: 1;
+      }
+      &::after {
+        background: linear-gradient(transparent, var(--background-color-canvas));
+        inset-block-end: 0;
+      }
+      &::before {
+        background: linear-gradient(var(--background-color-canvas), transparent);
+        inset-block-start: 0;
+      }
+    }
+  }
+
+  fieldset {
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+  }
+
+  label {
+    background-color: var(--background-color-box);
+    border: 0.5px solid var(--border-color-deemphasized);
+    border-radius: var(--border-radius-medium);
+    flex-direction: row;
+    margin: 1.5px; /* avoid shifting content when selected */
+    outline-offset: var(--focus-outline-offset);
+    padding: var(--space-small);
+
+    &:hover {
+      background-color: var(--button-background-color-hover);
+    }
+
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+    &:has(.selected) {
+      background-color: var(--background-color-canvas);
+      border: var(--focus-outline);
+      margin: 0; /* border switches widths */
+    }
+
+    &:focus {
+      outline: var(--focus-outline);
+    }
+  }
+
+  .icon {
+    --icon-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0;
+    height: var(--icon-size);
+    margin-inline: var(--space-small);
+    max-width: var(--icon-size);
+    min-width: var(--icon-size);
+    outline: none;
+
+    &.claude {
+      background-image: url(assets/brands/claude.svg);
+    }
+    &.chatgpt {
+      background-image: url(assets/brands/chatgpt.svg);
+      -moz-context-properties: fill;
+      fill: var(--text-color);
+    }
+    &.copilot {
+      background-image: url(assets/brands/copilot.svg);
+    }
+    &.gemini {
+      background-image: url(assets/brands/gemini.svg);
+    }
+    &.huggingchat {
+      background-image: url(assets/brands/huggingchat.svg);
+    }
+    &.lechat {
+      background-image: url(assets/brands/lechat.svg);
+    }
+    &.scout {
+      background-image: url(assets/brands/scout.svg);
+    }
+  }
+
+  .text {
+    flex-direction: column;
+    font-weight: var(--font-weight-semibold);
+    margin: 5px;
+    text-align: start;
+  }
+
+  .link-paragraph {
+    color: var(--text-color-deemphasized);
+    font-size: 0.8em;
+  }
+
+  + #header,
+  + #browser-container,
+  + #summarize-btn-container {
+    display: none;
+  }
+}
+
+#footer {
+  border-block-start: 1px solid var(--border-color);
+
+  &.promo-active {
+    --promo-background: linear-gradient(
+      180deg,
+      light-dark(color-mix(in srgb, var(--color-violet-10) 20%, transparent), color-mix(in srgb, var(--color-violet-70) 20%, transparent)) 0%,
+      light-dark(color-mix(in srgb, var(--color-orange-10) 20%, transparent), color-mix(in srgb, var(--color-orange-70) 20%, transparent)) 100%
+    );
+    --promo-mask:
+      linear-gradient(to right, transparent 0%, black 45%, black 55%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, black 45%, black 55%, transparent 100%);
+    overflow: hidden;
+    padding: var(--space-large);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--promo-background);
+      mask-image: var(--promo-mask);
+      pointer-events: none;
+    }
+
+    #summarize-btn-container {
+      padding: 0;
+      padding-block-start: var(--space-large);
+
+      .badge {
+        inset-inline-start: -5px;
+      }
+    }
+  }
+}
+
+#summarize-btn-container {
+  position: relative;
+  padding: var(--space-large);
+
+  .badge {
+    --badge-background-color-new: var(--color-green-40);
+
+    background: var(--badge-background-color-new);
+    border-radius: var(--border-radius-small);
+    color: var(--button-text-color-primary-hover);
+    font-size: var(--font-size-small);
+    inset-block-start: 4px;
+    inset-inline-start: 10px;
+    padding: var(--space-xxsmall) var(--space-small);
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+
+    @media not -moz-pref("browser.ml.chat.page.footerBadge") {
+      display: none;
+    }
+  }
+
+  @media (not -moz-pref("browser.ml.chat.page")) or -moz-pref("browser.ml.chat.provider", "") {
+    display: none;
+  }
+}

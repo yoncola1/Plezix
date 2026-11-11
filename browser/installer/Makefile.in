@@ -1,0 +1,45 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+STANDALONE_MAKEFILE := 1
+DIST_SUBDIR := browser
+
+include $(topsrcdir)/config/rules.mk
+
+DEFINES += -DPKG_LOCALE_MANIFEST=$(topobjdir)/browser/installer/locale-manifest.in
+
+DEFINES += $(PACKAGE_MANIFEST_DEFINES)
+
+include $(topsrcdir)/toolkit/mozapps/installer/packager.mk
+
+BINPATH = $(MOZ_PKG_BINPATH)
+RESPATH = $(MOZ_PKG_RESPATH)
+
+LPROJ_ROOT = $(firstword $(subst -, ,$(AB_CD)))
+ifeq (cocoa,$(MOZ_WIDGET_TOOLKIT))
+ifeq (zh-TW,$(AB_CD))
+LPROJ_ROOT := $(subst -,_,$(AB_CD))
+endif
+endif
+DEFINES += -DLPROJ_ROOT=$(LPROJ_ROOT)
+
+# Builds using the hybrid FasterMake/RecursiveMake backend will
+# fail to produce a langpack. See bug 1255096.
+libs::
+ifeq (,$(filter FasterMake+RecursiveMake,$(BUILD_BACKENDS)))
+	$(MAKE) -C $(DEPTH)/browser/locales langpack
+endif
+
+ifeq (WINNT,$(OS_ARCH))
+PKGCOMP_FIND_OPTS =
+else
+PKGCOMP_FIND_OPTS = -L
+endif
+FINDPATH = $(MOZ_PKG_BINPATH)
+
+package-compare::
+	cd $(DIST); find $(PKGCOMP_FIND_OPTS) '$(FINDPATH)' -type f | sort > bin-list.txt
+	$(call py_action,preprocessor,$(DEFINES) $(ACDEFINES) $(MOZ_PKG_MANIFEST)) | grep '^$(BINPATH)' | sed -e 's/^\///' | sort > $(DIST)/pack-list.txt
+	-diff -u $(DIST)/pack-list.txt $(DIST)/bin-list.txt
+	rm -f $(DIST)/pack-list.txt $(DIST)/bin-list.txt

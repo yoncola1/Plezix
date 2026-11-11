@@ -1,0 +1,193 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+#include "gtest/gtest.h"
+#include "mozilla/BasePrincipal.h"
+#include "mozilla/NullPrincipal.h"
+#include "mozilla/Preferences.h"
+#include "nsNetUtil.h"
+
+using mozilla::OriginAttributes;
+using mozilla::Preferences;
+
+#define FPI_PREF "privacy.firstparty.isolate"
+#define SITE_PREF "privacy.firstparty.isolate.use_site"
+
+#define TEST_FPD(_spec, _expected) \
+  TestFPD(nsLiteralString(_spec), nsLiteralString(_expected))
+
+namespace mozilla {
+
+static void TestSuffix(const OriginAttributes& attrs) {
+  nsAutoCString suffix;
+  attrs.CreateSuffix(suffix);
+
+  OriginAttributes attrsFromSuffix;
+  bool success = attrsFromSuffix.PopulateFromSuffix(suffix);
+  EXPECT_TRUE(success);
+
+  EXPECT_EQ(attrs, attrsFromSuffix);
+}
+
+static void TestFPD(const nsAString& spec, const nsAString& expected) {
+  OriginAttributes attrs;
+  nsCOMPtr<nsIURI> url;
+  ASSERT_EQ(NS_NewURI(getter_AddRefs(url), spec), NS_OK);
+  attrs.SetFirstPartyDomain(true, url);
+  EXPECT_TRUE(attrs.mFirstPartyDomain.Equals(expected));
+
+  TestSuffix(attrs);
+}
+
+TEST(OriginAttributes, Suffix_default)
+{
+  OriginAttributes attrs;
+  TestSuffix(attrs);
+}
+
+TEST(OriginAttributes, StripUserContextId)
+{
+  OriginAttributes attrs;
+  attrs.mUserContextId = 1;
+  attrs.mGeckoViewSessionContextId = u"context"_ns;
+
+  OriginAttributes expected = attrs;
+  expected.mUserContextId = nsIScriptSecurityManager::DEFAULT_USER_CONTEXT_ID;
+
+  EXPECT_NE(attrs.mUserContextId, expected.mUserContextId);
+  attrs.StripAttributes(OriginAttributes::STRIP_USER_CONTEXT_ID);
+  EXPECT_EQ(attrs, expected);
+}
+
+TEST(OriginAttributes, EqualsIgnoringUserContextId)
+{
+  OriginAttributes attrs;
+  attrs.mUserContextId = 1;
+  attrs.mGeckoViewSessionContextId = u"context"_ns;
+
+  OriginAttributes other = attrs;
+  other.mUserContextId = 2;
+  EXPECT_TRUE(
+      attrs.EqualsIgnoring(other, OriginAttributes::STRIP_USER_CONTEXT_ID));
+
+  other.mGeckoViewSessionContextId = u"other-context"_ns;
+  EXPECT_FALSE(
+      attrs.EqualsIgnoring(other, OriginAttributes::STRIP_USER_CONTEXT_ID));
+  EXPECT_TRUE(attrs.EqualsIgnoring(
+      other, OriginAttributes::STRIP_USER_CONTEXT_ID |
+                 OriginAttributes::STRIP_GECKOVIEW_SESSION_CONTEXT_ID));
+}
+
+// A host may now contain an asterisk or a double quote (bug 1815926), so they
+// can end up in the first-party domain and partition key. The serialized suffix
+// is used by the quota manager for file naming, where both characters are
+// illegal on Windows, so they must never appear verbatim in the suffix.
+TEST(OriginAttributes, Suffix_HostIsEscaped)
+{
+  bool oldFpiPref = Preferences::GetBool(FPI_PREF);
+  Preferences::SetBool(FPI_PREF, true);
+  bool oldSitePref = Preferences::GetBool(SITE_PREF);
+  Preferences::SetBool(SITE_PREF, true);
+
+  auto testChar = [](const nsACString& spec, char illegalChar) {
+    OriginAttributes attrs;
+    nsCOMPtr<nsIURI> url;
+    ASSERT_EQ(NS_NewURI(getter_AddRefs(url), spec), NS_OK);
+    attrs.SetFirstPartyDomain(true, url);
+    attrs.SetPartitionKey(url, false);
+
+    // Sanity check that the character actually made it into the attributes;
+    // otherwise the test below would pass trivially.
+    EXPECT_NE(attrs.mFirstPartyDomain.FindChar(illegalChar), kNotFound);
+    EXPECT_NE(attrs.mPartitionKey.FindChar(illegalChar), kNotFound);
+
+    nsAutoCString suffix;
+    attrs.CreateSuffix(suffix);
+    EXPECT_EQ(suffix.FindChar(illegalChar), kNotFound);
+
+    // The suffix must still round-trip back to the original attributes.
+    TestSuffix(attrs);
+  };
+
+  testChar("http://a*b.com"_ns, '*');
+  testChar("http://a\"b.com"_ns, '"');
+
+  Preferences::SetBool(FPI_PREF, oldFpiPref);
+  Preferences::SetBool(SITE_PREF, oldSitePref);
+}
+
+TEST(OriginAttributes, FirstPartyDomain_default)
+{
+  bool oldFpiPref = Preferences::GetBool(FPI_PREF);
+  Preferences::SetBool(FPI_PREF, true);
+  bool oldSitePref = Preferences::GetBool(SITE_PREF);
+  Preferences::SetBool(SITE_PREF, false);
+
+  TEST_FPD(u"http://www.example.com", u"example.com");
+  TEST_FPD(u"http://www.example.com:80", u"example.com");
+  TEST_FPD(u"http://www.example.com:8080", u"example.com");
+  TEST_FPD(u"http://s3.amazonaws.com", u"s3.amazonaws.com");
+  // A host may contain an asterisk or a double quote (bug 1815926). Both are
+  // illegal in file names on Windows, so the suffix must escape them while
+  // still round-tripping.
+  TEST_FPD(u"http://a*b.com", u"a*b.com");
+  TEST_FPD(u"http://a\"b.com", u"a\"b.com");
+  TEST_FPD(u"http://com", u"com");
+  TEST_FPD(u"http://com.", u"com.");
+  TEST_FPD(u"http://com:8080", u"com");
+  TEST_FPD(u"http://.com", u"");
+  TEST_FPD(u"http://..com", u"");
+  TEST_FPD(u"http://127.0.0.1", u"127.0.0.1");
+  TEST_FPD(u"http://[::1]", u"[::1]");
+  TEST_FPD(u"about:config",
+           u"about.ef2a7dd5-93bc-417f-a698-142c3116864f.mozilla");
+  TEST_FPD(u"moz-extension://f5b6ca10-5bd4-4ed6-9baf-820dc5152bc1", u"");
+  TEST_FPD(u"moz-nullprincipal:{9bebdabb-828a-4284-8b00-432a968c6e42}",
+           u"9bebdabb-828a-4284-8b00-432a968c6e42.mozilla");
+  TEST_FPD(
+      u"moz-nullprincipal:{9bebdabb-828a-4284-8b00-432a968c6e42}"
+      u"?https://www.example.com",
+      u"9bebdabb-828a-4284-8b00-432a968c6e42.mozilla");
+
+  Preferences::SetBool(FPI_PREF, oldFpiPref);
+  Preferences::SetBool(SITE_PREF, oldSitePref);
+}
+
+TEST(OriginAttributes, FirstPartyDomain_site)
+{
+  bool oldFpiPref = Preferences::GetBool(FPI_PREF);
+  Preferences::SetBool(FPI_PREF, true);
+  bool oldSitePref = Preferences::GetBool(SITE_PREF);
+  Preferences::SetBool(SITE_PREF, true);
+
+  TEST_FPD(u"http://www.example.com", u"(http,example.com)");
+  TEST_FPD(u"http://www.example.com:80", u"(http,example.com)");
+  TEST_FPD(u"http://www.example.com:8080", u"(http,example.com)");
+  TEST_FPD(u"http://s3.amazonaws.com", u"(http,s3.amazonaws.com)");
+  // A host may contain an asterisk or a double quote (bug 1815926). Both are
+  // illegal in file names on Windows, so the suffix must escape them while
+  // still round-tripping.
+  TEST_FPD(u"http://a*b.com", u"(http,a*b.com)");
+  TEST_FPD(u"http://a\"b.com", u"(http,a\"b.com)");
+  TEST_FPD(u"http://com", u"(http,com)");
+  TEST_FPD(u"http://com.", u"(http,com.)");
+  TEST_FPD(u"http://com:8080", u"(http,com)");
+  TEST_FPD(u"http://.com", u"(http,.com)");
+  TEST_FPD(u"http://..com", u"(http,..com)");
+  TEST_FPD(u"http://127.0.0.1", u"(http,127.0.0.1)");
+  TEST_FPD(u"http://[::1]", u"(http,[::1])");
+  TEST_FPD(u"about:config",
+           u"(about,about.ef2a7dd5-93bc-417f-a698-142c3116864f.mozilla)");
+  TEST_FPD(u"moz-extension://f5b6ca10-5bd4-4ed6-9baf-820dc5152bc1", u"");
+  TEST_FPD(u"moz-nullprincipal:{9bebdabb-828a-4284-8b00-432a968c6e42}",
+           u"9bebdabb-828a-4284-8b00-432a968c6e42.mozilla");
+  TEST_FPD(
+      u"moz-nullprincipal:{9bebdabb-828a-4284-8b00-432a968c6e42}"
+      u"?https://www.example.com",
+      u"9bebdabb-828a-4284-8b00-432a968c6e42.mozilla");
+
+  Preferences::SetBool(FPI_PREF, oldFpiPref);
+  Preferences::SetBool(SITE_PREF, oldSitePref);
+}
+
+}  // namespace mozilla

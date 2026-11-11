@@ -1,0 +1,64 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+include("/dom/media/webrtc/third_party_build/webrtc.mozbuild")
+
+LOCAL_INCLUDES += [
+    "!/dist/include/libwebrtc_overrides",
+    "!/ipc/ipdl/_ipdlheaders",
+    "/dom/media/gmp",  # for GMPLog.h,
+    "/dom/media/systemservices",
+    "/dom/media/webrtc",
+    "/ipc/chromium/src",
+    "/media/libyuv/libyuv/include",
+    "/media/webrtc",
+    "/third_party/abseil-cpp",
+    "/third_party/libsrtp/src/include",
+    "/third_party/libwebrtc",
+]
+
+UNIFIED_SOURCES += [
+    "AudioConduit.cpp",
+    "FrameTransformer.cpp",
+    "FrameTransformerProxy.cpp",
+    "GmpVideoCodec.cpp",
+    "MediaConduitInterface.cpp",
+    "MediaDataCodec.cpp",
+    "SystemTime.cpp",
+    "VideoConduit.cpp",
+    "VideoStreamFactory.cpp",
+    "WebrtcCallWrapper.cpp",
+    "WebrtcEnvironmentWrapper.cpp",
+    "WebrtcGmpVideoCodec.cpp",
+    "WebrtcMediaDataDecoderCodec.cpp",
+    "WebrtcMediaDataEncoderCodec.cpp",
+    "WebrtcTaskQueueWrapper.cpp",
+    "WebrtcVideoCodecFactory.cpp",
+]
+
+FINAL_LIBRARY = "xul"
+
+SOURCE_HEADERS += [
+    "AudioConduit.h",
+    "CodecConfig.h",
+    "FrameTransformer.h",
+    "FrameTransformerProxy.h",
+    "GmpVideoCodec.h",
+    "MediaConduitControl.h",
+    "MediaConduitErrors.h",
+    "MediaConduitInterface.h",
+    "MediaDataCodec.h",
+    "RtpRtcpConfig.h",
+    "RunningStat.h",
+    "SystemTime.h",
+    "VideoConduit.h",
+    "VideoStreamFactory.h",
+    "WebrtcCallWrapper.h",
+    "WebrtcEnvironmentWrapper.h",
+    "WebrtcGmpVideoCodec.h",
+    "WebrtcImageBuffer.h",
+    "WebrtcMediaDataDecoderCodec.h",
+    "WebrtcMediaDataEncoderCodec.h",
+    "WebrtcTaskQueueWrapper.h",
+    "WebrtcVideoCodecFactory.h",
+]

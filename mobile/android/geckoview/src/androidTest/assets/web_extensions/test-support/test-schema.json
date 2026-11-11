@@ -1,0 +1,542 @@
+[
+  {
+    "namespace": "test",
+    "description": "Additional APIs for test support in GeckoView.",
+    "functions": [
+      {
+        "name": "setPrefs",
+        "type": "function",
+        "async": true,
+        "description": "Set prefs and return a set of saved prefs",
+        "parameters": [
+          {
+            "name": "oldPrefs",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": { "type": "any" }
+          },
+          {
+            "name": "newPrefs",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      },
+      {
+        "name": "restorePrefs",
+        "type": "function",
+        "async": true,
+        "description": "Restore prefs to old value",
+        "parameters": [
+          {
+            "type": "any",
+            "name": "oldPrefs"
+          }
+        ]
+      },
+      {
+        "name": "getPrefs",
+        "type": "function",
+        "async": true,
+        "description": "Get pref values.",
+        "parameters": [
+          {
+            "name": "prefs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "name": "clearUserPref",
+        "type": "function",
+        "async": true,
+        "description": "Clears the user pref.",
+        "parameters": [
+          {
+            "name": "pref",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "getLinkColor",
+        "type": "function",
+        "async": true,
+        "description": "Get resolved color for the link resolved by a given selector.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "string",
+            "name": "selector"
+          }
+        ]
+      },
+      {
+        "name": "isVideoCloning",
+        "type": "function",
+        "async": true,
+        "description": "Whether the video resolved by a given selector is being cloned visually into another video element.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "string",
+            "name": "selector"
+          }
+        ]
+      },
+      {
+        "name": "getVideoStatusMessage",
+        "type": "function",
+        "async": true,
+        "description": "The message the video controls overlay shows over the video resolved by a given selector, or null if it shows none.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "string",
+            "name": "selector"
+          }
+        ]
+      },
+      {
+        "name": "getRequestedLocales",
+        "type": "function",
+        "async": true,
+        "description": "Gets the requested locales.",
+        "parameters": []
+      },
+      {
+        "name": "addHistogram",
+        "type": "function",
+        "async": true,
+        "description": "Add a sample with the given value to the histogram with the given id.",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id"
+          },
+          {
+            "type": "any",
+            "name": "value"
+          }
+        ]
+      },
+      {
+        "name": "removeAllCertOverrides",
+        "type": "function",
+        "async": true,
+        "description": "Revokes SSL certificate overrides.",
+        "parameters": []
+      },
+      {
+        "name": "setResolutionAndScaleTo",
+        "type": "function",
+        "async": true,
+        "description": "Invokes nsIDOMWindowUtils.setResolutionAndScaleTo.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "number",
+            "name": "resolution"
+          }
+        ]
+      },
+      {
+        "name": "getActive",
+        "type": "function",
+        "async": true,
+        "description": "Returns true if the docShell is active for given tab.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "getPrimary",
+        "type": "function",
+        "async": true,
+        "description": "Returns true if the browser has the primary attribute for given tab.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "getPidForTab",
+        "type": "function",
+        "async": true,
+        "description": "Gets the top-level pid belonging to tabId.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "getBrowsingContextGroupIdForTab",
+        "type": "function",
+        "async": true,
+        "description": "Gets the id of the browsing context group belonging to tabId.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "getRemoteTypeForTab",
+        "type": "function",
+        "async": true,
+        "description": "Gets the remote type of the content process belonging to tabId.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "mintPictureInPicturePlacementToken",
+        "type": "function",
+        "async": true,
+        "description": "Mints a picture-in-picture placement token standing for the browsing context group and content process of tabId, as a picture-in-picture request would.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "waitForContentTransformsReceived",
+        "type": "function",
+        "async": true,
+        "description": "If we want to test screen coordinates, we need to wait for the updated data which is what this function allows us to do",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "getAllBrowserPids",
+        "type": "function",
+        "async": true,
+        "description": "Gets the list of pids of the running browser processes",
+        "parameters": []
+      },
+      {
+        "name": "getProfilePath",
+        "type": "function",
+        "async": true,
+        "description": "Gets the path of the current profile",
+        "parameters": []
+      },
+      {
+        "name": "killContentProcess",
+        "type": "function",
+        "async": true,
+        "description": "Crash all content processes",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "pid"
+          }
+        ]
+      },
+      {
+        "name": "flushApzRepaints",
+        "type": "function",
+        "async": true,
+        "description": "Invokes nsIDOMWindowUtils.flushApzRepaints for the document of the tabId.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "zoomToFocusedInput",
+        "type": "function",
+        "async": true,
+        "description": "Invokes nsIDOMWindowUtils.zoomToFocusedInput for the document of the tabId.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "promiseAllPaintsDone",
+        "type": "function",
+        "async": true,
+        "description": "A simplified version of promiseAllPaintsDone in paint_listeners.js.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+      {
+        "name": "usingGpuProcess",
+        "type": "function",
+        "async": true,
+        "description": "Returns true if Gecko is using a GPU process.",
+        "parameters": []
+      },
+
+      {
+        "name": "killGpuProcess",
+        "type": "function",
+        "async": true,
+        "description": "Kills the GPU process cleanly without generating a crash report.",
+        "parameters": []
+      },
+
+      {
+        "name": "crashGpuProcess",
+        "type": "function",
+        "async": true,
+        "description": "Causes the GPU process to crash.",
+        "parameters": []
+      },
+
+      {
+        "name": "clearHSTSState",
+        "type": "function",
+        "async": true,
+        "description": "Clears the sites on the HSTS list.",
+        "parameters": []
+      },
+
+      {
+        "name": "isFissionRunning",
+        "type": "function",
+        "async": true,
+        "description": "Checks if fission is running.",
+        "parameters": []
+      },
+      {
+        "name": "triggerTranslationsOffer",
+        "type": "function",
+        "async": true,
+        "description": "Simulates offering a translation.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          }
+        ]
+      },
+
+      {
+        "name": "triggerLanguageStateChange",
+        "type": "function",
+        "async": true,
+        "description": "Simulates expecting a translation.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "name": "languageState",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      },
+
+      {
+        "name": "setHandlingUserInput",
+        "type": "function",
+        "async": true,
+        "description": "Invokes nsIDOMWindowUtils.setHandlingUserInput to simulate user input activation.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "boolean",
+            "name": "handlingUserInput"
+          }
+        ]
+      },
+
+      {
+        "name": "getWebExtensionsSchemaPermissionNames",
+        "type": "function",
+        "async": true,
+        "description": "Returns all the permission names defined in the WebExtensions API JSONSchema given an array of type names",
+        "parameters": [
+          {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "name": "typeNames"
+          }
+        ]
+      },
+
+      {
+        "name": "teardownAlertsService",
+        "type": "function",
+        "async": true,
+        "description": "Triggers teardown on Alerts Service so that it can clear all notification information.",
+        "parameters": []
+      },
+
+      {
+        "name": "showPicker",
+        "type": "function",
+        "async": true,
+        "description": "Calls showPicker() on the element matching the selector, with a simulated user gesture activation in the same turn.",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "tabId"
+          },
+          {
+            "type": "string",
+            "name": "selector"
+          }
+        ]
+      },
+
+      {
+        "name": "saveTrackingDBEvents",
+        "type": "function",
+        "async": true,
+        "description": "Seeds the tracking protection database with the given JSON-serialized content blocking log.",
+        "parameters": [
+          {
+            "name": "logJson",
+            "type": "string"
+          }
+        ]
+      },
+
+      {
+        "name": "clearTrackingDB",
+        "type": "function",
+        "async": true,
+        "description": "Removes all entries from the tracking protection database.",
+        "parameters": []
+      },
+
+      {
+        "name": "addVirtualAuthenticator",
+        "type": "function",
+        "async": true,
+        "description": "Adds a virtual WebAuthn authenticator via nsIWebAuthnService.",
+        "parameters": []
+      },
+
+      {
+        "name": "removeVirtualAuthenticator",
+        "type": "function",
+        "async": true,
+        "description": "Removes a virtual WebAuthn authenticator via nsIWebAuthnService.",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "authenticatorId"
+          }
+        ]
+      },
+
+      {
+        "name": "setupIPPAuthProvider",
+        "type": "function",
+        "async": true,
+        "description": "Seeds the IP protection test auth provider with a faked Guardian backend.",
+        "parameters": [
+          {
+            "name": "options",
+            "type": "object",
+            "properties": {},
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      },
+
+      {
+        "name": "simulateIPPSignIn",
+        "type": "function",
+        "async": true,
+        "description": "Toggles the IP protection test auth provider's sign-in state.",
+        "parameters": [
+          {
+            "type": "boolean",
+            "name": "signedIn"
+          }
+        ]
+      },
+
+      {
+        "name": "setIPPProxyPassError",
+        "type": "function",
+        "async": true,
+        "description": "Makes the IP protection test auth provider's fetchProxyPass throw the given error.",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "error",
+            "optional": true
+          }
+        ]
+      },
+
+      {
+        "name": "setIPPProxyUsage",
+        "type": "function",
+        "async": true,
+        "description": "Sets what the IP protection test auth provider's fetchProxyUsage resolves to.",
+        "parameters": [
+          {
+            "name": "usage",
+            "type": "object",
+            "optional": true,
+            "properties": {},
+            "additionalProperties": { "type": "any" }
+          }
+        ]
+      },
+
+      {
+        "name": "getIPPProxyInfo",
+        "type": "function",
+        "async": true,
+        "description": "Returns the active IP protection proxy connection's proxyInfo (host, port, type), or null when no connection is active.",
+        "parameters": []
+      }
+    ]
+  }
+]

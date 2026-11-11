@@ -1,0 +1,162 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import React, { useCallback, useEffect, useState } from "react";
+import { actionCreators as ac, actionTypes as at } from "common/Actions.mjs";
+import { useSelector } from "react-redux";
+import { useIntersectionObserver } from "../../lib/utils";
+
+// Note: MessageWrapper emits events via submitGleanPingForPing() in the OMC messaging-system.
+// If a feature is triggered outside of this flow (e.g., the Mobile Download QR Promo),
+// it should emit New Tab-specific Glean events independently.
+
+function MessageWrapper({
+  children,
+  dispatch,
+  hiddenOverride,
+  onDismiss,
+  wrapperClassName,
+}) {
+  const message = useSelector(state => state.Messages);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [tabIsVisible, setTabIsVisible] = useState(
+    () =>
+      typeof document !== "undefined" && document.visibilityState === "visible"
+  );
+  const [hasRun, setHasRun] = useState();
+
+  // The observer only fires once per element, so record the intersection even
+  // while the tab is hidden and let the effects below wait for the tab to be
+  // shown.
+  const handleIntersection = useCallback(() => {
+    setIsIntersecting(true);
+  }, []);
+
+  useEffect(() => {
+    // only send impression if messageId is defined and tab is visible
+    if (isIntersecting && tabIsVisible && message.messageData.id && !hasRun) {
+      setHasRun(true);
+      dispatch(
+        ac.AlsoToMain({
+          type: at.MESSAGE_IMPRESSION,
+          data: message.messageData,
+        })
+      );
+    }
+  }, [dispatch, message, tabIsVisible, isIntersecting, hasRun]);
+
+  useEffect(() => {
+    // we dont want to dispatch this action unless the current tab is open and
+    // visible, and the message has been scrolled into view
+    if (message.isVisible && tabIsVisible && isIntersecting) {
+      dispatch(
+        ac.AlsoToMain({
+          type: at.MESSAGE_NOTIFY_VISIBILITY,
+          data: true,
+        })
+      );
+    }
+  }, [message, dispatch, tabIsVisible, isIntersecting]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setTabIsVisible(document.visibilityState === "visible");
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  const ref = useIntersectionObserver(handleIntersection);
+
+  const handleClose = useCallback(() => {
+    const action = {
+      type: at.MESSAGE_TOGGLE_VISIBILITY,
+      data: false, //isVisible
+    };
+    if (message.portID) {
+      dispatch(ac.OnlyToOneContent(action, message.portID));
+    } else {
+      dispatch(ac.AlsoToMain(action));
+    }
+    dispatch(
+      ac.AlsoToMain({
+        type: at.MESSAGE_NOTIFY_VISIBILITY,
+        data: false,
+      })
+    );
+    onDismiss?.();
+  }, [dispatch, message, onDismiss]);
+
+  const handleDismiss = useCallback(() => {
+    const { id } = message.messageData;
+    if (id) {
+      dispatch(
+        ac.OnlyToMain({
+          type: at.MESSAGE_DISMISS,
+          data: { message: message.messageData },
+        })
+      );
+    }
+    handleClose();
+  }, [dispatch, message, handleClose]);
+
+  const handleBlock = useCallback(() => {
+    const { id } = message.messageData;
+    if (id) {
+      dispatch(
+        ac.OnlyToMain({
+          type: at.MESSAGE_BLOCK,
+          data: id,
+        })
+      );
+    }
+  }, [dispatch, message]);
+
+  const handleClick = useCallback(
+    elementId => {
+      const { id } = message.messageData;
+      if (id) {
+        dispatch(
+          ac.OnlyToMain({
+            type: at.MESSAGE_CLICK,
+            data: { message: message.messageData, source: elementId || "" },
+          })
+        );
+      }
+    },
+    [dispatch, message]
+  );
+
+  if (!message || (!hiddenOverride && !message.isVisible)) {
+    return null;
+  }
+
+  // only display the message if `isVisible` is true
+  return (
+    <div
+      ref={el => {
+        ref.current = [el];
+      }}
+      className={
+        wrapperClassName
+          ? `message-wrapper ${wrapperClassName}`
+          : "message-wrapper"
+      }
+    >
+      {React.cloneElement(children, {
+        isIntersecting,
+        handleDismiss,
+        handleClick,
+        handleBlock,
+        handleClose,
+        dispatch,
+      })}
+    </div>
+  );
+}
+
+export { MessageWrapper };

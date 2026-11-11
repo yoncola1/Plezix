@@ -1,0 +1,46 @@
+[DEFAULT]
+head = ""
+support-files = [
+  "autoconfig-all.cfg",
+  "autoconfig-latin1.cfg",
+  "autoconfig-utf8.cfg",
+  "autoconfig-chromecheck.cfg",
+  "autoconfig-no-sandbox-check.cfg",
+  "autoconfig.js",
+  "autoconfig-no-sandbox.js",
+  "autoconfig-admin.cfg",
+  "autoconfig-admin-pref.cfg",
+  "autoconfig-admin-url-pref.cfg",
+  "autoconfig-remote.jsc",
+]
+run-if = [
+  # AutoConfig is a desktop feature, and is not supported in MSIX builds
+  # (bug 1807926). One condition, as run-if entries are OR'd (bug 1989470).
+  "os != 'android' && !msix",
+]
+
+["test_autoconfig.js"]
+
+["test_autoconfig_custom_path.js"]
+run-if = [
+  "os == 'linux'",
+]
+
+["test_autoconfig_default_path.js"]
+run-if = [
+  "os == 'linux'",
+]
+
+["test_autoconfig_no_sandbox.js"]
+run-sequentially = ["true"] # fails more than 50% of the time in parallel
+
+["test_autoconfig_nonascii.js"]
+run-sequentially = ["true"] # fails 70% of the time in parallel
+
+["test_autoconfig_profile_prefs.js"]
+run-sequentially = ["true"] # shares GreD/autoconfig.cfg with the other tests
+
+["test_autoconfig_sysconfd.js"]
+run-if = [
+  "os == 'linux'",
+]

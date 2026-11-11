@@ -1,0 +1,30 @@
+{
+  "background": {
+    "color": {
+      "@base": {
+        "value": "{background.color.box.@base}"
+      },
+      "warning": {
+        "value": "{background.color.box.@base}"
+      },
+      "success": {
+        "value": "{background.color.box.@base}"
+      },
+      "critical": {
+        "value": "{background.color.box.@base}"
+      }
+    }
+  },
+  "icon": {
+    "container": {
+      "border": {
+        "color": {
+          "value": {
+            "default": "transparent",
+            "forcedColors": "{message-bar.icon.color}"
+          }
+        }
+      }
+    }
+  }
+}

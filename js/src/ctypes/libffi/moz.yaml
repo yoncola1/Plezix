@@ -1,0 +1,33 @@
+schema: 1
+
+bugzilla:
+  product: Core
+  component: "JavaScript Engine"
+
+origin:
+  name: libffi
+  description: A portable foreign-function interface library
+  url: http://sourceware.org/libffi
+
+  release: v3.8.0 (2026-08-08T22:08:29Z).
+  revision: 12ffd1f9dc56fcea79d2f742f424301ae668d663
+
+  license: MIT
+  license-file: LICENSE
+
+vendoring:
+  url: https://github.com/libffi/libffi
+  source-hosting: github
+  tracking: commit
+
+  exclude:
+    - "**"
+
+  include:
+    - include/**
+    - src/**
+
+  keep:
+    - LICENSE
+    - README.md
+    - fficonfig.h.in

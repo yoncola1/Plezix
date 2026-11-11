@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Label used for buttons, e.g. in dialogs -->
+  <string name="action_cancel">Batal</string>
+  <string name="action_save">Simpan</string>
+  <!-- This text is shown in the URL bar when it's empty -->
+  <string name="urlbar_hint">Cari atau masukkan alamat</string>
+  <!-- "Snackbar" shown after the user has pressed the 'erase' button at the end of a custom tab browsing session -->
+  <string name="feedback_erase_custom_tab">Sejarah pelayaran tab telah dibuang.</string>
+  <!-- Menu item: Share the currently visible page -->
+  <string name="menu_share">Kongsi…</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. %1$s will be
+    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
+  -->
+  <string name="menu_open_with_default_browser2">Buka dalam %1$s</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. This menu item
+    will be shown if there are multiple browsers and we do not know which one is the default
+    browser or in case Focus is actually the default browser. Clicking this menu item will show
+    a screen with multiple browsers (or other apps that can open the current URL) to choose from.
+  -->
+  <string name="menu_open_with_a_browser2">Buka dalam…</string>
+  <!-- Menu item: Add the current page as a shortcut to the device's home screen (launcher). -->
+  <string name="menu_add_to_home_screen">Tambah ke Skrin Halaman utama</string>
+  <!-- Menu item: Shows information about features and changes that are new to this version -->
+  <string name="menu_settings">Tetapan</string>
+  <string name="menu_about">Perihal</string>
+  <string name="menu_help">Bantuan</string>
+  <!--
+    This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
+    See https://github.com/mozilla-mobile/focus-android/issues/2106
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="menu_custom_tab_branding">Dikuasakan oleh %1$s</string>
+  <!--
+    This is the title of a dialog that shows all the share targets (apps or contacts) when
+    sharing an URL.
+  -->
+  <string name="share_dialog_title">Kongsi via</string>
+  <string name="notification_erase_text">Buang sejarah pelayaran</string>
+  <!-- Notification action to open Focus and resume the current browsing session. -->
+  <string name="notification_action_open">Buka</string>
+  <!--
+    Notification action to erase the current browsing session AND switch to Focus (bring it
+    to the foreground)
+  -->
+  <string name="notification_action_erase_and_open">Buang dan Buka</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_short_label">Buang</string>
+  <!--
+    The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
+    instead of the short title when it has enough space. Android recommends a maximum length
+    of 25 characters.
+  -->
+  <string name="shortcut_erase_long_label">Buang sejarah pelayaran</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_and_open_short_label">Buang &amp; buka</string>
+  <!-- Header for the Privacy and Security settings menu -->
+  <string name="preference_privacy_and_security_header">Privasi &amp; Keselamatan</string>
+  <!-- Preference summary for settings related to privacy and security -->
+  <string name="preference_privacy_and_security_summary">Penjejakan, kuki, pilihan data</string>
+  <!--
+    Preference category description for settings related to search, set default
+    and autocomplete are settings a user can find and change inside the "search" settings screen
+  -->
+  <string name="preference_search_summary">Tetapkan piawai, autolengkap</string>
+  <!--
+    Preference category description for settings screen for settings related to Mozilla
+
+    About the app and help are links that are inside this menu
+
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_mozilla_summary">Perihal %1$s, bantuan</string>
+  <!-- Preference category for settings related to controlling web content -->
+  <string name="preference_category_web_content">Kandungan Web</string>
+  <!-- Preference category: stealth settings for while switching apps -->
+  <string name="preference_category_switching_apps">Aplikasi Penukaran</string>
+  <!-- Preference category for General Settings -->
+  <string name="preference_category_general">Umum</string>
+  <string name="preference_category_search">Carian</string>
+  <!-- Title of "switch" preference that enables/disables search suggestions -->
+  <string name="preference_show_search_suggestions">Dapatkan cadangan carian</string>
+  <!--
+    Description of the preference that enables/disables search suggestions
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_show_search_suggestions_summary">%1$s akan menghantar apa yang anda taip dalam bar alamat kepada enjin carian</string>
+  <!-- This label is shown above the currently selected search engine in settings -->
+  <string name="preference_search_engine_label">Enjin carian</string>
+  <!-- Text that is shown below a "switch" preference that is enabled. -->
+  <string name="preference_state_on">Aktif</string>
+  <!-- Text that is shown below a "switch" preference that is disabled. -->
+  <string name="preference_state_off">Nyahaktif</string>
+  <!-- Item in settings that will open a new preference screen for configuring the URL autocomplete behavior. -->
+  <string name="preference_subitem_autocomplete">Auto-lengkap URL</string>
+  <!-- Title of "switch" preference that enables/disables autocomplete for the default list -->
+  <string name="preference_switch_autocomplete_topsites">Untuk Laman Teratas</string>
+  <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
+  <string name="preference_switch_autocomplete_user_list">Untuk Laman Yang Anda Tambah</string>
+  <!-- Item in autocomplete settings that will open a new preference screen for adding and removing URLs to the user-defined list -->
+  <string name="preference_autocomplete_subitem_manage_sites">Urus laman</string>
+  <!-- Action at the bottom of the list of custom autocomplete URLs that will open a new screen to add a new URL to the list. -->
+  <string name="preference_autocomplete_action_add">+ Tambah URL penyesuaian</string>
+  <!-- Title of the screen for adding custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_add">Tambah URL penyesuaian</string>
+  <!-- Preference category for settings about cookies and site data -->
+  <string name="preference_category_cookies">Kuki dan Data Laman</string>
+  <!-- Preference category for settings about data choices -->
+  <string name="preference_category_data_choices">Pilihan Data</string>
+  <!-- Title of the screen for removing custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_remove">Buang URLs penyesuaian</string>
+  <!-- A link to SUMO at autocomplete settings. -->
+  <string name="preference_autocomplete_learn_more">Ketahui selanjutnya</string>
+  <!-- Label for the "custom autocomplete URL" input field -->
+  <string name="preference_autocomplete_add_title">URL untuk ditambah</string>
+  <!-- "Hint" text for the "custom autocomplete URL" input field. Shown when the field is empty. -->
+  <string name="preference_autocomplete_add_hint">Tampal atau masukkan URL</string>
+  <!-- Example how a custom domain autocomplete URL be added (e.g. without http://) -->
+  <string name="preference_autocomplete_add_example2" tools:ignore="BrandUsage">Contoh: mozilla.org</string>
+  <!-- Confirmation "snackbar" shown after a new custom autocomplete URL has been added. -->
+  <string name="preference_autocomplete_add_confirmation">Penyesuaian URL baru ditambah.</string>
+  <!-- Menu item to remove existing autocomplete URLs. -->
+  <string name="preference_autocomplete_menu_remove">Buang</string>
+  <!-- Content description (not visible, for screen readers etc.): Button that will delete all selected custom autocomplete URLs. -->
+  <string name="preference_autocomplete_action_remove_content_description">Buang</string>
+  <!-- Error message shown if the entered custom autocomplete URL is not valid or empty. -->
+  <string name="preference_autocomplete_add_error">Semak semula URL yang anda masukkan.</string>
+  <string name="preference_language">Bahasa</string>
+  <!--
+    This is shown when the user hasn't set a focus specific language, i.e. when Focus
+    is using the system default language.
+  -->
+  <string name="preference_language_systemdefault">Piawai sistem</string>
+  <string name="preference_privacy_block_ads">Sekat penjejak iklan</string>
+  <string name="preference_privacy_block_ads_summary">Sesetengah iklan menjejaki lawatan anda dalam laman, walaupun anda tidak klik iklan</string>
+  <string name="preference_privacy_block_analytics">Sekat penjejak analitik</string>
+  <string name="preference_privacy_block_analytics_summary">Digunakan untuk mengumpul, menganalisis dan menilai aktiviti, seperti klik dan skrol</string>
+  <string name="preference_privacy_block_social">Sekat penjejak sosial</string>
+  <string name="preference_privacy_block_social_summary">Disisipkan di dalam laman untuk menjejaki lawatan anda dan memaparkan fungsi seperti butang kongsi</string>
+  <string name="preference_privacy_block_content">Sekat penjejak kandungan lain</string>
+  <string name="preference_privacy_block_content_summary2">Sesetengah halaman mungkin tidak berfungsi dengan sempurna jika ciri ini diaktifkan</string>
+  <string name="preference_privacy_category_cookies">Sekat kuki</string>
+  <string name="preference_privacy_should_block_cookies_third_party_tracker_cookies_option">Sekat kuki penjejak pihak ke-3 sahaja</string>
+  <string name="preference_privacy_should_block_cookies_third_party_only_option">Sekat kuki pihak ke-3 sahaja</string>
+  <!-- Preference Title: Biometrics can be used to unlock Focus if the previous session's data was not erased by the user. -->
+  <string name="preference_security_biometric">Guna cap jari untuk membuka aplikasi</string>
+  <!--
+    Preference Title: Secure Mode is a setting that prevents the app's content to show up in the "recent apps" screen
+    and prevents the user from taking screenshots or casting the app to other displays.
+  -->
+  <string name="preference_privacy_secure_mode">Halimunan</string>
+  <!--
+    Preference Summary: Stealth mode (previously "Secure mode") is a setting that prevents the
+    app's content (in our case especially the content of webpages) to show up in the "recent apps"
+    screen. Additionally Android will prevent the user from taking screenshots or casting the app
+    to other displays.
+  -->
+  <string name="preference_privacy_stealth_summary">Sorok halaman web apabila bertukar aplikasi dan sekat mengambil skrinsyot.</string>
+  <string name="preference_category_security">Keselamatan</string>
+  <string name="preference_performance_block_webfonts">Sekat fon Web</string>
+  <!-- This text is shown below the setting for disabling web fonts. Some websites use icons/images from a font and those do not show up if fonts are blocked. -->
+  <string name="preference_performance_block_webfonts_summary">Boleh menyebabkan imej atau ikon hilang</string>
+  <string name="preference_performance_block_javascript">Sekat JavaScript</string>
+  <!-- This text is shown below setting for disabling JavaScript. Some websites may not work correctly when JavaScript is disabled -->
+  <string name="preference_performance_block_javascript_summary">Halaman dimuatkan lebih cepat, tetapi mungkin ada yang tidak dijangka</string>
+  <!--
+    This preference does not set Focus as the default browser but instead links to Android's
+    "default apps" settings screen or if not supported by this Android version to a SUMO page describing
+    how to set Focus as a default browser.
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_default_browser2">Jadikan %1$s pelayar piawai</string>
+  <string name="preference_category_mozilla" tools:ignore="BrandUsage">Mozilla</string>
+  <string name="preference_mozilla_telemetry2">Hantar data penggunaan</string>
+  <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
+  <string name="preference_mozilla_telemetry_summary">Ketahui selanjutnya</string>
+  <!-- %1$s will be replaced with the name of the app (e.g. Firefox Focus) -->
+  <string name="preference_mozilla_telemetry_summary2" tools:ignore="BrandUsage">Mozilla mengumpulkan hanya yang diperlukan untuk menyedia dan meningkatkan %1$s.</string>
+  <!-- In-app link (in settings) to Focus privacy notice. -->
+  <string name="preference_privacy_notice">Notis Privasi</string>
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <string name="preference_about">Perihal %1$s</string>
+  <!-- Action for restoring the default list of search engines -->
+  <string name="preference_search_restore">Pulih enjin carian piawai</string>
+  <string name="preference_search_remove_title">Buang enjin carian</string>
+  <string name="preference_search_remove">Buang</string>
+  <!-- Clickable action text that shows when user long-presses on a search engine search field (this is similar to paste or copy when long-pressing a text field) -->
+  <string name="action_option_add_search_engine">Tambah enjin carian</string>
+  <string name="search_add_manually_name_hint">Nama enjin carian</string>
+  <string name="search_add_manually_string">Cari string yang mahu digunakan</string>
+  <string name="search_add_manually_save">Simpan</string>
+  <!-- Example of search engine url. %s represents the search query and should be kept as-is. -->
+  <string name="search_add_manually_example">Contoh: example.com/search/?q=%s</string>
+  <string name="search_add_confirmation">Enjin carian baru sudah ditambah.</string>
+  <string name="search_add_error_empty_name">Masukkan nama enjin carian</string>
+  <string name="search_add_error_duplicate_name">Enjin carian yang dipasang sudah menggunakan nama itu.</string>
+  <string name="search_add_error_empty_search">Masukkan string carian</string>
+  <string name="search_add_error_format">Pastikan string carian sepadan format contoh</string>
+  <!--
+    Content description (not visible, for screen readers etc.): Clicking on the website overlay
+    while in typing mode will dismiss and go back to the browser. This text will be read when the
+    overlay if focused. See https://github.com/mozilla-mobile/focus-android/issues/50
+  -->
+  <string name="content_description_dismiss_input">Abai</string>
+  <!--
+    Content description (not visible, for screen readers etc.): Erase button: Erase the browsing
+    history and go back to the home screen.
+  -->
+  <string name="content_description_erase">Buang sejarah pelayaran</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate forward (browsing history) -->
+  <string name="content_description_forward">Navigasi depan</string>
+  <!-- Content description (not visible, for screen readers etc.): Reload current website -->
+  <string name="content_description_reload">Muat semula laman web</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate back (browsing history) -->
+  <string name="content_description_back">Navigasi undur</string>
+  <!-- Content description (not visible, for screen readers etc.): Stop loading the current website. This button will turn into the refresh button once loading has been completed (see content_description_reload) -->
+  <string name="content_description_stop">Hentikan memuat laman web</string>
+  <!-- Snackbar that will be displayed after a download has completed. %1$s is the file name. -->
+  <string name="download_snackbar_finished">%1$s sudah siap</string>
+  <!-- Snackbar action to immediately open the successfully downloaded file. -->
+  <string name="download_snackbar_open">Buka</string>
+  <string name="error_hostLookup_title">Pelayan tidak ditemui</string>
+  <!-- Label of the action that will add the current website to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_add">Tambah</string>
+  <!-- Label of the action that will close the dialog and not add anything to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_cancel">Batal</string>
+  <!--
+    The user visible name of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
+    The recommended maximum length is 40 characters; the value may be truncated if it is too long.
+
+    * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
+    * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
+  -->
+  <string name="notification_browsing_session_channel_name">Sesi pelayaran peribadi</string>
+  <!--
+    The user visible description of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
+    The recommended maximum length is 300 characters; the value may be truncated if it is too long. %1$s will be replaced with the name of the app (e.g. Firefox Focus).
+
+    * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
+    * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
+  -->
+  <string name="notification_browsing_session_channel_description">Anda boleh buang sesi %1$s dengan menekan notifikasi. Tidak perlu buka aplikasi atau lihat kandungan dalam pelayar.</string>
+  <!--
+    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
+  -->
+  <string name="download_firefox" tools:ignore="BrandUsage">Muat turun Firefox</string>
+  <string name="preference_autocomplete_duplicate_url_error">URL sudah wujud</string>
+  <!-- Label for the Find in page button -->
+  <string name="find_in_page">Cari dalam Halaman</string>
+  <!-- Displayed after a user long presses on the URL in a custom tab to copy the URL -->
+  <string name="custom_tab_copy_url_action">URL disalin</string>
+  <!-- Description of what a user may find in the Advanced Setting category, used for debugging -->
+  <string name="preference_advanced_summary">Alatan pembangun</string>
+  <!-- Title of Advanced Setting category -->
+  <string name="preference_category_advanced">Lanjutan</string>
+  <!-- Preference to enable remote debugging of the app via USB or Wi-Fi -->
+  <string name="preference_remote_debugging">Nyahpepijat jauh via USB/Wi-Fi</string>
+  <!-- Description for the fingerprint authentication image. Used for accessibility purposes. -->
+  <string name="biometric_auth_image_description">Ikon cap jari</string>
+  <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
+  <string name="enable_search_suggestions_no">Tidak</string>
+  <!-- Label used for the "YES button" for the prompt to enable search suggestions -->
+  <string name="enable_search_suggestions_yes">Ya</string>
+  <!-- Message displayed when using a search engine that doesn't provide suggestions -->
+  <string name="no_suggestions_message">Sesetengah enjin carian tidak dapat menunjukkan cadangan.</string>
+  <!-- Button to dismiss the message displayed  when using a search engine that doesn't provide suggestions -->
+  <string name="dismiss_no_suggestions_prompt_button">Abai</string>
+  <!-- Preference title for safe browsing which when enabled, blocks dangerous or deceptive webpages that may include phishing or malware -->
+  <string name="preference_safe_browsing_title">Sekat laman yang berpotensi berbahaya dan menipu</string>
+  <!-- Preference summary for safe browsing which when enabled, blocks dangerous or deceptive webpages that may include phishing or malware -->
+  <string name="preference_safe_browsing_summary">Sekat laman yang dilaporkan menipu dan menyerang, laman perisian hasad dan laman perisian yang tidak diingini.</string>
+  <!-- Preference for exceptions tracking protection -->
+  <string name="preference_exceptions">Pengecualian</string>
+  <!-- Description for the exceptions preference screen -->
+  <string name="preference_exceptions_description">Anda telah nyahaktifkan Sekatan Kandungan untuk laman web ini.</string>
+  <!-- Menu item to remove existing exceptions. -->
+  <string name="preference_exceptions_menu_remove">Buang</string>
+  <!-- Button to remove all websites from the exception list -->
+  <string name="preference_exceptions_remove_all_button_label">Buang semua laman web</string>
+  <!-- Headline for the tab crash report screen -->
+  <string name="tab_crash_report_headline">Maaf. Kami ada masalah dengan tab ini.</string>
+  <!-- Subtitle for the tab crash report screen -->
+  <string name="tab_crash_report_description">Sebagai pelayar peribadi, kami tidak pernah menyimpan dan tidak boleh memulihkan tab ini.</string>
+  <!-- Label for button to close the tab -->
+  <string name="tab_crash_report_close_tab_button_label">Tutup Tab</string>
+  <!-- Label for the checkbox to send the tab crash report to Mozilla -->
+  <string name="crash_report_send_crash_label" tools:ignore="BrandUsage">Hantar laporan ranap ke Mozilla</string>
+</resources>

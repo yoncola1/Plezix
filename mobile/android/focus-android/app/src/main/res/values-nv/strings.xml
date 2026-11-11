@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+<resources>
+  <!-- Label used for buttons, e.g. in dialogs -->
+  <string name="action_cancel">Dooda nisin</string>
+  <!-- This text is shown in the URL bar when it's empty -->
+  <string name="urlbar_hint">Hanítą́ \'éí doodaii\' addressígíí biih níłtązh</string>
+  <!-- Menu item: Share the currently visible page -->
+  <string name="menu_share">\"Ła\' bił \'ííshjání \'ádeeshłííł nisin \"</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. %1$s will be
+    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
+  -->
+  <string name="menu_open_with_default_browser2">Tsésǫ\' \'ániidígíí léi\' biyi\'jį\' \'ąą \'ádeeshłííł nisin %1$s.</string>
+</resources>

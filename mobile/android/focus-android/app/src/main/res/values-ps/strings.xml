@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Label used for buttons, e.g. in dialogs -->
+  <string name="action_cancel">لغوه کول</string>
+  <string name="action_save">خوندي کول</string>
+  <!-- This text is shown in the URL bar when it's empty -->
+  <string name="urlbar_hint">پته ولټوئ يا وليکئ</string>
+  <!-- "Snackbar" shown after the user has pressed the 'erase' button at the end of a browsing session -->
+  <string name="feedback_erase2">د لټون تاريخچه پاکه شوه</string>
+  <!-- "Snackbar" shown after the user has pressed the 'erase' button at the end of a custom tab browsing session -->
+  <string name="feedback_erase_custom_tab">د ټب د لټون تاريخچه پاکه شوې ده.</string>
+  <!-- Menu item: Share the currently visible page -->
+  <string name="menu_share">شریکول…</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. %1$s will be
+    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
+  -->
+  <string name="menu_open_with_default_browser2">په %1$s کې پرانیستل کیږي</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. This menu item
+    will be shown if there are multiple browsers and we do not know which one is the default
+    browser or in case Focus is actually the default browser. Clicking this menu item will show
+    a screen with multiple browsers (or other apps that can open the current URL) to choose from.
+  -->
+  <string name="menu_open_with_a_browser2">خلاص کړئ په…</string>
+  <!-- Menu item: Add the current page as a shortcut to the device's home screen (launcher). -->
+  <string name="menu_add_to_home_screen">کور سکرين ته زيات کړئ</string>
+  <!-- Menu item: Add the current site as a shortcut on the Home screen -->
+  <string name="menu_add_to_shortcuts">لنډلارو ته اضافه کړئ</string>
+  <!-- Menu item: Remove the current site as a shortcut from the Home screen -->
+  <string name="menu_remove_from_shortcuts">له شارټ کټونو څخه لرې کړئ</string>
+  <!-- Menu item: Shows information about features and changes that are new to this version -->
+  <string name="menu_settings">امستنې</string>
+  <string name="menu_about">په اړه</string>
+  <string name="menu_help">مرسته</string>
+  <string name="menu_terms_of_use">د کارولو شرایط</string>
+  <!--
+    This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
+    See https://github.com/mozilla-mobile/focus-android/issues/2106
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="menu_custom_tab_branding">د %1$s لخوا پرمخ وړل کیږي</string>
+  <!--
+    This is the title of a dialog that shows all the share targets (apps or contacts) when
+    sharing an URL.
+  -->
+  <string name="share_dialog_title">له لارې شریک کړئ</string>
+  <string name="notification_erase_title_android_14">د پلټنې تاریخچه پاکه کړئ؟</string>
+  <!--
+    Text shown in the notification description that pops up to remind the user that a browsing session is active
+    for Android 14+.
+  -->
+  <string name="notification_erase_text_android_14_1">د خپل لټون تاریخچې د خوندي ړنګولو لپاره پر دې خبرتیا ټک وکړئ یا یې راکاږئ.</string>
+  <string name="notification_erase_text">د پلټنې تاریخچه پاکول</string>
+  <!-- Notification action to open Focus and resume the current browsing session. -->
+  <string name="notification_action_open">پرانیستل</string>
+  <!--
+    Notification action to erase the current browsing session AND switch to Focus (bring it
+    to the foreground)
+  -->
+  <string name="notification_action_erase_and_open">پاکول او پرانیستل</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_short_label">پاکول</string>
+  <!--
+    The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
+    instead of the short title when it has enough space. Android recommends a maximum length
+    of 25 characters.
+  -->
+  <string name="shortcut_erase_long_label">د پلټنې تاریخچه پاکول</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_and_open_short_label">پاک کړئ او خلاص کړئ</string>
+  <!--
+    These labels are selected per variant through manifestPlaceholders in build.gradle, so
+    UnusedResources does not see the ones for the variants it is not analyzing.
+
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus.
+  -->
+  <string name="text_selection_search_action_focus" tools:ignore="BrandUsage,UnusedResources">په Focus کې لټون</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Klar is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Klar.
+  -->
+  <string name="text_selection_search_action_klar" tools:ignore="BrandUsage,UnusedResources">په Klar کې لټون</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus Beta is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Beta.
+  -->
+  <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage,UnusedResources">په Focus Beta کې لټون کول</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus Nightly is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Nightly.
+  -->
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage,UnusedResources">په Focus Nightly کې لټون کول</string>
+  <!--
+    Content of about focus. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+    %2$s is the url for the learn-more link.
+  -->
+  <string name="about_content" tools:ignore="BrandUsage,IncorrectStraightDoubleQuote"><![CDATA[<p>%1$s تاسو ته بشپړ کنټرول درکوي.</p>\n<p>دا د یو شخصي براوزر په توګه وکاروئ:\n<ul>\n<li>په همدې کاريال کې لټون او براوز کول</li>\n<li>تعقیبوونکي بندول (یا د تنظیماتو له لارې یې اجازه ورکول)</li>\n<li>پاکول، تر څو کوکيز، پلټنې او د براوزر تاريخچه ړنګه شي</li>\n</ul> </p>\n<p>%1$s د موزيلا لخوا جوړ شوی دی. زموږ موخه یو سالم او پرانیستي انټرنېټ ته وده ورکول دي.<br/>\n<a href=\"%2$s\">نور مالومات</a></p>\n]]></string>
+  <!-- A link to SUMO at the bottom of About Focus screen. -->
+  <string name="about_screen_learn_more">نور مالومات ترلاسه کړئ</string>
+  <!-- Header for the Privacy and Security settings menu -->
+  <string name="preference_privacy_and_security_header">محرمیت او خونديتوب</string>
+  <!-- Preference summary for settings related to privacy and security -->
+  <string name="preference_privacy_and_security_summary">څارل، کوکيز، د معلوماتو انتخابونه</string>
+  <!--
+    Preference category description for settings related to search, set default
+    and autocomplete are settings a user can find and change inside the "search" settings screen
+  -->
+  <string name="preference_search_summary">ډيفالټ ټاکل، اتومات بشپړول</string>
+  <!--
+    Preference category description for settings screen for settings related to Mozilla
+
+    About the app and help are links that are inside this menu
+
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_mozilla_summary">د %1$s په اړه، مرسته</string>
+  <!-- Preference category for ad blocking and enhanced tracking protection settings -->
+  <string name="preference_category_tracking_protection3">د پرمختللي څار خوندیتوب</string>
+  <!-- Preference category for settings related to controlling web content -->
+  <string name="preference_category_web_content">د وېب منځپانګه</string>
+  <!-- Preference category: stealth settings for while switching apps -->
+  <string name="preference_category_switching_apps">کاريالونه بدلول</string>
+  <!-- Preference category for General Settings -->
+  <string name="preference_category_general">عمومي</string>
+  <!-- Preference summary for General Settings category; the two things users can find in this category -->
+  <string name="preference_general_summary2">اصلي براوزر، ژبه</string>
+  <string name="preference_category_search">لټون</string>
+  <!-- Title of "switch" preference that enables/disables search suggestions -->
+  <string name="preference_show_search_suggestions">د پلټلو وړانديزونه ترلاسه کول</string>
+  <!--
+    Description of the preference that enables/disables search suggestions
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_show_search_suggestions_summary">%1$s به هغه څه چې تاسو یې ادرس بار کې لیکئ، ستاسو د لټون انجن ته ولېږي\n</string>
+  <!-- This label is shown above the currently selected search engine in settings -->
+  <string name="preference_search_engine_label">پلټونکی انجن</string>
+  <!-- Text that is shown below a "switch" preference that is enabled. -->
+  <string name="preference_state_on">فعال</string>
+  <!-- Text that is shown below a "switch" preference that is disabled. -->
+  <string name="preference_state_off">غير فغال</string>
+  <!-- Item in settings that will open a new preference screen for configuring the URL autocomplete behavior. -->
+  <string name="preference_subitem_autocomplete">د URL اتومات بشپړول</string>
+  <!-- Title of "switch" preference that enables/disables autocomplete for the default list -->
+  <string name="preference_switch_autocomplete_topsites">د غوره سایټونو لپاره</string>
+  <!--
+    Summary for the toggle to enable autocomplete for the topsites list
+    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+  -->
+  <string name="preference_autocomplete_topsite_summary2">دا فعاله کړئ تر څو %s په پته‌ ځای کې د ۴۵۰ څخه زياتو مشهور URLs په اوتومات ډول بشپړ کړي.</string>
+  <!-- Title of "switch" preference that enables/disables autocomplete for the user-defined list -->
+  <string name="preference_switch_autocomplete_user_list">د هغو وېب‌پاڼو لپاره چې تاسو يې زياتوئ</string>
+  <!--
+    Summary for the toggle to enable autocomplete for the user-defined list
+    %s is the name of the app (for example "Firefox Focus" or "Firefox Klar").
+  -->
+  <string name="preference_autocomplete_user_list_summary2">فعال کړئ چې %s ستاسو د خوښې لېنکونه پخپله بشپړ کړي.</string>
+  <!-- Item in autocomplete settings that will open a new preference screen for adding and removing URLs to the user-defined list -->
+  <string name="preference_autocomplete_subitem_manage_sites">د سایټونو اداره کول</string>
+  <!-- Action at the bottom of the list of custom autocomplete URLs that will open a new screen to add a new URL to the list. -->
+  <string name="preference_autocomplete_action_add">+ دودیز URL زياتول</string>
+  <!-- Title of the screen for adding custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_add">خپل URL اضافه کول</string>
+  <!-- Preference category for settings about cookies and site data -->
+  <string name="preference_category_cookies">کوکيز او د پاڼې معلومات</string>
+  <!-- Preference category for settings about data choices -->
+  <string name="preference_category_data_choices">د ډېټا غوراوي</string>
+  <!-- Title of the screen for removing custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_remove">خپل لېنکونه پاکول</string>
+  <!-- A link to SUMO at autocomplete settings. -->
+  <string name="preference_autocomplete_learn_more">نور مالومات ترلاسه کړئ</string>
+  <!-- Example how a custom domain autocomplete URL be added (e.g. without http://) -->
+  <string name="preference_autocomplete_add_example2" tools:ignore="BrandUsage">بېلګه: mozilla.org</string>
+  <!-- Menu item to remove existing autocomplete URLs. -->
+  <string name="preference_autocomplete_menu_remove">لېرې کول</string>
+  <!-- Content description (not visible, for screen readers etc.): Button that will delete all selected custom autocomplete URLs. -->
+  <string name="preference_autocomplete_action_remove_content_description">لېرې کول</string>
+  <string name="preference_language">ژبه</string>
+  <!--
+    Three options for Cookie blocking. Yes (All cookies Blocked), Block 3rd-party cookies
+    only (Only 3rd-party Cookies Blocked), No (No cookies blocked)
+  -->
+  <string name="preference_privacy_should_block_cookies_no_option2">نه مننه</string>
+  <string name="preference_privacy_should_block_cookies_yes_option2">هو، مهرباني وکړئ</string>
+  <!--
+    Preference Title: Secure Mode is a setting that prevents the app's content to show up in the "recent apps" screen
+    and prevents the user from taking screenshots or casting the app to other displays.
+  -->
+  <string name="preference_privacy_secure_mode">پټ حالت</string>
+  <string name="preference_category_security">خونديتوب</string>
+  <string name="preference_category_mozilla" tools:ignore="BrandUsage">موزیلا</string>
+  <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
+  <string name="preference_mozilla_telemetry_summary">نور مالومات ترلاسه کړئ</string>
+  <string name="preference_search_remove">لېرې کړئ</string>
+  <string name="search_add_manually_save">خوندي کول</string>
+  <!--
+    Content description (not visible, for screen readers etc.): Clicking on the website overlay
+    while in typing mode will dismiss and go back to the browser. This text will be read when the
+    overlay if focused. See https://github.com/mozilla-mobile/focus-android/issues/50
+  -->
+  <string name="content_description_dismiss_input">ردول</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate forward (browsing history) -->
+  <string name="content_description_forward">مخته تلل</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate back (browsing history) -->
+  <string name="content_description_back">شا ته تلل</string>
+  <!-- Snackbar action to immediately open the successfully downloaded file. -->
+  <string name="download_snackbar_open">پرانېستل</string>
+  <string name="error_hostLookup_title">سرور ونه موندل شو</string>
+  <!--
+    New Onboarding flow first screen 'terms of use link'
+
+    Text for the link used in onboarding_first_screen_terms_of_use_text
+  -->
+  <string name="onboarding_first_screen_terms_of_use_link_2" tools:ignore="BrandUsage">د فایرفوکس د کارولو شرایط</string>
+  <!-- New Onboarding flow first screen button label -->
+  <string name="onboarding_first_screen_button_agree_and_continue_2">دوام ورکړئ</string>
+  <!-- In the first screen of new onboarding flow, additional accessibility description for content that contain urls. -->
+  <string name="a11y_link_available">تړونی شتون لري</string>
+  <!-- New Onboarding flow second screen skip onboarding button label -->
+  <string name="onboarding_second_screen_skip_button_text">پرېږدئ</string>
+  <!-- Label of the action that will add the current website to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_add">اضافه کول</string>
+  <!-- Label of the action that will close the dialog and not add anything to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_cancel">لغوه کول</string>
+  <!-- Label for the option in the Focus "tabs tray" to add a new tab. -->
+  <string name="tabs_tray_action_add_new_tab">نوی ټب اضافه کول</string>
+  <!--
+    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
+  -->
+  <string name="download_firefox" tools:ignore="BrandUsage">فایرفوکس راښکته کړئ</string>
+  <!-- Label for the Find in page button -->
+  <string name="find_in_page">په پاڼه کې لټون</string>
+  <!-- Checkbox menu item text to request desktop site -->
+  <string name="preference_performance_request_desktop_site2">ډېسکټاپ سایټ</string>
+  <!-- Displayed after a user long presses on the URL in a custom tab to copy the URL -->
+  <string name="custom_tab_copy_url_action">URL کاپي شو</string>
+  <!-- Title of Advanced Setting category -->
+  <string name="preference_category_advanced">پرمختللی</string>
+  <!-- Preference for altering the camera access for all websites -->
+  <string name="preference_phone_feature_camera">کامره</string>
+  <!-- Preference for altering the microphone access for all websites -->
+  <string name="preference_phone_feature_microphone">مايکروفون</string>
+  <!-- Preference for altering the location access for all websites -->
+  <string name="preference_phone_feature_location">ځای</string>
+  <!-- Preference for altering the notification access for all websites -->
+  <string name="preference_phone_feature_notification">خبرتیا</string>
+  <!-- Label used for the "NO button" for the prompt to enable search suggestions -->
+  <string name="enable_search_suggestions_no">نه</string>
+  <!-- Label used for the "YES button" for the prompt to enable search suggestions -->
+  <string name="enable_search_suggestions_yes">هو</string>
+  <!-- Button to dismiss the message displayed  when using a search engine that doesn't provide suggestions -->
+  <string name="dismiss_no_suggestions_prompt_button">ردول</string>
+  <!-- Menu item to remove existing exceptions. -->
+  <string name="preference_exceptions_menu_remove">لیرې کول</string>
+  <!-- Button to remove all websites from the exception list -->
+  <string name="preference_exceptions_remove_all_button_label">ټولې وېبپاڼې لرې کول</string>
+  <!-- Category of trackers (content) that can be blocked by Enhanced Tracking Protection. -->
+  <string name="content">منځپانګه</string>
+  <!-- Category of trackers (analytics) that can be blocked by Enhanced Tracking Protection. -->
+  <string name="analytics">ارزونې</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate back button description. -->
+  <string name="go_back">شاته تلل</string>
+  <!--
+    Top Sites
+
+    Text for the menu button to remove a top site
+  -->
+  <string name="remove_top_site">ړنګول</string>
+  <!-- Text for the dialog title for renaming a top site -->
+  <string name="rename_top_site">نوم بدلول</string>
+  <!-- Preference for using light theme -->
+  <string name="preference_light_theme">روښانه</string>
+  <!-- Preference for using dark theme -->
+  <string name="preference_dark_theme">تیاره</string>
+  <!--
+    Content description (not visible, for screen readers etc.): This is the description for the
+    close button from promote search widget dialog.
+  -->
+  <string name="promote_search_widget_dialog_content_description">بندول</string>
+</resources>

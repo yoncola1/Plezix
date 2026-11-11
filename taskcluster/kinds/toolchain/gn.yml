@@ -1,0 +1,66 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    description: "gn toolchain build"
+    attributes:
+        local-toolchain: true
+    worker-type: b-linux-docker-amd
+    worker:
+        max-run-time: 1800
+    run:
+        resources:
+            - 'taskcluster/scripts/misc/build-gn-common.sh'
+        toolchain-artifact: public/build/gn.tar.zst
+    fetches:
+        fetch:
+            - gn
+
+linux64-gn:
+    treeherder:
+        symbol: TL(gn)
+    run:
+        script: build-gn-linux.sh
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            # gn is built as C++23, which needs a more recent libstdc++ than
+            # the one in linux64-toolchain-sysroot.
+            - linux64-toolchain-sysroot-gcc11
+
+macosx64-gn:
+    treeherder:
+        symbol: TM(gn)
+    run:
+        script: build-gn-macosx.sh
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - macosx64-sdk-toolchain
+
+macosx64-aarch64-gn:
+    treeherder:
+        symbol: TMA64(gn)
+    run:
+        script: build-gn-macosx.sh
+        arguments:
+            - aarch64-apple-darwin
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - macosx64-sdk-toolchain
+
+win64-gn:
+    treeherder:
+        symbol: TW64(gn)
+    worker-type: b-win2022
+    worker:
+        max-run-time: 3600
+    run:
+        script: build-gn-win64.sh
+    fetches:
+        fetch:
+            - win64-ninja
+        toolchain:
+            - vs-toolchain

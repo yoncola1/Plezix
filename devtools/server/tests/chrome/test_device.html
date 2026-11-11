@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+Bug 895360 - [app manager] Device meta data actor
+-->
+<head>
+  <meta charset="utf-8">
+  <title>Mozilla Bug</title>
+  <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+  <link rel="stylesheet" type="text/css" href="chrome://mochikit/content/tests/SimpleTest/test.css">
+</head>
+<body>
+<pre id="test">
+<script>
+"use strict";
+
+const {require} = ChromeUtils.importESModule("resource://devtools/shared/loader/Loader.sys.mjs");
+const {
+  createLocalClientForTests
+} = require("resource://devtools/shared/commands/commands-factory.js");
+
+add_task(async function () {
+  const client = await createLocalClientForTests();
+  const device = await client.mainRoot.getFront("device");
+
+  const appInfo = Services.appinfo;
+  const utils = window.windowUtils;
+
+  const localDesc = {
+    appid: appInfo.ID,
+    vendor: appInfo.vendor,
+    name: appInfo.name,
+    version: appInfo.version,
+    appbuildid: appInfo.appBuildID,
+    platformbuildid: appInfo.platformBuildID,
+    platformversion: appInfo.platformVersion,
+    geckobuildid: appInfo.platformBuildID,
+    geckoversion: appInfo.platformVersion,
+    useragent: window.navigator.userAgent,
+    locale: Services.locale.appLocaleAsBCP47,
+    os: appInfo.OS,
+    processor: appInfo.XPCOMABI.split("-")[0],
+    compiler: appInfo.XPCOMABI.split("-")[1],
+    dpi: utils.displayDPI,
+    width: window.screen.width,
+    height: window.screen.height,
+  };
+
+  const desc = await device.getDescription();
+  for (const key in localDesc) {
+    is(desc[key], localDesc[key], "valid field (" + key + ")");
+  }
+
+  const currProfD = Services.dirsvc.get("ProfD", Ci.nsIFile);
+  const profileDir = currProfD.path;
+  ok(profileDir.includes(!!desc.profile.length && desc.profile),
+     "valid profile name");
+
+  await client.close()
+});
+</script>
+</pre>
+</body>
+</html>

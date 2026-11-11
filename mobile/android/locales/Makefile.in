@@ -1,0 +1,30 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+include $(topsrcdir)/config/config.mk
+include $(topsrcdir)/config/rules.mk
+
+# Required for l10n.mk - defines a list of app sub dirs that should
+# be included in langpack xpis.
+DIST_SUBDIRS = $(DIST_SUBDIR)
+
+MOZ_LANGPACK_EID = langpack-$(AB_CD)@$(MOZ_LANGPACK_EID_HOST)
+
+include $(topsrcdir)/toolkit/locales/l10n.mk
+
+# merge if we're not en-US, using conditional function as we need
+# the current value of AB_CD
+l10n-%: AB_CD=$*
+l10n-%:
+	$(if $(filter en-US,$(AB_CD)),, $(MAKE) merge-$*)
+	$(call py_action,l10n_stage,--locale=$* --manifest=$(DEPTH)/l10n-manifest.json --merge-tree=$(BASE_MERGE)/$* --dest=$(DIST)/xpi-stage/locale-$* --topsrcdir=$(topsrcdir) --topobjdir=$(DEPTH))
+
+# Tailored target to just add the chrome processing for multi-locale builds
+# merge if we're not en-US, using conditional function as we need
+# the current value of AB_CD
+chrome-%: AB_CD=$*
+chrome-%: IS_LANGUAGE_REPACK=1
+chrome-%:
+	$(if $(filter en-US,$(AB_CD)),, $(MAKE) merge-$*)
+	$(call py_action,l10n_stage,--locale=$* --manifest=$(DEPTH)/l10n-manifest.json --merge-tree=$(BASE_MERGE)/$* --dest=$(DIST)/bin --topsrcdir=$(topsrcdir) --topobjdir=$(DEPTH) --mode=chrome)

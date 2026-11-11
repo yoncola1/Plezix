@@ -1,0 +1,5 @@
+{
+    "cc": "/usr/bin/clang-19",
+    "cxx": "/usr/bin/clang++-19",
+    "as": "/usr/bin/clang-19"
+}

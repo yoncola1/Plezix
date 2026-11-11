@@ -1,0 +1,97 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    BUG_COMPONENT = ("Firefox", "General")
+
+SPHINX_TREES["sslerrorreport"] = "content/docs/sslerrorreport"
+
+with Files("content/docs/sslerrorreport/**"):
+    SCHEDULES.exclusive = ["docs"]
+
+with Files("content/test/browser-safebrowsing/**"):
+    BUG_COMPONENT = ("Toolkit", "Safe Browsing")
+
+MOCHITEST_CHROME_MANIFESTS += [
+    "content/test/chrome/chrome.toml",
+]
+
+BROWSER_CHROME_MANIFESTS += [
+    "content/test/browser-about/browser.toml",
+    "content/test/browser-about/sslkeylogging/browser.toml",
+    "content/test/browser-alerts/browser.toml",
+    "content/test/browser-backforward/browser.toml",
+    "content/test/browser-caps/browser.toml",
+    "content/test/browser-captivePortal/browser.toml",
+    "content/test/browser-confirmationHint/browser.toml",
+    "content/test/browser-contentTheme/browser.toml",
+    "content/test/browser-contextMenu/browser.toml",
+    "content/test/browser-favicons/browser.toml",
+    "content/test/browser-forms/browser.toml",
+    "content/test/browser-framebusting/browser.toml",
+    "content/test/browser-fullscreen/browser.toml",
+    "content/test/browser-general/browser.toml",
+    "content/test/browser-gesture/browser.toml",
+    "content/test/browser-historySwipeAnimation/browser.toml",
+    "content/test/browser-keyboard/browser.toml",
+    "content/test/browser-keyboard/browserSidebarRevamp.toml",
+    "content/test/browser-linkHandling/browser.toml",
+    "content/test/browser-mathml/browser.toml",
+    "content/test/browser-maximized/browser.toml",
+    "content/test/browser-menubar/browser.toml",
+    "content/test/browser-metaTags/browser.toml",
+    "content/test/browser-mousepostracker/browser.toml",
+    "content/test/browser-notificationbox/browser.toml",
+    "content/test/browser-outOfProcess/browser.toml",
+    "content/test/browser-pageActions/browser.toml",
+    "content/test/browser-pageinfo/browser.toml",
+    "content/test/browser-pageStyle/browser.toml",
+    "content/test/browser-permissions/browser.toml",
+    "content/test/browser-plugins/browser.toml",
+    "content/test/browser-popupNotifications/browser.toml",
+    "content/test/browser-popups/browser.toml",
+    "content/test/browser-protectionsUI/browser.toml",
+    "content/test/browser-referrer/browser.toml",
+    "content/test/browser-safebrowsing/browser.toml",
+    "content/test/browser-sanitize/browser.toml",
+    "content/test/browser-scroll-to-text-fragment/browser.toml",
+    "content/test/browser-siteIdentity/browser.toml",
+    "content/test/browser-startup/browser.toml",
+    "content/test/browser-static/browser.toml",
+    "content/test/browser-sync/browser.toml",
+    "content/test/browser-tabcrashed/browser.toml",
+    "content/test/browser-tabcrashed/browser_aboutRestartRequired.toml",
+    "content/test/browser-tabcrashed/browser_aboutRestartRequired_noForkServer.toml",
+    "content/test/browser-tabdialogs/browser.toml",
+    "content/test/browser-tabPrompts/browser.toml",
+    "content/test/browser-touch/browser.toml",
+    "content/test/browser-trustPanel/browser.toml",
+    "content/test/browser-utilityOverlay/browser.toml",
+    "content/test/browser-webextensions/browser.toml",
+    "content/test/browser-webrtc/browser.toml",
+    "content/test/browser-webrtc/gracePeriod/browser.toml",
+    "content/test/browser-zoom/browser.toml",
+]
+
+DIRS += [
+    "content/test/browser-fullscreen/",
+    "content/test/browser-performance/",
+]
+
+PERFTESTS_MANIFESTS += ["content/test/perftest.toml"]
+
+DEFINES["MOZ_APP_VERSION"] = CONFIG["MOZ_APP_VERSION"]
+DEFINES["MOZ_APP_VERSION_DISPLAY"] = CONFIG["MOZ_APP_VERSION_DISPLAY"]
+
+# Firefox's about:license: the shared page plus the Mozilla binaries notice.
+# jar.mn overrides chrome://global/content/license.html with this copy.
+GENERATED_FILES += ["license.html"]
+GENERATED_FILES["license.html"].script = "/toolkit/content/gen_license_html.py"
+GENERATED_FILES["license.html"].inputs = [
+    "/toolkit/content/license.html.mako",
+    "!/licenses.json",
+    "content/overrides/app-license.html",
+]
+
+JAR_MANIFESTS += ["jar.mn"]

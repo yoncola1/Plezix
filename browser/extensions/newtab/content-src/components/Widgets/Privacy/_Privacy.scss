@@ -1,0 +1,448 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* stylelint-disable stylelint-plugin-mozilla/use-design-tokens */
+
+.privacy {
+  @include widget-base-style;
+
+  padding: var(--space-large);
+  // Celebration sparkles overhang the count deliberately; keep that overhang
+  // inside the card. The context menu is a top-level popup, so it is unaffected.
+  overflow: clip;
+
+  // Brief tier (default): a short sparkle on an ordinary count-up, just enough
+  // that the widget feels alive. The ring belongs to the cap tier below.
+  --widget-celebration-tint-color: transparent;
+  --widget-celebration-sparkle-color: var(--color-yellow-30);
+  --widget-celebration-sparkle-duration: 1200ms;
+  --widget-celebration-ring-stops:
+    var(--color-violet-30), var(--color-orange-30), var(--color-violet-20),
+    var(--color-violet-30);
+  --widget-celebration-ring-duration: 4000ms;
+  // Hold + exit must outlast the last sparkle, which ends at
+  // 11 x 65ms stagger + 1200ms = 1915ms.
+  --widget-celebration-hold-duration: 1600ms;
+  --widget-celebration-exit-duration: 500ms;
+  --widget-celebration-enter-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
+
+  // Loud tier: major moments sparkle longer than a plain +10 count-up.
+  &.is-major-celebration {
+    // Hold + exit must outlast the last sparkle, which ends at
+    // 23 x 60ms stagger + 3600ms = 4980ms.
+    --widget-celebration-sparkle-duration: 3600ms;
+    --widget-celebration-hold-duration: 4300ms;
+    --widget-celebration-exit-duration: 800ms;
+  }
+
+  @include widget-celebration-styles('privacy-celebration');
+
+  &.medium-widget {
+    padding-block-start: var(--space-small);
+    grid-row: span 2;
+  }
+
+  // The count sits close to the card edge here, so a large overhang would
+  // spill out; keep the sparkle layer tight to the badge + number.
+  &.medium-widget,
+  &.small-widget {
+    .privacy-celebration-sparkles {
+      /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+      inset: -4px -4px -2px;
+    }
+  }
+
+  &.large-widget {
+    grid-row: span 4;
+  }
+
+  // Two columns by two rows, like small weather.
+  &.small-widget {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: var(--space-medium);
+  }
+}
+
+// Free-float the context menu in the top-right corner (mirrors FocusTimer).
+.privacy-title-wrapper {
+  inset-block-start: var(--space-medium);
+  inset-inline-end: var(--space-medium);
+  inset-inline-start: auto;
+  margin-block-end: 0;
+  position: absolute;
+  width: auto;
+}
+
+.privacy-context-menu-wrapper {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.privacy:hover,
+.privacy:focus-within {
+  .privacy-context-menu-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.privacy-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-small);
+  // Default (incl. medium no-tip): bottom-left, matching large.
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  .privacy-count-text {
+    display: flex;
+    flex-direction: column;
+    text-transform: lowercase;
+    font-size: var(--font-size-small);
+
+    .medium-widget & {
+      margin-block-end: var(--space-medium);
+      font-size: var(--newtab-font-size-xsmall);
+    }
+
+    // Both lines flow as one sentence and wrap where the card runs out.
+    .small-widget & {
+      flex-flow: row wrap;
+      column-gap: var(--space-xsmall);
+      font-size: var(--newtab-font-size-xsmall);
+    }
+
+    .large-widget.is-count-only & {
+      font-size: var(--font-size-root);
+    }
+
+    .has-streak.medium-widget &,
+    .has-tip-msg.medium-widget & {
+      margin-block-end: 0;
+    }
+  }
+
+  .has-streak.medium-widget &,
+  .has-tip-msg.medium-widget & {
+    justify-content: flex-start;
+  }
+
+  .large-widget & {
+    gap: var(--space-large);
+    padding-inline: var(--space-small);
+    padding-block-end: var(--space-small);
+  }
+
+  // Streak reuses the count-block layout (no divider): count then message
+  // stacked, with a little breathing room between them.
+  .has-streak & {
+    gap: var(--space-small);
+  }
+
+  // Empty and ETP-off states: center the image + message in the card.
+  .is-empty &,
+  .is-etp-off & {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.privacy-empty,
+.privacy-etp-off {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  justify-content: space-evenly;
+  align-self: stretch;
+
+  .large-widget & {
+    justify-content: center;
+
+    .privacy-image {
+      margin-block-end: var(--space-large);
+
+      .privacy-image-icon {
+        max-height: calc(var(--icon-size-large) * 3);
+      }
+    }
+  }
+
+  .small-widget & {
+    justify-content: center;
+    gap: var(--space-small);
+
+    .privacy-image-icon {
+      height: var(--icon-size-large);
+    }
+  }
+
+  .privacy-empty-details,
+  .privacy-etp-off-details {
+    color: inherit;
+    text-decoration: none;
+    font-size: var(--newtab-font-size-xsmall);
+
+    .large-widget & {
+      font-size: var(--font-size-root);
+    }
+
+    .small-widget & {
+      line-height: 1.2;
+    }
+
+    &:hover {
+      color: var(--link-color);
+    }
+
+    .privacy-etp-off-bold {
+      font-weight: var(--font-weight-bold);
+      margin-block: 0;
+    }
+
+    .privacy-etp-off-message {
+      margin-block: 0;
+    }
+  }
+
+  .privacy-etp-off-details {
+    max-width: 70%;
+
+    .large-widget & {
+      max-width: 95%;
+    }
+
+    .small-widget & {
+      max-width: 100%;
+    }
+  }
+
+  .privacy-empty-message-wrapper {
+    .small-widget & {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-medium);
+    }
+  }
+
+  .privacy-empty-message-wrapper p {
+    margin: 0;
+
+    .medium-widget & {
+      display: inline;
+    }
+  }
+
+  .privacy-empty-message,
+  .privacy-etp-off-message {
+    &::after {
+      content: '';
+      display: inline-block;
+      // vertical-align: center has full support starting from Firefox v149
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/vertical-align
+      vertical-align: center;
+      background-color: currentColor;
+      block-size: var(--icon-size-xsmall);
+      inline-size: var(--icon-size-xsmall);
+      mask: url('chrome://global/skin/icons/arrow-right-12.svg') no-repeat center / contain;
+    }
+
+    &:dir(rtl)::after {
+      mask-image: url('chrome://global/skin/icons/arrow-left-12.svg');
+    }
+  }
+}
+
+.privacy-image-icon {
+  .medium-widget & {
+    margin-block-start: var(--space-small);
+    max-height: var(--icon-size-xlarge);
+  }
+
+  .medium-widget.is-count-only & {
+    margin-block-start: 0;
+    height: var(--size-image-xsmall);
+    max-height: none;
+  }
+
+  .small-widget & {
+    height: var(--icon-size-xlarge);
+    max-height: none;
+  }
+
+  .large-widget & {
+    max-height: calc(var(--icon-size-large) * 2);
+  }
+
+  .large-widget.is-count-only & {
+    max-height: var(--size-image-medium);
+    width: 52px;
+  }
+}
+
+.privacy-count {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color);
+  }
+
+  .medium-widget.is-count-only & {
+    flex-direction: row;
+    align-items: last baseline;
+    gap: var(--space-medium);
+  }
+
+  .medium-widget:not(.is-count-only) & {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-small);
+  }
+
+  .small-widget & {
+    gap: var(--space-xsmall);
+  }
+
+  .privacy-count-number-wrapper {
+    align-items: center;
+    display: flex;
+    gap: var(--space-small);
+    // Hug the badge + number, and act as the positioning context for the
+    // celebration sparkles rendered inside it.
+    position: relative;
+    width: fit-content;
+
+    .medium-widget.is-count-only & {
+      gap: var(--space-xsmall);
+    }
+
+    .small-widget & {
+      align-items: last baseline;
+      gap: var(--space-xsmall);
+    }
+
+    .large-widget.is-count-only & {
+      align-items: end;
+      line-height: 0.8;
+      margin-block-end: var(--space-medium);
+    }
+  }
+
+  .privacy-count-number {
+    font-size: calc(var(--font-size-root) * 2.5); // ~36px
+
+    .medium-widget.is-count-only & {
+      font-size: calc(var(--font-size-root) * 3.2); // 48px
+    }
+
+    .small-widget & {
+      font-size: calc(var(--font-size-root) * 2.8); // 42px
+      line-height: 1;
+    }
+
+    .large-widget & {
+      font-size: calc(var(--font-size-root) * 4.5); // ~67px
+    }
+
+    // The count-only card has the row to itself, so the number goes bigger.
+    .large-widget.is-count-only & {
+      font-size: calc(var(--font-size-root) * 5.5); // ~82px
+    }
+  }
+
+  .privacy-count-text > :last-child {
+    align-items: center;
+    display: inline-flex;
+    gap: var(--space-xsmall);
+
+    &::after {
+      content: '';
+      background-color: currentColor;
+      block-size: var(--icon-size-xsmall);
+      inline-size: var(--icon-size-xsmall);
+      mask: url('chrome://global/skin/icons/arrow-right-12.svg') no-repeat center / contain;
+    }
+
+    &:dir(rtl)::after {
+      mask-image: url('chrome://global/skin/icons/arrow-left-12.svg');
+    }
+  }
+}
+
+// Divider between the count and tip sections. As a flex item between two
+// equal (flex: 1) sections it stays optically centered, unlike a border on one
+// container. align-self: stretch fills the cross axis: full height in the
+// medium row, full width in the large column.
+.privacy-divider {
+  align-self: stretch;
+  margin: 0;
+  border: 0;
+  background-color: var(--border-color);
+  block-size: var(--border-width);
+
+  .medium-widget & {
+    margin-block-end: var(--space-small);
+  }
+}
+
+.privacy-tip {
+  align-self: stretch;
+
+  .medium-widget & {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .large-widget & {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-small);
+  }
+}
+
+.privacy-tip-message {
+  align-self: flex-start;
+  margin: 0;
+}
+
+// Message text stacked above its CTA button (icon, when present, sits beside
+// this column in the large layout). The streak block stacks the same way.
+.privacy-tip-content,
+.privacy-streak {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .medium-widget & {
+    flex-grow: 1;
+  }
+}
+
+.privacy-tip-content {
+  gap: var(--space-xxsmall);
+
+  .large-widget & {
+    gap: var(--space-small);
+  }
+}
+
+.privacy-streak {
+  gap: var(--space-small);
+}
+
+// The CTA is the widget's bottom-most element
+.privacy-cta {
+  .has-tip-msg.medium-widget &,
+  .has-streak.medium-widget & {
+    margin-block-start: auto;
+  }
+}

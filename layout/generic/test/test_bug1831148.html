@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<script src="/tests/SimpleTest/SimpleTest.js"></script>
+<link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css"/>
+<style>
+#marker {
+  width: 1px;
+  height: 1px;
+}
+#outer {
+  height: 1000px;
+  background: #a0ffff;
+  overflow: scroll;
+}
+
+#inner {
+  height: 16593200px;
+  background: #ffa0a0;
+}
+
+.log {
+  white-space: pre;
+}
+</style>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1831148">Mozilla Bug 1831148</a>
+<div id="marker"></div>
+<div id="outer">
+  <div id="inner"></div>
+</div>
+<script>
+SimpleTest.waitForExplicitFinish();
+
+// getBoundingClientRect() returns coordinates that are stored internally as
+// 32-bit floats (CSSPoint), whereas scrollTop is reported as a double. At the
+// multi-million-pixel scroll offsets exercised here, one float ULP exceeds a
+// CSS pixel, so the two unavoidably diverge by an amount that grows with the
+// magnitude. Returns one float ULP at the given magnitude (23-bit mantissa).
+function floatEpsilon(value) {
+  const magnitude = Math.abs(value);
+  if (magnitude === 0) {
+    return 0;
+  }
+  return Math.pow(2, Math.floor(Math.log2(magnitude)) - 23);
+}
+
+addLoadEvent(() => {
+  const interval = 20;
+  const increment = outer.scrollHeight / interval;
+  const offset = marker.getBoundingClientRect().bottom;
+  for (let i = 0; i < interval; i++) {
+    outer.scrollTop = i * increment;
+    console.log(outer.scrollTop);
+    // Shift to account for viewport coordinate shift.
+    const bcrTop = -inner.getBoundingClientRect().top + offset;
+    // Tolerate device-pixel snapping plus the float quantization of the BCR
+    // (a few ULPs across the negate/offset arithmetic), which scales with the
+    // scroll offset.
+    const epsilon = devicePixelRatio + 2 * floatEpsilon(outer.scrollTop);
+    isfuzzy(bcrTop, outer.scrollTop, epsilon, "scrollTop and BCR top match");
+  }
+  SimpleTest.finish();
+});
+</script>

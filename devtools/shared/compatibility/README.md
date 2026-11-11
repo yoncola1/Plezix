@@ -1,0 +1,42 @@
+# Compatibility Dataset
+
+## How to update the MDN compatibility data
+
+The Compatibility panel detects issues by comparing against official [MDN compatibility data](https://github.com/mdn/browser-compat-data). It uses a local snapshot of the dataset. This dataset needs to be manually synchronized periodically to `devtools/shared/compatibility/dataset` (ideally with every Firefox release).
+
+The subsets from the dataset required by the Compatibility panel are:
+
+- browsers: [https://github.com/mdn/browser-compat-data/tree/master/browsers](https://github.com/mdn/browser-compat-data/tree/master/browsers)
+- css.properties: [https://github.com/mdn/browser-compat-data/tree/master/css](https://github.com/mdn/browser-compat-data/tree/master/css).
+
+To download up-to-date data, run `./mach devtools-update-compat-data`.
+It downloads the latest `@mdn/browser-compat-data` package in a temporary folder,
+then runs `bin/update.js` to save the `css-properties.json` JSON file directly in `devtools/shared/compatibility/dataset/`.
+Pass `--run-tests` to also run the tests listed below.
+
+Before submitting for review, run our internal tests:
+- `./mach xpcshell-test --tag devtools-compat-data`
+- `./mach mochitest --subsuite devtools --tag devtools-compat-data`
+
+## Tests and the mock dataset
+
+Only the tests tagged `devtools-compat-data` use this dataset, and they avoid asserting on
+values which can change, so a failure there means the data or its structure changed.
+
+All the other tests use `dataset/mock-css-properties.json`, which has real CSS property names
+but mocked compatibility data. To opt in, call `setMockCompatibilityDataset()` (from
+`devtools/client/shared/test/shared-head.js`) before opening the toolbox. If you
+need an issue the mock dataset doesn't cover, add the property to it. Try to stay
+as close as possible to the real data, and avoid changing anything but the values
+ot the compatibility properties.
+
+## Reviewing browser data updates (RemoteSettings)
+
+The browsers data are stored in a RemoteSettings collection, and updates are handled by a script in https://github.com/firefox-devtools/remote-settings-mdn-browser-compat-data .
+The script is run every day in automation, and if the data are updated, the team should receive a data review email.
+
+To review the data update, you need to be connected to the Mozilla Corporate VPN (See https://mana.mozilla.org/wiki/display/SD/VPN), log into https://remote-settings.allizom.org/v1/admin/#/buckets/main/collections/devtools-compatibility-browsers/records (Using `OpenID Connect (LDAP)`)
+Then run Firefox, and use the [RemoteSettings DevTools WebExtension](https://github.com/mozilla-extensions/remote-settings-devtools) to use the `Prod (preview)` environment and restart the browser.
+Then open the compatibility panel and make sure that the updated browsers do appear in the `Settings` panel.
+
+Check that all tests still pass. It is possible that changes in the structure or contents of the latest dataset will cause tests to fail. If that is the case, fix the tests. **Do not manually change the contents or structure of the local dataset** because any changes will be overwritten by the next update from the official dataset.

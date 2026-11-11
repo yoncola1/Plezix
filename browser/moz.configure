@@ -1,0 +1,270 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+imply_option("MOZ_PLACES", True)
+imply_option("MOZ_SERVICES_HEALTHREPORT", True)
+imply_option("MOZ_SERVICES_SYNC", True)
+imply_option("MOZ_DEDICATED_PROFILES", True)
+imply_option("MOZ_BLOCK_PROFILE_DOWNGRADE", True)
+imply_option("MOZ_NORMANDY", True)
+imply_option("MOZ_PROFILE_MIGRATOR", True)
+
+
+imply_option("MOZ_APP_VENDOR", "Mozilla")
+imply_option("MOZ_APP_ID", "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}")
+# Include the DevTools client, not just the server (which is the default)
+imply_option("MOZ_DEVTOOLS", "all")
+imply_option("BROWSER_CHROME_URL", "chrome://browser/content/browser.xhtml")
+
+
+with only_when(target_has_linux_kernel & compile_environment):
+    option(env="MOZ_NO_PIE_COMPAT", help="Enable non-PIE wrapper")
+
+    set_config("MOZ_NO_PIE_COMPAT", depends_if("MOZ_NO_PIE_COMPAT")(lambda _: True))
+
+
+@depends(target, update_channel, have_64_bit, moz_debug, moz_automation)
+@imports(_from="os", _import="environ")
+def requires_stub_installer(
+    target, update_channel, have_64_bit, moz_debug, moz_automation
+):
+    if target.kernel != "WINNT":
+        return False
+    if have_64_bit:
+        return False
+    if update_channel not in ("nightly", "nightly-try", "aurora", "beta", "release"):
+        return False
+
+    if moz_debug:
+        return False
+
+    # Expect USE_STUB_INSTALLER from taskcluster for downstream task consistency
+    if moz_automation and not environ.get("USE_STUB_INSTALLER"):
+        die(
+            "STUB installer expected to be enabled but "
+            "USE_STUB_INSTALLER is not specified in the environment"
+        )
+
+    return True
+
+
+imply_option("MOZ_STUB_INSTALLER", True, when=requires_stub_installer)
+
+include("../toolkit/moz.configure")
+
+
+@depends("--enable-maintenance-service", when=target_is_windows)
+@imports(_from="mozbuild.nsis", _import="installer_files")
+def nsis_installer_files(maintenance_service):
+    return list(installer_files(maintenance_service=bool(maintenance_service)))
+
+
+set_config("NSIS_INSTALLER_FILES", nsis_installer_files)
+
+
+@depends("MOZ_STUB_INSTALLER", when=target_is_windows)
+@imports(_from="mozbuild.nsis", _import="NSIS_BRANDING_FILES")
+@imports(_from="mozbuild.nsis", _import="NSIS_STUB_BRANDING_FILES")
+def nsis_branding_files(stub_installer):
+    files = list(NSIS_BRANDING_FILES)
+    if stub_installer:
+        files += NSIS_STUB_BRANDING_FILES
+    return files
+
+
+set_config("NSIS_BRANDING_FILES", nsis_branding_files)
+
+
+@depends(target, when=target_is_windows)
+def nsis_sfx_module(target):
+    if target.cpu == "aarch64":
+        return "other-licenses/7zstub/firefox/7zSD.ARM64.sfx"
+    return "other-licenses/7zstub/firefox/7zSD.Win32.sfx"
+
+
+set_config("NSIS_SFX_MODULE", nsis_sfx_module)
+
+
+@depends(
+    milestone.app_version,
+    moz_app_name,
+    moz_app_displayname,
+    "--enable-default-browser-agent",
+    push_notification_helper_flag,
+    when=target_is_windows,
+)
+@imports("shlex")
+def nsis_installer_defines(
+    app_version,
+    app_name,
+    app_displayname,
+    default_browser_agent,
+    push_notification_helper,
+):
+    defines = [
+        f"-DAPP_VERSION={app_version}",
+        f"-DMOZ_APP_NAME={app_name}",
+        f"-DMOZ_TOAST_APP_NAME={app_name.title()}",
+        f"-DMOZ_APP_DISPLAYNAME={app_displayname}",
+    ]
+    if default_browser_agent:
+        defines.append("-DMOZ_DEFAULT_BROWSER_AGENT=1")
+    if push_notification_helper:
+        defines.append("-DMOZ_PUSH_NOTIFICATION_HELPER=1")
+    # Quote each define so values containing spaces remain one argument.
+    return " ".join(shlex.quote(d) for d in defines)
+
+
+set_config("NSIS_INSTALLER_DEFINES", nsis_installer_defines)
+
+
+@depends(
+    moz_app_name,
+    moz_app_displayname,
+    moz_debug,
+    "--enable-layout-debugger",
+    toolkit,
+    with_system_nspr_option,
+    with_system_nss_option,
+    artifact_builds,
+    compile_environment & (target_is_windows | target_is_osx),
+    moz_child_process_name,
+    moz_eme_process_name,
+    moz_gpu_process_name,
+    moz_pkcs11_process_name,
+    milestone.is_nightly,
+    disable_smart_cards,
+    target,
+    "--enable-default-browser-agent",
+    notification_server_flag,
+    push_notification_helper_flag,
+    nsis,
+    llvm_symbolizer,
+    clang_rt_asan_lib_path,
+    moz_no_debug_rtl,
+    win32_redist_dir,
+    msvc_c_runtime_dll,
+    msvc_c_runtime_1_dll,
+    msvc_cxx_runtime_dll,
+    msvc_cxx_runtime_atomic_wait_dll,
+    mac_bundle_name,
+    moz_pkg_binpath,
+    moz_pkg_respath,
+)
+@imports(_from="mozbuild.packaging", _import="quote_defines")
+@imports(_from="os.path", _import="basename")
+def package_manifest_defines(
+    app_name,
+    app_displayname,
+    moz_debug,
+    layout_debugger,
+    toolkit,
+    system_nspr,
+    system_nss,
+    artifact_builds,
+    angle_renderer,
+    child_process_name,
+    eme_process_name,
+    gpu_process_name,
+    pkcs11_process_name,
+    is_nightly,
+    no_smart_cards,
+    target,
+    default_browser_agent,
+    notification_server,
+    push_notification_helper,
+    makensis,
+    llvm_symbolizer,
+    clang_rt_asan_lib_path,
+    no_debug_rtl,
+    win32_redist_dir,
+    msvc_c_runtime_dll,
+    msvc_c_runtime_1_dll,
+    msvc_cxx_runtime_dll,
+    msvc_cxx_runtime_atomic_wait_dll,
+    mac_bundle_name,
+    binpath,
+    respath,
+):
+    defines = [
+        f"-DMOZ_APP_NAME={app_name}",
+        "-DPREF_DIR=defaults/preferences",
+        f"-DMOZ_APP_DISPLAYNAME={app_displayname}",
+        "-DJAREXT=",
+        f"-DMOZ_CHILD_PROCESS_NAME={child_process_name or ''}",
+        f"-DMOZ_EME_PROCESS_NAME={eme_process_name or ''}",
+        f"-DMOZ_GPU_PROCESS_NAME={gpu_process_name or ''}",
+        f"-DBINPATH={binpath}",
+        f"-DRESPATH={respath}",
+    ]
+    if moz_debug:
+        defines.append("-DMOZ_DEBUG=1")
+    if layout_debugger:
+        defines.append("-DMOZ_LAYOUT_DEBUGGER=1")
+    if toolkit == "gtk":
+        defines.append("-DMOZ_GTK=1")
+    if system_nspr:
+        defines.append("-DMOZ_SYSTEM_NSPR=1")
+    if system_nss:
+        defines.append("-DMOZ_SYSTEM_NSS=1")
+    if artifact_builds:
+        defines.append("-DMOZ_ARTIFACT_BUILDS=1")
+    if angle_renderer:
+        defines.append("-DMOZ_ANGLE_RENDERER=1")
+    if is_nightly and not no_smart_cards:
+        defines.append(f"-DMOZ_PKCS11_PROCESS_NAME={pkcs11_process_name or ''}")
+    if target.os == "Android" or target.kernel in ("WINNT", "Darwin"):
+        defines.append("-DMOZ_SHARED_MOZGLUE=1")
+    if default_browser_agent:
+        defines.append("-DMOZ_DEFAULT_BROWSER_AGENT=1")
+    if notification_server:
+        defines.append("-DMOZ_NOTIFICATION_SERVER=1")
+    if push_notification_helper:
+        defines.append("-DMOZ_PUSH_NOTIFICATION_HELPER=1")
+    if makensis:
+        defines.append("-DHAVE_MAKENSISU=1")
+    if llvm_symbolizer:
+        defines.append(f"-DLLVM_SYMBOLIZER={basename(llvm_symbolizer)}")
+    if clang_rt_asan_lib_path:
+        defines.append(f"-DMOZ_CLANG_RT_ASAN_LIB={basename(clang_rt_asan_lib_path)}")
+    if mac_bundle_name:
+        defines.append(f"-DAPPNAME={mac_bundle_name}")
+    if no_debug_rtl and win32_redist_dir and not artifact_builds:
+        defines.append("-DMOZ_PACKAGE_MSVC_DLLS=1")
+        defines.append(f"-DMSVC_C_RUNTIME_DLL={msvc_c_runtime_dll}")
+        if msvc_c_runtime_1_dll:
+            defines.append(f"-DMSVC_C_RUNTIME_1_DLL={msvc_c_runtime_1_dll}")
+        defines.append(f"-DMSVC_CXX_RUNTIME_DLL={msvc_cxx_runtime_dll}")
+        defines.append(
+            f"-DMSVC_CXX_RUNTIME_ATOMIC_WAIT_DLL={msvc_cxx_runtime_atomic_wait_dll}"
+        )
+    return quote_defines(defines)
+
+
+set_config("PACKAGE_MANIFEST_DEFINES", package_manifest_defines)
+
+
+@depends(build_environment.topsrcdir)
+@imports(_import="mozpack.path", _as="mozpath")
+def package_inputs(topsrcdir):
+    installer = mozpath.join(topsrcdir, "browser", "installer")
+    return namespace(
+        manifest=mozpath.join(installer, "package-manifest.in"),
+        removals=mozpath.join(installer, "removed-files.in"),
+        allowed_dupes=[mozpath.join(installer, "allowed-dupes.mn")],
+    )
+
+
+set_config("MOZ_PKG_MANIFEST", package_inputs.manifest)
+set_config("MOZ_PKG_REMOVALS", package_inputs.removals)
+set_config("MOZ_PKG_ALLOWED_DUPES", package_inputs.allowed_dupes)
+
+# When packaging an artifact build not all xpt files expected by the packager
+# will be present.
+set_config("MOZ_PKG_FATAL_WARNINGS", True, when=~artifact_builds)
+
+set_config(
+    "MOZ_CHROME_LOCALE_ENTRIES",
+    ["@RESPATH@/browser/chrome/", "@RESPATH@/chrome/"],
+)

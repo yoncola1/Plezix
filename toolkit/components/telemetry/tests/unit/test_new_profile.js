@@ -1,0 +1,185 @@
+/* Any copyright is dedicated to the Public Domain.
+   http://creativecommons.org/publicdomain/zero/1.0/
+*/
+
+ChromeUtils.defineESModuleGetters(this, {
+  BrowserUsageTelemetry: "resource:///modules/BrowserUsageTelemetry.sys.mjs",
+  MockRegistrar: "resource://testing-common/MockRegistrar.sys.mjs",
+  sinon: "resource://testing-common/Sinon.sys.mjs",
+  TelemetryTestUtils: "resource://testing-common/TelemetryTestUtils.sys.mjs",
+  WindowsInstallsInfo:
+    "resource://gre/modules/components-utils/WindowsInstallsInfo.sys.mjs",
+});
+
+const TIMESTAMP_TEST_VALUE = "007357735773577357";
+
+let jsonPath = Services.dirsvc.get("XREExeF", Ci.nsIFile).parent;
+jsonPath.append("installation_telemetry.json");
+
+let scalarSnapshot = null;
+
+let testDataJSON = null;
+if (Services.sysinfo.getProperty("hasWinPackageId")) {
+  // On MSIX the test data is only used for
+  // verification purposes, it isn't written anywhere.
+  testDataJSON = {
+    installer_type: "msix",
+    version: AppConstants.MOZ_APP_VERSION,
+    build_id: AppConstants.MOZ_BULIDID,
+    admin_user: false,
+    // The undefined fields are not recorded on MSIX.
+    silent: undefined,
+    from_msi: undefined,
+    default_path: undefined,
+    install_existed: false,
+    other_inst: false,
+    other_msix_inst: false,
+    profdir_existed: false,
+  };
+} else {
+  testDataJSON = {
+    version: "000.0a1",
+    build_id: "00000000000000",
+    admin_user: true,
+    install_existed: false,
+    profdir_existed: false,
+    installer_type: "full",
+    other_inst: false,
+    other_msix_inst: false,
+    silent: false,
+    from_msi: false,
+    default_path: true,
+    install_timestamp: TIMESTAMP_TEST_VALUE,
+  };
+}
+
+async function createTestInstallationTelemetry() {
+  // Only write the file on non-MSIX
+  if (Services.sysinfo.getProperty("hasWinPackageId")) {
+    return;
+  }
+  let utf16Array = new Uint16Array(
+    [...JSON.stringify(testDataJSON)].map(char => char.charCodeAt(0))
+  );
+  let byteArray = new Uint8Array(utf16Array.buffer);
+  await IOUtils.write(jsonPath.path, byteArray);
+  registerCleanupFunction(async () => {
+    await IOUtils.remove(jsonPath.path, { ignoreAbsent: true });
+  });
+}
+
+// Make sure that we don't use the state of the current system, so pretend
+// there are never any other installations.
+sinon.stub(WindowsInstallsInfo, "getInstallPaths").callsFake(() => new Set());
+MockRegistrar.register("@mozilla.org/windows-package-manager;1", {
+  QueryInterface: ChromeUtils.generateQI(["nsIWindowsPackageManager"]),
+  findUserInstalledPackages(_prefixes) {
+    // If the tests are themselves under MSIX, pretend this is the only app on
+    // the system. Otherwise, pretend there are none.
+    if (Services.sysinfo.getProperty("hasWinPackageId")) {
+      return [Services.sysinfo.getProperty("winPackageFamilyName")];
+    }
+
+    return [];
+  },
+  getInstalledDate() {
+    if (Services.sysinfo.getProperty("hasWinPackageId")) {
+      // This is set into the app.installation.timestamp pref.
+      return Number(TIMESTAMP_TEST_VALUE);
+    }
+
+    throw new Components.Exception("", Cr.NS_ERROR_NOT_IMPLEMENTED);
+  },
+});
+
+add_setup(function () {
+  do_get_profile();
+  Services.fog.initializeFOG();
+});
+
+add_setup(async function () {
+  Services.telemetry.clearScalars();
+  await createTestInstallationTelemetry();
+  await BrowserUsageTelemetry.reportInstallationTelemetry();
+  scalarSnapshot = Services.telemetry.getSnapshotForScalars(
+    "new-profile",
+    false
+  ).parent;
+});
+
+add_task(async function test_new_profile_ping() {
+  // On MSIX, this is converted to a number first, so do that for consistency.
+  Assert.equal(
+    Number(Services.prefs.getStringPref("app.installation.timestamp")),
+    Number(TIMESTAMP_TEST_VALUE),
+    "app.installation.timestamp is updated with this installation's timestamp"
+  );
+
+  Object.entries(testDataJSON).forEach(([key, value]) => {
+    // We don't log "build_id" as a scalar
+    if (key == "build_id") {
+      return;
+    }
+    // We must not log install_timestamp as a scalar due
+    // to fingerprinting risk. Verify that we don't.
+    if (key == "install_timestamp") {
+      Assert.ok(
+        !(`installation.firstSeen.${key}` in scalarSnapshot),
+        "Must not record " + key + " as a scalar"
+      );
+      return;
+    }
+    TelemetryTestUtils.assertScalar(
+      scalarSnapshot,
+      `installation.firstSeen.${key}`,
+      value,
+      `installation.firstSeen.${key} was recorded accurately`
+    );
+  });
+});
+
+add_task(async function test_new_profile_gifft_mirror() {
+  Assert.equal(
+    testDataJSON.installer_type,
+    Glean.installationFirstSeen.installerType.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.version,
+    Glean.installationFirstSeen.version.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.admin_user,
+    Glean.installationFirstSeen.adminUser.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.install_existed,
+    Glean.installationFirstSeen.installExisted.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.profdir_existed,
+    Glean.installationFirstSeen.profdirExisted.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.other_inst,
+    Glean.installationFirstSeen.otherInst.testGetValue()
+  );
+  Assert.equal(
+    testDataJSON.other_msix_inst,
+    Glean.installationFirstSeen.otherMsixInst.testGetValue()
+  );
+  // These fields are only recorded on the full installer.
+  if (!Services.sysinfo.getProperty("hasWinPackageId")) {
+    Assert.equal(
+      testDataJSON.silent,
+      Glean.installationFirstSeen.silent.testGetValue()
+    );
+    Assert.equal(
+      testDataJSON.from_msi,
+      Glean.installationFirstSeen.fromMsi.testGetValue()
+    );
+    Assert.equal(
+      testDataJSON.default_path,
+      Glean.installationFirstSeen.defaultPath.testGetValue()
+    );
+  }
+});

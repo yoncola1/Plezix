@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MozInputText Tests</title>
+    <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+    <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"></script>
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
+    <link
+      rel="stylesheet"
+      href="chrome://mochikit/content/tests/SimpleTest/test.css"
+    />
+    <script
+      type="module"
+      src="chrome://global/content/elements/moz-input-text.mjs"
+    ></script>
+    <script src="lit-test-helpers.js"></script>
+    <script class="testbody" type="application/javascript">
+      let testHelpers = new InputTestHelpers();
+      let html;
+
+      add_setup(async function setup() {
+        ({ html } = await testHelpers.setupLit());
+        testHelpers.setupTests({
+          templateFn: (attrs, children) =>
+            html`<moz-input-text ${attrs}>${children}</moz-input-text>`,
+        });
+      });
+
+      add_task(async function testMozInputTextProperties() {
+        await testHelpers.testCommonInputProperties("moz-input-text");
+      });
+
+      add_task(async function testMozInputTextReadonlyProperty() {
+        await testHelpers.verifyReadonly("moz-input-text");
+      });
+
+      add_task(async function testMozInputTextEvents() {
+        await testHelpers.testTextBasedInputEvents("moz-input-text");
+      });
+
+      add_task(async function testMozInputTextSync() {
+        await testHelpers.verifyValueSync("moz-input-text");
+      });
+
+      add_task(async function testMozInputTextRequiredProperty() {
+        await testHelpers.verifyRequired("moz-input-text");
+      });
+
+      add_task(async function testMozInputTextMaxLength() {
+        let renderTarget = await testHelpers.renderTemplate();
+        let el = renderTarget.querySelector("moz-input-text");
+        ok(
+          !el.inputEl.hasAttribute("maxlength"),
+          "Inner input has no maxlength by default."
+        );
+
+        el.maxLength = 10;
+        await el.updateComplete;
+        is(
+          el.inputEl.getAttribute("maxlength"),
+          "10",
+          "Setting maxLength is reflected on the inner input."
+        );
+
+        el.setAttribute("maxlength", "5");
+        await el.updateComplete;
+        is(
+          el.inputEl.getAttribute("maxlength"),
+          "5",
+          "Setting the maxlength attribute is reflected on the inner input."
+        );
+      });
+
+      add_task(async function testMozInputTextFocusOutline() {
+        let renderTarget = await testHelpers.renderTemplate();
+        let el = renderTarget.querySelector("moz-input-text");
+        el.focus();
+        ok(
+          el.inputEl.matches(":focus-visible"),
+          "Inner input matches :focus-visible after focus."
+        );
+        let styles = getComputedStyle(el.inputEl);
+        is(
+          styles.outlineStyle,
+          "solid",
+          "Focus outline uses the design-system token, not the UA auto outline."
+        );
+        is(
+          styles.outlineOffset,
+          "0px",
+          "Focus outline-offset is tight to the input"
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <p id="display"></p>
+    <div id="content" style="display: none"></div>
+    <pre id="test"></pre>
+  </body>
+</html>

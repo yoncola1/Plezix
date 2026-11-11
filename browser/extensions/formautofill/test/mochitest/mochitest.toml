@@ -1,0 +1,29 @@
+[DEFAULT]
+prefs = [
+  "extensions.formautofill.creditCards.supported=on",
+  "extensions.formautofill.creditCards.enabled=true",
+  "extensions.formautofill.addresses.supported=on",
+  "extensions.formautofill.addresses.enabled=true",
+  "extensions.formautofill.skipProgrammaticCheckForTests=true"
+]
+run-if = [
+  "os != 'android'", # browser/ is not built for Android (bug 1730213)
+]
+support-files = [
+  "../../../../../toolkit/components/satchel/test/satchel_common.js",
+  "../../../../../toolkit/components/satchel/test/parent_utils.js",
+  "formautofill_parent_utils.js",
+  "formautofill_common.js",
+]
+
+["test_autofill_and_ordinal_forms.html"]
+
+["test_autofocus_form.html"]
+
+["test_basic_autocomplete_form.html"]
+
+["test_formautofill_preview_highlight.html"]
+
+["test_multi_locale_CA_address_form.html"]
+
+["test_multiple_forms.html"]

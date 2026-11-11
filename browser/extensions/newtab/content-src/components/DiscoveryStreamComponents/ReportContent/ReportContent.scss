@@ -1,0 +1,26 @@
+.report-content-form {
+  width: 500px;
+  height: 270px;
+  // @backward-compat { version 160 }
+  // The --dialog-* tokens are only defined from Firefox 160, so older versions
+  // fall back to the --popup-* and --space-large tokens they alias.
+  box-shadow: var(--dialog-box-shadow, var(--popup-box-shadow));
+  border-radius: var(--dialog-border-radius, var(--popup-border-radius));
+  border: var(--border-width) solid var(--dialog-border-color, var(--popup-border-color));
+  background-color: var(--dialog-background-color, var(--popup-background-color));
+  padding: var(--dialog-padding, var(--space-large));
+
+  form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    moz-radio-group {
+      height: 100%;
+    }
+  }
+
+  &::backdrop {
+    background: $black-25;
+  }
+}

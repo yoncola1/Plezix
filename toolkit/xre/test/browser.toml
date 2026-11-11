@@ -1,0 +1,12 @@
+[DEFAULT]
+tags = "os_integration"
+
+["browser_checkdllblockliststate.js"]
+run-if = [
+  "os == 'win'",
+]
+
+["browser_xdg_pref.js"]
+run-if = [
+  "os == 'linux'",
+]

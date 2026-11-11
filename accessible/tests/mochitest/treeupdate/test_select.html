@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML select options test</title>
+  <link rel="stylesheet" type="text/css"
+        href="chrome://mochikit/content/tests/SimpleTest/test.css" />
+
+  <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+
+  <script type="application/javascript"
+          src="../common.js"></script>
+  <script type="application/javascript"
+          src="../role.js"></script>
+  <script type="application/javascript"
+          src="../events.js"></script>
+
+  <script type="application/javascript">
+
+    async function doTest() {
+      const selectNode = getNode("select");
+      const select = getAccessible(selectNode);
+      const selectList = select.firstChild;
+
+      let reordered = waitForEvent(EVENT_REORDER, selectList);
+      for (let i = 0; i < 2; i++) {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.text = "Option: Value " + i;
+        selectNode.add(opt, null);
+      }
+      await reordered;
+
+      let tree =
+        { LISTBOX: [
+          { OPTION: [{ TEXT_LEAF: [] }] },
+          { OPTION: [{ TEXT_LEAF: [] }] },
+        ] };
+      testAccessibleTree(select, tree);
+
+      reordered = waitForEvent(EVENT_REORDER, selectList);
+      while (selectNode.length) {
+        selectNode.remove(0);
+      }
+      await reordered;
+
+      tree =
+        { LISTBOX: [] };
+      testAccessibleTree(select, tree);
+
+      SimpleTest.finish();
+    }
+
+    SimpleTest.waitForExplicitFinish();
+    addA11yLoadEvent(doTest);
+  </script>
+</head>
+<body>
+  <p id="display"></p>
+  <div id="content" style="display: none"></div>
+  <pre id="test">
+  </pre>
+
+  <select id="select" size="4"></select>
+</body>
+</html>

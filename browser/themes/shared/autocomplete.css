@@ -1,0 +1,104 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+/* General popup rules */
+
+/* popup.css sets a platform menu corner radius on every non-arrow panel, and
+   that element-level declaration outranks the --panel-border-radius token, so
+   this popup has to opt back into the design system value. */
+#PopupAutoComplete {
+  --panel-border-radius: var(--popup-border-radius);
+}
+
+#PopupAutoComplete:is(
+    [resultstyles~="autofill"],
+    [resultstyles~="loginsFooter"],
+    [resultstyles~="insecureWarning"],
+    [resultstyles~="importableLogins"],
+    [resultstyles~="generatedPassword"],
+    [resultstyles~="fromhistory"]
+  )::part(content) {
+  min-width: 250px;
+}
+
+#PopupAutoComplete > richlistbox {
+  --autocomplete-popup-padding: var(--space-small);
+  /* Keep the row corners aligned with the panel corners. */
+  --autocomplete-row-border-radius: max(var(--border-radius-small), calc(var(--panel-border-radius) - var(--autocomplete-popup-padding)));
+
+  padding: var(--autocomplete-popup-padding);
+  scrollbar-gutter: stable;
+
+  &:not([pointerselected]) > richlistitem.autocomplete-row-item[selected] > autocomplete-row-item:not([subfocused]) {
+    border-color: var(--focus-outline-color);
+  }
+}
+
+#PopupAutoComplete > richlistbox > richlistitem.autocomplete-row-item {
+  display: flex;
+
+  &:not(:only-child) {
+    margin-block-end: var(--space-xsmall);
+  }
+
+  &[selected] {
+    background-color: unset;
+    color: unset;
+  }
+
+  &[footer] {
+    margin-block-end: 0;
+
+    &:not(:first-child) {
+      border-block-start: 1px solid var(--panel-separator-color);
+      padding-block-start: var(--space-xsmall);
+    }
+  }
+
+  &[type="payment"] > autocomplete-row-item {
+    /* Payment icons are credit-card network logos, which are wider than they
+       are tall. Their aspect ratios differ (1:1 for the generic fallback icon
+       up to 44:30 for Visa), so give them room for the widest one and let
+       object-fit letterbox the rest. */
+    --icon-height: var(--icon-size);
+    --icon-width: calc(var(--icon-size) * 1.5);
+  }
+
+  &[originaltype="insecureWarning"] > autocomplete-row-item {
+    /* Ensure security-broken.svg icon has a red slash through it rather than
+       being a monochrome icon. */
+    --button-icon-stroke: var(--icon-color-critical);
+  }
+
+  > autocomplete-row-item {
+    --row-item-border-radius: var(--autocomplete-row-border-radius);
+
+    flex: 1;
+    border: var(--focus-outline-width) solid transparent;
+    border-radius: var(--row-item-border-radius);
+  }
+}
+
+/* Smart Form Fill specific styles */
+#PopupAutoComplete[resultstyles~="smartFormFill"] > richlistbox {
+  min-width: var(--size-layout-medium);
+
+  > richlistitem > autocomplete-row-item {
+    /* Row metrics consumed inside the autocomplete-row-item shadow root. These
+     apply to every row in the popup, not just the Smart Form Fill one. */
+    --row-item-border-radius: var(--border-radius-medium);
+    --row-item-column-gap: var(--space-large);
+    --row-item-label-font-size: larger;
+    --row-item-padding: var(--space-large) var(--space-medium);
+    --sff-loader-image: url("chrome://browser/content/aiwindow/assets/loader.svg");
+  }
+
+  @media not (forced-colors) {
+    .autocomplete-row-item[originaltype~="autofill"] {
+      --button-icon-fill: light-dark(var(--color-violet-desaturated-90), currentColor);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[package]
+name = "init_rust_components"
+version = "0.1.0"
+edition = "2021"
+authors = ["Johannes Schmidt <joschmidt@mozilla.com>"]
+license = "MPL-2.0"
+exclude = ["/android"]
+
+[features]
+default = []
+nss = ["dep:nss-as"]
+keydb = ["dep:nss-as", "nss-as/keydb"]
+ohttp = ["dep:viaduct", "viaduct/ohttp"]
+
+[dependencies]
+error-support = { path = "../support/error" }
+uniffi = { version = "0.32" }
+nss-as = { path = "../support/rc_crypto/nss", optional = true }
+viaduct = { path = "../viaduct", optional = true }

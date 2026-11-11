@@ -1,0 +1,42 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+DEFINES["MOZ_APP_VERSION"] = CONFIG["MOZ_APP_VERSION"]
+DEFINES["MOZ_APP_MAXVERSION"] = CONFIG["MOZ_APP_MAXVERSION"]
+
+BROWSER_CHROME_MANIFESTS += [
+    "test/browser/address/browser.toml",
+    "test/browser/browser.toml",
+    "test/browser/creditCard/browser.toml",
+    "test/browser/focus-leak/browser.toml",
+    "test/browser/heuristics/browser.toml",
+    "test/browser/heuristics/third_party/browser.toml",
+    "test/browser/performance/perftest.toml",
+    "test/browser/rust/browser.toml",
+    "test/browser/rustCreditCard/browser.toml",
+]
+
+# xpcshell_rust.toml lists tests xpcshell.toml also lists. Only the manifest
+# processed second may declare dupe-manifest, and this list must stay sorted, so
+# the name has to sort after "xpcshell.toml".
+XPCSHELL_TESTS_MANIFESTS += [
+    "test/unit/xpcshell.toml",
+    "test/unit/xpcshell_rust.toml",
+]
+
+MOCHITEST_MANIFESTS += [
+    "test/mochitest/creditCard/mochitest.toml",
+    "test/mochitest/mochitest.toml",
+]
+
+JAR_MANIFESTS += ["jar.mn"]
+
+SPHINX_TREES["docs"] = "docs"
+
+with Files("**"):
+    BUG_COMPONENT = ("Toolkit", "Form Autofill")
+
+LICENSED_UNDER += [
+    "chromium",
+]

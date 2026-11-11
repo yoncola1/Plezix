@@ -1,0 +1,35 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --grid-column-row-gap: 8px;
+  &[dialogroot] {
+    background-color: var(--background-color-box);
+  }
+}
+
+body {
+  padding: calc(var(--focus-outline-width) + var(--focus-outline-offset));
+}
+
+.persist-checkbox label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-block: var(--grid-column-row-gap);
+}
+
+#controls-container {
+  display: flex;
+  justify-content: end;
+  margin: 1em 0 0;
+}
+
+#billingAddressGUID-container {
+  display: none;
+
+  &:not([hidden]) {
+    display: flex;
+  }
+}

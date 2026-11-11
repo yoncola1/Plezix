@@ -1,0 +1,913 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+binutils-2.31.1:
+    description: binutils 2.31.1 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.xz
+        sha256: 5d20086ecf5752cc7d9134246e9588fa201740d540f7eb84d795b1f7a93bca86
+        size: 20467996
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-binutils/3A24BC1E8FB409FA9F14371813FCEF89DD9E3C4F.key
+        artifact-name: binutils-source.tar.zst
+        strip-components: 1
+        add-prefix: binutils-source/
+
+binutils-2.41:
+    description: binutils 2.41 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/binutils/binutils-2.41.tar.xz
+        sha256: ae9a5789e23459e59606e6714723f2d3ffc31c03174191ef0d015bdf06007450
+        size: 26765692
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-binutils/3A24BC1E8FB409FA9F14371813FCEF89DD9E3C4F.key
+        artifact-name: binutils-source.tar.zst
+        strip-components: 1
+        add-prefix: binutils-source/
+
+gcc-8.5.0:
+    description: GCC 8.5.0 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.xz
+        sha256: d308841a511bb830a6100397b0042db24ce11f642dab6ea6ee44842e5325ed50
+        size: 63841008
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/D3A93CAD751C2AF4F8C7AD516C35B99309B5FA62.key
+        artifact-name: gcc-source.tar.zst
+        strip-components: 1
+        add-prefix: gcc-source/
+
+gcc-11.5.0:
+    description: GCC 11.5.0 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/gcc/gcc-11.5.0/gcc-11.5.0.tar.xz
+        sha256: a6e21868ead545cf87f0c01f84276e4b5281d672098591c1c896241f09363478
+        size: 82399864
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/7F74F97C103468EE5D750B583AB00996FC26A641.key
+        artifact-name: gcc-source.tar.zst
+        strip-components: 1
+        add-prefix: gcc-source/
+
+gcc-14.2.0:
+    description: GCC 14.2.0 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/gcc/gcc-14.2.0/gcc-14.2.0.tar.xz
+        sha256: a7b39bc69cbf9e25826c5a60ab26477001f7c08d85cec04bc0e29cabed6f3cc9
+        size: 92306460
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/D3A93CAD751C2AF4F8C7AD516C35B99309B5FA62.key
+        artifact-name: gcc-source.tar.zst
+        strip-components: 1
+        add-prefix: gcc-source/
+
+sixgill:
+    description: Sixgill GCC static analysis plugin source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla-spidermonkey/sixgill
+        revision: 71e44e994765d680ab51574871eac36f4b45097d
+
+gmp-6.1.0:
+    description: GMP 6.1.0 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/gmp/gmp-6.1.0.tar.bz2
+        sha256: 498449a994efeba527885c10405993427995d3f86b8768d8cdf8d9dd7c6b73e8
+        size: 2383840
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/343C2FF0FBEE5EC2EDBEF399F3599FF828C67298.key
+        artifact-name: gmp-source.tar.zst
+        strip-components: 1
+        add-prefix: gmp-source/
+
+isl-0.16.1:
+    description: ISL 0.16.1 source code
+    fetch:
+        type: static-url
+        url: https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.16.1.tar.bz2
+        sha256: 412538bb65c799ac98e17e8cfcdacbb257a57362acfaaff254b0fcae970126d2
+        size: 1626446
+        artifact-name: isl-source.tar.zst
+        strip-components: 1
+        add-prefix: isl-source/
+
+mpc-1.0.3:
+    description: mpc 1.0.3 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz
+        sha256: 617decc6ea09889fb08ede330917a00b16809b8db88c29c31bfbb49cbf88ecc3
+        size: 669925
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/AD17A21EF8AED8F1CC02DBD9F7D5C9BF765C61E3.key
+        artifact-name: mpc-source.tar.zst
+        strip-components: 1
+        add-prefix: mpc-source/
+
+mpfr-3.1.4:
+    description: mpfr 3.1.4 source code
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/mpfr/mpfr-3.1.4.tar.bz2
+        sha256: d3103a80cdad2407ed581f3618c4bed04e0c92d1cf771a65ead662cc397f7775
+        size: 1279284
+        gpg-signature:
+            sig-url: "{url}.sig"
+            key-path: build/unix/build-gcc/07F3DBBECC1A39605078094D980C197698C3739D.key
+        artifact-name: mpfr-source.tar.zst
+        strip-components: 1
+        add-prefix: mpfr-source/
+
+nasm-2.14.02:
+    description: nasm 2.14.02 source code
+    fetch:
+        type: static-url
+        url: https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
+        sha256: e24ade3e928f7253aa8c14aa44726d1edf3f98643f87c9d72ec1df44b26be8f5
+        size: 827620
+
+nasm:
+    description: nasm 3.02 source code
+    fetch:
+        type: static-url
+        url: https://www.nasm.us/pub/nasm/releasebuilds/3.02/nasm-3.02.tar.xz
+        sha256: 87336eba53b4acfe917424ab5d500d2b0054d9f5148d35c2273ccf2cfb712f0d
+        size: 1531636
+
+wix-3.14.0:
+    description: wix 3.14.0 binary release
+    # WIX doesn't use a wrapping toplevel DIR, so we should really repackage it when
+    # Bug 1479533 and related code is ready.
+    fetch:
+        type: static-url
+        url: https://github.com/wixtoolset/wix3/releases/download/wix314rtm/wix314-binaries.zip
+        sha256: 13f067f38969faf163d93a804b48ea0576790a202c8f10291f2000f0e356e934
+        size: 41282726
+
+zlib:
+    description: zlib 1.4 source code
+    fetch:
+        type: static-url
+        url: https://github.com/madler/zlib/releases/download/v1.4/zlib-1.4.tar.xz
+        sha256: 4f11c512053d7bab8d9e9b89bde3575add3e4c50a383b42ef6cb837035fc5a7c
+        size: 1320316
+
+nsis-3.07:
+    description: nsis 3.07 source code
+    fetch:
+        type: static-url
+        url: https://downloads.sourceforge.net/project/nsis/NSIS%203/3.07/nsis-3.07-src.tar.bz2
+        sha256: 4dfad3388589985b4cd91d20e18e1458aa31e7d139b5b8adf25c3a9c1015efba
+        size: 1784292
+
+nsis-3.07-win:
+    description: nsis 3.07 for windows
+    fetch:
+        type: static-url
+        # Temporary: pull down our own repackage of NSIS, with its plugin DLLs signed by Mozilla
+        # See https://bugzilla.mozilla.org/show_bug.cgi?id=1751450#c38 for more details
+        # bug 1771192 tracks adding a signing task downstream of the NSIS toolchain task
+        # to fix this more robustly.
+        url: https://github.com/mozilla-releng/adhoc-signing-blobs/raw/nsis/nsis-3.07-signed.zip
+        sha256: 5856cd49b52870caa41814d71ce30c4304d5001b80c04f4eb7028ffedd91df7e
+        size: 2618390
+        artifact-name: nsis.tar.zst
+        strip-components: 1
+        add-prefix: nsis/
+
+upx:
+    description: upx 5.2.1 source
+    fetch:
+        type: static-url
+        url: https://github.com/upx/upx/releases/download/v5.2.1/upx-5.2.1-src.tar.xz
+        sha256: a7d457be4ef942e46844ee8f301206b111394cbcbde3599747a6904c54ff116b
+        size: 1778024
+        artifact-name: upx-src.tar.zst
+        strip-components: 1
+        add-prefix: upx/
+
+wine:
+    description: wine source code
+    fetch:
+        type: static-url
+        url: https://dl.winehq.org/wine/source/11.x/wine-11.17.tar.xz
+        sha256: 8e752e29bba2901ad9f915139345c6ee67184b099d425704d915971ca5c055fc
+        size: 46726496
+        gpg-signature:
+            sig-url: "{url}.sign"
+            key-path: build/unix/build-gcc/DA23579A74D4AD9AF9D3F945CEFAC8EAAF17519D.key
+        artifact-name: wine.tar.zst
+        strip-components: 1
+        add-prefix: wine-source/
+
+cbindgen-0.29.4:
+    description: cbindgen 0.29.4 source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/cbindgen
+        revision: b826cb8911488fe8a209d2b693492c0c673e8cca
+    fetch-alias: cbindgen
+
+cctools-port:
+    description: cctools-port source code
+    fetch:
+        type: git
+        repo: https://github.com/tpoechtrager/cctools-port
+        revision: ef969083aecf77dee1814d6961a06b88af23edef
+
+libtapi:
+    description: libtapi source code
+    fetch:
+        type: git
+        repo: https://github.com/tpoechtrager/apple-libtapi
+        revision: 2a5705470a92691520fa2ff589482ea6c4039740
+
+libdispatch:
+    description: libdispatch source code
+    fetch:
+        type: git
+        repo: https://github.com/tpoechtrager/apple-libdispatch
+        revision: 323b9b4e0ca05d6c56a0c2f2d7d8d47363e612b7
+
+ldid:
+    description: ldid source code
+    fetch:
+        type: git
+        repo: https://github.com/tpoechtrager/ldid
+        revision: 4bf8f4d60384a0693dbbe2084ce62a35bfeb87ab
+
+libdmg-hfsplus:
+    description: libdmg-hfsplus source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/libdmg-hfsplus/
+        revision: e18579b391950589b9ed16ee630c54ce4319bb29
+
+hfsplus-tools:
+    description: hfstools-plus source code
+    fetch:
+        type: static-url
+        # Most-upstream is https://opensource.apple.com/source/diskdev_cmds/
+        url: https://src.fedoraproject.org/repo/pkgs/hfsplus-tools/diskdev_cmds-540.1.linux3.tar.gz/0435afc389b919027b69616ad1b05709/diskdev_cmds-540.1.linux3.tar.gz
+        sha256: b01b203a97f9a3bf36a027c13ddfc59292730552e62722d690d33bd5c24f5497
+        size: 411205
+        headers:
+            - "Accept: application/octet-stream"
+
+xar:
+    description: xar source code
+    fetch:
+        type: git
+        repo: https://github.com/gabrielesvelto/xar
+        revision: 199ff76a7463f6b6a2548b4db29cd3dd5026df69
+
+bomutils:
+    description: bomutils (mkbom) source code
+    fetch:
+        type: git
+        repo: https://github.com/hogliux/bomutils
+        revision: 0e7dc7eefefb3a0ba2ef3a432cdc1089ac40740c
+
+rust-size:
+    description: rust-size source code
+    fetch:
+        type: git
+        repo: https://github.com/luser/rust-size
+        revision: ab659d93b1faba95307df952aefe3fbed3583669
+
+rust-analyzer-linux64:
+    description: rust-analyzer 2026-10-26
+    fetch:
+        type: static-url
+        url: https://github.com/rust-lang/rust-analyzer/releases/download/2026-10-26/rust-analyzer-x86_64-unknown-linux-gnu.gz
+        sha256: 4c83773525f93b636ed79761389568b4d2a89c05fa7ecc440245032d49ad80ce
+        size: 15084499
+        artifact-name: rust-analyzer.gz
+
+gn:
+    description: GN source code
+    fetch:
+        type: git
+        repo: https://gn.googlesource.com/gn
+        revision: 6b0190f746976a2e3b26ed529a9d487ae2587868
+
+grcov:
+    description: grcov source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/grcov
+        # 0.10.8 release + fix for bug 2033336
+        revision: 86d5001522d6eff66794fbd8d644807f73870d0b
+
+sccache:
+    description: sccache source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/sccache
+        # 0.18.0 release
+        revision: 01c35e69b97f516c2ebfbdb418b5cd6277bde280
+
+fxc2:
+    description: fxc2 source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/fxc2
+        revision: 63ad74b7faa7033f2c1be9cc1cd0225241a1a9a5
+
+mingw-w64:
+    description: mingw-w64 source code
+    fetch:
+        type: git
+        repo: https://git.code.sf.net/p/mingw-w64/mingw-w64
+        revision: ae5227f620699c8d532609ae30dc66432b903dab
+
+mingw-w64-trunk:
+    description: mingw-w64 master branch source code
+    attributes:
+        cached_task: false
+    fetch:
+        type: git
+        repo: https://git.code.sf.net/p/mingw-w64/mingw-w64
+        branch: master
+
+android-ndk-rs:
+    description: android-ndk-rs source code
+    fetch:
+        type: git
+        # Ideally we'd switch back to using the current official upstream for
+        # this project: https://github.com/rust-mobile/cargo-apk/
+        # Unfortunately, it's not a drop-in replacement as there are changes
+        # we'll need to adapt our builds to. And the two patches applied to
+        # our fork for Android SDK detection are also both still necessary.
+        # Example: https://github.com/rust-mobile/cargo-apk/issues/74
+        repo: https://github.com/jamienicol/android-ndk-rs
+        revision: abddf7b2a3f491637440e0418087f68fb4a401c1
+
+clang-19:
+    description: clang 19.1.7 source code
+    fetch:
+        type: git
+        repo: https://github.com/llvm/llvm-project
+        revision: cd708029e0b2869e80abe31ddb175f7c35361f90
+
+clang-22:
+    description: clang 22.1.8 source code
+    fetch:
+        type: git
+        repo: https://github.com/llvm/llvm-project
+        revision: ca7933e47d3a3451d81e72ac174dcb5aa28b59d1
+
+clang-23:
+    description: clang 23.1.5 source code
+    fetch:
+        type: git
+        repo: https://github.com/llvm/llvm-project
+        revision: 392dfff97d29b59d77e5cac6d4b6ef2585fe7117
+
+clang-trunk:
+    description: clang main branch source code
+    attributes:
+        cached_task: false
+    fetch:
+        type: git
+        repo: https://github.com/llvm/llvm-project
+        branch: main
+
+# We build stable rust from source so the resulting compiler acts as a nightly
+# rust compiler, allowing to use unstable features like -Zbuild-std and
+# sanitizers.
+rust-1.95.0:
+    description: Rust 1.95.0 source code
+    fetch:
+        type: git
+        include-dot-git: true
+        repo: https://github.com/rust-lang/rust/
+        revision: 59807616e1fa2540724bfbac14d7976d7e4a3860
+
+rust-nightly:
+    description: Rust nightly source code
+    attributes:
+        cached_task: false
+    fetch:
+        type: git
+        include-dot-git: true
+        repo: https://github.com/rust-lang/rust/
+        branch: main
+
+# Keep WASI_SDK_VERSION in taskcluster/scripts/misc/build-wasi-sdk.sh in sync.
+wasi-sdk:
+    description: wasi-sdk-34 source code
+    fetch:
+        type: git
+        repo: https://github.com/WebAssembly/wasi-sdk
+        revision: 5a0bf653a1a06e1c18867567c5937006d3394a69
+
+macosx64-ninja:
+    description: ninja 1.13.2
+    fetch:
+        type: static-url
+        url: https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-mac.zip
+        sha256: c99048673aa765960a99cf10c6ddb9f1fad506099ff0a0e137ad8960a88f321b
+        size: 314051
+        artifact-name: ninja.tar.zst
+        add-prefix: ninja/bin/
+
+win64-ninja:
+    description: ninja 1.13.2
+    fetch:
+        type: static-url
+        url: https://github.com/ninja-build/ninja/releases/download/v1.13.2/ninja-win.zip
+        sha256: 07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65
+        size: 291570
+        artifact-name: ninja.tar.zst
+        add-prefix: ninja/bin/
+
+macosx64-cmake:
+    description: cmake 4.4.3
+    fetch:
+        type: static-url
+        url: https://github.com/Kitware/CMake/releases/download/v4.4.3/cmake-4.4.3-macos-universal.tar.gz
+        sha256: 0c5d65251c14cc884bfa16bdbed3c263ce5bffe2e21c0d0d00962cb0610464fa
+        size: 89445170
+        artifact-name: cmake.tar.zst
+        strip-components: 3
+        add-prefix: cmake/
+
+cmake:
+    description: cmake 4.4.3 source code
+    fetch:
+        type: static-url
+        url: https://github.com/Kitware/CMake/releases/download/v4.4.3/cmake-4.4.3.tar.gz
+        sha256: c46400618b4f1f2b43507f24fb22f3ae830c3416cf23b776e16e1d413aa892f0
+        size: 13288228
+        artifact-name: cmake.tar.zst
+        strip-components: 1
+        add-prefix: cmake/
+
+dump-syms:
+    description: dump_syms source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/dump_syms/
+        revision: 34e934c8d0aefad43e6d9d9352667b6d36140264
+
+rust-minidump:
+    description: rust-minidump 0.27.0 source code (for minidump-stackwalk)
+    fetch:
+        type: git
+        repo: https://github.com/rust-minidump/rust-minidump/
+        revision: 4adf5555b2ab844f23c52982fc202357ff882695
+
+fix-stacks:
+    description: fix-stacks source code
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/fix-stacks/
+        revision: 0cabeccc13b8254962599b81d5bcc658e9730baf
+
+upload-symbols-linux64:
+    description: upload-symbols command-line client
+    fetch:
+        type: static-url
+        url: https://github.com/mozilla-services/upload-symbols/releases/download/v0.3.1/upload-symbols-cli-x86_64-unknown-linux-gnu.tar.xz
+        sha256: 88edc90fb06d01eb1a2d63da47661c5394cd42aa370986842405c9b1bb332e69
+        size: 4047360
+        artifact-name: upload-symbols-cli.tar.zst
+        strip-components: 1
+        add-prefix: upload-symbols-cli/
+
+7zz:
+    description: 7-zip 26.05 source code
+    fetch:
+        type: static-url
+        url: https://github.com/ip7z/7zip/releases/download/26.05/7z2605-src.tar.xz
+        sha256: 0b6080b8c3e7a579161d2d495224c0e51c467576cb4c7048b0ab485ef44cc22e
+        size: 1565688
+        artifact-name: 7z-src.tar.zst
+        add-prefix: 7zz/
+
+cabextract:
+    description: cabextract 1.11 source code
+    fetch:
+        type: static-url
+        url: https://www.cabextract.org.uk/cabextract-1.11.tar.gz
+        sha256: b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6
+        size: 489656
+        artifact-name: cabextract-src.tar.zst
+        strip-components: 1
+        add-prefix: cabextract/
+
+winchecksec:
+    description: winchecksec source code
+    fetch:
+        type: git
+        repo: https://github.com/trailofbits/winchecksec/
+        revision: 93ffe67dbfc757bf6f440d80b8acf88e652ed60a
+
+sonatype-nexus:
+    description: Sonatype Nexus Maven repository service
+    fetch:
+        type: static-url
+        # https://download.sonatype.com/nexus/oss/nexus-2.15.2-03-bundle.tar.gz
+        url: https://tooltool.mozilla-releng.net/sha512/8d0cd58839f95b8fa02eba82fd532b15795b59e93968bcfcf179383849cf3a09f3c2a76480c5583ebf4ee1b1528bfccbda5ad6d92f175817ebc6179d85a93b5b
+        sha256: cec1d80dad0be8a34a902aa00e666da547f51e83dc3a4a28b50b3ec36fe433a8
+        size: 89526162
+        artifact-name: sonatype-nexus.tar.zst
+        strip-components: 1
+        add-prefix: sonatype-nexus/
+
+jdk-8-linux64:
+    description: Java 8 JDK
+    fetch:
+        type: static-url
+        url: https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u502-b07/OpenJDK8U-jdk_x64_linux_hotspot_8u502b07.tar.gz
+        sha256: b8f5440f64f50193c01f67dacba55c9660caffe13b908baf6bd1955f4dd4c3ea
+        size: 103536381
+        artifact-name: jdk-8.tar.zst
+        strip-components: 1
+        add-prefix: jdk-8/
+
+makecab:
+    description: makecab source code
+    fetch:
+        type: git
+        repo: https://github.com/luser/rust-makecab/
+        revision: 236cd02baefa754fc7a61b161c71d2aa13a87c2a
+
+samply:
+    description: samply source code
+    fetch:
+        type: git
+        repo: https://github.com/mstange/samply
+        revision: 7003392bdcdd78d7c8fa115c306408abf54a0e1a
+
+nodejs-12-linux64:
+    description: nodejs 12 for x64 linux
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v12.22.12/node-v12.22.12-linux-x64.tar.xz
+        sha256: e6d052364bfa2c17da92cf31794100cfd709ba147415ddaeed2222eec9ca1469
+        size: 14584388
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-22-macosx64:
+    description: nodejs 22 for x64 macOS
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v22.23.4/node-v22.23.4-darwin-x64.tar.xz
+        sha256: f42abca7aaac61efc57d49fb42ea84fc53bbeba9a749cb03a291ce6e4e7a69c1
+        size: 27483128
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-24-linux64:
+    description: nodejs 24 for x64 linux
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.xz
+        sha256: 6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6
+        size: 32026916
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-24-linux64-arm64:
+    description: nodejs 24 for arm64 linux
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-arm64.tar.xz
+        sha256: dbabf7a1cbf947e6059ffad2c27b80041db97dea1e553b62afdee7f13fca336e
+        size: 30978868
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-24-macosx64-arm64:
+    description: nodejs 24 for arm64 macOS
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v24.22.1/node-v24.22.1-darwin-arm64.tar.xz
+        sha256: 654ba79de6155647e22321932b45f2a1ccb705976cc337c9b8e278beb085a628
+        size: 27518756
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-24-win64:
+    description: nodejs 24 for x64 Windows
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-x64.zip
+        sha256: d2046d28c2c3dcd211ac5145c0bf30e2047ef9dfb306693c8c6e2eccd8b95fa5
+        size: 37748064
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+nodejs-24-win-arm64:
+    description: nodejs 24 for arm64 Windows
+    fetch:
+        type: static-url
+        url: https://nodejs.org/dist/v24.22.1/node-v24.22.1-win-arm64.zip
+        sha256: a0c807319fede24c4a0d8f84564c82a619bd313b16b10c007c383c2609e99171
+        size: 33786263
+        artifact-name: nodejs.tar.zst
+        strip-components: 1
+        add-prefix: node/
+
+gnumake:
+    description: GNU make source
+    fetch:
+        type: static-url
+        url: https://ftp.gnu.org/gnu/make/make-4.4.1.tar.gz
+        sha256: dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3
+        size: 2348200
+        artifact-name: make.tar.zst
+        strip-components: 1
+        add-prefix: make/
+
+msix-packaging:
+    description: Microsoft msix-packaging
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/msix-packaging
+        revision: 1d068315fc1cff43c04837816c28a4a66cba22c1
+
+pkgconf:
+    description: pkgconf 3.0.7
+    fetch:
+        type: static-url
+        url: https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.7.tar.xz
+        sha256: c926ff491cbd9a331a589160811bd97ab1749b4d5198a519338f2cdfabe6940a
+        size: 427648
+        artifact-name: pkgconf.tar.zst
+        strip-components: 1
+        add-prefix: pkgconf/
+
+afl-plus-plus:
+    description: AFL++ 5.x source
+    fetch:
+        type: git
+        repo: https://github.com/AFLplusplus/AFLplusplus
+        revision: 011cd189801830253c66ecd3cd6919ec01b46c34
+
+cargo-audit:
+    # Keep the version in sync with tools/lint/cargo-audit/cargo-audit_version.txt
+    description: cargo-audit 0.22.0 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/cargo-audit/0.22.0/download
+        sha256: 31a93efe072dade616d509087c6e0b3ad9a0a78b1a6978451988d15faade53a1
+        size: 57554
+        artifact-name: cargo-audit.tar.zst
+        strip-components: 1
+        add-prefix: cargo-audit/
+
+cargo-vet:
+    description: cargo-vet source
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/cargo-vet
+        revision: cef4dd43a0b9d2d37febf0e5ad42abc6d9ea5472
+
+symbol-scrapers:
+    description: System symbols scraper source
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/symbol-scrapers
+        revision: ccaf667c6fc72745ce116fed4b29316b881d3e4c
+
+openssl-1.1.1w:
+    description: openssl 1.1.1w source code
+    fetch:
+        type: static-url
+        url: https://github.com/openssl/openssl/releases/download/OpenSSL_1_1_1w/openssl-1.1.1w.tar.gz
+        sha256: cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8
+        size: 9893384
+        artifact-name: openssl-source.tar.zst
+        strip-components: 1
+        add-prefix: openssl-source/
+
+xz:
+    description: xz 5.8.4 source code
+    fetch:
+        type: static-url
+        url: https://github.com/tukaani-project/xz/releases/download/v5.8.4/xz-5.8.4.tar.xz
+        sha256: 4ce24038fd4221e0d13bc1a2de7a4db56e90b92b3bf75321f6c14be73f65de4b
+        size: 1567192
+        artifact-name: xz-source.tar.zst
+        strip-components: 1
+        add-prefix: xz-source/
+
+cpython-3.10.11:
+    description: cpython 3.10.11 source code
+    fetch:
+        type: static-url
+        url: https://www.python.org/ftp/python/3.10.11/Python-3.10.11.tgz
+        sha256: f3db31b668efa983508bd67b5712898aa4247899a346f2eb745734699ccd3859
+        size: 26085141
+        artifact-name: cpython-source.tar.zst
+        strip-components: 1
+        add-prefix: cpython-source/
+
+cpython-3.10.11.exe:
+    description: cpython 3.10.11 installer
+    fetch:
+        type: static-url
+        url: https://www.python.org/ftp/python/3.10.11/python-3.10.11-amd64.exe
+        sha256: d8dede5005564b408ba50317108b765ed9c3c510342a598f9fd42681cbe0648b
+        size: 29037240
+        artifact-name: python-3.10.11-amd64.exe
+
+cpython-3.11.7:
+    description: cpython 3.11.7 source code
+    fetch:
+        type: static-url
+        url: https://www.python.org/ftp/python/3.11.7/Python-3.11.7.tgz
+        sha256: 068c05f82262e57641bd93458dfa883128858f5f4997aad7a36fd25b13b29209
+        size: 26601929
+        artifact-name: cpython-source.tar.zst
+        strip-components: 1
+        add-prefix: cpython-source/
+
+cpython-3.11.7.exe:
+    description: cpython 3.11.7 installer
+    fetch:
+        type: static-url
+        url: https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe
+        sha256: c117c6444494bbe4cc937e8a5a61899d53f7f5c5bc573c5d130304e457d54024
+        size: 26009544
+        artifact-name: python-3.11.7-amd64.exe
+
+cpython-3.12.15:
+    description: cpython 3.12.15 source code
+    fetch:
+        type: static-url
+        url: https://www.python.org/ftp/python/3.12.15/Python-3.12.15.tgz
+        sha256: de1a241a519e0a3374fea98988d0b52c886743f9d953f23be8269cc7b59c5fab
+        size: 27303440
+        artifact-name: cpython-source.tar.zst
+        strip-components: 1
+        add-prefix: cpython-source/
+
+windows-rs:
+    description: Source of the windows rust crate
+    attributes:
+        local-fetch: true
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/windows/0.62.2/download
+        sha256: 527fadee13e0c05939a6a05d5bd6eec6cd2e3dbd648b9f8e447c6518133d8580
+        size: 9360572
+        artifact-name: windows-rs.tar.zst
+        strip-components: 1
+        add-prefix: windows-rs/
+
+libxml2:
+    description: libxml2 2.15.4 source code
+    fetch:
+        type: git
+        repo: https://gitlab.gnome.org/GNOME/libxml2
+        revision: 96498992efa48d52b0e8b83058bd88dbdaf153c1
+
+mozilla-pdf.js:
+    description: Mozilla pdf.js Github repo
+    fetch:
+        type: git
+        repo: https://github.com/mozilla/pdf.js
+        revision: b9a3dfc3c2ff1fe7692b30da63a588d4890b4a72
+
+mozilla-pdf.js.pdfs:
+    description: Mozilla pdf.js PDF corpus (private Github repo)
+    artifact-prefix: project/gecko/pdf.js.pdfs
+    fetch:
+        type: git
+        repo: git@github.com:mozilla/pdf.js.pdfs.git
+        revision: 37b3f48ef90a73bd9a193a5007b0c10a04758efd
+        path-prefix: pdf.js.pdfs
+        artifact-name: pdf.js.pdfs.tar.zst
+        ssh-key: project/perftest/gecko/level-{level}/pdfjs-pdfs-github-deploy-key
+
+xmlstarlet-1.6.1:
+    description: xmlstarlet for Android Performance Tests
+    fetch:
+        type: static-url
+        url: http://ca.archive.ubuntu.com/ubuntu/pool/universe/x/xmlstarlet/xmlstarlet_1.6.1-2build1_amd64.deb
+        sha256: d1d7f55f7887d2d1c3283e1b06a68675b5bead2eebf14939f9cdd84b849ced19
+        size: 267112
+        artifact-name: xmlstarlet.deb
+
+uv:
+    description: uv 0.13.4 source code
+    fetch:
+        type: git
+        repo: https://github.com/astral-sh/uv
+        revision: 7456b60bc6bc348e13e06e3691bf08e78d3aef54
+
+dxc-src:
+    description: Source code for mozilla's DXC fork
+    fetch:
+        type: git
+        repo: https://github.com/FirefoxGraphics/DirectXShaderCompiler
+        revision: 9c26d96149925760ca86cd43610d9d32b6ec70c2
+
+jj:
+    # Keep minimum supported version in sync:
+    # https://searchfox.org/firefox-main/rev/d154a3eb431156b2bd63d3d5f96c82655b4e782d/python/mozversioncontrol/mozversioncontrol/repo/jj.py#20
+    description: jj 0.38.0 source code
+    fetch:
+        type: git
+        repo: https://github.com/jj-vcs/jj
+        revision: 2508982cde5c7e4db0933e0b6469f9e778e71e28
+
+searchfox-cli:
+    description: searchfox-cli 0.20.6 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/searchfox-cli/0.20.6/download
+        sha256: 4dfbdd7e12ce6cc818c9b6c923f34100ee3b7af1919cfa718196df354c2c5d60
+        size: 26872
+        artifact-name: searchfox-cli.tar.zst
+        strip-components: 1
+        add-prefix: searchfox-cli/
+
+socorro-cli:
+    description: socorro-cli 0.6.0 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/socorro-cli/0.6.0/download
+        sha256: 44536ae58eb5a3c612becd0859f1e83ed0d0c4345f429e0380aed17995aecaf4
+        size: 72287
+        artifact-name: socorro-cli.tar.zst
+        strip-components: 1
+        add-prefix: socorro-cli/
+
+stmo-cli:
+    description: stmo-cli 0.12.0 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/stmo-cli/0.12.0/download
+        sha256: fa6b363ab846d1f637eb158fe90386378d1e5aa7c509e034c4e108963155bb86
+        size: 110603
+        artifact-name: stmo-cli.tar.zst
+        strip-components: 1
+        add-prefix: stmo-cli/
+
+treeherder-cli:
+    description: treeherder-cli 0.3.2 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/treeherder-cli/0.3.2/download
+        sha256: d13af2a7de01c8b0097f266bd54461cf83d422c5845faeaec3037f2b41b02993
+        size: 138024
+        artifact-name: treeherder-cli.tar.zst
+        strip-components: 1
+        add-prefix: treeherder-cli/
+
+webspec-index:
+    description: webspec-index 0.15.0 source code
+    fetch:
+        type: static-url
+        url: https://crates.io/api/v1/crates/webspec-index/0.15.0/download
+        sha256: a4126acc3f7fd08777e36cc52a25174954b7b1945fde70fd878fe7432ea2c5ce
+        size: 1249420
+        artifact-name: webspec-index.tar.zst
+        strip-components: 1
+        add-prefix: webspec-index/
+
+firefox-profiler:
+    description: firefox profiler source code
+    fetch:
+        type: git
+        repo: https://github.com/firefox-devtools/profiler
+        revision: e93adc066f1f2c53f2e600bc17923f5f7007d639
+
+# See https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads
+# We can't catch regressions from these updates in CI. Testing should focus on
+# "no tabs in toolbar" functionality, making sure tabs are selectable at the
+# very top of the screen when maximized, and fullscreen transitions (F11).
+windowsappsdk-redist:
+    description: Windows App SDK Redistributable
+    fetch:
+        type: static-url
+        url: https://aka.ms/windowsappsdk/2.5/2.5.1/Microsoft.WindowsAppRuntime.Redist.2.5.zip
+        sha256: 3c6d3b4d80a194bb4f9a9a91e00f074b7d539929ab53fb7dde3ef9d8a21ddbb4
+        size: 528498305
+        artifact-name: Microsoft.WindowsAppRuntime.Redist.tar.zst

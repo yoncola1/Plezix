@@ -1,0 +1,84 @@
+License information for hyph_de-1901.dic:
+
+This file is based on the TeX hyphenation patterns distributed under the
+MIT License as part of the hyph-utf8 package.
+
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+At the time this file was last modified, a complete, unmodified copy of
+the MIT Work was available from:
+https://github.com/hyphenation/tex-hyphen/blob/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Portions of this file were originally made available under the following license
+(copied verbatim from hyph-de-1901.tex in the original work):
+
+% title: German Hyphenation Patterns (Traditional Orthography)
+%
+% notice: TeX-Trennmuster für die traditionelle deutsche Rechtschreibung
+%
+% version: 2024-02-28
+%
+% authors:
+%   -
+%     name:    Deutschsprachige Trennmustermannschaft
+%     contact: trennmuster@dante.de
+%
+% copyright: Copyright (c) 2013-2024
+%            Stephan Hennig, Werner Lemberg, Günter Milde,
+%            Sander van Geloven, Georg Pfeiffer, Gisbert W. Selke,
+%            Tobias Wendorf, Keno Wehr
+%
+% licence:
+%     name: MIT
+%     url:  https://opensource.org/licenses/mit-license.php
+%     text: >
+%           Permission is hereby granted, free of charge, to any person
+%           obtaining a copy of this software and associated documentation
+%           files (the “Software”), to deal in the Software without
+%           restriction, including without limitation the rights to use,
+%           copy, modify, merge, publish, distribute, sublicense, and/or
+%           sell copies of the Software, and to permit persons to whom the
+%           Software is furnished to do so, subject to the following
+%           conditions:
+%
+%           The above copyright notice and this permission notice shall be
+%           included in all copies or substantial portions of the Software.
+%
+%           THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+%           EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+%           OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+%           NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+%           HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+%           WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+%           FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+%           OTHER DEALINGS IN THE SOFTWARE.
+%
+% source: https://repo.or.cz/w/wortliste.git?a=commit;h=304aaa2188a75e57afe36bad0443d90a9c715b8e
+%
+% language:
+%     name: German, traditional spelling
+%     tag:  de-1901
+%
+% hyphenmins:
+%     generation:
+%         left:  2
+%         right: 2
+%     typesetting:
+%         left:  2
+%         right: 2
+%
+% texlive:
+%     encoding: ec
+%     use_old_patterns_comment: Kept for the sake of backward compatibility, but newer and better patterns by WL are available.
+%     babelname: german
+%     legacy_patterns: dehypht.tex
+%     message: German hyphenation patterns (traditional orthography)
+%     package: german
+%
+% ===========================================================================

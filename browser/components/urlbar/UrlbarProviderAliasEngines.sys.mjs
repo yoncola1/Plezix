@@ -1,0 +1,91 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/**
+ * This module exports a provider that offers engines with aliases as heuristic
+ * results.
+ */
+
+import {
+  UrlbarProvider,
+  UrlbarUtils,
+} from "moz-src:///browser/components/urlbar/UrlbarUtils.sys.mjs";
+import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
+
+const lazy = XPCOMUtils.declareLazy({
+  UrlbarResult: "chrome://browser/content/urlbar/UrlbarResult.mjs",
+  UrlbarSearchUtils:
+    "moz-src:///browser/components/urlbar/UrlbarSearchUtils.sys.mjs",
+  UrlbarShared: "chrome://browser/content/urlbar/UrlbarShared.mjs",
+});
+
+/**
+ * Class used to create the provider.
+ */
+export class UrlbarProviderAliasEngines extends UrlbarProvider {
+  /**
+   * @returns {Values<typeof lazy.UrlbarShared.PROVIDER_TYPE>}
+   */
+  get type() {
+    return lazy.UrlbarShared.PROVIDER_TYPE.HEURISTIC;
+  }
+
+  /**
+   * Whether this provider should be invoked for the given context.
+   * If this method returns false, the providers manager won't start a query
+   * with this provider, to save on resources.
+   *
+   * @param {UrlbarQueryContext} queryContext The query context object
+   */
+  async isActive(queryContext) {
+    return (
+      (!queryContext.restrictSource ||
+        queryContext.restrictSource ==
+          lazy.UrlbarShared.RESULT_SOURCE.SEARCH) &&
+      !queryContext.restrictInSearchMode() &&
+      !!queryContext.tokens.length
+    );
+  }
+
+  /**
+   * Starts querying.
+   *
+   * @param {UrlbarQueryContext} queryContext
+   * @param {(provider: UrlbarProvider, result: UrlbarResult) => void} addCallback
+   *   Callback invoked by the provider to add a new result.
+   * @param {UrlbarParentController} controller The controller instance.
+   */
+  async startQuery(queryContext, addCallback, controller) {
+    let instance = this.queryInstance;
+    let alias = queryContext.tokens[0]?.value;
+    let engine = await lazy.UrlbarSearchUtils.engineForAlias(
+      alias,
+      queryContext.searchString
+    );
+    if (!engine || instance != this.queryInstance) {
+      return;
+    }
+    let icon = await UrlbarUtils.getEngineIconUrl(engine, controller);
+    if (instance != this.queryInstance) {
+      return;
+    }
+    let query = UrlbarUtils.substringAfter(
+      queryContext.searchString,
+      alias
+    ).trimStart();
+    let result = new lazy.UrlbarResult({
+      type: lazy.UrlbarShared.RESULT_TYPE.SEARCH,
+      source: lazy.UrlbarShared.RESULT_SOURCE.SEARCH,
+      heuristic: true,
+      payload: {
+        engine: engine.name,
+        keyword: alias,
+        query,
+        title: query,
+        icon,
+      },
+    });
+    addCallback(this, result);
+  }
+}

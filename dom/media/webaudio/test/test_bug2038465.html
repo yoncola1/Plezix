@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset=utf-8>
+<head>
+  <title>Test for Bug 2038465 - FLAC with varying per-frame channel count must not leak ASan-poisoned heap</title>
+  <script src="/tests/SimpleTest/SimpleTest.js"></script>
+  <script src="webaudio_asan_fill.js"></script>
+  <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css" />
+</head>
+<body>
+<pre id="test">
+<script class="testbody" type="text/javascript">
+
+SimpleTest.waitForExplicitFinish();
+
+// Verify ASan's fill configuration before scanning the decoded samples.
+
+async function runTest() {
+  if (!asanVerifyFillOptions()) {
+    SimpleTest.finish();
+    return;
+  }
+
+  const resp = await fetch("bug2038465_varying_channels.flac");
+  const buf = await resp.arrayBuffer();
+  const ctx = new OfflineAudioContext(2, 44100, 44100);
+
+  const decoded = await ctx.decodeAudioData(buf);
+
+  is(decoded.numberOfChannels, 2,
+     "decoded.numberOfChannels matches max per-packet channel count");
+  is(decoded.length, 44100,
+     "decoded.length matches total FLAC frame samples");
+  is(decoded.sampleRate, 44100,
+     "decoded.sampleRate matches FLAC STREAMINFO");
+
+  for (let c = 0; c < decoded.numberOfChannels; ++c) {
+    const { count, firstIndex } = asanCountFillSentinel(decoded.getChannelData(c));
+    is(count, 0,
+       `channel ${c}: ASan malloc-fill bytes leaked to JS - ` +
+       `first bad at index ${firstIndex}`);
+  }
+
+  SimpleTest.finish();
+}
+
+runTest().catch(e => {
+  ok(false, "Unexpected exception: " + e);
+  SimpleTest.finish();
+});
+
+</script>
+</pre>
+</body>
+</html>

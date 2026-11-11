@@ -1,0 +1,56 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:is(
+    .network-monitor,
+    .app,
+    .accessibility-check-annotation,
+    .spectrum-color-contrast,
+    .devtools-tooltip-inactive-css,
+    .devtools-tooltip-css-compatibility,
+    .webconsole-app
+  )
+  .learn-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  --icon-color: var(--theme-icon-color);
+
+  &.devtools-button {
+    padding: 2px;
+
+    /* hide .devtools-button's ::before icon as we put ours in ::after */
+    &::before {
+      content: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    background-image: url(chrome://devtools/skin/images/help.svg);
+    background-size: contain;
+    -moz-context-properties: fill;
+    fill: var(--icon-color);
+    height: 16px;
+    width: 16px;
+    margin: 0;
+  }
+
+  &.mdn-link::after {
+    background-image: url(chrome://devtools/skin/images/mdn.svg);
+    height: 12px;
+    width: 12px;
+    border: 1px solid var(--icon-color);
+  }
+}
+
+.network-monitor .treeTable .treeRow {
+  .learn-more-link:not(:hover) {
+    --icon-color: var(--theme-icon-dimmed-color);
+  }
+
+  &.selected .learn-more-link:not(:hover)::after {
+    --icon-color: var(--theme-selection-color);
+  }
+}

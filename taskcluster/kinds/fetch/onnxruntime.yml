@@ -1,0 +1,19 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    fetch:
+        repo: https://github.com/Microsoft/onnxruntime
+        revision: f2c39fe2f838cf35ce7da92824f5a5e3ee6e88a7
+
+onnxruntime-src:
+    description: Source code for ONNX runtime
+    fetch:
+        type: git
+
+onnxruntime-deps:
+    description: Source for ONNX runtime dependencies
+    fetch:
+        type: onnxruntime-deps-fetch
+        artifact-name: onnxruntime-deps.tar.zst

@@ -1,0 +1,28 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Notes for manifest.in.json — do NOT set these theme keys:
+ * They are resolved by the design system and should not be set in the theme manifest.
+ *   tab_selected: --tab-background-color-selected
+ *   ntp_background:  --newtab-background-color
+ *   ntp_card_background:  --newtab-background-color-secondary
+ *   ntp_text:  --newtab-text-primary-color
+ *   sidebar_highlight: --lwt-sidebar-highlight
+ *   sidebar_highlight_text: --lwt-sidebar-highlight-text
+ */
+
+body {
+  --tabpanel-background-color: transparent;
+  --chrome-content-separator-color: light-dark(var(--color-violet-desaturated-20), var(--color-violet-desaturated-50));
+}
+
+#navigator-toolbox {
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  background-color: color-mix(in srgb, var(--ai-background-color) 80%, transparent) !important;
+}
+
+.tab-preview-thumbnail-container > canvas {
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  background-color: var(--ai-background-color);
+}

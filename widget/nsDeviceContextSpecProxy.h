@@ -1,0 +1,57 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef nsDeviceContextSpecProxy_h
+#define nsDeviceContextSpecProxy_h
+
+#include "mozilla/gfx/PrintPromise.h"
+#include "mozilla/layout/printing/DrawEventRecorder.h"
+#include "nsCOMPtr.h"
+#include "nsIDeviceContextSpec.h"
+#include "nsString.h"
+
+class nsIFile;
+class nsIUUIDGenerator;
+
+namespace mozilla {
+namespace layout {
+class RemotePrintJobChild;
+}
+}  // namespace mozilla
+
+class nsDeviceContextSpecProxy final : public nsIDeviceContextSpec {
+ public:
+  using IntSize = mozilla::gfx::IntSize;
+  using RemotePrintJobChild = mozilla::layout::RemotePrintJobChild;
+
+  explicit nsDeviceContextSpecProxy(RemotePrintJobChild* aRemotePrintJob);
+
+  NS_DECL_ISUPPORTS
+
+  NS_IMETHOD Init(nsIPrintSettings* aPrintSettings, bool aIsPrintPreview) final;
+
+  already_AddRefed<PrintTarget> MakePrintTarget() final;
+
+  NS_IMETHOD GetDrawEventRecorder(
+      mozilla::gfx::DrawEventRecorder** aDrawEventRecorder) final;
+
+  NS_IMETHOD BeginDocument(const nsAString& aTitle,
+                           const nsAString& aPrintToFileName,
+                           mozilla::dom::WindowContext*, int32_t aStartPage,
+                           int32_t aEndPage) final;
+
+  RefPtr<mozilla::gfx::PrintEndDocumentPromise> EndDocument() final;
+
+  nsresult BeginPage(const IntSize& aSizeInPoints) final;
+  nsresult EndPage() final;
+
+ private:
+  ~nsDeviceContextSpecProxy();
+
+  RefPtr<RemotePrintJobChild> mRemotePrintJob;
+  RefPtr<mozilla::layout::DrawEventRecorderPRFileDesc> mRecorder;
+  IntSize mCurrentPageSizeInPoints;
+};
+
+#endif  // nsDeviceContextSpecProxy_h

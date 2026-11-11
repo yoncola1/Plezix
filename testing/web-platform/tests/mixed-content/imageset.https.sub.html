@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mixed-Content: imageset tests</title>
+    <meta charset='utf-8'>
+    <meta name="description" content="Test behavior of imageset resources, making sure that resources are not downloaded.">
+    <link rel="author" title="Yoav Weiss" href="yoav@yoav.ws">
+    <script src="/resources/testharness.js"></script>
+    <script src="/resources/testharnessreport.js"></script>
+    <script src="/preload/resources/preload_helper.js"></script>
+    <script>
+      var t = async_test('Makes sure imageset blockable resources are not downloaded');
+    </script>
+  </head>
+  <body>
+  <!-- Plain <img src="http://..."> is optionally-blockable mixed content and
+       is auto-upgraded to https:// (but the port is preserved, so it will fail)
+       Use the HTTPS port instead so the upgraded load succeeds. -->
+  <img src="http://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?img_src">
+  <picture>
+    <source srcset="http://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?picture">
+    <img>
+  </picture>
+  <img srcset="http://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?img_srcset">
+  <script>
+    function verifyNotDownloaded(url) {
+      for (const entry of performance.getEntriesByName(getAbsoluteURL(url))) {
+        assert_equals(entry.transferSize, 0, url + " should not be downloaded");
+      }
+    }
+    window.addEventListener("load", t.step_func(function() {
+        verifyLoadedAndNoDoubleDownload("https://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?img_src");
+        verifyNotDownloaded("http://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?picture");
+        verifyNumberOfResourceTimingEntries("https://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?picture", 0);
+        verifyNotDownloaded("http://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?img_srcset");
+        verifyNumberOfResourceTimingEntries("https://{{domains[]}}:{{ports[https][0]}}/images/smiley.png?img_srcset", 0);
+        t.done();
+    }));
+  </script>
+  </body>
+</html>

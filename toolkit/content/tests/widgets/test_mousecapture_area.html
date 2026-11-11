@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mouse capture on area elements tests</title>
+    <script src="/tests/SimpleTest/SimpleTest.js"></script>
+    <script src="/tests/SimpleTest/EventUtils.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css" />
+  </head>
+  <body>
+    <p id="display"></p>
+
+    <div id="content">
+      <!-- The border="0" on the images is needed so that the clicks below land
+       on the image content, not its border; events targeted at the border
+       aren't targeted at the area. -->
+
+      <!-- 20x20 of red -->
+      <img
+        id="image"
+        border="0"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAG0lEQVR42mP8z0A%2BYKJA76jmUc2jmkc1U0EzACKcASfOgGoMAAAAAElFTkSuQmCC"
+        usemap="#Map"
+      />
+
+      <map name="Map">
+        <!-- area over the whole image -->
+        <area
+          id="area"
+          onmousedown="this.setCapture()"
+          onmouseup="this.releaseCapture()"
+          shape="poly"
+          coords="0,0, 0,20, 20,20, 20,0"
+          href="javascript:void(0);"
+        />
+      </map>
+
+      <!-- 20x20 of red -->
+      <img
+        id="img1"
+        border="0"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAG0lEQVR42mP8z0A%2BYKJA76jmUc2jmkc1U0EzACKcASfOgGoMAAAAAElFTkSuQmCC"
+        usemap="#sharedMap"
+      />
+
+      <!-- 20x20 of red -->
+      <img
+        id="img2"
+        border="0"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAG0lEQVR42mP8z0A%2BYKJA76jmUc2jmkc1U0EzACKcASfOgGoMAAAAAElFTkSuQmCC"
+        usemap="#sharedMap"
+      />
+
+      <map name="sharedMap">
+        <!-- area over the whole image -->
+        <area
+          id="sharedarea"
+          onmousedown="this.setCapture()"
+          onmouseup="this.releaseCapture()"
+          shape="poly"
+          coords="0,0, 0,20, 20,20, 20,0"
+          href="javascript:void(0);"
+        />
+      </map>
+
+      <div id="otherelement" style="width: 100px; height: 100px"></div>
+    </div>
+
+    <script class="testbody" type="text/javascript">
+      SimpleTest.waitForExplicitFinish();
+
+      function runTests() {
+        // XXX We send a useless click to each image to force it to setup its image
+        // map, because flushing layout won't do it.
+        synthesizeMouse($("image"), 5, 5, { type: "mousedown" });
+        synthesizeMouse($("image"), 5, 5, { type: "mouseup" });
+        synthesizeMouse($("img1"), 5, 5, { type: "mousedown" });
+        synthesizeMouse($("img1"), 5, 5, { type: "mouseup" });
+        synthesizeMouse($("img2"), 5, 5, { type: "mousedown" });
+        synthesizeMouse($("img2"), 5, 5, { type: "mouseup" });
+
+        // test that setCapture works on an area element (bug 517737)
+        var area = document.getElementById("area");
+        // Areas have no box, so target the image; the clicks below land on the
+        // area through the image map.
+        synthesizeMouse($("image"), 5, 5, { type: "mousedown" });
+        synthesizeMouseExpectEvent(
+          $("otherelement"),
+          5,
+          5,
+          { type: "mousemove" },
+          area,
+          "mousemove",
+          "setCapture works on areas"
+        );
+        synthesizeMouse($("image"), 5, 5, { type: "mouseup" });
+
+        // test that setCapture works on an area element when it is part of an image
+        // map that is used by two images
+
+        var img1 = document.getElementById("img1");
+        var sharedarea = document.getElementById("sharedarea");
+        synthesizeMouse(img1, 5, 5, { type: "mousedown" });
+        synthesizeMouseExpectEvent(
+          $("otherelement"),
+          5,
+          5,
+          { type: "mousemove" },
+          sharedarea,
+          "mousemove",
+          "setCapture works on areas with multiple images"
+        );
+        synthesizeMouse(img1, 5, 5, { type: "mouseup" });
+
+        var img2 = document.getElementById("img2");
+        synthesizeMouse(img2, 5, 5, { type: "mousedown" });
+        synthesizeMouseExpectEvent(
+          $("otherelement"),
+          5,
+          5,
+          { type: "mousemove" },
+          sharedarea,
+          "mousemove",
+          "setCapture works on areas with multiple images"
+        );
+        synthesizeMouse(img2, 5, 5, { type: "mouseup" });
+
+        // Bug 862673 - nuke all content so assertions in this test are attributed to
+        // this test rather than the one which happens to follow.
+        var content = document.getElementById("content");
+        content.remove();
+        SimpleTest.finish();
+      }
+
+      SimpleTest.waitForFocus(runTests);
+    </script>
+  </body>
+</html>

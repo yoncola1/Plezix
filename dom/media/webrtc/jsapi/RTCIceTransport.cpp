@@ -1,0 +1,84 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "RTCIceTransport.h"
+
+#include "RTCIceCandidatePair.h"
+#include "mozilla/dom/Event.h"
+#include "mozilla/dom/EventBinding.h"
+#include "mozilla/dom/RTCIceTransportBinding.h"
+
+namespace mozilla::dom {
+
+NS_IMPL_CYCLE_COLLECTION_INHERITED(RTCIceTransport, DOMEventTargetHelper,
+                                   mSelectedCandidatePair)
+
+NS_IMPL_ADDREF_INHERITED(RTCIceTransport, DOMEventTargetHelper)
+NS_IMPL_RELEASE_INHERITED(RTCIceTransport, DOMEventTargetHelper)
+
+NS_INTERFACE_MAP_BEGIN_CYCLE_COLLECTION(RTCIceTransport)
+  NS_WRAPPERCACHE_INTERFACE_MAP_ENTRY
+NS_INTERFACE_MAP_END_INHERITING(DOMEventTargetHelper)
+
+RTCIceTransport::RTCIceTransport(nsPIDOMWindowInner* aWindow)
+    : DOMEventTargetHelper(aWindow),
+      mRole(RTCIceRole::Unknown),
+      mState(RTCIceTransportState::New),
+      mGatheringState(RTCIceGathererState::New) {}
+
+JSObject* RTCIceTransport::WrapObject(JSContext* aCx,
+                                      JS::Handle<JSObject*> aGivenProto) {
+  return RTCIceTransport_Binding::Wrap(aCx, this, aGivenProto);
+}
+
+void RTCIceTransport::SetRole(RTCIceRole aRole) { mRole = aRole; }
+
+void RTCIceTransport::SetState(RTCIceTransportState aState) { mState = aState; }
+
+void RTCIceTransport::SetGatheringState(RTCIceGathererState aState) {
+  mGatheringState = aState;
+}
+
+already_AddRefed<RTCIceCandidatePair>
+RTCIceTransport::GetSelectedCandidatePair() const {
+  return do_AddRef(mSelectedCandidatePair);
+}
+
+void RTCIceTransport::SetSelectedCandidatePair(RTCIceCandidatePair* aPair) {
+  mSelectedCandidatePair = aPair;
+}
+
+void RTCIceTransport::FireStateChangeEvent() {
+  EventInit init;
+  init.mBubbles = false;
+  init.mCancelable = false;
+
+  RefPtr<Event> event = Event::Constructor(this, u"statechange"_ns, init);
+
+  DispatchTrustedEvent(event);
+}
+
+void RTCIceTransport::FireGatheringStateChangeEvent() {
+  EventInit init;
+  init.mBubbles = false;
+  init.mCancelable = false;
+
+  RefPtr<Event> event =
+      Event::Constructor(this, u"gatheringstatechange"_ns, init);
+
+  DispatchTrustedEvent(event);
+}
+
+void RTCIceTransport::FireSelectedCandidatePairChangeEvent() {
+  EventInit init;
+  init.mBubbles = false;
+  init.mCancelable = false;
+
+  RefPtr<Event> event =
+      Event::Constructor(this, u"selectedcandidatepairchange"_ns, init);
+
+  DispatchTrustedEvent(event);
+}
+
+}  // namespace mozilla::dom

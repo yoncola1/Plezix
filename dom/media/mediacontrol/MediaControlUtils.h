@@ -1,0 +1,166 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef DOM_MEDIA_MEDIACONTROL_MEDIACONTROLUTILS_H_
+#define DOM_MEDIA_MEDIACONTROL_MEDIACONTROLUTILS_H_
+
+#include "ImageOps.h"
+#include "MediaController.h"
+#include "gfxDrawable.h"
+#include "imgIEncoder.h"
+#include "imgITools.h"
+#include "mozilla/Logging.h"
+#include "mozilla/dom/AudioSessionBinding.h"
+#include "mozilla/dom/ChromeUtilsBinding.h"
+#include "mozilla/dom/MediaControllerBinding.h"
+#include "nsReadableUtils.h"
+#include "nsServiceManagerUtils.h"
+
+extern mozilla::LazyLogModule gMediaControlLog;
+
+namespace mozilla::dom {
+
+inline nsLiteralCString AudioSessionTypeToGleanLabel(AudioSessionType aType) {
+  switch (aType) {
+    case AudioSessionType::Auto:
+      return "auto"_ns;
+    case AudioSessionType::Ambient:
+      return "ambient"_ns;
+    case AudioSessionType::Transient:
+      return "transient"_ns;
+    case AudioSessionType::Transient_solo:
+      return "transient_solo"_ns;
+    case AudioSessionType::Playback:
+      return "playback"_ns;
+    case AudioSessionType::Play_and_record:
+      return "play_and_record"_ns;
+  }
+  return "auto"_ns;
+}
+
+inline const char* ToMediaControlKeyStr(const Maybe<MediaControlKey>& aKey) {
+  if (aKey.isNothing()) {
+    MOZ_ASSERT_UNREACHABLE("Invalid action.");
+    return "Unknown";
+  }
+  return GetEnumString(aKey.value()).get();
+}
+
+inline MediaControlKey ConvertMediaSessionActionToControlKey(
+    MediaSessionAction aAction) {
+  switch (aAction) {
+    case MediaSessionAction::Play:
+      return MediaControlKey::Play;
+    case MediaSessionAction::Pause:
+      return MediaControlKey::Pause;
+    case MediaSessionAction::Seekbackward:
+      return MediaControlKey::Seekbackward;
+    case MediaSessionAction::Seekforward:
+      return MediaControlKey::Seekforward;
+    case MediaSessionAction::Previoustrack:
+      return MediaControlKey::Previoustrack;
+    case MediaSessionAction::Nexttrack:
+      return MediaControlKey::Nexttrack;
+    case MediaSessionAction::Skipad:
+      return MediaControlKey::Skipad;
+    case MediaSessionAction::Seekto:
+      return MediaControlKey::Seekto;
+    default:
+      MOZ_ASSERT(aAction == MediaSessionAction::Stop);
+      return MediaControlKey::Stop;
+  }
+}
+
+inline const char* ToMediaAudibleStateStr(MediaAudibleState aState) {
+  switch (aState) {
+    case MediaAudibleState::eInaudible:
+      return "inaudible";
+    case MediaAudibleState::eAudible:
+      return "audible";
+    default:
+      MOZ_ASSERT_UNREACHABLE("Invalid audible state.");
+      return "Unknown";
+  }
+}
+
+inline const char* ToMediaSessionPlaybackStateStr(
+    const MediaSessionPlaybackState& aState) {
+  switch (aState) {
+    case MediaSessionPlaybackState::None:
+      return "none";
+    case MediaSessionPlaybackState::Paused:
+      return "paused";
+    case MediaSessionPlaybackState::Playing:
+      return "playing";
+    default:
+      MOZ_ASSERT_UNREACHABLE("Invalid MediaSessionPlaybackState.");
+      return "Unknown";
+  }
+}
+
+BrowsingContext* GetAliveTopBrowsingContext(BrowsingContext* aBC);
+
+inline bool IsImageIn(const nsTArray<MediaImage>& aArtwork,
+                      const nsAString& aImageUrl) {
+  for (const MediaImage& image : aArtwork) {
+    if (image.mSrc == aImageUrl) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// The image buffer would be allocated in aStream whose size is aSize and the
+// buffer head is aBuffer
+inline nsresult GetEncodedImageBuffer(gfx::DataSourceSurface* aSurface,
+                                      const nsACString& aMimeType,
+                                      nsIInputStream** aStream, uint32_t* aSize,
+                                      char** aBuffer) {
+  MOZ_ASSERT(aSurface);
+
+  nsCOMPtr<imgITools> imgTools = do_GetService("@mozilla.org/image/tools;1");
+  if (!imgTools) {
+    return NS_ERROR_FAILURE;
+  }
+
+  auto drawable = MakeRefPtr<gfxSurfaceDrawable>(aSurface, aSurface->GetSize());
+  nsCOMPtr<imgIContainer> image = image::ImageOps::CreateFromDrawable(drawable);
+
+  nsCOMPtr<nsIInputStream> inputStream;
+  nsresult rv = imgTools->EncodeImage(image, aMimeType, u""_ns,
+                                      getter_AddRefs(inputStream));
+  if (NS_FAILED(rv)) {
+    return rv;
+  }
+
+  if (!inputStream) {
+    return NS_ERROR_FAILURE;
+  }
+
+  nsCOMPtr<imgIEncoder> encoder = do_QueryInterface(inputStream);
+  if (!encoder) {
+    return NS_ERROR_FAILURE;
+  }
+
+  rv = encoder->GetImageBufferUsed(aSize);
+  if (NS_FAILED(rv)) {
+    return rv;
+  }
+
+  rv = encoder->GetImageBuffer(aBuffer);
+  if (NS_FAILED(rv)) {
+    return rv;
+  }
+
+  encoder.forget(aStream);
+  return NS_OK;
+}
+
+inline uint32_t GetMediaKeyMask(mozilla::dom::MediaControlKey aKey) {
+  return 1 << static_cast<uint8_t>(aKey);
+}
+
+}  // namespace mozilla::dom
+
+#endif  // DOM_MEDIA_MEDIACONTROL_MEDIACONTROLUTILS_H_

@@ -1,0 +1,76 @@
+schema: 1
+
+bugzilla:
+  product: Core
+  component: "Spelling checker"
+
+origin:
+  name: Hunspell
+  description: Spell checker
+
+  url: http://hunspell.github.io
+
+  release: v1.7.6 (2026-10-26T16:29:20Z).
+  revision: v1.7.6
+  license: MPL-1.1
+  license-file: COPYING.MPL
+
+updatebot:
+  maintainer-phab: smaug
+  maintainer-bz: smaug@mozilla.com
+  fuzzy-query: "'mochitest-plain | 'mochitest-chrome-1proc | 'xpcshell !android !gpu !swr !http !xorig !headless !standalone !no-nv !msix !nofis"
+  fuzzy-paths:
+    - extensions/spellcheck
+    - editor/spellchecker
+  tasks:
+    - type: vendoring
+      enabled: true
+      frequency: every
+
+vendoring:
+  url: https://github.com/hunspell/hunspell
+  source-hosting: github
+  tracking: tag
+
+  exclude:
+    - "**"
+
+  keep:
+    - glue
+    - tests
+    - COPYING.MPL
+    - src/moz.build
+    - src/sources.mozbuild
+    - src/license.hunspell
+    - src/license.myspell
+    - src/README.md
+
+  include:
+    - src/hunspell
+
+  update-actions:
+    - action: move-dir
+      from: '{vendor_dir}/src/hunspell'
+      to: '{vendor_dir}/src'
+    - action: delete-path
+      path: "src/Makefile.am"
+    - action: delete-path
+      path: "tests/unit/data/Makefile.am"
+    - action: delete-path
+      path: "tests/unit/data/Makefile.in"
+    - action: delete-path
+      path: "tests/unit/data/suggestiontest/Makefile.am"
+    - action: delete-path
+      path: "tests/unit/data/suggestiontest/Makefile.in"
+    - action: delete-path
+      path: "src/filemgr.cxx"
+    - action: delete-path
+      path: "src/hunvisapi.h.in"
+    - action: delete-path
+      path: "src/hunversion.h.in"
+    - action: delete-path
+      path: "src/hunzip.cxx"
+    - action: delete-path
+      path: "src/hunzip.hxx"
+    - action: delete-path
+      path: "src/utf_info.hxx"

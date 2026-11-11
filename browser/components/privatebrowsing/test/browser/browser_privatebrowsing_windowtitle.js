@@ -1,0 +1,150 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+// This test makes sure that the window title changes correctly while switching
+// from and to private browsing mode.
+
+"use strict";
+
+add_task(async function test() {
+  const testPageURL =
+    "http://mochi.test:8888/browser/" +
+    "browser/components/privatebrowsing/test/browser/browser_privatebrowsing_windowtitle_page.html";
+  requestLongerTimeout(2);
+
+  // initialization of expected titles
+  let test_title = "Test title";
+
+  // The three strings getWindowTitleForBrowser() composes, fetched from Fluent so
+  // a browser.ftl wording change need not be mirrored here (see bug 1758961).
+  const l10n = new Localization(
+    ["branding/brand.ftl", "browser/browser.ftl"],
+    true
+  );
+  const [app_name, pb_title, pb_suffix] = l10n.formatValuesSync([
+    "browser-main-window-default-title",
+    "browser-main-private-window-title",
+    "browser-main-private-suffix-for-content",
+  ]);
+
+  // The em dashes are the composition rule under test, so they stay hardcoded.
+  // With a content title, macOS drops the brand name for the short suffix.
+  const isMacOS = AppConstants.platform == "macosx";
+
+  let page_with_title = isMacOS ? test_title : `${test_title} — ${app_name}`;
+  let page_without_title = app_name;
+  let about_pb_title = app_name;
+  let pb_page_with_title = isMacOS
+    ? `${test_title} — ${pb_suffix}`
+    : `${test_title} — ${pb_title}`;
+  let pb_page_without_title = pb_title;
+  let pb_about_pb_title = pb_title;
+
+  async function testTabTitle(aWindow, url, insidePB, expected_title) {
+    let tab = await BrowserTestUtils.openNewForegroundTab(aWindow.gBrowser);
+    BrowserTestUtils.startLoadingURIString(tab.linkedBrowser, url);
+    await BrowserTestUtils.browserLoaded(tab.linkedBrowser, { wantLoad: url });
+
+    await TestUtils.waitForCondition(() => {
+      return aWindow.document.title === expected_title;
+    }, `Window title should be ${expected_title}, got ${aWindow.document.title}`);
+
+    is(
+      aWindow.document.title,
+      expected_title,
+      "The window title for " +
+        url +
+        " is correct (" +
+        (insidePB ? "inside" : "outside") +
+        " private browsing mode)"
+    );
+
+    let win = aWindow.gBrowser.replaceTabWithWindow(tab);
+    await BrowserTestUtils.waitForEvent(win, "load", false);
+
+    await TestUtils.waitForCondition(() => {
+      return win.document.title === expected_title;
+    }, `Window title should be ${expected_title}, got ${win.document.title}`);
+
+    is(
+      win.document.title,
+      expected_title,
+      "The window title for " +
+        url +
+        " detached tab is correct (" +
+        (insidePB ? "inside" : "outside") +
+        " private browsing mode)"
+    );
+
+    await Promise.all([
+      BrowserTestUtils.closeWindow(win),
+      BrowserTestUtils.closeWindow(aWindow),
+    ]);
+  }
+
+  function openWin(isPrivate) {
+    return BrowserTestUtils.openNewBrowserWindow({ private: isPrivate });
+  }
+  await testTabTitle(
+    await openWin(false),
+    "about:blank",
+    false,
+    page_without_title
+  );
+  await testTabTitle(await openWin(false), testPageURL, false, page_with_title);
+  await testTabTitle(
+    await openWin(false),
+    "about:privatebrowsing",
+    false,
+    about_pb_title
+  );
+  await testTabTitle(
+    await openWin(true),
+    "about:blank",
+    true,
+    pb_page_without_title
+  );
+  await testTabTitle(
+    await openWin(true),
+    testPageURL,
+    true,
+    pb_page_with_title
+  );
+  await testTabTitle(
+    await openWin(true),
+    "about:privatebrowsing",
+    true,
+    pb_about_pb_title
+  );
+
+  await SpecialPowers.pushPrefEnv({
+    set: [["privacy.exposeContentTitleInWindow.pbm", false]],
+  });
+  await testTabTitle(await openWin(false), testPageURL, false, page_with_title);
+  await testTabTitle(
+    await openWin(true),
+    testPageURL,
+    true,
+    pb_page_without_title
+  );
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["privacy.exposeContentTitleInWindow", false],
+      ["privacy.exposeContentTitleInWindow.pbm", true],
+    ],
+  });
+  await testTabTitle(
+    await openWin(false),
+    testPageURL,
+    false,
+    page_without_title
+  );
+  // The generic preference set to false is intended to override the PBM one
+  await testTabTitle(
+    await openWin(true),
+    testPageURL,
+    true,
+    pb_page_without_title
+  );
+});

@@ -1,0 +1,159 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import "chrome://global/skin/colorpicker-common.css";
+@import "chrome://devtools/content/shared/components/MdnLink.css";
+
+:root {
+  --accessibility-contrast-swatch-border-color: var(--grey-40);
+  --learn-more-underline: light-dark(var(--grey-30), var(--grey-50));
+
+  :root[forced-colors-adjust] & {
+    --accessibility-contrast-swatch-border-color: GrayText;
+    --learn-more-underline: CanvasText;
+  }
+}
+
+#eyedropper-button {
+  margin-inline-end: 5px;
+  display: block;
+
+  :root[forced-colors-active] & {
+    border: 1px solid currentColor;
+  }
+}
+
+#eyedropper-button::before {
+  background-image: url(chrome://devtools/skin/images/command-eyedropper.svg);
+}
+
+/* Mix-in classes */
+
+#spectrum-tooltip {
+  padding: 5px;
+}
+
+.spectrum-controls {
+  width: 200px;
+}
+
+.spectrum-container {
+  display: flex;
+  flex-direction: column;
+  margin: -1px;
+  padding-block-end: 6px;
+}
+
+.spectrum-color-contrast {
+  padding-block-start: 8px;
+  padding-inline-start: 4px;
+  padding-inline-end: 4px;
+  line-height: 1.2em;
+}
+
+.contrast-ratio-header-and-single-ratio,
+.contrast-ratio-range {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  margin-block-start: 8px;
+}
+
+.contrast-ratio-range {
+  margin-block-start: 4px;
+  margin-inline-start: 1px;
+  margin-block-end: 2px;
+}
+
+.spectrum-color-contrast.visible {
+  display: block;
+  color: var(--theme-text-color-strong);
+}
+
+.spectrum-color-contrast.visible:not(.range) .contrast-ratio-single,
+.spectrum-color-contrast.visible.range .contrast-ratio-range {
+  display: flex;
+}
+
+.spectrum-color-contrast,
+.spectrum-color-contrast .contrast-ratio-range,
+.spectrum-color-contrast.range .contrast-ratio-single,
+.spectrum-color-contrast.error .accessibility-color-contrast-separator,
+.spectrum-color-contrast.error .contrast-ratio-max {
+  display: none;
+}
+
+.contrast-ratio-label {
+  font-size: 10px;
+  padding-inline-end: 4px;
+}
+
+.spectrum-color-contrast .accessibility-contrast-value {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px solid var(--learn-more-underline);
+
+  /* opt-out of forced colors to avoid the backplating that clips the border */
+  forced-color-adjust: none;
+}
+
+.spectrum-color-contrast.visible:not(.error) .contrast-ratio-single .accessibility-contrast-value {
+  margin-inline-start: 10px;
+}
+
+.spectrum-color-contrast.visible:not(.error) .contrast-ratio-min .accessibility-contrast-value,
+.spectrum-color-contrast.visible:not(.error) .contrast-ratio-max .accessibility-contrast-value {
+  margin-inline-start: 7px;
+}
+
+.spectrum-color-contrast .accessibility-contrast-value:not(:empty)::before {
+  width: auto;
+  content: none;
+  padding-inline-start: 2px;
+}
+
+.spectrum-color-contrast.visible:not(.error) .contrast-value-and-swatch:before {
+  display: inline-flex;
+  content: "";
+  height: 9px;
+  width: 9px;
+  background-color: var(--accessibility-contrast-color);
+  /* opt-out of forced color so we can actually see the colors */
+  forced-color-adjust: none;
+}
+
+.spectrum-color-contrast.visible:not(.error):-moz-locale-dir(ltr) .contrast-value-and-swatch:before {
+  box-shadow:
+    0 0 0 1px var(--accessibility-contrast-swatch-border-color),
+    6px 5px var(--accessibility-contrast-bg),
+    6px 5px 0 1px var(--accessibility-contrast-swatch-border-color);
+}
+
+.spectrum-color-contrast.visible:not(.error):-moz-locale-dir(rtl) .contrast-value-and-swatch:before {
+  box-shadow:
+    0 0 0 1px var(--accessibility-contrast-swatch-border-color),
+    -6px 5px var(--accessibility-contrast-bg),
+    -6px 5px 0 1px var(--accessibility-contrast-swatch-border-color);
+}
+
+.spectrum-color-contrast .accessibility-color-contrast-separator:before {
+  margin-inline-end: 4px;
+  color: var(--theme-body-color);
+}
+
+.spectrum-color-contrast .accessibility-color-contrast-large-text {
+  margin-inline: 1px;
+  unicode-bidi: isolate;
+}
+
+.spectrum-color-contrast .learn-more-link {
+  margin-inline-start: auto;
+  color: var(--theme-link-color);
+  font-size: 10px;
+}
+
+.spectrum-color-contrast.range .contrast-ratio-header-and-single-ratio .learn-more-link {
+  display: none;
+}

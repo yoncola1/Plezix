@@ -1,0 +1,11 @@
+[DEFAULT]
+run-if = [
+  "os != 'android'",
+]
+
+["test_bug1170484.html"]
+support-files = ["helper_bug1170484.js"]
+
+["test_bug1272623.html"]
+
+["test_personal_dictionary.html"]

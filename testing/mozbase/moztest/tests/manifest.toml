@@ -1,0 +1,12 @@
+[DEFAULT]
+subsuite = "mozbase"
+
+["test.py"]
+
+["test_assertions.py"]
+
+["test_resolve.py"]
+
+["test_tsan.py"]
+
+["test_ubsan.py"]

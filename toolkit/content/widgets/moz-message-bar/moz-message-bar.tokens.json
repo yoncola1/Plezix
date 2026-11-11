@@ -1,0 +1,312 @@
+{
+  "actions": {
+    "button": {
+      "padding": {
+        "value": "{space.xsmall} {space.large}"
+      }
+    },
+    "gap": {
+      "value": "{space.small}"
+    }
+  },
+  "background": {
+    "color": {
+      "@base": {
+        "value": "{background.color.information}"
+      },
+      "warning": {
+        "value": "{background.color.warning}"
+      },
+      "success": {
+        "value": "{background.color.success}"
+      },
+      "critical": {
+        "value": "{background.color.critical}"
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "value": {
+        "default": "oklch(from {message-bar.icon.color} l c h / 20%)",
+        "prefersContrast": "{border.color.@base}",
+        "nova": {
+          "comment": "There is no equivalent value for this token in Figma",
+          "value": "oklch(from {message-bar.icon.color} l c h / 12%)"
+        }
+      }
+    },
+    "radius": {
+      "value": "{border.radius.medium}"
+    },
+    "width": {
+      "value": "{border.width}"
+    }
+  },
+  "close": {
+    "margin": {
+      "inline-end": {
+        "value": {
+          "default": "0px",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+            "value": "8px"
+          }
+        }
+      },
+      "block-start": {
+        "value": {
+          "default": "0px",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+            "value": "{space.small}"
+          }
+        }
+      }
+    }
+  },
+  "container": {
+    "gap": {
+      "value": "{space.small}"
+    },
+    "min-height": {
+      "value": "{size.item.large}"
+    },
+    "padding": {
+      "block": {
+        "value": {
+          "default": "{space.small}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "0"
+          }
+        }
+      },
+      "inline": {
+        "value": {
+          "default": "{space.medium} {space.small}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "0"
+          }
+        }
+      }
+    }
+  },
+  "content": {
+    "gap": {
+      "value": "{space.small} {space.medium}"
+    },
+    "padding": {
+      "block": {
+        "value": {
+          "default": "0",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "{space.small}"
+          }
+        }
+      },
+      "inline": {
+        "value": {
+          "default": "0",
+          "nova": {
+            "comment": "Using rem-based space tokens ends up causing subpixel rendering issues that cause the icon to look uncentered",
+            "value": "8px"
+          }
+        }
+      }
+    }
+  },
+  "icon": {
+    "background": {
+      "color": {
+        "@base": {
+          "value": "{background.color.information}"
+        },
+        "warning": {
+          "value": "{background.color.warning}"
+        },
+        "success": {
+          "value": "{background.color.success}"
+        },
+        "critical": {
+          "value": "{background.color.critical}"
+        }
+      }
+    },
+    "color": {
+      "value": "{icon.color.information}"
+    },
+    "container": {
+      "align-items": {
+        "value": {
+          "default": "center",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "flex-start"
+          }
+        }
+      },
+      "border": {
+        "@base": {
+          "value": {
+            "default": "none",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "1px solid {message-bar.icon.container.border.color}"
+            }
+          }
+        },
+        "color": {
+          "value": "transparent"
+        },
+        "radius": {
+          "value": {
+            "default": "{border.radius.circle}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "calc({message-bar.border.radius} - 1px)"
+            }
+          }
+        },
+        "radius-start-start": {
+          "value": {
+            "default": "{message-bar.icon.container.border.radius}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{message-bar.icon.container.border.radius}"
+            }
+          }
+        },
+        "radius-start-end": {
+          "value": {
+            "default": "{message-bar.icon.container.border.radius}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "0"
+            }
+          }
+        },
+        "radius-end-start": {
+          "value": {
+            "default": "{message-bar.icon.container.border.radius}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{message-bar.icon.container.border.radius}"
+            }
+          }
+        },
+        "radius-end-end": {
+          "value": {
+            "default": "{message-bar.icon.container.border.radius}",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "0"
+            }
+          }
+        }
+      },
+      "height": {
+        "value": {
+          "default": "min-content",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "auto"
+          }
+        }
+      },
+      "margin": {
+        "block": {
+          "start": {
+            "@base": {
+              "value": {
+                "default": "{space.small}",
+                "nova": {
+                  "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+                  "value": "0px"
+                }
+              }
+            },
+            "offset": {
+              "value": {
+                "default": "2px",
+                "nova": {
+                  "comment": "There is no equivalent value for this token in Figma, and we need the unit for calculations",
+                  "value": "0px"
+                }
+              }
+            }
+          }
+        }
+      },
+      "padding": {
+        "@base": {
+          "value": {
+            "default": "0px",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "{space.small}"
+            }
+          }
+        }
+      },
+      "padding-block-start": {
+        "value": {
+          "default": "{message-bar.icon.container.padding.@base}",
+          "nova": {
+            "comment": "There is no equivalent value for this token in Figma",
+            "value": "calc({space.small} + {space.small})"
+          }
+        }
+      }
+    },
+    "size": {
+      "value": "{icon.size.@base}"
+    }
+  },
+  "message": {
+    "margin": {
+      "inline-end": {
+        "value": "{space.xsmall}"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "value": "{text.color.@base}"
+      },
+      "warning": {
+        "value": "{text.color.@base}"
+      },
+      "success": {
+        "value": "{text.color.@base}"
+      },
+      "critical": {
+        "value": "{text.color.@base}"
+      }
+    },
+    "container": {
+      "gap": {
+        "value": "{space.xsmall} {space.small}"
+      },
+      "padding": {
+        "block": {
+          "value": {
+            "default": "calc(({message-bar.container.min-height} - {message-bar.icon.size}) / 2)",
+            "nova": {
+              "comment": "There is no equivalent value for this token in Figma",
+              "value": "0"
+            }
+          }
+        }
+      }
+    },
+    "content": {
+      "gap": {
+        "value": "{space.xsmall} {space.small}"
+      }
+    }
+  }
+}

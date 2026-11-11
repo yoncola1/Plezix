@@ -1,0 +1,18 @@
+See src/README.md for the README that ships with snappy.
+
+Mozilla does not modify the actual snappy source with the exception of the
+'snappy-stubs-public.h' header and one small patch to resolve implicit
+constructor warnings. We have replaced its build system with our own.
+
+Snappy comes from:
+  https://github.com/google/snappy
+
+To upgrade to a newer version, run:
+  ./mach vendor other-licenses/snappy/moz.yaml
+
+This fetches the tagged release, applies 01-explicit.patch and runs
+update-version.py, which stamps the version into 'snappy-stubs-public.h' and
+the SNAPPY_VERSION static_asserts in dom/. After updating, compare
+'snappy-stubs-public.h' against the new 'src/snappy-stubs-public.h.in' for any
+other changes. Note that we don't bother trying to detect the availability of
+sys/uio.h and unconditionally define the iovec type instead for all platforms.

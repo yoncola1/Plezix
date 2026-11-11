@@ -1,0 +1,87 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    BUG_COMPONENT = ("Core", "DOM: Push Subscriptions")
+
+EXTRA_COMPONENTS += [
+    "Push.manifest",
+]
+
+MOZ_SRC_FILES += [
+    "ChromePushSubscription.sys.mjs",
+    "Push.sys.mjs",
+    "PushBroadcastService.sys.mjs",
+    "PushComponents.sys.mjs",
+    "PushCrypto.sys.mjs",
+    "PushDB.sys.mjs",
+    "PushRecord.sys.mjs",
+    "PushService.sys.mjs",
+]
+
+if CONFIG["MOZ_BUILD_APP"] != "mobile/android":
+    # Everything but GeckoView.
+    MOZ_SRC_FILES += [
+        "PushServiceWebSocket.sys.mjs",
+    ]
+
+XPCOM_MANIFESTS += [
+    "components.conf",
+]
+
+XPIDL_SOURCES += [
+    "nsIPushErrorReporter.idl",
+    "nsIPushNotifier.idl",
+    "nsIPushService.idl",
+]
+
+XPIDL_MODULE = "dom_push"
+
+MOCHITEST_MANIFESTS += [
+    "test/mochitest.toml",
+]
+
+BROWSER_CHROME_MANIFESTS += [
+    "test/browser/browser.toml",
+]
+
+XPCSHELL_TESTS_MANIFESTS += [
+    "test/xpcshell/xpcshell.toml",
+]
+
+EXPORTS.mozilla.dom += [
+    "Declarative.h",
+    "PushManager.h",
+    "PushNotifier.h",
+    "PushSubscription.h",
+    "PushSubscriptionOptions.h",
+]
+
+UNIFIED_SOURCES += [
+    "Declarative.cpp",
+    "PushManager.cpp",
+    "PushNotifier.cpp",
+    "PushSubscription.cpp",
+    "PushSubscriptionOptions.cpp",
+]
+
+TEST_DIRS += ["test/xpcshell"]
+
+include("/ipc/chromium/chromium-config.mozbuild")
+
+LOCAL_INCLUDES += [
+    "../base",
+    "../ipc",
+]
+
+if CONFIG["COMPILE_ENVIRONMENT"]:
+    CbindgenHeader(
+        "dom_push_rust_generated.h",
+        inputs=["/dom/push/rust"],
+    )
+    EXPORTS.mozilla.dom += [
+        "!dom_push_rust_generated.h",
+    ]
+
+FINAL_LIBRARY = "xul"

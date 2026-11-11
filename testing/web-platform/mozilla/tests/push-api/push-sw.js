@@ -1,0 +1,31 @@
+async function postAll(data) {
+  const clients = await self.clients.matchAll({ includeUncontrolled: true });
+  for (const client of clients) {
+    client.postMessage(data);
+  }
+}
+
+onpush = ev => postAll({
+  type: ev.type,
+  data: ev.data.text(),
+});
+
+onpushsubscriptionchange = ev => {
+  postAll({
+    type: ev.type,
+    constructor: ev.constructor.name,
+    oldSubscription: ev.oldSubscription?.toJSON(),
+    newSubscription: ev.newSubscription?.toJSON(),
+  });
+}
+
+onfetch = ev => {
+  const searchParams = new URLSearchParams(new URL(ev.request.url).search);
+  if (searchParams.has("intercept")) {
+    ev.respondWith(() => Promise.reject());
+  }
+};
+
+onactivate = ev => {
+  ev.waitUntil(clients.claim());
+};

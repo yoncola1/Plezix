@@ -1,0 +1,36 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+plugins {
+    `kotlin-dsl`
+    alias(libs.plugins.android.lint.plugin)
+    alias(libs.plugins.dependency.analysis)
+}
+
+val mozconfig = gradle.extra["mozconfig"] as Map<*, *>
+val topobjdir = mozconfig["topobjdir"] as String
+
+layout.buildDirectory.set(file("$topobjdir/gradle/build/mobile/android/android-components/plugins/publicsuffixlist"))
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+
+dependencies {
+    implementation(libs.okhttp)
+    implementation(libs.okio)
+
+    compileOnly(libs.android.gradle.plugin)
+
+    lintChecks(libs.androidx.lint)
+}
+
+gradlePlugin {
+    plugins.register("mozac.PublicSuffixListPlugin") {
+        id = "mozac.PublicSuffixListPlugin"
+        implementationClass = "mozilla.components.gradle.plugins.PublicSuffixListPlugin"
+    }
+}

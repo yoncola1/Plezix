@@ -1,0 +1,96 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="reftest-wait">
+
+  <foreignObject><canvas xmlns="http://www.w3.org/1999/xhtml" id="canvas"/></foreignObject>
+
+  <rect width="100%" height="100%" fill="lime"/>
+
+  <g fill="red">
+    <text dominant-baseline="alphabetic" x="10" y="20">Alphabetic</text>
+    <text dominant-baseline="auto" x="80" y="20">Auto</text>
+    <text dominant-baseline="middle" x="150" y="20">Middle</text>
+    <text dominant-baseline="hanging" x="220" y="20">Hanging</text>
+    <text dominant-baseline="central" x="290" y="20">Central</text>
+    <text dominant-baseline="mathematical" x="360" y="20">Mathematical</text>
+    <text dominant-baseline="text-bottom" x="430" y="20">Bottom</text>
+  </g>
+
+  <g fill="lime">
+    <text id="alphabetic" dominant-baseline="text-before-edge" x="10" y="20" dx="0">Alphabetic</text>
+    <text id="auto" dominant-baseline="text-before-edge" x="80" y="20" dx="0">Auto</text>
+    <text id="middle" dominant-baseline="text-before-edge" x="150" y="20" dx="0">Middle</text>
+    <text id="hanging" dominant-baseline="text-before-edge" x="220" y="20" dx="0">Hanging</text>
+    <text id="central" dominant-baseline="text-before-edge" x="290" y="20" dx="0">Central</text>
+    <text id="mathematical" dominant-baseline="text-before-edge" x="360" y="20" dx="0">Mathematical</text>
+    <text id="text-bottom" dominant-baseline="text-before-edge" x="430" y="20" dx="0">Bottom</text>
+  </g>
+
+  <style><![CDATA[
+  @font-face {
+    font-family: test;
+    src: url(../fonts/LinLibertine_Re-4.7.5.woff);
+  }
+  text {
+    font: 30px test;
+    writing-mode: vertical-rl;
+  }
+  ]]></style>
+  <script>
+  function cover(id, offset) {
+    let element = document.getElementById(id);
+    element.dx.baseVal[0].value = offset;
+    let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    let bbox = element.getBBox();
+    // Inflate by a couple pixels, to prevent antialiasing failures.
+    rect.x.baseVal.value = bbox.x - 2;
+    rect.y.baseVal.value = bbox.y - 2;
+    rect.width.baseVal.value = bbox.width + 4;
+    rect.height.baseVal.value = bbox.height + 4;
+    element.parentElement.appendChild(rect);
+  }
+  onload = function() {
+    document.fonts.load('30px test').then(() => {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.font = '30px test';
+
+      // The covering text uses the text-before-edge baseline, so it has to
+      // move by the distance between that baseline and the one it covers, that
+      // is, (ascent + descent) minus what GetBaselinePosition() returns in
+      // layout/svg/SVGTextFrame.cpp. Note that in vertical-rl that function
+      // mirrors most of the baselines it computes (convertIfVerticalRL).
+      //
+      // gfxFont::CreateVerticalMetrics() synthesizes vertical metrics with a
+      // centered baseline out of the horizontal ascent and descent, so the
+      // ascent and the descent of vertical text are each half of the block
+      // size.
+      let metrics = ctx.measureText('h');
+      let blockSize =
+        metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent;
+      let ascent = blockSize / 2;
+
+      // ascent * 0.5, not mirrored.
+      cover("alphabetic", blockSize - 0.5 * ascent);
+
+      // Mirrored logical baseline, which is the ascent.
+      cover("auto", ascent);
+
+      // Same, minus half the x-height. The vertical metrics x-height is small
+      // enough for the covering rect to still cover the text.
+      cover("middle", ascent);
+
+      // Mirrored ascent * 0.2.
+      cover("hanging", 0.2 * ascent);
+
+      // (ascent + descent) / 2, not mirrored.
+      cover("central", blockSize / 2);
+
+      // Mirrored ascent / 2.
+      cover("mathematical", ascent / 2);
+
+      cover("text-bottom", blockSize);
+
+      document.documentElement.removeAttribute('class');
+    });
+  }
+  </script>
+</svg>

@@ -1,0 +1,215 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+import json
+import os
+import platform
+from pathlib import Path
+
+from mozperftest.test.browsertime import add_option, add_options
+
+# Uncomment the manual_login line if you need to do a manual login.
+# The extra browsertime arguments get overwritten below so they
+# need to be set here. The value is the time you need to do a login.
+options = [
+    ("pageCompleteWaitTime", "10000"),
+    # ("browsertime.manual_login", 100000),
+]
+
+next_site = None
+current_site = None
+failed_sites = []
+
+RECORDING_LIST = Path(Path(__file__).parent, "pageload_sites.json")
+
+# Uncomment this to record tp7 desktop sites in CI or locally.
+# This is still a WIP (Bug 1831310) and meant to be used by the
+# perftest team.
+# RECORDING_LIST = Path(Path(__file__).parent, "tp7_desktop_sites.json")
+
+# Allow overriding the recording list via env var, so we don't need to edit
+# this file when switching between site lists.
+if os.environ.get("PERFTEST_RECORDING_LIST"):
+    RECORDING_LIST = Path(os.environ["PERFTEST_RECORDING_LIST"])
+
+SCM_1_LOGIN_SITES = ("facebook", "netflix")
+
+
+def before_iterations(kw):
+    global next_site, RECORDING_LIST  # noqa: PLW0603
+    print("Setting up next site to record.")
+
+    # Nav sites all use a -nav suffix. Auto-switch to nav_sites.json so the
+    # caller doesn't need to set PERFTEST_RECORDING_LIST manually.
+    page = kw.get("proxy_perftest_page") or ""
+    if page.endswith("-nav") and not os.environ.get("PERFTEST_RECORDING_LIST"):
+        RECORDING_LIST = Path(Path(__file__).parent, "nav_sites.json")
+
+    with RECORDING_LIST.open() as f:
+        site_list = json.load(f)
+    # currently can't record websites that require user interactions(Logins)
+    if kw.get("android"):
+        site_list = site_list["mobile"]
+    else:
+        site_list = site_list["desktop"]
+
+    def __should_record(test):
+        # If a test page selection was provided, only select those
+        # tests and exclude all the others
+        specified_tests = kw["proxy_perftest_page"]
+        if specified_tests is not None:
+            if test.get("name") == specified_tests:
+                if test.get("login"):
+                    print(f"WARNING: You selected a login test: {test.get('name')}")
+                return True
+            else:
+                return False
+
+        # Only perform login recordings in automation or when
+        # RAPTOR_LOGINS is defined
+        record = False
+        if not test.get("login") or test.get("login-test"):
+            record = True
+            if not (
+                "MOZ_AUTOMATION" in os.environ or "RAPTOR_LOGINS" in os.environ
+            ) and test.get("login-test"):
+                record = False
+                print(
+                    f"Skipping login test `{test.get('name')}` "
+                    f"because login info cannot be obtained."
+                )
+
+        # When pushing to Try, only attempt login recording using the
+        # taskcluster secrets that are associated with SCM level 1 as defined
+        # in `SCM_LVL_1_SITES`.
+        if test.get("login"):
+            if "MOZ_AUTOMATION" in os.environ.keys():
+                if (
+                    os.environ.get("MOZ_SCM_LEVEL") == 1
+                    and test.get("name") not in SCM_1_LOGIN_SITES
+                ):
+                    print(
+                        f"Skipping login test `{test.get('name')}` "
+                        f"Because SCM = `{os.environ.get('MOZ_SCM_LEVEL')}`"
+                        f"and there is no secret available at this level"
+                    )
+                    return False
+                return True
+            elif "RAPTOR_LOGINS" in os.environ:
+                # Leave it to the user to have properly set up a local json file with
+                # the login websites of interest
+                return True
+
+        return record
+
+    sites = [test_site for test_site in site_list if __should_record(test_site)]
+
+    if not sites:
+        raise Exception("No tests were selected for recording!")
+
+    def next_site():
+        yield from sites
+
+    next_site = next_site()
+
+    # Set the number of test-iterations to the number of builds
+    kw["test_iterations"] = len(sites)
+    return kw
+
+
+def before_runs(env):
+    print("Running before_runs")
+    add_options(env, options)
+
+    if next_site:
+        test_site = next(next_site)
+        global current_site  # noqa: PLW0603
+        current_site = test_site.get("name")
+        print(f"Next site: {test_site}")
+
+        if env.get_arg("android"):
+            platform_name = "android"
+            app_name = env.get_arg("android-app-name").split(".")[-1]
+        else:
+            platform_name = platform.system().lower()
+            app_name = "firefox"
+
+        name = [
+            "mitm12",
+            platform_name,
+            "gve" if app_name == "geckoview_example" else app_name,
+            test_site["name"],
+        ]
+
+        recording_file = f"{'-'.join(name)}.zip"
+
+        # Remove any leftover zip from a previous failed/interrupted run so
+        # mozproxy doesn't refuse to start with "Recording file already exists".
+        output_dir = env.get_arg("output")
+        if output_dir:
+            full_path = os.path.join(output_dir, recording_file)
+            if os.path.exists(full_path):
+                os.remove(full_path)
+                print(f"Removed existing recording: {full_path}")
+
+        env.set_arg("proxy-mode", "record")
+        env.set_arg(
+            "proxy-file",
+            recording_file,
+        )
+
+        add_options(env, options, overwrite=True)
+        add_option(env, "browsertime.url", test_site.get("test_url"))
+        add_option(env, "browsertime.screenshot", "true")
+        add_option(env, "browsertime.testName", test_site.get("name"))
+        add_option(env, "browsertime.testType", test_site.get("type", "pageload"))
+        add_option(
+            env, "browsertime.login", "true" if test_site.get("login") else "false"
+        )
+
+        prefs = test_site.get("preferences", {})
+        for pref, val in prefs.items():
+            add_option(env, "firefox.preference", f"{pref}:{val}")
+
+        second_url = test_site.get("secondary_url", None)
+        if second_url:
+            add_option(env, "browsertime.secondary_url", second_url)
+
+        inject_deterministic = test_site.get("inject_deterministic", True)
+        env.set_arg("proxy-deterministic", inject_deterministic)
+
+        dismiss_cookie_prompt = test_site.get("dismiss_cookie_prompt", [])
+        if dismiss_cookie_prompt:
+            parsed_cmds = [
+                ":::".join([str(i) for i in item])
+                for item in dismiss_cookie_prompt
+                if item
+            ]
+            add_option(
+                env, "browsertime.dismiss_cookie_prompt", ";;;".join(parsed_cmds)
+            )
+
+        cmds = test_site.get("test_cmds", [])
+        if cmds:
+            parsed_cmds = [":::".join([str(i) for i in item]) for item in cmds if item]
+            add_option(env, "browsertime.commands", ";;;".join(parsed_cmds))
+
+        print(f"Recording {test_site.get('test_url')} to file: {recording_file}")
+
+
+def on_exception(env, layer, exc):
+    print(f"Recording failed for site '{current_site}': {exc}")
+    failed_sites.append(current_site)
+    return True
+
+
+def after_runs(env):
+    if not failed_sites:
+        return
+    print(f"Sites failed so far: {', '.join(failed_sites)}")
+    output_dir = env.get_arg("output")
+    if output_dir:
+        failure_log = os.path.join(output_dir, "recording_failures.txt")
+        with open(failure_log, "w") as f:
+            f.write("\n".join(failed_sites) + "\n")
+        print(f"Failure list written to {failure_log}")

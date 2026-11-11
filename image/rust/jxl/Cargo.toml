@@ -1,0 +1,18 @@
+[package]
+name = "jxl_decoder"
+version = "0.1.0"
+authors = [
+    "Martin Bruse <zondolfin@gmail.com>",
+    "Kagami Sascha Rosylight <saschanaz@outlook.com>",
+    "Sami Boukortt <sboukortt@google.com>",
+    "Timothy Nikkel <tnikkel@gmail.com>",
+]
+edition = "2021"
+license = "MPL-2.0"
+
+[dependencies]
+jxl = "0.8.0"
+log = "0.4"
+moz_task = { path = "../../../xpcom/rust/moz_task" }
+static_prefs = { path = "../../../modules/libpref/init/static_prefs" }
+xpcom = { path = "../../../xpcom/rust/xpcom" }

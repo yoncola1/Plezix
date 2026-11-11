@@ -1,0 +1,20 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef TelemetryUserInteraction_h_
+#define TelemetryUserInteraction_h_
+
+#include "nsStringFwd.h"
+
+namespace TelemetryUserInteraction {
+
+void InitializeGlobalState(bool canRecord);
+void DeInitializeGlobalState();
+
+bool CanRecord(const nsAString& aName);
+bool IsRecordingEnabled();
+
+}  // namespace TelemetryUserInteraction
+
+#endif  // TelemetryUserInteraction_h_

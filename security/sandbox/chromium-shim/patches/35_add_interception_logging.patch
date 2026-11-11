@@ -1,0 +1,207 @@
+Add logging and profiler markers to the Chromium interception code and LowerToken.
+
+We don't add SYSCALL_BROKERING macros to CallNtOpenProcessTokenEx, as it is a
+non-Target* helper and threading them through it isn't worth it. The token
+ACL retains the user's own SID plus the sandbox random SID, so both normal
+and restricted checks pass regardless.
+
+Originally landed as changset:
+https://hg.mozilla.org/mozilla-central/rev/0f763c186855
+
+diff --git a/sandbox/win/src/filesystem_interception.cc b/sandbox/win/src/filesystem_interception.cc
+--- a/sandbox/win/src/filesystem_interception.cc
++++ b/sandbox/win/src/filesystem_interception.cc
+@@ -17,6 +17,7 @@
+ #include "sandbox/win/src/sharedmem_ipc_client.h"
+ #include "sandbox/win/src/target_services.h"
+ #include "sandbox/win/src/win_utils.h"
++#include "sandbox/win/TargetGeckoClient.h"
+ 
+ // This status occurs when trying to access a network share on the machine from
+ // which it is shared.
+@@ -95,6 +96,8 @@ NTSTATUS WINAPI TargetNtCreateFile(NtCreateFileFunction orig_CreateFile,
+     return status;
+   }
+ 
++  SYSCALL_BROKERING_WITH_CONTEXT(object_attributes->ObjectName);
++
+   // We don't trust that the IPC can work this early.
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled()) {
+     return status;
+@@ -154,6 +157,7 @@ NTSTATUS WINAPI TargetNtCreateFile(NtCreateFileFunction orig_CreateFile,
+     } __except (EXCEPTION_EXECUTE_HANDLER) {
+       break;
+     }
++    SYSCALL_BROKERED();
+   } while (false);
+ 
+   return status;
+@@ -173,6 +177,8 @@ NTSTATUS WINAPI TargetNtOpenFile(NtOpenFileFunction orig_OpenFile,
+       STATUS_NETWORK_OPEN_RESTRICTION != status)
+     return status;
+ 
++  SYSCALL_BROKERING_WITH_CONTEXT(object_attributes->ObjectName);
++
+   // We don't trust that the IPC can work this early.
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled())
+     return status;
+@@ -215,6 +221,7 @@ NTSTATUS WINAPI TargetNtOpenFile(NtOpenFileFunction orig_OpenFile,
+     } __except (EXCEPTION_EXECUTE_HANDLER) {
+       break;
+     }
++    SYSCALL_BROKERED();
+   } while (false);
+ 
+   return status;
+@@ -230,6 +237,8 @@ TargetNtQueryAttributesFile(NtQueryAttributesFileFunction orig_QueryAttributes,
+       STATUS_NETWORK_OPEN_RESTRICTION != status)
+     return status;
+ 
++  SYSCALL_BROKERING_WITH_CONTEXT(object_attributes->ObjectName);
++
+   // We don't trust that the IPC can work this early.
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled())
+     return status;
+@@ -263,6 +272,9 @@ TargetNtQueryAttributesFile(NtQueryAttributesFileFunction orig_QueryAttributes,
+ 
+     status = answer.nt_status;
+ 
++    if (NT_SUCCESS(answer.nt_status)) {
++      SYSCALL_BROKERED();
++    }
+   } while (false);
+ 
+   return status;
+@@ -279,6 +291,8 @@ NTSTATUS WINAPI TargetNtQueryFullAttributesFile(
+       STATUS_NETWORK_OPEN_RESTRICTION != status)
+     return status;
+ 
++  SYSCALL_BROKERING_WITH_CONTEXT(object_attributes->ObjectName);
++
+   // We don't trust that the IPC can work this early.
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled())
+     return status;
+@@ -312,6 +326,10 @@ NTSTATUS WINAPI TargetNtQueryFullAttributesFile(
+       break;
+ 
+     status = answer.nt_status;
++
++    if (NT_SUCCESS(answer.nt_status)) {
++      SYSCALL_BROKERED();
++    }
+   } while (false);
+ 
+   return status;
+@@ -330,6 +348,8 @@ TargetNtSetInformationFile(NtSetInformationFileFunction orig_SetInformationFile,
+   if (STATUS_ACCESS_DENIED != status)
+     return status;
+ 
++  SYSCALL_BROKERING();
++
+   // We don't trust that the IPC can work this early.
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled())
+     return status;
+@@ -380,6 +400,10 @@ TargetNtSetInformationFile(NtSetInformationFileFunction orig_SetInformationFile,
+       break;
+ 
+     status = answer.nt_status;
++
++    if (NT_SUCCESS(answer.nt_status)) {
++      SYSCALL_BROKERED();
++    }
+   } while (false);
+ 
+   return status;
+diff --git a/sandbox/win/src/process_thread_interception.cc b/sandbox/win/src/process_thread_interception.cc
+--- a/sandbox/win/src/process_thread_interception.cc
++++ b/sandbox/win/src/process_thread_interception.cc
+@@ -15,6 +15,7 @@
+ #include "sandbox/win/src/sandbox_nt_util.h"
+ #include "sandbox/win/src/sharedmem_ipc_client.h"
+ #include "sandbox/win/src/target_services.h"
++#include "sandbox/win/TargetGeckoClient.h"
+ 
+ namespace sandbox {
+ 
+@@ -115,6 +116,8 @@ NTSTATUS WINAPI TargetNtOpenThread(NtOpenThreadFunction orig_OpenThread,
+     return status;
+   }
+ 
++  SYSCALL_BROKERING();
++
+   if (!SandboxFactory::GetTargetServices()->GetState()->InitCalled()) {
+     return status;
+   }
+@@ -163,6 +166,7 @@ NTSTATUS WINAPI TargetNtOpenThread(NtOpenThreadFunction orig_OpenThread,
+   __try {
+     // Write the output parameters.
+     *thread = answer.handle;
++    SYSCALL_BROKERED();
+   } __except (EXCEPTION_EXECUTE_HANDLER) {
+     return status;
+   }
+@@ -239,6 +243,8 @@ HANDLE WINAPI TargetCreateThread(CreateThreadFunction orig_CreateThread,
+ 
+   DWORD original_error = ::GetLastError();
+   do {
++    SYSCALL_BROKERING();
++
+     if (!target_services)
+       break;
+ 
+@@ -282,6 +288,7 @@ HANDLE WINAPI TargetCreateThread(CreateThreadFunction orig_CreateThread,
+     __try {
+       if (thread_id)
+         *thread_id = ::GetThreadId(answer.handle);
++      SYSCALL_BROKERED();
+       return answer.handle;
+     } __except (EXCEPTION_EXECUTE_HANDLER) {
+       break;
+diff --git a/sandbox/win/src/signed_interception.cc b/sandbox/win/src/signed_interception.cc
+--- a/sandbox/win/src/signed_interception.cc
++++ b/sandbox/win/src/signed_interception.cc
+@@ -16,6 +16,7 @@
+ #include "sandbox/win/src/sandbox_nt_util.h"
+ #include "sandbox/win/src/sharedmem_ipc_client.h"
+ #include "sandbox/win/src/target_services.h"
++#include "sandbox/win/TargetGeckoClient.h"
+ 
+ namespace sandbox {
+ 
+@@ -69,6 +70,8 @@ TargetNtCreateSection(NtCreateSectionFunction orig_CreateSection,
+       break;
+     }
+ 
++    SYSCALL_BROKERING_WITH_CONTEXT(&path->ObjectName);
++
+     CountedParameterSet<NameBased> params;
+     std::wstring_view object_name =
+         base::win::UnicodeStringToView(path->ObjectName);
+@@ -98,6 +101,7 @@ TargetNtCreateSection(NtCreateSectionFunction orig_CreateSection,
+ 
+     __try {
+       *section_handle = answer.handle;
++      SYSCALL_BROKERED();
+       return answer.nt_status;
+     } __except (EXCEPTION_EXECUTE_HANDLER) {
+       break;
+diff --git a/sandbox/win/src/target_services.cc b/sandbox/win/src/target_services.cc
+--- a/sandbox/win/src/target_services.cc
++++ b/sandbox/win/src/target_services.cc
+@@ -27,6 +27,7 @@
+ #include "sandbox/win/src/sandbox_nt_util.h"
+ #include "sandbox/win/src/sandbox_types.h"
+ #include "sandbox/win/src/sharedmem_ipc_client.h"
++#include "sandbox/win/TargetGeckoClient.h"
+ 
+ namespace sandbox {
+ namespace {
+@@ -147,6 +148,8 @@ std::optional<base::span<const uint8_t>> TargetServicesBase::GetDelegateData() {
+ 
+ // Failure here is a breach of security so the process is terminated.
+ void TargetServicesBase::LowerToken() {
++  mozilla::sandboxing::AutoProfileMarker profileInterval(
++      "TargetServicesBase::LowerToken");
+   if (!SetProcessIntegrityLevel(g_shared_delayed_integrity_level)) {
+     ::TerminateProcess(::GetCurrentProcess(), SBOX_FATAL_INTEGRITY);
+   }

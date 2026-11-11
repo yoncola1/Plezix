@@ -1,0 +1,91 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    worker-type: b-linux-docker-amd
+    worker:
+        max-run-time: 5400
+    run:
+        resources:
+            - 'build/unix/build-gcc/build-gcc.sh'
+        toolchain-artifact: public/build/gcc.tar.zst
+    fetches:
+        toolchain:
+            - linux64-toolchain-sysroot
+
+linux64-gcc-8:
+    description: "GCC 8 toolchain build"
+    treeherder:
+        symbol: TL(gcc8)
+    run:
+        script: build-gcc-linux.sh
+    fetches:
+        fetch:
+            - gcc-8.5.0
+            - gmp-6.1.0
+            - isl-0.16.1
+            - mpc-1.0.3
+            - mpfr-3.1.4
+
+linux64-gcc-11:
+    description: "GCC 11 toolchain build"
+    treeherder:
+        symbol: TL(gcc11)
+    worker:
+        env:
+            # Override gcc's configure so that the resulting compiler
+            # still works with the base binutils version, while not
+            # building against it to avoid a longer chain of dependencies.
+            gcc_cv_as_gdwarf_5_flag: "no"
+            gcc_cv_as_debug_line_32_flag: "no"
+            gcc_cv_as_debug_line_64_flag: "no"
+            gcc_cv_as_dwarf_4_debug_line_flag: "no"
+            gcc_cv_as_gdwarf_4_flag: "no"
+            gcc_cv_as_working_gdwarf_n_flag: "no"
+    run:
+        script: build-gcc-linux.sh
+        toolchain-alias:
+            - linux64-gcc
+            - linux64-gcc-base
+    fetches:
+        fetch:
+            - gcc-11.5.0
+            - gmp-6.1.0
+            - isl-0.16.1
+            - mpc-1.0.3
+            - mpfr-3.1.4
+
+linux64-gcc-14:
+    description: "GCC 14 toolchain build"
+    treeherder:
+        symbol: TL(gcc14)
+    run:
+        script: build-gcc-linux.sh
+    fetches:
+        fetch:
+            - gcc-14.2.0
+            - gmp-6.1.0
+            - isl-0.16.1
+            - mpc-1.0.3
+            - mpfr-3.1.4
+
+linux64-gcc-11-sixgill:
+    description: "sixgill GCC plugin build"
+    treeherder:
+        symbol: TL(sixgill)
+    run:
+        script: build-gcc-sixgill-plugin-linux.sh
+        resources:
+            - 'taskcluster/scripts/misc/build-gcc-sixgill-plugin-linux.sh'
+        toolchain-artifact: public/build/sixgill.tar.xz
+    fetches:
+        fetch:
+            - gcc-11.5.0
+            - gmp-6.1.0
+            - isl-0.16.1
+            - mpc-1.0.3
+            - mpfr-3.1.4
+            - sixgill
+        toolchain:
+            - linux64-gcc-11

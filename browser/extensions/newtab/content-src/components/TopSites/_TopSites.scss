@@ -1,0 +1,977 @@
+@use 'sass:math';
+
+/* stylelint-disable max-nesting-depth */
+
+$top-sites-size: $grid-unit-small;
+$rich-icon-size: 96px;
+$default-icon-wrapper-size: 40px;
+$default-icon-size: 40px;
+$default-icon-offset: 6px;
+$half-base-gutter: math.div($base-gutter, 2);
+$hover-transition-duration: 150ms;
+$letter-fallback-color: $white;
+$calculated-max-width-medium: $break-point-medium + $card-width;
+$calculated-max-width-large: $break-point-large + $card-width;
+$calculated-max-width-twice-large: $break-point-large + 2 * $card-width;
+$calculated-max-width-widest: $break-point-widest + $card-width;
+$calculated-max-width-twice-widest: $break-point-widest + 2 * $card-width;
+
+.top-sites-list {
+  // Positioned ancestor for the drag-time drop overlay. Scoped to when the
+  // overlay is actually present (a grouped-pins drag) via :has(), so the classic
+  // layout stays identical to main rather than gaining a positioned context it
+  // never needs.
+  &:has(.pinned-drag-overlay) {
+    position: relative;
+  }
+
+  &:not(.dnd-active) {
+    // Reveal on keyboard focus, not any :focus-within. A pointer click can
+    // leave focus on the menu button, and :focus-within would then keep the
+    // tile showing hover once the pointer leaves.
+    .top-site-outer:is(
+    .active,
+    :has(.top-site-inner:hover),
+    :has(.top-site-inner :focus-visible)
+  ) {
+      @include wallpaper-contrast-fix;
+
+      // Ideally this would just match button --button-background-color-hover.
+      // However, --button-background-color-hover uses currentColor.
+      // We cannot change the shortcut's color to match,
+      // so we just use --button-text-color-hover directly.
+      background: color-mix(in srgb, var(--button-text-color-hover) 14%, transparent);
+
+      .tile {
+        box-shadow: 0 2px 8px 0 var(--newtab-section-card-box-shadow-color);
+      }
+
+      .icon-pin-small {
+        opacity: 1;
+      }
+
+      .lightWallpaper &,
+      .darkWallpaper & {
+        background: color-mix(in srgb, var(--button-text-color-hover) 14%, transparent);
+
+        @media (prefers-contrast) {
+          background-color: var(--background-color-box);
+        }
+      }
+    }
+  }
+
+  list-style: none;
+  margin: 0 calc(var(--space-large) * -1);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center; // Center shortcuts when fewer than max number of sites per row
+  row-gap: var(--space-small);
+
+  @media (min-width: $break-point-layout-variant) {
+    grid-template-columns: repeat(6, auto);
+  }
+
+  @media (min-width: $break-point-widest) {
+    grid-template-columns: repeat(8, auto);
+  }
+
+  @media (min-width: $break-point-sections-variant) {
+    grid-template-columns: repeat(var(--top-sites-max-per-row, 8), auto);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // Two columns
+  @media (max-width: $break-point-medium) {
+    > :nth-child(2n+1) {
+      @include context-menu-open-middle;
+    }
+
+    > :nth-child(2n) {
+      @include context-menu-open-left;
+    }
+  }
+
+  // Four columns
+  @media (min-width: $break-point-medium) and (max-width: $break-point-large) {
+    :nth-child(4n) {
+      @include context-menu-open-left;
+    }
+  }
+
+  @media (min-width: $break-point-medium) and (max-width: $calculated-max-width-medium) {
+    :nth-child(4n+3) {
+      @include context-menu-open-left;
+    }
+  }
+
+  // Six columns
+  @media (min-width: $break-point-large) and (max-width: $calculated-max-width-twice-large) {
+    :nth-child(6n) {
+      @include context-menu-open-left;
+    }
+  }
+
+  @media (min-width: $break-point-large) and (max-width: $calculated-max-width-large) {
+    :nth-child(6n+5) {
+      @include context-menu-open-left;
+    }
+  }
+
+  // Eight columns
+  @media (min-width: $break-point-widest) and (max-width: $calculated-max-width-twice-widest) {
+    :nth-child(8n) {
+      @include context-menu-open-left;
+    }
+  }
+
+  @media (min-width: $break-point-widest) and (max-width: $calculated-max-width-widest) {
+    :nth-child(8n+7) {
+      @include context-menu-open-left;
+    }
+  }
+
+  .hide-for-narrow {
+    display: none;
+  }
+
+  @media (min-width: $break-point-medium) {
+    .hide-for-narrow {
+      display: none;
+    }
+  }
+
+  @media (min-width: $break-point-large) {
+    .hide-for-narrow {
+      display: none;
+    }
+  }
+
+  @media (min-width: $break-point-widest) {
+    .hide-for-narrow {
+      display: inline-block;
+    }
+  }
+
+  .hide-for-small {
+    display: none;
+  }
+
+  @media (min-width: $break-point-sections-variant) {
+    .hide-for-small {
+      display: inline-block;
+    }
+  }
+}
+
+.discovery-stream.ds-layout.ds-layout-topsites {
+  display: flex;
+  justify-content: center;
+
+  .top-sites-list {
+    padding-block-start: 0;
+  }
+
+  // @nova-cleanup(remove-conditional): Remove .nova-enabled selector, make default behavior
+  .nova-enabled & {
+    display: contents;
+  }
+}
+
+// Drag wrapper around all shortcuts.
+.pinned-drag-overlay {
+  position: absolute;
+  inset: 0;
+  // Behind the tiles, so the drop highlight reads under them rather than
+  // tinting the tile faces.
+  z-index: -1;
+
+  // A visual area around each row to signal a droppable area.
+  .pinned-drop-box {
+    position: absolute;
+
+    // Extend the highlight a bit past the element so the drop area reads larger.
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block-start: 0;
+      inset-block-end: calc(-1 * var(--space-small));
+      inset-inline: calc(-1 * var(--space-small));
+      border-radius: var(--border-radius-large);
+      background: color-mix(
+        in srgb,
+        var(--border-color-selected) 15%,
+        transparent
+      );
+      outline: 1px dashed var(--border-color-selected);
+    }
+
+    @include wallpaper-contrast-fix;
+
+    .pinned-area-label {
+      position: absolute;
+      inset-block-end: 100%;
+      inset-inline-start: 0;
+      margin-block-end: var(--space-small);
+      display: flex;
+      align-items: center;
+      gap: var(--space-small);
+      white-space: nowrap;
+      font-size: var(--font-size-small);
+      color: var(--newtab-text-primary-color);
+    }
+  }
+}
+
+// container for drop zone
+.top-site-outer {
+  width: 120px;
+  // Compact layout spacing migrated from .thumbs-ui-compact
+  margin-block-end: var(--space-medium);
+  border-radius: var(--border-radius-large);
+  display: inline-block;
+  position: relative;
+
+  .top-site-inner {
+    position: relative;
+
+    > a {
+      padding: var(--space-large) var(--space-large) var(--space-xsmall);
+      color: inherit;
+      display: block;
+      outline: none;
+    }
+  }
+
+  // Gated to :not(.dnd-active) so a drag never shows hover chrome — macOS
+  // freezes :hover on the dragged tile and we can't use pointer-events (the
+  // placeholder is the drop target). Keep new tile-hover styling behind this.
+  // Keyboard focus rather than :focus-within, so focus left on the menu button
+  // by a pointer click doesn't leave the "..." button stuck visible.
+  .top-sites-list:not(.dnd-active) &:is(:has(.top-site-inner:hover), :has(.top-site-inner :focus-visible)) {
+    .context-menu-button {
+      opacity: 1;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 200ms;
+      }
+    }
+
+    .tile {
+      background-color: var(--newtab-background-color-secondary);
+    }
+
+    .icon-pin-small {
+      opacity: 1;
+    }
+  }
+
+  &:not(:hover, :active, .active) {
+    @include wallpaper-contrast-fix;
+  }
+
+  .tile {
+    color-scheme: initial;
+  }
+
+  &.active .context-menu-button {
+    opacity: 1;
+    background-color: var(--newtab-button-active-background);
+  }
+
+  // Hide the hover state pin icon and menu button on the drag ghost.
+  &.drag-ghost :is(.context-menu-button, .icon-pin-small) {
+    display: none;
+  }
+
+  .tile {
+    background: var(--newtab-background-card);
+    border: var(--card-border);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--card-box-shadow);
+    height: calc(var(--size-item-large) * 2);
+    width: calc(var(--size-item-large) * 2);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: var(--font-size-xxlarge);
+    cursor: pointer;
+
+    .icon-wrapper {
+      border-radius: var(--border-radius-small);
+      width: $default-icon-wrapper-size;
+      height: $default-icon-wrapper-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+
+      &.letter-fallback {
+        border-radius: var(--border-radius-circle);
+        color: var(--newtab-contextual-text-secondary-color);
+
+        &::before {
+          content: attr(data-fallback);
+          font-size: var(--font-size-xlarge);
+          transform: none;
+          position: static;
+        }
+      }
+    }
+
+    .top-site-icon {
+      background-color: transparent;
+      border-radius: var(--border-radius-medium);
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+    }
+  }
+
+  // The "..." menu trigger stays a plain button while Bug 2062844 is pending,
+  // so it carries its own icon and hover/focus styling rather than inheriting
+  // moz-button's. See the comment on the button in TopSite.jsx.
+  .context-menu-button {
+    background-image: url('chrome://global/skin/icons/more.svg');
+    border: 0;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    fill: var(--newtab-button-text);
+    -moz-context-properties: fill;
+    height: var(--size-item-medium);
+    width: var(--size-item-medium);
+    inset-inline-end: 0;
+    inset-block-start: var(--space-medium);
+    position: absolute;
+    opacity: 0;
+
+    &:hover {
+      background-color: var(--newtab-button-hover-background);
+
+      &:active {
+        background-color: var(--newtab-button-active-background);
+      }
+    }
+
+    &:focus-visible {
+      background-color: var(--newtab-button-focus-background);
+      outline: var(--focus-outline); // Backup for when wallpaper is not set
+      opacity: 1;
+
+      .lightWallpaper &,
+      .darkWallpaper & {
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: var(--border-radius-small);
+          outline: var(--focus-outline);
+          color-scheme: initial; // Override wallpaper-contrast-fix for focus outline color
+        }
+      }
+    }
+  }
+
+  .context-menu {
+    inset-block-start: calc(var(--space-large) + var(--space-xlarge));
+  }
+
+  .icon-pin-small {
+    inset-block-start: var(--space-small);
+    inset-inline-start: var(--space-small);
+    opacity: 0;
+    position: absolute;
+  }
+
+  .top-site-button {
+    padding: var(--space-large) var(--space-large) var(--space-small);
+
+    &:focus + div .context-menu-button {
+      opacity: 1;
+    }
+
+    &:focus .tile {
+      .lightWallpaper &,
+      .darkWallpaper & {
+        outline: var(--focus-outline);
+        color-scheme: initial;
+      }
+    }
+  }
+
+  .title {
+    color: var(--newtab-contextual-text-primary-color);
+    padding-block-start: var(--space-small);
+    font: caption;
+    text-align: center;
+    position: relative;
+
+    .icon {
+      margin-inline-end: var(--space-xxsmall);
+      fill: currentColor;
+    }
+
+    .sponsored-label {
+      color: var(--newtab-contextual-text-secondary-color);
+      font-size: var(--newtab-font-size-xsmall);
+    }
+
+    &:not(.sponsored) .sponsored-label {
+      display: none;
+    }
+
+    .search-topsite {
+      margin-inline-end: var(--space-xxsmall);
+      fill: currentColor;
+      background-size: var(--icon-size-xsmall);
+      height: var(--icon-size-xsmall);
+      width: var(--icon-size-xsmall);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      position: static;
+      display: inline-block;
+      color: var(--icon-color);
+      box-shadow: none;
+    }
+  }
+
+  .rich-icon {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+  }
+
+  .default-icon,
+  .search-topsite {
+    background-size: $default-icon-size;
+    height: $default-icon-wrapper-size;
+    width: $default-icon-wrapper-size;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-size-xlarge);
+
+    &[data-fallback]::before {
+      content: attr(data-fallback);
+    }
+  }
+
+  .search-topsite {
+    background-image: url('chrome://global/skin/icons/search-glass.svg');
+    background-size: 16px;
+    background-color: var(--newtab-primary-action-background);
+    border-radius: var(--border-radius-circle);
+    -moz-context-properties: fill;
+    fill: var(--newtab-primary-element-text-color);
+    box-shadow: var(--card-box-shadow);
+    transition: background-size $hover-transition-duration,
+      bottom $hover-transition-duration,
+      inset-inline-end $hover-transition-duration,
+      height $hover-transition-duration,
+      width $hover-transition-duration;
+    height: 32px;
+    width: 32px;
+    // Bug 1967304 - $variable
+    inset-block-end: -$default-icon-offset; // stylelint-disable-line declaration-property-value-disallowed-list
+    inset-inline-end: -$default-icon-offset; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
+  &.placeholder {
+    .tile {
+      box-shadow: var(--card-box-shadow);
+      cursor: default;
+    }
+  }
+
+  &.search-shortcut {
+    .rich-icon {
+      background-color: $white;
+    }
+  }
+
+  .edit-button {
+    background-image: url('chrome://global/skin/icons/edit.svg');
+  }
+
+  // Source tile during a zero-pin drag: taken out of grid flow (so adding the
+  // pin-area placeholder nets zero cells) while staying rendered, so the native
+  // drag isn't aborted and dragend still fires. Not display:none, which can do
+  // both.
+  &.collapsed {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  // Zero-pin drop placeholder keeps its slot but stays invisible until the drag
+  // is over the drop zone. opacity (not visibility) so it stays hit-testable:
+  // when it's the only cell on a new row, visibility:hidden drops it from
+  // hit-testing and dragover never lands on it, so it never reveals.
+  &.zero-pin-placeholder {
+    opacity: 0;
+
+    &.over {
+      opacity: 1;
+    }
+  }
+
+  &.dragged {
+    .tile {
+      *,
+      &::before {
+        display: none;
+      }
+    }
+
+    .title {
+      visibility: hidden;
+    }
+  }
+}
+
+.add-button {
+  @include wallpaper-contrast-fix;
+}
+
+// For a full row, the button is hidden until the last tile is hovered.
+.add-button-hidden {
+  position: absolute;
+  inset-block-start: calc(var(--space-large) + var(--size-item-large));
+  inset-inline-start: 100%;
+  width: var(--col-width);
+  display: flex;
+  justify-content: center;
+  // Transparent block padding enlarges the button's hover hit-area.
+  padding-block: var(--space-xxlarge);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: opacity 100ms;
+  }
+
+  .top-site-outer:hover & {
+    opacity: 1;
+    transition-delay: 200ms;
+  }
+
+  // Show it when someone tabs through the row. We can't just use :focus-within,
+  // since a mouse click leaves focus behind and the button would stay visible.
+  // The second line is for the add button itself: it's a moz-button, and
+  // :focus-visible can't see inside those (Bug 2062844).
+  .top-sites-list:has(:focus-visible) &,
+  &:focus-within {
+    opacity: 1;
+  }
+
+  // Keep it hidden while a context menu is open (the open tile gets .active):
+  // the menu taking focus would otherwise trigger the reveal.
+  .top-sites-list:has(.top-site-outer.active) & {
+    opacity: 0;
+  }
+}
+
+// In-grid variant: center the button on its own tile. Horizontal centering uses
+// auto inline margins so it stays centered in RTL.
+.add-button-tile .add-button {
+  position: absolute;
+  inset-block-start: calc(var(--space-large) + var(--size-item-large));
+  inset-inline: 0;
+  margin-inline: auto;
+  transform: translateY(-50%);
+}
+
+// Sole item (no shortcuts): span the full row so the button stays centered
+// despite the column gaps, and reserve tile height so the row doesn't collapse
+// around the absolutely-positioned button.
+.add-button-tile:only-child {
+  grid-column: 1 / -1;
+  // Reserves the height of a shortcut tile + label
+  min-height: calc(96px + var(--space-small) * 7);
+}
+
+// @nova-cleanup(remove-conditional): Make default behavior, remove .nova-enabled selector
+.nova-enabled {
+  .add-button-hidden,
+  .add-button-tile .add-button {
+    inset-block-start: calc(var(--col-width) - var(--size-item-large));
+  }
+
+  .add-button-tile {
+    // Reserves the height of a shortcut tile (75px) + label (32px) + padding
+    min-height: calc(107px + var(--space-small));
+  }
+}
+
+// Preserve shortcuts-refresh variant from compact thumbs UI
+.shortcuts-refresh {
+  .top-site-outer {
+    margin-block-end: 0;
+  }
+}
+
+.edit-topsites-wrapper {
+  .top-site-inner > .top-site-button > .tile {
+    border: 1px solid var(--border-color);
+  }
+
+  .modal {
+    border: 0;
+    min-height: fit-content;
+    inset-block-start: var(--space-xxlarge);
+
+    @media (min-width: $break-point-medium) {
+      width: $wrapper-max-width-medium;
+    }
+
+    @media (min-width: $break-point-large) {
+      width: $wrapper-max-width-large;
+    }
+  }
+}
+
+.topsite-form {
+  $form-width: 300px;
+  $form-spacing: 32px;
+
+  .section-title {
+    font-size: inherit;
+    margin: 0 0 var(--space-large);
+  }
+
+  .form-input-container {
+    max-width: $form-width + 3 * $form-spacing + $rich-icon-size;
+    margin: 0 auto;
+    padding: var(--space-xxlarge);
+
+    .top-site-outer {
+      pointer-events: none;
+    }
+  }
+
+  .search-shortcuts-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-xxlarge);
+
+    > div {
+      margin-inline-end: calc(var(--space-xxlarge) * -1);
+    }
+
+    .top-site-outer {
+      margin-inline-start: 0;
+      margin-inline-end: var(--space-xxlarge);
+    }
+  }
+
+  .top-site-outer {
+    padding: 0;
+    margin: var(--space-xlarge) 0 0;
+    margin-inline-start: var(--space-xxlarge);
+  }
+
+  .fields-and-preview {
+    display: flex;
+  }
+
+  label {
+    font-size: $section-title-font-size;
+  }
+
+  .form-wrapper {
+    width: 100%;
+
+    .field {
+      position: relative;
+
+      .icon-clear-input {
+        position: absolute;
+        transform: translateY(-50%);
+        inset-block-start: 50%;
+        inset-inline-end: var(--space-small);
+      }
+    }
+
+    .url {
+      input:dir(ltr) {
+        padding-inline-end: var(--space-xxlarge);
+      }
+
+      input:dir(rtl) {
+        padding-inline-start: var(--space-xxlarge);
+
+        &:not(:placeholder-shown) {
+          direction: ltr;
+          text-align: end;
+        }
+      }
+    }
+
+    .custom-image-input-container {
+      margin-block-start: var(--space-xsmall);
+
+      .loading-container {
+        width: 16px;
+        height: 16px;
+        overflow: hidden;
+        position: absolute;
+        transform: translateY(-50%);
+        inset-block-start: 50%;
+        inset-inline-end: var(--space-small);
+      }
+
+      // This animation is derived from Firefox's tab loading animation
+      // See https://searchfox.org/mozilla-central/rev/b29daa46443b30612415c35be0a3c9c13b9dc5f6/browser/themes/shared/tabs.inc.css#208-216
+      .loading-animation {
+        @keyframes tab-throbber-animation {
+          100% { transform: translateX(-960px); }
+        }
+
+        @keyframes tab-throbber-animation-rtl {
+          100% { transform: translateX(960px); }
+        }
+
+        width: 960px;
+        height: 16px;
+        -moz-context-properties: fill;
+        fill: var(--newtab-primary-action-background);
+        background-image: url('chrome://browser/skin/tabbrowser/loading.svg');
+        animation: tab-throbber-animation 1.05s steps(60) infinite;
+
+        &:dir(rtl) {
+          animation-name: tab-throbber-animation-rtl;
+        }
+      }
+    }
+
+    input {
+      &[type='text'] {
+        background-color: var(--newtab-background-color-secondary);
+        border: 1px solid var(--border-color-interactive);
+        margin: var(--space-small) 0;
+        padding: 0 var(--space-small);
+        height: 32px;
+        width: 100%;
+        font-size: inherit;
+
+        &[disabled] {
+          border: 1px solid var(--border-color-interactive-disabled);
+          box-shadow: none;
+          opacity: 0.4;
+        }
+      }
+    }
+
+    .invalid {
+      input {
+        &[type='text'] {
+          border: 1px solid var(--border-color-error);
+          box-shadow: $input-error-boxshadow;
+        }
+      }
+    }
+
+    .error-tooltip {
+      animation: fade-up-tt 450ms;
+      background: var(--newtab-status-error);
+      border-radius: var(--border-radius-small);
+      color: $white;
+      inset-inline-start: var(--space-xxsmall);
+      padding: var(--space-xsmall) var(--space-medium);
+      position: absolute;
+      inset-block-start: var(--space-xxlarge);
+      z-index: 1;
+
+      // tooltip caret
+      &::before {
+        background: var(--newtab-status-error);
+        inset-block-end: calc(var(--space-small) * -1);
+        content: '.';
+        height: 16px;
+        inset-inline-start: var(--space-medium);
+        position: absolute;
+        text-indent: -999px;
+        inset-block-start: calc(var(--space-small) * -1);
+        transform: rotate(45deg);
+        white-space: nowrap;
+        width: 16px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .actions {
+    justify-content: flex-end;
+    padding: var(--space-large) var(--space-xlarge);
+  }
+
+  // "Use a custom image" and the action buttons share one padded row.
+  .topsite-form-footer {
+    display: flex;
+    align-items: center;
+    padding: var(--space-large) var(--space-xlarge);
+
+    .actions {
+      margin-inline-start: auto;
+      padding: 0;
+      border-block-start: none;
+    }
+  }
+
+  @media (max-width: $break-point-medium) {
+    .fields-and-preview {
+      flex-direction: column;
+
+      .top-site-outer {
+        margin-inline-start: 0;
+      }
+    }
+  }
+
+  // prevent text selection of keyword label when clicking to select
+  .title {
+    user-select: none;
+  }
+
+  // CSS styled checkbox
+  [type='checkbox']:not(:checked),
+  [type='checkbox']:checked {
+    inset-inline-start: -9999px; // stylelint-disable-line declaration-property-value-disallowed-list
+    position: absolute;
+  }
+
+  [type='checkbox']:not(:checked) + label,
+  [type='checkbox']:checked + label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+  }
+
+  $checkbox-offset: calc(var(--space-small) * -1);
+
+  [type='checkbox']:not(:checked) + label::before,
+  [type='checkbox']:checked + label::before {
+    background: var(--newtab-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    content: '';
+    height: 21px;
+    inset-inline-start: calc(var(--space-small) * -1);
+    position: absolute;
+    inset-block-start: calc(var(--space-small) * -1);
+    width: 21px;
+    z-index: 1;
+
+    [dir='rtl'] & {
+      inset-inline-start: auto;
+      inset-inline-end: calc(var(--space-small) * -1);
+    }
+  }
+
+  // checkmark
+  [type='checkbox']:not(:checked) + label::after,
+  [type='checkbox']:checked + label::after {
+    background: url('chrome://global/skin/icons/check.svg') no-repeat center center;
+    content: '';
+    height: 21px;
+    inset-inline-start: calc(var(--space-small) * -1);
+    position: absolute;
+    inset-block-start: calc(var(--space-small) * -1);
+    width: 21px;
+    -moz-context-properties: fill;
+    fill: var(--newtab-primary-action-background);
+    z-index: 2;
+
+    [dir='rtl'] & {
+      inset-inline-start: auto;
+      inset-inline-end: calc(var(--space-small) * -1);
+    }
+  }
+
+  // when selected, highlight the tile
+  [type='checkbox']:checked + label {
+    .tile {
+      box-shadow: $shadow-focus;
+    }
+  }
+
+  // checkmark changes
+  [type='checkbox']:not(:checked) + label::after {
+    opacity: 0;
+  }
+
+  [type='checkbox']:checked + label::after {
+    opacity: 1;
+  }
+
+  // accessibility
+  [type='checkbox']:checked:focus + label::before,
+  [type='checkbox']:not(:checked):focus + label::before {
+    border: 1px dotted var(--newtab-primary-action-background);
+  }
+}
+
+.top-sites-list,
+.fields-and-preview {
+  .top-site-outer {
+    .top-site-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      .title-label {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        white-space: wrap;
+        word-break: break-word;
+        min-height: 2lh;
+        width: 100px;
+        padding: 0 var(--space-xsmall);
+      }
+
+      &.sponsored .title-label {
+        -webkit-line-clamp: 1;
+        min-height: 1lh;
+      }
+    }
+  }
+}
+
+// used for tooltips below form element
+@keyframes fade-up-tt {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// used for TopSites impression wrapper
+.topsite-impression-observer {
+  position: absolute;
+  inset-block-start: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

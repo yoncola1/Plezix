@@ -1,0 +1,74 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef DOM_TEXTDIRECTIVEFINDER_H_
+#define DOM_TEXTDIRECTIVEFINDER_H_
+#include "mozilla/RefPtr.h"
+#include "mozilla/TimeStamp.h"
+#include "nsTArray.h"
+
+struct TextDirective;
+namespace mozilla::dom {
+
+class Document;
+class Range;
+
+/**
+ * @brief Finds one or more `TextDirective`s in a `Document`.
+ *
+ * This class is designed to consume the `TextDirective`s.
+ * Every `TextDirective` which is found is removed from the list of uninvoked
+ * text directives, and is returned as an `Range`.
+ *
+ * Internally, finding a text directive in a document uses Gecko's find-in-page
+ * implementation `nsFind`.
+ */
+class TextDirectiveFinder final {
+ public:
+  ~TextDirectiveFinder();
+
+  void Traverse(nsCycleCollectionTraversalCallback& aCallback);
+  /**
+   * @brief Attempts to convert all uninvoked text directives to ranges.
+   *
+   * This method is the main entry point of this class.
+   */
+  nsTArray<RefPtr<Range>> FindTextDirectivesInDocument();
+
+  /**
+   * Returns true if there are text directives left which were not yet found in
+   * the document.
+   */
+  bool HasUninvokedDirectives() const;
+
+  /**
+   * Finds a range for _one_ text directive.
+   */
+  RefPtr<Range> FindRangeForTextDirective(const TextDirective& aTextDirective);
+
+ private:
+  friend class FragmentDirective;
+  TextDirectiveFinder(Document* aDocument,
+                      nsTArray<TextDirective>&& aTextDirectives);
+  NotNull<RefPtr<Document>> mDocument;
+  nsTArray<TextDirective> mUninvokedTextDirectives;
+
+  /**
+   * Member variables for telemetry.
+   * Since measured function might called multiple times, we accumulate values
+   * and report them in destructor.
+   */
+  TimeStamp::DurationType mFindTextDirectivesDuration{};
+  int64_t mFoundDirectiveCount{0};
+};
+}  // namespace mozilla::dom
+
+inline void ImplCycleCollectionTraverse(
+    nsCycleCollectionTraversalCallback& aCallback,
+    mozilla::dom::TextDirectiveFinder& aField, const char* aName,
+    uint32_t aFlags = 0) {
+  aField.Traverse(aCallback);
+}
+
+#endif

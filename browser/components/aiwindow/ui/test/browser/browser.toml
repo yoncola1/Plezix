@@ -1,0 +1,276 @@
+# AI window shell, chat and tab tests.
+# Smart Window UI tests belong in browser_smartwindow.toml, which runs as a
+# separate browser session so neither manifest exhausts a 32-bit address space.
+[DEFAULT]
+prefs = [
+  "browser.newtab.preload=false",
+  "browser.search.suggest.enabled=false",
+  "browser.urlbar.suggest.searches=false",
+  "browser.smartwindow.endpoint=http://localhost:0/v1"
+]
+support-files = [
+  "head.js",
+  "head_aitab.js",
+  "head_aiwindow_group_tabs_button.js",
+  "head_smartformfill_autocomplete.js",
+  "head_history_thumbnails.js",
+  "head_smartformfill_form_review.js",
+  "head_smartformfill_telemetry.js",
+  "test_agent_monitor_item_page.html",
+  "test_agent_monitor_item.mjs",
+  "test_ai_action_result_page.html",
+  "test_ai_action_result.mjs",
+  "test_ai_action_confirmation_page.html",
+  "test_ai_action_confirmation.mjs",
+  "test_aitab_table_page.html",
+  "test_aitab_table.mjs",
+  "test_assistant_message_footer_page.html",
+  "test_applied_memories_page.html",
+  "test_chat_assistant_citations_page.html",
+  "test_chat_assistant_citations.mjs",
+  "test_chat_assistant_error.html",
+  "test_chat_assistant_error.mjs",
+  "test_chip_overflow_page.html",
+  "test_chip_overflow.mjs",
+  "test_kit_mention_page.html",
+  "test_memories_icon_button_page.html",
+  "test_memories_icon_button.mjs",
+  "test_grouped_chips_page.html",
+  "test_grouped_chips.mjs",
+  "test_smartformfill_autocomplete.html",
+  "test_smartwindow_promo_page.html",
+  "test_smartwindow_promo.mjs",
+  "test_smartformfill_telemetry.html",
+  "test_smartwindow_prompts_page.html",
+  "test_smartwindow_prompts.mjs",
+  "test_smartwindow_panel_list_page.html",
+  "test_smartwindow_panel_list.mjs",
+  "test_smartformfill.html",
+  "test_smartformfill_formless_fields.html",
+  "test_smartformfill_multiple_forms.html",
+  "test_smartformfill_populated_fields.html",
+  "test_smartformfill_shadow_dom.html",
+  "test_smartformfill_supported_fields.html",
+  "test_website_chip_page.html",
+  "test_website_chip.mjs",
+  "test_website_select_page.html",
+  "test_website_select.mjs",
+  "test_website_confirmation_page.html",
+  "test_website_confirmation.mjs",
+  "test_aiwindow_tab_close_integration.html",
+  "test_context_url_page.html",
+  "test_context_url_page2.html",
+  "test_context_url_injection_page.html"
+]
+skip-if = [
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11' && tsan", # Bug 2057552
+]
+
+["browser_actor_user_prompt.js"]
+
+["browser_aichat_content_action_log_order.js"]
+
+["browser_aichat_content_actors.js"]
+
+["browser_aichat_content_background_token.js"]
+
+["browser_aichat_content_loader_suppression.js"]
+
+["browser_aichat_content_message_event.js"]
+
+["browser_aichat_content_overflow.js"]
+
+["browser_aichat_content_scrolling_position.js"]
+
+["browser_aichat_message.js"]
+
+["browser_aichat_message_table.js"]
+
+["browser_aichat_open_link.js"]
+
+["browser_aichat_same_link_click.js"]
+
+["browser_aitab_actions.js"]
+
+["browser_aitab_blocks.js"]
+
+["browser_aitab_menu_triggers.js"]
+
+["browser_aitab_page.js"]
+
+["browser_aitab_store_integration.js"]
+
+["browser_aitab_table.js"]
+
+["browser_aitab_tool_ui.js"]
+
+["browser_aiwindow_account_auth.js"]
+
+["browser_aiwindow_agent_monitor_chat.js"]
+
+["browser_aiwindow_agent_monitor_item.js"]
+
+["browser_aiwindow_agentui_command.js"]
+
+["browser_aiwindow_ai_action_confirmation.js"]
+
+["browser_aiwindow_ai_action_result.js"]
+skip-if = [
+  "verify", # Bug 2057151 - intermittent no-output timeout under test-verify (post-test focus race in CI); same class as bug 2060705
+]
+
+["browser_aiwindow_aifeature_contract.js"]
+
+["browser_aiwindow_applied_memories_button.js"]
+
+["browser_aiwindow_ask_button.js"]
+
+["browser_aiwindow_assistant_message_footer.js"]
+
+["browser_aiwindow_auto_tab_grouping_labeling.js"]
+
+["browser_aiwindow_chat_tool_ui.js"]
+
+["browser_aiwindow_firstrun.js"]
+skip-if = [
+  "os == 'mac' && os_version == '15.30' && arch == 'aarch64'", # Bug 2012723
+]
+
+["browser_aiwindow_followup_tokens.js"]
+
+["browser_aiwindow_group_tabs_button_interaction.js"]
+skip-if = [
+  "verify", # Bug 2060705
+]
+
+["browser_aiwindow_group_tabs_button_model.js"]
+skip-if = [
+  "verify", # Bug 2060705
+]
+
+["browser_aiwindow_group_tabs_button_suggestions.js"]
+skip-if = [
+  "verify", # Bug 2060705
+]
+
+["browser_aiwindow_group_tabs_button_tab_management.js"]
+skip-if = [
+  "verify", # Bug 2060705
+]
+
+["browser_aiwindow_grouped_chips.js"]
+
+["browser_aiwindow_history_menu.js"]
+
+["browser_aiwindow_immersive.js"]
+
+["browser_aiwindow_integration.js"]
+
+["browser_aiwindow_kit_mention.js"]
+
+["browser_aiwindow_last_usage_timestamp.js"]
+
+["browser_aiwindow_memories.js"]
+
+["browser_aiwindow_memories_toggle_prefs.js"]
+
+["browser_aiwindow_monitor_button.js"]
+
+["browser_aiwindow_monitor_button_panel.js"]
+
+["browser_aiwindow_monitor_create.js"]
+
+["browser_aiwindow_new_chat_button.js"]
+
+["browser_aiwindow_newtab_preload.js"]
+
+["browser_aiwindow_organize_tabs_callout.js"]
+
+["browser_aiwindow_panels.js"]
+
+["browser_aiwindow_session_restore.js"]
+
+["browser_aiwindow_smartbar.js"]
+
+["browser_aiwindow_smartbar_ask.js"]
+
+["browser_aiwindow_smartbar_autofill.js"]
+
+["browser_aiwindow_smartbar_chat_active_navigate.js"]
+
+["browser_aiwindow_smartbar_command_palette.js"]
+
+["browser_aiwindow_smartbar_context_chips.js"]
+
+["browser_aiwindow_smartbar_context_paste.js"]
+skip-if = [
+  "os == 'linux' && os_version == '22.04' && arch == 'x86_64' && display == 'wayland' && opt", # Bug 2057548
+]
+
+["browser_aiwindow_smartbar_focus.js"]
+
+["browser_aiwindow_smartbar_inline_mentions.js"]
+
+["browser_aiwindow_smartbar_inline_mentions_context.js"]
+
+["browser_aiwindow_smartbar_inline_mentions_suggestions.js"]
+
+["browser_aiwindow_smartbar_input_cta.js"]
+
+["browser_aiwindow_smartbar_interactions.js"]
+
+["browser_aiwindow_smartbar_keyboard_navigation.js"]
+
+["browser_aiwindow_smartbar_placeholder.js"]
+
+["browser_aiwindow_smartbar_quicksuggest.js"]
+
+["browser_aiwindow_smartbar_shortcuts.js"]
+
+["browser_aiwindow_smartbar_suggestions.js"]
+
+["browser_aiwindow_smartbar_tab_group_mentions.js"]
+
+["browser_aiwindow_smartbar_tab_switch.js"]
+
+["browser_aiwindow_smartbar_tabgroups.js"]
+
+["browser_aiwindow_smartbar_telemetry.js"]
+skip-if = [
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11' && tsan",
+  "os == 'win' && os_version == '11.26200' && arch == 'x86_64' && asan", # Bug 2055099
+]
+
+["browser_aiwindow_smartwindow_promo.js"]
+
+["browser_aiwindow_stop_generation.js"]
+
+["browser_aiwindow_switcher.js"]
+
+["browser_aiwindow_tab_close_integration.js"]
+
+["browser_aiwindow_theme.js"]
+
+["browser_aiwindow_token_parsing.js"]
+
+["browser_aiwindow_transparency.js"]
+
+["browser_aiwindow_url_security.js"]
+
+["browser_aiwindow_urlbar_chat.js"]
+
+["browser_aiwindow_website_chip.js"]
+
+["browser_aiwindow_website_confirmation.js"]
+
+["browser_aiwindow_website_select.js"]
+
+["browser_aiwindowui.js"]
+
+["browser_chat_assistant_citations.js"]
+
+["browser_chat_conversation_memories_context.js"]
+
+["browser_open_aiwindow.js"]
+
+["browser_sidebar_aiwindow.js"]

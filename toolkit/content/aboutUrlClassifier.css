@@ -1,0 +1,45 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/in-content/info-pages.css");
+
+.major-section {
+  margin-block: 2em 1em;
+  font-size: large;
+  text-align: start;
+  font-weight: var(--font-weight-bold);
+}
+
+#provider-table > tbody > tr > td:last-child,
+#cache-table > tbody > tr > td:last-child {
+  text-align: center;
+}
+
+#debug-table,
+#cache-table {
+  margin-top: 20px;
+}
+
+.options > .toggle-container-with-text {
+  display: inline-flex;
+}
+
+button {
+  margin-inline: 0 8px;
+  padding: 3px;
+}
+
+.content-classifier-verdict {
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-bold);
+  margin-block: var(--space-xsmall);
+}
+
+.content-classifier-verdict:empty {
+  display: none;
+}
+
+.content-classifier-results {
+  width: auto;
+}

@@ -1,0 +1,98 @@
+fuzzy-if(Android,0-8,0-30) == background-image-zoom-1.html background-image-zoom-1-ref.html
+fails-if(useDrawSnapshot) == background-image-zoom-2.html about:blank
+== image-in-iframe-1.html image-in-iframe-1-ref.html
+== image-seam-1a.html image-seam-1-ref.html
+== image-seam-1b.html image-seam-1-ref.html
+fuzzy-if(Android,0-255,0-154) == image-seam-2.html  image-seam-2-ref.html  # Bug 1128229
+== image-zoom-1.html image-zoom-1-ref.html
+== image-zoom-2.html image-zoom-1-ref.html
+== invalid-url-image-1.html invalid-url-image-1-ref.html
+== sync-image-switch-1a.html sync-image-switch-1-ref.html
+== sync-image-switch-1b.html sync-image-switch-1-ref.html
+== sync-image-switch-1c.html sync-image-switch-1-ref.html
+== sync-image-switch-1d.html sync-image-switch-1-ref.html
+
+# Tests for "object-fit" & "object-position"
+== image-object-fit-dyn-1.html image-object-fit-dyn-1-ref.html
+== image-object-fit-with-background-1.html image-object-fit-with-background-1-ref.html
+fuzzy-if(swgl&&cocoaWidget,0-1,0-2) == image-object-fit-with-background-2.html image-object-fit-with-background-2-ref.html
+== image-object-position-dyn-1.html image-object-position-dyn-1-ref.html
+== image-object-position-with-background-1.html image-object-position-with-background-1-ref.html
+fuzzy-if(winWidget,0-117,0-374) fuzzy-if(cocoaWidget&&swgl,0-1,0-3) == image-object-position-with-background-2.html image-object-position-with-background-2-ref.html  # Bug 1128229
+
+# Tests for image-orientation used with 'from-image' (note that all
+# image-orientation tests are fuzzy because the JPEG images do not perfectly
+# reproduce blocks of solid color, even at maximum quality):
+fuzzy(0-2,0-5) == image-orientation-from-image.html?none     image-orientation-ref.html?0
+fuzzy(0-1,0-1) == image-orientation-from-image.html?0        image-orientation-ref.html?0
+fuzzy(0-1,0-1) == image-orientation-from-image.html?90       image-orientation-ref.html?90
+fuzzy(0-1,0-1) == image-orientation-from-image.html?180      image-orientation-ref.html?180
+fuzzy(0-1,0-1) == image-orientation-from-image.html?270      image-orientation-ref.html?270
+fuzzy(0-1,0-1) == image-orientation-from-image.html?0&flip   image-orientation-ref.html?0&flip
+fuzzy(0-1,0-1) == image-orientation-from-image.html?90&flip  image-orientation-ref.html?90&flip
+fuzzy(0-1,0-1) == image-orientation-from-image.html?180&flip image-orientation-ref.html?180&flip
+fuzzy(0-1,0-1) == image-orientation-from-image.html?270&flip image-orientation-ref.html?270&flip
+
+# Tests for image-orientation used with an explicit 'none' orientation:
+fuzzy(0-1,0-1) == image-orientation-explicit-none.html image-orientation-ref.html?0
+
+# Tests for image-orientation:from-image used on generated content:
+fuzzy(0-1,0-1) == image-orientation-generated-content.html image-orientation-generated-content-ref.html
+
+fuzzy(0-1,0-1) == image-orientation-dynamic.html image-orientation-dynamic-ref.html
+
+# <img srcset> tests
+== image-srcset-basic-selection-0.1x.html image-srcset-basic-selection-0.1x-ref.html
+== image-srcset-basic-selection-2x.html image-srcset-basic-selection-2x-ref.html
+== image-srcset-basic-selection-0.5x.html image-srcset-basic-selection-0.5x-ref.html
+== image-srcset-basic-selection-0.6x.html image-srcset-basic-selection-0.6x-ref.html
+== image-srcset-basic-selection-1.5x.html image-srcset-basic-selection-1.5x-ref.html
+== image-srcset-basic-selection-1x.html image-srcset-basic-selection-1x-ref.html
+== image-srcset-basic-selection-width-0.5x.html image-srcset-basic-selection-width-0.5x-ref.html
+== image-srcset-basic-selection-width-10x.html image-srcset-basic-selection-width-10x-ref.html
+== image-srcset-basic-selection-width-2x.html image-srcset-basic-selection-width-2x-ref.html
+== image-srcset-basic-selection-width-1x.html image-srcset-basic-selection-width-1x-ref.html
+== image-srcset-default-2x.html image-srcset-default-2x-ref.html
+== image-srcset-default-1x.html image-srcset-default-1x-ref.html
+== image-srcset-default-src-2x.html image-srcset-default-src-2x-ref.html
+== image-srcset-default-src-1x.html image-srcset-default-src-1x-ref.html
+== image-srcset-isize.html image-srcset-isize-ref.html
+== image-srcset-svg-3x.html image-srcset-svg-3x-ref.html
+== image-srcset-svg-2x.html image-srcset-svg-2x-ref.html
+== image-srcset-svg-1x.html image-srcset-svg-1x-ref.html
+== image-srcset-svg-default-2x.html image-srcset-svg-default-2x-ref.html
+== image-srcset-svg-default-1x.html image-srcset-svg-default-1x-ref.html
+
+== image-resize-percent-height.html image-resize-ref.html
+== image-resize-percent-width.html image-resize-ref.html
+
+skip-if(Android) == chrome://reftest/content/image/moz-broken-matching-1.html chrome://reftest/content/image/moz-broken-matching-1-ref.html
+skip-if(Android) == chrome://reftest/content/image/moz-broken-matching-lazy-load.html chrome://reftest/content/image/moz-broken-matching-1-ref.html
+
+== img-invalidation-local-transform-1.html img-invalidation-local-transform-1-ref.html
+
+# An image under a reference frame whose origin is not on a device pixel must
+# be rasterized at the size of the rect it snaps to: WebRender snaps it with the
+# frame's origin composed in, so the raster size has to be picked with it too.
+# Picked in the frame's local space it would come out a device pixel taller,
+# and as the origin's phase changes, e.g. under a transform animated from
+# script, the image would change shape (bugs 2070683 and 2086864). That is
+# where WebRender snaps to, so the pairing only holds on the WebRender path.
+skip-if(useDrawSnapshot) pref(layout.disable-pixel-alignment,true) pref(layout.css.devPixelsPerPx,"1.0") == image-refframe-fractional-raster-1.html?100.6,0 image-fractional-raster-1-ref.html?101,200,200
+skip-if(useDrawSnapshot) pref(layout.disable-pixel-alignment,true) pref(layout.css.devPixelsPerPx,"1.0") == image-refframe-nested-fractional-raster-1.html image-fractional-raster-1-ref.html?101,200,200
+
+# The origin of an outer svg's content is snapped to a device pixel by
+# WebRender, so the raster size of an image inside it has to be picked from the
+# snapped origin (bug 2086864).
+pref(layout.disable-pixel-alignment,true) pref(layout.css.devPixelsPerPx,"1.0") == image-svg-snapped-origin-raster-1.html image-fractional-raster-1-ref.html?101,201,201
+
+# A fractional scroll offset must not change the raster size: the scroll offset
+# is normalized out of the item in app units and re-applied by WebRender rounded
+# to a whole device pixel, so the image's rect is snapped at its unscrolled
+# position, and the raster size has to be picked there too. Picked at the
+# scrolled position it would come out a row taller than the snapped rect at
+# this phase and the right size at others, so the image would change shape on
+# every other repaint during a scroll (bug 2080185). That is where WebRender
+# snaps to, so the pairing only holds on the WebRender path.
+skip-if(useDrawSnapshot) pref(layout.disable-pixel-alignment,true) pref(layout.css.devPixelsPerPx,"1.0") == image-scrolled-fractional-raster-1.html?300.5,0.5 image-fractional-raster-1-ref.html?300,200,200
+== unknown-protocol.html unknown-protocol-ref.html

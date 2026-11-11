@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MozPromo tests</title>
+    <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+    <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"></script>
+    <link
+      rel="stylesheet"
+      href="chrome://mochikit/content/tests/SimpleTest/test.css"
+    />
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
+    <script
+      type="module"
+      src="chrome://global/content/elements/moz-promo.mjs"
+    ></script>
+  </head>
+
+  <body>
+    <p id="display"></p>
+    <div id="content">
+      <moz-promo
+        id="promoMessage"
+        heading="Heading"
+        message="Test message"
+      ></moz-promo>
+      <moz-promo id="noProvidedHeadingOrMessage"></moz-promo>
+      <moz-promo
+        id="defaultType"
+        heading="Default type"
+        type="default"
+      ></moz-promo>
+      <moz-promo
+        id="vibrantType"
+        heading="Vibrant type"
+        type="vibrant"
+      ></moz-promo>
+      <moz-promo id="actionsPromo" heading="Actions slot" type="default">
+        <button slot="actions">Action button</button>
+      </moz-promo>
+      <moz-promo
+        id="supportLinkPromo"
+        heading="Support link slot"
+        type="vibrant"
+      >
+        <a slot="support-link" href="#learn-more">Learn more</a>
+      </moz-promo>
+      <moz-promo id="imageSlotPromo" heading="Image slot">
+        <div slot="image">
+          <img src="" alt="" />
+        </div>
+      </moz-promo>
+      <moz-promo
+        id="dismissablePromo"
+        heading="Dismissable"
+        message="This promo can be dismissed"
+        dismissable
+      ></moz-promo>
+    </div>
+    <pre id="test"></pre>
+    <script class="testbody" type="application/javascript">
+      function assertContainersAlignment(testPromo) {
+        let imageAlignment = testPromo.imageAlignment;
+        is(
+          testPromo.imageSrc,
+          "chrome://global/skin/illustrations/about-license.svg",
+          "imageSrc should not change when modifying imageAlignment."
+        );
+        let container = testPromo.shadowRoot.querySelector(".container");
+        let children = container.children;
+        is(children.length, 2, "There should still be only two containers.");
+        if (imageAlignment == "end" || imageAlignment == "center") {
+          is(
+            children[0].className,
+            "text-container",
+            `The text container should be before the image container when the image is aligned at the ${imageAlignment}.`
+          );
+          is(
+            children[1].className,
+            "image-container",
+            `The image container should be after the text container when the image is aligned at the ${imageAlignment}.`
+          );
+        }
+        if (imageAlignment == "start") {
+          is(
+            children[0].className,
+            "image-container",
+            "The image container should be before the text container when the image is aligned at the start."
+          );
+          is(
+            children[1].className,
+            "text-container",
+            "The text container should be after the image container when the image is aligned at the start."
+          );
+        }
+      }
+
+      add_task(async function test_component_declaration() {
+        const mozPromo = document.querySelector("#promoMessage");
+        ok(mozPromo, "moz-promo component is rendered");
+
+        const heading = mozPromo.shadowRoot.querySelector(".heading");
+        is(
+          heading.textContent.trim(),
+          "Heading",
+          "Heading is correctly rendered"
+        );
+        const message = mozPromo.shadowRoot.querySelector(".message");
+        is(
+          message.textContent.trim(),
+          "Test message",
+          "Message is correctly rendered"
+        );
+      });
+
+      // The promos under test are appended to the end of the page, which can
+      // leave the close button below the fold in a short window. Scroll it into
+      // view first, since synthesizeMouseAtCenter dispatches at the button's
+      // current coordinates without scrolling to it.
+      function clickCloseButton(mozPromo) {
+        mozPromo.closeButton.scrollIntoView({ block: "center" });
+        synthesizeMouseAtCenter(mozPromo.closeButton, {});
+      }
+
+      add_task(async function test_dismissable() {
+        const mozPromo = document.createElement("moz-promo");
+        document.getElementById("content").append(mozPromo);
+        await mozPromo.updateComplete;
+
+        ok(!mozPromo.closeButton, "Close button is hidden by default");
+
+        mozPromo.dismissable = true;
+        await mozPromo.updateComplete;
+        ok(mozPromo.closeButton, "Close button is shown when dismissable");
+        await SimpleTest.promiseWaitForCondition(
+          () => mozPromo.closeButton.ariaLabel == "Close",
+          "Waiting for the close button localization"
+        );
+        is(
+          mozPromo.closeButton.title,
+          "Close",
+          "Close button has a localized title"
+        );
+
+        mozPromo.dismissable = false;
+        await mozPromo.updateComplete;
+        ok(!mozPromo.closeButton, "Close button is hidden when disabled");
+        mozPromo.remove();
+      });
+
+      add_task(async function test_dismiss_event_removes_promo() {
+        const mozPromo = document.createElement("moz-promo");
+        mozPromo.dismissable = true;
+        document.getElementById("content").append(mozPromo);
+        await mozPromo.updateComplete;
+
+        let dismissEvent;
+        let dismissed = new Promise(resolve => {
+          document.addEventListener(
+            "promo:user-dismissed",
+            event => {
+              dismissEvent = event;
+              resolve();
+            },
+            { once: true }
+          );
+        });
+        clickCloseButton(mozPromo);
+        await dismissed;
+
+        ok(dismissEvent, "Dismiss event bubbles to the document");
+        ok(dismissEvent.bubbles, "Dismiss event is configured to bubble");
+        ok(dismissEvent.cancelable, "Dismiss event is cancelable");
+        ok(!mozPromo.isConnected, "Promo is removed after dismissal");
+      });
+
+      add_task(async function test_prevent_dismiss() {
+        const mozPromo = document.createElement("moz-promo");
+        mozPromo.dismissable = true;
+        document.getElementById("content").append(mozPromo);
+        await mozPromo.updateComplete;
+
+        let dismissed = new Promise(resolve => {
+          mozPromo.addEventListener(
+            "promo:user-dismissed",
+            event => {
+              event.preventDefault();
+              resolve();
+            },
+            { once: true }
+          );
+        });
+        clickCloseButton(mozPromo);
+        await dismissed;
+
+        ok(mozPromo.isConnected, "Canceled dismissal keeps the promo mounted");
+        mozPromo.remove();
+      });
+
+      add_task(async function test_keyboard_dismiss() {
+        const mozPromo = document.createElement("moz-promo");
+        mozPromo.dismissable = true;
+        document.getElementById("content").append(mozPromo);
+        await mozPromo.updateComplete;
+
+        let dismissed = new Promise(resolve => {
+          mozPromo.addEventListener("promo:user-dismissed", resolve, {
+            once: true,
+          });
+        });
+        mozPromo.closeButton.focus();
+        synthesizeKey("KEY_Enter");
+        await dismissed;
+
+        ok(!mozPromo.isConnected, "Keyboard activation dismisses the promo");
+      });
+
+      add_task(async function test_heading_and_message_display() {
+        const mozPromo = document.querySelector("#noProvidedHeadingOrMessage");
+        let heading = mozPromo.shadowRoot.querySelector(".heading");
+        let message = mozPromo.shadowRoot.querySelector(".message");
+
+        ok(
+          !heading,
+          "Heading element is not displayed if it hasn't been initialized"
+        );
+        ok(
+          !message.textContent.trim(),
+          "Message element has no text if it hasn't been initialized"
+        );
+
+        mozPromo.heading = "Dynamically added heading";
+        await mozPromo.updateComplete;
+        heading = mozPromo.shadowRoot.querySelector(".heading");
+        is(
+          heading.textContent.trim(),
+          "Dynamically added heading",
+          "New heading element is displayed"
+        );
+
+        mozPromo.message = "Dynamically added message";
+        await mozPromo.updateComplete;
+        message = mozPromo.shadowRoot.querySelector(".message");
+        is(
+          message.textContent.trim(),
+          "Dynamically added message",
+          "New message element is displayed"
+        );
+      });
+
+      add_task(async function test_promo_types() {
+        const defaultMozPromo = document.querySelector("#defaultType");
+        const vibrantMozPromo = document.querySelector("#vibrantType");
+        is(
+          defaultMozPromo.getAttribute("type"),
+          "default",
+          "Assigned type should not change during initial lifecycle"
+        );
+        is(
+          vibrantMozPromo.getAttribute("type"),
+          "vibrant",
+          "Assigned type should not change during initial lifecycle"
+        );
+
+        let defaultStyles = window.getComputedStyle(defaultMozPromo);
+        let vibrantStyles = window.getComputedStyle(vibrantMozPromo);
+
+        // We are not testing the validity of the values assigned to the
+        // background-color. We are ensuring the colors change
+        // appropriate when using the "default" or "vibrant" types of
+        // moz-promo.
+
+        let defaultBackgroundColor = defaultStyles.getPropertyValue(
+          "--promo-background-color"
+        );
+        let vibrantBackgroundColor = vibrantStyles.getPropertyValue(
+          "--promo-background-color"
+        );
+
+        isnot(
+          defaultBackgroundColor,
+          vibrantBackgroundColor,
+          "Each type should have a unique background color"
+        );
+
+        // Now we are going to swap the types of the elements and assert
+        // that the background colors correctly changed;
+        defaultMozPromo.type = "vibrant";
+        vibrantMozPromo.type = "default";
+        await defaultMozPromo.updateComplete;
+        await vibrantMozPromo.updateComplete;
+
+        let newDefaultBackgroundColor = defaultStyles.getPropertyValue(
+          "--promo-background-color"
+        );
+        let newVibrantBackgroundColor = vibrantStyles.getPropertyValue(
+          "--promo-background-color"
+        );
+        is(
+          newDefaultBackgroundColor,
+          vibrantBackgroundColor,
+          "The default promo was switched to the vibrant type, the background color should be updated"
+        );
+        is(
+          newVibrantBackgroundColor,
+          defaultBackgroundColor,
+          "The vibrant promo was switched to the default type, the background color should be updated"
+        );
+      });
+
+      add_task(async function test_image_alignment() {
+        let testBody = document.getElementById("content");
+        let testPromo = document.createElement("moz-promo");
+        testPromo.id = "test-promo";
+        testPromo.imageSrc =
+          "chrome://global/skin/illustrations/about-license.svg";
+        testBody.append(testPromo);
+        await testPromo.updateComplete;
+
+        ok(
+          document.getElementById("test-promo"),
+          "Generated moz-promo should be added to the DOM"
+        );
+        is(
+          testPromo.imageSrc,
+          "chrome://global/skin/illustrations/about-license.svg",
+          "imageSrc should not change when moz-promo is added to the document"
+        );
+        is(
+          testPromo.imageAlignment,
+          "start",
+          "imageAlignment should be set to 'start' by default"
+        );
+
+        // Assert that the logical ordering of the DOM nodes occurs when changing
+        // iconAlignment
+        assertContainersAlignment(testPromo);
+
+        testPromo.imageAlignment = "end";
+        await testPromo.updateComplete;
+        assertContainersAlignment(testPromo);
+
+        testPromo.imageAlignment = "center";
+        await testPromo.updateComplete;
+        assertContainersAlignment(testPromo);
+      });
+
+      add_task(async function test_actions_slot() {
+        let actionsPromo = document.getElementById("actionsPromo");
+        ok(
+          actionsPromo,
+          "Promo element should exist when using an element for the actions slot"
+        );
+        let actionsButton = actionsPromo.querySelector("button");
+        is(
+          actionsPromo.actionsSlot.assignedElements()[0],
+          actionsButton,
+          "Slotted button is correctly assigned"
+        );
+
+        actionsButton.remove();
+        await actionsPromo.updateComplete;
+        is(
+          actionsPromo.actionsSlot.assignedElements().length,
+          0,
+          "The actions slot updates correctly when the slotted element is removed"
+        );
+
+        actionsPromo.append(actionsButton);
+        await actionsPromo.updateComplete;
+        is(
+          actionsPromo.actionsSlot.assignedElements()[0],
+          actionsButton,
+          "Adding the actions button back to the promo element updates the slotted element correctly"
+        );
+      });
+
+      add_task(async function test_support_link_slot() {
+        let supportLinkPromo = document.getElementById("supportLinkPromo");
+        ok(
+          supportLinkPromo,
+          "Promo element should exist when using an element for the support-link slot"
+        );
+        let supportLink = supportLinkPromo.querySelector("a");
+        is(
+          supportLinkPromo.supportLinkSlot.assignedElements()[0],
+          supportLink,
+          "Slotted support link is correctly assigned"
+        );
+
+        supportLink.remove();
+        await supportLinkPromo.updateComplete;
+        is(
+          supportLinkPromo.supportLinkSlot.assignedElements().length,
+          0,
+          "The support-link slot updates correctly when the slotted element is removed"
+        );
+
+        supportLinkPromo.append(supportLink);
+        await supportLinkPromo.updateComplete;
+        is(
+          supportLinkPromo.supportLinkSlot.assignedElements()[0],
+          supportLink,
+          "Adding the support link back to the promo element updates the slotted element correctly"
+        );
+      });
+
+      add_task(async function test_image_slot() {
+        let imageSlotPromo = document.getElementById("imageSlotPromo");
+        ok(
+          imageSlotPromo,
+          "Promo element should exist when using an element for the image slot"
+        );
+        let slottedImage = imageSlotPromo.querySelector("[slot=image]");
+        let container = imageSlotPromo.shadowRoot.querySelector(".container");
+        is(
+          imageSlotPromo.imageSlot.assignedElements()[0],
+          slottedImage,
+          "Slotted image content is assigned when imageSrc is not set"
+        );
+        is(
+          container.children[0],
+          imageSlotPromo.imageSlot,
+          "The image slot is before the text container when aligned at the start"
+        );
+
+        for (let alignment of ["end", "center"]) {
+          imageSlotPromo.imageAlignment = alignment;
+          await imageSlotPromo.updateComplete;
+          is(
+            container.children[1],
+            imageSlotPromo.imageSlot,
+            `The image slot is after the text container when aligned at the ${alignment}`
+          );
+        }
+
+        imageSlotPromo.imageSrc =
+          "chrome://global/skin/illustrations/about-license.svg";
+        await imageSlotPromo.updateComplete;
+        ok(
+          !imageSlotPromo.imageSlot,
+          "The image slot is not rendered when imageSrc is set"
+        );
+        ok(
+          imageSlotPromo.shadowRoot.querySelector(".image-container"),
+          "The image container is rendered when imageSrc is set"
+        );
+        ok(
+          !slottedImage.assignedSlot,
+          "Slotted image content is not assigned when imageSrc is set"
+        );
+
+        imageSlotPromo.imageSrc = "";
+        await imageSlotPromo.updateComplete;
+        is(
+          imageSlotPromo.imageSlot.assignedElements()[0],
+          slottedImage,
+          "Slotted image content is assigned again when imageSrc is cleared"
+        );
+      });
+    </script>
+  </body>
+</html>

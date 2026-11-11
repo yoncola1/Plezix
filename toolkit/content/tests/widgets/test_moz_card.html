@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>moz-card tests</title>
+    <script src="chrome://mochikit/content/tests/SimpleTest/SimpleTest.js"></script>
+    <script src="chrome://mochikit/content/tests/SimpleTest/EventUtils.js"></script>
+    <link
+      rel="stylesheet"
+      href="chrome://mochikit/content/tests/SimpleTest/test.css"
+    />
+    <script
+      type="module"
+      src="chrome://global/content/elements/moz-card.mjs"
+    ></script>
+    <link rel="stylesheet" href="chrome://global/skin/in-content/common.css" />
+  </head>
+
+  <body>
+    <p id="display"></p>
+    <div id="content">
+      <moz-card id="default-card" data-l10n-id="test-id-1">
+        <div>TEST</div>
+      </moz-card>
+      <hr />
+
+      <moz-card
+        id="accordion-card"
+        data-l10n-id="test-id-2"
+        heading="accordion heading"
+        type="accordion"
+      >
+        <div>accordion test content</div>
+      </moz-card>
+      <hr />
+
+      <moz-card
+        id="heading-icon-card"
+        data-l10n-id="test-id-3"
+        heading="heading with icon"
+        type="accordion"
+        iconSrc="chrome://global/skin/icons/settings.svg"
+        class="withHeadingIcon"
+      >
+        <div>heading icon test content</div>
+      </moz-card>
+      <hr />
+
+      <moz-card id="cover-image-card" data-l10n-id="test-id-4">
+        <div>basic cover image test content</div>
+        <img src="/path/to/image.png" alt slot="cover-image" />
+      </moz-card>
+      <hr />
+
+      <moz-card id="custom-cover-image-card" data-l10n-id="test-id-5">
+        <div>custom cover image test content</div>
+        <picture slot="cover-image">
+          <img src="/path/to/image.png" alt class="custom-cover-image" />
+        </picture>
+      </moz-card>
+      <hr />
+
+      <moz-card id="empty-cover-image-card" data-l10n-id="test-id-6">
+        <div>empty cover image test content</div>
+        <div slot="cover-image"></div>
+      </moz-card>
+      <hr />
+    </div>
+    <pre id="test"></pre>
+    <script>
+      let generatedSlotText = "generated slotted element";
+      let testHeading = "test heading";
+      const { BrowserTestUtils } = ChromeUtils.importESModule(
+        "resource://testing-common/BrowserTestUtils.sys.mjs"
+      );
+
+      function assertBasicProperties(card, expectedValues) {
+        info(`Testing card with ID: ${card.id}`);
+        ok(card, "The card element should exist");
+        is(card.localName, "moz-card", "The card should have the correct tag");
+        let l10nId = card.getAttribute("data-l10n-id");
+        if (expectedValues["data-l10n-id"]) {
+          is(
+            l10nId,
+            expectedValues["data-l10n-id"],
+            "l10n id should be unchanged"
+          );
+        }
+        let cardContent = card.firstElementChild;
+        ok(cardContent, "The content should exist");
+        is(
+          cardContent.textContent,
+          expectedValues.contentText,
+          "The content should be unchanged"
+        );
+        is(
+          card.contentEl.id,
+          "content",
+          "The content container should have the correct ID"
+        );
+        if (card.type != "accordion") {
+          is(
+            card.contentEl.getAttribute("aria-describedby"),
+            "content",
+            "The content container should be described by the 'content' slot"
+          );
+        }
+
+        if (expectedValues.headingText) {
+          ok(card.headingEl, "Heading should exist");
+          is(
+            card.headingEl.textContent,
+            expectedValues.headingText,
+            "Heading should match the 'heading' attribute value"
+          );
+        }
+      }
+
+      async function assertAccordionCardProperties(card) {
+        ok(card.detailsEl, "The details element should exist");
+        ok(
+          card.detailsEl.querySelector("summary"),
+          "There should be a summary element within the details element"
+        );
+        ok(
+          card.detailsEl
+            .querySelector("summary")
+            .querySelector(".chevron-icon"),
+          "There should be a chevron icon div within the summary element"
+        );
+
+        let cardToggled = BrowserTestUtils.waitForEvent(card, "toggle");
+        card.detailsEl.querySelector("summary").click();
+        let openEvent = await cardToggled;
+        is(openEvent.newState, "open", "Event shows new state is open");
+        is(openEvent.oldState, "closed", "Event shows old state is closed");
+        ok(
+          card.detailsEl.open,
+          "When the accordion is closed, it should expand when clicked"
+        );
+
+        cardToggled = BrowserTestUtils.waitForEvent(card, "toggle");
+        card.detailsEl.querySelector("summary").click();
+        let closeEvent = await cardToggled;
+        is(closeEvent.newState, "closed", "Event shows new state is closed");
+        is(closeEvent.oldState, "open", "Event shows old state is open");
+        ok(
+          !card.detailsEl.open,
+          "When the accordion is open, it should collapse when clicked"
+        );
+      }
+
+      function assertHeadingIconCardProperties(card) {
+        ok(
+          card.shadowRoot
+            .querySelector("#heading-wrapper")
+            .querySelector(
+              "img[src='chrome://global/skin/icons/settings.svg']"
+            ),
+          "The heading icon element should exist"
+        );
+      }
+
+      function assertCoverImageCardDisplay(card, expectedDisplayValue) {
+        let coverImage = card.shadowRoot.querySelector("#cover-image");
+        ok(
+          getComputedStyle(coverImage).display === expectedDisplayValue,
+          `The cover image should have display: ${expectedDisplayValue}`
+        );
+      }
+
+      async function generateCard(values) {
+        let card = document.createElement("moz-card");
+        for (let [key, value] of Object.entries(values)) {
+          card.setAttribute(key, value);
+        }
+        let div = document.createElement("div");
+        div.innerText = generatedSlotText;
+        card.appendChild(div);
+        document.body.appendChild(card);
+        await card.updateComplete;
+        document.body.appendChild(document.createElement("hr"));
+        return card;
+      }
+
+      add_task(async function testDefaultCard() {
+        assertBasicProperties(document.getElementById("default-card"), {
+          "data-l10n-id": "test-id-1",
+          contentText: "TEST",
+        });
+
+        let defaultCard = await generateCard({
+          "data-l10n-id": "generated-id-1",
+          heading: testHeading,
+          id: "generated-default-card",
+        });
+
+        assertBasicProperties(defaultCard, {
+          "data-l10n-id": "generated-id-1",
+          contentText: generatedSlotText,
+          heading: testHeading,
+        });
+
+        assertCoverImageCardDisplay(defaultCard, "none");
+      });
+
+      add_task(async function testAccordionCard() {
+        assertBasicProperties(document.getElementById("accordion-card"), {
+          "data-l10n-id": "test-id-2",
+          contentText: "accordion test content",
+          headingText: "accordion heading",
+        });
+        await assertAccordionCardProperties(
+          document.getElementById("accordion-card"),
+          {
+            "data-l10n-id": "test-id-2",
+            contentText: "accordion test content",
+            headingText: "accordion heading",
+          }
+        );
+
+        let accordionCard = await generateCard({
+          type: "accordion",
+          id: "generated-accordion-card",
+          "data-l10n-id": "generated-id-2",
+          heading: testHeading,
+        });
+
+        assertBasicProperties(accordionCard, {
+          "data-l10n-id": "generated-id-2",
+          headingText: testHeading,
+          contentText: generatedSlotText,
+        });
+        await assertAccordionCardProperties(accordionCard, {
+          "data-l10n-id": "generated-id-2",
+          headingText: testHeading,
+          contentText: generatedSlotText,
+        });
+
+        assertCoverImageCardDisplay(accordionCard, "none");
+
+        accordionCard = await generateCard({
+          type: "accordion",
+          id: "expanded-accordion-card",
+          "data-l10n-id": "generated-id-2",
+          heading: testHeading,
+          expanded: true,
+        });
+        is(
+          accordionCard.expanded,
+          true,
+          "Accordion card should be expanded on initial render"
+        );
+        is(
+          accordionCard.detailsEl.open,
+          true,
+          "The details element should be expanded"
+        );
+      });
+
+      add_task(async function testCardRole() {
+        let card = await generateCard({
+          id: "generated-role-card",
+          role: "presentation",
+        });
+
+        let article = card.shadowRoot.querySelector("article");
+        is(
+          article.getAttribute("role"),
+          "presentation",
+          "The role should be mapped to the inner article element"
+        );
+        ok(
+          !card.hasAttribute("role"),
+          "The role attribute should be removed from the host element"
+        );
+
+        let cardWithoutRole = await generateCard({
+          id: "generated-no-role-card",
+        });
+        let articleWithoutRole =
+          cardWithoutRole.shadowRoot.querySelector("article");
+        ok(
+          !articleWithoutRole.hasAttribute("role"),
+          "The article should not have a role when none is provided"
+        );
+      });
+
+      add_task(async function testHeadingIconCard() {
+        assertBasicProperties(document.getElementById("heading-icon-card"), {
+          "data-l10n-id": "test-id-3",
+          contentText: "heading icon test content",
+          headingText: "heading with icon",
+        });
+        assertHeadingIconCardProperties(
+          document.getElementById("heading-icon-card"),
+          {
+            "data-l10n-id": "test-id-3",
+            contentText: "heading icon test content",
+            headingText: "heading with icon",
+          }
+        );
+
+        assertCoverImageCardDisplay(
+          document.getElementById("heading-icon-card"),
+          "none"
+        );
+
+        let headingIconCard = await generateCard({
+          class: "heading-icon-class",
+          type: "accordion",
+          iconSrc: "chrome://global/skin/icons/settings.svg",
+          id: "generated-heading-icon-card",
+          "data-l10n-id": "generated-id-3",
+          heading: testHeading,
+        });
+
+        assertBasicProperties(headingIconCard, {
+          "data-l10n-id": "generated-id-3",
+          headingText: testHeading,
+          contentText: generatedSlotText,
+        });
+        assertHeadingIconCardProperties(headingIconCard, {
+          "data-l10n-id": "generated-id-3",
+          headingText: testHeading,
+          contentText: generatedSlotText,
+        });
+      });
+
+      add_task(async function testBasicCoverImageCard() {
+        let card = document.getElementById("cover-image-card");
+
+        assertBasicProperties(card, {
+          "data-l10n-id": "test-id-4",
+          contentText: "basic cover image test content",
+        });
+
+        assertCoverImageCardDisplay(card, "block");
+      });
+
+      add_task(async function testCustomCoverImageCard() {
+        let card = document.getElementById("custom-cover-image-card");
+
+        assertBasicProperties(card, {
+          "data-l10n-id": "test-id-5",
+          contentText: "custom cover image test content",
+        });
+
+        assertCoverImageCardDisplay(card, "block");
+      });
+
+      add_task(async function testEmptyCoverImageCard() {
+        let card = document.getElementById("empty-cover-image-card");
+
+        assertBasicProperties(card, {
+          "data-l10n-id": "test-id-6",
+          contentText: "empty cover image test content",
+        });
+
+        assertCoverImageCardDisplay(card, "none");
+      });
+
+      add_task(async function testTreeItem() {
+        let card = await generateCard({
+          type: "accordion",
+          heading: testHeading,
+          "aria-level": "2",
+          "aria-posinset": "3",
+          "aria-setsize": "7",
+        });
+        card.treeItem = true;
+        await card.updateComplete;
+
+        let summary = card.summaryEl;
+        let article = card.shadowRoot.querySelector("article");
+        is(
+          summary.getAttribute("role"),
+          "treeitem",
+          "The summary has the role"
+        );
+        ok(
+          !card.detailsEl.hasAttribute("role"),
+          "The details element keeps its native semantics, so its expanded state changes are reported"
+        );
+        is(
+          article.getAttribute("role"),
+          "none",
+          "The article is presentational"
+        );
+        ok(
+          !article.hasAttribute("aria-labelledby"),
+          "The presentational article is not labelled"
+        );
+        is(summary.getAttribute("aria-level"), "2", "The level moves");
+        is(summary.getAttribute("aria-posinset"), "3", "The position moves");
+        is(summary.getAttribute("aria-setsize"), "7", "The size moves");
+        ok(
+          !card.hasAttribute("aria-level") &&
+            !card.hasAttribute("aria-posinset") &&
+            !card.hasAttribute("aria-setsize"),
+          "The attributes are removed from the card itself"
+        );
+
+        card.headingLevel = 2;
+        await card.updateComplete;
+        is(
+          card.headingEl.localName,
+          "span",
+          "The heading is a span even when a heading level is set"
+        );
+
+        let defaultCard = await generateCard({ heading: testHeading });
+        defaultCard.treeItem = true;
+        await defaultCard.updateComplete;
+        ok(
+          !defaultCard.shadowRoot.querySelector("article").hasAttribute("role"),
+          "A default card ignores treeItem"
+        );
+      });
+    </script>
+  </body>
+</html>

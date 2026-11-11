@@ -1,0 +1,44 @@
+[package]
+name = "crash_helper_common"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bytes = "1"
+mozannotation_server = { path = "../mozannotation_server/" }
+mozbuild = "0.1"
+num-derive = "0.4"
+num-traits = "0.2"
+process_reader = { path = "../process_reader" }
+thiserror = "2"
+
+[target."cfg(any(target_os = \"android\", target_os = \"linux\", target_os = \"macos\"))".dependencies]
+nix = { version = "0.30", features = ["fs", "poll", "socket", "uio", "user"] }
+
+[target."cfg(any(target_os = \"ios\", target_os = \"macos\"))".dependencies]
+getrandom = { version = "0.3" }
+mach2 = "0.6"
+log = "0.4"
+
+[target."cfg(any(target_os = \"android\", target_os = \"linux\"))".dependencies]
+minidump-writer = { git = "https://github.com/rust-minidump/minidump-writer.git", rev = "3ab1604f91db05ec3f3a84d779a2871df7d9afd7" }
+
+[target."cfg(target_os = \"windows\")".dependencies]
+getrandom = { version = "0.3" }
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_Storage_FileSystem",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_IO",
+    "Win32_System_Kernel",
+    "Win32_System_Pipes",
+    "Win32_System_SystemServices",
+    "Win32_System_Threading",
+] }
+
+[build-dependencies]
+linked-hash-map = "0.5"
+yaml-rust = { version = "0.10", package = "yaml-rust2" }

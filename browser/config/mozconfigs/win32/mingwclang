@@ -1,0 +1,2 @@
+MINGW_CPU=i686
+. "$topsrcdir/build/mozconfig.mingwclang"

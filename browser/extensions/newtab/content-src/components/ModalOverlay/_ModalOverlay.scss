@@ -1,0 +1,13 @@
+.modalOverlayOuter {
+  // @backward-compat { version 160 }
+  // The --dialog-* tokens are only defined from Firefox 160, so older versions
+  // fall back to the --popup-* tokens they alias.
+  box-shadow: var(--dialog-box-shadow, var(--popup-box-shadow));
+  padding: 0;
+  border-radius: var(--dialog-border-radius, var(--popup-border-radius));
+  border: var(--border-width) solid var(--dialog-border-color, var(--popup-border-color));
+
+  &::backdrop {
+    background: var(--newtab-overlay-color);
+  }
+}

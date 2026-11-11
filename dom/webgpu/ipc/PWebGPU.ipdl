@@ -1,0 +1,46 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+using mozilla::webgpu::RawId from "mozilla/webgpu/WebGPUTypes.h";
+using mozilla::webgpu::ExternalTextureSourceDescriptor from "mozilla/webgpu/WebGPUTypes.h";
+[MoveOnly] using mozilla::ipc::MutableSharedMemoryHandle from "mozilla/ipc/SharedMemoryHandle.h";
+
+include "mozilla/ipc/ByteBufUtils.h";
+include "mozilla/layers/LayersMessageUtils.h";
+include "mozilla/layers/WebRenderMessageUtils.h";
+include protocol PCanvasManager;
+
+namespace mozilla {
+namespace webgpu {
+
+/**
+ * Represents the connection between a WebGPUChild actor that issues WebGPU
+ * command from the content process, and a WebGPUParent in the compositor
+ * process that runs the commands.
+ */
+async protocol PWebGPU
+{
+  manager PCanvasManager;
+
+parent:
+  async Messages(uint32_t nrOfMessages, ByteBuf serializedMessages, ByteBuf[] dataBuffers, MutableSharedMemoryHandle[] shmems);
+
+  // Ideally this would be sent in Messages(), but we need to implement
+  // SurfaceDescriptor serialization first.
+  async CreateExternalTextureSource(
+    RawId deviceId,
+    RawId queueId,
+    RawId externalTextureSourceId,
+    ExternalTextureSourceDescriptor aDesc
+  );
+
+
+child:
+  async ServerMessage(ByteBuf buf);
+
+  async __delete__();
+};
+
+} // webgpu
+} // mozilla

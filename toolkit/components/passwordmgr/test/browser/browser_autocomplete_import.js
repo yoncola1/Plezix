@@ -1,0 +1,336 @@
+const { ChromeMigrationUtils } = ChromeUtils.importESModule(
+  "moz-src:///browser/components/migration/ChromeMigrationUtils.sys.mjs"
+);
+const { ExperimentAPI } = ChromeUtils.importESModule(
+  "resource://nimbus/ExperimentAPI.sys.mjs"
+);
+const { NimbusTestUtils } = ChromeUtils.importESModule(
+  "resource://testing-common/NimbusTestUtils.sys.mjs"
+);
+const { sinon } = ChromeUtils.importESModule(
+  "resource://testing-common/Sinon.sys.mjs"
+);
+
+// Dummy migrator to change and detect importable behavior.
+const gTestMigrator = {
+  profiles: [],
+
+  getSourceProfiles() {
+    return this.profiles;
+  },
+
+  migrate: sinon
+    .stub()
+    .callsFake(() =>
+      LoginTestUtils.addLogin({ username: "import", password: "pass" })
+    ),
+};
+
+// Showing importables updates counts delayed, so adjust and cleanup.
+add_setup(async function setup() {
+  const debounce = sinon
+    .stub(LoginManagerParent, "SUGGEST_IMPORT_DEBOUNCE_MS")
+    .value(0);
+  const importable = sinon
+    .stub(ChromeMigrationUtils, "getImportableLogins")
+    .resolves(["chrome"]);
+  const migrator = sinon
+    .stub(MigrationUtils, "getMigrator")
+    .resolves(gTestMigrator);
+
+  const doExperimentCleanup = await NimbusTestUtils.enrollWithFeatureConfig({
+    featureId: "password-autocomplete",
+    value: { directMigrateSingleProfile: true },
+  });
+
+  // This makes the last autocomplete test *not* show import suggestions.
+  Services.prefs.setIntPref("signon.suggestImportCount", 3);
+
+  registerCleanupFunction(async () => {
+    await doExperimentCleanup();
+    debounce.restore();
+    importable.restore();
+    migrator.restore();
+    Services.prefs.clearUserPref("signon.suggestImportCount");
+  });
+});
+
+add_task(async function check_fluent_ids() {
+  await document.l10n.ready;
+  MozXULElement.insertFTLIfNeeded("toolkit/main-window/autocomplete.ftl");
+
+  const host = "testhost.com";
+  for (const browser of ChromeMigrationUtils.CONTEXTUAL_LOGIN_IMPORT_BROWSERS) {
+    const id = `autocomplete-import-logins-${browser}`;
+    const message = await document.l10n.formatValue(id, { host });
+    Assert.ok(
+      message.includes(`data-l10n-name="line1"`),
+      `${id} included line1`
+    );
+    Assert.ok(
+      message.includes(`data-l10n-name="line2"`),
+      `${id} included line2`
+    );
+    Assert.ok(message.includes(host), `${id} replaced host`);
+  }
+});
+
+/**
+ * Tests that if the user selects the password import suggestion from
+ * the autocomplete popup, and there is more than one profile available
+ * to import from, that the migration wizard opens to guide the user
+ * through importing those logins.
+ */
+add_task(async function import_suggestion_wizard() {
+  let wizardTab;
+
+  await BrowserTestUtils.withNewTab(
+    {
+      gBrowser,
+      url: "https://example.com" + DIRECTORY_PATH + "form_basic.html",
+    },
+    async function (browser) {
+      const popup = document.getElementById("PopupAutoComplete");
+      Assert.ok(popup, "Got popup");
+      await openACPopup(popup, browser, "#form-basic-username");
+
+      const importableItem = popup.querySelector(
+        `[originaltype="importableLogins"]`
+      );
+      Assert.ok(importableItem, "Got importable suggestion richlistitem");
+
+      await TestUtils.waitForCondition(
+        () => !importableItem.collapsed,
+        "Wait for importable suggestion to show"
+      );
+
+      // Pretend there's 2+ profiles to trigger the wizard.
+      gTestMigrator.profiles.length = 2;
+
+      info("Clicking on importable suggestion");
+      const wizardPromise = BrowserTestUtils.waitForMigrationWizard(window);
+
+      EventUtils.synthesizeMouseAtCenter(importableItem, {});
+
+      wizardTab = await wizardPromise;
+      Assert.ok(wizardTab, "Wizard opened");
+      Assert.equal(
+        gTestMigrator.migrate.callCount,
+        0,
+        "Direct migrate not used"
+      );
+
+      await closePopup(popup);
+    }
+  );
+
+  // Close the wizard tab in the end of the test. If we close the wizard when the tab
+  // is still opened, the username field will be focused again, which triggers another
+  // importable suggestion.
+  await BrowserTestUtils.removeTab(wizardTab);
+});
+
+add_task(async function import_suggestion_learn_more() {
+  let supportTab;
+  await BrowserTestUtils.withNewTab(
+    {
+      gBrowser,
+      url: "https://example.com" + DIRECTORY_PATH + "form_basic.html",
+    },
+    async function (browser) {
+      const popup = document.getElementById("PopupAutoComplete");
+      Assert.ok(popup, "Got popup");
+      await openACPopup(popup, browser, "#form-basic-username");
+
+      const learnMoreItem = popup.querySelector(
+        `[originaltype="importableLearnMore"]`
+      );
+      Assert.ok(learnMoreItem, "Got importable learn more richlistitem");
+
+      // Wait for the layout to stabilize by waiting for possible reflow;
+      // otherwise, the synthesized mouse event might not be dispatched
+      // correctly.
+      await new Promise(requestAnimationFrame);
+      await TestUtils.waitForCondition(() => {
+        return !learnMoreItem.collapsed && !EventUtils.isHidden(learnMoreItem);
+      }, "Wait for importable learn more to show");
+
+      info("Clicking on importable learn more");
+      const supportTabPromise = BrowserTestUtils.waitForNewTab(
+        gBrowser,
+        Services.urlFormatter.formatURLPref("app.support.baseURL") +
+          "password-import"
+      );
+      EventUtils.synthesizeMouseAtCenter(learnMoreItem, {});
+      supportTab = await supportTabPromise;
+      Assert.ok(supportTab, "Support tab opened");
+
+      await closePopup(popup);
+    }
+  );
+
+  // Close the tab in the end of the test to avoid the username field being
+  // focused again.
+  await BrowserTestUtils.removeTab(supportTab);
+});
+
+add_task(async function import_suggestion_migrate() {
+  await BrowserTestUtils.withNewTab(
+    {
+      gBrowser,
+      url: "https://example.com" + DIRECTORY_PATH + "form_basic.html",
+    },
+    async function (browser) {
+      const popup = document.getElementById("PopupAutoComplete");
+      Assert.ok(popup, "Got popup");
+      await openACPopup(popup, browser, "#form-basic-username");
+
+      const importableItem = popup.querySelector(
+        `[originaltype="importableLogins"]`
+      );
+      Assert.ok(importableItem, "Got importable suggestion richlistitem");
+
+      // Wait for the layout to stabilize by waiting for possible reflow;
+      // otherwise, the synthesized mouse event might not be dispatched
+      // correctly.
+      await new Promise(requestAnimationFrame);
+      await TestUtils.waitForCondition(
+        () => !importableItem.collapsed && !EventUtils.isHidden(importableItem),
+        "Wait for importable suggestion to show"
+      );
+
+      // Pretend there's 1 profile to trigger migrate.
+      gTestMigrator.profiles.length = 1;
+
+      info("Clicking on importable suggestion");
+      const migratePromise = TestUtils.waitForCondition(
+        () => gTestMigrator.migrate.callCount,
+        "Wait for direct migration attempt"
+      );
+      EventUtils.synthesizeMouseAtCenter(importableItem, {});
+
+      const callCount = await migratePromise;
+      Assert.equal(callCount, 1, "Direct migrate used once");
+
+      let importedItem;
+      await new Promise(requestAnimationFrame);
+      await TestUtils.waitForCondition(() => {
+        importedItem = popup.querySelector(`[originaltype="loginWithOrigin"]`);
+        return importedItem && !EventUtils.isHidden(importedItem);
+      }, "Wait for imported login to show");
+      EventUtils.synthesizeMouseAtCenter(importedItem, {});
+
+      // Filling happens in the content process, so the value doesn't land
+      // synchronously with the click.
+      let username;
+      await TestUtils.waitForCondition(async () => {
+        username = await SpecialPowers.spawn(
+          browser,
+          [],
+          () => content.document.getElementById("form-basic-username").value
+        );
+        return username == "import";
+      }, "Wait for the username from the import to be filled in");
+      Assert.equal(username, "import", "username from import filled in");
+
+      LoginTestUtils.clearData();
+    }
+  );
+});
+
+/**
+ * Tests that the import suggestion is not shown when Firefox already has a
+ * saved login for the site, even if that login has an empty username (bug
+ * 2052520). Empty-username logins are dropped from the autocomplete match
+ * list on username fields, so the "no saved logins" gate must not rely on
+ * that filtered list.
+ */
+add_task(async function import_suggestion_not_shown_with_empty_username() {
+  // Refresh the suggestion budget so the import suggestion is only ever hidden
+  // by the saved-login gate, not because earlier tasks exhausted the count.
+  // pushPrefEnv restores the previous (exhausted) value afterwards, keeping the
+  // precondition for import_suggestion_not_shown intact.
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["signon.suggestImportCount", 3],
+      ["signon.showAutoCompleteImport", "import"],
+    ],
+  });
+
+  await LoginTestUtils.addLogin({ username: "", password: "pass" });
+
+  await BrowserTestUtils.withNewTab(
+    {
+      gBrowser,
+      url: "https://example.com" + DIRECTORY_PATH + "form_basic.html",
+    },
+    async function (browser) {
+      const popup = document.getElementById("PopupAutoComplete");
+      Assert.ok(popup, "Got popup");
+      // With the login saved, the only entries are the (non-import) footer, so
+      // the popup won't open on focus alone. Force it open like the sibling
+      // import_suggestion_not_shown task does.
+      let opened = false;
+      openACPopup(popup, browser, "#form-basic-username").then(
+        () => (opened = true)
+      );
+      await TestUtils.waitForCondition(() => {
+        EventUtils.synthesizeKey("KEY_ArrowDown");
+        return opened;
+      });
+
+      const footer = popup.querySelector(`[originaltype="loginsFooter"]`);
+      Assert.ok(footer, "Got footer richlistitem");
+      await TestUtils.waitForCondition(
+        () => !EventUtils.isHidden(footer),
+        "Waiting for footer to become visible"
+      );
+
+      Assert.ok(
+        !popup.querySelector(`[originaltype="importableLogins"]`),
+        "No importable suggestion shown when a login is already saved"
+      );
+
+      await closePopup(popup);
+    }
+  );
+
+  LoginTestUtils.clearData();
+  await SpecialPowers.popPrefEnv();
+});
+
+add_task(async function import_suggestion_not_shown() {
+  await BrowserTestUtils.withNewTab(
+    {
+      gBrowser,
+      url: "https://example.com" + DIRECTORY_PATH + "form_basic.html",
+    },
+    async function (browser) {
+      const popup = document.getElementById("PopupAutoComplete");
+      Assert.ok(popup, "Got popup");
+      let opened = false;
+      openACPopup(popup, browser, "#form-basic-password").then(
+        () => (opened = true)
+      );
+
+      await TestUtils.waitForCondition(() => {
+        EventUtils.synthesizeKey("KEY_ArrowDown");
+        return opened;
+      });
+
+      const footer = popup.querySelector(`[originaltype="loginsFooter"]`);
+      Assert.ok(footer, "Got footer richlistitem");
+
+      await TestUtils.waitForCondition(() => {
+        return !EventUtils.isHidden(footer);
+      }, "Waiting for footer to become visible");
+
+      Assert.ok(
+        !popup.querySelector(`[originaltype="importableLogins"]`),
+        "No importable suggestion shown"
+      );
+
+      await closePopup(popup);
+    }
+  );
+});

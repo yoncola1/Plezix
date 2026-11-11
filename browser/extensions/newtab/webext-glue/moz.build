@@ -1,0 +1,167 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    BUG_COMPONENT = ("Firefox", "New Tab Page")
+
+XPI_NAME = "newtab"
+XPI_PKGNAME = "newtab@mozilla.org"
+
+DIST_SUBDIR = ""
+
+# NOTE: Please keep the files listed in here in sync with the ones listed in
+# ../addon-jar.mn, as this ensures that the XPI generated at build time
+# shares the same structure as the built-in instance. (bug 1955994)
+#
+# The exception is the "locales" folder, which is only included in the XPI.
+
+FINAL_TARGET_FILES += [
+    "../manifest.json",
+]
+FINAL_TARGET_FILES["webext-glue"] += [
+    "background.js",
+]
+
+# Bug 2057616: Generate New Tab's runtime Glean metrics/pings for train-hop
+# compatibility by diffing the local metrics.yaml/pings.yaml against each older
+# Firefox version the XPI can land on, then package the result into the XPI.
+# See metrics/gen_runtime_metrics.py.
+#
+# Bug 2067207: the offsets cover every version that can be a host while central
+# is at MOZ_APP_VERSION. Beta is one behind, and stays one further behind for a
+# day or so after merge day until its first build of the new cycle. Release is
+# two behind, and stays three behind between merge day and the release that
+# follows it. Covering a version nobody runs costs a few KB; missing one loses
+# the whole New Tab ping on that host, so the range errs wide.
+if CONFIG["MOZ_APP_VERSION"]:
+    newtab_major_version = int(CONFIG["MOZ_APP_VERSION"].split(".")[0])
+    for version_offset in (1, 2, 3):
+        target_version = newtab_major_version - version_offset
+        runtime_metrics_file = "runtime-metrics-%d.json" % target_version
+        GENERATED_FILES += [runtime_metrics_file]
+        GENERATED_FILES[
+            runtime_metrics_file
+        ].script = "metrics/gen_runtime_metrics.py:generate"
+        GENERATED_FILES[runtime_metrics_file].inputs = [
+            "/browser/components/newtab/metrics.yaml",
+            "/browser/components/newtab/pings.yaml",
+        ]
+        GENERATED_FILES[runtime_metrics_file].flags = ["%d" % target_version]
+        FINAL_TARGET_FILES["webext-glue"].metrics += ["!" + runtime_metrics_file]
+else:
+    warning("New Tab runtime metrics not generated: MOZ_APP_VERSION is unavailable.")
+FINAL_TARGET_FILES.lib += [
+    "../lib/**",
+]
+FINAL_TARGET_FILES.common += [
+    "../common/**",
+]
+FINAL_TARGET_PP_FILES.data.content.abouthomecache += [
+    "../data/content/abouthomecache/page.html.template",
+    "../data/content/abouthomecache/script.js.template",
+]
+FINAL_TARGET_FILES.data.data += [
+    "../data/content/assets/**",
+]
+FINAL_TARGET_FILES.data.content += [
+    "../data/content/bundled-renderer-index.js",
+    "../data/content/bundled-renderer.css",
+    "../data/content/newtab-render.js",
+    "../data/content/remote-renderer-host.html",
+]
+
+if CONFIG["NODEJS"]:
+    FINAL_TARGET_FILES.data.content += [
+        "!../data/content/activity-stream.bundle.js",
+        "!../data/content/vendor.bundle.js",
+    ]
+    FINAL_TARGET_FILES.data.css += [
+        "!../css/activity-stream.css",
+    ]
+    FINAL_TARGET_FILES.data.css["nova"] += [
+        "!../css/nova/activity-stream.css",
+    ]
+FINAL_TARGET_FILES.prerendered += [
+    "../prerendered/activity-stream-noscripts.html",
+    "../prerendered/activity-stream.html",
+]
+
+# The following are resources that exist in other component folders that are
+# included in the newtab resources at build time. Specifically, these are for
+# external UI components maintained by other teams that have the ability to
+# "train-hop" with the rest of newtab.
+FINAL_TARGET_FILES.data.data.content["external-components"][
+    "asrouter-newtab-multistage"
+] += [
+    "../../../components/asrouter/content/components/asrouter-newtab-multistage/asrouter-newtab-multistage.bundle.js",
+    "../../../components/asrouter/content/components/asrouter-newtab-multistage/asrouter-newtab-multistage.css",
+]
+
+FINAL_TARGET_FILES.data.data.content["external-components"][
+    "asrouter-newtab-message"
+] += [
+    "../../../components/asrouter/content/components/asrouter-newtab-message/asrouter-newtab-message.css",
+    "../../../components/asrouter/content/components/asrouter-newtab-message/asrouter-newtab-message.mjs",
+    "../../../components/asrouter/content/components/asrouter-newtab-message/ASRouterNewTabMessageChild.sys.mjs",
+    "../../../components/asrouter/content/components/asrouter-newtab-message/ASRouterNewTabMessageParent.sys.mjs",
+]
+
+# Bug 2059104: Generate New Tab's localized Fluent files at build time and
+# package them into the XPI. en-US always comes from the in-tree copy; every
+# other locale is packaged only for shipped train-hop builds, which set
+# NEWTAB_XPI_LOCALES in locales.configure. See locales/gen_locales.py.
+# This doesn't need to be in sync with the addon-jar.mn file, as the locales
+# are only included when we build newtab as an XPI.
+FINAL_TARGET_FILES.locales["en-US"].browser.newtab += [
+    "/browser/locales/en-US/browser/newtab/newtab.ftl",
+]
+
+newtab_locales = CONFIG["NEWTAB_XPI_LOCALES"] or []
+
+GENERATED_FILES += ["supported-locales.json"]
+GENERATED_FILES[
+    "supported-locales.json"
+].script = "locales/gen_locales.py:supported_locales"
+GENERATED_FILES["supported-locales.json"].flags = ["en-US"] + newtab_locales
+FINAL_TARGET_FILES.locales += ["!supported-locales.json"]
+
+if newtab_locales:
+    GENERATED_FILES += ["l10n-clone.stamp"]
+    GENERATED_FILES["l10n-clone.stamp"].script = "locales/gen_locales.py:clone"
+    for locale in newtab_locales:
+        locale_ftl = "locales/%s/browser/newtab/newtab.ftl" % locale
+        GENERATED_FILES += [locale_ftl]
+        GENERATED_FILES[locale_ftl].script = "locales/gen_locales.py:copy_locale"
+        GENERATED_FILES[locale_ftl].flags = [locale]
+        GENERATED_FILES[locale_ftl].extra_deps = ["!l10n-clone.stamp"]
+        FINAL_TARGET_FILES.locales[locale].browser.newtab += ["!" + locale_ftl]
+
+    # Bake a locales report into the XPI (the en-US string set plus each
+    # locale's missing message IDs, tagged with the firefox-l10n revision) so a
+    # built XPI documents its own string state.
+    locales_report_deps = ["/browser/locales/en-US/browser/newtab/newtab.ftl"] + [
+        "!locales/%s/browser/newtab/newtab.ftl" % locale for locale in newtab_locales
+    ]
+    GENERATED_FILES += ["locales-report.json"]
+    GENERATED_FILES[
+        "locales-report.json"
+    ].script = "locales/gen_locales.py:locales_report"
+    GENERATED_FILES["locales-report.json"].flags = newtab_locales
+    GENERATED_FILES["locales-report.json"].extra_deps = locales_report_deps
+    FINAL_TARGET_FILES.locales += ["!locales-report.json"]
+
+# English-only New Tab strings live in a preview file that is not translated.
+# Package the same English file under every locale in the XPI, as jar.mn does
+# for omni.ja. Fluent only builds a bundle for a locale when every resource the
+# document requests exists in that locale, so if this file were missing for a
+# locale, the whole New Tab page would fall back to English (bug 2054868).
+for locale in ["en-US"] + newtab_locales:
+    FINAL_TARGET_FILES.locales[locale].preview += [
+        "/browser/locales-preview/newtabPreview.ftl",
+    ]
+
+if not CONFIG["RELEASE_OR_BETA"]:
+    FINAL_TARGET_FILES.prerendered += [
+        "../prerendered/activity-stream-debug.html",
+    ]

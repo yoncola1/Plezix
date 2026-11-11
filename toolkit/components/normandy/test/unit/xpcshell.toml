@@ -1,0 +1,9 @@
+[DEFAULT]
+run-if = [
+  "os != 'android'",
+]
+head = "head_xpc.js"
+firefox-appdir = "browser"
+tags = "normandy"
+
+["test_Normandy.js"]

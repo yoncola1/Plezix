@@ -1,0 +1,205 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+#ifndef include_dom_media_ipc_RemoteMediaManagerChild_h
+#define include_dom_media_ipc_RemoteMediaManagerChild_h
+
+#include <functional>
+
+#include "GPUVideoImage.h"
+#include "MediaCodecsSupport.h"
+#include "PDMFactory.h"
+#include "PlatformEncoderModule.h"
+#include "ipc/EnumSerializer.h"
+#include "mozilla/MozPromise.h"
+#include "mozilla/PRemoteMediaManagerChild.h"
+#include "mozilla/ipc/UtilityProcessSandboxing.h"
+#include "mozilla/layers/VideoBridgeUtils.h"
+
+namespace mozilla {
+
+namespace dom {
+class MediaKeys;
+}
+
+class PMFCDMChild;
+class PMFMediaEngineChild;
+class RemoteCDMProxy;
+class RemoteDecoderChild;
+class RemoteMediaDataEncoder;
+
+enum class RemoteMediaIn {
+  Unspecified,
+  RddProcess,
+  GpuProcess,
+  UtilityProcess_Generic,
+  UtilityProcess_AppleMedia,
+  UtilityProcess_WMF,
+  UtilityProcess_MFMediaEngineCDM,
+  SENTINEL,
+};
+
+enum class TrackSupport {
+  None,
+  DecodeAudio,
+  DecodeVideo,
+  EncodeAudio,
+  EncodeVideo,
+};
+using TrackSupportSet = EnumSet<TrackSupport, uint8_t>;
+
+class RemoteMediaManagerChild final
+    : public PRemoteMediaManagerChild,
+      public mozilla::ipc::IShmemAllocator,
+      public mozilla::layers::IGPUVideoSurfaceManager {
+  friend class PRemoteMediaManagerChild;
+
+ public:
+  NS_INLINE_DECL_THREADSAFE_REFCOUNTING(RemoteMediaManagerChild, override)
+
+  // Can only be called from the manager thread
+  static RemoteMediaManagerChild* GetSingleton(RemoteMediaIn aLocation);
+
+  static void Init();
+  static void SetSupported(RemoteMediaIn aLocation,
+                           const media::MediaCodecsSupported& aSupported);
+
+  // Resolves with true once codec support for a location is known. The actual
+  // MediaCodecsSupported snapshot is read separately via the synchronous
+  // Supports() once this has resolved.
+  using CodecSupportPromise = GenericNonExclusivePromise;
+
+  // Can be called from any thread.
+  static media::DecodeSupportSet Supports(
+      RemoteMediaIn aLocation, const SupportDecoderParams& aParams,
+      DecoderDoctorDiagnostics* aDiagnostics);
+  static RefPtr<PlatformDecoderModule::CreateDecoderPromise> CreateAudioDecoder(
+      const CreateDecoderParams& aParams, RemoteMediaIn aLocation);
+  static RefPtr<PlatformDecoderModule::CreateDecoderPromise> CreateVideoDecoder(
+      const CreateDecoderParams& aParams, RemoteMediaIn aLocation);
+  static RefPtr<RemoteCDMProxy> CreateCDM(dom::MediaKeys* aKeys,
+                                          const nsAString& aKeySystem,
+                                          bool aDistinctiveIdentifierRequired,
+                                          bool aPersistentStateRequired);
+
+  static media::EncodeSupportSet Supports(RemoteMediaIn aLocation,
+                                          CodecType aCodec);
+
+  // Resolves immediately if codec support for aLocation is already cached;
+  // otherwise resolves once SetSupported() fires for that location.
+  // Pass aForceRefresh=true to wait for the next update even when the cache
+  // is populated (the cache itself is not cleared, so sync callers are
+  // unaffected).
+  static RefPtr<CodecSupportPromise> EnsureCodecSupportFor(
+      RemoteMediaIn aLocation, bool aForceRefresh = false);
+  static RefPtr<PlatformEncoderModule::CreateEncoderPromise> InitializeEncoder(
+      RefPtr<RemoteMediaDataEncoder>&& aEncoder, const EncoderConfig& aConfig);
+
+  // Can be called from any thread.
+  static nsCOMPtr<nsISerialEventTarget> GetManagerThread();
+
+  // Return the track support information based on the location of the remote
+  // process. Thread-safe.
+  static TrackSupportSet GetTrackSupport(RemoteMediaIn aLocation);
+
+  // Can be called from any thread, dispatches the request to the IPDL thread
+  // internally and will be ignored if the IPDL actor has been destroyed.
+  already_AddRefed<gfx::SourceSurface> Readback(
+      const SurfaceDescriptorGPUVideo& aSD) override;
+  already_AddRefed<layers::Image> TransferToImage(
+      const SurfaceDescriptorGPUVideo& aSD, const gfx::IntSize& aSize,
+      const gfx::ColorDepth& aColorDepth, gfx::YUVColorSpace aYUVColorSpace,
+      gfx::ColorSpace2 aColorPrimaries, gfx::TransferFunction aTransferFunction,
+      gfx::ColorRange aColorRange) override;
+  void DeallocateSurfaceDescriptor(
+      const SurfaceDescriptorGPUVideo& aSD) override;
+
+  void OnSetCurrent(const SurfaceDescriptorGPUVideo& aSD) override;
+
+  bool AllocShmem(size_t aSize, mozilla::ipc::Shmem* aShmem) override {
+    return PRemoteMediaManagerChild::AllocShmem(aSize, aShmem);
+  }
+  bool AllocUnsafeShmem(size_t aSize, mozilla::ipc::Shmem* aShmem) override {
+    return PRemoteMediaManagerChild::AllocUnsafeShmem(aSize, aShmem);
+  }
+
+  // Can be called from any thread, dispatches the request to the IPDL thread
+  // internally and will be ignored if the IPDL actor has been destroyed.
+  bool DeallocShmem(mozilla::ipc::Shmem& aShmem) override;
+
+  // Whether or not the GPU process may be used for decoding. This remains true
+  // while it is recovering from a crash, and on Windows after media in it is
+  // disabled because of crashes, in which case creating decoders is rejected.
+  static bool IsGpuProcessDecodingAvailable();
+
+  // Whether or not the GPU process may be used for encoding. This remains true
+  // while it is recovering from a crash, and on Windows after media in it is
+  // disabled because of crashes, in which case creating encoders is rejected.
+  static bool IsGpuProcessEncodingAvailable();
+
+  // Main thread only
+  static void InitForGPUProcess(
+      Endpoint<PRemoteMediaManagerChild>&& aVideoManager);
+  static void Shutdown();
+
+  // Helper method to handle IPDL promise rejections. This will allow the
+  // caller in the layers above to recover gracefully by recreating the encoder
+  // or decoder.
+  static void HandleRejectionError(
+      const RemoteMediaManagerChild* aDyingManager, RemoteMediaIn aLocation,
+      const mozilla::ipc::ResponseRejectReason& aReason,
+      std::function<void(const MediaResult&)>&& aCallback);
+
+  // Run aTask (on the manager thread) when we next attempt to create a new
+  // manager (even if creation fails). Intended to be called from ActorDestroy
+  // when we get notified that the old manager is being destroyed. Can only be
+  // called from the manager thread.
+  static void RunWhenGPUProcessRecreated(
+      const RemoteMediaManagerChild* aDyingManager,
+      already_AddRefed<Runnable> aTask);
+
+  RemoteMediaIn Location() const { return mLocation; }
+
+  // A thread-safe method to launch the utility process if it hasn't launched
+  // yet.
+  static RefPtr<GenericNonExclusivePromise> LaunchUtilityProcessIfNeeded(
+      RemoteMediaIn aLocation);
+
+  // A thread-safe method to launch the RDD process if it hasn't launched yet.
+  static RefPtr<GenericNonExclusivePromise> LaunchRDDProcessIfNeeded();
+
+ protected:
+  void HandleFatalError(const char* aMsg) override;
+  void ActorDestroy(ActorDestroyReason aWhy) override;
+
+ private:
+  explicit RemoteMediaManagerChild(RemoteMediaIn aLocation);
+  ~RemoteMediaManagerChild() = default;
+  static RefPtr<PlatformDecoderModule::CreateDecoderPromise> Construct(
+      RefPtr<RemoteDecoderChild>&& aChild,
+      CreateDecoderParamsForAsync&& aParams, RemoteMediaIn aLocation);
+
+  static void OpenRemoteMediaManagerChildForProcess(
+      Endpoint<PRemoteMediaManagerChild>&& aEndpoint, RemoteMediaIn aLocation);
+
+  // A thread-safe method to wait for the GPU process manager to be available.
+  // If the GPU process is recovering from a crash, this waits until it is
+  // recreated. It is rejected if the GPU process, or decoding in it, is
+  // disabled.
+  static RefPtr<GenericNonExclusivePromise> EnsureGPUProcessReady();
+
+  // The location for decoding, Rdd or Gpu process.
+  const RemoteMediaIn mLocation;
+};
+
+}  // namespace mozilla
+
+namespace IPC {
+template <>
+struct ParamTraits<mozilla::RemoteMediaIn>
+    : public ContiguousEnumSerializer<mozilla::RemoteMediaIn,
+                                      mozilla::RemoteMediaIn::Unspecified,
+                                      mozilla::RemoteMediaIn::SENTINEL> {};
+}  // namespace IPC
+
+#endif  // include_dom_media_ipc_RemoteMediaManagerChild_h

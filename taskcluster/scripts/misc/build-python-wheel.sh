@@ -1,0 +1,40 @@
+#!/bin/sh
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#
+# This script builds the official interpreter for the python language,
+# while also packing in a few default extra packages.
+
+set -e
+set -x
+
+UPLOAD_DIR=$(pwd)/artifacts
+mkdir -p "${UPLOAD_DIR}"
+
+ls -hal "${MOZ_FETCHES_DIR}"
+WHEEL_DIR=$(find "$MOZ_FETCHES_DIR/" -maxdepth 1 -mindepth 1 -type d -not -name "python")
+
+export PATH="$MOZ_FETCHES_DIR/python/bin":/builds/worker/.local/bin:$PATH
+
+# The fetched python toolchain is relocated at extraction time by patching
+# sysconfig's build_time_vars, but its python3.X-config script still has the
+# unrelocated build-time prefix (e.g. /python) baked in as plain text, which
+# is what build backends like meson-python consult to find Python.h. Point
+# the compiler at the real header location directly instead.
+if [ -d "$MOZ_FETCHES_DIR/python/include" ]; then
+    python_include=$(find "$MOZ_FETCHES_DIR/python/include" -maxdepth 1 -name 'python3.*' -type d | head -n1)
+    if [ -n "$python_include" ]; then
+        export CPATH="$python_include${CPATH:+:$CPATH}"
+    fi
+fi
+
+python3 -m venv venv
+. venv/bin/activate
+python3 -m pip install -r "${GECKO_PATH}/build/wheel_requirements.txt"
+
+cd "$WHEEL_DIR"
+python3 -m build --no-isolation --wheel $@
+whl=$(ls dist/*.whl)
+
+cp "$whl" "$UPLOAD_DIR/"

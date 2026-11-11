@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>WebExtension test</title>
+    <meta charset="utf-8">
+    <script src="/tests/SimpleTest/SimpleTest.js"></script>
+    <script src="/tests/SimpleTest/ExtensionTestUtils.js"></script>
+    <script src="head.js" type="text/javascript"></script>
+    <link href="/tests/SimpleTest/test.css" rel="stylesheet"/>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      "use strict";
+
+      add_task(async function testAlertNotShownInBackgroundWindow() {
+        let extension = ExtensionTestUtils.loadExtension({
+          background: function () {
+            browser.test.assertEq(null, prompt(), "prompt() returns null");
+            browser.test.assertFalse(confirm(), "confirm() returns false");
+            alert("I am an alert in the background.");
+            browser.test.notifyPass("alertCalled");
+          }
+        });
+
+        await SpecialPowers.spawnChrome([], () => {
+          Assert.ok(!Services.wm.getEnumerator("alert:alert").hasMoreElements(), "Alerts should not be present at the start of the test.");
+        });
+
+        await extension.startup();
+        await extension.awaitFinish("alertCalled");
+
+        await SpecialPowers.spawnChrome([], () => {
+          Assert.ok(!Services.wm.getEnumerator("alert:alert").hasMoreElements(), "Alerts should not be present after calling alert().");
+        });
+
+        await extension.unload();
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,251 @@
+# Configure UniFFI sources
+#
+# Each key is the UDL namespace of the component.
+#
+#
+# IMPORTANT: Please Request review from a DOM peer before
+# committing to using UniFFI. There are other ways to consume Rust from
+# JavaScript that might fit your use case better.
+
+# TODO: Upgrade the TOML crate and switch to array of tables syntax.
+
+[ads_client.async_wrappers]
+MozAdsClient = "AsyncWrapped"
+MozAdsClientBuilder = "Sync"
+MozAdsTelemetry = "FireAndForget"
+
+[autofill.async_wrappers]
+AddressesBridgedEngine = "AsyncWrapped"
+CreditCardsBridgedEngine = "AsyncWrapped"
+# Store opens the SQLite DB and runs migrations in its constructor, and every
+# method performs DB I/O, so the whole interface (including the constructor) is
+# async-wrapped to keep that work off the main thread (cf. logins LoginStore).
+Store = "AsyncWrapped"
+# The crypto helpers are pure in-memory CPU work (key passed in, no I/O), so they
+# run synchronously (cf. logins EncryptorDecryptor.encrypt/decrypt, create_key).
+"create_autofill_key" = "Sync"
+# Both store constructors do the same DB work as Store's own constructor.
+"create_autofill_store_with_nss_keymanager" = "AsyncWrapped"
+"create_autofill_store_with_static_key_manager" = "AsyncWrapped"
+
+[fxcontainers.async_wrappers]
+# ContainersStore keeps its data in memory behind a lock and delegates
+# persistence to ContainersCallback.persist, so no method performs I/O.
+ContainersStore = "Sync"
+"ContainersCallback.persist" = "FireAndForget"
+# Lookups over the static colour, icon and l10n tables in fxcontainers::data.
+"color_code" = "Sync"
+"color_from_name" = "Sync"
+"color_gecko_l10n_id" = "Sync"
+"color_name" = "Sync"
+"container_color_aliases" = "Sync"
+"container_colors" = "Sync"
+"container_icons" = "Sync"
+"icon_from_name" = "Sync"
+"icon_gecko_l10n_id" = "Sync"
+"icon_name" = "Sync"
+"label_gecko_l10n_id" = "Sync"
+"latest_version" = "Sync"
+"max_user_context_id" = "Sync"
+"normalize_site" = "Sync"
+"resolve_color" = "Sync"
+
+[context_id.async_wrappers]
+ContextIDComponent = "AsyncWrapped"
+"ContextIDComponent.new" = "Sync"
+"ContextIdCallback.persist" = "FireAndForget"
+"ContextIdCallback.rotated" = "FireAndForget"
+
+[filter_adult.async_wrappers]
+"FilterAdultComponent.new" = "Sync"
+"FilterAdultComponent.contains" = "Sync"
+
+[search.async_wrappers]
+SearchEngineSelector = "Sync"
+"SearchEngineSelector.use_remote_settings_server" = "AsyncWrapped"
+
+[suggest.async_wrappers]
+SuggestStore = "AsyncWrapped"
+"SuggestStore.interrupt" = "Sync"
+"SuggestStore.new" = "Sync"
+"SuggestStoreBuilder.build" = "Sync"
+"SuggestStoreBuilder.cache_path" = "AsyncWrapped"
+"SuggestStoreBuilder.data_path" = "Sync"
+"SuggestStoreBuilder.load_extension" = "Sync"
+"SuggestStoreBuilder.new" = "Sync"
+"SuggestStoreBuilder.remote_settings_bucket_name" = "Sync"
+"SuggestStoreBuilder.remote_settings_server" = "Sync"
+"SuggestStoreBuilder.remote_settings_service" = "Sync"
+"raw_suggestion_url_matches" = "Sync"
+
+[relevancy.async_wrappers]
+"score" = "Sync"
+RelevancyStore = "Sync"
+"RelevancyStore.bandit_init" = "AsyncWrapped"
+"RelevancyStore.bandit_select" = "AsyncWrapped"
+"RelevancyStore.bandit_update" = "AsyncWrapped"
+"RelevancyStore.ensure_interest_data_populated" = "AsyncWrapped"
+"RelevancyStore.get_bandit_data" = "AsyncWrapped"
+"RelevancyStore.ingest" = "AsyncWrapped"
+"RelevancyStore.user_interest_vector" = "AsyncWrapped"
+
+[remote_settings.async_wrappers]
+RemoteSettings = "AsyncWrapped"
+"RemoteSettings.new" = "Sync"
+"RemoteSettingsService.client_url" = "Sync"
+"RemoteSettingsService.new" = "Sync"
+"RemoteSettingsService.update_config" = "AsyncWrapped"
+"RemoteSettingsService.make_client" = "AsyncWrapped"
+"RemoteSettingsService.sync" = "AsyncWrapped"
+RemoteSettingsClient = "AsyncWrapped"
+
+[error_support.async_wrappers]
+"set_application_error_reporter" = "AsyncWrapped"
+"unset_application_error_reporter" = "AsyncWrapped"
+"ApplicationErrorReporter.report_error" = "FireAndForget"
+"ApplicationErrorReporter.report_breadcrumb" = "FireAndForget"
+
+[tabs.async_wrappers]
+RemoteCommandStore = "AsyncWrapped"
+TabsBridgedEngine = "AsyncWrapped"
+TabsStore = "AsyncWrapped"
+
+[viaduct.async_wrappers]
+"allow_android_emulator_loopback" = "Sync"
+"clear_ohttp_channels" = "Sync"
+"configure_default_ohttp_channels" = "Sync"
+"configure_ohttp_channel" = "Sync"
+"init_backend" = "Sync"
+"list_ohttp_channels" = "Sync"
+set_global_default_user_agent = "Sync"
+
+[webext_storage.async_wrappers]
+WebExtStorageBridgedEngine = "AsyncWrapped"
+WebExtStorageStore = "AsyncWrapped"
+
+[tracing_support.async_wrappers]
+"register_event_sink" = "Sync"
+"unregister_event_sink" = "Sync"
+"EventSink.on_event" = "FireAndForget"
+
+[uniffi_bindings_tests.async_wrappers]
+"clone_interface" = "Sync"
+"create_async_test_trait_interface" = "AsyncWrapped"
+"create_test_trait_interface" = "Sync"
+"func_with_default" = "Sync"
+"func_with_error" = "Sync"
+"func_with_flat_error" = "Sync"
+"func_with_multi_word_arg" = "Sync"
+"get_custom_types_demo" = "AsyncWrapped"
+"invoke_test_callback_interface_get_value" = "Sync"
+"invoke_test_callback_interface_noop" = "Sync"
+"invoke_test_callback_interface_set_value" = "Sync"
+"invoke_test_callback_interface_throw_if_equal" = "Sync"
+"invoke_test_trait_interface_get_value" = "Sync"
+"invoke_test_trait_interface_noop" = "Sync"
+"invoke_test_trait_interface_set_value" = "Sync"
+"invoke_test_trait_interface_throw_if_equal" = "Sync"
+"roundtrip_async_test_trait_interface" = "Sync"
+"roundtrip_async_test_trait_interface_list" = "Sync"
+"roundtrip_bool" = "Sync"
+"roundtrip_complex_compound" = "Sync"
+"roundtrip_complex_enum" = "Sync"
+"roundtrip_complex_rec" = "Sync"
+"roundtrip_custom_type" = "Sync"
+"roundtrip_enum_no_data" = "Sync"
+"roundtrip_enum_with_data" = "Sync"
+"roundtrip_f32" = "Sync"
+"roundtrip_f64" = "Sync"
+"roundtrip_hash_map" = "Sync"
+"roundtrip_i16" = "Sync"
+"roundtrip_i32" = "Sync"
+"roundtrip_i64" = "Sync"
+"roundtrip_i8" = "Sync"
+"roundtrip_option" = "Sync"
+"roundtrip_simple_rec" = "AsyncWrapped"
+"roundtrip_string" = "Sync"
+"roundtrip_time_interval_ms" = "AsyncWrapped"
+"roundtrip_time_interval_sec_dbl" = "AsyncWrapped"
+"roundtrip_time_interval_sec_flt" = "AsyncWrapped"
+"roundtrip_test_trait_interface" = "Sync"
+"roundtrip_test_trait_interface_list" = "Sync"
+"roundtrip_u16" = "Sync"
+"roundtrip_u32" = "Sync"
+"roundtrip_u64" = "Sync"
+"roundtrip_u8" = "Sync"
+"roundtrip_url" = "AsyncWrapped"
+"roundtrip_vec" = "Sync"
+"sum_with_many_types" = "Sync"
+"swap_test_interfaces" = "Sync"
+"test_func" = "Sync"
+"TestInterface.new" = "Sync"
+"TestInterface.get_value" = "Sync"
+"TestInterface.ref_count" = "Sync"
+"AsyncInterface.new" = "Sync"
+"ComplexMethods.new" = "Sync"
+"ComplexMethods.method_with_default" = "Sync"
+"ComplexMethods.method_with_multi_word_arg" = "Sync"
+TestCallbackInterface = "Sync"
+TestTraitInterface = "Sync"
+
+[uniffi_bindings_tests_collision.async_wrappers]
+"invoke_collision_callback" = "Sync"
+TestCallbackInterface = "FireAndForget"
+
+[uniffi_bindings_tests_external_types.async_wrappers]
+"roundtrip_ext_custom_type" = "Sync"
+"roundtrip_ext_enum" = "Sync"
+"roundtrip_ext_interface" = "Sync"
+"roundtrip_ext_record" = "Sync"
+
+[uniffi_bindings_tests.custom_types.Url]
+type_name = "URL"
+lift = "new URL({})"
+lower = "{}.toString()"
+
+[uniffi_bindings_tests.custom_types.TimeIntervalMs]
+# Convert milliseconds to Date
+type_name = "Date"
+lift = "new Date({})"
+lower = "{}.getTime()"
+
+[uniffi_bindings_tests.custom_types.TimeIntervalSecDbl]
+# Convert seconds (as float) to Date
+type_name = "Date"
+lift = "new Date({} * 1000)"
+lower = "{}.getTime() / 1000"
+
+[init_rust_components.async_wrappers]
+"initialize" = "Sync"
+"initialize_glean" = "Sync"
+
+[db_crypto.async_wrappers]
+ManagedEncryptorDecryptor = "AsyncWrapped"
+NSSKeyManager = "AsyncWrapped"
+StaticKeyManager = "AsyncWrapped"
+"check_canary" = "AsyncWrapped"
+"create_canary" = "AsyncWrapped"
+"create_key" = "AsyncWrapped"
+# Constructing the key manager and the encryptor/decryptor is in-memory work.
+"create_managed_encdec" = "Sync"
+"create_static_key_manager" = "Sync"
+# Trait interfaces, whose vtable methods cannot be async-wrapped. Both are pure
+# in-memory work with the key passed in, so running them on the caller's thread
+# is fine (cf. autofill's crypto helpers).
+"EncryptorDecryptor.decrypt" = "Sync"
+"EncryptorDecryptor.encrypt" = "Sync"
+"KeyManager.get_key" = "Sync"
+
+[logins.async_wrappers]
+# Every LoginStore method performs DB I/O, and so does creating the store, so
+# the whole interface is async-wrapped to keep that work off the main thread.
+LoginStore = "AsyncWrapped"
+LoginsBridgedEngine = "AsyncWrapped"
+"create_login_store_with_nss_keymanager" = "AsyncWrapped"
+"create_login_store_with_static_key_manager" = "AsyncWrapped"
+
+[breach_alerts.async_wrappers]
+BreachAlertsStore = "AsyncWrapped"
+
+[interrupt_support.async_wrappers]
+"shutdown" = "Sync"

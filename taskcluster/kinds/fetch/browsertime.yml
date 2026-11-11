@@ -1,0 +1,49 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+win64-ffmpeg-7.1:
+    description: 'Win64 ffmpeg'
+    fetch:
+        type: static-url
+        # https://github.com/BtbN/FFmpeg-Builds/releases/tag/autobuild-2025-06-04-13-04
+        url: https://github.com/mozilla/perf-automation/releases/download/FFMPEG-v7.1/ffmpeg-n7.1-latest-win64-gpl-shared-7.1.zip
+        sha256: 7301589e262a43bc66243c6b3bbfe7a18664935fc9daf67a5408cfbcff87827c
+        size: 66922898
+
+linux64-ffmpeg-7.1:
+    description: 'Linux64 ffmpeg'
+    fetch:
+        type: static-url
+        # url: https://www.johnvansickle.com/ffmpeg/old-releases/
+        url: https://github.com/mozilla/perf-automation/releases/download/FFMPEG-v7.1/ffmpeg-master-latest-linux64-gpl-shared.tar.xz
+        sha256: aae24fc220344661e923b4d0ff02dd532080906b4369fe43fab51751f78b8822
+        size: 53291516
+
+mac64-ffmpeg-7.1:
+    description: 'Mac64 ffmpeg'
+    fetch:
+        type: static-url
+        # url: https://evermeet.cx/pub/ffmpeg/
+        url: https://github.com/mozilla/perf-automation/releases/download/FFMPEG-v7.1/ffmpeg-7.1.zip
+        sha256: 99205633728eeb6bbd9ac85014e042c87924b38dbdf1813960f01b37346374a8
+        size: 79123920
+
+upload-speed-test-file:
+    description: "File used for the upload speed performance test"
+    fetch:
+        type: static-url
+        artifact-name: upload-test-32MB.dat
+        url: https://github.com/mozilla/perf-automation/raw/master/test_files/upload-test-32MB.dat
+        sha256: 72caa47a951e9f37d1e1be2119a64b1fbc6348c4f37d574bee4587e02b8f96a5
+        size: 32000000
+
+firefox-addons:
+    description: "Download a tar archive of real Firefox extensions xpi files available on AMO (used to run perftests with real extensions installed)"
+    fetch:
+        type: static-url
+        artifact-name: firefox-addons.tar.zst
+        add-prefix: firefox-addons/
+        url: https://github.com/mozilla/perf-automation/raw/c9e497eaa86f45538e3509120947215c6f97c95b/test_files/firefox-addons.tar
+        sha256: 20372ff1d58fc33d1568f8922fe66e2e2e01c77663820344d2a364a8ddd68281
+        size: 3584000

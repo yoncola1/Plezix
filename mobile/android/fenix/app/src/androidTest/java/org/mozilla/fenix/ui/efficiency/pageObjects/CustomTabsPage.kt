@@ -1,0 +1,129 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package org.mozilla.fenix.ui.efficiency.pageObjects
+
+import android.content.Intent
+import androidx.compose.ui.test.junit4.AndroidComposeTestRule
+import androidx.core.net.toUri
+import androidx.test.platform.app.InstrumentationRegistry
+import org.mozilla.fenix.IntentReceiverActivity
+import org.mozilla.fenix.helpers.DataGenerationHelper.createCustomTabIntent
+import org.mozilla.fenix.helpers.HomeActivityIntentTestRule
+import org.mozilla.fenix.helpers.TestAssetHelper.waitingTime
+import org.mozilla.fenix.ui.efficiency.helpers.BasePage
+import org.mozilla.fenix.ui.efficiency.helpers.PageStateTracker
+import org.mozilla.fenix.ui.efficiency.navigation.NavigationArrival
+import org.mozilla.fenix.ui.efficiency.navigation.NavigationGraph
+import org.mozilla.fenix.ui.efficiency.navigation.NavigationOptions
+import org.mozilla.fenix.ui.efficiency.navigation.NavigationRoutePurpose
+import org.mozilla.fenix.ui.efficiency.navigation.NavigationStep
+import org.mozilla.fenix.ui.efficiency.selectors.BrowserPageSelectors
+import org.mozilla.fenix.ui.efficiency.selectors.CustomTabsSelectors
+
+class CustomTabsPage(composeRule: AndroidComposeTestRule<HomeActivityIntentTestRule, *>) : BasePage(composeRule) {
+    override val pageName = "CustomTabsPage"
+
+    internal override fun registerNavigation(builder: NavigationGraph.Builder) {
+        builder.register(
+            from = "AppEntry",
+            to = pageName,
+            steps = listOf(NavigationStep.LaunchCustomTab("about:blank")),
+            purpose = NavigationRoutePurpose.COVERAGE,
+        )
+
+        // Outbound 0-step edge for the "Open in Firefox" flow: the menu click that converts the custom tab
+        // into a normal tab is performed by the test, and this edge only carries navigateToPage() past its
+        // single-pass mozIsOnPageNow() check into the polling mozWaitForPageToLoad(). That poll is what
+        // absorbs the ~1s CustomTabActivity -> HomeActivity transition, during which the engineView anchor
+        // isn't in the tree yet — without the edge, a slow transition makes path-finding fail with
+        // "No navigation path found to 'BrowserPage'" (intermittent). Mirrors MainMenuPage -> BrowserPage.
+        builder.register(
+            from = pageName,
+            to = "BrowserPage",
+            steps = listOf(),
+            arrival = NavigationArrival.EDGE_COMPLETION,
+        )
+    }
+
+    override fun navigateToPage(
+        url: String,
+        forceNavigation: Boolean,
+        navigationOptions: NavigationOptions,
+    ): CustomTabsPage {
+        super.navigateToPage(url, forceNavigation, navigationOptions)
+        return this
+    }
+
+    fun launchCustomTab(url: String, customMenuItemLabel: String = ""): CustomTabsPage {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val intent =
+            createCustomTabIntent(url, customMenuItemLabel).apply {
+                setClass(context, IntentReceiverActivity::class.java)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        context.startActivity(intent)
+        mozVerify(CustomTabsSelectors.MAIN_MENU_BUTTON) // wait for the custom-tab toolbar to settle
+        PageStateTracker.currentPageName = pageName
+        return this
+    }
+
+    fun openMainMenu(): CustomTabsPage {
+        mozClick(CustomTabsSelectors.MAIN_MENU_BUTTON)
+        return this
+    }
+
+    /**
+     * Leave the custom tab the way an external app would: an ACTION_VIEW intent scoped to Firefox, which opens the URL
+     * in the full browser. Distinct from the custom tab's own "Open in Firefox" menu item (MENU_OPEN_IN_APP), which
+     * hands over the existing tab — a test that means to exercise the external entry point cannot substitute one for
+     * the other.
+     *
+     * This direct test helper is not a setup route. It sets the page state to BrowserPage, since that is where it
+     * lands; the caller should then assert on `on.browserPage` rather than continuing to chain off the custom tab.
+     */
+    fun openUrlFromExternalLink(url: String) {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val intent =
+            Intent(Intent.ACTION_VIEW, url.toUri()).apply {
+                `package` = context.packageName
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        context.startActivity(intent)
+        PageStateTracker.currentPageName = "BrowserPage"
+    }
+
+    // Web content is rendered by GeckoView and matched device-wide (UIAutomator text), so the BrowserPage
+    // page-content locator works inside a custom tab too. Wait for the content to render before tapping:
+    // mozClick resolves once with no polling, and GeckoView's accessibility node for freshly-loaded text
+    // can lag the toolbar settling, so an immediate tap intermittently misses it (element not found).
+    fun clickWebContent(text: String): CustomTabsPage {
+        mozVerify(BrowserPageSelectors.PAGE_CONTENT(text), timeout = waitingTime)
+        mozClick(BrowserPageSelectors.PAGE_CONTENT(text))
+        return this
+    }
+
+    fun verifyWebContent(text: String): CustomTabsPage {
+        mozVerify(BrowserPageSelectors.PAGE_CONTENT(text))
+        return this
+    }
+
+    // The custom-tab toolbar renders the page's host, not the full URL (as the legacy verifyCustomTabUrl
+    // asserted), so match on the host extracted from the URL.
+    fun verifyUrl(url: String): CustomTabsPage {
+        val host = url.toUri().host ?: url
+        mozVerify(CustomTabsSelectors.TOOLBAR_URL(host))
+        return this
+    }
+
+    // Long-press the toolbar URL box to raise its contextual menu, then tap "Copy" to put the URL on the
+    // clipboard. Ports CustomTabRobot.longClickAndCopyToolbarUrl.
+    fun longClickAndCopyToolbarUrl(): CustomTabsPage {
+        mozLongClick(CustomTabsSelectors.TOOLBAR_URL_BOX)
+        mozClick(CustomTabsSelectors.LONG_PRESS_COPY)
+        return this
+    }
+
+    override val selectorCatalog = CustomTabsSelectors
+}

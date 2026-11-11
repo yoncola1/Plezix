@@ -1,0 +1,138 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+import React, { useEffect, useRef } from "react";
+import { getClockCityDisplay } from "./ClocksHelpers";
+
+export function EditClocksPanel({
+  clockZones,
+  curatedNames,
+  canAddClock,
+  onShowAddClock,
+  onEditClock,
+  onRemoveClock,
+  onClose,
+}) {
+  const panelRef = useRef(null);
+
+  // Focus the panel, not a button, so no focus ring shows on open. Double-rAF
+  // so this fires one frame after closeContextMenu's blur, which is scheduled
+  // in the same event handler when opening from the context menu.
+  useEffect(() => {
+    let outerId = 0;
+    let innerId = 0;
+    outerId = requestAnimationFrame(() => {
+      innerId = requestAnimationFrame(() => {
+        panelRef.current?.focus?.();
+      });
+    });
+    return () => {
+      cancelAnimationFrame(outerId);
+      cancelAnimationFrame(innerId);
+    };
+  }, []);
+
+  // Back arrow mirrors in RTL. Built in JS like the other newtab arrows: a
+  // static URL would make browser_all_files_referenced.js flag the icon.
+  const isRTL = typeof document !== "undefined" && document.dir === "rtl";
+  const arrowIconSrc = `chrome://global/skin/icons/shaft-arrow-${
+    isRTL ? "right" : "left"
+  }.svg`;
+
+  return (
+    <section
+      className="clocks-panel clocks-edit-panel"
+      aria-labelledby="clocks-edit-title"
+      tabIndex={-1}
+      ref={panelRef}
+      onKeyDown={e => {
+        if (e.key === "Escape") {
+          onClose();
+        }
+      }}
+    >
+      <div className="clocks-edit-header">
+        <div className="clocks-edit-title-group">
+          <moz-button
+            className="clocks-edit-back-button"
+            type="icon ghost"
+            size="small"
+            iconSrc={arrowIconSrc}
+            data-l10n-id="newtab-clock-widget-button-back"
+            onClick={onClose}
+          />
+          <h3
+            id="clocks-edit-title"
+            className="clocks-edit-title"
+            data-l10n-id="newtab-clock-widget-label-your-clocks"
+          />
+        </div>
+        {canAddClock && (
+          <moz-button
+            className="clocks-edit-add-button"
+            type="icon primary"
+            size="small"
+            iconSrc="chrome://global/skin/icons/plus.svg"
+            data-l10n-id="newtab-clock-widget-button-add"
+            onClick={onShowAddClock}
+          />
+        )}
+      </div>
+      <ul className="clocks-edit-list">
+        {clockZones.map((clock, i) => {
+          const city = getClockCityDisplay(clock, curatedNames);
+          return (
+            <li
+              className="clocks-edit-item"
+              key={`${clock.timeZone}-${i}`}
+              tabIndex={0}
+              data-l10n-id={
+                clock.label
+                  ? "newtab-clock-widget-edit-item-with-nickname"
+                  : "newtab-clock-widget-edit-item"
+              }
+              data-l10n-args={JSON.stringify(
+                clock.label ? { city, nickname: clock.label } : { city }
+              )}
+            >
+              <div className="clocks-edit-top-row">
+                <span className="clocks-edit-city" dir="auto">
+                  {city}
+                </span>
+                <div className="clocks-edit-item-actions">
+                  <moz-button
+                    className="clocks-edit-item-button clocks-edit-item-edit-button"
+                    type="icon ghost"
+                    size="small"
+                    iconSrc="chrome://global/skin/icons/edit-outline.svg"
+                    data-l10n-id="newtab-clock-widget-button-edit-clock"
+                    onClick={() => onEditClock(i)}
+                  />
+                  {clockZones.length > 1 && (
+                    <moz-button
+                      className="clocks-edit-item-button clocks-edit-item-remove-button"
+                      type="icon ghost"
+                      size="small"
+                      iconSrc="chrome://global/skin/icons/delete.svg"
+                      data-l10n-id="newtab-clock-widget-button-remove-clock"
+                      onClick={() => onRemoveClock(i)}
+                    />
+                  )}
+                </div>
+              </div>
+              {clock.label && (
+                <span
+                  aria-hidden="true"
+                  className="clocks-edit-subtitle"
+                  data-l10n-id="newtab-clock-widget-label-nickname-with-value"
+                  data-l10n-args={JSON.stringify({ nickname: clock.label })}
+                />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}

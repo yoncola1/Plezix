@@ -1,0 +1,177 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "mozilla/net/DNSRequestParent.h"
+
+#include "DNSAdditionalInfo.h"
+#include "mozilla/Components.h"
+#include "nsHostResolver.h"
+#include "nsICancelable.h"
+#include "nsIDNSRecord.h"
+#include "nsIDNSService.h"
+#include "nsNetCID.h"
+#include "nsServiceManagerUtils.h"
+#include "nsThreadUtils.h"
+
+using namespace mozilla::ipc;
+
+namespace mozilla {
+namespace net {
+
+//-----------------------------------------------------------------------------
+// DNSRequestHandler::nsISupports
+//-----------------------------------------------------------------------------
+
+NS_IMPL_ISUPPORTS(DNSRequestHandler, nsIDNSListener)
+
+DNSRequestHandler::~DNSRequestHandler() = default;
+
+void DNSRequestHandler::SetIPCActor(DNSRequestParent* aActor) {
+  mIPCActor = aActor;
+}
+
+void DNSRequestHandler::DoAsyncResolve(const nsACString& hostname,
+                                       const nsACString& trrServer,
+                                       int32_t port, uint16_t type,
+                                       const OriginAttributes& originAttributes,
+                                       nsIDNSService::DNSFlags flags) {
+  nsresult rv;
+  mFlags = flags;
+  nsCOMPtr<nsIDNSService> dns;
+  dns = mozilla::components::DNS::Service(&rv);
+  if (NS_SUCCEEDED(rv)) {
+    nsCOMPtr<nsIEventTarget> main = GetMainThreadSerialEventTarget();
+    nsCOMPtr<nsICancelable> unused;
+    RefPtr<DNSAdditionalInfo> info;
+    if (!trrServer.IsEmpty() || port != -1) {
+      info = new DNSAdditionalInfo(trrServer, port);
+    }
+    rv = dns->AsyncResolveNative(
+        hostname, static_cast<nsIDNSService::ResolveType>(type), flags, info,
+        this, main, originAttributes, getter_AddRefs(unused));
+  }
+
+  if (NS_FAILED(rv) && mIPCActor->CanSend()) {
+    (void)mIPCActor->SendLookupCompleted(DNSRequestResponse(rv));
+  }
+}
+
+void DNSRequestHandler::OnRecvCancelDNSRequest(
+    const nsCString& hostName, const nsCString& aTrrServer, const int32_t& port,
+    const uint16_t& type, const OriginAttributes& originAttributes,
+    const nsIDNSService::DNSFlags& flags, const nsresult& reason) {
+  nsresult rv;
+  nsCOMPtr<nsIDNSService> dns;
+  dns = mozilla::components::DNS::Service(&rv);
+  if (NS_SUCCEEDED(rv)) {
+    RefPtr<DNSAdditionalInfo> info;
+    if (!aTrrServer.IsEmpty() || port != -1) {
+      info = new DNSAdditionalInfo(aTrrServer, port);
+    }
+    rv = dns->CancelAsyncResolveNative(
+        hostName, static_cast<nsIDNSService::ResolveType>(type), flags, info,
+        this, reason, originAttributes);
+  }
+}
+
+//-----------------------------------------------------------------------------
+// nsIDNSListener functions
+//-----------------------------------------------------------------------------
+
+NS_IMETHODIMP
+DNSRequestHandler::OnLookupComplete(nsICancelable* request,
+                                    nsIDNSRecord* aRecord, nsresult status) {
+  if (!mIPCActor || !mIPCActor->CanSend()) {
+    // nothing to do: child probably crashed
+    return NS_OK;
+  }
+
+  if (NS_SUCCEEDED(status)) {
+    MOZ_ASSERT(aRecord);
+
+    nsCOMPtr<nsIDNSByTypeRecord> byTypeRec = do_QueryInterface(aRecord);
+    if (byTypeRec) {
+      IPCTypeRecord result;
+      byTypeRec->GetResults(&result.mData);
+      byTypeRec->GetFromStaleCache(&result.mFromStaleCache);
+      if (nsCOMPtr<nsIDNSHTTPSSVCRecord> rec = do_QueryInterface(aRecord)) {
+        rec->GetTtl(&result.mTTL);
+        rec->IsTRR(&result.mIsTRR);
+      }
+      (void)mIPCActor->SendLookupCompleted(DNSRequestResponse(result));
+      return NS_OK;
+    }
+
+    nsCOMPtr<nsIDNSAddrRecord> rec = do_QueryInterface(aRecord);
+    MOZ_ASSERT(rec);
+    nsAutoCString cname;
+    if (mFlags & nsIDNSService::RESOLVE_CANONICAL_NAME) {
+      rec->GetCanonicalName(cname);
+    }
+
+    // Get IP addresses for hostname (use port 80 as dummy value for NetAddr)
+    nsTArray<NetAddr> array;
+    NetAddr addr;
+    while (NS_SUCCEEDED(rec->GetNextAddr(80, &addr))) {
+      array.AppendElement(addr);
+    }
+
+    double trrFetchDuration;
+    rec->GetTrrFetchDuration(&trrFetchDuration);
+
+    double trrFetchDurationNetworkOnly;
+    rec->GetTrrFetchDurationNetworkOnly(&trrFetchDurationNetworkOnly);
+
+    bool isTRR = false;
+    rec->IsTRR(&isTRR);
+
+    nsIRequest::TRRMode effectiveTRRMode = nsIRequest::TRR_DEFAULT_MODE;
+    rec->GetEffectiveTRRMode(&effectiveTRRMode);
+
+    uint32_t ttl = 0;
+    rec->GetTtl(&ttl);
+
+    TimeStamp lastUpdate;
+    rec->GetLastUpdate(&lastUpdate);
+
+    bool fromStaleCache = false;
+    rec->GetFromStaleCache(&fromStaleCache);
+
+    (void)mIPCActor->SendLookupCompleted(DNSRequestResponse(
+        DNSRecord(cname, array, trrFetchDuration, trrFetchDurationNetworkOnly,
+                  isTRR, effectiveTRRMode, ttl, lastUpdate, fromStaleCache)));
+  } else {
+    (void)mIPCActor->SendLookupCompleted(DNSRequestResponse(status));
+  }
+
+  return NS_OK;
+}
+
+void DNSRequestHandler::OnIPCActorDestroy() { mIPCActor = nullptr; }
+
+//-----------------------------------------------------------------------------
+// DNSRequestParent functions
+//-----------------------------------------------------------------------------
+
+DNSRequestParent::DNSRequestParent(DNSRequestHandler* aRequest)
+    : mDNSRequest(aRequest) {
+  aRequest->SetIPCActor(this);
+}
+
+mozilla::ipc::IPCResult DNSRequestParent::RecvCancelDNSRequest(
+    const nsCString& hostName, const nsCString& trrServer, const int32_t& port,
+    const uint16_t& type, const OriginAttributes& originAttributes,
+    const nsIDNSService::DNSFlags& flags, const nsresult& reason) {
+  mDNSRequest->OnRecvCancelDNSRequest(hostName, trrServer, port, type,
+                                      originAttributes, flags, reason);
+  return IPC_OK();
+}
+
+void DNSRequestParent::ActorDestroy(ActorDestroyReason) {
+  mDNSRequest->OnIPCActorDestroy();
+  mDNSRequest = nullptr;
+}
+
+}  // namespace net
+}  // namespace mozilla

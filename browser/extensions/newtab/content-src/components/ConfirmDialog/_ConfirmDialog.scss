@@ -1,0 +1,43 @@
+.confirmation-dialog {
+  // @backward-compat { version 160 }
+  // The --dialog-* tokens are only defined from Firefox 160, so older versions
+  // fall back to the --popup-* tokens they alias.
+  border: var(--border-width) solid var(--dialog-border-color, var(--popup-border-color));
+  border-radius: var(--dialog-border-radius, var(--popup-border-radius));
+  padding: 0;
+  width: 400px;
+  box-shadow: var(--dialog-box-shadow, var(--popup-box-shadow));
+  background-color: var(--dialog-background-color, var(--popup-background-color));
+
+  &::backdrop {
+    background: var(--newtab-overlay-color);
+  }
+
+  section {
+    margin: 0;
+  }
+
+  .modal-message {
+    display: flex;
+    padding: var(--space-large);
+    padding-block-end: 0;
+
+    p {
+      margin: 0;
+      margin-block-end: var(--space-large);
+
+      &:first-child {
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+  }
+
+  .button-group {
+    border: 0;
+    padding: var(--space-large);
+  }
+
+  .icon {
+    margin-inline-end: var(--space-large);
+  }
+}

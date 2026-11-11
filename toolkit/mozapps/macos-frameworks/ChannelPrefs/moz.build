@@ -1,0 +1,34 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+with Files("**"):
+    BUG_COMPONENT = ("Toolkit", "Application Update")
+
+Framework("ChannelPrefs")
+
+EXPORTS += [
+    "ChannelPrefs.h",
+]
+
+UNIFIED_SOURCES += [
+    "ChannelPrefs.mm",
+]
+
+OS_LIBS += [
+    "-framework Foundation",
+]
+
+# `Framework("ChannelPrefs")` builds only the bare binary. Assemble the
+# `ChannelPrefs.framework` the build consumes, taking the binary from the
+# upstream `-localbuild` framework in artifact builds.
+if CONFIG["MOZ_WIDGET_TOOLKIT"] == "cocoa":
+    if CONFIG["COMPILE_ENVIRONMENT"]:
+        FINAL_TARGET_FILES["ChannelPrefs.framework"] += [
+            f"!/{FINAL_TARGET}/ChannelPrefs"
+        ]
+    elif CONFIG["MOZ_ARTIFACT_BUILDS"]:
+        FINAL_TARGET_FILES["ChannelPrefs.framework"] += [
+            "!/dist/update_framework_artifacts/ChannelPrefs-localbuild.framework/ChannelPrefs"
+        ]
+    FINAL_TARGET_FILES["ChannelPrefs.framework"].Resources += ["Info.plist"]

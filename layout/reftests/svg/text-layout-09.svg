@@ -1,0 +1,59 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="reftest-wait">
+
+  <foreignObject><canvas xmlns="http://www.w3.org/1999/xhtml" id="canvas"/></foreignObject>
+
+  <rect width="100%" height="100%" fill="lime"/>
+
+  <g fill="red">
+    <text dominant-baseline="hanging" x="70" y="70">hanging</text>
+    <text dominant-baseline="mathematical" x="70" y="140">mathematical</text>
+  </g>
+
+  <g fill="lime">
+    <text id="hanging" dominant-baseline="text-before-edge" x="70" y="70" dy="0">hanging</text>
+    <text id="mathematical" dominant-baseline="text-before-edge" x="70" y="140" dy="0">mathematical</text>
+  </g>
+
+  <style><![CDATA[
+  @font-face {
+    font-family: test;
+    src: url(../fonts/Ahem.ttf);
+  }
+  text {
+    font: 25px test;
+  }
+  ]]></style>
+  <script>
+  function cover(id, offset) {
+    let element = document.getElementById(id);
+    element.dy.baseVal[0].value = offset;
+    let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    let bbox = element.getBBox();
+    // Inflate by a couple pixels, to prevent antialiasing failures.
+    rect.x.baseVal.value = bbox.x - 2;
+    rect.y.baseVal.value = bbox.y - 2;
+    rect.width.baseVal.value = bbox.width + 4;
+    rect.height.baseVal.value = bbox.height + 4;
+    element.parentElement.appendChild(rect);
+  }
+  onload = function() {
+    document.fonts.load('25px test').then(() => {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.font = '25px test';
+
+      // GetBaselinePosition() in layout/svg/SVGTextFrame.cpp puts the hanging
+      // and the mathematical baselines at 0.2 and 0.5 of the text run's ascent
+      // below the text-before-edge baseline, which is the one the covering
+      // text uses.
+      let ascent = ctx.measureText('h').fontBoundingBoxAscent;
+
+      cover("hanging", -0.2 * ascent);
+
+      cover("mathematical", -0.5 * ascent);
+
+      document.documentElement.removeAttribute('class');
+    });
+  }
+  </script>
+</svg>

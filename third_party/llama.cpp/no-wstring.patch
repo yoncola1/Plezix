@@ -1,0 +1,41 @@
+diff --git a/src/unicode.cpp b/src/unicode.cpp
+index f7870412a3f4..4a2f58237548 100644
+--- a/src/unicode.cpp
++++ b/src/unicode.cpp
+@@ -1368,20 +1368,22 @@ std::vector<std::string> unicode_regex_split(const std::string & text, const std
+                 //printf("regex_expr_collapsed: %s\n", regex_expr_collapsed.c_str());
+                 bpe_offsets = unicode_regex_split_stl(text_collapsed, regex_expr_collapsed, bpe_offsets);
+             } else {
+-                // no unicode category used, we can use std::wregex directly
+-                std::wstring wregex_expr(cpts_regex.begin(), cpts_regex.end());
+-
+-                // std::wregex \s does not mach non-ASCII whitespaces, using 0x0B as fallback
+-                std::wstring wtext(cpts.begin(), cpts.end());
+-                for (size_t i = 0; i < wtext.size(); ++i) {
+-                    if (wtext[i] > 0x7F && unicode_cpt_flags_from_cpt(wtext[i]).is_whitespace) {
+-                        wtext[i] = 0x0B;
+-                    }
+-                }
+-
+-                //printf("text: %s\n", text.c_str());
+-                //printf("regex_expr: %s\n", regex_expr.c_str());
+-                bpe_offsets = unicode_regex_split_stl(wtext, wregex_expr, bpe_offsets);
++                fprintf(stderr, "Only use utf-8");
++                std::abort();
++                // // no unicode category used, we can use std::wregex directly
++                // std::wstring wregex_expr(cpts_regex.begin(), cpts_regex.end());
++
++                // // std::wregex \s does not mach non-ASCII whitespaces, using 0x0B as fallback
++                // std::wstring wtext(cpts.begin(), cpts.end());
++                // for (size_t i = 0; i < wtext.size(); ++i) {
++                //     if (wtext[i] > 0x7F && unicode_cpt_flags_from_cpt(wtext[i]).is_whitespace) {
++                //         wtext[i] = 0x0B;
++                //     }
++                // }
++
++                // //printf("text: %s\n", text.c_str());
++                // //printf("regex_expr: %s\n", regex_expr.c_str());
++                // bpe_offsets = unicode_regex_split_stl(wtext, wregex_expr, bpe_offsets);
+             }
+         } catch (std::regex_error & e) {
+             fprintf(stderr, "Failed to process regex: '%s'\n", regex_expr.c_str());

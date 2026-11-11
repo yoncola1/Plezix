@@ -1,0 +1,40 @@
+[DEFAULT]
+head = "head.js"
+tags = "inc-origin-init"
+
+["test_basics.js"]
+
+["test_basics_worker.js"]
+
+["test_databaseWorkStarted.js"]
+
+["test_fileIdCarry.js"]
+
+["test_fileSystemDirectoryHandle.js"]
+requesttimeoutfactor = 2  # Slow on Linux
+
+["test_fileSystemDirectoryHandle_worker.js"]
+requesttimeoutfactor = 2  # Slow on Linux
+
+["test_getDirectoryFailure.js"]
+
+["test_orphanUsageCleanup.js"]
+# The injected rows bypass usage accounting, so the quota manager must recompute
+# usage from the database instead of trusting its cache.
+prefs = [
+  "dom.quotaManager.loadQuotaFromCache=false",
+  "dom.quotaManager.loadQuotaFromSecondaryCache=false",
+]
+
+["test_slowDatabaseInitialization.js"]
+
+["test_slowStorageInitialization.js"]
+
+["test_syncAccessHandle_worker.js"]
+prefs = ["security.storage.encryption.sqlite.enabled=false"]
+
+["test_writableFileStream.js"]
+prefs = ["security.storage.encryption.sqlite.enabled=false"]
+
+["test_writableFileStream_worker.js"]
+prefs = ["security.storage.encryption.sqlite.enabled=false"]

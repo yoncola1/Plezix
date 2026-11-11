@@ -1,0 +1,99 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:host {
+  --screenshots-icon-background-color: var(--color-gray-60);
+
+  position: absolute;
+  /* position about 4px above the container ensuring overlap with toolbar/chrome */
+  top: -8px;
+  inset-inline-end: 10px;
+  z-index: 3;
+  padding: 12px;
+  background-color: var(--panel-background-color);
+  color: var(--panel-text-color);
+  border-radius: var(--panel-border-radius);
+}
+
+#full-page {
+  background-image: url("chrome://browser/content/screenshots/menu-fullpage.svg");
+}
+
+#visible-page {
+  background-image: url("chrome://browser/content/screenshots/menu-visible.svg");
+}
+
+#full-page,
+#visible-page {
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  /* stroke is the secondary fill color used to define the viewport shape in the SVGs */
+  stroke: var(--screenshots-icon-background-color);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 46px 46px;
+  min-width: 90px;
+  padding: 46px 5px 5px;
+  margin: 2px;
+}
+
+.mini-window-chooser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+  min-width: 24em;
+  max-width: 32em;
+}
+
+.mini-window-title {
+  margin: 0;
+  font-size: var(--font-size-xlarge);
+  text-wrap: nowrap;
+}
+
+.mini-window-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-medium);
+}
+
+.mini-window-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-small);
+  padding: var(--space-large) var(--space-xxlarge);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+
+  &[data-default] {
+    border-color: var(--border-color-interactive);
+    background-color: var(--button-background-color-ghost-hover);
+    color: var(--button-text-color-ghost-hover);
+  }
+
+  &:hover {
+    background-color: var(--button-background-color-hover);
+    color: var(--button-text-color-hover);
+    border-color: var(--border-color-interactive);
+  }
+
+  &:focus-visible {
+    border-color: var(--border-color-interactive);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-inset);
+  }
+}
+
+.mini-window-option-icon {
+  width: var(--size-item-large);
+  height: var(--size-item-large);
+  /* These SVGs paint a second shape with context-stroke; without it that
+     shape falls back to its own bright placeholder colour. */
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  stroke: var(--screenshots-icon-background-color);
+}

@@ -1,0 +1,106 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package org.mozilla.fenix.compose.home
+
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import mozilla.components.compose.base.theme.PreviewThemeProvider
+import mozilla.components.compose.base.theme.Theme
+import mozilla.components.ui.icons.R as iconsR
+import org.mozilla.fenix.R
+import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.wallpapers.WallpaperTheme
+
+/**
+ * Homepage header.
+ *
+ * @param headerText The header string.
+ * @param modifier Modifier to apply.
+ * @param description The content description for the button.
+ * @param buttonText The text to show for the button.
+ * @param onButtonClick Invoked when the button is clicked.
+ */
+@Composable
+fun HomeSectionHeader(
+    headerText: String,
+    modifier: Modifier = Modifier,
+    description: String = "",
+    buttonText: String = stringResource(id = R.string.recent_tabs_show_all),
+    onButtonClick: (() -> Unit)? = null,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = headerText,
+            modifier = Modifier.weight(1f).wrapContentHeight(align = Alignment.Top).semantics { heading() },
+            color = WallpaperTheme.onWallpaper,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 2,
+            style = FirefoxTheme.typography.subtitle1,
+        )
+
+        Spacer(modifier = Modifier.width(FirefoxTheme.layout.space.dynamic100))
+
+        onButtonClick?.let {
+            TextButton(
+                onClick = { onButtonClick() },
+                colors = ButtonDefaults.textButtonColors(contentColor = WallpaperTheme.onWallpaper),
+            ) {
+                Text(
+                    text = buttonText,
+                    modifier =
+                        Modifier.semantics {
+                            contentDescription = description
+                        },
+                    style = FirefoxTheme.typography.subtitle1,
+                )
+
+                Spacer(modifier = Modifier.width(FirefoxTheme.layout.size.static50))
+
+                Icon(
+                    painter = painterResource(id = iconsR.drawable.mozac_ic_chevron_right_16),
+                    contentDescription = null,
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun HomeSectionsHeaderPreview(@PreviewParameter(PreviewThemeProvider::class) theme: Theme) {
+    FirefoxTheme(theme) {
+        Surface {
+            HomeSectionHeader(
+                headerText = stringResource(R.string.home_bookmarks_title),
+                modifier = Modifier.padding(horizontal = FirefoxTheme.layout.size.static300),
+                description = stringResource(R.string.home_bookmarks_show_all_content_description),
+                onButtonClick = {},
+            )
+        }
+    }
+}

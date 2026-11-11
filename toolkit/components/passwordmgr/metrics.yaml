@@ -1,0 +1,1540 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# Adding a new metric? We have docs for that!
+# https://firefox-source-docs.mozilla.org/toolkit/components/glean/user/new_definitions_file.html
+
+---
+$schema: moz://mozilla.org/schemas/glean/metrics/2-0-0
+$tags:
+  - 'Toolkit :: Password Manager'
+
+pwmgr:
+  form_autofill_result:
+    type: labeled_counter
+    description:
+      The result of auto-filling a login form.
+    labels:
+      - filled
+      - no_password_field
+      - password_disabled_readonly
+      - no_logins_fit
+      - no_saved_logins
+      - existing_password
+      - existing_username
+      - multiple_logins
+      - no_autofill_forms
+      - autocomplete_off
+      - insecure
+      - password_autocomplete_new_password
+      - type_no_longer_password
+      - form_in_crossorigin_subframe
+      - filled_username_only_form
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1340021
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1833398
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1833398#c3
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+
+  autocomplete_field_generatedpassword:
+    type: event
+    description: >
+      "autocomplete_field": The first time each unique generated password
+      is used to fill a login field - i.e. the user selects it from from
+      the autocomplete dropdown on a password input "autocomplete_shown":
+      The first time the password generation option is shown in the
+      autocomplete dropdown on a password input for a site per session
+    bugs: &pwmgr_autocomplete_field_bugs
+      - https://bugzil.la/1548878
+      - https://bugzil.la/1616356
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_autocomplete_field_data_reviews
+      - https://bugzil.la/1548878
+      - https://bugzil.la/1616356
+    notification_emails: &pwmgr_autocomplete_field_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+      - sfoster@mozilla.com
+    expires: never
+
+  autocomplete_shown_generatedpassword:
+    type: event
+    description: >
+      "autocomplete_field": The first time each unique generated password
+      is used to fill a login field - i.e. the user selects it from from
+      the autocomplete dropdown on a password input "autocomplete_shown":
+      The first time the password generation option is shown in the
+      autocomplete dropdown on a password input for a site per session
+    bugs: *pwmgr_autocomplete_field_bugs
+    data_reviews: *pwmgr_autocomplete_field_data_reviews
+    notification_emails: *pwmgr_autocomplete_field_emails
+    expires: never
+
+  filled_field_edited_generatedpassword:
+    type: event
+    description: >
+      The first time each generated password filled in a website form
+      field is edited by the user in a field it was filled in
+    bugs:
+      - https://bugzil.la/1548880
+      - https://bugzil.la/2079353
+    data_reviews:
+      - https://bugzil.la/1548880
+    notification_emails:
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+    expires: never
+
+  doorhanger_submitted_save:
+    type: event
+    description: >
+      A login is saved or updated via the capture doorhanger. Carries
+      information about whether the username and password _that were
+      saved/updated by the user_ were modified in the doorhanger, selected
+      from the suggestion autocomplete, or neither. `did_edit_X` and
+      `did_select_X` will never both be true in the same event. The
+      `object` describes the type of doorhanger when it was originally
+      created. Note that user updates to the doorhanger may change whether
+      a login is actually saved or updated, but will not impact the sent
+      object.
+      This event was generated to correspond to the Legacy Telemetry event
+      pwmgr.doorhanger_submitted#save.
+    bugs: &pwmgr_doorhanger_submitted_bugs
+      - https://bugzil.la/1650929
+      - https://bugzil.la/1650941
+      - https://bugzil.la/1678200
+      - https://bugzil.la/1714252
+      - https://bugzil.la/1754637
+      - https://bugzil.la/1850872
+      - https://bugzil.la/1969169
+      - https://bugzil.la/1999882
+      - https://bugzil.la/2048463
+    data_reviews: &pwmgr_doorhanger_submitted_data_reviews
+      - https://bugzil.la/1650929
+      - https://bugzil.la/1650941
+      - https://bugzil.la/1678200
+      - https://bugzil.la/1714252
+      - https://bugzil.la/1754637
+      - https://bugzil.la/1850872
+    notification_emails: &pwmgr_doorhanger_submitted_emails
+      - passwords-dev@mozilla.org
+    expires: 165
+    extra_keys: &pwmgr_doorhanger_submitted_extra
+      did_edit_un:
+        description: >
+          Whether or not the saved/updated username was modified by the user typing into the username field.
+
+        type: boolean
+      did_select_un:
+        description: >
+          Whether or not the saved/updated username was selected by the user choosing a suggested value from the autocomplete popup.
+
+        type: boolean
+      did_edit_pw:
+        description: >
+          Whether or not the saved/updated password was modified by the user typing into the password field.
+
+        type: boolean
+      did_select_pw:
+        description: >
+          Whether or not the saved/updated password was selected by the user choosing a suggested value from the autocomplete popup.
+
+        type: boolean
+
+  doorhanger_submitted_update:
+    type: event
+    description: >
+      A login is saved or updated via the capture doorhanger. Carries
+      information about whether the username and password _that were
+      saved/updated by the user_ were modified in the doorhanger, selected
+      from the suggestion autocomplete, or neither. `did_edit_X` and
+      `did_select_X` will never both be true in the same event. The
+      `object` describes the type of doorhanger when it was originally
+      created. Note that user updates to the doorhanger may change whether
+      a login is actually saved or updated, but will not impact the sent
+      object.
+      This event was generated to correspond to the Legacy Telemetry event
+      pwmgr.doorhanger_submitted#update.
+    bugs: *pwmgr_doorhanger_submitted_bugs
+    data_reviews: *pwmgr_doorhanger_submitted_data_reviews
+    notification_emails: *pwmgr_doorhanger_submitted_emails
+    expires: 165
+    extra_keys: *pwmgr_doorhanger_submitted_extra
+
+  saved_login_used_form_login:
+    type: event
+    description: >
+      Each time a saved login is used in a form or authentication dialog.
+    bugs: &pwmgr_saved_login_used_bugs
+      - https://bugzil.la/1631130
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_saved_login_used_data_reviews
+      - https://bugzil.la/1631130
+    notification_emails: &pwmgr_saved_login_used_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys: &pwmgr_saved_login_used_extra
+      filled:
+        description: >
+          Whether the browser filled the login details for the user vs. typing saved values.
+        type: boolean
+
+  saved_login_used_form_password:
+    type: event
+    description: >
+      Each time a saved login is used in a form or authentication dialog.
+    bugs: *pwmgr_saved_login_used_bugs
+    data_reviews: *pwmgr_saved_login_used_data_reviews
+    notification_emails: *pwmgr_saved_login_used_emails
+    expires: never
+    extra_keys: *pwmgr_saved_login_used_extra
+
+  saved_login_used_auth_login:
+    type: event
+    description: >
+      Each time a saved login is used in a form or authentication dialog.
+    bugs: *pwmgr_saved_login_used_bugs
+    data_reviews: *pwmgr_saved_login_used_data_reviews
+    notification_emails: *pwmgr_saved_login_used_emails
+    expires: never
+    extra_keys: *pwmgr_saved_login_used_extra
+
+  saved_login_used_prompt_login:
+    type: event
+    description: >
+      Each time a saved login is used in a form or authentication dialog.
+    bugs: *pwmgr_saved_login_used_bugs
+    data_reviews: *pwmgr_saved_login_used_data_reviews
+    notification_emails: *pwmgr_saved_login_used_emails
+    expires: never
+    extra_keys: *pwmgr_saved_login_used_extra
+
+  mgmt_menu_item_used_import_from_browser:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: &pwmgr_mgmt_menu_item_used_bugs
+      - https://bugzil.la/1641396
+      - https://bugzil.la/1641777
+      - https://bugzil.la/1641393
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_mgmt_menu_item_used_data_reviews
+      - https://bugzil.la/1641396
+      - https://bugzil.la/1641777
+      - https://bugzil.la/1641393
+    notification_emails: &pwmgr_mgmt_menu_item_used_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+    expires: never
+
+  mgmt_menu_item_used_import_from_csv:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: *pwmgr_mgmt_menu_item_used_bugs
+    data_reviews: *pwmgr_mgmt_menu_item_used_data_reviews
+    notification_emails: *pwmgr_mgmt_menu_item_used_emails
+    expires: never
+
+  mgmt_menu_item_used_import_csv_complete:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: *pwmgr_mgmt_menu_item_used_bugs
+    data_reviews: *pwmgr_mgmt_menu_item_used_data_reviews
+    notification_emails: *pwmgr_mgmt_menu_item_used_emails
+    expires: never
+
+  mgmt_menu_item_used_export:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: *pwmgr_mgmt_menu_item_used_bugs
+    data_reviews: *pwmgr_mgmt_menu_item_used_data_reviews
+    notification_emails: *pwmgr_mgmt_menu_item_used_emails
+    expires: never
+
+  mgmt_menu_item_used_export_complete:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: *pwmgr_mgmt_menu_item_used_bugs
+    data_reviews: *pwmgr_mgmt_menu_item_used_data_reviews
+    notification_emails: *pwmgr_mgmt_menu_item_used_emails
+    expires: never
+
+  mgmt_menu_item_used_preferences:
+    type: event
+    description: >
+      Record interactions with the about:logins menu.
+    bugs: *pwmgr_mgmt_menu_item_used_bugs
+    data_reviews: *pwmgr_mgmt_menu_item_used_data_reviews
+    notification_emails: *pwmgr_mgmt_menu_item_used_emails
+    expires: never
+
+  reauthenticate_master_password:
+    type: event
+    description: >
+      Measure how often users are asked to authenticate with their Operating System or Master Password to gain access to stored passwords.
+      Possible values are as follows,
+        "success" should be used when the user authenticates and provides a password or other authentication factor.
+        "success_no_prompt" should be used when the feature is enabled but no prompt is given to the user because they have recently authenticated.
+        "success_disabled" is used when the feature is disabled.
+        "success_unsupported_platform" should be set when the user attempts to authenticate on an unsupported platform.
+        "success_no_password" should be used when the user doesn't have an OS password set.
+        "fail" should be used when the user cancels the authentication prompt or an unexpected exception is encountered. The user may or may not have provided an incorrect password before cancelling.
+    bugs: &pwmgr_reauthenticate_bugs
+      - https://bugzil.la/1628029
+      - https://bugzil.la/1623745
+      - https://bugzil.la/1636729
+      - https://bugzil.la/1642267
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_reauthenticate_data_reviews
+      - https://bugzil.la/1628029
+      - https://bugzil.la/1623745
+      - https://bugzil.la/1636729
+      - https://bugzil.la/1642267
+    notification_emails: &pwmgr_reauthenticate_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+      - jaws@mozilla.com
+    expires: never
+    extra_keys: &pwmgr_reauthenticate_extra
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+      auto_admin:
+        description: >
+          If the AutoAdminLogon Windows feature is enabled. This feature disables password prompt when logging in to Windows.
+
+        type: string
+      require_signon:
+        description: >
+          If the Power Settings on Windows are configured to not prompt for password upon resuming from sleep.
+
+        type: string
+
+  reauthenticate_os_auth:
+    type: event
+    description: >
+      Measure how often users are asked to authenticate with their Operating System or Master Password to gain access to stored passwords.
+      Possible values are as follows,
+        "success" should be used when the user authenticates and provides a password or other authentication factor.
+        "success_no_prompt" should be used when the feature is enabled but no prompt is given to the user because they have recently authenticated.
+        "success_disabled" is used when the feature is disabled.
+        "success_unsupported_platform" should be set when the user attempts to authenticate on an unsupported platform.
+        "success_no_password" should be used when the user doesn't have an OS password set.
+        "fail" should be used when the user cancels the authentication prompt or an unexpected exception is encountered. The user may or may not have provided an incorrect password before cancelling.
+    bugs: *pwmgr_reauthenticate_bugs
+    data_reviews: *pwmgr_reauthenticate_data_reviews
+    notification_emails: *pwmgr_reauthenticate_emails
+    expires: never
+    extra_keys: *pwmgr_reauthenticate_extra
+
+  prompt_shown_os_reauth:
+    type: event
+    description: >
+      Captures the method of user interaction initiating the prompt and the result of the prompt.
+      Possible triggers include:
+        "copy_logins" when a user copies a password in about:logins
+        "copy_cpm" when a user copies a password in contextual password manager
+        "delete_autocomplete" when a user deletes a password from the form autocomplete dropdown
+        "edit_logins" when a user edits a login in about:logins
+        "edit_cpm" when a user edits a login in contextual password manager
+        "export_logins" when a user exports all passwords in about:logins
+        "export_cpm" when a user exports all passwords in contextual password manager
+        "reveal_logins" when a user reveals a password a login in about:logins
+        "reveal_cpm" when a user reveals a password a login in contextual password manager
+        "toggle_pref_primary_password" when a user toggles "Use a Primary Password" in about:preferences
+        "toggle_pref_os_auth" when a user toggles "Passwords / Require device sign in" in about:preferences
+      Possible results include:
+        "success" should be used when the user is shown the OS Auth prompt and successfully authenticates.
+        "fail_user_canceled" should be used when the user cancels the authentication prompt. The user may or may not have provided an incorrect password before cancelling.
+        "fail_error" should be used when an unexpected exception is encountered.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+    notification_emails:
+      - autofill@lists.mozilla.org
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      trigger:
+        description: >
+          Which user interaction triggered the event.
+        type: string
+      result:
+        description: >
+          The result of the OS Authentication.
+        type: string
+
+  primary_password_prompt:
+    type: event
+    description: >
+      Recorded every time the password manager asks the user for their Primary
+      Password, together with the outcome of that prompt.
+      Possible sources, meaning the code path that put the dialog on screen, are:
+        "reauth" for the explicit re-authentication gate used by about:logins,
+          the contextual password manager and about:preferences.
+        "crypto_sdr" when the JSON store had to unlock the NSS key to encrypt
+          or decrypt a login.
+        "rust_storage" when the Rust store had to unlock the NSS key.
+        "migration" when the migration to the Rust store asked for it at
+          startup, before migrating the logins.
+      Possible results are:
+        "success" when the user entered the correct password.
+        "cancel" when the user dismissed the dialog.
+        "wrong_password" when the user entered an incorrect password and is
+          prompted again.
+        "error" when an unexpected exception was encountered.
+      Only "rust_storage" reports "wrong_password", because on the other two
+      paths NSS re-prompts internally without notifying us: an unlock in which
+      the user mistyped their password before succeeding or giving up is
+      recorded there as a single event holding the final outcome. For the same
+      reason "reauth" never reports "error", since NSS surfaces a dismissed
+      dialog and an internal failure identically. On "crypto_sdr", "error" can
+      also mean that the operation failed before a dialog was shown.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2070108
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2087534
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2070108
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2087534
+    data_sensitivity:
+      - interaction
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      source:
+        description: >
+          The code path that showed the prompt.
+        type: string
+      trigger:
+        description: >
+          For "reauth", which user interaction required the re-authentication,
+          using the same values as `prompt_shown_os_reauth.trigger`. For
+          "crypto_sdr", the operation that needed the key, "encrypt" or
+          "decrypt". Not set for "rust_storage", which does not know what the
+          key is used for, nor for "migration".
+        type: string
+      result:
+        description: >
+          The outcome of the prompt.
+        type: string
+
+  require_os_reauth_toggle:
+    type: event
+    description: >
+      Captures the state of the toggle after the change was made.
+      Toggle states include:
+        True means the OS Auth preference is enabeled.
+        False means it is disabled.
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+    notification_emails:
+      - autofill@lists.mozilla.org
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      toggle_state:
+        description: >
+          The toggle state after the event.
+        type: boolean
+
+  os_auth_enabled:
+      type: boolean
+      description: >
+          Check at startup whether OS Authentication has been enabled for passwords.
+      bugs:
+        - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+      data_reviews:
+        - https://bugzilla.mozilla.org/show_bug.cgi?id=1915672
+      notification_emails:
+        - autofill@lists.mozilla.org
+        - passwords-dev@mozilla.org
+      expires: never
+
+
+  open_management_aboutprotections:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: &pwmgr_open_management_bugs
+      - https://bugzil.la/1543499
+      - https://bugzil.la/1454733
+      - https://bugzil.la/1545172
+      - https://bugzil.la/1550631
+      - https://bugzil.la/1622971
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_open_management_data_reviews
+      - https://bugzil.la/1543499
+      - https://bugzil.la/1454733
+      - https://bugzil.la/1545172
+      - https://bugzil.la/1550631
+      - https://bugzil.la/1622971
+    notification_emails: &pwmgr_open_management_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+      - sfoster@mozilla.com
+    expires: never
+
+  open_management_autocomplete:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_contextmenu:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_direct:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_mainmenu:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_pageinfo:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_preferences:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  open_management_snippet:
+    type: event
+    description: >
+      Sent when opening the password management UI.
+    bugs: *pwmgr_open_management_bugs
+    data_reviews: *pwmgr_open_management_data_reviews
+    notification_emails: *pwmgr_open_management_emails
+    expires: never
+
+  cancel_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: &pwmgr_cancel_bugs
+      - https://bugzil.la/1548463
+      - https://bugzil.la/1600958
+      - https://bugzil.la/1549115
+      - https://bugzil.la/1628165
+      - https://bugzil.la/2079353
+    data_reviews: &pwmgr_cancel_data_reviews
+      - https://bugzil.la/1548463
+      - https://bugzil.la/1600958
+      - https://bugzil.la/1549115
+      - https://bugzil.la/1628165
+    notification_emails: &pwmgr_cancel_emails
+      - loines@mozilla.com
+      - passwords-dev@mozilla.org
+      - jaws@mozilla.com
+    expires: never
+    extra_keys: &pwmgr_cancel_extra
+      breached:
+        description: >
+          Whether the login is marked as breached or not. If a login is both breached and vulnerable, it will only be reported as breached.
+        type: boolean
+      vulnerable:
+        description: >
+          Whether the login is marked as vulnerable or not. If a login is both breached and vulnerable, it will only be reported as breached.
+        type: boolean
+
+  cancel_new_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  copy_password:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  copy_username:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  delete_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  delete_new_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  edit_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  filter_list:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+
+  hide_password:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  learn_more_vuln_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  new_new_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+
+  open_site_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  save_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  save_new_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  select_existing_login:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  show_password:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys: *pwmgr_cancel_extra
+
+  sort_list:
+    type: event
+    description: >
+      These events record interactions on the about:logins page.
+    bugs: *pwmgr_cancel_bugs
+    data_reviews: *pwmgr_cancel_data_reviews
+    notification_emails: *pwmgr_cancel_emails
+    expires: never
+    extra_keys:
+      sort_key:
+        description: >
+          The key that is used for sorting the login-list.
+        type: string
+
+  potentially_breached_passwords:
+    type: quantity
+    description: >
+      The number of potentially breached passwords, as determined by
+      LoginBreaches.getPotentialBreachesByLoginGUID.
+    bugs:
+      - https://bugzil.la/1577808
+      - https://bugzil.la/2079353
+    data_reviews:
+      - https://bugzil.la/1577808
+    notification_emails:
+      - seceng-telemetry@mozilla.com
+      - passwords-dev@mozilla.org
+    expires: never
+    unit: passwords
+
+  breach_alert_link_clicked:
+    type: event
+    description: >
+      Recorded when a user clicks on a breach alert link in about:logins.
+      This tracks user engagement with breach notifications, specifically
+      when they click to visit the breached website.
+    bugs:
+      - https://bugzil.la/TBD
+    data_reviews:
+      - https://bugzil.la/TBD
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      breach_name:
+        description: >
+          The name of the breach that was clicked.
+        type: string
+
+  num_saved_passwords:
+    type: quantity
+    unit: passwords
+    lifetime: application
+    description: |
+      The number of saved logins, including those that cannot be decrypted.
+      Similar to the legacy telemetry histogram PWMGR_NUM_SAVED_PASSWORDS.
+    bugs:
+      - https://bugzil.la/1937186
+    data_reviews:
+      - https://bugzil.la/1937186
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+
+  rust_migration_status:
+    type: event
+    description: >
+      One record per migration run, recording duration, login and vulnerable
+      password counts, the resulting state and any fatal error. Also recorded,
+      with the end state "Deferred", on a startup on which the migration did
+      not run because the primary password was not entered.
+    bugs:
+      - https://bugzil.la/1985800
+      - https://bugzil.la/2087534
+    data_reviews:
+      - https://bugzil.la/1985800
+      - https://bugzil.la/2087534
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      metric_version:
+        type: string
+        description: Identifier for rust migration telemetry version
+      run_id:
+        type: string
+        description: Unique identifier for the migration run.
+      duration_ms:
+        description: >
+          Duration of the migration in milliseconds.
+        type: quantity
+      number_of_logins_to_migrate:
+        description: >
+          Total number of logins to be migrated during this run.
+        type: quantity
+      number_of_logins_migrated:
+        description: >
+          Number of logins migrated during this run.
+        type: quantity
+      number_of_logins_quarantined:
+        description: >
+          Number of logins quarantined during this run.
+        type: quantity
+      number_of_vulnerable_passwords:
+        description: >
+          Number of potentially vulnerable passwords migrated during this run.
+        type: quantity
+      attempt:
+        description: >
+          Number of prior migration attempts across sessions (0 on the first
+          attempt).
+        type: quantity
+      end_state:
+        description: >
+          Migrator state after the run, e.g. "RustPrimary" when the migration
+          completed or "MigrationPending" when it did not, or "Deferred" when
+          it did not run because the primary password was not entered.
+        type: string
+      primary_password_set:
+        description: >
+          Whether a Primary Password was set at the time of the run.
+        type: boolean
+      primary_password_deferrals:
+        description: >
+          How many startups in a row the primary password prompt for the
+          migration had been canceled: on a run, before it started; on a
+          deferred startup, including this one.
+        type: quantity
+      deferral_reason:
+        description: >
+          Why the migration was deferred, only set with the end state
+          "Deferred": "primary_password_canceled" when the user canceled the
+          primary password prompt, or "primary_password_limit" when it was not
+          shown because it had been canceled too often.
+        type: string
+      error_message:
+        description: >
+          The fatal error that aborted the run, or empty if the run completed.
+        type: string
+
+  rust_migration_login_error:
+    type: event
+    description: >
+      Records one event per login that could not be migrated, with the
+      normalized error message.
+    bugs:
+      - https://bugzil.la/1991676
+    data_reviews:
+      - https://bugzil.la/1991676
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      metric_version:
+        type: string
+        description: Identifier for rust migration telemetry version
+      run_id:
+        type: string
+        description: Unique identifier for the migration run
+      error_message:
+        description: >
+          The error message or exception string from the failure.
+        type: string
+
+  rust_restore_status:
+    type: event
+    description: >
+      One record per run that restores logins out of the deactivated Rust
+      store back into the JSON store, recording duration, login counts and
+      any fatal error.
+    bugs:
+      - https://bugzil.la/2065593
+      - https://bugzil.la/2072278
+    data_reviews:
+      - https://bugzil.la/2065593
+      - https://bugzil.la/2072278
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      metric_version:
+        type: string
+        description: Identifier for rust migration telemetry version
+      run_id:
+        type: string
+        description: Unique identifier for the restore run.
+      duration_ms:
+        description: >
+          Duration of the restore in milliseconds, measured with a monotonic
+          clock.
+        type: quantity
+      restore_version:
+        description: >
+          The restore pass this record belongs to, from
+          signon.storage.rust.restoreTargetVersion. The attempt budget is
+          counted per version.
+        type: quantity
+      attempt:
+        description: >
+          Number of prior restore attempts across sessions (0 on the first
+          attempt). Restores stop being attempted once this reaches its
+          budget.
+        type: quantity
+      state:
+        description: >
+          Migrator state when the restore started: "RevertPending" the first
+          time the Rust backend is deactivated, "JSONPrimary" for a later
+          startup retrying a restore that did not complete.
+        type: string
+      number_of_logins_to_restore:
+        description: >
+          Number of logins found in the Rust store. Reported for every run,
+          including the ones that give up before reading the store, so
+          "TooManyLogins" says how many logins it left behind.
+        type: quantity
+      number_of_logins_added:
+        description: >
+          Number of logins that did not exist in the JSON store and were added.
+        type: quantity
+      number_of_logins_updated:
+        description: >
+          Number of logins whose credentials were newer in the Rust store and
+          were written back to the JSON store.
+        type: quantity
+      number_of_logins_skipped:
+        description: >
+          Number of logins left untouched because the JSON store already held
+          the same or newer credentials.
+        type: quantity
+      number_of_logins_failed:
+        description: >
+          Number of logins that could not be restored. The Rust store is kept
+          instead of wiped when this is non-zero, so the next startup retries.
+        type: quantity
+      number_of_logins_to_delete:
+        description: >
+          Number of logins the JSON store holds that the Rust store no longer
+          has, which is what carrying the deletions made under the Rust
+          backend over to the JSON store would delete. The restore deletes
+          nothing, and the number still includes any login the migration
+          failed to copy; telling those two apart is what it is collected for.
+          Absent from records written before bug 2072278.
+        type: quantity
+      end_state:
+        description: >
+          Outcome of the run: "Restored" when every login made it into the JSON
+          store, "Incomplete" when individual logins failed, "Deferred" when
+          the primary password was locked and the restore is waiting for the
+          unlock, "Aborted" when the browser shut down mid-run,
+          "TooManyLogins" when the Rust store held implausibly many logins,
+          "Failed" when a fatal error aborted the run. The Rust database is
+          never touched. "Restored" and "TooManyLogins" are final, the others
+          mean a later startup tries again.
+        type: string
+      primary_password_set:
+        description: >
+          Whether a Primary Password was set at the time of the run.
+        type: boolean
+      error_message:
+        description: >
+          The fatal error that aborted the run, or empty if the run completed.
+        type: string
+
+  rust_restore_login_error:
+    type: event
+    description: >
+      Records one event per login that could not be restored from the
+      deactivated Rust store, with the normalized error message.
+    bugs:
+      - https://bugzil.la/2065593
+    data_reviews:
+      - https://bugzil.la/2065593
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      metric_version:
+        type: string
+        description: Identifier for rust migration telemetry version
+      run_id:
+        type: string
+        description: Unique identifier for the restore run
+      error_message:
+        description: >
+          The error message or exception string from the failure.
+        type: string
+
+  storage_operation_time:
+    type: event
+    description: >
+      One record per login storage operation performed through LoginManager,
+      with the backend that served it and how long the caller waited. Not
+      recorded when the operation fails, so event counts are not success rates.
+      The duration includes a primary password prompt when the operation
+      triggered one; those samples can be excluded in analysis using
+      pwmgr.primary_password_prompt events that overlap the operation window.
+    bugs:
+      - https://bugzil.la/2070146
+    data_reviews:
+      - https://bugzil.la/2070146
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      backend:
+        type: string
+        description: >
+          The storage backend that served the call: "json", "rust" or
+          "geckoview".
+      operation:
+        type: string
+        description: >
+          "search", "list", "count" or "record_password_use".
+      duration_ms:
+        type: quantity
+        description: >
+          Duration of the call as seen by the caller, measured in LoginManager
+          around the delegation to the active backend.
+
+  rust_init_status:
+    type: event
+    description: >
+      One record per login storage initialization, with the duration of each
+      phase, the backend the migrator selected and any fatal error. Migration
+      traffic has its own event, rust_migration_status.
+    bugs:
+      - https://bugzil.la/2070152
+    data_reviews:
+      - https://bugzil.la/2070152
+    data_sensitivity:
+      - technical
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      init_rust_components_ms:
+        type: quantity
+        description: Duration of initializing the shared Rust components.
+      create_rust_store_ms:
+        type: quantity
+        description: >
+          Duration of creating/opening the Rust login store, including opening
+          the SQLite database and running schema initialization.
+      total_ms:
+        type: quantity
+        description: Duration of the complete initialization.
+      backend:
+        type: string
+        description: >
+          The backend the migrator selected as active for this session, "json"
+          or "rust". Both stores are initialized on every startup; this also
+          says which store number_of_logins was counted from.
+      result:
+        type: string
+        description: >
+          "ok", or "error" when initialization aborted with a fatal error.
+      error_kind:
+        type: string
+        description: >
+          Name of the error that aborted initialization, or empty when it
+          completed.
+
+  saving_enabled:
+    type: boolean
+    lifetime: application
+    description: |
+      Whether password saving is enabled globally.
+      Tracks the pref `signon.rememberSignons`.
+    metadata:
+      permit_non_commutative_operations_over_ipc: true
+    bugs:
+      - https://bugzil.la/1937186
+    data_reviews:
+      - https://bugzil.la/1937186
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+
+  import_logins_from_file_categorical:
+    type: labeled_counter
+    description: >
+      Results of login import from a CSV/TSV file, by category
+    labels:
+      - added
+      - modified
+      - error
+      - no_change
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1688653
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1749882
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1777397
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1850888
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1978988
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2010472
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2072837
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1688653
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1749882
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1777397
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1850888
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1978988
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2010472
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2072837
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: 170
+
+  login_page_safety:
+    type: custom_distribution
+    description: >
+      The safety of a page where we see a password field. (0: safe page & safe
+      submit; 1: safe page & unsafe submit; 2: safe page & unknown submit; 3:
+      unsafe page & safe submit; 4: unsafe page & unsafe submit; 5: unsafe page
+      & unknown submit)
+    range_min: 0
+    range_max: 8
+    bucket_count: 9
+    histogram_type: linear
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1340021
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2061373
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1340021
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+    notification_emails:
+      - seceng-telemetry@mozilla.com
+      - loines@mozilla.com
+    expires: never
+    send_in_pings:
+      - metrics
+      - sync
+
+  num_improved_generated_passwords:
+    type: labeled_counter
+    description: >
+      The number of passwords generated when
+      'signon.improvedPasswordRules.enabled' is true. 0 = Password generated by
+      default rules, 1 = Password generated by custom rules
+    labels:
+      - "false"
+      - "true"
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1686071
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2079353
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1686071
+    notification_emails:
+      - tgiles@mozilla.com
+      - passwords-dev@mozilla.com
+    expires: never
+
+  prompt_remember_action:
+    type: custom_distribution
+    description: >
+      Action taken by user through prompt for creating a login. (0=Prompt
+      displayed [always recorded], 1=Add login, 2=Don't save now, 3=Never save)
+    range_min: 0
+    range_max: 5
+    bucket_count: 6
+    histogram_type: linear
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1454733
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2079353
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1454733
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+    notification_emails:
+      - loines@mozilla.com
+    expires: never
+    send_in_pings:
+      - metrics
+      - sync
+
+  prompt_update_action:
+    type: custom_distribution
+    description: >
+      Action taken by user through prompt for modifying a login. (0=Prompt
+      displayed [always recorded], 1=Update login, 2=Don't update, 3=Remove
+      saved login)
+    range_min: 0
+    range_max: 5
+    bucket_count: 6
+    histogram_type: linear
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1454733
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1226236
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2079353
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1454733
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1545172
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1226236
+    notification_emails:
+      - loines@mozilla.com
+    expires: never
+    send_in_pings:
+      - metrics
+      - sync
+
+  is_username_only_form:
+    type: labeled_counter
+    description: >
+      Whether a <form> is a username-only form. (0=Form has a possible username
+      field but is not considered as a username-only form, 1=Form is considered
+      as a username-only form)
+    labels:
+      - "false"
+      - "true"
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1708455
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2079353
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1708455
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+
+  signup_form_detection:
+    type: timing_distribution
+    description: >
+      Elapsed time to detect whether a <form> element is a signup form.
+    time_unit: millisecond
+    bugs:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1815449
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=2079353
+    data_reviews:
+      - https://bugzilla.mozilla.org/show_bug.cgi?id=1815449
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+
+form_autocomplete:
+  show_logins:
+    type: event
+    description: >
+      A login autocomplete popup was shown, with the time from the start of
+      the search until the popup appeared and details on its contents.
+      Since bug 2070466 this is recorded once per input element per page
+      load, on the first opening of its popup, for all search string lengths;
+      before, it was recorded on every result update while the popup was
+      open, capped to search strings of length 0 and 1.
+    bugs:
+      - https://bugzil.la/1619498
+      - https://bugzil.la/1628849
+      - https://bugzil.la/2070466
+      - https://bugzil.la/2079353
+    data_reviews:
+      - https://bugzil.la/1619498
+      - https://bugzil.la/1628849
+      - https://bugzil.la/2070466
+    notification_emails:
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      value:
+        description: >
+          The `value` is the number of milliseconds since the autocomplete search started.
+        type: quantity
+      acFieldName:
+        description: >
+          The "field name" token (last one) of the field's autocomplete attribute.
+        type: string
+      fieldType:
+        description: >
+          The `type` property value of the field.
+        type: string
+      generatedPasswo:
+        description: >
+          The number of generated password rows shown.
+        type: string
+      hadPrevious:
+        description: >
+          Whether the autocomplete results had cached previous results it could use.
+        type: string
+      typeWasPassword:
+        description: >
+          Whether the input `type` was ever "password".
+        type: string
+      insecureWarning:
+        description: >
+          The number of insecure login field warning rows shown (should be 0 or 1).
+        type: string
+      login:
+        description: >
+          The number of login rows shown (with or without the domain line).
+        type: string
+      importableLogin:
+        description: >
+          The number of import suggestion rows shown.
+        type: string
+      loginsFooter:
+        description: >
+          The number of "Manage Passwords" footer row shown.
+        type: string
+      stringLength:
+        description: >
+          Length of the text in the field that triggered these results.
+        type: string
+
+relay_integration:
+  enabled_pref_change:
+    type: event
+    description: >
+      Checkbox in the settings page to enable/disable relay
+    bugs: &relay_integration_enabled_bugs
+      - https://bugzil.la/1804502
+      - https://bugzil.la/2079353
+    data_reviews: &relay_integration_enabled_data_reviews
+      - https://bugzil.la/1804502
+    notification_emails: &relay_integration_enabled_emails
+      - passwords-dev@mozilla.org
+    expires: never
+
+  disabled_pref_change:
+    type: event
+    description: >
+      Checkbox in the settings page to enable/disable relay
+    bugs: *relay_integration_enabled_bugs
+    data_reviews: *relay_integration_enabled_data_reviews
+    notification_emails: *relay_integration_enabled_emails
+    expires: never
+
+  shown_offer_relay:
+    type: event
+    description: >
+      Firefox relay integration autocomplete popup
+    bugs: &relay_integration_shown_bugs
+      - https://bugzil.la/1804502
+      - https://bugzil.la/2079353
+    data_reviews: &relay_integration_shown_data_reviews
+      - https://bugzil.la/1804502
+    notification_emails: &relay_integration_shown_emails
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys: &relay_integration_offer_relay
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+      scenario:
+        description: >
+          Describes the auth context for now only SignupForm is supported
+        type: string
+
+  clicked_offer_relay:
+    type: event
+    description: >
+      Firefox relay integration autocomplete popup
+    bugs: *relay_integration_shown_bugs
+    data_reviews: *relay_integration_shown_data_reviews
+    notification_emails: *relay_integration_shown_emails
+    expires: never
+    extra_keys: *relay_integration_offer_relay
+
+  shown_fill_username:
+    type: event
+    description: >
+      Firefox relay integration autocomplete popup
+    bugs: *relay_integration_shown_bugs
+    data_reviews: *relay_integration_shown_data_reviews
+    notification_emails: *relay_integration_shown_emails
+    expires: never
+    extra_keys: &relay_integration_fill_username
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+      error_code:
+        description: >
+          The error code after users click the fill username autocomplete entry. Only present if the object is "fill_username". When the event is successful, the error_code  is 0.
+
+        type: string
+
+  clicked_fill_username:
+    type: event
+    description: >
+      Firefox relay integration autocomplete popup.
+      Note: this event does NOT fire when a user places an email mask
+        during their first Relay opt-in flow.
+        So, we also fire `placed_email_mask`, defined below.
+    bugs: *relay_integration_shown_bugs
+    data_reviews: *relay_integration_shown_data_reviews
+    notification_emails: *relay_integration_shown_emails
+    expires: never
+    extra_keys: *relay_integration_fill_username
+
+  placed_email_mask:
+    type: event
+    description: >
+        Recorded when a Firefox Relay mask is placed (filled) in a
+        form field, e.g., when the user selects a Relay-provided mask fromautocompleteautocomplete, or after successful opt-in.
+    bugs: *relay_integration_shown_bugs
+    data_reviews: *relay_integration_shown_data_reviews
+    notification_emails: *relay_integration_shown_emails
+    expires: never
+    extra_keys: *relay_integration_fill_username
+
+  shown_reuse_panel:
+    type: event
+    description: >
+      Panels to show the state of the email alias generation
+    bugs: &relay_integration_reuse_panel_bugs
+      - https://bugzil.la/1804502
+      - https://bugzil.la/2079353
+    data_reviews: &relay_integration_reuse_panel_data_reviews
+      - https://bugzil.la/1804502
+    notification_emails: &relay_integration_reuse_panel_emails
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys:
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+      error_code:
+        description: >
+          The error code after users click the email alias generation panel. When the event is successful, the error_code  is 0.
+
+        type: string
+
+  get_unlimited_masks_reuse_panel:
+    type: event
+    description: >
+      Panels to show the state of the email alias generation
+    bugs: *relay_integration_reuse_panel_bugs
+    data_reviews: *relay_integration_reuse_panel_data_reviews
+    notification_emails: *relay_integration_reuse_panel_emails
+    expires: never
+    extra_keys: &relay_integration_reuse_panel_extra
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+
+  reuse_mask_reuse_panel:
+    type: event
+    description: >
+      Panels to show the state of the email alias generation
+    bugs: *relay_integration_reuse_panel_bugs
+    data_reviews: *relay_integration_reuse_panel_data_reviews
+    notification_emails: *relay_integration_reuse_panel_emails
+    expires: never
+    extra_keys: *relay_integration_reuse_panel_extra
+
+  shown_opt_in_panel:
+    type: event
+    description: >
+      Panel to opt-in Firefox Relay Integration
+    bugs: &relay_integration_opt_in_panel_bugs
+      - https://bugzil.la/1804502
+      - https://bugzil.la/2079353
+    data_reviews: &relay_integration_opt_in_panel_data_reviews
+      - https://bugzil.la/1804502
+    notification_emails: &relay_integration_opt_in_panel_emails
+      - passwords-dev@mozilla.org
+    expires: never
+    extra_keys: &relay_integration_opt_in_panel_extra
+      value:
+        description: >
+          The `value` of the event. Mirrors to the Legacy Telemetry
+          event's `value` parameter.
+        type: string
+
+  enabled_opt_in_panel:
+    type: event
+    description: >
+      Panel to opt-in Firefox Relay Integration
+    bugs: *relay_integration_opt_in_panel_bugs
+    data_reviews: *relay_integration_opt_in_panel_data_reviews
+    notification_emails: *relay_integration_opt_in_panel_emails
+    expires: never
+    extra_keys: *relay_integration_opt_in_panel_extra
+
+  postponed_opt_in_panel:
+    type: event
+    description: >
+      Panel to opt-in Firefox Relay Integration
+    bugs: *relay_integration_opt_in_panel_bugs
+    data_reviews: *relay_integration_opt_in_panel_data_reviews
+    notification_emails: *relay_integration_opt_in_panel_emails
+    expires: never
+    extra_keys: *relay_integration_opt_in_panel_extra
+
+  disabled_opt_in_panel:
+    type: event
+    description: >
+      Panel to opt-in Firefox Relay Integration
+    bugs: *relay_integration_opt_in_panel_bugs
+    data_reviews: *relay_integration_opt_in_panel_data_reviews
+    notification_emails: *relay_integration_opt_in_panel_emails
+    expires: never
+    extra_keys: *relay_integration_opt_in_panel_extra

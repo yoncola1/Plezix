@@ -1,0 +1,22 @@
+[package]
+name = "xshell-venv"
+version = "2.0.1"
+edition = "2021"
+license = "MIT"
+description = "xshell-venv manages your Python virtual environments in code."
+repository = "https://github.com/badboy/xshell-venv"
+rust-version = "1.89.0"
+
+[dependencies]
+xshell = "0.2"
+
+[workspace]
+members = [
+  ".",
+  "example"
+]
+
+[features]
+default = []
+# Enable stderr logging for internals
+debug-trace = []

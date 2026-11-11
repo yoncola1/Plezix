@@ -1,0 +1,25 @@
+[DEFAULT]
+subsuite = "a11y"
+support-files = [
+  "head.js",
+  "!/accessible/tests/browser/shared-head.js",
+  "!/accessible/tests/mochitest/*.js",
+  "!/accessible/tests/browser/*.mjs",
+]
+prefs = [
+  # Required for the eval in invokeContentTask in shared-head.js
+  "security.allow_eval_with_system_principal=true"
+]
+
+["browser_computedARIARole.js"]
+
+["browser_link_roles.js"]
+
+["browser_mathml_roles.js"]
+support-files = [
+  "!/accessible/tests/browser/doc_mathml.html"
+]
+
+["browser_minimumRole.js"]
+
+["browser_roles_generic.js"]

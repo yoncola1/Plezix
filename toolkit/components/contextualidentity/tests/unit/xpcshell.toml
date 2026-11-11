@@ -1,0 +1,17 @@
+[DEFAULT]
+firefox-appdir = "browser"
+run-if = [
+  "appname != 'thunderbird'",
+]
+
+["test_basic.js"]
+
+["test_corruptedFile.js"]
+
+["test_migratedFile.js"]
+
+["test_policy.js"]
+
+["test_siteAssociations.js"]
+
+["test_telemetry.js"]

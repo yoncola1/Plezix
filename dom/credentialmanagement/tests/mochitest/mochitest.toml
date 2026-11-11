@@ -1,0 +1,12 @@
+[DEFAULT]
+support-files = ["frame_credman_iframes.html"]
+scheme = "https"
+
+["test_credman_empty_option.html"]
+
+["test_credman_iframes.html"]
+skip-if = [
+  "http2",
+  "http3",
+  "xorigin", # Application time out
+]

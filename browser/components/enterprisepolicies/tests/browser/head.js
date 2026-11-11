@@ -1,0 +1,278 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+"use strict";
+
+const { EnterprisePolicyTesting, PoliciesPrefTracker } =
+  ChromeUtils.importESModule(
+    "resource://testing-common/EnterprisePolicyTesting.sys.mjs"
+  );
+const { setupPolicyEngineWithJson } = EnterprisePolicyTesting;
+EnterprisePolicyTesting.pathResolver = getTestFilePath;
+
+ChromeUtils.defineESModuleGetters(this, {
+  HomePage: "resource:///modules/HomePage.sys.mjs",
+});
+
+PoliciesPrefTracker.start();
+
+function checkLockedPref(prefName, prefValue) {
+  EnterprisePolicyTesting.checkPolicyPref(prefName, prefValue, true);
+}
+
+function checkUnlockedPref(prefName, prefValue) {
+  EnterprisePolicyTesting.checkPolicyPref(prefName, prefValue, false);
+}
+
+// Checks that a page was blocked by seeing if it was replaced with about:neterror
+async function checkBlockedPage(url, expectedBlocked) {
+  let newTab = BrowserTestUtils.addTab(gBrowser);
+  gBrowser.selectedTab = newTab;
+
+  if (expectedBlocked) {
+    let promise = BrowserTestUtils.waitForErrorPage(gBrowser.selectedBrowser);
+    BrowserTestUtils.startLoadingURIString(gBrowser, url);
+    await promise;
+    is(
+      newTab.linkedBrowser.documentURI.spec.startsWith(
+        "about:neterror?e=blockedByPolicy"
+      ),
+      true,
+      "Should be blocked by policy"
+    );
+  } else {
+    let promise = BrowserTestUtils.browserStopped(gBrowser, url);
+    BrowserTestUtils.startLoadingURIString(gBrowser, url);
+    await promise;
+
+    is(
+      newTab.linkedBrowser.documentURI.spec,
+      url,
+      "Should not be blocked by policy"
+    );
+  }
+  BrowserTestUtils.removeTab(newTab);
+}
+
+async function check_homepage({
+  expectedURL,
+  expectedPageVal = -1,
+  locked = false,
+  checkUI = false,
+}) {
+  if (expectedURL) {
+    is(HomePage.get(), expectedURL, "Homepage URL should match expected");
+    is(
+      Services.prefs.prefIsLocked("browser.startup.homepage"),
+      locked,
+      "Lock status of browser.startup.homepage should match expected"
+    );
+  }
+  if (expectedPageVal != -1) {
+    is(
+      Services.prefs.getIntPref("browser.startup.page", -1),
+      expectedPageVal,
+      "Pref page value should match expected"
+    );
+    is(
+      Services.prefs.prefIsLocked("browser.startup.page"),
+      locked,
+      "Lock status of browser.startup.page should match expected"
+    );
+  }
+
+  // Loading about:preferences dominates this helper's runtime. The disabled
+  // states below follow |locked| and |expectedPageVal|, not the URLs, so
+  // callers that only vary the homepage list have nothing new to check.
+  if (!checkUI && !locked && expectedPageVal == -1) {
+    return;
+  }
+
+  // Test that UI is disabled when the Locked property is enabled
+  let homePaneLoaded = TestUtils.topicObserved("home-pane-loaded");
+  let tab = await BrowserTestUtils.openNewForegroundTab(
+    gBrowser,
+    "about:preferences"
+  );
+  await homePaneLoaded;
+  await SpecialPowers.spawn(
+    tab.linkedBrowser,
+    [{ expectedURL, expectedPageVal, locked }],
+    // eslint-disable-next-line no-shadow
+    async function ({ expectedURL, expectedPageVal, locked }) {
+      if (expectedPageVal != -1) {
+        // Only check restore checkbox for StartPage
+        let browserRestoreSessionCheckbox = content.document.getElementById(
+          "browserRestoreSession"
+        );
+        is(
+          browserRestoreSessionCheckbox.disabled,
+          locked,
+          "Disabled status of session restore status should match expected"
+        );
+        let shouldBeChecked = expectedPageVal === 3;
+        is(
+          browserRestoreSessionCheckbox.checked,
+          shouldBeChecked,
+          "Session restore status checkbox should be: " +
+            (shouldBeChecked ? "checked" : "unchecked")
+        );
+      }
+
+      if (!expectedURL) {
+        // If only StartPage was changed, no need to check these
+        return;
+      }
+      await content.gotoPref("customHomepage");
+      let homepageTextbox = content.document.getElementById(
+        "customHomepageAddUrlInput"
+      );
+      let addButton = content.document.getElementById(
+        "customHomepageAddAddressButton"
+      );
+      let replaceCurrentButton = content.document.getElementById(
+        "customHomepageReplaceWithCurrentPagesButton"
+      );
+      let replaceBookmarksButton = content.document.getElementById(
+        "customHomepageReplaceWithBookmarksButton"
+      );
+      let boxGroup = content.document.getElementById("customHomepageBoxGroup");
+      let urlItems = [...boxGroup.querySelectorAll("moz-box-item[data-url]")];
+      is(
+        homepageTextbox.disabled,
+        locked,
+        "Homepage URL text box disabled status should match expected"
+      );
+      is(
+        addButton.disabled,
+        locked,
+        "Add address button disabled status should match expected"
+      );
+      is(
+        replaceCurrentButton.disabled,
+        locked,
+        '"Current open pages" button disabled status should match expected'
+      );
+      is(
+        replaceBookmarksButton.disabled,
+        locked,
+        '"Bookmarks..." button disabled status should match expected'
+      );
+      Assert.greater(urlItems.length, 0, "Some URLs are shown");
+      ok(
+        urlItems.every(item => !item.querySelector("moz-button") == locked),
+        "Item delete buttons hidden should match expected"
+      );
+      ok(
+        urlItems.every(item => !item.handleEl == locked),
+        "Item reorder handle hidden should match expected"
+      );
+    }
+  );
+  await BrowserTestUtils.removeTab(tab);
+}
+
+add_setup(async function policies_headjs_startWithCleanSlate() {
+  if (Services.policies.status != Ci.nsIEnterprisePolicies.INACTIVE) {
+    await setupPolicyEngineWithJson("");
+  }
+  is(
+    Services.policies.status,
+    Ci.nsIEnterprisePolicies.INACTIVE,
+    "Engine is inactive at the start of the test"
+  );
+});
+
+registerCleanupFunction(async function policies_headjs_finishWithCleanSlate() {
+  if (Services.policies.status != Ci.nsIEnterprisePolicies.INACTIVE) {
+    await setupPolicyEngineWithJson("");
+  }
+  is(
+    Services.policies.status,
+    Ci.nsIEnterprisePolicies.INACTIVE,
+    "Engine is inactive at the end of the test"
+  );
+
+  // PermissionManager refuses to remove EXPIRE_POLICY permissions one by one,
+  // so clear everything and restore the permissions that weren't from policies.
+  let permissions = Services.perms.all;
+  if (permissions.some(p => p.expireType == Services.perms.EXPIRE_POLICY)) {
+    Services.perms.removeAll();
+    for (let p of permissions) {
+      if (
+        p.expireType != Services.perms.EXPIRE_POLICY &&
+        Services.perms.testExactPermissionFromPrincipal(p.principal, p.type) !=
+          p.capability
+      ) {
+        Services.perms.addFromPrincipal(
+          p.principal,
+          p.type,
+          p.capability,
+          p.expireType,
+          p.expireTime
+        );
+      }
+    }
+  }
+
+  EnterprisePolicyTesting.resetRunOnceState();
+  PoliciesPrefTracker.stop();
+});
+
+function waitForAddonInstall(addonId) {
+  return new Promise(resolve => {
+    let listener = {
+      onInstallEnded(install, addon) {
+        if (addon.id == addonId) {
+          AddonManager.removeInstallListener(listener);
+          resolve();
+        }
+      },
+      onDownloadFailed() {
+        AddonManager.removeInstallListener(listener);
+        resolve();
+      },
+      onInstallFailed() {
+        AddonManager.removeInstallListener(listener);
+        resolve();
+      },
+    };
+    AddonManager.addInstallListener(listener);
+  });
+}
+
+function waitForAddonUninstall(addonId) {
+  return new Promise(resolve => {
+    let listener = {};
+    listener.onUninstalled = addon => {
+      if (addon.id == addonId) {
+        AddonManager.removeAddonListener(listener);
+        resolve();
+      }
+    };
+    AddonManager.addAddonListener(listener);
+  });
+}
+
+async function testPageBlockedByPolicy(page, policyJSON) {
+  if (policyJSON) {
+    await EnterprisePolicyTesting.setupPolicyEngineWithJson(policyJSON);
+  }
+  await BrowserTestUtils.withNewTab(
+    { gBrowser, url: "about:blank" },
+    async browser => {
+      BrowserTestUtils.startLoadingURIString(browser, page);
+      await BrowserTestUtils.browserLoaded(browser, false, page, true);
+      await SpecialPowers.spawn(browser, [page], async function () {
+        ok(
+          content.document.documentURI.startsWith(
+            "about:neterror?e=blockedByPolicy"
+          ),
+          content.document.documentURI +
+            " should start with about:neterror?e=blockedByPolicy"
+        );
+      });
+    }
+  );
+}

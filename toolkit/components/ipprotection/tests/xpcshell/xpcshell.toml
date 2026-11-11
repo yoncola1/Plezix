@@ -1,0 +1,56 @@
+[DEFAULT]
+run-if = [
+  "os != 'android'",
+]
+head = "head.js"
+firefox-appdir = "browser"
+prefs = [
+  "browser.ipProtection.enabled=true",
+  "browser.ipProtection.cacheDisabled=true",
+]
+
+["test_GuardianClient.js"]
+
+["test_IPPAlwaysOn.js"]
+head = "head_enterprise.js"
+prefs = ["browser.ipProtection.override.serverlist=[]"]
+
+["test_IPPAutoActivation.js"]
+
+["test_IPPChannelFilter.js"]
+
+["test_IPPEnterpriseAuthProvider.js"]
+
+["test_IPPFxaActivateAuthProvider.js"]
+
+["test_IPPGpiAuthProvider.js"]
+
+["test_IPPInfrastructureRuleProvider.js"]
+
+["test_IPPLifecycleHelper.js"]
+
+["test_IPPPermissionRuleProvider.js"]
+
+["test_IPPProxyableRuleProvider.js"]
+
+["test_IPPSessionPrefManager.js"]
+
+["test_IPPSignInWatcher.js"]
+
+["test_IPPSiteRuleManager.js"]
+
+["test_IPPStartupCache.js"]
+
+["test_IPPTabRuleProvider.js"]
+
+["test_IPProtectionServerlist.js"]
+
+["test_IPProtectionService.js"]
+
+["test_IPProtectionStates.js"]
+
+["test_IPProxyManager.js"]
+
+["test_MatchPatternPrefRule.js"]
+
+["test_SiteRuleManager.js"]

@@ -1,0 +1,715 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+"""Per-locale stage action.
+
+Reads <topobjdir>/l10n-manifest.json plus the populated merge tree
+at <merge-tree>/ to materialize
+<topobjdir>/dist/xpi-stage/locale-<ab_cd>/.
+
+Invoked in make via $(call py_action,l10n_stage,...).
+"""
+
+from __future__ import annotations
+
+import argparse
+import importlib.util
+import shutil
+import sys
+from dataclasses import dataclass
+from glob import glob
+from pathlib import Path
+from typing import Callable, Iterator, Optional
+
+import mozpack.path as mozpath
+from mach.filelock import FileLock, Timeout
+from mozpack.chrome.manifest import parse_manifest_line
+
+from mozbuild.frontend.l10n_manifest import (
+    JarSection,
+    L10nManifest,
+    L10nManifestContextData,
+    LocalizedFileGroup,
+    LocalizedGenScript,
+    load_l10n_manifest,
+)
+from mozbuild.preprocessor import Preprocessor
+from mozbuild.util import FileAvoidWrite
+
+
+class MissingJarSource(Exception):
+    def __init__(
+        self,
+        locale: str,
+        context_relsrcdir: str,
+        relsrcdir: str,
+        source: str,
+        is_locale: bool,
+        resolved: str,
+    ) -> None:
+        self.locale = locale
+        self.context_relsrcdir = context_relsrcdir
+        self.relsrcdir = relsrcdir
+        self.source = source
+        self.is_locale = is_locale
+        self.resolved = resolved
+        origin = "merge tree" if is_locale else "source tree"
+        super().__init__(
+            f"No {origin} source for locale {locale}: {resolved}\n"
+            f"  manifest context: {context_relsrcdir}\n"
+            f"  jar.mn relativesrcdir: {relsrcdir or '(none)'}\n"
+            f"  jar.mn source: {source}"
+        )
+
+
+def stage_locale(
+    locale: str,
+    manifest_path: Path,
+    merge_tree: Path,
+    dest_xpi_stage: Path,
+    *,
+    topsrcdir: Optional[Path] = None,
+    topobjdir: Optional[Path] = None,
+    mode: str = "langpack",
+) -> None:
+    dest = dest_xpi_stage
+    manifest = load_l10n_manifest(manifest_path)
+    state = StageState(
+        locale=locale,
+        manifest=manifest,
+        merge_tree=merge_tree,
+        dest=dest,
+        topsrcdir=topsrcdir,
+        topobjdir=topobjdir,
+        mode=mode,
+    )
+    if mode == "langpack" and dest.exists():
+        shutil.rmtree(dest)
+    dest.mkdir(parents=True, exist_ok=True)
+    for context in manifest.contexts:
+        _stage_context(state, context)
+    _write_chrome_manifests(state)
+    if mode == "langpack":
+        _write_multilocale_txt(state)
+    _install_l10n_coverage(state)
+
+
+class StageState:
+    def __init__(
+        self,
+        *,
+        locale: str,
+        manifest: L10nManifest,
+        merge_tree: Path,
+        dest: Path,
+        topsrcdir: Optional[Path],
+        topobjdir: Optional[Path],
+        mode: str,
+    ) -> None:
+        self.locale = locale
+        self.manifest = manifest
+        self.merge_tree = merge_tree
+        self.dest = dest
+        self.topsrcdir = topsrcdir
+        self.topobjdir = topobjdir
+        self.mode = mode
+        self.manifest_entries: dict[str, list[str]] = {}
+
+
+@dataclass(frozen=True)
+class SrcDirs:
+    """The two relative source dirs a context resolves against.
+
+    relsrcdir is topsrcdir-relative and locates en-US sources,
+    locale_relsrcdir is merge-tree-relative. They only differ for
+    comm-central, which localizes from commtopsrcdir.
+    """
+
+    relsrcdir: str
+    locale_relsrcdir: str
+
+    @staticmethod
+    def for_context(context: L10nManifestContextData) -> SrcDirs:
+        return SrcDirs(context.relsrcdir, context.locale_relsrcdir)
+
+    def override(self, relativesrcdir: str) -> SrcDirs:
+        """A jar.mn relativesrcdir replaces both forms: it is relative to
+        the same locale top dir the context is rooted at.
+        """
+        if not relativesrcdir:
+            return self
+        return SrcDirs(relativesrcdir, relativesrcdir)
+
+
+def _write_multilocale_txt(state: StageState) -> None:
+    """Write the per-locale res/multilocale.txt consumed by toolkit's
+    omni.ja. The file is a comma-separated list of locales, always
+    including en-US. We write it explicitly because
+    mozpack.packager.l10n's non_chrome rule strips **/multilocale.txt
+    during repackaging.
+    """
+    locales = [state.locale]
+    if "en-US" not in locales:
+        locales.append("en-US")
+    out_path = state.dest / "res" / "multilocale.txt"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("w", encoding="utf-8", newline="\n") as f:
+        f.write(",".join(locales) + "\n")
+
+
+def _install_l10n_coverage(state: StageState) -> None:
+    """Copy the per-locale l10n coverage index from the merge dir into the
+    localization root so it ships in the locale's omnijar, reachable at
+    resource://gre/localization/<locale>/coverage.json. The index is
+    generated by the merge step (moz.l10n.bin.build --coverage). This is a
+    no-op for en-US, which has no merge dir.
+    """
+    coverage_src = state.merge_tree / "coverage.json"
+    if not coverage_src.is_file():
+        return
+    coverage_dst = state.dest / "localization" / state.locale / "coverage.json"
+    coverage_dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(coverage_src, coverage_dst)
+
+
+def _stage_context(state: StageState, context: L10nManifestContextData) -> None:
+    """Stage one L10nManifestContextData into state.dest.
+
+    jar.mn locale entries run in both modes since they're chrome
+    content that mach package-multi-locale accumulates into the en-US
+    dist tree alongside their use in langpack staging.
+
+    LOCALIZED_GENERATED_FILES scripts plus LOCALIZED_FILES and
+    LOCALIZED_PP_FILES entries are langpack-only. Within langpack
+    mode, gen scripts run first so that subsequent LOCALIZED_FILES /
+    LOCALIZED_PP_FILES entries can resolve their objdir-relative
+    !output references to the generated outputs.
+    """
+    for section in context.jar_sections:
+        _stage_jar_section(state, context, section)
+    if state.mode == "langpack":
+        # LOCALIZED_GENERATED_FILES must run before LOCALIZED_FILES so their
+        # objdir-relative !output references resolve.
+        for gen in context.localized_generated_files:
+            _run_localized_generated(state, context, gen)
+        for group in context.localized_files:
+            _stage_file_group(state, context, group, preprocess=False)
+        for group in context.localized_pp_files:
+            _stage_file_group(state, context, group, preprocess=True)
+
+
+def _stage_file_group(
+    state: StageState,
+    context: L10nManifestContextData,
+    group: LocalizedFileGroup,
+    preprocess: bool,
+) -> None:
+    """Stage one LOCALIZED_FILES or LOCALIZED_PP_FILES group.
+
+    Sources may be en-US/... (resolves via the merge tree),
+    /path/locales/en-US/... (topsrcdir-rooted, merge tree), !output
+    (objdir-relative, typically a LOCALIZED_GENERATED_FILES output),
+    or a glob pattern. preprocess=True runs each entry through the
+    preprocessor.
+    """
+    install_target = mozpath.normpath(
+        mozpath.join(context.install_subdir, group.subpath)
+    )
+    if install_target == ".":
+        install_target = ""
+    defines = _resolve_locale_defines(state, context) if preprocess else None
+
+    for src_template in group.sources:
+        for src, dest_rel in _resolve_localized_sources(
+            state, context, src_template, install_target
+        ):
+            dest_path = mozpath.join(state.dest, dest_rel)
+            # !output references can resolve to the same path the gen
+            # step already wrote (when the LOCALIZED_FILES re-route
+            # doesn't move the output to a different subpath). Skip
+            # the redundant copy.
+            if mozpath.normpath(src) == mozpath.normpath(dest_path):
+                continue
+            _stage_entry(src, dest_path, preprocess, defines)
+            # !output re-routes: the gen step writes to its default
+            # install dir. Once we've copied it to the re-route
+            # destination, drop the original.
+            if src_template.startswith("!"):
+                Path(src).unlink(missing_ok=True)
+
+
+def _resolve_localized_sources(
+    state: StageState,
+    context: L10nManifestContextData,
+    src_template: str,
+    install_target: str,
+) -> Iterator[tuple[str, str]]:
+    """Yield (src_abs, dest_rel) pairs for one source template.
+
+    en-US/ and /locales/en-US/ markers resolve against the merge tree.
+    Bare patterns resolve against the merge tree's directory for the
+    context (mirroring EXPAND_LOCALE_SRCDIR). Glob patterns expand
+    against whichever resolved location.
+    """
+    if src_template.startswith("!"):
+        # LOCALIZED_GENERATED_FILES outputs landed at the gen step's
+        # default install dir (context.install_subdir) before the
+        # LOCALIZED_FILES re-route. Source the file from there.
+        gen_output = src_template[1:]
+        src_abs = mozpath.join(
+            state.dest, context.install_subdir, mozpath.basename(gen_output)
+        )
+        dest_rel = mozpath.join(install_target, mozpath.basename(gen_output))
+        if Path(src_abs).exists():
+            yield src_abs, dest_rel
+        return
+
+    dirs = SrcDirs.for_context(context)
+    if src_template.startswith("en-US/"):
+        rest = src_template[len("en-US/") :]
+        src_abs = mozpath.join(_locale_source_root(state, dirs), rest)
+    elif "/locales/en-US/" in src_template:
+        src_abs = _resolve_locales_marker_path(state, dirs, src_template)
+    else:
+        src_abs = mozpath.join(_locale_source_root(state, dirs), src_template)
+
+    if _has_wildcard(src_abs):
+        for match in sorted(glob(src_abs)):
+            if Path(match).is_file():
+                dest_rel = mozpath.join(install_target, mozpath.basename(match))
+                yield match, dest_rel
+        return
+
+    if Path(src_abs).exists():
+        dest_basename = mozpath.basename(src_template)
+        dest_rel = mozpath.join(install_target, dest_basename)
+        yield src_abs, dest_rel
+
+
+def _merge_subdir_for(relsrcdir: str) -> str:
+    """Mirror EXPAND_LOCALE_SRCDIR. Strips a trailing /locales so the
+    merge subdir matches the L10NBASEDIR layout.
+    """
+    if relsrcdir.endswith("/locales"):
+        return relsrcdir[: -len("/locales")]
+    if relsrcdir == "locales":
+        return ""
+    return relsrcdir
+
+
+def _locale_source_root(state: StageState, dirs: SrcDirs) -> str:
+    """Root directory that locale-marked sources resolve under for
+    state.locale. en-US reads directly from the source tree (the merge
+    step is skipped for en-US, so the merge tree is empty). Other
+    locales read from the merge tree, populated by the merge step from
+    the l10n source repo.
+    """
+    if state.locale == "en-US":
+        return mozpath.join(state.topsrcdir or "", dirs.relsrcdir, "en-US")
+    return mozpath.join(state.merge_tree, _merge_subdir_for(dirs.locale_relsrcdir))
+
+
+def _resolve_locales_marker_path(state: StageState, dirs: SrcDirs, path: str) -> str:
+    """Resolve a path containing a /locales/en-US/ marker. en-US reads
+    from topsrcdir directly. Other locales split at the marker and read
+    from the merge tree.
+    """
+    is_en_us = state.locale == "en-US"
+    if path.startswith("/"):
+        rel = path.lstrip("/")
+    else:
+        rel = mozpath.join(dirs.relsrcdir if is_en_us else dirs.locale_relsrcdir, path)
+    if is_en_us:
+        return mozpath.join(state.topsrcdir or "", rel)
+    before, rest = rel.split("/locales/en-US/", 1)
+    return mozpath.join(state.merge_tree, before, rest)
+
+
+def _resolve_locale_defines(
+    state: StageState, context: L10nManifestContextData
+) -> dict[str, object]:
+    """Compose the preprocessor define dict for context and the current
+    locale: DEFINES plus AB_CD.
+    """
+    out = dict(context.defines or {})
+    out["AB_CD"] = state.locale
+    return out
+
+
+def _stage_entry(
+    src: str, dest: str, preprocess: bool, defines: Optional[dict[str, object]]
+) -> None:
+    Path(dest).parent.mkdir(parents=True, exist_ok=True)
+    Path(dest).unlink(missing_ok=True)
+    if preprocess:
+        _preprocess_to(src, dest, defines)
+    else:
+        _copy_to(src, dest)
+
+
+def _preprocess_to(src: str, dest: str, defines: dict[str, object]) -> None:
+    pp = Preprocessor(defines=defines)
+    pp.do_filter("substitution")
+    with open(dest, "w", encoding="utf-8", newline="\n") as out:
+        pp.out = out
+        pp.do_include(src)
+
+
+def _copy_to(src: str, dest: str) -> None:
+    shutil.copyfile(src, dest)
+
+
+def _write_chrome_manifests(state: StageState) -> None:
+    """Write all collected manifest files. Entries are deduplicated and
+    sorted, so a file's content does not depend on the order locales are
+    staged in. If a manifest file already exists on disk, its lines merge
+    with the new entries so chrome-mode multi-locale runs accumulate
+    per-locale entries on top of the en-US baseline (and on top of any
+    earlier locales' entries) instead of clobbering them. Locales stage
+    concurrently into the same destination, so the read, merge and write
+    runs under one lock, held on a file beside the destination rather than
+    inside it.
+    """
+    if not state.manifest_entries:
+        return
+
+    lock_path = state.dest.parent / f"{state.dest.name}.l10n-stage.lock"
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    timeout = 60
+    try:
+        with FileLock(lock_path, timeout=timeout):
+            for relpath, entries in state.manifest_entries.items():
+                path = state.dest / relpath
+                path.parent.mkdir(parents=True, exist_ok=True)
+                existing = []
+                if path.exists():
+                    with path.open(encoding="utf-8") as f:
+                        existing = [line.rstrip("\r\n") for line in f if line.strip()]
+                ordered = sorted(set(existing + entries))
+                with path.open("w", encoding="utf-8", newline="\n") as f:
+                    f.write("\n".join(ordered) + "\n")
+    except Timeout as exc:
+        raise RuntimeError(
+            f"Could not acquire {lock_path} after {timeout} seconds. Another "
+            "locale is staging into the same destination."
+        ) from exc
+
+
+def _stage_jar_section(
+    state: StageState,
+    context: L10nManifestContextData,
+    section: JarSection,
+) -> None:
+    """Stage one jar.mn group's entries.
+
+    A section participates in the langpack as a whole when it's a
+    [localization] block or has any % locale ... chrome.manifest entry.
+    Both locale and en-US-fallback entries are staged in those cases.
+    Otherwise only entries explicitly marked % (is_locale=True) are
+    staged.
+
+    Every string in the section holding the locale placeholder (section name,
+    entry source, entry output, chrome.manifest lines) is resolved for
+    state.locale here.
+    """
+    install_target = _resolve_jar_install_target(context, section)
+    defines = _resolve_locale_defines(state, context)
+    dirs = SrcDirs.for_context(context).override(section.relativesrcdir)
+    section_name = section.name.resolve(state.locale)
+
+    is_localization_block = section.base == "localization"
+    block_keep_all_entries = is_localization_block or any(
+        m.resolve(state.locale).lstrip().startswith("locale ")
+        for m in section.chrome_manifests
+    )
+
+    for entry in section.entries:
+        if not (entry.is_locale or block_keep_all_entries):
+            continue
+        entry_source = entry.source.resolve(state.locale)
+        entry_output = entry.output.resolve(state.locale)
+        if _has_wildcard(entry_source):
+            for match_src, match_rel in _expand_wildcard_jar_source(
+                state, dirs, entry_source, entry.is_locale
+            ):
+                output_path = _resolve_wildcard_output(entry_output, match_rel)
+                dest_rel = mozpath.join(install_target, section_name, output_path)
+                dest_path = mozpath.join(state.dest, dest_rel)
+                _stage_entry(match_src, dest_path, entry.preprocess, defines)
+            continue
+        src = _resolve_jar_source(state, dirs, entry_source, entry.is_locale)
+        if not Path(src).is_file():
+            raise MissingJarSource(
+                locale=state.locale,
+                context_relsrcdir=context.relsrcdir,
+                relsrcdir=dirs.relsrcdir,
+                source=entry_source,
+                is_locale=entry.is_locale,
+                resolved=src,
+            )
+        dest_rel = mozpath.join(install_target, section_name, entry_output)
+        dest_path = mozpath.join(state.dest, dest_rel)
+        _stage_entry(src, dest_path, entry.preprocess, defines)
+
+    # Chrome.manifest registration entries for the section. Entries
+    # land in <install_target>/<section.name>.manifest, with a
+    # manifest <section.name>.manifest reference added to the install
+    # target's top-level chrome.manifest.
+    if section.chrome_manifests:
+        manifest_relpath = mozpath.join(install_target, f"{section_name}.manifest")
+        chromebase = mozpath.basename(section_name) + "/"
+        base = mozpath.dirname(section_name)
+        for raw in section.chrome_manifests:
+            line = raw.resolve(state.locale)
+            entry = parse_manifest_line(base, line.replace("%", chromebase))
+            state.manifest_entries.setdefault(manifest_relpath, []).append(str(entry))
+        top_manifest = mozpath.join(install_target, "chrome.manifest")
+        if top_manifest != manifest_relpath:
+            ref = f"manifest {mozpath.relpath(manifest_relpath, install_target)}"
+            state.manifest_entries.setdefault(top_manifest, []).append(ref)
+        # For sub-app contexts (staged under a subdir), also link the
+        # sub-app's chrome.manifest from the langpack root with an
+        # `application=` qualifier so `langpack_manifest.py` can recurse
+        # into the sub-app dir when populating `manifest.json`'s
+        # `chrome_resources`. Skipped in chrome mode: that path stages
+        # into `dist/bin`, where the sub-app's chrome.manifest is
+        # discovered by the runtime chrome registry without a root
+        # reference.
+        if context.install_subdir and state.mode == "langpack":
+            sub_chrome = mozpath.join(context.install_subdir, "chrome.manifest")
+            appid = state.manifest.moz_app_id
+            state.manifest_entries.setdefault("chrome.manifest", []).append(
+                f"manifest {sub_chrome} application={appid}"
+            )
+
+
+def _resolve_jar_install_target(
+    context: L10nManifestContextData, section: JarSection
+) -> str:
+    """Compute the per-locale install subdir within state.dest for
+    section. The xpi-stage tree mirrors the en-US dist tree, so
+    context.install_subdir (e.g. browser) leads, with the section's base
+    (e.g. localization for the addon [localization] block) joined onto
+    it.
+    """
+    parts = []
+    if context.install_subdir:
+        parts.append(context.install_subdir)
+    if section.base:
+        parts.append(section.base)
+    if not parts:
+        return ""
+    return mozpath.normpath("/".join(parts))
+
+
+def _resolve_jar_source(
+    state: StageState, dirs: SrcDirs, source: str, is_locale: bool
+) -> str:
+    """Resolve a jar.mn entry's source path. Locale entries resolve
+    against the locale source root for the current locale. Non-locale
+    (en-US fallback) entries resolve against topsrcdir.
+    """
+    if is_locale:
+        return mozpath.join(_locale_source_root(state, dirs), source)
+    if source.startswith("/"):
+        return mozpath.join(state.topsrcdir or "", source.lstrip("/"))
+    return mozpath.join(state.topsrcdir or "", dirs.relsrcdir, source)
+
+
+def _split_at_wildcard(parts: list[str]) -> tuple[list[str], list[str]]:
+    """Split path components into (prefix, rest) at the first component
+    containing a wildcard. rest is empty when there's no wildcard.
+    """
+    for i, part in enumerate(parts):
+        if _has_wildcard(part):
+            return parts[:i], parts[i:]
+    return parts, []
+
+
+def _expand_wildcard_jar_source(
+    state: StageState, dirs: SrcDirs, source: str, is_locale: bool
+) -> Iterator[tuple[str, str]]:
+    """Glob-expand a wildcard source in a jar.mn entry.
+
+    Splits the source at the first component containing a wildcard,
+    treats the prefix as a base directory, and globs the remainder
+    relative to that base. Yields (absolute_match, relative_match)
+    pairs where the relative path is rooted at the wildcard split point
+    and is ready to combine with the entry's output template.
+    """
+    if is_locale:
+        base = _locale_source_root(state, dirs)
+    elif source.startswith("/"):
+        base = str(state.topsrcdir or "")
+        source = source.lstrip("/")
+    else:
+        base = mozpath.join(state.topsrcdir or "", dirs.relsrcdir)
+
+    parts = source.split("/")
+    prefix_parts, pattern_parts = _split_at_wildcard(parts)
+    if not pattern_parts:
+        return
+
+    pattern_base = mozpath.join(base, *prefix_parts) if prefix_parts else base
+    full_pattern = mozpath.join(pattern_base, "/".join(pattern_parts))
+
+    for match in sorted(glob(full_pattern, recursive=True)):
+        if not Path(match).is_file():
+            continue
+        match_norm = mozpath.normsep(match)
+        rel = mozpath.relpath(match_norm, pattern_base)
+        yield match_norm, rel
+
+
+def _resolve_wildcard_output(output_template: str, match_rel: str) -> str:
+    """Compute a per-match dest path given an entry's output template
+    and the relative match path from _expand_wildcard_jar_source.
+
+    If output_template itself contains wildcards, drops the wildcard
+    components and prepends the remaining prefix to match_rel. Otherwise
+    treats the template as a directory prefix and joins the match's
+    relative path under it.
+    """
+    parts = output_template.split("/")
+    prefix_parts = [part for part in parts if not _has_wildcard(part)]
+    prefix = "/".join(prefix_parts)
+    return mozpath.join(prefix, match_rel) if prefix else match_rel
+
+
+def _run_localized_generated(
+    state: StageState,
+    context: L10nManifestContextData,
+    gen: LocalizedGenScript,
+) -> None:
+    """Invoke a LOCALIZED_GENERATED_FILES script for the current locale
+    and write its outputs into the staging tree.
+
+    Outputs may contain {AB_CD} / {AB_rCD} placeholders. Inputs with an
+    en-US/ prefix or /locales/en-US/ segment resolve through the merge
+    tree. Other inputs resolve against topsrcdir.
+    """
+    substs = {"AB_CD": state.locale, "AB_rCD": _ab_rcd(state.locale)}
+    resolved_outputs = []
+    for output in gen.outputs:
+        try:
+            resolved_outputs.append(output.format(**substs))
+        except KeyError as e:
+            raise ValueError(
+                f"{e.args[0]} not in {sorted(substs)} is not a valid "
+                f"substitution in {output}"
+            )
+
+    dirs = SrcDirs.for_context(context)
+    resolved_inputs = []
+    for inp in gen.inputs:
+        if inp.startswith("en-US/"):
+            rest = inp[len("en-US/") :]
+            resolved_inputs.append(mozpath.join(_locale_source_root(state, dirs), rest))
+        elif "/locales/en-US/" in inp:
+            resolved_inputs.append(_resolve_locales_marker_path(state, dirs, inp))
+        elif inp.startswith("/"):
+            resolved_inputs.append(mozpath.join(state.topsrcdir or "", inp.lstrip("/")))
+        else:
+            # Bare paths come from topsrcdir, not the merge tree.
+            resolved_inputs.append(
+                mozpath.join(state.topsrcdir or "", context.relsrcdir, inp)
+            )
+
+    out_dir = mozpath.join(state.dest, context.install_subdir)
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
+    out_paths = [mozpath.join(out_dir, mozpath.basename(o)) for o in resolved_outputs]
+
+    if not gen.force and all(Path(p).exists() for p in out_paths):
+        return
+
+    main_fn = _load_script(gen.script, gen.method)
+
+    primary_output = out_paths[0]
+    try:
+        with FileAvoidWrite(primary_output, readmode="rb") as output:
+            try:
+                ret = main_fn(output, *resolved_inputs, locale=state.locale)
+            except Exception:
+                output.avoid_writing_to_file()
+                raise
+    except Exception:
+        Path(primary_output).unlink(missing_ok=True)
+        raise
+    if ret and not isinstance(ret, set):
+        raise RuntimeError(
+            f"LOCALIZED_GENERATED_FILES script {gen.script}:{gen.method} "
+            f"returned {ret} for locale {state.locale}"
+        )
+
+
+def _load_script(script_path: str, method_name: str) -> Callable:
+    spec = importlib.util.spec_from_file_location(
+        "_localized_generated_script", script_path
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return getattr(module, method_name)
+
+
+def _ab_rcd(locale: str) -> str:
+    """AB_rCD form used in Android resource directory names.
+
+    Empty for en-US, -iw for he, -in for id, otherwise the locale with
+    - replaced by -r (so zh-TW -> -zh-rTW, fr -> -fr).
+    """
+    if locale == "en-US":
+        return ""
+    if locale == "he":
+        return "-iw"
+    if locale == "id":
+        return "-in"
+    return "-" + locale.replace("-", "-r")
+
+
+def _has_wildcard(path: str) -> bool:
+    return any(c in path for c in "*?[")
+
+
+def main(argv: list[str]) -> int:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Stage a locale into dist/xpi-stage/locale-<ab_cd>/ from "
+            "l10n-manifest.json plus a populated merge tree."
+        )
+    )
+    parser.add_argument("--locale", required=True, help="The ab_cd locale code")
+    parser.add_argument("--manifest", required=True, help="Path to l10n-manifest.json")
+    parser.add_argument(
+        "--merge-tree",
+        required=True,
+        help="Populated merge tree (e.g. <topobjdir>/<reldir>/merge-dir/<ab_cd>/)",
+    )
+    parser.add_argument("--dest", required=True, help="Destination xpi-stage directory")
+    parser.add_argument("--topsrcdir", default=None)
+    parser.add_argument("--topobjdir", default=None)
+    parser.add_argument(
+        "--mode",
+        choices=("langpack", "chrome"),
+        default="langpack",
+        help="Staging mode. langpack (default) wipes dest and processes "
+        "all subsystems. chrome leaves dest intact and only stages "
+        "jar.mn locale entries (used by mach package-multi-locale to "
+        "accumulate per-locale chrome into the same dist tree).",
+    )
+    args = parser.parse_args(argv)
+
+    stage_locale(
+        locale=args.locale,
+        manifest_path=Path(args.manifest),
+        merge_tree=Path(args.merge_tree),
+        dest_xpi_stage=Path(args.dest),
+        topsrcdir=Path(args.topsrcdir) if args.topsrcdir else None,
+        topobjdir=Path(args.topobjdir) if args.topobjdir else None,
+        mode=args.mode,
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

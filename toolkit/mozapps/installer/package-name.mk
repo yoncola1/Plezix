@@ -1,0 +1,71 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# assemble package names, see convention at
+# http://developer.mozilla.org/index.php?title=En/Package_Filename_Convention
+# Note that release packages are named during the post-build release
+# automation, so they aren't part of this file.
+
+ifndef PACKAGE_NAME_MK_INCLUDED
+PACKAGE_NAME_MK_INCLUDED := 1
+
+MOZ_PKG_DIR ?= $(MOZ_PKG_DIR_DEFAULT)
+
+ifdef MOZ_SIMPLE_PACKAGE_NAME
+PKG_BASENAME := $(MOZ_SIMPLE_PACKAGE_NAME)
+else
+PKG_BASENAME = $(MOZ_PKG_APPNAME)-$(MOZ_PKG_VERSION).$(AB_CD).$(MOZ_PKG_PLATFORM)
+endif
+PKG_PATH =
+PKG_INST_BASENAME = $(PKG_BASENAME).installer
+PKG_STUB_BASENAME = $(PKG_BASENAME).installer-stub
+CHECKSUMS_FILE_BASENAME = $(PKG_BASENAME)
+MOZ_INFO_BASENAME = $(PKG_BASENAME)
+ifdef MOZ_SIMPLE_PACKAGE_NAME
+PKG_LANGPACK_BASENAME = $(MOZ_SIMPLE_PACKAGE_NAME).langpack
+else
+PKG_LANGPACK_BASENAME = $(MOZ_PKG_APPNAME)-$(MOZ_PKG_VERSION).$(AB_CD).langpack
+endif
+LANGPACK = $(PKG_LANGPACK_PATH)$(PKG_LANGPACK_BASENAME).xpi
+
+# Symbol package naming
+SYMBOL_FULL_ARCHIVE_BASENAME = $(PKG_BASENAME).crashreporter-symbols-full
+SYMBOL_GTEST_FULL_ARCHIVE_BASENAME = $(PKG_BASENAME).crashreporter-symbols-gtest-full
+SYMBOL_ARCHIVE_BASENAME = $(PKG_BASENAME).crashreporter-symbols
+SYMBOL_GTEST_ARCHIVE_BASENAME = $(PKG_BASENAME).crashreporter-symbols-gtest
+
+# Generated file package naming
+GENERATED_SOURCE_FILE_PACKAGE = $(PKG_BASENAME).generated-files.tar.gz
+
+# Code coverage package naming
+CODE_COVERAGE_ARCHIVE_BASENAME = $(PKG_BASENAME).code-coverage-gcno
+
+# Mozsearch package naming
+MOZSEARCH_ARCHIVE_BASENAME = $(PKG_BASENAME).mozsearch-index
+MOZSEARCH_INCLUDEMAP_BASENAME = $(PKG_BASENAME).mozsearch-distinclude
+MOZSEARCH_SCIP_INDEX_BASENAME = $(PKG_BASENAME).mozsearch-scip-index
+MOZSEARCH_JAVA_INDEX_BASENAME = $(PKG_BASENAME).mozsearch-java-index
+
+# Mozharness naming
+MOZHARNESS_PACKAGE = mozharness.zip
+
+# `libmegazord.so` artifacts: for use in Android unit tests run on host.
+LIBMEGAZORD_SO_ARTIFACTS_ARCHIVE_BASENAME = $(PKG_BASENAME).libmegazord_so_artifacts
+# `.xpt` artifacts: for use in artifact builds.
+XPT_ARTIFACTS_ARCHIVE_BASENAME = $(PKG_BASENAME).xpt_artifacts
+ifeq (Darwin, $(OS_ARCH))
+UPDATE_FRAMEWORK_ARTIFACTS_ARCHIVE_BASENAME = $(PKG_BASENAME).update_framework_artifacts
+endif # Darwin
+
+MOZ_SOURCESTAMP_FILE = $(DIST)/$(PKG_PATH)/$(MOZ_INFO_BASENAME).txt
+MOZ_BUILDINFO_FILE = $(DIST)/$(PKG_PATH)/$(MOZ_INFO_BASENAME).json
+MOZ_BUILDHUB_JSON = $(DIST)/$(PKG_PATH)/buildhub.json
+MOZ_BUILDID_INFO_TXT_FILE = $(DIST)/$(PKG_PATH)/$(MOZ_INFO_BASENAME)_info.txt
+MOZ_MOZINFO_FILE = $(DIST)/$(PKG_PATH)/$(MOZ_INFO_BASENAME).mozinfo.json
+MOZ_TEST_PACKAGES_FILE = $(DIST)/$(PKG_PATH)/$(PKG_BASENAME).test_packages.json
+
+# JavaScript Shell
+PKG_JSSHELL = $(DIST)/$(JSSHELL_NAME)
+
+endif # PACKAGE_NAME_MK_INCLUDED

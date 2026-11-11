@@ -1,0 +1,785 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+const { setTimeout } = ChromeUtils.importESModule(
+  "resource://gre/modules/Timer.sys.mjs"
+);
+
+const {
+  AnimationFramePromise,
+  DebounceCallback,
+  Deferred,
+  EventPromise,
+  PollPromise,
+  Sleep,
+  TimedPromise,
+  waitForMessage,
+  waitForObserverTopic,
+} = ChromeUtils.importESModule("chrome://remote/content/shared/Sync.sys.mjs");
+
+const { Log } = ChromeUtils.importESModule(
+  "resource://gre/modules/Log.sys.mjs"
+);
+
+/**
+ * Mimic a DOM node for listening for events.
+ */
+class MockElement {
+  constructor() {
+    this.capture = false;
+    this.eventName = null;
+    this.func = null;
+    this.mozSystemGroup = false;
+    this.wantUntrusted = false;
+    this.untrusted = false;
+  }
+
+  addEventListener(name, func, options = {}) {
+    const { capture, mozSystemGroup, wantUntrusted } = options;
+
+    this.eventName = name;
+    this.func = func;
+    this.capture = capture ?? false;
+    this.mozSystemGroup = mozSystemGroup ?? false;
+    this.wantUntrusted = wantUntrusted ?? false;
+  }
+
+  click() {
+    if (this.func) {
+      const event = {
+        capture: this.capture,
+        mozSystemGroup: this.mozSystemGroup,
+        target: this,
+        type: this.eventName,
+        untrusted: this.untrusted,
+        wantUntrusted: this.wantUntrusted,
+      };
+      this.func(event);
+    }
+  }
+
+  dispatchEvent() {
+    if (this.wantUntrusted) {
+      this.untrusted = true;
+    }
+    this.click();
+  }
+
+  removeEventListener() {
+    this.capture = false;
+    this.eventName = null;
+    this.func = null;
+    this.mozSystemGroup = false;
+    this.untrusted = false;
+    this.wantUntrusted = false;
+  }
+}
+
+class MockAppender extends Log.Appender {
+  constructor(formatter) {
+    super(formatter);
+    this.messages = [];
+  }
+
+  append(message) {
+    this.doAppend(message);
+  }
+
+  doAppend(message) {
+    this.messages.push(message);
+  }
+}
+
+/**
+ * Mimic a message manager for sending messages.
+ */
+class MessageManager {
+  constructor() {
+    this.func = null;
+    this.message = null;
+  }
+
+  addMessageListener(message, func) {
+    this.func = func;
+    this.message = message;
+  }
+
+  removeMessageListener() {
+    this.func = null;
+    this.message = null;
+  }
+
+  send(message, data) {
+    if (this.func) {
+      this.func({
+        data,
+        message,
+        target: this,
+      });
+    }
+  }
+}
+
+/**
+ * Mimics nsITimer, but instead of using a system clock you can
+ * preprogram it to invoke the callback after a given number of ticks.
+ */
+class MockTimer {
+  constructor(ticksBeforeFiring) {
+    this.goal = ticksBeforeFiring;
+    this.ticks = 0;
+    this.cancelled = false;
+  }
+
+  initWithCallback(cb) {
+    this.ticks++;
+    if (this.ticks >= this.goal) {
+      cb();
+    }
+  }
+
+  cancel() {
+    this.cancelled = true;
+  }
+}
+
+add_task(async function test_AnimationFramePromise() {
+  for (const options of [
+    undefined, // default options
+    {}, //empty options
+    { timeout: null }, // disabled timeout
+    { timeout: 1234 }, // custom timeout
+  ]) {
+    let called = false;
+    let win = {
+      addEventListener(_event, _listener) {},
+      requestAnimationFrame(callback) {
+        called = true;
+        callback();
+      },
+    };
+    await AnimationFramePromise(win, options);
+    ok(called);
+  }
+});
+
+const mockNoopWindow = {
+  addEventListener(_event, _listener) {},
+  requestAnimationFrame(_callback) {},
+};
+
+add_task(async function test_AnimationFramePromiseDefaultTimeout() {
+  await AnimationFramePromise(mockNoopWindow);
+});
+
+add_task(async function test_AnimationFramePromiseCustomTimeout() {
+  await AnimationFramePromise(mockNoopWindow, { timeout: 10 });
+});
+
+add_task(async function test_AnimationFramePromiseAbortOnPageHide() {
+  let resolvePageHideEvent;
+
+  const mockWindow = {
+    addEventListener(event, listener) {
+      if (event === "pagehide") {
+        resolvePageHideEvent = listener;
+      }
+    },
+    removeEventListener() {},
+    requestAnimationFrame(callback) {
+      // eslint-disable-next-line mozilla/no-arbitrary-setTimeout
+      setTimeout(() => callback(), 10000);
+    },
+  };
+
+  const trackedPromise = trackPromise(AnimationFramePromise(mockWindow));
+
+  ok(trackedPromise.isPending(), "AnimationFramePromise is pending");
+
+  // Simulate "pagehide" event.
+  resolvePageHideEvent({});
+
+  await trackedPromise;
+});
+
+add_task(async function test_AnimationFramePromiseTimeoutErrors() {
+  // not an number or null
+  for (const val of ["foo", true, [], {}]) {
+    Assert.throws(
+      () => AnimationFramePromise(mockNoopWindow, { timeout: val }),
+      /TypeError: timeout must be a number or null/
+    );
+  }
+
+  // not a nonnegative integer
+  for (const val of [-1, -100000, -1.2, 1.2]) {
+    Assert.throws(
+      () => AnimationFramePromise(mockNoopWindow, { timeout: val }),
+      /RangeError: timeout must be a non-negative integer/
+    );
+  }
+});
+
+add_task(async function test_DeferredPending() {
+  const deferred = Deferred();
+  ok(deferred.pending);
+
+  deferred.resolve();
+  await deferred.promise;
+  ok(!deferred.pending);
+});
+
+add_task(async function test_DeferredRejected() {
+  const deferred = Deferred();
+
+  // eslint-disable-next-line mozilla/no-arbitrary-setTimeout
+  setTimeout(() => deferred.reject(new Error("foo")), 100);
+
+  try {
+    await deferred.promise;
+    ok(false);
+  } catch (e) {
+    ok(!deferred.pending);
+
+    ok(!deferred.fulfilled);
+    ok(deferred.rejected);
+    equal(e.message, "foo");
+  }
+});
+
+add_task(async function test_DeferredResolved() {
+  const deferred = Deferred();
+  ok(deferred.pending);
+
+  // eslint-disable-next-line mozilla/no-arbitrary-setTimeout
+  setTimeout(() => deferred.resolve("foo"), 100);
+
+  const result = await deferred.promise;
+  ok(!deferred.pending);
+
+  ok(deferred.fulfilled);
+  ok(!deferred.rejected);
+  equal(result, "foo");
+});
+
+add_task(async function test_EventPromise_subjectTypes() {
+  for (const subject of ["foo", 42, null, undefined, true, [], {}]) {
+    Assert.throws(() => new EventPromise(subject, "click"), /TypeError/);
+  }
+});
+
+add_task(async function test_EventPromise_eventNameTypes() {
+  const element = new MockElement();
+
+  for (const eventName of [42, null, undefined, true, [], {}]) {
+    Assert.throws(() => new EventPromise(element, eventName), /TypeError/);
+  }
+});
+
+add_task(async function test_EventPromise_subjectAndEventNameEvent() {
+  const element = new MockElement();
+
+  const clicked = new EventPromise(element, "click");
+  element.click();
+  const event = await clicked;
+
+  equal(element, event.target);
+});
+
+add_task(async function test_EventPromise_captureTypes() {
+  const element = new MockElement();
+
+  for (const capture of [null, "foo", 42, [], {}]) {
+    Assert.throws(
+      () => new EventPromise(element, "click", { capture }),
+      /TypeError/
+    );
+  }
+});
+
+add_task(async function test_EventPromise_captureEvent() {
+  const element = new MockElement();
+
+  for (const capture of [undefined, false, true]) {
+    const expectedCapture = capture ?? false;
+
+    const clicked = new EventPromise(element, "click", { capture });
+    element.click();
+    const event = await clicked;
+
+    equal(element, event.target);
+    equal(expectedCapture, event.capture);
+  }
+});
+
+add_task(async function test_EventPromise_checkFnTypes() {
+  const element = new MockElement();
+
+  for (const checkFn of ["foo", 42, true, [], {}]) {
+    Assert.throws(
+      () => new EventPromise(element, "click", { checkFn }),
+      /TypeError/
+    );
+  }
+});
+
+add_task(async function test_EventPromise_checkFnCallback() {
+  const element = new MockElement();
+
+  let count;
+  const data = [
+    { checkFn: null, expected_count: 0 },
+    { checkFn: undefined, expected_count: 0 },
+    {
+      checkFn: () => {
+        throw new Error("foo");
+      },
+      expected_count: 0,
+    },
+    { checkFn: () => count++ > 0, expected_count: 2 },
+  ];
+
+  for (const { checkFn, expected_count } of data) {
+    count = 0;
+
+    const clicked = new EventPromise(element, "click", { checkFn });
+    element.click();
+    element.click();
+    const event = await clicked;
+
+    equal(element, event.target);
+    equal(expected_count, count);
+  }
+});
+
+add_task(async function test_EventPromise_mozSystemGroupTypes() {
+  const element = new MockElement();
+
+  for (const mozSystemGroup of [null, "foo", 42, [], {}]) {
+    Assert.throws(
+      () => new EventPromise(element, "click", { mozSystemGroup }),
+      /TypeError/
+    );
+  }
+});
+
+add_task(async function test_EventPromise_mozSystemGroupEvent() {
+  const element = new MockElement();
+
+  for (const mozSystemGroup of [undefined, false, true]) {
+    const expectedMozSystemGroup = mozSystemGroup ?? false;
+
+    const clicked = new EventPromise(element, "click", { mozSystemGroup });
+    element.click();
+    const event = await clicked;
+
+    equal(element, event.target);
+    equal(expectedMozSystemGroup, event.mozSystemGroup);
+  }
+});
+
+add_task(async function test_EventPromise_wantUntrustedTypes() {
+  const element = new MockElement();
+
+  for (let wantUntrusted of [null, "foo", 42, [], {}]) {
+    Assert.throws(
+      () => new EventPromise(element, "click", { wantUntrusted }),
+      /TypeError/
+    );
+  }
+});
+
+add_task(async function test_EventPromise_wantUntrustedEvent() {
+  for (const wantUntrusted of [undefined, false, true]) {
+    let expected_untrusted = wantUntrusted ?? false;
+
+    const element = new MockElement();
+
+    const clicked = new EventPromise(element, "click", { wantUntrusted });
+    element.dispatchEvent(new CustomEvent("click", {}));
+    const event = await clicked;
+
+    equal(element, event.target);
+    equal(expected_untrusted, event.untrusted);
+  }
+});
+
+add_task(function test_PollPromise_funcTypes() {
+  for (let type of ["foo", 42, null, undefined, true, [], {}]) {
+    Assert.throws(() => new PollPromise(type), /TypeError/);
+  }
+  new PollPromise(() => {});
+  new PollPromise(function () {});
+});
+
+add_task(function test_PollPromise_timeoutTypes() {
+  for (let timeout of ["foo", true, [], {}]) {
+    Assert.throws(() => new PollPromise(() => {}, { timeout }), /TypeError/);
+  }
+  for (let timeout of [1.2, -1]) {
+    Assert.throws(() => new PollPromise(() => {}, { timeout }), /RangeError/);
+  }
+  for (let timeout of [null, undefined, 42]) {
+    new PollPromise(resolve => resolve(1), { timeout });
+  }
+});
+
+add_task(function test_PollPromise_intervalTypes() {
+  for (let interval of ["foo", null, true, [], {}]) {
+    Assert.throws(() => new PollPromise(() => {}, { interval }), /TypeError/);
+  }
+  for (let interval of [1.2, -1]) {
+    Assert.throws(() => new PollPromise(() => {}, { interval }), /RangeError/);
+  }
+  new PollPromise(() => {}, { interval: 42 });
+});
+
+add_task(async function test_PollPromise_retvalTypes() {
+  for (let typ of [true, false, "foo", 42, [], {}]) {
+    strictEqual(typ, await new PollPromise(resolve => resolve(typ)));
+  }
+});
+
+add_task(async function test_PollPromise_rethrowError() {
+  let nevals = 0;
+  let err;
+  try {
+    await PollPromise(() => {
+      ++nevals;
+      throw new Error();
+    });
+  } catch (e) {
+    err = e;
+  }
+  equal(1, nevals);
+  ok(err instanceof Error);
+});
+
+add_task(async function test_PollPromise_noTimeout() {
+  let nevals = 0;
+  await new PollPromise((resolve, reject) => {
+    ++nevals;
+    nevals < 100 ? reject() : resolve();
+  });
+  equal(100, nevals);
+});
+
+add_task(async function test_PollPromise_zeroTimeout() {
+  // run at least once when timeout is 0
+  let nevals = 0;
+  let start = new Date().getTime();
+  await new PollPromise(
+    (resolve, reject) => {
+      ++nevals;
+      reject();
+    },
+    { timeout: 0, throws: null }
+  );
+  let end = new Date().getTime();
+  equal(1, nevals);
+  less(end - start, 500);
+});
+
+add_task(async function test_PollPromise_timeoutElapse() {
+  let nevals = 0;
+  let start = new Date().getTime();
+  await new PollPromise(
+    (resolve, reject) => {
+      ++nevals;
+      reject();
+    },
+    { timeout: 100, throws: null }
+  );
+  let end = new Date().getTime();
+  lessOrEqual(nevals, 11);
+  greaterOrEqual(end - start, 100);
+});
+
+add_task(async function test_PollPromise_timeout() {
+  const errorMessage = "PollingFailed";
+  let err;
+
+  try {
+    await new PollPromise(
+      (resolve, reject) => {
+        reject();
+      },
+      { timeout: 100, errorMessage }
+    );
+  } catch (e) {
+    err = e;
+  }
+  equal(err.message, "PollingFailed after 100 ms");
+});
+
+add_task(async function test_PollPromise_timeoutStopsPolling() {
+  for (const timeout of [0, 100]) {
+    let nevals = 0;
+
+    await Assert.rejects(
+      new PollPromise(
+        (resolve, reject) => {
+          ++nevals;
+          reject();
+        },
+        { timeout }
+      ),
+      /TimeoutError/
+    );
+
+    const nevalsAfterTimeout = nevals;
+    await Sleep(100);
+    equal(nevals, nevalsAfterTimeout);
+  }
+});
+
+add_task(async function test_PollPromise_interval() {
+  let nevals = 0;
+  await new PollPromise(
+    (resolve, reject) => {
+      ++nevals;
+      reject();
+    },
+    { timeout: 100, interval: 100, throws: null }
+  );
+  equal(2, nevals);
+});
+
+add_task(async function test_PollPromise_resolve() {
+  const log = Log.repository.getLogger("RemoteAgent");
+  const appender = new MockAppender(new Log.BasicFormatter());
+  appender.level = Log.Level.Info;
+  log.addAppender(appender);
+
+  const errorMessage = "PollingFailed";
+  const timeout = 100;
+
+  await new PollPromise(
+    resolve => {
+      resolve();
+    },
+    { timeout, errorMessage }
+  );
+  Assert.equal(appender.messages.length, 0);
+
+  await new PollPromise(
+    (resolve, reject) => {
+      reject();
+    },
+    { timeout, errorMessage: "PollingFailed", throws: null }
+  );
+  Assert.equal(appender.messages.length, 1);
+  Assert.equal(appender.messages[0].level, Log.Level.Warn);
+  Assert.equal(appender.messages[0].message, "PollingFailed after 100 ms");
+});
+
+add_task(function test_TimedPromise_funcTypes() {
+  for (let type of ["foo", 42, null, undefined, true, [], {}]) {
+    Assert.throws(() => new TimedPromise(type), /TypeError/);
+  }
+  new TimedPromise(resolve => resolve());
+  new TimedPromise(function (resolve) {
+    resolve();
+  });
+});
+
+add_task(function test_TimedPromise_timeoutTypes() {
+  for (let timeout of ["foo", null, true, [], {}]) {
+    Assert.throws(
+      () => new TimedPromise(resolve => resolve(), { timeout }),
+      /TypeError/
+    );
+  }
+  for (let timeout of [1.2, -1]) {
+    Assert.throws(
+      () => new TimedPromise(resolve => resolve(), { timeout }),
+      /RangeError/
+    );
+  }
+  new TimedPromise(resolve => resolve(), { timeout: 42 });
+});
+
+add_task(async function test_TimedPromise_errorMessage() {
+  try {
+    await new TimedPromise(() => {}, { timeout: 0 });
+    ok(false, "Expected Timeout error not raised");
+  } catch (e) {
+    ok(
+      e.message.includes("TimedPromise timed out after"),
+      "Expected default error message found"
+    );
+  }
+
+  try {
+    await new TimedPromise(() => {}, {
+      errorMessage: "Not found",
+      timeout: 0,
+    });
+    ok(false, "Expected Timeout error not raised");
+  } catch (e) {
+    ok(
+      e.message.includes("Not found after"),
+      "Expected custom error message found"
+    );
+  }
+});
+
+add_task(async function test_Sleep() {
+  await Sleep(0);
+  for (let type of ["foo", true, null, undefined]) {
+    Assert.throws(() => new Sleep(type), /TypeError/);
+  }
+  Assert.throws(() => new Sleep(1.2), /RangeError/);
+  Assert.throws(() => new Sleep(-1), /RangeError/);
+});
+
+add_task(function test_DebounceCallback_constructor() {
+  for (let cb of [42, "foo", true, null, undefined, [], {}]) {
+    Assert.throws(() => new DebounceCallback(cb), /TypeError/);
+  }
+  for (let timeout of ["foo", true, [], {}, () => {}]) {
+    Assert.throws(
+      () => new DebounceCallback(() => {}, { timeout }),
+      /TypeError/
+    );
+  }
+  for (let timeout of [-1, 2.3, NaN]) {
+    Assert.throws(
+      () => new DebounceCallback(() => {}, { timeout }),
+      /RangeError/
+    );
+  }
+});
+
+add_task(async function test_DebounceCallback_repeatedCallback() {
+  let uniqueEvent = {};
+  let ncalls = 0;
+
+  let cb = ev => {
+    ncalls++;
+    equal(ev, uniqueEvent);
+  };
+  let debouncer = new DebounceCallback(cb);
+  debouncer.timer = new MockTimer(3);
+
+  // flood the debouncer with events,
+  // we only expect the last one to fire
+  debouncer.handleEvent(uniqueEvent);
+  debouncer.handleEvent(uniqueEvent);
+  debouncer.handleEvent(uniqueEvent);
+
+  equal(ncalls, 1);
+  ok(debouncer.timer.cancelled);
+});
+
+add_task(async function test_waitForMessage_messageManagerAndMessageTypes() {
+  let messageManager = new MessageManager();
+
+  for (let manager of ["foo", 42, null, undefined, true, [], {}]) {
+    Assert.throws(() => waitForMessage(manager, "message"), /TypeError/);
+  }
+
+  for (let message of [42, null, undefined, true, [], {}]) {
+    Assert.throws(() => waitForMessage(messageManager, message), /TypeError/);
+  }
+
+  let data = { foo: "bar" };
+  let sent = waitForMessage(messageManager, "message");
+  messageManager.send("message", data);
+  equal(data, await sent);
+});
+
+add_task(async function test_waitForMessage_checkFnTypes() {
+  let messageManager = new MessageManager();
+
+  for (let checkFn of ["foo", 42, true, [], {}]) {
+    Assert.throws(
+      () => waitForMessage(messageManager, "message", { checkFn }),
+      /TypeError/
+    );
+  }
+
+  let data1 = { notFoo: "bar" };
+  let data2 = { foo: "bar" };
+
+  for (let checkFn of [null, undefined, msg => "foo" in msg.data]) {
+    let expected_data = checkFn == null ? data1 : data2;
+
+    messageManager = new MessageManager();
+    let sent = waitForMessage(messageManager, "message", { checkFn });
+    messageManager.send("message", data1);
+    messageManager.send("message", data2);
+    equal(expected_data, await sent);
+  }
+});
+
+add_task(async function test_waitForObserverTopic_topicTypes() {
+  for (let topic of [42, null, undefined, true, [], {}]) {
+    Assert.throws(() => waitForObserverTopic(topic), /TypeError/);
+  }
+
+  let data = { foo: "bar" };
+  let sent = waitForObserverTopic("message");
+  Services.obs.notifyObservers(this, "message", data);
+  let result = await sent;
+  equal(this, result.subject);
+  equal(data, result.data);
+});
+
+add_task(async function test_waitForObserverTopic_checkFnTypes() {
+  for (let checkFn of ["foo", 42, true, [], {}]) {
+    Assert.throws(
+      () => waitForObserverTopic("message", { checkFn }),
+      /TypeError/
+    );
+  }
+
+  let data1 = { notFoo: "bar" };
+  let data2 = { foo: "bar" };
+
+  for (let checkFn of [null, undefined, (subject, data) => data == data2]) {
+    let expected_data = checkFn == null ? data1 : data2;
+
+    let sent = waitForObserverTopic("message");
+    Services.obs.notifyObservers(this, "message", data1);
+    Services.obs.notifyObservers(this, "message", data2);
+    let result = await sent;
+    equal(expected_data, result.data);
+  }
+});
+
+add_task(async function test_waitForObserverTopic_timeoutTypes() {
+  for (let timeout of ["foo", true, [], {}]) {
+    Assert.throws(
+      () => waitForObserverTopic("message", { timeout }),
+      /TypeError/
+    );
+  }
+  for (let timeout of [1.2, -1]) {
+    Assert.throws(
+      () => waitForObserverTopic("message", { timeout }),
+      /RangeError/
+    );
+  }
+  for (let timeout of [null, undefined, 42]) {
+    let data = { foo: "bar" };
+    let sent = waitForObserverTopic("message", { timeout });
+    Services.obs.notifyObservers(this, "message", data);
+    let result = await sent;
+    equal(this, result.subject);
+    equal(data, result.data);
+  }
+});
+
+add_task(async function test_waitForObserverTopic_timeoutElapse() {
+  try {
+    await waitForObserverTopic("message", { timeout: 0 });
+    ok(false, "Expected Timeout error not raised");
+  } catch (e) {
+    ok(
+      e.message.includes("waitForObserverTopic timed out after"),
+      "Expected error received"
+    );
+  }
+});

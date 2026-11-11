@@ -1,0 +1,14 @@
+[DEFAULT]
+
+["test_async_clipboard_datatransfer.html"]
+scheme = "https"
+skip-if = [
+  "headless", # headless doesn't support custom type
+  "os == 'android'", # android doesn't support custom type
+  "os == 'linux' && os_version == '22.04' && arch == 'x86_64' && display == 'wayland'", # Bug 1926772
+]
+
+["test_paste_image.html"]
+skip-if = [
+  "os == 'android'", # Image type isn't supported
+]

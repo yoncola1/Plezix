@@ -1,0 +1,69 @@
+From: Ryan VanderMeulen <rvandermeulen@mozilla.com>
+Date: Sun, 23 Aug 2026 13:55:21 -0400
+Subject: Bug 1938156, Bug 1935474 - adjust which abseil-cpp gn targets we
+ build.
+
+Drops a group we do not need and allows building all of absl_component_deps.
+---
+ abseil-cpp/BUILD.gn | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/abseil-cpp/BUILD.gn b/abseil-cpp/BUILD.gn
+index de7b95f3f92..43aa9b5a825 100644
+--- a/abseil-cpp/BUILD.gn
++++ b/abseil-cpp/BUILD.gn
+@@ -39,7 +39,7 @@ component("absl") {
+       sources = [ file ]
+     }
+   }
+-  if (is_win) {
++  if (is_win && !moz_webrtc_build) {
+     all_dependent_configs = [ "//tools/win/DebugVisualizers:absl" ]
+     inputs = [
+       # absl.natvis listed as an input here instead of in
+@@ -149,14 +149,29 @@ group("absl_component_deps") {
+   }
+ 
+   visibility = [ ":absl" ]
++
++  if (moz_webrtc_build) {
++    # rewrite deps for our new abseil-cpp location
++    if (defined(public_deps)) {
++      modified_deps = []
++      foreach (dep, public_deps) {
++        newdep = string_replace(dep, "//third_party/abseil-cpp/", "//")
++        modified_deps += [ newdep ]
++      }
++      public_deps = []
++      public_deps = modified_deps
++    }
++  }
+ }
+ 
+ # Abseil testing utilities should only be included in test binaries.
++if (!moz_webrtc_build) {
+ source_set("test_support") {
+   testonly = true
+   public_deps = [ "//third_party/abseil-cpp/absl/hash:hash_testing" ]
+   deps = [ ":absl" ]
+ }
++}
+ 
+ # Some third-party libraries use additional parts of absl that are banned in
+ # Chrome (e.g. flags generates static initializers that are undesirable in
+@@ -191,6 +206,7 @@ source_set("absl_full") {
+ }
+ 
+ group("absl_full_deps") {
++  if (!moz_webrtc_build) {
+   public_deps = [
+     # Banned because each flag registration generates a static initializer, and
+     # the flag registration mechanism is problematic in component builds.
+@@ -213,6 +229,7 @@ group("absl_full_deps") {
+   ]
+ 
+   public_configs = [ "//third_party/abseil-cpp/absl/flags:absl_flags_config" ]
++  }
+ }
+ 
+ config("absl_include_config") {

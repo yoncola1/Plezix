@@ -1,0 +1,164 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# This module provides a backend for `clangd` in order to have support for
+# code completion, compile errors, go-to-definition and more.
+# It is based on `database.py` with the difference that we don't generate
+# an unified `compile_commands.json` but we generate a per file basis `arguments` in
+# `objdir/clangd/compile_commands.json`
+
+import os
+
+import mozpack.path as mozpath
+
+from mozbuild.compilation.database import CompileDBBackend
+
+
+def find_vscode_or_vscodium_cmd(ide):
+    if ide not in {"vscode", "vscodium"}:
+        return None
+
+    import shutil
+    import sys
+
+    # Try to look up the requested editor's launcher on $PATH, and use it if
+    # present. This should catch cases like being run from within a
+    # vscode-remote shell, even if the editor itself is also installed on the
+    # remote host. Only the launcher matching `ide` is looked up, so that having
+    # both editors installed doesn't start the wrong one.
+    path = shutil.which("code" if ide == "vscode" else "codium")
+    if path is not None:
+        return [path]
+
+    cmd_and_path = []
+
+    # If the binary wasn't on $PATH, try to find it in a variety of other
+    # well-known install locations based on the current platform.
+    if sys.platform.startswith("darwin"):
+        if ide == "vscode":
+            cmd_and_path = [
+                {"path": "/usr/local/bin/code", "cmd": ["/usr/local/bin/code"]},
+                {
+                    "path": "/Applications/Visual Studio Code.app",
+                    "cmd": ["open", "/Applications/Visual Studio Code.app", "--args"],
+                },
+                {
+                    "path": "/Applications/Visual Studio Code - Insiders.app",
+                    "cmd": [
+                        "open",
+                        "/Applications/Visual Studio Code - Insiders.app",
+                        "--args",
+                    ],
+                },
+            ]
+        else:
+            cmd_and_path = [
+                {
+                    "path": "/opt/homebrew/bin/codium",
+                    "cmd": ["/opt/homebrew/bin/codium"],
+                },
+                {
+                    "path": "/Applications/VSCodium.app",
+                    "cmd": ["open", "/Applications/VSCodium.app", "--args"],
+                },
+            ]
+    elif sys.platform.startswith("win"):
+        from pathlib import Path
+
+        if ide == "vscode":
+            vscode_path = mozpath.join(
+                str(Path.home()),
+                "AppData",
+                "Local",
+                "Programs",
+                "Microsoft VS Code",
+                "Code.exe",
+            )
+            vscode_insiders_path = mozpath.join(
+                str(Path.home()),
+                "AppData",
+                "Local",
+                "Programs",
+                "Microsoft VS Code Insiders",
+                "Code - Insiders.exe",
+            )
+            cmd_and_path = [
+                {"path": vscode_path, "cmd": [vscode_path]},
+                {"path": vscode_insiders_path, "cmd": [vscode_insiders_path]},
+            ]
+        else:
+            vscodium_path = mozpath.join(
+                str(Path.home()),
+                "AppData",
+                "Local",
+                "Programs",
+                "VSCodium",
+                "VSCodium.exe",
+            )
+            cmd_and_path = [{"path": vscodium_path, "cmd": [vscodium_path]}]
+    elif sys.platform.startswith("linux"):
+        if ide == "vscode":
+            cmd_and_path = [
+                {"path": "/usr/local/bin/code", "cmd": ["/usr/local/bin/code"]},
+                {"path": "/snap/bin/code", "cmd": ["/snap/bin/code"]},
+                {"path": "/usr/bin/code", "cmd": ["/usr/bin/code"]},
+                {"path": "/usr/bin/code-insiders", "cmd": ["/usr/bin/code-insiders"]},
+            ]
+        else:
+            cmd_and_path = [
+                {"path": "/usr/local/bin/codium", "cmd": ["/usr/local/bin/codium"]},
+                {"path": "/snap/bin/codium", "cmd": ["/snap/bin/codium"]},
+                {"path": "/usr/bin/codium", "cmd": ["/usr/bin/codium"]},
+            ]
+
+    # Did we guess the path?
+    for element in cmd_and_path:
+        if os.path.exists(element["path"]):
+            return element["cmd"]
+
+    # Path cannot be found
+    return None
+
+
+class ClangdBackend(CompileDBBackend):
+    """
+    Configuration that generates the backend for clangd, it is used with `clangd`
+    extension for vscode
+    """
+
+    def _init(self):
+        CompileDBBackend._init(self)
+
+    def _get_compiler_args(self, cenv, canonical_suffix):
+        compiler_args = super()._get_compiler_args(cenv, canonical_suffix)
+        if compiler_args is None:
+            return None
+
+        # A compiler wrapper (ccache and/or --with-compiler-wrapper) is
+        # prepended to the compiler invocation, but clangd treats the leading
+        # token as the driver and misparses the rest of the command, so strip
+        # the whole wrapper prefix.
+        wrapper = list(self.environment.substs.get("COMPILER_WRAPPER", []))
+        if wrapper and compiler_args[: len(wrapper)] == wrapper:
+            del compiler_args[: len(wrapper)]
+        return compiler_args
+
+    def _build_cmd(self, cmd, filename, unified):
+        cmd = list(cmd)
+
+        cmd.append(filename)
+
+        return cmd
+
+    def _outputfile_path(self):
+        clangd_cc_path = os.path.join(self.environment.topobjdir, "clangd")
+
+        if not os.path.exists(clangd_cc_path):
+            os.mkdir(clangd_cc_path)
+
+        # Output the database (a JSON file) to objdir/clangd/compile_commands.json
+        return mozpath.join(clangd_cc_path, "compile_commands.json")
+
+    def _process_unified_sources(self, obj):
+        self._process_unified_sources_without_mapping(obj)

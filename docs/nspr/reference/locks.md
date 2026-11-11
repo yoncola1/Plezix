@@ -1,0 +1,40 @@
+This chapter describes the NSPR API for creation and manipulation of a
+mutex of type {doc}`prlock`.
+
+- [Lock Type](#lock-type)
+- [Lock Functions](#lock-functions)
+
+In NSPR, a mutex of type {doc}`prlock` controls locking, and associated
+condition variables communicate changes in state among threads. When a
+programmer associates a mutex with an arbitrary collection of data, the
+mutex provides a protective monitor around the data.
+
+In general, a monitor is a conceptual entity composed of a mutex, one or
+more condition variables, and the monitored data. Monitors in this
+generic sense should not be confused with monitors used in Java
+programming. In addition to {doc}`prlock`, NSPR provides another mutex
+type, {doc}`prmonitor`, which is reentrant and can have only one associated
+condition variable. {doc}`prmonitor` is intended for use with Java and
+reflects the Java approach to thread synchronization.
+
+For an introduction to NSPR thread synchronization, including locks and
+condition variables, see [Introduction to
+NSPR](introduction_to_nspr.md).
+
+For reference information on NSPR condition variables, see [Condition
+Variables](condition_variables.md).
+
+(lock-type)=
+
+# Lock Type
+
+> - {doc}`prlock`
+
+(lock-functions)=
+
+# Lock Functions
+
+> - {doc}`pr_newlock` creates a new lock object.
+> - {doc}`pr_destroylock` destroys a specified lock object.
+> - {doc}`pr_lock` locks a specified lock object.
+> - {doc}`pr_unlock` unlocks a specified lock object.

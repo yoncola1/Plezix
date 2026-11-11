@@ -1,0 +1,101 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://browser/content/profiles/profiles-pages.css");
+
+.avatar-header-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-small);
+  align-items: center;
+
+  .avatar-image-container,
+  .avatar-selector-parent {
+    position: relative;
+  }
+
+  #profile-avatar-selector-button {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+  }
+
+  profile-avatar-selector {
+    position: absolute;
+    inset-inline-start: -140px;
+  }
+}
+
+#profile-name-area {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-name-area label {
+  margin-block-end: var(--space-xsmall);
+}
+
+#theme-group::part(label) {
+  font-weight: var(--font-weight);
+}
+
+#theme-group::part(inputs) {
+  margin-block-start: var(--space-xsmall);
+}
+
+#profile-name {
+  width: min(400px, 100%);
+  margin: 0;
+  padding-inline: var(--space-medium);
+  padding-block: 1px;
+  min-height: var(--input-min-height);
+  border: var(--input-border);
+
+  &:focus-visible {
+    outline-offset: unset;
+  }
+
+  &:invalid {
+    border-color: var(--border-color-error);
+    accent-color: var(--border-color-error);
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}
+
+.message {
+  display: inline-flex;
+  gap: var(--space-xsmall);
+  padding: var(--space-xsmall);
+
+  &[hidden] {
+    display: none;
+  }
+
+  > .message-icon {
+    -moz-context-properties: fill, stroke;
+    fill: currentColor;
+    stroke: currentColor;
+    align-self: center;
+  }
+}
+
+#error-icon,
+#error-message {
+  color: var(--icon-color-critical);
+}
+
+#saved-icon {
+  color: var(--icon-color-success);
+}
+
+.avatar-item {
+  --visual-picker-item-border-radius: var(--border-radius-circle);
+}
+
+.theme-item {
+  --visual-picker-item-border-radius: 10px;
+}

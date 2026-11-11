@@ -1,0 +1,171 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+loader: taskgraph.loader.transform:loader
+
+transforms:
+    - taskgraph.transforms.task_context
+    - gecko_taskgraph.transforms.job:transforms
+    - gecko_taskgraph.transforms.task:transforms
+
+kind-dependencies:
+    - ui-test-apk
+    - beetmover-android-app
+
+task-defaults:
+    description: Sends Slack message to release testers that Testrail Milestone was created.
+    task-context:
+        from-parameters:
+            level: level
+            build_number: build_number
+        substitution-fields:
+            - routes
+            - scopes
+            - worker.env.MOZ_BUILD_NUMBER
+    treeherder:
+        kind: other
+        tier: 2
+        symbol: testrail
+    worker-type: b-linux
+    worker:
+        docker-image: {in-tree: android-ui-tests}
+        max-run-time: 1800
+    run:
+        use-caches: false
+        using: run-commands
+        secrets:
+            - name: project/mobile/ci/testrail
+              key: testrailCredentials
+              path: .testrail_credentials.json
+              json: true
+    shipping-product: firefox-android
+    shipping-phase: promote
+    run-on-projects: []
+    routes:
+        by-level:
+            '3':
+                - notify.slack-channel.C0134KJ4JHL.on-failed
+            default: []
+    scopes:
+        by-level:
+            '3':
+                - queue:route:notify.slack-channel.C0134KJ4JHL  # notify mobile-alerts-android on failure
+                - notify:slack-channel:C0134KJ4JHL
+                - queue:route:notify.slack-channel.C07HUFVU2UD  # notify mobile-testeng-releases on success
+                - notify:slack-channel:C07HUFVU2UD
+            default: []
+
+tasks:
+    create-milestone-focus-beta:
+        attributes:
+            release-type: beta
+        task-context:
+            from-object:
+                app-name: focus
+        requires: all-resolved
+        dependencies:
+            ui-test-apk: ui-test-apk-focus-arm-beta-signoff
+            beetmover-android-app: beetmover-focus-beta
+        description: Create Testrail Milestone for Focus Beta
+        treeherder:
+            platform: focus-android-all/opt
+            symbol: testrail(beta)
+        run:
+            pre-commands:
+                # get-secrets is called from '..' directory so we need to cd into any directory to make it work
+                - ["cd", "mobile/android/focus-android"]
+            commands:
+                - [python3, "../../../taskcluster/scripts/testrail_main.py"]
+        worker:
+            env:
+                SHIPPING_PRODUCT: focus
+                TESTRAIL_PRODUCT_TYPE: Focus
+                TESTRAIL_PROJECT_ID: '48'  # Focus for Android
+                TESTRAIL_TEST_SUITE_ID: '49386'  # Test Automation Release Milestone - Focus
+                UI_TEST_TASK_ID: {"task-reference": "<ui-test-apk>"}
+                MOZ_BUILD_NUMBER: '{build_number}'
+
+    create-milestone-focus-release:
+        attributes:
+            release-type: release
+        task-context:
+            from-object:
+                app-name: focus
+        requires: all-resolved
+        dependencies:
+            ui-test-apk: ui-test-apk-focus-arm-release-signoff
+            beetmover-android-app: beetmover-focus-release
+        description: Create Testrail Milestone for Focus Release
+        treeherder:
+            platform: focus-android-all/opt
+            symbol: testrail(release)
+        run:
+            pre-commands:
+                - ["cd", "mobile/android/focus-android"]
+            commands:
+                - [python3, "../../../taskcluster/scripts/testrail_main.py"]
+        worker:
+            env:
+                SHIPPING_PRODUCT: focus
+                TESTRAIL_PRODUCT_TYPE: Focus
+                TESTRAIL_PROJECT_ID: '48'  # Focus for Android
+                TESTRAIL_TEST_SUITE_ID: '49386'  # Test Automation Release Milestone - Focus
+                UI_TEST_TASK_ID: {"task-reference": "<ui-test-apk>"}
+                MOZ_BUILD_NUMBER: '{build_number}'
+
+    create-milestone-fenix-beta:
+        attributes:
+            release-type: beta
+        task-context:
+            from-object:
+                app-name: fenix
+        requires: all-resolved
+        dependencies:
+            ui-test-apk: ui-test-apk-fenix-arm-beta-signoff
+            beetmover-android-app: beetmover-fenix-beta
+        treeherder:
+            platform: fenix-android-all/opt
+            symbol: testrail(beta)
+        description: Create Testrail Milestone for Fenix Beta
+        run:
+            pre-commands:
+                - ["cd", "mobile/android/fenix"]
+            commands:
+                - [python3, "../../../taskcluster/scripts/testrail_main.py"]
+        worker:
+            env:
+                SHIPPING_PRODUCT: fenix
+                TESTRAIL_PRODUCT_TYPE: Firefox
+                TESTRAIL_PROJECT_ID: '59'  # Fenix Browser
+                TESTRAIL_TEST_SUITE_ID: '49319'  # Test Automation Release Milestone - Fenix
+                UI_TEST_TASK_ID: {"task-reference": "<ui-test-apk>"}
+                MOZ_BUILD_NUMBER: '{build_number}'
+
+    create-milestone-fenix-release:
+        attributes:
+            release-type: release
+        task-context:
+            from-object:
+                app-name: fenix
+        requires: all-resolved
+        dependencies:
+            ui-test-apk: ui-test-apk-fenix-arm-release-signoff
+            beetmover-android-app: beetmover-fenix-release
+        treeherder:
+            platform: fenix-android-all/opt
+            symbol: testrail(release)
+        description: Create Testrail Milestone for Fenix Release
+        run:
+            pre-commands:
+                - ["cd", "mobile/android/fenix"]
+            commands:
+                - [python3, "../../../taskcluster/scripts/testrail_main.py"]
+        worker:
+            env:
+                SHIPPING_PRODUCT: fenix
+                TESTRAIL_PRODUCT_TYPE: Firefox
+                TESTRAIL_PROJECT_ID: '59'  # Fenix Browser
+                TESTRAIL_TEST_SUITE_ID: '49319'  # Test Automation Release Milestone - Fenix
+                UI_TEST_TASK_ID: {"task-reference": "<ui-test-apk>"}
+                MOZ_BUILD_NUMBER: '{build_number}'

@@ -1,0 +1,107 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "AutoscrollAnimation.h"
+
+#include <algorithm>  // for std::max()
+#include <cmath>      // for sqrtf()
+
+#include "APZCTreeManager.h"
+#include "AsyncPanZoomController.h"
+#include "FrameMetrics.h"
+#include "Units.h"
+#include "mozilla/StaticPrefs_general.h"
+
+namespace mozilla {
+namespace layers {
+
+// Helper function for AutoscrollAnimation::DoSample().
+// Basically copied as-is from toolkit/actors/AutoScrollChild.sys.mjs, the only
+// addition is adjusting for DPI.
+static float Accelerate(ScreenCoord curr, ScreenCoord start,
+                        const CSSToLayoutDeviceScale& widgetScale) {
+  // |speed| is the divisor in |val| below, so a higher multiplier must make
+  // |speed| smaller to produce a faster autoscroll. The multiplier is a
+  // percentage (100 = default). Clamp to avoid a zero divisor.
+  constexpr float baseSpeed = 12.0f;
+
+  int multiplier =
+      std::max(1, int(StaticPrefs::general_autoscroll_speed_multiplier()));
+  float speed = std::max(1.0f, baseSpeed * 100 / multiplier);
+  float val = (curr - start) / (speed * widgetScale.scale);
+  if (val > 1) {
+    return val * sqrtf(val) - 1;
+  }
+  if (val < -1) {
+    return val * sqrtf(-val) + 1;
+  }
+  return 0;
+}
+
+AutoscrollAnimation::AutoscrollAnimation(AsyncPanZoomController& aApzc,
+                                         const ScreenPoint& aAnchorLocation)
+    : mApzc(aApzc), mAnchorLocation(aAnchorLocation) {}
+
+bool AutoscrollAnimation::DoSample(FrameMetrics& aFrameMetrics,
+                                   const TimeDuration& aDelta) {
+  APZCTreeManager* treeManager = mApzc.GetApzcTreeManager();
+  if (!treeManager) {
+    return false;
+  }
+
+  ScreenPoint mouseLocation = treeManager->GetCurrentMousePosition();
+
+  // Get the dpi so accelerate can scale to screen dpi.
+  const auto widgetScale = treeManager->GetWidgetScale();
+
+  // The implementation of this function closely mirrors that of its main-
+  // thread equivalent, the autoscrollLoop() function in
+  // toolkit/actors/AutoScrollChild.sys.mjs.
+
+  // Avoid long jumps when the browser hangs for more than |maxTimeDelta| ms.
+  static const TimeDuration maxTimeDelta = TimeDuration::FromMilliseconds(100);
+  TimeDuration timeDelta = TimeDuration::Min(aDelta, maxTimeDelta);
+
+  float timeCompensation = timeDelta.ToMilliseconds() / 20;
+
+  // Notes:
+  //   - The main-thread implementation rounds the scroll delta to an integer,
+  //     and keeps track of the fractional part as an "error". It does this
+  //     because it uses Window.scrollBy() or Element.scrollBy() to perform
+  //     the scrolling, and those functions truncate the fractional part of
+  //     the offset. APZ does no such truncation, so there's no need to keep
+  //     track of the fractional part separately.
+  //   - The Accelerate() function takes Screen coordinates as inputs, but
+  //     its output is interpreted as CSS coordinates. This is intentional,
+  //     insofar as autoscrollLoop() does the same thing.
+  CSSPoint scrollDelta{
+      Accelerate(mouseLocation.x, mAnchorLocation.x, widgetScale) *
+          timeCompensation,
+      Accelerate(mouseLocation.y, mAnchorLocation.y, widgetScale) *
+          timeCompensation};
+
+  mApzc.ScrollByAndClamp(scrollDelta);
+
+  // An autoscroll animation never ends of its own accord.
+  // It can be stopped in response to various input events, in which case
+  // AsyncPanZoomController::StopAutoscroll() will stop it via
+  // CancelAnimation().
+  return true;
+}
+
+void AutoscrollAnimation::Cancel(CancelAnimationFlags aFlags) {
+  // The cancellation was initiated by browser.js, so there's no need to
+  // notify it.
+  if (aFlags & TriggeredExternally) {
+    return;
+  }
+
+  if (RefPtr<GeckoContentController> controller =
+          mApzc.GetGeckoContentController()) {
+    controller->CancelAutoscroll(mApzc.GetGuid());
+  }
+}
+
+}  // namespace layers
+}  // namespace mozilla

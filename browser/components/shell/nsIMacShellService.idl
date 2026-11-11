@@ -1,0 +1,107 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsIShellService.idl"
+
+[scriptable, uuid(6732dbda-8f80-4221-8401-ac94328fa525)]
+interface nsIMacShellService : nsIShellService
+{
+  /**
+   * Opens the desktop preferences, e.g. for after setting the background.
+   */
+  void showDesktopPreferences();
+
+  /**
+   * @param aPaneID used by macOS to identify the pane to open.
+   *                Example arguments:
+   *                  * "" - use the default Security and Privacy pane.
+   *                  * General
+   *                  * Privacy
+   *                  * Privacy_AllFiles
+   *                  * Privacy_Camera
+   *                  * Privacy_Microphone
+   */
+  void showSecurityPreferences(in ACString aPaneID);
+
+  /*
+   * Searches for any available handlers for the given protocol and returns them in an
+   * array in the form [[displayName1, handlerPath1], [displayName2, handlerPath2], etc.]
+   * Can return an empty array if no handlers are found.
+   *
+   * @param   protocol   The protocol to search for handlers for (e.g. "http", "mailto" etc.)
+   * @return  The full list of handler paths and names.
+   *
+   * @throws NS_ERROR_ILLEGAL_VALUE if the protocol cannot be resolved as a string.
+   * @throws NS_ERROR_MALFORMED_URI if the protocol cannot be resolved to a URI.
+   * @throws NS_ERROR_NOT_AVAILABLE if a list of handlers fails to generate.
+   */
+
+  Array<Array<AString> > getAvailableApplicationsForProtocol(in ACString protocol);
+
+  /**
+   * Whether setting Firefox as the default handler for a file extension or
+   * protocol is supported on this system. The underlying NSWorkspace API
+   * requires macOS 12, so this is false on older versions, where the other
+   * default-handler members are no-ops.
+   */
+  readonly attribute boolean canSetAsDefaultHandler;
+
+  /**
+   * Set Firefox as the default handler for the given file extension (like
+   * ".pdf") or protocol (like "https") via NSWorkspace. A leading "." marks a
+   * file extension; anything else is treated as a URL scheme. macOS may ask the
+   * user to confirm the change; the returned promise resolves only once that
+   * interaction completes.
+   *
+   * @return {Promise<boolean>} Resolves true if the change was applied (i.e.
+   *         the user confirmed), false otherwise (the user declined, it failed,
+   *         or canSetAsDefaultHandler is false).
+   */
+  [implicit_jscontext]
+  Promise setAsDefaultHandlerFor(in AString aFileExtensionOrProtocol);
+
+  /**
+   * Whether Firefox is the current default handler for the given file
+   * extension (like ".pdf") or protocol (like "https"). A leading "." marks a
+   * file extension; anything else is treated as a URL scheme.
+   *
+   * @return true if Firefox is the default handler. Always false when
+   *         canSetAsDefaultHandler is false (macOS older than 12).
+   */
+  boolean isDefaultHandlerFor(in AString aFileExtensionOrProtocol);
+
+  /**
+   * @return true if the application currently registered as the default
+   *         handler for the given file extension (like ".pdf") or protocol
+   *         (like "https") is also a web browser, i.e. it is registered to open
+   *         "https" URLs. Used to restrict replacing the default handler to the
+   *         case where another browser currently owns it, so we don't displace
+   *         a dedicated app such as Preview or Acrobat. A leading "." marks a
+   *         file extension; anything else is treated as a URL scheme. Always
+   *         false on macOS older than 12.
+   */
+  boolean isDefaultHandlerAWebBrowserFor(in AString aFileExtensionOrProtocol);
+
+  /*
+   * Sets the current application as a Login Item
+   *
+   * @return True if the application was successfully set up to
+   *         launch on OS login.
+   */
+  boolean enableLaunchOnLogin();
+
+  /*
+   * Removes the current application from the list of Login Items
+   *
+   * @return True if the application was successfully removed.
+   */
+  boolean disableLaunchOnLogin();
+
+  /*
+   * Checks whether the current application is in the list of Login Items
+   *
+   * @return True if the application is a login item
+   */
+  boolean getLaunchOnLoginEnabled();
+};

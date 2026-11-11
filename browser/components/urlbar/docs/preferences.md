@@ -1,0 +1,359 @@
+(urlbar-preferences)=
+
+# Preferences
+
+This document describes preferences affecting the address bar and the search
+bars. Preferences that are generated and updated by code won't be described
+here.
+
+## Search Bars
+
+A search bar reads an address bar preference wherever it runs the same code.
+Which preferences apply depends on the results each bar shows. The toolbar
+search bar shows search suggestions, search history and a few built-in results
+such as the calculator. The New Tab search bar adds URL navigation,
+autofill and Firefox Suggest, and the smartbar shows most address bar results.
+
+These preferences affect only the address bar:
+
+- `browser.urlbar.shortcuts.bookmarks`, `browser.urlbar.shortcuts.tabs` and
+  `browser.urlbar.shortcuts.history`
+- `browser.urlbar.showSearchTerms.enabled`
+- `browser.urlbar.accessibility.tabToSearch.announceResults`
+- `browser.urlbar.dnsResolveSingleWordsAfterSearch`
+- `browser.urlbar.formatting.enabled`
+- `browser.urlbar.searchTips.test.ignoreShowLimits`
+- `browser.urlbar.sponsoredTopSites`
+
+Some search bars read a different preference, or ignore one:
+
+- The toolbar search bar reads `browser.search.openintab` instead of
+  `browser.urlbar.openintab`.
+- The smartbar reads `browser.urlbar.smartbar.maxResults` and
+  `browser.urlbar.smartbar.showSearchSuggestionsFirst` instead of
+  `browser.urlbar.maxRichResults` and
+  `browser.urlbar.showSearchSuggestionsFirst`.
+- The toolbar and New Tab search bars ignore `keyword.enabled` and
+  `browser.urlbar.unifiedSearchButton.always`, and show recent searches
+  regardless of `browser.urlbar.suggest.recentsearches`.
+
+## User Exposed
+
+These preferences are exposed through the Firefox UI.
+
+browser.urlbar.shortcuts.bookmarks (boolean, default: true)
+
+: Whether to show the bookmark search shortcut button in the view.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.shortcuts.tabs (boolean, default: true)
+
+: Whether to show the tabs search shortcut button in the view.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.shortcuts.history (boolean, default: true)
+
+: Whether to show the history search shortcut button in the view.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.showSearchSuggestionsFirst (boolean, default: true)
+
+: Whether to show search suggestions before general results.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.showSearchTerms.enabled (boolean, default: true)
+
+: Whether to show the search term in the urlbar
+  on a default search engine results page.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.suggest.bookmark (boolean, default: true)
+
+: Whether results will include the user's bookmarks.
+  Can be controlled from Privacy Preferences.
+
+browser.urlbar.suggest.history (boolean, default: true)
+
+: Whether results will include the user's history.
+  Can be controlled from Privacy Preferences.
+
+browser.urlbar.suggest.openpage (boolean, default: true)
+
+: Whether results will include switch-to-tab results.
+  Can be controlled from Privacy Preferences.
+
+browser.urlbar.suggest.quicksuggest.all (boolean, default: false)
+
+: If `browser.urlbar.quicksuggest.enabled` is true, this controls whether
+  results will include suggestions that are part of the Firefox Suggest brand.
+  Otherwise they will not be included.
+
+browser.urlbar.suggest.quicksuggest.sponsored (boolean, default: false)
+
+: If `browser.urlbar.quicksuggest.enabled` and
+  `browser.urlbar.suggest.quicksuggest.all` are true, this controls whether
+  results will include sponsored Firefox Suggest suggestions. Otherwise they
+  will not be included.
+
+browser.urlbar.suggest.searches (boolean, default: true)
+
+: Whether results will include search suggestions.
+  Can be controlled from Search Preferences.
+
+browser.urlbar.suggest.engines (boolean, default: true)
+
+: Whether results will include search engines (e.g. tab-to-search).
+  Can be controlled from Privacy Preferences.
+
+browser.urlbar.suggest.topsites (boolean, default: true)
+
+: Whether results will include top sites and the view will open on focus.
+  Can be controlled from Privacy Preferences.
+
+browser.search.suggest.enabled (boolean, default: true)
+
+: Whether search suggestions are enabled globally, including the separate search
+  bar.
+  Can be controlled from Search Preferences.
+
+browser.search.suggest.enabled.private (boolean, default: false)
+
+: When search suggestions are enabled, controls whether they are provided in
+  Private Browsing windows.
+  Can be controlled from Search Preferences.
+
+## Hidden
+
+These preferences are normally hidden, and should not be used unless you really
+know what you are doing.
+
+browser.urlbar.accessibility.tabToSearch.announceResults (boolean: default: true)
+
+: Whether we announce to screen readers when tab-to-search results are inserted.
+
+browser.urlbar.addons.featureGate (boolean, default: false)
+
+: Feature gate pref for add-on suggestions in the urlbar.
+
+browser.urlbar.autoFill (boolean, default: true)
+
+: Autofill is the the feature that automatically completes domains and URLs that
+  the user has visited as the user is typing them in the urlbar textbox.
+
+browser.urlbar.autoFill.adaptiveHistory.enabled (boolean, default: false)
+
+: Whether adaptive history autofill feature is enabled.
+
+browser.urlbar.autoFill.adaptiveHistory.useCountThreshold (float, default: 1.0)
+
+: Threshold for use count of input history that we handle as adaptive history
+  autofill. If the use count is this value or more, it will be a candidate.
+
+browser.urlbar.autoFill.adaptiveHistory.urlMinPicks (integer, default: 3)
+
+: Approximate number of times the user must have picked a URL with a path for a
+  given input string before it can be adaptive history autofilled.
+
+  This is not an exact pick count. It is converted into a
+  `moz_inputhistory.use_count` threshold, and use_count decays twice over: once
+  per pick, as `addToInputHistory` applies a factor to the previous value, and
+  again once per `idle-daily`, as `PlacesFrecencyRecalculator` decays every row
+  by `places.frecency.decayRate`. Whether a URL clears the threshold therefore
+  depends on how its picks were spread over time, not just how many there were.
+  Raising this value always makes page autofill rarer, but the number of picks
+  a given user needs depends on their cadence.
+
+browser.urlbar.autoFill.adaptiveHistory.urlPicksAgeDays (integer, default: 14)
+
+: Days of idle decay assumed to have elapsed since the last pick when
+  converting `urlMinPicks` into a use_count threshold.
+
+  The threshold is the use_count left behind by `urlMinPicks` picks made in one
+  sitting and then aged this many days, which is a pessimistic estimate: a user
+  who really did pick the URL that many times clears it even if their picks
+  were spread out. Raising this lowers the threshold and so admits users who
+  pick a URL less often; lowering it raises the threshold.
+
+browser.urlbar.ctrlCanonizesURLs (boolean, default: true)
+
+: Whether using `ctrl` or `command` when hitting return/enter in the URL bar
+  should add prefix 'www.' and suffix `Services.locale.urlFixupSuffix` to the
+  user value prior to navigating.
+
+browser.urlbar.decodeURLsOnCopy (boolean, default: false)
+
+: Whether copying the entire URL from the location bar will put a human
+  readable (percent-decoded) URL on the clipboard.
+
+browser.urlbar.delay (number, default: 50)
+
+: The amount of time (ms) to wait after the user has stopped typing before
+  fetching certain results. Reducing this doesn't make the Address Bar faster,
+  it will instead make it access the disk more heavily, and potentially make it
+  slower. Certain results, like the heuristic, always skip this timer anyway.
+
+browser.urlbar.dnsResolveSingleWordsAfterSearch (number, default: 0)
+
+: Controls when to DNS resolve single word search strings, after they were
+  searched for. If the string is resolved as a valid host, show a
+  "Did you mean to go to 'host'" prompt.
+  Set to 0. 0: Never resolve, 1: Use heuristics, 2. Always resolve.
+
+browser.urlbar.filter.javascript (boolean, default: true)
+
+: When true, `javascript:` URLs are not included in search results for safety
+  reasons.
+
+browser.urlbar.focusContentDocumentOnEsc (boolean, default: true)
+
+: Focus the content document when pressing the Escape key, if there's no
+  remaining typed history.
+
+browser.urlbar.formatting.enabled (boolean, default: true)
+
+: Applies URL highlighting and other styling to the text in the urlbar input
+  field. This should usually be enabled for security reasons.
+
+browser.urlbar.maxCharsForSearchSuggestions (integer, default: 100)
+
+: As a user privacy measure, we don't fetch results from remote services for
+  searches that start by pasting a string longer than this. The pref name
+  indicates search suggestions, but this is used for all remote results.
+
+browser.urlbar.maxHistoricalSearchSuggestions (integer, default: 2)
+
+: The maximum number of form history results to include as search history.
+
+browser.urlbar.maxRichResults (integer, default: 10)
+
+: The maximum number of results in the urlbar popup.
+
+browser.urlbar.merino.clientVariants (string, default: "")
+
+: Comma separated list of client variants to send to send to Merino. See
+  [Merino API docs](https://mozilla-services.github.io/merino/api.html#suggest)
+  for more details. This is intended to be used by experiments, not directly set
+  by users.
+
+browser.urlbar.merino.providers (string, default: "")
+
+: Comma-separated list of providers to request from the Merino server. Merino
+  will return suggestions only for these providers. See [Merino API docs] for
+  more details.
+
+browser.urlbar.openintab (boolean, default: false)
+
+: Whether address bar results should be opened in new tabs by default.
+
+browser.urlbar.quicksuggest.enabled (boolean, default: false)
+
+: Whether the quick suggest feature is enabled, i.e., sponsored and recommended
+  results related to the user's search string. This pref can be overridden by
+  the `quickSuggestEnabled` Nimbus variable. If false, neither sponsored nor
+  non-sponsored quick suggest results will be shown. If true, then we look at
+  the individual prefs `browser.urlbar.suggest.quicksuggest.all` and
+  `browser.urlbar.suggest.quicksuggest.sponsored`.
+
+browser.urlbar.quicksuggest.online.available (boolean, default: false)
+
+: Whether online Firefox Suggest is available to the user. This is only
+  relevant when Suggest overall is enabled. When true, a checkbox will be
+  shown in the settings UI allowing to the user to toggle online Suggest.
+
+browser.urlbar.quicksuggest.online.enabled (boolean, default: true)
+
+: Whether Firefox Suggest retrieves online suggestions from Merino. This pref
+  is only relevant when Suggest overall is enabled and online Suggest is
+  available to the user; otherwise online suggestions are disabled. In
+  addition, when the relevant Oblivious HTTP (OHTTP) Merino prefs are set,
+  online suggestions will be fetched over OHTTP.
+
+browser.urlbar.richSuggestions.tail (boolean, default: true)
+
+: If true, we show tail search suggestions when available.
+
+browser.urlbar.searchTips.test.ignoreShowLimits (boolean, default: false)
+
+: Disables checks that prevent search tips being shown, thus showing them every
+  time the newtab page or the default search engine homepage is opened.
+  This is useful for testing purposes.
+
+browser.urlbar.speculativeConnect.enabled (boolean, default: true)
+
+: Speculative connections allow to resolve domains preemptively when the user
+  is likely to pick a result from the Address Bar. This allows for faster
+  navigation.
+
+browser.urlbar.sponsoredTopSites (boolean, default: false)
+
+: Whether top sites may include sponsored ones.
+
+browser.urlbar.suggest.addons (boolean, default: true)
+
+: If `browser.urlbar.addons.featureGate` is true, this controls whether add-on
+  suggestions are turned on. Otherwise they won't be shown.
+
+browser.urlbar.suggest.yelp (boolean, default: true)
+
+: If `browser.urlbar.yelp.featureGate` is true, this controls whether Yelp
+  suggestions are turned on. Otherwise they won't be shown.
+
+browser.urlbar.switchTabs.adoptIntoActiveWindow (boolean, default: false)
+
+: When using switch to tabs, if set to true this will move the tab into the
+  active window, instead of just switching to it.
+
+browser.urlbar.suggest.temporal (boolean, default: true)
+
+: If `browser.urlbar.temporal.featureGate` is true, this controls whether
+  temporal search suggestions are shown in the zero prefix view.
+
+browser.urlbar.temporal.featureGate (boolean, default: false)
+
+: Feature gate pref for temporal search suggestions in the zero prefix view.
+
+browser.urlbar.temporal.rowCount (integer, default: 3)
+
+: The maximum number of temporal search suggestions to show.
+
+browser.urlbar.trimURLs (boolean, default: true)
+
+: Clean-up URLs when showing them in the Address Bar.
+
+keyword.enabled (boolean, default: true)
+
+: By default, when the search string is not recognized as a potential url,
+  search for it with the default search engine. If set to false any string will
+  be handled as a potential URL, even if it's invalid.
+
+browser.fixup.dns_first_for_single_words (boolean, default: false)
+
+: If true, any single word search string will be sent to the DNS server before
+  deciding whether to search or visit it. This may add a delay to the urlbar.
+
+## Experimental
+
+These preferences are experimental and not officially supported. They could be
+removed at any time.
+
+browser.urlbar.suggest.calculator (boolean, default: false)
+
+: Whether results will include a calculator.
+
+browser.urlbar.unitConversion.enabled (boolean, default: false)
+
+: Whether unit conversion is enabled.
+
+browser.urlbar.unitConversion.suggestedIndex (integer, default: 1)
+
+: The index where we show unit conversion results.
+
+browser.urlbar.keepPanelOpenDuringImeComposition (boolean, default: false)
+
+: Whether the results panel should be kept open during IME composition. The
+  panel may overlap with the IME compositor panel.
+
+browser.urlbar.restyleSearches (boolean, default: false)
+
+: When true, URLs in the user's history that look like search result pages
+  are restyled to look like search engine results instead of history results.

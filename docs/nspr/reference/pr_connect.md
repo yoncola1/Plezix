@@ -1,0 +1,63 @@
+# PR_Connect
+
+Initiates a connection on a specified socket.
+
+## Syntax
+
+```{code}
+#include <prio.h>
+
+PRStatus PR_Connect(
+  PRFileDesc *fd,
+  const PRNetAddr *addr,
+  PRIntervalTime timeout);
+```
+
+### Parameters
+
+The function has the following parameters:
+
+`fd`
+
+: A pointer to a {doc}`prfiledesc` object representing a socket.
+
+`addr`
+
+: A pointer to the address of the peer to which the socket is to be
+  connected.
+
+`timeout`
+
+: A value of type {doc}`printervaltime` specifying the time limit for
+  completion of the connect operation.
+
+### Returns
+
+The function returns one of the following values:
+
+- Upon successful completion of connection setup, `PR_SUCCESS`.
+- If unsuccessful, `PR_FAILURE`. Further information can be obtained
+  by calling {doc}`pr_geterror`.
+
+## Description
+
+{doc}`pr_connect` is usually invoked on a TCP socket, but it may also be
+invoked on a UDP socket. Both cases are discussed here.
+
+If the socket is a TCP socket, {doc}`pr_connect` establishes a TCP
+connection to the peer. If the socket is not bound, it will be bound to
+an arbitrary local address.
+
+{doc}`pr_connect` blocks until either the connection is successfully
+established or an error occurs. The function uses the lesser of the
+provided timeout and the OS's connect timeout. In particular, if you
+specify `PR_INTERVAL_NO_TIMEOUT` as the timeout, the OS's connection
+time limit will be used.
+
+If the socket is a UDP socket, there is no connection setup to speak of,
+since UDP is connectionless. If {doc}`pr_connect` is invoked on a UDP
+socket, it has an overloaded meaning: {doc}`pr_connect` merely saves the
+specified address as the default peer address for the socket, so that
+subsequently one can send and receive datagrams from the socket using
+{doc}`pr_send` and {doc}`pr_recv` instead of the usual {doc}`pr_sendto` and
+{doc}`pr_recvfrom`.

@@ -1,0 +1,38 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef mozilla_dom_WorkerDocumentListener_h_
+#define mozilla_dom_WorkerDocumentListener_h_
+
+#include "mozilla/Mutex.h"
+#include "mozilla/RefPtr.h"
+#include "mozilla/dom/WorkerRef.h"
+#include "nsISupportsImpl.h"
+
+namespace mozilla::dom {
+class WorkerPrivate;
+
+class WorkerDocumentListener final {
+  NS_INLINE_DECL_THREADSAFE_REFCOUNTING(WorkerDocumentListener)
+
+ public:
+  WorkerDocumentListener() = default;
+
+  void OnVisible(bool aVisible);
+  void SetListening(uint64_t aWindowID, bool aListen);
+  void Destroy();
+
+  static RefPtr<WorkerDocumentListener> Create(WorkerPrivate* aWorkerPrivate);
+
+ private:
+  ~WorkerDocumentListener() = default;
+
+  Mutex mMutex MOZ_UNANNOTATED{
+      "mozilla::dom::WorkerDocumentListener::mMutex"};  // protects mWorkerRef
+  RefPtr<ThreadSafeWorkerRef> mWorkerRef;
+};
+
+}  // namespace mozilla::dom
+
+#endif /* mozilla_dom_WorkerDocumentListener_h_ */

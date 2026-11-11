@@ -1,0 +1,90 @@
+[DEFAULT]
+support-files = ["head.js"]
+prefs = [
+  "signon.management.page.vulnerable-passwords.enabled=true",
+  "toolkit.telemetry.ipcBatchTimeout=10", # lower the interval for event telemetry in the content process to update the parent process
+]
+# Run first so content events from previous tests won't trickle in.
+# Skip ASAN and debug since waiting for content events is already slow.
+
+["browser_aaa_eventTelemetry_run_first.js"]
+skip-if = [
+  "asan",
+  "ccov",
+  "debug",
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11' && opt", # Bug 1648862
+  "os == 'win' && opt", # bug 1605494 is more prevalent on linux, Bug 1627419
+  "tsan",
+  "os == 'mac' && os_version == '15.30' && arch == 'aarch64' && opt", # Bug 1796283
+]
+
+["browser_alertDismissedAfterChangingPassword.js"]
+
+["browser_breachAlertLinkTelemetry.js"]
+
+["browser_breachAlertShowingForAddedLogin.js"]
+
+["browser_confirmDeleteDialog.js"]
+
+["browser_contextmenuFillLogins.js"]
+skip-if = [
+  "os == 'linux' && os_version == '22.04' && arch == 'x86_64' && display == 'wayland' && debug", # Disabling because of Bug 1974208
+]
+
+["browser_copyToClipboardButton.js"]
+
+["browser_createLogin.js"]
+
+["browser_deleteLogin.js"]
+
+["browser_fxAccounts.js"]
+
+["browser_loginFilter.js"]
+
+["browser_loginItemErrors.js"]
+
+["browser_loginListChanges.js"]
+
+["browser_loginSortOrderRestored.js"]
+
+["browser_noLoginsView.js"]
+
+["browser_openExport.js"]
+
+["browser_openFiltered.js"]
+
+["browser_openImport.js"]
+run-if = [
+  "os == 'mac'", #  import is only available on Windows and macOS
+  "os == 'win'", #  import is only available on Windows and macOS
+]
+
+["browser_openImportCSV.js"]
+
+["browser_openPreferences.js"]
+
+["browser_openPreferencesExternal.js"]
+
+["browser_openSite.js"]
+
+["browser_osAuthDialog.js"]
+skip-if = [
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11'", # Bug 1527745
+]
+
+["browser_perDeviceSync.js"]
+
+["browser_primaryPassword.js"]
+skip-if = [
+  "os == 'linux' && os_version == '24.04' && arch == 'x86_64' && display == 'x11'", # Bug 1569789
+]
+
+["browser_removeAllDialog.js"]
+
+["browser_sessionRestore.js"]
+
+["browser_tabKeyNav.js"]
+
+["browser_updateLogin.js"]
+
+["browser_vulnerableLoginAddedInSecondaryWindow.js"]

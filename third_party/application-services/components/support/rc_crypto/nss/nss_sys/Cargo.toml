@@ -1,0 +1,23 @@
+[package]
+name = "nss_sys"
+version = "0.1.0"
+authors = ["Sync Team <sync-team@mozilla.com>"]
+edition = "2021"
+license = "MPL-2.0"
+
+[lib]
+crate-type = ["lib"]
+
+[dependencies]
+libsqlite3-sys = { version = "0.35.0", features = ["bundled"] }
+
+[build-dependencies]
+nss_build_common = { path = "../nss_build_common" }
+
+[features]
+default = []
+# Adds static linkage for mozpkix and pure_virtual on top of the dylib link.
+# Activate from crates that produce a self-contained Rust artifact (megazord
+# cdylib, rusttests). Do NOT activate from libxul's dependency graph; libxul
+# already links mozpkix itself, and duplicate linkage causes symbol conflicts.
+mozbuild-rustlib = []

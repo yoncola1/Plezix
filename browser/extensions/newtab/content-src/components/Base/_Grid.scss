@@ -1,0 +1,460 @@
+/**
+ * Nova Grid System
+ *
+ * Layout structure:
+ * .container (full grid)
+ *   ├── .sidebar-inline-start (148px - left sidebar for logo/navigation)
+ *   ├── .sidebar-inline-end (148px - right sidebar for a single mini widget)
+ *   └── .content-main (<main>, display: contents - landmark only)
+ *         ├── .content (flexible - fills remaining space with 75px columns)
+ *         └── .content-full-width (spans all three columns, on the row below)
+ *
+ * DOM order: sidebar-inline-end precedes content (for tab focus order).
+ * CSS grid-column placement preserves the visual order above.
+ *
+ * Column width:
+ *   1 column = 1/4 of an IAB Medium Rectangle (MREC) = 300px ÷ 4 = 75px
+ * Row height:
+ *   1 row = 1/4 of an IAB Medium Rectangle (MREC) = 250px ÷ 4 = 62.5px
+ */
+
+:root {
+  // IAB Medium Rectangle ad unit dimensions
+  --mrec-width: 300px;
+
+  // A card spans exactly 4 columns. Use this as our base unit.
+  --col-width: calc(var(--mrec-width) / 4);
+
+  // Bug 2020983: Enable property to set card height
+  --mrec-height: 250px;
+  --row-height: calc(var(--mrec-height) / 4);
+
+  // Side Columns (.sidebar-inline-start/end) are 2 columns wide each side
+  --side-col-width: calc(2 * var(--col-width));
+
+  // Content area (.content): minimum 4 columns wide, grows up to 16 columns max
+  --content-col-width: minmax(calc((4 * var(--col-width)) + 34px), var(--content-max-width));
+
+  // Pre-computed widths spanning N grid columns including (N-1) gaps
+  --col-span-12: #{--col-span(12)};
+  --col-span-16: #{--col-span(16)};
+  --col-span-20: #{--col-span(20)};
+
+  // Maximum width of .content: 16 columns + 15 gaps
+  --content-max-width: var(--col-span-16);
+}
+
+// A 5-column story grid needs 20.
+.nova-enabled.container.sections-5-col {
+  --content-max-width: var(--col-span-20);
+}
+
+.nova-enabled.container {
+  container-type: inline-size;
+  container-name: outer-grid;
+  display: grid;
+  grid-template-columns: var(--side-col-width) var(--content-col-width) var(--side-col-width);
+  // Rows 1-2 carry the --row-height baseline that .sidebar-inline-end subgrids.
+  // Everything below is auto so .content sizes its own track instead of
+  // overflowing onto .content-full-width.
+  grid-template-rows: repeat(2, var(--row-height));
+  grid-auto-rows: auto;
+  gap: var(--space-medium);
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-inline: var(--space-xlarge);
+}
+
+.nova-enabled :is(.content, .content-full-width) {
+  container-type: inline-size;
+  container-name: content-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--col-width));
+  gap: var(--space-medium);
+  justify-content: center;
+  // Size to intrinsic content rather than stretching to the fixed-size
+  // grid track so descendants with position: sticky have a containing
+  // block that extends through the full document.
+  align-self: start;
+}
+
+// The main landmark wraps .content and .content-full-width for semantics only.
+// display: contents keeps both children as direct grid items of .container, so
+// their placement below is unaffected. Note this is layout-only: child
+// combinators from .container still see this element in the DOM.
+.nova-enabled .content-main {
+  display: contents;
+}
+
+.nova-enabled .content {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+
+// Search hoisted out of .content (see Base.jsx) so position: sticky is bounded
+// by .container rather than .content. It spans rows 2-3 because row 2 is a
+// fixed --row-height track and the search is taller than that; row 3 is auto
+// and absorbs the rest.
+.nova-enabled.container > .sticky-search-sentinel {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.nova-enabled.container > .search-wrapper {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+
+.nova-enabled.container:has(> .search-wrapper) .content {
+  grid-row: 4;
+}
+
+// Where a centered logo would push .content down a row (see Base.jsx) but the
+// search bar's variant B keeps the logo in the sidebar, the search starts on
+// that row instead, with the card behind it starting where the logo would.
+.nova-enabled.container.search-lowered {
+  > .sticky-search-sentinel {
+    grid-row: 3;
+  }
+
+  > .search-wrapper {
+    grid-row: 3 / span 2;
+  }
+
+  > :is(.sticky-search-sentinel, .search-wrapper) {
+    // stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens
+    margin-block-start: var(--search-card-overhang-block-start);
+
+    // Minus the search-wrapper's block padding in _Search.scss.
+    @media (height > #{$break-point-sticky-search}) {
+      margin-block-start: calc(var(--search-card-overhang-block-start) - var(--space-xlarge));
+    }
+  }
+
+  .content {
+    grid-row: 5;
+  }
+}
+
+// Spans all three columns, so it reclaims both side gutters and their gaps
+// (324px) at widths where .content is still bounded by them. Capped at the same
+// columns .content is, so the two stay aligned at every width.
+// TODO(Bug 2061740): at the smallest widths this now runs under
+// .personalizeButtonWrapper (position: fixed, inset-inline-end: --space-xlarge,
+// z-index 5), which used to sit clear of .content in the side gutter. Needs the
+// band to reserve room for the button at those widths.
+.nova-enabled .content-full-width {
+  grid-column: 1 / -1;
+  // justify-self: center makes the item shrink-to-fit, so inline-size: 100%
+  // is what keeps it filling the row up to the cap.
+  justify-self: center;
+  inline-size: 100%;
+  // stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens
+  max-inline-size: var(--content-max-width);
+}
+
+// The widgets section should have some bottom margin if Recommended stories or Recent Activity are not present.
+.nova-enabled
+.content-full-width:not(:has(.layout-content-column.has-feed, .layout-highlights-column))
+.widgets-section-container {
+  margin-block-end: var(--space-xxlarge);
+}
+
+// Side-by-side layouts (Bug 2061741). The lead class means the experiment is
+// assigned, which is enough to frame a lone section; .side-by-side-active means the
+// page has both a feed and a content-area widget to place. Base.jsx decides both. A
+// variant and its -five counterpart share a lead class and differ only in card
+// count; see .side-by-side-five below.
+// .spaces-thematic is listed because a thematic space holds the same pair, so its
+// columns need the same boxes and panels; only the grid they sit in differs, and
+// that lives in _Spaces.scss.
+.nova-enabled
+.content-full-width:is(
+  .side-by-side-content-lead,
+  .side-by-side-widgets-lead,
+  .spaces-thematic
+) {
+  // Clears the shortcuts above and the bottom of the page below. The panel
+  // bleeds --space-medium outward, so each margin loses that much; the end one
+  // is against the page edge and needs more left over than the start does.
+  margin-block-start: var(--space-large);
+  margin-block-end: var(--space-xxlarge);
+
+  // Stacked panels each bleed --space-medium outward, so a bare gutter leaves the
+  // two bleeds overlapping. Same arithmetic as the pair's column-gap.
+  row-gap: calc(3 * var(--space-medium));
+
+  // .ds-layout-widgets and .widgets-wrapper are display: contents, so the real box is
+  // .widgets-section-container. The layout-*-column wrappers need a box of their own
+  // to paint a panel on; same tracks as the band, so placement is unchanged.
+  // .has-feed keeps the panel off an empty column.
+  :is(.layout-content-column.has-feed, .layout-highlights-column) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--col-width));
+    gap: var(--space-medium);
+    justify-content: center;
+
+    // The content-grid container, so the feed's at-content-cols() breakpoints
+    // follow this column rather than the whole band.
+    container-type: inline-size;
+    container-name: content-grid;
+  }
+
+  // The panel's own padding is the only inset the headings need; their
+  // --space-small top margin doubles it. Scoped here so other layouts, which
+  // have no panel, keep their spacing.
+  :is(.widgets-title-container, .section-heading) {
+    margin-block-start: 0;
+  }
+
+  // A definite width in whole card units, so each panel frames its own content
+  // rather than the whole band. Intrinsic sizing cannot do it: auto-fill collapses
+  // to one repetition without a definite container size. The two-column layout below
+  // overrides this with its track widths.
+  :is(.widgets-section-container, .layout-content-column.has-feed, .layout-highlights-column) {
+    align-self: start;
+    justify-self: center;
+
+    /* stylelint-disable stylelint-plugin-mozilla/use-design-tokens */
+    inline-size: --col-span(4);
+
+    @include at-band-cols(8) {
+      inline-size: --col-span(8);
+    }
+
+    @include at-band-cols(12) {
+      inline-size: --col-span(12);
+    }
+
+    @include at-band-cols(16) {
+      inline-size: --col-span(16);
+    }
+    /* stylelint-enable stylelint-plugin-mozilla/use-design-tokens */
+
+    @include layout-panel;
+  }
+
+  // Recent activity is alone in the band, so there is no sibling to frame it apart
+  // from. content: none also stops layout-panel's wallpaper fill.
+  &.highlights-only .layout-highlights-column::before {
+    content: none;
+  }
+}
+
+// The panel fill follows the theme's --newtab-background-color while
+// wallpaper-contrast-fix forces color-scheme to match the wallpaper, so text can
+// land the same shade as its own fill. inherit, not initial -- initial pins
+// light-dark() to its light branch and breaks dark themes. #add-widgets-button is
+// listed to outrank the by-id fix in _Widgets.scss. Spaces frames the same three
+// containers with the same panel, so it needs the same exemption.
+:is(.lightWallpaper, .darkWallpaper)
+.nova-enabled
+.content-full-width:is(
+  .side-by-side-content-lead,
+  .side-by-side-widgets-lead,
+  .spaces
+)
+:is(
+  .widgets-section-container,
+  .layout-content-column.has-feed,
+  .layout-highlights-column
+)
+:is(
+  .section-title,
+  // The sections-off header sets color-scheme on the span inside the title, so
+  // the parent alone is not enough. See _DiscoveryStreamBase.scss.
+  .section-title span,
+  .ds-header,
+  .section-context-menu,
+  .section-follow,
+  .ds-highlights-title,
+  .ds-navigation,
+  .widgets-header-context-menu,
+  .widgets-title-heading h1,
+  #add-widgets-button
+) {
+  color-scheme: inherit;
+}
+
+// The two-column layout, only where there is something to put in both columns.
+.nova-enabled .content-full-width.side-by-side-active {
+  // Three cards beside the widgets column measure 1404px, past the cap the band
+  // shares with .content, so raise it to the next whole col-span.
+  // stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens
+  max-inline-size: --col-span(17);
+
+  // Both layout-panel bleeds plus one gutter of visible gap between them. A bare
+  // gutter leaves no room for the bleeds and the translucent panels overlap.
+  column-gap: calc(3 * var(--space-medium));
+
+  // No room for widgets plus two cards, so the content takes the whole band.
+  .widgets-section-container {
+    display: none;
+  }
+
+  // The ladder reaches three cards at 12 columns + 11 gaps, but the pair needs those
+  // same columns plus 2 more for the seam, so for ~22px the feed would show three
+  // cards with the widgets still hidden. Hold at two. Must stay after the ladder and
+  // before at-band-fits-pair(2).
+  @include at-band-cols(12) {
+    :is(.layout-content-column.has-feed, .layout-highlights-column) {
+      // stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens
+      inline-size: --col-span(8);
+    }
+  }
+
+  // Definite widths in whole card units, so the nested auto-fill grids have no
+  // leftover to spread and the band's justify-content: center centres the pair.
+  // Each step engages as soon as the pair actually fits; see at-band-fits-pair.
+  @include at-band-fits-pair(2) {
+    .widgets-section-container {
+      display: grid;
+      // Only as tall as the widgets, so the panel does not stretch to the feed.
+      align-self: start;
+    }
+
+    // The grid tracks govern the widths here, not the single-section ladder.
+    :is(.widgets-section-container, .layout-content-column.has-feed, .layout-highlights-column) {
+      inline-size: auto;
+      justify-self: stretch;
+    }
+
+    .widgets-section-container,
+    .layout-content-column {
+      grid-row: 1;
+    }
+
+    // Its own row under the pair, in the content column's track (set per lead
+    // below), so it reads as a section of its own rather than part of the feed.
+    .layout-highlights-column {
+      grid-row: 2;
+    }
+  }
+}
+
+// Both columns otherwise inherit grid-column: 1 / -1 (from the band's `> *` rule
+// and _Widgets.scss), so the placement is required. "lead" is inline-start, so
+// this holds in RTL.
+.nova-enabled .content-full-width.side-by-side-content-lead.side-by-side-active {
+  @include at-band-fits-pair(2) {
+    grid-template-columns: --col-span(8) --col-span(4);
+
+    :is(.layout-content-column, .layout-highlights-column) {
+      grid-column: 1;
+    }
+
+    .widgets-section-container {
+      grid-column: 2;
+    }
+  }
+
+  @include at-band-fits-pair(3) {
+    grid-template-columns: --col-span(12) --col-span(4);
+  }
+}
+
+.nova-enabled .content-full-width.side-by-side-widgets-lead.side-by-side-active {
+  @include at-band-fits-pair(2) {
+    grid-template-columns: --col-span(4) --col-span(8);
+
+    .widgets-section-container {
+      grid-column: 1;
+    }
+
+    :is(.layout-content-column, .layout-highlights-column) {
+      grid-column: 2;
+    }
+  }
+
+  @include at-band-fits-pair(3) {
+    grid-template-columns: --col-span(4) --col-span(12);
+  }
+}
+
+// The -five variants add a fourth content card, for five card columns counting the
+// widgets. Only the cap and the top step differ from the four-column variants. The
+// step lives here rather than in the shared rules because at-band-fits-pair queries
+// outer-grid, so a shared step would set a 1752px template on a band capped at
+// 1467px and overflow it.
+.nova-enabled .content-full-width.side-by-side-active.side-by-side-five {
+  // stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens
+  max-inline-size: --col-span(21);
+}
+
+.nova-enabled
+.content-full-width.side-by-side-content-lead.side-by-side-active.side-by-side-five {
+  @include at-band-fits-pair(4) {
+    grid-template-columns: --col-span(16) --col-span(4);
+  }
+}
+
+.nova-enabled
+.content-full-width.side-by-side-widgets-lead.side-by-side-active.side-by-side-five {
+  @include at-band-fits-pair(4) {
+    grid-template-columns: --col-span(4) --col-span(16);
+  }
+}
+
+// Holds a single mini widget going forward. The subgrid is only two rows tall,
+// so additional widgets would overflow into .content-full-width's row.
+.nova-enabled .sidebar-inline-end {
+  display: grid;
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  grid-template-rows: subgrid;
+  position: relative;
+}
+
+.nova-enabled .sidebar-inline-start {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.nova-enabled.logo-in-content .content {
+  grid-row: 3 / span 2;
+}
+
+// The layout-*-column wrappers are display: contents outside side-by-side, so their
+// children are the band's own grid items and need the same treatment. Inside it each
+// column is a grid, and these declarations apply to its children instead.
+.nova-enabled :is(.content, .content-full-width) > *,
+.nova-enabled .content-full-width
+> :is(.layout-content-column, .layout-highlights-column)
+> * {
+  grid-column: 1 / -1;
+  container-type: inline-size;
+  container-name: component;
+}
+
+// Fixed-width columns - always span the specified number
+.nova-enabled .col-1 {
+  grid-column: span 1;
+}
+
+.nova-enabled .col-2 {
+  grid-column: span 2;
+}
+
+.nova-enabled .col-3 {
+  grid-column: span 3;
+}
+
+.nova-enabled .col-4 {
+  grid-column: span 4;
+}
+
+.nova-enabled .col-8 {
+  grid-column: span 8;
+}
+
+.nova-enabled .col-12 {
+  grid-column: span 12;
+}
+
+.nova-enabled .col-18 {
+  grid-column: span 18;
+}
+
+.nova-enabled .col-26 {
+  grid-column: span 26;
+}

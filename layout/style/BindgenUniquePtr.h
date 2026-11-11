@@ -1,0 +1,28 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef mozilla_BindgenUniquePtr_h
+#define mozilla_BindgenUniquePtr_h
+
+#include <memory>
+
+namespace mozilla {
+
+/// <div rustbindgen="true" replaces="mozilla::BindgenUniquePtr">
+template <typename T>
+struct BindgenUniquePtr_Simple {
+  T* mPtr;
+};
+
+template <typename T>
+class BindgenUniquePtr final : public std::unique_ptr<T> {
+  static_assert(alignof(std::unique_ptr<T>) ==
+                alignof(BindgenUniquePtr_Simple<T>));
+  static_assert(sizeof(std::unique_ptr<T>) ==
+                sizeof(BindgenUniquePtr_Simple<T>));
+};
+
+}  // namespace mozilla
+
+#endif

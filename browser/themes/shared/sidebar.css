@@ -1,0 +1,874 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#sidebar-box {
+  max-width: 75vw;
+  min-width: 14em;
+  width: 18em;
+
+  :root[lwt-sidebar="light"] & {
+    color-scheme: light;
+  }
+  :root[lwt-sidebar="dark"] & {
+    color-scheme: dark;
+  }
+
+  @media -moz-pref("sidebar.revamp") {
+    min-width: var(--size-layout-small);
+    width: 340px;
+    padding-block-end: var(--space-small);
+    position: relative;
+    z-index: var(--browser-area-z-index-sidebar);
+
+    :root[uidensity="compact"] & {
+      width: 280px;
+    }
+  }
+
+  &[sidebarcommand="viewGenaiChatSidebar"] {
+    min-width: 400px;
+  }
+
+  &[sidebarcommand="viewCPMSidebar"] {
+    min-width: 260px;
+  }
+}
+
+#sidebar-container,
+#sidebar-box {
+  text-shadow: none;
+  max-width: 75vw;
+
+  @media not -moz-pref("sidebar.revamp") {
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+    /* Note that with sidebar.revamp we apply the --sidebar-background-color to the
+     * #sidebar browser. We still need the #sidebar-box background to match the
+     * toolbar tho - this background is set on the #browser ancestor rather than here */
+  }
+}
+
+.sidebar-browser-stack > .dialogStack > .dialogTemplate > .dialogBox {
+  /* Not enough horizontal space, remove the margin */
+  margin-inline: 0;
+}
+
+#sidebar-header {
+  font-size: 1.333em;
+  padding: 8px;
+  border-bottom: 1px solid var(--sidebar-border-color);
+}
+
+#sidebar-panel-header {
+  --sidebar-panel-header-heading-margin-block: var(--space-large);
+  padding-inline: var(--space-large);
+
+  :root[uidensity="compact"] & {
+    --sidebar-panel-header-heading-margin-block: var(--space-medium);
+  }
+
+  @media not -moz-pref("sidebar.revamp") {
+    display: none;
+  }
+
+  @media -moz-pref("sidebar.revamp") and (not -moz-pref("sidebar.visibility", "hide-launcher")) {
+    &[panel-has-custom-header] {
+      display: none;
+
+      @media -moz-pref("browser.nova.enabled") {
+        /* Since the header isn't there, the browser itself now sits on the edge.
+         * The browser needs the same rounded corners as #sidebar-box to prevent overflow. */
+        & + .sidebar-browser-stack > #sidebar {
+          border-start-start-radius: var(--sidebar-box-start-start-radius);
+          border-start-end-radius: var(--sidebar-box-start-end-radius);
+        }
+      }
+    }
+  }
+}
+
+#sidebar-spacer {
+  /* To ensure the button doesn't expand unnecessarily for short labels, the
+     spacer should significantly out-flex the button. */
+  flex: 1000 1000;
+}
+
+#sidebar {
+  flex: 1;
+
+  @media -moz-pref("sidebar.revamp") {
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--content-area-shadow);
+    outline: 0.5px solid var(--sidebar-border-color);
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+  }
+}
+
+.sidebar-splitter {
+  /* Ensure the splitter is painted on top of the sidebar box it overlaps.
+  Otherwise, the user may be unable to drag the splitter to resize the sidebar. */
+  position: relative;
+  z-index: var(--browser-area-z-index-sidebar-splitter);
+  --splitter-width: 4px;
+  @media (-moz-overlay-scrollbars) and (not -moz-pref("browser.nova.enabled")) {
+    --splitter-width: 2px;
+  }
+  @media -moz-pref("browser.nova.enabled") {
+    border-radius: var(--border-radius-large);
+  }
+
+  min-width: 1px;
+  width: var(--splitter-width);
+  appearance: none;
+  border: none;
+  transition: background-color 0.5s ease-in-out;
+  margin-inline: 0;
+
+  @media -moz-pref("sidebar.revamp") {
+    background-color: transparent;
+    &:hover {
+      background-color: var(--focus-outline-color);
+    }
+  }
+
+  @media not -moz-pref("sidebar.revamp") {
+    border: 0 solid;
+    border-color: var(--sidebar-border-color);
+    border-inline-end-width: 1px;
+    #sidebar-box[sidebar-positionend] + & {
+      border-inline-width: 1px 0;
+    }
+  }
+}
+
+#sidebar-splitter {
+  -moz-user-focus: normal;
+  margin-block-end: 1.5px; /* Make space for the 'medium'/3px outline to show */
+
+  &:focus-visible {
+    outline: auto;
+  }
+  @media -moz-pref("sidebar.revamp") {
+    width: var(--space-medium);
+    border-inline: calc((var(--space-medium) - var(--splitter-width)) / 2) solid transparent;
+    background-clip: padding-box;
+    /* Adjust to better align with the bottom of the sidebar-box */
+    margin-block-end: var(--space-small);
+  }
+
+  @media -moz-pref("browser.nova.enabled") {
+    width: var(--splitter-width);
+    border-inline: none;
+  }
+}
+
+#sidebar-launcher-splitter {
+  /* We don't let the splitter overlap the sidebar on Linux since the
+   * scrollbar is too narrow. */
+  @media not (-moz-platform: linux) {
+    margin-inline-start: calc(-1 * var(--splitter-width));
+
+    #sidebar-container[sidebar-positionend] + & {
+      margin-inline: 0 calc(-1 * var(--splitter-width));
+    }
+  }
+
+  @media -moz-pref("browser.nova.enabled") {
+    margin-inline: calc(-1 * var(--splitter-width)) 0;
+
+    #sidebar-container[sidebar-positionend] + & {
+      margin-inline: 0 calc(-1 * var(--splitter-width));
+    }
+  }
+
+  @media not -moz-pref("sidebar.verticalTabs") {
+    display: none;
+  }
+}
+
+#sidebar-throbber[loading="true"] {
+  list-style-image: url("chrome://global/skin/icons/loading.svg");
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
+#sidebar-title {
+  margin: 0;
+  padding: 0;
+  padding-inline: 8px 4px;
+  flex: 1;
+}
+
+#sidebar-switcher-arrow {
+  -moz-context-properties: fill;
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+#sidebar-switcher-arrow {
+  list-style-image: url(chrome://global/skin/icons/arrow-down-12.svg);
+  width: var(--icon-size-xsmall);
+  height: var(--icon-size-xsmall);
+}
+
+#sidebar-switcher-target {
+  appearance: none;
+  color: inherit;
+  margin-inline-end: 4px;
+  border-radius: var(--toolbarbutton-border-radius);
+  border: 1px solid transparent;
+  padding: 2px 4px;
+  flex: 1;
+}
+
+#sidebar-switcher-target:hover {
+  background-color: var(--toolbarbutton-background-color-hover);
+}
+
+#sidebar-switcher-target:hover:active,
+#sidebar-switcher-target.active {
+  background-color: var(--toolbarbutton-background-color-active);
+}
+
+#sidebar-switcher-target:focus-visible,
+#sidebar-close:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 0;
+}
+
+#sidebarMenu-popup > menuitem {
+  min-width: 16em;
+}
+
+menuseparator + #sidebar-extensions-separator {
+  display: none;
+}
+
+#sidebar-box[sidebarcommand="viewBookmarksSidebar"] > #sidebar-header > #sidebar-switcher-target > #sidebar-icon {
+  list-style-image: url(chrome://browser/skin/bookmark.svg);
+  -moz-context-properties: fill;
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+#sidebar-box[sidebarcommand="viewHistorySidebar"] > #sidebar-header > #sidebar-switcher-target > #sidebar-icon {
+  list-style-image: url(chrome://browser/skin/history.svg);
+  -moz-context-properties: fill;
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+#sidebar-box[sidebarcommand="viewTabsSidebar"] > #sidebar-header > #sidebar-switcher-target > #sidebar-icon {
+  list-style-image: url(chrome://browser/skin/synced-tabs.svg);
+  -moz-context-properties: fill;
+  fill: currentColor;
+  opacity: 0.8;
+}
+
+/* WebExtension Sidebars */
+#sidebar-box[sidebarcommand$="-sidebar-action"] > #sidebar-header > #sidebar-switcher-target > #sidebar-icon {
+  list-style-image: var(--webextension-menuitem-image, inherit);
+  -moz-context-properties: fill;
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+}
+
+.webextension-menuitem {
+  --menuitem-icon: var(--webextension-menuitem-image);
+}
+
+/* Sidebar animation */
+:root {
+  view-transition-name: none;
+}
+
+/* Let clicks reach the live chrome underneath, instead of the root element. */
+:root::view-transition {
+  pointer-events: none;
+}
+
+:root:active-view-transition-type(launcher-enter, launcher-exit, panel-open, panel-close)::view-transition-group(*) {
+  animation-timing-function: var(--sidebar-motion-easing);
+}
+
+:root:active-view-transition-type(launcher-enter)::view-transition-group(*) {
+  animation-duration: var(--sidebar-motion-duration-enter);
+}
+
+:root:active-view-transition-type(launcher-exit)::view-transition-group(*) {
+  animation-duration: var(--sidebar-motion-duration-exit);
+}
+
+/* When the launcher and panel change together, the panel covers the most
+ * distance, so its timing wins. */
+:root:active-view-transition-type(panel-open)::view-transition-group(*) {
+  animation-duration: var(--sidebar-panel-motion-duration-enter);
+}
+
+:root:active-view-transition-type(panel-close)::view-transition-group(*) {
+  animation-duration: var(--sidebar-panel-motion-duration-exit);
+}
+
+/* The panel's old and new snapshots inherit this timing for their default
+ * cross-fade, whose plus-lighter blending keeps the shared panel chrome solid
+ * while only the content fades. */
+:root:active-view-transition-type(panel-switch)::view-transition-group(*) {
+  animation-duration: var(--sidebar-panel-content-motion-duration-fade);
+  animation-timing-function: var(--sidebar-panel-content-motion-easing-fade);
+}
+
+/* Expand on hover takes its duration from the
+ * sidebar.animation.expand-on-hover.duration-ms pref, which defaults to
+ * --sidebar-motion-duration-enter. */
+:root[sidebar-expand-on-hover]:active-view-transition-type(launcher-enter, launcher-exit)::view-transition-group(*) {
+  animation-duration: var(--sidebar-expand-on-hover-duration);
+}
+
+#sidebar-container {
+  view-transition-name: sidebar-launcher;
+}
+
+#sidebar-box {
+  view-transition-name: sidebar-box;
+}
+
+#tabbrowser-tabbox {
+  view-transition-name: tabbrowser-tabbox;
+}
+
+:root:active-view-transition-type(expand-on-hover) {
+  /* Expand on hover takes its duration from the
+   * sidebar.animation.expand-on-hover.duration-ms pref, which defaults to
+   * --motion-dur-sidebar-enter. */
+  &::view-transition-group(*) {
+    animation-duration: var(--sidebar-expand-on-hover-duration);
+  }
+
+  /* Expanding on hover overlays the launcher without moving the content area
+   * or panel, so keep them live instead of swapping in their snapshots, which
+   * would freeze the page for the length of the transition. */
+  #sidebar-box,
+  #tabbrowser-tabbox {
+    view-transition-name: none;
+  }
+
+  /* Expand on hover only shows the expanded launcher's snapshot, as the
+   * collapsed one is transparent and would leave its icons floating over the
+   * content area. It stays pinned to the window edge while the group clips it
+   * to the animating width, so its icons line up with the collapsed launcher's
+   * throughout. */
+  &:active-view-transition-type(expand)::view-transition-old(sidebar-launcher),
+  &:active-view-transition-type(collapse)::view-transition-new(sidebar-launcher) {
+    display: none;
+  }
+
+  &::view-transition-group(sidebar-launcher) {
+    overflow: clip;
+  }
+
+  &:not([sidebar-positionend])::view-transition-old(sidebar-launcher),
+  &:not([sidebar-positionend])::view-transition-new(sidebar-launcher) {
+    inset-inline: 0 auto;
+  }
+
+  &[sidebar-positionend]::view-transition-old(sidebar-launcher),
+  &[sidebar-positionend]::view-transition-new(sidebar-launcher) {
+    inset-inline: auto 0;
+  }
+}
+
+/* When the launcher doesn't change, such as when a panel opens or closes, its
+ * snapshots match. As they don't cross-fade, showing both would double up its
+ * translucent backgrounds, making pinned tabs flash as if hovered. */
+:root:not(:active-view-transition-type(launcher-enter, launcher-exit))::view-transition-old(sidebar-launcher) {
+  display: none;
+}
+
+/* Expanding and collapsing show only the launcher's new state, pinned to the
+ * window edge so its icons stay put, while the content area slides over or off
+ * the labels. Otherwise the old snapshot slides along with it and lingers until
+ * the transition ends. */
+:root:not(:active-view-transition-type(expand-on-hover)):active-view-transition-type(collapse, expand) {
+  &::view-transition-group(sidebar-launcher) {
+    z-index: auto;
+  }
+
+  &::view-transition-old(sidebar-launcher) {
+    display: none;
+  }
+
+  &:not([sidebar-positionend])::view-transition-new(sidebar-launcher) {
+    inset-inline: 0 auto;
+  }
+
+  &[sidebar-positionend]::view-transition-new(sidebar-launcher) {
+    inset-inline: auto 0;
+  }
+}
+
+/* Groups are otherwise stacked in the order their elements were captured, and
+ * an element that is only in the new state, such as a panel or launcher being
+ * shown, is captured last. Keep the content area above the sidebar so it
+ * slides over them. */
+:root::view-transition-group(tabbrowser-tabbox) {
+  z-index: 1;
+}
+
+:root::view-transition-group(sidebar-launcher) {
+  z-index: 2;
+}
+
+/* When the launcher appears or disappears outright, it stays put like the panel
+ * while the content area slides over it. Above the content area, its
+ * transparent snapshot would leave the tabs floating over the page. */
+:root:active-view-transition-type(launcher-show, launcher-hide)::view-transition-group(sidebar-launcher) {
+  z-index: auto;
+}
+
+:root[sidebar-positionend]::view-transition-old(tabbrowser-tabbox),
+:root[sidebar-positionend]::view-transition-new(tabbrowser-tabbox),
+:root:not([sidebar-positionend])::view-transition-old(sidebar-launcher),
+:root:not([sidebar-positionend])::view-transition-new(sidebar-launcher) {
+  inset-inline-end: 0;
+}
+
+:root::view-transition-old(sidebar-launcher),
+:root::view-transition-old(tabbrowser-tabbox),
+:root::view-transition-new(sidebar-launcher),
+:root::view-transition-new(tabbrowser-tabbox) {
+  animation: none;
+  inline-size: auto;
+}
+
+/* When the sidebar grows, the content area's new snapshot is narrower than its
+ * animating group, so the old snapshot would show past its edge with the page
+ * laid out differently. Only show the old one, which covers the whole group. */
+:root:active-view-transition-type(expand, panel-open, launcher-show)::view-transition-new(tabbrowser-tabbox) {
+  display: none;
+}
+
+/* When the content area's corner facing the sidebar switches between square and
+ * rounded, clip its snapshots to a corner that rounds or squares off as it
+ * moves, with the border along that edge fading in or out, rather than snapping
+ * once the transition ends. The image pair draws the border, so the snapshots
+ * are pulled under it to hide their own. The opposite corner stays rounded
+ * while the AI window sidebar is docked there. */
+@keyframes sidebar-content-corner-start-round {
+  from {
+    border-start-start-radius: 0;
+    border-inline-start-color: transparent;
+  }
+}
+
+@keyframes sidebar-content-corner-start-square {
+  to {
+    border-start-start-radius: 0;
+    border-inline-start-color: transparent;
+  }
+}
+
+@keyframes sidebar-content-corner-end-round {
+  from {
+    border-start-end-radius: 0;
+    border-inline-end-color: transparent;
+  }
+}
+
+@keyframes sidebar-content-corner-end-square {
+  to {
+    border-start-end-radius: 0;
+    border-inline-end-color: transparent;
+  }
+}
+
+@media -moz-pref("browser.nova.enabled") {
+  :root:not([inDOMFullscreen], [fullscreenNavToolboxHidden]):active-view-transition-type(content-corner-round, content-corner-square) {
+    &::view-transition-image-pair(tabbrowser-tabbox) {
+      overflow: clip;
+      border-block-start: var(--border-width) solid var(--sidebar-content-separator-color);
+      animation-duration: inherit;
+      animation-timing-function: inherit;
+      animation-fill-mode: both;
+    }
+
+    &::view-transition-old(tabbrowser-tabbox),
+    &::view-transition-new(tabbrowser-tabbox) {
+      margin-block-start: calc(-1 * var(--border-width));
+    }
+
+    &:not([sidebar-positionend]),
+    &[sidebar-positionend]:active-view-transition-type(content-corner-opposite-round) {
+      &::view-transition-image-pair(tabbrowser-tabbox) {
+        border-inline-start: var(--border-width) solid var(--sidebar-content-separator-color);
+        border-start-start-radius: var(--border-radius-medium);
+      }
+
+      &::view-transition-old(tabbrowser-tabbox),
+      &::view-transition-new(tabbrowser-tabbox) {
+        margin-inline-start: calc(-1 * var(--border-width));
+      }
+    }
+
+    &[sidebar-positionend],
+    &:not([sidebar-positionend]):active-view-transition-type(content-corner-opposite-round) {
+      &::view-transition-image-pair(tabbrowser-tabbox) {
+        border-inline-end: var(--border-width) solid var(--sidebar-content-separator-color);
+        border-start-end-radius: var(--border-radius-medium);
+      }
+
+      &::view-transition-old(tabbrowser-tabbox),
+      &::view-transition-new(tabbrowser-tabbox) {
+        margin-inline-end: calc(-1 * var(--border-width));
+      }
+    }
+
+    &:not([sidebar-positionend]) {
+      &:active-view-transition-type(content-corner-round)::view-transition-image-pair(tabbrowser-tabbox) {
+        animation-name: sidebar-content-corner-start-round;
+      }
+
+      &:active-view-transition-type(content-corner-square)::view-transition-image-pair(tabbrowser-tabbox) {
+        animation-name: sidebar-content-corner-start-square;
+      }
+    }
+
+    &[sidebar-positionend] {
+      &:active-view-transition-type(content-corner-round)::view-transition-image-pair(tabbrowser-tabbox) {
+        animation-name: sidebar-content-corner-end-round;
+      }
+
+      &:active-view-transition-type(content-corner-square)::view-transition-image-pair(tabbrowser-tabbox) {
+        animation-name: sidebar-content-corner-end-square;
+      }
+    }
+  }
+}
+
+/* The panel stays put next to the launcher while the content area snapshot,
+ * which paints above it, slides across to reveal or cover it. */
+:root:active-view-transition-type(panel-open)::view-transition-new(sidebar-box) {
+  animation: none;
+}
+
+/* The content area's transform animates on the compositor, which can paint one
+ * last frame at its pre-animation position as it ends, exposing the panel or
+ * launcher beneath it. Hide the panel or launcher once it's almost entirely
+ * covered. */
+@keyframes sidebar-panel-covered {
+  90%,
+  to {
+    opacity: 0;
+  }
+}
+
+:root:active-view-transition-type(panel-close)::view-transition-old(sidebar-box),
+:root:active-view-transition-type(launcher-hide)::view-transition-old(sidebar-launcher) {
+  animation-name: sidebar-panel-covered;
+  animation-duration: inherit;
+  animation-timing-function: steps(1, jump-end);
+  animation-fill-mode: both;
+}
+
+/* Drive the sidebar-main shadow DOM's launcher button inline padding from the
+ * document's uidensity. Custom properties inherit across shadow boundaries,
+ * so this value is consumed by sidebar-main.css. Note that we round the
+ * padding to the nearest 0.5px, so that the combined start+end padding will be
+ * a whole number of CSS pixels. */
+:root {
+  --sidebar-launcher-button-padding-inline: round(var(--space-medium), 0.5px);
+
+  @media -moz-pref("sidebar.verticalTabs") {
+    /* Vertical tabs need device pixel aligned margins on *both* sides.
+     * Otherwise, they may not be properly centered. */
+    --sidebar-launcher-button-padding-inline: round(var(--space-medium), env(hairline));
+  }
+
+  &[uidensity="compact"] {
+    /* 28px icon button + 2 * 4px = 36px collapsed sidebar. */
+    --sidebar-launcher-button-padding-inline: 4px;
+    /* Match the size of compact toolbar buttons. */
+    --sidebar-launcher-button-size: calc(var(--icon-size-small) + 2 * var(--toolbarbutton-padding-inner-compact));
+
+    --sidebar-expanded-launcher-width: 240px;
+
+    /* 28px icon button + 2 * 7px = 42px collapsed sidebar. */
+    @media -moz-pref("sidebar.verticalTabs") {
+      --sidebar-launcher-button-padding-inline: 7px;
+    }
+  }
+
+  @media -moz-pref("browser.nova.enabled") and (not -moz-pref("sidebar.verticalTabs")) {
+    --sidebar-launcher-button-padding-inline: 4px;
+  }
+
+  /* The launcher buttons share a column with the vertical tab strip, so they
+   * take the same inline margin the tabs do. That keeps the collapsed sidebar
+   * at the fixed width tabs.css pins the strip to. */
+  @media -moz-pref("browser.nova.enabled") and -moz-pref("sidebar.verticalTabs") {
+    &:not([uidensity="touch"]) {
+      --sidebar-launcher-button-padding-inline: var(--tab-margin-inline-inner);
+    }
+  }
+}
+
+/* Dividers between sections of the sidebar launcher (below the pinned tabs and
+ * above the tools). A 16x2 bar with 1px round caps.
+ * The two radial gradients are the caps, and the linear gradients are the
+ * body. Drawn this way because the <splitter> elements that carry it don't
+ * support pseudo-elements, and clip-path would clip the splitter's drag
+ * hit-testing. */
+:root {
+  --sidebar-divider-color: var(--toolbarbutton-icon-fill);
+  --sidebar-divider-image:
+    radial-gradient(circle closest-side, var(--sidebar-divider-color) 100%, transparent 100%),
+    radial-gradient(circle closest-side, var(--sidebar-divider-color) 100%, transparent 100%),
+    linear-gradient(var(--sidebar-divider-color), var(--sidebar-divider-color));
+  --sidebar-divider-size: 2px 2px, 2px 2px, calc(var(--icon-size-small) - 2px) 2px;
+  --sidebar-divider-position: calc(50% - 7px) center, calc(50% + 7px) center, center;
+}
+
+/* Expand on hover */
+
+:root[sidebar-expand-on-hover] {
+  #sidebar-container {
+    /* The launcher sits on body while collapsed and covers it while expanded,
+     * so it has to paint whichever surface body does. Nova hands body the
+     * toolbar color when there's no theme accent for it to defer to, see
+     * browser-shared.css. */
+    position: relative;
+    inset: 0;
+    inset-inline-end: unset;
+
+    &[sidebar-positionend] {
+      inset-inline-start: unset;
+      inset-inline-end: 0;
+    }
+
+    /* We only want to apply these styles when the sidebar is expanded */
+    &[sidebar-launcher-expanded] {
+      z-index: var(--browser-area-z-index-sidebar-expand-on-hover);
+      position: absolute;
+
+      /* Make sure the colors match the toolbox and they are opaque.
+       * TODO(bug 2070647): Consider moving this to the
+       * launcher-expanded/ongoing-animations block. */
+      color: var(--toolbox-text-color);
+      background-image: var(--toolbox-background-gradient), image(var(--toolbox-background-color));
+      background-size:
+        100vw 100vh,
+        auto;
+      /* With Windows Mica, the toolbox background is not guaranteed to be opaque.
+       * Make sure there's some opaque backdrop that matches our color scheme.
+       * These colors match the "transparency effects disabled" mica backdrop on
+       * Windows 11, which is as good as we can make it. */
+      background-color: light-dark(#e8e8e8, #202020);
+
+      &[sidebar-positionend]:-moz-locale-dir(ltr),
+      &:not([sidebar-positionend]):-moz-locale-dir(rtl) {
+        background-position-x: 100%;
+      }
+
+      &:not([sidebar-positionend]) {
+        border-inline-end: 0.01px solid var(--sidebar-border-color);
+      }
+
+      &[sidebar-positionend] {
+        border-inline-start: 0.01px solid var(--sidebar-border-color);
+      }
+    }
+
+    @media not -moz-pref("browser.nova.enabled") {
+      :root[lwtheme] & {
+        border-radius: unset;
+        border-inline: unset;
+      }
+    }
+  }
+
+  #sidebar-launcher-splitter[sidebar-launcher-expanded] {
+    visibility: hidden;
+  }
+
+  /* We add margin to compensate for the launcher width to the element next to it.
+  The element next to it can be the sidebar box or the tabbox,
+  depending on whether the sidebar box is expanded */
+  #tabbrowser-tabbox {
+    @media not -moz-pref("browser.nova.enabled") {
+      &:not([sidebar-positionend]) {
+        &:not([sidebar-panel-open]) {
+          margin-inline-start: 0;
+        }
+
+        &[sidebar-launcher-expanded][sidebar-launcher-hovered]:not([sidebar-panel-open]) {
+          margin-inline-start: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+
+      &[sidebar-positionend] {
+        &:not([sidebar-panel-open]) {
+          margin-inline-end: 0;
+        }
+
+        &[sidebar-launcher-expanded][sidebar-launcher-hovered]:not([sidebar-panel-open]) {
+          margin-inline-end: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+    }
+
+    /* Only compensate while the launcher is out of flow. When it's collapsed it
+     * takes up its own width and gap in #browser, so adding the margin here as
+     * well would count the launcher twice. */
+    @media -moz-pref("browser.nova.enabled") {
+      &[sidebar-launcher-expanded]:not([sidebar-panel-open]) {
+        &:not([sidebar-positionend]) {
+          margin-inline-start: var(--sidebar-launcher-collapsed-width);
+        }
+        &[sidebar-positionend] {
+          margin-inline-end: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+    }
+  }
+
+  /*
+   * If we're in fullscreen and the sidebar is closed, there should be no
+   * margins around #tabbrowser-tabbox.
+   */
+  @media -moz-pref("browser.nova.enabled") {
+    &[fullscreenNavToolboxHidden] #tabbrowser-tabbox:not([sidebar-panel-open]) {
+      margin-inline: 0;
+    }
+  }
+
+  #sidebar-box {
+    @media not -moz-pref("browser.nova.enabled") {
+      &:not([sidebar-positionend]) {
+        &[sidebar-panel-open] {
+          margin-inline-start: 0;
+        }
+
+        &[sidebar-panel-open][sidebar-launcher-hovered][sidebar-launcher-expanded] {
+          margin-inline-start: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+
+      &[sidebar-positionend] {
+        &[sidebar-panel-open] {
+          margin-inline-end: 0;
+        }
+
+        &[sidebar-panel-open][sidebar-launcher-hovered][sidebar-launcher-expanded] {
+          margin-inline-end: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+    }
+
+    @media -moz-pref("browser.nova.enabled") {
+      &[sidebar-launcher-expanded][sidebar-panel-open] {
+        &:not([sidebar-positionend]) {
+          margin-inline-start: var(--sidebar-launcher-collapsed-width);
+        }
+        &[sidebar-positionend] {
+          margin-inline-end: var(--sidebar-launcher-collapsed-width);
+        }
+      }
+    }
+  }
+}
+
+@media -moz-pref("sidebar.visibility", "expand-on-hover") {
+  /* We need these rules to apply at all times when the sidebar.visibility
+    pref is set to "expand-on-hover" as opposed to when the "sidebar-expand-on-hover" attribute
+    has been added to root. There are certain scenarios when that attribute is temporarily
+    removed from root such as when toggling the sidebar to expand with the toolbar button. */
+  #sidebar {
+    box-shadow: none;
+    margin-block-start: 1px;
+    outline-offset: -0.1px;
+  }
+}
+
+@media -moz-pref("browser.nova.enabled") {
+  /* A lwtheme that doesn't specify sidebar_border falls back to the translucent
+   * --card-border-color, and the line that draws takes on whatever surface sits
+   * beneath it. The content area backs its border with
+   * --tabpanel-background-color, so resolving against that here and painting
+   * the result opaquely puts the sidebar's separators on the same line
+   * .browserContainer draws. The percentages mirror --card-border-color. A
+   * theme that does specify sidebar_border sets this inline on the root, which
+   * still wins over this. */
+  :root[lwtheme] {
+    --sidebar-border-color: light-dark(
+      color-mix(in srgb, currentColor 10%, var(--tabpanel-background-color)),
+      color-mix(in srgb, currentColor 6%, var(--tabpanel-background-color))
+    );
+  }
+
+  #sidebar-box {
+    --sidebar-box-start-start-radius: var(--border-radius-medium);
+    --sidebar-box-start-end-radius: var(--border-radius-medium);
+
+    background-color: var(--sidebar-background-color);
+    color: var(--sidebar-text-color);
+    padding-block-end: 0;
+    border: var(--border-width) solid var(--chrome-content-separator-color);
+    border-block-end: none;
+
+    :root[lwtheme] & {
+      border-color: var(--sidebar-border-color);
+    }
+
+    /* Only the edge facing the content area survives once the launcher is
+     * gone: the other one then meets the window. Fullscreen collapses the
+     * launcher along with the rest of the chrome, so it counts as gone there
+     * too. */
+    #sidebar-container[hidden] ~ &:not([sidebar-positionend]),
+    :root[fullscreenNavToolboxHidden] &:not([sidebar-positionend]) {
+      --sidebar-box-start-start-radius: 0;
+      border-inline-start: none;
+    }
+
+    #sidebar-container[hidden] ~ &[sidebar-positionend],
+    :root[fullscreenNavToolboxHidden] &[sidebar-positionend] {
+      --sidebar-box-start-end-radius: 0;
+      border-inline-end: none;
+    }
+
+    /* Fullscreen slides the toolbox off-screen (and DOM fullscreen hides the
+     * chrome outright), so the block-start edge then meets the screen and the
+     * corners on it have nothing left to round away from. The edge facing the
+     * content area stays: the panel itself remains visible in fullscreen. */
+    :root:is([inDOMFullscreen], [fullscreenNavToolboxHidden]) & {
+      --sidebar-box-start-start-radius: 0;
+      --sidebar-box-start-end-radius: 0;
+      border-block-start: none;
+    }
+  }
+
+  /* The box needs the radius for its border. */
+  #sidebar-box {
+    border-start-start-radius: var(--sidebar-box-start-start-radius);
+    border-start-end-radius: var(--sidebar-box-start-end-radius);
+  }
+
+  #sidebar {
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+/* History Menu */
+#sidebar-history-clear,
+#sidebar-history-sort-by-heading {
+  padding: var(--menuitem-padding-block) var(--menuitem-padding-inline);
+  &::before {
+    content: unset;
+  }
+  > .menu-icon {
+    display: none;
+  }
+}

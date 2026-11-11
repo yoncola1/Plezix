@@ -1,0 +1,118 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef JumpListBuilder_h_
+#define JumpListBuilder_h_
+
+// clang-format off
+#include <windows.h>
+#include <shobjidl.h>
+// clang-format on
+
+#include "MainThreadUtils.h"
+#include "mozilla/UniquePtr.h"
+#include "mozilla/mscom/ApartmentRegion.h"
+#include "nsIJumpListBuilder.h"
+#include "nsIObserver.h"
+#include "nsIThread.h"
+#include "nsProxyRelease.h"
+
+namespace mozilla {
+
+namespace dom {
+struct WindowsJumpListShortcutDescription;
+}  // namespace dom
+
+namespace widget {
+
+/**
+ * This is an abstract class for a backend to write to the Windows Jump List.
+ *
+ * It has a 1-to-1 method mapping with ICustomDestinationList. The abtract
+ * class allows us to implement a "fake" backend for automated testing.
+ */
+class JumpListBackend {
+  NS_INLINE_DECL_PURE_VIRTUAL_REFCOUNTING
+
+  virtual bool IsAvailable() = 0;
+
+  virtual HRESULT SetAppID(LPCWSTR pszAppID) = 0;
+  virtual HRESULT BeginList(UINT* pcMinSlots, REFIID riid, void** ppv) = 0;
+  virtual HRESULT AddUserTasks(IObjectArray* poa) = 0;
+  virtual HRESULT AppendCategory(LPCWSTR pszCategory, IObjectArray* poa) = 0;
+  virtual HRESULT CommitList() = 0;
+  virtual HRESULT AbortList() = 0;
+  virtual HRESULT DeleteList(LPCWSTR pszAppID) = 0;
+  virtual HRESULT AppendKnownCategory(KNOWNDESTCATEGORY category) = 0;
+
+ protected:
+  virtual ~JumpListBackend() = default;
+};
+
+/**
+ * JumpListBuilder is a component that can be used to manage the Windows
+ * Jump List off of the main thread.
+ */
+class JumpListBuilder : public nsIJumpListBuilder, public nsIObserver {
+  virtual ~JumpListBuilder();
+
+ public:
+  NS_DECL_THREADSAFE_ISUPPORTS
+  NS_DECL_NSIJUMPLISTBUILDER
+  NS_DECL_NSIOBSERVER
+
+  explicit JumpListBuilder(const nsAString& aAppUserModelId,
+                           bool aPrivateBrowsing = false,
+                           RefPtr<JumpListBackend> aTestingBackend = nullptr);
+
+ private:
+  void ShutdownIOThread() MOZ_REQUIRES(sMainThreadCapability);
+  void AssertIsOnIOThread() const;
+
+  // These all run on mIOThread.
+  void DoEnterApartment();
+  void DoTeardown();
+  void DoSetupBackend();
+  void DoSetupTestingBackend(RefPtr<JumpListBackend> aTestingBackend);
+  void DoSetAppIDIfAvailable(nsString aAppUserModelID);
+  void DoIsAvailable(const nsMainThreadPtrHandle<dom::Promise>& aPromiseHolder);
+  void DoCheckForRemovals(
+      const nsMainThreadPtrHandle<dom::Promise>& aPromiseHolder);
+  void DoPopulateJumpList(
+      const nsTArray<dom::WindowsJumpListShortcutDescription>&&
+          aTaskDescriptions,
+      const nsAString& aCustomTitle,
+      const nsTArray<dom::WindowsJumpListShortcutDescription>&&
+          aCustomDescriptions,
+      const nsMainThreadPtrHandle<dom::Promise>& aPromiseHolder);
+  void DoClearJumpList(
+      const nsMainThreadPtrHandle<dom::Promise>& aPromiseHolder);
+  void RemoveIconCacheAndGetJumplistShortcutURIs(IObjectArray* aObjArray,
+                                                 nsTArray<nsString>& aURISpecs);
+  void DeleteIconFromDisk(const nsAString& aPath);
+  nsresult GetShellLinkFromDescription(
+      const dom::WindowsJumpListShortcutDescription& aDesc,
+      RefPtr<IShellLinkW>& aShellLink);
+
+  // This is written to once during construction on the main thread before the
+  // lazy helper thread is created. After that, the lazy helper thread might
+  // read from it.
+  nsString mAppUserModelId;
+
+  // This is only accessed by mIOThread.
+  RefPtr<JumpListBackend> mJumpListBackend;
+
+  // The STA that mIOThread lives in.  Only accessed by mIOThread.
+  // Hosts the apartment-threaded shell objects we use (CLSID_DestinationList
+  // and CLSID_ApplicationDestinations).
+  UniquePtr<mscom::STARegion> mApartment;
+  nsCOMPtr<nsISerialEventTarget> mIOThreadForAssertions;
+
+  nsCOMPtr<nsIThread> mIOThread MOZ_GUARDED_BY(sMainThreadCapability);
+};
+
+}  // namespace widget
+}  // namespace mozilla
+
+#endif /* JumpListBuilder_h_ */

@@ -1,0 +1,90 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+SPHINX_TREES["/toolkit/components/ml"] = "docs"
+
+if CONFIG["ONNX_RUNTIME"]:
+    FINAL_TARGET_FILES += ["%" + CONFIG["ONNX_RUNTIME"]]
+
+JAR_MANIFESTS += ["jar.mn"]
+
+with Files("**"):
+    BUG_COMPONENT = ("Core", "Machine Learning: On Device")
+
+DIRS += [
+    "actors",
+    "tests",
+]
+
+# ggml has no armv7-android CPU backend variant upstream, so there is no
+# inference engine to run on Android, and consequently no HWInference utility
+# process to talk to: SandboxingKind::HW_INFERENCE does not exist there.
+if CONFIG["MOZ_WIDGET_TOOLKIT"] != "android":
+    DIRS += [
+        "backends/llama",
+        "ipc",
+        "textgeneration",
+    ]
+    if CONFIG["ENABLE_TESTS"]:
+        TEST_DIRS += ["tests/gtest"]
+
+XPCSHELL_TESTS_MANIFESTS += ["tests/xpcshell/xpcshell.toml"]
+
+BROWSER_CHROME_MANIFESTS += [
+    "tests/browser/browser.toml",
+    "tests/browser/perftest.toml",
+    "tests/browser_eval/eval.toml",
+    "tests/browser_models/browser_models.toml",
+]
+
+XPIDL_SOURCES += [
+    "nsIMLModelHub.idl",
+    "nsIMLModelResolver.idl",
+    "nsIMLUtils.idl",
+]
+
+MOZ_SRC_FILES += [
+    "MLModelHubService.sys.mjs",
+    "textgeneration/TextGenerationEngine.sys.mjs",
+]
+
+UNIFIED_SOURCES += [
+    "MLUtils.cpp",
+]
+
+EXPORTS.mozilla.ml += [
+    "MLProfilerMarkers.h",
+    "MLUtils.h",
+]
+
+with Files("docs/**"):
+    SCHEDULES.exclusive = ["docs"]
+
+XPCOM_MANIFESTS += [
+    "components.conf",
+]
+
+LOCAL_INCLUDES += [
+    "/dom/base",
+    "/dom/file/ipc",
+    "/dom/ipc",
+    "/ipc/glue",
+]
+
+XPIDL_MODULE = "ml"
+
+include("/ipc/chromium/chromium-config.mozbuild")
+
+FINAL_LIBRARY = "xul"
+
+LICENSED_UNDER += ["apache"]
+LICENSED_UNDER["apache"].paths = [
+    "vendor/openai/dist/openai.mjs",
+    "vendor/transformers.js",
+]
+if CONFIG["NIGHTLY_BUILD"]:
+    LICENSED_UNDER["apache"].paths += [
+        "vendor/openai/dist/openai-dev.mjs",
+        "vendor/transformers-dev.js",
+    ]

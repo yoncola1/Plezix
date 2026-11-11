@@ -1,0 +1,195 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "XULTabAccessible.h"
+
+#include "ARIAMap.h"
+#include "Relation.h"
+#include "States.h"
+#include "mozilla/a11y/Role.h"
+#include "nsAccUtils.h"
+
+// NOTE: alphabetically ordered
+#include "mozilla/dom/BindingDeclarations.h"
+#include "mozilla/dom/Document.h"
+#include "nsIDOMXULSelectCntrlItemEl.h"
+#include "nsXULElement.h"
+
+using namespace mozilla::a11y;
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabAccessible
+////////////////////////////////////////////////////////////////////////////////
+
+XULTabAccessible::XULTabAccessible(nsIContent* aContent, DocAccessible* aDoc)
+    : HyperTextAccessible(aContent, aDoc) {}
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabAccessible: LocalAccessible
+
+bool XULTabAccessible::HasPrimaryAction() const { return true; }
+
+void XULTabAccessible::ActionNameAt(uint8_t aIndex, nsAString& aName) {
+  if (aIndex == eAction_Switch) aName.AssignLiteral("switch");
+}
+
+bool XULTabAccessible::DoAction(uint8_t index) const {
+  if (index == eAction_Switch) {
+    // XXXbz Could this just FromContent?
+    RefPtr<nsXULElement> tab = nsXULElement::FromNodeOrNull(mContent);
+    if (tab) {
+      tab->Click(mozilla::dom::CallerType::System);
+      return true;
+    }
+  }
+  return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabAccessible: LocalAccessible
+
+role XULTabAccessible::NativeRole() const { return roles::PAGETAB; }
+
+uint64_t XULTabAccessible::NativeState() const {
+  // Possible states: focused, focusable, unavailable(disabled), offscreen.
+
+  // get focus and disable status from base class
+  uint64_t state = AccessibleWrap::NativeState();
+
+  // Check whether the tab is selected and/or pinned
+  nsCOMPtr<nsIDOMXULSelectControlItemElement> tab =
+      Elm()->AsXULSelectControlItem();
+  if (tab) {
+    bool selected = false;
+    if (NS_SUCCEEDED(tab->GetSelected(&selected)) && selected) {
+      state |= states::SELECTED;
+    }
+
+    if (mContent->AsElement()->HasAttr(kNameSpaceID_None, nsGkAtoms::pinned)) {
+      state |= states::PINNED;
+    }
+  }
+
+  return state;
+}
+
+uint64_t XULTabAccessible::NativeInteractiveState() const {
+  uint64_t state = LocalAccessible::NativeInteractiveState();
+  // Bug 1951776: XUL tabs are implemented such that only the selected tab is
+  // programmatically focusable. Unfortunately, Windows Voice Access requires
+  // tabs to be focusable in order for them to be discovered by the "show
+  // numbers" command. Therefore, always expose the focusable state for
+  // accessibility. While this seems strange on the surface, it can be argued
+  // that unselected tabs *can* receive focus at some point in the future (when
+  // they're selected), even if they can't receive focus *now*. There is some
+  // precedent for this: aria-activedescendant requires browsers to expose the
+  // focusable state on all possible descendants even if they aren't the current
+  // active descendant.
+  return (state & states::UNAVAILABLE)
+             ? state
+             : state | states::SELECTABLE | states::FOCUSABLE;
+}
+
+void XULTabAccessible::ApplyARIAState(uint64_t* aState) const {
+  HyperTextAccessible::ApplyARIAState(aState);
+  // XUL tab has an implicit ARIA role of tab, so support aria-selected.
+  // Don't use aria::MapToState because that will set the SELECTABLE state
+  // even if the tab is disabled.
+  if (nsAccUtils::IsARIASelected(this)) {
+    *aState |= states::SELECTED;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabsAccessible
+////////////////////////////////////////////////////////////////////////////////
+
+XULTabsAccessible::XULTabsAccessible(nsIContent* aContent, DocAccessible* aDoc)
+    : XULSelectControlAccessible(aContent, aDoc) {}
+
+role XULTabsAccessible::NativeRole() const { return roles::PAGETABLIST; }
+
+bool XULTabsAccessible::HasPrimaryAction() const { return false; }
+
+void XULTabsAccessible::Value(nsString& aValue) const { aValue.Truncate(); }
+
+ENameValueFlag XULTabsAccessible::NativeName(nsString& /*aName*/) const {
+  // no name
+  return eNameOK;
+}
+
+void XULTabsAccessible::ApplyARIAState(uint64_t* aState) const {
+  XULSelectControlAccessible::ApplyARIAState(aState);
+  // XUL tabs has an implicit ARIA role of tablist, so support
+  // aria-multiselectable.
+  MOZ_ASSERT(Elm());
+  aria::MapToState(aria::eARIAMultiSelectable, Elm(), aState);
+}
+
+// XUL tabs is a single selection control and doesn't allow ARIA selection.
+// However, if aria-multiselectable is used, it becomes a multiselectable
+// control, where both native and ARIA markup are used to set selection.
+// Therefore, if aria-multiselectable is set, use the base implementation of
+// the selection retrieval methods in order to support ARIA selection.
+// We don't bother overriding the selection setting methods because
+// current front-end code using XUL tabs doesn't support setting of
+//  aria-selected by the a11y engine and we still want to be able to set the
+// primary selected item according to XUL.
+
+void XULTabsAccessible::SelectedItems(nsTArray<Accessible*>* aItems) {
+  if (nsAccUtils::IsARIAMultiSelectable(this)) {
+    AccessibleWrap::SelectedItems(aItems);
+  } else {
+    XULSelectControlAccessible::SelectedItems(aItems);
+  }
+}
+
+Accessible* XULTabsAccessible::GetSelectedItem(uint32_t aIndex) {
+  if (nsAccUtils::IsARIAMultiSelectable(this)) {
+    return AccessibleWrap::GetSelectedItem(aIndex);
+  }
+
+  return XULSelectControlAccessible::GetSelectedItem(aIndex);
+}
+
+uint32_t XULTabsAccessible::SelectedItemCount() {
+  if (nsAccUtils::IsARIAMultiSelectable(this)) {
+    return AccessibleWrap::SelectedItemCount();
+  }
+
+  return XULSelectControlAccessible::SelectedItemCount();
+}
+
+bool XULTabsAccessible::IsItemSelected(uint32_t aIndex) {
+  if (nsAccUtils::IsARIAMultiSelectable(this)) {
+    return AccessibleWrap::IsItemSelected(aIndex);
+  }
+
+  return XULSelectControlAccessible::IsItemSelected(aIndex);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabpanelsAccessible
+////////////////////////////////////////////////////////////////////////////////
+
+role XULTabpanelsAccessible::NativeRole() const { return roles::PANE; }
+
+////////////////////////////////////////////////////////////////////////////////
+// XULTabpanelAccessible
+////////////////////////////////////////////////////////////////////////////////
+
+XULTabpanelAccessible::XULTabpanelAccessible(nsIContent* aContent,
+                                             DocAccessible* aDoc)
+    : AccessibleWrap(aContent, aDoc) {}
+
+role XULTabpanelAccessible::NativeRole() const { return roles::PROPERTYPAGE; }
+
+ENameValueFlag XULTabpanelAccessible::DirectName(nsString& aName) const {
+  // The tabbox widget labels each panel with its tab via aria-labelledby in
+  // order to expose relations. However, naming the panel causes redundant
+  // reporting by screen readers, particularly in the browser where the panel
+  // name would duplicate the document name. Therefore, don't expose a name.
+  aName.Truncate();
+  return eNameOK;
+}

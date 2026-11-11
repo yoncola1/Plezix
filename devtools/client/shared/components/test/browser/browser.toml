@@ -1,0 +1,10 @@
+[DEFAULT]
+tags = "devtools"
+subsuite = "devtools"
+support-files = [
+  "!/devtools/client/shared/test/shared-head.js",
+]
+
+["browser_notification_box_basic.js"]
+
+["browser_split_box_keyboard.js"]

@@ -1,0 +1,67 @@
+# Writing an efficiency test
+
+Once the building blocks exist, the test is a short, fluent description of _what_ to check. It extends
+`BaseTest`, which owns rule composition, launch, cleanup, failure capture, and declared execution
+resources. It does not retry failures in-process.
+
+## Structure
+
+```kotlin
+class OnboardingTest : BaseTest(LaunchConfig(skipOnboarding = false)) {
+
+    // TestRail link: https://mozilla.testrail.io/index.php?/cases/view/3349493
+    @SmokeTest
+    @Test
+    fun verifyTheTermsOfUseOnboardingCardTest() {
+        on.onboarding.navigateToPage()
+            .mozVerify(OnboardingSelectors.TERMS_OF_USE_TITLE)
+    }
+}
+```
+
+- **`BaseTest(LaunchConfig(...))`** configures the launch. Every flag and its default lives in
+  `navigation/LaunchConfig.kt` --- set only the ones the scenario needs, and read that file rather
+  than a list here, which is the sort of thing that goes stale. Override `launchConfig()` instead
+  when the launch varies per case.
+- **`on`** is the `PageContext` — `on.<page>` gives the typed page object.
+- **`navigateToPage()`** routes + confirms arrival; `navigateToPage(url)` on `browserPage` loads a
+  page. Chain `moz*` verbs off it.
+- **`executionRequirements(description)`** declares test-specific device state, cleanup, and optional
+  resources. See `../test-execution-contracts.md`; ordinary tests use the server owned by `BaseTest`.
+- **Preserve the `// TestRail link:` comment and `@SmokeTest`** from the legacy test — coverage
+  tooling joins on the TestRail id, and the smoke tag drives suite membership.
+
+## Faithful-port discipline
+
+Default policy is faithful port: reproduce the legacy test's assertions, don't "improve" it while
+converting. If the legacy test is weak/over-broad, port it as-is and log a separate quality-backlog
+item — mixing a rewrite into a conversion makes review harder and muddies parity.
+
+## Composing steps
+
+Use the `moz*` verbs (full list in `extending-basepage.md`): `mozClick`, `mozClickIfPresent`,
+`mozEnterText`, `mozPressEnter`, `mozSwipeTo`, etc., and verifies `mozVerify`,
+`mozVerifyElementAbsent`, `mozVerifyElementsByGroup`, `mozVerifyAnyContainsText`, … Each returns the
+page, so chain them. Prefer `mozClickIfPresent` for genuinely conditional UI (e.g. an optional
+interstitial card) rather than branching logic in the test.
+
+Page readiness is a navigation oracle, not a substitute for the behavior oracle. If the test changes a
+setting, saves data, or invokes a feature, verify the user-visible result of that operation rather than
+counting successful navigation as proof.
+
+## Close-out (order matters)
+
+1. Run the test in isolation until green (atomic runner or its shard).
+2. Confirm parity: every legacy assertion has an equivalent here.
+3. Only THEN add the `replacedBy` marker to the legacy test method — but in the **same commit** as the
+   conversion. Adding it before green inflates the conversion burndown with tests that don't actually
+   pass; leaving it for a follow-up pass means the conversion lands looking unconverted.
+4. If the moved/added test belongs to a CI-run shard package, update the Flank configs in the SAME
+   diff (there are three: arm-experimental-api-tests.yml runs them; arm64-v8a.yml and
+   arm64-v8a-detect-leaks.yml exclude them) — otherwise coverage silently changes.
+
+## Gotchas
+
+- Don't reach into internals or duplicate navigation the graph already knows — let `navigateToPage`
+  route.
+- Keep one behavior per test where the legacy test did; don't merge cases during a faithful port.

@@ -1,0 +1,50 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+.downloadBlockedBadge {
+  background-repeat: no-repeat;
+  width: var(--size-item-small);
+  height: var(--size-item-small);
+  margin: 0;
+  margin-inline: var(--space-large);
+}
+
+#downloadsPanel-blockedSubview[verdict="Insecure"] .downloadsPanel-blockedSubview-image,
+#downloadsPanel-blockedSubview[verdict="Malware"] .downloadsPanel-blockedSubview-image,
+#downloadsListBox > richlistitem[verdict="Insecure"] .downloadBlockedBadge,
+#downloadsListBox > richlistitem[verdict="Malware"] .downloadBlockedBadge {
+  background-image: url("chrome://global/skin/icons/error.svg");
+  -moz-context-properties: fill;
+  fill: var(--icon-color-critical);
+}
+
+#downloadsPanel-blockedSubview[verdict="Uncommon"] .downloadsPanel-blockedSubview-image,
+#downloadsListBox > richlistitem[verdict="Uncommon"] .downloadBlockedBadge {
+  background-image: url("chrome://global/skin/icons/info-filled.svg");
+  -moz-context-properties: fill;
+  fill: var(--icon-color-information);
+}
+
+.downloadsPanel-blockedSubview-image {
+  width: var(--size-item-small);
+  background-repeat: no-repeat;
+  margin-inline-end: var(--space-xxlarge);
+}
+
+.downloadsPanel-blockedSubview-title-box {
+  margin-block: var(--space-xlarge) 0;
+}
+
+#downloadsPanel-blockedSubview-title {
+  flex: 1;
+}
+
+#downloadsPanel-blockedSubview[verdict="PotentiallyUnwanted"] .downloadsPanel-blockedSubview-image,
+#downloadsPanel-blockedSubview[verdict="DownloadSpam"] .downloadsPanel-blockedSubview-image,
+#downloadsListBox > richlistitem[verdict="PotentiallyUnwanted"] .downloadBlockedBadge,
+#downloadsListBox > richlistitem[verdict="DownloadSpam"] .downloadBlockedBadge {
+  -moz-context-properties: fill;
+  background-image: url("chrome://global/skin/icons/warning.svg");
+  fill: var(--icon-color-warning);
+}

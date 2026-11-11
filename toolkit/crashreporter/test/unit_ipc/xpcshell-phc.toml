@@ -1,0 +1,15 @@
+[DEFAULT]
+run-if = [
+  "os != 'android'", # the Android crash reporter needs the embedding app's crash handler
+]
+support-files = [
+  "!/toolkit/crashreporter/test/unit/crasher_subprocess_head.js",
+  "!/toolkit/crashreporter/test/unit/crasher_subprocess_tail.js",
+  "!/toolkit/crashreporter/test/unit/head_crashreporter.js",
+]
+
+["test_content_phc.js"]
+
+["test_content_phc2.js"]
+
+["test_content_phc3.js"]

@@ -1,0 +1,22 @@
+/* Any copyright is dedicated to the Public Domain.
+   https://creativecommons.org/publicdomain/zero/1.0/ */
+
+"use strict";
+
+add_task(async function test_close_panel() {
+  const win = await BrowserTestUtils.openNewBrowserWindow();
+  const { document } = win;
+  const sidebar = document.querySelector("sidebar-main");
+  ok(sidebar, "Sidebar is shown.");
+  await sidebar.updateComplete;
+  await SidebarTestUtils.showPanel(win, "viewCustomizeSidebar");
+  const sidebarPanelHeader = win.SidebarController.panelHeader;
+  let closeButton = sidebarPanelHeader.closeButton;
+  closeButton.click();
+  ok(
+    !document.querySelector("sidebar-customize"),
+    "Sidebar customize panel has been closed."
+  );
+
+  await BrowserTestUtils.closeWindow(win);
+});

@@ -1,0 +1,31 @@
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+# IMPORTANT: Disable NSBUILDROOT for this directory only, otherwise we have
+# a recursive rule for finding nsinstall and the Perl scripts.
+ifdef NSBUILDROOT
+override NSBUILDROOT :=
+endif
+
+include $(topsrcdir)/config/config.mk
+
+# L10n jobs are doing make -C config manually before anything else,
+# and need nsinstall to be built as a consequence.
+ifdef COMPILE_ENVIRONMENT
+export:: host
+
+ifneq (WINNT,$(HOST_OS_ARCH))
+# Ensure nsinstall is atomically created
+nsinstall$(HOST_BIN_SUFFIX): $(HOST_PROGRAM)
+	cp $^ $@.tmp
+	mv $@.tmp $@
+
+host:: nsinstall$(HOST_BIN_SUFFIX)
+endif
+endif
+
+include $(topsrcdir)/config/rules.mk
+
+FORCE:

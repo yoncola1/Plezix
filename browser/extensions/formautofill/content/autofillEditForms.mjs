@@ -1,0 +1,582 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* eslint-disable mozilla/balanced-listeners */ // Not relevant since the document gets unloaded.
+
+const lazy = {};
+ChromeUtils.defineESModuleGetters(lazy, {
+  CreditCard: "resource://gre/modules/CreditCard.sys.mjs",
+  FormAutofill: "resource://autofill/FormAutofill.sys.mjs",
+  FormAutofillUtils: "resource://gre/modules/shared/FormAutofillUtils.sys.mjs",
+});
+
+class EditAutofillForm {
+  constructor(elements) {
+    this._elements = elements;
+  }
+
+  /**
+   * Fill the form with a record object.
+   *
+   * @param  {object} [record = {}]
+   */
+  loadRecord(record = {}) {
+    for (let field of this._elements.form.elements) {
+      let value = record[field.id];
+      value = typeof value == "undefined" ? "" : value;
+      field.value = value;
+    }
+    if (!record.guid) {
+      // Reset the dirty value flag and validity state.
+      this._elements.form.reset();
+    } else {
+      for (let field of this._elements.form.elements) {
+        this.updateCustomValidity(field);
+      }
+    }
+  }
+
+  /**
+   * Get a record from the form suitable for a save/update in storage.
+   *
+   * @returns {object}
+   */
+  buildFormObject() {
+    let initialObject = {};
+    if (this.hasMailingAddressFields) {
+      // Start with an empty string for each mailing-address field so that any
+      // fields hidden for the current country are blanked in the return value.
+      initialObject = {
+        "street-address": "",
+        "address-level3": "",
+        "address-level2": "",
+        "address-level1": "",
+        "postal-code": "",
+      };
+    }
+
+    return Array.from(this._elements.form.elements).reduce((obj, input) => {
+      if (!input.disabled) {
+        obj[input.id] = input.value;
+      }
+      return obj;
+    }, initialObject);
+  }
+
+  /**
+   * Handle events
+   *
+   * @param  {DOMEvent} event
+   */
+  handleEvent(event) {
+    switch (event.type) {
+      case "change": {
+        this.handleChange(event);
+        break;
+      }
+      case "input": {
+        this.handleInput(event);
+        break;
+      }
+    }
+  }
+
+  // Clear the CSS error state when the user starts correcting a field.
+  handleChange(event) {
+    event.target.removeAttribute("invalid");
+  }
+
+  handleInput(event) {
+    event.target.removeAttribute("invalid");
+  }
+
+  /**
+   * Attach event listener
+   */
+  attachEventListeners() {
+    this._elements.form.addEventListener("input", this);
+  }
+
+  /**
+   * Run custom validity routines specific to the field and type of form.
+   *
+   * @param {DOMElement} _field The field that will be validated.
+   */
+  updateCustomValidity(_field) {}
+}
+
+export class EditCreditCard extends EditAutofillForm {
+  /**
+   * @param {HTMLElement[]} elements
+   * @param {object} record with a decrypted cc-number
+   * @param {object} addresses in an object with guid keys for the billing address picker.
+   */
+  constructor(elements, record, addresses) {
+    super(elements);
+
+    this._addresses = addresses;
+    Object.assign(this._elements, {
+      ccNumber: this._elements.form.querySelector("#cc-number"),
+      invalidCardNumberStringElement: this._elements.form.querySelector(
+        "#invalidCardNumberString"
+      ),
+      month: this._elements.form.querySelector("#cc-exp-month"),
+      year: this._elements.form.querySelector("#cc-exp-year"),
+      securityCode: this._elements.form.querySelector("#cc-csc"),
+      securityCodeContainer:
+        this._elements.form.querySelector("#cc-csc-container"),
+      billingAddress: this._elements.form.querySelector("#billingAddressGUID"),
+      billingAddressRow:
+        this._elements.form.querySelector(".billingAddressRow"),
+    });
+
+    this.#setupSecurityCodeField();
+    this.attachEventListeners();
+    this.loadRecord(record, addresses);
+  }
+
+  /**
+   * The security code field is behind a pref. Take it out of the form entirely
+   * while the pref is off so that it can't contribute to the record we save.
+   */
+  #setupSecurityCodeField() {
+    let securityCode = this._elements.securityCode;
+    if (!lazy.FormAutofill.isAutofillCreditCardCVVEnabled) {
+      securityCode.remove();
+      this._elements.securityCode = null;
+      return;
+    }
+    this._elements.securityCodeContainer.hidden = false;
+    this._elements.form.classList.add("has-security-code");
+
+    // The security code is optional, but must be 3 or 4 digits when provided.
+    // The constraints are applied as soon as the inner input exists rather than
+    // in setupValidation() so that the length is enforced while typing.
+    securityCode.updateComplete.then(() => {
+      securityCode.inputEl.pattern = "[0-9]{3,4}";
+      securityCode.inputEl.maxLength = 4;
+    });
+    this.#updateSecurityCodeLabel();
+  }
+
+  /**
+   * Name the security code field the way the card's network does, following
+   * the card number as it is typed.
+   */
+  #updateSecurityCodeLabel() {
+    const securityCode = this._elements.securityCode;
+    if (!securityCode) {
+      return;
+    }
+    document.l10n.setAttributes(
+      securityCode,
+      "autofill-card-security-code-optional-2",
+      {
+        securityCode: lazy.CreditCard.formatSecurityCodeName({
+          "cc-number": this._elements.ccNumber.value,
+        }),
+      }
+    );
+  }
+
+  loadRecord(record, addresses, preserveFieldValues) {
+    // _record must be updated before generateYears and generateBillingAddressOptions are called.
+    this._record = record;
+    this._addresses = addresses;
+    this.generateBillingAddressOptions(preserveFieldValues);
+    if (!preserveFieldValues) {
+      // Re-generating the months will reset the selected option.
+      this.generateMonths();
+      // Re-generating the years will reset the selected option.
+      this.generateYears();
+      super.loadRecord(record);
+      // moz-select populates its options from slotted <moz-option> children
+      // asynchronously, so a value assigned synchronously above is discarded
+      // once the options are processed. Re-apply the selected values after the
+      // elements have finished updating.
+      this.#applySelectValues(record);
+      this.#updateSecurityCodeLabel();
+    }
+  }
+
+  async #applySelectValues(record) {
+    let selects = [
+      this._elements.month,
+      this._elements.year,
+      this._elements.billingAddress,
+    ];
+    await Promise.all(selects.map(select => select.updateComplete));
+    for (let select of selects) {
+      let value = record?.[select.id];
+      select.value = value == undefined ? "" : value.toString();
+    }
+  }
+
+  generateMonths() {
+    const count = 12;
+
+    // Clear the list
+    this._elements.month.textContent = "";
+
+    // Empty month option
+    let emptyOption = document.createElement("moz-option");
+    emptyOption.setAttribute("value", "");
+    emptyOption.setAttribute("label", "");
+    this._elements.month.appendChild(emptyOption);
+
+    // Populate month list. Format: "month number - month name"
+    let dateFormat = new Intl.DateTimeFormat(navigator.language, {
+      month: "long",
+    }).format;
+    for (let i = 0; i < count; i++) {
+      let monthNumber = (i + 1).toString();
+      let monthName = dateFormat(new Date(1970, i));
+      let option = document.createElement("moz-option");
+      option.setAttribute("value", monthNumber);
+      // XXX: Bug 1446164 - Localize this string.
+      option.setAttribute(
+        "label",
+        `${monthNumber.padStart(2, "0")} - ${monthName}`
+      );
+      this._elements.month.appendChild(option);
+    }
+  }
+
+  generateYears() {
+    const count = 20;
+    const currentYear = new Date().getFullYear();
+    const ccExpYear = this._record && this._record["cc-exp-year"];
+
+    // Clear the list
+    this._elements.year.textContent = "";
+
+    // Provide an empty year option
+    let emptyOption = document.createElement("moz-option");
+    emptyOption.setAttribute("value", "");
+    emptyOption.setAttribute("label", "");
+    this._elements.year.appendChild(emptyOption);
+
+    if (ccExpYear && ccExpYear < currentYear) {
+      let option = document.createElement("moz-option");
+      option.setAttribute("value", String(ccExpYear));
+      option.setAttribute("label", String(ccExpYear));
+      this._elements.year.appendChild(option);
+    }
+
+    for (let i = 0; i < count; i++) {
+      let year = currentYear + i;
+      let option = document.createElement("moz-option");
+      option.setAttribute("value", String(year));
+      option.setAttribute("label", String(year));
+      this._elements.year.appendChild(option);
+    }
+
+    if (ccExpYear && ccExpYear > currentYear + count) {
+      let option = document.createElement("moz-option");
+      option.setAttribute("value", String(ccExpYear));
+      option.setAttribute("label", String(ccExpYear));
+      this._elements.year.appendChild(option);
+    }
+  }
+
+  generateBillingAddressOptions(preserveFieldValues) {
+    let billingAddressGUID;
+    if (preserveFieldValues && this._elements.billingAddress.value) {
+      billingAddressGUID = this._elements.billingAddress.value;
+    } else if (this._record) {
+      billingAddressGUID = this._record.billingAddressGUID;
+    }
+
+    this._elements.billingAddress.textContent = "";
+
+    let emptyOption = document.createElement("moz-option");
+    emptyOption.setAttribute("value", "");
+    emptyOption.setAttribute("label", "");
+    this._elements.billingAddress.appendChild(emptyOption);
+
+    let hasAddresses = false;
+    for (let [guid, address] of Object.entries(this._addresses)) {
+      hasAddresses = true;
+      let option = document.createElement("moz-option");
+      option.setAttribute("value", guid);
+      option.setAttribute(
+        "label",
+        lazy.FormAutofillUtils.getAddressLabel(address)
+      );
+      this._elements.billingAddress.appendChild(option);
+    }
+
+    if (billingAddressGUID) {
+      this._elements.billingAddress.value = billingAddressGUID;
+    }
+
+    this._elements.billingAddressRow.hidden = !hasAddresses;
+  }
+
+  attachEventListeners() {
+    this._elements.form.addEventListener("change", this);
+    super.attachEventListeners();
+  }
+
+  handleInput(event) {
+    // Clear the error message if cc-number is valid
+    if (
+      event.target == this._elements.ccNumber &&
+      lazy.FormAutofillUtils.isCCNumber(this._elements.ccNumber.value)
+    ) {
+      let inputEl = this._elements.ccNumber.inputEl;
+      if (inputEl) {
+        inputEl.setCustomValidity("");
+      }
+    }
+    super.handleInput(event);
+    if (event.target == this._elements.ccNumber) {
+      this.#updateSecurityCodeLabel();
+    }
+  }
+
+  /**
+   * Sets required and pattern constraints on inner input elements so that
+   * native constraint validation works when validateForm() is called.
+   */
+  setupValidation() {
+    if (this._validationSetup) {
+      return;
+    }
+    this._validationSetup = true;
+
+    let ccEl = this._elements.ccNumber;
+    if (ccEl?.inputEl) {
+      ccEl.inputEl.required = true;
+      ccEl.inputEl.minLength = 14;
+      ccEl.inputEl.pattern = "[\\- 0-9]+";
+    }
+
+    for (let id of ["cc-exp-month", "cc-exp-year", "cc-name"]) {
+      let el = this._elements.form.querySelector(`#${id}`);
+      if (el?.inputEl) {
+        el.inputEl.required = true;
+      }
+    }
+  }
+
+  /**
+   * Validates each form field via its inner input element.
+   *
+   * @returns {boolean} True if all fields are valid.
+   */
+  validateForm() {
+    this.setupValidation();
+    let firstInvalidField = null;
+    for (let field of this._elements.form.elements) {
+      if (field.inputEl) {
+        const valid = field.inputEl.checkValidity();
+        field.toggleAttribute("invalid", !valid);
+        if (!valid && !firstInvalidField) {
+          firstInvalidField = field;
+        }
+      }
+    }
+    if (firstInvalidField) {
+      firstInvalidField.inputEl.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  updateCustomValidity(field) {
+    super.updateCustomValidity(field);
+
+    // Mark the cc-number field as invalid if the number is empty or invalid.
+    if (
+      field == this._elements.ccNumber &&
+      !lazy.FormAutofillUtils.isCCNumber(field.value)
+    ) {
+      let invalidCardNumberString =
+        this._elements.invalidCardNumberStringElement.textContent;
+      let inputEl = field.inputEl;
+      if (inputEl) {
+        inputEl.setCustomValidity(invalidCardNumberString || " ");
+      }
+    }
+  }
+}
+
+export class EditPassport extends EditAutofillForm {
+  /**
+   * @param {object} elements - must contain `form`.
+   * @param {object} record - a passport record (may be empty for "add").
+   */
+  constructor(elements, record) {
+    super(elements);
+
+    Object.assign(this._elements, {
+      country: this._elements.form.querySelector("#passport-country"),
+      issueMonth: this._elements.form.querySelector(
+        "#passport-issue-date-month"
+      ),
+      issueDay: this._elements.form.querySelector("#passport-issue-date-day"),
+      issueYear: this._elements.form.querySelector("#passport-issue-date-year"),
+      expiryMonth: this._elements.form.querySelector(
+        "#passport-expiry-date-month"
+      ),
+      expiryDay: this._elements.form.querySelector("#passport-expiry-date-day"),
+      expiryYear: this._elements.form.querySelector(
+        "#passport-expiry-date-year"
+      ),
+    });
+
+    this.attachEventListeners();
+    this.loadRecord(record);
+  }
+
+  loadRecord(record) {
+    this._record = record;
+    this.generateMonths(this._elements.issueMonth);
+    this.generateMonths(this._elements.expiryMonth);
+    this.generateDays(this._elements.issueDay);
+    this.generateDays(this._elements.expiryDay);
+    this.generateYears(
+      this._elements.issueYear,
+      this._record?.["passport-issue-date-year"]
+    );
+    this.generateYears(
+      this._elements.expiryYear,
+      this._record?.["passport-expiry-date-year"]
+    );
+    super.loadRecord(record);
+    // moz-select populates its options from slotted <moz-option> children
+    // asynchronously, so a value assigned synchronously above is discarded
+    // once the options are processed. Re-apply the selected values after the
+    // elements have finished updating.
+    this.#applySelectValues(record);
+  }
+
+  async #applySelectValues(record) {
+    let selects = [
+      this._elements.country,
+      this._elements.issueMonth,
+      this._elements.issueDay,
+      this._elements.issueYear,
+      this._elements.expiryMonth,
+      this._elements.expiryDay,
+      this._elements.expiryYear,
+    ];
+    await Promise.all(selects.map(select => select.updateComplete));
+    for (let select of selects) {
+      let value = record?.[select.id];
+      select.value = value == undefined ? "" : value.toString();
+    }
+  }
+
+  #createOption(value, label) {
+    let option = document.createElement("moz-option");
+    option.setAttribute("value", value);
+    option.setAttribute("label", label);
+    return option;
+  }
+
+  generateMonths(select) {
+    // Clear the list
+    select.textContent = "";
+
+    // Empty month option
+    select.appendChild(this.#createOption("", ""));
+
+    for (let i = 1; i <= 12; i++) {
+      select.appendChild(
+        this.#createOption(i.toString(), i.toString().padStart(2, "0"))
+      );
+    }
+  }
+
+  generateDays(select) {
+    // Clear the list
+    select.textContent = "";
+
+    // Empty day option
+    select.appendChild(this.#createOption("", ""));
+
+    for (let i = 1; i <= 31; i++) {
+      select.appendChild(
+        this.#createOption(i.toString(), i.toString().padStart(2, "0"))
+      );
+    }
+  }
+
+  generateYears(select, storedYear) {
+    const count = 20;
+    const currentYear = new Date().getFullYear();
+
+    // Clear the list
+    select.textContent = "";
+
+    // Provide an empty year option
+    select.appendChild(this.#createOption("", ""));
+
+    // Pin a stored year that falls before the range (e.g. very old issue date).
+    if (storedYear && storedYear < currentYear - count) {
+      select.appendChild(
+        this.#createOption(storedYear.toString(), storedYear.toString())
+      );
+    }
+
+    // Include past years (for issue dates) and future years (for expiry dates).
+    for (let year = currentYear - count; year <= currentYear + count; year++) {
+      select.appendChild(this.#createOption(year.toString(), year.toString()));
+    }
+
+    // Pin a stored year that falls after the range (e.g. far-future expiry).
+    if (storedYear && storedYear > currentYear + count) {
+      select.appendChild(
+        this.#createOption(storedYear.toString(), storedYear.toString())
+      );
+    }
+  }
+
+  attachEventListeners() {
+    this._elements.form.addEventListener("change", this);
+    super.attachEventListeners();
+  }
+
+  /**
+   * Sets the required constraint on the number field's inner input element so
+   * that native constraint validation works when validateForm() is called.
+   */
+  setupValidation() {
+    if (this._validationSetup) {
+      return;
+    }
+    this._validationSetup = true;
+
+    let numberEl = this._elements.form.querySelector("#passport-number");
+    if (numberEl?.inputEl) {
+      numberEl.inputEl.required = true;
+    }
+  }
+
+  /**
+   * Validates each form field via its inner input element.
+   *
+   * @returns {boolean} True if all fields are valid.
+   */
+  validateForm() {
+    this.setupValidation();
+    let firstInvalidField = null;
+    for (let field of this._elements.form.elements) {
+      if (field.inputEl) {
+        const valid = field.inputEl.checkValidity();
+        field.toggleAttribute("invalid", !valid);
+        if (!valid && !firstInvalidField) {
+          firstInvalidField = field;
+        }
+      }
+    }
+    if (firstInvalidField) {
+      firstInvalidField.inputEl.reportValidity();
+      return false;
+    }
+    return true;
+  }
+}

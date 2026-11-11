@@ -1,0 +1,69 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+input {
+  flex: 1;
+}
+
+hbox {
+  width: 100%;
+}
+
+#titleContainer {
+  padding-bottom: var(--space-xlarge);
+  --icon-url: url("chrome://browser/skin/preferences/category-search.svg");
+}
+
+.dialogRow {
+  & > label,
+  & > .error-label {
+    /* Align the labels with the `html|input`s */
+    margin-inline: var(--space-xsmall);
+  }
+}
+
+input[type="url"]:not(:placeholder-shown) {
+  /* Full URLs should always be displayed as LTR */
+  direction: ltr;
+  text-align: match-parent;
+}
+
+.dialogRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-label {
+  display: flex;
+  font-size: var(--font-size-small);
+  /* Reserve space for a line of text even while empty, so that the layout
+   * doesn't shift once an error message is added. */
+  min-block-size: var(--icon-size-small);
+  margin-top: var(--space-xxsmall);
+  margin-bottom: var(--space-medium);
+  align-items: center;
+  gap: var(--space-xsmall);
+  color: var(--text-color-error);
+
+  /* Use opacity rather than visibility to hide this: visibility:hidden
+   * elements get no accessible object at all, so revealing one is a fresh
+   * insertion into the a11y tree rather than a text change on an existing
+   * live region, and isn't reliably announced. Opacity keeps the
+   * role="alert" node (and its accessible) around the whole time. */
+  opacity: 0;
+  pointer-events: none;
+  input[aria-invalid="true"] + & {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &::before {
+    content: url("chrome://global/skin/icons/error.svg");
+    fill: var(--icon-color-critical);
+    -moz-context-properties: fill;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    display: flex;
+  }
+}

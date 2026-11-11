@@ -1,0 +1,911 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+#tracking-protection-icon-container,
+#identity-box,
+#trust-icon-container,
+#urlbar-label-box {
+  /* Use urlbar basic component size set in urlbar.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  height: var(--urlbar-basic-component-size);
+}
+
+#identity-box {
+  /* Use urlbar component gap set in urlbar.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  margin-inline-start: calc(-1 * var(--urlbar-component-gap));
+
+  > #identity-icon-box,
+  > #identity-permission-box,
+  > #notification-popup-box {
+    /* Use urlbar component gap set in urlbar.css */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    margin-inline-start: var(--urlbar-component-gap);
+  }
+
+  &[pageproxystate="invalid"] {
+    pointer-events: none;
+    -moz-user-focus: ignore;
+
+    #identity-icon-label {
+      display: none;
+    }
+
+    /* If the proxy state is invalid, but the urlbar is persisting search terms,
+       we still want the user to be able to interact with the permission box.
+       It will be visible. The identity-box wrapper itself stays out of the
+       tab order so keyboard users go straight to the next focusable element. */
+    #urlbar[persistsearchterms] & {
+      > #identity-permission-box {
+        pointer-events: auto;
+        -moz-user-focus: normal;
+      }
+
+      /* And don't show the identity icon box in this case,
+         just permissions indication */
+      > #identity-icon-box {
+        display: none;
+      }
+    }
+  }
+}
+
+#identity-box,
+#trust-icon-container,
+#tracking-protection-icon-container {
+  /* Set default fill for icons in the identity block.
+     Individual icons can override this. */
+  fill: currentColor;
+  fill-opacity: var(--urlbar-icon-fill-opacity);
+}
+
+#urlbar:not([persistsearchterms]) #identity-box[pageproxystate="invalid"] {
+  > #identity-permission-box,
+  > #notification-popup-box {
+    display: none;
+  }
+}
+
+@media -moz-pref("browser.urlbar.searchModeSwitcher.featureGate") or -moz-pref("browser.urlbar.scotchBonnet.enableOverride") {
+  #urlbar:not([persistsearchterms]) #identity-box[pageproxystate="invalid"] {
+    display: none;
+  }
+}
+
+.identity-box-button {
+  /* Use urlbar icon padding set in urlbar.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  padding-inline: var(--urlbar-icon-padding);
+  /* Use urlbar inner border radius set in urlbar/variables.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  border-radius: var(--urlbar-inner-border-radius);
+}
+
+.identity-box-button,
+#trust-icon-container,
+#tracking-protection-icon-container {
+  outline: var(--toolbarbutton-outline);
+  outline-offset: var(--toolbarbutton-outline-offset);
+
+  &:hover:not([open="true"]) {
+    background-color: var(--urlbar-box-background-color-hover);
+    color: var(--urlbar-box-text-color-hover);
+    outline-color: var(--toolbarbutton-outline-color-hover);
+  }
+
+  &:hover:active,
+  &[open="true"] {
+    background-color: var(--urlbar-box-background-color-active);
+    color: var(--urlbar-box-text-color-active);
+    outline-color: var(--toolbarbutton-outline-color-active);
+  }
+
+  &:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-inset);
+  }
+}
+
+#identity-icon-label {
+  /* Prefer pixels to space tokens in platform styles */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  padding-inline-start: 4px;
+  margin: 0;
+}
+
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button,
+#urlbar-label-box {
+  background-color: var(--urlbar-box-background-color);
+  color: var(--urlbar-box-text-color);
+  /* Prefer pixels to space tokens in platform styles */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  padding-inline: 8px;
+  /* Use urlbar inner border radius set in urlbar/variables.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  border-radius: var(--urlbar-inner-border-radius);
+}
+
+#urlbar[focused] {
+  #identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button:not(:hover, [open]),
+  #urlbar-label-box {
+    background-color: var(--urlbar-box-background-color-focus);
+  }
+}
+
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button {
+  &:hover:not([open]) {
+    background-color: var(--urlbar-box-background-color-hover);
+    color: var(--urlbar-box-text-color-hover);
+  }
+
+  &:is(:hover:active, [open]) {
+    background-color: var(--urlbar-box-background-color-active);
+    color: var(--urlbar-box-text-color-active);
+  }
+}
+
+#urlbar[searchmode]:not([focused]) > .urlbar-input-container {
+  > #urlbar-label-box,
+  > #urlbar-search-mode-indicator {
+    pointer-events: none;
+  }
+
+  > #urlbar-search-mode-indicator > #urlbar-search-mode-indicator-close {
+    pointer-events: initial;
+  }
+}
+
+.urlbar-label {
+  margin: 0;
+}
+
+.sharing-icon,
+#identity-icon,
+#permissions-granted-icon,
+#tracking-protection-icon,
+.notification-anchor-icon,
+#blocked-permissions-container > .blocked-permission-icon {
+  -moz-context-properties: fill, fill-opacity;
+}
+
+.sharing-icon,
+#identity-icon,
+#permissions-granted-icon,
+#tracking-protection-icon,
+#trust-icon,
+#blocked-permissions-container > .blocked-permission-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+.sharing-icon,
+#identity-icon,
+#tracking-protection-icon,
+#blocked-permissions-container > .blocked-permission-icon {
+  /* Prefer pixels to space tokens in platform styles */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  margin-inline-start: 4px;
+}
+
+#tracking-protection-icon {
+  margin-inline-start: 0;
+}
+
+/* MAIN IDENTITY ICON */
+#identity-icon {
+  margin-inline-start: 0;
+  list-style-image: url(chrome://global/skin/icons/info.svg);
+}
+
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+  list-style-image: url(chrome://branding/content/icon16.png);
+}
+@media (min-resolution: 1.1dppx) {
+  #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+    list-style-image: url(chrome://branding/content/icon32.png);
+  }
+}
+
+#identity-box[pageproxystate="valid"].localResource #identity-icon {
+  list-style-image: url(chrome://global/skin/icons/page-portrait.svg);
+}
+
+#identity-box[pageproxystate="invalid"] {
+  .identity-box-button {
+    outline: none;
+  }
+
+  #identity-icon {
+    list-style-image: url(chrome://global/skin/icons/search-glass.svg);
+  }
+}
+
+#urlbar[actiontype="extension"] > .urlbar-input-container > #identity-box #identity-icon {
+  list-style-image: url(chrome://mozapps/skin/extensions/extension.svg);
+}
+
+#identity-box[pageproxystate="valid"].extensionPage #identity-icon {
+  list-style-image: url(chrome://mozapps/skin/extensions/extension.svg);
+}
+
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security.svg);
+}
+
+#identity-box[pageproxystate="valid"].weakCipher #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon,
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon,
+#identity-box[pageproxystate="valid"].certErrorPage #identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security-warning.svg);
+  fill: unset;
+}
+
+#identity-box[pageproxystate="valid"].notSecure #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
+#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security-broken.svg);
+}
+
+#permissions-granted-icon {
+  list-style-image: url(chrome://browser/skin/permissions.svg);
+}
+
+#identity-permission-box {
+  display: none;
+}
+
+#identity-permission-box[open="true"],
+#identity-permission-box[hasPermissions],
+#identity-permission-box[hasSharingIcon] {
+  display: flex;
+}
+
+/* SHARING ICON */
+#webrtc-sharing-icon[sharing="camera"] {
+  list-style-image: url("chrome://browser/skin/notification-icons/camera.svg");
+}
+
+#webrtc-sharing-icon[sharing="microphone"] {
+  list-style-image: url("chrome://browser/skin/notification-icons/microphone.svg");
+}
+
+#webrtc-sharing-icon[sharing="screen"] {
+  list-style-image: url("chrome://browser/skin/notification-icons/screen.svg");
+}
+
+#geo-sharing-icon[sharing] {
+  list-style-image: url("chrome://browser/skin/notification-icons/geo.svg");
+  -moz-context-properties: fill;
+  fill: var(--icon-color-critical);
+}
+
+#serial-sharing-icon[sharing] {
+  list-style-image: url("chrome://browser/skin/notification-icons/serial.svg");
+  -moz-context-properties: fill;
+  fill: var(--icon-color-critical);
+}
+
+.sharing-icon:not([sharing]) {
+  display: none;
+}
+
+#webrtc-sharing-icon[sharing]:not([paused]) {
+  -moz-context-properties: fill;
+  fill: var(--icon-color-critical);
+}
+
+/* TRACKING PROTECTION ICON */
+
+#tracking-protection-icon-container {
+  /* Use urlbar icon padding set in urlbar.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  padding-inline: var(--urlbar-icon-padding);
+  /* Use urlbar inner border radius set in urlbar/variables.css */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+  border-radius: var(--urlbar-inner-border-radius);
+  /* This is needed in order to position the blue dot indicator. */
+  position: relative;
+}
+
+.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container.chromeUI {
+  display: none;
+}
+
+#tracking-protection-icon-box {
+  overflow: hidden;
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+#tracking-protection-icon-tooltip {
+  max-width: var(--size-layout-xlarge);
+}
+
+.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
+  list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+
+  &[active] {
+    list-style-image: url(chrome://browser/skin/tracking-protection-active.svg);
+  }
+
+  &[hasException] {
+    list-style-image: url(chrome://browser/skin/tracking-protection-disabled.svg);
+  }
+}
+
+.urlbar-input-container[pageproxystate="invalid"] > #tracking-protection-icon-container,
+#trust-icon-container {
+  display: none;
+}
+
+@media -moz-pref("browser.urlbar.trustPanel.featureGate") {
+  #urlbar {
+    /* The *tracker-count* animations trigger reflows, but those shouldn't affect
+     * elements outside the URL bar.
+     */
+    contain: layout;
+  }
+
+  #tracking-protection-icon-container {
+    display: none;
+  }
+
+  /* Keep displaying the moz-extension or chrome UI chicklet */
+  #identity-box[pageproxystate="valid"]:not(.chromeUI, .extensionPage) > #identity-icon-box {
+    display: none;
+  }
+
+  #trust-icon-container {
+    --tracker-count-duration: 110ms;
+    --tracker-count-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Use urlbar icon padding set in urlbar.css */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    padding-inline: var(--urlbar-icon-padding);
+    /* Use urlbar inner border radius set in urlbar/variables.css */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    border-radius: var(--urlbar-inner-border-radius);
+    -moz-context-properties: fill, fill-opacity, stroke;
+
+    /* The urlbar will show insecure or secure icon by default depending
+       on the state of the connection, the further clauses may override that. */
+    &:where(.insecure) {
+      list-style-image: url(chrome://browser/skin/trust-icon-insecure.svg);
+      background-color: var(--urlbar-box-background-color);
+      color: var(--urlbar-box-text-color);
+      stroke: var(--icon-color-critical);
+    }
+
+    &.secure {
+      list-style-image: url(chrome://browser/skin/trust-icon-active.svg);
+    }
+
+    /* Shield shown during the blocker check. Sets no color so it inherits the
+       same fill as .secure. */
+    &.scanning {
+      list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+    }
+
+    &.has-blocked-trackers {
+      /* The tracker count below takes the box text color; a color here would recolor the shield. */
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/use-paired-color-tokens */
+      background-color: var(--urlbar-box-background-color);
+
+      /* Only the count text takes the box color, so the shield keeps its fill. */
+      #trust-icon-tracker-count-longform,
+      #trust-icon-tracker-count-shortform {
+        color: var(--urlbar-box-text-color);
+      }
+
+      #trust-icon-tracker-count-shortform {
+        margin-inline-start: var(--space-xxsmall);
+      }
+    }
+
+    /* Tighter padding for the collapsed count; the expanded pill keeps normal. */
+    &.has-blocked-trackers:not(.entry-page) {
+      padding-inline-end: var(--space-xsmall);
+    }
+
+    &:not(.has-blocked-trackers) {
+      #trust-icon-tracker-count-longform-wrapper,
+      #trust-icon-tracker-count-shortform-wrapper {
+        display: none;
+      }
+    }
+
+    /* Set by browser-trustPanel.js when switching from a tab with a tracker
+       count to one without, to shrink the previous tab's pill to the shield. */
+    &[tracker-count-tab-switch]:not(.has-blocked-trackers, .breached, .insecure) {
+      --tracker-count-shrink-background: var(--urlbar-box-background-color);
+
+      &:hover:not([open="true"]) {
+        --tracker-count-shrink-background: var(--urlbar-box-background-color-hover);
+      }
+
+      &:hover:active,
+      &[open="true"] {
+        --tracker-count-shrink-background: var(--urlbar-box-background-color-active);
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: tracker-count-tab-switch-shrink var(--tracker-count-duration) var(--tracker-count-easing);
+        box-sizing: border-box;
+        overflow: clip;
+      }
+    }
+    /*
+     * We use nesting to group three different cases:
+     * - small screens/reduced motion (only show shortform tracker count)
+     * - first-visited page on a site (first a longform "x trackers blocked" pill visible, before collapsing to just a number)
+     * - subsequent visits to the same site (just a pill with a number)
+     *
+     * Add to that that we need a wrapper to animate the width, and nesting quickly exceeds the default limit of 3.
+     * Since collapsing it wouldn't increase readability, we disable the lint rule here.
+     */
+    /* stylelint-disable max-nesting-depth */
+    &.has-blocked-trackers:not(.breached, .insecure) {
+      /* On smaller screens, we don't have enough space to show both the URL and the tracker count.
+         Prioritise the URL to avoid phishing and other attacks.
+      */
+      @media (width < 800px) {
+        #trust-icon-tracker-count-longform-wrapper {
+          /* Only show the shortform version on small screens. Note that we
+             can't use `display: none` on the longform version, because that
+             would restart the animation if the window width grows again.
+             Accessibility-wise, both versions are already superseded by the
+             aria-label of the containing #trust-icon-container anyway.
+           */
+          max-width: 0;
+          overflow: hidden;
+          box-sizing: border-box;
+          /* Also zero the padding so max-width: 0 can reach a true 0 width;
+             otherwise the leading digit shows as a sliver through the padding
+             band. !important is required because the .entry-page intro
+             animation holds the padding, and animations outrank normal
+             declarations in the cascade. */
+          padding: 0 !important;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #trust-icon-tracker-count-longform-wrapper {
+          display: none;
+        }
+      }
+      /*
+       * When clicking through a site (i.e. beyond its entry page), we just show
+       * the number of blocked trackers (i.e. the short form)
+       */
+      &:not(.entry-page) {
+        #trust-icon-tracker-count-longform-wrapper {
+          display: none;
+        }
+
+        #trust-icon-tracker-count-shortform-wrapper {
+          animation-name: show-shortform-tracker-count;
+          animation-duration: var(--tracker-count-duration);
+          animation-timing-function: var(--tracker-count-easing);
+          animation-fill-mode: forwards;
+          display: grid;
+          grid-template-columns: 0fr;
+          overflow: hidden;
+          white-space: nowrap;
+
+          #trust-icon-tracker-count-shortform {
+            min-width: 0;
+          }
+        }
+
+        /* Set by browser-trustPanel.js when switching tabs, to resize from the
+           previous tab's width while the count fades in. */
+        &[tracker-count-tab-switch] {
+          @media (prefers-reduced-motion: no-preference) {
+            animation: tracker-count-tab-switch-resize var(--tracker-count-duration) var(--tracker-count-easing);
+            box-sizing: border-box;
+            overflow: clip;
+
+            /* Keeps show-shortform-tracker-count in the list, so that it
+               doesn't restart once the attribute is removed. */
+            #trust-icon-tracker-count-shortform-wrapper {
+              animation-name: show-shortform-tracker-count, fade-in-tracker-count-tab-switch;
+            }
+          }
+        }
+      }
+      /* On a site's entry page, we first show "x trackers blocked" (the long form) for a few seconds,
+         after which it crossfades into just the number of blocked trackers (the short form) */
+      &.entry-page {
+        @media (prefers-reduced-motion: no-preference) {
+          --initial-delay: 1000ms;
+          --longform-presence: 20s;
+          --shield-scale-down-duration: 60ms;
+          --shield-scale-up-duration: 260ms;
+
+          #trust-icon {
+            animation-name: scale-secure-shield-down, scale-secure-shield-up;
+            animation-duration: var(--shield-scale-down-duration), var(--shield-scale-up-duration);
+            animation-delay: var(--initial-delay), calc(var(--initial-delay) + var(--shield-scale-down-duration));
+            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1), cubic-bezier(0.25, 1.08, 0.42, 1);
+            animation-fill-mode: none, forwards;
+            animation-play-state: paused;
+          }
+
+          #urlbar:focus-within & {
+            /* Don't play the "x trackers blocked" animation while the address bar is focused,
+               to prevent URL bar contents from moving out from under the user's cursor.
+             */
+            #trust-icon,
+            #trust-icon-tracker-count-longform-wrapper,
+            #trust-icon-tracker-count-shortform-wrapper {
+              animation-play-state: paused;
+            }
+          }
+
+          #trust-icon-tracker-count-longform-wrapper {
+            animation-name: show-longform-tracker-count, hide-longform-tracker-count;
+            animation-delay:
+              calc(var(--initial-delay) + var(--shield-scale-down-duration) + var(--shield-scale-up-duration)),
+              calc(var(--initial-delay) + var(--shield-scale-down-duration) + var(--shield-scale-up-duration) + var(--longform-presence));
+            animation-duration: var(--tracker-count-duration);
+            animation-timing-function: var(--tracker-count-easing);
+            animation-fill-mode: both, forwards;
+            animation-play-state: paused;
+            min-width: 0;
+            /* Because we can't animate to width: auto, we wrap it in a single-cell grid
+              whose column width in `fr` units we *can* animate. See
+              https://chriscoyier.net/2022/12/21/things-css-could-still-use-heading-into-2023/#animate-to-auto
+              (Unfortunately, while this does still trigger a reflow, using a transform
+              would distort the text contents, which we don't want.)
+            */
+            display: grid;
+            overflow: hidden;
+            white-space: nowrap;
+
+            #trust-icon-tracker-count-longform {
+              margin: 0;
+              min-width: 0;
+            }
+          }
+          #trust-icon-tracker-count-shortform-wrapper {
+            /* Starts with hide-longform-tracker-count, so that the pill shrinks
+               straight to the short form instead of to the shield first. */
+            animation-name: show-shortform-tracker-count;
+            animation-delay: calc(var(--initial-delay) + var(--shield-scale-down-duration) + var(--shield-scale-up-duration) + var(--longform-presence));
+            animation-duration: var(--tracker-count-duration);
+            animation-timing-function: var(--tracker-count-easing);
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+            display: grid;
+            min-width: 0;
+            overflow: hidden;
+            padding-block: var(--space-xxsmall);
+            padding-inline: var(--space-xsmall);
+            white-space: nowrap;
+
+            #trust-icon-tracker-count-shortform {
+              margin: 0;
+              min-width: 0;
+            }
+          }
+
+          @media (width >= 800px) {
+            #trust-icon {
+              animation-play-state: running;
+              animation-fill-mode: none, both;
+            }
+
+            #trust-icon-tracker-count-longform-wrapper,
+            #trust-icon-tracker-count-shortform-wrapper {
+              animation-play-state: running;
+            }
+
+            /* Match the `from` keyframe of show-shortform-tracker-count so the
+               element starts fully hidden while the longform sequence plays. */
+            #trust-icon-tracker-count-shortform-wrapper {
+              grid-template-columns: 0fr;
+              opacity: 0;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+    /* stylelint-enable max-nesting-depth */
+
+    &.breached {
+      /* position: relative is set on the container so that the absolutely-positioned
+        ::before and ::after pseudo-elements are anchored to it */
+      position: relative;
+      color: var(--icon-color-warning);
+      list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        /* this size doesn't quite match any icon size tokens */
+        /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+        width: 22px;
+        /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+        height: 22px;
+        transform: translate(-50%, -50%) scale(1);
+        background: var(--background-color-warning);
+        border-radius: var(--border-radius-circle);
+        z-index: 0;
+        pointer-events: none;
+        transform-origin: center;
+        opacity: 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: var(--icon-size);
+        height: var(--icon-size);
+        transform: translate(-50%, -50%);
+        background-image: url(chrome://browser/skin/trust-icon-warning.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 1;
+        /* Remove background after pulse */
+        background-color: transparent;
+      }
+
+      > #trust-icon {
+        /* position: relative is required for z-index to take effect on this element. */
+        position: relative;
+        z-index: 1;
+        border-radius: var(--border-radius-circle);
+        opacity: 0;
+      }
+    }
+
+    &.breach-animating {
+      &::before {
+        animation: trust-icon-breach-pulse 1200ms ease-in-out 0s 1 forwards;
+      }
+
+      &::after {
+        opacity: 0;
+        animation:
+          trust-icon-breach-icon-appear 1200ms linear 0s 1 forwards,
+          trust-icon-breach-icon-pulse 1200ms ease-in-out 0s 1 forwards;
+      }
+
+      > #trust-icon {
+        opacity: 1;
+        animation: trust-icon-breach-image-hide 1200ms linear 0s 1 forwards;
+      }
+    }
+
+    &.inactive:not(.insecure) {
+      list-style-image: url(chrome://browser/skin/trust-icon-disabled.svg);
+    }
+
+    &.warning {
+      list-style-image: url(chrome://browser/skin/trust-icon-warning.svg);
+    }
+
+    &.file {
+      list-style-image: url(chrome://global/skin/icons/page-portrait.svg);
+    }
+
+    .urlbar-input-container[pageproxystate="valid"] > &:not(.chickletShown) {
+      display: inline-flex;
+    }
+  }
+
+  #trust-icon-container:not(.insecure) > #trust-label {
+    display: none;
+  }
+
+  #trust-icon-container.insecure,
+  #trust-icon-container.breached {
+    #trust-icon-tracker-count-longform-wrapper,
+    #trust-icon-tracker-count-shortform-wrapper {
+      display: none;
+    }
+  }
+}
+
+@keyframes scale-secure-shield-down {
+  from {
+    scale: 1;
+    list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+  }
+
+  to {
+    scale: 0.75;
+    list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+  }
+}
+
+@keyframes scale-secure-shield-up {
+  from {
+    scale: 0.75;
+    list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+  }
+
+  99% {
+    scale: 1;
+    list-style-image: url(chrome://browser/skin/tracking-protection.svg);
+  }
+
+  to {
+    list-style-image: url(chrome://browser/skin/trust-icon-active.svg);
+  }
+}
+
+/*
+ * Tracker count animation choreography (only shown with more than 0 blocked trackers):
+ *
+ * - Longform tracker count expands in
+ * - Longform tracker count stays visible for a short period of time
+ * - Longform tracker count collapses to width 0 while the shortform tracker
+ *   count expands in, so the pill's width changes in a single direction
+ * - Shortform tracker count remains visble until next navigation
+ *
+ * Beyond a site's entry page, the shortform tracker count just expands in. When
+ * switching tabs, the pill also resizes from its width in the previous tab, or
+ * shrinks to the shield and fades out if the selected tab has no count.
+ *
+ * Because we can't animate to width: auto, we wrap it in a single-cell grid
+ * whose column width in `fr` units we *can* animate. See
+ * https://chriscoyier.net/2022/12/21/things-css-could-still-use-heading-into-2023/#animate-to-auto
+ * (Unfortunately, while this does still trigger a reflow, using a transform
+ * would distort the text contents, which we don't want.)
+ */
+@keyframes show-longform-tracker-count {
+  from {
+    grid-template-columns: 0fr;
+    padding: 0;
+  }
+
+  to {
+    grid-template-columns: 1fr;
+    padding-block: var(--space-xxsmall);
+    padding-inline: var(--space-xsmall);
+  }
+}
+
+@keyframes hide-longform-tracker-count {
+  from {
+    grid-template-columns: 1fr;
+    opacity: 1;
+    padding-block: var(--space-xxsmall);
+    padding-inline: var(--space-xsmall);
+  }
+
+  to {
+    grid-template-columns: 0fr;
+    opacity: 0;
+    padding: 0;
+  }
+}
+
+@keyframes show-shortform-tracker-count {
+  from {
+    grid-template-columns: 0fr;
+    opacity: 0;
+    padding: 0;
+  }
+
+  to {
+    grid-template-columns: 1fr;
+    opacity: 1;
+    padding-block: var(--space-xxsmall);
+    padding-inline: var(--space-xsmall);
+  }
+}
+
+@keyframes tracker-count-tab-switch-resize {
+  from {
+    /* This width is set dynamically in JS */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    width: var(--tracker-count-from-width);
+  }
+
+  to {
+    /* This width is set dynamically in JS */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    width: var(--tracker-count-to-width);
+  }
+}
+
+@keyframes tracker-count-tab-switch-shrink {
+  from {
+    /* This width is set dynamically in JS */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    width: var(--tracker-count-from-width);
+    background-color: var(--tracker-count-shrink-background);
+  }
+
+  to {
+    /* This width is set dynamically in JS */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/use-design-tokens */
+    width: var(--tracker-count-to-width);
+  }
+}
+
+/* Restarts on every tab switch, unlike show-shortform-tracker-count, which
+   only plays when the count first appears. */
+@keyframes fade-in-tracker-count-tab-switch {
+  from {
+    opacity: 0;
+  }
+}
+
+/*
+ * Breach animation choreography (all animations run simultaneously for 1200ms):
+ *
+ * ::before  — warning circle background: pulses outward then fades away
+ * ::after   — warning icon: fades in and pulses in place (stays visible)
+ * #trust-icon — original icon: fades out to reveal the warning icon above it
+ *
+ * z-index layering: ::before (0) < #trust-icon (1) < ::after (2)
+ */
+
+/* The warning circle background: starts visible, scales outward, then fades out. */
+@keyframes trust-icon-breach-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* The warning icon: fades in over the full duration. */
+@keyframes trust-icon-breach-icon-appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* The warning icon: pulses slightly in scale while remaining visible. */
+@keyframes trust-icon-breach-icon-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* The original icon: fades out so the warning icon (::after) becomes visible. */
+@keyframes trust-icon-breach-image-hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

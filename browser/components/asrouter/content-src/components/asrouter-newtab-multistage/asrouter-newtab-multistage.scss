@@ -1,0 +1,158 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import '../../styles/multistage';
+
+$split-screen-min-height: 280px;
+
+// Suppress fullscreen sizing when rendered inline in about:newtab.
+.onboardingContainer {
+  height: 100%;
+
+  .screen[pos='center'] {
+    background-color: unset;
+    overflow: unset;
+  }
+
+  .screen[pos='split'] {
+    &:where(:not([fullscreen])) {
+      margin: auto;
+      min-height: $split-screen-min-height; /* stylelint-disable-line stylelint-plugin-mozilla/use-design-tokens */
+
+      &::before {
+        height: 100%;
+      }
+    }
+
+    .section-secondary,
+    .section-main {
+      height: 100%;
+      min-height: $split-screen-min-height; /* stylelint-disable-line stylelint-plugin-mozilla/use-design-tokens */
+    }
+  }
+}
+
+// Override screen_style inline sizing so the component flows naturally
+// within the page layout.
+.section-main {
+  display: flex;
+  flex: 1;
+  margin: unset !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.section-secondary {
+  flex: 1;
+}
+
+.multistage-newtab-wrapper {
+  position: relative;
+  max-width: 904px; /* stylelint-disable-line stylelint-plugin-mozilla/use-design-tokens */
+  min-width: var(--size-layout-large);
+  margin-inline: auto;
+
+  // The card stack should be as wide as the rest of the New Tab content
+  // (such as the search bar), so it stays in sync across breakpoints
+  &:has(.screen[pos='card-stack']) {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  // Both classes come from MultistageWithDismiss, which only sets them when
+  // the message opted into transitions. The entrance is excluded while either
+  // exit runs, so the three never depend on source order to resolve.
+  &.card-stack-animated:not(.card-stack-exiting)
+  .onboardingContainer:not(.transition-out)
+  .screen[pos='card-stack'] {
+    // The whole stack rises into place when the message first appears.
+    &[initial-card] {
+      .card-stack-front,
+      .section-secondary,
+      .section-main {
+        animation: card-stack-enter var(--card-stack-duration) ease-out;
+      }
+
+      .card-stack-layer-1 {
+        animation: card-stack-layer-1 var(--card-stack-duration) ease-out reverse;
+      }
+
+      .card-stack-layer-2 {
+        animation: card-stack-layer-2 var(--card-stack-duration) ease-out reverse;
+      }
+    }
+
+    // Later screens find the stack already in place from the previous exit,
+    // so only their content fades in.
+    &:not([initial-card]) {
+      .section-secondary,
+      .section-main {
+        animation: card-stack-content-enter var(--card-stack-content-duration) ease-out;
+      }
+    }
+  }
+
+  // Dismissing tears the message down rather than advancing it, so there is
+  // no transition-out class to hook, and the whole stack leaves together.
+  &.card-stack-exiting .screen[pos='card-stack'] {
+    animation: card-stack-exit var(--card-stack-duration) var(--card-stack-exit-easing) forwards;
+
+    // The final card fades in place, so it doesn't move against the newtab
+    // content sliding up to take its place.
+    &:not(:has(.card-stack-layer-1)) {
+      animation-name: card-stack-fade-out;
+    }
+  }
+
+  > moz-button {
+    position: absolute;
+    inset-block-start: var(--space-medium);
+    inset-inline-end: var(--space-medium);
+    z-index: 999;
+  }
+
+  @media (-moz-pref('browser.nova.enabled')) {
+    .onboardingContainer {
+      // The embedded surface focuses the screen container
+      // (role="alertdialog") for screen-reader announcement. Since it isn't a
+      // modal here, suppress the resulting focus ring around the whole card;
+      .screen:focus {
+        outline: none;
+      }
+
+      .main-content {
+        background-color: var(--background-color-box);
+      }
+
+      // Frame the card like the other New Tab message surfaces
+      // (asrouter-newtab-message)
+      .screen[pos='center'] .main-content {
+        border: 2px solid var(--card-border-color);
+        box-shadow: none;
+      }
+
+      .screen[pos='split']:where(:not([fullscreen], .zap-border, .zap-shadow)) {
+        border: 2px solid var(--card-border-color);
+        // Match the inner split components' corner radius.
+        border-radius: var(--border-radius-xlarge, var(--border-radius-medium));
+        overflow: hidden;
+
+        &::before {
+          box-shadow: none;
+        }
+
+        .section-secondary {
+          background-color: var(--background-color-box-info);
+          border-radius: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= 800px) {
+  .multistage-newtab-wrapper {
+    height: unset !important; /* stylelint-disable-line declaration-no-important */
+  }
+}

@@ -1,0 +1,29 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, you can obtain one at http://mozilla.org/MPL/2.0/.
+
+Library("xretest")
+
+UNIFIED_SOURCES = [
+    "TestCheckCompatibility.cpp",
+    "TestCmdLineAndEnvUtils.cpp",
+    "TestCompatVersionCompare.cpp",
+    "TestGeckoArgs.cpp",
+]
+
+LOCAL_INCLUDES += [
+    "/toolkit/components/jsoncpp/include",
+    "/toolkit/components/remote",
+]
+
+if CONFIG["OS_TARGET"] == "WINNT":
+    UNIFIED_SOURCES += [
+        "TestAssembleCommandLineWin.cpp",
+    ]
+
+if CONFIG["MOZ_BLOCK_PROFILE_DOWNGRADE"]:
+    UNIFIED_SOURCES += [
+        "TestDowngradePing.cpp",
+    ]
+
+FINAL_LIBRARY = "xul-gtest"

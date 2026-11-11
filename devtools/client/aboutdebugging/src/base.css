@@ -1,0 +1,177 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --box-background: light-dark(#fff, rgb(35 34 43));
+
+  --category-background-hover: rgb(12 12 13 / 0.1);
+  --category-text: light-dark(rgb(12 12 13), var(--text-color));
+  --category-text-selected: var(--button-background-color-primary);
+
+  --fieldpair-text-color: light-dark(var(--grey-50), var(--text-color));
+
+  --sidebar-text-color: light-dark(var(--category-text), var(--text-color));
+  --sidebar-selected-color: var(--category-text-selected);
+  --sidebar-background-hover: light-dark(var(--category-background-hover), rgb(92 92 106));
+
+  --card-separator-color: light-dark(var(--grey-20), var(--grey-50));
+
+  /* Dimensions from common.css #categories > .category */
+  /* TODO: Values are not based on photon's 4px base distance, see bug 1501638 */
+  --category-height: var(--size-item-xlarge);
+  --category-padding: 10px;
+  --category-transition-duration: 150ms;
+
+  --icon-ok-color: light-dark(var(--green-70), var(--white-100));
+  --icon-info-color: light-dark(var(--grey-90), var(--white-100));
+
+  /* Colors from Photon */
+  --grey-20: #ededf0; /* for ui, no special semantic */
+  --grey-50: #737373; /* for ui, no special semantic */
+  --grey-90: #0c0c0d; /* for ui, no special semantic */
+  --white-100: #fff; /* for ui, no special semantic */
+
+  /* Typography from Photon */
+  /* See https://firefox-dev.tools/photon/visuals/typography.html */
+  --body-10-font-size: 13px;
+  --body-10-font-weight: normal;
+  --body-20-font-size: 15px;
+  --body-20-font-weight: normal;
+  --body-20-font-weight-bold: var(--font-weight-bold);
+  --caption-10-font-size: 11px;
+  --caption-10-font-weight: normal;
+  --caption-20-font-size: 13px;
+  --caption-20-font-weight: normal;
+
+  /* Global layout vars */
+  --base-unit: 4px;
+
+  /* Global styles */
+  --icon-label-font-size: var(--body-10-font-size);
+  --message-font-size: var(--body-10-font-size);
+  --monospace-font-family: monospace;
+
+  /*
+   * Variables particular to about:debugging
+   */
+  --main-heading-icon-size: calc(var(--base-unit) * 17); /* 4px * 17 = 68px */
+  --main-heading-icon-gap: calc(var(--base-unit) * 3);
+  --main-subheading-icon-size: calc(var(--base-unit) * 4);
+  --main-subheading-heading-icon-gap: calc(var(--base-unit) * 2);
+}
+
+/*
+* Reset some tags
+*/
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/*
+* Utils
+*/
+
+/* text that needs to be cut with … */
+.ellipsis-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Technical text that should use a monospace font, such as code, error messages. */
+.technical-text {
+  font-family: var(--monospace-font-family);
+}
+
+/* Links that need to look like current text */
+.undecorated-link,
+.undecorated-link:is(:hover, :visited) {
+  text-decoration: none;
+  color: currentColor;
+}
+
+/* Text needs to wrap anywhere */
+.word-wrap-anywhere {
+  word-wrap: anywhere;
+}
+
+/*
+* Typography
+*/
+
+/* Main style for heading (i.e. h1) */
+.main-heading {
+  margin-block-end: 1em;
+}
+
+.main-heading__icon {
+  width: 100%;
+}
+
+/* Borrow style from about:addons */
+h2 {
+  font-size: var(--font-size-large);
+}
+
+/* Main style for a subheading (i.e. h2). It features an icon */
+/* +--------+-------------+
+*  | [Icon] | Lorem ipsum |
+*  +--------+-------------+
+*/
+.main-subheading {
+  margin-block: calc(var(--base-unit) * 4) 0;
+
+  display: grid;
+  grid-template-columns: var(--main-subheading-icon-size) 1fr;
+  grid-column-gap: var(--main-subheading-heading-icon-gap);
+  align-items: center;
+}
+
+.main-subheading__icon {
+  width: 100%;
+  fill: currentColor;
+  -moz-context-properties: fill;
+}
+
+/* Alternative style for a heading (i.e. h1) */
+.alt-heading {
+  margin-block-start: 0;
+  margin-block-end: calc(var(--base-unit) * 4);
+}
+
+/*
+* Layout elements
+*/
+
+/* for horizontal rules / separators */
+.separator {
+  border-style: solid none none none;
+  border-color: var(--border-color);
+}
+
+/* adds breathing space to the separator */
+.separator--breathe {
+  margin: var(--base-unit);
+}
+
+/* a series of button-like elements, layed out horizontally */
+.toolbar {
+  display: flex;
+  column-gap: calc(var(--base-unit) * 3);
+}
+
+.toolbar--right-align {
+  justify-content: end;
+}

@@ -1,0 +1,57 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef MacOSNotificationCenter_h
+#define MacOSNotificationCenter_h
+
+#import <Foundation/Foundation.h>
+#include "mozilla/RefPtr.h"
+#include "mozilla/TimeStamp.h"
+#include "nsIAlertsService.h"
+#include "nsTArray.h"
+
+// mozNotificationCenterDelegate is used to access the macOS notification
+// center. It is not related to the DesktopNotificationCenter object, which was
+// removed in bug 952453. While there are no direct references to this class
+// elsewhere, removing this will cause push notifications on macOS to stop
+// working.
+@class mozNotificationCenterDelegate;
+
+namespace mozilla {
+
+class MacOSNotificationInfo;
+
+class MacOSNotificationCenter : public nsIAlertsService,
+                                public nsIAlertsDoNotDisturb {
+ public:
+  NS_DECL_ISUPPORTS
+  NS_DECL_NSIALERTSSERVICE
+  NS_DECL_NSIALERTSDONOTDISTURB
+
+  MacOSNotificationCenter();
+
+  nsresult Init();
+  void CloseAlertCocoaString(NSString* aAlertName);
+  void OnActivate(NSString* aAlertName,
+                  NSUserNotificationActivationType aActivationType,
+                  NSUserNotificationAction* aAdditionalActivationAction);
+  void OnApplicationDidBecomeActive();
+
+ protected:
+  virtual ~MacOSNotificationCenter();
+
+  nsIAlertCallbacks::ApplicationState GetApplicationState() const;
+
+ private:
+  mozNotificationCenterDelegate* mDelegate;
+  nsTArray<RefPtr<MacOSNotificationInfo> > mActiveAlerts;
+  // The last time the application became active, used to determine whether
+  // the application was activated by a notification click.
+  TimeStamp mLastApplicationActivation;
+  bool mSuppressForScreenSharing;
+};
+
+}  // namespace mozilla
+
+#endif  // MacOSNotificationCenter_h

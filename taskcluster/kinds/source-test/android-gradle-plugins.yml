@@ -1,0 +1,92 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    use-gradle-cache: true
+    attributes:
+        build_platform: android
+        build_type: opt
+        code-review: true
+    platform:
+        - linux2404-64/opt
+    treeherder:
+        kind: test
+        tier: 2
+    worker-type: t-linux-docker
+    worker:
+        docker-image: {in-tree: android-build}
+        max-run-time: 1800
+    fetches:
+        toolchain:
+            - linux64-android-gradle-dependencies
+            - linux64-android-sdk-linux-repack
+            - linux64-jdk-repack
+            - linux64-embedded-uniffi-bindgen
+            - linux64-nimbus-fml
+    run:
+        using: mach-gradle
+
+apilint:
+    description: "APILint Gradle plugin tests"
+    treeherder:
+        symbol: android(apilint)
+    run:
+        gradle-project: mobile/android/gradle/plugins/apilint
+        gradle-args:
+            - test
+    when:
+        files-changed:
+            - "gradle/libs.versions.toml"
+            - "gradle/wrapper/gradle-wrapper.properties"
+            - "mobile/android/gradle/mach_env.gradle"
+            - "mobile/android/gradle/mozconfig.gradle"
+            - "mobile/android/gradle/plugins/apilint/**"
+
+android-test-keep-rules:
+    description: "androidTest keep rules Gradle plugin tests"
+    treeherder:
+        symbol: android(test-keep-rules)
+    run:
+        gradle-project: mobile/android/gradle/plugins/android-test-keep-rules
+        gradle-args:
+            - test
+    when:
+        files-changed:
+            - "gradle/libs.versions.toml"
+            - "gradle/wrapper/gradle-wrapper.properties"
+            - "mobile/android/gradle/mach_env.gradle"
+            - "mobile/android/gradle/mozconfig.gradle"
+            - "mobile/android/gradle/plugins/android-test-keep-rules/**"
+
+conventions:
+    description: "Conventions Gradle plugin tests"
+    treeherder:
+        symbol: android(conventions)
+    run:
+        gradle-project: mobile/android/gradle/plugins/conventions
+        gradle-args:
+            - test
+    when:
+        files-changed:
+            - "gradle/libs.versions.toml"
+            - "gradle/wrapper/gradle-wrapper.properties"
+            - "mobile/android/gradle/mach_env.gradle"
+            - "mobile/android/gradle/mozconfig.gradle"
+            - "mobile/android/gradle/plugins/conventions/**"
+
+ac-dependencies:
+    description: "Android Components dependencies plugin tests"
+    treeherder:
+        symbol: android(ac-deps)
+    run:
+        gradle-project: mobile/android/android-components/plugins/dependencies
+        gradle-args:
+            - test
+    when:
+        files-changed:
+            - "gradle/libs.versions.toml"
+            - "gradle/wrapper/gradle-wrapper.properties"
+            - "mobile/android/android-components/plugins/dependencies/**"
+            - "mobile/android/gradle/mach_env.gradle"
+            - "mobile/android/gradle/mozconfig.gradle"

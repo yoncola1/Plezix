@@ -1,0 +1,51 @@
+[DEFAULT]
+tags = "webextensions"
+prefs = [
+  # We don't want to reset this at the end of the test, so that we don't have
+  # to spawn a new extension child process for each test unit.
+  "dom.ipc.keepProcessesAlive.extension=1",
+]
+support-files = [
+  "head.js",
+]
+
+["browser_ext_tabGroups.js"]
+
+["browser_ext_tabGroups_collapsed.js"]
+
+["browser_ext_tabGroups_move.js"]
+
+["browser_ext_tabGroups_move_event_order.js"]
+
+["browser_ext_tabGroups_move_onMoved.js"]
+
+["browser_ext_tabGroups_private.js"]
+
+["browser_ext_tabGroups_query.js"]
+
+["browser_ext_tabs_groupId.js"]
+
+["browser_ext_tabs_group_splitview.js"]
+
+["browser_ext_tabs_group_ungroup.js"]
+
+["browser_ext_tabs_group_windowId.js"]
+
+["browser_ext_tabs_move_array.js"]
+https_first_disabled = true
+
+["browser_ext_tabs_move_array_multiple_windows.js"]
+
+["browser_ext_tabs_move_discarded.js"]
+
+["browser_ext_tabs_move_splitview.js"]
+
+["browser_ext_tabs_move_window.js"]
+
+["browser_ext_tabs_move_window_multiple.js"]
+
+["browser_ext_tabs_move_window_pinned.js"]
+
+["browser_ext_tabs_onUpdated_groupId.js"]
+
+["browser_ext_tabs_splitViewId.js"]

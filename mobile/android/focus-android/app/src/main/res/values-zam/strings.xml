@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!-- Label used for buttons, e.g. in dialogs -->
+  <string name="action_cancel">B-láɁ=y</string>
+  <string name="action_save">Mb-lòɁ sóg</string>
+  <!-- This text is shown in the URL bar when it's empty -->
+  <string name="urlbar_hint">KwàɁn kó wiɁ</string>
+  <!-- "Snackbar" shown after the user has pressed the 'erase' button at the end of a browsing session -->
+  <string name="feedback_erase2">Ndó bíy</string>
+  <!-- "Snackbar" shown after the user has pressed the 'erase' button at the end of a custom tab browsing session -->
+  <string name="feedback_erase_custom_tab">Ndó bíy sá.</string>
+  <!-- Menu item: Share the currently visible page -->
+  <string name="menu_share">Tă~làz…</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. %1$s will be
+    replaced with the name of the browser like: "Open in Firefox" or "Open in Chrome". Some
+    links can be opened by native apps that aren't a browser, e.g. "Open in YouTube"
+  -->
+  <string name="menu_open_with_default_browser2">Mb-šàlɁ leɁn %1$s</string>
+  <!--
+    Menu item: Switch to another browser to open the currently visible page. This menu item
+    will be shown if there are multiple browsers and we do not know which one is the default
+    browser or in case Focus is actually the default browser. Clicking this menu item will show
+    a screen with multiple browsers (or other apps that can open the current URL) to choose from.
+  -->
+  <string name="menu_open_with_a_browser2">Mb-šàlɁ leɁn…</string>
+  <!-- Menu item: Add the current page as a shortcut to the device's home screen (launcher). -->
+  <string name="menu_add_to_home_screen">M-tòb lô yíʔb</string>
+  <!-- Menu item: Add the current site as a shortcut on the Home screen -->
+  <string name="menu_add_to_shortcuts">M-tóba ló kó tílta yúl</string>
+  <!-- Menu item: Remove the current site as a shortcut from the Home screen -->
+  <string name="menu_remove_from_shortcuts">Mté dónt kúe</string>
+  <!-- Menu item: Shows information about features and changes that are new to this version -->
+  <string name="menu_settings">Thús kùey</string>
+  <string name="menu_about">Chò nàk ná</string>
+  <string name="menu_help">Lì ché</string>
+  <!--
+    This is a small text at the bottom of the menu shown in a "custom tab" for branding purposes.
+    See https://github.com/mozilla-mobile/focus-android/issues/2106
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="menu_custom_tab_branding">ChaɁn %1$s</string>
+  <!--
+    This is the title of a dialog that shows all the share targets (apps or contacts) when
+    sharing an URL.
+  -->
+  <string name="share_dialog_title">Tă~làz leɁn</string>
+  <string name="notification_erase_text">Tób bí lô góš</string>
+  <!-- Notification action to open Focus and resume the current browsing session. -->
+  <string name="notification_action_open">Mb-šàlɁ lá</string>
+  <!--
+    Notification action to erase the current browsing session AND switch to Focus (bring it
+    to the foreground)
+  -->
+  <string name="notification_action_erase_and_open">Tòb bí ner mb-šàlɁ</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_short_label">Tòb bì</string>
+  <!--
+    The same as 'shortcut_erase_short_label' but more descriptive. The launcher shows this
+    instead of the short title when it has enough space. Android recommends a maximum length
+    of 25 characters.
+  -->
+  <string name="shortcut_erase_long_label">Tób bí lô góš</string>
+  <!--
+    On Android 7+ users can add a shortcut for erasing the browsing history to the home screen.
+    This is the label for this shortcut. Android recommends a maximum length of 10 characters.
+  -->
+  <string name="shortcut_erase_and_open_short_label">Tòb bí &amp; mb-šàlɁ</string>
+  <!--
+    These labels are selected per variant through manifestPlaceholders in build.gradle, so
+    UnusedResources does not see the ones for the variants it is not analyzing.
+
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus.
+  -->
+  <string name="text_selection_search_action_focus" tools:ignore="BrandUsage,UnusedResources">KwàɁn léɁn Focus</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Klar is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Klar.
+  -->
+  <string name="text_selection_search_action_klar" tools:ignore="BrandUsage,UnusedResources">KwàɁn léɁn Klar</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus Beta is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Beta.
+  -->
+  <string name="text_selection_search_action_focus_beta" tools:ignore="BrandUsage,UnusedResources">KwàɁn léɁn Focus Beta</string>
+  <!--
+    This is the label of an action we offer when the user selects text in other third-party apps.
+    Focus Nightly is hard coded since we can't use variables in this context.
+    Do not translate or transliterate Focus Nightly.
+  -->
+  <string name="text_selection_search_action_focus_nightly" tools:ignore="BrandUsage,UnusedResources">KwàɁn léɁn Focus Nightly</string>
+  <!-- Header for the Privacy and Security settings menu -->
+  <string name="preference_privacy_and_security_header">Yent-chó wìʔ</string>
+  <!-- Preference summary for settings related to privacy and security -->
+  <string name="preference_privacy_and_security_summary">Nêd, cookies ner yêts</string>
+  <!--
+    Preference category description for settings screen for settings related to Mozilla
+
+    About the app and help are links that are inside this menu
+
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_mozilla_summary">KwàɁn %1$s, lì-chél</string>
+  <!-- Preference category for settings related to controlling web content -->
+  <string name="preference_category_web_content">KwàɁn šò=leɁn</string>
+  <!-- Preference category: stealth settings for while switching apps -->
+  <string name="preference_category_switching_apps">Sè App</string>
+  <!-- Preference category for General Settings -->
+  <string name="preference_category_general">Ré=tá</string>
+  <string name="preference_category_search">KwàɁn</string>
+  <!-- Text that is shown below a "switch" preference that is enabled. -->
+  <string name="preference_state_on">Blá Kìy</string>
+  <!-- Text that is shown below a "switch" preference that is disabled. -->
+  <string name="preference_state_off">Tóg gá</string>
+  <!-- Item in settings that will open a new preference screen for configuring the URL autocomplete behavior. -->
+  <string name="preference_subitem_autocomplete">URL mkéy</string>
+  <!-- Action at the bottom of the list of custom autocomplete URLs that will open a new screen to add a new URL to the list. -->
+  <string name="preference_autocomplete_action_add">m-tób tùs kùe URL</string>
+  <!-- Title of the screen for adding custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_add">M-tób tùs kùe URL</string>
+  <!-- Preference category for settings about cookies and site data -->
+  <string name="preference_category_cookies">Cookies ner kwàɁn mb-šèn=lû</string>
+  <!-- Preference category for settings about data choices -->
+  <string name="preference_category_data_choices">B-šèn=ná kùe</string>
+  <!-- Title of the screen for removing custom autocomplete URLs. -->
+  <string name="preference_autocomplete_title_remove">Mkìb tùs kùe URLs</string>
+  <!-- A link to SUMO at autocomplete settings. -->
+  <string name="preference_autocomplete_learn_more">Lab kùe</string>
+  <!-- Label for the "custom autocomplete URL" input field -->
+  <string name="preference_autocomplete_add_title">M-tòb URL</string>
+  <!-- "Hint" text for the "custom autocomplete URL" input field. Shown when the field is empty. -->
+  <string name="preference_autocomplete_add_hint">Lí chop ó m-tòb URL</string>
+  <!-- Example how a custom domain autocomplete URL be added (e.g. without http://) -->
+  <string name="preference_autocomplete_add_example2" tools:ignore="BrandUsage">\"VáɁ: mozilla.org \"</string>
+  <!-- Confirmation "snackbar" shown after a new custom autocomplete URL has been added. -->
+  <string name="preference_autocomplete_add_confirmation">Dób lá URL kùb.</string>
+  <!-- Menu item to remove existing autocomplete URLs. -->
+  <string name="preference_autocomplete_menu_remove">Kìb</string>
+  <!-- Content description (not visible, for screen readers etc.): Button that will delete all selected custom autocomplete URLs. -->
+  <string name="preference_autocomplete_action_remove_content_description">Kìb</string>
+  <!-- Error message shown if the entered custom autocomplete URL is not valid or empty. -->
+  <string name="preference_autocomplete_add_error">Wì cho besta blüy URL.</string>
+  <string name="preference_language">Dìzh</string>
+  <!--
+    This is shown when the user hasn't set a focus specific language, i.e. when Focus
+    is using the system default language.
+  -->
+  <string name="preference_language_systemdefault">Kó díed lenɁ</string>
+  <string name="preference_privacy_block_ads">TòɁw-ná lô men dè-kè</string>
+  <string name="preference_privacy_block_analytics">TòɁw-ná lô men dè-kè</string>
+  <string name="preference_privacy_block_social">TòɁw-ná lô men dè-kè</string>
+  <string name="preference_privacy_block_content">TòɁw-ná lô men dè-kè</string>
+  <string name="preference_privacy_category_cookies">TòɁw cookies</string>
+  <!--
+    Three options for Cookie blocking. Yes (All cookies Blocked), Block 3rd-party cookies
+    only (Only 3rd-party Cookies Blocked), No (No cookies blocked)
+  -->
+  <string name="preference_privacy_should_block_cookies_no_option2">Yénta</string>
+  <string name="preference_privacy_should_block_cookies_third_party_only_option">TòɁw 3 cookies ná táɁ thîb mèn</string>
+  <string name="preference_privacy_should_block_cookies_yes_option2">ăɁ líy</string>
+  <!--
+    Preference Title: Secure Mode is a setting that prevents the app's content to show up in the "recent apps" screen
+    and prevents the user from taking screenshots or casting the app to other displays.
+  -->
+  <string name="preference_privacy_secure_mode">Yìz</string>
+  <string name="preference_performance_block_webfonts">TòɁw letr Internet</string>
+  <string name="preference_performance_block_javascript">TòɁw lô JavaScript</string>
+  <!--
+    This preference does not set Focus as the default browser but instead links to Android's
+    "default apps" settings screen or if not supported by this Android version to a SUMO page describing
+    how to set Focus as a default browser.
+    %1$s will be replaced by the app name (e.g. Firefox Focus)
+  -->
+  <string name="preference_default_browser2">\"M-tòb %1$s mdó-lás=lû \"</string>
+  <string name="preference_category_mozilla" tools:ignore="BrandUsage">Mozilla</string>
+  <string name="preference_mozilla_telemetry2">M-tàl kò lì-chèl</string>
+  <!-- A link to SUMO at the end of the summary (preference_mozilla_telemetry_summary2) of the "Send anonymous usage data" setting. -->
+  <string name="preference_mozilla_telemetry_summary">Lab kùe</string>
+  <!-- In-app link (in settings) to Focus privacy notice. -->
+  <string name="preference_privacy_notice">M-bláb kùe</string>
+  <!-- Item in Preferences that shows the about page. %1$s is the name of the app (for example "Firefox Focus" or "Firefox Klar"). -->
+  <string name="preference_about">Cho nak kùe %1$s</string>
+  <!-- Action for restoring the default list of search engines -->
+  <string name="preference_search_restore">bí~rè sá nák ahɁ</string>
+  <string name="preference_search_remove_title">Kìb yíb kúan</string>
+  <string name="preference_search_remove">Kíb</string>
+  <!-- Clickable action text that shows when user long-presses on a search engine search field (this is similar to paste or copy when long-pressing a text field) -->
+  <string name="action_option_add_search_engine">M-tòb yíʔb-kwàɁn</string>
+  <string name="search_add_manually_name_hint">KwàɁn sá lé yíʔb-kwàɁn</string>
+  <string name="search_add_manually_string">KwàɁn nêt lí chèl</string>
+  <string name="search_add_manually_save">Mb-lòɁ sóg</string>
+  <!-- Example of search engine url. %s represents the search query and should be kept as-is. -->
+  <string name="search_add_manually_example">Wí: lemen.com/search/?q=%s</string>
+  <string name="search_add_confirmation">Dób lá yíʔb-kwàɁn.</string>
+  <string name="search_add_error_empty_name">KwàɁn sá lé yíʔb-kwàɁn</string>
+  <string name="search_add_error_empty_search">KwàɁn sá lé dìzh</string>
+  <!--
+    Content description (not visible, for screen readers etc.): Clicking on the website overlay
+    while in typing mode will dismiss and go back to the browser. This text will be read when the
+    overlay if focused. See https://github.com/mozilla-mobile/focus-android/issues/50
+  -->
+  <string name="content_description_dismiss_input">B-láɁ=y</string>
+  <!--
+    Content description (not visible, for screen readers etc.): Erase button: Erase the browsing
+    history and go back to the home screen.
+  -->
+  <string name="content_description_erase">Tób bí lô góš</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate forward (browsing history) -->
+  <string name="content_description_forward">Gûa sìs nêd</string>
+  <!-- Content description (not visible, for screen readers etc.): Reload current website -->
+  <string name="content_description_reload">TeɁ zàp lô</string>
+  <!-- Content description (not visible, for screen readers etc.): Navigate back (browsing history) -->
+  <string name="content_description_back">Bì-rè nêd</string>
+  <!-- Content description (not visible, for screen readers etc.): Stop loading the current website. This button will turn into the refresh button once loading has been completed (see content_description_reload) -->
+  <string name="content_description_stop">B-láɁ mdé láɁ=y</string>
+  <!-- Snackbar that will be displayed after a download has completed. %1$s is the file name. -->
+  <string name="download_snackbar_finished">%1$s tèlôy</string>
+  <!-- Snackbar action to immediately open the successfully downloaded file. -->
+  <string name="download_snackbar_open">Mb-šàlɁ lá</string>
+  <string name="error_hostLookup_title">Ngyé-n yìb rè</string>
+  <!-- Label of the action that will add the current website to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_add">M-tòb</string>
+  <!-- Label of the action that will close the dialog and not add anything to the home screen (shown in the confirmation dialog). -->
+  <string name="dialog_addtohomescreen_action_cancel">B-láɁ=y</string>
+  <!--
+    The user visible name of the "notification channel" (Android 8+ feature) for the ongoing notification shown while a browsing session is active.
+    The recommended maximum length is 40 characters; the value may be truncated if it is too long.
+
+    * To understand what notification channels are, see: https://www.androidcentral.com/notification-channels
+    * To see how this string will look like in Android's UI, see: https://github.com/mozilla-mobile/focus-android/issues/863#issuecomment-324105723
+  -->
+  <string name="notification_browsing_session_channel_name">Lút ta níe kúe</string>
+  <!--
+    If the user decides to open the current page in another browser and if Firefox is not installed then we show this
+    item in the list of browsers. Clicking it will open the app store installed on the device (usually that's Google Play).
+  -->
+  <string name="download_firefox" tools:ignore="BrandUsage">B-là Firefox</string>
+  <string name="preference_autocomplete_duplicate_url_error">URL šò=là</string>
+  <!-- Label used for the "YES button" for the prompt to enable search suggestions -->
+  <string name="enable_search_suggestions_yes">ăɁ</string>
+</resources>

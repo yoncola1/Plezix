@@ -1,0 +1,47 @@
+/* Any copyright is dedicated to the Public Domain.
+   http://creativecommons.org/publicdomain/zero/1.0/ */
+
+// Tests immediately entering search mode in a new window and then exiting it.
+// No errors should be thrown and search mode should be exited successfully.
+
+"use strict";
+
+add_setup(async function () {
+  await SpecialPowers.pushPrefEnv({
+    set: [["browser.urlbar.unifiedSearchButton.historyInSearchMode", false]],
+  });
+});
+
+add_task(async function escape() {
+  await doTest(win =>
+    EventUtils.synthesizeKey("KEY_Escape", { repeat: 2 }, win)
+  );
+});
+
+add_task(async function backspace() {
+  await doTest(win => EventUtils.synthesizeKey("KEY_Backspace", {}, win));
+});
+
+async function doTest(exitSearchMode) {
+  let win = await BrowserTestUtils.openNewBrowserWindow();
+
+  // Press accel+K to enter search mode. The view stays closed since a new
+  // window has no results to show.
+  EventUtils.synthesizeKey("k", { accelKey: true }, win);
+  await UrlbarTestUtils.promiseSearchComplete(win);
+  Assert.ok(!win.gURLBar.view.isOpen, "The view is closed");
+  await UrlbarTestUtils.assertSearchMode(win, {
+    engineName: SearchService.defaultEngine.name,
+    isGeneralPurposeEngine: true,
+    source: UrlbarShared.RESULT_SOURCE.SEARCH,
+    isPreview: false,
+    entry: "shortcut",
+  });
+
+  // Exit search mode.
+  await exitSearchMode(win);
+  await UrlbarTestUtils.assertSearchMode(win, null);
+
+  await UrlbarTestUtils.promisePopupClose(win);
+  await BrowserTestUtils.closeWindow(win);
+}

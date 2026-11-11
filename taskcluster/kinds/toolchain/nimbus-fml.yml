@@ -1,0 +1,103 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    description: "nimbus-fml toolchain build"
+    worker-type: b-linux-docker-amd
+    worker:
+        max-run-time: 1800
+        env:
+            CRATE_PATH: services/app-services-tools/nimbus-fml
+    attributes:
+        local-toolchain: true
+    run:
+        script: build-rust-based-toolchain.sh
+        toolchain-artifact: public/build/nimbus-fml.tar.zst
+        sparse-profile: null
+        resources:
+            - 'services/app-services-tools/nimbus-fml'
+            - 'Cargo.lock'
+            # List of in-tree dependencies from
+            # cargo tree -p nimbus-fml | grep -oP '(?<='$(pwd)'/)[^)]+' | sort | uniq
+            - 'build/rust/goblin'
+            - 'build/rust/hashbrown'
+            - 'intl/icu_segmenter_data'
+            - 'third_party/application-services/components/support/error'
+            - 'third_party/application-services/components/support/error/macros'
+            - 'third_party/application-services/components/support/nimbus-fml'
+            - 'third_party/application-services/components/support/tracing'
+            - 'third_party/application-services/components/viaduct'
+            - 'third_party/rust/autocfg'
+            - 'third_party/rust/icu_collections'
+            - 'third_party/rust/icu_normalizer'
+            - 'third_party/rust/icu_normalizer_data'
+            - 'third_party/rust/icu_properties'
+            - 'third_party/rust/icu_properties_data'
+            - 'third_party/rust/utf8_iter'
+
+linux64-nimbus-fml:
+    treeherder:
+        symbol: TL(enf)
+    run:
+        arguments: ['x86_64-unknown-linux-gnu']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-toolchain
+            - sysroot-x86_64-linux-gnu
+
+linux64-aarch64-nimbus-fml:
+    treeherder:
+        symbol: TLA64(enf)
+    run:
+        arguments: ['aarch64-unknown-linux-gnu']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-toolchain
+            - sysroot-aarch64-linux-gnu
+
+macosx64-nimbus-fml:
+    treeherder:
+        symbol: TM(enf)
+    run:
+        arguments: ['x86_64-apple-darwin']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-macos
+            - macosx64-sdk-toolchain
+
+macosx64-aarch64-nimbus-fml:
+    treeherder:
+        symbol: TMA64(enf)
+    run:
+        arguments: ['aarch64-apple-darwin']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-macos
+            - macosx64-sdk-toolchain
+
+win64-aarch64-nimbus-fml:
+    treeherder:
+        symbol: TWA64(enf)
+    run:
+        arguments: ['aarch64-pc-windows-msvc']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-windows
+            - vs-toolchain
+
+win64-nimbus-fml:
+    treeherder:
+        symbol: TW64(enf)
+    run:
+        arguments: ['x86_64-pc-windows-msvc']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-windows
+            - vs-toolchain

@@ -1,0 +1,38 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef HAL_WAKELOCK_H_
+#define HAL_WAKELOCK_H_
+
+#include "mozilla/HalTypes.h"
+#include "nsAString.h"
+
+#include <cstdint>
+
+namespace mozilla {
+namespace hal {
+
+enum WakeLockState {
+  WAKE_LOCK_STATE_UNLOCKED,
+  WAKE_LOCK_STATE_HIDDEN,
+  WAKE_LOCK_STATE_VISIBLE
+};
+
+/**
+ * Return the wake lock state according to the numbers.
+ */
+WakeLockState ComputeWakeLockState(int aNumLocks, int aNumHidden);
+
+}  // namespace hal
+
+namespace hal_impl {
+void ModifyWakeLockWithChildID(const nsAString& aTopic,
+                               hal::WakeLockControl aLockAdjust,
+                               hal::WakeLockControl aHiddenAdjust,
+                               uint64_t aChildID);
+}  // namespace hal_impl
+
+}  // namespace mozilla
+
+#endif /* HAL_WAKELOCK_H_ */

@@ -1,0 +1,54 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef GeckoViewInputStream_h_
+#define GeckoViewInputStream_h_
+
+#include "mozilla/java/GeckoViewInputStreamWrappers.h"
+#include "mozilla/java/ContentInputStreamWrappers.h"
+#include "mozilla/Mutex.h"
+#include "nsIAndroidContentInputStream.h"
+#include "nsIInputStream.h"
+
+class GeckoViewInputStream : public nsIAndroidContentInputStream {
+  NS_DECL_THREADSAFE_ISUPPORTS
+  NS_DECL_NSIINPUTSTREAM
+  NS_DECL_NSIANDROIDCONTENTINPUTSTREAM
+
+  GeckoViewInputStream() = default;
+
+  bool IsClosed() const;
+
+ protected:
+  explicit GeckoViewInputStream(
+      mozilla::java::GeckoViewInputStream::LocalRef aInstance)
+      : mInstance(aInstance) {};
+
+  virtual ~GeckoViewInputStream() = default;
+
+ private:
+  mutable mozilla::Mutex mMutex{"GeckoViewInputStream"};
+
+  mozilla::java::GeckoViewInputStream::GlobalRef MOZ_GUARDED_BY(
+      mMutex) mInstance;
+  bool mClosed MOZ_GUARDED_BY(mMutex) = false;
+};
+
+class GeckoViewContentInputStream final : public GeckoViewInputStream {
+ public:
+  enum class Allow {
+    All,
+    PDFOnly,
+  };
+  static nsresult GetInstance(const nsAutoCString& aUri, Allow aAllow,
+                              nsIInputStream** aInstance);
+  static bool isReadable(const nsAutoCString& aUri);
+
+ private:
+  explicit GeckoViewContentInputStream(const nsAutoCString& aUri, bool aPDFOnly)
+      : GeckoViewInputStream(mozilla::java::ContentInputStream::GetInstance(
+            mozilla::jni::StringParam(aUri), aPDFOnly)) {}
+};
+
+#endif  // !GeckoViewInputStream_h_

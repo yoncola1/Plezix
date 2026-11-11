@@ -1,0 +1,12 @@
+[DEFAULT]
+prefs = [
+  "network.ohttp.configURL='http://example.com/ohttp-config'",
+  "network.ohttp.relayURL='http://example.com/relay/'"
+]
+
+["test_fpp_overrides_parsing.js"]
+
+["test_ohttp_client.js"]
+run-if = [
+  "os == 'android'",
+]

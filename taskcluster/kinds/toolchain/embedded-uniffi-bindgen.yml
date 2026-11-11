@@ -1,0 +1,92 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+task-defaults:
+    description: "embedded-uniffi-bindgen toolchain build"
+    worker-type: b-linux-docker-amd
+    worker:
+        max-run-time: 1800
+        env:
+            CRATE_PATH: services/app-services-tools/embedded-uniffi-bindgen
+    attributes:
+        local-toolchain: true
+    run:
+        script: build-rust-based-toolchain.sh
+        toolchain-artifact: public/build/embedded-uniffi-bindgen.tar.zst
+        sparse-profile: null
+        resources:
+            - 'services/app-services-tools/embedded-uniffi-bindgen'
+            - 'Cargo.lock'
+            # List of in-tree dependencies from
+            # cargo tree -p embedded-uniffi-bindgen | grep -oP '(?<='$(pwd)'/)[^)]+' | sort | uniq
+            - 'build/rust/goblin'
+            - 'build/rust/hashbrown'
+            - 'build/rust/toml'
+            - 'third_party/application-services/tools/embedded-uniffi-bindgen'
+
+linux64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TL(eub)
+    run:
+        arguments: ['x86_64-unknown-linux-gnu']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-toolchain
+            - sysroot-x86_64-linux-gnu
+
+linux64-aarch64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TLA64(eub)
+    run:
+        arguments: ['aarch64-unknown-linux-gnu']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-toolchain
+            - sysroot-aarch64-linux-gnu
+
+macosx64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TM(eub)
+    run:
+        arguments: ['x86_64-apple-darwin']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-macos
+            - macosx64-sdk-toolchain
+
+macosx64-aarch64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TMA64(eub)
+    run:
+        arguments: ['aarch64-apple-darwin']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-macos
+            - macosx64-sdk-toolchain
+
+win64-aarch64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TWA64(eub)
+    run:
+        arguments: ['aarch64-pc-windows-msvc']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-windows
+            - vs-toolchain
+
+win64-embedded-uniffi-bindgen:
+    treeherder:
+        symbol: TW64(eub)
+    run:
+        arguments: ['x86_64-pc-windows-msvc']
+    fetches:
+        toolchain:
+            - linux64-clang-toolchain
+            - linux64-rust-windows
+            - vs-toolchain

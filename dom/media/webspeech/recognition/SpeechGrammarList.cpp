@@ -1,0 +1,68 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "SpeechGrammarList.h"
+
+#include "SpeechRecognition.h"
+#include "mozilla/ErrorResult.h"
+#include "mozilla/dom/SpeechGrammar.h"
+#include "mozilla/dom/SpeechGrammarListBinding.h"
+#include "nsCOMPtr.h"
+
+namespace mozilla::dom {
+
+NS_IMPL_CYCLE_COLLECTION_WRAPPERCACHE(SpeechGrammarList, mParent, mItems)
+NS_IMPL_CYCLE_COLLECTING_ADDREF(SpeechGrammarList)
+NS_IMPL_CYCLE_COLLECTING_RELEASE(SpeechGrammarList)
+NS_INTERFACE_MAP_BEGIN_CYCLE_COLLECTION(SpeechGrammarList)
+  NS_WRAPPERCACHE_INTERFACE_MAP_ENTRY
+  NS_INTERFACE_MAP_ENTRY(nsISupports)
+NS_INTERFACE_MAP_END
+
+SpeechGrammarList::SpeechGrammarList(nsISupports* aParent) : mParent(aParent) {}
+
+SpeechGrammarList::~SpeechGrammarList() = default;
+
+already_AddRefed<SpeechGrammarList> SpeechGrammarList::Constructor(
+    const GlobalObject& aGlobal) {
+  RefPtr<SpeechGrammarList> speechGrammarList =
+      new SpeechGrammarList(aGlobal.GetAsSupports());
+  return speechGrammarList.forget();
+}
+
+JSObject* SpeechGrammarList::WrapObject(JSContext* aCx,
+                                        JS::Handle<JSObject*> aGivenProto) {
+  return SpeechGrammarList_Binding::Wrap(aCx, this, aGivenProto);
+}
+
+nsISupports* SpeechGrammarList::GetParentObject() const { return mParent; }
+
+uint32_t SpeechGrammarList::Length() const { return mItems.Length(); }
+
+already_AddRefed<SpeechGrammar> SpeechGrammarList::Item(uint32_t aIndex) {
+  RefPtr<SpeechGrammar> result = mItems.SafeElementAt(aIndex, nullptr);
+  return result.forget();
+}
+
+void SpeechGrammarList::AddFromUri(const nsAString& aSrc,
+                                   const Optional<float>& aWeight) {}
+
+void SpeechGrammarList::AddFromString(const nsAString& aString,
+                                      const Optional<float>& aWeight) {
+  SpeechGrammar* speechGrammar = new SpeechGrammar(mParent);
+  speechGrammar->SetSrc(aString);
+  mItems.AppendElement(speechGrammar);
+}
+
+already_AddRefed<SpeechGrammar> SpeechGrammarList::IndexedGetter(
+    uint32_t aIndex, bool& aPresent) {
+  if (aIndex >= Length()) {
+    aPresent = false;
+    return nullptr;
+  }
+  aPresent = true;
+  return Item(aIndex);
+}
+
+}  // namespace mozilla::dom

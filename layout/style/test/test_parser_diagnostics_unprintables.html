@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test for CSS parser diagnostics escaping unprintable
+         characters correctly</title>
+  <script src="/tests/SimpleTest/SimpleTest.js"></script>
+  <link rel="stylesheet" href="/tests/SimpleTest/test.css">
+</head>
+<body>
+<a target="_blank"
+   href="https://bugzilla.mozilla.org/show_bug.cgi?id=229827"
+>Mozilla Bug 229827</a>
+<style id="testbench"></style>
+<script type="application/javascript">
+// This test has intimate knowledge of how to get the CSS parser to
+// emit diagnostics that contain text under control of the user.
+// That's not the point of the test, though; the point is only that
+// *that text* is properly escaped.
+
+SpecialPowers.wrap(window).docShell.cssErrorReportingEnabled = true;
+
+// There is one "pattern" for each code path through the error reporter
+// that might need to escape some kind of user-supplied text.
+// Each "pattern" is tested once with each of the "substitution"s below:
+// <t> is replaced by the t: field of each substitution object in turn,
+// <e> by its e: field, and <E> by its E: field (which is e: for input whose
+// trailing whitespace the reporter trims away).
+//
+// Diagnostics quote the source text of the offending rule or declaration,
+// so what comes back is the input with the unprintables escaped, and with
+// trailing whitespace and any opening brace trimmed off the end.
+let patterns = [
+  // REPORT_UNEXPECTED_P
+  { i: "<t>|x{}",                 o: "prefix \u2018<e>|x\u2019" },
+  // REPORT_UNEXPECTED_TOKEN with:
+  // _Ident
+  { i: "@namespace fnord <t>;",    o: "@namespace: \u2018@namespace fnord <E>\u2019" },
+  // _Ref
+  { i: "@namespace fnord #<t>;",   o: "@namespace: \u2018@namespace fnord #<E>\u2019" },
+  // _Function
+  { i: "@namespace fnord <t>();",  o: "@namespace: \u2018@namespace fnord <e>()\u2019" },
+  // _Dimension
+  { i: "@namespace fnord 14<t>;",  o: "@namespace: \u2018@namespace fnord 14<E>\u2019" },
+  // _AtKeyword
+  { i: "x{@<t>: }",                o: "declaration but found \u2018@<e>:\u2019." },
+  // _String
+  { i: "x{ color: '<t>'}" ,        o: "parsing value for \u2018color: '<e>'\u2019." },
+  // _Bad_String
+  { i: "x{ color: '<t>\n}",        o: "parsing value for \u2018color: '<E>\u2019." },
+];
+
+// Blocks of characters to test, and how they come back out once the
+// unprintables among them have been escaped. Everything else is passed
+// through verbatim, so there's no point enumerating it here.
+const substitutions = [
+  // U+0000 truncates the message if it isn't escaped; the rest of the C0
+  // controls are just unprintable.
+  { t: "\\\x00\\\x01\\\x02\\\x03",
+    e: "\\\\0 \\\\1 \\\\2 \\\\3 ",
+    E: "\\\\0 \\\\1 \\\\2 \\\\3 " },
+  // U+000A LINE FEED, U+000C FORM FEED and U+000D CARRIAGE RETURN cannot be
+  // put into a CSS token as escaped literal characters, so the input uses hex
+  // escapes for those, which pass through as-is. Note that the trailing
+  // U+000B is whitespace, so it gets trimmed rather than escaped.
+  { t: "\\\x08\\\x09\\000A\\\x0B",
+    e: "\\\\8 \\\\9 \\000A\\\\b ",
+    E: "\\\\8 \\\\9 \\000A\\" },
+  // A trailing escaped space is trimmed off the end, like any other trailing
+  // whitespace.
+  { t: "\\\x1C\\\x1D\\\x1E\\\x1F\\ ",
+    e: "\\\\1c \\\\1d \\\\1e \\\\1f \\ ",
+    E: "\\\\1c \\\\1d \\\\1e \\\\1f \\" },
+  // U+007F is escaped, but the C1 controls right above it are not, since
+  // they're not ASCII.
+  { t: "\\\x7F\\\x80\\\x81\\\x82",
+    e: "\\\\7f \\\x80\\\x81\\\x82",
+    E: "\\\\7f \\\x80\\\x81\\\x82" },
+  // Escaped ASCII punctuation, including a backslash, passes through
+  // untouched.
+  { t: "\\@\\[\\\\\\]",
+    e: "\\@\\[\\\\\\]",
+    E: "\\@\\[\\\\\\]" },
+  // So does non-ASCII text, including astral plane characters and the
+  // otherwise invisible U+200E LEFT-TO-RIGHT MARK at the end of this one.
+  { t: "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ‎",
+    e: "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ‎",
+    E: "أبجدهوزحطيكلمنسعفصقرشتثخذضظغ‎" },
+  { t: "😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐",
+    e: "😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐",
+    E: "😁😂😃😄😅😆😇😈😉😊😋😌😍😎😏😐" },
+];
+
+const npatterns = patterns.length;
+const nsubstitutions = substitutions.length;
+
+function quotemeta(str) {
+  return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+function subst(str, sub) {
+  return str.replace("<t>", sub.t)
+    .replace("<e>", sub.e)
+    .replace("<E>", sub.E);
+}
+
+var curpat = 0;
+var cursubst = -1;
+var testbench = document.getElementById("testbench");
+
+function nextTest() {
+  cursubst++;
+  if (cursubst == nsubstitutions) {
+    curpat++;
+    cursubst = 0;
+  }
+  if (curpat == npatterns) {
+    SimpleTest.finish();
+    return;
+  }
+
+  let css = subst(patterns[curpat].i, substitutions[cursubst]);
+  let msg = quotemeta(subst(patterns[curpat].o, substitutions[cursubst]));
+
+  info(css);
+  info(msg);
+  SimpleTest.expectConsoleMessages(function () { testbench.innerHTML = css },
+                                   [{ errorMessage: new RegExp(msg) }],
+                                   nextTest);
+}
+
+SimpleTest.waitForExplicitFinish();
+nextTest();
+</script>
+</body>
+</html>

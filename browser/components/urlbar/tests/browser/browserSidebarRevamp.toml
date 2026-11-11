@@ -1,0 +1,16 @@
+[DEFAULT]
+dupe-manifest=true
+tags = "urlbar"
+support-files = [
+  "dummy_page.html",
+  "head.js",
+  "head-common.js",
+]
+prefs = [
+  "browser.bookmarks.testing.skipDefaultBookmarksImport=true",
+  "browser.urlbar.trending.featureGate=false",
+  "screenshots.browser.component.enabled=true",
+  "sidebar.revamp=true",
+]
+
+["browser_tabKeyBehavior.js"]

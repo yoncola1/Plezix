@@ -1,0 +1,20 @@
+<!doctype html>
+<style>
+body {
+  margin: 0;
+}
+#padding {
+  height: 100vh;
+}
+</style>
+<script>
+  window.addEventListener("unload", () => { /* prevent bfcaching */ });
+  window.addEventListener("pageshow", function(e) {
+    window.opener.handlePageShow(e.persisted);
+  });
+</script>
+<!-- This is important as it delays layout, so that stuff goes through PresShell::Initialize under `mDelayedLayoutStart` instead of ContentAppended -->
+<link rel="stylesheet" href="slow-stylesheet.sjs">
+<div id="padding"></div>
+<a href="t1.html">t1.html</a>
+<div id="padding"></div>

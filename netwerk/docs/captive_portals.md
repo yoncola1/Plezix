@@ -1,0 +1,79 @@
+# Captive Portal Detection
+
+## What are Captive Portals?
+A captive portal is what we call a network that requires your action before it allows you to connect to the Internet. This action could be to log in using a username and password, or just to accept the network's terms and conditions.
+
+There are many different ways in which captive portal network might attempt to direct you to the captive portal page.
+- A DNS resolver that always resolves to the captive portal server IP
+- A gateway that intercepts all HTTP requests and responds with a 302/307 redirect to the captive portal page
+- A gateway that rewrites all/specific HTTP responses
+    - Changing their content to be that of the captive portal page
+    - Injecting javascript or other content into the page (Some ISPs do this when the user hasn't paid their internet bill)
+- HTTPS requests are handled differently by captive portals:
+    - They might time out.
+    - They might present the wrong certificate in order to redirect to the captive portal.
+    - They might not be intercepted at all.
+
+## Implementation
+The [CaptivePortalService](https://searchfox.org/firefox-main/source/netwerk/base/CaptivePortalService.h) controls when the checks are performed. Consumers can check the state on [nsICaptivePortalService](https://searchfox.org/firefox-main/source/netwerk/base/nsICaptivePortalService.idl) to determine the state of the captive portal.
+- UNKNOWN
+    - The checks have not been performed or have timed out.
+- NOT_CAPTIVE
+    - No captive portal interference was detected.
+- UNLOCKED_PORTAL
+    - A captive portal was previously detected, but has been unlocked by the user. This state might cause the browser to increase the frequency of the captive portal checks.
+- LOCKED_PORTAL
+    - A captive portal was detected, and internet connectivity is not currently available.
+    - A [captive portal notification bar](https://searchfox.org/firefox-main/source/browser/base/content/browser-captivePortal.js) might be displayed to the user.
+
+The Captive portal service uses [CaptiveDetect.sys.mjs](https://searchfox.org/firefox-main/source/toolkit/components/captivedetect/CaptiveDetect.sys.mjs) to perform the checks, which in turn uses XMLHttpRequest.
+This request needs to be exempted from HTTPS upgrades, DNS over HTTPS, and many new browser features in order to function as expected.
+
+A response means there is no captive portal when it is a 200 or a 204 whose body is exactly `captivedetect.canonicalContent`. A 204 carries no body, so it is only accepted when no content is expected, which is how the default endpoint is configured; some deployments answer that same endpoint with an empty 200, which is accepted too. Anything else is taken as interference: another 2xx, a 3xx redirect, or a 511 starts the login flow, while other errors are retried up to `captivedetect.maxRetryCount` times.
+
+```{warning}
+
+`captivedetect.canonicalURL` and `captivedetect.canonicalContent` must always be changed together. Pointing the URL at an endpoint that answers with a body while leaving the expected content empty makes every check report a captive portal - this is what happened to profiles carrying a stale URL override when the default endpoint moved to a 204 (see [bug 2052715](https://bugzilla.mozilla.org/show_bug.cgi?id=2052715)). Both preferences are read on every check, so correcting one takes effect without a restart.
+
+```
+
+```{note}
+
+CaptiveDetect.sys.mjs would benefit from being rewritten in rust or C++.
+This is because the API of XMLHttpRequest makes it difficult to distinguish between different types of network errors such as redirect loops vs certificate errors.
+
+Also, we don't currently allow any redirects to take place, even if the redirected resource acts as a transparent proxy (doesn't modify the response). This sometimes causes issues for users on networks which employ such transparent proxies.
+
+```
+
+## Preferences
+```js
+
+pref("network.captive-portal-service.enabled", true); // controls if the checking is performed
+pref("network.captive-portal-service.minInterval", 60000); // 60 seconds
+pref("network.captive-portal-service.maxInterval", 1500000); // 25 minutes
+// Every 10 checks, the delay is increased by a factor of 5
+pref("network.captive-portal-service.backoffFactor", "5.0");
+
+// The URL used to perform the captive portal checks.
+// It answers with an empty 204 when there is no captive portal.
+pref("captivedetect.canonicalURL", "http://firefox-portal-detection.com/generate_204");
+// The response we expect to receive back when fetching the canonical URL.
+// The older /canonical.html endpoint which older Firefox might still be using
+// returned "<meta http-equiv=\"refresh\" content=\"0;url=https://support.mozilla.org/kb/captive-portal\"/>"
+// that when loaded in a browser redirected the user to a support page explaining captive portals.
+// The /generate_204 endpoint is expected to return an empty response.
+pref("captivedetect.canonicalContent", "");
+
+// The timeout for each request.
+pref("captivedetect.maxWaitingTime", 5000);
+// time to retrigger a new request
+pref("captivedetect.pollingTime", 3000);
+// Number of times to retry the captive portal check if there is an error or timeout.
+pref("captivedetect.maxRetryCount", 5);
+```
+
+## Connectivity checking
+
+The connectivity checker might use some of the captive portal URLs.
+Refer [this](connectivity_checking.md) page for more details.

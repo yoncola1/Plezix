@@ -1,0 +1,31 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/design-system/text-and-typography.css");
+
+:host {
+  padding-block: var(--space-large);
+}
+
+.sidebar-panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-context-properties: fill;
+  fill: currentColor;
+  font-size: 15px;
+
+  > h4 {
+    margin-block: var(--sidebar-panel-header-heading-margin-block);
+  }
+}
+
+/* Horizontal-tabs "hide-launcher" mode has no launcher to switch panels with,
+   so the title is replaced by the sidebar-panel-switcher dropdown (which shows
+   itself in this mode). */
+@media -moz-pref("sidebar.visibility", "hide-launcher") {
+  .sidebar-panel-title {
+    display: none;
+  }
+}

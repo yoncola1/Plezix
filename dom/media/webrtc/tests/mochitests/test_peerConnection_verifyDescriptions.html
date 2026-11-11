@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="application/javascript" src="pc.js"></script>
+</head>
+<body>
+<pre id="test">
+<script type="application/javascript">
+  createHTML({
+    bug: "1264479",
+    title: "PeerConnection verify current and pending descriptions in legacy mode"
+  });
+
+  // Mostly covered by WPT tests these days, except for in our legacy mode
+
+  const isSimilarDescription = (d1, d2, msg) => {
+    isnot(d1, d2, msg + " — not the same object");
+    is(d1.type, d2.type, msg + " — but same type");
+    is(d1.sdp, d2.sdp, msg + " — and same sdp");
+  }
+
+  const addIce = (pc, can, failed) => can && pc.addIceCandidate(can).catch(failed);
+
+  const tests = [
+    async function checkDuplicateFingerprintQuirk() {
+      await withPrefs([["media.peerconnection.sdp.quirk.duplicate_fingerprint.allowlist", "example.com"]],
+        async () => {
+          const pc1 = new RTCPeerConnection();
+          const pc2 = new RTCPeerConnection();
+
+          pc1.onicecandidate = e => addIce(pc2, e.candidate, generateErrorCallback());
+          pc2.onicecandidate = e => addIce(pc1, e.candidate, generateErrorCallback());
+
+          const v1 = createMediaElement('video', 'v1');
+
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: true, audio: true
+          });
+          v1.srcObject = stream;
+          for (const track of stream.getTracks()) {
+            pc1.addTrack(track, stream);
+          }
+
+          const fingerprints = ({sdp}) => sdp.match(/a=fingerprint/g).length;
+
+          // with implicit offer and answer
+          await pc1.setLocalDescription();
+          is(fingerprints(pc1.localDescription), 3, "implicit pc1 local fingerprints");
+          is(fingerprints(pc1.pendingLocalDescription), 3, "implicit pc1 pending fingerprints");
+          await pc2.setRemoteDescription(pc1.localDescription);
+          await pc2.setLocalDescription();
+          is(fingerprints(pc2.localDescription), 3, "implicit pc2 local fingerprints");
+          is(fingerprints(pc2.currentLocalDescription), 3, "implicit pc2 current fingerprints");
+          await pc1.setRemoteDescription(pc2.localDescription);
+
+          // with explicit offer and answer
+          const offer = await pc1.createOffer();
+          is(fingerprints(offer), 3, "offer fingerprints");
+          await pc1.setLocalDescription(offer);
+          is(fingerprints(pc1.localDescription), 3, "explicit pc1 local fingerprints");
+          is(fingerprints(pc1.pendingLocalDescription), 3, "explicit pc1 pending fingerprints");
+          await pc2.setRemoteDescription(pc1.localDescription);
+          const answer = pc2.createAnswer();
+          is(fingerprints(offer), 3, "answer fingerprints");
+          await pc2.setLocalDescription(answer);
+          is(fingerprints(pc2.localDescription), 3, "explicit pc2 fingerprints A");
+          is(fingerprints(pc2.currentLocalDescription), 3, "explicit pc2 fingerprints B");
+          await pc1.setRemoteDescription(pc2.localDescription);
+        }
+      );
+    }
+  ];
+
+  runNetworkTest(async () => {
+    for (const test of tests) {
+      info(`Running test: ${test.name}`);
+      await test();
+      info(`Done running test: ${test.name}`);
+    }
+  });
+</script>
+</pre>
+</body>
+</html>

@@ -1,0 +1,137 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXPORTS += [
+    '../include/opentype-sanitiser.h',
+    '../include/ots-memory-stream.h',
+    '../RLBoxWOFF2Types.h',
+]
+
+UNIFIED_SOURCES += [
+    '../RLBoxWOFF2Host.cpp'
+]
+
+UNIFIED_SOURCES += [
+    'avar.cc',
+    'cff.cc',
+    'cff_charstring.cc',
+    'cmap.cc',
+    'colr.cc',
+    'cpal.cc',
+    'cvar.cc',
+    'cvt.cc',
+    'feat.cc',
+    'fpgm.cc',
+    'fvar.cc',
+    'gasp.cc',
+    'gdef.cc',
+    'glat.cc',
+    'gloc.cc',
+    'glyf.cc',
+    'gpos.cc',
+    'gsub.cc',
+    'gvar.cc',
+    'hdmx.cc',
+    'head.cc',
+    'hhea.cc',
+    'hvar.cc',
+    'kern.cc',
+    'layout.cc',
+    'loca.cc',
+    'ltsh.cc',
+    'math.cc',
+    'maxp.cc',
+    'metrics.cc',
+    'mvar.cc',
+    'name.cc',
+    'os2.cc',
+    'ots.cc',
+    'post.cc',
+    'prep.cc',
+    'sile.cc',
+    'silf.cc',
+    'sill.cc',
+    'stat.cc',
+    'variations.cc',
+    'vdmx.cc',
+    'vhea.cc',
+    'vorg.cc',
+    'vvar.cc',
+]
+
+# We allow warnings for third-party code that can be updated from upstream.
+AllowCompilerWarnings()
+
+FINAL_LIBRARY = 'xul'
+
+DEFINES['PACKAGE_VERSION'] = '"moz"'
+DEFINES['PACKAGE_BUGREPORT'] = '"http://bugzilla.mozilla.org/"'
+DEFINES['OTS_GRAPHITE'] = 1
+DEFINES['OTS_VARIATIONS'] = 1
+DEFINES['OTS_SYNTHESIZE_MISSING_GVAR'] = 1
+
+USE_LIBS += [
+    'brotli',
+]
+
+if not CONFIG['MOZ_WASM_SANDBOXING_WOFF2']:
+    USE_LIBS += [
+        'woff2',
+    ]
+
+LOCAL_INCLUDES += [
+    '!/security/rlbox',
+    '/modules/woff2/src',
+]
+
+SOURCE_HEADERS += [
+	"avar.h",
+	"cff.h",
+	"cff_charstring.h",
+	"cmap.h",
+	"colr.h",
+	"cpal.h",
+	"cvar.h",
+	"cvt.h",
+	"feat.h",
+	"fpgm.h",
+	"fvar.h",
+	"gasp.h",
+	"gdef.h",
+	"glat.h",
+	"gloc.h",
+	"glyf.h",
+	"gpos.h",
+	"graphite.h",
+	"gsub.h",
+	"gvar.h",
+	"hdmx.h",
+	"head.h",
+	"hhea.h",
+	"hmtx.h",
+	"hvar.h",
+	"kern.h",
+	"layout.h",
+	"loca.h",
+	"ltsh.h",
+	"math_.h",
+	"maxp.h",
+	"metrics.h",
+	"mvar.h",
+	"name.h",
+	"os2.h",
+	"ots.h",
+	"post.h",
+	"prep.h",
+	"sile.h",
+	"silf.h",
+	"sill.h",
+	"stat.h",
+	"variations.h",
+	"vdmx.h",
+	"vhea.h",
+	"vmtx.h",
+	"vorg.h",
+	"vvar.h",
+]

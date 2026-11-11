@@ -1,0 +1,171 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+"use strict";
+
+const {
+  createFactory,
+  createRef,
+  PureComponent,
+} = require("resource://devtools/client/shared/vendor/react.mjs");
+const dom = require("resource://devtools/client/shared/vendor/react-dom-factories.js");
+const PropTypes = require("resource://devtools/client/shared/vendor/react-prop-types.mjs");
+
+const FluentReact = require("resource://devtools/client/shared/vendor/fluent-react.js");
+const Localized = createFactory(FluentReact.Localized);
+
+const Message = createFactory(
+  require("resource://devtools/client/aboutdebugging/src/components/shared/Message.js")
+);
+
+const Actions = require("resource://devtools/client/aboutdebugging/src/actions/index.js");
+const {
+  MESSAGE_LEVEL,
+} = require("resource://devtools/client/aboutdebugging/src/constants.js");
+const Types = require("resource://devtools/client/aboutdebugging/src/types/index.js");
+
+const NETWORK_LOCATION_FORM_ERROR_ID = "network-location-form-error";
+
+class NetworkLocationsForm extends PureComponent {
+  static get propTypes() {
+    return {
+      dispatch: PropTypes.func.isRequired,
+      networkLocations: PropTypes.arrayOf(Types.location).isRequired,
+    };
+  }
+
+  constructor(props) {
+    super(props);
+    this.inputRef = createRef();
+    this.state = {
+      errorHostValue: null,
+      errorMessageId: null,
+      // Incremented on each error so the message is shown again even if the
+      // user dismissed a previous, identical error.
+      errorCount: 0,
+      value: "",
+    };
+  }
+
+  setError(value, errorMessageId) {
+    this.setState(
+      prevState => ({
+        errorHostValue: value,
+        errorMessageId,
+        errorCount: prevState.errorCount + 1,
+      }),
+      () => {
+        const input = this.inputRef.current;
+        if (input) {
+          // Focus the input so the user can fix the value.
+          input.focus();
+        }
+      }
+    );
+  }
+
+  onSubmit(e) {
+    const { networkLocations } = this.props;
+    const { value } = this.state;
+
+    e.preventDefault();
+
+    if (!value) {
+      return;
+    }
+
+    if (!value.match(/[^:]+:\d+/)) {
+      this.setError(value, "about-debugging-network-location-form-invalid");
+      return;
+    }
+
+    if (networkLocations.includes(value)) {
+      this.setError(value, "about-debugging-network-location-form-duplicate");
+      return;
+    }
+
+    this.props.dispatch(Actions.addNetworkLocation(value));
+    this.setState({ errorHostValue: null, errorMessageId: null, value: "" });
+  }
+
+  renderError() {
+    const { errorHostValue, errorMessageId, errorCount } = this.state;
+
+    if (!errorMessageId) {
+      return null;
+    }
+
+    return Message(
+      {
+        className:
+          "connect-page__network-form__error-message " +
+          "qa-connect-page__network-form__error-message",
+        level: MESSAGE_LEVEL.ERROR,
+        isCloseable: true,
+        messageId: `${errorMessageId}-${errorCount}`,
+        role: "alert",
+      },
+      Localized(
+        {
+          id: errorMessageId,
+          "$host-value": errorHostValue,
+        },
+        dom.p(
+          {
+            className: "technical-text",
+            id: NETWORK_LOCATION_FORM_ERROR_ID,
+          },
+          errorMessageId
+        )
+      )
+    );
+  }
+
+  render() {
+    return dom.form(
+      {
+        className: "connect-page__network-form",
+        onSubmit: e => this.onSubmit(e),
+      },
+      this.renderError(),
+      Localized(
+        {
+          id: "about-debugging-network-locations-host-input-label",
+        },
+        dom.label(
+          {
+            htmlFor: "about-debugging-network-locations-host-input",
+          },
+          "Host"
+        )
+      ),
+      dom.input({
+        id: "about-debugging-network-locations-host-input",
+        className: "qa-network-form-input",
+        placeholder: "localhost:6080",
+        type: "text",
+        value: this.state.value,
+        ref: this.inputRef,
+        "aria-describedby": NETWORK_LOCATION_FORM_ERROR_ID,
+        onChange: e => {
+          const value = e.target.value;
+          this.setState({ value });
+        },
+      }),
+      Localized(
+        {
+          id: "about-debugging-network-locations-add-button",
+        },
+        dom.button(
+          {
+            className: "primary qa-network-form-submit-button",
+          },
+          "Add"
+        )
+      )
+    );
+  }
+}
+
+module.exports = NetworkLocationsForm;

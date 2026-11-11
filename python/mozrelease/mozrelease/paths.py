@@ -1,0 +1,104 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+from datetime import datetime
+from urllib.parse import urlunsplit
+
+from .versions import MozillaVersion
+
+product_ftp_map = {
+    "fennec": "mobile",
+}
+
+
+def product2ftp(product):
+    return product_ftp_map.get(product, product)
+
+
+def getCandidatesDir(product, version, buildNumber, protocol=None, server=None):
+    if protocol:
+        assert server is not None, "server is required with protocol"
+
+    product = product2ftp(product)
+    directory = (
+        f"/{product}/candidates/{str(version)}-candidates/build{str(buildNumber)}"
+    )
+
+    if protocol:
+        return urlunsplit((protocol, server, directory, None, None))
+    else:
+        return directory
+
+
+def getReleasesDir(product, version=None, protocol=None, server=None):
+    if protocol:
+        assert server is not None, "server is required with protocol"
+
+    directory = f"/{product}/releases"
+    if version:
+        directory = f"{directory}/{version}"
+
+    if protocol:
+        return urlunsplit((protocol, server, directory, None, None))
+    else:
+        return directory
+
+
+def getNightlyDir(product, buildid, locale, repo, protocol=None, server=None):
+    if protocol:
+        assert server is not None, "server is required with protocol"
+
+    dt = datetime.strptime(buildid, "%Y%m%d%H%M%S")
+    suffix = repo if locale == "en-US" else f"{repo}-l10n"
+
+    directory = f"/{product}/nightly/{dt.year}/{dt.month:02}/{dt.year}-{dt.month:02}-{dt.day:02}-{dt.hour:02}-{dt.minute:02}-{dt.second:02}-{suffix}"
+    if protocol:
+        return urlunsplit((protocol, server, directory, None, None))
+    else:
+        return directory
+
+
+def getReleaseInstallerPath(
+    productName,
+    brandName,
+    version,
+    platform,
+    locale="en-US",
+    last_linux_bz2_version="134.99.0",
+):
+    if productName not in ("fennec",):
+        if platform.startswith("linux"):
+            compression = "bz2"
+            if last_linux_bz2_version and (
+                MozillaVersion(version) > MozillaVersion(last_linux_bz2_version)
+            ):
+                compression = "xz"
+            return "/".join([
+                p.strip("/")
+                for p in [
+                    platform,
+                    locale,
+                    f"{productName}-{version}.tar.{compression}",
+                ]
+            ])
+        elif "mac" in platform:
+            return "/".join([
+                p.strip("/") for p in [platform, locale, f"{brandName} {version}.dmg"]
+            ])
+        elif platform.startswith("win"):
+            return "/".join([
+                p.strip("/")
+                for p in [
+                    platform,
+                    locale,
+                    f"{brandName} Setup {version}.exe",
+                ]
+            ])
+        else:
+            raise ValueError("Unsupported platform")
+    elif platform.startswith("android"):
+        filename = f"{productName}-{version}.{locale}.android-arm.apk"
+        return "/".join([p.strip("/") for p in [platform, locale, filename]])
+    else:
+        raise ValueError("Unsupported platform")

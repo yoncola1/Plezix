@@ -1,0 +1,72 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef SHARED_SURFACE_EGL_H_
+#define SHARED_SURFACE_EGL_H_
+
+#include "CompositorTypes.h"
+#include "SharedSurface.h"
+#include "mozilla/Attributes.h"
+#include "mozilla/Mutex.h"
+
+namespace mozilla {
+namespace gl {
+
+class EglDisplay;
+class GLLibraryEGL;
+
+// -
+// EGLImage
+
+class SharedSurface_EGLImage final : public SharedSurface {
+  mutable Mutex mMutex MOZ_UNANNOTATED;
+  EGLSync mSync = nullptr;
+  const std::weak_ptr<EglDisplay> mEglDisplay;
+
+ public:
+  const EGLImage mImage;
+
+  static UniquePtr<SharedSurface_EGLImage> Create(const SharedSurfaceDesc&);
+
+ protected:
+  SharedSurface_EGLImage(const SharedSurfaceDesc&,
+                         UniquePtr<MozFramebuffer>&& fb, EGLImage);
+
+  void UpdateProdTexture(const MutexAutoLock& curAutoLock);
+
+ public:
+  virtual ~SharedSurface_EGLImage();
+
+  virtual void LockProdImpl() override {}
+  virtual void UnlockProdImpl() override {}
+
+  virtual void ProducerAcquireImpl() override {}
+  virtual void ProducerReleaseImpl() override;
+
+  virtual void ProducerReadAcquireImpl() override;
+  virtual void ProducerReadReleaseImpl() override {};
+
+  Maybe<layers::SurfaceDescriptor> ToSurfaceDescriptor() override;
+};
+
+class SurfaceFactory_EGLImage final : public SurfaceFactory {
+ public:
+  static UniquePtr<SurfaceFactory_EGLImage> Create(GLContext&);
+
+ private:
+  explicit SurfaceFactory_EGLImage(const PartialSharedSurfaceDesc& desc)
+      : SurfaceFactory(desc) {}
+
+ public:
+  virtual UniquePtr<SharedSurface> CreateSharedImpl(
+      const SharedSurfaceDesc& desc) override {
+    return SharedSurface_EGLImage::Create(desc);
+  }
+};
+
+}  // namespace gl
+
+} /* namespace mozilla */
+
+#endif /* SHARED_SURFACE_EGL_H_ */

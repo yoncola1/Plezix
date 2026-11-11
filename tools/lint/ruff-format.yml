@@ -1,0 +1,21 @@
+---
+ruff-format:
+    description: Reformat python with ruff
+    # Excludes should be added to `format.exclude` in topsrcdir/pyproject.toml
+    exclude: []
+    extensions:
+        - build
+        - configure
+        - md
+        - mozbuild
+        - py
+    # Format Python inside dot-directories too (e.g. .agents, .claude skills).
+    find-dotfiles: true
+    support-files:
+        - 'tools/lint/python/**'
+        - '**/.ruff.toml'
+        - '**/ruff.toml'
+        - '**/pyproject.toml'
+        - 'python/sites/lint.txt'
+    type: external
+    payload: python.ruff:format

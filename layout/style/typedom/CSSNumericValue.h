@@ -1,0 +1,226 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef LAYOUT_STYLE_TYPEDOM_CSSNUMERICVALUE_H_
+#define LAYOUT_STYLE_TYPEDOM_CSSNUMERICVALUE_H_
+
+#include "js/TypeDecls.h"
+#include "mozilla/NotNull.h"
+#include "mozilla/Span.h"
+#include "mozilla/UniquePtr.h"
+#include "mozilla/dom/CSSMathSumBindingFwd.h"
+#include "mozilla/dom/CSSMathValueBindingFwd.h"
+#include "mozilla/dom/CSSNumericValueBindingFwd.h"
+#include "mozilla/dom/CSSStyleValue.h"
+#include "mozilla/dom/CSSUnitValueBindingFwd.h"
+#include "nsStringFwd.h"
+#include "nsTArrayForwardDeclare.h"
+
+template <class T>
+struct already_AddRefed;
+template <class T>
+class nsCOMPtr;
+class nsISupports;
+template <class T>
+class RefPtr;
+
+namespace mozilla {
+
+struct CSSPropertyId;
+class ErrorResult;
+struct StyleNumericType;
+struct StyleNumericValue;
+template <typename T>
+struct StyleOptional;
+struct StyleUnitValue;
+
+namespace dom {
+
+class GlobalObject;
+template <typename T>
+class Sequence;
+
+class CSSNumericValue : public CSSStyleValue {
+ public:
+  enum class NumericValueType {
+    UnitValue,
+    MathValue,
+  };
+
+  CSSNumericValue(nsCOMPtr<nsISupports> aParent,
+                  NumericValueType aNumericValueType);
+
+  CSSNumericValue(nsCOMPtr<nsISupports> aParent,
+                  MovingNotNull<UniquePtr<StyleNumericType>> aNumericType,
+                  NumericValueType aNumericValueType);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#rectify-a-numberish-value
+  static RefPtr<CSSNumericValue> Create(nsCOMPtr<nsISupports> aParent,
+                                        const CSSNumberish& aNumberish);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#rectify-a-numberish-value
+  static RefPtr<CSSNumericValue> Create(
+      nsCOMPtr<nsISupports> aParent,
+      const OwningCSSNumberish& aOwningNumberish);
+
+  static RefPtr<CSSNumericValue> Create(nsCOMPtr<nsISupports> aParent,
+                                        const StyleNumericValue& aNumericValue);
+
+  JSObject* WrapObject(JSContext* aCx,
+                       JS::Handle<JSObject*> aGivenProto) override;
+
+  // start of CSSNumbericValue Web IDL declarations
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-add
+  already_AddRefed<CSSNumericValue> Add(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-sub
+  already_AddRefed<CSSNumericValue> Sub(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-mul
+  already_AddRefed<CSSNumericValue> Mul(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-div
+  already_AddRefed<CSSNumericValue> Div(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-min
+  already_AddRefed<CSSNumericValue> Min(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-max
+  already_AddRefed<CSSNumericValue> Max(
+      const Sequence<OwningCSSNumberish>& aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-equals
+  bool Equals(const Sequence<OwningCSSNumberish>& aValue);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-to
+  already_AddRefed<CSSUnitValue> To(const nsACString& aUnit,
+                                    ErrorResult& aRv) const;
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-tosum
+  already_AddRefed<CSSMathSum> ToSum(const Sequence<nsCString>& aUnits,
+                                     ErrorResult& aRv) const;
+
+  // Step 2-3 of:
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-type
+  void Type(CSSNumericType& aRetVal);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-parse
+  static already_AddRefed<CSSNumericValue> Parse(const GlobalObject& aGlobal,
+                                                 const nsACString& aCssText,
+                                                 ErrorResult& aRv);
+  // As above, but taking the parent directly so callers outside binding entry
+  // points can reuse the parsing.
+  static already_AddRefed<CSSNumericValue> Parse(nsISupports* aParent,
+                                                 const nsACString& aCssText,
+                                                 ErrorResult& aRv);
+
+  // end of CSSNumbericValue Web IDL declarations
+
+  const StyleNumericType& GetNumericType() const { return *mNumericType; }
+
+  NumericValueType GetNumericValueType() const { return mNumericValueType; }
+
+  bool IsCSSUnitValue() const;
+
+  // Defined in CSSUnitValue.cpp
+  const CSSUnitValue& GetAsCSSUnitValue() const;
+
+  // Defined in CSSUnitValue.cpp
+  CSSUnitValue& GetAsCSSUnitValue();
+
+  bool IsCSSMathValue() const;
+
+  // Defined in CSSMathValue.cpp
+  const CSSMathValue& GetAsCSSMathValue() const;
+
+  // Defined in CSSMathValue.cpp
+  CSSMathValue& GetAsCSSMathValue();
+
+  void ToCssTextWithProperty(const CSSPropertyId& aPropertyId,
+                             nsACString& aDest) const;
+
+  struct Nested {};
+  struct ParenLess {};
+
+  class SerializationContext {
+   public:
+    constexpr SerializationContext() = default;
+
+    constexpr explicit SerializationContext(Nested) : mKind(Kind::Nested) {}
+
+    constexpr SerializationContext(Nested, ParenLess)
+        : mKind(Kind::NestedParenLess) {}
+
+    bool IsNested() const { return mKind != Kind::Root; }
+    bool IsParenLess() const { return mKind == Kind::NestedParenLess; }
+
+   private:
+    enum class Kind : uint8_t {
+      Root,
+      Nested,
+      NestedParenLess,
+    };
+
+    Kind mKind = Kind::Root;
+  };
+
+  void ToCssTextWithProperty(const CSSPropertyId& aPropertyId,
+                             const SerializationContext& aContext,
+                             nsACString& aDest) const;
+
+  // Step 2-5 of:
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-add
+  already_AddRefed<CSSNumericValue> Add(
+      nsTArray<RefPtr<CSSNumericValue>> aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#cssmath-negate-a-cssnumericvalue
+  already_AddRefed<CSSNumericValue> Negate();
+
+  // Step 2-6 of:
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-mul
+  already_AddRefed<CSSNumericValue> Mul(
+      nsTArray<RefPtr<CSSNumericValue>> aValues, ErrorResult& aRv);
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#cssmath-invert-a-cssnumericvalue
+  already_AddRefed<CSSNumericValue> Invert(ErrorResult& aRv);
+
+  StyleNumericValue ToStyleNumericValue() const;
+
+  // Step 1-3 of:
+  // https://drafts.css-houdini.org/css-typed-om-1/#dom-cssnumericvalue-to
+  StyleOptional<StyleUnitValue> ToStyleUnitValue(const nsACString& aUnit,
+                                                 ErrorResult& aRv) const;
+
+  // Infallible variant for callers where the conversion is known to succeed.
+  // Asserts if the conversion fails.
+  StyleUnitValue ToStyleUnitValue(const nsACString& aUnit) const;
+
+  // https://drafts.css-houdini.org/css-typed-om-1/#equal-numeric-value
+  static bool EqualNumericValues(const CSSNumericValue& aValue1,
+                                 const CSSNumericValue& aValue2);
+
+  static UniquePtr<StyleNumericType> AddTypes(
+      Span<const RefPtr<CSSNumericValue>> aValues, ErrorResult& aRv);
+
+  static UniquePtr<StyleNumericType> MultiplyTypes(
+      Span<const RefPtr<CSSNumericValue>> aValues, ErrorResult& aRv);
+
+ protected:
+  virtual ~CSSNumericValue() = default;
+
+  NotNull<UniquePtr<StyleNumericType>> mNumericType;
+
+  const NumericValueType mNumericValueType;
+};
+
+}  // namespace dom
+}  // namespace mozilla
+
+#endif  // LAYOUT_STYLE_TYPEDOM_CSSNUMERICVALUE_H_

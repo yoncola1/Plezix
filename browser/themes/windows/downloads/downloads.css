@@ -1,0 +1,26 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import "chrome://browser/skin/downloads/downloads.inc.css";
+
+/*** List items and similar elements in the summary ***/
+
+:root {
+  --downloads-item-height: 5.5em;
+}
+
+/*** Progress bars ***/
+
+@media (prefers-contrast) {
+  .downloadProgress {
+    --download-progress-border-color: ButtonText;
+
+    background-color: -moz-Dialog;
+    border: var(--border-width) solid var(--download-progress-border-color);
+  }
+
+  .downloadProgress::-moz-progress-bar {
+    --download-progress-fill-color: SelectedItem;
+  }
+}

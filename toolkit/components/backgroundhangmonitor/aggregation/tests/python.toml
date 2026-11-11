@@ -1,0 +1,16 @@
+[DEFAULT]
+subsuite = "bhr-aggregation"
+
+["test_bhr_collection.py"]
+
+["test_bhr_timeseries.py"]
+
+["test_client_metrics.py"]
+
+["test_heuristics.py"]
+
+["test_leaf_grouping.py"]
+
+["test_profile_processor.py"]
+
+["test_symbolication.py"]

@@ -1,0 +1,271 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+from __future__ import annotations
+
+import bisect
+import json
+import os
+import subprocess
+import sys
+from dataclasses import dataclass, field
+
+from mozlint import result
+from mozlint.pathutils import expand_exclusions
+
+CLIPPY_FIX_ARGS = ("--fix", "--allow-no-vcs")
+
+
+def get_clippy_driver_flags(config):
+    """Build clippy driver flags (-W/-A/-D) from the warn/allow/deny lists in
+    clippy.yml. Order matters: warns (often lint groups) come first, then the
+    allows that opt back out of individual lints from those groups, then the
+    denys. For a given lint the rightmost flag wins."""
+    flags = []
+    for lint in config.get("warn", []):
+        flags.extend(["-W", f"clippy::{lint}"])
+    for lint in config.get("allow", []):
+        flags.extend(["-A", f"clippy::{lint}"])
+    for lint in config.get("deny", []):
+        flags.extend(["-D", f"clippy::{lint}"])
+    return flags
+
+
+def in_sorted_list(l, x):
+    i = bisect.bisect_left(l, x)
+    return i < len(l) and l[i] == x
+
+
+def handle_clippy_msg(config, line, log, base_path, files, lint_results):
+    try:
+        detail = json.loads(line)
+        if "message" in detail:
+            p = detail["target"]["src_path"]
+            detail = detail["message"]
+            if "level" in detail:
+                if (detail["level"] in {"error", "failure-note"}) and not detail[
+                    "code"
+                ]:
+                    log.debug(
+                        "Error outside of clippy."
+                        "This means that the build failed. Therefore, skipping this"
+                    )
+                    log.debug(f"File = {p} / Detail = {detail}")
+                    return
+                # We are in a clippy warning
+                if len(detail["spans"]) == 0:
+                    # For some reason, at the end of the summary, we can
+                    # get the following line
+                    # {'rendered': 'warning: 5 warnings emitted\n\n', 'children':
+                    # [], 'code': None, 'level': 'warning', 'message':
+                    # '5 warnings emitted', 'spans': []}
+                    # if this is the case, skip it
+                    log.debug(f"Skipping the summary line {detail} for file {p}")
+                    return
+
+                l = detail["spans"][0]
+                if files and not in_sorted_list(files, p):
+                    return
+                p = os.path.join(base_path, l["file_name"])
+                line = l["line_start"]
+                res = {
+                    "path": p,
+                    "level": detail["level"],
+                    "lineno": line,
+                    "column": l["column_start"],
+                    "message": detail["message"],
+                    "hint": detail["rendered"],
+                    "rule": detail["code"]["code"],
+                    "lineoffset": l["line_end"] - l["line_start"],
+                }
+                log.debug(f"Identified an issue in {p}:{line}")
+                lint_results["results"].append(result.from_config(config, **res))
+
+    except json.decoder.JSONDecodeError:
+        # Could not parse the message.
+        # It is usually cargo info like "Finished `release` profile", etc
+        return
+
+
+def check_clippy_ran(completed_proc, crate_name, log):
+    """Raise if clippy failed to execute (e.g. build environment not set up).
+
+    Judged from the output rather than the exit code, which `mach cargo`
+    swallows: once cargo has run with --message-format=json it always prints
+    at least a build-finished message.
+    """
+
+    def is_valid_json(line):
+        try:
+            json.loads(line)
+            return True
+        except json.JSONDecodeError:
+            return False
+
+    has_cargo_json = any(
+        is_valid_json(line) for line in completed_proc.stdout.splitlines()
+    )
+    if not has_cargo_json:
+        output = completed_proc.stderr.strip() or completed_proc.stdout.strip()
+        log.error(
+            "clippy failed to execute for crate '%s' (exit code %d):\n%s",
+            crate_name,
+            completed_proc.returncode,
+            output,
+        )
+        raise RuntimeError(
+            f"Failed to run clippy on '{crate_name}' "
+            f"(exit code {completed_proc.returncode}). "
+            "Ensure the build environment is set up correctly."
+        )
+
+
+def build_succeeded(completed_proc):
+    """Whether cargo reported a successful build in its JSON output."""
+    for line in completed_proc.stdout.splitlines():
+        try:
+            msg = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if msg.get("reason") == "build-finished":
+            return bool(msg.get("success"))
+    return False
+
+
+def group_paths(paths, config, root):
+    """
+    Groups input paths based on the crate we need to check
+
+    returns: List of (crate_name, paths) tuples
+    """
+    gkrust_path_group = PathGroup("gkrust", root)
+    non_gkrust_path_groups = []
+    non_gkrust_crates = config.get("non_gkrust_crates", {})
+    for crate_name, crate_root in non_gkrust_crates.items():
+        non_gkrust_path_groups.append(
+            PathGroup(crate_name, os.path.join(root, crate_root))
+        )
+
+    for path in paths:
+        path_group = gkrust_path_group
+        for candidate in non_gkrust_path_groups:
+            if path.startswith(candidate.crate_root):
+                path_group = candidate
+                break
+        path_group.paths.append(path)
+    return [p for p in [gkrust_path_group] + non_gkrust_path_groups if p.paths]
+
+
+@dataclass
+class PathGroup:
+    """
+    Tracks paths to lint based on the Rust crate we're running clippy on.
+    """
+
+    crate_name: str
+    crate_root: str
+    paths: list[str] = field(default_factory=list)
+
+
+def lint(paths, config, log, root, fix=None, **_lintargs):
+    lint_results = {
+        "results": [],
+        "fixed": 0,
+    }
+
+    errors = []
+    for path_group in group_paths(paths, config, root):
+        try:
+            if path_group.crate_name == "gkrust":
+                lint_gkrust(path_group, config, log, fix, root, lint_results)
+            else:
+                lint_crate(path_group, config, log, fix, root, lint_results)
+        except RuntimeError as e:
+            errors.append(str(e))
+
+    if errors:
+        raise RuntimeError("\n".join(errors))
+
+    return lint_results
+
+
+def lint_gkrust(path_group, config, log, fix, root, lint_results):
+    """
+    Lint the gkrust crate.
+
+    This crate contains a lot of dependencies and many of them are legacy code at this point.
+    Use a conservative approach to linting:
+      * Filter out log messages that don't belong to the specified paths
+      * Support the `--fix` flag with path filtering to apply changes only to specified paths.
+    """
+    paths = list(expand_exclusions(path_group.paths, config, root))
+    paths.sort()
+    # can be extended in build/cargo/cargo-clippy.yaml
+    cargo_args = ["clippy"]
+    if fix:
+        cargo_args.extend(CLIPPY_FIX_ARGS)
+    # --keep-going lets cargo check independent crates even after one fails,
+    # so a single broken crate doesn't hide warnings in everything downstream.
+    cargo_args.extend(["--", "--keep-going", "--message-format=json"])
+    run_clippy(cargo_args, "gkrust", paths, config, log, fix, root, lint_results)
+
+
+def lint_crate(path_group, config, log, fix, root, lint_results):
+    """
+    Lint workspace crates other than gkrust.
+
+    These are newer and more self-contained, so we can use a more aggressive approach to linting:
+      * Print out all clippy errors for the crate.
+      * Support the `--fix` flag to automatically apply fixes.
+    """
+    # mach's own options (-p, --message-format-json) must precede the cargo
+    # subcommand. mach's clippy wrapper lints every crate it compiles, so
+    # --no-deps keeps the results to the requested crate.
+    cargo_args = [
+        "--message-format-json",
+        "-p",
+        path_group.crate_name,
+        "clippy",
+        "--no-deps",
+    ]
+    if fix:
+        cargo_args.extend([*CLIPPY_FIX_ARGS, "--allow-dirty"])
+    run_clippy(
+        cargo_args, path_group.crate_name, None, config, log, fix, root, lint_results
+    )
+
+
+def run_clippy(cargo_args, crate_name, paths, config, log, fix, root, lint_results):
+    """
+    Run `./mach cargo` with the given arguments and collect clippy's messages.
+
+    `paths` restricts the reported messages to those files; None keeps all of them.
+    """
+    # Crates depend on things from the mach environment (objdir, vendored
+    # sources), so we need to run `./mach cargo` instead of `cargo` directly.
+    clippy_args = [sys.executable, root + "/mach", "--log-no-times", "cargo"]
+    clippy_args.extend(cargo_args)
+    # MOZ_RUST_DEFAULT_FLAGS sets `-Dwarnings` (warnings-as-errors), which
+    # promotes any clippy warning to a hard error and stops cargo at the first
+    # offending crate. For linting we want to surface every warning across
+    # every included crate, so demote it back to warn-level (last `-W/-D` wins
+    # for the same lint group, and extra_rustflags is appended after the
+    # defaults).
+    flags = ["-W", "warnings"] + get_clippy_driver_flags(config)
+    env = os.environ.copy()
+    env["extra_rustflags"] = " ".join(flags)
+    log.debug("Run clippy with = {}".format(" ".join(clippy_args)))
+    completed_proc = subprocess.run(
+        clippy_args,
+        check=False,  # non-zero exit codes are not unexpected
+        capture_output=True,
+        text=True,
+        env=env,
+    )
+    check_clippy_ran(completed_proc, crate_name, log)
+    for l in completed_proc.stdout.splitlines():
+        handle_clippy_msg(config, l, log, root, paths, lint_results)
+
+    if fix and build_succeeded(completed_proc):
+        lint_results["fixed"] += 1

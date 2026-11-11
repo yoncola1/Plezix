@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "glean-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mozilla/glean-swift",
+      "state" : {
+        "revision" : "69cfeb8513a17d86c560e6df6dfefd97aa5cc700",
+        "version" : "71.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}

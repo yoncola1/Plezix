@@ -1,0 +1,76 @@
+# Invalidation tests
+# Format: OPERATOR file1.yaml file2.yaml [new-builder]
+# ==  no tiles should be dirty after rendering file2 (zero invalidation)
+# !=  at least one tile should be dirty after rendering file2
+# new-builder  build file2 with a fresh display list builder, the way a
+#              replaced content process would
+
+# Scrolling a sub-picture should not invalidate tiles
+== scroll_subpic_1.yaml scroll_subpic_2.yaml
+
+# Moving a rect within a tile requires a composite (and dirty tile)
+!= composite_nop_1.yaml composite_nop_2.yaml
+
+# A repaint that moves scroll offset from the async delta into
+# external-scroll-offset (shifting every coordinate inside the scroll frame to
+# match) is normalized out by the display list builder, so nothing an interning
+# key can see changes and the tile must stay valid. Guards the scroll-invariance
+# the interned prim uid relies on; scroll_subpic above only covers async
+# scrolling, which never re-runs scene building.
+== eso_repaint_1.yaml eso_repaint_2.yaml
+
+# Same, for a repaint that bakes the sticky offset into the emitted coordinates
+# and reports it as previously-applied-offset.
+== sticky_repaint_1.yaml sticky_repaint_2.yaml
+
+# Text under an animated transform is rasterized in local space; when the
+# animation ends it must return to the crisp device path. A bound transform only
+# counts as animating once it has actually moved (bug 2051166), so the sequence
+# moves property 10 (a -> b) before ending it (b -> c). These lines share the
+# persistent property state and must run in order.
+
+# a -> b: the bound transform starts moving, flipping the text from the device
+# path to local raster. This must invalidate the tile.
+!= anim_text_a.yaml anim_text_b.yaml
+
+# Re-rendering the latched-moving frame with an unchanged value must NOT churn
+# the tile (the AnimatedRasterSpace dependency is stable frame-to-frame).
+== anim_text_b.yaml anim_text_b.yaml
+
+# b -> c: the animation ends (binding removed) at the same position, so only the
+# raster space flips local -> device with the transform value unchanged. The
+# tile must still invalidate so the text returns to the device path (bug
+# 2056306).
+!= anim_text_b.yaml anim_text_c.yaml
+
+# The same again, but the second list comes from a fresh display list builder,
+# as it would from a replaced content process. Its interning slot numbering
+# restarts, so the receiver drops what the first builder interned and applies
+# the new list from scratch (DeltaAction::Reset): the re-interned run gets a
+# fresh uid and the tile invalidates, as for the rectangle case below.
+!= anim_text_b.yaml anim_text_b.yaml new-builder
+
+# Re-rendering an unchanged rectangle from the same builder does not churn the
+# tile: the builder keeps its interned entry and the uid with it.
+== composite_nop_1.yaml composite_nop_1.yaml
+
+# A display list built by a different builder for the same pipeline restarts
+# interning slot numbering, so the receiver drops what the previous builder
+# interned and re-applies the new list from scratch (DeltaAction::Reset). The
+# content is byte-for-byte the same as the line above, so this asserts the
+# takeover itself: the re-interned rectangle gets a fresh uid and the tile
+# invalidates. Conservative rather than ideal, and the price of an
+# exactly-unique uid - see doc/dl-builder-interning.md.
+!= composite_nop_1.yaml composite_nop_1.yaml new-builder
+
+# Same, but with a coordinate off the app-unit grid the display list declares, on
+# the axis the scroll offset does *not* move. Normalization must leave that axis
+# alone rather than rounding it onto the grid (bug 2059620).
+== offgrid_repaint_1.yaml offgrid_repaint_2.yaml
+
+# A pipeline going away and a new one taking its place. Each step retires the
+# previous iframe pipeline and introduces a new one; the removal arrives in its
+# own transaction with no display list, so nothing rebuilds the scene at that
+# point and the receiver has to hold the pipeline's resources until one does.
+!= recycle_pipeline_1.yaml recycle_pipeline_2.yaml
+!= recycle_pipeline_2.yaml recycle_pipeline_3.yaml

@@ -1,0 +1,100 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef jit_riscv64_CodeGenerator_riscv64_h
+#define jit_riscv64_CodeGenerator_riscv64_h
+
+#include "jit/riscv64/Assembler-riscv64.h"
+#include "jit/riscv64/MacroAssembler-riscv64.h"
+#include "jit/shared/CodeGenerator-shared.h"
+
+namespace js {
+namespace jit {
+
+class CodeGeneratorRiscv64;
+class OutOfLineTableSwitch;
+
+using OutOfLineWasmTruncateCheck =
+    OutOfLineWasmTruncateCheckBase<CodeGeneratorRiscv64>;
+
+class CodeGeneratorRiscv64 : public CodeGeneratorShared {
+  friend class MoveResolverLA;
+
+ protected:
+  CodeGeneratorRiscv64(MIRGenerator* gen, LIRGraph* graph, MacroAssembler* masm,
+                       const wasm::CodeMetadata* wasmCodeMeta);
+
+  MoveOperand toMoveOperand(LAllocation a) const;
+
+  void bailoutIfFalseBool(Register reg, LSnapshot* snapshot) {
+    Label bail;
+    UseScratchRegisterScope temps(&masm);
+    Register scratch = temps.Acquire();
+    masm.zext_b(scratch, reg);
+    masm.ma_b(scratch, scratch, &bail, Assembler::Zero, LongJump);
+    bailoutFrom(&bail, snapshot);
+  }
+
+  bool generateOutOfLineCode();
+
+  enum FloatFormat { SingleFloat, DoubleFloat };
+  void branchToBlock(FloatFormat fmt, FloatRegister lhs, FloatRegister rhs,
+                     MBasicBlock* mir, Assembler::DoubleCondition cond);
+
+  // Emits a branch that directs control flow to the true block if |cond| is
+  // true, and the false block if |cond| is false.
+  template <typename T>
+  void emitBranch(Register lhs, T rhs, Assembler::Condition cond,
+                  MBasicBlock* mirTrue, MBasicBlock* mirFalse) {
+    if (isNextBlock(mirFalse->lir())) {
+      branchToBlock(lhs, rhs, mirTrue, cond);
+    } else {
+      branchToBlock(lhs, rhs, mirFalse, Assembler::InvertCondition(cond));
+      jumpToBlock(mirTrue);
+    }
+  }
+
+  void emitTableSwitchDispatch(MTableSwitch* mir, Register index,
+                               Register base);
+
+  void generateInvalidateEpilogue();
+
+  // Generating a result.
+  template <typename S, typename T>
+  void atomicBinopToTypedIntArray(AtomicOp op, Scalar::Type arrayType,
+                                  const S& value, const T& mem,
+                                  Register flagTemp, Register outTemp,
+                                  Register valueTemp, Register offsetTemp,
+                                  Register maskTemp, AnyRegister output);
+
+  // Generating no result.
+  template <typename S, typename T>
+  void atomicBinopToTypedIntArray(AtomicOp op, Scalar::Type arrayType,
+                                  const S& value, const T& mem,
+                                  Register flagTemp, Register valueTemp,
+                                  Register offsetTemp, Register maskTemp);
+
+ public:
+  // Out of line visitors.
+  void visitOutOfLineTableSwitch(OutOfLineTableSwitch* ool);
+  void visitOutOfLineWasmTruncateCheck(OutOfLineWasmTruncateCheck* ool);
+
+ protected:
+  template <typename T>
+  void emitWasmLoadI64(T* ins);
+  template <typename T>
+  void emitWasmStoreI64(T* ins);
+
+  void emitBigIntPtrDiv(LBigIntPtrDiv* ins, Register dividend, Register divisor,
+                        Register output);
+  void emitBigIntPtrMod(LBigIntPtrMod* ins, Register dividend, Register divisor,
+                        Register output);
+};
+
+typedef CodeGeneratorRiscv64 CodeGeneratorSpecific;
+
+}  // namespace jit
+}  // namespace js
+
+#endif /* jit_riscv64_CodeGenerator_riscv64_h */

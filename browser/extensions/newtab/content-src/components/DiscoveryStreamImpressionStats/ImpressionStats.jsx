@@ -1,0 +1,327 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import { actionCreators as ac, actionTypes as at } from "common/Actions.mjs";
+import {
+  getActiveCardSize,
+  getCardColumn,
+  getNovaColumnLayout,
+} from "../../lib/utils";
+import { TOP_SITES_SOURCE } from "../TopSites/TopSitesConstants";
+import { SpaceActiveContext } from "../../lib/SpaceActiveContext";
+import React from "react";
+
+const VISIBLE = "visible";
+const VISIBILITY_CHANGE_EVENT = "visibilitychange";
+
+// Per analytical requirement, we set the minimal intersection ratio to
+// 0.5, and an impression is identified when the wrapped item has at least
+// 50% visibility.
+//
+// This constant is exported for unit test
+export const INTERSECTION_RATIO = 0.5;
+
+/**
+ * Impression wrapper for Discovery Stream related React components.
+ *
+ * It makes use of the Intersection Observer API to detect the visibility,
+ * and relies on page visibility to ensure the impression is reported
+ * only when the component is visible on the page.
+ *
+ * Note:
+ *   * This wrapper used to be used either at the individual card level,
+ *     or by the card container components.
+ *     It is now only used for individual card level.
+ *   * Each impression will be sent only once as soon as the desired
+ *     visibility is detected
+ *   * Batching is not yet implemented, hence it might send multiple
+ *     impression pings separately
+ */
+export class ImpressionStats extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.impressionRef = React.createRef();
+  }
+
+  // This checks if the given cards are the same as those in the last impression ping.
+  // If so, it should not send the same impression ping again.
+  _needsImpressionStats(cards) {
+    if (
+      !this.impressionCardGuids ||
+      this.impressionCardGuids.length !== cards.length
+    ) {
+      return true;
+    }
+
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].id !== this.impressionCardGuids[i]) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  _dispatchImpressionStats() {
+    const { props } = this;
+    const cards = props.rows;
+
+    if (this.props.flightId) {
+      this.props.dispatch(
+        ac.OnlyToMain({
+          type: at.DISCOVERY_STREAM_SPOC_IMPRESSION,
+          data: { flightId: this.props.flightId },
+        })
+      );
+
+      // Record sponsored topsites impressions if the source is `TOP_SITES_SOURCE`.
+      if (this.props.source === TOP_SITES_SOURCE) {
+        for (const card of cards) {
+          this.props.dispatch(
+            ac.OnlyToMain({
+              type: at.TOP_SITES_SPONSORED_IMPRESSION_STATS,
+              data: {
+                type: "impression",
+                tile_id: card.id,
+                source: "newtab",
+                advertiser_name: card.advertiser_name,
+                // Keep the 0-based position, can be adjusted by the telemetry
+                // sender if necessary.
+                position: card.pos,
+                attribution: card.attribution,
+              },
+            })
+          );
+        }
+      }
+    }
+
+    if (this._needsImpressionStats(cards)) {
+      // Every card this wrapper reports on shares its grid item, so measure once.
+      const cardColumn = getCardColumn(this.impressionRef.current);
+      const impressionData = {
+        source: props.source.toUpperCase(),
+        window_inner_width: window.innerWidth,
+        window_inner_height: window.innerHeight,
+        tiles: cards.map(link => ({
+          id: link.id,
+          pos: link.pos,
+          type: props.flightId ? "spoc" : "organic",
+          ...(link.shim ? { shim: link.shim } : {}),
+          corpus_item_id: link.corpus_item_id,
+          scheduled_corpus_item_id: link.scheduled_corpus_item_id,
+          recommended_at: link.recommended_at,
+          received_rank: link.received_rank,
+          variant_id: link.variant_id,
+          source_section_id: link.source_section_id,
+          topic: link.topic,
+          features: link.features,
+          attribution: link.attribution,
+          is_ad_eligible_position: link.is_ad_eligible_position,
+          ...(cardColumn ? { card_column: cardColumn } : {}),
+          ...(link.format
+            ? { format: link.format }
+            : {
+                format: getActiveCardSize(
+                  window.innerWidth,
+                  link.class_names,
+                  link.section,
+                  link.flightId,
+                  getNovaColumnLayout(this.impressionRef.current)
+                ),
+              }),
+          ...(link.section
+            ? {
+                section: link.section,
+                section_position: link.section_position,
+                is_section_followed: link.is_section_followed,
+                layout_name: link.layout_name,
+              }
+            : {}),
+        })),
+      };
+
+      props.dispatch(ac.DiscoveryStreamImpressionStats(impressionData));
+      this.impressionCardGuids = cards.map(link => link.id);
+    }
+  }
+
+  // This checks if the given cards are the same as those in the last loaded content ping.
+  // If so, it should not send the same loaded content ping again.
+  _needsLoadedContent(cards) {
+    if (
+      !this.loadedContentGuids ||
+      this.loadedContentGuids.length !== cards.length
+    ) {
+      return true;
+    }
+
+    for (let i = 0; i < cards.length; i++) {
+      if (cards[i].id !== this.loadedContentGuids[i]) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  _dispatchLoadedContent() {
+    const { props } = this;
+    const cards = props.rows;
+
+    if (this._needsLoadedContent(cards)) {
+      props.dispatch(
+        ac.DiscoveryStreamLoadedContent({
+          source: props.source.toUpperCase(),
+          tiles: cards.map(link => ({ id: link.id, pos: link.pos })),
+        })
+      );
+      this.loadedContentGuids = cards.map(link => link.id);
+    }
+  }
+
+  setImpressionObserverOrAddListener() {
+    const { props } = this;
+
+    if (!props.dispatch) {
+      return;
+    }
+
+    if (props.document.visibilityState === VISIBLE) {
+      // Send the loaded content ping once the page is visible.
+      this._dispatchLoadedContent();
+      this.setImpressionObserver();
+    } else {
+      // We should only ever send the latest impression stats ping, so remove any
+      // older listeners.
+      if (this._onVisibilityChange) {
+        props.document.removeEventListener(
+          VISIBILITY_CHANGE_EVENT,
+          this._onVisibilityChange
+        );
+      }
+
+      this._onVisibilityChange = () => {
+        if (props.document.visibilityState === VISIBLE) {
+          // Send the loaded content ping once the page is visible.
+          this._dispatchLoadedContent();
+          this.setImpressionObserver();
+          props.document.removeEventListener(
+            VISIBILITY_CHANGE_EVENT,
+            this._onVisibilityChange
+          );
+        }
+      };
+      props.document.addEventListener(
+        VISIBILITY_CHANGE_EVENT,
+        this._onVisibilityChange
+      );
+    }
+  }
+
+  /**
+   * Set an impression observer for the wrapped component. It makes use of
+   * the Intersection Observer API to detect if the wrapped component is
+   * visible with a desired ratio, and only sends impression if that's the case.
+   *
+   * See more details about Intersection Observer API at:
+   * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+   */
+  setImpressionObserver() {
+    const { props } = this;
+
+    if (!props.rows.length) {
+      return;
+    }
+
+    this._handleIntersect = entries => {
+      if (
+        entries.some(
+          entry =>
+            entry.isIntersecting &&
+            entry.intersectionRatio >= INTERSECTION_RATIO
+        )
+      ) {
+        this._dispatchImpressionStats();
+        this._hasReported = true;
+        this._teardownImpressionObserver();
+      }
+    };
+
+    const options = { threshold: INTERSECTION_RATIO };
+    this.impressionObserver = new props.IntersectionObserver(
+      this._handleIntersect,
+      options
+    );
+    this.impressionObserver.observe(this.impressionRef.current);
+  }
+
+  // A hidden carousel slide, or a space other than the active one.
+  _isActive() {
+    return this.props.isActive && this.context;
+  }
+
+  componentDidMount() {
+    this._wasActive = this._isActive();
+    if (this.props.rows.length && this._wasActive) {
+      this.setImpressionObserverOrAddListener();
+    }
+  }
+
+  _teardownImpressionObserver() {
+    if (this.impressionObserver) {
+      this.impressionObserver.unobserve(this.impressionRef.current);
+      this.impressionObserver = null;
+    }
+    if (this._onVisibilityChange) {
+      this.props.document.removeEventListener(
+        VISIBILITY_CHANGE_EVENT,
+        this._onVisibilityChange
+      );
+      this._onVisibilityChange = null;
+    }
+  }
+
+  // A carousel stacks its slides, so a hidden slide still intersects and would
+  // report an impression while invisible. A slide only observes while it is
+  // the visible one, and never observes again once it has reported, so a card
+  // that cycles back around isn't counted twice. Spaces work the same way, as a
+  // peeked space is visible but not active.
+  componentDidUpdate() {
+    const isActive = this._isActive();
+    const wasActive = this._wasActive;
+    this._wasActive = isActive;
+    if (this._hasReported || isActive === wasActive) {
+      return;
+    }
+    if (isActive && this.props.rows.length) {
+      this.setImpressionObserverOrAddListener();
+    } else if (!isActive) {
+      this._teardownImpressionObserver();
+    }
+  }
+
+  componentWillUnmount() {
+    this._teardownImpressionObserver();
+  }
+
+  render() {
+    return (
+      <div ref={this.impressionRef} className="impression-observer">
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+ImpressionStats.defaultProps = {
+  IntersectionObserver: globalThis.IntersectionObserver,
+  document: globalThis.document,
+  rows: [],
+  source: "",
+  // Only a carousel slide passes this as false, and only while hidden.
+  isActive: true,
+};
+
+ImpressionStats.contextType = SpaceActiveContext;

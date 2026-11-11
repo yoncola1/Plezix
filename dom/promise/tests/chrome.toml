@@ -1,0 +1,29 @@
+[DEFAULT]
+
+["test_promise_argument_xrays.html"]
+run-if = [
+  "debug",
+]
+support-files = [
+  "file_promise_xrays.html",
+  "file_promise_argument_tests.js",
+]
+
+["test_promise_job_with_bind_from_discarded_iframe.html"]
+support-files = ["file_promise_job_with_bind_from_discarded_iframe.html"]
+
+["test_promise_retval_xrays.html"]
+run-if = [
+  "debug",
+]
+support-files = [
+  "file_promise_xrays.html",
+  "file_promise_retval_tests.js"
+]
+
+["test_promise_xrays.html"]
+support-files = ["file_promise_xrays.html"]
+
+["test_scheduling_state_incumbent_hop.html"]
+
+["test_unhandledrejection_chrome_stack.html"]

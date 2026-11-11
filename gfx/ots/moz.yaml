@@ -1,0 +1,41 @@
+schema: 1
+
+bugzilla:
+  product: Core
+  component: "Graphics: Text"
+
+origin:
+  name: ots
+  description: Sanitiser for OpenType project
+
+  url: https://github.com/khaledhosny/ots
+
+  release: 869841bce1588839f17fe07626ce08a4befaf8ad (2026-10-16T23:46:16Z).
+  revision: 869841bce1588839f17fe07626ce08a4befaf8ad
+
+  license: BSD-3-Clause
+  license-file: LICENSE
+
+vendoring:
+  url: https://github.com/khaledhosny/ots
+  source-hosting: github
+  tracking: commit
+
+  exclude:
+    - ".*"
+    - "**"
+
+  include:
+    - include/
+    - src/
+    - tests/*.cc
+
+  keep:
+    - LICENSE
+    - RLBoxWOFF2Host.*
+    - RLBoxWOFF2Types.*
+
+  patches:
+    - ots-lz4.patch
+    - ots-rlbox.patch
+    - ots-visibility.patch

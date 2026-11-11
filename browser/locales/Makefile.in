@@ -1,0 +1,49 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+include $(topsrcdir)/config/config.mk
+
+# This makefile uses variable overrides from the l10n-% target to
+# build non-default locales to non-default dist/ locations. Be aware!
+
+MOZ_LANGPACK_EID = langpack-$(AB_CD)@$(MOZ_LANGPACK_EID_HOST)
+
+# Required for l10n.mk - defines a list of app sub dirs that should
+# be included in langpack xpis.
+DIST_SUBDIRS = $(DIST_SUBDIR)
+
+include $(topsrcdir)/config/rules.mk
+
+include $(topsrcdir)/toolkit/locales/l10n.mk
+
+l10n-%: AB_CD=$*
+l10n-%:
+	$(if $(filter en-US,$(AB_CD)),, @$(MAKE) merge-$*)
+	$(call py_action,l10n_stage,--locale=$* --manifest=$(DEPTH)/l10n-manifest.json --merge-tree=$(BASE_MERGE)/$* --dest=$(DIST)/xpi-stage/locale-$* --topsrcdir=$(topsrcdir) --topobjdir=$(DEPTH))
+
+chrome-%: AB_CD=$*
+chrome-%: IS_LANGUAGE_REPACK=1
+chrome-%:
+	$(if $(filter en-US,$(AB_CD)),, @$(MAKE) merge-$*)
+	$(call py_action,l10n_stage,--locale=$* --manifest=$(DEPTH)/l10n-manifest.json --merge-tree=$(BASE_MERGE)/$* --dest=$(DIST)/bin --topsrcdir=$(topsrcdir) --topobjdir=$(DEPTH) --mode=chrome)
+
+package-win32-installer:
+	$(MAKE) -C ../installer/windows CONFIG_DIR=l10ngen ZIP_IN='$(ZIP_OUT)' installer
+
+langpack: langpack-$(AB_CD)
+
+# This is a generic target that will make a langpack, repack ZIP (+tarball)
+# builds, and repack an installer if applicable. It is called from the
+# tinderbox scripts. Alter it with caution.
+
+installers-%: IS_LANGUAGE_REPACK=1
+installers-%:
+	@$(MAKE) clobber-$*
+	@$(MAKE) l10n-$*
+	@$(MAKE) package-langpack-$*
+	@$(MAKE) repackage-zip-$*
+ifeq (WINNT,$(OS_ARCH))
+	@$(MAKE) package-win32-installer AB_CD=$*
+endif
+	@echo 'repackaging done'

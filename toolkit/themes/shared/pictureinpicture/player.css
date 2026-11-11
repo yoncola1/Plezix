@@ -1,0 +1,812 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/design-system/tokens-platform.css");
+
+:root {
+  --player-bg-color: #000;
+  --player-control-icon-fill: #fff;
+  --player-control-item-half-width: clamp(calc(16px / 2), calc(10vmax / 2), calc(32px / 2));
+  --player-control-item-height: clamp(16px, 10vmax, 32px);
+  --close-btn-fill-color: #000;
+  --controls-bottom-distance: 15px;
+  --controls-bottom-upper-height: 30px;
+  --scrubber-vertical-margin: 7px;
+  --scrubber-thumb-background-color: var(--color-white);
+
+  --resize-margin: 5px;
+
+  background-color: var(--player-bg-color);
+  color-scheme: dark;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+}
+
+body:fullscreen {
+  -moz-window-dragging: no-drag;
+
+  #fullscreen {
+    background-image: url("chrome://global/skin/media/picture-in-picture-exit-fullscreen-button.svg");
+    @media not -moz-pref("browser.nova.enabled") {
+      background-size: contain;
+    }
+  }
+
+  #controls {
+    &[showing]:hover .control-item:not(:hover) {
+      opacity: 0.8;
+    }
+
+    /* Hide cursor when we expect controls to be hidden. */
+    &:not([showing], [keying], [donthide]) {
+      cursor: none;
+    }
+  }
+}
+
+.player-holder {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.seethrough-mode {
+  background: transparent;
+
+  .player-holder {
+    will-change: opacity, filter;
+    transition:
+      opacity 160ms linear,
+      filter 160ms linear;
+
+    body:hover:not(:fullscreen) & {
+      opacity: 0.35;
+      filter: blur(8px);
+    }
+  }
+}
+
+browser {
+  flex: 1;
+}
+
+#controls {
+  height: calc(100% - 2 * var(--resize-margin));
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 2 * var(--resize-margin));
+  margin: var(--resize-margin);
+  -moz-window-dragging: drag;
+}
+
+#controls button {
+  appearance: none;
+  border: 0;
+  z-index: 1;
+}
+
+#controls button:focus-visible,
+#controls input:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+  /* Because we set a dark color scheme for the player container, display a box-shadow
+   * just below the focus outline to improve the outline's contrast in case it is rendered over
+   * a lighter video content background. */
+  box-shadow: 0 0 0 calc(var(--focus-outline-width) + var(--focus-outline-offset)) rgba(0, 0, 0, 0.5);
+}
+
+/* Styling for background gradient.
+ * Opacity changes are handled separately under .control-item.
+ */
+#controls-bottom-gradient {
+  background: linear-gradient(0deg, #000000 -13.24%, rgba(0, 0, 0, 0) 90.44%);
+  position: absolute;
+  height: calc(
+    var(--controls-bottom-distance) + 2 * var(--resize-margin) + var(--player-control-item-height) + var(--controls-bottom-upper-height) +
+      var(--scrubber-vertical-margin)
+  );
+  bottom: 0;
+  width: 100vw;
+  margin: 0 calc(-1 * var(--resize-margin)) calc(-1 * var(--resize-margin)) calc(-1 * var(--resize-margin));
+  pointer-events: none;
+  -moz-window-dragging: drag;
+}
+
+#controls-bottom {
+  position: absolute;
+  bottom: var(--controls-bottom-distance);
+  width: 100%;
+}
+
+.controls-bottom-lower {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 24px;
+}
+
+.start-controls {
+  display: grid;
+  justify-self: start;
+}
+
+.center-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "seekbackward playpause seekforward";
+  justify-self: center;
+  gap: 8px;
+}
+
+.end-controls {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-areas: "audio audio-scrubber closedcaption fullscreen";
+  justify-self: end;
+  gap: 8px;
+
+  /* Only reserve a column for the playback speed button when it is shown
+   * (it stays hidden unless the playback-speed pref is enabled). */
+  /* Small-ish subtree */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  &:has(#playbackRate:not([hidden])) {
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    grid-template-areas: "audio audio-scrubber playbackrate closedcaption fullscreen";
+  }
+}
+
+.control-item {
+  -moz-window-dragging: no-drag;
+  transition:
+    opacity 160ms linear,
+    fill-opacity 160ms linear;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.control-button {
+  background-color: transparent;
+  border-radius: var(--border-radius-small);
+  /**
+   * Make the button dimensions a square proportional to one
+   * dimension of the window - in this case, the width dimension,
+   * since we suspect most videos are wider than they are tall.
+   */
+  height: var(--player-control-item-height);
+  width: 10vmax;
+  max-width: 32px;
+  min-width: 16px;
+  -moz-context-properties: fill, fill-opacity;
+  fill: var(--player-control-icon-fill);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.control-button:hover:enabled {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+#controls:is([keying], [showing]) .control-button:disabled,
+/* Only change opacity on hover events for non-fullscreen mode.
+ * Fullscreen mode uses the `showing` attribute instead. */
+body:not(:fullscreen) #controls:hover .control-button:disabled {
+  /* Set `fill-opacity` to the desired opacity in addition to full `opacity`
+   * to allow having the button's tooltip in full opacity even if the button is disabled. */
+  fill-opacity: 0.4;
+  opacity: 1 !important;
+}
+
+.control-item:focus-visible::after,
+.control-item:hover::after {
+  content: attr(tooltip);
+  display: inline-block;
+  width: max-content;
+  position: relative;
+  padding: 0.4em 0.5em;
+  background: black;
+  color: #ffffff;
+  border-radius: var(--border-radius-small);
+  pointer-events: none;
+}
+
+/* Since #controls is set to LTR, button tooltips would normally appear
+ * as LTR also for RTL locales. To fix this, set the .control-item's ::after
+ * to RTL based on the root directionality.
+ * Because of that, don't set logical properties for the next set of rules. */
+:root:dir(rtl) .control-item::after {
+  direction: rtl;
+}
+
+/* Set the tooltip position for different playback controls */
+
+.tooltip-under-controls:focus-visible::after,
+.tooltip-under-controls:hover::after {
+  bottom: -3em;
+}
+
+#close:focus-visible::after,
+#close:hover::after,
+#unpip[mac="true"]:focus-visible::after,
+#unpip[mac="true"]:hover::after {
+  float: right;
+  transform: translateX(1em);
+}
+
+#unpip:focus-visible::after,
+#unpip:hover::after,
+#close[mac="true"]:focus-visible::after,
+#close[mac="true"]:hover::after {
+  float: left;
+  transform: translateX(-1em);
+}
+
+.tooltip-over-controls:focus-visible::after,
+.tooltip-over-controls:hover::after {
+  bottom: 3em;
+}
+
+.inline-end-tooltip:focus-visible::after,
+.inline-end-tooltip:hover::after {
+  float: right;
+  right: -1em;
+}
+
+.inline-start-tooltip:focus-visible::after,
+.inline-start-tooltip:hover::after {
+  float: left;
+  left: -1em;
+}
+
+.center-tooltip:focus-visible::after,
+.center-tooltip:hover::after {
+  right: 0.8em;
+  translate: calc(-50% + var(--player-control-item-half-width));
+}
+
+/* Since the unpip button icon is reversed for RTL locales,
+ * re-position the tooltip so that the tooltip remains in the original placement */
+:root:dir(rtl) #unpip:focus-visible::after,
+:root:dir(rtl) #unpip:hover::after {
+  float: right;
+}
+
+:root:dir(rtl) #unpip[mac="true"]:focus-visible::after,
+:root:dir(rtl) #unpip[mac="true"]:hover::after {
+  float: left;
+}
+
+/* Since the unpip icon is reversed for RTL locales,
+ * flip its tooltip back */
+:root:dir(rtl) #unpip:focus-visible::after,
+:root:dir(rtl) #unpip:hover::after {
+  scale: -1 1;
+}
+
+/* Set opacity for buttons and scrubber when controls are visible on the pip
+ * window and are not hovered over. */
+body:not(:fullscreen) #controls:hover .control-item:not(:hover),
+#controls[donthide] .control-item {
+  opacity: 0.8;
+}
+
+#controls[keying] .control-item,
+#controls[showing] .control-item,
+.control-item:hover {
+  opacity: 1;
+}
+
+/* Background gradient is the only control item with a fixed opacity value. */
+#controls[keying] #controls-bottom-gradient,
+#controls[showing] #controls-bottom-gradient,
+#controls-bottom-gradient:hover {
+  opacity: 0.8;
+}
+
+/* For readability, timestamp should maintain full opacity when visible */
+body:not(:fullscreen) #controls:hover #timestamp {
+  opacity: 1;
+}
+
+#close,
+#unpip {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  fill: var(--close-btn-fill-color);
+}
+
+#close:is(:hover, :focus-visible),
+#unpip:is(:hover, :focus-visible) {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#close {
+  background-image: url("chrome://global/skin/icons/close.svg");
+  right: 10px;
+  top: 10px;
+}
+
+#close[mac="true"] {
+  right: auto;
+  left: 10px;
+}
+
+#unpip {
+  background-image: url("chrome://global/skin/media/picture-in-picture-closed.svg");
+  left: 10px;
+  top: 10px;
+}
+
+#unpip[mac="true"] {
+  right: 10px;
+  left: auto;
+}
+
+#playpause {
+  grid-area: playpause;
+}
+
+#audio {
+  grid-area: audio;
+}
+
+#audio-scrubber {
+  grid-area: audio-scrubber;
+  align-self: center;
+  width: 64px;
+  background-color: transparent;
+  margin: 0;
+
+  &::-moz-range-thumb {
+    border-radius: var(--border-radius-medium);
+    background-color: var(--scrubber-thumb-background-color);
+    width: 8px;
+    height: 8px;
+    padding: 0;
+  }
+
+  &::-moz-range-track {
+    background-color: #969696;
+  }
+
+  &::-moz-range-progress {
+    background-color: white;
+  }
+
+  &,
+  &::-moz-range-track,
+  &::-moz-range-progress {
+    height: 2px;
+  }
+}
+
+#fullscreen {
+  grid-area: fullscreen;
+}
+
+#controls.playing #playpause {
+  background-image: url("resource://content-accessible/media/pause-fill.svg");
+}
+
+#controls:not(.playing) #playpause {
+  background-image: url("resource://content-accessible/media/play-fill.svg");
+}
+
+#controls.muted #audio {
+  background-image: url("resource://content-accessible/media/audio-muted.svg");
+}
+
+#controls:not(.muted) #audio {
+  background-image: url("resource://content-accessible/media/audio.svg");
+}
+
+body:not(:fullscreen) #fullscreen {
+  background-image: url("chrome://global/skin/media/picture-in-picture-enter-fullscreen-button.svg");
+  @media not -moz-pref("browser.nova.enabled") {
+    background-size: contain;
+  }
+}
+
+#seekBackward {
+  background-image: url("chrome://global/skin/media/picture-in-picture-seekBackward-button.svg");
+  background-size: auto;
+  grid-area: seekbackward;
+}
+
+#seekForward {
+  background-image: url("chrome://global/skin/media/picture-in-picture-seekForward-button.svg");
+  background-size: auto;
+  grid-area: seekforward;
+}
+
+:root:dir(rtl) #unpip {
+  transform: scaleX(-1);
+}
+
+#closed-caption {
+  background-image: url("chrome://global/skin/media/closed-caption-settings-button.svg");
+  grid-area: closedcaption;
+}
+
+#playbackRate {
+  background-image: url("chrome://global/skin/media/playback-speed-button.svg");
+  grid-area: playbackrate;
+}
+
+/* Settings panels */
+
+.panel-controls-box {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-medium);
+  margin: 0;
+  min-width: 186px;
+  -moz-window-dragging: no-drag;
+  background-color: var(--settings-panel-background-color);
+  text-align: start;
+  border-radius: var(--border-radius-large);
+  border: none;
+}
+
+:root:dir(rtl) .panel {
+  direction: rtl;
+}
+
+.a11y-only {
+  visibility: hidden;
+  position: absolute;
+}
+
+.hide {
+  display: none;
+}
+
+.panel {
+  --settings-panel-text-color: var(--color-white);
+  --settings-panel-background-color: #2b2a33;
+  position: absolute;
+  bottom: 40px;
+  user-select: none;
+  right: 24px;
+  color: var(--settings-panel-text-color);
+  font: menu;
+  font-size: unset;
+  @media (forced-colors) {
+    --settings-panel-text-color: CanvasText;
+    --settings-panel-background-color: Canvas;
+  }
+}
+
+.arrow {
+  border: 10px solid transparent;
+  border-top-color: var(--settings-panel-background-color);
+  width: 0;
+  height: 0;
+  /* Positioned by alignPanelArrow in player.js, which sets a physical `left`
+   * offset (inset-inline-start would flip in RTL). */
+  position: relative;
+}
+
+.grey-line {
+  height: 1px;
+  background-color: var(--panel-separator-color);
+  margin-block: var(--space-large);
+}
+
+/* Subtitles settings */
+
+#subtitles-toggle {
+  &::part(label) {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+.font-size-selection {
+  &::part(inputs) {
+    margin-top: var(--space-large);
+  }
+}
+
+.font-size-overlay {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Playback rate settings */
+
+.playback-rate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var(--font-weight-semibold);
+}
+
+#playback-rate-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent-primary);
+}
+
+#playback-rate-slider {
+  appearance: none;
+  background: transparent;
+  margin-block: var(--space-medium);
+  cursor: pointer;
+
+  &::-moz-range-track {
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-base-design-tokens */
+    background-color: var(--color-gray-55);
+
+    @media not -moz-pref("browser.nova.enabled") {
+      /* stylelint-disable-next-line stylelint-plugin-mozilla/no-base-design-tokens */
+      background-color: var(--color-gray-70);
+    }
+  }
+
+  &::-moz-range-progress {
+    background-color: var(--color-accent-primary);
+  }
+
+  &::-moz-range-thumb {
+    background-color: var(--scrubber-thumb-background-color);
+    border: none;
+    width: var(--size-item-xsmall);
+    height: var(--size-item-xsmall);
+    border-radius: var(--border-radius-circle);
+  }
+
+  &,
+  &::-moz-range-track,
+  &::-moz-range-progress {
+    height: 4px;
+  }
+}
+
+.playback-rate-presets {
+  display: flex;
+  gap: var(--space-small);
+}
+
+.playback-rate-preset {
+  flex: 1;
+  min-width: var(--size-item-xlarge);
+  min-height: var(--size-item-medium);
+  border: none;
+  border-radius: var(--border-radius-large);
+  cursor: pointer;
+  background-color: var(--button-background-color-muted);
+  color: var(--button-text-color-muted);
+
+  @media not -moz-pref("browser.nova.enabled") {
+    border-radius: var(--border-radius-small);
+    min-width: auto;
+    min-height: auto;
+    padding: var(--space-small);
+  }
+
+  &:hover {
+    background-color: var(--button-background-color-muted-hover);
+    color: var(--button-text-color-muted-hover);
+  }
+
+  &:active {
+    background-color: var(--button-background-color-muted-active);
+    color: var(--button-text-color-muted-active);
+  }
+
+  &[aria-pressed="true"] {
+    color: var(--button-text-color-primary);
+    background-color: var(--button-background-color-primary);
+  }
+
+  &[aria-pressed="true"]:hover {
+    background-color: var(--button-background-color-primary-hover);
+    color: var(--button-text-color-primary-hover);
+  }
+
+  &[aria-pressed="true"]:active {
+    background-color: var(--button-background-color-primary-active);
+    color: var(--button-text-color-primary-active);
+  }
+}
+
+.controls-bottom-upper {
+  width: calc(100% - 38px);
+  height: var(--controls-bottom-upper-height);
+  margin: 0 19px;
+  display: grid;
+}
+
+.scrubber-no-drag {
+  -moz-window-dragging: no-drag;
+  height: 16px;
+  margin: var(--scrubber-vertical-margin) 0;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+
+#scrubber {
+  --scrubber-thumb-background-color: var(--color-gray-30);
+  width: 100%;
+  background-color: transparent;
+
+  &::-moz-range-thumb {
+    border-radius: var(--border-radius-large);
+    background-color: var(--scrubber-thumb-background-color);
+    width: 8px;
+    height: 8px;
+    border: 3px solid #ffffff;
+    padding: 0;
+  }
+
+  &::-moz-range-track {
+    background-color: #969696;
+  }
+
+  &::-moz-range-progress {
+    background-color: white;
+  }
+
+  &,
+  &::-moz-range-track,
+  &::-moz-range-progress {
+    height: 4px;
+  }
+}
+
+#audio-scrubber,
+#scrubber,
+#playback-rate-slider {
+  padding: 6px 2px;
+
+  &,
+  &::-moz-range-track,
+  &::-moz-range-progress {
+    border-radius: var(--border-radius-medium);
+  }
+
+  @media (prefers-contrast) {
+    &::-moz-range-track,
+    &::-moz-range-progress {
+      border: var(--border-width) solid var(--border-color);
+    }
+  }
+}
+
+#timestamp {
+  align-self: center;
+  color: #ffffff;
+  cursor: default;
+  font-family: system-ui;
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  width: 16ch;
+  grid-area: timestamp;
+}
+
+#timestamp::after {
+  background: unset;
+  content: unset;
+}
+
+/* Layout changes for different window sizes */
+
+@media (width <= 630px) {
+  #audio-scrubber {
+    display: none;
+  }
+
+  .end-controls {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "audio closedcaption fullscreen";
+
+    /* Small-ish subtree */
+    /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+    &:has(#playbackRate:not([hidden])) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "audio playbackrate closedcaption fullscreen";
+    }
+  }
+}
+
+@media (width <= 475px) {
+  #closed-caption,
+  #playbackRate {
+    display: none;
+  }
+
+  /* Small-ish subtree */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  .end-controls,
+  .end-controls:has(#playbackRate:not([hidden])) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "audio fullscreen";
+  }
+}
+
+@media (height <= 325px) and (width > 630px) {
+  #closed-caption,
+  #playbackRate {
+    display: none;
+  }
+
+  /* Small-ish subtree */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  .end-controls,
+  .end-controls:has(#playbackRate:not([hidden])) {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "audio audio-scrubber fullscreen";
+  }
+}
+
+@media (height <= 325px) and (width <= 630px) {
+  #closed-caption,
+  #audio-scrubber,
+  #playbackRate {
+    display: none;
+  }
+
+  /* Small-ish subtree */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  .end-controls,
+  .end-controls:has(#playbackRate:not([hidden])) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "audio fullscreen";
+  }
+}
+
+@media (width <= 440px) {
+  #timestamp {
+    display: none;
+  }
+}
+
+@media (width <= 350px) {
+  #fullscreen,
+  #playbackRate {
+    display: none;
+  }
+
+  /* Small-ish subtree */
+  /* stylelint-disable-next-line stylelint-plugin-mozilla/no-has-selector */
+  .end-controls,
+  .end-controls:has(#playbackRate:not([hidden])) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "audio";
+  }
+}
+
+@media (height <= 200px) {
+  .scrubber-no-drag {
+    display: none;
+  }
+}
+
+@media (width <= 300px) {
+  .scrubber-no-drag,
+  #seekForward,
+  #seekBackward,
+  .start-controls {
+    display: none;
+  }
+
+  .controls-bottom-lower {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .center-controls {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "playpause";
+  }
+
+  .end-controls {
+    justify-self: center;
+  }
+}

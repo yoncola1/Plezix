@@ -1,0 +1,540 @@
+.category-list {
+  display: grid;
+  // Bug 1967304 - Large number (48px)
+  row-gap: calc(var(--space-xlarge) * 2);
+  margin-block-end: var(--space-large);
+
+  label {
+    display: inline-block;
+    font-size: var(--font-size-small);
+    text-align: center;
+    width: 100%;
+  }
+
+  .wallpaper-grid-row {
+    column-gap: var(--space-large);
+
+    // @nova-cleanup (remove .nova-enabled class and move this rule to the style above)
+    .nova-enabled & {
+      column-gap: var(--space-medium);
+    }
+  }
+}
+
+.wallpaper-grid-row {
+  display: grid;
+  grid-auto-rows: 86px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+
+  .wallpapers-reset {
+    margin: unset;
+  }
+
+  // @nova-cleanup (remove .nova-enabled class and instead move up these .wallpaper-reset styles to above. Don't add the justify-content: unset rule, just remove the current justify-content in .category-header when nova lands)
+  .nova-enabled & {
+    justify-content: unset;
+
+    .wallpapers-reset {
+      margin-block-end: var(--space-medium);
+      margin-inline-start: auto;
+    }
+  }
+}
+
+button.arrow-button {
+  background: url('chrome://global/skin/icons/arrow-left.svg') no-repeat left center;
+
+  &:dir(rtl) {
+    background: url('chrome://global/skin/icons/arrow-right.svg') no-repeat right center;
+  }
+
+  border: none;
+  cursor: pointer;
+  margin-block-end: var(--space-xlarge);
+  padding-inline-start: var(--space-xlarge);
+  -moz-context-properties: fill;
+  fill: currentColor;
+  min-height: 1rem;
+  margin-inline-start: var(--space-xsmall);
+  margin-block-start: var(--space-xsmall);
+}
+
+.wallpaper-input {
+  appearance: none;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: var(--border-radius-medium);
+  border: none;
+  box-shadow: $shadow-secondary;
+  cursor: pointer;
+  height: 86px;
+  margin: 0;
+  outline: 2px solid transparent;
+  padding: 0;
+  width: 100%;
+
+  &:checked,
+  &.selected {
+    box-shadow: inset 0 0 0 3px var(--color-accent-primary);
+  }
+
+  &.theme-custom-wallpaper {
+    border: 2px dashed var(--border-color-default, #CFCFD8);
+    box-shadow: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      -moz-context-properties: fill;
+      fill: var(--icon-color);
+      width: calc(var(--icon-size) * 1.25 ); // Custom size: ~20px;
+      height: calc(var(--icon-size) * 1.25 ); // Custom size: ~20px;
+      display: block;
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:focus-visible {
+      outline-color: var(--focus-outline-color);
+      outline-offset: var(--focus-outline-offset);
+    }
+  }
+
+  &.theme-custom-wallpaper {
+    &::after {
+      background: url('chrome://global/skin/icons/plus-20.svg') center no-repeat;
+    }
+  }
+
+  $wallpapers: dark-landscape, dark-color, dark-mountain, dark-panda, dark-sky, dark-beach, light-beach, light-color, light-landscape, light-mountain, light-panda, light-sky;
+
+  @each $wallpaper in $wallpapers {
+    &.#{$wallpaper} {
+      background-image: url('chrome://newtab/content/data/content/assets/wallpapers/#{$wallpaper}.avif')
+    }
+  }
+
+  &:hover {
+    filter: brightness(55%);
+    outline-color: transparent;
+  }
+
+  // After the hover rule on purpose: hovering a tile that also has keyboard
+  // focus must not take the focus ring away.
+  &:focus-visible {
+    outline-color: var(--focus-outline-color);
+    outline-offset: var(--focus-outline-offset);
+  }
+
+  // @nova-cleanup (remove .nova-enabled class and move this rule to the style above)
+  .nova-enabled & {
+    border-radius: var(--border-radius-small);
+  }
+}
+
+.theme-custom-color-picker {
+  background-color: var(--newtab-background-color-secondary);
+  background-clip: content-box;
+  border-radius: var(--border-radius-medium);
+  outline: 2px dashed var(--border-color-default, #CFCFD8);
+  outline-offset: 2px;
+  position: relative;
+
+  .wallpaper-input {
+    box-shadow: none;
+
+    &:focus-visible {
+      outline-color: var(--focus-outline-color);
+      outline-offset: 6px;
+    }
+  }
+
+  // Focus ring for the color picker
+  &.default-color-set:has(.wallpaper-input:focus-visible) {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
+
+  // The color picker has a default state where the user has not picked a custom color
+  // It will either be a custom color or the default background color.
+  // Depending on this, we need to override the icon color to match the correct contrast.
+  // The default-color-set and custom-color-dark classes are removed whenever
+  //  a user interacts with the color picker, letting the current color dictate contrast.
+
+  // When the user has no custom color set, we need to hide the color picker input entirely to
+  // show the default panel color beneath
+  &.default-color-set {
+    #solid-color-picker {
+      opacity: 0;
+    }
+
+    &::after {
+      @media (prefers-color-scheme: dark) {
+        color-scheme: dark;
+      }
+    }
+  }
+
+  &.custom-color-dark {
+    &::after {
+      color-scheme: dark;
+    }
+  }
+
+  // Change the icon color based on the selected color
+  &.is-dark::after {
+    color-scheme: dark;
+
+    @media (prefers-color-scheme: dark) {
+      color: #FBFBFE; // var(--color-gray-0);
+    }
+  }
+
+  // Color Picker Icon
+  &::after {
+    background: url('chrome://global/skin/icons/color-picker-20.svg') center no-repeat;
+    content: '';
+    -moz-context-properties: fill;
+    fill: var(--icon-color);
+    width: calc(var(--icon-size) * 1.25); // Custom size: ~20px;
+    height: calc(var(--icon-size) * 1.25); // Custom size: ~20px;
+    display: block;
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    cursor: pointer;
+    color-scheme: light;
+  }
+
+  label {
+    display: inline-block;
+    font-size: var(--font-size-small);
+    text-align: center;
+    width: 100%;
+  }
+
+  ::-moz-color-swatch {
+    border-color: transparent;
+    border-radius: var(--border-radius-medium);
+  }
+}
+
+.wallpaper-list {
+  display: grid;
+  gap: var(--space-large);
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 86px;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &.category {
+    background-color: var(--newtab-background-color-secondary);
+    color: var(--newtab-text-primary-color);
+    display: unset;
+    gap: unset;
+    grid-auto-rows: unset;
+    grid-template-columns: unset;
+    height: 100%;
+    // Can get rid of padding and replace height with
+    // 'height: stretch' when bug 1789477 lands.
+    padding: var(--space-xlarge);
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 100%;
+    width: 100%;
+    z-index: 2;
+    // Both axes on purpose: setting only overflow-y makes overflow-x compute
+    // from visible to auto, so a focus ring was enough for a sideways bar once
+    // "Your images" made the panel tall enough to scroll at all.
+    overflow: hidden auto;
+    // Hold the scrollbar's width whether it shows or not, so the columns do
+    // not reflow as images are added.
+    scrollbar-gutter: stable;
+
+    .wallpaper-grid {
+      display: grid;
+      row-gap: var(--space-large);
+
+      .wallpaper-grid-row {
+        column-gap: var(--space-large);
+      }
+    }
+
+    // "Your images" rows are taller than the shipped ones: the last tile adds
+    // an image and carries a label under it.
+    fieldset.your-images {
+      border: none;
+      display: grid;
+      gap: var(--space-large);
+      padding: 0;
+      grid-auto-rows: auto;
+      // Set inline by WallpaperCategories.jsx, which also uses it for the
+      // arrow keys, so the two cannot drift apart.
+      grid-template-columns: repeat(var(--your-images-columns, 3), 1fr);
+
+      // A CSS background keeps the full resolution decoded surface alive. An
+      // img is decoded at the size it is drawn. The input stays on top so its
+      // ring, hover and focus styles are unchanged.
+      .your-images-preview {
+        background-color: var(--newtab-background-color-secondary);
+        block-size: 86px;
+        border-radius: var(--border-radius-medium);
+        inline-size: 100%;
+        inset-block-start: 0;
+        inset-inline: 0;
+        object-fit: cover;
+        pointer-events: none;
+        position: absolute;
+      }
+
+      // Transparent so the picture behind it shows through. The color is on
+      // the img, which is what the tile shows before the picture loads.
+      .wallpaper-input {
+        background-color: transparent;
+        position: relative;
+      }
+
+      // Dimming the input alone would do nothing now that it is transparent.
+      .your-images-item:hover .your-images-preview {
+        filter: brightness(55%);
+      }
+
+      .your-images-item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-small);
+        position: relative;
+      }
+
+      .your-images-remove {
+        inset-block-start: var(--space-xsmall);
+        inset-inline-end: var(--space-xsmall);
+        opacity: 0;
+        position: absolute;
+      }
+
+      // A filled circle, so the icon stays legible on top of any image. The
+      // ghost family is transparent, which is nothing behind an X on a photo.
+      .your-images-remove::part(button) {
+        background-color: var(--newtab-button-static-background);
+        border-radius: var(--border-radius-circle);
+      }
+
+      .your-images-remove:hover::part(button) {
+        background-color: var(--newtab-button-static-hover-background);
+      }
+
+      .your-images-remove:active::part(button) {
+        background-color: var(--newtab-button-static-active-background);
+      }
+
+      // :has(:focus-visible) cannot see into the moz-button shadow root, so the
+      // third selector is what shows the button while it holds focus.
+      .your-images-item:hover .your-images-remove,
+      .your-images-item:has(:focus-visible) .your-images-remove,
+      .your-images-remove:focus-within {
+        opacity: 1;
+      }
+
+      label:not(.sr-only) {
+        font-size: var(--font-size-small);
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      &.wallpaper-list-enter,
+      &.wallpaper-list-exit,
+      &.wallpaper-list-enter-done,
+      &.wallpaper-list-exit-done {
+        transition: inset-inline-start 300ms;
+      }
+    }
+
+    &.wallpaper-list-enter-done,
+    &.wallpaper-list-enter-active {
+      inset-inline-start: 0;
+    }
+  }
+
+  &:not(.ignore-color-mode) .wallpaper-input,
+  &:not(.ignore-color-mode) .sr-only {
+    &.theme-light {
+      display: inline-block;
+
+      @include dark-theme-only {
+        display: none;
+      }
+    }
+
+    &.theme-dark {
+      display: none;
+
+      @include dark-theme-only {
+        display: inline-block;
+      }
+    }
+  }
+
+  // Visually hidden label text. The control it belongs to is named from it
+  // through aria-labelledby; the label itself is aria-hidden.
+  .sr-only {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+
+.wallpapers-reset {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  margin-inline: auto;
+  display: block;
+  font-size: var(--font-size-small);
+  color: var(--newtab-text-primary-color);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+// Bug 1947813 - Custom Upload Error Message
+.custom-wallpaper-error {
+  padding-block-start: var(--space-xlarge);
+  font-size: var(--font-size-small);
+  display: flex;
+  gap: var(--space-small);
+  align-items: center;
+
+  .icon {
+    width: var(--button-size-icon-small);
+    height: var(--button-size-icon-small);
+    fill: var(--icon-color-critical);
+  }
+}
+
+// The folder tile draws its picture the same way the tiles inside it do, so
+// one saved photo does not hold a full resolution decoded surface.
+.category-list .wallpaper-input.your-images-folder {
+  position: relative;
+
+  // An img is a replaced element, so inset alone leaves it at its intrinsic
+  // size. The sizes are what keep the decode down to the tile.
+  .your-images-preview {
+    background-color: var(--newtab-background-color-secondary);
+    block-size: 100%;
+    border-radius: var(--border-radius-medium);
+    inline-size: 100%;
+    inset: 0;
+    object-fit: cover;
+    pointer-events: none;
+    position: absolute;
+  }
+}
+
+// A saved image can be any color, so a band of the panel color sits between
+// the picture and the accent ring.
+.wallpaper-list.category fieldset.your-images .wallpaper-input:checked {
+  box-shadow:
+    inset 0 0 0 2px var(--newtab-background-color-secondary),
+    inset 0 0 0 5px var(--color-accent-primary);
+}
+
+// On the folder the picture is a child of the button, and an inset shadow
+// paints under child content, so the ring goes on an overlay above it. The
+// tiles inside keep theirs: there the input is a sibling over the picture.
+.category-list .wallpaper-input.your-images-folder.selected {
+  // Without this the ring every .wallpaper-input gets when it is selected
+  // stays behind the picture, showing only where the rounded corners of the
+  // two boxes part company.
+  box-shadow: none;
+
+  &::after {
+    border-radius: var(--border-radius-medium);
+    box-shadow:
+      inset 0 0 0 2px var(--newtab-background-color-secondary),
+      inset 0 0 0 5px var(--color-accent-primary);
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+}
+
+// Touch and other pointers with no hover cannot reveal the remove button, so
+// it stays visible for them.
+@media (hover: none) {
+  .wallpaper-list.category fieldset.your-images .your-images-remove {
+    opacity: 1;
+  }
+}
+
+@media (prefers-contrast) {
+  .wallpaper-list.category fieldset.your-images .wallpaper-input,
+  .category-list .wallpaper-input.your-images-folder {
+    border: var(--border-width) solid currentColor;
+  }
+}
+
+@media (forced-colors: active) {
+  .wallpaper-list.category fieldset.your-images .wallpaper-input,
+  .category-list .wallpaper-input.your-images-folder {
+    // The whole border, not just its color: prefers-contrast is spoofed to no
+    // preference under resistFingerprinting, and forced-colors is not.
+    border: var(--border-width) solid var(--button-border-color);
+    box-shadow: none;
+  }
+
+  .wallpaper-list.category fieldset.your-images .wallpaper-input:hover,
+  .wallpaper-list.category fieldset.your-images .your-images-item:hover .your-images-preview,
+  .category-list .wallpaper-input.your-images-folder:hover {
+    filter: none;
+  }
+
+  // Forced colors drops box-shadow, so the selected tile is marked by a thicker
+  // border in the selected color rather than by the ring.
+  .wallpaper-list.category fieldset.your-images .wallpaper-input:checked,
+  .category-list .wallpaper-input.your-images-folder.selected {
+    border-color: var(--border-color-selected);
+    border-width: calc(var(--border-width) * 3);
+    box-shadow: none;
+  }
+
+  // The border above is what marks the folder here, so the ring overlay goes.
+  .category-list .wallpaper-input.your-images-folder.selected::after {
+    content: none;
+  }
+
+  // Keep the ghost family rather than the static background, which is a raw
+  // light-dark() pair with no forced-colors value.
+  .wallpaper-list.category fieldset.your-images .your-images-remove::part(button) {
+    background-color: var(--button-background-color-ghost);
+    color: var(--button-text-color-ghost);
+  }
+
+  .wallpaper-list.category fieldset.your-images .your-images-remove:hover::part(button) {
+    background-color: var(--button-background-color-ghost-hover);
+  }
+
+  .wallpaper-list.category fieldset.your-images .your-images-remove:active::part(button) {
+    background-color: var(--button-background-color-ghost-active);
+  }
+}

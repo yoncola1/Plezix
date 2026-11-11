@@ -1,0 +1,117 @@
+.logo-and-wordmark-wrapper {
+  // Override default h1 margins
+  margin-block: 0;
+
+  .nova-enabled .content & {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+.logo-and-wordmark {
+  $logo-size: 64px;
+  $wordmark-size: 105px;
+
+  // @nova-cleanup(remove-conditional): Make default behavior, remove .nova-enabled selector
+  .nova-enabled & {
+    justify-content: flex-start;
+
+    .wordmark {
+      display: none;
+    }
+
+    @include at-outer-grid-cols(8) {
+      width: max-content;
+
+      .wordmark {
+        display: inline-block;
+      }
+    }
+  }
+
+  // With the search bar in its variant B, the card behind it overhangs the
+  // search by $search-card-overhang on each side. The search is centered in
+  // the container and grows with the content column, so the card reaches the
+  // wordmark until the container fits the search at the content column's
+  // maximum width plus the overhang and the wordmark on each side. The
+  // wordmark ends at the logo, its margin and its own width from the
+  // container's start edge.
+  // The wordmark's margin-inline-start is var(--space-large), 1rem.
+  $wordmark-end: calc(#{$logo-size + $wordmark-size} + 1rem);
+
+  .nova-enabled.search-has-own-row & .wordmark {
+    @container outer-grid (inline-size < calc(#{$search-width-ratio} * (#{16 * $col-width-px} + #{15 * $col-gap-px}) + 2 * (#{$search-card-overhang} + #{$wordmark-end}))) {
+      display: none;
+    }
+  }
+
+  .nova-enabled.search-has-own-row.sections-5-col & .wordmark {
+    @container outer-grid (inline-size < calc(#{$search-width-ratio} * (#{20 * $col-width-px} + #{19 * $col-gap-px}) + 2 * (#{$search-card-overhang} + #{$wordmark-end}))) {
+      display: none;
+    }
+  }
+
+  .nova-enabled .content & {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  // Bug 1967304 - Large number (48px)
+  margin-block-end: var(--space-xxlarge);
+
+  // Edge case for users who have pocket stories turned off
+  .no-recommended-stories & {
+    // Bug 1967304 - Large number (40px)
+    margin-block-end: calc(var(--space-large) + var(--space-xlarge));
+  }
+
+  .logo {
+    display: inline-block;
+    height: $logo-size;
+    width: $logo-size;
+    background: image-set(url('chrome://branding/content/about-logo.png'), url('chrome://branding/content/about-logo@2x.png') 2x) no-repeat center;
+    background-size: $logo-size;
+  }
+
+  .wordmark {
+    background: url('chrome://branding/content/firefox-wordmark.svg') no-repeat center center;
+    background-size: $wordmark-size;
+    -moz-context-properties: fill;
+    display: inline-block;
+    fill: var(--newtab-wordmark-color);
+    height: $logo-size;
+    margin-inline-start: var(--space-large);
+    width: $wordmark-size;
+
+    // Contrast fix for users who have wallpapers set
+    @include wallpaper-contrast-fix;
+  }
+
+  // @nova-cleanup(remove-conditional): Delete this entire .classic-enabled block and its contents
+  .classic-enabled & {
+    @media (max-width: $break-point-medium - 1) {
+      $logo-size-small: 64px;
+      $wordmark-small-size: 100px;
+
+      .logo {
+        background-size: $logo-size-small;
+        height: $logo-size-small;
+        width: $logo-size-small;
+      }
+
+      .wordmark {
+        background-size: $wordmark-small-size;
+        height: $logo-size-small;
+        width: $wordmark-small-size;
+        margin-inline-start: var(--space-medium);
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+MOCHITEST_MANIFESTS += [
+    "grape/mochitest.toml",
+    "huckleberry/mochitest.toml",
+]

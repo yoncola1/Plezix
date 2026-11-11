@@ -1,0 +1,170 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package org.mozilla.fenix.microsurvey.ui
+
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.rememberNestedScrollInteropConnection
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.traversalIndex
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.dp
+import mozilla.components.compose.base.BottomSheetHandle
+import mozilla.components.compose.base.annotation.FlexibleWindowPreview
+import mozilla.components.compose.base.theme.PreviewThemeProvider
+import mozilla.components.compose.base.theme.Theme
+import mozilla.components.ui.icons.R as iconsR
+import org.mozilla.fenix.R
+import org.mozilla.fenix.theme.FirefoxTheme
+
+private const val BOTTOM_SHEET_HANDLE_WIDTH_PERCENT = 0.1f
+
+/**
+ * The microsurvey bottom sheet.
+ *
+ * @param question The question text.
+ * @param answers The answer text options available for the given [question].
+ * @param icon The icon that represents the feature for the given [question].
+ * @param onPrivacyPolicyLinkClick Invoked when the privacy policy link is clicked.
+ * @param onCloseButtonClicked Invoked when the close button is clicked.
+ * @param onSubmitButtonClicked Invoked when the submit button is clicked.
+ * @param maxLabelLines The maximum number of lines allowed for each answer text layout to prevent truncation.
+ */
+@Composable
+fun MicrosurveyBottomSheet(
+    question: String,
+    answers: List<String>,
+    @DrawableRes icon: Int,
+    onPrivacyPolicyLinkClick: () -> Unit,
+    onCloseButtonClicked: () -> Unit,
+    onSubmitButtonClicked: (String) -> Unit,
+    maxLabelLines: Int = 2,
+) {
+    var selectedAnswer by remember { mutableStateOf<String?>(null) }
+    var isSubmitted by remember { mutableStateOf(false) }
+
+    val cornerShape: Shape =
+        MaterialTheme.shapes.large.copy(
+            bottomStart = CornerSize(0.dp),
+            bottomEnd = CornerSize(0.dp),
+        )
+
+    Surface(shape = cornerShape) {
+        Scaffold(
+            topBar = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier =
+                        Modifier.padding(top = 8.dp)
+                            .nestedScroll(rememberNestedScrollInteropConnection())
+                            .verticalScroll(rememberScrollState()),
+                ) {
+                    BottomSheetHandle(
+                        onRequestDismiss = {},
+                        contentDescription = stringResource(R.string.microsurvey_close_handle_content_description),
+                        modifier =
+                            Modifier.padding(bottom = 2.dp).fillMaxWidth(BOTTOM_SHEET_HANDLE_WIDTH_PERCENT).semantics {
+                                traversalIndex = -1f
+                            },
+                    )
+
+                    MicrosurveyHeader(title = stringResource(id = R.string.micro_survey_survey_header_2)) {
+                        onCloseButtonClicked()
+                    }
+                }
+            },
+            bottomBar = {
+                Column(modifier = Modifier.padding(bottom = 8.dp)) {
+                    Spacer(Modifier.height(FirefoxTheme.layout.space.static300))
+
+                    MicrosurveyFooter(
+                        isSubmitted = isSubmitted,
+                        isContentAnswerSelected = selectedAnswer != null,
+                        onPrivacyPolicyLinkClick = onPrivacyPolicyLinkClick,
+                        onButtonClick = {
+                            selectedAnswer?.let {
+                                onSubmitButtonClicked(it)
+                                isSubmitted = true
+                            }
+                        },
+                    )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
+            },
+        ) { innerPadding ->
+            Surface(
+                modifier = Modifier.wrapContentHeight().padding(innerPadding),
+                shape = cornerShape,
+            ) {
+                if (isSubmitted) {
+                    MicrosurveyCompleted()
+                } else {
+                    MicrosurveyContent(
+                        question = question,
+                        icon = icon,
+                        answers = answers,
+                        selectedAnswer = selectedAnswer,
+                        maxLabelLines = maxLabelLines,
+                        onSelectionChange = { selectedAnswer = it },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@FlexibleWindowPreview
+@Preview(
+    name = "Large Font",
+    fontScale = 2.0f,
+)
+@Composable
+private fun MicrosurveyBottomSheetPreview(@PreviewParameter(PreviewThemeProvider::class) theme: Theme) {
+    FirefoxTheme(theme) {
+        val padding = 16.dp
+        Box(modifier = Modifier.padding(padding)) {
+            MicrosurveyBottomSheet(
+                question = "How satisfied are you with printing in Firefox?",
+                icon = iconsR.drawable.mozac_ic_print_24,
+                onPrivacyPolicyLinkClick = {},
+                onCloseButtonClicked = {},
+                onSubmitButtonClicked = {},
+                answers =
+                    listOf(
+                        stringResource(id = R.string.likert_scale_option_1),
+                        stringResource(id = R.string.likert_scale_option_2),
+                        stringResource(id = R.string.likert_scale_option_3),
+                        stringResource(id = R.string.likert_scale_option_4),
+                        stringResource(id = R.string.likert_scale_option_5),
+                        stringResource(id = R.string.likert_scale_option_6),
+                    ),
+            )
+        }
+    }
+}

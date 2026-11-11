@@ -1,0 +1,26 @@
+{
+  // TODO: Bug 2071203. Change this to extending `../tools/@types/tsconfig.json` and
+  // adjust lib/targets if appropriate, so that the available definitions match
+  // the rest of Gecko.
+  "extends": "../tools/@types/generated/tspaths.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    // Make the type checking as strict as possible.
+    "strict": true,
+    // TypeScript will check JS files only if they have a @ts-check comment in them.
+    "allowJs": true,
+    // Only type check, don't emit files.
+    "noEmit": true,
+    // Allow esnext syntax. Otherwise the default is ES5 only.
+    "target": "esnext",
+    "lib": ["esnext", "dom"]
+  },
+  // Add a @ts-check comment to a JS file to start type checking it.
+  "include": ["./**/*.js", "./**/*.jsx"],
+  "exclude": [
+    "./client/debugger",
+    "./client/shared/vendor",
+    "./**/node_modules",
+    "./**/test"
+  ]
+}

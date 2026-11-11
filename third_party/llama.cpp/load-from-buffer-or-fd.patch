@@ -1,0 +1,264 @@
+diff --git a/include/llama.h b/include/llama.h
+index 27e480674282..d7263e125013 100644
+--- a/include/llama.h
++++ b/include/llama.h
+@@ -495,6 +495,18 @@ extern "C" {
+                                    FILE * file,
+               struct llama_model_params   params);
+ 
++    // Firefox: load a model from an open file handle (alias of llama_model_load_from_file_ptr)
++    // The caller is responsible for closing the file handle
++    LLAMA_API struct llama_model * llama_model_load_from_file_handle(
++                                   FILE * file,
++              struct llama_model_params   params);
++
++    // Firefox: load a model from an in-memory buffer containing a complete GGUF file
++    LLAMA_API struct llama_model * llama_model_load_from_buffer(
++                            const void * buffer,
++                                size_t   buffer_size,
++              struct llama_model_params   params);
++
+     // Load a model from multiple splits (support custom naming scheme)
+     // The paths must be in the correct order
+     LLAMA_API struct llama_model * llama_model_load_from_splits(
+diff --git a/src/llama-model-loader.cpp b/src/llama-model-loader.cpp
+index 63dd7ada91f5..e3e93b135e96 100644
+--- a/src/llama-model-loader.cpp
++++ b/src/llama-model-loader.cpp
+@@ -517,6 +517,8 @@ llama_model_loader::llama_model_loader(
+         const std::string & fname,
+         std::vector<std::string> & splits,
+         FILE * file,
++        const void * buffer,
++        size_t buffer_size,
+         bool use_mmap,
+         bool use_direct_io,
+         bool check_tensors,
+@@ -694,6 +696,38 @@ llama_model_loader::llama_model_loader(
+             n_bytes    += ggml_nbytes(cur);
+             weights_map.emplace(tensor_name, llama_tensor_weight(files.back().get(), 0, metadata, cur));
+         }
++    } else if (buffer != nullptr) {
++        // Firefox: load the model from an in-memory buffer (no file/mmap)
++        struct ggml_context * ctx = NULL;
++        struct gguf_init_params params = {
++            /*.no_alloc = */ true,
++            /*.ctx      = */ &ctx,
++        };
++
++        metadata_ptr.reset(gguf_init_from_buffer(buffer, buffer_size, params));
++        metadata = metadata_ptr.get();
++        if (metadata == nullptr) {
++            throw std::runtime_error(format("%s: failed to load model from buffer", __func__));
++        }
++
++        this->buffer_data = buffer;
++        this->buffer_size = buffer_size;
++
++        get_key(llm_kv(LLM_KV_GENERAL_ARCHITECTURE), arch_name, false);
++        llm_kv = LLM_KV(llm_arch_from_string(arch_name));
++
++        contexts.emplace_back(ctx);
++
++        // Save tensors data offset info, bounds-checked against the buffer.
++        for (ggml_tensor * cur = ggml_get_first_tensor(ctx); cur; cur = ggml_get_next_tensor(ctx, cur)) {
++            std::string tensor_name = std::string(cur->name);
++            if (weights_map.find(tensor_name) != weights_map.end()) {
++                throw std::runtime_error(format("invalid model: tensor '%s' is duplicated", ggml_get_name(cur)));
++            }
++            n_elements += ggml_nelements(cur);
++            n_bytes    += ggml_nbytes(cur);
++            weights_map.emplace(tensor_name, llama_tensor_weight(buffer_size, 0, metadata, cur));
++        }
+     } else {
+         get_key(llm_kv(LLM_KV_GENERAL_ARCHITECTURE), arch_name, false);
+         llm_kv = LLM_KV(llm_arch_from_string(arch_name));
+@@ -815,6 +849,11 @@ llama_model_loader::llama_model_loader(
+         use_mmap = false;
+     }
+ 
++    if (buffer_data != nullptr) {
++        // buffer-based loading reads tensor data directly from memory
++        use_mmap = false;
++    }
++
+     this->use_mmap = use_mmap;
+     this->use_direct_io = use_direct_io;
+     this->check_tensors = check_tensors;
+@@ -1386,7 +1425,11 @@ void llama_model_loader::get_mapping_range(size_t * first, size_t * last, void *
+ void llama_model_loader::load_data_for(struct ggml_tensor * cur) const {
+     const auto & w = require_weight(ggml_get_name(cur));
+ 
+-    if (use_mmap) {
++    if (buffer_data != nullptr) {
++        GGML_ASSERT(cur->data != nullptr);
++        GGML_ASSERT(w.offs + ggml_nbytes(cur) <= buffer_size);
++        memcpy(cur->data, (const uint8_t *) buffer_data + w.offs, ggml_nbytes(cur));
++    } else if (use_mmap) {
+         const auto & mapping = mappings.at(w.idx);
+         if (cur->data == nullptr) {
+             cur->data = (uint8_t *)mapping->addr() + w.offs;
+@@ -1536,7 +1579,15 @@ bool llama_model_loader::load_all_data(
+ 
+         size_t n_size = ggml_nbytes(cur);
+ 
+-        if (use_mmap) {
++        if (buffer_data != nullptr) {
++            // Firefox: tensor data lives in the in-memory buffer
++            GGML_ASSERT(weight->offs + n_size <= buffer_size);
++            const uint8_t * data = (const uint8_t *) buffer_data + weight->offs;
++            if (check_tensors) {
++                validation_result.push_back(std::make_pair(cur, ggml_validate_row_data(cur->type, data, n_size)));
++            }
++            ggml_backend_tensor_set(cur, data, 0, n_size);
++        } else if (use_mmap) {
+             const auto & mapping = mappings.at(weight->idx);
+             ggml_backend_buffer_t buf_mmap = nullptr;
+             if (bufs.count(weight->idx)) {
+diff --git a/src/llama-model-loader.h b/src/llama-model-loader.h
+index 1a1c4c4db4db..60be6fa6f7b0 100644
+--- a/src/llama-model-loader.h
++++ b/src/llama-model-loader.h
+@@ -49,6 +49,21 @@ struct llama_model_loader {
+               std::abort();
+             }
+         }
++
++        // bounds-checked against an in-memory buffer (Firefox: llama_model_load_from_buffer)
++        llama_tensor_weight(size_t buffer_size, uint16_t idx, const struct gguf_context * gguf_ctx, ggml_tensor * tensor) : idx(idx), tensor(tensor) {
++            const int tensor_idx = gguf_find_tensor(gguf_ctx, ggml_get_name(tensor));
++            if (tensor_idx < 0) {
++                // throw std::runtime_error(format("tensor '%s' not found in the model", ggml_get_name(tensor)));
++                std::abort();
++            }
++
++            offs = gguf_get_data_offset(gguf_ctx) + gguf_get_tensor_offset(gguf_ctx, tensor_idx);
++            if (offs + ggml_nbytes(tensor) < offs || offs + ggml_nbytes(tensor) > buffer_size) {
++                // throw std::runtime_error(format("tensor '%s' data is not within the buffer bounds, model is corrupted or incomplete", ggml_get_name(tensor)));
++                std::abort();
++            }
++        }
+     };
+ 
+     // custom comparator to sort weights more nicely by layer
+@@ -82,6 +97,10 @@ struct llama_model_loader {
+     bool check_tensors;
+     bool no_alloc;
+ 
++    // in-memory buffer source (Firefox: llama_model_load_from_buffer); null for file/path loads
++    const void * buffer_data = nullptr;
++    size_t       buffer_size = 0;
++
+     llama_files files;
+     llama_ftype ftype;
+     llama_fver  fver;
+@@ -128,6 +147,8 @@ struct llama_model_loader {
+         const std::string & fname,
+         std::vector<std::string> & splits, // optional, only need if the split does not follow naming scheme
+         FILE * file,
++        const void * buffer,
++        size_t buffer_size,
+         bool use_mmap,
+         bool use_direct_io,
+         bool check_tensors,
+diff --git a/src/llama.cpp b/src/llama.cpp
+index 2b5726eb0f73..43044e7ce388 100644
+--- a/src/llama.cpp
++++ b/src/llama.cpp
+@@ -279,9 +279,9 @@ static bool llama_prepare_model_devices(const llama_model_params & params, llama
+ 
+ // Returns 0 on success, -1 on error, and -2 on cancellation via llama_progress_callback
+ static std::pair<int, llama_model *> llama_model_load(struct gguf_context * metadata, llama_model_set_tensor_data_t set_tensor_data, void * set_tensor_data_ud,
+-        const std::string & fname, std::vector<std::string> & splits, FILE * file, llama_model_params & params) {
++        const std::string & fname, std::vector<std::string> & splits, FILE * file, const void * buffer, size_t buffer_size, llama_model_params & params) {
+     try {
+-        llama_model_loader ml(metadata, set_tensor_data, set_tensor_data_ud, fname, splits, file, params.use_mmap, params.use_direct_io,
++        llama_model_loader ml(metadata, set_tensor_data, set_tensor_data_ud, fname, splits, file, buffer, buffer_size, params.use_mmap, params.use_direct_io,
+             params.check_tensors, params.no_alloc, params.kv_overrides, params.tensor_buft_overrides);
+ 
+         ml.print_info();
+@@ -347,6 +347,8 @@ static struct llama_model * llama_model_load_from_file_impl(
+         const std::string & path_model,
+         std::vector<std::string> & splits,
+         FILE * file,
++        const void * buffer,
++        size_t buffer_size,
+         struct llama_model_params params) {
+     {
+         int n_sources_defined = 0;
+@@ -359,8 +361,11 @@ static struct llama_model * llama_model_load_from_file_impl(
+         if (file != nullptr) {
+             n_sources_defined++;
+         }
++        if (buffer != nullptr) {
++            n_sources_defined++;
++        }
+         if (n_sources_defined != 1) {
+-            LLAMA_LOG_ERROR("%s: exactly one out metadata, path_model, and file must be defined\n", __func__);
++            LLAMA_LOG_ERROR("%s: exactly one out metadata, path_model, file, and buffer must be defined\n", __func__);
+             return nullptr;
+         }
+     }
+@@ -388,7 +393,7 @@ static struct llama_model * llama_model_load_from_file_impl(
+         };
+     }
+ 
+-    const auto [status, model] = llama_model_load(metadata, set_tensor_data, set_tensor_data_ud, path_model, splits, file, params);
++    const auto [status, model] = llama_model_load(metadata, set_tensor_data, set_tensor_data_ud, path_model, splits, file, buffer, buffer_size, params);
+     GGML_ASSERT(status <= 0);
+     if (status < 0) {
+         if (status == -1) {
+@@ -416,7 +421,7 @@ struct llama_model * llama_model_init_from_user(
+     std::vector<std::string> splits = {};
+     params.use_mmap = false;
+     params.use_extra_bufts = false;
+-    return llama_model_load_from_file_impl(metadata, set_tensor_data, set_tensor_data_ud, path_model, splits, /*file*/ nullptr, params);
++    return llama_model_load_from_file_impl(metadata, set_tensor_data, set_tensor_data_ud, path_model, splits, /*file*/ nullptr, /*buffer*/ nullptr, /*buffer_size*/ 0, params);
+ }
+ // deprecated
+ struct llama_model * llama_load_model_from_file(
+@@ -429,7 +434,7 @@ struct llama_model * llama_model_load_from_file(
+         const char * path_model,
+         struct llama_model_params params) {
+     std::vector<std::string> splits = {};
+-    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, path_model, splits, /*file*/ nullptr, params);
++    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, path_model, splits, /*file*/ nullptr, /*buffer*/ nullptr, /*buffer_size*/ 0, params);
+ }
+ 
+ struct llama_model * llama_model_load_from_splits(
+@@ -445,7 +450,7 @@ struct llama_model * llama_model_load_from_splits(
+     for (size_t i = 0; i < n_paths; ++i) {
+         splits.push_back(paths[i]);
+     }
+-    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, splits.front(), splits, /*file*/ nullptr, params);
++    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, splits.front(), splits, /*file*/ nullptr, /*buffer*/ nullptr, /*buffer_size*/ 0, params);
+ }
+ 
+ struct llama_model * llama_model_load_from_file_ptr(FILE * file, struct llama_model_params params) {
+@@ -455,7 +460,25 @@ struct llama_model * llama_model_load_from_file_ptr(FILE * file, struct llama_mo
+     }
+     std::string path_model;
+     std::vector<std::string> splits = {};
+-    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, path_model, splits, file, params);
++    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, path_model, splits, file, /*buffer*/ nullptr, /*buffer_size*/ 0, params);
++}
++
++// Firefox: load a model from an open file handle. Upstream already provides this
++// as llama_model_load_from_file_ptr; keep the Firefox name as a thin shim so the
++// embedding code does not need to change.
++struct llama_model * llama_model_load_from_file_handle(FILE * file, struct llama_model_params params) {
++    return llama_model_load_from_file_ptr(file, params);
++}
++
++// Firefox: load a model from an in-memory buffer containing a complete GGUF file.
++struct llama_model * llama_model_load_from_buffer(const void * buffer, size_t buffer_size, struct llama_model_params params) {
++    if (buffer == nullptr || buffer_size == 0) {
++        LLAMA_LOG_ERROR("%s: invalid buffer\n", __func__);
++        return nullptr;
++    }
++    std::string path_model;
++    std::vector<std::string> splits = {};
++    return llama_model_load_from_file_impl(nullptr, nullptr, nullptr, path_model, splits, /*file*/ nullptr, buffer, buffer_size, params);
+ }
+ 
+ void llama_model_save_to_file(const struct llama_model * model, const char * path_model) {

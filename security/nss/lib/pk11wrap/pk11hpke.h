@@ -1,0 +1,48 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef _PK11_HPKE_H_
+#define _PK11_HPKE_H_ 1
+
+typedef enum {
+    HpkeModeBase = 0,
+    HpkeModePsk = 1,
+} HpkeModeId;
+
+/* https://www.iana.org/assignments/hpke
+ * Note that not all of these are implemented.
+ */
+typedef enum {
+    HpkeDhKemP256Sha256 = 0x10,
+    HpkeDhKemP384Sha384 = 0x11,
+    HpkeDhKemP521Sha512 = 0x12,
+    HpkeDhKemX25519Sha256 = 0x20,
+    HpkeDhKemX448Sha512 = 0x21,
+    HpkeKemMlkem512 = 0x40,
+    HpkeKemMlkem768 = 0x41,
+    HpkeKemMlkem1024 = 0x42,
+    HpkeKemMlkem768P256 = 0x50,
+    HpkeKemMlkem1024P384 = 0x51,
+    HpkeKemXWing = 0x647a, /* ML-KEM-768 + X25519 */
+} HpkeKemId;
+
+typedef enum {
+    HpkeKdfHkdfSha256 = 0x1,
+    HpkeKdfHkdfSha384 = 0x2,
+    HpkeKdfHkdfSha512 = 0x3,
+    HpkeKdfShake128 = 0x10,
+    HpkeKdfShake256 = 0x11,
+    HpkeKdfTurboShake128 = 0x12,
+    HpkeKdfTurboShake256 = 0x13,
+} HpkeKdfId;
+
+typedef enum {
+    HpkeAeadAes128Gcm = 1,
+    HpkeAeadAes256Gcm = 2,
+    HpkeAeadChaCha20Poly1305 = 3,
+} HpkeAeadId;
+
+typedef struct HpkeContextStr HpkeContext;
+
+#endif /* _PK11_HPKE_H_ */

@@ -1,0 +1,58 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef nsDeviceContextSpecGTK_h_
+#define nsDeviceContextSpecGTK_h_
+
+struct JSContext;
+
+#include <gtk/gtk.h>
+#include <gtk/gtkunixprint.h>
+
+#include "mozilla/gfx/PrintPromise.h"
+#include "nsCOMPtr.h"
+#include "nsCRT.h" /* should be <limits.h>? */
+#include "nsIDeviceContextSpec.h"
+#include "nsIPrintSettings.h"
+#include "nsIPrinterList.h"
+#include "nsString.h"
+
+#define NS_PORTRAIT 0
+#define NS_LANDSCAPE 1
+
+class nsPrintSettingsGTK;
+
+class nsDeviceContextSpecGTK : public nsIDeviceContextSpec {
+ public:
+  nsDeviceContextSpecGTK();
+
+  NS_DECL_ISUPPORTS
+
+  already_AddRefed<PrintTarget> MakePrintTarget() final;
+
+  NS_IMETHOD Init(nsIPrintSettings* aPS, bool aIsPrintPreview) override;
+  NS_IMETHOD BeginDocument(const nsAString& aTitle,
+                           const nsAString& aPrintToFileName,
+                           mozilla::dom::WindowContext*, int32_t aStartPage,
+                           int32_t aEndPage) override;
+  RefPtr<mozilla::gfx::PrintEndDocumentPromise> EndDocument() override;
+
+ protected:
+  virtual ~nsDeviceContextSpecGTK();
+  GtkPrintSettings* mGtkPrintSettings;
+  GtkPageSetup* mGtkPageSetup;
+
+  nsCString mSpoolName;
+  nsCOMPtr<nsIFile> mSpoolFile;
+  nsCString mTitle;
+  // Helper for EnumeratePrinters / PrinterEnumerator:
+  bool mHasEnumerationFoundAMatch = false;
+
+ private:
+  void EnumeratePrinters();
+  void StartPrintJob();
+  static gboolean PrinterEnumerator(GtkPrinter* aPrinter, gpointer aData);
+};
+
+#endif /* !nsDeviceContextSpecGTK_h_ */

@@ -1,0 +1,539 @@
+{
+  "attention": {
+    "dot": {
+      "color": {
+        "value": "{color.accent.attention}"
+      }
+    }
+  },
+  "background": {
+    "color": {
+      "@base": {
+        "value": {
+          "default": "transparent",
+          "nativeTheme": "transparent",
+          "forcedColors": "{button.background.color.@base}"
+        }
+      },
+      "hover": {
+        "value": {
+          "default": "color-mix(in srgb, currentColor 11%, transparent)",
+          "forcedColors": "{button.background.color.hover}",
+          "nova": {
+            "comment": "color-mix with currentColor cannot be expressed in Figma",
+            "value": {
+              "nativeTheme": "color-mix(in srgb, currentColor 17%, transparent)",
+              "default": "{toolbarbutton.background.color.hover}"
+            }
+          }
+        }
+      },
+      "selected": {
+        "value": {
+          "light": "{color.white.@base}",
+          "dark": "rgba(106, 106, 120, 0.7)",
+          "nativeTheme": "{toolbar.background.color}",
+          "forcedColors": "SelectedItem"
+        }
+      }
+    },
+    "width": {
+      "pinned": {
+        "expanded": {
+          "value": "40px"
+        }
+      }
+    }
+  },
+  "border": {
+    "@base": {
+      "value": "{border.width} solid {tab.border.color.@base}"
+    },
+    "radius": {
+      "value": "{toolbarbutton.border.radius}"
+    },
+    "color": {
+      "@base": {
+        "value": "{toolbarbutton.outline.color.@base}"
+      },
+      "hover": {
+        "value": "{toolbarbutton.outline.color.hover}"
+      },
+      "accent": {
+        "override": true,
+        "value": {
+          "default": "unset",
+          "nova": {
+            "comment": "This linear-gradient cannot be expressed in Figma",
+            "value": "linear-gradient(96deg, {tab.border.color.selected.leading} 20.68%, {tab.border.color.selected.trailing} 79.34%)"
+          }
+        }
+      },
+      "selected": {
+        "@base": {
+          "ignoreFigma": "Figma uses a gradient, so its values are empty",
+          "value": "{toolbarbutton.outline.color.selected}"
+        },
+        "leading": {
+          "override": true,
+          "value": "unset"
+        },
+        "trailing": {
+          "override": true,
+          "value": "unset"
+        }
+      }
+    }
+  },
+  "box": {
+    "shadow": {
+      "selected": {
+        "value": "{box-shadow.level-1}"
+      }
+    }
+  },
+  "close": {
+    "button": {
+      "padding": {
+        "value": "6px"
+      },
+      "border": {
+        "color": {
+          "@base": {
+            "value": "{tab.border.color.@base}"
+          },
+          "hover": {
+            "value": {
+              "default": "{tab.border.color.@base}",
+              "prefersContrast": "{button.border.color.hover}"
+            }
+          },
+          "active": {
+            "value": {
+              "default": "{tab.border.color.@base}",
+              "prefersContrast": "{button.border.color.active}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "container": {
+    "margin": {
+      "inline": {
+        "pinned": {
+          "expanded": {
+            "value": {
+              "default": "{space.small}",
+              "nova": {
+                "comment": "This token's name needs to be updated in Figma to match.",
+                "value": "4px"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "icon": {
+    "fill": {
+      "loading": {
+        "value": {
+          "default": "{color.blue.50}",
+          "nova": {
+            "comment": "Tab HCM overrides are handled in CSS, so we don't want the forcedColors value from Figma",
+            "value": "{color.accent.primary.@base}"
+          }
+        }
+      }
+    },
+    "margin": {
+      "inline": {
+        "end": {
+          "value": "5.5px"
+        }
+      }
+    }
+  },
+  "label": {
+    "line": {
+      "height": {
+        "value": 1.7
+      }
+    }
+  },
+  "margin": {
+    "block": {
+      "@base": {
+        "value": "4px"
+      },
+      "vertical": {
+        "value": "2px"
+      }
+    },
+    "inline": {
+      "inner": {
+        "ignoreFigma": "Prefer space token over pixel value from Figma.",
+        "value": "{space.medium}"
+      },
+      "pinned": {
+        "expanded": {
+          "ignoreFigma": "The 0px value from Figma causes pinned tabs to touch.",
+          "value": "{space.xsmall}"
+        }
+      }
+    },
+    "overflow": {
+      "clip": {
+        "value": "2px"
+      }
+    }
+  },
+  "outline": {
+    "offset": {
+      "value": "calc(-1 * {border.width})"
+    }
+  },
+  "padding": {
+    "inline": {
+      "@base": {
+        "value": "8px"
+      },
+      "vertical": {
+        "value": "{space.medium}"
+      }
+    }
+  },
+  "text": {
+    "color": {
+      "@base": {
+        "value": {
+          "default": "{toolbox.text.color.current}",
+          "forcedColors": "{button.text.color.@base}"
+        }
+      },
+      "hover": {
+        "value": {
+          "default": "{toolbox.text.color.current}",
+          "forcedColors": "{button.text.color.hover}"
+        }
+      },
+      "selected": {
+        "value": {
+          "light": "rgb(21, 20, 26)",
+          "dark": "{color.white.@base}",
+          "nativeTheme": "{toolbar.text.color}",
+          "forcedColors": "SelectedItemText"
+        }
+      }
+    }
+  },
+  "group": {
+    "blue": {
+      "@base": {
+        "value": {
+          "light": "{color.blue.50}",
+          "dark": "{color.blue.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.blue.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.blue.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.blue.60}",
+          "dark": "{color.blue.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.blue.10}",
+          "dark": "{color.blue.50}"
+        }
+      }
+    },
+    "purple": {
+      "@base": {
+        "value": {
+          "light": "{color.purple.50}",
+          "dark": "{color.purple.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.purple.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.purple.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.purple.60}",
+          "dark": "{color.purple.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.purple.10}",
+          "dark": "{color.purple.50}"
+        }
+      }
+    },
+    "cyan": {
+      "@base": {
+        "value": {
+          "light": "{color.cyan.50}",
+          "dark": "{color.cyan.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.cyan.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.cyan.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.cyan.60}",
+          "dark": "{color.cyan.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.cyan.10}",
+          "dark": "{color.cyan.50}"
+        }
+      }
+    },
+    "orange": {
+      "@base": {
+        "value": {
+          "light": "{color.orange.50}",
+          "dark": "{color.orange.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.orange.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.orange.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.orange.60}",
+          "dark": "{color.orange.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.orange.10}",
+          "dark": "{color.orange.50}"
+        }
+      }
+    },
+    "yellow": {
+      "@base": {
+        "value": {
+          "light": "{color.yellow.50}",
+          "dark": "{color.yellow.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.yellow.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.yellow.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.yellow.60}",
+          "dark": "{color.yellow.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.yellow.10}",
+          "dark": "{color.yellow.50}"
+        }
+      }
+    },
+    "pink": {
+      "@base": {
+        "value": {
+          "light": "{color.pink.50}",
+          "dark": "{color.pink.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.pink.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.pink.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.pink.60}",
+          "dark": "{color.pink.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.pink.10}",
+          "dark": "{color.pink.50}"
+        }
+      }
+    },
+    "green": {
+      "@base": {
+        "value": {
+          "light": "{color.green.50}",
+          "dark": "{color.green.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.green.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.green.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.green.60}",
+          "dark": "{color.green.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.green.10}",
+          "dark": "{color.green.50}"
+        }
+      }
+    },
+    "red": {
+      "@base": {
+        "value": {
+          "light": "{color.red.50}",
+          "dark": "{color.red.10}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.red.60}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.red.60}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.red.60}",
+          "dark": "{color.red.20}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.red.10}",
+          "dark": "{color.red.50}"
+        }
+      }
+    },
+    "gray": {
+      "@base": {
+        "value": {
+          "light": "{color.gray.55}",
+          "dark": "{color.gray.40}"
+        }
+      },
+      "text": {
+        "@base": {
+          "value": {
+            "light": "{color.white.@base}",
+            "dark": "{color.gray.90}"
+          }
+        },
+        "invert": {
+          "value": {
+            "dark": "{color.white.@base}",
+            "light": "{color.gray.90}"
+          }
+        }
+      },
+      "hover": {
+        "value": {
+          "light": "{color.gray.65}",
+          "dark": "{color.gray.50}"
+        }
+      },
+      "invert": {
+        "value": {
+          "light": "{color.gray.40}",
+          "dark": "{color.gray.55}"
+        }
+      }
+    }
+  }
+}

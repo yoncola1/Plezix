@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+https://bugzilla.mozilla.org/show_bug.cgi?id=593959
+-->
+<head>
+  <title>Test for Bug 593959</title>
+  <script src="/tests/SimpleTest/SimpleTest.js"></script>
+  <script src="/tests/SimpleTest/EventUtils.js"></script>
+  <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css"/>
+  <style>
+  body:active {
+    background: red;
+  }
+  </style>
+</head>
+<body>
+<a target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=593959">Mozilla Bug 593959</a>
+<p id="display"></p>
+<div id="content" style="display: none">
+  
+</div>
+<pre id="test">
+<script type="application/javascript">
+
+/** Test for Bug 593959 */
+
+  function doTest() {
+    var utils = SpecialPowers.getDOMWindowUtils(window);
+    var e = new PointerEvent("pointerdown", {
+      bubbles: false, cancelable: false, view: window,
+      detail: 0, screenX: 1, screenY: 1, clientX: 1, clientY: 1, button: 0,
+    });
+    utils.dispatchDOMEventViaPresShellForTesting(document.body, e);
+
+    is(document.querySelector("body:active"), document.body, "body should be active!")
+
+    var ifrwindow = document.getElementById("ifr").contentWindow;
+
+    var utils2 = SpecialPowers.getDOMWindowUtils(ifrwindow);
+
+    var e2 = new ifrwindow.PointerEvent("pointerup", {
+      bubbles: false, cancelable: false, view: ifrwindow,
+      detail: 0, screenX: 1, screenY: 1, clientX: 1, clientY: 1, button: 0,
+    });
+    utils2.dispatchDOMEventViaPresShellForTesting(ifrwindow.document.body, e2);
+
+    isnot(document.querySelector("body:active"), document.body, "body shouldn't be active!")
+
+    SimpleTest.finish();
+  }
+
+  SimpleTest.waitForExplicitFinish();
+  addLoadEvent(doTest);
+
+
+
+</script>
+</pre>
+<iframe id="ifr"></iframe>
+</body>
+</html>

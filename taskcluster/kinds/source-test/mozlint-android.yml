@@ -1,0 +1,279 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+
+task-defaults:
+    always-target: true
+    attributes:
+        build_platform: android
+        build_type: opt
+        code-review: true
+    description: Android lints
+    platform: lint/opt
+    treeherder:
+        kind: test
+        tier: 1
+    worker-type: b-linux-docker-large-amd
+    use-gradle: offline
+    use-gradle-cache: true
+    worker:
+        docker-image: {in-tree: android-build}
+        env:
+            MOZCONFIG: mobile/android/config/mozconfigs/android-arm/nightly-android-lints
+            MOZ_OBJDIR: obj-firefox
+            PERFHERDER_EXTRA_OPTIONS: android-lints
+            TINDERBOX_OUTPUT: '1'
+        max-run-time: 3600
+        artifacts:
+            - type: file
+              name: public/code-review/mozlint.json
+              path: /builds/worker/mozlint.json
+            - name: public/android/geckoview/api.txt
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/apilint/debug/api.txt
+              type: file
+            - name: public/android/geckoview/api.txt.map
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/apilint/debug/api.txt.map
+              type: file
+            - name: public/android/geckoview/apilint-result.json
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/apilint/debug/apilint-result.json
+              type: file
+            - name: public/android/geckoview/javadoc-results.json
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/reports/javadoc-results-debug.json
+              type: file
+            - name: public/geckoview/unittest
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/reports/tests
+              type: directory
+            - name: public/android/lint/lint-results-debug.xml
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/reports/lint-results-debug.xml
+              type: file
+            - name: public/android/checkstyle/checkstyle.html
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/reports/checkstyle/debug.html
+              type: file
+            - name: public/android/checkstyle/checkstyle.xml
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/mobile/android/geckoview/reports/checkstyle/debug.xml
+              type: file
+            - name: public/reports
+              path: /builds/worker/checkouts/gecko/obj-firefox/gradle/build/reports
+              type: directory
+    run:
+        using: run-task
+        tooltool-downloads: internal  # For internal toolchains.
+    fetches:
+        toolchain:
+            # Aliases aren't allowed for toolchains installed by fetch.
+            - linux64-android-gradle-dependencies
+            - linux64-android-sdk-linux-repack
+            - linux64-embedded-uniffi-bindgen
+            - linux64-nimbus-fml
+            - linux64-jdk-repack
+            - linux64-node
+
+
+lints:
+    treeherder:
+        symbol: android(lints)
+    fetches:
+        toolchain:
+            - linux64-android-robolectric-jars
+    run:
+        command: >
+            ln -s $MOZ_FETCHES_DIR/android-gradle-dependencies $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/android-sdk-linux $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/node $GECKO_PATH &&
+            cd $GECKO_PATH &&
+            ./mach --log-no-times build pre-export export &&
+            ./mach --log-no-times lint -f treeherder -f json:/builds/worker/mozlint.json
+            --linter android-api-lint
+            --linter android-format
+            --linter android-javadoc
+            --linter android-checkstyle
+            --linter android-lint
+            --linter android-test
+            *
+    when:
+        files-changed:
+            # Source files and resources.
+            - 'dom/media/systemservices/android_video_capture/java/src/**'
+            - 'mobile/android/android-components/plugins/**'
+            - 'mobile/android/annotations/**'
+            - 'mobile/android/examples/messaging_example/app/**'
+            - 'mobile/android/examples/port_messaging_example/app/**'
+            - 'mobile/android/fenix/plugins/**'
+            - 'mobile/android/geckoview/**'
+            - 'mobile/android/geckoview_example/**'
+            - 'mobile/android/gradle/**'
+            - 'mobile/android/test_runner/**'
+            - 'third_party/libwebrtc/rtc_base/java/**'
+            - 'third_party/libwebrtc/sdk/android/**'
+            # Build stuff.
+            - 'config/milestone.txt'
+            - 'build.gradle'
+            - 'settings.gradle'
+            - 'gradle.properties'
+            - 'gradle/**'
+            - 'gradlew'
+            - 'gradlew.bat'
+            - 'mobile/android/shared-settings.gradle'
+            - 'mobile/android/android-components/.buildconfig.yml'
+            - 'mobile/android/android-components/.config.yml'
+            - 'mobile/android/version.txt'
+            - 'third_party/application-services/.buildconfig-android.yml'
+            - 'third_party/application-services/**/*.gradle'
+            - 'mobile/android/**/Makefile.in'
+            - 'mobile/android/config/**'
+            - 'mobile/android/gradle.configure'
+            - 'mobile/android/**/moz.build'
+            - 'mobile/android/gradle.py'
+            - 'mobile/android/mach_commands.py'
+            # Other misc lint related files.
+            - 'python/mozlint/**'
+            - 'tools/lint/android/**'
+            - 'tools/lint/android-api-lint.yml'
+            - 'tools/lint/android-checkstyle.yml'
+            - 'tools/lint/android-format.yml'
+            - 'tools/lint/android-javadoc.yml'
+            - 'tools/lint/android-lint.yml'
+            - 'tools/lint/android-test.yml'
+            - 'tools/lint/mach_commands.py'
+
+fenix:
+    treeherder:
+        symbol: android(fenix-lints)
+    run:
+        command: >
+            ln -s $MOZ_FETCHES_DIR/android-gradle-dependencies $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/android-sdk-linux $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/node $GECKO_PATH &&
+            cd $GECKO_PATH &&
+            ./mach --log-no-times build pre-export export &&
+            ./mach --log-no-times lint -f treeherder -f json:/builds/worker/mozlint.json
+            --linter android-fenix
+            *
+    when:
+        files-changed:
+            # Source files.
+            - 'mobile/android/fenix/**'
+            - 'mobile/android/android-components/plugins/**'
+            - 'mobile/android/gradle/**'
+            # Build stuff.
+            - 'build.gradle'
+            - 'settings.gradle'
+            - 'gradle.properties'
+            - 'gradle/**'
+            - 'gradlew'
+            - 'gradlew.bat'
+            - 'mobile/android/shared-settings.gradle'
+            - 'mobile/android/android-components/.buildconfig.yml'
+            - 'mobile/android/android-components/.config.yml'
+            - 'mobile/android/android-components/**/*.gradle'
+            - 'mobile/android/annotations/build.gradle'
+            - 'mobile/android/geckoview/build.gradle'
+            - 'mobile/android/version.txt'
+            - 'third_party/application-services/.buildconfig-android.yml'
+            - 'third_party/application-services/**/*.gradle'
+            - 'mobile/android/**/Makefile.in'
+            - 'mobile/android/config/**'
+            - 'mobile/android/gradle.configure'
+            - 'mobile/android/**/moz.build'
+            - 'mobile/android/shared-lint.xml'
+            - 'mobile/android/gradle.py'
+            - 'mobile/android/mach_commands.py'
+            # Other misc lint related files.
+            - 'python/mozlint/**'
+            - 'tools/lint/android/**'
+            - 'tools/lint/android-fenix.yml'
+            - 'tools/lint/mach_commands.py'
+
+focus:
+    treeherder:
+        symbol: android(focus-lints)
+    run:
+        command: >
+            ln -s $MOZ_FETCHES_DIR/android-gradle-dependencies $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/android-sdk-linux $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/node $GECKO_PATH &&
+            cd $GECKO_PATH &&
+            ./mach --log-no-times build pre-export export &&
+            ./mach --log-no-times lint -f treeherder -f json:/builds/worker/mozlint.json
+            --linter android-focus
+            *
+    when:
+        files-changed:
+            # Source files.
+            - 'mobile/android/focus-android/**'
+            - 'mobile/android/android-components/plugins/**'
+            - 'mobile/android/fenix/plugins/**'
+            - 'mobile/android/gradle/**'
+            # Build stuff.
+            - 'build.gradle'
+            - 'settings.gradle'
+            - 'gradle.properties'
+            - 'gradle/**'
+            - 'gradlew'
+            - 'gradlew.bat'
+            - 'mobile/android/shared-settings.gradle'
+            - 'mobile/android/android-components/.buildconfig.yml'
+            - 'mobile/android/android-components/.config.yml'
+            - 'mobile/android/android-components/**/*.gradle'
+            - 'mobile/android/annotations/build.gradle'
+            - 'mobile/android/geckoview/build.gradle'
+            - 'mobile/android/version.txt'
+            - 'third_party/application-services/.buildconfig-android.yml'
+            - 'third_party/application-services/**/*.gradle'
+            - 'mobile/android/**/Makefile.in'
+            - 'mobile/android/config/**'
+            - 'mobile/android/gradle.configure'
+            - 'mobile/android/**/moz.build'
+            - 'mobile/android/shared-lint.xml'
+            - 'mobile/android/gradle.py'
+            - 'mobile/android/mach_commands.py'
+            # Other misc lint related files.
+            - 'python/mozlint/**'
+            - 'tools/lint/android/**'
+            - 'tools/lint/android-focus.yml'
+            - 'tools/lint/mach_commands.py'
+
+android-components:
+    treeherder:
+        symbol: android(ac-lints)
+    run:
+        command: >
+            ln -s $MOZ_FETCHES_DIR/android-gradle-dependencies $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/android-sdk-linux $GECKO_PATH &&
+            ln -s $MOZ_FETCHES_DIR/node $GECKO_PATH &&
+            cd $GECKO_PATH &&
+            ./mach --log-no-times build pre-export export &&
+            ./mach --log-no-times lint -f treeherder -f json:/builds/worker/mozlint.json
+            --linter android-ac
+            *
+    when:
+        files-changed:
+            # Source files.
+            - 'mobile/android/android-components/**'
+            - 'mobile/android/fenix/plugins/**'
+            - 'mobile/android/gradle/**'
+            # Build stuff.
+            - 'build.gradle'
+            - 'settings.gradle'
+            - 'gradle.properties'
+            - 'gradle/**'
+            - 'gradlew'
+            - 'gradlew.bat'
+            - 'mobile/android/shared-settings.gradle'
+            - 'mobile/android/annotations/build.gradle'
+            - 'mobile/android/geckoview/build.gradle'
+            - 'mobile/android/version.txt'
+            - 'third_party/application-services/.buildconfig-android.yml'
+            - 'third_party/application-services/**/*.gradle'
+            - 'mobile/android/**/Makefile.in'
+            - 'mobile/android/config/**'
+            - 'mobile/android/gradle.configure'
+            - 'mobile/android/**/moz.build'
+            - 'mobile/android/gradle.py'
+            - 'mobile/android/mach_commands.py'
+            # Other misc lint related files.
+            - 'python/mozlint/**'
+            - 'tools/lint/android/**'
+            - 'tools/lint/android-ac.yml'
+            - 'tools/lint/mach_commands.py'

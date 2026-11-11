@@ -1,0 +1,154 @@
+/* Any copyright is dedicated to the Public Domain.
+   https://creativecommons.org/publicdomain/zero/1.0/ */
+
+"use strict";
+
+// Each call to scrolling_works() opens a window and fills it with tabs, and
+// there are six of them.
+requestLongerTimeout(2);
+
+/**
+ * Check that when opening a new window with vertical tabs turned
+ * on/off, wheel events with DOM_DELTA_LINE deltaMode successfully
+ * scroll the tabstrip.
+ */
+async function scrolling_works(useVerticalTabs, uiDensity) {
+  info(`Testing UI density ${uiDensity}`);
+
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["sidebar.revamp", useVerticalTabs],
+      ["sidebar.verticalTabs", useVerticalTabs],
+    ],
+  });
+
+  let win = await BrowserTestUtils.openNewBrowserWindow();
+
+  win.gUIDensity.update(win.gUIDensity[uiDensity]);
+
+  await BrowserTestUtils.overflowTabs(null, win, {
+    overflowAtStart: false,
+    overflowTabFactor: 1.1,
+  });
+
+  await BrowserTestUtils.allTabOpenAnimationsFinished(win);
+
+  win.gBrowser.pinTab(win.gBrowser.tabs[0]);
+
+  let firstScrollableTab = win.gBrowser.tabs[1];
+
+  // Scroll back to start.
+  win.gBrowser.selectedTab = firstScrollableTab;
+  await TestUtils.waitForTick();
+  await win.promiseDocumentFlushed(() => {});
+
+  // Check we're scrolled so the first scrollable tab is at the top.
+  let { arrowScrollbox } = win.gBrowser.tabContainer;
+  let side = useVerticalTabs ? "top" : "left";
+  // Measure from the scrollbox: the arrowscrollbox itself also spans the
+  // scroll buttons, which sit outside the scrolled area.
+  let boxStart = arrowScrollbox.scrollbox.getBoundingClientRect()[side];
+  let firstPoint = boxStart + 5;
+  Assert.equal(
+    win.gBrowser.tabs.indexOf(arrowScrollbox._elementFromPoint(firstPoint)),
+    win.gBrowser.tabs.indexOf(firstScrollableTab),
+    "First tab should be scrolled into view."
+  );
+
+  let startPosition = arrowScrollbox.scrollPosition;
+
+  // Scroll. A horizontal arrowscrollbox only lets a vertical wheel scroll it
+  // once the last two wheel events were on the same axis, so send several.
+  for (let i = 0; i < 3; i++) {
+    EventUtils.synthesizeWheel(
+      arrowScrollbox,
+      10,
+      10,
+      {
+        wheel: true,
+        deltaY: 1,
+        deltaMode: WheelEvent.DOM_DELTA_LINE,
+        asyncEnabled: true,
+      },
+      win
+    );
+  }
+
+  // Check that the tab strip scrolled.
+  try {
+    await TestUtils.waitForCondition(
+      () => arrowScrollbox.scrollPosition > startPosition
+    );
+  } catch (ex) {
+    Assert.ok(false, `Failed to see scroll, error: ${ex}`);
+  }
+  Assert.greater(
+    arrowScrollbox.scrollPosition,
+    startPosition,
+    "Tab strip should have scrolled."
+  );
+
+  await SpecialPowers.popPrefEnv();
+
+  await BrowserTestUtils.closeWindow(win);
+}
+
+add_task(async function test_vertical_scroll() {
+  for (let density of ["MODE_NORMAL", "MODE_COMPACT", "MODE_TOUCH"]) {
+    await scrolling_works(true, density);
+  }
+});
+
+add_task(async function test_horizontal_scroll() {
+  for (let density of ["MODE_NORMAL", "MODE_COMPACT", "MODE_TOUCH"]) {
+    await scrolling_works(false, density);
+  }
+});
+
+/**
+ * The new tab button inside the arrowscrollbox is hidden while the tab strip
+ * overflows. If the periphery collapsed to zero as a result, the scrolled
+ * content would shrink back under the overflow threshold, show the button
+ * again, and oscillate. Check the periphery keeps a non-zero block size.
+ */
+add_task(async function test_periphery_keeps_height_while_overflowing() {
+  await SpecialPowers.pushPrefEnv({
+    set: [
+      ["sidebar.revamp", true],
+      ["sidebar.verticalTabs", true],
+    ],
+  });
+
+  let win = await BrowserTestUtils.openNewBrowserWindow();
+  win.gUIDensity.update(win.gUIDensity.MODE_COMPACT);
+
+  await BrowserTestUtils.overflowTabs(null, win, {
+    overflowAtStart: false,
+    overflowTabFactor: 1.1,
+  });
+
+  await BrowserTestUtils.allTabOpenAnimationsFinished(win);
+  await win.promiseDocumentFlushed(() => {});
+
+  let { tabContainer } = win.gBrowser;
+  Assert.ok(tabContainer.overflowing, "The tab strip is overflowing.");
+
+  let periphery = win.document.getElementById(
+    "tabbrowser-arrowscrollbox-periphery"
+  );
+  let inlineNewTabButton = win.document.getElementById("tabs-newtab-button");
+
+  Assert.equal(
+    win.getComputedStyle(inlineNewTabButton).display,
+    "none",
+    "The inline new tab button is hidden while overflowing."
+  );
+  Assert.greater(
+    periphery.getBoundingClientRect().height,
+    0,
+    "The periphery keeps a non-zero height."
+  );
+
+  await SpecialPowers.popPrefEnv();
+  await BrowserTestUtils.closeWindow(win);
+});

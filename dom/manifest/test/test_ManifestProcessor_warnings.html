@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+https://bugzilla.mozilla.org/show_bug.cgi?id=1086997
+-->
+<head>
+  <meta charset="utf-8">
+  <title>Test for Bug 1086997</title>
+  <script src="/tests/SimpleTest/SimpleTest.js"></script>
+  <link rel="stylesheet" type="text/css" href="/tests/SimpleTest/test.css"/>
+  <script src="common.js"></script>
+  <script>
+"use strict";
+const options = {...data, checkConformance: true } ;
+const { Localization } = SpecialPowers.Cu.getGlobalForObject(
+  SpecialPowers.Services
+);
+const l10n = new Localization(["dom/manifest.ftl"], true);
+const fmt = (id, args) => l10n.formatValueSync(id, args);
+const listFormat = new Intl.ListFormat(
+  SpecialPowers.Services.locale.appLocaleAsBCP47,
+  { type: "unit" }
+);
+[
+  {
+    func: () => options.jsonText = JSON.stringify(1),
+    get warn() {
+      return fmt("dom-manifest-should-be-object");
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify("a string"),
+    get warn() {
+      return fmt("dom-manifest-should-be-object");
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      scope: "https://www.mozilla.org",
+    }),
+    get warn() {
+      return fmt("dom-manifest-scope-not-same-origin");
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      scope: "foo",
+      start_url: "bar",
+    }),
+    get warn() {
+      return fmt("dom-manifest-start-url-outside-scope");
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      start_url: "https://www.mozilla.org",
+    }),
+    get warn() {
+      return fmt("dom-manifest-start-url-should-be-same-origin");
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      start_url: 42,
+    }),
+    get warn() {
+      return fmt("dom-manifest-invalid-type", {
+        objectName: "manifest",
+        property: "start_url",
+        expectedType: "string",
+      });
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      theme_color: "42",
+    }),
+    get warn() {
+      return fmt("dom-manifest-invalid-css-color", {
+        property: "theme_color",
+        value: "42",
+      });
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      background_color: "42",
+    }),
+    get warn() {
+      return fmt("dom-manifest-invalid-css-color", {
+        property: "background_color",
+        value: "42",
+      });
+    },
+  },
+  {
+    func: () => options.jsonText = JSON.stringify({
+      icons: [
+        { "src": "http://example.com", "sizes": "48x48"},
+        { "src": "http://:Invalid", "sizes": "48x48"},
+      ],
+    }),
+    get warn() {
+      return fmt("dom-manifest-image-url-is-invalid", {
+        memberName: "icons",
+        index: 1,
+        member: "src",
+        value: "http://:Invalid",
+      });
+    },
+  },
+  // testing dom-manifest-image-unusable
+  {
+    func() {
+      return (options.jsonText = JSON.stringify({
+        icons: [
+          { src: "http://example.com", purpose: "any" }, // valid
+          { src: "http://example.com", purpose: "banana" }, // generates error
+        ],
+      }));
+    },
+    contains: ["banana"],
+    get warn() {
+      // Returns 2 warnings... array here is just to keep them organized
+      return [
+        fmt("dom-manifest-image-unsupported-purposes", {
+          memberName: "icons",
+          index: 1,
+          count: 1,
+          purposes: listFormat.format(["banana"]),
+        }),
+        fmt("dom-manifest-image-unusable", { memberName: "icons", index: 1 }),
+      ].join(" ");
+    },
+  },
+  // testing dom-manifest-image-unsupported-purposes
+  {
+    func() {
+      return (options.jsonText = JSON.stringify({
+        icons: [
+          { src: "http://example.com", purpose: "any" }, // valid
+          { src: "http://example.com", purpose: "any foo bar baz bar bar baz" }, // generates error
+        ],
+      }));
+    },
+    contains: ["foo", "bar", "baz"],
+    get warn() {
+      return fmt("dom-manifest-image-unsupported-purposes", {
+        memberName: "icons",
+        index: 1,
+        count: 3,
+        purposes: listFormat.format(["foo", "bar", "baz"]),
+      });
+    },
+  },
+  // testing dom-manifest-image-repeated-purposes
+  {
+    func() {
+      return (options.jsonText = JSON.stringify({
+        icons: [
+          { src: "http://example.com", purpose: "any" }, // valid
+          {
+            src: "http://example.com",
+            purpose: "any maskable any maskable maskable", // generates error
+          },
+        ],
+      }));
+    },
+    contains: ["any", "maskable"],
+    get warn() {
+      return fmt("dom-manifest-image-repeated-purposes", {
+        memberName: "icons",
+        index: 1,
+        purposes: listFormat.format(["any", "maskable"]),
+      });
+    },
+  },
+  // testing dom-manifest-id-is-invalid
+  {
+    func() {
+      return (options.jsonText = JSON.stringify({
+        id: "http://test:65536/foo",
+      }));
+    },
+    get warn() {
+      return fmt("dom-manifest-id-is-invalid");
+    },
+  },
+  // testing dom-manifest-id-not-same-origin
+  {
+    func() {
+      return (options.jsonText = JSON.stringify({
+        id: "https://other.com",
+        start_url: "/this/place"
+      }));
+    },
+    get warn() {
+      return fmt("dom-manifest-id-not-same-origin");
+    },
+  }
+].forEach((test) => {
+  test.func();
+  const result = processor.process(options);
+  let messages = [];
+  // Poking directly at "warn" triggers xray security wrapper.
+  for (const validationError of result.moz_validation) {
+    const { warn } = validationError;
+    messages.push(warn);
+  }
+  const actual = messages.join(" ");
+  is(actual, test.warn, "Check warning.");
+  for (const value of test.contains ?? []) {
+    ok(actual.includes(value), `Warning includes ${value}.`);
+  }
+    options.manifestURL = manifestURL;
+  options.docURL = docURL;
+});
+
+  </script>
+</head>

@@ -1,0 +1,45 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+LOCAL_INCLUDES = [
+    "/toolkit/crashreporter",
+]
+
+USE_LIBS += [
+    "breakpad_wrapper",
+    "crash_helper_server",
+]
+
+if CONFIG["OS_TARGET"] == "Android":
+    UNIFIED_SOURCES = [
+        "../bionic_missing_funcs.cpp",
+        "crashhelper_android.cpp",
+    ]
+
+    GeckoSharedLibrary("crashhelper", linkage=None)
+else:
+    if CONFIG["OS_ARCH"] == "Darwin":
+        OS_LIBS += [
+            "-framework Foundation",
+        ]
+    elif CONFIG["OS_ARCH"] == "WINNT":
+        OS_LIBS += [
+            "advapi32",
+            "bcrypt",
+            "dbghelp",
+            "ntdll",
+            "userenv",
+            "ws2_32",
+        ]
+
+        # We need this to be able to use wmain as the entry point on MinGW;
+        # otherwise it will try to use WinMain.
+        if CONFIG["CC_TYPE"] != "clang-cl":
+            WIN32_EXE_LDFLAGS += ["-municode"]
+
+    UNIFIED_SOURCES += [
+        "crashhelper.cpp",
+    ]
+
+    GeckoProgram("crashhelper", linkage=None)

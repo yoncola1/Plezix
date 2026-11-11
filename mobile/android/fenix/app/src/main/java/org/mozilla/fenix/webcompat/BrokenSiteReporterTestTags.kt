@@ -1,0 +1,18 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package org.mozilla.fenix.webcompat
+
+internal object BrokenSiteReporterTestTags {
+    const val BROKEN_SITE_REPORTER_SEND_BUTTON = "send.broken.site.button"
+    const val BROKEN_SITE_REPORTER_CHOOSE_REASON_BUTTON = "choose.reason.error.message"
+    const val BROKEN_SITE_REPORTER_EDIT_URL_BUTTON = "edit.url.broken.site.button"
+    const val BROKEN_SITE_REPORTER_EDIT_URL_DIALOG_SAVE_BUTTON = "edit.url.broken.site.save.button"
+    const val BROKEN_SITE_REPORTER_EDIT_URL_DIALOG_DISMISS_BUTTON = "edit.url.broken.site.dismiss.button"
+    const val BROKEN_SITE_REPORTER_EDIT_URL_DIALOG_TEXT_FIELD = "broken.site.edit.url.text.field"
+    const val BROKEN_SITE_REPORTER_DESCRIPTION_INPUT = "broken.site.description.input"
+    const val BROKEN_SITE_REPORTER_REASON_OPTION = "broken.site.reason.option"
+    const val BROKEN_SITE_REPORTER_SELECTED_REASON = "broken.site.selected.reason"
+    const val BROKEN_SITE_REPORTER_INCLUDE_ETP_BLOCKED_URLS_CHECKBOX = "broken.site.include.etp.blocked.urls.checkbox"
+}

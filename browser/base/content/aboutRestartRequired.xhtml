@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src chrome:; object-src 'none'"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title data-l10n-id="restart-required-title"></title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="chrome://browser/skin/aboutRestartRequired.css"
+    />
+    <!-- If the location of the favicon is changed here, the
+         FAVICON_ERRORPAGE_URL symbol in
+         toolkit/components/places/src/nsFaviconService.h should be updated. -->
+    <link
+      rel="icon"
+      type="image/png"
+      id="favicon"
+      href="chrome://global/skin/icons/info.svg"
+    />
+    <link rel="localization" href="branding/brand.ftl" />
+    <link rel="localization" href="browser/aboutRestartRequired.ftl" />
+  </head>
+  <body>
+    <article
+      class="error-page-card"
+      aria-labelledby="error-title"
+      aria-describedby="error-intro restoration-info"
+    >
+      <div class="img-container">
+        <img
+          src="chrome://global/skin/illustrations/kit-sympathetic.svg"
+          alt=""
+        />
+      </div>
+      <div class="container">
+        <h1 id="error-title" data-l10n-id="restart-required-heading2"></h1>
+        <p
+          id="error-intro"
+          class="error-intro closer"
+          data-l10n-id="restart-required-intro2"
+        ></p>
+        <p
+          id="restoration-info"
+          class="error-intro"
+          data-l10n-id="window-restoration-info2"
+        ></p>
+        <h4
+          class="closer"
+          data-l10n-id="restart-required-why-now-question"
+        ></h4>
+        <p data-l10n-id="restart-required-why-now-answer"></p>
+        <moz-button-group>
+          <moz-button
+            id="restart"
+            type="primary"
+            data-l10n-id="restart-button-label2"
+          ></moz-button>
+          <moz-button
+            id="details-toggle"
+            aria-expanded="false"
+            aria-controls="more-details"
+            data-l10n-id="restart-required-see-more-button"
+          ></moz-button>
+        </moz-button-group>
+        <div id="more-details" hidden="">
+          <h3 data-l10n-id="restart-required-more-details-heading"></h3>
+
+          <h4 data-l10n-id="restart-required-multiple-instances-question"></h4>
+          <p data-l10n-id="restart-required-multiple-instances-answer"></p>
+
+          <h4 data-l10n-id="restart-required-single-instance-question"></h4>
+          <p data-l10n-id="restart-required-single-instance-answer"></p>
+          <p data-l10n-id="restart-required-single-instance-answer-2"></p>
+
+          <h4 data-l10n-id="restart-required-unsaved-work-question"></h4>
+          <p data-l10n-id="restart-required-unsaved-work-answer"></p>
+
+          <h4 data-l10n-id="restart-required-fix-question"></h4>
+          <p data-l10n-id="restart-required-fix-answer"></p>
+        </div>
+      </div>
+    </article>
+    <script
+      type="module"
+      src="chrome://browser/content/aboutRestartRequired.mjs"
+    ></script>
+  </body>
+</html>

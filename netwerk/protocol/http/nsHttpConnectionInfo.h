@@ -1,0 +1,489 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#ifndef nsHttpConnectionInfo_h_
+#define nsHttpConnectionInfo_h_
+
+#include "ARefBase.h"
+#include "mozilla/AlreadyAddRefed.h"
+#include "mozilla/BasePrincipal.h"
+#include "mozilla/Logging.h"
+#include "mozilla/net/happy_eyeballs_glue.h"
+#include "nsCOMPtr.h"
+#include "nsHttp.h"
+#include "nsIRequest.h"
+#include "nsProxyInfo.h"
+#include "nsStringFwd.h"
+
+//-----------------------------------------------------------------------------
+// nsHttpConnectionInfo - holds the properties of a connection
+//-----------------------------------------------------------------------------
+
+// http:// uris through a proxy will all share the same CI, because they can
+// all use the same connection. (modulo pb and anonymous flags). They just use
+// the proxy as the origin host name.
+// however, https:// uris tunnel through the proxy so they will have different
+// CIs - the CI reflects both the proxy and the origin.
+// however, proxy conenctions made with http/2 (or spdy) can tunnel to the
+// origin and multiplex non tunneled transactions at the same time, so they have
+// a special wildcard CI that accepts all origins through that proxy.
+
+class nsISVCBRecord;
+
+namespace mozilla {
+namespace net {
+
+extern LazyLogModule gHttpLog;
+class nsHttpTransaction;
+class nsHttpConnectionInfoMutator;
+
+struct CoalescingKey {
+  HashNumber mHash = 0;
+  nsCString mString;
+};
+
+// Where a connection info stands on HTTP/3. The three states are mutually
+// exclusive, so they live in one field rather than a flag each. Anything other
+// than Allowed also isolates the connection info into its own connection entry
+// via the hash key.
+enum class Http3Policy : uint8_t {
+  // HTTP/3 may be used, subject to the usual prefs and discovery.
+  Allowed = 0,
+  // HTTP/3 must not be used. Used for transactions that can't speak it (e.g.
+  // WebSocket upgrades) so they are never blocked by, or coalesced onto, an
+  // HTTP/3 connection opened for regular requests to the same host.
+  Disabled,
+  // Only HTTP/3 may be used; Happy Eyeballs must not race h1/h2. Used by eager
+  // Alt-Svc h3 validation so the connection it warms is guaranteed to be h3
+  // (bug 2051272). The separate entry matters: sharing the origin's entry let
+  // the speculative, TCP-less attempt be claimed by a normal transaction and
+  // let it hold the entry's single-H3 slot, wedging every other transaction to
+  // that origin (bug 2063452).
+  Only,
+};
+
+class nsHttpConnectionInfo final : public ARefBase {
+ public:
+  nsHttpConnectionInfo(const nsACString& originHost, int32_t originPort,
+                       const nsACString& npnToken, const nsACString& username,
+                       nsProxyInfo* proxyInfo,
+                       const OriginAttributes& originAttributes,
+                       bool endToEndSSL = false, bool aIsHttp3 = false,
+                       bool aWebTransport = false);
+
+  // this version must use TLS and you may supply separate
+  // connection (aka routing) information than the authenticated
+  // origin information
+  nsHttpConnectionInfo(const nsACString& originHost, int32_t originPort,
+                       const nsACString& npnToken, const nsACString& username,
+                       nsProxyInfo* proxyInfo,
+                       const OriginAttributes& originAttributes,
+                       const nsACString& routedHost, int32_t routedPort,
+                       bool aIsHttp3, bool aWebTransport = false);
+
+  static CoalescingKey BuildOriginFrameHashKey(nsHttpConnectionInfo* ci,
+                                               const nsACString& host,
+                                               int32_t port);
+
+ private:
+  virtual ~nsHttpConnectionInfo() {
+    MOZ_LOG(gHttpLog, LogLevel::Debug,
+            ("Destroying nsHttpConnectionInfo @%p\n", this));
+  }
+
+  void BuildHashKey();
+  void RebuildHashKey();
+
+  // See comments in nsHttpConnectionInfo::BuildHashKey for the meaning of each
+  // field.
+  enum class HashKeyIndex : uint32_t {
+    Proxy = 0,
+    EndToEndSSL,
+    Anonymous,
+    Private,
+    InsecureScheme,
+    NoSpdy,
+    BeConservative,
+    AnonymousAllowClientCert,
+    FallbackConnection,
+    WebTransport,
+    HappyEyeballs,
+    End,
+  };
+  constexpr inline auto UnderlyingIndex(HashKeyIndex aIndex) const {
+    return std::underlying_type_t<HashKeyIndex>(aIndex);
+  }
+
+ public:
+  const nsCString& HashKey() const { return mHashKey; }
+
+  const nsCString& GetOrigin() const { return mOrigin; }
+  const char* Origin() const { return mOrigin.get(); }
+  int32_t OriginPort() const { return mOriginPort; }
+
+  const nsCString& GetRoutedHost() const { return mRoutedHost; }
+  const char* RoutedHost() const { return mRoutedHost.get(); }
+  int32_t RoutedPort() const { return mRoutedPort; }
+
+  // Clone variants create new CIs with different constructor-level parameters.
+  // The main purpose of this function is to clone this connection info, but
+  // replace mRoutedHost with SvcDomainName in the given SVCB record. Note that
+  // if SvcParamKeyPort and SvcParamKeyAlpn are presented in the SVCB record,
+  // mRoutedPort and mNPNToken will be replaced as well.
+  already_AddRefed<nsHttpConnectionInfo> CloneAndAdoptHTTPSSVCRecord(
+      nsISVCBRecord* aRecord) const;
+  already_AddRefed<nsHttpConnectionInfo> CloneAndAdoptPortAndAlpn(
+      uint16_t aPort,
+      happy_eyeballs::ConnectionAttemptHttpVersions aProtocol) const;
+  void CloneAsDirectRoute(nsHttpConnectionInfo** outCI,
+                          nsProxyInfo* aProxyInfo = nullptr);
+
+  already_AddRefed<nsHttpConnectionInfo> CreateConnectUDPFallbackConnInfo();
+
+  [[nodiscard]] nsresult CreateWildCard(nsHttpConnectionInfo** outParam);
+  bool IsWildCard() const { return mIsWildCard; }
+
+  // Returns a mutator that operates on a clone of this connection info.
+  // Use .SetFoo(...).Finalize() to obtain a new immutable CI.
+  inline nsHttpConnectionInfoMutator Mutate() const;
+
+  const char* ProxyHost() const {
+    return mProxyInfo ? mProxyInfo->Host().get() : nullptr;
+  }
+  int32_t ProxyPort() const { return mProxyInfo ? mProxyInfo->Port() : -1; }
+  const char* ProxyType() const {
+    return mProxyInfo ? mProxyInfo->Type() : nullptr;
+  }
+  const char* ProxyUsername() const {
+    return mProxyInfo ? mProxyInfo->Username().get() : nullptr;
+  }
+  const char* ProxyPassword() const {
+    return mProxyInfo ? mProxyInfo->Password().get() : nullptr;
+  }
+  uint32_t ProxyFlag() const {
+    uint32_t flags = 0;
+    if (mProxyInfo) {
+      mProxyInfo->GetFlags(&flags);
+    }
+    return flags;
+  }
+
+  const nsCString& ProxyAuthorizationHeader() const {
+    return mProxyInfo ? mProxyInfo->ProxyAuthorizationHeader() : EmptyCString();
+  }
+  const nsCString& ConnectionIsolationKey() const {
+    return mProxyInfo ? mProxyInfo->ConnectionIsolationKey() : EmptyCString();
+  }
+
+  // Compare this connection info to another...
+  // Two connections are 'equal' if they end up talking the same
+  // protocol to the same server. This is needed to properly manage
+  // persistent connections to proxies
+  // Note that we don't care about transparent proxies -
+  // it doesn't matter if we're talking via socks or not, since
+  // a request will end up at the same host.
+  bool Equals(const nsHttpConnectionInfo* info) {
+    return mHashKey.Equals(info->HashKey());
+  }
+
+  const char* Username() const { return mUsername.get(); }
+  nsProxyInfo* ProxyInfo() const { return mProxyInfo; }
+  int32_t DefaultPort() const {
+    return mEndToEndSSL ? NS_HTTPS_DEFAULT_PORT : NS_HTTP_DEFAULT_PORT;
+  }
+  bool GetAnonymous() const {
+    return GetHashCharAt(HashKeyIndex::Anonymous) == 'A';
+  }
+  void AnonymousInvertedHashKey(nsACString& aResult) const {
+    aResult = mHashKey;
+    aResult.BeginWriting()[UnderlyingIndex(HashKeyIndex::Anonymous)] =
+        GetAnonymous() ? '.' : 'A';
+  }
+  bool GetPrivate() const {
+    return GetHashCharAt(HashKeyIndex::Private) == 'P';
+  }
+  bool GetInsecureScheme() const {
+    return GetHashCharAt(HashKeyIndex::InsecureScheme) == 'I';
+  }
+  bool GetNoSpdy() const { return GetHashCharAt(HashKeyIndex::NoSpdy) == 'X'; }
+  bool GetBeConservative() const {
+    return GetHashCharAt(HashKeyIndex::BeConservative) == 'C';
+  }
+  bool GetAnonymousAllowClientCert() const {
+    return GetHashCharAt(HashKeyIndex::AnonymousAllowClientCert) == 'B';
+  }
+  bool GetFallbackConnection() const {
+    return GetHashCharAt(HashKeyIndex::FallbackConnection) == 'F';
+  }
+  bool GetHappyEyeballsEnabled() const {
+    return GetHashCharAt(HashKeyIndex::HappyEyeballs) == 'H';
+  }
+
+  uint32_t GetTlsFlags() const { return mTlsFlags; }
+  bool GetIsTrrServiceChannel() const { return mIsTrrServiceChannel; }
+  nsIRequest::TRRMode GetTRRMode() const { return mTRRMode; }
+  bool GetIPv4Disabled() const { return mIPv4Disabled; }
+  bool GetIPv6Disabled() const { return mIPv6Disabled; }
+
+  Http3Policy GetHttp3Policy() const { return mHttp3Policy; }
+  bool GetHttp3Disabled() const {
+    return mHttp3Policy == Http3Policy::Disabled;
+  }
+  bool GetHttp3Only() const { return mHttp3Policy == Http3Policy::Only; }
+
+  bool GetWebTransport() const { return mWebTransport; }
+  uint32_t GetWebTransportId() const { return mWebTransportId; };
+
+  const nsCString& GetNPNToken() const { return mNPNToken; }
+  const nsCString& GetProxyNPNToken() const { return mProxyNPNToken; }
+  const nsCString& GetUsername() { return mUsername; }
+
+  const OriginAttributes& GetOriginAttributes() const {
+    return mOriginAttributes;
+  }
+
+  // Returns true for any kind of proxy (http, socks, https, etc..)
+  bool UsingProxy() const;
+
+  // Returns true when proxying over HTTP or HTTPS
+  bool UsingHttpProxy() const { return mUsingHttpProxy || mUsingHttpsProxy; }
+
+  // Returns true when only proxying over HTTP
+  bool UsingOnlyHttpProxy() const { return mUsingHttpProxy; }
+
+  // Returns true when proxying over HTTPS
+  bool UsingHttpsProxy() const { return mUsingHttpsProxy; }
+
+  // Returns true when a resource is in SSL end to end (e.g. https:// uri)
+  bool EndToEndSSL() const { return mEndToEndSSL; }
+
+  // Returns true when at least first hop is SSL (e.g. proxy over https or https
+  // uri)
+  bool FirstHopSSL() const { return mEndToEndSSL || mUsingHttpsProxy; }
+
+  // Returns true when CONNECT is used to tunnel through the proxy (e.g.
+  // https:// or ws://)
+  bool UsingConnect() const { return mUsingConnect; }
+
+  // Returns true when origin/proxy is an RFC1918 literal.
+  bool HostIsLocalIPLiteral() const;
+
+  bool GetLessThanTls13() const { return mLessThanTls13; }
+  bool IsHttp3() const { return mIsHttp3; }
+  bool IsHttp3ProxyConnection() const { return mIsHttp3ProxyConnection; }
+  bool HasIPHintAddress() const { return mHasIPHintAddress; }
+
+  const nsCString& GetEchConfig() const { return mEchConfig; }
+
+  static uint64_t GenerateNewWebTransportId();
+
+ private:
+  friend class nsHttpConnectionInfoMutator;
+
+  already_AddRefed<nsHttpConnectionInfo> Clone() const;
+
+  void SetAnonymous(bool anon) {
+    SetHashCharAt(anon ? 'A' : '.', HashKeyIndex::Anonymous);
+  }
+  void SetPrivate(bool priv) {
+    SetHashCharAt(priv ? 'P' : '.', HashKeyIndex::Private);
+  }
+  void SetInsecureScheme(bool insecureScheme) {
+    SetHashCharAt(insecureScheme ? 'I' : '.', HashKeyIndex::InsecureScheme);
+  }
+  void SetNoSpdy(bool aNoSpdy) {
+    SetHashCharAt(aNoSpdy ? 'X' : '.', HashKeyIndex::NoSpdy);
+    if (aNoSpdy && mNPNToken == "h2"_ns) {
+      mNPNToken.Truncate();
+      RebuildHashKey();
+    }
+  }
+  void SetBeConservative(bool aBeConservative) {
+    SetHashCharAt(aBeConservative ? 'C' : '.', HashKeyIndex::BeConservative);
+  }
+  void SetAnonymousAllowClientCert(bool anon) {
+    SetHashCharAt(anon ? 'B' : '.', HashKeyIndex::AnonymousAllowClientCert);
+  }
+  void SetFallbackConnection(bool aFallback) {
+    SetHashCharAt(aFallback ? 'F' : '.', HashKeyIndex::FallbackConnection);
+  }
+  void SetHappyEyeballsEnabled(bool aEnabled) {
+    SetHashCharAt(aEnabled ? 'H' : '.', HashKeyIndex::HappyEyeballs);
+    if (aEnabled && !mHappyEyeballsEnabled) {
+      mHappyEyeballsEnabled = aEnabled;
+      RebuildHashKey();
+    }
+  }
+  void SetTlsFlags(uint32_t aTlsFlags);
+  void SetIsTrrServiceChannel(bool aIsTRRChannel) {
+    mIsTrrServiceChannel = aIsTRRChannel;
+  }
+  void SetTRRMode(nsIRequest::TRRMode aTRRMode);
+  void SetIPv4Disabled(bool aNoIPv4);
+  void SetIPv6Disabled(bool aNoIPv6);
+  void SetHttp3Policy(Http3Policy aPolicy);
+  void SetWebTransport(bool aWebTransport);
+  void SetWebTransportId(uint64_t id);
+  void SetLessThanTls13(bool aLessThanTls13) {
+    mLessThanTls13 = aLessThanTls13;
+  }
+  void SetHasIPHintAddress(bool aHasIPHint) { mHasIPHintAddress = aHasIPHint; }
+  void SetEchConfig(const nsACString& aEchConfig) { mEchConfig = aEchConfig; }
+
+  void Init(const nsACString& host, int32_t port, const nsACString& npnToken,
+            const nsACString& username, nsProxyInfo* proxyInfo,
+            const OriginAttributes& originAttributes, bool e2eSSL,
+            bool aIsHttp3, bool aWebTransport);
+  void SetOriginServer(const nsACString& host, int32_t port);
+  nsCString::char_type GetHashCharAt(HashKeyIndex aIndex) const {
+    return mHashKey.CharAt(UnderlyingIndex(aIndex));
+  }
+  void SetHashCharAt(nsCString::char_type aValue, HashKeyIndex aIndex) {
+    mHashKey.SetCharAt(aValue, UnderlyingIndex(aIndex));
+  }
+
+  nsCString mOrigin;
+  int32_t mOriginPort = 0;
+  nsCString mRoutedHost;
+  int32_t mRoutedPort;
+
+  nsCString mHashKey;
+  nsCString mUsername;
+  nsCOMPtr<nsProxyInfo> mProxyInfo;
+  bool mUsingHttpProxy = false;
+  bool mUsingHttpsProxy = false;
+  bool mEndToEndSSL = false;
+  // if will use CONNECT with http proxy
+  bool mUsingConnect = false;
+  nsCString mNPNToken;
+  nsCString mProxyNPNToken;
+  OriginAttributes mOriginAttributes;
+  nsIRequest::TRRMode mTRRMode;
+
+  uint32_t mTlsFlags = 0;
+  uint16_t mIsTrrServiceChannel : 1;
+  uint16_t mIPv4Disabled : 1;
+  uint16_t mIPv6Disabled : 1;
+
+  Http3Policy mHttp3Policy = Http3Policy::Allowed;
+
+  bool mLessThanTls13;  // This will be set to true if we negotiate less than
+                        // tls1.3. If the tls version is till not know or it
+                        // is 1.3 or greater the value will be false.
+  bool mIsHttp3 = false;
+  bool mIsHttp3ProxyConnection = false;
+  bool mWebTransport = false;
+
+  bool mHasIPHintAddress = false;
+  nsCString mEchConfig;
+
+  uint64_t mWebTransportId = 0;  // current dedicated Id only used for
+                                 // Webtransport, zero means not dedicated
+  bool mIsWildCard = false;
+
+  bool mHappyEyeballsEnabled = false;
+
+  // for RefPtr
+  NS_INLINE_DECL_THREADSAFE_REFCOUNTING(nsHttpConnectionInfo, override)
+};
+
+class MOZ_STACK_CLASS nsHttpConnectionInfoMutator {
+  friend class nsHttpConnectionInfo;
+
+ public:
+  nsHttpConnectionInfoMutator& SetAnonymous(bool aAnon) {
+    mCI->SetAnonymous(aAnon);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetPrivate(bool aPriv) {
+    mCI->SetPrivate(aPriv);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetInsecureScheme(bool aInsecure) {
+    mCI->SetInsecureScheme(aInsecure);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetNoSpdy(bool aNoSpdy) {
+    mCI->SetNoSpdy(aNoSpdy);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetBeConservative(bool aBeConservative) {
+    mCI->SetBeConservative(aBeConservative);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetAnonymousAllowClientCert(bool aAnon) {
+    mCI->SetAnonymousAllowClientCert(aAnon);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetFallbackConnection(bool aFallback) {
+    mCI->SetFallbackConnection(aFallback);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetTlsFlags(uint32_t aFlags) {
+    mCI->SetTlsFlags(aFlags);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetIsTrrServiceChannel(bool aIsTrr) {
+    mCI->SetIsTrrServiceChannel(aIsTrr);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetTRRMode(nsIRequest::TRRMode aMode) {
+    mCI->SetTRRMode(aMode);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetIPv4Disabled(bool aDisabled) {
+    mCI->SetIPv4Disabled(aDisabled);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetIPv6Disabled(bool aDisabled) {
+    mCI->SetIPv6Disabled(aDisabled);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetHttp3Policy(Http3Policy aPolicy) {
+    mCI->SetHttp3Policy(aPolicy);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetHasIPHintAddress(bool aHasHint) {
+    mCI->SetHasIPHintAddress(aHasHint);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetEchConfig(const nsACString& aConfig) {
+    mCI->SetEchConfig(aConfig);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetWebTransportId(uint64_t aId) {
+    mCI->SetWebTransportId(aId);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetWebTransport(bool aWebTransport) {
+    mCI->SetWebTransport(aWebTransport);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetHappyEyeballsEnabled(bool aEnabled) {
+    mCI->SetHappyEyeballsEnabled(aEnabled);
+    return *this;
+  }
+  nsHttpConnectionInfoMutator& SetLessThanTls13(bool aLessThan) {
+    mCI->SetLessThanTls13(aLessThan);
+    return *this;
+  }
+
+  already_AddRefed<nsHttpConnectionInfo> Finalize() { return mCI.forget(); }
+
+ private:
+  explicit nsHttpConnectionInfoMutator(
+      already_AddRefed<nsHttpConnectionInfo>&& aCI)
+      : mCI(std::move(aCI)) {}
+
+  RefPtr<nsHttpConnectionInfo> mCI;
+};
+
+inline nsHttpConnectionInfoMutator nsHttpConnectionInfo::Mutate() const {
+  return nsHttpConnectionInfoMutator(Clone());
+}
+
+}  // namespace net
+}  // namespace mozilla
+
+#endif  // nsHttpConnectionInfo_h_

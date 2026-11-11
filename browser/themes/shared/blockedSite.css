@@ -1,0 +1,66 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/error-pages.css");
+
+@media not (prefers-contrast) {
+  :root {
+    color-scheme: dark;
+    --background-color-canvas: var(--background-color-critical);
+    --button-border-color: var(--color-white);
+    --button-background-color-hover: var(--color-white-alpha-20);
+    --button-background-color-active: var(--color-white-alpha-30);
+    --button-background-color-primary: var(--color-white);
+    --button-background-color-primary-hover: var(--color-white-alpha-80);
+    --button-background-color-primary-active: var(--color-white-alpha-70);
+  }
+}
+
+.title {
+  background-image: url("chrome://global/skin/icons/blocked.svg");
+}
+
+.button-container button {
+  margin-inline-end: 0;
+  margin-top: 1.5em;
+}
+
+#advisory_provider {
+  text-decoration: underline;
+}
+
+#errorDescriptionContainer {
+  position: absolute;
+  margin: var(--space-xxlarge) auto;
+}
+
+.error-description {
+  color: black;
+  background-color: white;
+}
+
+.error-description > p:first-child {
+  padding: 3.5em 3.5em 1em;
+}
+
+.error-description > p:last-child {
+  padding: 0 3.5em 3.5em;
+}
+
+.error-description #ignore_warning_link,
+.error-description a:is(:link, :visited) {
+  cursor: pointer;
+  text-decoration: underline;
+  color: black;
+}
+
+a:not(:link) {
+  color: black;
+  text-decoration: none;
+  cursor: auto;
+}
+
+.sitename {
+  font-weight: var(--font-weight-bold);
+}

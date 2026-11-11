@@ -1,0 +1,161 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+// Tests for MacIOSurfaceHelpers: verifies that CPU readback of MacIOSurfaces
+// via CreateSourceSurfaceFromMacIOSurface produces correct BGRA pixel values
+// for 8-bit and 10-bit biplanar formats (NV12, NV16, P010, P210).
+
+#include <array>
+
+#include "MacIOSurfaceHelpers.h"
+#include "MacIOSurfaceImage.h"
+#include "gtest/gtest.h"
+#include "mozilla/gfx/2D.h"
+#include "mozilla/gfx/MacIOSurface.h"
+
+using namespace mozilla;
+using namespace mozilla::gfx;
+using namespace mozilla::layers;
+
+template <typename T>
+static void FillBiPlanarSurface(MacIOSurface* aSurface, T aYVal, T aCbCrVal) {
+  T* yPlane = reinterpret_cast<T*>(aSurface->GetBaseAddressOfPlane(0));
+  size_t yStride = aSurface->GetBytesPerRow(0) / sizeof(T);
+  for (size_t y = 0; y < aSurface->GetDevicePixelHeight(0); y++) {
+    for (size_t x = 0; x < aSurface->GetDevicePixelWidth(0); x++) {
+      yPlane[y * yStride + x] = aYVal;
+    }
+  }
+
+  T* cbcrPlane = reinterpret_cast<T*>(aSurface->GetBaseAddressOfPlane(1));
+  size_t cbcrStride = aSurface->GetBytesPerRow(1) / sizeof(T);
+  for (size_t y = 0; y < aSurface->GetDevicePixelHeight(1); y++) {
+    for (size_t x = 0; x < aSurface->GetDevicePixelWidth(1); x++) {
+      cbcrPlane[y * cbcrStride + x * 2] = aCbCrVal;
+      cbcrPlane[y * cbcrStride + x * 2 + 1] = aCbCrVal;
+    }
+  }
+}
+
+static void TestBiPlanarMidGrayReadback(const IntSize& aYSize,
+                                        const IntSize& aCbCrSize,
+                                        ChromaSubsampling aSubsampling,
+                                        ColorDepth aColorDepth) {
+  RefPtr<MacIOSurface> surface = MacIOSurface::CreateBiPlanarSurface(
+      aYSize, aCbCrSize, aSubsampling, YUVColorSpace::BT709,
+      TransferFunction::BT709, ColorRange::FULL, aColorDepth,
+      MacIOSurface::AllowAlpha::Yes);
+  ASSERT_TRUE(surface);
+
+  ASSERT_TRUE(surface->Lock(false));
+  if (aColorDepth == ColorDepth::COLOR_8) {
+    // Mid-gray in 8-bit full range: Y=Cb=Cr=128.
+    FillBiPlanarSurface<uint8_t>(surface, 128, 128);
+  } else {
+    // Mid-gray in 10-bit full range: Y=Cb=Cr=512, stored in bits 15:6.
+    FillBiPlanarSurface<uint16_t>(surface, uint16_t(512) << 6,
+                                  uint16_t(512) << 6);
+  }
+  surface->Unlock();
+
+  RefPtr<SourceSurface> sourceSurface =
+      CreateSourceSurfaceFromMacIOSurface(surface);
+  ASSERT_TRUE(sourceSurface);
+  ASSERT_EQ(sourceSurface->GetSize(), aYSize);
+
+  RefPtr<DataSourceSurface> dataSurface = sourceSurface->GetDataSurface();
+  ASSERT_TRUE(dataSurface);
+
+  DataSourceSurface::ScopedMap map(dataSurface, DataSourceSurface::READ);
+  ASSERT_TRUE(map.IsMapped());
+
+  uint8_t* pixels = map.GetData();
+  const int32_t stride = map.GetStride();
+  for (int y = 0; y < aYSize.height; y++) {
+    for (int x = 0; x < aYSize.width; x++) {
+      EXPECT_NEAR(pixels[y * stride + x * 4 + 0], 128, 3)
+          << "Pixel (" << x << "," << y << ")";
+      EXPECT_NEAR(pixels[y * stride + x * 4 + 1], 128, 3)
+          << "Pixel (" << x << "," << y << ")";
+      EXPECT_NEAR(pixels[y * stride + x * 4 + 2], 128, 3)
+          << "Pixel (" << x << "," << y << ")";
+    }
+  }
+}
+
+// Tests that an NV12 (8-bit 4:2:0 biplanar) IOSurface filled with mid-gray
+// produces the correct BGRA output via CreateSourceSurfaceFromMacIOSurface.
+TEST(MacIOSurfaceHelpers, NV12Readback)
+{
+  ASSERT_NO_FATAL_FAILURE(TestBiPlanarMidGrayReadback(
+      IntSize(16, 16), IntSize(8, 8), ChromaSubsampling::HALF_WIDTH_AND_HEIGHT,
+      ColorDepth::COLOR_8));
+}
+
+// Tests that an NV16 (8-bit 4:2:2 biplanar) IOSurface filled with mid-gray
+// produces the correct BGRA output via CreateSourceSurfaceFromMacIOSurface.
+TEST(MacIOSurfaceHelpers, NV16Readback)
+{
+  ASSERT_NO_FATAL_FAILURE(TestBiPlanarMidGrayReadback(
+      IntSize(16, 16), IntSize(8, 16), ChromaSubsampling::HALF_WIDTH,
+      ColorDepth::COLOR_8));
+}
+
+// Tests that a P010 (10-bit 4:2:0 biplanar) IOSurface filled with mid-gray
+// produces the correct BGRA output via CreateSourceSurfaceFromMacIOSurface.
+TEST(MacIOSurfaceHelpers, P010Readback)
+{
+  ASSERT_NO_FATAL_FAILURE(TestBiPlanarMidGrayReadback(
+      IntSize(16, 16), IntSize(8, 8), ChromaSubsampling::HALF_WIDTH_AND_HEIGHT,
+      ColorDepth::COLOR_10));
+}
+
+// Tests that an P210 (10-bit 4:2:2 biplanar) IOSurface filled with mid-gray
+// produces the correct BGRA output via CreateSourceSurfaceFromMacIOSurface.
+TEST(MacIOSurfaceHelpers, P210Readback)
+{
+  ASSERT_NO_FATAL_FAILURE(TestBiPlanarMidGrayReadback(
+      IntSize(16, 16), IntSize(8, 16), ChromaSubsampling::HALF_WIDTH,
+      ColorDepth::COLOR_10));
+}
+
+TEST(MacIOSurfaceImage, RejectedSetDataAllowsValidRetry)
+{
+  constexpr IntSize ySize(4, 4);
+  constexpr int32_t cbCrStride = ySize.width / 2;
+  std::array<uint8_t, ySize.width * ySize.height> y{};
+  // Sized for 4:2:2, the taller of the two chroma layouts tested below.
+  std::array<uint8_t, cbCrStride * ySize.height> cb{};
+  std::array<uint8_t, cbCrStride * ySize.height> cr{};
+  const IntRect invalidRect(4, 0, 0, 4);
+  const IntRect validRect(2, 2, 2, 2);
+
+  RefPtr<ImageContainer> container =
+      new ImageContainer(ImageUsageType::UNKNOWN, ImageContainer::SYNCHRONOUS);
+
+  for (const auto subsampling : {ChromaSubsampling::HALF_WIDTH,
+                                 ChromaSubsampling::HALF_WIDTH_AND_HEIGHT}) {
+    PlanarYCbCrData data;
+    data.mYChannel = y.data();
+    data.mCbChannel = cb.data();
+    data.mCrChannel = cr.data();
+    data.mYStride = ySize.width;
+    data.mCbCrStride = cbCrStride;
+    data.mChromaSubsampling = subsampling;
+    data.mYUVColorSpace = YUVColorSpace::BT709;
+    data.mColorRange = ColorRange::FULL;
+    data.mPictureRect = invalidRect;
+
+    RefPtr<MacIOSurfaceImage> image = new MacIOSurfaceImage(nullptr);
+    EXPECT_FALSE(image->SetData(container, data));
+    ASSERT_EQ(image->GetSurface(), nullptr);
+    EXPECT_EQ(image->GetPictureRect(), IntRect());
+
+    data.mPictureRect = validRect;
+    ASSERT_TRUE(image->SetData(container, data));
+    ASSERT_NE(image->GetSurface(), nullptr);
+    EXPECT_EQ(image->GetPictureRect(), data.mPictureRect);
+    EXPECT_EQ(image->GetSize(), ySize);
+  }
+}

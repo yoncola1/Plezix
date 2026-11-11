@@ -1,0 +1,199 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+use clap::{Parser, Subcommand, ValueEnum};
+use url::Url;
+#[cfg(feature = "ohttp")]
+use viaduct::{configure_ohttp_channel, OhttpConfig};
+use viaduct::{header_names, Client, ClientSettings, Method, Request, Response, Result};
+
+#[derive(Debug, Parser)]
+#[command(about, long_about = None)]
+struct Cli {
+    /// Enable verbose logging
+    #[arg(short, long)]
+    verbose: bool,
+
+    /// Set a request timeout (ms)
+    #[arg(short, long)]
+    timeout: Option<u32>,
+
+    /// Set the redirect limit
+    #[arg(long)]
+    redirect_limit: Option<u32>,
+
+    #[command(subcommand)]
+    command: Commands,
+}
+
+#[derive(Debug, Subcommand)]
+enum Commands {
+    /// Make a simple HTTP request
+    Request {
+        /// Make a Post request
+        #[arg(short, long = "type")]
+        type_: Option<RequestType>,
+    },
+    /// Test OHTTP flow with a relay
+    #[cfg(feature = "ohttp")]
+    Ohttp {
+        /// OHTTP relay URL
+        #[arg(
+            long,
+            default_value = "https://mozilla-ohttp-relay-test.edgecompute.app/"
+        )]
+        relay_url: String,
+
+        /// Gateway host for fetching encryption keys
+        #[arg(
+            long,
+            default_value = "stage.ohttp-gateway.nonprod.webservices.mozgcp.net"
+        )]
+        gateway_host: String,
+
+        /// Channel name for OHTTP
+        #[arg(long, default_value = "merino")]
+        channel: String,
+    },
+}
+
+#[derive(Debug, Default, Clone, ValueEnum)]
+enum RequestType {
+    #[default]
+    Get,
+    Post,
+    Redirect,
+}
+
+fn main() -> Result<()> {
+    let cli = Cli::parse();
+
+    // Initialize logging
+    cli_support::init_logging_with(if cli.verbose {
+        "viaduct=trace"
+    } else {
+        "viaduct=info"
+    });
+
+    println!("{cli:?}");
+
+    match cli.command {
+        Commands::Request { type_ } => {
+            let req = match type_.unwrap_or_default() {
+                RequestType::Get => make_request()?,
+                RequestType::Redirect => make_redirect_request()?,
+                RequestType::Post => make_post_request()?,
+            };
+
+            viaduct_backend_rust::viaduct_init_backend_rust();
+            let mut settings = ClientSettings::default();
+            if let Some(timeout) = cli.timeout {
+                settings.timeout = timeout;
+            }
+            if let Some(redirect_limit) = cli.redirect_limit {
+                settings.redirect_limit = redirect_limit;
+            }
+            let client = Client::new(settings);
+            print_response(client.send_sync(req));
+        }
+        #[cfg(feature = "ohttp")]
+        Commands::Ohttp {
+            relay_url,
+            gateway_host,
+            channel,
+        } => {
+            return run_ohttp_example(relay_url, gateway_host, channel);
+        }
+    }
+
+    Ok(())
+}
+
+#[cfg(feature = "ohttp")]
+fn run_ohttp_example(relay_url: String, gateway_host: String, channel: String) -> Result<()> {
+    // Step 1: Initialize viaduct backend
+    println!("Initializing viaduct backend...");
+    viaduct_backend_rust::viaduct_init_backend_rust();
+    println!("Backend initialized successfully");
+
+    // Step 2: Configure the OHTTP channel
+    println!("Configuring OHTTP channel...");
+    configure_ohttp_channel(
+        channel.clone(),
+        OhttpConfig {
+            relay_url,
+            gateway_host,
+        },
+    )?;
+    println!("OHTTP channel configured");
+
+    // Step 3: Create OHTTP client
+    println!("Creating OHTTP client...");
+    let client = Client::with_ohttp_channel(&channel, ClientSettings::default())?;
+    println!("OHTTP client created");
+
+    // Step 4: Make request
+    println!("Creating request...");
+    let request = Request::get(Url::parse("https://merino.services.mozilla.com/docs")?);
+    println!("Sending request...");
+    let response = client.send_sync(request)?;
+
+    // Step 5: Handle response
+    println!("Response received!");
+    println!("Status: {}", response.status);
+    println!("Body: {}", String::from_utf8_lossy(&response.body));
+
+    Ok(())
+}
+
+fn make_request() -> Result<Request> {
+    let url = Url::parse("https://httpbun.com/anything")?;
+    let mut req = Request::new(Method::Get, url);
+    req = req.header(header_names::USER_AGENT, "viaduct-cli")?;
+    Ok(req)
+}
+
+fn make_redirect_request() -> Result<Request> {
+    let url1 = Url::parse("https://httpbun.com/anything")?;
+    let url2 = Url::parse_with_params("https://httpbun.com/redirect", &[("url", url1)])?;
+    let url3 = Url::parse_with_params("https://httpbun.com/redirect", &[("url", url2)])?;
+    let mut req = Request::new(Method::Get, url3);
+    req = req.header(header_names::USER_AGENT, "viaduct-cli")?;
+    Ok(req)
+}
+
+#[derive(serde::Serialize)]
+struct TestPostData {
+    data: String,
+    more_data: String,
+}
+
+fn make_post_request() -> Result<Request> {
+    let url = Url::parse("https://httpbun.com/anything")?;
+    let mut req = Request::new(Method::Post, url);
+    req = req.header(header_names::USER_AGENT, "viaduct-cli")?;
+    let req = req.json(&TestPostData {
+        data: "Hello".to_owned(),
+        more_data: "World".to_owned(),
+    });
+    Ok(req)
+}
+
+fn print_response(response: Result<Response>) {
+    match response {
+        Ok(response) => {
+            println!("got response");
+            println!("status: {}", response.status);
+            println!("\nHEADERS:");
+            for h in response.headers {
+                println!("{}: {}", h.name, h.value);
+            }
+            println!("\nRESPONSE:");
+            println!("{}", String::from_utf8(response.body).unwrap());
+        }
+        Err(e) => {
+            println!("error: {e}");
+        }
+    }
+}

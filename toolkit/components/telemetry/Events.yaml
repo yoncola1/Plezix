@@ -1,0 +1,1412 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+readermode:
+  view:
+    objects: ["on", "off"]
+    release_channel_collection: opt-out
+    record_in_processes: ["content"]
+    description: >
+      This is recorded any time Reader Mode is turned on or off.
+    bug_numbers: [1689201]
+    notification_emails:
+      - "kirill@getpocket.com"
+      - "sdowne@getpocket.com"
+    expiry_version: never
+    extra_keys:
+      subcategory: The broad event category for this probe. E.g. navigation
+      reader_time: Time spent in Reader Mode session in seconds (whole number)
+      scroll_position: Percentage of window scrolled in Reader Mode (whole number)
+    products:
+      - "firefox"
+  button:
+    objects: ["click"]
+    release_channel_collection: opt-out
+    record_in_processes: ["content"]
+    description: >
+      This is recorded any time a Reader Mode button is clicked.
+    bug_numbers: [1693362]
+    notification_emails:
+      - "kirill@getpocket.com"
+      - "sdowne@getpocket.com"
+    expiry_version: never
+    extra_keys:
+      label: The type of button clicked.
+    products:
+      - "firefox"
+
+downloads:
+  added:
+    description: >
+      Sent when downloading a new file. Possible values are in contained in DownloadList::kFileExtensions.
+      All other downloads not in the listare marked as other.
+    objects: ["fileExtension"]
+    bug_numbers: [1627676, 1706355]
+    notification_emails: ["rtestard@mozilla.com", "emalysz@mozilla.com"]
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+homepage:
+  preference:
+    objects: ["ignore"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: ["main"]
+    description: >
+      This is recorded whenever the homepage preference is either reset due to
+      being on the ignore list, or setting is blocked due to being on the same
+      list.
+      The value field records the reason for the ignore. "saved_reset" for
+      when a saved preference value is reset. "set_blocked" for when the setting
+      was blocked and "set_blocked_extension" for when we know a WebExtension
+      attempting to set it was blocked.
+    bug_numbers: [1535049]
+    notification_emails:
+      - "mdeboer@mozilla.com"
+      - "rharter@mozilla.com"
+    expiry_version: never
+    extra_keys:
+      webExtensionId: The identifier of the webextension, if known.
+
+upgrade_dialog:
+  trigger:
+    objects: ["reason"]
+    bug_numbers: [1697222]
+    description: >
+      Triggering behaviors of the upgrade dialog. Value indicates which condition failed or all satisfied.
+    expiry_version: never
+    notification_emails: ["edilee@mozilla.com"]
+    products: ["firefox"]
+    record_in_processes: ["main"]
+    release_channel_collection: opt-out
+
+aboutpreferences:
+  show:
+    objects: ["initial", "click", "hash"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: >
+      This is recorded whenever a pane is shown inside about:preferences.
+      The object field records the type of action that resulted in showing a pane. Possible values are as follows,
+        "initial" is used when a pane is shown direclty. This happens with or without a hash in the URL. The "general" pane
+        loads without such a hash, when the pane is loaded via the "main" entrypoints in the menu system or with shortcuts.
+        "click" is used when a pane is shown when user clicks category name inside about:preferences.
+        "hash" is used when a pane is shown via a hash change in url.
+      The value field records identifier of pane shown
+    extra_keys:
+      session: The session ID for this tab.
+    bug_numbers: [1738187]
+    notification_emails:
+      - "pdahiya@mozilla.com"
+      - "gijs@mozilla.com"
+    expiry_version: never
+
+normandy:
+  enroll:
+    objects: ["preference_study", "addon_study", "preference_rollout", "addon_rollout", "nimbus_experiment"]
+    description: >
+      Sent when applying a Normandy recipe of the above types has succeeded.
+    extra_keys:
+      experimentType: >
+        For preference_study and nimbus_experiment recipes, the type of experiment this is ("exp" or "exp-highpop").
+      branch: >
+        The slug of the branch that was chosen for this client.
+      addonId: For addon_study recipes, the ID of the addon that was installed.
+      addonVersion: For addon_study recipes, the version of the addon that was installed.
+    bug_numbers: [1443560]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  enroll_failed:
+    methods: ["enrollFailed"]
+    objects: ["addon_study", "preference_rollout", "preference_study", "addon_rollout", "nimbus_experiment"]
+    description: >
+      Sent when applying a Normandy recipe of the above types has failed.
+    extra_keys:
+      reason: An error code describing the failure.
+      preference: >
+        For preference_rollout when reason=conflict, the name of the preference
+        that was going to be modified.
+      detail: >
+        For addon_study and branched_addon study, extra text describing the failure.
+      branch: >
+        The branch that failed to enroll.
+      addonId: The ID of the addon for the rollout when reason=conflict.
+      conflictingSlug: The slug for the conflicting rollout.
+      enrollmentId: The enrollment ID of the conflicting rollout.
+      prefBranch: For preference_study when reason=invalid-branch, the branch that was invalid.
+    bug_numbers: [1443560]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  update:
+    objects: ["addon_study", "preference_rollout", "addon_rollout", "nimbus_experiment"]
+    description: >
+      This event is fired when a client detects that a recipe of the
+      ahove types has changed on the server, and the new version of the
+      recipe is being applied over an existing, older version previously
+      fetched from the server.
+    extra_keys:
+      previousState: >
+        For preference_rollout recipes, the state of the rollout that had been applied
+        previously.
+      addonId: For addon_study recipes, the ID of the addon that was updated.
+      addonVersion: For addon_study recipes, the version of the addon that was installed.
+      branch: The branch that was updated.
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+    bug_numbers: [1443560, 1474413]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  update_failed:
+    methods: ["updateFailed"]
+    objects: ["addon_study", "addon_rollout"]
+    description: >
+      Sent when applying a new version of a Normandy recipe of the above types (over an
+      existing, older version previously fetched from the server) has failed.
+    extra_keys:
+      reason: An error code describing the failure.
+      detail: >
+        Extra text describing the failure. Currently only provided for addon_study.
+      branch: The branch that failed to update.
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+    bug_numbers: [1474413]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  unenroll:
+    objects: ["preference_study", "addon_study", "preference_rollback", "addon_rollback", "nimbus_experiment"]
+    description: >
+      Sent when a Normandy recipe of certain types "ends".  N.B. For
+      preference_rollback, this is fired when the recipe is fired (the
+      recipe that "ends" is a corresponding preference_rollout).
+    extra_keys:
+      reason: A code describing the reason why the recipe ended.
+      didResetValue: >
+        For preference_study, "true" or "false" according to whether we put the preference back the way it was.
+      addonId: For addon_study, the ID of the addon that ended.
+      addonVersion: For addon_study, the version of the addon for which the recipe ended.
+      branch: The branch of the experiment that this client was on.
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+      changedPref: >
+        For preference_study or nimbus_experiment, the preference that was
+        detected to change that caused the unenrollment.
+      conflictingSlug: >
+        For nimbus_experiment, if reason == "prefFlips-conflict", the conflicting
+        experiment that caused the unenrollment.
+      prefName: >
+        For nimbus_experiment, if reason == "prefFlips-failed", the name of the
+        pref that failed to set.
+      prefType: >
+        For nimbus_experiment, if reason = "prefFlips-failed", the type of the
+        existing pref value (one of "bool", "string", "int", or "invalid").
+    bug_numbers: [1443560, 1843126, 1896718, 1907649]
+    notification_emails:
+      - "normandy-notifications@mozilla.com"
+      - "project-nimbus@mozilla.com"
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  unenroll_failed:
+    methods: ["unenrollFailed"]
+    description: >
+      Sent when unenrolling a user fails (see the unenroll event).
+    objects: ["preference_rollback", "preference_study", "addon_rollback", "nimbus_experiment"]
+    extra_keys:
+      reason: A code describing the reason the unenroll failed.
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+      changedPref: For preference_study, the preference that was detected to change that caused the attempted unenrollment.
+      caller: The function that caused the stop to happen, included on Nightly to aid debugging.
+      originalReason: The code that would had been used for the unenrollment, had it not failed.
+    bug_numbers: [1443560, 1693402]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+  graduate:
+    objects: ["preference_rollout"]
+    description: >
+      Sent when a preference rollout ends due to the rolled-out
+      preference becoming a new default.
+    bug_numbers: [1443560]
+    notification_emails: ["normandy-notifications@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+      reason: The reason the rollout graduated
+
+  expose:
+    objects: [
+      "nimbus_experiment",
+    ]
+    methods: ["expose"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main", "content"]
+    description: >
+      This records an event at the moment the user is exposed to an experiment
+      treatment. The event is triggered either by the code checking that a
+      certain experiment feature is enabled or when that feature value is used.
+      This is different from enrollment or experiment activation because it
+      registers when a user actually gets exposed to the experiment feature.
+    bug_numbers: [1675104]
+    notification_emails: ["omc-core@mozilla.com"]
+    expiry_version: "never"
+    extra_keys:
+      branchSlug: The slug for the branch the user is enrolled in.
+      featureId: The type of experiment variant the user was enrolled into.
+
+  expPrefChanged:
+    objects: ["preference_study"]
+    methods: ["expPrefChanged"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    description: >
+      This records that a preference that was set by an experiment has been
+      changed away from its experimental value. This can be triggered by a
+      user changing a preference at runtime, by the preference being changed
+      on disk when Firefox is not running, or by the preference already
+      having a user-set value when a user has enrolls in a default branch
+      experiment.
+    bug_numbers: [1698684]
+    notification_emails: ["mcooper@mozilla.com"]
+    expiry_version: never
+    extra_keys:
+      preferenceName: The preference that changed
+      reason: The way that the preference change was detected ("observer", "sideload", or "onEnroll")
+      enrollmentId: A unique ID for this enrollment that will be included in all related Telemetry.
+
+  validation_failed:
+    objects: ["nimbus_experiment"]
+    methods: ["validationFailed"]
+    release_channel_collection: "opt-out"
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: >
+      This records when validation of a recipe fails.
+    bug_numbers:
+      - 1762652
+      - 1821092
+      - 1928476
+    notification_emails:
+      - beth@mozilla.com
+      - project-nimbus@mozilla.com
+    expiry_version: never
+    extra_keys:
+      reason: >
+        Why the validation failed.
+
+        This will be one of the following reasons:
+
+        - "invalid-recipe": the recipe failed schema validation;
+        - "invalid-branch": a branch value failed schema validation;
+        - "l10n-missing-locale": the recipe is missing localizations for a
+          specific locale;
+        - "l10n-missing-entry": the recipe is missing specific localization
+          entries for a specific locale;
+
+      branch: If reason == invalid-branch, the branch that failed validation.
+      locale: >
+        If reason == missing-locale, the locale that was missing from the
+        localization table.
+        If reason == missing-l10n-entry, the locale that was missing the
+        localization entries.
+      l10n_ids: >
+        If reason == missing-l10n-entry, a comma-separated list of missing
+        localization entries.
+
+browser.launched_to_handle:
+  system_notification:
+    objects: ["toast"]
+    description: >
+      Recorded when Firefox launches to complete a native notification popped by
+      a system (chrome privileged) alert.  Windows-only at the time of writing.
+    bug_numbers:
+      - 1788960
+    notification_emails:
+      - nalexander@mozilla.com
+      - rtestard@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      name: >
+        The `name` of the system (chrome privileged) alert that Firefox was
+        launched to complete.
+      action: >
+        The `action` of the system (chrome privileged) alert that Firefox was
+        launched to complete.
+
+browser.migration:
+  opened:
+    objects: ["wizard"]
+    description: >
+      Recorded when the migration wizard opens.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+  no_browsers_found:
+    objects: ["wizard"]
+    description: >
+      Recorded when the migration wizard reports that there are no browsers to migrate from.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+  browser_selected:
+    objects: ["wizard"]
+    description: >
+      Recorded when the user selects a browser to migrate from.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the browser that was selected.
+  profile_selected:
+    objects: ["wizard"]
+    description: >
+      Recorded when the user selects a profile to migrate from. If the browser doesn't
+      support multiple profiles, this will not be recorded.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the browser that had a profile selected for it.
+  resources_selected:
+    objects: ["wizard"]
+    description: >
+      Recorded when the user selects resources from the browser / profile to import.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the browser that had resources selected for it.
+      history: >
+        "1" if history was selected. "0" otherwise.
+      formdata: >
+        "1" if form data was selected. "0" otherwise.
+      passwords: >
+        "1" if passwords was selected. "0" otherwise.
+      bookmarks: >
+        "1" if bookmarks were selected. "0" otherwise.
+      payment_methods: >
+        "1" if payment methods were selected. "0" otherwise.
+      extensions: >
+        "1" if extensions were selected. "0" otherwise.
+      other: A count of the number of other resource types that were selected.
+      configured: >
+        "1" if Variant 2 of the new Migration Wizard was being used, and the list of
+        resources was expanded. "0" otherwise.
+  linux_perms:
+    objects: ["wizard"]
+    description: >
+      Recorded if the user is on Linux and the browser is installed in a sandboxed
+      environment that prevents it from reading other browser's data, and the user
+      is presented with instructions and an option to grant the browser permission
+      to read that other data.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the migrator that will perform the migration.
+  safari_perms:
+    objects: ["wizard"]
+    description: >
+      Recorded if the user is on macOS, chose to migrate from Safari, and was presented with
+      the page of the wizard requesting permission to read from the Safari profile folder.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+  safari_password_file:
+    objects: ["wizard"]
+    description: >
+      Recorded if the user is on macOS, chose to migrate from Safari, and was presented with
+      the page of the wizard requesting to import passwords from a file. This only gets recorded
+      in the new migration wizard.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+  migration_started:
+    objects: ["wizard"]
+    description: >
+      Recorded when the user begins a migration.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the migrator that will perform the migration.
+      history: >
+        "1" if history is being migrated. "0" otherwise.
+      formdata: >
+        "1" if form data is being migrated. "0" otherwise.
+      passwords: >
+        "1" if passwords are being migrated. "0" otherwise.
+      bookmarks: >
+        "1" if bookmarks are being migrated. "0" otherwise.
+      payment_methods: >
+        "1" if payment methods are being migrated. "0" otherwise.
+      extensions: >
+        "1" if extensions are being migrated. "0" otherwise.
+      other: A count of the number of other resource types that are being migrated.
+  migration_finished:
+    objects: ["wizard"]
+    description: >
+      Recorded when the user finishes a migration.
+    bug_numbers:
+      - 1824786
+    notification_emails:
+      - mconley@mozilla.com
+    products:
+      - "firefox"
+    record_in_processes: [main]
+    release_channel_collection: opt-out
+    expiry_version: never
+    extra_keys:
+      migrator_key: The key of the migrator that will perform the migration.
+      history: >
+        "1" if history was migrated. "0" otherwise.
+      formdata: >
+        "1" if form data was migrated. "0" otherwise.
+      passwords: >
+        "1" if passwords were migrated. "0" otherwise.
+      bookmarks: >
+        "1" if bookmarks were migrated. "0" otherwise.
+      payment_methods: >
+        "1" if payment methods were migrated. "0" otherwise.
+      extensions: >
+        "1" if no extensions were matched, "2" if only some extensions
+        were matched, "3" if all extensions were matched, and "0" if extensions
+        weren't selected for migration.
+      other: A count of the number of other resource types that were migrated.
+
+jsonfile:
+  load:
+    description: >
+      Records when JSONFile.sys.mjs consumers are trying to access a missing or corrupt json file.
+      For example, Login Store trying to access logins.json when it has gone missing or corrupt.
+    # Keep synchronized with TELEMETRY_BASENAMES from JSONFile.sys.mjs.
+    objects: ["logins", "autofillprofiles"]
+    bug_numbers: [1599567]
+    expiry_version: never
+    products: ["firefox"]
+    record_in_processes: [main]
+    notification_emails: ["prathiksha@mozilla.com", "passwords-dev@mozilla.org"]
+
+fxa:
+  connect:
+    objects: ["account"]
+    methods: ["connect", "disconnect"]
+    description: >
+      Records when a Firefox Account, or a Firefox Account service, is explicitly
+      connected or disconnected from the browser via an intentional user action.
+    extra_keys:
+      fxa: Whether the account itself was connected or disconnected.
+      sync: Whether sync was connected or disconnected.
+    products:
+      - "firefox"
+      - "fennec"
+    record_in_processes: ["main"]
+    bug_numbers: [1595954]
+    notification_emails: ["sync-dev@mozilla.org"]
+    release_channel_collection: opt-out
+    expiry_version: never
+
+fxa_avatar_menu:
+  click:
+    objects: [
+      "account_settings",
+      "cad",
+      "login",
+      "send_tab",
+      "sync_now",
+      "sync_settings",
+      "sync_tabs",
+      "sync_tabs_sidebar",
+      "toolbar_icon",
+      "unver_sync_settings",
+      "open_monitor",
+      "open_send",
+      "monitor_cta",
+      "relay_cta",
+      "vpn_cta",
+      "sync_cta"
+      ]
+    methods: ["click"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: This is recorded on interactions with the FxA avatar menu on the toolbar
+    bug_numbers: [1524665, 1585459, 1606203]
+    notification_emails: ["vbudhram@mozilla.com", "loines@mozilla.com"]
+    expiry_version: "never"
+    extra_keys:
+      fxa_status: >
+        The current state of the user. Possible states are "not_configured", "unverified",
+        "signedin" and "login_failed".
+      fxa_avatar: Boolean for whether or not account has set an avatar
+      fxa_sync_on: Boolean for whether or not sync was configured at the time the event fired
+      device_count: >
+        Number of connected devices available to send tabs to (optional, only populated for send_tab)
+      action: >
+        The action selected by the user (optional, only populated for send_tab). Possible values
+        are "device" (sent to specific device), "all_devices" (sent to all devices), or
+        "manage_devices" (opened device management).
+
+fxa_app_menu:
+  click:
+    objects: [
+      "account_settings",
+      "cad",
+      "login",
+      "send_tab",
+      "sync_now",
+      "sync_settings",
+      "sync_tabs",
+      "sync_tabs_sidebar",
+      "toolbar_icon",
+      "unver_sync_settings",
+      "open_monitor",
+      "open_send",
+      "monitor_cta",
+      "relay_cta",
+      "vpn_cta",
+      "sync_cta"
+      ]
+    methods: ["click"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: This is recorded on interactions with the FxA menu in the app (hamburger) menu
+    bug_numbers: [1542334, 1606203]
+    notification_emails: ["vbudhram@mozilla.com", "loines@mozilla.com"]
+    expiry_version: "never"
+    extra_keys:
+      fxa_status: >
+        The current state of the user. Possible states are "not_configured", "unverified",
+        "signedin" and "login_failed".
+      fxa_avatar: Boolean for whether or not account has set an avatar
+      fxa_sync_on: Boolean for whether or not sync was configured at the time the event fired.
+      device_count: >
+        Number of connected devices available to send tabs to (optional, only populated for send_tab)
+      action: >
+        The action selected by the user (optional, only populated for send_tab). Possible values
+        are "device" (sent to specific device), "all_devices" (sent to all devices), or
+        "manage_devices" (opened device management).
+
+messaging_experiments:
+  reach:
+    objects: [
+      "cfr",
+      "moments_page",
+      "infobar",
+      "spotlight",
+      "featureCallout",
+      "fxms_bmb_button",
+      "fxms_message",
+      "fxms_message_1",
+      "fxms_message_2",
+      "fxms_message_3",
+      "fxms_message_4",
+      "fxms_message_5",
+      "fxms_message_6",
+      "fxms_message_7",
+      "fxms_message_8",
+      "fxms_message_9",
+      "fxms_message_10",
+      "fxms_message_11",
+      "fxms_message_12",
+      "fxms_message_13",
+      "fxms_message_14",
+      "fxms_message_15",
+      "fxms_message_16",
+      "fxms_message_17",
+      "fxms_message_18",
+      "fxms_message_19",
+      "fxms_message_20",
+      "fxms_message_21",
+      "fxms_message_22",
+      "fxms_message_23",
+      "fxms_message_24",
+      "fxms_message_25"
+    ]
+    methods: ["reach"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: >
+      This records whether a branch's targeting is satisfied for Messaging System
+      experiments. All qualified branch ID(s) will be recorded in the 'extra_keys'
+      for each active experiment, and the event 'value' will be the experiment ID
+    bug_numbers: [1471318]
+    notification_emails: ["omc-core@mozilla.com"]
+    expiry_version: "never"
+    extra_keys:
+      branches: The slug for the branch the message came from.
+      message_id: The ID of the message that triggered this reach event.
+  targeting:
+    objects:
+      - attribute_error
+      - attribute_timeout
+    methods:
+      - targeting
+    extra_keys:
+      source: "Source of targeting expression: experiment slug or message id"
+    release_channel_collection: opt-out
+    products:
+      - firefox
+    record_in_processes:
+      - main
+    description: >
+      Record generic JEXL errors that result from issues with experiment or
+      message targeting expressions. The value field contains the namespace and
+      attribute name that caused the error.
+    bug_numbers:
+      - 1644743
+    notification_emails:
+      - omc-core@mozilla.com
+    expiry_version: never
+
+# This category contains event entries used for Telemetry tests.
+# They will not be sent out with any pings.
+telemetry.test:
+  test:
+    methods: ["test1", "test2"]
+    objects: ["object1", "object2"]
+    bug_numbers: [1286606]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This is a test entry for Telemetry.
+    expiry_version: never
+    extra_keys:
+      key1: This is just a test description.
+      key2: This is another test description.
+  optout:
+    objects: ["object1", "object2"]
+    bug_numbers: [1286606]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This is an opt-out test entry.
+    expiry_version: never
+    extra_keys:
+      key1: This is just a test description.
+  expired_version:
+    objects: ["object1", "object2"]
+    bug_numbers: [1286606]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This is a test entry with an expired version.
+    expiry_version: "3"
+  not_expired_optout:
+    objects: ["object1"]
+    bug_numbers: [1286606, 1685406]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    description: This is an opt-out test entry with unexpired date and version.
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main", "content"]
+    expiry_version: "999"
+  main_only:
+    objects: ["object1"]
+    bug_numbers: [1313326]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This event is used to test main-process only recording.
+    expiry_version: never
+  content_only:
+    objects: ["object1"]
+    bug_numbers: [1313326]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["content"]
+    description: This event is used to test content-process only recording.
+    expiry_version: never
+    extra_keys:
+      foo: This is just a test description.
+      bar: And this is another test description.
+  main_and_content:
+    objects: ["object1"]
+    bug_numbers: [1313326]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main", "content"]
+    description: This event is used to test main and content process recording.
+    expiry_version: never
+  default_products:
+    objects: ["object1"]
+    bug_numbers: [1452552]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This event is used to test default products main recording.
+    expiry_version: never
+  desktop_only:
+    objects: ["object1"]
+    bug_numbers: [1452552]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    record_in_processes: ["main"]
+    description: This event is used to test desktop-only main recording.
+    expiry_version: never
+    products: ["firefox","thunderbird"]
+  multiproduct:
+    objects: ["object1"]
+    bug_numbers: [1452552]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    record_in_processes: ["main"]
+    description: This event is used to test multiproduct main recording.
+    expiry_version: never
+    products: ["firefox", "fennec", "thunderbird"]
+  mobile_only:
+    objects: ["object1"]
+    bug_numbers: [1452552]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    record_in_processes: ["main"]
+    description: This event is used to test mobile-only main recording.
+    expiry_version: never
+    products: ["fennec"]
+  mirror_with_extra:
+    objects: ["object1"]
+    bug_numbers: [1685406]
+    notification_emails: ["glean-team@mozilla.com"]
+    record_in_processes: ["all"]
+    description: Test-only. This event is mirrored to from Glean.
+    expiry_version: never
+    extra_keys:
+      extra1: "This must be kept in-sync"
+      extra2: "With the extra_keys in the Glean metric"
+    products: ["firefox", "thunderbird"]
+    release_channel_collection: opt-out
+
+# This is a secondary category used for Telemetry tests.
+# The events here will not be sent out with any pings.
+telemetry.test.second:
+  test:
+    objects: ["object1", "object2", "object3"]
+    bug_numbers: [1286606]
+    notification_emails: ["telemetry-client-dev@mozilla.com"]
+    products:
+      - "firefox"
+      - "fennec"
+      - "thunderbird"
+    record_in_processes: ["main"]
+    description: This is a test entry for Telemetry.
+    expiry_version: never
+    extra_keys:
+      key1: This is just a test description.
+
+security.ui.protections:
+  click:
+    bug_numbers:
+      - 1557050
+      - 1572825
+      - 1610897
+      - 1612088
+      - 1612091
+      - 1637615
+      - 1643428
+      - 1661756
+      - 1678201
+      - 1739287
+      - 1787249
+    description: >
+      User interaction by click events on the protection report.
+    objects: [
+      "lw_sync_link",
+      "mtr_about_link",
+      "mtr_report_link",
+      "mtr_signup_button",
+      "vpn_app_link_android",
+      "vpn_app_link_ios",
+    ]
+    expiry_version: never
+    record_in_processes: ["content"]
+    release_channel_collection: opt-out
+    notification_emails:
+      - emz@mozilla.com
+      - seceng-telemetry@mozilla.com
+    products:
+      - firefox
+    extra_keys:
+      category: The category of protections the user is in, standard, strict or custom.
+
+intl.ui.browserLanguage:
+  action:
+    description: >
+      User interactions for the browser language within about-preferences in the main pane and in
+      the browser language dialog. Each dialog event (on the dialog object, and the manage and
+      search methods of the main object) has a value which is a monotonically increasing number
+      that links it with other events related to the same dialog instance.
+    objects:
+      - dialog
+      - main
+    methods:
+      - manage
+      - search
+      - add
+      - reorder
+      - apply
+    extra_keys:
+      installId: The id for an install.
+    products:
+      - firefox
+    expiry_version: "185"
+    notification_emails:
+      - bolsson@mozilla.com
+      - earo@mozilla.com
+      - flod@mozilla.com
+      - mstriemer@mozilla.com
+    release_channel_collection: opt-out
+    record_in_processes: ["main"]
+    bug_numbers:
+      - 1486507
+      - 1553311
+      - 1607501
+      - 1672571
+      - 1739288
+      - 1796396
+      - 1861299
+      - 1911321
+      - 1928262
+      - 1999880
+      - 2076961
+
+security.doh.trrPerformance:
+  resolved:
+    objects: ["record"]
+    bug_numbers:
+      - 1613790
+    description: >
+      How long it took to resolve a test domain using TRR.
+    expiry_version: never
+    record_in_processes:
+      - main
+    release_channel_collection: opt-out
+    notification_emails:
+      - nhnt11@mozilla.com
+      - ddamjanovic@mozilla.com
+      - seceng-telemetry@mozilla.com
+    products:
+      - firefox
+    extra_keys:
+      domain: The resolved domain.
+      trr: The TRR provider used.
+      time: The network time for the resolution.
+      status: The DNS status code.
+      retryCount: The number of lookup attempts before success.
+      networkUnstable: Whether there was network fluctuation while gathering the results.
+      captivePortal: Whether there a captive portal was detected during the run.
+  trrselect:
+    objects: ["dryrunresult"]
+    bug_numbers:
+      - 1631822
+    description: >
+      The URL of the DoH provider chosen by the TRR selection dry-run
+    expiry_version: never
+    record_in_processes:
+      - main
+    release_channel_collection: opt-out
+    notification_emails:
+      - nhnt11@mozilla.com
+      - ddamjanovic@mozilla.com
+      - seceng-telemetry@mozilla.com
+    products:
+      - firefox
+
+security.doh.neterror:
+  click:
+    objects: [
+      "continue_button",
+      "disable_warning",
+    ]
+    bug_numbers:
+      - 1829342
+    description: >
+      User interaction by click buttons on the DoH warning page.
+    expiry_version: never
+    notification_emails:
+      - necko@mozilla.com
+      - kershaw@mozilla.com
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["content"]
+    extra_keys:
+      mode: Current TRR mode
+      provider_key: TRR provider
+      skip_reason: The reason why DoH request is failed
+
+ysod:
+  shown:
+    bug_numbers:
+      - 1657242
+    description: >-
+      This event is recorded only for Firefox UI documents (chrome).
+      Recorded when a Yellow Screen of Death is shown. The `value` is a url on which the error happened.
+      Yellow Screen of Death happens when XML or XHTML document encounters a parsing error. It is commonly a result
+      of the document being malformed or missing DTD entity.
+      Mozilla has a number of documents that rely on DTD entities for localization, and in some error scenarios those
+      entities may be missing or malformed themselves, in which case the user will see a broken UI.
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    release_channel_collection: opt-out
+    expiry_version: "never"
+    notification_emails:
+      - zbraniecki@mozilla.com
+      - vchin@mozilla.com
+    objects:
+      - "ysod"
+    extra_keys:
+      error_code: Code of the XML Error (See `XML_Error` enum in expat.h for the list of errors where XML_ERROR_NONE is 0).
+      location: Location as Row:Column of where the error happened.
+      last_line: The content of the last line that led to the error.
+      last_line_len: The length of the last line that led to the error.
+      hidden: The document is hidden.
+      destroyed: The container of this document is destroyed.
+
+avif:
+  dav1d_get_picture:
+    objects: ["return_value"]
+    bug_numbers: [1690406]
+    description: Return value from dav1d_get_picture
+    products:
+      - firefox # event telemetry is not supported on fenix
+    record_in_processes: ["all"]
+    release_channel_collection: opt-out
+    expiry_version: never
+    notification_emails:
+      - media-alerts@mozilla.com
+
+service_request:
+  bypass:
+    description: >
+      This event is recorded by a small set of services when a proxy failure
+      causes a service to re-request with a proxy bypass.  It records some
+      basic information such as the type of proxy configuration, and the source
+      of the proxy configuration.  The value of the event is the name of the
+      service that triggers the event (e.g. telemetry, remote-settings).
+    methods: ["bypass"]
+    objects: ["proxy_info"]
+    release_channel_collection: opt-out
+    expiry_version: never
+    record_in_processes: ["main"]
+    products: ["firefox"]
+    bug_numbers: [1732792, 1732793, 1733481, 1733994, 1732388]
+    notification_emails:
+      - scaraveo@mozilla.com
+    extra_keys:
+      source: the source of the proxy configuration.  e.g. policy, prefs or extension_id
+      type: the type for the proxy configuration source.  e.g. api or string version of nsIProtocolProxyService.proxyConfigType
+
+synced_tabs:
+  click:
+    objects: [
+      "fxa_avatar_menu",
+      "fxa_app_menu",
+      "synced_tabs_sidebar",
+      ]
+    methods: ["click"]
+    release_channel_collection: opt-out
+    products:
+      - "firefox"
+    record_in_processes: ["main"]
+    description: Record how users access and use synced tabs component
+    bug_numbers: [1756252]
+    notification_emails: ["sync-dev@mozilla.org"]
+    expiry_version: "never"
+    extra_keys:
+      tab_pos: position of the tab clicked
+      filter: was there a filter enabled
+
+screenshots:
+  download:
+    objects: ["overlay_download", "preview_download"]
+    description: >
+      Recorded when a user downloads a screenshot from the overlay or the preview.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+    extra_keys:
+      fullpage: Number of times a full page was selected
+      visible: Number of times a visible page was selected
+      element: Number of times an element was selected
+      region: Number of times a region was selected
+      move: Number of times a region was moved
+      resize: Number of times a region was resized
+  copy:
+    objects: ["overlay_copy", "preview_copy"]
+    description: >
+      Recorded when a user copies a screenshot from the overlay or the preview.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+    extra_keys:
+      fullpage: Number of times a full page was selected
+      visible: Number of times a visible page was selected
+      element: Number of times an element was selected
+      region: Number of times a region was selected
+      move: Number of times a region was moved
+      resize: Number of times a region was resized
+  selected:
+    objects: ["element", "region_selection", "visible", "full_page"]
+    description: >
+      Recorded when a user selects a region by hand, selects an element, selects the save visible, or selects save full page.
+      Note that this is recorded independent of whether or not the screenshot is saved.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+      - content
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+  started:
+    objects: ["toolbar_button", "shortcut", "context_menu", "quick_actions", "preview_retry", "overlay_retry"]
+    description: >
+      Recorded when a user opens the screenshots ui.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+      - content
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+  canceled:
+    objects: ["toolbar_button", "shortcut", "context_menu", "quick_actions", "preview_cancel", "overlay_cancel", "escape", "navigation"]
+    description: >
+      Recorded when a user closes the screenshots ui. The screenshots ui is closed after
+      copying/downloading but we do not record that as canceling the screenshots ui.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+  failed:
+    objects: ["screenshot_too_large"]
+    description: >
+      Recorded when a screenshot is too big to capture and we have to crop the screenshot.
+    notification_emails:
+      - screenshots-dev@mozilla.org
+    products:
+      - "firefox"
+    record_in_processes:
+      - main
+    bug_numbers:
+      - 1801019
+    expiry_version: "never"
+    release_channel_collection: opt-out
+
+session_restore:
+  backup_can_be_loaded:
+    objects: ["session_file"]
+    description: >
+      Recorded when a file is able to be successfully read on startup
+    record_in_processes:
+      - main
+    products:
+      - "firefox"
+    extra_keys:
+      can_load: Whether or not the startup file can be read/loaded
+      path_key: A symbolic name for the backup file, should be one of "clean", "recovery", "recoveryBackup", "cleanBackup", or "upgradeBackup"
+      loadfail_reason: Reason why the file cannot be loaded, N/A if can be loaded
+    notification_emails:
+      - "session-restore-telemetry-alerts@mozilla.com"
+    bug_numbers:
+      - 1874742
+    expiry_version: "never"
+    release_channel_collection: opt-out
+  shutdown_success:
+    objects: ["session_startup"]
+    description: >
+      Report shutdown success
+    record_in_processes:
+      - main
+    products:
+      - "firefox"
+    extra_keys:
+      shutdown_ok: Whether or not the shutdown happened successfully, unsuccessful if previous session crashed
+      shutdown_reason: Reason why shutdown didn't happen successfully, N/A if previous session didn't crashed
+    notification_emails:
+      - "session-restore-telemetry-alerts@mozilla.com"
+    bug_numbers:
+      - 1874742
+    expiry_version: "never"
+    release_channel_collection: opt-out
+
+profiles:
+  default:
+    objects: ["updated"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when a new profile from a profile group becomes the default
+      startup profile for the group. This may happen when a profile other
+      than the current default is launched from the profile selector window,
+      or when the user has multiple profiles running at the same time and
+      switches app focus to a profile other than the current default. An
+      event is not recorded if the current default profile is launched or
+      gains app focus.
+    notification_emails:
+      - "cmkm@mozilla.com"
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 1918813
+    expiry_version: never
+    products:
+      - "firefox"
+  delete:
+    objects: ["cancel", "confirm", "displayed"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when the user loads and interacts with the
+      "about:deleteprofile" profile delete confirmation page. See Glean
+      probe definitions for details. The value varies depending on the
+      object.
+    notification_emails:
+      - "cmkm@mozilla.com"
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 1927608
+    expiry_version: never
+    products:
+      - "firefox"
+  error:
+    objects: ["avatar"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when the profile system attempts to load a custom avatar
+      image, but the file is not found on disk. See Glean probe
+      definition for details.
+    notification_emails:
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 2028725
+    expiry_version: never
+    products:
+      - "firefox"
+  existing:
+    objects: ["alert", "avatar", "closed", "deleted", "displayed", "learn_more", "name", "shortcut", "theme"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when the user loads, interacts with, and closes the
+      "about:editprofile" existing profile edit page. See Glean probe
+      definitions for details. The value varies depending on the object.
+    notification_emails:
+      - "cmkm@mozilla.com"
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 1927607
+      - 1997471
+    expiry_version: never
+    products:
+      - "firefox"
+  new:
+    objects: ["alert", "avatar", "closed", "deleted", "displayed", "learn_more", "name", "theme"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when the user loads, interacts with, and closes the
+      "about:newprofile" existing profile edit page. See Glean probe
+      definitions for details. The value varies depending on the object.
+    notification_emails:
+      - "cmkm@mozilla.com"
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 1941698
+    expiry_version: never
+    products:
+      - "firefox"
+  selector_window:
+    objects: ["launch", "show_at_startup"]
+    release_channel_collection: opt-out
+    record_in_processes:
+      - main
+    description: >
+      Recorded when the user launches a profile or toggles the "show at
+      startup" checkbox in the profile selector dialog. See Glean probe
+      definitions for details. The value varies depending on the object.
+    notification_emails:
+      - "cmkm@mozilla.com"
+      - "dtownsend@mozilla.com"
+      - "jhirsch@mozilla.com"
+      - "nbaumgardner@mozilla.com"
+    bug_numbers:
+      - 1927605
+    expiry_version: never
+    products:
+      - "firefox"

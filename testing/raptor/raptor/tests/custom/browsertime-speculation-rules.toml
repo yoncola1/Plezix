@@ -1,0 +1,58 @@
+[DEFAULT]
+alert_threshold = 10.0
+apps = "firefox, chrome"
+browser_cycles = 1
+cold = true
+custom_data = true
+gecko_profile_interval = 1
+lower_is_better = true
+owner = "Network Team, Performance Team"
+page_cycles = 1
+page_timeout = 60000
+support_class = "speculation_rules.py"
+test_script = "speculation-rules-prefetch.js"
+test_url = "None"
+type = "pageload"
+unit = "ms"
+# speculation_rules.py serves the pages locally, so mitmproxy playback is off.
+use_live_sites = true
+
+["prefetch-immediate"]
+browsertime_args = "--browsertime.eagerness=immediate"
+
+["prefetch-eager"]
+browsertime_args = "--browsertime.eagerness=eager"
+
+["prefetch-moderate"]
+browsertime_args = "--browsertime.eagerness=moderate"
+
+["prefetch-conservative"]
+browsertime_args = "--browsertime.eagerness=conservative"
+
+["prefetch-list-immediate"]
+browsertime_args = "--browsertime.source=list --browsertime.eagerness=immediate"
+
+["prefetch-list-eager"]
+browsertime_args = "--browsertime.source=list --browsertime.eagerness=eager"
+
+["prefetch-list-moderate"]
+browsertime_args = "--browsertime.source=list --browsertime.eagerness=moderate"
+
+["prefetch-list-conservative"]
+browsertime_args = "--browsertime.source=list --browsertime.eagerness=conservative"
+
+# In-flight activation. The 200 ms moderate hover timer dispatches the prefetch
+# and dwell_ms is the hover-to-click delay. Timeline in ms from the hover
+# (~ = includes webdriver latency):
+#
+#   0      200          250    ~370                            ~700
+#   |-------|------------|------|--------------------------------|
+#   hover   prefetch     click  click lands                      prefetch
+#   starts  dispatched   issued (navigationStart)                response
+#                               |<---- navigation_duration ----->|
+#           |<-------------- 500 ms server stall --------------->|
+#
+# The click must land before the prefetch response arrives, so the navigation
+# has to wait for the ongoing prefetch instead of refetching the target.
+["prefetch-list-inflight"]
+browsertime_args = "--browsertime.source=list --browsertime.eagerness=moderate --browsertime.dwell_ms=250"
